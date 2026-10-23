@@ -1,7 +1,7 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-10-22T21:17:51.568Z",
+  "generatedAt": "2026-10-23T09:25:19.716Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 34332,
-  "avgDurationMs": 34332,
+  "durationMs": 34326,
+  "avgDurationMs": 34326,
   "durationHistory": [
-    34332
+    34326
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/19839",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:17:38.427Z",
+      "crawledAt": "2026-10-23T09:25:08.305Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18876",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:17:38.426Z",
+      "crawledAt": "2026-10-23T09:25:08.304Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18877",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:17:38.424Z",
+      "crawledAt": "2026-10-23T09:25:08.303Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -154,5 +154,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }

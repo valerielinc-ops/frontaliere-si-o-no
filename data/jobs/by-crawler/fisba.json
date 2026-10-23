@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fisba",
-  "assembledAt": "2026-10-22T21:40:33.831Z",
-  "runId": "39857008155",
+  "assembledAt": "2026-10-23T09:49:26.983Z",
+  "runId": "39931635676",
   "jobs": [
     {
       "id": "fisba-ab0ce5b2ce1c",
@@ -34,7 +34,7 @@
       "url": "https://fisba.com/en/jobs/lernender-mechanikpraktikerin-eba-werkstoff-glas-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:40:29.361Z",
+      "crawledAt": "2026-10-23T09:49:22.484Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:40:29.360Z",
+      "crawledAt": "2026-10-23T09:49:22.482Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "url": "https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:40:29.360Z",
+      "crawledAt": "2026-10-23T09:49:22.483Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -289,7 +289,7 @@
       "url": "https://fisba.com/en/jobs/spontaneous-unsolicited-application",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:40:29.359Z",
+      "crawledAt": "2026-10-23T09:49:22.481Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -368,7 +368,7 @@
       "url": "https://fisba.com/en/jobs/einkaufer-mw-100",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:40:29.358Z",
+      "crawledAt": "2026-10-23T09:49:22.479Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -387,21 +387,6 @@
       "applyUrl": "https://fisba.com/en/jobs/einkaufer-mw-100",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "einkaufer-m-w-100-st-gallen-fisba-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "einkaufer-m-w-100-st-gallen-fisba-ch"
-        ],
-        "en": [
-          "einkaufer-m-w-100-st-gallen-fisba-ch"
-        ],
-        "fr": [
-          "einkaufer-m-w-100-st-gallen-fisba-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:45:41.621Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -414,7 +399,22 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:45:41.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "einkaufer-m-w-100-st-gallen-fisba-ch"
+        ],
+        "en": [
+          "einkaufer-m-w-100-st-gallen-fisba-ch"
+        ],
+        "fr": [
+          "einkaufer-m-w-100-st-gallen-fisba-ch"
+        ]
+      },
+      "previousSlugs": [
+        "einkaufer-m-w-100-st-gallen-fisba-ch"
+      ]
     }
   ]
 }

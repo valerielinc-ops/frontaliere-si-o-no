@@ -981,6 +981,8 @@ jobs:
           priority: "2"
           labels: Bug
           context: "La pipeline di traduzione è a fasi (fetch → translate → verify → commit): lo step fallito qui sopra dice a quale fase si è fermata, e i job non tradotti restano in coda per il prossimo cron."
+    outputs:
+      recovery_guard: ${{ github.run_attempt == 1 && 'success' || steps.recovery_guard.outcome }}
     needs: translate_queue_guard
     if: needs.translate_queue_guard.outputs.run == 'true'
     concurrency:
@@ -991,7 +993,7 @@ jobs:
     needs:
       - translate_queue_guard
       - translate
-    if: always() && needs.translate_queue_guard.outputs.run == 'true' && needs.translate.result != 'success' && needs.translate.result != 'skipped' && inputs.dry_run != true
+    if: always() && needs.translate_queue_guard.outputs.run == 'true' && needs.translate.result != 'success' && needs.translate.result != 'skipped' && needs.translate.outputs.recovery_guard == 'success' && inputs.dry_run != true
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:

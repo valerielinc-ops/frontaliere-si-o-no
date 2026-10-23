@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowDown, ArrowUp, Building2, Eye, ExternalLink, FileText, Loader2, Mail, MousePointerClick, Pencil, RefreshCw, Save, Search, Users, X } from 'lucide-react';
+import { ArrowDown, ArrowUp, Building2, Eye, ExternalLink, FileText, Loader2, Mail, MousePointerClick, Pencil, RefreshCw, Save, Search, Users, X, type LucideIcon } from 'lucide-react';
 import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 import { useAuth } from '@/services/authService';
 import { fetchAdminEmployerInsights, sendColdEmail, updateEmployerContact, type EmployerInsightsRow } from '@/services/adminInsights';
@@ -151,12 +151,18 @@ export default function AziendeSection() {
   const toggleSort = (column: InsightsSortColumn) => setSort((current) => current.column === column ? { column, direction: current.direction === 'asc' ? 'desc' : 'asc' } : { column, direction: column === 'companyName' ? 'asc' : 'desc' });
   const headers: Array<{ column: InsightsSortColumn; label: string }> = [{ column: 'companyName', label: 'Azienda' }, { column: 'views', label: 'Visualizzazioni annuncio' }, { column: 'applyClicks', label: 'Click candidatura' }, { column: 'applyClickUsers', label: 'Utenti click' }, { column: 'applications', label: 'Candidature inviate' }, { column: 'profileViews', label: 'Visite profilo' }, { column: 'adsObserved', label: 'Annunci osservati' }, { column: 'generatedAt', label: 'Data' }, { column: 'window', label: 'Finestra' }];
   const latestInsightsUpdate = rows.map((row) => row.generatedAt).filter((value): value is string => Boolean(value)).sort().at(-1) || null;
+  const summaryCards: Array<{ label: string; value: number | null; icon: LucideIcon }> = [
+    { label: 'Visualizzazioni annuncio', value: insightsTotals.views, icon: Eye },
+    { label: 'Click candidatura', value: insightsTotals.applyClicks, icon: MousePointerClick },
+    { label: 'Utenti click', value: insightsTotals.applyClickUsers, icon: Users },
+    { label: 'Candidature inviate', value: insightsTotals.applications, icon: FileText },
+  ];
 
   return (
     <div className="space-y-4">
       <AdminSectionHeader title="Aziende" summary={`${rows.length} aziende con dati di traffico · aggiornato ${relativeTime(latestInsightsUpdate) || (loading ? 'in corso' : 'adesso')}`} secondaryActions={<AdminButton icon={<RefreshCw size={16} aria-hidden="true" />} loading={loading} onClick={() => void loadInsights()}>Aggiorna</AdminButton>} />
       {error && <div className="bg-danger-subtle border border-danger-border rounded-stripe px-3 py-2 text-sm text-danger">{error}</div>}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{[['Visualizzazioni annuncio', insightsTotals.views, Eye], ['Click candidatura', insightsTotals.applyClicks, MousePointerClick], ['Utenti click', insightsTotals.applyClickUsers, Users], ['Candidature inviate', insightsTotals.applications, FileText]].map(([label, value, Icon]) => { const cardMetric = metricCard(value as number | null, loading); return <div key={String(label)} className="bg-surface rounded-stripe border border-edge p-4"><div className="mb-1 flex items-center gap-2 text-sm text-subtle">{Icon && <Icon size={16} />}{label}</div><div className={cardMetric.className}>{cardMetric.label}</div></div>; })}</div>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{summaryCards.map(({ label, value, icon: Icon }) => { const cardMetric = metricCard(value, loading); return <div key={label} className="bg-surface rounded-stripe border border-edge p-4"><div className="mb-1 flex items-center gap-2 text-sm text-subtle"><Icon size={16} />{label}</div><div className={cardMetric.className}>{cardMetric.label}</div></div>; })}</div>
       <div className="relative"><Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" /><input value={filter} onChange={(event) => { const value = event.target.value; setFilter(value); replaceAdminQuery({ q: value.trim() || null }); }} placeholder="Cerca azienda…" aria-label="Cerca azienda per nome" className="w-full pl-9 pr-3 py-2 rounded-stripe border border-edge bg-surface text-strong text-sm" /></div>
       <div className="bg-surface rounded-stripe border border-edge px-4 py-3"><p className="text-sm text-muted">Traffico reale per azienda crawlata. Usa «Apri come azienda» per vedere la pagina prova-statistiche esattamente come la riceve l&apos;azienda (link tokenizzato privato).</p><p className="mt-1 text-xs text-muted">Sorgente/finestra aggregati: {rows.length === 0 ? 'Dati non disponibili' : insightsTotals.window && insightsTotals.source ? `${insightsTotals.source} · ${windowLabel(insightsTotals.window)}` : 'non aggregabile (fonti/finestre diverse o non disponibili)'}</p></div>
       <p className="text-xs text-muted">{loading ? 'Caricamento…' : `${filteredRows.length} aziende${filter ? ` (di ${rows.length})` : ''}`}</p>

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-10-22T21:17:53.355Z",
-  "runId": "39854508283",
+  "assembledAt": "2026-10-23T09:19:03.575Z",
+  "runId": "39929442846",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-ab3fc3a8544f",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/6/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:17:47.264Z",
+      "crawledAt": "2026-10-23T09:18:58.052Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -70,7 +70,6 @@
           "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
         ]
       },
-      "firstSeenAt": "2026-10-22T09:16:15.529Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -83,7 +82,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:16:15.529Z"
     },
     {
       "id": "privatklinik-hohenegg-dcfb55bdfc33",
@@ -117,7 +117,7 @@
       "url": "https://apply.refline.ch/640332/0038/pub/15/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:17:46.841Z",
+      "crawledAt": "2026-10-23T09:18:57.628Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://apply.refline.ch/640332/0066/pub/1/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:17:46.421Z",
+      "crawledAt": "2026-10-23T09:18:57.204Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -281,7 +281,7 @@
       "url": "https://apply.refline.ch/640332/0057/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:17:45.999Z",
+      "crawledAt": "2026-10-23T09:18:56.774Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -365,7 +365,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:17:45.579Z",
+      "crawledAt": "2026-10-23T09:18:56.349Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -452,7 +452,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:17:45.119Z",
+      "crawledAt": "2026-10-23T09:18:55.899Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",

@@ -16,7 +16,11 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractLinks } from './prospector/careers-trail.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  fetchHtmlViaBrowser,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -143,9 +147,15 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
-  const spec = loadSpec(STA_KEY);
+export async function fetchJobListings({
+  spec = loadSpec(STA_KEY),
+  // STA has intermittently refused the GitHub Actions transport boundary
+  // while remaining reachable to a real browser. Keep the shared direct/Jina
+  // attempts first, then let the spec runtime use its bounded browser rescue.
+  runtime = { browserFetchImpl: fetchHtmlViaBrowser },
+} = {}) {
   return runSpecInProduction(spec, {
+    ...runtime,
     listingExtractor: extractStaListingCandidates,
   });
 }

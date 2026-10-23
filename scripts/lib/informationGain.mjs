@@ -147,12 +147,12 @@ export function hashSegment(str) {
 /**
  * Visible body text, one logical line per element boundary.
  *
- * Same stripping set as `audit-content-duplicates.mjs` (script/style/svg/
- * noscript/template/comments) so the two audits cannot disagree about what
- * "the text of a page" is. Tags collapse to newlines rather than spaces:
- * element boundaries are where prose actually breaks, and joining across them
- * would glue a heading onto the paragraph below it and make every masked
- * segment page-specific by accident.
+ * Unlike `audit-content-duplicates.mjs`, this metric excludes `<nav>`: it
+ * measures page prose, so repeated navigation is not part of its text
+ * population. The duplicate audit intentionally keeps navigation. Tags
+ * collapse to newlines rather than spaces: element boundaries are where prose
+ * actually breaks, and joining across them would glue a heading onto the
+ * paragraph below it and make every masked segment page-specific by accident.
  */
 export function extractVisibleText(html) {
   const bodyStart = html.indexOf('<body');
@@ -160,6 +160,11 @@ export function extractVisibleText(html) {
   return body
     .replace(/<script[\s\S]*?<\/script>/gi, '\n')
     .replace(/<style[\s\S]*?<\/style>/gi, '\n')
+    // Navigation is repeated chrome, not page prose. In particular, the
+    // profession journey is intentionally rendered as a visible <nav>; it
+    // must not dilute the page-specific payload of the information-gain
+    // denominator when a family adds a navigation block.
+    .replace(/<nav\b[^>]*>[\s\S]*?<\/nav>/gi, '\n')
     .replace(/<noscript[\s\S]*?<\/noscript>/gi, '\n')
     .replace(/<template[\s\S]*?<\/template>/gi, '\n')
     .replace(/<svg[\s\S]*?<\/svg>/gi, '\n')

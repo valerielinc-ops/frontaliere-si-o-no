@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ipw",
-  "assembledAt": "2026-10-22T21:28:30.357Z",
-  "runId": "39855100996",
+  "assembledAt": "2026-10-23T09:32:18.817Z",
+  "runId": "39929959135",
   "jobs": [
     {
       "id": "ipw-56c46c2af2f4",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Fachfrau---Fachmann-Hauswirtschaft--4077416",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:22.388Z",
+      "crawledAt": "2026-10-23T09:31:59.334Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Leiterin---Leiter-Controlling--4089012",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:21.700Z",
+      "crawledAt": "2026-10-23T09:31:58.659Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
     },
     {
       "id": "ipw-ab85ed4cad4a",
-      "slug": "interno-interno-wms-o-hms-con-bm-integrierte-psychiatrie-winterthur-ipw-bulach",
+      "slug": "interno-interno-wms-o-hms-con-bm-integrierte-psychiatrie-winterthur-ipw-bulach-0015ad61b3",
       "slugByLocale": {
         "it": "interno-interno-wms-o-hms-con-bm-integrierte-psychiatrie-winterthur-ipw-bulach",
         "en": "intern-intern-wms-or-hms-with-bm-integrierte-psychiatrie-winterthur-ipw-bulach",
@@ -245,7 +245,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipw-ce6d11aefcc9",
@@ -279,7 +280,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Ergotherapeutin---Ergotherapeut-FH---HF--4081452",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:19.981Z",
+      "crawledAt": "2026-10-23T09:31:57.683Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -361,7 +362,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberärztin---Oberarzt--4080864",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:19.285Z",
+      "crawledAt": "2026-10-23T09:31:57.004Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -438,7 +439,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Kindertagesstätte--4077553",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:18.615Z",
+      "crawledAt": "2026-10-23T09:31:56.283Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -516,7 +517,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-HMS--4088077",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:17.903Z",
+      "crawledAt": "2026-10-23T09:31:54.995Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -599,7 +600,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4073412",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:17.192Z",
+      "crawledAt": "2026-10-23T09:31:54.088Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -713,7 +714,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Sozialarbeiterin---Sozialarbeiter--4081066",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:16.482Z",
+      "crawledAt": "2026-10-23T09:31:52.606Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -785,13 +786,12 @@
         "de": "Für die zentrale Berufsbildung in der Direktion Pflege und Fachdienste am Standort Winterthur suchen wir Sie Dipl. Pflegefachfrau / Dipl. Pflegefachmann für die zentrale Berufsbildung 70% Winterthur Jetzt bewerben Das sind Ihre Aufgaben\n• Professionelle Begleitung und Verantwortung in der Lernprozessgestaltung der FaGe-Lernenden im 1. Lehrjahr\n• Planung, Durchführung und Evaluation von internem Lern- und Bildungsunterricht für FaGe-Lernende\n• Enge Zusammenarbeit mit den Ausbildungsverantwortlichen, den Stationsleitungen und dem weiteren interdisziplinären Team\n• Mitwirkung im Rekrutierungsprozess Das bringen Sie mit\n• Pflegefachdiplom HF/FH mit Erfahrung im psychiatrischen Setting und einer abgeschlossenen pädagogischen Zusatzausbildung (SVEB-1 oder höher)\n• Hohe Fach- und Sozialkompetenz sowie gute kommunikative Fähigkeiten\n• Bei ausländischen Diplomen ist eine SRK - Anerkennung erforderlich Das können Sie erwarten\n• Regelmässige Arbeitszeiten von Montag bis Freitag\n• Ein interessantes und vielfältiges Arbeitsfeld\n• Kindertagesstätte in unmittelbarer Nähe des Arbeitsplatzes Eintritt Per 01.12.2026 oder nach Vereinbarung befristet bis 31.07.2027 Ihr Kontakt Bettina Huber, Leiterin Berufsbildung Pflege Bettina.Huber@ipw.ch , T +41 52 264 38 46 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgebend sind dabei die unter dem Kapitel \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 70%",
         "fr": "Pour la formation professionnelle centrale dans les soins de gestion et les services spécialisés à l'emplacement Winterthur nous sommes à votre recherche Dipl. Professionnels des soins infirmiers / Dipl. Professionnel infirmier pour la formation professionnelle centrale 70% Winterthur Postuler Ce sont vos tâches\n• Soutien professionnel et responsabilité dans la conception du processus d'apprentissage des apprenants FaGe au 1er siècle. Année de formation\n• Planification, mise en œuvre et évaluation de l'apprentissage interne et de l'enseignement pour les apprenants FaGe\n• Coopération étroite avec les responsables de la formation, la direction de la station et l'autre équipe interdisciplinaire\n• Participation au processus de recrutement\n• Diplôme de soins infirmiers HF/FH avec une expérience en milieu psychiatrique et une formation complémentaire (SVEB-1 ou supérieur)\n• Haute compétence technique et sociale et bonne communication\n• Pour les diplômes étrangers, un SRK - reconnaissance est nécessaire Que vous pouvez attendre\n• Heures de travail régulières du lundi au vendredi\n• Un domaine de travail intéressant et diversifié\n• Centre de garderie à proximité immédiate du lieu de travail Admission Le 01.12.2026 ou sur rendez-vous limité au 31.07.2027 Votre interlocuteur Bettina Huber, Chef de la formation professionnelle Bettina.Huber@ipw.ch , T +41 52 264 38 46 Application Nous ne prenons en compte que les documents de candidature complets. Les documents énumérés dans le chapitre \"Nous souhaitons le dossier de candidature\". L'IPW n'exige pas de lettre de motivation. Nous ne considérons pas les dossiers des agences de recrutement. L'ipw traite les personnes souffrant de toutes les affections psychiatriques de l'enfance à la vieillesse. Environ 1000 employés travaillent dans les services ambulatoires, cliniques de jour, hospitalisés et de proximité d'ipw à Winterthur, Bülach, Dielsdorf et Glattbrugg. Parce qu'il a besoin de nous tous. Découvrez l'IPW\n• Votre employeur\n\nPensum: 70%"
       },
-      "needsRetranslation": false,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Dipl.-Pflegefachmann-für-die-zentrale-Berufsbildung--4090121",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:15.798Z",
+      "crawledAt": "2026-10-23T09:31:51.941Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -814,10 +814,6 @@
       "pensumMin": 70,
       "pensumMax": 70,
       "pensum": "70%",
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-die-zentrale-berufsbildung-ipw-winterthur",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-per-la-zentrale-berufsbildung-integrierte-psychiatrie-winterthur-ipw-winterthur"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-fur-die-zentrale-berufsbildung-ipw-winterthur",
@@ -830,7 +826,10 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-fur-die-zentrale-berufsbildung-ipw-winterthur"
         ]
       },
-      "firstSeenAt": "2026-10-22T09:19:52.806Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-die-zentrale-berufsbildung-ipw-winterthur",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-per-la-zentrale-berufsbildung-integrierte-psychiatrie-winterthur-ipw-winterthur"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -843,7 +842,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:19:52.806Z",
+      "needsRetranslation": false
     },
     {
       "id": "ipw-41048dd04215",
@@ -877,7 +878,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Lernende-Fachfrau-Hotellerie--Hauswirtschaft---Lernender-Fachmann-Hotellerie----Hauswirtschaft--4074811",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:15.141Z",
+      "crawledAt": "2026-10-23T09:31:51.201Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -965,7 +966,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF-oder-FH--4076961",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:14.453Z",
+      "crawledAt": "2026-10-23T09:31:50.086Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1058,7 +1059,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberpsychologin---Oberpsychologe--4075640",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:13.677Z",
+      "crawledAt": "2026-10-23T09:31:49.247Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1136,7 +1137,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS---HMS-mit-BM--4075584",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:12.878Z",
+      "crawledAt": "2026-10-23T09:31:48.548Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1214,7 +1215,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberärztin---Oberarzt--4081030",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:12.188Z",
+      "crawledAt": "2026-10-23T09:31:47.848Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1305,7 +1306,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberneuropsychologin---Oberneuropsychologe--4081494",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:10.847Z",
+      "crawledAt": "2026-10-23T09:31:46.361Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1392,7 +1393,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4088252",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:10.147Z",
+      "crawledAt": "2026-10-23T09:31:45.355Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1475,7 +1476,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Diplomierte-Pflegefachperson-HF-FH--4080255",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:09.398Z",
+      "crawledAt": "2026-10-23T09:31:44.396Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1553,7 +1554,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-\r\nHF-oder-FH--4074964",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:08.729Z",
+      "crawledAt": "2026-10-23T09:31:43.771Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1680,7 +1681,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipw-6d68091f855f",
@@ -1713,7 +1715,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt-Home-Treatment--4074253",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:07.266Z",
+      "crawledAt": "2026-10-23T09:31:43.016Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1790,7 +1792,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Physiotherapeutin---Physiotherapeut-FH--4081603",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:06.426Z",
+      "crawledAt": "2026-10-23T09:31:42.338Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1872,7 +1874,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-FH-HF-oder-Sozialpädagogin---Sozialpädagoge--4084879",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:05.721Z",
+      "crawledAt": "2026-10-23T09:31:41.733Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1958,7 +1960,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF--4081803",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:04.930Z",
+      "crawledAt": "2026-10-23T09:31:40.974Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2091,6 +2093,85 @@
         "datenbankmanagerin-datenbankmanager-ipw-winterthur"
       ],
       "crawlerMissStreak": 2
+    },
+    {
+      "id": "ipw-9a5c87a0bce5",
+      "slug": "interno-interno-wms-o-hms-con-bm-integrierte-psychiatrie-winterthur-ipw-bulach-148f7645c9",
+      "slugByLocale": {
+        "de": "praktikantin-praktikant-wms-oder-hms-mit-bm-ipw-bulach",
+        "it": "interno-interno-wms-o-hms-con-bm-integrierte-psychiatrie-winterthur-ipw-bulach-148f7645c9",
+        "en": "intern-intern-wms-or-hms-with-bm-integrierte-psychiatrie-winterthur-ipw-bulach",
+        "fr": "stage-stage-wms-ou-hms-avec-bm-integrierte-psychiatrie-winterthur-ipw-bulach"
+      },
+      "company": "Integrierte Psychiatrie Winterthur (ipw)",
+      "companyKey": "ipw",
+      "companyDomain": "ipw.ch",
+      "title": "Praktikantin / Praktikant WMS oder HMS mit BM",
+      "titleByLocale": {
+        "it": "Interno / Interno WMS o HMS con BM",
+        "en": "Intern / Intern WMS or HMS with BM",
+        "de": "Praktikantin / Praktikant WMS oder HMS mit BM",
+        "fr": "Stage / stage WMS ou HMS avec BM"
+      },
+      "description": "Für das Ambulatorium und die Akut-Tagesklinik für Erwachsene in Bülach suchen wir Sie Praktikantin / Praktikant WMS oder HMS mit BM 100% Bülach Jetzt bewerben Sie interessieren sich für die Themen Gesundheit und Psychologie, haben Talent im Umgang mit Menschen und wollen einen Beitrag im ganzen Team leisten. Sie sind eine offene, belastbare, kommunikative Persönlichkeit mit strukturierter Arbeitsweise und haben eventuell zum Ziel, später einmal im Gesundheitswesen zu arbeiten. Das sind Ihre Aufgaben\n• Telefonischer Kontakt für die beiden Angebote mit internen und externen Stellen\n• Administration, Koordination und Controlling inkl. Terminkoordination für Ärzte, Psychologen und fallführende Pflegefachleute\n• Koordination und Ausführung vielfältiger Arbeiten nach Anweisung und Anleitung Das bringen Sie mit\n• Interesse an den Themen Gesundheit und Psychologie\n• Sie sind zuverlässig, kommunikativ sowie humorvoll und arbeiten gerne in einem Team\n• Stilsicheres Deutsch in Wort und Schrift\n• Gute Informatik-Anwenderkenntnisse (MS-Office-Palette) Das können Sie erwarten\n• Interessante und vielseitige Aufgaben in einem kollegialen, interprofessionellen Team\n• Ideales Umfeld, in dem Sie Ihre Interessen und Fähigkeiten näher kennenlernen können\n• Spannende Einsicht in die vielseitige Welt der Psychiatrie\n• Unterstützung durch das ganze Team Eintritt Per 1. August 2027 oder nach Vereinbarung Ihr Kontakt Frau Christina Zollinger, Teamleiterin Arztsekretariat Ambulatorium und Akut-Tagesklinik Bülach, T 052 264 32 00, christina.zollinger@ipw.ch Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgebend sind dabei die unter dem Kapitel \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Für diese Position erwarten wir zudem Ihr Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 100%",
+      "descriptionByLocale": {
+        "it": "Per l'Ambulatorium e la clinica diurna acuta per gli adulti a Bülach stiamo cercando voi stagista / Interno WMS o HMS con BM 100% Bülach Applicare ora Sono interessati a salute e psicologia, hanno talento nel trattare con le persone e vogliono contribuire all'intera squadra. Sei una personalità aperta, resiliente, comunicativa con un modo di lavoro strutturato e può mirare a lavorare nel settore sanitario in seguito. Questi sono i tuoi compiti\n• Contatto telefonico per le due offerte con corpi interni ed esterni\n• Amministrazione, coordinamento e controllo incl. Coordinamento di nomina per medici, psicologi e professionisti della cura leader di casi\n• Coordinamento ed esecuzione di varie opere secondo istruzioni e istruzioni\n• Interessi di salute e psicologia\n• Sono affidabili, comunicativi e divertenti e si divertono a lavorare in un team\n• Tedesco stilistico in Parola e scrittura\n• Buona conoscenza dell'utente dell'informatica (intervallo MS Office) Si può aspettare che\n• Compiti interessanti e versatili in un team collegiale e interprofessionale\n• Ambiente ideale dove è possibile conoscere i vostri interessi e competenze\n• Uno sguardo emozionante nel mondo versatile della psichiatria\n• Supporto di tutta la squadra Entry Per 1. Agosto 2027 o per accordo Il Suo contatto Ms. Christina Zollinger, Team Leader Segreteria Medica Ambulatorium e Akut-Tagesklinik Bülach, T 052 264 32 00, christina.zollinger@ipw.ch Applicazione Consideriamo solo documenti applicativi completi. Rilevanti sono i documenti elencati nel capitolo \"Noi desideriamo per il dossier di applicazione\". Per questa posizione, ci aspettiamo anche la vostra lettera di motivazione. Non prendiamo in considerazione i fascicoli dei reclutatori. L'ipw tratta le persone con tutte le condizioni psichiatriche dall'infanzia alla vecchiaia. Circa 1000 dipendenti lavorano nell'ambulatorio, nella clinica quotidiana, nei servizi ospedalieri e di outreach di ipw in Winterthur, Bülach, Dielsdorf e Glattbrugg. Perche' ha bisogno di tutti noi. Scopri l'IPW\n• Il tuo datore di lavoro\n\nPensum: 100%",
+        "en": "For the Ambulatorium and the acute day clinic for adults in Bülach we are looking for you intern / intern WMS or HMS with BM 100% Bülach Apply now They are interested in health and psychology, have talent in dealing with people and want to contribute to the entire team. You are an open, resilient, communicative personality with a structured way of working and may aim to work in the healthcare sector later on. These are your tasks\n• Telephone contact for the two offers with internal and external bodies\n• Administration, coordination and controlling incl. Appointment coordination for doctors, psychologists and case-leading care professionals\n• Coordination and execution of various works according to instructions and instructions\n• Interest in health and psychology\n• They are reliable, communicative and humorous and enjoy working in a team\n• Stylistic German in Word and Writing\n• Good computer science user knowledge (MS Office range) You can expect that\n• Interesting and versatile tasks in a collegial, interprofessional team\n• Ideal environment where you can get to know your interests and skills\n• Exciting insight into the versatile world of psychiatry\n• Support by the whole team Entry Per 1. August 2027 or by arrangement Your contact Ms. Christina Zollinger, Team Leader Medical Secretariat Ambulatorium and Akut-Tagesklinik Bülach, T 052 264 32 00, christina.zollinger@ipw.ch Application We only consider complete application documents. Relevant are the documents listed under the chapter \"We wish for the application dossier\". For this position, we also expect your letter of motivation. We do not take dossiers from recruiters into account. The ipw treats people with all psychiatric conditions from childhood to old age. Around 1000 employees work in the outpatient, daily clinic, inpatient and outreach services of ipw in Winterthur, Bülach, Dielsdorf and Glattbrugg. Because it needs us all. Discover the IPW\n• Your employer\n\nPensum: 100%",
+        "de": "Für das Ambulatorium und die Akut-Tagesklinik für Erwachsene in Bülach suchen wir Sie Praktikantin / Praktikant WMS oder HMS mit BM 100% Bülach Jetzt bewerben Sie interessieren sich für die Themen Gesundheit und Psychologie, haben Talent im Umgang mit Menschen und wollen einen Beitrag im ganzen Team leisten. Sie sind eine offene, belastbare, kommunikative Persönlichkeit mit strukturierter Arbeitsweise und haben eventuell zum Ziel, später einmal im Gesundheitswesen zu arbeiten. Das sind Ihre Aufgaben\n• Telefonischer Kontakt für die beiden Angebote mit internen und externen Stellen\n• Administration, Koordination und Controlling inkl. Terminkoordination für Ärzte, Psychologen und fallführende Pflegefachleute\n• Koordination und Ausführung vielfältiger Arbeiten nach Anweisung und Anleitung Das bringen Sie mit\n• Interesse an den Themen Gesundheit und Psychologie\n• Sie sind zuverlässig, kommunikativ sowie humorvoll und arbeiten gerne in einem Team\n• Stilsicheres Deutsch in Wort und Schrift\n• Gute Informatik-Anwenderkenntnisse (MS-Office-Palette) Das können Sie erwarten\n• Interessante und vielseitige Aufgaben in einem kollegialen, interprofessionellen Team\n• Ideales Umfeld, in dem Sie Ihre Interessen und Fähigkeiten näher kennenlernen können\n• Spannende Einsicht in die vielseitige Welt der Psychiatrie\n• Unterstützung durch das ganze Team Eintritt Per 1. August 2027 oder nach Vereinbarung Ihr Kontakt Frau Christina Zollinger, Teamleiterin Arztsekretariat Ambulatorium und Akut-Tagesklinik Bülach, T 052 264 32 00, christina.zollinger@ipw.ch Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgebend sind dabei die unter dem Kapitel \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Für diese Position erwarten wir zudem Ihr Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 100%",
+        "fr": "Pour l'Ambulatorium et la clinique de jour aiguë pour adultes à Bülach nous sommes à la recherche de vous stagiaire / stagiaire WMS ou HMS avec BM 100% Bülach Postuler maintenant Ils sont intéressés par la santé et la psychologie, ont du talent pour traiter avec les gens et veulent contribuer à l'ensemble de l'équipe. Vous êtes une personnalité ouverte, résiliente et communicative avec une façon structurée de travailler et vous pouvez viser à travailler dans le secteur des soins de santé plus tard. Ce sont vos tâches\n• Contact téléphonique pour les deux offres avec des organismes internes et externes\n• Administration, coordination et contrôle Coordination des rendez-vous pour les médecins, les psychologues et les professionnels de la santé\n• Coordination et exécution de divers travaux selon les instructions et instructions\n• Intérêt pour la santé et la psychologie\n• Ils sont fiables, communicatifs et humoristiques et aiment travailler en équipe\n• L'allemand styliste dans la parole et l'écriture\n• Bonnes connaissances des utilisateurs de l'informatique (panier MS Office) Tu peux t'y attendre.\n• Des tâches intéressantes et polyvalentes dans une équipe collégiale et interprofessionnelle\n• Environnement idéal où vous pouvez apprendre à connaître vos intérêts et vos compétences\n• Un aperçu passionnant du monde polyvalent de la psychiatrie\n• Soutien de toute l'équipe Entrée Per 1. Août 2027 ou par arrangement Votre contact Mme Christina Zollinger, chef d'équipe Secrétariat médical Ambulatoire et Akut-Tagesklinik Bülach, T 052 264 32 00, christina.zollinger@ipw.ch Demande Nous ne considérons que les documents de candidature complets. Sont pertinents les documents énumérés dans le chapitre \"Nous souhaitons le dossier de candidature\". Pour ce poste, nous attendons également votre lettre de motivation. Nous ne prenons pas en compte les dossiers des recruteurs. L'ipw traite les personnes souffrant de toutes les affections psychiatriques de l'enfance à la vieillesse. Environ 1000 employés travaillent dans les services ambulatoires, cliniques quotidiennes, hospitalisés et de proximité d'ipw à Winterthur, Bülach, Dielsdorf et Glattbrugg. Parce qu'il a besoin de nous tous. Découvrez l'IPW\n• Votre employeur\n\nPensum: 100%"
+      },
+      "location": "Bülach",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS-oder-HMS-mit-BM--4088156",
+      "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-23T09:31:53.314Z",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8180",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-WMS-oder-HMS-mit-BM--4088156",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4088156",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-wms-oder-hms-mit-bm-ipw-bulach",
+          "interno-interno-wms-o-hms-con-bm-integrierte-psychiatrie-winterthur-ipw-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-wms-oder-hms-mit-bm-ipw-bulach",
+        "interno-interno-wms-o-hms-con-bm-integrierte-psychiatrie-winterthur-ipw-bulach"
+      ],
+      "salaryMin": 71000,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-23T23:45:59.453Z"
     }
   ]
 }

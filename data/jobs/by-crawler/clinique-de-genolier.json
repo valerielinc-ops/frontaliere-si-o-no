@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinique-de-genolier",
-  "assembledAt": "2026-10-22T21:23:00.769Z",
-  "runId": "39855685194",
+  "assembledAt": "2026-10-23T09:45:28.019Z",
+  "runId": "39930478580",
   "jobs": [
     {
       "id": "clinique-de-genolier-44d9c6b77b72",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151035234-infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:22:56.539Z",
+      "crawledAt": "2026-10-23T09:45:23.050Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000156798784-secretaire-medical-e-a-50-",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:22:56.537Z",
+      "crawledAt": "2026-10-23T09:45:23.049Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -139,17 +139,16 @@
       "postingDateSource": "reported",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "secretaire-medical-e-a-50-clinique-de-genolier",
-        "50-segretario-medico-clinique-de-genolier-genolier"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "secretaire-medical-e-a-50-clinique-de-genolier",
           "50-segretario-medico-clinique-de-genolier-genolier"
         ]
       },
-      "firstSeenAt": "2026-10-16T21:24:40.559Z",
+      "previousSlugs": [
+        "secretaire-medical-e-a-50-clinique-de-genolier",
+        "50-segretario-medico-clinique-de-genolier-genolier"
+      ],
       "salaryMin": 43300,
       "salaryMax": 60300,
       "salarySource": "estimated",
@@ -162,7 +161,8 @@
           "maxValue": 60300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-16T21:24:40.559Z"
     },
     {
       "id": "clinique-de-genolier-f545dd808eaa",

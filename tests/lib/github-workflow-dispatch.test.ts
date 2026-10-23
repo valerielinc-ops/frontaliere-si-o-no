@@ -419,5 +419,7 @@ describe('github workflow dispatch contract', () => {
     expect(crawler).toContain('isWorkflowRunDispatchLocked(wfState)');
     expect(crawler).toContain('runWorkflowWithConfirmation');
     expect(crawler).not.toContain('window.confirm');
+    expect(crawler).not.toContain("getWorkflowState('update-jobs.yml')");
+    expect(provider).not.toContain("'update-jobs.yml'");
   });
 });

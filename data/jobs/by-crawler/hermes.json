@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-10-22T21:18:15.271Z",
-  "runId": "39854213635",
+  "assembledAt": "2026-10-23T09:20:34.988Z",
+  "runId": "39929184100",
   "jobs": [
     {
       "id": "hermes-02949861efad",
@@ -34,7 +34,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23719",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:18:09.378Z",
+      "crawledAt": "2026-10-23T09:20:28.129Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -72,7 +72,6 @@
           "cdi-mechanischer-m-w-staple-maker-hermes-le-noirmont-jura-switzerland"
         ]
       },
-      "firstSeenAt": "2026-09-04T13:27:54.190Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -86,7 +85,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2340"
+      "postalCode": "2340",
+      "firstSeenAt": "2026-09-04T13:27:54.190Z"
     },
     {
       "id": "hermes-4cca3ac90e60",
@@ -119,7 +119,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23939",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:18:08.820Z",
+      "crawledAt": "2026-10-23T09:20:27.401Z",
       "addressLocality": "Geneve",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -158,7 +158,6 @@
           "praktikum-nachhaltige-entwicklung-m-w-hermes-geneve-geneva-switzerland"
         ]
       },
-      "firstSeenAt": "2026-09-30T21:17:00.701Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -171,7 +170,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-30T21:17:00.701Z"
     },
     {
       "id": "hermes-f368fe61a72d",
@@ -204,7 +204,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23937",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:18:08.253Z",
+      "crawledAt": "2026-10-23T09:20:26.801Z",
       "addressLocality": "Geneve",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -228,12 +228,14 @@
         "internship-product-offer-m-f-hermes-geneve-geneva-switzerland",
         "praktikum-produktangebot-m-w-hermes-geneve-geneva-switzerland",
         "stage-offre-produit-f-h-hermes-ch",
+        "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
         "stage-offre-produit-m-w-d-hermes-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stage-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
           "stage-offre-produit-f-h-hermes-ch",
+          "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
           "stage-offre-produit-m-w-d-hermes-geneve"
         ],
         "en": [
@@ -243,7 +245,6 @@
           "praktikum-produktangebot-m-w-hermes-geneve-geneva-switzerland"
         ]
       },
-      "firstSeenAt": "2026-09-30T21:16:59.973Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -256,7 +257,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-30T21:16:59.973Z"
     },
     {
       "id": "hermes-87ce280f605c",
@@ -289,7 +291,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23994",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:18:07.676Z",
+      "crawledAt": "2026-10-23T09:20:25.944Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -307,15 +309,14 @@
       "applyUrl": "https://talents.hermes.com/en/sites/CX/job/23994",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "cdi-gestionnaire-de-magasins-zurich-h-f-hermes-zurich-switzerland"
-      ],
       "previousSlugsByLocale": {
         "fr": [
           "cdi-gestionnaire-de-magasins-zurich-h-f-hermes-zurich-switzerland"
         ]
       },
-      "firstSeenAt": "2026-10-10T09:13:59.462Z",
+      "previousSlugs": [
+        "cdi-gestionnaire-de-magasins-zurich-h-f-hermes-zurich-switzerland"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -329,7 +330,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "firstSeenAt": "2026-10-10T09:13:59.462Z"
     },
     {
       "id": "hermes-6a5a5af20aa5",
@@ -362,7 +364,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23993",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:18:07.090Z",
+      "crawledAt": "2026-10-23T09:20:25.271Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -400,7 +402,6 @@
           "cdi-directeur-de-departement-lugano-h-f-hermes-lugano-ticino-switzerland"
         ]
       },
-      "firstSeenAt": "2026-10-19T09:16:36.377Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -414,7 +415,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "firstSeenAt": "2026-10-19T09:16:36.377Z"
     },
     {
       "id": "hermes-da512457b984",
@@ -447,7 +449,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:18:06.502Z",
+      "crawledAt": "2026-10-23T09:20:24.670Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "modellstation-somosa",
-  "assembledAt": "2026-10-22T21:16:58.596Z",
-  "runId": "39854508283",
+  "assembledAt": "2026-10-23T09:18:43.167Z",
+  "runId": "39929442846",
   "jobs": [
     {
       "id": "modellstation-somosa-987fdb74c75b",
@@ -35,7 +35,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fuer-den-nachtdienst",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:16:52.045Z",
+      "crawledAt": "2026-10-23T09:18:37.654Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fuer-den-nachtdienst",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:16:51.576Z",
+      "crawledAt": "2026-10-23T09:18:37.190Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/fachperson-medienwerkstatt-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:16:51.102Z",
+      "crawledAt": "2026-10-23T09:18:36.723Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,21 +205,6 @@
       "applyUrl": "https://www.somosa.ch/offene-stellen-detail/fachperson-medienwerkstatt-80",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
-        ],
-        "fr": [
-          "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
-        ],
-        "en": [
-          "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:18:30.991Z",
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
@@ -232,7 +217,22 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:18:30.991Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
+        ],
+        "fr": [
+          "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
+        ],
+        "en": [
+          "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
+      ]
     }
   ]
 }

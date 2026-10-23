@@ -1,26 +1,36 @@
 import type { JobsCrawlerConfigMeta, JobsCrawlerConfigState, WorkflowActionDefinition, WorkflowContext, CrawlerSummaryRow } from './adminTypes';
 import {
+  JOBS_CRAWLER_CONFIG_DEFAULTS,
+  JOBS_CRAWLER_CONFIG_LIMITS,
+} from '../../../functions/src/jobsCrawlerConfig.js';
+
+export { JOBS_CRAWLER_CONFIG_LIMITS };
+import {
   DEFAULT_WORKFLOW_EXPECTED_DURATION,
   isExpectedWorkflowDuration,
 } from '@/services/adminWorkflowTimeout';
 
 export const ADMIN_JOBS_CRAWLER_CONFIG_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/adminJobsCrawlerConfig/';
 
+function cloneSeedMap(input: Record<string, string[]>): Record<string, string[]> {
+  return Object.fromEntries(Object.entries(input).map(([key, seeds]) => [key, [...seeds]]));
+}
+
 export const DEFAULT_JOBS_CRAWLER_CONFIG: JobsCrawlerConfigState = {
-  domainWhitelist: [],
-  domainBlacklist: [],
-  minQualityScore: 4,
-  minDescriptionChars: 80,
-  aiLocalizationEnabled: true,
-  aiLocalizationMaxJobsPerRun: 500,
-  contentReuseEnabled: true,
-  contentReuseSimilarityThreshold: 0.7,
-  contentReuseMinSourceChars: 220,
-  contentReuseMaxLengthDeltaRatio: 0.02,
-  companyPriorityByDomain: {},
-  companyPriorityByName: {},
-  sourceSeedsByDomain: {},
-  sourceSeedsByName: {},
+  domainWhitelist: [...JOBS_CRAWLER_CONFIG_DEFAULTS.domainWhitelist],
+  domainBlacklist: [...JOBS_CRAWLER_CONFIG_DEFAULTS.domainBlacklist],
+  minQualityScore: JOBS_CRAWLER_CONFIG_DEFAULTS.minQualityScore,
+  minDescriptionChars: JOBS_CRAWLER_CONFIG_DEFAULTS.minDescriptionChars,
+  aiLocalizationEnabled: JOBS_CRAWLER_CONFIG_DEFAULTS.aiLocalizationEnabled,
+  aiLocalizationMaxJobsPerRun: JOBS_CRAWLER_CONFIG_DEFAULTS.aiLocalizationMaxJobsPerRun,
+  contentReuseEnabled: JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.enabled,
+  contentReuseSimilarityThreshold: JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.similarityThreshold,
+  contentReuseMinSourceChars: JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.minSourceChars,
+  contentReuseMaxLengthDeltaRatio: JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.maxLengthDeltaRatio,
+  companyPriorityByDomain: { ...JOBS_CRAWLER_CONFIG_DEFAULTS.companyPriority.byDomain },
+  companyPriorityByName: { ...JOBS_CRAWLER_CONFIG_DEFAULTS.companyPriority.byName },
+  sourceSeedsByDomain: cloneSeedMap(JOBS_CRAWLER_CONFIG_DEFAULTS.sourceSeeds.byDomain),
+  sourceSeedsByName: cloneSeedMap(JOBS_CRAWLER_CONFIG_DEFAULTS.sourceSeeds.byName),
 };
 
 export function parseListInput(value: string): string[] {
@@ -46,6 +56,20 @@ export function parseJsonObject(value: string): Record<string, unknown> {
     throw new Error('JSON non valido: atteso oggetto {"chiave": valore }');
   }
   return parsed as Record<string, unknown>;
+}
+
+export function parseNumberMap(value: string): Record<string, number> {
+  const parsed = parseJsonObject(value);
+  const result: Record<string, number> = {};
+  for (const [key, rawValue] of Object.entries(parsed)) {
+    const trimmedKey = key.trim();
+    const numericValue = Number(rawValue);
+    if (!trimmedKey || !Number.isFinite(numericValue)) {
+      throw new Error('JSON non valido: attesi chiavi e punteggi numerici');
+    }
+    result[trimmedKey] = numericValue;
+  }
+  return result;
 }
 
 export function normalizeSeedMap(input: Record<string, unknown>): Record<string, string[]> {
@@ -187,15 +211,15 @@ export function buildCrawlerConfigPayload(form: JobsCrawlerConfigState): JobsCra
   return {
     domainWhitelist: form.domainWhitelist,
     domainBlacklist: form.domainBlacklist,
-    minQualityScore: Math.max(4, Math.min(10, Math.round(form.minQualityScore))),
-    minDescriptionChars: Math.max(80, Math.min(1200, Math.round(form.minDescriptionChars))),
+    minQualityScore: Math.max(JOBS_CRAWLER_CONFIG_LIMITS.minQualityScore.min, Math.min(JOBS_CRAWLER_CONFIG_LIMITS.minQualityScore.max, Math.round(form.minQualityScore))),
+    minDescriptionChars: Math.max(JOBS_CRAWLER_CONFIG_LIMITS.minDescriptionChars.min, Math.min(JOBS_CRAWLER_CONFIG_LIMITS.minDescriptionChars.max, Math.round(form.minDescriptionChars))),
     aiLocalizationEnabled: Boolean(form.aiLocalizationEnabled),
-    aiLocalizationMaxJobsPerRun: Math.max(0, Math.min(500, Math.round(form.aiLocalizationMaxJobsPerRun))),
+    aiLocalizationMaxJobsPerRun: Math.max(JOBS_CRAWLER_CONFIG_LIMITS.aiLocalizationMaxJobsPerRun.min, Math.min(JOBS_CRAWLER_CONFIG_LIMITS.aiLocalizationMaxJobsPerRun.max, Math.round(form.aiLocalizationMaxJobsPerRun))),
     contentReuse: {
       enabled: Boolean(form.contentReuseEnabled),
-      similarityThreshold: Math.max(0.7, Math.min(1, Number(form.contentReuseSimilarityThreshold))),
-      minSourceChars: Math.max(120, Math.min(8000, Math.round(form.contentReuseMinSourceChars))),
-      maxLengthDeltaRatio: Math.max(0.02, Math.min(1, Number(form.contentReuseMaxLengthDeltaRatio))),
+      similarityThreshold: Math.max(JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.similarityThreshold.min, Math.min(JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.similarityThreshold.max, Number(form.contentReuseSimilarityThreshold))),
+      minSourceChars: Math.max(JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.minSourceChars.min, Math.min(JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.minSourceChars.max, Math.round(form.contentReuseMinSourceChars))),
+      maxLengthDeltaRatio: Math.max(JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.maxLengthDeltaRatio.min, Math.min(JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.maxLengthDeltaRatio.max, Number(form.contentReuseMaxLengthDeltaRatio))),
     },
     companyPriority: { byDomain: form.companyPriorityByDomain, byName: form.companyPriorityByName },
     sourceSeeds: { byDomain: form.sourceSeedsByDomain, byName: form.sourceSeedsByName },

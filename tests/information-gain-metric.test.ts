@@ -120,6 +120,17 @@ describe('information-gain: una pagina con contenuto proprio sale sopra zero', (
   });
 });
 
+describe('information-gain: la navigazione non è prosa della pagina', () => {
+  it('scarta i blocchi nav dal testo confrontato', () => {
+    const visible = extractVisibleText(`<!doctype html><body>
+      <nav><a href="/a">Percorso ripetuto delle offerte</a></nav>
+      <p>Questa frase appartiene alla pagina e resta misurabile.</p>
+    </body>`);
+    expect(visible).not.toContain('Percorso ripetuto delle offerte');
+    expect(visible).toContain('Questa frase appartiene alla pagina');
+  });
+});
+
 describe('information-gain: coorti e soglie', () => {
   it('una pagina sola non è una coorte — senza sorelle non c’è ridondanza', () => {
     const only = [fingerprintPage('pagina-unica/index.html', mailMergePage('Unica', '0,5%'))];

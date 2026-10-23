@@ -1,7 +1,7 @@
 {
   "crawlerKey": "six-group",
-  "assembledAt": "2026-10-22T21:36:50.616Z",
-  "runId": "39856716582",
+  "assembledAt": "2026-10-23T09:59:13.917Z",
+  "runId": "39931375435",
   "jobs": [
     {
       "id": "six-group-d7355992db8c",
@@ -34,7 +34,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Chargeback-Specialist-%2880-100%29/1440913133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:36:43.401Z",
+      "crawledAt": "2026-10-23T09:58:25.524Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Fraud-Analyst-%28100%29/1440904933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:42.881Z",
+      "crawledAt": "2026-10-23T09:58:26.147Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Application-Engineer/1440812533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:36:42.333Z",
+      "crawledAt": "2026-10-23T09:58:24.162Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -240,7 +240,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Internship-Tax-Services/1430474233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:36:41.824Z",
+      "crawledAt": "2026-10-23T09:58:23.524Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -319,7 +319,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Incident-&-Problem-Manager-%2880-100%29/1441446133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:40.977Z",
+      "crawledAt": "2026-10-23T09:59:05.898Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -395,7 +395,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Test-Engineer-%2880-100%29/1443323233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:36:37.800Z",
+      "crawledAt": "2026-10-23T09:59:02.240Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -507,7 +507,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "six-group-807ea9f09409",
@@ -540,7 +541,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Settlement-%2880%29/1391925233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:36:36.726Z",
+      "crawledAt": "2026-10-23T09:59:00.829Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -626,7 +627,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Payment-Specialist-%2880-100%29/1422930133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:36:35.906Z",
+      "crawledAt": "2026-10-23T09:58:59.808Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -691,7 +692,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Technical-Integration-Manager-%2880-100%29/1444014133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:34.758Z",
+      "crawledAt": "2026-10-23T09:58:57.803Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -768,7 +769,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-Data/1443824333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:33.917Z",
+      "crawledAt": "2026-10-23T09:58:57.208Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -834,7 +835,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Requirements-Engineer-%2880-100%29/1443871133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:33.359Z",
+      "crawledAt": "2026-10-23T09:58:59.192Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -899,7 +900,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Observability-Engineer/1293318201/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:32.808Z",
+      "crawledAt": "2026-10-23T09:58:56.219Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -972,7 +973,7 @@
       "url": "https://jobs.six-group.com/job/Geneva-Senior-Sales-&-Account-Managerin-Banking-Romandie-%2880-100%29/1433979833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:36:31.715Z",
+      "crawledAt": "2026-10-23T09:58:55.210Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1054,7 +1055,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-PAM-&-Secrets-Management-Engineer/1445127533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:28.479Z",
+      "crawledAt": "2026-10-23T09:58:50.265Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1119,7 +1120,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Client-Service-Manager-%2880-100%29/1425295333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:36:26.845Z",
+      "crawledAt": "2026-10-23T09:58:48.866Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1192,7 +1193,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-AI-Software-Architect/1435758133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:24.841Z",
+      "crawledAt": "2026-10-23T09:58:46.348Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1272,7 +1273,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-%28Senior%29-IAM-Business-Analyst-%2880-100%29/1436066033/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:24.004Z",
+      "crawledAt": "2026-10-23T09:58:45.744Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1350,13 +1351,12 @@
         "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nRegulatory Data Analyst (80-100%)\n\nZürich | Bis zu 40% von zu Hause aus arbeiten möglich | Referenz 8334\n\nMöchten Sie zur Integrität und Transparenz der Schweizer Finanzmärkte durch datengesteuerte Überwachung und Regulierungsaufsicht beitragen?\nInnerhalb von SIX Exchange Regulation ist das Überwachungs-Assurance & Development-Team für die kontinuierliche Verbesserung der Überwachungsfähigkeiten, der Datenqualität und der Weiterentwicklung der Überwachungssysteme und -methoden verantwortlich.\nAls Regulatory Data Analyst fungieren Sie als Fachexperte für Transaktionsberichterstattung nach MiFID II (RTS 22) und Schweizer FMIA-Anforderungen und tragen dazu bei, dass Transaktionsberichterstattungsdaten vollständig, korrekt und für Überwachungs-, Compliance- und Durchsetzungszwecke geeignet sind. Sie arbeiten eng mit Überwachungs-, Durchsetzungs- und Compliance- und IT-Teams zusammen und tragen zur Weiterentwicklung der Überwachungsfähigkeiten und Datenqualität bei.\n\nWas Sie tun werden\n\n• Handeln Sie als Fachexperte für Transaktionsberichterstattung, einschließlich MiFID II (RTS 22) und Schweizer FMIA Berichtspflichten.\n\n• Analysieren Sie Transaktionsberichtsdaten, führen Sie Datenqualitätsprüfungen durch und untersuchen Sie Berichtsmängel, Anomalien und Vollständigkeitsprobleme.\n\n• Durchführung von Analysen auf der Grundlage von Transaktionsberichterstattungsdaten und Bereitstellung fachkundiger Unterstützung für Überwachungs-, Compliance- und Durchsetzungstätigkeiten, einschließlich Untersuchungen, Anfragen von Regulierungs- und Aufsichtsbehörden sowie berichtsbezogene Bewertungen.\n\n• Bieten Sie Fachwissen im Bereich Transaction Reporting und tragen Sie zu Überwachungsinitiativen, regulatorischen Änderungen, Systemverbesserungen und kontinuierlichen Verbesserungen der Datenqualität im Transaktionsbericht in Zusammenarbeit mit Geschäfts- und IT-Stakeholdern bei.\n\nWas du mitbringst\n\n• Universitätsabschluss in Wirtschaft, Finanzen, Informatik oder einem verwandten Bereich oder gleichwertige Berufserfahrung.\n\n• Erfahrung im Finanz-, Kapitalmarkt- oder Börsenumfeld. Gutes Verständnis von Handelsaktivitäten und Finanzinstrumenten (z. B. Aktien, Anleihen, ETFs, Optionsscheine und Derivate). Erfahrung in der Berichterstattung über regulatorische Transaktionen ist ein großer Vorteil.\n\n• Starke analytische Denkweise und gutes SQL- und Python-Wissen mit der Fähigkeit, große Datensätze zu analysieren, zu untersuchen und zu validieren. Erfahrung mit Databricks und PySpark ist von Vorteil.\n\n• Hohe Liebe zum Detail, proaktiver Arbeitsstil und starke Kommunikationsfähigkeiten.\n\n• Fließendes Englisch ist erforderlich; Deutschkenntnisse sind von Vorteil.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Julia Schmidt unter +41583998670 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
         "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nAnalyste des données réglementaires (80-100%)\n\nZurich Jusqu'à 40% de travail à domicile possible\n\nVoulez-vous contribuer à l'intégrité et à la transparence des marchés financiers suisses par une surveillance et une surveillance réglementaires fondées sur les données?\nDans le cadre de la réglementation SIX Exchange, l'équipe d'assurance et de développement de la surveillance est responsable de l'amélioration continue des capacités de surveillance, de la qualité des données et de l'évolution des systèmes et méthodologies de surveillance.\nEn tant qu'analyste des données réglementaires, vous agirez en tant qu'expert en matière de déclaration des transactions selon les exigences de la norme MiFID II (RTS 22) et de la FMIA suisse et vous aiderez à s'assurer que les données de déclaration des transactions sont complètes, exactes et adaptées à des fins de surveillance, de conformité et d'application. Vous travaillerez en étroite collaboration avec les équipes de surveillance, d'application et de conformité et de TI et contribuerez au développement continu des capacités de surveillance et de la qualité des données.\n\nCe que vous ferez\n\n• Agir en tant qu'expert en matière de déclaration des transactions, y compris les exigences de déclaration de la MIFID II (RTS 22) et de la FMIA suisse.\n\n• Analyser les données sur la déclaration des transactions, effectuer des examens de la qualité des données et enquêter sur les lacunes, les anomalies et les problèmes d'exhaustivité.\n\n• Effectuer des analyses fondées sur les données de déclaration des transactions et fournir un appui d'expert aux activités de surveillance, de conformité et d'application, y compris les enquêtes, les demandes des autorités de réglementation et de surveillance et les évaluations liées à la déclaration.\n\n• Fournir une expertise en matière de déclaration des transactions et contribuer aux initiatives de surveillance, aux changements réglementaires, aux améliorations du système et à l'amélioration continue de la qualité des données de déclaration des transactions, en collaboration avec les intervenants des entreprises et des TI.\n\nCe que vous apportez\n\n• Diplôme universitaire en économie, finance, informatique ou un domaine connexe, ou une expérience professionnelle équivalente.\n\n• Expérience en finance, en bourse ou en bourse. Bonne compréhension des activités de négociation et des instruments financiers (par exemple actions, obligations, ETF, warrants et dérivés). L'expérience en matière de déclaration des transactions réglementaires constitue un avantage important.\n\n• Un état d'esprit analytique solide et de bonnes connaissances SQL et Python avec la capacité d'analyser, d'étudier et de valider de grands ensembles de données. Expérience avec Databricks et PySpark est un avantage.\n\n• Une grande attention aux détails, un style de travail proactif et de solides compétences en communication.\n\n• L'anglais est requis; les compétences linguistiques en allemand sont un avantage.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Julia Schmidt au +41583998670 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
       },
-      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.six-group.com/job/Zurich-Regulatory-Data-Analyst-%2880-100%29/1446600433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:22.212Z",
+      "crawledAt": "2026-10-23T09:58:43.528Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1375,7 +1375,6 @@
       "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1446600433/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-22T09:48:13.477Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1388,7 +1387,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:48:13.477Z",
+      "needsRetranslation": false
     },
     {
       "id": "six-group-fae867266ef0",
@@ -1422,7 +1423,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-CMC-Measurement-&-Insights-Lead/1447481733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:20.759Z",
+      "crawledAt": "2026-10-23T09:58:42.533Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1501,7 +1502,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Fraud-Monitoring-%28100%29/1437212933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:19.528Z",
+      "crawledAt": "2026-10-23T09:58:40.284Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1574,7 +1575,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-%2880-100%29/1437516233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:36:18.364Z",
+      "crawledAt": "2026-10-23T09:58:38.924Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1659,7 +1660,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-IT-Manager-%28Focus-IT-Strategy-and-Operating-Model%29-CIO-Office-%2880-100%29/1448418433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:17.523Z",
+      "crawledAt": "2026-10-23T09:58:36.644Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1738,7 +1739,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Business-&-Application-Support-%28100%29/1438283433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:15.864Z",
+      "crawledAt": "2026-10-23T09:58:35.639Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1784,7 +1785,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "six-group-84b82dd86099",
@@ -1818,7 +1820,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Internship-Project-&-Portfolio-Management-and-Project-Controlling-80-100/1449730833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:13.237Z",
+      "crawledAt": "2026-10-23T09:58:31.498Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1868,12 +1870,12 @@
     },
     {
       "id": "six-group-9ec2626c262a",
-      "slug": "responsabile-senior-dell-acquisizione-dati-80-100-six-group-zurich",
+      "slug": "senior-data-acquisition-manager-80-100-six-group-zurich",
       "slugByLocale": {
         "en": "senior-data-acquisition-manager-80-100-six-group-zurich",
-        "it": "responsabile-senior-dell-acquisizione-dati-80-100-six-group-zurich",
+        "it": "senior-data-acquisition-manager-80-100-six-group-zurich",
         "de": "senior-data-acquisition-manager-80-100-six-group-zurich",
-        "fr": "gestionnaire-principal-de-l-acquisition-des-donnees-80-100-six-group-zurich"
+        "fr": "senior-data-acquisition-manager-80-100-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -1881,23 +1883,23 @@
       "title": "Senior Data Acquisition Manager (80-100%)",
       "titleByLocale": {
         "en": "Senior Data Acquisition Manager (80-100%)",
-        "it": "Responsabile senior dell'acquisizione dati (80-100%)",
-        "de": "Senior Manager Datenakquise (80-100%)",
-        "fr": "Gestionnaire principal de l'acquisition des données (80-100%)"
+        "it": "Senior Data Acquisition Manager (80-100%)",
+        "de": "Senior Data Acquisition Manager (80-100%)",
+        "fr": "Senior Data Acquisition Manager (80-100%)"
       },
       "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Data Acquisition Manager (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8372\n\nWould you like to shape the financial data procurement strategy of SIX and manage strategic relationships with global data suppliers? Do you bring strong financial market knowledge, a proven track record in complex commercial negotiations and a practical approach to technology and automation?\nJoin our Data Acquisition team and take ownership of a diverse supplier portfolio, drive value through strategic sourcing and help evolve how we acquire and manage financial data.\nApply now with your CV in English. We look forward to hearing from you.\n\nWhat You Will Do\n\n• Own the end-to-end commercial and contractual relationships with strategic data suppliers, leading complex negotiations, contract reviews, supplier development and risk assessments.\n\n• Develop and execute supplier and negotiation strategies aligned with business priorities, balancing cost, data requirements, licensing rights and long-term value.\n\n• Challenge existing commercial models and licensing arrangements, identifying opportunities for cost optimization, supplier consolidation and improved contractual flexibility.\n\n• Act as a senior partner to Product Management, Operations, Legal, Compliance and other stakeholders, translating business needs into actionable sourcing decisions and resolving complex supplier issues.\n\n• Identify and assess new data opportunities, monitor industry developments and turn market insights into recommendations for the supplier portfolio and procurement strategy.\n\n• Manage acquisition costs, track savings and other relevant KPIs, and provide clear recommendations and reporting to support management decisions.\n\n• Identify and implement AI-driven improvements, building practical agents and automation solutions alongside your supplier management responsibilities.\n\n• Share expertise and support colleagues on complex supplier, contractual and process-related topics.\n\nWhat You Bring\n\n• Extensive experience in financial data acquisition, market data procurement or a comparable commercial role, with strong knowledge of exchanges, rating agencies, contributors and other data providers.\n\n• A proven track record of independently leading complex supplier negotiations and delivering measurable commercial value.\n\n• Strong understanding of data licensing and contractual frameworks, with the ability to assess usage rights, restrictions, obligations and commercial risks.\n\n• Strategic judgment combined with a hands-on approach, confidence in challenging established arrangements and the ability to turn analysis into clear decisions.\n\n• Strong stakeholder management and communication skills, with the ability to influence across functions and navigate competing priorities.\n\n• A commercially minded, technically confident profile, with extensive experience applying AI and building agents to solve practical business problems.\n\n• Knowledge of Python, VBA and Power BI is an advantage.\n\n• An independent, solution-oriented mindset, strong ownership and a willingness to share knowledge and help build team capability.\n\n• Excellent written and spoken English; additional languages are an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
       "descriptionByLocale": {
         "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Data Acquisition Manager (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8372\n\nWould you like to shape the financial data procurement strategy of SIX and manage strategic relationships with global data suppliers? Do you bring strong financial market knowledge, a proven track record in complex commercial negotiations and a practical approach to technology and automation?\nJoin our Data Acquisition team and take ownership of a diverse supplier portfolio, drive value through strategic sourcing and help evolve how we acquire and manage financial data.\nApply now with your CV in English. We look forward to hearing from you.\n\nWhat You Will Do\n\n• Own the end-to-end commercial and contractual relationships with strategic data suppliers, leading complex negotiations, contract reviews, supplier development and risk assessments.\n\n• Develop and execute supplier and negotiation strategies aligned with business priorities, balancing cost, data requirements, licensing rights and long-term value.\n\n• Challenge existing commercial models and licensing arrangements, identifying opportunities for cost optimization, supplier consolidation and improved contractual flexibility.\n\n• Act as a senior partner to Product Management, Operations, Legal, Compliance and other stakeholders, translating business needs into actionable sourcing decisions and resolving complex supplier issues.\n\n• Identify and assess new data opportunities, monitor industry developments and turn market insights into recommendations for the supplier portfolio and procurement strategy.\n\n• Manage acquisition costs, track savings and other relevant KPIs, and provide clear recommendations and reporting to support management decisions.\n\n• Identify and implement AI-driven improvements, building practical agents and automation solutions alongside your supplier management responsibilities.\n\n• Share expertise and support colleagues on complex supplier, contractual and process-related topics.\n\nWhat You Bring\n\n• Extensive experience in financial data acquisition, market data procurement or a comparable commercial role, with strong knowledge of exchanges, rating agencies, contributors and other data providers.\n\n• A proven track record of independently leading complex supplier negotiations and delivering measurable commercial value.\n\n• Strong understanding of data licensing and contractual frameworks, with the ability to assess usage rights, restrictions, obligations and commercial risks.\n\n• Strategic judgment combined with a hands-on approach, confidence in challenging established arrangements and the ability to turn analysis into clear decisions.\n\n• Strong stakeholder management and communication skills, with the ability to influence across functions and navigate competing priorities.\n\n• A commercially minded, technically confident profile, with extensive experience applying AI and building agents to solve practical business problems.\n\n• Knowledge of Python, VBA and Power BI is an advantage.\n\n• An independent, solution-oriented mindset, strong ownership and a willingness to share knowledge and help build team capability.\n\n• Excellent written and spoken English; additional languages are an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nSenior Data Acquisition Manager (80-100%)\n\nZurigo | Lavorare da casa fino al 40% | Riferimento 8372\n\nVorresti modellare la strategia di approvvigionamento dei dati finanziari di SIX e gestire relazioni strategiche con i fornitori di dati globali? Porti una forte conoscenza del mercato finanziario, una comprovata traccia nei negoziati commerciali complessi e un approccio pratico alla tecnologia e all'automazione?\nUnisciti al nostro team di Data Acquisition e prendi la proprietà di un portafoglio di fornitori diversificato, guida il valore attraverso il supporto strategico e aiuta a evolvere come acquisiamo e gestiamo i dati finanziari.\nApplica ora con il tuo CV in inglese. Non vediamo l'ora di sentirti.\n\nCosa farai\n\n• Possiedi le relazioni commerciali e contrattuali end-to-end con i fornitori di dati strategici, i negoziati complessi, le recensioni contrattuali, lo sviluppo dei fornitori e le valutazioni dei rischi.\n\n• Sviluppare ed eseguire strategie di fornitori e negoziazione allineate alle priorità aziendali, bilanciare i costi, i requisiti di dati, i diritti di licenza e il valore a lungo termine.\n\n• Sfida modelli commerciali esistenti e accordi di licenza, identificando opportunità di ottimizzazione dei costi, consolidamento dei fornitori e una maggiore flessibilità contrattuale.\n\n• Agire come partner senior di Product Management, Operazioni, Legale, Compliance e altri stakeholder, traducendo le esigenze aziendali in decisioni di sourcing attuabili e risolvendo problemi di fornitori complessi.\n\n• Identificare e valutare nuove opportunità di dati, monitorare gli sviluppi del settore e trasformare le informazioni di mercato in raccomandazioni per il portafoglio fornitori e la strategia di approvvigionamento.\n\n• Gestire i costi di acquisizione, monitorare i risparmi e altri KPI pertinenti, e fornire raccomandazioni chiare e report per supportare le decisioni di gestione.\n\n• Identificare e implementare miglioramenti basati sull'intelligenza artificiale, creare agenti pratici e soluzioni di automazione insieme alle tue responsabilità di gestione dei fornitori.\n\n• Condividere competenze e colleghi di supporto su argomenti complessi, contrattuali e legati al processo.\n\nChe cosa porta\n\n• Ampia esperienza nell'acquisizione di dati finanziari, nell'approvvigionamento di dati di mercato o in un ruolo commerciale paragonabile, con una forte conoscenza di scambi, agenzie di rating, collaboratori e altri fornitori di dati.\n\n• Un comprovato record di negoziazioni di fornitori complessi indipendenti leader e di fornire valore commerciale misurabile.\n\n• Forte comprensione delle licenze di dati e dei quadri contrattuali, con la capacità di valutare i diritti di utilizzo, le restrizioni, gli obblighi e i rischi commerciali.\n\n• Giudizio strategico combinato con un approccio pratico, fiducia nella sfida di accordi stabiliti e la capacità di trasformare l'analisi in decisioni chiare.\n\n• Forte capacità di gestione e comunicazione degli stakeholder, con la capacità di influenzare le funzioni e di navigare in priorità concorrenti.\n\n• Un profilo commerciale, tecnicamente fiducioso, con una vasta esperienza nell'applicazione di agenti di AI e di costruzione per risolvere problemi pratici di business.\n\n• La conoscenza di Python, VBA e Power BI è un vantaggio.\n\n• Una mentalità indipendente, orientata alla soluzione, una forte proprietà e una volontà di condividere la conoscenza e aiutare a costruire la capacità del team.\n\n• Ottimo scritto e parlato inglese; lingue aggiuntive sono un vantaggio.\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Julia Schmidt al numero +41583998670 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nSenior Data Acquisition Manager (80-100%)\n\nZürich | Arbeiten von zu Hause bis zu 40% | Referenz 8372\n\nMöchten Sie die Finanzdatenbeschaffungsstrategie von SIX gestalten und strategische Beziehungen zu globalen Datenlieferanten managen? Bringen Sie starkes Finanzmarktwissen, eine nachgewiesene Erfolgsbilanz in komplexen kommerziellen Verhandlungen und einen praktischen Ansatz für Technologie und Automatisierung mit?\nTreten Sie unserem Data Acquisition-Team bei und übernehmen Sie ein vielfältiges Lieferantenportfolio, steigern Sie den Wert durch strategische Beschaffung und tragen Sie dazu bei, wie wir Finanzdaten erwerben und verwalten.\nBewerben Sie sich jetzt mit Ihrem Lebenslauf in Englisch. Wir freuen uns darauf, von Ihnen zu hören.\n\nWas Sie tun werden\n\n• Besitzen Sie die durchgängigen kommerziellen und vertraglichen Beziehungen zu strategischen Datenlieferanten und führen Sie komplexe Verhandlungen, Vertragsüberprüfungen, Lieferantenentwicklung und Risikobewertungen.\n\n• Entwicklung und Umsetzung von Lieferanten- und Verhandlungsstrategien, die auf Geschäftsprioritäten, Kostenausgleich, Datenanforderungen, Lizenzrechte und langfristigen Wert ausgerichtet sind.\n\n• Bestehende kommerzielle Modelle und Lizenzvereinbarungen herausfordern und Möglichkeiten für Kostenoptimierung, Lieferantenkonsolidierung und verbesserte Vertragsflexibilität identifizieren.\n\n• Handeln Sie als Senior Partner für Produktmanagement, Operations, Legal, Compliance und andere Stakeholder, übersetzen Sie Geschäftsanforderungen in umsetzbare Beschaffungsentscheidungen und lösen Sie komplexe Lieferantenprobleme.\n\n• Identifizieren und bewerten Sie neue Datenmöglichkeiten, überwachen Sie Branchenentwicklungen und verwandeln Sie Markteinblicke in Empfehlungen für das Lieferantenportfolio und die Beschaffungsstrategie.\n\n• Verwalten Sie Akquisitionskosten, verfolgen Sie Einsparungen und andere relevante KPIs und geben Sie klare Empfehlungen und Berichte zur Unterstützung von Managemententscheidungen.\n\n• Identifizieren und implementieren Sie KI-gesteuerte Verbesserungen, erstellen Sie praktische Agenten und Automatisierungslösungen neben Ihrer Verantwortung für das Lieferantenmanagement.\n\n• Know-how teilen und Kollegen zu komplexen Lieferanten-, Vertrags- und Prozessthemen unterstützen.\n\nWas du mitbringst\n\n• Umfangreiche Erfahrung in der Erfassung von Finanzdaten, der Beschaffung von Marktdaten oder einer vergleichbaren kommerziellen Rolle mit fundierten Kenntnissen von Börsen, Ratingagenturen, Kontributoren und anderen Datenanbietern.\n\n• Eine nachgewiesene Erfolgsbilanz bei der unabhängigen Führung komplexer Lieferantenverhandlungen und der Bereitstellung messbarer kommerzieller Werte.\n\n• Ein fundiertes Verständnis der Datenlizenzierung und der vertraglichen Rahmenbedingungen mit der Fähigkeit, Nutzungsrechte, Einschränkungen, Verpflichtungen und kommerzielle Risiken zu bewerten.\n\n• Strategisches Urteilsvermögen kombiniert mit einem praktischen Ansatz, Vertrauen in herausfordernde etablierte Vereinbarungen und der Fähigkeit, Analysen in klare Entscheidungen zu verwandeln.\n\n• Starke Fähigkeiten im Stakeholder-Management und in der Kommunikation, mit der Fähigkeit, über Funktionen hinweg Einfluss zu nehmen und konkurrierende Prioritäten zu steuern.\n\n• Ein kaufmännisches, technisch selbstbewusstes Profil mit umfangreicher Erfahrung bei der Anwendung von KI und Bauagenten zur Lösung praktischer Geschäftsprobleme.\n\n• Kenntnisse in Python, VBA und Power BI sind von Vorteil.\n\n• Eine unabhängige, lösungsorientierte Denkweise, starke Eigenverantwortung und die Bereitschaft, Wissen zu teilen und Teamfähigkeit aufzubauen.\n\n• Hervorragend geschriebenes und gesprochenes Englisch; zusätzliche Sprachen sind von Vorteil.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Julia Schmidt unter +41583998670 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nGestionnaire principal de l'acquisition des données (80-100%)\n\nZurich: travail à domicile jusqu'à 40 % Référence 8372\n\nSouhaitez-vous façonner la stratégie d'acquisition de données financières de SIX et gérer les relations stratégiques avec les fournisseurs de données mondiaux? Apportez-vous une solide connaissance des marchés financiers, une expérience éprouvée dans les négociations commerciales complexes et une approche pratique de la technologie et de l'automatisation?\nRejoignez notre équipe d'acquisition de données et prenez possession d'un portefeuille de fournisseurs diversifié, stimulez la valeur grâce à l'approvisionnement stratégique et aidez à faire évoluer la façon dont nous acquérons et gérons les données financières.\nPostulez maintenant avec votre CV en anglais. Nous avons hâte de vous entendre.\n\nCe que vous ferez\n\n• Posséder les relations commerciales et contractuelles de bout en bout avec les fournisseurs de données stratégiques, mener des négociations complexes, examiner les contrats, développer les fournisseurs et évaluer les risques.\n\n• Élaborer et exécuter des stratégies de fournisseurs et de négociations conformes aux priorités opérationnelles, en établissant un équilibre entre les coûts, les exigences en matière de données, les droits de licence et la valeur à long terme.\n\n• Définer les modèles commerciaux existants et les accords de licence, déterminer les possibilités d'optimisation des coûts, de regroupement des fournisseurs et d'amélioration de la flexibilité contractuelle.\n\n• Agir en tant que partenaire principal de la gestion des produits, des opérations, de la législation, de la conformité et d'autres intervenants, traduire les besoins opérationnels en décisions pratiques en matière d'approvisionnement et résoudre les problèmes complexes des fournisseurs.\n\n• Déterminer et évaluer les nouvelles possibilités de données, suivre l'évolution de l'industrie et transformer les perspectives du marché en recommandations pour le portefeuille des fournisseurs et la stratégie d'approvisionnement.\n\n• Gérer les coûts d'acquisition, suivre les économies et les autres ICR pertinents, et fournir des recommandations claires et des rapports pour appuyer les décisions de gestion.\n\n• Identifier et mettre en œuvre des améliorations basées sur l'IA, construire des agents pratiques et des solutions d'automatisation en plus de vos responsabilités de gestion des fournisseurs.\n\n• Partager l'expertise et soutenir les collègues sur des sujets complexes liés aux fournisseurs, aux contrats et aux processus.\n\nCe que vous apportez\n\n• Expérience approfondie en matière d'acquisition de données financières, d'acquisition de données de marché ou d'un rôle commercial comparable, avec une bonne connaissance des échanges, agences de notation, contributeurs et autres fournisseurs de données.\n\n• Une expérience éprouvée de la conduite indépendante de négociations complexes avec les fournisseurs et la fourniture d'une valeur commerciale mesurable.\n\n• Une bonne compréhension des licences de données et des cadres contractuels, avec la capacité d'évaluer les droits d'utilisation, les restrictions, les obligations et les risques commerciaux.\n\n• Le jugement stratégique combiné à une approche pratique, la confiance dans la remise en question des ententes établies et la capacité de transformer l'analyse en décisions claires.\n\n• Des compétences solides en gestion des intervenants et en communication, avec la capacité d'influencer les différentes fonctions et de naviguer sur des priorités concurrentes.\n\n• Un profil professionnel, techniquement confiant, avec une vaste expérience d'application de l'IA et des agents de construction pour résoudre des problèmes d'affaires pratiques.\n\n• La connaissance de Python, VBA et Power BI est un avantage.\n\n• Un état d'esprit indépendant axé sur la solution, une forte appropriation et une volonté de partager les connaissances et d'aider à renforcer les capacités de l'équipe.\n\n• Excellent anglais écrit et parlé; les langues supplémentaires sont un avantage.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Julia Schmidt au +41583998670 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+        "it": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Data Acquisition Manager (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8372\n\nWould you like to shape the financial data procurement strategy of SIX and manage strategic relationships with global data suppliers? Do you bring strong financial market knowledge, a proven track record in complex commercial negotiations and a practical approach to technology and automation?\nJoin our Data Acquisition team and take ownership of a diverse supplier portfolio, drive value through strategic sourcing and help evolve how we acquire and manage financial data.\nApply now with your CV in English. We look forward to hearing from you.\n\nWhat You Will Do\n\n• Own the end-to-end commercial and contractual relationships with strategic data suppliers, leading complex negotiations, contract reviews, supplier development and risk assessments.\n\n• Develop and execute supplier and negotiation strategies aligned with business priorities, balancing cost, data requirements, licensing rights and long-term value.\n\n• Challenge existing commercial models and licensing arrangements, identifying opportunities for cost optimization, supplier consolidation and improved contractual flexibility.\n\n• Act as a senior partner to Product Management, Operations, Legal, Compliance and other stakeholders, translating business needs into actionable sourcing decisions and resolving complex supplier issues.\n\n• Identify and assess new data opportunities, monitor industry developments and turn market insights into recommendations for the supplier portfolio and procurement strategy.\n\n• Manage acquisition costs, track savings and other relevant KPIs, and provide clear recommendations and reporting to support management decisions.\n\n• Identify and implement AI-driven improvements, building practical agents and automation solutions alongside your supplier management responsibilities.\n\n• Share expertise and support colleagues on complex supplier, contractual and process-related topics.\n\nWhat You Bring\n\n• Extensive experience in financial data acquisition, market data procurement or a comparable commercial role, with strong knowledge of exchanges, rating agencies, contributors and other data providers.\n\n• A proven track record of independently leading complex supplier negotiations and delivering measurable commercial value.\n\n• Strong understanding of data licensing and contractual frameworks, with the ability to assess usage rights, restrictions, obligations and commercial risks.\n\n• Strategic judgment combined with a hands-on approach, confidence in challenging established arrangements and the ability to turn analysis into clear decisions.\n\n• Strong stakeholder management and communication skills, with the ability to influence across functions and navigate competing priorities.\n\n• A commercially minded, technically confident profile, with extensive experience applying AI and building agents to solve practical business problems.\n\n• Knowledge of Python, VBA and Power BI is an advantage.\n\n• An independent, solution-oriented mindset, strong ownership and a willingness to share knowledge and help build team capability.\n\n• Excellent written and spoken English; additional languages are an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Data Acquisition Manager (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8372\n\nWould you like to shape the financial data procurement strategy of SIX and manage strategic relationships with global data suppliers? Do you bring strong financial market knowledge, a proven track record in complex commercial negotiations and a practical approach to technology and automation?\nJoin our Data Acquisition team and take ownership of a diverse supplier portfolio, drive value through strategic sourcing and help evolve how we acquire and manage financial data.\nApply now with your CV in English. We look forward to hearing from you.\n\nWhat You Will Do\n\n• Own the end-to-end commercial and contractual relationships with strategic data suppliers, leading complex negotiations, contract reviews, supplier development and risk assessments.\n\n• Develop and execute supplier and negotiation strategies aligned with business priorities, balancing cost, data requirements, licensing rights and long-term value.\n\n• Challenge existing commercial models and licensing arrangements, identifying opportunities for cost optimization, supplier consolidation and improved contractual flexibility.\n\n• Act as a senior partner to Product Management, Operations, Legal, Compliance and other stakeholders, translating business needs into actionable sourcing decisions and resolving complex supplier issues.\n\n• Identify and assess new data opportunities, monitor industry developments and turn market insights into recommendations for the supplier portfolio and procurement strategy.\n\n• Manage acquisition costs, track savings and other relevant KPIs, and provide clear recommendations and reporting to support management decisions.\n\n• Identify and implement AI-driven improvements, building practical agents and automation solutions alongside your supplier management responsibilities.\n\n• Share expertise and support colleagues on complex supplier, contractual and process-related topics.\n\nWhat You Bring\n\n• Extensive experience in financial data acquisition, market data procurement or a comparable commercial role, with strong knowledge of exchanges, rating agencies, contributors and other data providers.\n\n• A proven track record of independently leading complex supplier negotiations and delivering measurable commercial value.\n\n• Strong understanding of data licensing and contractual frameworks, with the ability to assess usage rights, restrictions, obligations and commercial risks.\n\n• Strategic judgment combined with a hands-on approach, confidence in challenging established arrangements and the ability to turn analysis into clear decisions.\n\n• Strong stakeholder management and communication skills, with the ability to influence across functions and navigate competing priorities.\n\n• A commercially minded, technically confident profile, with extensive experience applying AI and building agents to solve practical business problems.\n\n• Knowledge of Python, VBA and Power BI is an advantage.\n\n• An independent, solution-oriented mindset, strong ownership and a willingness to share knowledge and help build team capability.\n\n• Excellent written and spoken English; additional languages are an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "fr": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Data Acquisition Manager (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8372\n\nWould you like to shape the financial data procurement strategy of SIX and manage strategic relationships with global data suppliers? Do you bring strong financial market knowledge, a proven track record in complex commercial negotiations and a practical approach to technology and automation?\nJoin our Data Acquisition team and take ownership of a diverse supplier portfolio, drive value through strategic sourcing and help evolve how we acquire and manage financial data.\nApply now with your CV in English. We look forward to hearing from you.\n\nWhat You Will Do\n\n• Own the end-to-end commercial and contractual relationships with strategic data suppliers, leading complex negotiations, contract reviews, supplier development and risk assessments.\n\n• Develop and execute supplier and negotiation strategies aligned with business priorities, balancing cost, data requirements, licensing rights and long-term value.\n\n• Challenge existing commercial models and licensing arrangements, identifying opportunities for cost optimization, supplier consolidation and improved contractual flexibility.\n\n• Act as a senior partner to Product Management, Operations, Legal, Compliance and other stakeholders, translating business needs into actionable sourcing decisions and resolving complex supplier issues.\n\n• Identify and assess new data opportunities, monitor industry developments and turn market insights into recommendations for the supplier portfolio and procurement strategy.\n\n• Manage acquisition costs, track savings and other relevant KPIs, and provide clear recommendations and reporting to support management decisions.\n\n• Identify and implement AI-driven improvements, building practical agents and automation solutions alongside your supplier management responsibilities.\n\n• Share expertise and support colleagues on complex supplier, contractual and process-related topics.\n\nWhat You Bring\n\n• Extensive experience in financial data acquisition, market data procurement or a comparable commercial role, with strong knowledge of exchanges, rating agencies, contributors and other data providers.\n\n• A proven track record of independently leading complex supplier negotiations and delivering measurable commercial value.\n\n• Strong understanding of data licensing and contractual frameworks, with the ability to assess usage rights, restrictions, obligations and commercial risks.\n\n• Strategic judgment combined with a hands-on approach, confidence in challenging established arrangements and the ability to turn analysis into clear decisions.\n\n• Strong stakeholder management and communication skills, with the ability to influence across functions and navigate competing priorities.\n\n• A commercially minded, technically confident profile, with extensive experience applying AI and building agents to solve practical business problems.\n\n• Knowledge of Python, VBA and Power BI is an advantage.\n\n• An independent, solution-oriented mindset, strong ownership and a willingness to share knowledge and help build team capability.\n\n• Excellent written and spoken English; additional languages are an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Data-Acquisition-Manager-%2880-100%29/1450317433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:11.239Z",
+      "crawledAt": "2026-10-23T09:58:29.741Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1931,18 +1933,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:36:11.239Z",
+      "firstSeenAt": "2026-10-23T09:58:29.741Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-data-acquisition-manager-80-100-six-group-zurich"
+          "senior-data-acquisition-manager-80-100-six-group-zurich",
+          "responsabile-senior-dell-acquisizione-dati-80-100-six-group-zurich"
         ],
         "fr": [
-          "senior-data-acquisition-manager-80-100-six-group-zurich"
+          "senior-data-acquisition-manager-80-100-six-group-zurich",
+          "gestionnaire-principal-de-l-acquisition-des-donnees-80-100-six-group-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-data-acquisition-manager-80-100-six-group-zurich"
-      ]
+        "senior-data-acquisition-manager-80-100-six-group-zurich",
+        "responsabile-senior-dell-acquisizione-dati-80-100-six-group-zurich",
+        "gestionnaire-principal-de-l-acquisition-des-donnees-80-100-six-group-zurich"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "six-group-5b3fec2bd9db",
@@ -1966,16 +1973,16 @@
       "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nKubernetes Platform Engineer (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8316\n\nAre you passionate about cloud-native technologies and eager to make an impact at scale? Join our Container Platforms team in Spain and Switzerland, where you'll help drive and innovate global Kubernetes platforms across on-premises and public cloud environments. Working in a collaborative and agile team, you will support critical financial infrastructure, including payment systems, interbank clearing and stock exchange services. Your work will directly contribute to systems relied upon by millions of people every day while leveraging the latest technologies.\n\nWhat You Will Do\n\n• Manage and enhance Kubernetes platforms (OpenShift & AKS), focusing on automation, security, connectivity, and observability.\n\n• Operate and support Kubernetes environments, including customer requests and on-call troubleshooting.\n\n• Contribute to company-wide projects as a Kubernetes and cloud-native technology expert.\n\n• Drive platform automation using Ansible Automation Platform (AAP) and Infrastructure as Code practices.\n\n• Share knowledge and promote best practices to continuously improve platform capabilities.\n\nWhat You Bring\n\n• Completed IT apprenticeship, vocational training, bachelor's degree, or equivalent qualification.\n\n• 3+ years of experience with Kubernetes and cloud-native technologies in public or private cloud environments.\n\n• Hands-on experience with AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus, and Elastic.\n\n• Experience in Kubernetes platform engineering, operations, or related infrastructure roles.\n\n• Strong communication and problem-solving skills, with fluent English; German or Spanish is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
       "descriptionByLocale": {
         "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nKubernetes Platform Engineer (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8316\n\nAre you passionate about cloud-native technologies and eager to make an impact at scale? Join our Container Platforms team in Spain and Switzerland, where you'll help drive and innovate global Kubernetes platforms across on-premises and public cloud environments. Working in a collaborative and agile team, you will support critical financial infrastructure, including payment systems, interbank clearing and stock exchange services. Your work will directly contribute to systems relied upon by millions of people every day while leveraging the latest technologies.\n\nWhat You Will Do\n\n• Manage and enhance Kubernetes platforms (OpenShift & AKS), focusing on automation, security, connectivity, and observability.\n\n• Operate and support Kubernetes environments, including customer requests and on-call troubleshooting.\n\n• Contribute to company-wide projects as a Kubernetes and cloud-native technology expert.\n\n• Drive platform automation using Ansible Automation Platform (AAP) and Infrastructure as Code practices.\n\n• Share knowledge and promote best practices to continuously improve platform capabilities.\n\nWhat You Bring\n\n• Completed IT apprenticeship, vocational training, bachelor's degree, or equivalent qualification.\n\n• 3+ years of experience with Kubernetes and cloud-native technologies in public or private cloud environments.\n\n• Hands-on experience with AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus, and Elastic.\n\n• Experience in Kubernetes platform engineering, operations, or related infrastructure roles.\n\n• Strong communication and problem-solving skills, with fluent English; German or Spanish is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nKubernetes Platform Engineer (80-100%)\n\nZurigo | Lavorare da casa fino al 40% | Riferimento 8316\n\nSei appassionato di tecnologie cloud-native e desideroso di fare un impatto su scala? Unisciti al nostro team di Container Platforms in Spagna e Svizzera, dove potrai guidare e innovare piattaforme Kubernetes globali in ambienti cloud on-premise e pubblici. Lavorando in un team collaborativo e agile, supporterete infrastrutture finanziarie critiche, compresi i sistemi di pagamento, la compensazione interbancaria e i servizi di borsa. Il vostro lavoro contribuirà direttamente a sistemi affidati a milioni di persone ogni giorno, sfruttando le ultime tecnologie.\n\nCosa farai\n\n• Gestire e migliorare le piattaforme Kubernetes (OpenShift & AKS), concentrandosi sull'automazione, la sicurezza, la connettività e l'osservabilità.\n\n• Funziona e supporta gli ambienti Kubernetes, comprese le richieste dei clienti e la risoluzione dei problemi di chiamata.\n\n• Contribuisci ai progetti aziendali come un esperto di tecnologia Kubernetes e cloud-native.\n\n• Automazione della piattaforma di trasmissione utilizzando Ansible Automation Platform (AAP) e Infrastructure come pratiche Code.\n\n• Condividere le conoscenze e promuovere le migliori pratiche per migliorare continuamente le capacità della piattaforma.\n\nChe cosa porta\n\n• Apprendistato IT completo, formazione professionale, diploma di laurea o qualifica equivalente.\n\n• 3+ anni di esperienza con Kubernetes e tecnologie cloud-native in ambienti cloud pubblici o privati.\n\n• Esperienza pratica con AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus e Elastico.\n\n• Esperienza in Kubernetes piattaforma ingegneria, operazioni o ruoli infrastrutturali correlati.\n\n• Forte comunicazione e capacità di problem solving, con fluente inglese; tedesco o spagnolo è un vantaggio.\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Julia Schmidt al numero +41583998670 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nKubernetes Platform Engineer (80-100%)\n\nZürich | Arbeiten von zu Hause bis zu 40% | Referenz 8316\n\nSie interessieren sich für Cloud-native Technologien und sind bestrebt, in großem Maßstab Einfluss zu nehmen? Treten Sie unserem Container Platforms-Team in Spanien und der Schweiz bei, wo Sie dazu beitragen, globale Kubernetes-Plattformen in lokalen und öffentlichen Cloud-Umgebungen voranzutreiben und zu innovieren. In einem kollaborativen und agilen Team unterstützen Sie wichtige Finanzinfrastrukturen, einschließlich Zahlungssysteme, Interbank-Clearing und Börsendienste. Ihre Arbeit wird direkt zu Systemen beitragen, auf die sich täglich Millionen von Menschen verlassen, während Sie die neuesten Technologien nutzen.\n\nWas Sie tun werden\n\n• Verwalten und verbessern Sie Kubernetes-Plattformen (OpenShift & AKS) mit Schwerpunkt auf Automatisierung, Sicherheit, Konnektivität und Beobachtbarkeit.\n\n• Bedienen und unterstützen Sie Kubernetes-Umgebungen, einschließlich Kundenanfragen und On-Call-Fehlerbehebung.\n\n• Tragen Sie zu unternehmensweiten Projekten als Kubernetes und Experte für Cloud-native Technologie bei.\n\n• Plattformautomatisierung mit Ansible Automation Platform (AAP) und Infrastructure as Code-Praktiken.\n\n• Wissen austauschen und Best Practices fördern, um die Plattformfähigkeiten kontinuierlich zu verbessern.\n\nWas du mitbringst\n\n• Abgeschlossene IT-Lehre, Berufsausbildung, Bachelor-Abschluss oder gleichwertige Qualifikation.\n\n• 3+ Jahre Erfahrung mit Kubernetes und Cloud-nativen Technologien in öffentlichen oder privaten Cloud-Umgebungen.\n\n• Praktische Erfahrung mit AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus und Elastic.\n\n• Erfahrung in Kubernetes Platform Engineering, Operations oder verwandten Infrastrukturrollen.\n\n• Starke Kommunikation und Problemlösungsfähigkeiten, mit fließendem Englisch; Deutsch oder Spanisch ist von Vorteil.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Julia Schmidt unter +41583998670 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nKubernetes Ingénieur plate-forme (80-100%)\n\nZurich: travail à domicile jusqu'à 40 % Référence 8316\n\nÊtes-vous passionné par les technologies cloud-natives et désireux de faire un impact à l'échelle? Rejoignez notre équipe Container Platforms en Espagne et en Suisse, où vous pourrez conduire et innover des plateformes mondiales Kubernetes à travers des environnements sur site et cloud public. En travaillant dans une équipe collaborative et agile, vous soutiendrez une infrastructure financière essentielle, y compris des systèmes de paiement, des services de compensation interbancaires et des services boursiers. Votre travail contribuera directement aux systèmes sur lesquels comptent des millions de personnes chaque jour tout en tirant parti des dernières technologies.\n\nCe que vous ferez\n\n• Gérer et améliorer les plateformes Kubernetes (OpenShift & AKS), en mettant l'accent sur l'automatisation, la sécurité, la connectivité et l'observabilité.\n\n• Fonctionnement et prise en charge des environnements Kubernetes, y compris les demandes des clients et le dépannage sur appel.\n\n• Contribuer à des projets à l'échelle de l'entreprise en tant qu'expert en technologie cloud-native Kubernetes.\n\n• Conduire l'automatisation de la plate-forme en utilisant Ansible Automation Platform (AAP) et Infrastructure comme pratiques de code.\n\n• Partager les connaissances et promouvoir les meilleures pratiques pour améliorer continuellement les capacités de la plateforme.\n\nCe que vous apportez\n\n• Apprentissage informatique, formation professionnelle, baccalauréat ou qualification équivalente.\n\n• 3+ ans d'expérience avec Kubernetes et technologies cloud-native dans des environnements cloud publics ou privés.\n\n• Expérience pratique avec AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prométhée et Elastic.\n\n• Expérience dans l'ingénierie de plateforme Kubernetes, les opérations ou les rôles d'infrastructure connexes.\n\n• Une communication forte et des compétences de résolution de problèmes, avec l'anglais couramment; l'allemand ou l'espagnol est un avantage.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Julia Schmidt au +41583998670 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+        "it": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nKubernetes Platform Engineer (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8316\n\nAre you passionate about cloud-native technologies and eager to make an impact at scale? Join our Container Platforms team in Spain and Switzerland, where you'll help drive and innovate global Kubernetes platforms across on-premises and public cloud environments. Working in a collaborative and agile team, you will support critical financial infrastructure, including payment systems, interbank clearing and stock exchange services. Your work will directly contribute to systems relied upon by millions of people every day while leveraging the latest technologies.\n\nWhat You Will Do\n\n• Manage and enhance Kubernetes platforms (OpenShift & AKS), focusing on automation, security, connectivity, and observability.\n\n• Operate and support Kubernetes environments, including customer requests and on-call troubleshooting.\n\n• Contribute to company-wide projects as a Kubernetes and cloud-native technology expert.\n\n• Drive platform automation using Ansible Automation Platform (AAP) and Infrastructure as Code practices.\n\n• Share knowledge and promote best practices to continuously improve platform capabilities.\n\nWhat You Bring\n\n• Completed IT apprenticeship, vocational training, bachelor's degree, or equivalent qualification.\n\n• 3+ years of experience with Kubernetes and cloud-native technologies in public or private cloud environments.\n\n• Hands-on experience with AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus, and Elastic.\n\n• Experience in Kubernetes platform engineering, operations, or related infrastructure roles.\n\n• Strong communication and problem-solving skills, with fluent English; German or Spanish is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nKubernetes Platform Engineer (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8316\n\nAre you passionate about cloud-native technologies and eager to make an impact at scale? Join our Container Platforms team in Spain and Switzerland, where you'll help drive and innovate global Kubernetes platforms across on-premises and public cloud environments. Working in a collaborative and agile team, you will support critical financial infrastructure, including payment systems, interbank clearing and stock exchange services. Your work will directly contribute to systems relied upon by millions of people every day while leveraging the latest technologies.\n\nWhat You Will Do\n\n• Manage and enhance Kubernetes platforms (OpenShift & AKS), focusing on automation, security, connectivity, and observability.\n\n• Operate and support Kubernetes environments, including customer requests and on-call troubleshooting.\n\n• Contribute to company-wide projects as a Kubernetes and cloud-native technology expert.\n\n• Drive platform automation using Ansible Automation Platform (AAP) and Infrastructure as Code practices.\n\n• Share knowledge and promote best practices to continuously improve platform capabilities.\n\nWhat You Bring\n\n• Completed IT apprenticeship, vocational training, bachelor's degree, or equivalent qualification.\n\n• 3+ years of experience with Kubernetes and cloud-native technologies in public or private cloud environments.\n\n• Hands-on experience with AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus, and Elastic.\n\n• Experience in Kubernetes platform engineering, operations, or related infrastructure roles.\n\n• Strong communication and problem-solving skills, with fluent English; German or Spanish is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "fr": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nKubernetes Platform Engineer (80-100%)\n\nZurich |  Working from home up to 40% | Reference 8316\n\nAre you passionate about cloud-native technologies and eager to make an impact at scale? Join our Container Platforms team in Spain and Switzerland, where you'll help drive and innovate global Kubernetes platforms across on-premises and public cloud environments. Working in a collaborative and agile team, you will support critical financial infrastructure, including payment systems, interbank clearing and stock exchange services. Your work will directly contribute to systems relied upon by millions of people every day while leveraging the latest technologies.\n\nWhat You Will Do\n\n• Manage and enhance Kubernetes platforms (OpenShift & AKS), focusing on automation, security, connectivity, and observability.\n\n• Operate and support Kubernetes environments, including customer requests and on-call troubleshooting.\n\n• Contribute to company-wide projects as a Kubernetes and cloud-native technology expert.\n\n• Drive platform automation using Ansible Automation Platform (AAP) and Infrastructure as Code practices.\n\n• Share knowledge and promote best practices to continuously improve platform capabilities.\n\nWhat You Bring\n\n• Completed IT apprenticeship, vocational training, bachelor's degree, or equivalent qualification.\n\n• 3+ years of experience with Kubernetes and cloud-native technologies in public or private cloud environments.\n\n• Hands-on experience with AAP, ArgoCD, Helm, Terraform, GitLab CI/CD, Grafana, Prometheus, and Elastic.\n\n• Experience in Kubernetes platform engineering, operations, or related infrastructure roles.\n\n• Strong communication and problem-solving skills, with fluent English; German or Spanish is an advantage.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.six-group.com/job/Zurich-Kubernetes-Platform-Engineer-%2880-100%29/1450290133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:10.697Z",
+      "crawledAt": "2026-10-23T09:58:29.137Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2009,7 +2016,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:36:10.697Z"
+      "firstSeenAt": "2026-10-23T09:58:29.137Z",
+      "needsRetranslation": true
     },
     {
       "id": "six-group-1160a9aa14d8",
@@ -2042,7 +2050,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Messaging-Platform-Engineer%2C-Cloud-&-Containers/1419165533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:10.172Z",
+      "crawledAt": "2026-10-23T09:58:28.149Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2107,7 +2115,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Web-Access-Management-Engineer-80-100/1429528333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:09.596Z",
+      "crawledAt": "2026-10-23T09:58:27.442Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2172,7 +2180,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Fraud-Services-%28100%29/1440523333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:36:08.749Z",
+      "crawledAt": "2026-10-23T09:58:26.846Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",

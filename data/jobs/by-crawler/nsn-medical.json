@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nsn-medical",
-  "assembledAt": "2026-10-22T21:27:12.098Z",
-  "runId": "39855538936",
+  "assembledAt": "2026-10-23T09:21:29.674Z",
+  "runId": "39930347630",
   "jobs": [
     {
       "id": "nsn-medical-75557ee37143",
@@ -35,7 +35,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/750/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:27:04.307Z",
+      "crawledAt": "2026-10-23T09:21:22.877Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/788/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:27:03.678Z",
+      "crawledAt": "2026-10-23T09:21:22.272Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -191,7 +191,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/787/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:27:03.061Z",
+      "crawledAt": "2026-10-23T09:21:21.662Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -271,7 +271,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/817/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:27:02.457Z",
+      "crawledAt": "2026-10-23T09:21:21.057Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -345,7 +345,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/822/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:27:01.824Z",
+      "crawledAt": "2026-10-23T09:21:20.471Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -419,7 +419,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/828/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:27:01.198Z",
+      "crawledAt": "2026-10-23T09:21:19.852Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -470,6 +470,15 @@
           "Esprit d'équipe et flexibilité"
         ]
       },
+      "previousSlugs": [
+        "dipl-infermiere-oncologia-60-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-onkologie",
+        "dipl-oncology-nurse-60-100-zurich-with-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
+        "dipl-pflegefachperson-onkologie-60-100-zurich-mit-perspektive-zurich-oerlikon-nsn-medical",
+        "dipl-infirmier-en-oncologie-60-100-zurich-avec-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
+        "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-zurich",
+        "medizinische-r-praxisassistent-in-80-100-zurich-mit-perspektive-zurich-oerlikon-nsn",
+        "medizinische-r-praxisassistent-in-80-100-zurich-oerlikon-nsn-medical-onkologie"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-onkologie-60-100-zurich-mit-perspektive-zurich-oerlikon-nsn-medical",
@@ -491,15 +500,6 @@
           "dipl-infirmier-en-oncologie-60-100-zurich-avec-perspective-zurich-oerlikon-nsn-medical-group-onkologie"
         ]
       },
-      "previousSlugs": [
-        "dipl-infermiere-oncologia-60-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-onkologie",
-        "dipl-oncology-nurse-60-100-zurich-with-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
-        "dipl-pflegefachperson-onkologie-60-100-zurich-mit-perspektive-zurich-oerlikon-nsn-medical",
-        "dipl-infirmier-en-oncologie-60-100-zurich-avec-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
-        "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-zurich",
-        "medizinische-r-praxisassistent-in-80-100-zurich-mit-perspektive-zurich-oerlikon-nsn",
-        "medizinische-r-praxisassistent-in-80-100-zurich-oerlikon-nsn-medical-onkologie"
-      ],
       "firstSeenAt": "2026-05-19T21:02:06.529Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -547,7 +547,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/830/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:27:00.762Z",
+      "crawledAt": "2026-10-23T09:21:19.251Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -655,7 +655,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/823/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:27:00.098Z",
+      "crawledAt": "2026-10-23T09:21:18.636Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -734,7 +734,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/836/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:26:59.465Z",
+      "crawledAt": "2026-10-23T09:21:18.027Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -823,7 +823,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/838/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:26:58.696Z",
+      "crawledAt": "2026-10-23T09:21:17.319Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -900,7 +900,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/839/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:26:58.293Z",
+      "crawledAt": "2026-10-23T09:21:16.728Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -974,7 +974,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/840/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:26:57.686Z",
+      "crawledAt": "2026-10-23T09:21:16.156Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1043,13 +1043,12 @@
         "de": "Das Zentrum für Integrative Onkologie:\nWir begleiten Menschen mit Tumor- und Blutkrankheiten ganzheitlich – medizinisch, therapeutisch und menschlich. Unser Ansatz verbindet moderne Schulmedizin mit komplementären Therapien und stellt den Menschen konsequent in den Mittelpunkt. An unseren Standorten in Zürich, Winterthur, Uster, Richterswil, Glarus und Oerlikon arbeiten Ärztinnen und Ärzte, Pflegefachpersonen, Therapeutinnen und Therapeuten sowie administrative Mitarbeitende eng zusammen – interdisziplinär, respektvoll und auf Augenhöhe. Wir schaffen ein Umfeld, in dem Qualität, Zeit und Menschlichkeit nicht nur Worte sind, sondern täglich gelebt werden. Möchtest du eine Aufgabe, bei der du dein Organisationstalent einbringen und gleichzeitig Menschen in einer anspruchsvollen Lebenssituation begleiten kannst? Dann bist du bei uns genau richtig.\nZur Verstärkung unseres vielseitigen Teams im ZIO Zürich und Zürichsee in Richterswil, suchen wir per sofort oder nach Vereinbarung eine/n\n\nCo-Leitung Ernährungsberatung 80-100%\n\nDein Arbeitsalltag\n\n• Du begleitest unsere Patienten mit einer individuellen Ernährungstherapie, vorwiegend an den Standorten Richterswil und Zürich\n• Du berätst unsere Patienten in der ambulanten Ernährungsberatung in verschiedenen Fachbereichen kompetent und praxisnah\n• Du gestaltest und beteiligst dich mit Freude an Gruppenkursen, Vorträge und Workshops und bringst dein Fachwissen aktiv in unser interdisziplinäres Team ein\n• Du übernimmst die Co-Leitung für ein kleines Team von 3-4 Mitarbeitenden mit flacher Hierarchie und umfassender Einarbeitung mit Möglichkeit bei Wunsch die volle Leitungsfunktion zu übernehmen\n\nDas bringst Du mit\n\n• Du verfügst über eine von der Grundversicherung anerkannte Ausbildung in Ernährung und Diätetik (Diplom HF, BSc oder MSc)\n• Du bringst mindestens 2 Jahre Berufserfahrung in der klinischen und ambulanten Ernährungsberatung mit sowie eine Berufsausübungsbewilligung und Zulassung gemäss OKP\n• Du verfügst über Kenntnisse in der Ernährungstherapie von onkologischen Patienten, idealerweise auch in der enteralen und parenteralen Ernährung zu Hause\n• Du interessierst dich für naturheilkundliche Themen und integrative Therapieansätze\n• Du arbeitest selbständig, zuverlässig und flexibel und bist bereit, an verschiedenen Standorten tätig zu sein (vorwiegend Zürich und Richterswil, gelegentlich Glarus)\n• Du hast Freude an der Beratung und begegnest unseren Patienten mit Empathie und Engagement\n• Du hast bereits Führungserfahrung oder wünscht dir zukünftig mehr Verantwortung zu übernehmen\n\nDas bieten wir dir\n\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem innovativen, ganzheitlichen medizinischen Umfeld\n• Ein wertschätzendes und kollegiales Arbeitsumfeld mit Raum für eigene Ideen und die Mitgestaltung unserer Ernährungstherapie\n• Persönliche und langfristige Patientenbegleitung in enger interdisziplinärer Zusammenarbeit\n• Geregelte Arbeitszeiten (ohne Schicht- und Wochenendarbeit) und 5 Wochen Ferien\n• Attraktive Weiterbildungsmöglichkeiten sowie die Mitarbeit in einem interdisziplinären Team, das moderne Schulmedizin mit komplementären Therapien verbindet und Menschen ganzheitlich begleitet",
         "fr": "Centre d'oncologie intégrative :\nNous accompagnons les gens avec des tumeurs et des maladies du sang holistiquement – médicalement, thérapeutiquement et humainement. Notre approche combine la médecine conventionnelle moderne avec des thérapies complémentaires et se concentre constamment sur les gens. Sur nos sites de Zurich, Winterthur, Uster, Richterswil, Glarus et Oerlikon, médecins, infirmières, thérapeutes et personnel administratif travaillent en étroite collaboration – interdisciplinaire, respectueux et sur un pied d'égalité. Nous créons un environnement dans lequel la qualité, le temps et l'humanité ne sont pas seulement des mots, mais sont vécus quotidiennement. Voulez-vous une tâche dans laquelle vous pouvez contribuer à votre talent organisationnel tout en accompagnant les gens dans une situation de vie exigeante? Alors tu as raison avec nous.\nPour renforcer notre équipe polyvalente dans le ZIO Zurich et le lac de Zurich à Richterswil, nous recherchons\n\nCodirigeant conseil en nutrition 60-80 %\n\nVotre travail quotidien\n\n• Vous accompagnez nos patients avec une thérapie nutritionnelle individuelle, principalement à Richterswil et Zurich\n• Vous conseillez nos patients en consultation externe conseils nutritionnels dans divers domaines spécialisés avec compétence et pratiquement\n• Vous concevez et participez avec plaisir à des cours de groupe, des conférences et des ateliers et apportez activement votre expertise à notre équipe interdisciplinaire\n• Vous prenez en charge la cogestion pour une petite équipe de 3-4 employés avec une hiérarchie plate et une formation complète\n\nApporte ça avec toi.\n\n• Vous avez une formation d'assurance de base reconnue en nutrition et diététique (Diplome HF, BSc ou MSc)\n• Vous apportez au moins 2 ans d'expérience professionnelle dans le conseil en nutrition clinique et externe\n• Vous avez des connaissances en thérapie nutritionnelle des patients oncologiques, idéalement aussi en nutrition entérale et parentérale à la maison\n• Vous êtes intéressé par les sujets naturopathiques et les approches thérapeutiques intégratives\n• Vous travaillez de manière indépendante, fiable et flexible et êtes prêt à travailler à différents endroits (principalement Zurich et Richterswil, parfois Glarus)\n• Vous appréciez les conseils et rencontrez nos patients avec empathie et engagement\n• Vous avez déjà une expérience de leadership ou souhaitez assumer plus de responsabilités à l'avenir\n\nC'est ce que nous vous offrons.\n\n• Une activité variée et responsable dans un environnement médical innovant et holistique\n• Un environnement de travail reconnaissant et collégial avec de l'espace pour nos propres idées et la co-création de notre thérapie nutritionnelle\n• Soutien personnel et à long terme aux patients dans une coopération interdisciplinaire étroite\n• Heures normales de travail (à l'exclusion du travail posté et du travail du week-end) et 5 semaines de congé\n• Des possibilités de formation attrayantes ainsi que la participation à une équipe interdisciplinaire qui combine la médecine conventionnelle moderne avec des thérapies complémentaires et fournit des personnes d'accompagnement holistique"
       },
-      "needsRetranslation": false,
       "location": "Onkologie",
       "canton": "ZH",
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/841/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:26:57.053Z",
+      "crawledAt": "2026-10-23T09:21:15.755Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1092,7 +1091,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "nsn-medical-2d3baec128da",
@@ -1125,7 +1125,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/842/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:26:56.600Z",
+      "crawledAt": "2026-10-23T09:21:15.135Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",

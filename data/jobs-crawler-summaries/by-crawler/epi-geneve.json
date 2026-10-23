@@ -1,7 +1,7 @@
 {
   "key": "epi-geneve",
   "label": "Établissements publics pour l'intégration",
-  "generatedAt": "2026-10-22T21:14:42.692Z",
+  "generatedAt": "2026-10-23T09:17:09.161Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 1,
   "unchangedCount": 3,
-  "durationMs": 6061,
-  "avgDurationMs": 6061,
+  "durationMs": 5773,
+  "avgDurationMs": 5773,
   "durationHistory": [
-    6061
+    5773
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000155701879-place-de-stage-formation-pratique-delphinium-upsa-100-?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:14:16.301Z",
+      "crawledAt": "2026-10-23T09:16:39.921Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -127,7 +127,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000156720896-un-e-maitre-esse-d-atelier-menuiserie-spark-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:14:16.327Z",
+      "crawledAt": "2026-10-23T09:16:39.910Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Champ-des-Filles 4A",
@@ -170,7 +170,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000156295630--assistant-te-socio-educatif-ve-kaolin-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:14:16.324Z",
+      "crawledAt": "2026-10-23T09:16:39.875Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "streetAddress": "Avenue Adrien-Jeandin 36",
@@ -213,7 +213,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:14:16.306Z",
+      "crawledAt": "2026-10-23T09:16:39.838Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de Chêne 48",
@@ -245,5 +245,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }

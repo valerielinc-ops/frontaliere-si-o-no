@@ -15,6 +15,7 @@ import {
   createCrawlerGroupIds,
   deriveCrawlerGroupIdsFromContract,
 } from '../lib/crawler-generation-group-ids.mjs';
+import { canonicalJson } from '../lib/canonical-json-digest.mjs';
 import { WATCHDOG_RUNTIME_PATH, manifestDigest } from './translate-watchdog-pin.mjs';
 
 export const CRAWLER_WORKFLOW_FILES = [
@@ -232,6 +233,25 @@ function contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloa
     : payloads.get(path.basename(sitePath));
 }
 
+function compareManifestEntries(left, right) {
+  const leftKey = `${String(left?.path ?? '')}\u0000${String(left?.sitePath ?? '')}`;
+  const rightKey = `${String(right?.path ?? '')}\u0000${String(right?.sitePath ?? '')}`;
+  return leftKey < rightKey ? -1 : leftKey > rightKey ? 1 : 0;
+}
+
+/**
+ * The manifest's `files` array is a set of path mappings, not an ordered
+ * document. A clean merge of a persistent transport branch can interleave a
+ * corpus-side entry with the entries already carried by that branch. Compare
+ * that set canonically so the guard still rejects content changes while
+ * ignoring merge-only ordering and object-key churn.
+ */
+function canonicalManifestJson(manifest) {
+  const comparable = structuredClone(manifest);
+  if (Array.isArray(comparable.files)) comparable.files.sort(compareManifestEntries);
+  return canonicalJson(comparable);
+}
+
 /**
  * Consente rispetto a main soltanto le baseline crawler owned censite sopra.
  * Con `watchdogRuntimeDigest` (il digest del runtime del watchdog translate
@@ -295,7 +315,7 @@ export function assertCrawlerManifestDelta({
       baseEntry.baseline.corpus = watchdogRuntimeDigest;
     }
   }
-  if (JSON.stringify(currentManifest) !== JSON.stringify(expected)) {
+  if (canonicalManifestJson(currentManifest) !== canonicalManifestJson(expected)) {
     throw new Error('crawler transport changed loop-sync manifest outside its owned baselines');
   }
 }

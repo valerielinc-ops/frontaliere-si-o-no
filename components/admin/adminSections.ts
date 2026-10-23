@@ -15,7 +15,7 @@ export interface AdminSection {
   planned?: boolean;
 }
 
-export const ADMIN_SECTIONS = [
+export const ADMIN_SECTIONS: readonly AdminSection[] = [
   {
     slug: '',
     label: 'Oggi',
@@ -90,7 +90,7 @@ export const ADMIN_SECTIONS = [
     description: 'Registro operativo (in arrivo).',
     planned: true,
   },
-] as const satisfies readonly AdminSection[];
+];
 
 /** Live section slugs. Planned Fase 3 sections are intentionally excluded. */
 export const ADMIN_SECTION_SLUGS = ADMIN_SECTIONS

@@ -10,7 +10,15 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { fetchHtml, normalizeSpace, slugify, stripHtml } from './crawler-template.mjs';
+import {
+  fetchHtml,
+  isConnectionLevelFetchError,
+  normalizeSpace,
+  slugify,
+  stripHtml,
+  WAF_IP_BLOCK_STATUS,
+} from './crawler-template.mjs';
+import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
@@ -282,12 +290,50 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
+/**
+ * Keep the official-host redirect guard while rescuing runner egress failures.
+ * `fetchHtml` cannot use its shared Jina fallback when a redirect validator is
+ * present; ZAUGG's source-backed URL/body checks still validate the fallback
+ * response, and a failed rescue rethrows the original error.
+ */
+async function fetchZauggPage(
+  url,
+  {
+    timeoutMs = 20000,
+    fetchHtmlImpl = fetchHtml,
+    fetchJinaImpl = fetchHtmlViaJinaWithRetry,
+  } = {},
+) {
+  try {
+    const html = await fetchHtmlImpl(url, {
+      timeoutMs,
+      validateRedirectUrl: isTrustedDomain,
+      maxRedirects: 4,
+    });
+    if (looksLikeAntiBotChallenge(html)) {
+      console.warn(`  Direct fetch to ZAUGG ${url} returned a WAF challenge — retrying via Jina clean-IP proxy...`);
+      const rescued = await fetchJinaImpl(url, { timeoutMs });
+      if (rescued != null) return rescued;
+      throw new Error(`ZAUGG WAF challenge could not be rescued for ${url}`);
+    }
+    return html;
+  } catch (error) {
+    if (!isConnectionLevelFetchError(error) && !WAF_IP_BLOCK_STATUS.has(error?.status)) {
+      throw error;
+    }
+    console.warn(`  Direct fetch to ZAUGG ${url} failed (${error?.message || error}) — retrying via Jina clean-IP proxy...`);
+    const rescued = await fetchJinaImpl(url, { timeoutMs });
+    if (rescued != null) return rescued;
+    throw error;
+  }
+}
+
 /** Fetch and map only source-proven open welding vacancies. */
 export async function fetchAllZauggJobs(runtime = {}) {
   console.log(`🔍 Fetching ZAUGG AG jobs from ${CAREER_URL}`);
   const fetchPage = typeof runtime.fetchPage === 'function'
     ? runtime.fetchPage
-    : (url) => fetchHtml(url, { validateRedirectUrl: isTrustedDomain, maxRedirects: 4 });
+    : (url) => fetchZauggPage(url, runtime);
   const listingHtml = await fetchPage(CAREER_URL);
   const cards = extractZauggListingCards(listingHtml, CAREER_URL);
   const targets = cards.filter((card) => isZauggTargetRoleTitle(card.title));

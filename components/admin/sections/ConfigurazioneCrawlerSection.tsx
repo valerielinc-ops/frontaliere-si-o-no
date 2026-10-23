@@ -11,17 +11,20 @@ import type { JobsCrawlerConfigMeta, JobsCrawlerConfigState } from '@/components
 import {
   ADMIN_JOBS_CRAWLER_CONFIG_ENDPOINT,
   DEFAULT_JOBS_CRAWLER_CONFIG,
+  JOBS_CRAWLER_CONFIG_LIMITS,
   adminFunctionError,
   buildCrawlerConfigPayload,
   crawlerFormSignature,
   mapCrawlerConfig,
   normalizeHost,
   normalizeSeedMap,
+  parseNumberMap,
   parseJsonObject,
   parseListInput,
 } from '@/components/admin/lib/jobsCrawlerConfig';
 
 const emptyConfig = (): JobsCrawlerConfigState => ({ ...DEFAULT_JOBS_CRAWLER_CONFIG });
+const CRAWLER_CONFIG_LIMITS = JOBS_CRAWLER_CONFIG_LIMITS;
 
 export default function ConfigurazioneCrawlerSection() {
   const { user } = useAuth();
@@ -64,8 +67,8 @@ export default function ConfigurazioneCrawlerSection() {
         ...config,
         domainWhitelist: parseListInput(domainWhitelistText).map(normalizeHost).filter(Boolean),
         domainBlacklist: parseListInput(domainBlacklistText).map(normalizeHost).filter(Boolean),
-        companyPriorityByDomain: parseJsonObject(companyPriorityByDomainText),
-        companyPriorityByName: parseJsonObject(companyPriorityByNameText),
+        companyPriorityByDomain: parseNumberMap(companyPriorityByDomainText),
+        companyPriorityByName: parseNumberMap(companyPriorityByNameText),
         sourceSeedsByDomain: normalizeSeedMap(parseJsonObject(sourceSeedsByDomainText)),
         sourceSeedsByName: normalizeSeedMap(parseJsonObject(sourceSeedsByNameText)),
       };
@@ -200,8 +203,8 @@ export default function ConfigurazioneCrawlerSection() {
         <div className="px-4 pb-4 space-y-3">
           <p className="text-xs text-muted">Soglie minime per accettare un annuncio. Job sotto queste soglie vengono scartati.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <label className="text-sm text-subtle"><span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-xs text-muted">(4–10)</span></span><input type="number" inputMode="numeric" min={4} max={10} value={config.minQualityScore} onChange={(event) => setConfig((current) => ({ ...current, minQualityScore: Number(event.target.value) }))} aria-label="Punteggio qualità minimo" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
-            <label className="text-sm text-subtle"><span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-xs text-muted">(80–1200 car.)</span></span><input type="number" inputMode="numeric" min={80} max={1200} value={config.minDescriptionChars} onChange={(event) => setConfig((current) => ({ ...current, minDescriptionChars: Number(event.target.value) }))} aria-label="Lunghezza descrizione minima" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
+            <label className="text-sm text-subtle"><span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-xs text-muted">({CRAWLER_CONFIG_LIMITS.minQualityScore.min}–{CRAWLER_CONFIG_LIMITS.minQualityScore.max})</span></span><input type="number" inputMode="numeric" min={CRAWLER_CONFIG_LIMITS.minQualityScore.min} max={CRAWLER_CONFIG_LIMITS.minQualityScore.max} value={config.minQualityScore} onChange={(event) => setConfig((current) => ({ ...current, minQualityScore: Number(event.target.value) }))} aria-label="Punteggio qualità minimo" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
+            <label className="text-sm text-subtle"><span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-xs text-muted">({CRAWLER_CONFIG_LIMITS.minDescriptionChars.min}–{CRAWLER_CONFIG_LIMITS.minDescriptionChars.max} car.)</span></span><input type="number" inputMode="numeric" min={CRAWLER_CONFIG_LIMITS.minDescriptionChars.min} max={CRAWLER_CONFIG_LIMITS.minDescriptionChars.max} value={config.minDescriptionChars} onChange={(event) => setConfig((current) => ({ ...current, minDescriptionChars: Number(event.target.value) }))} aria-label="Lunghezza descrizione minima" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
           </div>
         </div>
       </details>
@@ -212,7 +215,7 @@ export default function ConfigurazioneCrawlerSection() {
           <p className="text-xs text-muted">Traduzione automatica annunci in IT/EN/DE/FR tramite LLM (free-first, paid fallback).</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <label className="text-sm text-subtle">Stato<button type="button" onClick={() => setConfig((current) => ({ ...current, aiLocalizationEnabled: !current.aiLocalizationEnabled }))} className={`mt-1 w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-stripe border text-sm font-medium ${config.aiLocalizationEnabled ? 'border-success-border bg-success-subtle text-success' : 'border-edge bg-surface-alt text-body'}`}>{config.aiLocalizationEnabled ? <ToggleRight size={16} /> : <ToggleLeft size={16} />}{config.aiLocalizationEnabled ? 'Attivo' : 'Disattivo'}</button></label>
-            <label className="text-sm text-subtle"><span className="flex items-center gap-1">Max job tradotti per run <span className="text-xs text-muted">(0–500)</span></span><input type="number" inputMode="numeric" min={0} max={500} value={config.aiLocalizationMaxJobsPerRun} onChange={(event) => setConfig((current) => ({ ...current, aiLocalizationMaxJobsPerRun: Number(event.target.value) }))} aria-label="Max job tradotti per run" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
+            <label className="text-sm text-subtle"><span className="flex items-center gap-1">Max job tradotti per run <span className="text-xs text-muted">({CRAWLER_CONFIG_LIMITS.aiLocalizationMaxJobsPerRun.min}–{CRAWLER_CONFIG_LIMITS.aiLocalizationMaxJobsPerRun.max})</span></span><input type="number" inputMode="numeric" min={CRAWLER_CONFIG_LIMITS.aiLocalizationMaxJobsPerRun.min} max={CRAWLER_CONFIG_LIMITS.aiLocalizationMaxJobsPerRun.max} value={config.aiLocalizationMaxJobsPerRun} onChange={(event) => setConfig((current) => ({ ...current, aiLocalizationMaxJobsPerRun: Number(event.target.value) }))} aria-label="Max job tradotti per run" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
           </div>
         </div>
       </details>
@@ -223,9 +226,9 @@ export default function ConfigurazioneCrawlerSection() {
           <p className="text-xs text-muted">Se la descrizione di un job è molto simile al run precedente, riusa le traduzioni già fatte (risparmia crediti AI).</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <label className="text-sm text-subtle">Stato<button type="button" onClick={() => setConfig((current) => ({ ...current, contentReuseEnabled: !current.contentReuseEnabled }))} className="mt-1 w-full inline-flex items-center justify-center gap-1 px-2 py-2 rounded-stripe border border-edge bg-surface-alt text-sm font-medium">{config.contentReuseEnabled ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}{config.contentReuseEnabled ? 'Attivo' : 'Disattivo'}</button></label>
-            <label className="text-sm text-subtle"><span>Similarità min <span className="text-xs text-muted">(0.70–1.00)</span></span><input type="number" min={0.7} max={1} step={0.01} value={config.contentReuseSimilarityThreshold} onChange={(event) => setConfig((current) => ({ ...current, contentReuseSimilarityThreshold: Number(event.target.value) }))} aria-label="Soglia similarità minima" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
-            <label className="text-sm text-subtle"><span>Char sorgente min <span className="text-xs text-muted">(120–8000)</span></span><input type="number" min={120} max={8000} value={config.contentReuseMinSourceChars} onChange={(event) => setConfig((current) => ({ ...current, contentReuseMinSourceChars: Number(event.target.value) }))} aria-label="Caratteri sorgente minimi" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
-            <label className="text-sm text-subtle"><span>Delta lunghezza max <span className="text-xs text-muted">(0.02–1.00)</span></span><input type="number" min={0.02} max={1} step={0.01} value={config.contentReuseMaxLengthDeltaRatio} onChange={(event) => setConfig((current) => ({ ...current, contentReuseMaxLengthDeltaRatio: Number(event.target.value) }))} aria-label="Delta lunghezza massimo" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
+            <label className="text-sm text-subtle"><span>Similarità min <span className="text-xs text-muted">({CRAWLER_CONFIG_LIMITS.contentReuse.similarityThreshold.min.toFixed(2)}–{CRAWLER_CONFIG_LIMITS.contentReuse.similarityThreshold.max.toFixed(2)})</span></span><input type="number" min={CRAWLER_CONFIG_LIMITS.contentReuse.similarityThreshold.min} max={CRAWLER_CONFIG_LIMITS.contentReuse.similarityThreshold.max} step={0.01} value={config.contentReuseSimilarityThreshold} onChange={(event) => setConfig((current) => ({ ...current, contentReuseSimilarityThreshold: Number(event.target.value) }))} aria-label="Soglia similarità minima" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
+            <label className="text-sm text-subtle"><span>Char sorgente min <span className="text-xs text-muted">({CRAWLER_CONFIG_LIMITS.contentReuse.minSourceChars.min}–{CRAWLER_CONFIG_LIMITS.contentReuse.minSourceChars.max})</span></span><input type="number" min={CRAWLER_CONFIG_LIMITS.contentReuse.minSourceChars.min} max={CRAWLER_CONFIG_LIMITS.contentReuse.minSourceChars.max} value={config.contentReuseMinSourceChars} onChange={(event) => setConfig((current) => ({ ...current, contentReuseMinSourceChars: Number(event.target.value) }))} aria-label="Caratteri sorgente minimi" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
+            <label className="text-sm text-subtle"><span>Delta lunghezza max <span className="text-xs text-muted">({CRAWLER_CONFIG_LIMITS.contentReuse.maxLengthDeltaRatio.min.toFixed(2)}–{CRAWLER_CONFIG_LIMITS.contentReuse.maxLengthDeltaRatio.max.toFixed(2)})</span></span><input type="number" min={CRAWLER_CONFIG_LIMITS.contentReuse.maxLengthDeltaRatio.min} max={CRAWLER_CONFIG_LIMITS.contentReuse.maxLengthDeltaRatio.max} step={0.01} value={config.contentReuseMaxLengthDeltaRatio} onChange={(event) => setConfig((current) => ({ ...current, contentReuseMaxLengthDeltaRatio: Number(event.target.value) }))} aria-label="Delta lunghezza massimo" className="mt-1 w-full px-3 py-2 rounded-stripe border border-edge bg-surface-alt text-strong" /></label>
           </div>
         </div>
       </details>

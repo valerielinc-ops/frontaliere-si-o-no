@@ -1,7 +1,7 @@
 {
   "key": "baloise",
   "label": "Baloise",
-  "generatedAt": "2026-10-22T21:50:20.341Z",
+  "generatedAt": "2026-10-23T09:50:06.542Z",
   "total": 8,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 3888,
-  "avgDurationMs": 3888,
+  "durationMs": 4502,
+  "avgDurationMs": 4502,
   "durationHistory": [
-    3888
+    4502
   ],
   "newJobs": [
     {
@@ -35,7 +35,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/integrationsspezialist-application-management-avaloq-w-m-d/116d073e-cdf0-4643-9d40-96ceb33abfe0",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:50:08.431Z",
+      "crawledAt": "2026-10-23T09:49:52.125Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -56,7 +56,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-22T21:50:08.431Z",
+      "firstSeenAt": "2026-10-23T09:49:52.125Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +80,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-private-banking-olten/baae08f3-884a-4f3f-8d20-b23c933fd676",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:50:08.457Z",
+      "crawledAt": "2026-10-23T09:49:52.148Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/senior-berater-w-m-d-private-banking-solothurn/5b8cd2c4-0f38-4f4b-9ca1-d5138b8d53f1",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:50:08.451Z",
+      "crawledAt": "2026-10-23T09:49:52.141Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/privatkundenberater-w-m-d-bank-region-solothurn/8b004cab-df59-4102-83a7-e23e3b3051b3",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:50:08.449Z",
+      "crawledAt": "2026-10-23T09:49:52.139Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -211,7 +211,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/6a4f2275-6594-4285-8822-2df7eb5c3751",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:50:08.456Z",
+      "crawledAt": "2026-10-23T09:49:52.146Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/424648d3-bf31-4bd0-8c27-9ffe638bb81c",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:50:08.455Z",
+      "crawledAt": "2026-10-23T09:49:52.144Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -295,7 +295,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-inbound-sowie-outbound-und-kundenzone-w-m-d/bc41dd02-7fc0-4f7c-a6a2-be1d122dd5e8",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:50:08.453Z",
+      "crawledAt": "2026-10-23T09:49:52.142Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -369,5 +369,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }

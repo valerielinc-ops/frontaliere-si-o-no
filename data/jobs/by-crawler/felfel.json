@@ -1,7 +1,7 @@
 {
   "crawlerKey": "felfel",
-  "assembledAt": "2026-10-22T21:13:19.301Z",
-  "runId": "39854064283",
+  "assembledAt": "2026-10-23T09:24:24.442Z",
+  "runId": "39929055991",
   "jobs": [
     {
       "id": "felfel-9db9f05a9193",
@@ -34,7 +34,7 @@
       "url": "https://felfel.jobs.personio.de/job/2798583",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:13:10.878Z",
+      "crawledAt": "2026-10-23T09:24:17.449Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -113,7 +113,7 @@
       "url": "https://felfel.jobs.personio.de/job/2816710",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:13:10.874Z",
+      "crawledAt": "2026-10-23T09:24:17.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -134,21 +134,6 @@
       "jobReqId": "2816710",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sales-development-representative-felfel-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sales-development-representative-felfel-zurich"
-        ],
-        "de": [
-          "sales-development-representative-felfel-zurich"
-        ],
-        "fr": [
-          "sales-development-representative-felfel-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:10:56.255Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -161,7 +146,22 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:10:56.255Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-development-representative-felfel-zurich"
+        ],
+        "de": [
+          "sales-development-representative-felfel-zurich"
+        ],
+        "fr": [
+          "sales-development-representative-felfel-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sales-development-representative-felfel-zurich"
+      ]
     },
     {
       "id": "felfel-226c133e0c14",
@@ -194,7 +194,7 @@
       "url": "https://felfel.jobs.personio.de/job/2842697",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:13:10.869Z",
+      "crawledAt": "2026-10-23T09:24:17.445Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -272,7 +272,7 @@
       "url": "https://felfel.jobs.personio.de/job/2834630",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:13:10.865Z",
+      "crawledAt": "2026-10-23T09:24:17.443Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -339,7 +339,7 @@
       "url": "https://felfel.jobs.personio.de/job/2842832",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:13:10.856Z",
+      "crawledAt": "2026-10-23T09:24:17.439Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -420,7 +420,7 @@
       "url": "https://felfel.jobs.personio.de/job/2829366",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:13:10.843Z",
+      "crawledAt": "2026-10-23T09:24:17.433Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -441,21 +441,6 @@
       "jobReqId": "2829366",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "commercial-trainee-lausanne-felfel-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "commercial-trainee-lausanne-felfel-lausanne"
-        ],
-        "en": [
-          "commercial-trainee-lausanne-felfel-lausanne"
-        ],
-        "de": [
-          "commercial-trainee-lausanne-felfel-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:10:56.237Z",
       "salaryMin": 57000,
       "salaryMax": 87500,
       "salarySource": "estimated",
@@ -468,7 +453,22 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:10:56.237Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-trainee-lausanne-felfel-lausanne"
+        ],
+        "en": [
+          "commercial-trainee-lausanne-felfel-lausanne"
+        ],
+        "de": [
+          "commercial-trainee-lausanne-felfel-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-trainee-lausanne-felfel-lausanne"
+      ]
     },
     {
       "id": "felfel-41e4094cd11d",
@@ -501,7 +501,7 @@
       "url": "https://felfel.jobs.personio.de/job/2829409",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:13:10.830Z",
+      "crawledAt": "2026-10-23T09:24:17.431Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -522,21 +522,6 @@
       "jobReqId": "2829409",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "commercial-trainee-felfel-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "commercial-trainee-felfel-zurich"
-        ],
-        "en": [
-          "commercial-trainee-felfel-zurich"
-        ],
-        "fr": [
-          "commercial-trainee-felfel-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:10:56.234Z",
       "salaryMin": 65500,
       "salaryMax": 100500,
       "salarySource": "estimated",
@@ -549,7 +534,22 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:10:56.234Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-trainee-felfel-zurich"
+        ],
+        "en": [
+          "commercial-trainee-felfel-zurich"
+        ],
+        "fr": [
+          "commercial-trainee-felfel-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-trainee-felfel-zurich"
+      ]
     },
     {
       "id": "felfel-fd30baf47bb7",
@@ -582,7 +582,7 @@
       "url": "https://felfel.jobs.personio.de/job/2626851",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:13:10.815Z",
+      "crawledAt": "2026-10-23T09:24:17.425Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
