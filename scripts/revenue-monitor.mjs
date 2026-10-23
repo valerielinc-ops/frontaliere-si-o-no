@@ -45,6 +45,7 @@ const SITE_URL = 'https://frontaliereticino.ch';
 // Publisher pricing constants — single source of truth mirrored from
 // services/publisherPricing.ts (drift-guarded by tests/publisher-pricing-mirror.test.ts).
 import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
+import { AD_CLIENT } from '../services/adsenseSlots.ts';
 // Canonical canary-ad gate (scripts/lib/canaryAd.mjs — single source of truth,
 // same helper used by newsletter/blast/job-alert broadcast gates).
 import { isCanaryJob } from './lib/canaryAd.mjs';
@@ -198,22 +199,22 @@ export async function getAdSenseToken() {
 // Il lag di 2 giorni vive in `lib/analytics-settled-window.mjs` (#7510): era
 // copiato a mano qui e in analytics-report, dove la copia mancante faceva
 // finire la finestra a oggi.
-export function last7Days() {
-  return settledWindow({ days: 7 });
+export function last7Days(now = new Date()) {
+  return settledWindow({ days: 7, now });
 }
 
 // ── AdSense (reports:generate) ──────────────────────────────
-async function fetchAdSenseReport(token) {
-  // 1. Discover the first AdSense account.
-  const acctRes = await fetch('https://adsense.googleapis.com/v2/accounts', {
+export async function fetchAdSenseReport(token, { fetchImpl = fetch, now = new Date() } = {}) {
+  // Target the site publisher from the shared registry, not an account-list index.
+  const account = `accounts/${AD_CLIENT.replace(/^ca-/, '')}`;
+  const accountRes = await fetchImpl(`https://adsense.googleapis.com/v2/${account}`, {
     headers: { Authorization: `Bearer ${token}` },
+    signal: AbortSignal.timeout(30_000),
   });
-  if (!acctRes.ok) throw new Error(`adsense accounts ${acctRes.status}: ${await acctRes.text()}`);
-  const acctData = await acctRes.json();
-  const account = acctData.accounts?.[0]?.name;
-  if (!account) throw new Error('No AdSense account available');
+  if (!accountRes.ok) throw new Error(`adsense account ${accountRes.status}`);
+  const accountData = await accountRes.json();
 
-  const { start, end } = last7Days();
+  const { start, end } = last7Days(now);
 
   // 2. Top-line totals (revenue, RPM, impressions) for the last 7 days.
   const params = new URLSearchParams();
@@ -229,8 +230,8 @@ async function fetchAdSenseReport(token) {
   }
 
   const totalsUrl = `https://adsense.googleapis.com/v2/${account}/reports:generate?${params}`;
-  const totalsRes = await fetch(totalsUrl, { headers: { Authorization: `Bearer ${token}` } });
-  if (!totalsRes.ok) throw new Error(`adsense totals ${totalsRes.status}: ${await totalsRes.text()}`);
+  const totalsRes = await fetchImpl(totalsUrl, { headers: { Authorization: `Bearer ${token}` }, signal: AbortSignal.timeout(30_000) });
+  if (!totalsRes.ok) throw new Error(`adsense totals ${totalsRes.status}`);
   const totals = await totalsRes.json();
   const row = totals.rows?.[0]?.cells || [];
   const revenue = Number(row[0]?.value ?? 0);
@@ -246,7 +247,7 @@ async function fetchAdSenseReport(token) {
   const dtParams = new URLSearchParams(params);
   dtParams.append('dimensions', 'PLATFORM_TYPE_NAME');
   const dtUrl = `https://adsense.googleapis.com/v2/${account}/reports:generate?${dtParams}`;
-  const dtRes = await fetch(dtUrl, { headers: { Authorization: `Bearer ${token}` } });
+  const dtRes = await fetchImpl(dtUrl, { headers: { Authorization: `Bearer ${token}` }, signal: AbortSignal.timeout(30_000) });
   let desktopRpm = null;
   if (dtRes.ok) {
     const dt = await dtRes.json();
@@ -261,7 +262,7 @@ async function fetchAdSenseReport(token) {
   const auParams = new URLSearchParams(params);
   auParams.append('dimensions', 'AD_UNIT_NAME');
   const auUrl = `https://adsense.googleapis.com/v2/${account}/reports:generate?${auParams}`;
-  const auRes = await fetch(auUrl, { headers: { Authorization: `Bearer ${token}` } });
+  const auRes = await fetchImpl(auUrl, { headers: { Authorization: `Bearer ${token}` }, signal: AbortSignal.timeout(30_000) });
   let authGateImpressions = null;
   if (auRes.ok) {
     const au = await auRes.json();
@@ -275,7 +276,15 @@ async function fetchAdSenseReport(token) {
 
   let manualSlotReport;
   try {
-    manualSlotReport = await fetchManualSlotReport({ token, account, start, end, domain: new URL(SITE_URL).hostname, accountTimeZone: acctData.accounts?.[0]?.timeZone?.id || null });
+    manualSlotReport = await fetchManualSlotReport({
+      token,
+      account,
+      start,
+      end,
+      domain: new URL(SITE_URL).hostname,
+      accountTimeZone: accountData.timeZone?.id || null,
+      fetchImpl,
+    });
   } catch (error) {
     manualSlotReport = { status: 'unmeasurable', reason: error.message };
   }

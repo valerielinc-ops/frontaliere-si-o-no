@@ -2,6 +2,8 @@ import { describe, expect, it, vi } from 'vitest';
 import { mkdtempSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { AD_CLIENT } from '../../services/adsenseSlots.ts';
+import { MANUAL_SLOT_DIMENSIONS, MANUAL_SLOT_METRICS } from '../../scripts/lib/adsense-manual-slot-report.mjs';
 
 // The script is pure ESM (.mjs). Its JSDoc-inferred exported types are too
 // strict for the mock-driven tests below (measureCls's injected guard and
@@ -16,6 +18,7 @@ const {
   buildComparisonRows,
   buildHistoryEntry,
   compare,
+  fetchAdSenseReport,
   measureCls,
   loadLatestPosthogBaseline,
   renderMarkdown,
@@ -26,10 +29,53 @@ const {
   buildComparisonRows: (current: any, baseline?: any) => Array<{ metric: string; verdict: string; baseline: unknown; current: unknown }>;
   buildHistoryEntry: (current: any, rows: Array<{ metric: string; verdict: string }>, dateStr: string) => Record<string, unknown>;
   compare: (current: number | null, baseline: number | null, opts?: { higherIsBetter?: boolean }) => { delta: number | null; deltaPct: number | null; verdict: string };
+  fetchAdSenseReport: (token: string, options?: { fetchImpl?: typeof fetch; now?: Date }) => Promise<any>;
   measureCls: (opts: { checkLivenessImpl?: unknown; ga4ClsImpl?: unknown; windowDays?: number; now?: Date }) => Promise<{ cls: any; warnings: string[]; errors: string[] }>;
   loadLatestPosthogBaseline: (file: string, source: string, options?: { now?: Date; maxAgeDays?: number }) => any;
   renderMarkdown: (rows: unknown[], current: any, baseline?: any) => string;
 };
+
+describe('revenue-monitor / AdSense account targeting', () => {
+  it('uses AD_CLIENT explicitly and passes that account time zone to the shared unit parser', async () => {
+    const now = new Date('2026-10-23T12:00:00.000Z');
+    const account = `accounts/${AD_CLIENT.replace(/^ca-/, '')}`;
+    const datePart = (value: string) => {
+      const [year, month, day] = value.split('-').map(Number);
+      return { year, month, day };
+    };
+    const manualReport = {
+      startDate: datePart('2026-10-15'),
+      endDate: datePart('2026-10-21'),
+      totalMatchedRows: '0',
+      headers: [...MANUAL_SLOT_DIMENSIONS, ...MANUAL_SLOT_METRICS].map((name) => ({
+        name,
+        ...(name === 'ESTIMATED_EARNINGS' ? { currencyCode: 'EUR' } : {}),
+      })),
+      rows: [],
+    };
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL) => {
+      const url = new URL(String(input));
+      if (url.pathname === `/v2/${account}`) return Response.json({ timeZone: { id: 'Europe/Rome' } });
+      expect(url.pathname).not.toBe('/v2/accounts');
+      expect(url.pathname).toContain(`/v2/${account}/reports:generate`);
+      const dimensions = url.searchParams.getAll('dimensions');
+      if (dimensions.includes('AD_UNIT_ID')) return Response.json(manualReport);
+      if (dimensions.includes('AD_UNIT_NAME')) return Response.json({ totalMatchedRows: '0', rows: [] });
+      if (dimensions.includes('PLATFORM_TYPE_NAME')) return Response.json({ rows: [] });
+      return Response.json({ currencyCode: 'EUR', rows: [{ cells: [{ value: '7' }, { value: '2' }, { value: '9' }] }] });
+    });
+
+    const report = await fetchAdSenseReport('test-token', { fetchImpl: fetchImpl as typeof fetch, now });
+
+    expect(fetchImpl.mock.calls[0][0]).toBe(`https://adsense.googleapis.com/v2/${account}`);
+    expect(fetchImpl.mock.calls).toHaveLength(5);
+    expect(report).toMatchObject({
+      account,
+      currencyCode: 'EUR',
+      manualSlotReport: { account, window: { start: '2026-10-15', end: '2026-10-21', accountTimeZone: 'Europe/Rome' } },
+    });
+  });
+});
 
 describe('revenue-monitor / compare()', () => {
   it('flags 🔴 regressed hard when metric drops more than 20%', () => {
