@@ -16,6 +16,7 @@ import {
 } from '@/build-plugins/adminDataPlugin';
 
 const ADMIN_ROOT = resolve(__dirname, '..', 'components', 'admin');
+const SERVICES_ROOT = resolve(__dirname, '..', 'services');
 const ROUTER_DATA_AVAILABLE = [
   'routerBlogData.ts', 'routerSwissData.ts', 'blogArticleIds.ts',
 ].every((file) => existsSync(resolve(__dirname, '..', 'services', file)));
@@ -23,6 +24,18 @@ const ALL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const EXPECTED_LIVE_SLUGS = [
   '', 'crawler', 'automazioni', 'configurazione-crawler', 'aziende', 'candidature',
   'redazione', 'giornalisti', 'newsletter', 'salute',
+] as const;
+const BASE_ADMIN_CLOUD_FUNCTIONS = [
+  'adminGithub',
+  'adminJobsCrawlerConfig',
+  'adminEmployerInsights',
+  'adminSendColdEmail',
+  'manageJournalistRole',
+  'manageRedazioneAdmin',
+  'geminiGenerate',
+  'manageAssistedApplicationAdmin',
+  'applicationConcierge',
+  'manageApplicationConcierge',
 ] as const;
 
 function adminFiles(root: string): string[] {
@@ -128,5 +141,16 @@ describe('admin fase 1 section boundaries', () => {
     for (const name of ['Oggi', 'Crawler', 'Automazioni', 'ConfigurazioneCrawler', 'Aziende', 'Candidature', 'Redazione', 'Giornalisti', 'Newsletter', 'Salute']) {
       expect(source).toContain(`const ${name}Section = lazy(() => import('./sections/${name}Section'))`);
     }
+  });
+});
+
+describe('admin Cloud Function endpoint parity', () => {
+  it('keeps every endpoint used by the base admin surface in an admin module or service', () => {
+    const source = [...adminFiles(ADMIN_ROOT), ...adminFiles(SERVICES_ROOT)]
+      .filter((file) => /\.(?:ts|tsx|js|mjs)$/.test(file))
+      .filter((file) => existsSync(file) && statSync(file).isFile())
+      .map((file) => readFileSync(file, 'utf8'))
+      .join('\n');
+    expect(BASE_ADMIN_CLOUD_FUNCTIONS.filter((endpoint) => !source.includes(endpoint))).toEqual([]);
   });
 });

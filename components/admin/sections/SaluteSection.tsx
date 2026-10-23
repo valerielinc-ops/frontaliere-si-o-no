@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AlertTriangle, CheckCircle2, Copy, Database, ExternalLink, ListChecks, RefreshCw } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, Copy, Database, ExternalLink, RefreshCw } from 'lucide-react';
 import { getSerpExperimentDiagnostics } from '@/services/seoService';
 import { CopyButton } from '@/components/admin/ui/CopyButton';
 import { HealthBadge } from '@/components/admin/ui/HealthBadge';
@@ -50,7 +50,6 @@ export default function SaluteSection() {
       ].map(([label, value]) => <div key={String(label)} className="bg-surface rounded-xl border border-edge p-4"><div className="text-xs text-muted mb-1">{label}</div><div className="text-2xl font-bold text-strong">{ownerStats.loading ? '…' : value ?? '—'}</div></div>)}</div>
       <div className="bg-surface rounded-xl border border-edge p-4 space-y-3"><h3 className="text-sm font-bold text-strong">File Pubblici Critici</h3>{Object.entries(ownerStats.publicFiles).map(([file, ok]) => <div key={file} className="flex items-center justify-between text-sm"><span className="font-mono text-body">/{file}</span><HealthBadge ok={ok} label={ok ? 'OK' : 'Missing'} /></div>)}</div>
       <div className="bg-surface rounded-xl border border-edge p-4 space-y-3"><h3 className="text-sm font-bold text-strong">Azioni Rapide Owner</h3><div className="flex flex-wrap gap-2"><CopyButton text="npm run build && npm run validate:structured-data && npm test" label="pipeline locale" /><CopyButton text="node scripts/send-newsletter.mjs --preview > /tmp/newsletter.html && open /tmp/newsletter.html" label="preview newsletter" /><a href="/sitemap.xml" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-accent-subtle text-accent"><ExternalLink size={12} />Apri sitemap.xml</a><a href="/robots.txt" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-accent-subtle text-accent"><ExternalLink size={12} />Apri robots.txt</a></div></div>
-      <div className="bg-surface rounded-xl border border-warning-border/50 p-4 space-y-3"><h3 className="text-sm font-bold text-warning flex items-center gap-2"><ListChecks size={16} />TODO — Da Implementare</h3><ul className="space-y-2 text-xs"><li className="flex items-start gap-2 p-2 rounded-lg bg-warning-subtle border border-warning-border/40"><span className="shrink-0 mt-0.5 w-4 h-4 rounded border-2 border-warning-border" /><div><a href="/digest-settimanale/" className="font-semibold text-warning hover:underline">Weekly Digest — Pagina Digest Settimanale</a><p className="text-muted mt-0.5">Implementare invio automatico del digest settimanale via newsletter: tasso CHF/EUR, nuovi articoli, offerte di lavoro, aggiornamenti fiscali. Collegare con Resend API e cron workflow.</p></div></li></ul></div>
     </div>
   );
 }

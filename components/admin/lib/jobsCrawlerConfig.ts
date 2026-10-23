@@ -1,18 +1,22 @@
 import type { JobsCrawlerConfigMeta, JobsCrawlerConfigState, WorkflowActionDefinition, WorkflowContext, CrawlerSummaryRow } from './adminTypes';
+import {
+  DEFAULT_WORKFLOW_EXPECTED_DURATION,
+  isExpectedWorkflowDuration,
+} from '@/services/adminWorkflowTimeout';
 
 export const ADMIN_JOBS_CRAWLER_CONFIG_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/adminJobsCrawlerConfig/';
 
 export const DEFAULT_JOBS_CRAWLER_CONFIG: JobsCrawlerConfigState = {
   domainWhitelist: [],
   domainBlacklist: [],
-  minQualityScore: 6,
-  minDescriptionChars: 160,
-  aiLocalizationEnabled: false,
-  aiLocalizationMaxJobsPerRun: 12,
+  minQualityScore: 4,
+  minDescriptionChars: 80,
+  aiLocalizationEnabled: true,
+  aiLocalizationMaxJobsPerRun: 500,
   contentReuseEnabled: true,
-  contentReuseSimilarityThreshold: 0.93,
+  contentReuseSimilarityThreshold: 0.7,
   contentReuseMinSourceChars: 220,
-  contentReuseMaxLengthDeltaRatio: 0.2,
+  contentReuseMaxLengthDeltaRatio: 0.02,
   companyPriorityByDomain: {},
   companyPriorityByName: {},
   sourceSeedsByDomain: {},
@@ -149,7 +153,9 @@ export async function loadCrawlerData(dataUrl: (path: string) => string): Promis
     context: 'jobs' as WorkflowContext,
     description: String(workflow.description || ''),
     details: String(workflow.details || ''),
-    expectedDuration: String(workflow.expectedDuration || '5-20 min'),
+    expectedDuration: isExpectedWorkflowDuration(String(workflow.expectedDuration || ''))
+      ? String(workflow.expectedDuration).trim()
+      : DEFAULT_WORKFLOW_EXPECTED_DURATION,
     schedule: workflow.schedule || undefined,
     summaryKey: workflow.summaryKey || null,
     defaultInputs: workflow.defaultInputs || undefined,
@@ -182,9 +188,9 @@ export function buildCrawlerConfigPayload(form: JobsCrawlerConfigState): JobsCra
     domainWhitelist: form.domainWhitelist,
     domainBlacklist: form.domainBlacklist,
     minQualityScore: Math.max(4, Math.min(10, Math.round(form.minQualityScore))),
-    minDescriptionChars: Math.max(80, Math.min(600, Math.round(form.minDescriptionChars))),
+    minDescriptionChars: Math.max(80, Math.min(1200, Math.round(form.minDescriptionChars))),
     aiLocalizationEnabled: Boolean(form.aiLocalizationEnabled),
-    aiLocalizationMaxJobsPerRun: Math.max(0, Math.min(100, Math.round(form.aiLocalizationMaxJobsPerRun))),
+    aiLocalizationMaxJobsPerRun: Math.max(0, Math.min(500, Math.round(form.aiLocalizationMaxJobsPerRun))),
     contentReuse: {
       enabled: Boolean(form.contentReuseEnabled),
       similarityThreshold: Math.max(0.7, Math.min(1, Number(form.contentReuseSimilarityThreshold))),

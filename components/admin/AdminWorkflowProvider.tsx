@@ -4,6 +4,10 @@ import { createAdminGithubClient, ADMIN_GITHUB_REPOSITORY } from './lib/githubCl
 import { formatDuration } from './lib/formatters';
 import type { WorkflowActionDefinition, WorkflowContext, WorkflowJobSummary, WorkflowRunState } from './lib/adminTypes';
 import {
+  DEFAULT_WORKFLOW_EXPECTED_DURATION,
+  expectedWorkflowTimeoutMs,
+} from '@/services/adminWorkflowTimeout';
+import {
   classifyWorkflowRunUiOutcome,
   dispatchWorkflowOnce,
   isWorkflowRunDispatchLocked,
@@ -132,13 +136,6 @@ function normalizeJob(job: any): WorkflowJobSummary {
   };
 }
 
-function expectedWorkflowTimeoutMs(expectedDuration: string): number {
-  const values = [...expectedDuration.matchAll(/(\d+(?:\.\d+)?)\s*(?:-|–)\s*(\d+(?:\.\d+)?)\s*min/gi)].flatMap((match) => [Number(match[1]), Number(match[2])]).filter(Number.isFinite);
-  const fallback = [...expectedDuration.matchAll(/(\d+(?:\.\d+)?)\s*min/gi)].map((match) => Number(match[1])).filter(Number.isFinite);
-  const expectedMinutes = Math.max(...(values.length ? values : fallback), 30);
-  return Math.min(120 * 60_000, Math.max(15 * 60_000, Math.ceil(expectedMinutes * 1.5 * 60_000)));
-}
-
 function stripAnsi(value: string): string {
   // eslint-disable-next-line no-control-regex
   return String(value || '').replace(/[\u001B\u009B][[\]()#;?]*(?:(?:(?:[a-zA-Z\d]*(?:;[a-zA-Z\d]*)*)?\u0007)|(?:(?:\d{1,4}(?:;\d{0,4})*)?[\dA-PR-TZcf-nq-uy=><~]))/g, '');
@@ -188,7 +185,7 @@ export function AdminWorkflowProvider({ children }: { children: ReactNode }) {
 
   const getWorkflowState = useCallback((workflowId: string) => stateRef.current[workflowId] || emptyState(), []);
   const getWorkflowDef = useCallback((workflowId: string): WorkflowActionDefinition => actionsRef.current.find((action) => action.id === workflowId) || {
-    id: workflowId, title: workflowId, context: 'jobs', description: 'Workflow manuale', details: 'Workflow custom avviato dal pannello Admin.', expectedDuration: 'variabile',
+    id: workflowId, title: workflowId, context: 'jobs', description: 'Workflow manuale', details: 'Workflow custom avviato dal pannello Admin.', expectedDuration: DEFAULT_WORKFLOW_EXPECTED_DURATION,
   }, []);
 
   const request = useCallback(async (method: string, endpoint: string, body?: Record<string, unknown>, signal?: AbortSignal) => {
@@ -284,6 +281,7 @@ export function AdminWorkflowProvider({ children }: { children: ReactNode }) {
           const logExcerpt = await fetchLogExcerpt(primaryJobId, controller.signal);
           const errorMessage = String(run?.conclusion || '') !== 'success' ? failedJobs.length > 0 ? `Step critici: ${failedJobs.flatMap((job) => job.failedSteps).slice(0, 6).join(' | ') || 'vedi log run'}` : `Conclusione workflow: ${String(run?.conclusion || 'failure')}` : null;
           const finalState = { ...latestState, loading: false, error: errorMessage, logExcerpt };
+          if (!mountedRef.current) return finalState;
           setWorkflowState(workflowId, { loading: false, error: errorMessage, logExcerpt, aiPrompt: errorMessage ? buildAiPromptForWorkflow(workflow, finalState) : null });
           return finalState;
         }
@@ -381,6 +379,7 @@ export function AdminWorkflowProvider({ children }: { children: ReactNode }) {
           const updatedAt = String(run.updated_at || '') || null;
           const failedJobs = jobs.filter((job) => String(job.conclusion) === 'failure');
           const error = String(run.conclusion || '') !== 'success' && String(run.status || '') === 'completed' ? failedJobs.length > 0 ? `Step critici: ${failedJobs.flatMap((job) => job.failedSteps).slice(0, 6).join(' | ') || 'vedi log run'}` : `Conclusione workflow: ${String(run.conclusion || 'failure')}` : null;
+          if (!mountedRef.current) return;
           mergeWorkflowState(workflow.id, { runId: runId || null, runNumber: Number(run.run_number || 0) || null, htmlUrl: String(run.html_url || '') || null, status: String(run.status || 'idle'), conclusion: run.conclusion ? String(run.conclusion) : null, startedAt, updatedAt, completedAt: String(run.status || '') === 'completed' ? updatedAt : null, durationSeconds: startedAt && updatedAt ? Math.max(0, Math.round((Date.parse(updatedAt) - Date.parse(startedAt)) / 1000)) : null, jobs, error, message: jobs.length ? `Ultimo run: ${jobs.filter((job) => String(job.status) === 'completed').length}/${jobs.length} job completati${failedJobs.length ? ` · ${failedJobs.length} falliti` : ''}` : 'Ultimo run disponibile' });
         } catch {
           // Preserve a previous snapshot when one workflow cannot be read.
