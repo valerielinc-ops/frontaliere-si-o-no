@@ -623,7 +623,7 @@ describe('item demotato dal gate DOPO il marker (run 36212700029, 36202115664)',
     const lines: string[] = [];
     expect(verifyPersistenceCli(['9633'], { read: () => null, log: (l: string) => lines.push(l) })).toBe(false);
     expect(verifyPersistenceCli(['9633'], { read: () => JSON.stringify({ comments: [] }), log: (l: string) => lines.push(l) })).toBe(false);
-    expect(lines.every((line) => line.includes('senza marker di triage leggibile'))).toBe(true);
+    expect(lines.filter((line) => line.includes('senza marker di triage leggibile'))).toHaveLength(2);
   });
 });
 
