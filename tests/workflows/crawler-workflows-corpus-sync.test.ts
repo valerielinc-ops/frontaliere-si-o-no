@@ -827,6 +827,33 @@ fi
       expect(delta(entry('2222222222222222'), '3333333333333333')).toThrow(outsideOwned);
       // …e solo per `baseline.corpus`: nessun altro campo della voce puo' cambiare.
       expect(delta(entry('2222222222222222', 'reason riscritta'), '2222222222222222')).toThrow(outsideOwned);
+
+      // Una branch persistente puo' ricevere un record corpus-side in mezzo ai
+      // mapping già trasportati quando il suo merge con main è pulito. L'ordine
+      // non è parte del contratto, ma una mutazione del record resta vietata.
+      const reordered = JSON.parse(prepared);
+      reordered.files.reverse();
+      expect(() => assertCrawlerManifestDelta({
+        baseManifest: { files: [entry('1111111111111111')] },
+        currentManifest: reordered,
+      })).not.toThrow();
+
+      const baseWithCorpusEntry = {
+        files: [
+          { path: 'generator/data/corpus-owned.json', mode: 'corpus-only', reason: 'stable' },
+          entry('1111111111111111'),
+        ],
+      };
+      const mutatedCorpusEntry = JSON.parse(prepared);
+      mutatedCorpusEntry.files.push({
+        path: 'generator/data/corpus-owned.json',
+        mode: 'corpus-only',
+        reason: 'changed outside transport ownership',
+      });
+      expect(() => assertCrawlerManifestDelta({
+        baseManifest: baseWithCorpusEntry,
+        currentManifest: mutatedCorpusEntry,
+      })).toThrow(outsideOwned);
     } finally {
       fs.rmSync(tmp, { recursive: true, force: true });
     }
