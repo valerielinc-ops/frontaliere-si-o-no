@@ -219,7 +219,7 @@ function formatUtf8Tail(encoded, maxBytes, truncated) {
 
 function responseChunkView(value) {
   if (value == null) return Buffer.alloc(0);
-  if (value instanceof ArrayBuffer) return Buffer.from(value);
+  if (value instanceof ArrayBuffer) return Buffer.from(value.slice(0));
   if (ArrayBuffer.isView(value)) {
     return Buffer.from(value.buffer, value.byteOffset, value.byteLength);
   }
