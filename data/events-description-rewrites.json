@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-22T23:15:48.265Z",
+  "generatedAt": "2026-10-23T00:19:22.869Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -43364,6 +43364,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T10:19:47.850Z"
     },
+    "guidle:AvsEugS::ab8e27039d4d8278954d92707a406cd6025ad07f7e213700a300259bc5c37d0c": {
+      "id": "guidle:AvsEugS",
+      "sourceDescriptionHash": "ab8e27039d4d8278954d92707a406cd6025ad07f7e213700a300259bc5c37d0c",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Linde Heiden; comune: Heiden; cantone: AR; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-01-23; ora: 20:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Linde Heiden; comune: Heiden; cantone: AR; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-01-23; ora: 20:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Linde Heiden; municipality: Heiden; canton: AR; category: Pop generalmente; organiser: Guidle; date: 2027-01-23; time: 20:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Linde Heiden; gemeinde: Heiden; kanton: AR; kategorie: Pop generalmente; veranstalter: Guidle; datum: 2027-01-23; uhrzeit: 20:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Linde Heiden; commune: Heiden; canton: AR; catégorie: Pop generalmente; organisateur: Guidle; date: 2027-01-23; heure: 20:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-23T00:16:01.974Z"
+    },
     "guidle:AvsUpKs::35217f011354465f1fbfac737f59badc0f510c5b2bf30c8fe38799b1771ae6fa": {
       "id": "guidle:AvsUpKs",
       "sourceDescriptionHash": "35217f011354465f1fbfac737f59badc0f510c5b2bf30c8fe38799b1771ae6fa",
@@ -47563,6 +47577,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T09:16:47.912Z"
+    },
+    "guidle:AYZ5WgX::114c64dd932c794e4235e00a58e2971225acdcb696136b725c862eea2bae2ff1": {
+      "id": "guidle:AYZ5WgX",
+      "sourceDescriptionHash": "114c64dd932c794e4235e00a58e2971225acdcb696136b725c862eea2bae2ff1",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Gemeindezentrum Schwanden; cantone: GL; categoria: Rock'n'Roll; organizzatore: Guidle; partecipante: Vollgas los; data: 2027-01-23; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Gemeindezentrum Schwanden; cantone: GL; categoria: Rock'n'Roll; organizzatore: Guidle; partecipante: Vollgas los; data: 2027-01-23; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Gemeindezentrum Schwanden; canton: GL; category: Rock'n'Roll; organiser: Guidle; participant: Vollgas los; date: 2027-01-23; time: 19:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Gemeindezentrum Schwanden; kanton: GL; kategorie: Rock'n'Roll; veranstalter: Guidle; mitwirkender: Vollgas los; datum: 2027-01-23; uhrzeit: 19:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Gemeindezentrum Schwanden; canton: GL; catégorie: Rock'n'Roll; organisateur: Guidle; participant: Vollgas los; date: 2027-01-23; heure: 19:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-23T00:16:01.993Z"
     },
     "guidle:AYZ7EJc::aea57ef0d5a60eec99039865ae15c60ead54fd40bd78340b189fda66ec332d7b": {
       "id": "guidle:AYZ7EJc",
@@ -168643,15 +168671,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AvsEugS::ab8e27039d4d8278954d92707a406cd6025ad07f7e213700a300259bc5c37d0c": {
-      "id": "guidle:AvsEugS",
-      "sourceDescriptionHash": "ab8e27039d4d8278954d92707a406cd6025ad07f7e213700a300259bc5c37d0c",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-22T20:19:30.506Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AVVgxp4::cecf25d12689de837bfc1b2db4d132aa374b7784725460f59dc5fa2e3b853b47": {
       "id": "guidle:AVVgxp4",
       "sourceDescriptionHash": "cecf25d12689de837bfc1b2db4d132aa374b7784725460f59dc5fa2e3b853b47",
@@ -169009,15 +169028,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T20:27:02.828Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AYZ5WgX::114c64dd932c794e4235e00a58e2971225acdcb696136b725c862eea2bae2ff1": {
-      "id": "guidle:AYZ5WgX",
-      "sourceDescriptionHash": "114c64dd932c794e4235e00a58e2971225acdcb696136b725c862eea2bae2ff1",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-22T20:19:03.561Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
