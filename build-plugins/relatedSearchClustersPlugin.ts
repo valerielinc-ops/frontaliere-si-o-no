@@ -4333,17 +4333,18 @@ function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
  */
 export interface ForeignDirectoryIndex {
   hasFile(filePath: string): Promise<boolean>;
+  hasRegularFile(filePath: string): Promise<boolean>;
   hasSymlink(filePath: string): Promise<boolean>;
 }
 
 export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIndex {
   let inventory: Promise<{
-    files: ReadonlySet<string>;
+    regularFiles: ReadonlySet<string>;
     symlinks: ReadonlySet<string>;
   }> | null = null;
 
   const loadInventory = (): Promise<{
-    files: ReadonlySet<string>;
+    regularFiles: ReadonlySet<string>;
     symlinks: ReadonlySet<string>;
   }> => {
     if (inventory) return inventory;
@@ -4351,18 +4352,23 @@ export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIn
     inventory = fs.promises
       .readdir(distDir, { recursive: true, withFileTypes: true })
       .then((entries) => {
-        const files = new Set<string>();
+        const regularFiles = new Set<string>();
         const symlinks = new Set<string>();
         for (const entry of entries) {
           const filePath = path.resolve(entry.parentPath, entry.name);
           if (entry.isSymbolicLink()) symlinks.add(filePath);
-          else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) files.add(filePath);
+          else if (entry.isFile()) {
+            regularFiles.add(filePath);
+          }
         }
-        return { files, symlinks };
+        return { regularFiles, symlinks };
       })
       .catch((error: unknown) => {
         if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
-          return { files: new Set<string>(), symlinks: new Set<string>() };
+          return {
+            regularFiles: new Set<string>(),
+            symlinks: new Set<string>(),
+          };
         }
         throw error;
       });
@@ -4372,7 +4378,12 @@ export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIn
 
   return {
     hasFile(filePath: string): Promise<boolean> {
-      return loadInventory().then(({ files }) => files.has(path.resolve(filePath)));
+      return loadInventory().then(({ regularFiles }) =>
+        path.basename(filePath).toLowerCase().endsWith('.html') &&
+        regularFiles.has(path.resolve(filePath)));
+    },
+    hasRegularFile(filePath: string): Promise<boolean> {
+      return loadInventory().then(({ regularFiles }) => regularFiles.has(path.resolve(filePath)));
     },
     hasSymlink(filePath: string): Promise<boolean> {
       return loadInventory().then(({ symlinks }) => symlinks.has(path.resolve(filePath)));
@@ -4403,6 +4414,7 @@ async function probeForeignPresentPage(
 
   const candidates: string[] = [];
   const routeFile = await index.hasFile(routePath);
+  if (await index.hasRegularFile(routePath) && !routeFile) return { kind: 'non-html' };
   if (routeFile && path.extname(urlPath).toLowerCase() === '.html') candidates.push(routePath);
   if (await index.hasFile(indexPath) || await index.hasSymlink(indexPath)) candidates.push(indexPath);
   if (await index.hasFile(flatPath) || await index.hasSymlink(flatPath)) candidates.push(flatPath);
