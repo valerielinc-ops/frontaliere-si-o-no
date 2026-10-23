@@ -12,7 +12,7 @@ function writeExecutable(path: string, source: string) {
   chmodSync(path, 0o755);
 }
 
-function setup({ acquireFails = false, verifyFails = false, namespace = 'blog' } = {}) {
+function setup({ acquireFails = false, verifyFails = false, namespace = 'blog', dateOutput = null } = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'cdn-image-lease-'));
   tempDirs.push(dir);
   const binDir = join(dir, 'bin');
@@ -71,6 +71,11 @@ esac
 printf 'copy\\n' >> "$LEASE_TEST_EVENTS"
 exit 0
 `);
+  if (dateOutput !== null) {
+    writeExecutable(join(binDir, 'date'), `#!/bin/sh
+printf '%s\\n' ${JSON.stringify(dateOutput)}
+`);
+  }
   writeExecutable(join(binDir, 'timeout'), `#!/bin/sh
 if [ "$1" = "-k" ]; then shift 2; fi
 shift
@@ -145,5 +150,14 @@ describe('upload-cdn-file image namespace lease integration', () => {
     const verificationFailure = setup({ verifyFails: true });
     runUpload(verificationFailure, 'images/blog/article/hero.webp', verificationFailure.context);
     expect(events(verificationFailure)).toEqual(['verify:blog']);
+  });
+
+  it('skips recovery when date succeeds with non-decimal output', () => {
+    const fixture = setup({ dateOutput: 'not-a-timestamp' });
+
+    const output = runUpload(fixture, 'images/blog/article/hero.webp');
+
+    expect(output).toMatch(/recovery timestamp.*not a positive decimal/u);
+    expect(events(fixture)).toEqual([]);
   });
 });
