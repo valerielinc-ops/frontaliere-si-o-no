@@ -310,7 +310,6 @@
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur",
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-c84xy3",
           "magazziniere-a-logistico-a-in-loco-swiss-armed-forces-vtg-chur",
-          "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur",
           "addetto-a-alla-logistica-per-il-magazzino-esterno-swiss-armed-forces-vtg-chur"
         ],
         "en": [
@@ -324,7 +323,6 @@
         "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur",
         "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-c84xy3",
         "magazziniere-a-logistico-a-in-loco-swiss-armed-forces-vtg-chur",
-        "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur",
         "addetto-a-alla-logistica-per-il-magazzino-esterno-swiss-armed-forces-vtg-chur"
       ],
       "salaryMin": 57500,
@@ -340,7 +338,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-4kx1j0",
@@ -13017,7 +13016,6 @@
         "fr": "logistiker-in-swiss-armed-forces-vtg-kloten-ez8ksa"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "8302",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
@@ -13095,7 +13093,6 @@
         "fr": "rz-techniker-in-tga-mechanik-swiss-armed-forces-vtg-bern-340dwu"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "rz-techniker-in-tga-mechanik-swiss-armed-forces-vtg-bern"
@@ -13245,7 +13242,6 @@
         "fr": "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
@@ -13321,7 +13317,6 @@
         "fr": "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-swiss-armed-forces-vtg-hinwil-5aqdpc"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "8340",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
@@ -13396,7 +13391,6 @@
         "de": "ict-architekt-in-iii-senior-ict-systems-architect-swiss-armed-forces-vtg-bern-nbnqjr",
         "fr": "ict-architekt-in-iii-senior-ict-systems-architecte-swiss-armed-forces-vtg-bern-nbnqjr"
       },
-      "needsRetranslation": true,
       "sourceLang": "de",
       "postalCode": "3004",
       "addressLocality": "Bern",
