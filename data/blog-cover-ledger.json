@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 797,
+      "5": 809,
       "6": 5054
     },
-    "publishedCovers": 7534,
+    "publishedCovers": 7546,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207008,6 +207008,402 @@
         "provider": "openai-codex",
         "assetId": "article-voto-iva-2028-pensione",
         "imageUrl": "/images/blog/article-voto-iva-2028-pensione.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bristenstrasse-regimi-traffico-2026": {
+      "cover": "/images/blog/article-bristenstrasse-regimi-traffico-2026.webp",
+      "hash": "2ce6c2121febbb97b17a20e840bd26f596da4a9c4df0182df00958de9bfebca1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "bristenstrasse-regimi-traffico-2026",
+          "category": "pratico",
+          "date": "2026-10-23T12:29:59.834Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bristenstrasse-regimi-traffico-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bristenstrasse-regimi-traffico-2026",
+        "imageUrl": "/images/blog/article-bristenstrasse-regimi-traffico-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-controlli-distrazione-zurigo": {
+      "cover": "/images/blog/article-controlli-distrazione-zurigo.webp",
+      "hash": "dc44a7a0ffe59bbda4721a3eb12b7be2aff690826f30453b926aab3a035302df",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "controlli-distrazione-zurigo",
+          "category": "novita",
+          "date": "2026-10-23T12:21:12.761Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-controlli-distrazione-zurigo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-controlli-distrazione-zurigo",
+        "imageUrl": "/images/blog/article-controlli-distrazione-zurigo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-coop-aumento-salari-2027": {
+      "cover": "/images/blog/article-coop-aumento-salari-2027.webp",
+      "hash": "0babf7b2d2a7bddf85e58e917a6e848c3e2d0f055af199097251c2d4f9418512",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "coop-aumento-salari-2027",
+          "category": "pratico",
+          "date": "2026-10-23T12:36:39.649Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-coop-aumento-salari-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-coop-aumento-salari-2027",
+        "imageUrl": "/images/blog/article-coop-aumento-salari-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-finanzkommission-k-rzt-kredit-digitalisierung": {
+      "cover": "/images/blog/article-finanzkommission-k-rzt-kredit-digitalisierung.webp",
+      "hash": "6aa715f41c74ba1c49d7bf5f48b1b4042f4627d3a30139bbdcad07f62bf12563",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "finanzkommission-k-rzt-kredit-digitalisierung",
+          "category": "fiscale",
+          "date": "2026-10-23T14:42:31.186Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-finanzkommission-k-rzt-kredit-digitalisierung.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-finanzkommission-k-rzt-kredit-digitalisierung",
+        "imageUrl": "/images/blog/article-finanzkommission-k-rzt-kredit-digitalisierung.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-questionario-frontalieri-ticino-condizioni-lavoro": {
+      "cover": "/images/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.webp",
+      "hash": "43d7bdf85b0fce3080d896f0a83dc5f1ded06f818837d0ee1a8e3c7dd68ba51b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "questionario-frontalieri-ticino-condizioni-lavoro",
+          "category": "novita",
+          "date": "2026-10-23T09:28:26.287Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-questionario-frontalieri-ticino-condizioni-lavoro",
+        "imageUrl": "/images/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rafforzamento-paghe-frontalieri": {
+      "cover": "/images/blog/article-rafforzamento-paghe-frontalieri.webp",
+      "hash": "ac1d9336f5cb3d711d6c5d97b6a4c182aade3c35e8359f65f265f83f145b6ec4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ti",
+          "id": "rafforzamento-paghe-frontalieri",
+          "category": "novita",
+          "date": "2026-10-23T10:32:20.964Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rafforzamento-paghe-frontalieri.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rafforzamento-paghe-frontalieri",
+        "imageUrl": "/images/blog/article-rafforzamento-paghe-frontalieri.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rbh-herisau-piu-risorse": {
+      "cover": "/images/blog/article-rbh-herisau-piu-risorse.webp",
+      "hash": "fa153bf4a4b64f68b761f1babfab6973eb69feba8b22e04c050fd32c07661917",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "rbh-herisau-piu-risorse",
+          "category": "novita",
+          "date": "2026-10-23T12:58:04.345Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rbh-herisau-piu-risorse.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rbh-herisau-piu-risorse",
+        "imageUrl": "/images/blog/article-rbh-herisau-piu-risorse.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rhb-albula-chiusura-thusis-preda": {
+      "cover": "/images/blog/article-rhb-albula-chiusura-thusis-preda.webp",
+      "hash": "efad35214f4f79ebef34aa51b05f69373288a95da07758f0db1997eefb40f676",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "rhb-albula-chiusura-thusis-preda",
+          "category": "pratico",
+          "date": "2026-10-23T12:26:06.032Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rhb-albula-chiusura-thusis-preda.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rhb-albula-chiusura-thusis-preda",
+        "imageUrl": "/images/blog/article-rhb-albula-chiusura-thusis-preda.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-wetzikon-binzacher-kempten-info": {
+      "cover": "/images/blog/article-wetzikon-binzacher-kempten-info.webp",
+      "hash": "0db35dee6ffd1df199f4eb042bfd0a0669e7dc0970a9d420511854f4bf5ae783",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "wetzikon-binzacher-kempten-info",
+          "category": "pratico",
+          "date": "2026-10-23T13:48:03.003Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-wetzikon-binzacher-kempten-info.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-wetzikon-binzacher-kempten-info",
+        "imageUrl": "/images/blog/article-wetzikon-binzacher-kempten-info.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-wil-sedute-novembre-2026": {
+      "cover": "/images/blog/article-wil-sedute-novembre-2026.webp",
+      "hash": "ef526b9a2c14bd3d9bbd0133975955a940c9776dd90254cc45b92a8b6c8fec00",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "wil-sedute-novembre-2026",
+          "category": "novita",
+          "date": "2026-10-23T08:59:08.998Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-wil-sedute-novembre-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-wil-sedute-novembre-2026",
+        "imageUrl": "/images/blog/article-wil-sedute-novembre-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-winterthur-voto-energia": {
+      "cover": "/images/blog/article-winterthur-voto-energia.webp",
+      "hash": "e49a4886f857a808f9867886a2912d2f6ff74c6029f690173da4ac8005df68ce",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "winterthur-voto-energia",
+          "category": "novita",
+          "date": "2026-10-23T13:26:45.327Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-winterthur-voto-energia.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-winterthur-voto-energia",
+        "imageUrl": "/images/blog/article-winterthur-voto-energia.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zurigo-budget-sans-papiers": {
+      "cover": "/images/blog/article-zurigo-budget-sans-papiers.webp",
+      "hash": "59d91000b2576a9196cd8cd51b3ed667e78dd652f546d865110861f1146655a9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "zurigo-budget-sans-papiers",
+          "category": "novita",
+          "date": "2026-10-23T13:07:18.456Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zurigo-budget-sans-papiers.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zurigo-budget-sans-papiers",
+        "imageUrl": "/images/blog/article-zurigo-budget-sans-papiers.webp",
         "evidence": "generated-engine-record"
       }
     }
