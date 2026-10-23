@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-10-22T21:47:57.841Z",
-  "runId": "39856271430",
+  "assembledAt": "2026-10-23T09:49:59.103Z",
+  "runId": "39930988141",
   "jobs": [
     {
       "id": "bobst-f254d67b8a12",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:51.475Z",
+      "crawledAt": "2026-10-23T09:49:52.496Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,7 +151,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:47:50.628Z",
+      "crawledAt": "2026-10-23T09:49:51.679Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -232,7 +232,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:49.835Z",
+      "crawledAt": "2026-10-23T09:49:50.843Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -312,7 +312,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:47:49.054Z",
+      "crawledAt": "2026-10-23T09:49:49.991Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -394,7 +394,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:47:48.270Z",
+      "crawledAt": "2026-10-23T09:49:49.118Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -491,7 +491,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9221/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:47.444Z",
+      "crawledAt": "2026-10-23T09:49:48.515Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -509,6 +509,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
+      "previousSlugs": [
+        "apprenti-automaticien-ne-bobst-ch",
+        "apprenti-automaticien-ne-bobst-switzerland-mex"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "apprenti-automaticien-ne-bobst-switzerland-mex"
@@ -523,10 +527,6 @@
           "apprenti-automaticien-ne-bobst-ch"
         ]
       },
-      "previousSlugs": [
-        "apprenti-automaticien-ne-bobst-ch",
-        "apprenti-automaticien-ne-bobst-switzerland-mex"
-      ],
       "firstSeenAt": "2026-09-26T14:13:51.733Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -576,7 +576,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9220/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:46.648Z",
+      "crawledAt": "2026-10-23T09:49:47.643Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -657,7 +657,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9222/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:45.860Z",
+      "crawledAt": "2026-10-23T09:49:46.804Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -675,6 +675,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
+      "previousSlugs": [
+        "apprenti-polymecanicien-ne-bobst-ch",
+        "apprenti-polymecanicien-ne-bobst-switzerland-mex"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "apprenti-polymecanicien-ne-bobst-switzerland-mex"
@@ -689,10 +693,6 @@
           "apprenti-polymecanicien-ne-bobst-ch"
         ]
       },
-      "previousSlugs": [
-        "apprenti-polymecanicien-ne-bobst-ch",
-        "apprenti-polymecanicien-ne-bobst-switzerland-mex"
-      ],
       "firstSeenAt": "2026-09-26T14:13:50.166Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -742,7 +742,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9223/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:45.050Z",
+      "crawledAt": "2026-10-23T09:49:45.949Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -827,7 +827,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9225/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:44.248Z",
+      "crawledAt": "2026-10-23T09:49:45.092Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -907,7 +907,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9227/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:43.433Z",
+      "crawledAt": "2026-10-23T09:49:44.245Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -925,6 +925,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
+      "previousSlugs": [
+        "apprenti-mediamaticien-ne-bobst-ch",
+        "apprenti-mediamaticien-ne-bobst-switzerland-mex"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "apprenti-mediamaticien-ne-bobst-switzerland-mex"
@@ -939,10 +943,6 @@
           "apprenti-mediamaticien-ne-bobst-ch"
         ]
       },
-      "previousSlugs": [
-        "apprenti-mediamaticien-ne-bobst-ch",
-        "apprenti-mediamaticien-ne-bobst-switzerland-mex"
-      ],
       "firstSeenAt": "2026-09-26T14:13:47.720Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -991,7 +991,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9228/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:42.651Z",
+      "crawledAt": "2026-10-23T09:49:43.387Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1072,7 +1072,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9229/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:41.818Z",
+      "crawledAt": "2026-10-23T09:49:42.554Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1153,7 +1153,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9230/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:41.025Z",
+      "crawledAt": "2026-10-23T09:49:41.974Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1228,7 +1228,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9231/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:40.228Z",
+      "crawledAt": "2026-10-23T09:49:41.112Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1309,7 +1309,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6267/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:39.394Z",
+      "crawledAt": "2026-10-23T09:49:40.259Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1390,7 +1390,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9224/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:38.586Z",
+      "crawledAt": "2026-10-23T09:49:39.390Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1408,6 +1408,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
+      "previousSlugs": [
+        "apprenti-logisitcien-ne-bobst-ch",
+        "apprenti-logisitcien-ne-bobst-switzerland-mex"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "apprenti-logisitcien-ne-bobst-switzerland-mex"
@@ -1422,10 +1426,6 @@
           "apprenti-logisitcien-ne-bobst-ch"
         ]
       },
-      "previousSlugs": [
-        "apprenti-logisitcien-ne-bobst-ch",
-        "apprenti-logisitcien-ne-bobst-switzerland-mex"
-      ],
       "firstSeenAt": "2026-09-26T14:13:43.067Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -1475,7 +1475,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9307/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:47:37.770Z",
+      "crawledAt": "2026-10-23T09:49:38.540Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1556,7 +1556,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8728/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:36.891Z",
+      "crawledAt": "2026-10-23T09:49:37.932Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1631,13 +1631,12 @@
         "de": "Leiter Sales Excellence\n\nHauptzuständigkeiten\n• Führen Sie die globale Sales Excellence-Agenda an und fördern Sie harmonisierte Verkaufsprozesse, Methoden und Tools in allen Regionen und Branchen.\n• Definieren und priorisieren Sie Verbesserungen des Verkaufsprozesses, um die Übereinstimmung mit den Geschäftsanforderungen und den Erwartungen der Stakeholder sicherzustellen.\n• Förderung der Bereitstellung, Einführung und kontinuierlichen Verbesserung von Verkaufsprozessen und Best Practices weltweit.\n• Führen Sie die Strategie, Governance und Optimierung von kommerziellen Tools, einschließlich CRM, Vertriebsautomatisierung und Analyseplattformen.\n• Verantwortlich für Kundenzufriedenheit / Customer Experience, einschließlich NPS und Televerkauf\n• Etablieren und pflegen Sie hohe Standards für Datenqualität, Integrität und Governance in kommerziellen Systemen.\n• Zusammenarbeit mit Geschäfts- und IT-Teams, um skalierbare Vertriebslösungen zu implementieren und die Benutzerakzeptanz zu maximieren.\n• Definieren und verwalten Sie Vertriebsleistungsframeworks, KPIs, Dashboards und Berichtsprozesse, die auf die Geschäftsstrategie ausgerichtet sind.\n• Erleichterung von Leistungsüberprüfungen, Ermittlung von Verbesserungsmöglichkeiten und Förderung des Austauschs bewährter Verfahren über Regionen hinweg.\n• Fördern Sie eine Kultur der Verkaufsexzellenz durch die Verbesserung der kommerziellen Fähigkeiten, Onboarding-Programme und Schulungsinitiativen.\n• Definieren und implementieren Sie globale Sales Enablement-Programme, Kompetenz-Frameworks, Zertifizierungspfade, Onboarding-Prozesse und Wissensaustauschplattformen.\n• Unterstützen und coachen Sie regionale Teams durch Fachwissen in Verkaufsmethoden, Tools und Verhandlungspraktiken.\n• Führen Sie die Transformation hin zu einem einheitlichen Verkaufsprozess, einem CRM-Ökosystem und einem Lösungsverkaufsansatz im gesamten Unternehmen.\n\nKompetenzen und Fähigkeiten\n• Bewährte Führungsrolle bei Sales Excellence und Transformationsinitiativen.\n• Starkes Stakeholder-Management und Einfluss auf Fähigkeiten in einem globalen Matrix-Umfeld.\n• Expertise in CRM, Vertriebsprozessen und kaufmännischem Performance Management.\n• Datengesteuerte Denkweise mit starken analytischen und Problemlösungsfähigkeiten.\n• Change Management und kontinuierliche Verbesserungskompetenz.\n• Starke Projektmanagement- und Ausführungsfähigkeiten.\n• Hervorragende Kommunikation und Zusammenarbeit Fähigkeiten.\n• Strategischer Denker mit praktischem Ansatz und kundenorientierter Denkweise.\n• Know-how für Vertriebsmethoden\n• Digital Transformation Leadership\n• Customer Journey Management\n\nBevorzugte Qualifikationen\n• Master-Abschluss in Business Administration, Marketing, Engineering oder verwandten Bereich.\n• Bedeutende Erfahrung in Sales Excellence, Commercial Excellence, Sales Operations oder Sales Transformation Rollen.\n• Erfahrung in einem multinationalen Industrie- oder B2B-Umfeld.\n• Demonstrierte Erfolg führenden CRM und Sales Transformation Projekte auf globaler Ebene.\n• Englisch fließend; zusätzliche Sprachen sind ein Gewinn.",
         "fr": "Chef de l'excellence des ventes\n\nPrincipales responsabilités\n• Diriger le programme d'excellence des ventes à l'échelle mondiale, en dirigeant des processus, des méthodologies et des outils de vente harmonisés dans toutes les régions et toutes les industries.\n• Définir et prioriser les améliorations du processus de vente, en assurant l'alignement sur les besoins opérationnels et les attentes des intervenants.\n• Favoriser le déploiement, l'adoption et l'amélioration continue des processus de vente et des meilleures pratiques dans le monde entier.\n• Diriger la stratégie, la gouvernance et l'optimisation des outils commerciaux, y compris le CRM, l'automatisation des ventes et les plateformes d'analyse.\n• Responsable de la satisfaction de la clientèle / Expérience client, y compris les NPS, et les ventes de télé\n• Établir et maintenir des normes élevées de qualité, d'intégrité et de gouvernance des données dans les systèmes commerciaux.\n• Partenaire avec les équipes d'affaires et d'informatique pour mettre en œuvre des solutions de vente évolutives et maximiser l'adoption des utilisateurs.\n• Définir et régir les cadres de rendement des ventes, les ICR, les tableaux de bord et les processus de rapport alignés sur la stratégie opérationnelle.\n• Faciliter les examens du rendement, cerner les possibilités d'amélioration et promouvoir le partage des pratiques exemplaires entre les régions.\n• Favoriser une culture de l'excellence commerciale en améliorant les capacités commerciales, les programmes d'embarquement et les initiatives de formation.\n• Définir et déployer des programmes mondiaux d'activation des ventes, des cadres de compétences, des voies de certification, des processus d'embarquement et des plateformes de partage des connaissances.\n• Soutenir et coacher les équipes régionales par l'expertise en méthodes de vente, outils et pratiques de négociation.\n• Diriger la transformation vers un processus de vente unifié, un écosystème de CRM et une approche de vente de solutions dans l'ensemble de l'organisation.\n\nCompétences et capacités\n• Un leadership éprouvé dans les initiatives d'excellence commerciale et de transformation.\n• Gestion efficace des parties prenantes et influence les compétences dans un environnement matriciel mondial.\n• Expertise en CRM, processus de vente et gestion des performances commerciales.\n• Un état d'esprit fondé sur les données, doté de solides capacités d'analyse et de résolution de problèmes.\n• Gestion du changement et expertise en amélioration continue.\n• Fortes compétences en gestion de projet et en exécution.\n• Excellente capacité de communication et de collaboration.\n• Penseur stratégique avec une approche pratique et une mentalité centrée sur le client.\n• Méthodologie des ventes Expertise\n• Leadership en matière de transformation numérique\n• Gestion du parcours client\n\nQualifications privilégiées\n• Maîtrise en administration des affaires, marketing, ingénierie ou domaine connexe.\n• Expérience importante en matière d'excellence en ventes, d'excellence commerciale, d'opérations de vente ou de transformation des ventes.\n• Expérience dans un environnement industriel multinational ou B2B.\n• Succès démontré menant des projets de CRM et de transformation des ventes à l'échelle mondiale.\n• Connaissance de l'anglais; les langues supplémentaires constituent un atout."
       },
-      "needsRetranslation": false,
       "location": "Switzerland (Mex)",
       "canton": "VD",
       "url": "https://jobs.bobst.com/Vacancies/9329/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:47:36.036Z",
+      "crawledAt": "2026-10-23T09:49:37.039Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1655,21 +1654,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Customer Service",
-      "firstSeenAt": "2026-10-22T09:36:54.861Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-sales-excellence-bobst-ch"
-        ],
-        "de": [
-          "head-of-sales-excellence-bobst-ch"
-        ],
-        "fr": [
-          "head-of-sales-excellence-bobst-ch"
-        ]
-      },
-      "previousSlugs": [
-        "head-of-sales-excellence-bobst-ch"
-      ],
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -1684,7 +1668,23 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-22T09:36:54.861Z",
+      "needsRetranslation": false,
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-sales-excellence-bobst-ch"
+        ],
+        "de": [
+          "head-of-sales-excellence-bobst-ch"
+        ],
+        "fr": [
+          "head-of-sales-excellence-bobst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-sales-excellence-bobst-ch"
+      ]
     }
   ]
 }

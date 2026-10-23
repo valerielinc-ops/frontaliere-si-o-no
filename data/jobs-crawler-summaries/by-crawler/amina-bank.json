@@ -1,7 +1,7 @@
 {
   "key": "amina-bank",
   "label": "AMINA Bank",
-  "generatedAt": "2026-10-22T21:50:35.557Z",
+  "generatedAt": "2026-10-23T09:50:30.937Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5490,
-  "avgDurationMs": 5490,
+  "durationMs": 5953,
+  "avgDurationMs": 5953,
   "durationHistory": [
-    5490
+    5953
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://amina.jobs.personio.com/job/2842159",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:50:23.667Z",
+      "crawledAt": "2026-10-23T09:50:13.897Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -55,7 +55,7 @@
       "salaryMax": 192000,
       "salarySource": "estimated",
       "addressRegion": "ZG",
-      "firstSeenAt": "2026-10-22T21:50:23.667Z",
+      "firstSeenAt": "2026-10-23T09:50:13.897Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,7 +78,7 @@
       "url": "https://amina.jobs.personio.com/job/2752820",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:50:23.101Z",
+      "crawledAt": "2026-10-23T09:50:12.773Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://amina.jobs.personio.com/job/2840347",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:50:23.378Z",
+      "crawledAt": "2026-10-23T09:50:13.066Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:50:22.360Z",
+      "crawledAt": "2026-10-23T09:50:12.467Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -194,5 +194,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }
