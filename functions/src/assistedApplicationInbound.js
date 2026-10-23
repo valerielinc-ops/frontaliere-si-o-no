@@ -330,7 +330,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         },
         recipient: { email: to },
         meta: { orderId, key: 'employer_message_forward' },
-      }], { delayMs: 0, forceProvider: attachments.length ? 'resend' : 'maileroo' });
+      }], { delayMs: 0, forceProvider: 'maileroo' });
       forwarded = failed.length ? { status: 'failed', error: String(failed[0].error || '').slice(0, 120) } : { status: 'sent', provider: sent[0]?.provider || null };
     }
 
