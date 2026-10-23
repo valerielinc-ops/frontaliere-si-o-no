@@ -13580,6 +13580,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.voto-iva-2028-pensione.title': '13e AVS : vote sur la TVA, hypothèse à 8,5% dès 2028',
     'blog.article.voto-iva-2028-pensione.excerpt': 'Le taux normal de TVA passerait de 8,1 à 8,5%.',
     'blog.article.voto-iva-2028-pensione.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.title': 'Travailleurs frontaliers : bon salaire, trop de trajets',
+    'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.excerpt': '1.542 réponses en ligne recueillies en mai 2026 73% satisfaits du salaire 31,7% plus d’une heure et demie de trajet chaque jour 76,9% ne déménageraient pas',
+    'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

@@ -13579,6 +13579,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.voto-iva-2028-pensione.title': '13esima AVS: voto sull\'Iva, ipotesi all\'8,5% dal 2028',
     'blog.article.voto-iva-2028-pensione.excerpt': 'L\'aliquota normale Iva passerebbe dall\'8,1 all\'8,5%.',
     'blog.article.voto-iva-2028-pensione.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.title': 'Questionario frontalieri: stipendio ok ma troppi spostamenti',
+    'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.excerpt': '1.542 risposte online raccolte nel maggio 2026 73% soddisfatto dello stipendio 31,7% oltre un\'ora e mezza in viaggio ogni giorno 76,9% non si trasferirebbe',
+    'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
