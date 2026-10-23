@@ -136,6 +136,7 @@ describe('cathedral-seo-gates-check.yml wiring', () => {
   const workflow = YAML.parse(
     readFileSync(join(process.cwd(), '.github/workflows/cathedral-seo-gates-check.yml'), 'utf8'),
   );
+  const checkJob = workflow.jobs.check as Record<string, unknown>;
   const steps = workflow.jobs.check.steps as Array<Record<string, unknown>>;
   const improvements = steps.find((s) => s.id === 'improvements')!;
 
@@ -164,5 +165,11 @@ describe('cathedral-seo-gates-check.yml wiring', () => {
     const runs = steps.map((s) => String(s.run ?? '')).join('\n');
     expect(runs).not.toContain(':rebaseline');
     expect(workflow.permissions.contents).toBe('read');
+  });
+
+  it('does not replay scheduled deploy reconcilers as Pages sources', () => {
+    const condition = String(checkJob.if);
+    expect(condition).toContain("github.event_name != 'workflow_run'");
+    expect(condition).toContain("github.event.workflow_run.event != 'schedule'");
   });
 });
