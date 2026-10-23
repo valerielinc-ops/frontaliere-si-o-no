@@ -270,6 +270,10 @@ export function decodeStaticString(raw, quote, options = {}) {
       case 'n': value += newlineAs; break;
       case 'r': break;
       case 't': value += tabAs; break;
+      case 'b': value += '\b'; break;
+      case 'f': value += '\f'; break;
+      case 'v': value += '\v'; break;
+      case '0': value += '\0'; break;
       case '\\': value += '\\'; break;
       case "'": value += "'"; break;
       case '"': value += '"'; break;

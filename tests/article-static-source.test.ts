@@ -13,6 +13,7 @@ import {
   readArticleSlugs,
 } from '../packages/articles/engine/shared/articleReaders';
 import {
+  decodeStaticString,
   findTopLevelObjects,
   parseStaticSource,
   readStaticObjectProperties,
@@ -32,6 +33,11 @@ function moduleWith(properties: string, trailing = ''): string {
 }
 
 describe('static article TypeScript source reader', () => {
+  it('shares TypeScript control escape decoding with the literal reader', () => {
+    expect(decodeStaticString(String.raw`a\b\f\v\0z`, "'"))
+      .toBe(`a\b\f\v\0z`);
+  });
+
   it('reads decoded literal values from the typed default-export record', () => {
     const faq = JSON.stringify(JSON.stringify([{ q: 'Question?', a: 'First\\nsecond' }]));
     const source = moduleWith([
