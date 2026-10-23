@@ -1,7 +1,7 @@
 {
   "crawlerKey": "imad",
-  "assembledAt": "2026-10-22T21:30:47.871Z",
-  "runId": "39855391629",
+  "assembledAt": "2026-10-23T09:22:16.067Z",
+  "runId": "39930216323",
   "jobs": [
     {
       "id": "imad-67a5f98c64ef",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000152844358-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:30:41.800Z",
+      "crawledAt": "2026-10-23T09:22:11.410Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000152842623-assc-en-soins-a-domicile-80-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:30:41.799Z",
+      "crawledAt": "2026-10-23T09:22:11.411Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -210,7 +210,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000152843981-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:30:41.797Z",
+      "crawledAt": "2026-10-23T09:22:11.409Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000152850324-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:30:41.796Z",
+      "crawledAt": "2026-10-23T09:22:11.405Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -379,7 +379,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000155675491-coordinateur-trice-sociale-e-en-iepa-immeuble-rive-droite-a-100-en-cdi-parcours-social-souhaite-",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:30:41.795Z",
+      "crawledAt": "2026-10-23T09:22:11.394Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -459,7 +459,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000154020848-civiliste-conseiller-ere-assistant-e-aux-clients-de-la-securite-a-domicile-sta-100-minimum-6-mois-",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:30:41.793Z",
+      "crawledAt": "2026-10-23T09:22:11.402Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -540,7 +540,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000155913930-infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-en-cdm-12-mois",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:30:41.792Z",
+      "crawledAt": "2026-10-23T09:22:11.392Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -626,7 +626,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000155938339-infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:30:41.791Z",
+      "crawledAt": "2026-10-23T09:22:11.393Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -700,7 +700,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000155939000-infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:30:41.787Z",
+      "crawledAt": "2026-10-23T09:22:11.398Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -750,6 +750,83 @@
         }
       },
       "postalCode": "1204"
+    },
+    {
+      "id": "imad-f112bcf6ed16",
+      "slug": "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x-10mois-imad-geneva",
+      "slugByLocale": {
+        "fr": "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x",
+        "it": "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x-10mois-imad-geneva",
+        "en": "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x",
+        "de": "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Infirmiers.ères UATR (Unités d’accueil temporaire de répit) / à 80% / en CMD (1 x 7mois et 1 x 10mois)",
+      "titleByLocale": {
+        "fr": "Infirmiers.ères UATR (Unités d’accueil temporaire de répit) / à 80% / en CMD (1 x 7mois et 1 x 10mois)",
+        "it": "Infirmiers.ères UATR (Unités d’accueil temporaire de répit) / à 80% / en CMD (1 x 7mois et 1 x 10mois)",
+        "en": "Infirmiers.ères UATR (Unités d’accueil temporaire de répit) / à 80% / en CMD (1 x 7mois et 1 x 10mois)",
+        "de": "Infirmiers.ères UATR (Unités d’accueil temporaire de répit) / à 80% / en CMD (1 x 7mois et 1 x 10mois)"
+      },
+      "description": "Pour permettre aux proches aidants un temps de répit, les UATR proposent aux clients en âge AVS des séjours de courte durée et assurent des prestations dans la continuité de celles fournies à domicile. La prise en charge et l’accompagnement des clients s’adaptent à leur état de santé physique et psychique.\n L’UATR étant un service ouvert 24h/24h durant toute l’année, les horaires de travail sont en 3x8h.\n L’infirmier.ère travaille en interdisciplinarité sur un site d’affectation principale :\n\n• Rive droite : Mervelet, Petit-Saconnex (pour le CDM de 10 mois),\n\n• Rive Gauche : Villereuse, Genève 1207 (pour le CDM de 7 mois),\n L’infirmier.ère peut être amené.e à intervenir ponctuellement en renfort sur un des 3 autres sites en fonction des besoins du service (troisiéme site : Jumelles, Thônex).\n (Merci d'avance de bien communiquer sur votre courrier : votre date de disponibilité et pour quel(s) immeuble(s) vous postulez).\n Vos missions et responsabilités\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients en âge AVS\n\n• Exercer un rôle de référent de situation, de manière quotidienne, afin d’ajuster la prise en charge du client selon ses besoins et en agissant conformément aux principes du code déontologique professionnel infirmier\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants d’une situation d’un client donné en mobilisant toutes les ressources à disposition (tant du réseau primaire que professionnel)\n\n• Travailler en étroite collaboration avec les ASSC et les aides-soignants en leur délégant des soins issus de leur domaine de compétences\n\n• Assurer des transmissions écrites et orales des informations relatives aux clients accompagnés afin de permettre un suivi et une continuité dans la prise en charge du client\n\n• Participer à des activités de formation et de recherche dans le cadre des objectifs définis par la direction des pratiques professionnelles.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente, l’autorisation de pratique dans le canton\n\n• Minimum deux ans d’expérience professionnelle dans le milieu gériatrique\n\n• Connaissance du réseau de soins genevois\n\n• Expérience en psycho-gériatrie souhaitée\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution.\n\n• Entrée en fonction : dés que possible\n\n• Délai de postulatio : 8.11.2026\n\n• Veuillez svp joindre à votre dossier  :\n\n• un curriculum vitae à jour\n\n• une lettre de motivation\n\n• une copie de vos diplômes et vos certificats de travail.\n Nous considérons uniquement les dossiers de candidature complets.\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.\n Ce que nous offrons\n >> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\n Celles et ceux qui font l’IMAD\n >> \"cliquez ici pour rencontrer nos collaborateurs\"",
+      "descriptionByLocale": {
+        "fr": "Pour permettre aux proches aidants un temps de répit, les UATR proposent aux clients en âge AVS des séjours de courte durée et assurent des prestations dans la continuité de celles fournies à domicile. La prise en charge et l’accompagnement des clients s’adaptent à leur état de santé physique et psychique.\n L’UATR étant un service ouvert 24h/24h durant toute l’année, les horaires de travail sont en 3x8h.\n L’infirmier.ère travaille en interdisciplinarité sur un site d’affectation principale :\n\n• Rive droite : Mervelet, Petit-Saconnex (pour le CDM de 10 mois),\n\n• Rive Gauche : Villereuse, Genève 1207 (pour le CDM de 7 mois),\n L’infirmier.ère peut être amené.e à intervenir ponctuellement en renfort sur un des 3 autres sites en fonction des besoins du service (troisiéme site : Jumelles, Thônex).\n (Merci d'avance de bien communiquer sur votre courrier : votre date de disponibilité et pour quel(s) immeuble(s) vous postulez).\n Vos missions et responsabilités\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients en âge AVS\n\n• Exercer un rôle de référent de situation, de manière quotidienne, afin d’ajuster la prise en charge du client selon ses besoins et en agissant conformément aux principes du code déontologique professionnel infirmier\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants d’une situation d’un client donné en mobilisant toutes les ressources à disposition (tant du réseau primaire que professionnel)\n\n• Travailler en étroite collaboration avec les ASSC et les aides-soignants en leur délégant des soins issus de leur domaine de compétences\n\n• Assurer des transmissions écrites et orales des informations relatives aux clients accompagnés afin de permettre un suivi et une continuité dans la prise en charge du client\n\n• Participer à des activités de formation et de recherche dans le cadre des objectifs définis par la direction des pratiques professionnelles.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente, l’autorisation de pratique dans le canton\n\n• Minimum deux ans d’expérience professionnelle dans le milieu gériatrique\n\n• Connaissance du réseau de soins genevois\n\n• Expérience en psycho-gériatrie souhaitée\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution.\n\n• Entrée en fonction : dés que possible\n\n• Délai de postulatio : 8.11.2026\n\n• Veuillez svp joindre à votre dossier  :\n\n• un curriculum vitae à jour\n\n• une lettre de motivation\n\n• une copie de vos diplômes et vos certificats de travail.\n Nous considérons uniquement les dossiers de candidature complets.\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.\n Ce que nous offrons\n >> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\n Celles et ceux qui font l’IMAD\n >> \"cliquez ici pour rencontrer nos collaborateurs\"",
+        "it": "Pour permettre aux proches aidants un temps de répit, les UATR proposent aux clients en âge AVS des séjours de courte durée et assurent des prestations dans la continuité de celles fournies à domicile. La prise en charge et l’accompagnement des clients s’adaptent à leur état de santé physique et psychique.\n L’UATR étant un service ouvert 24h/24h durant toute l’année, les horaires de travail sont en 3x8h.\n L’infirmier.ère travaille en interdisciplinarité sur un site d’affectation principale :\n\n• Rive droite : Mervelet, Petit-Saconnex (pour le CDM de 10 mois),\n\n• Rive Gauche : Villereuse, Genève 1207 (pour le CDM de 7 mois),\n L’infirmier.ère peut être amené.e à intervenir ponctuellement en renfort sur un des 3 autres sites en fonction des besoins du service (troisiéme site : Jumelles, Thônex).\n (Merci d'avance de bien communiquer sur votre courrier : votre date de disponibilité et pour quel(s) immeuble(s) vous postulez).\n Vos missions et responsabilités\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients en âge AVS\n\n• Exercer un rôle de référent de situation, de manière quotidienne, afin d’ajuster la prise en charge du client selon ses besoins et en agissant conformément aux principes du code déontologique professionnel infirmier\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants d’une situation d’un client donné en mobilisant toutes les ressources à disposition (tant du réseau primaire que professionnel)\n\n• Travailler en étroite collaboration avec les ASSC et les aides-soignants en leur délégant des soins issus de leur domaine de compétences\n\n• Assurer des transmissions écrites et orales des informations relatives aux clients accompagnés afin de permettre un suivi et une continuité dans la prise en charge du client\n\n• Participer à des activités de formation et de recherche dans le cadre des objectifs définis par la direction des pratiques professionnelles.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente, l’autorisation de pratique dans le canton\n\n• Minimum deux ans d’expérience professionnelle dans le milieu gériatrique\n\n• Connaissance du réseau de soins genevois\n\n• Expérience en psycho-gériatrie souhaitée\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution.\n\n• Entrée en fonction : dés que possible\n\n• Délai de postulatio : 8.11.2026\n\n• Veuillez svp joindre à votre dossier  :\n\n• un curriculum vitae à jour\n\n• une lettre de motivation\n\n• une copie de vos diplômes et vos certificats de travail.\n Nous considérons uniquement les dossiers de candidature complets.\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.\n Ce que nous offrons\n >> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\n Celles et ceux qui font l’IMAD\n >> \"cliquez ici pour rencontrer nos collaborateurs\"",
+        "en": "Pour permettre aux proches aidants un temps de répit, les UATR proposent aux clients en âge AVS des séjours de courte durée et assurent des prestations dans la continuité de celles fournies à domicile. La prise en charge et l’accompagnement des clients s’adaptent à leur état de santé physique et psychique.\n L’UATR étant un service ouvert 24h/24h durant toute l’année, les horaires de travail sont en 3x8h.\n L’infirmier.ère travaille en interdisciplinarité sur un site d’affectation principale :\n\n• Rive droite : Mervelet, Petit-Saconnex (pour le CDM de 10 mois),\n\n• Rive Gauche : Villereuse, Genève 1207 (pour le CDM de 7 mois),\n L’infirmier.ère peut être amené.e à intervenir ponctuellement en renfort sur un des 3 autres sites en fonction des besoins du service (troisiéme site : Jumelles, Thônex).\n (Merci d'avance de bien communiquer sur votre courrier : votre date de disponibilité et pour quel(s) immeuble(s) vous postulez).\n Vos missions et responsabilités\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients en âge AVS\n\n• Exercer un rôle de référent de situation, de manière quotidienne, afin d’ajuster la prise en charge du client selon ses besoins et en agissant conformément aux principes du code déontologique professionnel infirmier\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants d’une situation d’un client donné en mobilisant toutes les ressources à disposition (tant du réseau primaire que professionnel)\n\n• Travailler en étroite collaboration avec les ASSC et les aides-soignants en leur délégant des soins issus de leur domaine de compétences\n\n• Assurer des transmissions écrites et orales des informations relatives aux clients accompagnés afin de permettre un suivi et une continuité dans la prise en charge du client\n\n• Participer à des activités de formation et de recherche dans le cadre des objectifs définis par la direction des pratiques professionnelles.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente, l’autorisation de pratique dans le canton\n\n• Minimum deux ans d’expérience professionnelle dans le milieu gériatrique\n\n• Connaissance du réseau de soins genevois\n\n• Expérience en psycho-gériatrie souhaitée\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution.\n\n• Entrée en fonction : dés que possible\n\n• Délai de postulatio : 8.11.2026\n\n• Veuillez svp joindre à votre dossier  :\n\n• un curriculum vitae à jour\n\n• une lettre de motivation\n\n• une copie de vos diplômes et vos certificats de travail.\n Nous considérons uniquement les dossiers de candidature complets.\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.\n Ce que nous offrons\n >> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\n Celles et ceux qui font l’IMAD\n >> \"cliquez ici pour rencontrer nos collaborateurs\"",
+        "de": "Pour permettre aux proches aidants un temps de répit, les UATR proposent aux clients en âge AVS des séjours de courte durée et assurent des prestations dans la continuité de celles fournies à domicile. La prise en charge et l’accompagnement des clients s’adaptent à leur état de santé physique et psychique.\n L’UATR étant un service ouvert 24h/24h durant toute l’année, les horaires de travail sont en 3x8h.\n L’infirmier.ère travaille en interdisciplinarité sur un site d’affectation principale :\n\n• Rive droite : Mervelet, Petit-Saconnex (pour le CDM de 10 mois),\n\n• Rive Gauche : Villereuse, Genève 1207 (pour le CDM de 7 mois),\n L’infirmier.ère peut être amené.e à intervenir ponctuellement en renfort sur un des 3 autres sites en fonction des besoins du service (troisiéme site : Jumelles, Thônex).\n (Merci d'avance de bien communiquer sur votre courrier : votre date de disponibilité et pour quel(s) immeuble(s) vous postulez).\n Vos missions et responsabilités\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients en âge AVS\n\n• Exercer un rôle de référent de situation, de manière quotidienne, afin d’ajuster la prise en charge du client selon ses besoins et en agissant conformément aux principes du code déontologique professionnel infirmier\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants d’une situation d’un client donné en mobilisant toutes les ressources à disposition (tant du réseau primaire que professionnel)\n\n• Travailler en étroite collaboration avec les ASSC et les aides-soignants en leur délégant des soins issus de leur domaine de compétences\n\n• Assurer des transmissions écrites et orales des informations relatives aux clients accompagnés afin de permettre un suivi et une continuité dans la prise en charge du client\n\n• Participer à des activités de formation et de recherche dans le cadre des objectifs définis par la direction des pratiques professionnelles.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente, l’autorisation de pratique dans le canton\n\n• Minimum deux ans d’expérience professionnelle dans le milieu gériatrique\n\n• Connaissance du réseau de soins genevois\n\n• Expérience en psycho-gériatrie souhaitée\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution.\n\n• Entrée en fonction : dés que possible\n\n• Délai de postulatio : 8.11.2026\n\n• Veuillez svp joindre à votre dossier  :\n\n• un curriculum vitae à jour\n\n• une lettre de motivation\n\n• une copie de vos diplômes et vos certificats de travail.\n Nous considérons uniquement les dossiers de candidature complets.\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.\n Ce que nous offrons\n >> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\n Celles et ceux qui font l’IMAD\n >> \"cliquez ici pour rencontrer nos collaborateurs\""
+      },
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000157398368-infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x-10mois-",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-23T09:22:11.388Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T07:16:28.014Z",
+      "postedDate": "2026-10-23T07:16:28.014Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000157398368-infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x-10mois-?oga=true",
+      "jobReqId": "744000157398368",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x"
+      ],
+      "salaryMin": 69200,
+      "salaryMax": 96400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69200,
+          "maxValue": 96400,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204",
+      "firstSeenAt": "2026-10-23T09:22:11.388Z"
     }
   ]
 }
