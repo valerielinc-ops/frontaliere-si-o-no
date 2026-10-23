@@ -13,7 +13,14 @@
 import { readFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { fetchHtml, normalizeSpace, slugify } from './crawler-template.mjs';
+import {
+  fetchHtml,
+  isConnectionLevelFetchError,
+  normalizeSpace,
+  slugify,
+  WAF_IP_BLOCK_STATUS,
+} from './crawler-template.mjs';
+import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 import { bodyTextOf } from './prospector/extract.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -366,11 +373,54 @@ export function isAsileDesAveuglesJob(job) {
     || fold(job?.company || '') === fold(ASILE_DES_AVEUGLES_COMPANY_NAME);
 }
 
+/**
+ * Fetch an official page while preserving the source URL guard.
+ *
+ * `fetchHtml()` deliberately skips its shared Jina fallback when a redirect
+ * validator is present, because a proxy would hide the effective redirect
+ * chain. This crawler needs that validator for the employer/platform handoff,
+ * but a connection-level failure has no redirect chain to validate. Rescue
+ * only that transport class (and the shared IP-reputation WAF statuses) via
+ * Jina; the careers/listing/detail parsers still validate every source-backed
+ * URL and body before publishing a job. If the rescue is unavailable, the
+ * original error is rethrown so the standard pipeline preserves the slice.
+ */
+async function fetchAsilePage(
+  url,
+  {
+    timeoutMs = 20000,
+    fetchHtmlImpl = fetchHtml,
+    fetchJinaImpl = fetchHtmlViaJinaWithRetry,
+  } = {},
+) {
+  try {
+    const html = await fetchHtmlImpl(url, {
+      timeoutMs,
+      validateRedirectUrl: isTrustedDomain,
+      maxRedirects: 4,
+    });
+    if (looksLikeAntiBotChallenge(html)) {
+      console.warn(`  Direct fetch to the Asile des aveugles ${url} returned a WAF challenge — retrying via Jina clean-IP proxy...`);
+      const rescued = await fetchJinaImpl(url, { timeoutMs });
+      if (rescued != null) return rescued;
+    }
+    return html;
+  } catch (error) {
+    if (!isConnectionLevelFetchError(error) && !WAF_IP_BLOCK_STATUS.has(error?.status)) {
+      throw error;
+    }
+    console.warn(`  Direct fetch to the Asile des aveugles ${url} failed (${error?.message || error}) — retrying via Jina clean-IP proxy...`);
+    const rescued = await fetchJinaImpl(url, { timeoutMs });
+    if (rescued != null) return rescued;
+    throw error;
+  }
+}
+
 /** Fetch only the target ASSC vacancy after proving the complete official chain. */
 export async function fetchAllAsileDesAveuglesJobs(runtime = {}) {
   const fetchPage = typeof runtime.fetchPage === 'function'
     ? runtime.fetchPage
-    : (url) => fetchHtml(url, { validateRedirectUrl: isTrustedDomain, maxRedirects: 4 });
+    : (url) => fetchAsilePage(url, runtime);
 
   console.log(`Fetching ${ASILE_DES_AVEUGLES_COMPANY_NAME} ASSC jobs`);
   const careersHtml = await fetchPage(ASILE_DES_AVEUGLES_CAREERS_URL);

@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   ASILE_DES_AVEUGLES_CAREERS_URL,
   ASILE_DES_AVEUGLES_KEY,
@@ -177,6 +177,42 @@ describe('Fondation Asile des aveugles source-backed crawler', () => {
       ASILE_DES_AVEUGLES_LISTING_URL,
       DETAIL_URL,
     ]);
+  });
+
+  it('rescues connection-level and 200-challenge fetches through Jina without weakening source validation', async () => {
+    const pages = new Map([
+      [ASILE_DES_AVEUGLES_CAREERS_URL, CAREERS_HTML],
+      [ASILE_DES_AVEUGLES_LISTING_URL, LISTING_HTML],
+      [DETAIL_URL, DETAIL_HTML],
+    ]);
+    const fetchHtmlImpl = vi.fn(async (url: string, options: { validateRedirectUrl?: (value: string) => void }) => {
+      options.validateRedirectUrl?.(url);
+      if (url === ASILE_DES_AVEUGLES_CAREERS_URL) {
+        return '<html><body>Just a moment...</body></html>';
+      }
+      throw new TypeError('fetch failed');
+    });
+    const fetchJinaImpl = vi.fn(async (url: string) => pages.get(url) || null);
+
+    const jobs = await fetchAllAsileDesAveuglesJobs({
+      fetchHtmlImpl,
+      fetchJinaImpl,
+      now: new Date('2026-10-15T12:00:00Z'),
+    });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].id).toBe('asile-des-aveugles-1919');
+    expect(fetchJinaImpl).toHaveBeenCalledWith(ASILE_DES_AVEUGLES_CAREERS_URL, { timeoutMs: 20000 });
+    expect(fetchJinaImpl).toHaveBeenCalledWith(ASILE_DES_AVEUGLES_LISTING_URL, { timeoutMs: 20000 });
+    expect(fetchJinaImpl).toHaveBeenCalledWith(DETAIL_URL, { timeoutMs: 20000 });
+  });
+
+  it('rethrows the original transport error when the clean-IP rescue is unavailable', async () => {
+    const original = new TypeError('fetch failed');
+    await expect(fetchAllAsileDesAveuglesJobs({
+      fetchHtmlImpl: vi.fn(async () => { throw original; }),
+      fetchJinaImpl: vi.fn(async () => null),
+    })).rejects.toBe(original);
   });
 
   it('skips a duplicate ASSC title when the detail names another Vaud municipality', async () => {
