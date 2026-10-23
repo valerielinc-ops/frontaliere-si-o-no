@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "seiro-53bddb605a5f",
-      "slug": "facharztin-facharzt-dermatologie-asthetik-bern-seiro-bern-bern-seiro-ch",
+      "slug": "specialista-specialista-dermatologia-estetica-bern-seiro-seiro-gmbh-bern-bern",
       "slugByLocale": {
         "de": "facharztin-facharzt-dermatologie-asthetik-bern-seiro-bern-bern-seiro-ch",
-        "it": "facharztin-facharzt-dermatologie-asthetik-bern-seiro-bern-bern-seiro-ch",
-        "en": "facharztin-facharzt-dermatologie-asthetik-bern-seiro-bern-bern-seiro-ch",
-        "fr": "facharztin-facharzt-dermatologie-asthetik-bern-seiro-bern-bern-seiro-ch"
+        "it": "specialista-specialista-dermatologia-estetica-bern-seiro-seiro-gmbh-bern-bern",
+        "en": "specialist-specialist-dermatology-aesthetics-bern-seiro-seiro-gmbh-bern-bern",
+        "fr": "specialiste-specialiste-en-dermatologie-esthetique-bern-seiro-gmbh-bern-bern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -68,16 +68,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:24:10.494Z"
+      "firstSeenAt": "2026-10-22T21:24:10.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-dermatologie-asthetik-bern-seiro-bern-bern-seiro-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-dermatologie-asthetik-bern-seiro-bern-bern-seiro-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-dermatologie-asthetik-bern-seiro-bern-bern-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-dermatologie-asthetik-bern-seiro-bern-bern-seiro-ch"
+      ]
     },
     {
       "id": "seiro-3e7f801cc2ce",
-      "slug": "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch",
+      "slug": "specialista-specialist-ophthalmology-zurich-seiro-seiro-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch",
-        "it": "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch",
-        "en": "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch",
-        "fr": "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch"
+        "it": "specialista-specialist-ophthalmology-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "en": "specialist-specialist-ophthalmology-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "fr": "specialiste-specialiste-en-ophtalmologie-zurich-seiro-gmbh-zurich-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -135,16 +149,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:24:10.494Z"
+      "firstSeenAt": "2026-10-22T21:24:10.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-ophthalmologie-zurich-seiro-zurich-zurich-seiro-ch"
+      ]
     },
     {
       "id": "seiro-31f382bc585d",
-      "slug": "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch",
+      "slug": "medicina-interna-lucerne-seiro-seiro-gmbh-luzern-zurich",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch",
-        "it": "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch",
-        "en": "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch",
-        "fr": "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch"
+        "it": "medicina-interna-lucerne-seiro-seiro-gmbh-luzern-zurich",
+        "en": "family-doctor-family-doctor-internal-medicine-lucerne-seiro-seiro-gmbh-luzern-zurich",
+        "fr": "medecin-de-famille-medecin-de-famille-medecine-interne-lucerne-seiro-gmbh-luzern-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -202,16 +230,30 @@
         }
       },
       "postalCode": "6003",
-      "firstSeenAt": "2026-10-22T21:24:10.491Z"
+      "firstSeenAt": "2026-10-22T21:24:10.491Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch"
+        ],
+        "en": [
+          "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-innere-medizin-luzern-seiro-luzern-zurich-seiro-ch"
+      ]
     },
     {
       "id": "seiro-0b96b9c45eb2",
-      "slug": "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch",
+      "slug": "dottore-principale-lead-medico-medicina-famiglia-lucerne-seiro-seiro-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch",
-        "it": "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch",
-        "en": "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch",
-        "fr": "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch"
+        "it": "dottore-principale-lead-medico-medicina-famiglia-lucerne-seiro-seiro-gmbh-luzern-luzern",
+        "en": "lead-doctor-lead-doctor-family-medicine-lucerne-seiro-seiro-gmbh-luzern-luzern",
+        "fr": "medecin-en-chef-medecin-en-chef-medecine-familiale-lucerne-seiro-gmbh-luzern-luzern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -269,16 +311,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:24:10.491Z"
+      "firstSeenAt": "2026-10-22T21:24:10.491Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-hausarztmedizin-luzern-seiro-luzern-luzern-seiro-ch"
+      ]
     },
     {
       "id": "seiro-dc31644c6383",
-      "slug": "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch",
+      "slug": "specialista-specialista-psichiatria-rorschach-seiro-seiro-gmbh-rorschach-sankt-gallen",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch",
-        "it": "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch",
-        "en": "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch",
-        "fr": "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch"
+        "it": "specialista-specialista-psichiatria-rorschach-seiro-seiro-gmbh-rorschach-sankt-gallen",
+        "en": "specialist-specialist-psychiatry-rorschach-seiro-seiro-gmbh-rorschach-sankt-gallen",
+        "fr": "specialiste-specialiste-psychiatrie-rorschach-seiro-gmbh-rorschach-sankt-gallen"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -336,16 +392,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:24:10.490Z"
+      "firstSeenAt": "2026-10-22T21:24:10.490Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch"
+      ]
     },
     {
       "id": "seiro-5fae1b63f22e",
-      "slug": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
+      "slug": "oculista-oftalmologo-bern-seiro-seiro-gmbh-bern-bern",
       "slugByLocale": {
         "de": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
-        "it": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
-        "en": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
-        "fr": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        "it": "oculista-oftalmologo-bern-seiro-seiro-gmbh-bern-bern",
+        "en": "ophthalmologist-ophthalmologist-bern-seiro-seiro-gmbh-bern-bern",
+        "fr": "ophtalmologiste-ophtalmologue-bern-seiro-seiro-gmbh-bern-bern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -403,16 +473,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:24:10.490Z"
+      "firstSeenAt": "2026-10-22T21:24:10.490Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        ],
+        "en": [
+          "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        ],
+        "fr": [
+          "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+      ]
     },
     {
       "id": "seiro-6d21a7a96140",
-      "slug": "facharztin-facharzt-psychiatrie-e-psychotherapie-zurich-seiro-gmbh-zurich",
+      "slug": "medica-specialista-medico-specialista-in-psichiatria-e-psicoterapia-zurigo-seiro-seiro-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch",
-        "it": "facharztin-facharzt-psychiatrie-e-psychotherapie-zurich-seiro-gmbh-zurich",
-        "en": "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch",
-        "fr": "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch"
+        "it": "medica-specialista-medico-specialista-in-psichiatria-e-psicoterapia-zurigo-seiro-seiro-gmbh-zurich-zurich",
+        "en": "specialist-specialist-psychiatry-and-psychotherapy-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "fr": "specialiste-specialiste-psychiatrie-et-psychotherapie-zurich-seiro-gmbh-zurich-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -459,11 +543,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch",
+          "facharztin-facharzt-psychiatrie-e-psychotherapie-zurich-seiro-gmbh-zurich"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch"
+        ],
+        "fr": [
           "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch"
+        "facharztin-facharzt-psychiatrie-und-psychotherapie-zurich-seiro-zurich-zurich-seiro-ch",
+        "facharztin-facharzt-psychiatrie-e-psychotherapie-zurich-seiro-gmbh-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -482,12 +574,12 @@
     },
     {
       "id": "seiro-979a7626d86d",
-      "slug": "oberarztin-oberarzt-psychiatrie-gruppenpraxis-muri-seiro-muri-aargau-seiro-ch",
+      "slug": "medico-senior-senior-psychiatry-group-practice-muri-seiro-seiro-gmbh-muri-aargau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrie-gruppenpraxis-muri-seiro-muri-aargau-seiro-ch",
-        "it": "oberarztin-oberarzt-psychiatrie-gruppenpraxis-muri-seiro-muri-aargau-seiro-ch",
-        "en": "oberarztin-oberarzt-psychiatrie-gruppenpraxis-muri-seiro-muri-aargau-seiro-ch",
-        "fr": "oberarztin-oberarzt-psychiatrie-gruppenpraxis-muri-seiro-muri-aargau-seiro-ch"
+        "it": "medico-senior-senior-psychiatry-group-practice-muri-seiro-seiro-gmbh-muri-aargau",
+        "en": "senior-physician-senior-physician-psychiatry-group-practice-muri-seiro-seiro-gmbh-muri-aargau",
+        "fr": "medecin-superieur-medecin-superieur-groupe-de-la-psychiatrie-pratique-muri-seiro-gmbh-muri-aargau"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -545,16 +637,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:24:10.484Z"
+      "firstSeenAt": "2026-10-22T21:24:10.484Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-psychiatrie-gruppenpraxis-muri-seiro-muri-aargau-seiro-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-gruppenpraxis-muri-seiro-muri-aargau-seiro-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-psychiatrie-gruppenpraxis-muri-seiro-muri-aargau-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-psychiatrie-gruppenpraxis-muri-seiro-muri-aargau-seiro-ch"
+      ]
     },
     {
       "id": "seiro-900d45f1e9bc",
-      "slug": "oberarztin-oberarzt-medizinische-genetik-bern-seiro-bern-bern-seiro-ch",
+      "slug": "medico-senior-senior-medical-genetics-bern-seiro-seiro-gmbh-bern-bern",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-medizinische-genetik-bern-seiro-bern-bern-seiro-ch",
-        "it": "oberarztin-oberarzt-medizinische-genetik-bern-seiro-bern-bern-seiro-ch",
-        "en": "oberarztin-oberarzt-medizinische-genetik-bern-seiro-bern-bern-seiro-ch",
-        "fr": "oberarztin-oberarzt-medizinische-genetik-bern-seiro-bern-bern-seiro-ch"
+        "it": "medico-senior-senior-medical-genetics-bern-seiro-seiro-gmbh-bern-bern",
+        "en": "senior-physician-senior-physician-medical-genetics-bern-seiro-seiro-gmbh-bern-bern",
+        "fr": "medecin-principal-medecin-principal-medecin-genetique-berne-seiro-seiro-gmbh-bern-bern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -612,16 +718,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:24:10.483Z"
+      "firstSeenAt": "2026-10-22T21:24:10.483Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-medizinische-genetik-bern-seiro-bern-bern-seiro-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-medizinische-genetik-bern-seiro-bern-bern-seiro-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-medizinische-genetik-bern-seiro-bern-bern-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-medizinische-genetik-bern-seiro-bern-bern-seiro-ch"
+      ]
     },
     {
       "id": "seiro-7b0ff0106123",
-      "slug": "oberarztin-oberarzt-radiologie-msk-diagnostik-seiro-munchenstein-seiro-ch",
+      "slug": "medico-senior-radiologia-medico-senior-msk-diagnostica-seiro-seiro-gmbh-munchenstein",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-radiologie-msk-diagnostik-seiro-munchenstein-seiro-ch",
-        "it": "oberarztin-oberarzt-radiologie-msk-diagnostik-seiro-munchenstein-seiro-ch",
-        "en": "oberarztin-oberarzt-radiologie-msk-diagnostik-seiro-munchenstein-seiro-ch",
-        "fr": "oberarztin-oberarzt-radiologie-msk-diagnostik-seiro-munchenstein-seiro-ch"
+        "it": "medico-senior-radiologia-medico-senior-msk-diagnostica-seiro-seiro-gmbh-munchenstein",
+        "en": "senior-physician-senior-physician-radiology-msk-diagnostics-seiro-seiro-gmbh-munchenstein",
+        "fr": "medecin-principal-medecin-principal-radiologie-diagnostic-msk-seiro-gmbh-munchenstein"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -679,7 +799,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:24:10.478Z"
+      "firstSeenAt": "2026-10-22T21:24:10.478Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-radiologie-msk-diagnostik-seiro-munchenstein-seiro-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-radiologie-msk-diagnostik-seiro-munchenstein-seiro-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-radiologie-msk-diagnostik-seiro-munchenstein-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-radiologie-msk-diagnostik-seiro-munchenstein-seiro-ch"
+      ]
     }
   ]
 }

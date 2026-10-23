@@ -493,12 +493,12 @@
     },
     {
       "id": "planzer-2c44693526ca",
-      "slug": "collaboratore-trice-magazzino-spatschicht-m-w-d-planzer-domat-ems",
+      "slug": "addetto-a-al-magazzino-turno-serale-m-f-d-planzer-domat-ems",
       "slugByLocale": {
         "de": "mitarbeiter-lager-spatschicht-m-w-d-planzer-domat-ems",
-        "it": "collaboratore-trice-magazzino-spatschicht-m-w-d-planzer-domat-ems",
-        "en": "mitarbeiter-lager-spatschicht-m-w-d-planzer-domat-ems",
-        "fr": "mitarbeiter-lager-spatschicht-m-w-d-planzer-domat-ems"
+        "it": "addetto-a-al-magazzino-turno-serale-m-f-d-planzer-domat-ems",
+        "en": "employees-camp-late-shift-m-f-d-planzer-domat-ems",
+        "fr": "les-employes-campent-en-fin-de-quart-h-f-d-planzer-domat-ems"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -547,11 +547,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-lager-spatschicht-m-w-d-planzer-domat-ems",
+          "collaboratore-trice-magazzino-spatschicht-m-w-d-planzer-domat-ems"
+        ],
+        "en": [
+          "mitarbeiter-lager-spatschicht-m-w-d-planzer-domat-ems"
+        ],
+        "fr": [
           "mitarbeiter-lager-spatschicht-m-w-d-planzer-domat-ems"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-lager-spatschicht-m-w-d-planzer-domat-ems"
+        "mitarbeiter-lager-spatschicht-m-w-d-planzer-domat-ems",
+        "collaboratore-trice-magazzino-spatschicht-m-w-d-planzer-domat-ems"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -1014,12 +1014,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-47bedd1ce1f4",
-      "slug": "koch-diatkoch-m-w-100-hochgebirgsklinik-davos-ch",
+      "slug": "cuocere-diet-chef-m-f-100-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "koch-diatkoch-m-w-100-hochgebirgsklinik-davos-ch",
-        "it": "koch-diatkoch-m-w-100-hochgebirgsklinik-davos-ch",
-        "en": "koch-diatkoch-m-w-100-hochgebirgsklinik-davos-ch",
-        "fr": "koch-diatkoch-m-w-100-hochgebirgsklinik-davos-ch"
+        "it": "cuocere-diet-chef-m-f-100-hochgebirgsklinik-davos-davos",
+        "en": "cook-diet-chef-m-f-100-hochgebirgsklinik-davos-davos",
+        "fr": "chef-cuisinier-dietetique-h-f-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1084,7 +1084,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-22T21:15:08.001Z"
+      "firstSeenAt": "2026-10-22T21:15:08.001Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-diatkoch-m-w-100-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "koch-diatkoch-m-w-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "koch-diatkoch-m-w-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koch-diatkoch-m-w-100-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-55dbfb81a41b",
