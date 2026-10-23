@@ -4,6 +4,7 @@ import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'no
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import {
+  acquireImageNamespaceLock,
   acquireImageNamespaceLeases,
   IMAGE_LOCK_KEY_PREFIX,
   IMAGE_LOCK_RELEASE_RETRY_MS,
@@ -86,6 +87,17 @@ describe('r2-image-namespace-lock', () => {
 
   it('refuses weak S3 ETags for image namespace compare-and-swap', () => {
     expect(normalizeS3MatchEtag('W/"image-etag"')).toBeUndefined();
+  });
+
+  it('rejects fractional acquiredAt overrides before writing a lease', async () => {
+    const { request, calls } = fakeR2();
+
+    await expect(acquireImageNamespaceLock('blog', {
+      request,
+      acquiredAt: 1_700_000_000_000.5,
+    })).rejects.toThrow('integer millisecond timestamp');
+
+    expect(calls).toEqual([]);
   });
 
   it('installs lease cleanup traps before acquisition can be interrupted', () => {

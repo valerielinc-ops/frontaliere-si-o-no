@@ -2040,19 +2040,15 @@
           "lehrperson-per-den-kindergarten-schulhaus-littau-dorf-volksschule-stadt-luzern"
         ],
         "en": [
-          "teacher-for-the-kindergarten-school-house-littau-village-volksschule-stadt-luzern-luzern",
           "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern"
         ],
         "fr": [
-          "professeur-pour-la-maternelle-maison-scolaire-littau-village-volksschule-stadt-luzern-luzern",
           "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern"
         ]
       },
       "previousSlugs": [
         "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern",
         "docente-per-la-scuola-dell-infanzia-scuola-littau-dorf-volksschule-stadt-luzern-luzern",
-        "teacher-for-the-kindergarten-school-house-littau-village-volksschule-stadt-luzern-luzern",
-        "professeur-pour-la-maternelle-maison-scolaire-littau-village-volksschule-stadt-luzern-luzern",
         "lehrperson-per-den-kindergarten-schulhaus-littau-dorf-volksschule-stadt-luzern"
       ],
       "salaryMin": 59500,
@@ -2253,9 +2249,9 @@
       "slug": "docente-di-sostegno-nella-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50-scuola",
       "slugByLocale": {
         "de": "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern",
-        "it": "docente-di-sostegno-nella-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50-scuola",
-        "en": "development-teacher-kg-with-8-l-kg-lessons-about-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern",
-        "fr": "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern"
+        "it": "docente-di-sostegno-nella-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50-61649a",
+        "en": "development-teacher-kg-with-8-l-kg-lessons-about-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern-61649a",
+        "fr": "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-schoolhouse-geissenstein-volksschule-stadt-luzern-61649a"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2324,12 +2320,14 @@
         "en": [
           "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern",
           "development-teacher-kg-with-8-l-kg-lessons-about-50-volksschule-stadt-luzern-luzern",
-          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern"
+          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern",
+          "development-teacher-kg-with-8-l-kg-lessons-about-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern"
         ],
         "fr": [
           "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern",
           "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-volksschule-stadt-luzern-luzern",
-          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern"
+          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern",
+          "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern"
         ],
         "de": [
           "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern"
@@ -2340,7 +2338,9 @@
         "development-teacher-kg-with-8-l-kg-lessons-about-50-volksschule-stadt-luzern-luzern",
         "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-volksschule-stadt-luzern-luzern",
         "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern",
-        "docente-di-sostegno-per-la-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50"
+        "docente-di-sostegno-per-la-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50",
+        "development-teacher-kg-with-8-l-kg-lessons-about-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern",
+        "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern"
       ],
       "needsRetranslation": true
     },
@@ -2417,18 +2417,23 @@
         "docente-di-sostegno-per-la-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50",
         "development-teacher-kg-with-8-l-kg-lessons-about-50-volksschule-stadt-luzern-luzern",
         "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-volksschule-stadt-luzern-luzern",
-        "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern"
+        "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern",
+        "docente-di-sostegno-nella-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50-scuola",
+        "development-teacher-kg-with-8-l-kg-lessons-about-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern",
+        "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern",
           "docente-di-sostegno-per-la-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50",
-          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern"
+          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern",
+          "docente-di-sostegno-nella-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50-scuola"
         ],
         "en": [
           "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern",
           "development-teacher-kg-with-8-l-kg-lessons-about-50-volksschule-stadt-luzern-luzern",
-          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern"
+          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern",
+          "development-teacher-kg-with-8-l-kg-lessons-about-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern"
         ],
         "de": [
           "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern"
@@ -2436,7 +2441,8 @@
         "fr": [
           "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern",
           "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-volksschule-stadt-luzern-luzern",
-          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern"
+          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-schulhaus-geissenstein-volksschule-luzern",
+          "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern"
         ]
       }
     }

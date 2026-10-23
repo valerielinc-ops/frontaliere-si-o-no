@@ -29,6 +29,7 @@ import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT, FAVICON_LINKS, PARTNERI
 import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { jobBoardHeadTags } from './jobBoardGpt';
 import {
   ARTICLES_PAGE_SIZE,
@@ -1048,6 +1049,12 @@ function buildHtml(args: BuildHtmlArgs): string {
   const emittedPageTitle = hubKey === 'jobs' ? finalizeJobBoardTitle(pageTitle) : pageTitle;
   const canonicalPath = paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const twitterCardMeta = buildTwitterCardMetaTags({
+    title: emittedPageTitle,
+    description,
+    image: `${BASE_URL}/og-image.png`,
+    locale,
+  });
 
   // hreflang: only emit alternates for page-1 (paginated pages share lang)
   const hreflangs = page === 1
@@ -1221,6 +1228,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:alt" content="${esc(emittedPageTitle)}">
+    ${twitterCardMeta}
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>

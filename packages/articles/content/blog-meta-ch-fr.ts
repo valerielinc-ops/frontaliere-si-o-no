@@ -8588,6 +8588,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.title': 'Rentes LPP de survivants et d’invalidité: adaptation 2027',
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.excerpt': 'À partir du 1er janvier 2027, les rentes seront adaptées aux prix.',
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bns-cambi-energia.title': 'BNS : taux directeur inchangé et inflation modérée',
+    'blog.article.bns-cambi-energia.excerpt': 'La BNS maintient le taux directeur à 0 pour cent En septembre, la BNS renonce à la formule sur les changes La pression inflationniste n\'augmente que légèrement L\'IA peut',
+    'blog.article.bns-cambi-energia.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.sostenibilita-abitativa-svizzera.title': 'Vivre en Suisse : une personne sur 6 dépense plus d’un tiers de son revenu',
+    'blog.article.sostenibilita-abitativa-svizzera.excerpt': 'Les 16% dépassent un tiers du revenu brut du ménage Les 22% des locataires dépassent le seuil de logement Les 7% des propriétaires dépassent la même limite Les 36%',
+    'blog.article.sostenibilita-abitativa-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.title': 'Travail réduit : le Conseil fédéral prévoit un retour',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.excerpt': 'Le Conseil fédéral entend normaliser progressivement l’ILR Durée maximale : 24 mois jusqu’au 31 janvier 2027 Croissance prévue : 1,7 % en 2026 et 1,6 % en 2027',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.title': 'Vote du 29 novembre : incertitude concernant l’AVS et le matériel de guerre',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.excerpt': 'Le vote du 29 novembre reste incertain concernant l’AVS et le matériel de guerre La TVA pour la 13e rente : 46 % oui, 49 % non Matériel de guerre : 49 % opposés, 41 % favorables',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
