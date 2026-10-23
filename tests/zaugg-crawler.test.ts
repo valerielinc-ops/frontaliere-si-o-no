@@ -118,6 +118,28 @@ describe('ZAUGG AG official-source crawler', () => {
     }
   });
 
+  it('rescues restricted-host transport failures through Jina and still validates the source-backed detail', async () => {
+    const listingUrl = ZAUGG_SOURCE_SPEC.seedUrls[0];
+    const fetchHtmlImpl = vi.fn(async (url: string, options: { validateRedirectUrl?: (value: string) => void }) => {
+      options.validateRedirectUrl?.(url);
+      throw new TypeError('fetch failed');
+    });
+    const fetchJinaImpl = vi.fn(async (url: string) => (
+      url === listingUrl ? OFFICIAL_LISTING_FIXTURE : zauggDetailFixture()
+    ));
+
+    const jobs = await fetchAllZauggJobs({ fetchHtmlImpl, fetchJinaImpl });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      companyKey: ZAUGG_KEY,
+      url: OFFICIAL_DETAIL_URL,
+      location: 'Eggiwil',
+    });
+    expect(fetchJinaImpl).toHaveBeenCalledWith(listingUrl, { timeoutMs: 20000 });
+    expect(fetchJinaImpl).toHaveBeenCalledWith(OFFICIAL_DETAIL_URL, { timeoutMs: 20000 });
+  });
+
   it('accepts only the official employer host, not .com or job marketplaces', () => {
     expect(isTrustedDomain(OFFICIAL_DETAIL_URL)).toBe(true);
     expect(isTrustedDomain('https://careers.zaugg.swiss/jobs/3728')).toBe(true);
