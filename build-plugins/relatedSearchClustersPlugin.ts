@@ -4330,9 +4330,11 @@ function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
  * directories, so a per-parent cache still performs one directory syscall per
  * URL. The map is scoped to one reconciliation pass so a later build pass
  * cannot observe a stale filesystem snapshot. `opendir` keeps the transient
- * directory-entry buffer bounded; only the HTML and symlink path sets survive
- * the walk. Non-HTML regular-file candidates are checked with a targeted
- * `stat` instead of retaining every asset path in memory.
+ * directory-entry buffer bounded. When the caller supplies the paths it can
+ * probe, the index uses a bounded `lstat` pool over those candidates only;
+ * unrelated production assets are never retained or opened. Non-HTML
+ * regular-file candidates are checked with a targeted `stat` instead of
+ * retaining every asset path in memory.
  */
 export interface ForeignDirectoryIndex {
   hasFile(filePath: string): Promise<boolean>;
@@ -4340,7 +4342,13 @@ export interface ForeignDirectoryIndex {
   hasSymlink(filePath: string): Promise<boolean>;
 }
 
-export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIndex {
+export function createForeignDirectoryIndex(
+  distDir: string,
+  candidatePaths?: Iterable<string>,
+): ForeignDirectoryIndex {
+  let retainedCandidates: Iterator<string> | null = candidatePaths
+    ? candidatePaths[Symbol.iterator]()
+    : null;
   let inventory: Promise<{
     htmlFiles: ReadonlySet<string>;
     symlinks: ReadonlySet<string>;
@@ -4355,6 +4363,41 @@ export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIn
     inventory = (async () => {
       const htmlFiles = new Set<string>();
       const symlinks = new Set<string>();
+
+      if (retainedCandidates) {
+        const candidateIterator = retainedCandidates;
+        const inspectCandidate = async (): Promise<void> => {
+          while (true) {
+            const next = candidateIterator.next();
+            if (next.done) return;
+            const routePath = path.resolve(next.value);
+            const candidateFiles = [
+              routePath,
+              path.join(routePath, 'index.html'),
+              `${routePath}.html`,
+            ];
+            for (const filePath of candidateFiles) {
+              try {
+                const entry = await fs.promises.lstat(filePath);
+                if (entry.isSymbolicLink()) symlinks.add(filePath);
+                else if (entry.isFile() && path.extname(filePath).toLowerCase() === '.html') {
+                  htmlFiles.add(filePath);
+                }
+              } catch (error: unknown) {
+                if (!isNodeErrnoException(error) || (error.code !== 'ENOENT' && error.code !== 'ENOTDIR')) {
+                  throw error;
+                }
+              }
+            }
+          }
+        };
+        await Promise.all(
+          Array.from({ length: 16 }, () => inspectCandidate()),
+        );
+        retainedCandidates = null;
+        return { htmlFiles, symlinks };
+      }
+
       const pendingDirectories = [path.resolve(distDir)];
       let nextDirectory = 0;
       let activeDirectories = 0;
@@ -4551,7 +4594,27 @@ export async function dropOverwrittenLocs(
   // Aggregate fd ceiling: 64 simultaneous open files, three orders of
   // magnitude under the ulimit 65535 default.
   const IN_FLIGHT = 64;
-  const foreignDirectoryIndex = options.foreignDirectoryIndex ?? createForeignDirectoryIndex(distDir);
+  // The foreign probe only asks about paths advertised by this sitemap pass.
+  // Give the streaming inventory that candidate set so a production dist's
+  // unrelated HTML tree is traversed but never retained in the index. A caller
+  // that supplies a shared index owns its retention scope and is left intact.
+  let foreignCandidatePaths: Iterable<string> | undefined;
+  if (options.inspectForeignPresent && !options.foreignDirectoryIndex) {
+    if (!EMIT_ALL_LOCALES) {
+      foreignCandidatePaths = (function* (): Iterable<string> {
+        for (const loc of locs) {
+          const urlPath = new URL(loc).pathname.replace(/\/+$/, '');
+          if (shouldEmitLocale(localeOfDistPath(urlPath, ''))) continue;
+          yield path.join(distDir, urlPath);
+        }
+      })();
+    }
+  }
+  const foreignDirectoryIndex = options.foreignDirectoryIndex ?? createForeignDirectoryIndex(
+    distDir,
+    foreignCandidatePaths,
+  );
+  foreignCandidatePaths = undefined;
   let cursor = 0;
 
   const lane = async (): Promise<void> => {

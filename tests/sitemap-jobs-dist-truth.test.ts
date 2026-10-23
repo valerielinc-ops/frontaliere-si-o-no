@@ -510,6 +510,19 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     }
   });
 
+  it('retains only requested HTML and symlink candidates in the inventory', async () => {
+    const candidateRoot = path.join(dist, 'candidate-dist');
+    const retained = path.join(candidateRoot, 'retained.html');
+    const ignored = path.join(candidateRoot, 'ignored.html');
+    fs.mkdirSync(candidateRoot, { recursive: true });
+    fs.writeFileSync(retained, '<html></html>', 'utf8');
+    fs.writeFileSync(ignored, '<html></html>', 'utf8');
+
+    const index = createForeignDirectoryIndex(candidateRoot, new Set([retained]));
+    expect(await index.hasFile(retained)).toBe(true);
+    expect(await index.hasFile(ignored)).toBe(false);
+  });
+
   it('benchmarks streaming inventory against the pre-change recursive walk', async () => {
     const benchmarkRoot = path.join(dist, 'benchmark-dist');
     const directoryCount = 128;
@@ -532,8 +545,15 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
 
     const baseline = await measure(() => legacyForeignDirectoryInventory(benchmarkRoot));
     const streaming = await measure(async () => {
-      const index = createForeignDirectoryIndex(benchmarkRoot);
+      const candidatePaths = new Set<string>();
+      for (let directoryIndex = 0; directoryIndex < directoryCount; directoryIndex += 1) {
+        for (let fileIndex = 0; fileIndex < filesPerDirectory; fileIndex += 1) {
+          candidatePaths.add(path.join(benchmarkRoot, `locale-${directoryIndex}`, `page-${fileIndex}`));
+        }
+      }
+      const index = createForeignDirectoryIndex(benchmarkRoot, candidatePaths);
       const firstFile = path.join(benchmarkRoot, 'locale-0', 'page-0.html');
+      expect(await index.hasFile(firstFile)).toBe(true);
       expect(await index.hasRegularFile(firstFile)).toBe(true);
       const knownFiles = [
         path.join(benchmarkRoot, 'locale-0', 'page-0.html'),
