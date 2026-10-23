@@ -1338,6 +1338,8 @@ export const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; labe
 const REPORTED_ORPHAN_LINKS: Record<HpSeoLocale, ReadonlyArray<{ href: string; label: string }>> = {
  it: [],
  en: [
+  { href: '/en/taxes-and-pension/calculate-retirement/', label: 'Calculate retirement benefits' },
+  { href: '/en/cross-border-guide/work-permits-guide/', label: 'Work permits guide' },
   { href: '/en/living-in-ticino/', label: 'Living in Ticino' },
   { href: '/en/statistics/', label: 'Ticino statistics' },
   { href: '/en/taxes-and-pension/tax-return-guide/', label: 'Cross-border tax return guide' },
@@ -1353,6 +1355,9 @@ const REPORTED_ORPHAN_LINKS: Record<HpSeoLocale, ReadonlyArray<{ href: string; l
   { href: '/en/taxes-and-pension/tax-quiz/', label: 'Cross-border tax quiz' },
  ],
  de: [
+  { href: '/de/steuern-und-vorsorge/', label: 'Steuern und Vorsorge' },
+  { href: '/de/steuern-und-vorsorge/rente-berechnen/', label: 'Rente berechnen' },
+  { href: '/de/grenzgaenger-ratgeber/arbeitsbewilligungen/', label: 'Arbeitsbewilligungen' },
   { href: '/de/leben-im-tessin/', label: 'Leben im Tessin' },
   { href: '/de/statistiken/', label: 'Statistiken zum Tessin' },
   { href: '/de/steuern-und-vorsorge/steuererklaerung/', label: 'Leitfaden zur Steuererklärung' },
@@ -1368,6 +1373,8 @@ const REPORTED_ORPHAN_LINKS: Record<HpSeoLocale, ReadonlyArray<{ href: string; l
   { href: '/de/steuern-und-vorsorge/steuer-quiz/', label: 'Steuer-Quiz für Grenzgänger' },
  ],
  fr: [
+  { href: '/fr/impots-et-retraite/calculer-pension/', label: 'Calculer la pension' },
+  { href: '/fr/guide-frontalier/permis-de-travail/', label: 'Permis de travail' },
   { href: '/fr/vivre-au-tessin/', label: 'Vivre au Tessin' },
   { href: '/fr/statistiques/', label: 'Statistiques du Tessin' },
   { href: '/fr/impots-et-retraite/declaration-revenus/', label: 'Guide de déclaration fiscale' },
