@@ -1,7 +1,7 @@
 {
   "crawlerKey": "msc-cargo",
-  "assembledAt": "2026-10-22T21:24:21.227Z",
-  "runId": "39855245159",
+  "assembledAt": "2026-10-23T09:25:01.005Z",
+  "runId": "39930088522",
   "jobs": [
     {
       "id": "msc-cargo-f0daf0e92f7f",
@@ -34,7 +34,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17945EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:24:15.024Z",
+      "crawledAt": "2026-10-23T09:24:34.990Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -55,21 +55,11 @@
       "requirementsByLocale": {
         "en": []
       },
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204",
-      "firstSeenAt": "2026-10-14T21:29:29.822Z",
+      "previousSlugs": [
+        "onboard-finanzen-operations-spezialist-msc-group-geneva",
+        "onboard-finance-operations-specialiste-msc-group-geneva",
+        "onboard-finance-operations-specialist-msc-geneva"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "onboard-finanzen-operations-spezialist-msc-group-geneva",
@@ -83,20 +73,30 @@
           "onboard-finance-operations-specialiste-msc-group-geneva"
         ]
       },
-      "previousSlugs": [
-        "onboard-finanzen-operations-spezialist-msc-group-geneva",
-        "onboard-finance-operations-specialiste-msc-group-geneva",
-        "onboard-finance-operations-specialist-msc-geneva"
-      ]
+      "firstSeenAt": "2026-10-14T21:29:29.822Z",
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204"
     },
     {
       "id": "msc-cargo-b06079cfe661",
-      "slug": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
+      "slug": "jewellery-product-development-senior-manager-msc-geneva",
       "slugByLocale": {
         "en": "jewellery-product-development-senior-manager-msc-geneva",
-        "it": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
-        "de": "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-        "fr": "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva"
+        "it": "jewellery-product-development-senior-manager-msc-geneva",
+        "de": "jewellery-product-development-senior-manager-msc-geneva",
+        "fr": "jewellery-product-development-senior-manager-msc-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -120,7 +120,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17632EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:24:13.982Z",
+      "crawledAt": "2026-10-23T09:24:44.270Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -141,6 +141,32 @@
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugs": [
+        "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
+        "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
+        "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva",
+        "senior-manager-dello-sviluppo-dei-prodotti-di-gioielleria-msc-group-geneva",
+        "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
+        "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
+          "senior-manager-dello-sviluppo-dei-prodotti-di-gioielleria-msc-group-geneva",
+          "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
+          "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
+          "schmuckproduktentwicklung-senior-manager-msc-group-geneva"
+        ],
+        "de": [
+          "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
+          "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva"
+        ],
+        "fr": [
+          "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva",
+          "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-10-04T09:20:24.512Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -154,41 +180,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "firstSeenAt": "2026-10-04T09:20:24.512Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-manager-dello-sviluppo-dei-prodotti-di-gioielleria-msc-group-geneva",
-          "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
-          "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
-          "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-          "jewellery-product-development-senior-manager-msc-geneva"
-        ],
-        "de": [
-          "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
-          "jewellery-product-development-senior-manager-msc-geneva"
-        ],
-        "fr": [
-          "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
-          "jewellery-product-development-senior-manager-msc-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-        "senior-manager-dello-sviluppo-dei-prodotti-di-gioielleria-msc-group-geneva",
-        "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
-        "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
-        "jewellery-product-development-senior-manager-msc-geneva"
-      ]
+      "postalCode": "1204"
     },
     {
       "id": "msc-cargo-b97d5d608b1c",
       "slug": "visual-merchandising-manager-msc-geneva",
       "slugByLocale": {
-        "en": "visual-merchandising-manager-msc-geneva",
         "it": "visual-merchandising-manager-msc-geneva",
+        "en": "visual-merchandising-manager-msc-geneva",
         "de": "visual-merchandising-manager-msc-geneva",
-        "fr": "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
+        "fr": "visual-merchandising-manager-msc-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -212,7 +213,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17627EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:24:13.243Z",
+      "crawledAt": "2026-10-23T09:24:43.528Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -233,6 +234,23 @@
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugs": [
+        "responsabile-del-visual-merchandising-msc-group-geneva",
+        "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
+        "responsable-merchandising-visuel-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-del-visual-merchandising-msc-group-geneva",
+          "responsable-merchandising-visuel-msc-group-geneva",
+          "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
+        ],
+        "fr": [
+          "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
+          "responsable-merchandising-visuel-msc-group-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-10-04T09:20:23.745Z",
       "salaryMin": 88000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -246,32 +264,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "firstSeenAt": "2026-10-04T09:20:23.745Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-del-visual-merchandising-msc-group-geneva",
-          "responsable-merchandising-visuel-msc-group-geneva",
-          "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
-        ],
-        "fr": [
-          "responsable-merchandising-visuel-msc-group-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "responsabile-del-visual-merchandising-msc-group-geneva",
-        "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
-        "responsable-merchandising-visuel-msc-group-geneva"
-      ]
+      "postalCode": "1204"
     },
     {
       "id": "msc-cargo-cfe1ac9a8218",
-      "slug": "manager-performance-commerciale-e-ottimizzazione-msc-group-geneva",
+      "slug": "manager-commercial-performance-and-optimisation-msc-geneva",
       "slugByLocale": {
+        "it": "manager-commercial-performance-and-optimisation-msc-geneva",
         "en": "manager-commercial-performance-and-optimisation-msc-geneva",
-        "it": "manager-performance-commerciale-e-ottimizzazione-msc-group-geneva",
         "de": "manager-commercial-performance-and-optimisation-msc-geneva",
-        "fr": "gestionnaire-performance-commerciale-et-optimisation-msc-group-geneva"
+        "fr": "manager-commercial-performance-and-optimisation-msc-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -295,7 +297,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17712EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:24:12.269Z",
+      "crawledAt": "2026-10-23T09:24:42.739Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -316,6 +318,33 @@
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugs": [
+        "manager-performance-commerciale-e-ottimizzazione-msc-group-geneva",
+        "manager-commercial-performance-und-optimierung-msc-group-geneva",
+        "gestionnaire-performance-commerciale-et-optimisation-msc-group-geneva",
+        "responsabile-performance-commerciale-e-ottimizzazione-msc-group-geneva",
+        "manager-kommerzielle-leistung-und-optimierung-msc-group-geneva",
+        "responsable-performance-commerciale-et-optimisation-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-performance-commerciale-e-ottimizzazione-msc-group-geneva",
+          "responsabile-performance-commerciale-e-ottimizzazione-msc-group-geneva",
+          "manager-kommerzielle-leistung-und-optimierung-msc-group-geneva",
+          "responsable-performance-commerciale-et-optimisation-msc-group-geneva",
+          "manager-commercial-performance-und-optimierung-msc-group-geneva",
+          "gestionnaire-performance-commerciale-et-optimisation-msc-group-geneva"
+        ],
+        "de": [
+          "manager-commercial-performance-und-optimierung-msc-group-geneva",
+          "manager-kommerzielle-leistung-und-optimierung-msc-group-geneva"
+        ],
+        "fr": [
+          "gestionnaire-performance-commerciale-et-optimisation-msc-group-geneva",
+          "responsable-performance-commerciale-et-optimisation-msc-group-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-10-04T09:20:22.976Z",
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -329,34 +358,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "firstSeenAt": "2026-10-04T09:20:22.976Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-performance-commerciale-e-ottimizzazione-msc-group-geneva",
-          "manager-kommerzielle-leistung-und-optimierung-msc-group-geneva",
-          "responsable-performance-commerciale-et-optimisation-msc-group-geneva",
-          "manager-commercial-performance-und-optimierung-msc-group-geneva",
-          "gestionnaire-performance-commerciale-et-optimisation-msc-group-geneva",
-          "manager-commercial-performance-and-optimisation-msc-geneva"
-        ],
-        "de": [
-          "manager-commercial-performance-und-optimierung-msc-group-geneva",
-          "manager-kommerzielle-leistung-und-optimierung-msc-group-geneva"
-        ],
-        "fr": [
-          "responsable-performance-commerciale-et-optimisation-msc-group-geneva",
-          "manager-commercial-performance-and-optimisation-msc-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "manager-commercial-performance-und-optimierung-msc-group-geneva",
-        "gestionnaire-performance-commerciale-et-optimisation-msc-group-geneva",
-        "responsabile-performance-commerciale-e-ottimizzazione-msc-group-geneva",
-        "manager-kommerzielle-leistung-und-optimierung-msc-group-geneva",
-        "responsable-performance-commerciale-et-optimisation-msc-group-geneva",
-        "manager-commercial-performance-and-optimisation-msc-geneva"
-      ]
+      "postalCode": "1204"
     },
     {
       "id": "msc-cargo-366420ad6a7c",
@@ -365,7 +367,7 @@
         "it": "risorse-umane-direttore-msc-group-geneva",
         "en": "hr-director-msc-geneva",
         "de": "personalwesen-direktor-msc-group-geneva",
-        "fr": "directeur-des-ressources-humaines-msc-group-geneva"
+        "fr": "hr-director-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -411,7 +413,7 @@
       "previousSlugs": [
         "directeur-rh-msc-group-geneva",
         "hr-director-msc-geneva",
-        "hr-director-msc-group-geneva"
+        "directeur-des-ressources-humaines-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -423,7 +425,7 @@
         ],
         "fr": [
           "directeur-rh-msc-group-geneva",
-          "hr-director-msc-group-geneva"
+          "directeur-des-ressources-humaines-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-10-03T09:25:31.059Z",
@@ -440,7 +442,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "crawlerMissStreak": 1
     },
     {
       "id": "msc-cargo-f0d5a97b2185",
@@ -473,7 +476,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17960EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:24:09.544Z",
+      "crawledAt": "2026-10-23T09:24:52.733Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -494,6 +497,15 @@
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugs": [
+        "storytelling-del-prodotto-e-creative-design-manager-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "storytelling-del-prodotto-e-creative-design-manager-msc-group-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-10-20T09:22:40.433Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -507,23 +519,14 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "firstSeenAt": "2026-10-20T09:22:40.433Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "storytelling-del-prodotto-e-creative-design-manager-msc-group-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "storytelling-del-prodotto-e-creative-design-manager-msc-group-geneva"
-      ]
+      "postalCode": "1204"
     },
     {
       "id": "msc-cargo-97510ebc6008",
       "slug": "global-responsabile-brand-marketing-msc-group-geneva",
       "slugByLocale": {
-        "it": "global-responsabile-brand-marketing-msc-group-geneva",
         "en": "global-head-of-brand-marketing-msc-geneva",
+        "it": "global-responsabile-brand-marketing-msc-group-geneva",
         "de": "global-leiter-brand-marketing-msc-group-geneva",
         "fr": "global-responsable-brand-marketing-msc-group-geneva"
       },
@@ -568,25 +571,6 @@
       "jobReqId": "17779",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-leiter-brand-marketing-msc-group-geneva",
-        "global-responsable-brand-marketing-msc-group-geneva",
-        "global-head-of-brand-marketing-msc-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "global-leiter-brand-marketing-msc-group-geneva",
-          "global-responsable-brand-marketing-msc-group-geneva",
-          "global-head-of-brand-marketing-msc-geneva"
-        ],
-        "de": [
-          "global-head-of-brand-marketing-msc-geneva"
-        ],
-        "fr": [
-          "global-head-of-brand-marketing-msc-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-10-04T21:27:39.222Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -600,16 +584,36 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "firstSeenAt": "2026-10-04T21:27:39.222Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-leiter-brand-marketing-msc-group-geneva",
+          "global-responsable-brand-marketing-msc-group-geneva",
+          "global-head-of-brand-marketing-msc-geneva"
+        ],
+        "de": [
+          "global-head-of-brand-marketing-msc-geneva"
+        ],
+        "fr": [
+          "global-head-of-brand-marketing-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "global-leiter-brand-marketing-msc-group-geneva",
+        "global-responsable-brand-marketing-msc-group-geneva",
+        "global-head-of-brand-marketing-msc-geneva"
+      ],
+      "crawlerMissStreak": 1
     },
     {
       "id": "msc-cargo-df9ddece23d5",
-      "slug": "risorse-umane-tirocinante-msc-group-geneva",
+      "slug": "hr-intern-msc-geneva",
       "slugByLocale": {
-        "it": "risorse-umane-tirocinante-msc-group-geneva",
         "en": "hr-intern-msc-geneva",
-        "de": "personalwesen-praktikant-msc-group-geneva",
-        "fr": "ressources-humaines-stagiaire-msc-group-geneva"
+        "it": "hr-intern-msc-geneva",
+        "de": "hr-intern-msc-geneva",
+        "fr": "hr-intern-msc-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -623,8 +627,8 @@
       },
       "description": "Where passion meets opportunity\n\nDiscover your journey into the extraordinary.\n\nYour Purpose\n\nExplora Journeys is a vibrant, cosmopolitan, European luxury brand, imagined in the heart of Swiss hospitality in Geneva. Leveraging our parent company MSC Group’s hundreds of years of maritime expertise, our fleet of six luxury ships (three currently in the pipeline) are being built and designed in a totally different and unique way that will transform and redefine the cruise experience, creating a category of its own, appealing to the next generation of luxury travellers.\n\nAn exciting opportunity exists for a talented Human Resources Intern to join our luxury travel brand Explora Journeys and to support our HR team with administrative tasks and processes. This is a great opportunity to gain hands-on experience in HR operations within a fast-paced, international environment. This role is based in the office out of our Headquarters in Geneva.\n\nYour Impact\n\n- Execute the onboarding of new employees and pre-arrival preparations: Coordinate work permit and relocation processes.\n\n- Manage time records, work certificates, attestations, and leaver reports.\n\n- Prepare induction packs, distribute documents, and handle administrative tasks like business cards, work permits, and parking contracts.\n\n- Help maintain HR systems and employee records, ensuring accuracy and compliance.\n\n- Contribute to the creation and delivery of internal communication materials, such as newsletters, announcements, or presentations.\n\n- Collaborate on engagement initiatives, such as employee events, surveys, or recognition programs.\n\n- Assist in the coordination of training and development activities, including scheduling and feedback collection.\n\n- Assist in the recruitment process, including job postings.\n\n- Provide general administrative support to the HR team as needed.\n\nYour Journey so far\n\n- Degree or Master in Human Resources, Business Administration, or a related field is a plus.\n\n- Fluent in English and French. Other languages is a plus.\n\n- Proficient in Microsoft Office Suite (Word, Excel, PowerPoint); familiarity with HR systems is a plus.\n\n- Detail-oriented, organized, and able to manage multiple tasks effectively\n\nYour Essentials\n\n- A must to be currently enrolled in a Bachelor’s or Master’s program.\n\n- Available from January 2027 for at least 6 months – 1 year is preferred.\n\n- A strong communicator with excellent interpersonal skills.\n\n- Proactive, curious, and eager to learn about HR functions in a global organization.\n\n- Passionate about luxury hospitality and creating exceptional employee experiences.\n\nAt Explora Journeys, we are redefining luxury ocean travel — where discovery, well-being, and a deep respect for the seas come together in harmony.\nWe seek passionate professionals who share our vision of a more immersive, transformative way to discover the world’s most inspiring destinations by sea.\nAre you ready to turn your passion into something extraordinary? Join us at Explora Journeys, where an ocean of opportunities awaits. Your journey to the Ocean State of Mind starts here.",
       "descriptionByLocale": {
-        "it": "Dove la passione incontra l'opportunità\n\nScopri il tuo viaggio nello straordinario.\n\nIl tuo scopo\n\nExplora Journeys è un marchio di lusso europeo vibrante, cosmopolita, immaginato nel cuore dell'ospitalità svizzera a Ginevra. Sfruttando le centinaia di anni di esperienza marittima della nostra società madre MSC Group, la nostra flotta di sei navi di lusso (tre attualmente in cantiere) sono state costruite e progettate in modo totalmente diverso e unico che trasformeranno e ridefiniranno l'esperienza di crociera, creando una categoria propria, attraendo la prossima generazione di viaggiatori di lusso.\n\nEsiste un'opportunità emozionante per un talentuoso Human Resources Intern per unire il nostro marchio di viaggio di lusso Explora Journeys e sostenere il nostro team HR con compiti e processi amministrativi. Questa è una grande opportunità per acquisire esperienza pratica nelle operazioni HR all'interno di un ambiente veloce e internazionale. Questo ruolo si basa nell'ufficio fuori dal nostro quartier generale a Ginevra.\n\nIl tuo impatto\n\n- Eseguite l'imbarco di nuovi dipendenti e preparati pre-arrivo: Coordinate il permesso di lavoro e i processi di trasferimento.\n\n- Gestisci record di tempo, certificati di lavoro, attestazioni e rapporti di lievitazione.\n\n- Preparare pacchetti di induzione, distribuire documenti e gestire compiti amministrativi come biglietti da visita, permessi di lavoro e contratti di parcheggio.\n\n- Aiuta a mantenere i sistemi HR e i record dei dipendenti, garantendo precisione e conformità.\n\n- Contribuisci alla creazione e alla consegna di materiali di comunicazione interni, come newsletter, annunci o presentazioni.\n\n- Collabora con iniziative di impegno, come eventi dei dipendenti, sondaggi o programmi di riconoscimento.\n\n- Assistere nel coordinamento delle attività di formazione e sviluppo, compresa la raccolta di programmi e feedback.\n\n- Assistere nel processo di reclutamento, incluse le postazioni di lavoro.\n\n- Fornire supporto amministrativo generale al team HR come necessario.\n\nIl tuo viaggio finora\n\n- Laurea o Master in Risorse Umane, Business Administration, o un campo relativo è un plus.\n\n- Fluente in inglese e francese. Altre lingue sono un plus.\n\n- Proficiente in Microsoft Office Suite (Word, Excel, PowerPoint); la familiarità con i sistemi HR è un plus.\n\n- Dettaglio orientato, organizzato, e in grado di gestire più attività in modo efficace\n\nI tuoi essenziali\n\n- A deve essere attualmente iscritto in un programma di Bachelor o Master.\n\n- Disponibile da gennaio 2027 per almeno 6 mesi – 1 anno è preferito.\n\n- Un comunicatore forte con eccellenti capacità interpersonali.\n\n- Proattivo, curioso e desideroso di conoscere le funzioni HR in un'organizzazione globale.\n\n- Passione per l'ospitalità di lusso e la creazione di esperienze di dipendenti eccezionali.\n\nA Explora Journeys, stiamo ridefinindo i viaggi oceanici di lusso - dove la scoperta, il benessere, e un profondo rispetto per i mari si uniscono in armonia.\nCerchiamo professionisti appassionati che condividono la nostra visione di un modo più coinvolgente e trasformativo per scoprire le destinazioni più ispiranti del mondo dal mare.\nSei pronto a trasformare la tua passione in qualcosa di straordinario? Unisciti a noi a Explora Journeys, dove un oceano di opportunità attende. Il vostro viaggio verso lo Stato della Mente Oceano inizia qui.",
         "en": "Where passion meets opportunity\n\nDiscover your journey into the extraordinary.\n\nYour Purpose\n\nExplora Journeys is a vibrant, cosmopolitan, European luxury brand, imagined in the heart of Swiss hospitality in Geneva. Leveraging our parent company MSC Group’s hundreds of years of maritime expertise, our fleet of six luxury ships (three currently in the pipeline) are being built and designed in a totally different and unique way that will transform and redefine the cruise experience, creating a category of its own, appealing to the next generation of luxury travellers.\n\nAn exciting opportunity exists for a talented Human Resources Intern to join our luxury travel brand Explora Journeys and to support our HR team with administrative tasks and processes. This is a great opportunity to gain hands-on experience in HR operations within a fast-paced, international environment. This role is based in the office out of our Headquarters in Geneva.\n\nYour Impact\n\n- Execute the onboarding of new employees and pre-arrival preparations: Coordinate work permit and relocation processes.\n\n- Manage time records, work certificates, attestations, and leaver reports.\n\n- Prepare induction packs, distribute documents, and handle administrative tasks like business cards, work permits, and parking contracts.\n\n- Help maintain HR systems and employee records, ensuring accuracy and compliance.\n\n- Contribute to the creation and delivery of internal communication materials, such as newsletters, announcements, or presentations.\n\n- Collaborate on engagement initiatives, such as employee events, surveys, or recognition programs.\n\n- Assist in the coordination of training and development activities, including scheduling and feedback collection.\n\n- Assist in the recruitment process, including job postings.\n\n- Provide general administrative support to the HR team as needed.\n\nYour Journey so far\n\n- Degree or Master in Human Resources, Business Administration, or a related field is a plus.\n\n- Fluent in English and French. Other languages is a plus.\n\n- Proficient in Microsoft Office Suite (Word, Excel, PowerPoint); familiarity with HR systems is a plus.\n\n- Detail-oriented, organized, and able to manage multiple tasks effectively\n\nYour Essentials\n\n- A must to be currently enrolled in a Bachelor’s or Master’s program.\n\n- Available from January 2027 for at least 6 months – 1 year is preferred.\n\n- A strong communicator with excellent interpersonal skills.\n\n- Proactive, curious, and eager to learn about HR functions in a global organization.\n\n- Passionate about luxury hospitality and creating exceptional employee experiences.\n\nAt Explora Journeys, we are redefining luxury ocean travel — where discovery, well-being, and a deep respect for the seas come together in harmony.\nWe seek passionate professionals who share our vision of a more immersive, transformative way to discover the world’s most inspiring destinations by sea.\nAre you ready to turn your passion into something extraordinary? Join us at Explora Journeys, where an ocean of opportunities awaits. Your journey to the Ocean State of Mind starts here.",
+        "it": "Dove la passione incontra l'opportunità\n\nScopri il tuo viaggio nello straordinario.\n\nIl tuo scopo\n\nExplora Journeys è un marchio di lusso europeo vibrante, cosmopolita, immaginato nel cuore dell'ospitalità svizzera a Ginevra. Sfruttando le centinaia di anni di esperienza marittima della nostra società madre MSC Group, la nostra flotta di sei navi di lusso (tre attualmente in cantiere) sono state costruite e progettate in modo totalmente diverso e unico che trasformeranno e ridefiniranno l'esperienza di crociera, creando una categoria propria, attraendo la prossima generazione di viaggiatori di lusso.\n\nEsiste un'opportunità emozionante per un talentuoso Human Resources Intern per unire il nostro marchio di viaggio di lusso Explora Journeys e sostenere il nostro team HR con compiti e processi amministrativi. Questa è una grande opportunità per acquisire esperienza pratica nelle operazioni HR all'interno di un ambiente veloce e internazionale. Questo ruolo si basa nell'ufficio fuori dal nostro quartier generale a Ginevra.\n\nIl tuo impatto\n\n- Eseguite l'imbarco di nuovi dipendenti e preparati pre-arrivo: Coordinate il permesso di lavoro e i processi di trasferimento.\n\n- Gestisci record di tempo, certificati di lavoro, attestazioni e rapporti di lievitazione.\n\n- Preparare pacchetti di induzione, distribuire documenti e gestire compiti amministrativi come biglietti da visita, permessi di lavoro e contratti di parcheggio.\n\n- Aiuta a mantenere i sistemi HR e i record dei dipendenti, garantendo precisione e conformità.\n\n- Contribuisci alla creazione e alla consegna di materiali di comunicazione interni, come newsletter, annunci o presentazioni.\n\n- Collabora con iniziative di impegno, come eventi dei dipendenti, sondaggi o programmi di riconoscimento.\n\n- Assistere nel coordinamento delle attività di formazione e sviluppo, compresa la raccolta di programmi e feedback.\n\n- Assistere nel processo di reclutamento, incluse le postazioni di lavoro.\n\n- Fornire supporto amministrativo generale al team HR come necessario.\n\nIl tuo viaggio finora\n\n- Laurea o Master in Risorse Umane, Business Administration, o un campo relativo è un plus.\n\n- Fluente in inglese e francese. Altre lingue sono un plus.\n\n- Proficiente in Microsoft Office Suite (Word, Excel, PowerPoint); la familiarità con i sistemi HR è un plus.\n\n- Dettaglio orientato, organizzato, e in grado di gestire più attività in modo efficace\n\nI tuoi essenziali\n\n- A deve essere attualmente iscritto in un programma di Bachelor o Master.\n\n- Disponibile da gennaio 2027 per almeno 6 mesi – 1 anno è preferito.\n\n- Un comunicatore forte con eccellenti capacità interpersonali.\n\n- Proattivo, curioso e desideroso di conoscere le funzioni HR in un'organizzazione globale.\n\n- Passione per l'ospitalità di lusso e la creazione di esperienze di dipendenti eccezionali.\n\nA Explora Journeys, stiamo ridefinindo i viaggi oceanici di lusso - dove la scoperta, il benessere, e un profondo rispetto per i mari si uniscono in armonia.\nCerchiamo professionisti appassionati che condividono la nostra visione di un modo più coinvolgente e trasformativo per scoprire le destinazioni più ispiranti del mondo dal mare.\nSei pronto a trasformare la tua passione in qualcosa di straordinario? Unisciti a noi a Explora Journeys, dove un oceano di opportunità attende. Il vostro viaggio verso lo Stato della Mente Oceano inizia qui.",
         "de": "Wo Leidenschaft auf Chance trifft\n\nEntdecken Sie Ihre Reise ins Außergewöhnliche.\n\nDein Zweck\n\nExplora Journeys ist eine lebendige, kosmopolitische, europäische Luxusmarke, die im Herzen der Schweizer Gastfreundschaft in Genf vorgestellt wird. Durch die Nutzung der hundertjährigen maritimen Expertise unserer Muttergesellschaft MSC Group wird unsere Flotte von sechs Luxusschiffen (drei derzeit in der Pipeline) auf eine völlig andere und einzigartige Weise gebaut und entworfen, die das Kreuzfahrterlebnis verändern und neu definieren und eine eigene Kategorie schaffen wird, die die nächste Generation von Luxusreisenden anspricht.\n\nEine spannende Gelegenheit für einen talentierten Human Resources Praktikanten, sich unserer Luxusreisemarke Explora Journeys anzuschließen und unser HR-Team bei administrativen Aufgaben und Prozessen zu unterstützen. Dies ist eine großartige Gelegenheit, praktische Erfahrungen im HR-Betrieb in einem schnelllebigen, internationalen Umfeld zu sammeln. Diese Rolle hat ihren Sitz im Büro unseres Hauptsitzes in Genf.\n\nIhre Wirkung\n\n- Führen Sie das Onboarding neuer Mitarbeiter und die Vorbereitungen vor der Ankunft durch: Koordinieren Sie Arbeitserlaubnis- und Umzugsprozesse.\n\n- Verwalten Sie Zeitaufzeichnungen, Arbeitszertifikate, Bescheinigungen und Leaver-Berichte.\n\n- Bereiten Sie Induktionspakete vor, verteilen Sie Dokumente und erledigen Sie administrative Aufgaben wie Visitenkarten, Arbeitsgenehmigungen und Parkverträge.\n\n- Helfen Sie, HR-Systeme und Mitarbeiteraufzeichnungen zu pflegen, um Genauigkeit und Compliance zu gewährleisten.\n\n- Tragen Sie zur Erstellung und Lieferung interner Kommunikationsmaterialien wie Newsletter, Ankündigungen oder Präsentationen bei.\n\n- Arbeiten Sie bei Engagement-Initiativen wie Mitarbeiterveranstaltungen, Umfragen oder Anerkennungsprogrammen zusammen.\n\n- Unterstützung bei der Koordination von Schulungs- und Entwicklungsaktivitäten, einschließlich Planung und Feedback-Sammlung.\n\n- Unterstützung beim Rekrutierungsprozess, einschließlich Stellenausschreibungen.\n\n- Bei Bedarf allgemeine administrative Unterstützung für das HR-Team.\n\nDeine Reise bisher\n\n- Abschluss oder Master in Human Resources, Business Administration oder einem verwandten Bereich ist ein Plus.\n\n- Fließend in Englisch und Französisch. Andere Sprachen sind ein Plus.\n\n- Proficient in Microsoft Office Suite (Word, Excel, PowerPoint); Vertrautheit mit HR-Systemen ist ein Plus.\n\n- Detailorientiert, organisiert und in der Lage, mehrere Aufgaben effektiv zu verwalten\n\nIhre Essentials\n\n- Ein muss derzeit in einem Bachelor- oder Master-Programm eingeschrieben sein.\n\n- Verfügbar ab Januar 2027 für mindestens 6 Monate - 1 Jahr wird bevorzugt.\n\n- Ein starker Kommunikator mit ausgezeichneten zwischenmenschlichen Fähigkeiten.\n\n- Proaktiv, neugierig und begierig, sich über HR-Funktionen in einer globalen Organisation zu informieren.\n\n- Leidenschaft für luxuriöse Gastfreundschaft und die Schaffung außergewöhnlicher Mitarbeitererfahrungen.\n\nBei Explora Journeys definieren wir Luxus-Ozeanreisen neu - wo Entdeckung, Wohlbefinden und ein tiefer Respekt für die Meere in Harmonie zusammenkommen.\nWir suchen leidenschaftliche Profis, die unsere Vision einer immersiveren, transformativeren Art und Weise teilen, die inspirierendsten Reiseziele der Welt auf dem Seeweg zu entdecken.\nBist du bereit, deine Leidenschaft in etwas Außergewöhnliches zu verwandeln? Begleiten Sie uns auf Explora Journeys, wo ein Ozean von Möglichkeiten wartet. Ihre Reise zum Ocean State of Mind beginnt hier.",
         "fr": "Où la passion rencontre des opportunités\n\nDécouvrez votre voyage dans l'extraordinaire.\n\nVotre but\n\nExplora Journeys est une marque de luxe européenne dynamique et cosmopolite, imaginée au cœur de l'hospitalité suisse à Genève. Tirant parti de notre société mère MSC Group de centaines d'années d'expertise maritime, notre flotte de six navires de luxe (trois actuellement dans le pipeline) sont construits et conçus d'une manière totalement différente et unique qui transformera et redéfinira l'expérience de croisière, créant une catégorie propre, attrayant pour la prochaine génération de voyageurs de luxe.\n\nUne occasion passionnante pour un stagiaire en ressources humaines talentueux de rejoindre notre marque de voyages de luxe Explora Journeys et de soutenir notre équipe RH dans les tâches et les processus administratifs. C'est une excellente occasion d'acquérir de l'expérience pratique dans les opérations de RH dans un environnement international rapide. Ce rôle est situé dans le bureau de notre siège à Genève.\n\nVotre impact\n\n- Exécuter l'embarquement des nouveaux employés et les préparatifs avant l'arrivée : Coordonner les processus de permis de travail et de réinstallation.\n\n- Gérer les dossiers de temps, les certificats de travail, les attestations et les rapports de sortie.\n\n- Préparer des trousses d'induction, distribuer des documents et gérer des tâches administratives comme les cartes de visite, les permis de travail et les contrats de stationnement.\n\n- Aider à maintenir les systèmes de RH et les dossiers des employés, en assurant l'exactitude et la conformité.\n\n- Contribuer à la création et à la diffusion de matériel de communication interne, comme des bulletins, des annonces ou des présentations.\n\n- Collaborer à des initiatives d'engagement, comme des événements pour les employés, des sondages ou des programmes de reconnaissance.\n\n- Aider à coordonner les activités de formation et de perfectionnement, y compris la planification et la collecte des commentaires.\n\n- Aider au processus de recrutement, y compris les affectations.\n\n- Fournir un soutien administratif général à l'équipe des RH au besoin.\n\nVotre voyage jusqu'à présent\n\n- Diplôme ou maîtrise en ressources humaines, administration des affaires ou un domaine connexe est un plus.\n\n- Fluent en anglais et en français. Les autres langues sont un plus.\n\n- Compétence en Microsoft Office Suite (Word, Excel, PowerPoint); la connaissance des systèmes RH est un plus.\n\n- Détaillé, organisé et capable de gérer efficacement plusieurs tâches\n\nVos essentiels\n\n- A doit être actuellement inscrit à un programme de baccalauréat ou de maîtrise.\n\n- Disponible à partir de janvier 2027 pour au moins 6 mois – 1 an est préféré.\n\n- Un communicateur fort avec d'excellentes compétences interpersonnelles.\n\n- Proactive, curieuse et impatiente d'en apprendre davantage sur les fonctions des RH dans une organisation mondiale.\n\n- Passionné par l'hospitalité de luxe et la création d'expériences d'employés exceptionnelles.\n\nÀ Explora Journeys, nous redéfinissons le voyage de luxe dans l'océan, où la découverte, le bien-être et le profond respect des mers s'unissent en harmonie.\nNous recherchons des professionnels passionnés qui partagent notre vision d'une façon plus immersive et transformatrice de découvrir les destinations les plus inspirantes du monde par la mer.\nÊtes-vous prêt à transformer votre passion en quelque chose d'extraordinaire ? Rejoignez-nous à Explora Journeys, où un océan d'opportunités vous attend. Votre voyage vers l'état de l'océan commence ici."
       },
@@ -633,7 +637,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17976EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:24:02.589Z",
+      "crawledAt": "2026-10-23T09:24:54.983Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -651,19 +655,23 @@
       "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17976EXTERNALENGB",
       "jobReqId": "17976",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "en": []
+      },
       "previousSlugs": [
-        "hr-intern-msc-geneva"
+        "risorse-umane-tirocinante-msc-group-geneva",
+        "personalwesen-praktikant-msc-group-geneva",
+        "ressources-humaines-stagiaire-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-intern-msc-geneva"
+          "risorse-umane-tirocinante-msc-group-geneva"
         ],
         "de": [
-          "hr-intern-msc-geneva"
+          "personalwesen-praktikant-msc-group-geneva"
         ],
         "fr": [
-          "hr-intern-msc-geneva"
+          "ressources-humaines-stagiaire-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-10-21T09:31:52.338Z",
@@ -713,7 +721,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17943EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:28:30.404Z",
+      "crawledAt": "2026-10-23T09:24:51.980Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -751,7 +759,10 @@
       "firstSeenAt": "2026-10-16T21:22:57.541Z",
       "previousSlugsByLocale": {
         "it": [
-          "head-of-customer-journey-data-strategy-msc-geneva"
+          "head-of-customer-journey-data-strategy-msc-geneva",
+          "responsabile-customer-journey-data-strategy-msc-group-geneva",
+          "leiter-customer-journey-data-strategy-msc-group-geneva",
+          "responsable-customer-journey-data-strategy-msc-group-geneva"
         ],
         "de": [
           "head-of-customer-journey-data-strategy-msc-geneva"
@@ -796,7 +807,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17849EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:28:29.173Z",
+      "crawledAt": "2026-10-23T09:24:51.043Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -814,19 +825,17 @@
       "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17849EXTERNALENGB",
       "jobReqId": "17849",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "salaryMin": 63000,
-      "salaryMax": 107500,
+      "requirementsByLocale": {},
+      "salaryMin": 97500,
+      "salaryMax": 165500,
       "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
+          "minValue": 97500,
+          "maxValue": 165500,
           "unitText": "YEAR"
         }
       },
@@ -879,7 +888,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17630EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:28:26.669Z",
+      "crawledAt": "2026-10-23T09:24:50.217Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -897,9 +906,7 @@
       "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17630EXTERNALENGB",
       "jobReqId": "17630",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 88000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1068,7 +1075,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17851EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:28:20.188Z",
+      "crawledAt": "2026-10-23T09:24:48.167Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1155,7 +1162,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17209EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:28:18.737Z",
+      "crawledAt": "2026-10-23T09:24:47.209Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1239,7 +1246,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17758EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:28:17.474Z",
+      "crawledAt": "2026-10-23T09:24:46.427Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1324,7 +1331,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17883EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:28:16.637Z",
+      "crawledAt": "2026-10-23T09:24:45.053Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1665,7 +1672,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB17713EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-21T09:31:46.535Z",
+      "crawledAt": "2026-10-23T09:24:41.839Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1722,8 +1729,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "crawlerMissStreak": 2
+      "postalCode": "1204"
     },
     {
       "id": "msc-cargo-a54fe831505d",
@@ -1756,7 +1762,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB15809EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-21T09:31:35.758Z",
+      "crawledAt": "2026-10-23T09:24:35.759Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1807,8 +1813,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "crawlerMissStreak": 2
+      "postalCode": "1204"
     }
   ]
 }

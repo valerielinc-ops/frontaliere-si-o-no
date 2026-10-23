@@ -1,16 +1,16 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-10-22T21:18:04.288Z",
+  "generatedAt": "2026-10-23T09:20:05.213Z",
   "total": 64,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 59,
-  "durationMs": 89380,
-  "avgDurationMs": 89380,
+  "durationMs": 83283,
+  "avgDurationMs": 83283,
   "durationHistory": [
-    89380
+    83283
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1314,5 +1314,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }
