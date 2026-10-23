@@ -817,8 +817,16 @@ if [ -n "$OPEN_PR" ]; then
 fi
 
 is_retryable_pr_create_failure() {
-  local output="$1"
-  [[ "$output" =~ HTTP[[:space:]]+(408|425|429|5[0-9]{2})([^0-9]|$) ]]
+  local detail_lc
+  detail_lc="$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]')"
+  case "$detail_lc" in
+    *'http 408'*|*'http 425'*|*'http 429'*|*'http 500'*|*'http 501'*|*'http 502'*|*'http 503'*|*'http 504'*|*'bad gateway'*|*'service unavailable'*|*'gateway timeout'*|*'something went wrong'*|*'eai_again'*|*'econnreset'*|*'socket hang up'*|*'etimedout'*)
+      return 0
+      ;;
+    *)
+      return 1
+      ;;
+  esac
 }
 
 create_refresh_pr() {
@@ -838,13 +846,9 @@ create_refresh_pr() {
     fi
     printf '%s\n' "$output" >&2
 
-    if ! is_retryable_pr_create_failure "$output"; then
-      return "$status"
-    fi
-
-    # A mutation may have reached GitHub even when its response was a 5xx.
-    # Confirm the stable PR before retrying, otherwise a second mutation could
-    # turn an already-delivered refresh into a false failure or duplicate.
+    # A mutation may have reached GitHub even when its response was an error.
+    # Confirm the stable PR before deciding whether the error is retryable;
+    # otherwise a delivered refresh could be reported as a failure or retried.
     if existing_pr="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr list stable refresh PR after create failure" \
       gh pr list \
       --repo "$REPOSITORY" \
@@ -861,8 +865,17 @@ create_refresh_pr() {
       return "$list_status"
     fi
     if [ -n "$existing_pr" ]; then
-      echo "Refresh PR #$existing_pr was created despite the transient create failure; no duplicate create attempted."
+      run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr edit stable refresh PR after create response" \
+        gh pr edit "$existing_pr" \
+        --repo "$REPOSITORY" \
+        --title "$TITLE" \
+        --body-file "$BODY_FILE"
+      echo "Refresh PR #$existing_pr was created despite the gh pr create response; updated it."
       return 0
+    fi
+
+    if ! is_retryable_pr_create_failure "$output"; then
+      return "$status"
     fi
 
     if [ "$attempt" -ge "$PR_CREATE_MAX_ATTEMPTS" ]; then
