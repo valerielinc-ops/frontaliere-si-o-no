@@ -50419,7 +50419,7 @@
     },
     {
       "id": "company-x8ors4",
-      "slug": "magaziner-in-verkauf-coop-unterentfelden-3",
+      "slug": "magazziniere-a-vendite-coop-genossenschaft-unterentfelden",
       "company": "Coop Genossenschaft",
       "title": "Magaziner:in Verkauf",
       "location": "Unterentfelden",
@@ -50469,8 +50469,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-unterentfelden-x8ors4",
-        "en": "magaziner-in-sales-coop-unterentfelden-x8ors4",
+        "it": "magazziniere-a-vendite-coop-genossenschaft-unterentfelden",
+        "en": "warehouse-operative-sales-coop-genossenschaft-unterentfelden",
         "de": "magaziner-in-verkauf-coop-unterentfelden-x8ors4",
         "fr": "magaziner-in-vente-coop-unterentfelden-x8ors4"
       },
@@ -50492,7 +50492,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "magaziner-in-vendita-coop-unterentfelden-x8ors4",
+          "magaziner-in-verkauf-coop-unterentfelden-3"
+        ],
+        "en": [
+          "magaziner-in-sales-coop-unterentfelden-x8ors4"
+        ]
+      },
+      "previousSlugs": [
+        "magaziner-in-vendita-coop-unterentfelden-x8ors4",
+        "magaziner-in-verkauf-coop-unterentfelden-3",
+        "magaziner-in-sales-coop-unterentfelden-x8ors4"
+      ]
     },
     {
       "id": "company-ih60wl",

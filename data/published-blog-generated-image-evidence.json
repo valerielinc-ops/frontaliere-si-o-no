@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "8937cb16011a9202354902eab83d4b8d77ef101e",
+  "commit": "f57b4c5f4f2e03093c58126d76957d97b2661507",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -36085,6 +36085,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic illustration of a modern residential development; no text, logos, faces, or foreground people."
+      }
+    },
+    "/images/blog/article-consiglio-stato-21-ottobre-2026.webp": {
+      "schema": 1,
+      "assetId": "article-consiglio-stato-21-ottobre-2026",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "0f66561ad674cbd6af849309461f1bd0791c4b0b0680248af3524bf567fa0a25",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "d90f6a18c5273dda1069bae46bc86230392609caaa6602261fd79f7ae4e29851",
+      "bytes": 221264,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-23T19:35:45.087Z",
+      "verifiedAt": "2026-10-23T19:35:52.805Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-consiglio-stato-21-ottobre-2026.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic photorealistic synthetic mountain landscape with no text, logos, people, or event-specific cues."
       }
     },
     "/images/places/lugano-view.webp": {

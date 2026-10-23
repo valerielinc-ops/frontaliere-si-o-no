@@ -295,8 +295,10 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null } = 
  * `data` is `{ ...meta, paths }`; `paths` is de-duped, distributed by
  * `compatShardIndex`, each shard sorted for a stable diff. Meta (everything
  * except `paths`) goes to the manifest. The legacy monolith is removed if
- * present (it cannot be pushed). Returns `{ totalPaths, shardCount,
- * shardsWritten }`.
+ * present (it cannot be pushed). Unsafe externally observed paths are rejected
+ * here as the single data-ingress gate and reported before the write. Returns
+ * both `filteredPaths` (the branch contract) and `rejectedPaths` (the main-side
+ * alias) for callers that need the count.
  *
  * Only shards whose serialized content actually differs from what's on disk
  * are written (2026-08-30, issue #6384): with 146 commits/30d touching this
@@ -354,5 +356,6 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
     shardCount: COMPAT_SHARD_COUNT,
     shardsWritten,
     filteredPaths: filtered.dropped.length,
+    rejectedPaths: filtered.dropped.length,
   };
 }

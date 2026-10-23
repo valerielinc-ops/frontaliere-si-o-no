@@ -34,7 +34,11 @@ import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { ALL_EMIT_LOCALES, shouldEmitLocale, shouldEmitPath } from './shared/localeEmitFilter';
-import { isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
+import {
+  isDistPathOverFilesystemLimits,
+  isSafeDistPath,
+  writeDistPageSafely,
+} from './shared/distPathSafety';
 import {
   getIncrementalManifestMap,
   INCREMENTAL_MANIFEST_ENABLED,
@@ -271,6 +275,7 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
       let skippedNonOwnedLocale = 0;
       let skippedUnsafeDistPaths = 0;
       let skippedFilesystemLimitPaths = 0;
+      let skippedWriteErrors = 0;
 
       for (const { path: rawPath } of ordered) {
         const from = withSlash(rawPath);
@@ -383,8 +388,12 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
                     (m) => `${m}<meta name="robots" content="noindex,follow">`,
                   );
             }
-            fs.mkdirSync(outDir, { recursive: true });
-            fs.writeFileSync(path.join(outDir, 'index.html'), canonHtml, 'utf-8');
+            if (!writeDistPageSafely({
+              indexPath: path.join(outDir, 'index.html'),
+              html: canonHtml,
+              urlPath: from,
+              logPrefix: 'cf-hot-404-bridge',
+            })) { skippedWriteErrors++; continue; }
             registerIncrementalBridge(
               from,
               resolution,
@@ -436,8 +445,12 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
           );
         }
 
-        fs.mkdirSync(outDir, { recursive: true });
-        fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
+        if (!writeDistPageSafely({
+          indexPath: path.join(outDir, 'index.html'),
+          html,
+          urlPath: from,
+          logPrefix: 'cf-hot-404-bridge',
+        })) { skippedWriteErrors++; continue; }
         registerIncrementalBridge(
           from,
           resolution,
@@ -465,13 +478,18 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
             `(${emittedFull} full-content canton-moved copies [${itIndexable ? 'indexable+canonical' : 'noindex'}], ` +
             `${emitted - emittedFull} thin bridges; ` +
             `cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved, ` +
-            `${skippedNonOwnedLocale} non-owned-locale skipped). ` +
+            `${skippedNonOwnedLocale} non-owned-locale skipped, ${skippedWriteErrors} write errors). ` +
             `[mem] heapUsed=${heapMb}MB after emit.`,
         );
       }
       if (skippedUnsafeDistPaths > 0) {
         console.log(
-          `\x1b[33m[cf-hot-404-bridge]\x1b[0m Skipped ${skippedUnsafeDistPaths} path(s) with dot-prefixed URL path segments before dist emission.`,
+          `\x1b[33m[cf-hot-404-bridge]\x1b[0m Skipped ${skippedUnsafeDistPaths} path(s) with unsafe URL path segments before dist emission.`,
+        );
+      }
+      if (skippedWriteErrors > 0 && emitted === 0) {
+        console.log(
+          `\x1b[33m[cf-hot-404-bridge]\x1b[0m Skipped ${skippedWriteErrors} path(s) whose dist write failed; the remaining build continues.`,
         );
       }
       if (skippedFilesystemLimitPaths > 0) {

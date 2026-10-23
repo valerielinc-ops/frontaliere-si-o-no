@@ -383,7 +383,15 @@ const legacy = readLegacyCandidate(mergedFiles);
 const candidateSet = new Set();
 for (const p of shardPaths) candidateSet.add(p);
 for (const p of legacy.paths) candidateSet.add(p);
-const candidatePaths = filterCompatPaths(Array.from(candidateSet)).paths;
+const filteredCandidate = filterCompatPaths(Array.from(candidateSet));
+const candidatePaths = filteredCandidate.paths;
+if (filteredCandidate.dropped.length > 0) {
+  process.stdout.write(
+    `[resolve-404-compat] rejected ${filteredCandidate.dropped.length} unsafe URL path(s) before merge persistence `
+      + `(filesystem-limit=${filteredCandidate.dropped.filter(({ reason }) => reason === 'filesystem-limit').length}, `
+      + `attack-payload=${filteredCandidate.dropped.filter(({ reason }) => reason === 'attack-payload').length})\n`,
+  );
+}
 const manifestMeta = readManifestMeta(manifestConflict, legacy.meta);
 
 // The resolver's family baseline is the clean candidate for unaffected shards

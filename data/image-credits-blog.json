@@ -70352,6 +70352,80 @@
           "notes": "Generic synthetic illustration of a modern residential development; no text, logos, faces, or foreground people."
         }
       }
+    },
+    "generated:article-consiglio-stato-21-ottobre-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-23T19:35:45.087Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-23",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-consiglio-stato-21-ottobre-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "0f66561ad674cbd6af849309461f1bd0791c4b0b0680248af3524bf567fa0a25",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "d90f6a18c5273dda1069bae46bc86230392609caaa6602261fd79f7ae4e29851",
+        "bytes": 221264,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-23T19:35:45.087Z",
+        "verifiedAt": "2026-10-23T19:35:52.805Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-consiglio-stato-21-ottobre-2026.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic photorealistic synthetic mountain landscape with no text, logos, people, or event-specific cues."
+        }
+      }
     }
   },
   "covers": {
@@ -110483,6 +110557,10 @@
     },
     "article-consultazione-abitazioni-lucerna": {
       "file": "generated:article-consultazione-abitazioni-lucerna",
+      "modified": "resized"
+    },
+    "article-consiglio-stato-21-ottobre-2026": {
+      "file": "generated:article-consiglio-stato-21-ottobre-2026",
       "modified": "resized"
     }
   }

@@ -1,18 +1,18 @@
 /**
  * Shared safety predicates for external URL paths.
  *
- * The build writes URL path segments as-is (including percent escapes), so the
- * filesystem limits apply to the UTF-8 bytes of the string passed to `path`.
- * Keep the limits here so emitters and compat-data writers cannot drift apart.
+ * The compatibility accumulator and the build both turn observed URL paths
+ * into filesystem paths. Keep the filesystem and payload checks here so data
+ * writers and dist emitters cannot drift apart.
  */
 
 export const MAX_FILESYSTEM_SEGMENT_BYTES = 255;
 export const MAX_DIST_PATH_BYTES = 4096;
 
 /**
- * Return true when a URL-derived path cannot be represented safely below dist.
- * The total limit is deliberately conservative and leaves the actual absolute
- * runner path well below POSIX PATH_MAX.
+ * Conservative filesystem bounds for a URL-derived path. The segment limit
+ * matches POSIX NAME_MAX; the total limit leaves the absolute runner path well
+ * below POSIX PATH_MAX.
  */
 export function isDistPathOverFilesystemLimits(pathname) {
   if (typeof pathname !== 'string') return true;
@@ -88,9 +88,9 @@ export function classifyCompatPath(pathname) {
 }
 
 /**
- * Remove only paths that violate the external-input safety contract. This is
- * intentionally separate from resolver pruning: a malicious path may still
- * resolve to a generic fallback and must be removed regardless.
+ * Remove only paths that violate the compatibility accumulator's external
+ * input contract. A malicious path may still resolve to a generic fallback,
+ * so this filter deliberately runs before resolver pruning.
  */
 export function filterCompatPaths(paths) {
   const kept = [];
@@ -101,4 +101,61 @@ export function filterCompatPaths(paths) {
     else if (typeof pathname === 'string') kept.push(pathname);
   }
   return { paths: kept, dropped };
+}
+
+/**
+ * The dist writer has a stricter URL-shape gate than the compatibility data
+ * filter: dot segments, malformed escapes, encoded separators and structured
+ * data/XSS probes must never become output paths even when they fit on disk.
+ */
+export const MAX_SAFE_URL_SEGMENT_BYTES = 200;
+
+const INVALID_SEGMENT_CHARACTERS = /[\u0000-\u001f\u007f"'<>[\]{}\\]/;
+const MALFORMED_PERCENT_ESCAPE = /%(?![0-9a-f]{2})/i;
+const ENCODED_INVALID_CHARACTERS = /%(?:22|27|2f|3c|3e|5b|5d|7b|7d|5c)/i;
+// `select` alone is a legitimate token in many job slugs (`selecta`,
+// `selection`, `selective`). The SQL family is identified by its encoded
+// comment/quote markers, an SQL keyword segment, or functions that do not occur
+// in canonical slugs.
+const PROBE_MARKERS = /(?:javascript\s*:|xmltype|dbms_pipe|extractvalue|waitfor|sleep\s*\(|union\s+select|(?:^|[^a-z])select(?:$|[^a-z]))/i;
+
+function isSafeSegment(segment, maxSegmentBytes = MAX_SAFE_URL_SEGMENT_BYTES) {
+  // Preserve the router's existing tolerance for repeated/trailing slashes;
+  // callers still get the same segment-level safety checks for root-relative
+  // URL paths and dist-relative stems.
+  if (segment.length === 0) return true;
+  if (segment.startsWith('.')) return false;
+  if (Buffer.byteLength(segment, 'utf8') > maxSegmentBytes) return false;
+  if (INVALID_SEGMENT_CHARACTERS.test(segment)) return false;
+  if (MALFORMED_PERCENT_ESCAPE.test(segment) || ENCODED_INVALID_CHARACTERS.test(segment)) return false;
+
+  let decoded;
+  try {
+    decoded = decodeURIComponent(segment);
+  } catch {
+    return false;
+  }
+  if (decoded.includes('/') || INVALID_SEGMENT_CHARACTERS.test(decoded)) return false;
+  return !PROBE_MARKERS.test(`${segment} ${decoded}`);
+}
+
+/** Return false when any URL segment is unsafe for dist emission. */
+export function isSafeCompatPath(pathname, { maxSegmentBytes = MAX_SAFE_URL_SEGMENT_BYTES } = {}) {
+  if (typeof pathname !== 'string' || pathname.length === 0) return false;
+  if (isDistPathOverFilesystemLimits(pathname) || hasCompatAttackPayload(pathname)) return false;
+  // Callers use both root-relative URL paths and dist-relative stems.
+  const segments = pathname.split('/');
+  return (pathname.startsWith('/') ? segments.slice(1) : segments)
+    .every((segment) => isSafeSegment(segment, maxSegmentBytes));
+}
+
+/** Partition string paths so dist writers can reject unsafe inputs explicitly. */
+export function filterSafeCompatPaths(paths) {
+  const safePaths = [];
+  const rejectedPaths = [];
+  for (const value of Array.isArray(paths) ? paths : []) {
+    if (typeof value !== 'string') continue;
+    (isSafeCompatPath(value) ? safePaths : rejectedPaths).push(value);
+  }
+  return { safePaths, rejectedPaths };
 }
