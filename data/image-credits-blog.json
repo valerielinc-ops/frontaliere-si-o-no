@@ -70278,6 +70278,80 @@
           "notes": "Generic synthetic editorial scene with pension documents, calculator, and a Ticino-like railway landscape; no readable text, logos, people, or event-specific cues."
         }
       }
+    },
+    "generated:article-consultazione-abitazioni-lucerna": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-23T18:56:39.772Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-23",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-consultazione-abitazioni-lucerna",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "fcb31abf5e0cd313cae14851e3b9dbf263ed0959c4d9112772a5da323b6e728f",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "836540740082b6d8794b6caec6f97ac477c3e3bb3e7461971b6be614dc405cf8",
+        "bytes": 207628,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-23T18:56:39.772Z",
+        "verifiedAt": "2026-10-23T18:56:47.013Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-consultazione-abitazioni-lucerna.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic illustration of a modern residential development; no text, logos, faces, or foreground people."
+        }
+      }
     }
   },
   "covers": {
@@ -110405,6 +110479,10 @@
     },
     "article-frontalieri-rimborsi-lpp-svizzera": {
       "file": "generated:article-frontalieri-rimborsi-lpp-svizzera",
+      "modified": "resized"
+    },
+    "article-consultazione-abitazioni-lucerna": {
+      "file": "generated:article-consultazione-abitazioni-lucerna",
       "modified": "resized"
     }
   }
