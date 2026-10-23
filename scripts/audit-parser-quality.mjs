@@ -29,6 +29,7 @@ import {
 import { decodeEntities as decodeScrapedHtmlEntities } from './lib/prospector/entities.mjs';
 import {
   JOB_LOCATION_CLASS_TOKENS,
+  JOB_LOCATION_VALUE_CLASS_TOKENS,
   resolveSourceBackedSwissGeography,
 } from './lib/prospector/location-evidence.mjs';
 import { readAttr, readVacancySummaryLocation } from './lib/html-attr.mjs';
@@ -670,6 +671,10 @@ function hasJobLocationClass(attrs) {
   return classTokens(attrs).some((token) => JOB_LOCATION_CLASS_TOKENS.has(token.toLowerCase()));
 }
 
+function hasJobLocationValueClass(attrs) {
+  return classTokens(attrs).some((token) => JOB_LOCATION_VALUE_CLASS_TOKENS.has(token.toLowerCase()));
+}
+
 function hasNonCurrentJobScope(attrs) {
   return classTokens(attrs).some((token) => NON_CURRENT_JOB_SCOPE_CLASS_TOKENS.has(token.toLowerCase()));
 }
@@ -781,6 +786,7 @@ export function extractSourceLocationObservation(html = '', pageUrl = '', {
   const stack = [];
   const domBeforeGate = emptyLocationEvidenceCounts();
   const domAfterGate = emptyLocationEvidenceCounts();
+  const domCandidates = [];
   const tagRx = /<(\/?)\s*([a-z][a-z0-9:-]*)\b([^>]*)>/gi;
   let match;
   while ((match = tagRx.exec(html))) {
@@ -795,26 +801,47 @@ export function extractSourceLocationObservation(html = '', pageUrl = '', {
     const blocked = Boolean(stack.at(-1)?.blocked) || hasNonCurrentJobScope(attrs);
     const jobScoped = !blocked && (Boolean(stack.at(-1)?.jobScoped) || hasJobScope(attrs));
     const itemprops = readAttr(attrs, 'itemprop').split(/\s+/);
-    if (!blocked && (hasJobLocationClass(attrs) || (jobScoped && itemprops.includes('addressLocality')))) {
+    const inJobLocationScope = stack.some((item) => item.jobLocationScope);
+    const jobLocationClass = hasJobLocationClass(attrs);
+    const nestedJobLocationValue = inJobLocationScope && hasJobLocationValueClass(attrs);
+    const microdataLocality = jobScoped && itemprops.includes('addressLocality');
+    if (!blocked && (jobLocationClass || nestedJobLocationValue || microdataLocality)) {
       const location = elementValue(html, tagRx.lastIndex, tagName, attrs);
       if (location) {
         domBeforeGate['strong-markup'] = 1;
         if (isUsableSourceLocation(location)) {
           domAfterGate['strong-markup'] = 1;
-          return withLocationEvidenceCounts(
-            { location, evidence: 'strong-markup' },
-            {
-              jsonld: structuredBeforeGate.jsonld,
-              'strong-markup': domBeforeGate['strong-markup'],
-            },
-            { ...structuredAfterGate, 'strong-markup': domAfterGate['strong-markup'] },
-            includeDiagnostics,
-          );
+          domCandidates.push({
+            location,
+            // A nested source value is narrower than its wrapper, and a
+            // vacancy wrapper is narrower than schema microdata that may be
+            // the employer's seat. Rank those scopes before choosing one.
+            priority: nestedJobLocationValue ? 3 : jobLocationClass ? 2 : 1,
+          });
         }
       }
     }
 
-    if (!VOID_HTML_TAGS.has(tagName) && !/\/\s*$/.test(attrs)) stack.push({ tagName, jobScoped, blocked });
+    if (!VOID_HTML_TAGS.has(tagName) && !/\/\s*$/.test(attrs)) {
+      stack.push({
+        tagName,
+        jobScoped,
+        blocked,
+        jobLocationScope: !blocked && (Boolean(stack.at(-1)?.jobLocationScope) || jobLocationClass),
+      });
+    }
+  }
+  const [strongMarkup] = domCandidates.sort((left, right) => right.priority - left.priority);
+  if (strongMarkup) {
+    return withLocationEvidenceCounts(
+      { location: strongMarkup.location, evidence: 'strong-markup' },
+      {
+        jsonld: structuredBeforeGate.jsonld,
+        'strong-markup': domBeforeGate['strong-markup'],
+      },
+      { ...structuredAfterGate, 'strong-markup': domAfterGate['strong-markup'] },
+      includeDiagnostics,
+    );
   }
   return withLocationEvidenceCounts(
     { location: '', evidence: 'generic' },
@@ -1055,10 +1082,9 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
     return !nationwideHeadings.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
   }
   const strongMarkupDeclaresBothLocations = locationEvidence === 'strong-markup'
-    && !sourceLocationMatches(publishedLocation, sourceLocation)
     && renderedJobLocationFields.length > 1
     && renderedJobLocationFields.some((field) => visibleFieldMatchesLocation(field, publishedLocation))
-    && renderedJobLocationFields.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
+    && renderedJobLocationFields.some((field) => !visibleFieldMatchesLocation(field, publishedLocation));
   if (strongMarkupDeclaresBothLocations) return true;
   const visibleMatchesPublished = visibleFields.some((field) => (
     visibleFieldMatchesLocation(field, publishedLocation)
@@ -1067,6 +1093,10 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
   const visibleMatchesStructured = visibleFields.some((field) => (
     visibleFieldMatchesLocation(field, sourceLocation)
   ));
+  const visibleFieldsDeclareBothLocations = !sourceLocationMatches(publishedLocation, sourceLocation)
+    && visibleFields.length > 1
+    && visibleMatchesStructured;
+  if (visibleFieldsDeclareBothLocations) return true;
   return !visibleMatchesStructured;
 }
 
@@ -1097,13 +1127,13 @@ export function workdayPrimaryLocationFromUrl(rawUrl = '') {
 }
 
 /**
- * Campi della riga subito sotto il titolo della vacancy (`Oensingen,
- * 01.06.2027, 100%` su jobs.sbb.ch, `Gérance <br> Genève | Taux…` su
- * jobs.livit.ch). Su questi template il JSON-LD dichiara la sede dell'azienda
- * (Hilfikerstrasse 1, 3000 Bern; Altstetterstrasse 124, 8048 Zürich) per ogni
- * vacancy, mentre la località della vacancy è un campo della riga di titolo.
- * Solo se l'H1 è il titolo della vacancy e il campo è breve: una tagline del
- * sito non è un campo della vacancy.
+ * Campi della riga sotto il titolo della vacancy (`Oensingen, 01.06.2027,
+ * 100%` su jobs.sbb.ch, `Gérance <br> Genève | Taux…` su jobs.livit.ch) e
+ * delle sequenze di metadati equivalenti (Medimeo rende tipo, ruolo, materia
+ * e `Region Solothurn` come sibling separati). Su questi template il JSON-LD
+ * dichiara la sede dell'azienda per ogni vacancy, mentre la località è un
+ * campo della testata. Solo se l'H1 è il titolo della vacancy, il blocco è
+ * vicino e ogni campo è breve: una tagline lontana non è un campo vacancy.
  */
 export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
   const source = String(html || '');
@@ -1118,12 +1148,22 @@ export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
     const headingText = normalizePlace(heading[1]);
     if (!headingText || !(headingText.includes(title) || title.includes(headingText))) continue;
     const after = source.slice(headingRx.lastIndex, headingRx.lastIndex + 1500);
-    const next = /^\s*<(div|p|h2|h3|span)\b[^>]*>([\s\S]{0,600}?)<\/\1>/i.exec(after);
-    if (!next) continue;
-    fields.push(...plainText(next[2].replace(/<br\s*\/?>/gi, ' | '))
-      .split(/\s*[|,;·•]\s*/)
-      .map((field) => field.trim())
-      .filter((field) => field && field.length <= 60));
+    const elementRx = /<(div|p|h2|h3|span)\b[^>]*>([\s\S]{0,600}?)<\/\1>/gi;
+    let element;
+    let consumedUntil = 0;
+    let siblingCount = 0;
+    while ((element = elementRx.exec(after)) && siblingCount < 12) {
+      // A wrapper can contain the leaf metadata elements. Read the wrapper
+      // once, then skip its nested matches so one field is not duplicated.
+      if (element.index < consumedUntil) continue;
+      const value = plainText(element[2].replace(/<br\s*\/?>/gi, ' | '));
+      fields.push(...value
+        .split(/\s*[|,;·•]\s*/)
+        .map((field) => field.trim())
+        .filter((field) => field && field.length <= 60));
+      consumedUntil = elementRx.lastIndex;
+      siblingCount += 1;
+    }
   }
   return fields;
 }

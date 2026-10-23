@@ -990,6 +990,58 @@ describe('source-detail fidelity checks', () => {
     });
   });
 
+  it('reads a location from a vacancy metadata sequence below the H1', async () => {
+    const description = 'Eine ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen. '.repeat(12);
+    const title = 'Oberärztin / Oberarzt Radiologie 80–100% – breites Spektrum ohne Nachtdienste';
+    const url = 'https://medimeo.ch/job/oberaerztin-oberarzt-radiologie-80-100-breites-spektrum-ohne-nachtdienste-3628/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title,
+      description,
+      jobLocation: {
+        address: {
+          addressLocality: 'Biel / Solothurn / Mittelland',
+          addressCountry: 'CH',
+        },
+      },
+    })}</script><main><h1>${title}</h1>
+      <div>Festanstellung</div>
+      <div>Oberarzt / Oberärztin</div>
+      <div>Radiologie</div>
+      <div>Region Solothurn</div>
+      <h2>Sie haben Ihren Facharzttitel Radiologie erworben</h2>
+      <div class="job-description">${description}</div></main>`;
+
+    expect(vacancyHeadingSublineFields(html, title)).toContain('Region Solothurn');
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'medimeo',
+      url,
+      job: {
+        url,
+        title,
+        addressLocality: 'Soletta',
+        sourceLang: 'de',
+        description,
+      },
+    }], 1, {
+      fetchPage: async (pageUrl: string) => ({
+        ok: true,
+        status: 200,
+        url: pageUrl,
+        body: html,
+        host: 'medimeo.ch',
+      }),
+    });
+
+    expect(result).toMatchObject({
+      sourceLocation: 'Biel / Solothurn / Mittelland',
+      locationMismatch: false,
+      locationChecked: false,
+      locationInconclusive: true,
+      locationAuthority: 'source-internal-conflict',
+    });
+  });
+
   it('treats multiple strong workplace locations on one Holcim vacancy as an internal source conflict', async () => {
     const description = 'Ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen. '.repeat(12);
     const url = 'https://careers.holcimgroup.com/holcim_switzerland/job/koordinator/1358872357/';
@@ -1038,7 +1090,70 @@ describe('source-detail fidelity checks', () => {
     });
 
     expect(result).toMatchObject({
-      sourceLocation: 'Mülligen',
+      sourceLocation: 'Mülligen, AG, CH, 5243',
+      locationMismatch: false,
+      locationChecked: false,
+      locationInconclusive: true,
+      locationAuthority: 'source-internal-conflict',
+    });
+  });
+
+  it('prefers nested vacancy location values over earlier employer microdata', async () => {
+    const description = 'Ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen. '.repeat(12);
+    const title = 'Koordinator:in Arbeitssicherheit/Gesundheitsschutz Kies&Beton 80-100%';
+    const url = 'https://careers.holcimgroup.com/holcim_switzerland/job/koordinator/1358872357/';
+    const html = `<main><h1>${title}</h1>
+      <div class="jobDisplayShell" itemscope itemtype="http://schema.org/JobPosting">
+        <span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">
+          <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <meta itemprop="addressLocality" content="Mülligen">
+            <meta itemprop="addressRegion" content="AG">
+            <meta itemprop="postalCode" content="5243">
+            <meta itemprop="addressCountry" content="CH">
+          </span>
+        </span>
+      </div>
+      <p id="job-location" class="jobLocation job-location-inline">
+        <span class="jobGeoLocation">Oberdorf, NW, CH, 6370</span>
+        <span class="jobGeoLocation">Mülligen, AG, CH, 5243</span>
+        <span class="jobGeoLocation">Oberdorf, NW, CH, 6370</span>
+      </p>
+      <div class="job-description">${description}</div></main>`;
+
+    const detail = extractDetailFields(html, url, { recordUrl: url, recordTitle: title });
+    expect(detail.renderedJobLocationFields).toEqual([
+      'Oberdorf, NW, CH, 6370',
+      'Mülligen, AG, CH, 5243',
+    ]);
+    expect(extractSourceLocationObservation(html, url, {
+      recordUrl: url,
+      recordTitle: title,
+    })).toMatchObject({
+      location: 'Oberdorf, NW, CH, 6370',
+      evidence: 'strong-markup',
+    });
+
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'holcim',
+      url,
+      job: {
+        url,
+        title,
+        addressLocality: 'Oberdorf',
+        sourceLang: 'de',
+        description,
+      },
+    }], 1, {
+      fetchPage: async (pageUrl: string) => ({
+        ok: true,
+        status: 200,
+        url: pageUrl,
+        body: html,
+        host: 'careers.holcimgroup.com',
+      }),
+    });
+
+    expect(result).toMatchObject({
       locationMismatch: false,
       locationChecked: false,
       locationInconclusive: true,

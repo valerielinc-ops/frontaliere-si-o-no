@@ -217,7 +217,8 @@ export function extractSbbBodyLocation(html = '') {
     .map((line) => line.trim())
     .filter(Boolean);
 
-  for (const line of lines) {
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const line = lines[lineIndex];
     const datedPrefix = line.match(/^([^,]{2,80}),\s*\d{1,2}\.\d{1,2}\.\d{4}\s*,\s*\d{1,3}%/);
     if (datedPrefix?.[1]) {
       const locality = canonicalSbbLocality(datedPrefix[1]);
@@ -227,6 +228,19 @@ export function extractSbbBodyLocation(html = '') {
     if (percentPrefix?.[1]) {
       const locality = canonicalSbbLocality(percentPrefix[1]);
       if (locality) return locality;
+    }
+
+    // The current v2 template renders the vacancy metadata as separate
+    // siblings: `Olten`, `ab sofort oder nach Vereinbarung`, `60-100%`.
+    // Requiring a nearby date/start marker or workload keeps a bare employer
+    // city in the intro from becoming a workplace fallback.
+    const standalone = canonicalSbbLocality(line);
+    if (standalone) {
+      const nearby = lines.slice(lineIndex + 1, lineIndex + 4);
+      if (nearby.some((candidate) => (
+        /\b\d{1,2}\.\d{1,2}\.\d{4}\b|\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/u.test(candidate)
+        || /\b(?:ab sofort|per sofort|nach vereinbarung|d[eè]s maintenant|[àa] partir|da subito|su richiesta)\b/iu.test(candidate)
+      ))) return standalone;
     }
   }
 
