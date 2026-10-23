@@ -13,6 +13,11 @@ describe('decodeTsStringEscapeSequence', () => {
     expect(decodeTsStringEscapeSequence('v')).toBe('\v');
   });
 
+  it('does not reinterpret legacy octal escapes as NUL plus a digit', () => {
+    expect(decodeTsStringEscapeSequence('01')).toBeUndefined();
+    expect(decodeTsStringEscapes(String.raw`a\01z`)).toBe(String.raw`a\01z`);
+  });
+
   it('keeps unknown escapes available to downstream JSON parsing', () => {
     expect(decodeTsStringEscapeSequence('a')).toBeUndefined();
     expect(decodeTsStringEscapes(String.raw`\\0`)).toBe('\\0');
