@@ -1298,8 +1298,12 @@ function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
     const entries = [...raw.slice(closingIndex + 1).matchAll(entriesRe)];
     // `Object.entries(map)` may also sit inline inside the writer call.
     const inlineEntriesRe = new RegExp(`\\bObject\\.entries\\(\\s*${escapedVariable}\\s*\\)`);
-    const inlineReachesSink = sinkRanges.some(({ start, end }) => start > closingIndex
-      && inlineEntriesRe.test(raw.slice(start, end)));
+    const inlineReachesSink = sinkRanges.some(({ start, end }) => {
+      if (start <= closingIndex && closingIndex < end) {
+        return inlineEntriesRe.test(raw.slice(closingIndex + 1, end));
+      }
+      return inlineEntriesRe.test(raw.slice(start, end));
+    });
     const reachesOutputSink = inlineReachesSink || entries.some((entry) => {
       const derivedVariable = entry[1];
       const entriesStart = closingIndex + 1 + (entry.index ?? 0);
@@ -1578,10 +1582,103 @@ function fileWriterCalls(source, start = 0, end = String(source || '').length) {
     const openingIndex = match.index + match[0].length - 1;
     const closingIndex = matchingParen(raw, openingIndex);
     if (closingIndex < 0) continue;
-    const [target] = splitTopLevelArguments(raw.slice(openingIndex + 1, closingIndex));
-    writers.push({ start: match.index, end: closingIndex + 1, target: target.text.trim() });
+    const argumentsStart = openingIndex + 1;
+    const writerArguments = splitTopLevelArguments(raw.slice(argumentsStart, closingIndex));
+    const [target, value] = writerArguments;
+    writers.push({
+      start: match.index,
+      end: closingIndex + 1,
+      target: target.text.trim(),
+      valueStart: value ? argumentsStart + value.start : null,
+      valueEnd: value ? argumentsStart + value.start + value.text.length : null,
+    });
   }
   return writers;
+}
+
+function expressionIdentifiers(source) {
+  const raw = String(source || '');
+  const masked = raw.split('');
+  const literals = stringLiterals(raw);
+  const mask = (start, end) => {
+    for (let index = Math.max(0, start); index < Math.min(masked.length, end); index += 1) masked[index] = ' ';
+  };
+  for (const literal of literals) {
+    const quote = raw[literal.start - 1];
+    if (quote !== '`') {
+      mask(literal.start - 1, literal.end);
+      continue;
+    }
+    let segmentStart = literal.start;
+    for (let index = literal.start; index < literal.end - 1; index += 1) {
+      if (raw[index] !== '$' || raw[index + 1] !== '{') continue;
+      mask(segmentStart, index);
+      const interpolationEnd = matchingBrace(raw, index + 1);
+      if (interpolationEnd < 0 || interpolationEnd >= literal.end) {
+        segmentStart = literal.end - 1;
+        break;
+      }
+      segmentStart = interpolationEnd + 1;
+      index = interpolationEnd;
+    }
+    mask(segmentStart, literal.end);
+  }
+  const identifiers = new Set();
+  const keywords = new Set([
+    'await', 'const', 'else', 'function', 'if', 'let', 'new', 'return', 'this', 'true', 'false',
+    'typeof', 'undefined', 'var', 'void', 'while', 'null', 'class', 'extends', 'async', 'of', 'in',
+  ]);
+  for (const match of masked.join('').matchAll(/[A-Za-z_$][A-Za-z0-9_$]*/g)) {
+    const identifier = match[0];
+    const index = match.index ?? 0;
+    const previous = masked.slice(0, index).join('').trimEnd().at(-1);
+    const next = masked.slice(index + identifier.length).join('').trimStart()[0];
+    if (previous === '.' || next === ':' || keywords.has(identifier)) continue;
+    identifiers.add(identifier);
+  }
+  return identifiers;
+}
+
+function valueDeclarationRange(source, identifier, scopeStart, scopeEnd, before) {
+  const raw = String(source || '');
+  const escapedIdentifier = identifier.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const declarationRe = new RegExp(`\\b(?:const|let|var)\\s+${escapedIdentifier}\\s*=`, 'g');
+  let declarationRange = null;
+  const searchEnd = Math.min(scopeEnd, before);
+  for (const declaration of raw.slice(scopeStart, searchEnd).matchAll(declarationRe)) {
+    const declarationStart = scopeStart + (declaration.index ?? 0);
+    const initializerStart = declarationStart + declaration[0].length;
+    const initializerEnd = Math.min(scopeEnd, expressionEnd(raw, initializerStart));
+    declarationRange = {
+      start: declarationStart,
+      end: initializerEnd,
+      initializerStart,
+      initializerEnd,
+    };
+  }
+  return declarationRange;
+}
+
+function writerValueRanges(source, writer, scopeStart, scopeEnd) {
+  const raw = String(source || '');
+  if (writer.valueStart == null || writer.valueEnd == null) {
+    return [{ start: writer.start, end: writer.end }];
+  }
+  const ranges = [{ start: writer.valueStart, end: writer.valueEnd }];
+  const pending = [{ start: writer.valueStart, end: writer.valueEnd }];
+  const visited = new Set();
+  while (pending.length > 0) {
+    const expression = pending.pop();
+    for (const identifier of expressionIdentifiers(raw.slice(expression.start, expression.end))) {
+      if (visited.has(identifier)) continue;
+      visited.add(identifier);
+      const declaration = valueDeclarationRange(raw, identifier, scopeStart, scopeEnd, writer.valueStart);
+      if (!declaration) continue;
+      ranges.push({ start: declaration.start, end: declaration.end });
+      pending.push({ start: declaration.initializerStart, end: declaration.initializerEnd });
+    }
+  }
+  return ranges;
 }
 
 /**
@@ -1598,7 +1695,11 @@ function flagOutputSinkRanges(source, flags) {
   const flagLiteralRes = [...flags].map((flag) => new RegExp(
     `(["'\`])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1`,
   ));
-  const readsFlag = (text) => flagLiteralRes.some((re) => re.test(text));
+  const flagPropertyRes = [...flags].map((flag) => new RegExp(
+    `\\[\\s*(["'])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1\\s*\\]`,
+  ));
+  const readsFlag = (text) => flagLiteralRes.some((re) => re.test(text))
+    || flagPropertyRes.some((re) => re.test(text));
   const ranges = fileWriterCalls(raw).filter((writer) => readsFlag(writer.target));
   for (const declaration of raw.matchAll(/\bfunction\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g)) {
     const name = declaration[1];
@@ -1623,8 +1724,14 @@ function flagOutputSinkRanges(source, flags) {
       });
     }
     if (boundParams.size === 0) continue;
-    for (const writer of fileWriterCalls(raw, bodyOpen, bodyClose)) {
-      if (boundParams.has(writer.target)) ranges.push({ start: writer.start, end: writer.end });
+    const boundWriters = fileWriterCalls(raw, bodyOpen, bodyClose)
+      .filter((writer) => boundParams.has(writer.target));
+    for (const writer of boundWriters) {
+      // Include only the value expression feeding the writer and its source
+      // declarations.
+      // Unrelated file writers in the same delegated function must not prove
+      // output keys for the GitHub output file.
+      ranges.push(...writerValueRanges(raw, writer, bodyOpen + 1, bodyClose));
     }
   }
   return ranges;

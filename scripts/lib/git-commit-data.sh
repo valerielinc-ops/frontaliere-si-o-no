@@ -5,6 +5,7 @@
 # Usage:
 #   bash scripts/lib/git-commit-data.sh "commit message" [extra-paths ...]
 #   bash scripts/lib/git-commit-data.sh --slice-only "commit message" [extra-paths ...]
+#   bash scripts/lib/git-commit-data.sh --group-receipt-repair "repair message"
 #   bash scripts/lib/git-commit-data.sh --extra-only "commit message" [extra-paths ...]
 #
 # --slice-only mode:
@@ -194,6 +195,7 @@ fi
 # ── Parse commit mode ────────────────────────────────────────────────────────
 SLICE_ONLY=false
 GROUP_BATCH=false
+GROUP_RECEIPT_REPAIR=false
 EXTRA_ONLY=false
 # Set to true (below) only for grouped crawler-group invocations, which share
 # one working copy across ~25 concurrent sibling crawlers and therefore must
@@ -207,6 +209,17 @@ if [ "${1:-}" = "--extra-only" ]; then
   shift
 elif [ "${1:-}" = "--group-batch" ]; then
   GROUP_BATCH=true
+  SLICE_ONLY=true
+  GROUPED_ISOLATED=true
+  shift
+elif [ "${1:-}" = "--group-receipt-repair" ]; then
+  # A receipt failure is emitted only after the grouped tree is already on the
+  # remote ref (or was confirmed there). This mode repairs the evidence from
+  # the durable descriptors without reacquiring the data-pipeline lease or
+  # attempting another push; the caller falls back to the full batch retry if
+  # the remote tree no longer matches those descriptors.
+  GROUP_BATCH=true
+  GROUP_RECEIPT_REPAIR=true
   SLICE_ONLY=true
   GROUPED_ISOLATED=true
   shift
@@ -426,13 +439,15 @@ if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
   for path_item in "${STANDARD_FILES[@]}"; do
     ALL_FILES+=("$path_item")
   done
-  for path_item in "${EXTRA_PATHS[@]}"; do
-    normalized_path="${path_item%/}"
-    if [[ "$path_item" == */ ]] || [[ -d "$normalized_path" ]]; then
-      continue
-    fi
-    ALL_FILES+=("$path_item")
-  done
+  if [ "${#EXTRA_PATHS[@]}" -gt 0 ]; then
+    for path_item in "${EXTRA_PATHS[@]}"; do
+      normalized_path="${path_item%/}"
+      if [[ "$path_item" == */ ]] || [[ -d "$normalized_path" ]]; then
+        continue
+      fi
+      ALL_FILES+=("$path_item")
+    done
+  fi
 fi
 
 # Resolve input paths to concrete files for snapshot/rebase-merge logic.
@@ -702,6 +717,10 @@ if [ "$GROUP_BATCH" = true ]; then
     echo "ℹ️ crawler group batch: snapshot operations by class (excludes unchanged): ${_class_summary}"
   fi
   if [ "${#RESOLVED_FILES[@]}" -eq 0 ]; then
+    if [ "$GROUP_RECEIPT_REPAIR" = true ]; then
+      echo "❌ crawler group receipt-only repair found no durable commit descriptors"
+      exit 1
+    fi
     echo "ℹ️ crawler group batch: no successful crawler produced a commit descriptor"
     [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
     exit 0
@@ -711,6 +730,81 @@ if [ "$GROUP_BATCH" = true ]; then
     exit 1
   fi
 fi
+
+# A receipt retry runs in the same job after the data commit has been pushed.
+# The marker is deliberately outside the repository: it is ephemeral job
+# evidence, not a new tracked data artifact. Its fixed name is safe because
+# RUNNER_TEMP is job-scoped and the grouped batch has one commit step.
+group_receipt_repair_marker_path() {
+  [ -n "${RUNNER_TEMP:-}" ] || return 1
+  printf '%s/crawler-generation/group-receipt-repair.txt\n' "$RUNNER_TEMP"
+}
+
+write_group_receipt_repair_marker() {
+  [ "$GROUP_BATCH" = true ] || return 0
+  local outcome="$1" commit_sha="$2" remote_base_sha="$3"
+  local marker_path marker_dir marker_tmp
+  case "$outcome" in
+    pushed|noop) ;;
+    *) return 1 ;;
+  esac
+  [[ "$commit_sha" =~ ^[0-9a-f]{40,64}$ ]] || return 1
+  [[ "$remote_base_sha" =~ ^[0-9a-f]{40,64}$ ]] || return 1
+  marker_path="$(group_receipt_repair_marker_path)" || return 1
+  marker_dir="$(dirname "$marker_path")"
+  mkdir -p "$marker_dir"
+  marker_tmp="$(mktemp "$marker_dir/.group-receipt-repair.XXXXXX")" || return 1
+  if ! printf '%s\n%s\n%s\n' "$commit_sha" "$remote_base_sha" "$outcome" > "$marker_tmp"; then
+    rm -f -- "$marker_tmp"
+    return 1
+  fi
+  if ! mv -f -- "$marker_tmp" "$marker_path"; then
+    rm -f -- "$marker_tmp"
+    return 1
+  fi
+}
+
+clear_group_receipt_repair_marker() {
+  local marker_path
+  marker_path="$(group_receipt_repair_marker_path 2>/dev/null)" || return 0
+  rm -f -- "$marker_path"
+}
+
+read_group_receipt_repair_marker() {
+  local marker_path
+  local -a marker_lines=()
+  marker_path="$(group_receipt_repair_marker_path)" || {
+    echo "❌ crawler group receipt-only repair requires RUNNER_TEMP"
+    return 1
+  }
+  if [ ! -f "$marker_path" ]; then
+    echo "❌ crawler group receipt-only repair found no publication marker"
+    return 1
+  fi
+  mapfile -t marker_lines < "$marker_path"
+  if [ "${#marker_lines[@]}" -ne 3 ]; then
+    echo "❌ crawler group receipt-only repair found an invalid publication marker"
+    return 1
+  fi
+  REPAIR_COMMIT_SHA="${marker_lines[0]}"
+  REPAIR_REMOTE_BASE_SHA="${marker_lines[1]}"
+  REPAIR_OUTCOME="${marker_lines[2]}"
+  [[ "$REPAIR_COMMIT_SHA" =~ ^[0-9a-f]{40,64}$ ]] || {
+    echo "❌ crawler group receipt-only repair found an invalid published commit marker"
+    return 1
+  }
+  [[ "$REPAIR_REMOTE_BASE_SHA" =~ ^[0-9a-f]{40,64}$ ]] || {
+    echo "❌ crawler group receipt-only repair found an invalid remote-base marker"
+    return 1
+  }
+  case "$REPAIR_OUTCOME" in
+    pushed|noop) ;;
+    *)
+      echo "❌ crawler group receipt-only repair found an invalid publication outcome marker"
+      return 1
+      ;;
+  esac
+}
 
 # Generation receipt for the exact private-index tree. Standalone callers keep
 # the historical shadow-only behavior, but a grouped batch makes the receipt a
@@ -729,6 +823,21 @@ emit_crawler_generation_receipt() {
   fi
   [ -n "${CRAWLER_GENERATION_RECEIPT_DIR:-}" ] || return 0
 
+  # A grouped receipt retry must prove that it is still describing the exact
+  # tree that this invocation published. The descriptor snapshot is the
+  # crawler's input, not necessarily the final blob: the isolated commit path
+  # may apply a three-way merge or ownership filtering before write-tree. Keep
+  # the published commit itself as the proof so repair does not reject a valid
+  # transformed blob or attest a sibling's later commit.
+  if [ "$outcome" = "pushed" ] || [ "$outcome" = "noop" ]; then
+    if ! write_group_receipt_repair_marker "$outcome" "$commit_sha" "$remote_base_sha"; then
+      echo "::error::crawler group batch could not persist the receipt-repair publication marker"
+      return "$CRAWLER_GENERATION_RECEIPT_FAILURE_EXIT"
+    fi
+  else
+    clear_group_receipt_repair_marker || true
+  fi
+
   local receipt_args=("${RESOLVED_FILES[@]}")
   if [ "$GROUP_BATCH" = true ]; then
     receipt_args=(--batch-receipts)
@@ -737,6 +846,7 @@ emit_crawler_generation_receipt() {
     CRAWLER_GENERATION_RECEIPT_COMMIT="$commit_sha" \
     CRAWLER_GENERATION_RECEIPT_REMOTE_BASE="$remote_base_sha" \
     node "$(dirname "$0")/crawler-generation-receipt.mjs" "${receipt_args[@]}"; then
+    clear_group_receipt_repair_marker || true
     return 0
   else
     receipt_status=$?
@@ -3273,6 +3383,41 @@ ensure_git_auth
 if [ "$GROUPED_ISOLATED" = true ]; then
   git_fetch_retry
 fi
+
+# Exit 46 means the data tree is already durable but its generation receipts
+# are not. The fetch above is the common grouped-isolated refresh, so this
+# repair path adds no second network operation and never reacquires the global
+# data-pipeline lease. It is safe only while the exact publication marker is
+# still the remote tip; any sibling commit makes repair fail closed and the
+# caller falls back to the full batch retry.
+if [ "$GROUP_RECEIPT_REPAIR" = true ]; then
+  read_group_receipt_repair_marker
+  repair_remote_sha="$(git rev-parse origin/main)"
+  if [ "$repair_remote_sha" != "$REPAIR_COMMIT_SHA" ]; then
+    echo "::error::crawler group receipt-only repair found a newer remote commit; full batch retry remains required"
+    exit 1
+  fi
+  if ! git cat-file -e "${REPAIR_COMMIT_SHA}^{commit}" 2>/dev/null; then
+    echo "::error::crawler group receipt-only repair could not verify the published commit object"
+    exit 1
+  fi
+  repair_receipt_exit=0
+  CRAWLER_GENERATION_RECEIPT_OUTCOME="$REPAIR_OUTCOME" \
+    CRAWLER_GENERATION_RECEIPT_COMMIT="$REPAIR_COMMIT_SHA" \
+    CRAWLER_GENERATION_RECEIPT_REMOTE_BASE="$REPAIR_REMOTE_BASE_SHA" \
+    node "$(dirname "$0")/crawler-generation-receipt.mjs" --batch-receipts \
+    || repair_receipt_exit=$?
+  if [ "$repair_receipt_exit" -ne 0 ]; then
+    echo "::error::crawler group receipt-only repair failed (exit ${repair_receipt_exit}); full batch retry remains required"
+    exit "$repair_receipt_exit"
+  fi
+  clear_group_receipt_repair_marker || true
+  echo "✅ Crawler group delivery receipts repaired at ${REPAIR_COMMIT_SHA} without reacquiring the data-pipeline lease"
+  [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
+  [ -n "${GITHUB_OUTPUT:-}" ] && echo "final_commit=$REPAIR_COMMIT_SHA" >> "$GITHUB_OUTPUT"
+  exit 0
+fi
+
 old_history_guard_main
 
 if [ "$GROUPED_ISOLATED" = true ]; then

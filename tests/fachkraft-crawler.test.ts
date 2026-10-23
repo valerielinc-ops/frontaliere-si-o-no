@@ -612,6 +612,42 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       });
     });
 
+    it('rescues an HTTP 403 on the listing through Jina before parsing the snapshot', async () => {
+      const title = 'Polymechaniker/in';
+      const url = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+      const cards = listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' }))
+        .replace('<ul>', '<ul data-count="1">');
+      let jinaCalls = 0;
+      const fetchImpl = async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') {
+          return new Response('forbidden by source WAF', { status: 403 });
+        }
+        if (target === url) {
+          return new Response(detailHtml({ title, description: words(55) }), { status: 200 });
+        }
+        throw new Error(`unexpected fetch target: ${target}`);
+      };
+      const fetchJinaImpl = async (target: string) => {
+        jinaCalls++;
+        expect(target).toBe('https://www.fachkraft.ch/stellen/');
+        return cards;
+      };
+
+      const snapshot = await fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        fetchJinaImpl,
+        existingJobs: [],
+        detailWorkers: 1,
+      });
+
+      expect(jinaCalls).toBe(1);
+      expect(snapshot).toHaveLength(1);
+      expect(snapshot[0]).toMatchObject({ title, url });
+      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+    });
+
     it('recovers a rate-limited detail without losing the authoritative snapshot', async () => {
       const limitedTitle = 'Polymechaniker/in';
       const siblingTitle = 'Montage-Elektriker/in';
