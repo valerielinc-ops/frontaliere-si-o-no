@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-23T04:16:12.386Z",
+  "generatedAt": "2026-10-23T05:18:43.645Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -28355,6 +28355,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T01:17:37.116Z"
+    },
+    "guidle:Ah9uP1F::55d080066fefcf5a9a7ba273a20444e316627e8548668e1312ec36ce8d1c6813": {
+      "id": "guidle:Ah9uP1F",
+      "sourceDescriptionHash": "55d080066fefcf5a9a7ba273a20444e316627e8548668e1312ec36ce8d1c6813",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: im Eulachstrand (Läbesruum); comune: Winterthur; cantone: ZH; categoria: Altri musica; organizzatore: Guidle; data: 2027-01-28; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: im Eulachstrand (Läbesruum); comune: Winterthur; cantone: ZH; categoria: Altri musica; organizzatore: Guidle; data: 2027-01-28; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: im Eulachstrand (Läbesruum); municipality: Winterthur; canton: ZH; category: Altri musica; organiser: Guidle; date: 2027-01-28; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: im Eulachstrand (Läbesruum); gemeinde: Winterthur; kanton: ZH; kategorie: Altri musica; veranstalter: Guidle; datum: 2027-01-28; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: im Eulachstrand (Läbesruum); commune: Winterthur; canton: ZH; catégorie: Altri musica; organisateur: Guidle; date: 2027-01-28; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-23T05:15:13.000Z"
     },
     "guidle:AhaFP38::046cab9ecb8b8c552bd2869160ebf60e236477b53e5eb8f5371e0b44be01b73a": {
       "id": "guidle:AhaFP38",
@@ -167617,15 +167631,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-19T20:18:05.880Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:Ah9uP1F::55d080066fefcf5a9a7ba273a20444e316627e8548668e1312ec36ce8d1c6813": {
-      "id": "guidle:Ah9uP1F",
-      "sourceDescriptionHash": "55d080066fefcf5a9a7ba273a20444e316627e8548668e1312ec36ce8d1c6813",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-22T20:18:25.785Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
