@@ -91,8 +91,8 @@ export function getJobGateSubscriberVariant(assignment: JobGateAssignment | null
 }
 
 /**
- * Extra params for the gate's `newsletter` subscribe event. Only the JobBoard
- * gate CTAs are tagged; other `job_gate`-channel emitters stay untouched.
+ * Extra params for the auth-gate `newsletter` subscribe event. Every auth-gate
+ * surface is tagged; other `job_gate`-channel emitters stay untouched.
  */
 export function jobGateNewsletterTags(sourceCta: string | undefined): { experiment_id: string; variant: string } | Record<string, never> {
   const params = getJobGateTelemetryParams();

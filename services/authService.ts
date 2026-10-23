@@ -1117,7 +1117,7 @@ export interface AuthJobContext {
  location?: string | null;
  category?: string | null;
  searchQuery?: string | null;
- surface?: 'inline' | 'modal' | 'expired' | 'orphan' | 'unknown';
+ surface?: 'inline' | 'modal' | 'expired' | 'orphan' | 'bridge' | 'unknown';
  variant?: string;
  experimentId?: string;
 }
