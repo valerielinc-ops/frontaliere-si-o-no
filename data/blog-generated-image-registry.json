@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 820,
-  "generatedAt": "2026-10-23T23:08:58.966Z",
+  "assetCount": 821,
+  "generatedAt": "2026-10-23T23:41:02.558Z",
   "assets": [
     {
       "schema": 1,
@@ -35022,6 +35022,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic hospital exterior illustration with no visible text, logos, or recognizable people."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-iva-aumento-pensione-sondaggio",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "7013789ece382c85639d961c411330c9b3ec7e14da25b4a5d0f5329cd15bea04",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "05b399c4fa8b772123358cff17fb98923b2ec686469de47493daf86f7f072901",
+      "bytes": 120682,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-23T23:16:49.741Z",
+      "verifiedAt": "2026-10-23T23:16:56.009Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-iva-aumento-pensione-sondaggio.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic editorial illustration of a wallet and coins against a Swiss lake landscape; no people, text, logos, or event-specific cues."
       }
     }
   ]

@@ -8603,6 +8603,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franco-euro-cambio-ottobre-2026.title': 'Cambio EUR/CHF intorno a 0,92 il 23 ottobre 2026',
     'blog.article.franco-euro-cambio-ottobre-2026.excerpt': 'EUR/CHF intorno a 0,92 al 23 ottobre 2026 Un franco svizzero vale circa 1,09 euro Il franco riprende forza dopo un indebolimento temporaneo Geopolitica',
     'blog.article.franco-euro-cambio-ottobre-2026.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.iva-aumento-pensione-sondaggio.title': 'Aumento IVA per extra pensione: 49% contrari nel primo sondaggio',
+    'blog.article.iva-aumento-pensione-sondaggio.excerpt': '49% contrari, 46% favorevoli e 5% indecisi.',
+    'blog.article.iva-aumento-pensione-sondaggio.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

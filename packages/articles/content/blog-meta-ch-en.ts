@@ -8603,6 +8603,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franco-euro-cambio-ottobre-2026.title': 'EUR/CHF exchange rate around 0,92 on October 23, 2026',
     'blog.article.franco-euro-cambio-ottobre-2026.excerpt': 'EUR/CHF around 0,92 as of October 23, 2026 One Swiss franc is worth approximately 1,09 euros The franc regains strength after a temporary weakening Geopolitics',
     'blog.article.franco-euro-cambio-ottobre-2026.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.iva-aumento-pensione-sondaggio.title': 'VAT increase for additional pensions: 49% opposed in the first poll',
+    'blog.article.iva-aumento-pensione-sondaggio.excerpt': '49% against, 46% in favour and 5% undecided.',
+    'blog.article.iva-aumento-pensione-sondaggio.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

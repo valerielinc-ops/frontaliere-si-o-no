@@ -8603,6 +8603,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franco-euro-cambio-ottobre-2026.title': 'Taux de change EUR/CHF autour de 0,92 le 23 octobre 2026',
     'blog.article.franco-euro-cambio-ottobre-2026.excerpt': 'EUR/CHF autour de 0,92 au 23 octobre 2026 Un franc suisse vaut environ 1,09 euro Le franc reprend de la vigueur après un affaiblissement temporaire Géopolitique',
     'blog.article.franco-euro-cambio-ottobre-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.iva-aumento-pensione-sondaggio.title': 'TVA retraite sup: 49% contre selon premier sondage',
+    'blog.article.iva-aumento-pensione-sondaggio.excerpt': '49 % contre, 46 % pour et 5 % indécis.',
+    'blog.article.iva-aumento-pensione-sondaggio.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
