@@ -883,10 +883,9 @@ create_refresh_pr() {
       return "$status"
     fi
 
-    next_attempt=$((attempt + 1))
-    echo "::warning::gh pr create stable refresh PR returned a transient error on attempt ${attempt}/${PR_CREATE_MAX_ATTEMPTS}; retrying attempt ${next_attempt} in ${attempt}s" >&2
+    echo "::warning::gh pr create stable refresh PR returned a transient error on attempt ${attempt}/${PR_CREATE_MAX_ATTEMPTS}; retrying attempt $((attempt + 1)) in ${attempt}s" >&2
     sleep "$attempt"
-    attempt="$next_attempt"
+    attempt=$((attempt + 1))
   done
 }
 
