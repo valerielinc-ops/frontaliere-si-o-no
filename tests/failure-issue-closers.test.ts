@@ -159,6 +159,26 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
     expect(uncovered).toEqual([...KNOWN_UNCOVERED].sort());
   });
 
+  it('ogni reporter dei crawler richiede la conferma di persistenza', () => {
+    const crawlerWorkflowDir = path.resolve(__dirname, '..', '.github', 'corpus-workflows');
+    const offenders: string[] = [];
+    let reporterCalls = 0;
+
+    for (const file of fs.readdirSync(crawlerWorkflowDir).filter((name) => /^crawler-group-\d+\.yml$/u.test(name))) {
+      const source = fs.readFileSync(path.join(crawlerWorkflowDir, file), 'utf8');
+      for (const [index, line] of source.split('\n').entries()) {
+        if (!line.includes('github-issue-creator.mjs')) continue;
+        reporterCalls += 1;
+        if (!line.includes('--require-persisted')) {
+          offenders.push(`${file}:${index + 1}`);
+        }
+      }
+    }
+
+    expect(reporterCalls).toBeGreaterThan(0);
+    expect(offenders).toEqual([]);
+  });
+
   it('nessun titolo `… Failure: <nome>` nomina un workflow che `gh run list -w` non risolve', () => {
     const mismatched = coverageReport(WORKFLOWS_DIR)
       .filter((r) => r.detail)
