@@ -43,6 +43,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, buildJobSlug, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
+import { assertSuvaDetailSnapshotComplete } from './suva-snapshot-guard.mjs';
 import {
   locateTagByAttribute,
   extractBalancedTagBlockWithStatus,
@@ -402,6 +403,12 @@ export async function fetchAllSuvaJobs() {
 
     await new Promise((r) => setTimeout(r, 500));
   }
+
+  // The sitemap is authoritative. Publishing only the detail pages that
+  // happened to succeed would retire live vacancies during a transient
+  // detail-fetch failure; the next healthy run would then resurrect them and
+  // trigger the crawler-flap health advisory (#14889).
+  assertSuvaDetailSnapshotComplete(jobUrls, jobs);
 
   console.log(`\n📋 Total Suva jobs discovered: ${jobs.length}`);
   return jobs;

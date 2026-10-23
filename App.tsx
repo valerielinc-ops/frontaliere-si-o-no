@@ -153,7 +153,7 @@ const BlogArticles = lazyRetry(() => {
  import('@/services/router').then(m => m.preloadBlogData()).catch(() => {});
  return import('@/components/community/BlogArticles');
 });
-const AdminPanel = lazyRetry(() => import('@/components/pages/AdminPanel'));
+const AdminPanel = lazyRetry(() => import('@/components/admin/AdminApp'));
 const Glossary = lazyRetry(() => import('@/components/pages/Glossary'));
 const TicineseDialect = lazyRetry(() => import('@/components/vita/TicineseDialect'));
 const FaqSection = lazyRetry(() => import('@/components/pages/FaqSection'));
@@ -295,6 +295,7 @@ import {
 } from 'lucide-react';
 import { TELEGRAM_CHANNEL_URL, isTelegramChannelConfigured } from '@/services/telegramChannel';
 import { isSiteAdminUid } from '@/services/adminIdentity';
+import { shouldHideSiteNavigation, useAdminShellVariant } from '@/components/admin/lib/adminShellVariant';
 import { FOOTER_LINK_GROUP_CLASS } from '@/components/footer/footerLinkGroup';
 import type { FuelStationMapPayload } from '@/components/pages/FuelStationMap';
 
@@ -393,7 +394,7 @@ const App: React.FC = () => {
 
  // Navigation state: tabs, sub-tabs, deep links, popstate, SEO effects, etc.
  const {
- activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
+ activeTab, adminSection, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
  blogArticle, blogSection, swissArticle, cantonArticle, cantonTopic, blogPage, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus, notFoundPath,
@@ -448,6 +449,8 @@ const App: React.FC = () => {
 
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
+ const adminShellVariant = useAdminShellVariant(activeTab === 'admin');
+ const hideSiteNavigation = shouldHideSiteNavigation(activeTab, adminShellVariant);
  const [autoAdOverlayClearance, setAutoAdOverlayClearance] = useState(() => getAutoAdOverlayClearance());
  useEffect(() => subscribeToAutoAdOverlay(setAutoAdOverlayClearance), []);
  // Keeps floating third-party overlays (AdSense ad-intents chip) off the
@@ -2598,7 +2601,7 @@ const App: React.FC = () => {
  )}
 
  {/* Navbar */}
- <nav ref={mainNavRef} aria-label="Navigazione principale" className="sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300">
+ <nav ref={mainNavRef} aria-label="Navigazione principale" className={hideSiteNavigation ? 'hidden' : 'sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300'}>
  <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
  <div className="flex justify-between h-14 md:h-20 items-center">
  {/* Logo Section */}
@@ -3397,7 +3400,7 @@ const App: React.FC = () => {
  </p>
  </div>
  ) : isPrivilegedAdmin ? (
- <AdminPanel />
+ <AdminPanel adminSection={adminSection} />
  ) : (
  <div className="flex flex-col items-center justify-center py-20 space-y-4">
  <Shield size={48} className="text-danger" />
@@ -4353,7 +4356,7 @@ const App: React.FC = () => {
  {/* Mobile Bottom Navigation Bar */}
  <nav
  aria-label="Navigazione mobile"
- className="mobile-bottom-nav fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]"
+ className={hideSiteNavigation ? 'hidden' : 'mobile-bottom-nav fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]'}
  style={{ '--mobile-nav-ad-clearance': `${autoAdOverlayClearance}px` } as React.CSSProperties}
  >
  <div className="grid grid-cols-6 h-14">

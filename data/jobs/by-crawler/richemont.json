@@ -2479,7 +2479,7 @@
       "slugByLocale": {
         "it": "responsabile-sviluppo-orologi-panerai-neuchatel",
         "en": "watch-development-manager-panerai-neuchatel",
-        "de": "responsible-development-uhren-panerai-neuchatel",
+        "de": "leiter-uhrentwicklung-panerai-neuchatel",
         "fr": "responsable-developpement-montres-panerai-neuchatel"
       },
       "company": "Panerai",
@@ -2535,13 +2535,13 @@
         ],
         "de": [
           "responsable-developpement-montres-panerai-neuchatel",
-          "leiter-uhrentwicklung-panerai-neuchatel"
+          "responsible-development-uhren-panerai-neuchatel"
         ]
       },
       "previousSlugs": [
         "responsable-developpement-montres-richemont-neuchatel",
         "responsable-developpement-montres-panerai-neuchatel",
-        "leiter-uhrentwicklung-panerai-neuchatel"
+        "responsible-development-uhren-panerai-neuchatel"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2720,7 +2720,7 @@
       "slugByLocale": {
         "it": "responsabile-processo-acquisti-richemont-plan-les-ouates",
         "en": "procurement-process-manager-richemont-plan-les-ouates",
-        "de": "beschaffungsprozess-manager-richemont-plan-les-ouates",
+        "de": "beschaffungsprozessmanager-richemont-plan-les-ouates",
         "fr": "gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates"
       },
       "company": "Richemont",
@@ -2766,7 +2766,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-process-manager-richemont-plan-les-ouates",
-        "beschaffungsprozessmanager-richemont-plan-les-ouates"
+        "beschaffungsprozess-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2774,7 +2774,7 @@
         ],
         "de": [
           "procurement-process-manager-richemont-plan-les-ouates",
-          "beschaffungsprozessmanager-richemont-plan-les-ouates"
+          "beschaffungsprozess-manager-richemont-plan-les-ouates"
         ],
         "fr": [
           "procurement-process-manager-richemont-plan-les-ouates"
@@ -2803,7 +2803,7 @@
       "slugByLocale": {
         "it": "regolatore-meccanico-strike-procadrans-la-chaux-de-fonds",
         "en": "mechanic-adjuster-strike-procadrans-la-chaux-de-fonds",
-        "de": "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds",
+        "de": "mechaniker-strike-procadrans-la-chaux-de-fonds",
         "fr": "mecanicien-regleur-frappe-richemont-la-chaux-de-fonds"
       },
       "company": "ProCadrans",
@@ -2850,7 +2850,7 @@
       "previousSlugs": [
         "mecanicien-regleur-frappe-richemont-la-chaux-de-fonds",
         "mecanicien-regleur-frappe-procadrans-la-chaux-de-fonds",
-        "mechaniker-strike-procadrans-la-chaux-de-fonds"
+        "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2858,7 +2858,7 @@
           "mecanicien-regleur-frappe-procadrans-la-chaux-de-fonds"
         ],
         "de": [
-          "mechaniker-strike-procadrans-la-chaux-de-fonds"
+          "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds"
         ]
       },
       "firstSeenAt": "2026-07-17T11:30:23.949Z",
@@ -5110,7 +5110,7 @@
       "slug": "leader-del-progetto-di-riferimento-industrializzazione-donze-baume-les-breuleux",
       "slugByLocale": {
         "it": "leader-del-progetto-di-riferimento-industrializzazione-donze-baume-les-breuleux",
-        "en": "reference-project-leader-industrialization-donze-baume-les-breuleux",
+        "en": "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
         "de": "referenzprojektleiter-industrialisierung-donze-baume-les-breuleux",
         "fr": "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
       },
@@ -5164,7 +5164,7 @@
           "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
         ],
         "en": [
-          "referent-chef-de-projet-industrialisation-richemont-les-breuleux"
+          "reference-project-leader-industrialization-donze-baume-les-breuleux"
         ],
         "de": [
           "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
@@ -5173,7 +5173,8 @@
       },
       "previousSlugs": [
         "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
-        "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
+        "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux",
+        "reference-project-leader-industrialization-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-07-16T22:17:40.511Z",
       "salaryMin": 60500,
@@ -5197,8 +5198,8 @@
       "slug": "programmazione-di-riferimento-donze-baume-les-breuleux",
       "slugByLocale": {
         "it": "programmazione-di-riferimento-donze-baume-les-breuleux",
-        "en": "reference-programming-donze-baume-les-breuleux",
-        "de": "referent-programmplanung-donze-baume-les-breuleux",
+        "en": "referent-programmation-richemont-les-breuleux",
+        "de": "referenzprogrammierung-donze-baume-les-breuleux",
         "fr": "referent-programmation-donze-baume-les-breuleux"
       },
       "company": "Donzé Baume",
@@ -5256,13 +5257,13 @@
         ],
         "en": [
           "planner-donze-baume-les-breuleux",
-          "referent-programmation-richemont-les-breuleux"
+          "reference-programming-donze-baume-les-breuleux"
         ],
         "de": [
           "referent-programmation-richemont-les-breuleux",
           "planer-donze-baume-les-breuleux",
           "referent-programmation-donze-baume-les-breuleux",
-          "referenzprogrammierung-donze-baume-les-breuleux"
+          "referent-programmplanung-donze-baume-les-breuleux"
         ]
       },
       "previousSlugs": [
@@ -5272,7 +5273,8 @@
         "planer-donze-baume-les-breuleux",
         "planificateur-richemont-les-breuleux",
         "referent-programmation-donze-baume-les-breuleux",
-        "referenzprogrammierung-donze-baume-les-breuleux"
+        "reference-programming-donze-baume-les-breuleux",
+        "referent-programmplanung-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-07-16T22:17:40.466Z",
       "salaryMin": 60500,
@@ -5376,7 +5378,7 @@
       "slugByLocale": {
         "it": "horloger-hh-panerai-neuchatel",
         "en": "horloger-hh-richemont-neuchatel",
-        "de": "uhr-hh-panerai-neuchatel",
+        "de": "horloge-hh-panerai-neuchatel",
         "fr": "horloger-hh-richemont-neuchatel"
       },
       "company": "Panerai",
@@ -5423,7 +5425,7 @@
       "previousSlugs": [
         "horloger-hh-richemont-neuchatel",
         "orologiaio-hh-panerai-neuchatel",
-        "horloge-hh-panerai-neuchatel"
+        "uhr-hh-panerai-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5431,7 +5433,7 @@
           "orologiaio-hh-panerai-neuchatel"
         ],
         "de": [
-          "horloge-hh-panerai-neuchatel"
+          "uhr-hh-panerai-neuchatel"
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:32.485Z",
@@ -6160,7 +6162,7 @@
       "id": "richemont-6922099e48c5",
       "slug": "societa-commerciale-van-cleef-arpels-zurich",
       "slugByLocale": {
-        "it": "societa-commerciale-van-cleef-arpels-zurich",
+        "it": "vendite-van-cleef-arpels-zurich",
         "en": "sales-associate-van-cleef-arpels-zurich",
         "de": "vertriebsmitarbeiter-van-cleef-arpels-zurich",
         "fr": "sales-associate-richemont-zurich"
@@ -6209,8 +6211,7 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-associate-van-cleef-arpels-zurich",
-          "sales-associate-richemont-zurich",
-          "vendite-van-cleef-arpels-zurich"
+          "sales-associate-richemont-zurich"
         ],
         "fr": [
           "sales-associate-richemont-zurich-t0sdvd"
@@ -6225,8 +6226,7 @@
       "previousSlugs": [
         "sales-associate-richemont-zurich-t0sdvd",
         "sales-associate-van-cleef-arpels-zurich",
-        "sales-associate-richemont-zurich",
-        "vendite-van-cleef-arpels-zurich"
+        "sales-associate-richemont-zurich"
       ],
       "firstSeenAt": "2026-08-19T21:42:09.964Z",
       "salaryMin": 83000,
@@ -6808,7 +6808,7 @@
       "slugByLocale": {
         "it": "elettrodomestici-polimeccanici-cfc-cartier-manufacture-glovelier",
         "en": "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
-        "de": "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier",
+        "de": "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier",
         "fr": "apprenti-e-polymecanicien-ne-cfc-cartier-manufacture-glovelier"
       },
       "company": "Cartier Manufacture",
@@ -6862,13 +6862,13 @@
         "de": [
           "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
           "lehrling-polymechaniker-in-efz-cartier-manufacture-glovelier",
-          "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier"
+          "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier"
         ]
       },
       "previousSlugs": [
         "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
         "lehrling-polymechaniker-in-efz-cartier-manufacture-glovelier",
-        "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier"
+        "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier"
       ],
       "firstSeenAt": "2026-08-18T09:59:08.365Z",
       "salaryMin": 51100,
@@ -7124,7 +7124,7 @@
       "slug": "formatore-professioni-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "it": "formatore-professioni-cartier-manufacture-le-cret-du-locle",
-        "en": "formateur-metiers-cartier-manufacture-le-cret-du-locle",
+        "en": "business-trainer-cartier-manufacture-le-cret-du-locle",
         "de": "berufsbildner-cartier-manufacture-le-cret-du-locle",
         "fr": "formateur-metiers-richemont-le-cret-du-locle"
       },
@@ -7172,7 +7172,7 @@
       "previousSlugs": [
         "formateur-metiers-richemont-le-cret-du-locle",
         "vocational-trainer-cartier-manufacture-le-cret-du-locle",
-        "business-trainer-cartier-manufacture-le-cret-du-locle"
+        "formateur-metiers-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7180,7 +7180,7 @@
         ],
         "en": [
           "vocational-trainer-cartier-manufacture-le-cret-du-locle",
-          "business-trainer-cartier-manufacture-le-cret-du-locle"
+          "formateur-metiers-cartier-manufacture-le-cret-du-locle"
         ],
         "de": [
           "formateur-metiers-richemont-le-cret-du-locle"
@@ -8526,7 +8526,7 @@
         "it": "societa-commerciale-cartier-zurich",
         "en": "sales-associate-cartier-zurich",
         "de": "vertriebsmitarbeiter-cartier-zurich",
-        "fr": "associe-de-vente-cartier-zurich"
+        "fr": "sales-associate-richemont-zurich"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -8598,7 +8598,7 @@
         ],
         "fr": [
           "sales-associate-temps-partiel-20-cartier-zurich",
-          "sales-associate-richemont-zurich"
+          "associe-de-vente-cartier-zurich"
         ]
       },
       "previousSlugs": [
@@ -8617,7 +8617,8 @@
         "conseiller-ere-de-vente-temps-partiel-20-cartier-zurich",
         "assistente-vendita-parte-tempo-20-cartier-zurich",
         "verkaufsassistent-teilzeit-20-cartier-zurich",
-        "venditore-part-time-40-cartier-zurich"
+        "venditore-part-time-40-cartier-zurich",
+        "associe-de-vente-cartier-zurich"
       ],
       "firstSeenAt": "2026-09-08T13:49:32.379Z",
       "salaryMin": 83000,
@@ -9375,7 +9376,7 @@
         "it": "mouvements-constructeur-vacheron-constantin-le-brassus",
         "en": "constructeur-mouvements-richemont-le-brassus",
         "de": "konstrukteur-mouvements-vacheron-constantin-le-brassus",
-        "fr": "constructeur-mouvements-vacheron-constantin-le-brassus"
+        "fr": "constructeurmounts-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -9423,7 +9424,7 @@
         "manufacturer-movements-vacheron-constantin-le-brassus",
         "movimenti-del-produttore-vacheron-constantin-le-brassus",
         "herstellerbewegungen-vacheron-constantin-le-brassus",
-        "constructeurmounts-vacheron-constantin-le-brassus"
+        "constructeur-mouvements-vacheron-constantin-le-brassus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9436,7 +9437,7 @@
           "constructeur-mouvements-richemont-le-brassus"
         ],
         "fr": [
-          "constructeurmounts-vacheron-constantin-le-brassus"
+          "constructeur-mouvements-vacheron-constantin-le-brassus"
         ]
       },
       "firstSeenAt": "2026-09-26T14:07:23.365Z",
@@ -15896,12 +15897,12 @@
     },
     {
       "id": "richemont-979d13bb2271",
-      "slug": "chef-de-projets-innovation-richemont-le-cret-du-locle",
+      "slug": "responsabile-del-progetto-innovazione-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "fr": "chef-de-projets-innovation-richemont-le-cret-du-locle",
-        "it": "chef-de-projets-innovation-richemont-le-cret-du-locle",
-        "en": "chef-de-projets-innovation-richemont-le-cret-du-locle",
-        "de": "chef-de-projets-innovation-richemont-le-cret-du-locle"
+        "it": "responsabile-del-progetto-innovazione-cartier-manufacture-le-cret-du-locle",
+        "en": "innovation-project-manager-cartier-manufacture-le-cret-du-locle",
+        "de": "innovationsprojektmanager-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -15909,16 +15910,16 @@
       "title": "Chef de projets innovation",
       "titleByLocale": {
         "fr": "Chef de projets innovation",
-        "it": "Chef de projets innovation",
-        "en": "Chef de projets innovation",
-        "de": "Chef de projets innovation"
+        "it": "Responsabile del progetto Innovazione",
+        "en": "Innovation project manager",
+        "de": "Innovationsprojektmanager"
       },
       "description": "Reference code: JR135259\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation.\n\nCONTEXTE\n\nAu sein de l’équipe Innovation, vous participez à la mise au point de nouveaux produits et processus de fabrication technologiques ou artisanaux, et apportez votre expertise analytique pour réaliser des produits innovants. Vous gérez la partie technique et scientifique des projets Innovation et/ou transverses et en assumez les aspects opérationnels.\n\nVOS RESPONSABILITÉS\n\nVous fournissez une expertise scientifique et êtes promoteur d’idées novatrices pour inventer de nouveaux produits, moderniser les processus et les matières à utiliser\n\n• En apportant votre expertise pour assurer la faisabilité des concepts créatifs, en manageant des projets complexes et en proposant de nouveaux concepts.\n• En étant connecté aux réseaux académiques et industriels pour pouvoir y détecter de potentielles nouvelles possibilités créatives et alimenter nos designers.\n• En transmettant l'ensemble des informations, conseils, explications liés à l'application des idées sélectionnées pour le développement et la production.\n\nVous réalisez des études pour créer des nouveaux produits ou de nouvelles esthétiques et êtes en charge du projet de l’idée à la livraison des produits\n\n• En analysant les propositions créatives et en étant force de proposition pour les rendre réalisable.\n• En réalisant les constructions des innovations et les plans d’expériences permettant de valider la faisabilité des concepts.\n• En proposant des solutions innovantes, gérant des projets spécifiques et en réalisant la partie technique.\n• En effectuant la phase de prototypage tout en s’appuyant sur les savoir-faire existants ou en initiant les collaborations nécessaires.\n\nVous assurez la communication en lien avec l’innovation auprès des acteurs internes et externes\n\n• En démontrant, consolidant et partageant les informations de manière pertinente en vue de faire valider les idées à appliquer.\n• En maintenant et développant des partenariats internes et externes (équipe Design et Marketing, partenaires industriels, académiques, etc.) pour anticiper les besoins tout en prenant en considération les contraintes techniques.\n• En veillant au partage de l'information et à la validation des acteurs impliqués dans le projet.\n\nVous assurez une veille technologique en recherchant, développant et surveillant l'évolution des nouvelles techniques (technologies, matériaux et processus)\n\nVOTRE PROFIL\n\nAu bénéficie d’un diplôme d'ingénieur mécanique ou design ou d'un diplôme scientifique dans l’un des domaines suivants : matériaux, optique, magnétisme ou nanotechnologie, vous possédez une expérience confirmée dans l’innovation produits. Reconnu pour votre créativité et vos compétences relationnelles, vous faites preuve d’engagement dans la réussite de vos projets. Maîtrisant idéalement un logiciel CAO (Creo est un atout) et l’anglais (C1), vous possédez une connaissance approfondie des produits horlogers/joailliers et avez une appétence pour ces domaines. Une expérience en construction mouvement est un plus.\n\nQU'AVONS-NOUS A VOUS OFFRIR ?\n\nNous créons un environnement positif où nous sommes fiers d'employer des talents issus de différents milieux, expériences et identités. Nous sommes convaincus que lorsque la diversité et l'inclusion sont pleinement acceptées et renforcées, la créativité et le savoir émergent pour atteindre l'excellence.\n\nVOTRE PARCOURS CANDIDAT AVEC NOUS\n\nSi votre candidature correspond à ce que l'on recherche, nous planifierons avec vous un entretien avec notre Responsable innovation et technologie et notre HR Business Partner. Tout au long de son histoire, la Maison Cartier s'est distinguée par l'engagement de chacun de ses employés. Nous sommes convaincus que lorsque la diversité, l'équité et l'inclusion sont pleinement assumées, l'innovation et la créativité émergent pour offrir l'excellence. Quelles que soient les différences visibles ou invisibles, nous nous engageons à créer un environnement où chacun a une chance égale de réaliser son plein potentiel, d'être entendu et de se sentir valorisé.\n\nEntrée en fonction : Le 1er mars 2027 ou à convenir\n\nLieu de travail : La Chaux-de-Fonds, Suisse\n\nContrat : A durée maximale de 1 an",
       "descriptionByLocale": {
         "fr": "Reference code: JR135259\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation.\n\nCONTEXTE\n\nAu sein de l’équipe Innovation, vous participez à la mise au point de nouveaux produits et processus de fabrication technologiques ou artisanaux, et apportez votre expertise analytique pour réaliser des produits innovants. Vous gérez la partie technique et scientifique des projets Innovation et/ou transverses et en assumez les aspects opérationnels.\n\nVOS RESPONSABILITÉS\n\nVous fournissez une expertise scientifique et êtes promoteur d’idées novatrices pour inventer de nouveaux produits, moderniser les processus et les matières à utiliser\n\n• En apportant votre expertise pour assurer la faisabilité des concepts créatifs, en manageant des projets complexes et en proposant de nouveaux concepts.\n• En étant connecté aux réseaux académiques et industriels pour pouvoir y détecter de potentielles nouvelles possibilités créatives et alimenter nos designers.\n• En transmettant l'ensemble des informations, conseils, explications liés à l'application des idées sélectionnées pour le développement et la production.\n\nVous réalisez des études pour créer des nouveaux produits ou de nouvelles esthétiques et êtes en charge du projet de l’idée à la livraison des produits\n\n• En analysant les propositions créatives et en étant force de proposition pour les rendre réalisable.\n• En réalisant les constructions des innovations et les plans d’expériences permettant de valider la faisabilité des concepts.\n• En proposant des solutions innovantes, gérant des projets spécifiques et en réalisant la partie technique.\n• En effectuant la phase de prototypage tout en s’appuyant sur les savoir-faire existants ou en initiant les collaborations nécessaires.\n\nVous assurez la communication en lien avec l’innovation auprès des acteurs internes et externes\n\n• En démontrant, consolidant et partageant les informations de manière pertinente en vue de faire valider les idées à appliquer.\n• En maintenant et développant des partenariats internes et externes (équipe Design et Marketing, partenaires industriels, académiques, etc.) pour anticiper les besoins tout en prenant en considération les contraintes techniques.\n• En veillant au partage de l'information et à la validation des acteurs impliqués dans le projet.\n\nVous assurez une veille technologique en recherchant, développant et surveillant l'évolution des nouvelles techniques (technologies, matériaux et processus)\n\nVOTRE PROFIL\n\nAu bénéficie d’un diplôme d'ingénieur mécanique ou design ou d'un diplôme scientifique dans l’un des domaines suivants : matériaux, optique, magnétisme ou nanotechnologie, vous possédez une expérience confirmée dans l’innovation produits. Reconnu pour votre créativité et vos compétences relationnelles, vous faites preuve d’engagement dans la réussite de vos projets. Maîtrisant idéalement un logiciel CAO (Creo est un atout) et l’anglais (C1), vous possédez une connaissance approfondie des produits horlogers/joailliers et avez une appétence pour ces domaines. Une expérience en construction mouvement est un plus.\n\nQU'AVONS-NOUS A VOUS OFFRIR ?\n\nNous créons un environnement positif où nous sommes fiers d'employer des talents issus de différents milieux, expériences et identités. Nous sommes convaincus que lorsque la diversité et l'inclusion sont pleinement acceptées et renforcées, la créativité et le savoir émergent pour atteindre l'excellence.\n\nVOTRE PARCOURS CANDIDAT AVEC NOUS\n\nSi votre candidature correspond à ce que l'on recherche, nous planifierons avec vous un entretien avec notre Responsable innovation et technologie et notre HR Business Partner. Tout au long de son histoire, la Maison Cartier s'est distinguée par l'engagement de chacun de ses employés. Nous sommes convaincus que lorsque la diversité, l'équité et l'inclusion sont pleinement assumées, l'innovation et la créativité émergent pour offrir l'excellence. Quelles que soient les différences visibles ou invisibles, nous nous engageons à créer un environnement où chacun a une chance égale de réaliser son plein potentiel, d'être entendu et de se sentir valorisé.\n\nEntrée en fonction : Le 1er mars 2027 ou à convenir\n\nLieu de travail : La Chaux-de-Fonds, Suisse\n\nContrat : A durée maximale de 1 an",
-        "it": "Reference code: JR135259\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation.\n\nCONTEXTE\n\nAu sein de l’équipe Innovation, vous participez à la mise au point de nouveaux produits et processus de fabrication technologiques ou artisanaux, et apportez votre expertise analytique pour réaliser des produits innovants. Vous gérez la partie technique et scientifique des projets Innovation et/ou transverses et en assumez les aspects opérationnels.\n\nVOS RESPONSABILITÉS\n\nVous fournissez une expertise scientifique et êtes promoteur d’idées novatrices pour inventer de nouveaux produits, moderniser les processus et les matières à utiliser\n\n• En apportant votre expertise pour assurer la faisabilité des concepts créatifs, en manageant des projets complexes et en proposant de nouveaux concepts.\n• En étant connecté aux réseaux académiques et industriels pour pouvoir y détecter de potentielles nouvelles possibilités créatives et alimenter nos designers.\n• En transmettant l'ensemble des informations, conseils, explications liés à l'application des idées sélectionnées pour le développement et la production.\n\nVous réalisez des études pour créer des nouveaux produits ou de nouvelles esthétiques et êtes en charge du projet de l’idée à la livraison des produits\n\n• En analysant les propositions créatives et en étant force de proposition pour les rendre réalisable.\n• En réalisant les constructions des innovations et les plans d’expériences permettant de valider la faisabilité des concepts.\n• En proposant des solutions innovantes, gérant des projets spécifiques et en réalisant la partie technique.\n• En effectuant la phase de prototypage tout en s’appuyant sur les savoir-faire existants ou en initiant les collaborations nécessaires.\n\nVous assurez la communication en lien avec l’innovation auprès des acteurs internes et externes\n\n• En démontrant, consolidant et partageant les informations de manière pertinente en vue de faire valider les idées à appliquer.\n• En maintenant et développant des partenariats internes et externes (équipe Design et Marketing, partenaires industriels, académiques, etc.) pour anticiper les besoins tout en prenant en considération les contraintes techniques.\n• En veillant au partage de l'information et à la validation des acteurs impliqués dans le projet.\n\nVous assurez une veille technologique en recherchant, développant et surveillant l'évolution des nouvelles techniques (technologies, matériaux et processus)\n\nVOTRE PROFIL\n\nAu bénéficie d’un diplôme d'ingénieur mécanique ou design ou d'un diplôme scientifique dans l’un des domaines suivants : matériaux, optique, magnétisme ou nanotechnologie, vous possédez une expérience confirmée dans l’innovation produits. Reconnu pour votre créativité et vos compétences relationnelles, vous faites preuve d’engagement dans la réussite de vos projets. Maîtrisant idéalement un logiciel CAO (Creo est un atout) et l’anglais (C1), vous possédez une connaissance approfondie des produits horlogers/joailliers et avez une appétence pour ces domaines. Une expérience en construction mouvement est un plus.\n\nQU'AVONS-NOUS A VOUS OFFRIR ?\n\nNous créons un environnement positif où nous sommes fiers d'employer des talents issus de différents milieux, expériences et identités. Nous sommes convaincus que lorsque la diversité et l'inclusion sont pleinement acceptées et renforcées, la créativité et le savoir émergent pour atteindre l'excellence.\n\nVOTRE PARCOURS CANDIDAT AVEC NOUS\n\nSi votre candidature correspond à ce que l'on recherche, nous planifierons avec vous un entretien avec notre Responsable innovation et technologie et notre HR Business Partner. Tout au long de son histoire, la Maison Cartier s'est distinguée par l'engagement de chacun de ses employés. Nous sommes convaincus que lorsque la diversité, l'équité et l'inclusion sont pleinement assumées, l'innovation et la créativité émergent pour offrir l'excellence. Quelles que soient les différences visibles ou invisibles, nous nous engageons à créer un environnement où chacun a une chance égale de réaliser son plein potentiel, d'être entendu et de se sentir valorisé.\n\nEntrée en fonction : Le 1er mars 2027 ou à convenir\n\nLieu de travail : La Chaux-de-Fonds, Suisse\n\nContrat : A durée maximale de 1 an",
-        "en": "Reference code: JR135259\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation.\n\nCONTEXTE\n\nAu sein de l’équipe Innovation, vous participez à la mise au point de nouveaux produits et processus de fabrication technologiques ou artisanaux, et apportez votre expertise analytique pour réaliser des produits innovants. Vous gérez la partie technique et scientifique des projets Innovation et/ou transverses et en assumez les aspects opérationnels.\n\nVOS RESPONSABILITÉS\n\nVous fournissez une expertise scientifique et êtes promoteur d’idées novatrices pour inventer de nouveaux produits, moderniser les processus et les matières à utiliser\n\n• En apportant votre expertise pour assurer la faisabilité des concepts créatifs, en manageant des projets complexes et en proposant de nouveaux concepts.\n• En étant connecté aux réseaux académiques et industriels pour pouvoir y détecter de potentielles nouvelles possibilités créatives et alimenter nos designers.\n• En transmettant l'ensemble des informations, conseils, explications liés à l'application des idées sélectionnées pour le développement et la production.\n\nVous réalisez des études pour créer des nouveaux produits ou de nouvelles esthétiques et êtes en charge du projet de l’idée à la livraison des produits\n\n• En analysant les propositions créatives et en étant force de proposition pour les rendre réalisable.\n• En réalisant les constructions des innovations et les plans d’expériences permettant de valider la faisabilité des concepts.\n• En proposant des solutions innovantes, gérant des projets spécifiques et en réalisant la partie technique.\n• En effectuant la phase de prototypage tout en s’appuyant sur les savoir-faire existants ou en initiant les collaborations nécessaires.\n\nVous assurez la communication en lien avec l’innovation auprès des acteurs internes et externes\n\n• En démontrant, consolidant et partageant les informations de manière pertinente en vue de faire valider les idées à appliquer.\n• En maintenant et développant des partenariats internes et externes (équipe Design et Marketing, partenaires industriels, académiques, etc.) pour anticiper les besoins tout en prenant en considération les contraintes techniques.\n• En veillant au partage de l'information et à la validation des acteurs impliqués dans le projet.\n\nVous assurez une veille technologique en recherchant, développant et surveillant l'évolution des nouvelles techniques (technologies, matériaux et processus)\n\nVOTRE PROFIL\n\nAu bénéficie d’un diplôme d'ingénieur mécanique ou design ou d'un diplôme scientifique dans l’un des domaines suivants : matériaux, optique, magnétisme ou nanotechnologie, vous possédez une expérience confirmée dans l’innovation produits. Reconnu pour votre créativité et vos compétences relationnelles, vous faites preuve d’engagement dans la réussite de vos projets. Maîtrisant idéalement un logiciel CAO (Creo est un atout) et l’anglais (C1), vous possédez une connaissance approfondie des produits horlogers/joailliers et avez une appétence pour ces domaines. Une expérience en construction mouvement est un plus.\n\nQU'AVONS-NOUS A VOUS OFFRIR ?\n\nNous créons un environnement positif où nous sommes fiers d'employer des talents issus de différents milieux, expériences et identités. Nous sommes convaincus que lorsque la diversité et l'inclusion sont pleinement acceptées et renforcées, la créativité et le savoir émergent pour atteindre l'excellence.\n\nVOTRE PARCOURS CANDIDAT AVEC NOUS\n\nSi votre candidature correspond à ce que l'on recherche, nous planifierons avec vous un entretien avec notre Responsable innovation et technologie et notre HR Business Partner. Tout au long de son histoire, la Maison Cartier s'est distinguée par l'engagement de chacun de ses employés. Nous sommes convaincus que lorsque la diversité, l'équité et l'inclusion sont pleinement assumées, l'innovation et la créativité émergent pour offrir l'excellence. Quelles que soient les différences visibles ou invisibles, nous nous engageons à créer un environnement où chacun a une chance égale de réaliser son plein potentiel, d'être entendu et de se sentir valorisé.\n\nEntrée en fonction : Le 1er mars 2027 ou à convenir\n\nLieu de travail : La Chaux-de-Fonds, Suisse\n\nContrat : A durée maximale de 1 an",
-        "de": "Reference code: JR135259\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation.\n\nCONTEXTE\n\nAu sein de l’équipe Innovation, vous participez à la mise au point de nouveaux produits et processus de fabrication technologiques ou artisanaux, et apportez votre expertise analytique pour réaliser des produits innovants. Vous gérez la partie technique et scientifique des projets Innovation et/ou transverses et en assumez les aspects opérationnels.\n\nVOS RESPONSABILITÉS\n\nVous fournissez une expertise scientifique et êtes promoteur d’idées novatrices pour inventer de nouveaux produits, moderniser les processus et les matières à utiliser\n\n• En apportant votre expertise pour assurer la faisabilité des concepts créatifs, en manageant des projets complexes et en proposant de nouveaux concepts.\n• En étant connecté aux réseaux académiques et industriels pour pouvoir y détecter de potentielles nouvelles possibilités créatives et alimenter nos designers.\n• En transmettant l'ensemble des informations, conseils, explications liés à l'application des idées sélectionnées pour le développement et la production.\n\nVous réalisez des études pour créer des nouveaux produits ou de nouvelles esthétiques et êtes en charge du projet de l’idée à la livraison des produits\n\n• En analysant les propositions créatives et en étant force de proposition pour les rendre réalisable.\n• En réalisant les constructions des innovations et les plans d’expériences permettant de valider la faisabilité des concepts.\n• En proposant des solutions innovantes, gérant des projets spécifiques et en réalisant la partie technique.\n• En effectuant la phase de prototypage tout en s’appuyant sur les savoir-faire existants ou en initiant les collaborations nécessaires.\n\nVous assurez la communication en lien avec l’innovation auprès des acteurs internes et externes\n\n• En démontrant, consolidant et partageant les informations de manière pertinente en vue de faire valider les idées à appliquer.\n• En maintenant et développant des partenariats internes et externes (équipe Design et Marketing, partenaires industriels, académiques, etc.) pour anticiper les besoins tout en prenant en considération les contraintes techniques.\n• En veillant au partage de l'information et à la validation des acteurs impliqués dans le projet.\n\nVous assurez une veille technologique en recherchant, développant et surveillant l'évolution des nouvelles techniques (technologies, matériaux et processus)\n\nVOTRE PROFIL\n\nAu bénéficie d’un diplôme d'ingénieur mécanique ou design ou d'un diplôme scientifique dans l’un des domaines suivants : matériaux, optique, magnétisme ou nanotechnologie, vous possédez une expérience confirmée dans l’innovation produits. Reconnu pour votre créativité et vos compétences relationnelles, vous faites preuve d’engagement dans la réussite de vos projets. Maîtrisant idéalement un logiciel CAO (Creo est un atout) et l’anglais (C1), vous possédez une connaissance approfondie des produits horlogers/joailliers et avez une appétence pour ces domaines. Une expérience en construction mouvement est un plus.\n\nQU'AVONS-NOUS A VOUS OFFRIR ?\n\nNous créons un environnement positif où nous sommes fiers d'employer des talents issus de différents milieux, expériences et identités. Nous sommes convaincus que lorsque la diversité et l'inclusion sont pleinement acceptées et renforcées, la créativité et le savoir émergent pour atteindre l'excellence.\n\nVOTRE PARCOURS CANDIDAT AVEC NOUS\n\nSi votre candidature correspond à ce que l'on recherche, nous planifierons avec vous un entretien avec notre Responsable innovation et technologie et notre HR Business Partner. Tout au long de son histoire, la Maison Cartier s'est distinguée par l'engagement de chacun de ses employés. Nous sommes convaincus que lorsque la diversité, l'équité et l'inclusion sont pleinement assumées, l'innovation et la créativité émergent pour offrir l'excellence. Quelles que soient les différences visibles ou invisibles, nous nous engageons à créer un environnement où chacun a une chance égale de réaliser son plein potentiel, d'être entendu et de se sentir valorisé.\n\nEntrée en fonction : Le 1er mars 2027 ou à convenir\n\nLieu de travail : La Chaux-de-Fonds, Suisse\n\nContrat : A durée maximale de 1 an"
+        "it": "Codice di riferimento: JR135259\nLa storia di Cartier è fondata su curiosità e passione. Da oltre 170 anni abbiamo abbracciato uno spirito coraggioso e pionieristico che continua a ispirare i nostri team di tutte le professioni dalle nostre boutique ai nostri laboratori e uffici aziendali. I nostri 10.000+ colleghi di oltre 105 nazionalità sono uniti da uno spirito indipendente condiviso e dall'impegno per l'eccellenza, colpendo per arricchire continuamente la nostra Maison\n\nCONTESTO\n\nNell'ambito del team Innovazione, sei coinvolto nello sviluppo di nuovi prodotti e processi produttivi per la tecnologia o l'artigianato, e portare la tua esperienza analitica per produrre prodotti innovativi. Si gestisce la parte tecnica e scientifica dei progetti Innovazione e/o Transverse e si occupa degli aspetti operativi.\n\nLE RISPOSTE\n\nFornire competenze scientifiche e promuovere idee innovative per inventare nuovi prodotti, modernizzare processi e materiali da utilizzare\n\n• Portando la vostra esperienza per garantire la fattibilità dei concetti creativi, la gestione di progetti complessi e la proposta di nuovi concetti.\n• Essendo collegato a reti accademiche e industriali per essere in grado di rilevare potenziali nuove possibilità creative e nutrire i nostri designer.\n• Trasmissione di tutte le informazioni, consigli e spiegazioni relative all'applicazione delle idee selezionate per lo sviluppo e la produzione.\n\nStai facendo studi per creare nuovi prodotti o nuove estetiche e sei responsabile del progetto di idea alla consegna dei prodotti\n\n• Analizzando proposte creative ed essendo la forza delle proposte per renderle possibili.\n• Realizzando le costruzioni di innovazioni e i piani di esperimenti per convalidare la fattibilità dei concetti.\n• Proponendo soluzioni innovative, gestendo progetti specifici e realizzando la parte tecnica.\n• Effettuando la fase di prototipazione, costruendo sul know-how esistente o avviando le necessarie collaborazioni.\n\nGarantisci una comunicazione in materia di innovazione con attori interni ed esterni\n\n• Dimostrando, consolidando e condividendo le informazioni in modo rilevante al fine di convalidare le idee da applicare.\n• Mantenendo e sviluppando partenariati interni ed esterni (gruppo di progettazione e marketing, partner industriali, accademici, ecc.) per anticipare le esigenze tenendo conto dei vincoli tecnici.\n• Garantire la condivisione delle informazioni e la validazione degli attori coinvolti nel progetto.\n\nGarantisci un orologio tecnologico cercando, sviluppando e monitorando l'evoluzione delle nuove tecniche (tecnologie, materiali e processi)\n\nIl tuo progetto\n\nIn uno dei seguenti campi: materiali, ottica, magnetismo o nanotecnologia, si ha una comprovata esperienza nell'innovazione del prodotto. Riconosciuto per la tua creatività e le tue capacità relazionali, ti impegni al successo dei tuoi progetti. Idealmente mastering software CAD (Creo è un bene) e inglese (C1), si dispone di una conoscenza approfondita dei prodotti orologi e gioielli e hanno una attitudine per queste aree. Un'esperienza nella costruzione in movimento è un vantaggio.\n\nCosa ti abbiamo fatto?\n\nCreiamo un ambiente positivo in cui siamo orgogliosi di impiegare talenti da diversi background, esperienze e identità. Siamo convinti che quando la diversità e l'inclusione sono pienamente accettate e rafforzate, la creatività e la conoscenza emergono per raggiungere l'eccellenza.\n\nIL TUO PARCO CANDIDATO con noi\n\nSe la tua applicazione corrisponde a quello che stiamo cercando, pianificaremo con te un'intervista con il nostro Innovation and Technology Manager e HR Business Partner. Nel corso della sua storia, Maison Cartier si è distinta dall'impegno di ciascuno dei suoi dipendenti. Siamo convinti che quando la diversità, l'equità e l'inclusione sono pienamente assunte, l'innovazione e la creatività emergono per offrire eccellenza. Indipendentemente dalle differenze visibili o invisibili, ci impegniamo a creare un ambiente in cui tutti hanno una pari opportunità per realizzare il loro pieno potenziale, essere ascoltati e sentiti valorizzati.\n\nEntrata in carica: 1 marzo 2027 o da concordare\n\nLuogo di lavoro: La Chaux-de-Fonds, Svizzera\n\nContratto: Durata massima di 1 anno",
+        "en": "Reference code: JR135259\nThe story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Professions from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striking to continuously rich our Maison\n\nCONTEXT\n\nAs part of the Innovation team, you are involved in the development of new products and manufacturing processes for technology or crafts, and bring your analytical expertise to produce innovative products. You manage the technical and scientific part of the Innovation and/or Transverse projects and take on the operational aspects.\n\nYOUR RESPONSIBILITIES\n\nYou provide scientific expertise and promote innovative ideas to invent new products, modernize processes and materials to use\n\n• By bringing your expertise to ensure the feasibility of creative concepts, managing complex projects and proposing new concepts.\n• By being connected to academic and industrial networks to be able to detect potential new creative possibilities and feed our designers.\n• By transmitting all the information, advice and explanations related to the application of the selected ideas for development and production.\n\nYou are doing studies to create new products or new aesthetics and are in charge of the project of idea to the delivery of products\n\n• By analysing creative proposals and being the strength of proposals to make them feasible.\n• By carrying out the constructions of innovations and the plans of experiments to validate the feasibility of the concepts.\n• By proposing innovative solutions, managing specific projects and carrying out the technical part.\n• By carrying out the prototyping phase while building on existing know-how or initiating the necessary collaborations.\n\nYou ensure innovation-related communication with internal and external actors\n\n• By demonstrating, consolidating and sharing the information in a relevant way in order to validate the ideas to be applied.\n• By maintaining and developing internal and external partnerships (design and marketing team, industrial, academic partners, etc.) to anticipate needs while taking into account technical constraints.\n• Ensuring the sharing of information and validation of the actors involved in the project.\n\nYou ensure a technological watch by looking for, developing and monitoring the evolution of new techniques (technologies, materials and processes)\n\nYOUR PROFILE\n\nIn one of the following fields: materials, optics, magnetism or nanotechnology, you have a proven experience in product innovation. Recognized for your creativity and relationship skills, you are committed to the success of your projects. Ideally mastering CAD software (Creo is an asset) and English (C1), you have an in-depth knowledge of watch and jewellery products and have an aptitude for these areas. An experience in moving construction is a plus.\n\nWHAT HAVE WE OFFERED TO YOU?\n\nWe create a positive environment where we are proud to employ talents from different backgrounds, experiences and identities. We are convinced that when diversity and inclusion are fully accepted and strengthened, creativity and knowledge emerge to achieve excellence.\n\nYOUR CANDIDATE PARK WITH US\n\nIf your application matches what we are looking for, we will plan with you an interview with our Innovation and Technology Manager and HR Business Partner. Throughout its history, Maison Cartier has distinguished itself by the commitment of each of its employees. We are convinced that when diversity, equity and inclusion are fully assumed, innovation and creativity emerge to deliver excellence. Regardless of visible or invisible differences, we are committed to creating an environment where everyone has an equal opportunity to realize their full potential, be heard and feel valued.\n\nEntry into office: 1 March 2027 or to be agreed\n\nPlace of work : La Chaux-de-Fonds, Switzerland\n\nContract: Maximum duration of 1 year",
+        "de": "Bezugscode: JR135259\nDie Geschichte von Cartier basiert auf Neugier und Leidenschaft. Seit mehr als 170 Jahren haben wir einen mutigen Pioniergeist angenommen, der unsere Teams in allen Berufen von unseren Boutiquen bis zu unseren Werkstätten und Unternehmensbüros inspiriert. Unsere über 10.000 Kollegen aus mehr als 105 Nationalitäten sind durch einen gemeinsamen unabhängigen Geist und Engagement für Exzellenz vereint, auffallend, um unsere Maison kontinuierlich zu bereichern\n\nKONTEXT\n\nAls Teil des Innovationsteams sind Sie an der Entwicklung neuer Produkte und Herstellungsverfahren für Technik oder Handwerk beteiligt und bringen Ihre analytische Expertise in die Produktion innovativer Produkte ein. Sie leiten den technischen und wissenschaftlichen Teil der Innovations- und/oder Transversalprojekte und übernehmen die operativen Aspekte.\n\nIHRE VERANTWORTUNGEN\n\nSie stellen wissenschaftliche Expertise zur Verfügung und fördern innovative Ideen, um neue Produkte zu erfinden, Prozesse und Materialien zu modernisieren\n\n• Indem Sie Ihr Fachwissen einbringen, um die Machbarkeit kreativer Konzepte sicherzustellen, komplexe Projekte zu verwalten und neue Konzepte vorzuschlagen.\n• Durch die Verbindung mit akademischen und industriellen Netzwerken, um potenzielle neue kreative Möglichkeiten zu erkennen und unsere Designer zu ernähren.\n• Durch Übermittlung aller Informationen, Ratschläge und Erklärungen im Zusammenhang mit der Anwendung der ausgewählten Ideen für Entwicklung und Produktion.\n\nSie machen Studien, um neue Produkte oder neue Ästhetik zu schaffen und sind verantwortlich für das Projekt der Idee zur Lieferung von Produkten\n\n• Indem wir kreative Vorschläge analysieren und die Stärke von Vorschlägen sind, um sie machbar zu machen.\n• Durch die Durchführung der Konstruktionen von Innovationen und die Pläne von Experimenten, um die Machbarkeit der Konzepte zu validieren.\n• Indem wir innovative Lösungen vorschlagen, spezifische Projekte verwalten und den technischen Teil durchführen.\n• Durch die Durchführung der Prototyping-Phase beim Aufbau des vorhandenen Know-hows oder durch die Initiierung der notwendigen Kooperationen.\n\nSie sorgen für die innovationsbezogene Kommunikation mit internen und externen Akteuren\n\n• Durch Demonstration, Konsolidierung und Austausch der Informationen auf relevante Weise, um die anzuwendenden Ideen zu validieren.\n• Durch die Pflege und Entwicklung interner und externer Partnerschaften (Design- und Marketingteam, Industrie-, akademische Partner usw.), um den Bedarf unter Berücksichtigung technischer Einschränkungen zu antizipieren.\n• Gewährleistung des Informationsaustauschs und der Validierung der am Projekt beteiligten Akteure.\n\nSie gewährleisten eine technologische Uhr, indem Sie die Entwicklung neuer Techniken (Technologien, Materialien und Prozesse) suchen, entwickeln und überwachen\n\nIHR PROFIL\n\nIn einem der folgenden Bereiche: Werkstoffe, Optik, Magnetismus oder Nanotechnologie verfügen Sie über ausgewiesene Erfahrung in der Produktinnovation. Anerkannt für Ihre Kreativität und Beziehungsfähigkeiten, sind Sie dem Erfolg Ihrer Projekte verpflichtet. Wenn Sie CAD-Software (Creo ist ein Asset) und Englisch (C1) beherrschen, verfügen Sie über fundierte Kenntnisse von Uhren- und Schmuckprodukten und sind für diese Bereiche geeignet. Eine Erfahrung im bewegten Bauen ist ein Plus.\n\nWas haben wir euch geboten?\n\nWir schaffen ein positives Umfeld, in dem wir stolz darauf sind, Talente mit unterschiedlichen Hintergründen, Erfahrungen und Identitäten einzusetzen. Wir sind davon überzeugt, dass, wenn Vielfalt und Inklusion vollständig akzeptiert und gestärkt werden, Kreativität und Wissen entstehen, um Exzellenz zu erreichen.\n\nIHR KANDIDATSPARK MIT UNS\n\nWenn Ihre Bewerbung zu dem passt, was wir suchen, planen wir mit Ihnen ein Interview mit unserem Innovations- und Technologiemanager und HR Business Partner. Im Laufe seiner Geschichte hat sich Maison Cartier durch das Engagement jedes seiner Mitarbeiter ausgezeichnet. Wir sind davon überzeugt, dass, wenn Vielfalt, Gerechtigkeit und Inklusion vollständig angenommen werden, Innovation und Kreativität entstehen, um Exzellenz zu liefern. Unabhängig von sichtbaren oder unsichtbaren Unterschieden sind wir bestrebt, ein Umfeld zu schaffen, in dem jeder die gleiche Chance hat, sein volles Potenzial zu entfalten, gehört zu werden und sich geschätzt zu fühlen.\n\nAmtsantritt: 1. März 2027 oder noch zu vereinbaren\n\nArbeitsort: La Chaux-de-Fonds, Schweiz\n\nVertrag: Maximale Laufzeit von 1 Jahr"
       },
       "location": "Le Crêt-Du-Locle",
       "canton": "GE",
@@ -15946,7 +15947,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -15960,7 +15960,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:41:29.233Z"
+      "firstSeenAt": "2026-10-23T09:41:29.233Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projets-innovation-richemont-le-cret-du-locle"
+        ],
+        "en": [
+          "chef-de-projets-innovation-richemont-le-cret-du-locle"
+        ],
+        "de": [
+          "chef-de-projets-innovation-richemont-le-cret-du-locle"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projets-innovation-richemont-le-cret-du-locle"
+      ]
     }
   ]
 }

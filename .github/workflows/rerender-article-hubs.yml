@@ -65,6 +65,8 @@ on:
       - 'packages/articles/engine/articleHubPagesPlugin.ts'
       - 'packages/articles/engine/topicTaxonomy.ts'
       - 'packages/articles/engine/articlesHubCards.ts'
+      - 'packages/articles/engine/shared/twitterCardMeta.ts'
+      - 'build-plugins/articlesSiteShellBootstrap.ts'
       - 'packages/articles/engine/blogImageCdnFinalize.ts'
       - 'packages/articles/engine/shared/articleReaders.ts'
       - 'packages/articles/engine/shared/articleRegistryEntries.ts'

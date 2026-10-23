@@ -35,6 +35,7 @@ import { useEffect, useState } from 'react';
 import { getConfigValue } from './firebase';
 
 export const AUTHGATE_HEADLINE_RC_KEY = 'AUTHGATE_HEADLINE_VARIANT';
+export const AUTHGATE_HEADLINE_EXPERIMENT_ID = 'authgate-headline-v3';
 
 export type AuthGateVariant = 'control' | 'free_unlock' | 'apply_now';
 

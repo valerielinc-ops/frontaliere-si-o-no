@@ -1,0 +1,20 @@
+{
+  "companyKey": "vbg-ch",
+  "companyName": "vbg",
+  "companyHost": "zvv.ch",
+  "platform": "zvv.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.zvv.ch/de/fahrplan-und-informationen/fahrplan.html?tab=connections"
+  ],
+  "detailTemplate": "/de/ueber-uns/karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Rund um deine Bewerbung",
+    "Projektleiter/in Verkehrs- und Infrastrukturprojekte 80-100%"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T10:58:47.313Z"
+}

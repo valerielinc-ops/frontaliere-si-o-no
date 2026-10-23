@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 777,
+      "5": 808,
       "6": 5054
     },
-    "publishedCovers": 7514,
+    "publishedCovers": 7545,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -206348,6 +206348,1029 @@
         "provider": "openai-codex",
         "assetId": "article-zugo-multa-mancata-dichiarazione-fiscale",
         "imageUrl": "/images/blog/article-zugo-multa-mancata-dichiarazione-fiscale.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-a1-lavori-notturni-luterbach": {
+      "cover": "/images/blog/article-a1-lavori-notturni-luterbach.webp",
+      "hash": "81e63276d72f892555c98c1602e0c9ec65888389ca6ea6296e9fe87ca5aee8c6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "a1-lavori-notturni-luterbach",
+          "category": "pratico",
+          "date": "2026-10-22T22:55:43.751Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-a1-lavori-notturni-luterbach.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-a1-lavori-notturni-luterbach",
+        "imageUrl": "/images/blog/article-a1-lavori-notturni-luterbach.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-appenzello-cooperazione-strategica-2024": {
+      "cover": "/images/blog/article-appenzello-cooperazione-strategica-2024.webp",
+      "hash": "89b3d6b6583ec323f4dd1d0f81f4148600fb9fae406ff3562df555de5d46b752",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "appenzello-cooperazione-strategica-2024",
+          "category": "novita",
+          "date": "2026-10-23T02:03:33.169Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-appenzello-cooperazione-strategica-2024.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-appenzello-cooperazione-strategica-2024",
+        "imageUrl": "/images/blog/article-appenzello-cooperazione-strategica-2024.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-basilea-cantieri-alle-sei": {
+      "cover": "/images/blog/article-basilea-cantieri-alle-sei.webp",
+      "hash": "76c2984c4be069a1d7e5746f96f6192737959d126b0a5db637375a8e1a43b66c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-basilea",
+          "id": "basilea-cantieri-alle-sei",
+          "category": "novita",
+          "date": "2026-10-23T02:22:16.813Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-basilea-cantieri-alle-sei.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-basilea-cantieri-alle-sei",
+        "imageUrl": "/images/blog/article-basilea-cantieri-alle-sei.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bns-cambi-energia": {
+      "cover": "/images/blog/article-bns-cambi-energia.webp",
+      "hash": "ae45a96c6360f2f347746af5c69c599e8b97316e13346400d34a4f49b44c50e6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "bns-cambi-energia",
+          "category": "novita",
+          "date": "2026-10-22T23:00:19.139Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bns-cambi-energia.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bns-cambi-energia",
+        "imageUrl": "/images/blog/article-bns-cambi-energia.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cambio-ora-incidenti-stradali-soletta": {
+      "cover": "/images/blog/article-cambio-ora-incidenti-stradali-soletta.webp",
+      "hash": "cc1fcff4a080de0d46a406661c4d09c8de4a5f61bc7aab81fbfa9a67d66184b7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "cambio-ora-incidenti-stradali-soletta",
+          "category": "pratico",
+          "date": "2026-10-23T00:45:27.261Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cambio-ora-incidenti-stradali-soletta.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cambio-ora-incidenti-stradali-soletta",
+        "imageUrl": "/images/blog/article-cambio-ora-incidenti-stradali-soletta.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-contributi-rotbach-saanen": {
+      "cover": "/images/blog/article-contributi-rotbach-saanen.webp",
+      "hash": "b723065f9477acda7b9e097c976bc7451bbb21dd59324d58774de2146c9f4e64",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "contributi-rotbach-saanen",
+          "category": "novita",
+          "date": "2026-10-23T02:11:10.079Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-contributi-rotbach-saanen.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-contributi-rotbach-saanen",
+        "imageUrl": "/images/blog/article-contributi-rotbach-saanen.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-investimenti-tetto-fotovoltaico-2027": {
+      "cover": "/images/blog/article-investimenti-tetto-fotovoltaico-2027.webp",
+      "hash": "55afc28169d700d867514a6b82608fc816cfd3dcc00350728ab50a33ae47d9dc",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "investimenti-tetto-fotovoltaico-2027",
+          "category": "novita",
+          "date": "2026-10-22T22:14:01.184Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-investimenti-tetto-fotovoltaico-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-investimenti-tetto-fotovoltaico-2027",
+        "imageUrl": "/images/blog/article-investimenti-tetto-fotovoltaico-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lavoro-ridotto-normalizzazione-2027": {
+      "cover": "/images/blog/article-lavoro-ridotto-normalizzazione-2027.webp",
+      "hash": "b08b1f56315a58c25bc4102110b8dd396b0c33c581a0c94cbd679cc57383ff23",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lavoro-ridotto-normalizzazione-2027",
+          "category": "novita",
+          "date": "2026-10-23T01:06:23.151Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lavoro-ridotto-normalizzazione-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lavoro-ridotto-normalizzazione-2027",
+        "imageUrl": "/images/blog/article-lavoro-ridotto-normalizzazione-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-pbv-rpg2-turgovia-2026": {
+      "cover": "/images/blog/article-pbv-rpg2-turgovia-2026.webp",
+      "hash": "ec760c047bddd48564025b0e548411ee6ac18669b20d3434709b6832902f4162",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-tg",
+          "id": "pbv-rpg2-turgovia-2026",
+          "category": "novita",
+          "date": "2026-10-23T01:44:38.536Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-pbv-rpg2-turgovia-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-pbv-rpg2-turgovia-2026",
+        "imageUrl": "/images/blog/article-pbv-rpg2-turgovia-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-polizia-soletta-comunicazione-media-droni": {
+      "cover": "/images/blog/article-polizia-soletta-comunicazione-media-droni.webp",
+      "hash": "f28a00d7cdc389dcf65b027110f51b987a098e5026976f82ab8e7165b3349134",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "polizia-soletta-comunicazione-media-droni",
+          "category": "novita",
+          "date": "2026-10-23T03:30:32.771Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-polizia-soletta-comunicazione-media-droni.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-polizia-soletta-comunicazione-media-droni",
+        "imageUrl": "/images/blog/article-polizia-soletta-comunicazione-media-droni.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-san-gallo-autostrada-rosenberg-terza-canna": {
+      "cover": "/images/blog/article-san-gallo-autostrada-rosenberg-terza-canna.webp",
+      "hash": "e2192455e68bbda009721d67bffca8558ae66deac08234fdde503dd62c8e12ad",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "san-gallo-autostrada-rosenberg-terza-canna",
+          "category": "novita",
+          "date": "2026-10-23T04:27:56.026Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-san-gallo-autostrada-rosenberg-terza-canna.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-san-gallo-autostrada-rosenberg-terza-canna",
+        "imageUrl": "/images/blog/article-san-gallo-autostrada-rosenberg-terza-canna.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-san-gallo-protezione-infrastrutture-critiche": {
+      "cover": "/images/blog/article-san-gallo-protezione-infrastrutture-critiche.webp",
+      "hash": "51223ea67c7d44920012381da506cbf8532dc4e9af60bf420a0a4296c67304df",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "san-gallo-protezione-infrastrutture-critiche",
+          "category": "novita",
+          "date": "2026-10-23T03:10:46.389Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-san-gallo-protezione-infrastrutture-critiche.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-san-gallo-protezione-infrastrutture-critiche",
+        "imageUrl": "/images/blog/article-san-gallo-protezione-infrastrutture-critiche.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sbb-chiude-reisezentrum-doettingen": {
+      "cover": "/images/blog/article-sbb-chiude-reisezentrum-doettingen.webp",
+      "hash": "dca1b292f221cb359a102281ddd6fb2997b4749e643668af8570c634e76aa786",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "sbb-chiude-reisezentrum-doettingen",
+          "category": "novita",
+          "date": "2026-10-22T23:32:53.543Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sbb-chiude-reisezentrum-doettingen.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sbb-chiude-reisezentrum-doettingen",
+        "imageUrl": "/images/blog/article-sbb-chiude-reisezentrum-doettingen.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sbb-sportelli-st-margrethen-uznach": {
+      "cover": "/images/blog/article-sbb-sportelli-st-margrethen-uznach.webp",
+      "hash": "c6a44a6b36f2145a2212c365c9739adc119f3feb2c834b62d3ebb5bbbd31036a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "sbb-sportelli-st-margrethen-uznach",
+          "category": "pratico",
+          "date": "2026-10-23T00:23:33.274Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sbb-sportelli-st-margrethen-uznach.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sbb-sportelli-st-margrethen-uznach",
+        "imageUrl": "/images/blog/article-sbb-sportelli-st-margrethen-uznach.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sciaffusa-regole-datacenter": {
+      "cover": "/images/blog/article-sciaffusa-regole-datacenter.webp",
+      "hash": "6ea1cd16f32b59c1fc3692a6381708f369e780422d339f907a6467afd8fc7bc6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "sciaffusa-regole-datacenter",
+          "category": "novita",
+          "date": "2026-10-23T03:48:32.749Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sciaffusa-regole-datacenter.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sciaffusa-regole-datacenter",
+        "imageUrl": "/images/blog/article-sciaffusa-regole-datacenter.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sciaffusa-regole-datencenter-beringen": {
+      "cover": "/images/blog/article-sciaffusa-regole-datencenter-beringen.webp",
+      "hash": "89fe9b5f06861ec9c789801b43e4461443ab23131e04f45ca6ab142333d1ef65",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "sciaffusa-regole-datencenter-beringen",
+          "category": "novita",
+          "date": "2026-10-23T01:48:34.863Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sciaffusa-regole-datencenter-beringen.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sciaffusa-regole-datencenter-beringen",
+        "imageUrl": "/images/blog/article-sciaffusa-regole-datencenter-beringen.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sondaggio-votazioni-novembre-svizzera": {
+      "cover": "/images/blog/article-sondaggio-votazioni-novembre-svizzera.webp",
+      "hash": "ddec8e956f9d3f1e66140589380ab135707bca02d5bbd7282c4cbcbe78b5a70a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "sondaggio-votazioni-novembre-svizzera",
+          "category": "novita",
+          "date": "2026-10-23T05:43:55.776Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sondaggio-votazioni-novembre-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sondaggio-votazioni-novembre-svizzera",
+        "imageUrl": "/images/blog/article-sondaggio-votazioni-novembre-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sostenibilita-abitativa-svizzera": {
+      "cover": "/images/blog/article-sostenibilita-abitativa-svizzera.webp",
+      "hash": "91861aca3d90495a2466abf1da32c6b5e1853ba33500951fa2704d72a25788c3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "sostenibilita-abitativa-svizzera",
+          "category": "pratico",
+          "date": "2026-10-23T00:22:46.124Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sostenibilita-abitativa-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sostenibilita-abitativa-svizzera",
+        "imageUrl": "/images/blog/article-sostenibilita-abitativa-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-turgovia-modifica-piano-direttore-2027": {
+      "cover": "/images/blog/article-turgovia-modifica-piano-direttore-2027.webp",
+      "hash": "be135a450f812597a6b977ce82b1c684ef3ab77379fb3732cd9439ed9fd6afec",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-tg",
+          "id": "turgovia-modifica-piano-direttore-2027",
+          "category": "novita",
+          "date": "2026-10-23T03:27:25.835Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-turgovia-modifica-piano-direttore-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-turgovia-modifica-piano-direttore-2027",
+        "imageUrl": "/images/blog/article-turgovia-modifica-piano-direttore-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-voto-iva-2028-pensione": {
+      "cover": "/images/blog/article-voto-iva-2028-pensione.webp",
+      "hash": "2a307b3821a3d0e48b8c859f5ee6b7959598365ae22bff34b2a8379dfcd36860",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "voto-iva-2028-pensione",
+          "category": "pensione",
+          "date": "2026-10-23T03:49:50.323Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-voto-iva-2028-pensione.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-voto-iva-2028-pensione",
+        "imageUrl": "/images/blog/article-voto-iva-2028-pensione.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bristenstrasse-regimi-traffico-2026": {
+      "cover": "/images/blog/article-bristenstrasse-regimi-traffico-2026.webp",
+      "hash": "2ce6c2121febbb97b17a20e840bd26f596da4a9c4df0182df00958de9bfebca1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "bristenstrasse-regimi-traffico-2026",
+          "category": "pratico",
+          "date": "2026-10-23T12:29:59.834Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bristenstrasse-regimi-traffico-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bristenstrasse-regimi-traffico-2026",
+        "imageUrl": "/images/blog/article-bristenstrasse-regimi-traffico-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-controlli-distrazione-zurigo": {
+      "cover": "/images/blog/article-controlli-distrazione-zurigo.webp",
+      "hash": "dc44a7a0ffe59bbda4721a3eb12b7be2aff690826f30453b926aab3a035302df",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "controlli-distrazione-zurigo",
+          "category": "novita",
+          "date": "2026-10-23T12:21:12.761Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-controlli-distrazione-zurigo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-controlli-distrazione-zurigo",
+        "imageUrl": "/images/blog/article-controlli-distrazione-zurigo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-coop-aumento-salari-2027": {
+      "cover": "/images/blog/article-coop-aumento-salari-2027.webp",
+      "hash": "0babf7b2d2a7bddf85e58e917a6e848c3e2d0f055af199097251c2d4f9418512",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "coop-aumento-salari-2027",
+          "category": "pratico",
+          "date": "2026-10-23T12:36:39.649Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-coop-aumento-salari-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-coop-aumento-salari-2027",
+        "imageUrl": "/images/blog/article-coop-aumento-salari-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-questionario-frontalieri-ticino-condizioni-lavoro": {
+      "cover": "/images/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.webp",
+      "hash": "43d7bdf85b0fce3080d896f0a83dc5f1ded06f818837d0ee1a8e3c7dd68ba51b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "questionario-frontalieri-ticino-condizioni-lavoro",
+          "category": "novita",
+          "date": "2026-10-23T09:28:26.287Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-questionario-frontalieri-ticino-condizioni-lavoro",
+        "imageUrl": "/images/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rafforzamento-paghe-frontalieri": {
+      "cover": "/images/blog/article-rafforzamento-paghe-frontalieri.webp",
+      "hash": "ac1d9336f5cb3d711d6c5d97b6a4c182aade3c35e8359f65f265f83f145b6ec4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ti",
+          "id": "rafforzamento-paghe-frontalieri",
+          "category": "novita",
+          "date": "2026-10-23T10:32:20.964Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rafforzamento-paghe-frontalieri.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rafforzamento-paghe-frontalieri",
+        "imageUrl": "/images/blog/article-rafforzamento-paghe-frontalieri.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rbh-herisau-piu-risorse": {
+      "cover": "/images/blog/article-rbh-herisau-piu-risorse.webp",
+      "hash": "fa153bf4a4b64f68b761f1babfab6973eb69feba8b22e04c050fd32c07661917",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "rbh-herisau-piu-risorse",
+          "category": "novita",
+          "date": "2026-10-23T12:58:04.345Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rbh-herisau-piu-risorse.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rbh-herisau-piu-risorse",
+        "imageUrl": "/images/blog/article-rbh-herisau-piu-risorse.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rhb-albula-chiusura-thusis-preda": {
+      "cover": "/images/blog/article-rhb-albula-chiusura-thusis-preda.webp",
+      "hash": "efad35214f4f79ebef34aa51b05f69373288a95da07758f0db1997eefb40f676",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "rhb-albula-chiusura-thusis-preda",
+          "category": "pratico",
+          "date": "2026-10-23T12:26:06.032Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rhb-albula-chiusura-thusis-preda.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rhb-albula-chiusura-thusis-preda",
+        "imageUrl": "/images/blog/article-rhb-albula-chiusura-thusis-preda.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-wetzikon-binzacher-kempten-info": {
+      "cover": "/images/blog/article-wetzikon-binzacher-kempten-info.webp",
+      "hash": "0db35dee6ffd1df199f4eb042bfd0a0669e7dc0970a9d420511854f4bf5ae783",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "wetzikon-binzacher-kempten-info",
+          "category": "pratico",
+          "date": "2026-10-23T13:48:03.003Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-wetzikon-binzacher-kempten-info.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-wetzikon-binzacher-kempten-info",
+        "imageUrl": "/images/blog/article-wetzikon-binzacher-kempten-info.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-wil-sedute-novembre-2026": {
+      "cover": "/images/blog/article-wil-sedute-novembre-2026.webp",
+      "hash": "ef526b9a2c14bd3d9bbd0133975955a940c9776dd90254cc45b92a8b6c8fec00",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "wil-sedute-novembre-2026",
+          "category": "novita",
+          "date": "2026-10-23T08:59:08.998Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-wil-sedute-novembre-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-wil-sedute-novembre-2026",
+        "imageUrl": "/images/blog/article-wil-sedute-novembre-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-winterthur-voto-energia": {
+      "cover": "/images/blog/article-winterthur-voto-energia.webp",
+      "hash": "e49a4886f857a808f9867886a2912d2f6ff74c6029f690173da4ac8005df68ce",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "winterthur-voto-energia",
+          "category": "novita",
+          "date": "2026-10-23T13:26:45.327Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-winterthur-voto-energia.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-winterthur-voto-energia",
+        "imageUrl": "/images/blog/article-winterthur-voto-energia.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zurigo-budget-sans-papiers": {
+      "cover": "/images/blog/article-zurigo-budget-sans-papiers.webp",
+      "hash": "59d91000b2576a9196cd8cd51b3ed667e78dd652f546d865110861f1146655a9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "zurigo-budget-sans-papiers",
+          "category": "novita",
+          "date": "2026-10-23T13:07:18.456Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zurigo-budget-sans-papiers.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zurigo-budget-sans-papiers",
+        "imageUrl": "/images/blog/article-zurigo-budget-sans-papiers.webp",
         "evidence": "generated-engine-record"
       }
     }

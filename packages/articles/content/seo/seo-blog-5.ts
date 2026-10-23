@@ -112996,6 +112996,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-voto-iva-2028-pensione': {
+    title: '13esima AVS: voto sull\'Iva, ipotesi all\'8,5% dal 2028',
+    description: 'L\'aliquota normale Iva passerebbe dall\'8,1 all\'8,5%. L\'aumento è indicato a partire dal 2028. La votazione richiamata è indicata per il 29 novembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, 13esima, voto, sull, ipotesi',
+    ogTitle: '13esima AVS: ipotesi Iva all\'8,5% dal 2028',
+    ogDescription: 'L\'aliquota normale Iva passerebbe dall\'8,1 all\'8,5%.',
+    canonicalPath: '/articoli-frontaliere/voto-iva-2028-pensione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "13esima AVS: voto sull'Iva, ipotesi all'8,5% dal 2028",
+      "description": "L'aliquota normale Iva passerebbe dall'8,1 all'8,5%. L'aumento è indicato a partire dal 2028. La votazione richiamata è indicata per il 29 novembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-voto-iva-2028-pensione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-23T03:49:50+00:00",
+      "dateModified": "2026-10-23T03:49:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/voto-iva-2028-pensione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-questionario-frontalieri-ticino-condizioni-lavoro': {
+    title: 'Questionario frontalieri: stipendio ok ma troppi spostamenti',
+    description: '1.542 risposte online raccolte nel maggio 2026 73% soddisfatto dello stipendio 31,7% oltre un\'ora e mezza in viaggio ogni giorno 76,9% non si',
+    keywords: 'frontalieri, ticino, svizzera, italia, questionario, stipendio, troppi, spostamenti',
+    ogTitle: 'Questionario frontalieri: stipendio ok ma troppi spostamenti',
+    ogDescription: '1.542 risposte online raccolte nel maggio 2026 73% soddisfatto dello stipendio 31,7% oltre un\'ora e mezza in viaggio ogni giorno 76,9% non si trasferirebbe',
+    canonicalPath: '/articoli-frontaliere/questionario-frontalieri-ticino-condizioni-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Questionario frontalieri: stipendio ok ma troppi spostamenti",
+      "description": "1.542 risposte online raccolte nel maggio 2026 73% soddisfatto dello stipendio 31,7% oltre un'ora e mezza in viaggio ogni giorno 76,9% non si",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-23T09:28:26+00:00",
+      "dateModified": "2026-10-23T09:28:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/questionario-frontalieri-ticino-condizioni-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

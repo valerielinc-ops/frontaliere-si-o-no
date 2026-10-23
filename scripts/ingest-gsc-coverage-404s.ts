@@ -374,6 +374,11 @@ function main(): void {
       {
         paths: coverageUnion,
         unresolved,
+        population: {
+          sourceBacked: coverageUnion.length,
+          unresolved: unresolved.length,
+          observedRows: totalRows,
+        },
         source: 'gsc-coverage-drilldown',
         lastUpdated: today,
       },

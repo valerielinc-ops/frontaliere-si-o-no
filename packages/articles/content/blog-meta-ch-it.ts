@@ -8588,6 +8588,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.title': 'Adeguamento rendite superstiti e invalidità LPP dal 1° gennaio 2027',
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.excerpt': 'Dal 1 gennaio 2027 le rendite saranno adeguate ai prezzi.',
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.bns-cambi-energia.title': 'BNS: tasso guida fermo e inflazione moderata',
+    'blog.article.bns-cambi-energia.excerpt': 'La BNS mantiene il tasso guida allo 0 per cento A settembre la BNS rinuncia alla formula sui cambi La pressione inflazionistica cresce solo lievemente L\'IA può',
+    'blog.article.bns-cambi-energia.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.sostenibilita-abitativa-svizzera.title': 'Abitare in Svizzera: uno su 6 spende oltre un terzo del reddito',
+    'blog.article.sostenibilita-abitativa-svizzera.excerpt': 'Il 16% supera un terzo del reddito lordo familiare Il 22% degli inquilini supera la soglia abitativa Il 7% dei proprietari supera lo stesso limite Il 36%',
+    'blog.article.sostenibilita-abitativa-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.title': 'Lavoro ridotto: il Consiglio federale prevede un graduale ritorno alla normalità',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.excerpt': 'Il Consiglio federale intende normalizzare gradualmente l’ILR Durata massima: 24 mesi fino al 31 gennaio 2027 Crescita prevista: 1,7% nel 2026 e 1,6% nel 2027',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.title': 'Voto 29 novembre: incerti AVS e materiale bellico',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.excerpt': 'Il voto del 29 novembre resta incerto su AVS e materiale bellico L\'IVA per la 13esima rendita: 46% sì, 49% no Materiale bellico: 49% contrari, 41% favorevoli',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

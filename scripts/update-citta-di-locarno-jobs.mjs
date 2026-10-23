@@ -6,6 +6,7 @@
  */
 import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { isAuthoritativeEmptySnapshot } from './lib/authoritative-empty-snapshot.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -84,13 +85,14 @@ function mergeCompanyJobs(parsedJobs, discoveredJobs = []) {
 
 async function main() {
   setCrawlerStartTime();
-  const summaryCounts = { sourceBodyFailures: [] };
+  const summaryCounts = { sourceBodyFailures: [], lastFetchOutcome: null };
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Locarno', summaryCounts);
   console.log('\ud83c\udfe2 Running dedicated Citt\u00e0 di Locarno crawler...');
 
     const _before = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
 
   const rawJobs = await fetchLocarnoJobs();
+  summaryCounts.lastFetchOutcome = rawJobs?.fetchOutcome ?? null;
   if (rawJobs.length === 0) {
     console.log('\u26a0\ufe0f No Locarno jobs found. Keeping existing.');
     // The stored jobs are kept, without the text the crawler once wrote
@@ -103,6 +105,29 @@ async function main() {
       write: (jobs, options) => writeJobsCrawlerSliceVerified(COMPANY_KEY, jobs, options),
       assemble: () => assembleJobsDataset(),
     });
+    if (isAuthoritativeEmptySnapshot(rawJobs)) {
+      writeSummaryCrawlerSlice({
+        key: COMPANY_KEY,
+        label: COMPANY_NAME,
+        generatedAt: new Date().toISOString(),
+        total: 0,
+        discovered: 0,
+        parsed: 0,
+        written: 0,
+        lastFetchOutcome: summaryCounts.lastFetchOutcome,
+        authoritativeEmptySnapshot: true,
+        sourceBodyFailureCount: 0,
+        sourceBodyFailures: [],
+        newCount: 0,
+        updatedCount: 0,
+        removedCount: 0,
+        unchangedCount: 0,
+        newJobs: [],
+        updatedJobs: [],
+        removedJobs: [],
+        unchangedJobs: [],
+      });
+    }
     return;
   }
 

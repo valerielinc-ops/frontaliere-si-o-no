@@ -1,0 +1,22 @@
+{
+  "companyKey": "skinfit-eu",
+  "companyName": "Skinfit",
+  "companyHost": "skinfit.eu",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://skinfit.eu/en-us/pages/jobs/verkaufer-in-m-w-d-shop-innsbruck-test"
+  ],
+  "detailTemplate": "/en-us/pages/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Verkäufer/in für den Shop Innsbruck Innsbruck 12–18 h/Woche",
+    "Verkäufer/in für den Shop St. Pölten St. Pölten 15–20 h/Woche",
+    "Sales Representative – Events Koblach 30–38.5 h/week"
+  ],
+  "canton": "LU",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-23T10:59:37.146Z"
+}

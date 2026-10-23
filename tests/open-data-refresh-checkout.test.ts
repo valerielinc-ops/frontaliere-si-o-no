@@ -102,12 +102,15 @@ function fixture() {
   git(repo, ['config', `url.${remote}.insteadOf`, 'https://x-access-token:fixture-token@github.com/fixture/publisher.git']);
   const gitConfig = writeGitUrlRewriteConfig(directory, remote);
   const bin = path.join(directory, 'bin');
+  const createAttemptMarker = path.join(directory, 'gh-create-attempted');
+  const prExistsMarker = path.join(directory, 'gh-pr-exists');
   fs.mkdirSync(bin);
   const gh = path.join(bin, 'gh');
   fs.writeFileSync(gh, [
     '#!/bin/sh',
     'if [ "$REFRESH_FIXTURE_GH_FAIL" = 1 ]; then exit 19; fi',
-    'if [ "$1 $2" = "pr list" ] && [ "${REFRESH_FIXTURE_OPEN_PR:-1}" = 1 ]; then echo 42; fi',
+    `if [ "$1 $2" = "pr list" ] && { [ "\${REFRESH_FIXTURE_OPEN_PR:-1}" = 1 ] || [ -f "\${REFRESH_FIXTURE_PR_EXISTS_MARKER:-}" ]; }; then echo 42; fi`,
+    `if [ "$1 $2" = "pr create" ] && [ "\${REFRESH_FIXTURE_CREATE_502_ONCE:-0}" = 1 ] && [ ! -f "\${REFRESH_FIXTURE_CREATE_ATTEMPT_MARKER:-}" ]; then touch "\${REFRESH_FIXTURE_CREATE_ATTEMPT_MARKER}"; if [ "\${REFRESH_FIXTURE_CREATE_MAKES_PR:-0}" = 1 ]; then touch "\${REFRESH_FIXTURE_PR_EXISTS_MARKER}"; fi; echo 'pull request create failed: HTTP 502: 502 Bad Gateway' >&2; exit 1; fi`,
     'if [ "$1 $2" = "pr create" ]; then echo created; fi',
     `if [ "$1" = "api" ]; then echo ${base}; fi`,
     '',
@@ -115,7 +118,7 @@ function fixture() {
   fs.chmodSync(gh, 0o755);
   const body = path.join(directory, 'body.md');
   fs.writeFileSync(body, '## Implementato\n- Fixture refresh.\n\n## Non implementato (ancora)\n- Nessuno.\n');
-  return { repo, remote, bin, body, base, gitConfig };
+  return { repo, remote, bin, body, base, gitConfig, createAttemptMarker, prExistsMarker };
 }
 
 function publish(
@@ -139,6 +142,8 @@ function publish(
       GIT_CONFIG_GLOBAL: setup.gitConfig,
       REFRESH_FIXTURE_GH_FAIL: fail ? '1' : '0',
       REFRESH_FIXTURE_OPEN_PR: '1',
+      REFRESH_FIXTURE_CREATE_ATTEMPT_MARKER: setup.createAttemptMarker,
+      REFRESH_FIXTURE_PR_EXISTS_MARKER: setup.prExistsMarker,
       ...extraEnv,
     },
   });
@@ -161,6 +166,8 @@ function publishPlain(setup: ReturnType<typeof fixture>, extraArgs: string[] = [
       GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
       GIT_CONFIG_GLOBAL: setup.gitConfig,
       REFRESH_FIXTURE_GH_FAIL: '0',
+      REFRESH_FIXTURE_CREATE_ATTEMPT_MARKER: setup.createAttemptMarker,
+      REFRESH_FIXTURE_PR_EXISTS_MARKER: setup.prExistsMarker,
     },
   });
 }
@@ -575,6 +582,39 @@ describe('data publisher preserves its source checkout', () => {
     expect(git(setup.remote, ['rev-parse', 'chore/refresh'])).toBe(mainHead);
     expect(git(setup.remote, ['rev-parse', 'chore/refresh'])).not.toBe(staleHead);
     expect(git(setup.repo, ['status', '--porcelain'])).toBe('');
+  });
+
+  it('reuses a PR created before a transient create response reached the caller', () => {
+    const setup = fixture();
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+
+    const result = publish(setup, false, [], {
+      REFRESH_FIXTURE_OPEN_PR: '0',
+      REFRESH_FIXTURE_CREATE_502_ONCE: '1',
+      REFRESH_FIXTURE_CREATE_MAKES_PR: '1',
+    });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain('was created despite the gh pr create response');
+    expect(fs.existsSync(setup.createAttemptMarker)).toBe(true);
+    expect(fs.existsSync(setup.prExistsMarker)).toBe(true);
+  });
+
+  it('retries a transient PR create when the first request did not create one', () => {
+    const setup = fixture();
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+
+    const result = publish(setup, false, [], {
+      REFRESH_FIXTURE_OPEN_PR: '0',
+      REFRESH_FIXTURE_CREATE_502_ONCE: '1',
+      REFRESH_FIXTURE_CREATE_MAKES_PR: '0',
+    });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain('created');
+    expect(result.stderr).toContain('retrying attempt 2 in 1s');
+    expect(fs.existsSync(setup.createAttemptMarker)).toBe(true);
+    expect(fs.existsSync(setup.prExistsMarker)).toBe(false);
   });
 
   it('leaves a concurrent orphan-branch rewrite intact after losing the reset lease', () => {

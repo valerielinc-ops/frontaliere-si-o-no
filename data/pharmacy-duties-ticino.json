@@ -821,11 +821,11 @@
       ]
     },
     "timezone": "Europe/Zurich",
-    "state": "partial",
+    "state": "fresh",
     "snapshots": {
       "catalogue": {
         "path": "data/pharmacies-ticino-complete.json",
-        "sha256": "1ac69270f430e3d2095c0f60b30edf2367551354d8a74b9cfb003cf5181c1909",
+        "sha256": "18b51a244fb5ed9f53f572f4f831b93e359d7cbb32e28a58a0695e56534a7dca",
         "fetchedAt": "2026-10-21T16:03:10.483Z"
       },
       "duties": {
@@ -886,6 +886,6 @@
         "preserved": false
       }
     },
-    "releaseId": "pharmacy-v1-4e7b0af8409e309b2e8e700e5ccb1927888a0cb62f5ed84064693ac47f9dfabd"
+    "releaseId": "pharmacy-v1-19d0734a23dbec65ce76ab8fda40f8c7eb75719aaba1b133340a903d251856b8"
   }
 }

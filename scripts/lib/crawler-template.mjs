@@ -1242,7 +1242,9 @@ export async function runStandardCrawlerPipeline(config) {
 
   // Invoke the helper even when no job disappeared: it also persists repairs
   // to legacy entries already present in the expired slice.
-  const archived = archiveRemovedJobsToSlice(diff.removedJobs, companyKey);
+  const archived = archiveRemovedJobsToSlice(diff.removedJobs, companyKey, {
+    activeJobs: clean,
+  });
   if (archived > 0) {
     console.log(
       `📦 Archived ${archived} removed jobs → data/jobs/expired/by-crawler/${companyKey}.json`,

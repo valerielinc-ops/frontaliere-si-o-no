@@ -355,8 +355,8 @@ export async function acquireImageNamespaceLock(
   positiveDuration(timeoutMs, 'acquire timeout');
   positiveDuration(pollMs, 'poll interval');
   positiveDuration(leaseMs, 'lease duration');
-  if (acquiredAtOverride !== undefined && !Number.isFinite(acquiredAtOverride)) {
-    throw new Error('[r2-image-namespace-lock] acquiredAt must be finite');
+  if (acquiredAtOverride !== undefined && !Number.isInteger(acquiredAtOverride)) {
+    throw new Error('[r2-image-namespace-lock] acquiredAt must be an integer millisecond timestamp');
   }
 
   const owner = ownerOverride === undefined ? randomUUID() : requiredString(ownerOverride, 'owner');

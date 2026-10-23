@@ -647,7 +647,6 @@ const COPY: Record<Locale, Copy> = {
     hubH1: 'Eventi in Ticino, comune per comune',
     hubLede: 'Concerti, mostre, feste e appuntamenti in Ticino raccolti dalle agende ufficiali e raggruppati per comune.',
     comuneTitle: (c) => composePlaceTitle([
-      `Eventi a ${c}: cosa fare e agenda aggiornata`,
       `Eventi a ${c}: agenda aggiornata`,
       `Eventi a ${c}`,
     ], TITLE_MAX_CHARS, (s) => esc(s).length),
@@ -3966,6 +3965,7 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
   const out = new Map<string, string>();
 
   for (const locale of LOCALES) {
+    if (!shouldEmitLocale(locale)) continue;
     const records = events.map((event) => ({
       event,
       comune: event.comune || OTHER_EVENTS_COMUNE_KEY,

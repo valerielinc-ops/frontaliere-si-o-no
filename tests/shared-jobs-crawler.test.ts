@@ -770,6 +770,52 @@ describe('toJobFromJsonLd — explicit adapter detail URLs', () => {
     expect(result.scrapedJobPages).toBe(1);
   });
 
+  it('reuses a just-verified detail page before refetching a client-rendered shell', async () => {
+    const detailUrl = 'https://app.ncoreplat.com/jobposition/811972/business-developer-ch/csc-costruzioni-sa';
+    const verifiedHtml = [
+      '<html><head><title>Business Developer</title></head><body>',
+      '<h1>Business Developer</h1>',
+      '<p>We are looking for an experienced business developer to support our construction projects, coordinate customer relationships, and grow a collaborative team across the region.</p>',
+      '<p>Location: Via Cantonale 10, 6900 Lugano, Switzerland.</p>',
+      '</body></html>',
+    ].join('');
+    __testables.setCompanyAdaptersForTests(new Map([['csc-costruzioni', {
+      enabled: true,
+      crawlerModes: ['html'],
+      seedDetailUrls: [detailUrl],
+    }]]));
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url === detailUrl) {
+        return new Response('<!doctype html><html><body><div id="app">Loading position…</div></body></html>', {
+          status: 200,
+          headers: { 'content-type': 'text/html' },
+        });
+      }
+      return new Response('not found', { status: 404 });
+    });
+
+    const result = await __testables.processCompany(
+      { key: 'csc-costruzioni', name: 'CSC Costruzioni SA', website: 'https://csc-sa.ch/', city: 'Lugano' },
+      /(job|career|vacanc|stellen|emploi)/i,
+      {
+        sourceSeeds: { byDomain: {}, byName: {} },
+        companyCrawlerMode: { 'csc-costruzioni': ['html'] },
+        webDiscoveryEnabled: false,
+        minQualityScore: 0,
+        minDescriptionChars: 0,
+      },
+      new Set(),
+      {
+        detailPageCache: new Map([[detailUrl, { html: verifiedHtml, responseUrl: detailUrl }]]),
+      },
+    );
+
+    expect(result.extractedJobs).toHaveLength(1);
+    expect(result.extractedJobs[0]).toMatchObject({ url: detailUrl, title: 'Business Developer' });
+    expect(fetchSpy.mock.calls.map(([input]) => String(input))).not.toContain(detailUrl);
+  });
+
   it('uses the visible Migros workplace when stale JSON-LD still names the previous canton', async () => {
     const detailUrl = 'https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/masseurin-physiotherapeutin-osteopathin/cfa3560b-5496-4c27-a752-7653a8532449';
     const staleJsonLd = {

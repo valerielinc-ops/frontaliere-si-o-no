@@ -86,10 +86,10 @@ const esc = (s: string) =>
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const SECO_HOMEPAGE_BY_LOCALE: Record<ArchiveHubLocale, string> = {
-  it: 'https://www.seco.admin.ch/seco/it/home.html',
-  en: 'https://www.seco.admin.ch/seco/en/home.html',
-  de: 'https://www.seco.admin.ch/seco/de/home.html',
-  fr: 'https://www.seco.admin.ch/seco/fr/home.html',
+  it: 'https://www.seco.admin.ch/it/',
+  en: 'https://www.seco.admin.ch/en/',
+  de: 'https://www.seco.admin.ch/de/',
+  fr: 'https://www.seco.admin.ch/fr/',
 };
 
 /** Build the archive page navigator independently from long-form copy. */

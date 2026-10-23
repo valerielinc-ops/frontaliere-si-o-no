@@ -632,7 +632,7 @@ describe('il lag di revenue-monitor e lo stesso helper, non una copia', () => {
 
   it('last7Days delega alla finestra assestata condivisa', () => {
     expect(src).toContain("from './lib/analytics-settled-window.mjs'");
-    expect(src).toContain('return settledWindow({ days: 7 });');
+    expect(src).toContain('return settledWindow({ days: 7, now });');
     expect(src).not.toContain('leave 2-day lag for late-arriving data');
   });
 });

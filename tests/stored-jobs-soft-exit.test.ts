@@ -197,8 +197,10 @@ describe('own-runner crawlers clean their stored jobs at the zero-job exit', () 
       expect(call).toContain(`prepare: (jobs) => dropFabricatedDescriptions(jobs, ${mergePattern},`);
       expect(call).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSliceVerified\([A-Z_]+, jobs, options\)/);
       expect(call).toContain('assemble: () => assembleJobsDataset(),');
-      // The call sits in the zero-job exit, before its `return`.
-      expect(exit.slice(call.length).trimStart()).toMatch(/^(return;|const _cdResult = logStats)/);
+      // The call sits in the zero-job exit, before its `return`.  A runner may
+      // persist an authoritative-empty summary between the cleanup and the
+      // return (Locarno does this when its board is explicitly empty).
+      expect(exit.slice(call.length)).toMatch(/(?:^|\n)\s*(?:return;|const _cdResult = logStats)/);
     });
   }
 

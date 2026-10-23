@@ -1,0 +1,21 @@
+{
+  "companyKey": "roggwil-ch",
+  "companyName": "roggwil",
+  "companyHost": "schule-roggwil.ch",
+  "platform": "schule-roggwil.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.schule-roggwil.ch/partnerangebote/offene-stellen/p-184297/"
+  ],
+  "detailTemplate": "/partnerangebote/offene-stellen/p-184297/unterricht/*/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Unterricht",
+    "Zyklus 2 (3. - 6. Klasse)",
+    "Zyklus 3 (7. - 9. Klasse)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T10:58:46.074Z"
+}

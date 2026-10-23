@@ -1,0 +1,21 @@
+{
+  "companyKey": "luks-ch",
+  "companyName": "24notfallpraxis",
+  "companyHost": "luks.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.luks.ch/stellen-und-karriere/offene-stellen/"
+  ],
+  "detailTemplate": "/stellen-und-karriere/offene-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Wie bewerbe ich mich?",
+    "Infos für Personalvermittler"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T10:59:04.167Z"
+}

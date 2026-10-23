@@ -203,6 +203,17 @@ export function extractSbbIntroText(html = '') {
   return stripHtml(beforeFirstHeading).trim();
 }
 
+const SBB_DATE_OR_WORKLOAD_RX = /\b\d{1,2}\.\d{1,2}\.\d{4}\b|\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/u;
+const SBB_START_MARKER_RX = /^(?:ab sofort(?:\s+oder\s+nach\s+vereinbarung)?|per sofort|nach vereinbarung|d[eè]s maintenant|[àa] partir(?: de maintenant)?|da subito|su richiesta)[\s.!?]*$/iu;
+
+function isSbbDateOrWorkloadLine(line = '') {
+  return String(line || '').length <= 80 && SBB_DATE_OR_WORKLOAD_RX.test(line);
+}
+
+function isSbbStartMarkerLine(line = '') {
+  return SBB_START_MARKER_RX.test(String(line || '').trim());
+}
+
 /**
  * Extract a concrete workplace city from the rendered vacancy body.
  *
@@ -217,7 +228,8 @@ export function extractSbbBodyLocation(html = '') {
     .map((line) => line.trim())
     .filter(Boolean);
 
-  for (const line of lines) {
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const line = lines[lineIndex];
     const datedPrefix = line.match(/^([^,]{2,80}),\s*\d{1,2}\.\d{1,2}\.\d{4}\s*,\s*\d{1,3}%/);
     if (datedPrefix?.[1]) {
       const locality = canonicalSbbLocality(datedPrefix[1]);
@@ -227,6 +239,24 @@ export function extractSbbBodyLocation(html = '') {
     if (percentPrefix?.[1]) {
       const locality = canonicalSbbLocality(percentPrefix[1]);
       if (locality) return locality;
+    }
+
+    // The current v2 template renders the vacancy metadata as adjacent
+    // siblings: `Olten`, `ab sofort oder nach Vereinbarung`, `60-100%`.
+    // A city followed by a start marker is accepted only when the very next
+    // line completes that same bounded metadata tuple with a date/workload.
+    // This prevents an employer city followed by an unrelated `ab sofort`
+    // line from borrowing the later vacancy's workload signal.
+    const standalone = canonicalSbbLocality(line);
+    if (standalone) {
+      const nextLine = lines[lineIndex + 1] || '';
+      if (isSbbDateOrWorkloadLine(nextLine)) return standalone;
+      const followingLine = lines[lineIndex + 2] || '';
+      if (
+        isSbbStartMarkerLine(nextLine)
+        && isSbbDateOrWorkloadLine(followingLine)
+        && !canonicalSbbLocality(followingLine)
+      ) return standalone;
     }
   }
 

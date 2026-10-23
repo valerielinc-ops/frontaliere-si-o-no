@@ -1,0 +1,21 @@
+{
+  "companyKey": "bestdrive-ch",
+  "companyName": "BestDrive",
+  "companyHost": "bestdrive.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.bestdrive.ch/de/jobs.html"
+  ],
+  "detailTemplate": "/de/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Automobil-Fachleute und Automobil-Mechatroniker (m/w/d)",
+    "Mitarbeiter Verkauf Innendienst (m/w/d)"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T11:05:31.155Z"
+}

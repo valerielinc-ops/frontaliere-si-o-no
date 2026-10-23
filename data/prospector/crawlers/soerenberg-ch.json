@@ -1,0 +1,23 @@
+{
+  "companyKey": "soerenberg-ch",
+  "companyName": "Berggasthaus Rossweid",
+  "companyHost": "soerenberg.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.soerenberg.ch/de/jobs"
+  ],
+  "detailTemplate": "/fileadmin/Mediendatenbank/Soerenberg/PDF/Bergbahnen/Stelleninserate/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Fachperson Finanz-& Rechnungswesen 80% oder im Jobsharing 40-50%",
+    "Seilbahnfachmann/frau 80-100%",
+    "Aushilfe Küche und Reinigung Anstellung im Stundenlohn",
+    "Mitarbeiter*in Gästeservice Anstellung im Stundenlohn"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T10:58:34.406Z"
+}

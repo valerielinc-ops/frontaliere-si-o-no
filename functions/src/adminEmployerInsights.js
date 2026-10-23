@@ -4,8 +4,7 @@
  *
  * The data in `employer_insights/{companyKey}` is PRIVATE (real per-company
  * traffic we email to companies as a paid teaser), so this endpoint is gated by
- * a Firebase ID token + admin email allowlist — mirroring `githubProxy.js`
- * (handleGetAdminGithubToken).
+ * a Firebase ID token + shared site-admin identity gate.
  *
  * GET (list mode) → { ok, insights: [{ companyKey, companyName, totals,
  * generatedAt, insightsUrl, contactEmail, contactEmailInferred, contactName,
@@ -25,10 +24,10 @@
  * token = HMAC-SHA256(NEWSLETTER_SECRET, `employer_insights:${companyKey}`) hex.
  */
 
-import { getAuth } from 'firebase-admin/auth';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { getNewsletterSecrets } from './remoteConfigSecrets.js';
+import { assertSiteAdmin } from './adminAuth.js';
 // Single source of truth for the stats-page token (no local HMAC copy → no drift).
 import { generateInsightsToken } from './employerInsights.js';
 // Single source of truth for the pragmatic email shape check (server-side;
@@ -36,7 +35,6 @@ import { generateInsightsToken } from './employerInsights.js';
 // newsletterSubscriberAuthSync.js and stripePublisherCore.js.
 import { EMAIL_RE } from './lib/emailValidation.js';
 
-const ADMIN_EMAIL_ALLOWLIST = new Set(['valerielinc@gmail.com']);
 const BASE_URL = 'https://frontaliereticino.ch';
 const INSIGHTS_COLLECTION = 'employer_insights';
 const CONTACTS_COLLECTION = 'employer_contacts';
@@ -92,27 +90,6 @@ export function serializeEmployerInsightsTotals(totals = {}, window = null) {
 function buildInsightsUrl(companyKey, secret) {
   const token = generateInsightsToken(companyKey, secret);
   return `${BASE_URL}/azienda/${encodeURIComponent(companyKey)}/?t=${token}`;
-}
-
-// ── Admin gate (mirrors githubProxy.js assertAdmin) ─────────────────────────
-// Exported so adminSendColdEmail reuses the exact same gate (allowlist + verified
-// email) instead of a third copy.
-export async function assertAdmin(req) {
-  const header = req.get ? req.get('Authorization') : req.headers?.authorization;
-  const idToken = typeof header === 'string' && header.startsWith('Bearer ')
-    ? header.slice(7).trim()
-    : '';
-  if (!idToken) return { ok: false, status: 401, error: 'missing_id_token' };
-  try {
-    const decoded = await getAuth().verifyIdToken(idToken);
-    const email = (decoded.email || '').toLowerCase();
-    if (!decoded.email_verified || !ADMIN_EMAIL_ALLOWLIST.has(email)) {
-      return { ok: false, status: 403, error: 'not_admin' };
-    }
-    return { ok: true, adminEmail: email };
-  } catch {
-    return { ok: false, status: 401, error: 'invalid_id_token' };
-  }
 }
 
 /** Read every editable contact doc once → Map(companyKey → contact fields). */
@@ -298,7 +275,7 @@ export async function handleAdminEmployerInsights(req) {
     return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
   }
 
-  const auth = await assertAdmin(req);
+  const auth = await assertSiteAdmin(req);
   if (!auth.ok) {
     return { status: auth.status, body: { ok: false, error: auth.error } };
   }
@@ -306,7 +283,7 @@ export async function handleAdminEmployerInsights(req) {
   const db = getAdminDb();
 
   if (method === 'POST') {
-    return handleUpsertContact(db, req, auth.adminEmail);
+    return handleUpsertContact(db, req, auth.email);
   }
 
   const { newsletterSecret } = await getNewsletterSecrets();

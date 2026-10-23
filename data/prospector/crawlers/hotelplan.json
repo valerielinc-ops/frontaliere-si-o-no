@@ -1,0 +1,24 @@
+{
+  "companyKey": "hotelplan",
+  "companyName": "Hotelplan",
+  "companyHost": "jobs.dertour-suisse.com",
+  "platform": "dertour-suisse.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.dertour-suisse.com/search/"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Reiseberater:in Kuoni Biel (40 - 60% - m/w/d)",
+    "Reiseberater:in Kuoni Zürich Bahnhofstrasse (80 - 100% - m/w/d)",
+    "Reiseberater:in Hotelplan Thun Bälliz (80 - 100% - m/w/d)",
+    "Gruppen Reiseberater:in Sales & Operations Zürich (80 - 100% - m/w/d)",
+    "Business Travel Consultant Wetzikon (80 - 100% - m/w/d)"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T11:06:05.637Z"
+}

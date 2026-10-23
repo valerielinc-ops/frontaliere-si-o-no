@@ -849,7 +849,7 @@ const ISSUE_CREATOR_INVOCATION = 'node scripts/lib/github-issue-creator.mjs';
 export function withMemberLogExcerpt(run, logFileExpression = `\${${MEMBER_LOG_FILE_ENV}:-}`) {
   return String(run || '')
     .split(ISSUE_CREATOR_INVOCATION)
-    .join(`${ISSUE_CREATOR_INVOCATION} --log-excerpt-file "${logFileExpression}"`);
+    .join(`${ISSUE_CREATOR_INVOCATION} --log-excerpt-file "${logFileExpression}" --require-persisted`);
 }
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
 // reports EXCEPT the five systemic classes, which are not per-crawler signals.
@@ -877,13 +877,19 @@ export function reportCrawlerAlert({ slug, run, indent = 0 } = {}) {
   ];
 }
 
-function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLines } = {}) {
+function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLines, receiptRepairCommand } = {}) {
   if (typeof command !== 'string' || command.length === 0) throw new TypeError('token-bound commit command is required');
   if (typeof label !== 'string' || label.length === 0) throw new TypeError('token-bound commit label is required');
+  if (receiptRepairCommand !== undefined && (typeof receiptRepairCommand !== 'string' || receiptRepairCommand.length === 0)) {
+    throw new TypeError('receipt repair command must be a non-empty string when provided');
+  }
   const commandLines = command.split('\n').map((line) => `  ${line}`);
   const failureLines = nonRetryableFailureLines ?? [
     `  echo "::error::${label} failed (exit $git_commit_exit); token-bound output was not published"`,
     `  echo "❌ ${label} failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"`,
+  ];
+  const receiptRepairLines = receiptRepairCommand === undefined ? [] : [
+    `  if [ "$git_commit_exit" -eq ${RECEIPT_FAILURE_EXIT} ] && ${receiptRepairCommand}; then exit 0; fi`,
   ];
   return [
     'set +e',
@@ -895,6 +901,7 @@ function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLine
     '  if [ "$git_commit_exit" -eq 0 ]; then',
     '    exit 0',
     '  fi',
+    ...receiptRepairLines,
     `  if [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RECEIPT_FAILURE_EXIT} ]; then`,
     ...failureLines,
     '    exit "$git_commit_exit"',
@@ -918,6 +925,7 @@ export function crawlerGroupBatchCommitRun(groupIndex) {
   return buildTokenBoundCommitRetryRun({
     command: `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${group} jobs"`,
     label: 'group commit',
+    receiptRepairCommand: `bash scripts/lib/git-commit-data.sh --group-receipt-repair "Repair crawler group ${group} delivery receipts"`,
   });
 }
 
@@ -1023,7 +1031,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push('exit 0');
 
   outer.push(`# ---- ${crawler.slug}: ${timeoutMinutes} minute target wall timeout ----`);
-  outer.push('# shellcheck disable=SC2016 -- child-shell variables expand inside the quoted bash -c body');
+  outer.push('# shellcheck disable=SC2016');
   outer.push(
     `timeout --signal=TERM --kill-after=30s ${timeoutMinutes}m bash -c ${shellQuote(work.join('\n'))}`,
   );
@@ -1470,6 +1478,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     'done',
   ].join('\n');
   return [
+    '# shellcheck disable=SC2016,SC1003',
     'set -euo pipefail',
     `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
     'mkdir -p "$state_dir/slots"',
@@ -1484,11 +1493,8 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
     // A leftover crawl-exit would be positive proof this launch never gave.
     ...(crawlExitFileName === null ? [] : [`rm -f "$state_dir/${crawlExitFileName}"`]),
-    '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
-    '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(worker)} > "$worker_path"`,
-    '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(launcher)} > "$launcher_path"`,
     'if command -v setsid >/dev/null 2>&1; then',
     '  env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &',
@@ -1621,7 +1627,7 @@ function buildWatchdogKillIssueLines(slug, crawlerId = slug) {
       + '"**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" '
       + '"**Branch:** ${GITHUB_REF_NAME:-}" '
       + '"**Trigger:** ${GITHUB_EVENT_NAME:-}")"',
-    `  if ! node scripts/lib/github-issue-creator.mjs --title ${quoteArg(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --log-excerpt-file "$state_dir/${slug}.log" --priority 2 --label Bug --workflow ${quoteArg(`Run ${slug}`)}; then`,
+    `  if ! node scripts/lib/github-issue-creator.mjs --title ${quoteArg(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --log-excerpt-file "$state_dir/${slug}.log" --priority 2 --label Bug --workflow ${quoteArg(`Run ${slug}`)} --require-persisted; then`,
     `    echo "::error::${slug}: the watchdog-timeout issue could not be filed; failing the group verdict"`,
     '    failure_count=$((failure_count + 1))',
     '  fi',
@@ -3590,7 +3596,6 @@ export function buildStandaloneCrossRepoWorkflow({
   const yaml = YAML.stringify(standalone, { lineWidth: 0 });
   const runtimeDependencyHeader = runtimePaths.length > 0
     ? [
-        '# Hash-bound site runtime dependencies used transitively by this workflow:',
         ...runtimePaths.map((runtimePath) => `# - ${runtimePath}`),
       ]
     : [];
@@ -3598,12 +3603,9 @@ export function buildStandaloneCrossRepoWorkflow({
     ? TRANSLATION_WRITE_BOUNDARY_HEADER
     : [];
   return [
-    '# AUTO-GENERATED by frontaliere-si-o-no/scripts/generate-crawler-group-workflows.mjs — DO NOT EDIT.',
-    '# Source logic stays in the site repo; this standalone artifact runs on the corpus pool.',
-    '# Only pre-logic checkout/install setup is retryable, so a partial crawl is never replayed.',
+    '# AUTO-GENERATED.',
     ...portableWorkflowHeader,
     ...runtimeDependencyHeader,
-    '',
     yaml,
   ].join('\n');
 }

@@ -18,6 +18,7 @@ import { getLocale, type Locale } from './i18n';
 import { STABIO_DOSSO_PETITION_PATHS } from './petitionRoute';
 import { EVENTS_ARCHIVE_SEGMENT } from './eventsArchivePaths';
 import { SLUG_TABLES, type SlugTable } from './routeSlugs.data';
+import { isAdminSectionSlug } from '../components/admin/adminSections';
 import { cdnDataUrl } from './cdnDataBase';
 import { buildJobSlugRecord, jobSlugShardKey, jobSlugShardPath } from './jobSlugShards';
 import { resolveCantonGroup as resolveCantonGroupShared } from './cantonList';
@@ -874,6 +875,8 @@ export type { BlogArticleId };
 
 export interface AppRoute {
  activeTab: ActiveTab;
+ /** Stable owner-admin section slug. The empty string is the admin root. */
+ adminSection?: string;
  calcolatoreSubTab?: CalcolatoreSubTab;
  confrontiSubTab?: ConfrontiSubTab;
  fiscoSubTab?: FiscoSubTab;
@@ -2149,7 +2152,10 @@ export function isApplicationConciergePath(pathname: string): boolean {
 }
 
 export function parsePath(pathname: string): ParseResult {
- const path = pathname.replace(/\/$/, '').toLowerCase() || '/';
+ // Callers normally pass location.pathname, but accepting a full path here
+ // keeps deep links with query state safe for tests and integrations.
+ const pathnameOnly = String(pathname || '/').split(/[?#]/, 1)[0] || '/';
+ const path = pathnameOnly.replace(/\/$/, '').toLowerCase() || '/';
  const allParts = path.split('/').filter(Boolean);
  const [locale, parts] = detectLocaleFromPath(allParts);
 
@@ -3034,6 +3040,14 @@ export function parsePath(pathname: string): ParseResult {
  const first = parts[0];
  const second = parts[1];
  const third = parts[2];
+
+ // Admin sections are intentionally path-based only for the section itself.
+ // Object selection and filters stay in location.search because static hosting
+ // emits shells only for the registered section slugs.
+ if (first === table.admin) {
+   const adminSection = isAdminSectionSlug(second) ? second : '';
+   return { route: { activeTab: 'admin', adminSection }, locale };
+ }
 
  // ── Per-canton job-board routes (P1.3, 2026-05-10) ────────────────
  //
@@ -3973,7 +3987,11 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.blog}${hashSuffix}`);
  }
  case 'admin':
- return finish(`${prefix}/${table.admin}${hashSuffix}`);
+ {
+ const section = isAdminSectionSlug(route.adminSection) ? route.adminSection : '';
+ const sectionPath = section ? `/${section}` : '';
+ return finish(`${prefix}/${table.admin}${sectionPath}${hashSuffix}`);
+ }
  case 'glossario':
  if (route.glossaryTerm) {
  const termSlug = GLOSSARY_TERM_SLUGS[lang][route.glossaryTerm];

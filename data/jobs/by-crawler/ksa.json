@@ -174,7 +174,7 @@
         "it": "paramedico-fa-kantonsspital-aarau-ksa-aarau",
         "en": "paramedic-fa-kantonsspital-aarau-ksa-aarau",
         "de": "transportsanitater-in-fa-ksa-ch",
-        "fr": "paramedic-fa-kantonsspital-aarau-ksa-aarau"
+        "fr": "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -220,7 +220,8 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau",
-        "transportsanitater-in-fa-ksa-ch"
+        "transportsanitater-in-fa-ksa-ch",
+        "paramedic-fa-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -231,7 +232,7 @@
           "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
+          "paramedic-fa-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:33.541Z",
@@ -254,7 +255,7 @@
       "slug": "still-e-laktationsberater-in-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "still-e-laktationsberater-in-kantonsspital-aarau-ksa-aarau",
-        "en": "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau",
+        "en": "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in",
         "de": "still-und-laktationsberater-in-ksa-ch",
         "fr": "still-und-laktationsberater-in-kantonsspital-aarau-ksa-aarau"
       },
@@ -302,14 +303,14 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "still-und-laktationsberater-in-ksa-ch",
-        "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in"
+        "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "still-und-laktationsberater-in-ksa-ch"
         ],
         "en": [
-          "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in"
+          "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -498,7 +499,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau",
         "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -545,7 +546,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
         "fachexpertin-fachexperte-pflege-ksa-ch",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+        "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -553,7 +554,7 @@
           "fachexpertin-fachexperte-pflege-ksa-ch"
         ],
         "fr": [
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -984,7 +985,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
-        "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
@@ -1032,7 +1033,6 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
         "nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       ],
@@ -1045,6 +1045,9 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        ],
+        "en": [
+          "nursing-specialist-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -1481,7 +1484,7 @@
       "slug": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
       "slugByLocale": {
         "it": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
-        "en": "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau",
+        "en": "care-expert-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "pflegeexpertin-pflegeexperte-ksa-ch",
         "fr": "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau-4b8fef"
       },
@@ -1533,7 +1536,7 @@
         "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau",
         "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau",
         "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci",
-        "care-expert-care-expert-kantonsspital-aarau-ksa-aarau"
+        "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1544,7 +1547,7 @@
           "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci"
         ],
         "en": [
-          "care-expert-care-expert-kantonsspital-aarau-ksa-aarau"
+          "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
           "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo"
@@ -1754,7 +1757,7 @@
       "id": "ksa-89883f785c0b",
       "slug": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
+        "it": "valutatore-immobiliare-graubundner-kantonalbank-chur",
         "en": "nursing-professional-in-training-additional-module-b-or-c-kantonsspital-aarau-ksa-aarau",
         "de": "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
         "fr": "professionnel-infirmier-en-formation-module-supplementaire-b-ou-c-kantonsspital-aarau-ksa-aarau"
@@ -1804,14 +1807,12 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau",
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-        "valutatore-immobiliare-graubundner-kantonalbank-chur"
+        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-          "valutatore-immobiliare-graubundner-kantonalbank-chur"
+          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau"
@@ -1920,7 +1921,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau-2a8ca7",
         "en": "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "soins-d-experts-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1968,8 +1969,7 @@
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "fachexpertin-fachexperte-pflege-ksa-ch-9zu87s",
         "expert-care-kantonsspital-aarau-ksa-aarau",
-        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1982,7 +1982,7 @@
         ],
         "fr": [
           "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-          "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -2173,7 +2173,7 @@
         "it": "risorse-umane-business-partner-kantonsspital-aarau-ksa-aarau",
         "en": "hr-business-partner-ksa-ch",
         "de": "hr-business-partner-ksa-ch",
-        "fr": "hr-business-partner-kantonsspital-aarau-ksa-aarau"
+        "fr": "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2219,14 +2219,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "hr-business-partner-ksa-ch",
-        "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
+        "hr-business-partner-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-ksa-ch"
         ],
         "fr": [
-          "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
+          "hr-business-partner-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-10-06T09:16:55.314Z",
@@ -2318,8 +2318,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-91d6257c78c8",
@@ -2715,7 +2714,7 @@
         "it": "controller-di-cura-kantonsspital-aarau-ksa-aarau",
         "en": "care-controller-in-kantonsspital-aarau-ksa-aarau",
         "de": "pflegecontroller-in-ksa-ch",
-        "fr": "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "controleur-in-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2761,14 +2760,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "pflegecontroller-in-ksa-ch",
-        "controleur-in-kantonsspital-aarau-ksa-aarau"
+        "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegecontroller-in-ksa-ch"
         ],
         "fr": [
-          "controleur-in-kantonsspital-aarau-ksa-aarau"
+          "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-29T09:11:24.714Z",
@@ -3931,7 +3930,7 @@
       "id": "ksa-0b6c3dd0024c",
       "slug": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
+        "it": "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau",
         "en": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "de": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "fr": "ergotherapeut-in-ksa-ch"
@@ -3984,14 +3983,12 @@
         ],
         "it": [
           "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-          "ergotherapeut-in-ksa-ch",
-          "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+          "ergotherapeut-in-ksa-ch"
         ]
       },
       "previousSlugs": [
         "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-        "ergotherapeut-in-ksa-ch",
-        "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+        "ergotherapeut-in-ksa-ch"
       ],
       "firstSeenAt": "2026-09-03T23:15:12.099Z",
       "salaryMin": 88000,
@@ -4013,7 +4010,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
-        "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-7"
       },
@@ -4060,7 +4057,8 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4068,6 +4066,9 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ],
+        "en": [
+          "nursing-specialist-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -5874,7 +5875,7 @@
         "it": "collaboratore-trice-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
         "en": "employee-patient-hospitality-kantonsspital-aarau-ksa-aarau",
         "de": "mitarbeiter-in-patientenhotellerie-ksa-ch",
-        "fr": "collaborateur-trice-en-hotellerie-hospitaliere-kantonsspital-aarau-ksa-aarau"
+        "fr": "depenses-de-representation-des-employes-et-des-patients-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5921,7 +5922,7 @@
       "previousSlugs": [
         "mitarbeiter-in-patientenhotellerie-ksa-ch",
         "mitarbeiter-in-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
-        "depenses-de-representation-des-employes-et-des-patients-kantonsspital-aarau-ksa-aarau"
+        "collaborateur-trice-en-hotellerie-hospitaliere-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5932,7 +5933,7 @@
         ],
         "fr": [
           "mitarbeiter-in-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
-          "depenses-de-representation-des-employes-et-des-patients-kantonsspital-aarau-ksa-aarau"
+          "collaborateur-trice-en-hotellerie-hospitaliere-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-02T23:07:29.745Z",
@@ -6035,7 +6036,7 @@
       "slug": "ergoterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
-        "en": "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
+        "en": "qualified-occupational-therapist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-ergotherapeut-in-ksa-ch",
         "fr": "ergotherapeute-diplome-e-readaptation-de-la-main-kantonsspital-aarau-ksa-aarau"
       },
@@ -6045,7 +6046,7 @@
       "title": "Dipl. Ergotherapeut/in",
       "titleByLocale": {
         "it": "Ergoterapista diplomato/a - riabilitazione della mano",
-        "en": "Dipl. Ergotherapeut/in",
+        "en": "Qualified Occupational Therapist",
         "de": "Dipl. Ergotherapeut/in",
         "fr": "Ergothérapeute diplômé·e - Réadaptation de la main"
       },
@@ -6086,8 +6087,8 @@
         "dipl-ergotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
         "dipl-ergotherapeut-in-ksa-ch",
         "qualified-occupational-therapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
-        "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-        "dipl-occupational-therapist-kantonsspital-aarau-ksa-aarau"
+        "dipl-occupational-therapist-kantonsspital-aarau-ksa-aarau",
+        "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6098,8 +6099,8 @@
           "dipl-ergotherapeut-in-handrehabilitation-ksa-ch",
           "dipl-ergotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
           "qualified-occupational-therapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
-          "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-          "dipl-occupational-therapist-kantonsspital-aarau-ksa-aarau"
+          "dipl-occupational-therapist-kantonsspital-aarau-ksa-aarau",
+          "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
           "dipl-ergotherapeut-in-handrehabilitation-ksa-ch"
@@ -6121,15 +6122,14 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-d344a57a145d",
       "slug": "fisioterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
-        "en": "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
+        "en": "qualified-physiotherapist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-physiotherapeut-in-ksa-ch",
         "fr": "physiotherapeute-diplome-e-readaptation-de-la-main-kantonsspital-aarau-ksa-aarau"
       },
@@ -6139,7 +6139,7 @@
       "title": "Dipl. Physiotherapeut/in",
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a - Riabilitazione della mano",
-        "en": "Dipl. Physiotherapeut/in",
+        "en": "Qualified Physiotherapist",
         "de": "Dipl. Physiotherapeut/in",
         "fr": "Physiothérapeute diplômé·e - Réadaptation de la main"
       },
@@ -6180,8 +6180,8 @@
         "dipl-physiotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
         "dipl-physiotherapeut-in-ksa-ch",
         "qualified-physiotherapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
-        "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
-        "dipl-physiotherapist-kantonsspital-aarau-ksa-aarau"
+        "dipl-physiotherapist-kantonsspital-aarau-ksa-aarau",
+        "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6192,8 +6192,8 @@
           "dipl-physiotherapeut-in-handrehabilitation-ksa-ch",
           "dipl-physiotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
           "qualified-physiotherapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
-          "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
-          "dipl-physiotherapist-kantonsspital-aarau-ksa-aarau"
+          "dipl-physiotherapist-kantonsspital-aarau-ksa-aarau",
+          "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
           "dipl-physiotherapeut-in-handrehabilitation-ksa-ch"
@@ -6214,14 +6214,13 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-a900cf57a2ad",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kantonsspital-aarau-ksa-aarau",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-fh-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kantonsspital-aarau-ksa-aarau",
+        "it": "dipl-infermiera-infermiera-specialista-hf-fh-kantonsspital-aarau-ksa-aarau",
         "en": "dipl-nursing-specialist-nursing-specialist-hf-fh-clinic-for-intensive-care-medicine-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-intensivmedizin-ksa-ch",
         "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-fh-clinique-de-medecine-intensive"
@@ -6231,7 +6230,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
+        "it": "Dipl. Infermiera / Infermiera specialista HF/FH",
         "en": "Dipl. Nursing specialist / Nursing specialist HF/FH Clinic for Intensive Care Medicine",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
         "fr": "Dipl. Spécialiste des soins infirmiers / Spécialiste des soins infirmiers HF/FH Clinique de médecine intensive"
@@ -6273,8 +6272,7 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-intensivmedizin-kantonsspital-aarau-ksa-aarau",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-ksa-ch",
         "infermiere-a-diplomato-a-hf-fh-clinica-di-medicina-intensiva-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-kantonsspital-aarau-ksa-aarau",
-        "dipl-infermiera-infermiera-specialista-hf-fh-kantonsspital-aarau-ksa-aarau"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6282,8 +6280,7 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-intensivmedizin-kantonsspital-aarau-ksa-aarau",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-ksa-ch",
           "infermiere-a-diplomato-a-hf-fh-clinica-di-medicina-intensiva-kantonsspital-aarau-ksa-aarau",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-kantonsspital-aarau-ksa-aarau",
-          "dipl-infermiera-infermiera-specialista-hf-fh-kantonsspital-aarau-ksa-aarau"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-intensivmedizin-ksa-ch"
@@ -6305,8 +6302,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-1bad4aaa0890",
@@ -6646,7 +6642,7 @@
         "it": "materiale-professionale-specializzato-kantonsspital-aarau-ksa-aarau",
         "en": "professional-specialist-material-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau"
+        "fr": "materiel-professionnel-specialise-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6693,7 +6689,7 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
-        "materiel-professionnel-specialise-kantonsspital-aarau-ksa-aarau"
+        "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6707,7 +6703,7 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
-          "materiel-professionnel-specialise-kantonsspital-aarau-ksa-aarau"
+          "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-10-12T09:13:55.329Z",
@@ -7274,7 +7270,7 @@
       "id": "ksa-55d25c285595",
       "slug": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
       "slugByLocale": {
-        "it": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
+        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau"
@@ -7324,15 +7320,11 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
-        "fachfrau-fachmann-gesundheit-ksa-ch",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau"
+        "fachfrau-fachmann-gesundheit-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-ksa-ch",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau"
+          "fachfrau-fachmann-gesundheit-ksa-ch"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
@@ -7357,8 +7349,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-803625157377",
@@ -8680,7 +8671,7 @@
       "id": "ksa-6cf6025271ef",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
       "slugByLocale": {
-        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
+        "it": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "en": "healthcare-professional-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "specialiste-de-la-sante-kantonsspital-aarau-ksa-aarau"
@@ -8751,14 +8742,11 @@
         "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau-656d6a",
         "salute-professionale-kantonsspital-aarau-ksa-aarau-917953",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
           "professional-health-kantonsspital-aarau-ksa-aarau-917953",
           "sante-professionnelle-kantonsspital-aarau-ksa-aarau-917953",
           "salute-professionale-kantonsspital-aarau-ksa-aarau-b22c58",
@@ -9511,12 +9499,12 @@
     },
     {
       "id": "ksa-5d14d0b84949",
-      "slug": "studienkoordinator-in-o-study-nurse-kantonsspital-aarau-ksa-aarau",
+      "slug": "coordinatore-trice-di-studio-o-infermiere-a-di-ricerca-clinica-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "studienkoordinator-in-oder-study-nurse-ksa-ch",
-        "it": "studienkoordinator-in-o-study-nurse-kantonsspital-aarau-ksa-aarau",
-        "en": "studienkoordinator-in-oder-study-nurse-ksa-ch",
-        "fr": "studienkoordinator-in-oder-study-nurse-ksa-ch"
+        "it": "coordinatore-trice-di-studio-o-infermiere-a-di-ricerca-clinica-kantonsspital-aarau-ksa-aarau",
+        "en": "study-coordinator-or-study-nurse-kantonsspital-aarau-ksa-aarau",
+        "fr": "coordinateur-coordinatrice-d-etude-ou-infirmier-infirmiere-de-recherche-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9524,16 +9512,16 @@
       "title": "Studienkoordinator/in oder Study Nurse",
       "titleByLocale": {
         "de": "Studienkoordinator/in oder Study Nurse",
-        "it": "Studienkoordinator/in o Study Nurse",
-        "en": "Studienkoordinator/in oder Study Nurse",
-        "fr": "Studienkoordinator/in oder Study Nurse"
+        "it": "Coordinatore/trice di studio o Infermiere/a di ricerca clinica",
+        "en": "Study Coordinator or Study Nurse",
+        "fr": "Coordinateur/Coordinatrice d’étude ou infirmier/infirmière de recherche"
       },
       "description": "Für pneumologische Studien\n\nStellenantritt: 1. Januar 2027 oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Verwaltung und Organisation von Forschungsdaten und -ressourcen\n\n• Vorbereitung, Durchführung und Nachbereitung von Studienvisiten mit Patienten\n\n• Erste Kontaktperson für Patienten und deren Angehörigen während der Teilnahme an klinischen Studien\n\n• Kommunikation mit Sponsoren/CROs und dem ärztlichen Studienteam\n\n• Teilnahme an Study-Meetings\n\n• Mitarbeit bei der Durchführung von Monitorings, Audits und Inspektionen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als med. Praxisassistent/in oder Fachfrau / Fachmann Gesundheit mit vorzugsweise einigen Jahren Berufserfahrung\n\n• Freude am Kontakt zu Studienteilnehmenden\n\n• Hervorragende organisatorische, administrativen und zwischenmenschliche Fähigkeiten\n\n• Fähigkeit zur effektiven Kommunikation und Zusammenarbeit mit verschiedenen Teams und Fachbereichen\n\n• Sicherer Umgang mit EDV-Systemen und elektronischer Studiendatenbanken von Vorteil\n\n• Kenntnisse der medizinischen Terminologie von Vorteil\n\n• Selbstmotivation und die Fähigkeit zur eigenständigen Arbeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Für pneumologische Studien\n\nStellenantritt: 1. Januar 2027 oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Verwaltung und Organisation von Forschungsdaten und -ressourcen\n\n• Vorbereitung, Durchführung und Nachbereitung von Studienvisiten mit Patienten\n\n• Erste Kontaktperson für Patienten und deren Angehörigen während der Teilnahme an klinischen Studien\n\n• Kommunikation mit Sponsoren/CROs und dem ärztlichen Studienteam\n\n• Teilnahme an Study-Meetings\n\n• Mitarbeit bei der Durchführung von Monitorings, Audits und Inspektionen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als med. Praxisassistent/in oder Fachfrau / Fachmann Gesundheit mit vorzugsweise einigen Jahren Berufserfahrung\n\n• Freude am Kontakt zu Studienteilnehmenden\n\n• Hervorragende organisatorische, administrativen und zwischenmenschliche Fähigkeiten\n\n• Fähigkeit zur effektiven Kommunikation und Zusammenarbeit mit verschiedenen Teams und Fachbereichen\n\n• Sicherer Umgang mit EDV-Systemen und elektronischer Studiendatenbanken von Vorteil\n\n• Kenntnisse der medizinischen Terminologie von Vorteil\n\n• Selbstmotivation und die Fähigkeit zur eigenständigen Arbeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Für pneumologische Studien\n\nStellenantritt: 1. Januar 2027 oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Verwaltung und Organisation von Forschungsdaten und -ressourcen\n\n• Vorbereitung, Durchführung und Nachbereitung von Studienvisiten mit Patienten\n\n• Erste Kontaktperson für Patienten und deren Angehörigen während der Teilnahme an klinischen Studien\n\n• Kommunikation mit Sponsoren/CROs und dem ärztlichen Studienteam\n\n• Teilnahme an Study-Meetings\n\n• Mitarbeit bei der Durchführung von Monitorings, Audits und Inspektionen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als med. Praxisassistent/in oder Fachfrau / Fachmann Gesundheit mit vorzugsweise einigen Jahren Berufserfahrung\n\n• Freude am Kontakt zu Studienteilnehmenden\n\n• Hervorragende organisatorische, administrativen und zwischenmenschliche Fähigkeiten\n\n• Fähigkeit zur effektiven Kommunikation und Zusammenarbeit mit verschiedenen Teams und Fachbereichen\n\n• Sicherer Umgang mit EDV-Systemen und elektronischer Studiendatenbanken von Vorteil\n\n• Kenntnisse der medizinischen Terminologie von Vorteil\n\n• Selbstmotivation und die Fähigkeit zur eigenständigen Arbeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Für pneumologische Studien\n\nStellenantritt: 1. Januar 2027 oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Verwaltung und Organisation von Forschungsdaten und -ressourcen\n\n• Vorbereitung, Durchführung und Nachbereitung von Studienvisiten mit Patienten\n\n• Erste Kontaktperson für Patienten und deren Angehörigen während der Teilnahme an klinischen Studien\n\n• Kommunikation mit Sponsoren/CROs und dem ärztlichen Studienteam\n\n• Teilnahme an Study-Meetings\n\n• Mitarbeit bei der Durchführung von Monitorings, Audits und Inspektionen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als med. Praxisassistent/in oder Fachfrau / Fachmann Gesundheit mit vorzugsweise einigen Jahren Berufserfahrung\n\n• Freude am Kontakt zu Studienteilnehmenden\n\n• Hervorragende organisatorische, administrativen und zwischenmenschliche Fähigkeiten\n\n• Fähigkeit zur effektiven Kommunikation und Zusammenarbeit mit verschiedenen Teams und Fachbereichen\n\n• Sicherer Umgang mit EDV-Systemen und elektronischer Studiendatenbanken von Vorteil\n\n• Kenntnisse der medizinischen Terminologie von Vorteil\n\n• Selbstmotivation und die Fähigkeit zur eigenständigen Arbeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Für pneumologische Studien\n\nStellenantritt: 1. Januar 2027 oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Verwaltung und Organisation von Forschungsdaten und -ressourcen\n\n• Vorbereitung, Durchführung und Nachbereitung von Studienvisiten mit Patienten\n\n• Erste Kontaktperson für Patienten und deren Angehörigen während der Teilnahme an klinischen Studien\n\n• Kommunikation mit Sponsoren/CROs und dem ärztlichen Studienteam\n\n• Teilnahme an Study-Meetings\n\n• Mitarbeit bei der Durchführung von Monitorings, Audits und Inspektionen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als med. Praxisassistent/in oder Fachfrau / Fachmann Gesundheit mit vorzugsweise einigen Jahren Berufserfahrung\n\n• Freude am Kontakt zu Studienteilnehmenden\n\n• Hervorragende organisatorische, administrativen und zwischenmenschliche Fähigkeiten\n\n• Fähigkeit zur effektiven Kommunikation und Zusammenarbeit mit verschiedenen Teams und Fachbereichen\n\n• Sicherer Umgang mit EDV-Systemen und elektronischer Studiendatenbanken von Vorteil\n\n• Kenntnisse der medizinischen Terminologie von Vorteil\n\n• Selbstmotivation und die Fähigkeit zur eigenständigen Arbeit\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Per studi pneumologici\n\nLavoro: 1 gennaio 2027 o per accordo, indefinitamente\n\nCompiti:\n• Gestione e organizzazione dei dati e delle risorse di ricerca\n\n• Preparazione, implementazione e follow-up delle visite di studio con i pazienti\n\n• Prima persona di contatto per i pazienti e i loro parenti durante la partecipazione a studi clinici\n\n• Comunicazione con sponsor/CRO e il team di studio medico\n\n• Partecipazione alle riunioni di studio\n\n• Cooperazione nello svolgimento di controlli, verifiche e controlli\n\nRequisiti\n• Allenamento completo come medicina. Assistente pratica o specialista / professionista sanitario con preferibilmente alcuni anni di esperienza professionale\n\n• Gioia di contatto con i partecipanti allo studio\n\n• Eccellente capacità organizzative, amministrative e interpersonali\n\n• Capacità di comunicare efficacemente e collaborare con diversi team e dipartimenti\n\n• La gestione sicura dei sistemi informatici e dei database di studio elettronici è un vantaggio\n\n• La conoscenza della terminologia medica è benefica\n\n• Automotivazione e la capacità di lavorare in modo indipendente\n\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "For pneumological studies\n\nJob: 1 January 2027 or by arrangement, indefinitely\n\nTasks:\n• Management and organisation of research data and resources\n\n• Preparation, implementation and follow-up of study visits with patients\n\n• First contact person for patients and their relatives during participation in clinical trials\n\n• Communication with sponsors/CROs and the medical study team\n\n• Participation in study meetings\n\n• Cooperation in carrying out monitoring, audits and inspections\n\nRequirements\n• Completed training as med. Practice assistant or specialist / health professional with preferably some years of professional experience\n\n• Joy of contact with study participants\n\n• Excellent organisational, administrative and interpersonal skills\n\n• Ability to communicate effectively and collaborate with different teams and departments\n\n• Safe handling of computer systems and electronic study databases is an advantage\n\n• Knowledge of medical terminology is beneficial\n\n• Self-motivation and the ability to work independently\n\n• Very good knowledge of German and English in word and writing\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Pour les études pneumologiques\n\nEmploi: 1er janvier 2027 ou par arrangement, indéfiniment\n\nTâches :\n• Gestion et organisation des données et des ressources de recherche\n\n• Préparation, mise en œuvre et suivi des visites d'étude avec les patients\n\n• Première personne-ressource pour les patients et leurs proches pendant la participation aux essais cliniques\n\n• Communication avec les sponsors/ORC et l'équipe d'étude médicale\n\n• Participation aux réunions d ' étude\n\n• Coopération en matière de surveillance, d'audit et d'inspection\n\nExigences\n• Terminé la formation comme médecine. Assistant de pratique ou spécialiste / professionnel de la santé avec de préférence quelques années d'expérience professionnelle\n\n• Joy de contact avec les participants à l'étude\n\n• Excellentes compétences organisationnelles, administratives et interpersonnelles\n\n• Capacité de communiquer efficacement et de collaborer avec les différentes équipes et départements\n\n• Un traitement sûr des systèmes informatiques et des bases de données d'études électroniques est un avantage\n\n• La connaissance de la terminologie médicale est bénéfique\n\n• L'automotivation et la capacité de travailler indépendamment\n\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -9565,24 +9553,22 @@
       "previousSlugsByLocale": {
         "it": [
           "studienkoordinator-in-oder-study-nurse-ksa-ch",
-          "studienkoordinator-in-o-study-nurse-kantonsspital-aarau-ksa-aarau",
-          "coordinatore-coordinatrice-di-studi-o-study-nurse-kantonsspital-aarau-ksa-aarau"
+          "coordinatore-coordinatrice-di-studi-o-study-nurse-kantonsspital-aarau-ksa-aarau",
+          "studienkoordinator-in-o-study-nurse-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
-          "studienkoordinator-in-oder-study-nurse-ksa-ch",
-          "study-coordinator-or-study-nurse-kantonsspital-aarau-ksa-aarau"
+          "studienkoordinator-in-oder-study-nurse-ksa-ch"
         ],
         "fr": [
-          "studienkoordinator-in-oder-study-nurse-ksa-ch",
-          "coordinateur-trice-d-etudes-ou-study-nurse-kantonsspital-aarau-ksa-aarau"
+          "coordinateur-trice-d-etudes-ou-study-nurse-kantonsspital-aarau-ksa-aarau",
+          "studienkoordinator-in-oder-study-nurse-ksa-ch"
         ]
       },
       "previousSlugs": [
         "studienkoordinator-in-oder-study-nurse-ksa-ch",
-        "studienkoordinator-in-o-study-nurse-kantonsspital-aarau-ksa-aarau",
         "coordinatore-coordinatrice-di-studi-o-study-nurse-kantonsspital-aarau-ksa-aarau",
-        "study-coordinator-or-study-nurse-kantonsspital-aarau-ksa-aarau",
-        "coordinateur-trice-d-etudes-ou-study-nurse-kantonsspital-aarau-ksa-aarau"
+        "coordinateur-trice-d-etudes-ou-study-nurse-kantonsspital-aarau-ksa-aarau",
+        "studienkoordinator-in-o-study-nurse-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -9597,8 +9583,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:28:53.251Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-23T09:28:53.251Z"
     }
   ]
 }
