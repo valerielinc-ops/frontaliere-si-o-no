@@ -27,6 +27,8 @@ describe('job viewers activity prompt contract', () => {
     expect(SOURCE).toMatch(/ABOVE_MOBILE_NAV_BOTTOM/u);
     expect(SOURCE).toMatch(/subscribeToAutoAdOverlay\(setAutoAdClearance\)/u);
     expect(SOURCE).toMatch(/--bottom-prompt-ad-clearance/u);
+    expect(SOURCE).toMatch(/data-testid="gamification-toast"/u);
+    expect(SOURCE).toMatch(/--bottom-prompt-offset/u);
     expect(SOURCE).toMatch(/createPortal/u);
     expect(SOURCE).toMatch(/bg-warning-strong text-on-accent rounded-xl shadow-lg/u);
     expect(JOB_BOARD_SOURCE).not.toMatch(/requestSlot\('job-inline-auth-gate'/u);

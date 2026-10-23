@@ -11,9 +11,57 @@ import { useTranslation } from '@/services/i18n';
 
 const DISPLAY_DELAY_MS = 1_500;
 const AUTO_DISMISS_MS = 3_500;
+const STATUS_TOAST_GAP_PX = 12;
 const SESSION_SEEN_KEY = 'ft_job_viewers_prompt_seen';
 let runtimePromptShown = false;
 const runtimeViewerCounts = new Map<string, number>();
+
+const STATUS_TOAST_SELECTORS = [
+  '[data-testid="gamification-toast"]',
+  '[class*="z-[9999]"]',
+].join(',');
+
+function useStatusToastStackOffset(enabled: boolean): number {
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    if (!enabled || typeof document === 'undefined') {
+      setOffset(0);
+      return undefined;
+    }
+
+    let frame: number | null = null;
+    const measure = () => {
+      frame = null;
+      const viewportHeight = window.innerHeight;
+      let nextOffset = 0;
+      document.querySelectorAll<HTMLElement>(STATUS_TOAST_SELECTORS).forEach((element) => {
+        const computed = window.getComputedStyle(element);
+        if (computed.display === 'none' || computed.visibility === 'hidden') return;
+        const rect = element.getBoundingClientRect();
+        if (rect.height <= 0 || rect.top <= 0 || rect.bottom < viewportHeight - 4) return;
+        nextOffset = Math.max(nextOffset, Math.ceil(viewportHeight - rect.top + STATUS_TOAST_GAP_PX));
+      });
+      setOffset((current) => current === nextOffset ? current : nextOffset);
+    };
+    const scheduleMeasure = () => {
+      if (frame !== null) return;
+      frame = window.requestAnimationFrame(measure);
+    };
+    const observer = new MutationObserver(scheduleMeasure);
+    observer.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener('resize', scheduleMeasure, { passive: true });
+    measure();
+
+    return () => {
+      if (frame !== null) window.cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener('resize', scheduleMeasure);
+    };
+  }, [enabled]);
+
+  return offset;
+}
 
 function getSessionViewerCount(jobId: string): number {
   const countKey = `ft_job_viewers_count:${jobId}`;
@@ -45,6 +93,7 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
   const [visible, setVisible] = useState(false);
   const [autoAdClearance, setAutoAdClearance] = useState(getAutoAdOverlayClearance);
   const dismissTimer = useRef<number | null>(null);
+  const statusToastStackOffset = useStatusToastStackOffset(visible);
 
   useEffect(() => {
     if (!visible) return undefined;
@@ -108,7 +157,10 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
       aria-label={message}
       aria-live="polite"
       className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} right-4 sm:right-6 z-[60] animate-toast-in pointer-events-auto`}
-      style={{ '--bottom-prompt-ad-clearance': `${autoAdClearance}px` } as CSSProperties}
+      style={{
+        '--bottom-prompt-ad-clearance': `${autoAdClearance}px`,
+        bottom: `calc(var(--bottom-prompt-offset) + ${statusToastStackOffset}px)`,
+      } as CSSProperties}
     >
       <div className="bg-warning-strong text-on-accent rounded-xl shadow-lg px-4 py-2.5 flex items-center gap-2.5 max-w-xs">
         <span className="text-xl flex-shrink-0" aria-hidden="true">

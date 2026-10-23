@@ -8209,6 +8209,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   && selectedJob
   && authResolved
   && (!authUser?.uid || authUser.isAnonymous === true)
+  && !authGateOpen
+  && !saveAuthPromptOpen
   && !isCrawlerVisitor
   && !isLikelyBotVisitor
  ) ? (
