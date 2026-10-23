@@ -488,8 +488,6 @@ export async function fetchTichJobDetailUrls(options = {}) {
     }
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err.message} — will try RSS fallback.`);
-  } finally {
-    clearTimeout(timer);
   }
 
   // ── Step 2: Fetch the RSS/Atom feed as fallback/supplement ──

@@ -1,5 +1,23 @@
 import { describe, expect, it, vi } from 'vitest';
-import { fetchTichJobDetailUrls } from '../scripts/update-tich-jobs.mjs';
+
+vi.mock('../scripts/jobs-url-helper.mjs', () => ({
+  printPublishedJobUrls: vi.fn(),
+  writeJobsSummary: vi.fn(),
+  snapshotJobSlugs: vi.fn(() => new Map()),
+  computeCrawlDiff: vi.fn(() => ({
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedCount: 0,
+    unchangedJobs: [],
+  })),
+  printCrawlChangeSummary: vi.fn(),
+  writeCrawlChangeSummaryToGH: vi.fn(),
+  setCrawlerStartTime: vi.fn(),
+  getCrawlerElapsedMs: vi.fn(() => 0),
+}));
+
+const { fetchTichJobDetailUrls } = await import('../scripts/update-tich-jobs.mjs');
 
 const LISTING_URL = 'https://www.concorsi.ti.ch/';
 const RSS_URL = 'https://www.concorsi.ti.ch/rss_generator-rss0.php?unit=act&lang=it';
