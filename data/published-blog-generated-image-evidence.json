@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "3fc3f52078f85d872b510f0abeb0bf698f8b7464",
+  "commit": "8937cb16011a9202354902eab83d4b8d77ef101e",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -36042,6 +36042,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic Swiss lake illustration; no text, logos, recognizable people, or specific event."
+      }
+    },
+    "/images/blog/article-consultazione-abitazioni-lucerna.webp": {
+      "schema": 1,
+      "assetId": "article-consultazione-abitazioni-lucerna",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "fcb31abf5e0cd313cae14851e3b9dbf263ed0959c4d9112772a5da323b6e728f",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "836540740082b6d8794b6caec6f97ac477c3e3bb3e7461971b6be614dc405cf8",
+      "bytes": 207628,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-23T18:56:39.772Z",
+      "verifiedAt": "2026-10-23T18:56:47.013Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-consultazione-abitazioni-lucerna.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic illustration of a modern residential development; no text, logos, faces, or foreground people."
       }
     },
     "/images/places/lugano-view.webp": {

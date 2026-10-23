@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 813,
+      "5": 814,
       "6": 5054
     },
-    "publishedCovers": 7550,
+    "publishedCovers": 7551,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207536,6 +207536,39 @@
         "provider": "openai-codex",
         "assetId": "article-frontalieri-rimborsi-lpp-svizzera",
         "imageUrl": "/images/blog/article-frontalieri-rimborsi-lpp-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-consultazione-abitazioni-lucerna": {
+      "cover": "/images/blog/article-consultazione-abitazioni-lucerna.webp",
+      "hash": "836540740082b6d8794b6caec6f97ac477c3e3bb3e7461971b6be614dc405cf8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "consultazione-abitazioni-lucerna",
+          "category": "novita",
+          "date": "2026-10-23T18:56:47.091Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-consultazione-abitazioni-lucerna.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-consultazione-abitazioni-lucerna",
+        "imageUrl": "/images/blog/article-consultazione-abitazioni-lucerna.webp",
         "evidence": "generated-engine-record"
       }
     }
