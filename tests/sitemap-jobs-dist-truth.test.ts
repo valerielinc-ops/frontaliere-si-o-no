@@ -463,11 +463,12 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     }
   });
 
-  it('uses one streaming dist inventory for foreign-locale probes', async () => {
+  it('uses a candidate-scoped inventory for foreign-locale probes', async () => {
     fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([EN, DE, FR]), 'utf-8');
 
     const previousBuildLocale = process.env.BUILD_LOCALE;
     const opendirSpy = vi.spyOn(fs.promises, 'opendir');
+    const lstatSpy = vi.spyOn(fs.promises, 'lstat');
     process.env.BUILD_LOCALE = 'it';
     try {
       vi.resetModules();
@@ -477,9 +478,21 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
       const inventoryRootCalls = opendirSpy.mock.calls.filter(([directory]) =>
         path.resolve(String(directory)) === path.resolve(dist),
       );
-      expect(inventoryRootCalls).toHaveLength(1);
+      expect(inventoryRootCalls).toHaveLength(0);
+
+      const expectedProbePaths = new Set(
+        [EN, DE, FR].flatMap((loc) => {
+          const routePath = path.join(dist, new URL(loc).pathname.replace(/\/+$/, ''));
+          return [routePath, path.join(routePath, 'index.html'), `${routePath}.html`];
+        }).map((filePath) => path.resolve(filePath)),
+      );
+      const actualProbePaths = new Set(
+        lstatSpy.mock.calls.map(([filePath]) => path.resolve(String(filePath))),
+      );
+      expect(actualProbePaths).toEqual(expectedProbePaths);
       expect(shard.extractSitemapLocs(readSitemap())).toEqual([EN, DE, FR]);
     } finally {
+      lstatSpy.mockRestore();
       opendirSpy.mockRestore();
       if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
       else process.env.BUILD_LOCALE = previousBuildLocale;
