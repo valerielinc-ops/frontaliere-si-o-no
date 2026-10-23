@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 814,
+      "5": 815,
       "6": 5054
     },
-    "publishedCovers": 7551,
+    "publishedCovers": 7552,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207569,6 +207569,39 @@
         "provider": "openai-codex",
         "assetId": "article-consultazione-abitazioni-lucerna",
         "imageUrl": "/images/blog/article-consultazione-abitazioni-lucerna.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-consiglio-stato-21-ottobre-2026": {
+      "cover": "/images/blog/article-consiglio-stato-21-ottobre-2026.webp",
+      "hash": "d90f6a18c5273dda1069bae46bc86230392609caaa6602261fd79f7ae4e29851",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "consiglio-stato-21-ottobre-2026",
+          "category": "novita",
+          "date": "2026-10-23T19:35:52.889Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-consiglio-stato-21-ottobre-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-consiglio-stato-21-ottobre-2026",
+        "imageUrl": "/images/blog/article-consiglio-stato-21-ottobre-2026.webp",
         "evidence": "generated-engine-record"
       }
     }
