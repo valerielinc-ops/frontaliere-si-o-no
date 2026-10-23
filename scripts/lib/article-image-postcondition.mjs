@@ -1,4 +1,4 @@
-const GENERIC_IMAGE_PATH = '/og-image.png';
+export const GENERIC_IMAGE_PATH = '/og-image.png';
 
 function attrsFromTag(tag) {
   const attrs = {};
@@ -34,6 +34,32 @@ export function extractOgImage(html) {
 export function isGenericOgImage(html) {
   const normalized = normalizeImagePath(extractOgImage(html));
   return Boolean(normalized && normalized.split(/[?#]/, 1)[0] === GENERIC_IMAGE_PATH);
+}
+
+/**
+ * Restore the editorial hero path after a sparse CI checkout.
+ *
+ * The article renderer normally verifies the local hero file before emitting
+ * it. Corpus rerenders intentionally use a sparse checkout without
+ * `public/images/`, so a metadata-only rerender would otherwise replace every
+ * existing hero with `/og-image.png` and the postcondition would (correctly)
+ * refuse to publish it. The declared registry image is already the live
+ * article contract; replacing only the renderer's generic fallback preserves
+ * the current shard page and lets the X-card/head update travel without
+ * degrading its hero image.
+ */
+export function restoreDeclaredImageRefs(html, declaredImage) {
+  const raw = String(declaredImage ?? '').trim();
+  // The corpus registry stores site-relative `/images/...` paths. Do not turn
+  // an arbitrary external URL into a same-origin replacement merely because
+  // URL normalization happens to leave its pathname under `/images/`.
+  if (/^https?:\/\//i.test(raw)) return html;
+  const image = normalizeImagePath(declaredImage);
+  if (!image || !image.startsWith('/images/') || !declaredImageIsOwn(image)) return html;
+  return String(html ?? '').replace(
+    /(?:https?:\/\/[^"'<>\s]+)?\/og-image\.png(?:[?#][^"'<>\s]*)?/gi,
+    image,
+  );
 }
 
 export function filterEntriesByImagePostcondition({ entries = [], declaredImages = {}, htmlByPath = {} } = {}) {

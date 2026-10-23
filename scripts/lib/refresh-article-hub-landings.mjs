@@ -9,6 +9,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+// This script preserves the live site shell rather than rebuilding it. Import
+// the host wiring explicitly so the engine's shared X-card emitter can still
+// be used for the head-only patch below.
+import '../../build-plugins/articlesSiteShellBootstrap.ts';
 import { ARTICLE_SECTION_CORE } from '../../build-plugins/shared/articleSectionCore.mjs';
 import {
   readArticleExcerpts,
@@ -27,6 +31,7 @@ import {
   hasBlogImageLeak,
   rewriteBlogImageRefs,
 } from '../../packages/articles/engine/blogImageCdnFinalize.ts';
+import { buildTwitterCardMetaTags } from '../../packages/articles/engine/shared/twitterCardMeta.ts';
 import { compareArticleSourceDates } from '../../services/articleSourceDates.ts';
 
 export const ARTICLE_HUB_LANDING_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
@@ -56,6 +61,50 @@ function emptyResult(locales) {
     cardsByLocale: Object.fromEntries(locales.map((locale) => [locale, 0])),
     errors: [],
   };
+}
+
+function htmlAttribute(tag, name) {
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = tag.match(
+    new RegExp(`\\b${escapedName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'),
+  );
+  return match?.[1] ?? match?.[2] ?? match?.[3] ?? '';
+}
+
+function decodeBasicEntities(value) {
+  return String(value ?? '')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&amp;/gi, '&');
+}
+
+function readMetaContent(html, key) {
+  for (const match of String(html ?? '').matchAll(/<meta\b[^>]*>/gi)) {
+    const tag = match[0];
+    const name = htmlAttribute(tag, 'name').toLowerCase();
+    const property = htmlAttribute(tag, 'property').toLowerCase();
+    if (name === key || property === key) return decodeBasicEntities(htmlAttribute(tag, 'content'));
+  }
+  return '';
+}
+
+/**
+ * Add the four X-card tags to a landing whose editorial shell is preserved
+ * from the live shard. The normal hub renderer owns archive/topic heads, but
+ * this landing helper intentionally starts from live HTML, so it needs the
+ * same shared emitter at the final shell-preservation boundary.
+ */
+export function ensureTwitterCardMeta(html, { locale, siteBase }) {
+  if (/name\s*=\s*["']?twitter:card\b/i.test(String(html ?? ''))) return html;
+  const titleMatch = String(html ?? '').match(/<title\b[^>]*>([\s\S]*?)<\/title>/i);
+  const title = decodeBasicEntities(titleMatch?.[1] ?? readMetaContent(html, 'og:title'));
+  const description = readMetaContent(html, 'description') || readMetaContent(html, 'og:description') || title;
+  const image = readMetaContent(html, 'og:image') || `${String(siteBase).replace(/\/$/, '')}/og-image.png`;
+  if (!title) return html;
+  const tags = buildTwitterCardMetaTags({ title, description, image, locale });
+  return String(html).replace(/<\/head>/i, `    ${tags}\n  </head>`);
 }
 
 /**
@@ -209,7 +258,11 @@ export async function refreshArticleHubLandings(opts) {
       continue;
     }
 
-    const finalHtml = rewriteBlogImageRefs(refreshed);
+    const withTwitterCard = ensureTwitterCardMeta(refreshed, {
+      locale,
+      siteBase: normalizedSiteBase,
+    });
+    const finalHtml = rewriteBlogImageRefs(withTwitterCard);
     if (hasBlogImageLeak(finalHtml)) {
       result.errors.push(`${localeLanding}: rendered cards still contain a same-origin blog image`);
       continue;
