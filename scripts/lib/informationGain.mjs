@@ -147,12 +147,12 @@ export function hashSegment(str) {
 /**
  * Visible body text, one logical line per element boundary.
  *
- * Same stripping set as `audit-content-duplicates.mjs` (script/style/svg/
- * noscript/template/comments) so the two audits cannot disagree about what
- * "the text of a page" is. Tags collapse to newlines rather than spaces:
- * element boundaries are where prose actually breaks, and joining across them
- * would glue a heading onto the paragraph below it and make every masked
- * segment page-specific by accident.
+ * Unlike `audit-content-duplicates.mjs`, this metric excludes `<nav>`: it
+ * measures page prose, so repeated navigation is not part of its text
+ * population. The duplicate audit intentionally keeps navigation. Tags
+ * collapse to newlines rather than spaces: element boundaries are where prose
+ * actually breaks, and joining across them would glue a heading onto the
+ * paragraph below it and make every masked segment page-specific by accident.
  */
 export function extractVisibleText(html) {
   const bodyStart = html.indexOf('<body');

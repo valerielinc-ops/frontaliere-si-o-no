@@ -98,12 +98,11 @@ const EMPLOYERS = [
 
 const fakeJob = (seed: string, i: number): FeaturedJob => ({
   id: `${seed}-${i}`,
-  // Variare anche il fatto e il team per annuncio evita collisioni artificiali
-  // nella deduplicazione delle righe: il corpus reale non ripete questi campi
-  // per ogni offerta della stessa pagina.
-  title: `${pick(SENIORITY, `${seed}:s:${i}`)} ${pick(SPECIALIZATIONS, `${seed}:spec:${i}`)} ${pick(UNITS, `${seed}:u:${i}`)} ${pick(WORKSTREAMS, `${seed}:work:${i}`)} · ${pick(PAGE_FACTS, `${seed}:page:${i}`)}`,
+  // Keep page facts and site teams stable across postings so repeated listing
+  // prose remains covered and cannot manufacture per-offer information gain.
+  title: `${pick(SENIORITY, `${seed}:s:${i}`)} ${pick(SPECIALIZATIONS, `${seed}:spec:${i}`)} ${pick(UNITS, `${seed}:u:${i}`)} ${pick(WORKSTREAMS, `${seed}:work:${i}`)} · ${pick(PAGE_FACTS, `${seed}:page`)}`,
   titleByLocale: {},
-  company: `${pick(EMPLOYERS, `${seed}:e:${i}`)} · ${pick(SITE_TEAMS, `${seed}:team:${i}`)}`,
+  company: `${pick(EMPLOYERS, `${seed}:e:${i}`)} · ${pick(SITE_TEAMS, `${seed}:team`)}`,
   companyKey: null,
   companyDomain: null,
   city: '',
