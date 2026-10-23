@@ -20,6 +20,7 @@
  * PRUNE_404_ALLOW_LARGE_PRUNE=1. Idempotent; exits 0 when nothing changes.
  */
 import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { classifyCompatPath } from './lib/compat-path-safety.mjs';
 import {
   assertCompatPruneFamilySafety,
   assertCompatPruneSafety,
@@ -77,11 +78,21 @@ async function main(): Promise<void> {
   const dropped: string[] = [];
   const familyTotals = new Map<string, number>();
   const familyDropped = new Map<string, number>();
+  let droppedFilesystemLimit = 0;
+  let droppedAttackPayload = 0;
   for (const p of before) {
     if (seen.has(p)) continue; // also de-dup (raw appends can repeat)
     seen.add(p);
     const family = compatPathFamily(p);
     familyTotals.set(family, (familyTotals.get(family) ?? 0) + 1);
+    const unsafeReason = classifyCompatPath(p);
+    if (unsafeReason) {
+      dropped.push(p);
+      familyDropped.set(family, (familyDropped.get(family) ?? 0) + 1);
+      if (unsafeReason === 'filesystem-limit') droppedFilesystemLimit++;
+      if (unsafeReason === 'attack-payload') droppedAttackPayload++;
+      continue;
+    }
     if (resolveSearchConsoleCompatTarget(p) !== null) {
       kept.push(p);
     } else {
@@ -114,8 +125,9 @@ async function main(): Promise<void> {
 
   writeCompatPaths({ ...data, paths: kept }, ROOT);
   console.log(
-    `[prune-404-compat] pruned ${removed} non-resolving/duplicate path(s) ` +
-      `(${before.length} → ${kept.length}). Sample dropped: ${dropped.slice(0, 5).join(', ') || '(dups only)'}`,
+    `[prune-404-compat] pruned ${removed} unsafe/non-resolving/duplicate path(s) ` +
+      `(${before.length} → ${kept.length}; filesystem-limit=${droppedFilesystemLimit}, ` +
+      `attack-payload=${droppedAttackPayload}). Sample dropped: ${dropped.slice(0, 5).join(', ') || '(dups only)'}`,
   );
 }
 

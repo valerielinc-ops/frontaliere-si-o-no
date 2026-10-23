@@ -30,7 +30,12 @@ import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './shared/borderWaitLegacyRedirects';
-import { isSafeDistPath, writeDistPageSafely } from './shared/distPathSafety';
+import {
+ getSafeDistPageTargets,
+ isDistPathOverFilesystemLimits,
+ isSafeDistPath,
+ writeDistPageSafely,
+} from './shared/distPathSafety';
 import { shouldEmitPath } from './shared/localeEmitFilter';
 
 // These legacy URLs are intercepted by the apex Worker with a real 301. Keep
@@ -598,6 +603,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  const unshippablePrefixes = unshippableSectionPrefixes();
  let skippedUnshippable = 0;
  let skippedUnsafeDistPaths = 0;
+ let skippedFilesystemLimitPaths = 0;
  let skippedWriteErrors = 0;
  // `/cerca-lavoro-ticino/azienda-{slug}/` (and per-locale equivalents) is the
  // RESERVED company-hub namespace (see isCompanyHubNamespaceSlug). A job whose
@@ -717,7 +723,10 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // segments. Reject them before any filesystem path is derived: a trailing
  // slash path such as `/foo/.env.bak/` would otherwise create the forbidden
  // `dist/foo/.env.bak.html` flat twin (and a hidden directory beside it).
+ if (isDistPathOverFilesystemLimits(from)) { skippedFilesystemLimitPaths++; continue; }
  if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
+ const safeTargets = getSafeDistPageTargets(distDir, from);
+ if (!safeTargets) { skippedFilesystemLimitPaths++; continue; }
 
  // A foreign locale's missing HTML is expected on a shard, not a vacancy.
  // Do not create a noindex bridge that the shared sitemap would mistake for
@@ -730,7 +739,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // empty directory behind for a dist-walking audit to trip over.
  if (isUnshippablePath(from, unshippablePrefixes)) { skippedUnshippable++; continue; }
 
- const outDir = path.join(distDir, from.slice(1));
+ const outDir = safeTargets.directoryPath;
  // Normal redirects preserve already emitted pages. These four historical
  // directory headings were never vacancies and must replace their stale detail HTML.
  if (fs.existsSync(path.join(outDir, 'index.html')) && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from] && !BORDER_WAIT_LEGACY_REDIRECTS.has(from)) continue;
@@ -766,10 +775,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // meta-refresh is intentionally kept for bridges that still need the static
  // fallback; edge-owned aliases are already real 301s before this HTML runs.
  const flatPath = from.replace(/\/+$/, '');
- const flatFile = flatPath ? path.join(distDir, flatPath.slice(1) + '.html') : undefined;
+ const flatFile = flatPath ? safeTargets.flatPath : undefined;
  const flatHtml = html.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
  if (!writeDistPageSafely({
-   indexPath: path.join(outDir, 'index.html'),
+   distDir,
+   indexPath: safeTargets.indexPath,
    html,
    flatPath: flatFile,
    flatHtml,
@@ -819,7 +829,10 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  const compatPaths = readCompatPaths(rootDir).paths;
  for (const compatPathRaw of compatPaths) {
  const from = normalize(String(compatPathRaw || ''));
+ if (isDistPathOverFilesystemLimits(from)) { skippedFilesystemLimitPaths++; continue; }
  if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
+ const safeTargets = getSafeDistPageTargets(distDir, from);
+ if (!safeTargets) { skippedFilesystemLimitPaths++; continue; }
  // Apply the same ownership guard before any target-existence/fallback probe.
  if (!shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) continue;
  const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
@@ -868,15 +881,16 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // is fed by Search Console, which reports the article URLs too, so this
  // loop can land on the article sections exactly like the static map can.
  if (isUnshippablePath(from, unshippablePrefixes)) { skippedUnshippable++; continue; }
- const outDir = path.join(distDir, from.slice(1));
+ const outDir = safeTargets.directoryPath;
  // Skip if a higher-priority plugin (e.g. soft-landing pages) already generated this page
  if (fs.existsSync(path.join(outDir, 'index.html'))) continue;
  const html = buildCompatHtml(from, to, resolution.kind);
  const flatPath = from.replace(/\/+$/, '');
- const flatFile = flatPath ? path.join(distDir, flatPath.slice(1) + '.html') : undefined;
+ const flatFile = flatPath ? safeTargets.flatPath : undefined;
  const flatHtml = html.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
  if (!writeDistPageSafely({
-   indexPath: path.join(outDir, 'index.html'),
+   distDir,
+   indexPath: safeTargets.indexPath,
    html,
    flatPath: flatFile,
    flatHtml,
@@ -919,6 +933,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  console.log(
  `\x1b[33m[legacy-redirects]\x1b[0m Skipped ${skippedWriteErrors} bridge page(s) whose dist write failed; the remaining build continues.`,
  );
+ }
+ if (skippedFilesystemLimitPaths > 0) {
+ console.warn(`[legacy-redirects] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);
  }
    },
  },

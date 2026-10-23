@@ -47,6 +47,7 @@ import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { getSafeDistPageTargets } from './shared/distPathSafety';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -208,9 +209,14 @@ export function calculatorLegacyAliasPlugin(rootDir: string): Plugin {
 
       let emitted = 0;
       for (const entry of ENTRIES) {
+        const safeTargets = getSafeDistPageTargets(distDir, `/${entry.locale}/calcola-stipendio/`);
+        if (!safeTargets?.flatPath) {
+          console.warn(`\x1b[33m[calculator-legacy-alias]\x1b[0m skipped unsafe path for ${entry.locale}`);
+          continue;
+        }
         const html = renderAliasPage(entry, distDir);
-        const indexTarget = path.join(distDir, entry.locale, 'calcola-stipendio', 'index.html');
-        const flatTarget = path.join(distDir, entry.locale, 'calcola-stipendio.html');
+        const indexTarget = safeTargets.indexPath;
+        const flatTarget = safeTargets.flatPath;
         try {
           fs.mkdirSync(path.dirname(indexTarget), { recursive: true });
           fs.writeFileSync(indexTarget, html, 'utf-8');

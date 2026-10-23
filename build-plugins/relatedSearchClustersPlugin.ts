@@ -67,7 +67,7 @@ import {
 } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { isSafeDistPath } from './shared/distPathSafety';
+import { getSafeDistPageTargets, isSafeDistPath } from './shared/distPathSafety';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { HREFLANG_LINK_RX } from './shared/headLinkPatterns';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
@@ -2908,15 +2908,21 @@ function reapplyRetiredManifestFiles(
   retiredFiles: ReadonlyArray<string>,
 ): number {
   const writes = retiredManifestWrites(retiredFiles);
-  const distRoot = path.resolve(distDir);
-  for (const write of writes) {
+  const safeWrites = writes.filter((write) => {
+    const landingPath = landingPathFromDistRelative(write.rel);
+    const safeTargets = getSafeDistPageTargets(distDir, landingPath);
+    if (!safeTargets) return false;
+    const expectedPath = write.rel.endsWith('/index.html')
+      ? safeTargets.indexPath
+      : safeTargets.flatPath;
+    return Boolean(expectedPath) && path.resolve(expectedPath) === path.resolve(distDir, write.rel);
+  });
+  for (const write of safeWrites) {
     const outFile = path.resolve(distDir, write.rel);
-    const relative = path.relative(distRoot, outFile);
-    if (relative.startsWith('..') || path.isAbsolute(relative)) continue;
     fs.mkdirSync(path.dirname(outFile), { recursive: true });
     fs.writeFileSync(outFile, write.html, 'utf-8');
   }
-  return writes.length;
+  return safeWrites.length;
 }
 
 /**

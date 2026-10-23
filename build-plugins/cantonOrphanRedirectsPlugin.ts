@@ -51,6 +51,7 @@ import {
  type JobCareClusterKey,
 } from './jobEditorialLanding';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
+import { getSafeDistPageTargets } from './shared/distPathSafety';
 
 type Locale = CantonLocale;
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
@@ -201,8 +202,13 @@ export function cantonOrphanRedirectsPlugin(options: PluginOptions = {}): Plugin
  let emitted = 0;
  let skipped = 0;
  for (const r of redirects) {
- const outDir = path.join(distDir, r.from.replace(/^\/+|\/+$/g, ''));
- const outFile = path.join(outDir, 'index.html');
+ const safeTargets = getSafeDistPageTargets(distDir, r.from, { includeFlat: false });
+ if (!safeTargets) {
+  console.warn(`[canton-orphan-redirects] skipped unsafe path ${r.from}`);
+  continue;
+ }
+ const outDir = safeTargets.directoryPath;
+ const outFile = safeTargets.indexPath;
  // Never overwrite a real page emitted by a higher-priority plugin
  // (e.g. the canonical landing itself, or a soft-landing for an
  // expired job that happens to share the slug).

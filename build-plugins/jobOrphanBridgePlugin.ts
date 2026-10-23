@@ -74,6 +74,7 @@ import { resolveCantonSection, isCompanyHubNamespaceSlug, type CantonLocale } fr
 import { getCantonForSlug } from './shared/slugCantonIndex';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import { renderBridgePageProse } from './shared/bridgePageProse';
+import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 import type { Locale } from '../services/i18n';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
@@ -442,6 +443,8 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
       let emitted = 0;
       let skippedCollision = 0;
       let skippedNamespaceGuard = 0;
+      let skippedFilesystemLimitPaths = 0;
+      let skippedUnsafeDistPaths = 0;
       const start = Date.now();
 
       for (const entry of file.orphans) {
@@ -454,8 +457,20 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
         }
 
         const orphanPath = buildOrphanPath(entry);
-        const indexTarget = path.join(distDir, orphanPath, 'index.html');
-        const flatTarget = path.join(distDir, orphanPath.replace(/\/+$/, '') + '.html');
+        if (isDistPathOverFilesystemLimits(orphanPath)) {
+          skippedFilesystemLimitPaths++;
+          continue;
+        }
+        if (!isSafeDistPath(orphanPath)) {
+          skippedUnsafeDistPaths++;
+          continue;
+        }
+        const safeTargets = getSafeDistPageTargets(distDir, orphanPath);
+        if (!safeTargets) {
+          skippedFilesystemLimitPaths++;
+          continue;
+        }
+        const { indexPath: indexTarget, flatPath: flatTarget } = safeTargets;
 
         // Skip if another plugin already wrote real content here (e.g. a
         // re-activated job that re-uses the same slug). Idempotency guard.
@@ -471,7 +486,7 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
         try {
           fs.mkdirSync(path.dirname(indexTarget), { recursive: true });
           fs.writeFileSync(indexTarget, html, 'utf-8');
-          fs.writeFileSync(flatTarget, html, 'utf-8');
+          fs.writeFileSync(flatTarget!, html, 'utf-8');
           emitted += 2;
         } catch (err) {
           console.warn(`\x1b[33m[job-orphan-bridge]\x1b[0m failed to write ${indexTarget}:`, err);
@@ -480,8 +495,14 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
 
       const dur = ((Date.now() - start) / 1000).toFixed(1);
       console.log(
-        `\x1b[36m[job-orphan-bridge]\x1b[0m emitted ${emitted} bridge files (${file.orphans.length - skippedCollision - skippedNamespaceGuard} pages, ${skippedCollision} skipped due to live-page collision, ${skippedNamespaceGuard} skipped due to reserved company-hub namespace) in ${dur}s`,
+        `\x1b[36m[job-orphan-bridge]\x1b[0m emitted ${emitted} bridge files (${file.orphans.length - skippedCollision - skippedNamespaceGuard - skippedFilesystemLimitPaths - skippedUnsafeDistPaths} pages, ${skippedCollision} skipped due to live-page collision, ${skippedNamespaceGuard} skipped due to reserved company-hub namespace) in ${dur}s`,
       );
+      if (skippedFilesystemLimitPaths > 0) {
+        console.warn(`[job-orphan-bridge] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);
+      }
+      if (skippedUnsafeDistPaths > 0) {
+        console.warn(`[job-orphan-bridge] skipped ${skippedUnsafeDistPaths} paths with unsafe dist path segments`);
+      }
       },
     },
   };

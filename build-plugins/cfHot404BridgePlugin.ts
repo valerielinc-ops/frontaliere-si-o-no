@@ -34,7 +34,12 @@ import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { ALL_EMIT_LOCALES, shouldEmitLocale, shouldEmitPath } from './shared/localeEmitFilter';
-import { isSafeDistPath, writeDistPageSafely } from './shared/distPathSafety';
+import {
+  getSafeDistPageTargets,
+  isDistPathOverFilesystemLimits,
+  isSafeDistPath,
+  writeDistPageSafely,
+} from './shared/distPathSafety';
 import {
   getIncrementalManifestMap,
   INCREMENTAL_MANIFEST_ENABLED,
@@ -270,12 +275,22 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
       let skippedUnresolved = 0;
       let skippedNonOwnedLocale = 0;
       let skippedUnsafeDistPaths = 0;
+      let skippedFilesystemLimitPaths = 0;
       let skippedWriteErrors = 0;
 
       for (const { path: rawPath } of ordered) {
         const from = withSlash(rawPath);
+        if (isDistPathOverFilesystemLimits(from)) {
+          skippedFilesystemLimitPaths++;
+          continue;
+        }
         if (!isSafeDistPath(from)) {
           skippedUnsafeDistPaths++;
+          continue;
+        }
+        const safeTargets = getSafeDistPageTargets(distDir, from);
+        if (!safeTargets) {
+          skippedFilesystemLimitPaths++;
           continue;
         }
 
@@ -335,7 +350,7 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         const toNorm = to.replace(/\/+$/, '');
         if (from === '/' || fromNorm === toNorm) continue; // never self-reference
 
-        const outDir = path.join(distDir, from.slice(1));
+        const outDir = safeTargets.directoryPath;
         // Gap-fill only: a richer page already here (active job / enriched
         // soft-landing / jobOrphan or hub bridge) must win.
         if (fs.existsSync(path.join(outDir, 'index.html'))) { skippedExisting++; continue; }
@@ -380,7 +395,8 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
                   );
             }
             if (!writeDistPageSafely({
-              indexPath: path.join(outDir, 'index.html'),
+              distDir,
+              indexPath: safeTargets.indexPath,
               html: canonHtml,
               urlPath: from,
               logPrefix: 'cf-hot-404-bridge',
@@ -437,7 +453,8 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         }
 
         if (!writeDistPageSafely({
-          indexPath: path.join(outDir, 'index.html'),
+          distDir,
+          indexPath: safeTargets.indexPath,
           html,
           urlPath: from,
           logPrefix: 'cf-hot-404-bridge',
@@ -482,6 +499,9 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         console.log(
           `\x1b[33m[cf-hot-404-bridge]\x1b[0m Skipped ${skippedWriteErrors} path(s) whose dist write failed; the remaining build continues.`,
         );
+      }
+      if (skippedFilesystemLimitPaths > 0) {
+        console.warn(`[cf-hot-404-bridge] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);
       }
       },
     },

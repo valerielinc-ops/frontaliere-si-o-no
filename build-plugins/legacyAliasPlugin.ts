@@ -52,6 +52,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderBridgePageProse, type BridgePageKind } from './shared/bridgePageProse';
 import type { Locale } from '../services/i18n';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
+import { getSafeDistPageTargets, isDistPathOverFilesystemLimits } from './shared/distPathSafety';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -205,7 +206,7 @@ function buildRewriteScript(orphanPath: string, canonicalPath: string): string {
 function isSafeInternalPath(route: string): boolean {
   if (typeof route !== 'string' || !route.startsWith('/') || route.startsWith('//')
     || !route.endsWith('/') || route.includes('?') || route.includes('#')
-    || route.includes(String.fromCharCode(92))) return false;
+    || route.includes(String.fromCharCode(92)) || isDistPathOverFilesystemLimits(route)) return false;
   const segments = route.slice(1, -1).split('/');
   return segments.length > 0 && segments.every((segment) => segment !== '' && segment !== '.' && segment !== '..');
 }
@@ -333,6 +334,7 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
       let skipped = 0;
       let skippedUnshippable = 0;
       let skippedUnsafePath = 0;
+      let skippedFilesystemLimitPaths = 0;
       const start = Date.now();
       // Prefixes routed to a section shard this build does not push. 21 of the
       // 24 committed aliases sit under them, and this plugin emits
@@ -345,6 +347,15 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
       const unshippablePrefixes = unshippableSectionPrefixes();
 
       for (const entry of file.aliases) {
+        if (isDistPathOverFilesystemLimits(entry.orphanPath)) {
+          skippedFilesystemLimitPaths++;
+          continue;
+        }
+        const safeTargets = getSafeDistPageTargets(distDir, entry.orphanPath);
+        if (!safeTargets) {
+          skippedFilesystemLimitPaths++;
+          continue;
+        }
         const targets = resolveAliasTargets(distDir, entry.orphanPath);
         if (!targets || !isSafeInternalPath(entry.canonicalPath)) { skippedUnsafePath++; continue; }
 
@@ -352,7 +363,7 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
         // the flags on, the real article page is never emitted either, so the
         // guard always passes and the alias always writes.
         if (isUnshippablePath(entry.orphanPath, unshippablePrefixes)) { skippedUnshippable++; continue; }
-        const { indexTarget, flatTarget } = targets;
+        const { indexPath: indexTarget, flatPath: flatTarget } = safeTargets;
         if (fs.existsSync(indexTarget)) { skipped++; continue; }
 
         const html = renderPage(entry, distDir);
@@ -369,8 +380,11 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
 
       const dur = ((Date.now() - start) / 1000).toFixed(1);
       console.log(
-        `\x1b[36m[legacy-alias]\x1b[0m emitted ${emitted} bridge files (${file.aliases.length - skipped - skippedUnshippable - skippedUnsafePath} pages, ${skipped} collision skips, ${skippedUnsafePath} unsafe-path skips) in ${dur}s`,
+        `\x1b[36m[legacy-alias]\x1b[0m emitted ${emitted} bridge files (${file.aliases.length - skipped - skippedUnshippable - skippedUnsafePath - skippedFilesystemLimitPaths} pages, ${skipped} collision skips, ${skippedUnsafePath} unsafe-path skips) in ${dur}s`,
       );
+      if (skippedFilesystemLimitPaths > 0) {
+        console.warn(`[legacy-alias] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);
+      }
       // Never a silent skip: an alias that is not emitted is an alias that does
       // not exist, while data/legacy-aliases.json still lists it.
       if (skippedUnshippable > 0) {

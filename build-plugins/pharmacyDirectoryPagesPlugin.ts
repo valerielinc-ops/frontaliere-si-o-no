@@ -40,6 +40,7 @@ import completeTicinoJson from '../data/pharmacies-ticino-complete.json';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { buildPharmacyTitle } from '../services/pharmacies/title';
 import { pharmacyFaqHeading, pharmacyFaqItems, pharmacyFaqStructuredData } from '../services/pharmacies/faq';
+import { getSafeDistPageTargets } from './shared/distPathSafety';
 import {
   DECISION_MOMENT_COMPLETED_ATTRIBUTE,
   DECISION_MOMENT_ID_ATTRIBUTE,
@@ -409,12 +410,15 @@ export function buildPharmacyAliasBridge(descriptor: PharmacyAliasBridgeDescript
  * that the file should be preserved.
  */
 export function emitPharmacyAliasBridge(distDir: string, descriptor: PharmacyAliasBridgeDescriptor): void {
-  const relativePath = descriptor.from.replace(/^\/+/, '').replace(/\/+$/, '');
-  const outDir = path.join(distDir, relativePath);
+  const safeTargets = getSafeDistPageTargets(distDir, descriptor.from);
+  if (!safeTargets?.flatPath) {
+    console.warn(`[pharmacy-pages] skipped unsafe alias path ${descriptor.from}`);
+    return;
+  }
   const html = buildPharmacyAliasBridge(descriptor);
-  fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
-  fs.writeFileSync(path.join(distDir, `${relativePath}.html`), html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''), 'utf8');
+  fs.mkdirSync(safeTargets.directoryPath, { recursive: true });
+  fs.writeFileSync(safeTargets.indexPath, html, 'utf8');
+  fs.writeFileSync(safeTargets.flatPath, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''), 'utf8');
 }
 
 function cityPath(country: Pharmacy['country'], locale: Locale, citySlug: string, areaSlug?: string): PharmacyPath {
