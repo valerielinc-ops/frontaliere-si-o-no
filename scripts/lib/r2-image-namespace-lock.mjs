@@ -945,7 +945,7 @@ async function main(args = process.argv.slice(2), env = process.env) {
     }
     const released = await releaseImageNamespaceLeases(context.leases, { request, fenceMissingCandidate });
     const notReleased = context.leases.map(({ namespace }) => namespace).filter((namespace) => !released.includes(namespace));
-    if (notReleased.length > 0 && !ignoreNotOwned) {
+    if (notReleased.length > 0 && !fenceMissingCandidate && !ignoreNotOwned) {
       console.error(`[r2-image-namespace-lock] not released (lease no longer owned or present): ${notReleased.join(', ')}`);
       process.exitCode = 1;
     }
