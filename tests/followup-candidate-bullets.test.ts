@@ -160,6 +160,16 @@ describe('mirrorRoute — lato sito', () => {
     expect(mirrorRoute({ path: 'scripts/a.mjs', side: 'corpus', manifestFiles: conflicting }))
       .toMatchObject({ repo: 'unknown', why: 'manifest:conflict' });
   });
+
+  it('non trasforma duplicati equivalenti della stessa voce in un conflitto', () => {
+    const duplicate = [
+      { path: 'scripts/ci/foo.mjs', sitePath: 'scripts/ci/foo.mjs', mode: 'identical' },
+      { path: 'scripts/ci/foo.mjs', sitePath: 'scripts/ci/foo.mjs', mode: 'identical' },
+    ];
+    expect(mirrorRoute({
+      path: 'scripts/ci/foo.mjs', side: 'site', manifestFiles: duplicate,
+    })).toEqual({ repo: 'site', targetPath: 'scripts/ci/foo.mjs', why: 'manifest:identical' });
+  });
 });
 
 describe('mirrorRoute — lato corpus', () => {
