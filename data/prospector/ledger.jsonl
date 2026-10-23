@@ -20560,3 +20560,5 @@
 {"eventType":"phase_started","at":"2026-10-23T11:24:20.554Z","runId":"39925946474","runAttempt":1,"phase":"promote","eventId":"bc4a742e07d160069a96102f"}
 {"eventType":"candidate_transition","key":"seiro@baar","from":"promoting","to":"awaiting_first_crawl","at":"2026-10-23T11:24:23.165Z","runId":"39925946474","runAttempt":1,"phase":"promote","eventId":"370272a5ff925a9b89fa7d86"}
 {"eventType":"candidate_transition","key":"seiro@baar","from":"awaiting_first_crawl","to":"production","at":"2026-10-23T11:24:23.193Z","runId":"39925946474","runAttempt":1,"phase":"promote","eventId":"6e5758162cfd6fef823052ce"}
+{"eventType":"candidate_transition","key":"elvetino.ch","from":"promoted","to":"promoting","at":"2026-10-23T11:24:52.629Z","runId":"39925946474","runAttempt":1,"phase":"promote","eventId":"ee115eb1397f9519414599c2"}
+{"eventType":"candidate_transition","key":"servicekuhn.ch","from":"promoted","to":"promoting","at":"2026-10-23T11:24:52.629Z","runId":"39925946474","runAttempt":1,"phase":"promote","eventId":"eac856d2c9f6bb61d2f1e5b3"}

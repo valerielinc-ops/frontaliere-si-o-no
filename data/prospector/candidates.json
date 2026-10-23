@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-23T11:24:23.263Z",
+  "updatedAt": "2026-10-23T11:24:52.693Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -356489,12 +356489,12 @@
     },
     "elvetino.ch": {
       "key": "elvetino.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-23T04:15:59.708Z",
-      "updatedAt": "2026-10-23T11:09:13.808Z",
+      "updatedAt": "2026-10-23T11:24:52.629Z",
       "name": "elvetino",
       "domain": "elvetino.ch",
       "careersUrl": "https://company.sbb.ch/de/home.html",
@@ -356900,7 +356900,9 @@
       ],
       "validationAnomalyIds": [
         "https://company.sbb.ch/de/jobs-karriere/arbeitgeberin/gesundheit.html"
-      ]
+      ],
+      "promotionPr": "14880",
+      "promotionBranch": "prospector/promote-2026-10-23"
     },
     "elvetino@zurich": {
       "key": "elvetino@zurich",
@@ -1050647,12 +1050649,12 @@
     },
     "servicekuhn.ch": {
       "key": "servicekuhn.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-22T04:10:02.875Z",
-      "updatedAt": "2026-10-23T11:08:46.526Z",
+      "updatedAt": "2026-10-23T11:24:52.629Z",
       "name": "servicekuhn",
       "domain": "servicekuhn.ch",
       "careersUrl": "https://servicekuhn.ch/jobs/",
@@ -1050858,7 +1050860,9 @@
           "validationAnomalyCount": 0,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "14880",
+      "promotionBranch": "prospector/promote-2026-10-23"
     },
     "serviceplus-suisse.ch": {
       "key": "serviceplus-suisse.ch",
