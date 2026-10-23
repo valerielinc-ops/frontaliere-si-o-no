@@ -727,9 +727,9 @@
     },
     {
       "id": "unibe-8d3e9e6a7b54",
-      "slug": "it-systemadministrator-in-universitat-bern",
+      "slug": "amministratore-trice-di-sistema-it-universitat-bern-bern",
       "slugByLocale": {
-        "it": "it-systemadministrator-in-universitat-bern",
+        "it": "amministratore-trice-di-sistema-it-universitat-bern-bern",
         "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
         "fr": "administrateur-systeme-informatique-universitat-bern-bern"
@@ -779,13 +779,13 @@
       "previousSlugs": [
         "it-systemadministrator-in-unibe-bern",
         "it-systemadministrator-in-universitat-bern-bern",
-        "amministratore-trice-di-sistema-it-universitat-bern-bern"
+        "it-systemadministrator-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern",
           "it-systemadministrator-in-universitat-bern-bern",
-          "amministratore-trice-di-sistema-it-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern"
         ],
         "en": [
           "it-systemadministrator-in-universitat-bern-bern"
@@ -3074,7 +3074,7 @@
         "it": "cattedra-di-medicina-d-urgenza-livello-aperto-direttore-e-primario-del-dipartimento-di-medicina-d-urgenza-universitat",
         "en": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
         "de": "professur-fur-notfallmedizin-alle-besoldungsgruppen-direktor-und-chefarzt-der-abteilung-fur-notfallmedizin-universitat",
-        "fr": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
+        "fr": "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3120,7 +3120,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-        "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+        "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3131,7 +3131,7 @@
         ],
         "fr": [
           "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-          "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-10-20T09:31:08.059Z",
@@ -3483,7 +3483,7 @@
         "it": "assistente-di-direzione-universitat-bern-bern",
         "en": "executive-assistant-universitat-bern-bern",
         "de": "direktionsassistent-in-unibe-bern",
-        "fr": "direktionsassistent-in-universitat-bern"
+        "fr": "assistant-e-de-direction-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3530,7 +3530,7 @@
       "previousSlugs": [
         "direktionsassistent-in-unibe-bern",
         "direktionsassistent-in-universitat-bern-bern",
-        "assistant-e-de-direction-universitat-bern-bern"
+        "direktionsassistent-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3542,7 +3542,7 @@
         ],
         "fr": [
           "direktionsassistent-in-universitat-bern-bern",
-          "assistant-e-de-direction-universitat-bern-bern"
+          "direktionsassistent-in-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-10-21T09:52:54.503Z",
@@ -4054,12 +4054,12 @@
     },
     {
       "id": "unibe-505a70d9abed",
-      "slug": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
+      "slug": "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
-        "it": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
-        "de": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
-        "fr": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
+        "it": "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern",
+        "de": "postdoktorandin-im-projekt-bit-philology-universitat-bern-bern",
+        "fr": "chercheur-postdoctoral-dans-le-projet-bit-philology-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4119,7 +4119,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:38:56.528Z"
+      "firstSeenAt": "2026-10-22T21:38:56.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
+      ]
     },
     {
       "id": "unibe-d488deb6cf3a",
@@ -4199,12 +4213,12 @@
     },
     {
       "id": "unibe-12d39a0c8ed0",
-      "slug": "collaboratore-trice-empfang-universitat-bern",
+      "slug": "addetto-a-alla-reception-universitat-bern-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-unibe-bern",
-        "it": "collaboratore-trice-empfang-universitat-bern",
-        "en": "mitarbeiter-in-empfang-universitat-bern-bern",
-        "fr": "mitarbeiter-in-empfang-universitat-bern-bern"
+        "it": "addetto-a-alla-reception-universitat-bern-bern",
+        "en": "reception-staff-member-universitat-bern-bern",
+        "fr": "collaborateur-rice-a-la-reception-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4252,11 +4266,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-empfang-unibe-bern"
+          "mitarbeiter-in-empfang-unibe-bern",
+          "collaboratore-trice-empfang-universitat-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-empfang-universitat-bern-bern"
+        ],
+        "fr": [
+          "mitarbeiter-in-empfang-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-empfang-unibe-bern"
+        "mitarbeiter-in-empfang-unibe-bern",
+        "collaboratore-trice-empfang-universitat-bern",
+        "mitarbeiter-in-empfang-universitat-bern-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4277,7 +4300,7 @@
       "id": "unibe-ee2773288123",
       "slug": "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern-4097c259f1",
       "slugByLocale": {
-        "it": "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern-4097c259f1",
+        "it": "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern",
         "en": "ecvn-neurology-residency-training-program-in-bern-unibe-bern",
         "de": "ecvn-neurologie-residency-training-programm-in-bern-universitat-bern-bern",
         "fr": "programme-de-formation-en-neurologie-a-berne-universitat-bern-bern"
@@ -4326,13 +4349,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ecvn-neurology-residency-training-program-in-bern-unibe-bern",
-        "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern"
+        "ecvn-neurology-residency-training-program-in-bern-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ecvn-neurology-residency-training-program-in-bern-unibe-bern",
-          "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern"
+          "ecvn-neurology-residency-training-program-in-bern-unibe-bern"
         ],
         "de": [
           "ecvn-neurology-residency-training-program-in-bern-unibe-bern"

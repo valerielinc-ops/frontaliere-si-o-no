@@ -385,12 +385,12 @@
     },
     {
       "id": "belimo-3fea810b8429",
-      "slug": "team-leader-export-belimo-hinwil",
+      "slug": "capo-squadra-export-belimo-hinwil",
       "slugByLocale": {
         "de": "team-leader-export-belimo-hinwil",
-        "it": "team-leader-export-belimo-hinwil",
+        "it": "capo-squadra-export-belimo-hinwil",
         "en": "team-leader-export-belimo-hinwil",
-        "fr": "team-leader-export-belimo-hinwil"
+        "fr": "chef-d-equipe-exporter-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -451,7 +451,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:15:30.859Z"
+      "firstSeenAt": "2026-10-22T21:15:30.859Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-export-belimo-hinwil"
+        ],
+        "fr": [
+          "team-leader-export-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-export-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-53f227ebfaa7",

@@ -2057,12 +2057,12 @@
     },
     {
       "id": "volksschule-luzern-79a64406cf4e",
-      "slug": "lehrperson-per-den-kindergarten-schulhaus-littau-dorf-volksschule-stadt-luzern",
+      "slug": "docente-per-la-scuola-dell-infanzia-scuola-littau-dorf-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern",
-        "it": "lehrperson-per-den-kindergarten-schulhaus-littau-dorf-volksschule-stadt-luzern",
-        "en": "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern",
-        "fr": "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern"
+        "it": "docente-per-la-scuola-dell-infanzia-scuola-littau-dorf-volksschule-stadt-luzern-luzern",
+        "en": "teacher-for-the-kindergarten-school-house-littau-village-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-pour-la-maternelle-maison-scolaire-littau-village-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2110,11 +2110,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern",
+          "lehrperson-per-den-kindergarten-schulhaus-littau-dorf-volksschule-stadt-luzern"
+        ],
+        "en": [
+          "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern"
+        ],
+        "fr": [
           "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern"
         ]
       },
       "previousSlugs": [
-        "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern"
+        "lehrperson-fur-den-kindergarten-schulhaus-littau-dorf-volksschule-luzern-luzern",
+        "lehrperson-per-den-kindergarten-schulhaus-littau-dorf-volksschule-stadt-luzern"
       ],
       "salaryMin": 59500,
       "salaryMax": 110000,
@@ -2133,12 +2141,12 @@
     },
     {
       "id": "volksschule-luzern-7e049c0a2a84",
-      "slug": "stellvertretung-klassenlehrperson-5-6-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern",
+      "slug": "professore-di-classe-5-6-classe-ronnimoos-school-house-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "stellvertretung-klassenlehrperson-5-6-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern",
-        "it": "stellvertretung-klassenlehrperson-5-6-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern",
-        "en": "stellvertretung-klassenlehrperson-5-6-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern",
-        "fr": "stellvertretung-klassenlehrperson-5-6-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern"
+        "it": "professore-di-classe-5-6-classe-ronnimoos-school-house-volksschule-stadt-luzern-luzern",
+        "en": "deputy-class-teacher-5-6-class-ronnimoos-school-house-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-adjoint-5-6-classe-ronnimoos-school-house-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2198,16 +2206,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:13:38.954Z"
+      "firstSeenAt": "2026-10-22T21:13:38.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-klassenlehrperson-5-6-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern"
+        ],
+        "en": [
+          "stellvertretung-klassenlehrperson-5-6-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern"
+        ],
+        "fr": [
+          "stellvertretung-klassenlehrperson-5-6-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-klassenlehrperson-5-6-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern"
+      ]
     },
     {
       "id": "volksschule-luzern-cecf3f777435",
-      "slug": "forderlehrperson-3-4-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern",
+      "slug": "istruttore-di-sviluppo-3-4-classe-ronnimoos-school-house-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "forderlehrperson-3-4-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern",
-        "it": "forderlehrperson-3-4-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern",
-        "en": "forderlehrperson-3-4-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern",
-        "fr": "forderlehrperson-3-4-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern"
+        "it": "istruttore-di-sviluppo-3-4-classe-ronnimoos-school-house-volksschule-stadt-luzern-luzern",
+        "en": "development-instructor-3-4-class-ronnimoos-school-house-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-de-developpement-3-4-classe-ronnimoos-school-house-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2267,16 +2289,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:13:38.950Z"
+      "firstSeenAt": "2026-10-22T21:13:38.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "forderlehrperson-3-4-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern"
+        ],
+        "en": [
+          "forderlehrperson-3-4-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern"
+        ],
+        "fr": [
+          "forderlehrperson-3-4-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "forderlehrperson-3-4-klasse-schulhaus-ronnimoos-volksschule-luzern-luzern"
+      ]
     },
     {
       "id": "volksschule-luzern-a03c5aff8324",
-      "slug": "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern",
+      "slug": "docente-di-sostegno-per-la-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50",
       "slugByLocale": {
         "de": "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern",
-        "it": "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern",
-        "en": "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern",
-        "fr": "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern"
+        "it": "docente-di-sostegno-per-la-scuola-dell-infanzia-con-8-lezioni-di-insegnamento-nella-scuola-dell-infanzia-circa-50",
+        "en": "development-teacher-kg-with-8-l-kg-lessons-about-50-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-de-developpement-kg-avec-8-l-kg-lecons-environ-50-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2336,7 +2372,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:13:38.918Z"
+      "firstSeenAt": "2026-10-22T21:13:38.918Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern"
+        ],
+        "en": [
+          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern"
+        ],
+        "fr": [
+          "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "forderlehrperson-kg-mit-8-l-kg-unterricht-ca-50-volksschule-luzern-luzern"
+      ]
     }
   ]
 }
