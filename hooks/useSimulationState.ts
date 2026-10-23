@@ -108,6 +108,7 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  const { calculateSimulation } = await lazyCalculate();
  const res = calculateSimulation(inputs);
  setResult(res);
+ initialCalcDone.current = true;
  if (userInitiated) {
  import('@/services/firestoreService')
  .then(m => m.registerSimulationForSocialProof())
@@ -264,14 +265,7 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  nextRecalcIsUser.current = false;
  // Fire-and-forget from an effect — same unhandled-rejection risk as
  // runInitialCalc above, so the same catch applies here.
- handleCalculate(userInitiated)
-  .then(() => {
-   // A successful auto-recalculation (including URL/SEO hydration or an
-   // explicit input change) already produced the first usable result. Do not
-   // run the deferred initial attempt a second time when its timer fires.
-   initialCalcDone.current = true;
-  })
-  .catch((e) => reportCaughtError(e, 'simulation.autoRecalc'));
+ handleCalculate(userInitiated).catch((e) => reportCaughtError(e, 'simulation.autoRecalc'));
  }, [inputs]);
 
  // Wrapped setInputs that marks the next auto-recalculate as user-initiated.
