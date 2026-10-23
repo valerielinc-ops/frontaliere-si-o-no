@@ -64,6 +64,12 @@ describe('readHeadOrAll', () => {
   it('returns null for an unreadable path instead of throwing', async () => {
     expect(await readHeadOrAll(path.join(dir, 'does-not-exist.html'))).toBeNull();
   });
+
+  it('can preserve filesystem errors for fail-closed callers', async () => {
+    await expect(
+      readHeadOrAll(path.join(dir, 'does-not-exist.html'), { throwOnError: true }),
+    ).rejects.toMatchObject({ code: 'ENOENT' });
+  });
 });
 
 describe('readHeadOrAllSync', () => {

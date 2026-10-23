@@ -37,13 +37,16 @@ export const HEAD_CHUNK_BYTES = 64 * 1024;
  * contract they had with `try { readFileSync(...) } catch { continue }`.
  *
  * @param {string} file absolute path to an HTML file
+ * @param {{ throwOnError?: boolean }} [options] rethrow filesystem errors when
+ *   the caller needs to distinguish an unreadable file from a missing one
  * @returns {Promise<string|null>}
  */
-export async function readHeadOrAll(file) {
+export async function readHeadOrAll(file, { throwOnError = false } = {}) {
   let fh;
   try {
     fh = await open(file, 'r');
-  } catch {
+  } catch (error) {
+    if (throwOnError) throw error;
     return null;
   }
   try {
@@ -54,7 +57,8 @@ export async function readHeadOrAll(file) {
     const headEnd = chunk.indexOf('</head>');
     if (headEnd !== -1) return chunk.slice(0, headEnd);
     return await fh.readFile('utf-8');
-  } catch {
+  } catch (error) {
+    if (throwOnError) throw error;
     return null;
   } finally {
     await fh.close().catch(() => {});
