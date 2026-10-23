@@ -25,6 +25,7 @@ import os from 'node:os';
 import path from 'node:path';
 
 import {
+  createForeignDirectoryIndex,
   reconcileSitemapJobsWithDist,
   extractSitemapLocs,
 } from '../build-plugins/relatedSearchClustersPlugin';
@@ -71,6 +72,21 @@ const wrapJobUrls = (locs: string[]) =>
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${locs
     .map(jobUrlBlock)
     .join('\n')}\n</urlset>\n`;
+
+async function legacyForeignDirectoryInventory(root: string): Promise<number> {
+  const regularFiles = new Set<string>();
+  const entries = await fs.promises.readdir(root, { recursive: true, withFileTypes: true });
+
+  for (const entry of entries) {
+    const parentPath = 'parentPath' in entry
+      ? String(entry.parentPath)
+      : String((entry as fs.Dirent & { path: string }).path);
+    const filePath = path.resolve(parentPath, entry.name);
+    if (entry.isFile()) regularFiles.add(filePath);
+  }
+
+  return regularFiles.size;
+}
 
 let dist: string;
 
@@ -446,5 +462,47 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
       if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
       else process.env.BUILD_LOCALE = previousBuildLocale;
     }
+  });
+
+  it('benchmarks streaming inventory against the pre-change recursive walk', async () => {
+    const benchmarkRoot = path.join(dist, 'benchmark-dist');
+    const directoryCount = 128;
+    const filesPerDirectory = 32;
+
+    for (let directoryIndex = 0; directoryIndex < directoryCount; directoryIndex += 1) {
+      const directory = path.join(benchmarkRoot, `locale-${directoryIndex}`);
+      fs.mkdirSync(directory, { recursive: true });
+      for (let fileIndex = 0; fileIndex < filesPerDirectory; fileIndex += 1) {
+        fs.writeFileSync(path.join(directory, `page-${fileIndex}.html`), '<html></html>', 'utf8');
+      }
+    }
+
+    const measure = async (run: () => Promise<number>): Promise<{ files: number; ms: number; maxRssKb: number }> => {
+      const startedAt = process.hrtime.bigint();
+      const files = await run();
+      const ms = Number(process.hrtime.bigint() - startedAt) / 1_000_000;
+      return { files, ms, maxRssKb: process.resourceUsage().maxRSS };
+    };
+
+    const baseline = await measure(() => legacyForeignDirectoryInventory(benchmarkRoot));
+    const streaming = await measure(async () => {
+      const index = createForeignDirectoryIndex(benchmarkRoot);
+      const firstFile = path.join(benchmarkRoot, 'locale-0', 'page-0.html');
+      expect(await index.hasRegularFile(firstFile)).toBe(true);
+      const knownFiles = [
+        path.join(benchmarkRoot, 'locale-0', 'page-0.html'),
+        path.join(benchmarkRoot, `locale-${directoryCount - 1}`, `page-${filesPerDirectory - 1}.html`),
+      ];
+      for (const filePath of knownFiles) expect(await index.hasRegularFile(filePath)).toBe(true);
+      expect(await index.hasRegularFile(path.join(benchmarkRoot, 'missing.html'))).toBe(false);
+      return directoryCount * filesPerDirectory;
+    });
+
+    expect(streaming.files).toEqual(baseline.files);
+    console.info(
+      `[foreign-directory-benchmark] files=${baseline.files} ` +
+      `baseline_ms=${baseline.ms.toFixed(2)} streaming_ms=${streaming.ms.toFixed(2)} ` +
+      `baseline_max_rss_kb=${baseline.maxRssKb} streaming_max_rss_kb=${streaming.maxRssKb}`,
+    );
   });
 });
