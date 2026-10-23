@@ -1380,12 +1380,12 @@
     },
     {
       "id": "epi-stiftung-19d29dd23046",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich",
+      "slug": "dipl-specialista-infermieristico-specialista-in-allattamento-hf-fh-servizio-notturno-schweizerische-epilepsie-stiftung",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich"
+        "it": "dipl-specialista-infermieristico-specialista-in-allattamento-hf-fh-servizio-notturno-schweizerische-epilepsie-stiftung",
+        "en": "dipl-nursing-specialist-nursing-specialist-hf-fh-night-service-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-fh-service-de-nuit-schweizerische-epilepsie"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1447,29 +1447,33 @@
       "firstSeenAt": "2026-10-23T09:17:24.715Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-specializzato-per-infermieri-specialista-in-allattamento-hf-fh-servizio-notturno-schweizerische-epilepsie-stiftung"
+          "dipl-specializzato-per-infermieri-specialista-in-allattamento-hf-fh-servizio-notturno-schweizerische-epilepsie-stiftung",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich"
         ],
         "en": [
-          "dipl-nursing-specialist-nursing-specialist-hf-fh-night-service-schweizerische-epilepsie-stiftung-epi-zurich"
+          "dipl-nursing-specialist-nursing-specialist-hf-fh-night-service-schweizerische-epilepsie-stiftung-epi-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich"
         ],
         "fr": [
-          "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-schweizerische-epilepsie-stiftung-epi-zurich"
+          "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-schweizerische-epilepsie-stiftung-epi-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich"
         ]
       },
       "previousSlugs": [
         "dipl-specializzato-per-infermieri-specialista-in-allattamento-hf-fh-servizio-notturno-schweizerische-epilepsie-stiftung",
         "dipl-nursing-specialist-nursing-specialist-hf-fh-night-service-schweizerische-epilepsie-stiftung-epi-zurich",
-        "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-schweizerische-epilepsie-stiftung-epi-zurich"
+        "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-schweizerische-epilepsie-stiftung-epi-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich"
       ]
     },
     {
       "id": "epi-stiftung-036cc6389f28",
-      "slug": "collaboratore-trice-arealpflege-a-schweizerische-epilepsie-stiftung-epi-zurich",
+      "slug": "collaboratore-trice-per-la-manutenzione-dell-area-a-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich",
-        "it": "collaboratore-trice-arealpflege-a-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich",
-        "fr": "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich"
+        "it": "collaboratore-trice-per-la-manutenzione-dell-area-a-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "grounds-maintenance-employee-a-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "collaborateur-rice-charge-e-de-l-entretien-du-site-a-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1517,11 +1521,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich",
+          "collaboratore-trice-arealpflege-a-schweizerische-epilepsie-stiftung-epi-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich"
+        ],
+        "fr": [
           "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich"
+        "mitarbeiter-in-arealpflege-a-epi-stiftung-zurich",
+        "collaboratore-trice-arealpflege-a-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

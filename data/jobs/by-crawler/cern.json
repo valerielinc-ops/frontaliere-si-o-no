@@ -2565,12 +2565,12 @@
     },
     {
       "id": "cern-c8b672c8da2e",
-      "slug": "export-control-compliance-lead-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
+      "slug": "lead-di-conformita-di-controllo-dell-esportazione-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "export-control-compliance-lead-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
-        "it": "export-control-compliance-lead-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
-        "de": "export-control-compliance-lead-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
-        "fr": "export-control-compliance-lead-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland"
+        "it": "lead-di-conformita-di-controllo-dell-esportazione-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
+        "de": "exportkontrollleitfaden-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
+        "fr": "plomb-de-conformite-au-controle-des-exportations-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -2633,19 +2633,23 @@
       "firstSeenAt": "2026-10-23T09:20:15.967Z",
       "previousSlugsByLocale": {
         "it": [
-          "lead-di-conformita-di-controllo-dell-esportazione-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland"
+          "lead-di-conformita-di-controllo-dell-esportazione-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
+          "export-control-compliance-lead-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland"
         ],
         "de": [
-          "exportkontrollleitfaden-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland"
+          "exportkontrollleitfaden-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
+          "export-control-compliance-lead-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland"
         ],
         "fr": [
-          "plomb-de-conformite-au-controle-des-exportations-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland"
+          "plomb-de-conformite-au-controle-des-exportations-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
+          "export-control-compliance-lead-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland"
         ]
       },
       "previousSlugs": [
         "lead-di-conformita-di-controllo-dell-esportazione-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
         "exportkontrollleitfaden-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
-        "plomb-de-conformite-au-controle-des-exportations-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland"
+        "plomb-de-conformite-au-controle-des-exportations-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland",
+        "export-control-compliance-lead-osi-ics-2026-212-ld-cern-geneva-geneva-switzerland"
       ]
     },
     {
@@ -3105,11 +3109,11 @@
     },
     {
       "id": "cern-682e83617642",
-      "slug": "event-reconstruction-physicist-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland",
+      "slug": "medico-di-ricostruzione-di-evento-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "event-reconstruction-physicist-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland",
-        "it": "event-reconstruction-physicist-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland",
-        "de": "event-reconstruction-physicist-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland",
+        "it": "medico-di-ricostruzione-di-evento-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland",
+        "de": "ereignis-rekonstruktionsphysiker-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland",
         "fr": "event-reconstruction-physicist-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
@@ -3170,7 +3174,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:20:15.964Z"
+      "firstSeenAt": "2026-10-23T09:20:15.964Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-reconstruction-physicist-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland"
+        ],
+        "de": [
+          "event-reconstruction-physicist-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "event-reconstruction-physicist-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-37f325083662",

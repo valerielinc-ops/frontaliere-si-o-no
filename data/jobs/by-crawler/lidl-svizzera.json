@@ -2532,8 +2532,8 @@
       "crawledAt": "2026-10-23T09:49:20.582Z",
       "slugByLocale": {
         "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-aquila-lidl-svizzera-aigle",
-        "en": "versatile-sales-assistant-m-w-d-40-aigle-lidl-svizzera-aigle",
-        "de": "allround-verkaufer-in-m-w-d-40-aigle-lidl-svizzera-aigle",
+        "en": "multi-purpose-seller-multi-purpose-seller-m-f-d-40-eagle-lidl-svizzera-aigle",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-eagle-lidl-svizzera-aigle",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-aigle-kv0kyo"
       },
       "titleByLocale": {
@@ -2554,19 +2554,23 @@
       "previousSlugsByLocale": {
         "en": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-aigle-lidl-svizzera-aigle",
-          "multi-purpose-seller-multi-purpose-seller-m-f-d-40-eagle-lidl-svizzera-aigle"
+          "multi-purpose-seller-multi-purpose-seller-m-f-d-40-eagle-lidl-svizzera-aigle",
+          "versatile-sales-assistant-m-w-d-40-aigle-lidl-svizzera-aigle"
         ],
         "de": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-aigle-lidl-svizzera-aigle",
           "allround-verkaufsmitarbeiter-in-m-w-d-40-aigle-lidl-svizzera-aigle",
-          "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-eagle-lidl-svizzera-aigle"
+          "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-eagle-lidl-svizzera-aigle",
+          "allround-verkaufer-in-m-w-d-40-aigle-lidl-svizzera-aigle"
         ]
       },
       "previousSlugs": [
         "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-aigle-lidl-svizzera-aigle",
         "allround-verkaufsmitarbeiter-in-m-w-d-40-aigle-lidl-svizzera-aigle",
         "multi-purpose-seller-multi-purpose-seller-m-f-d-40-eagle-lidl-svizzera-aigle",
-        "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-eagle-lidl-svizzera-aigle"
+        "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-eagle-lidl-svizzera-aigle",
+        "versatile-sales-assistant-m-w-d-40-aigle-lidl-svizzera-aigle",
+        "allround-verkaufer-in-m-w-d-40-aigle-lidl-svizzera-aigle"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -3029,9 +3033,9 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "venditore-m-f-d-20-60-wetzikon-lidl-svizzera-wetzikon",
-        "en": "seller-m-w-d-20-60-wetzikon-lidl-svizzera-wetzikon",
+        "en": "sales-assistant-m-f-d-20-60-wetzikon-lidl-svizzera-wetzikon",
         "de": "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-wetzikon-8xb1tc",
-        "fr": "vendeur-m-w-d-20-60-wetzikon-lidl-svizzera-wetzikon"
+        "fr": "assistant-commercial-m-f-d-20-60-wetzikon-lidl-svizzera-wetzikon"
       },
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-60% — Wetzikon",
@@ -3051,17 +3055,17 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-verkauferin-m-w-d-20-60-wetzikon-lidl-svizzera-wetzikon",
-          "sales-assistant-m-f-d-20-60-wetzikon-lidl-svizzera-wetzikon"
+          "seller-m-w-d-20-60-wetzikon-lidl-svizzera-wetzikon"
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-60-wetzikon-lidl-svizzera-wetzikon",
-          "assistant-commercial-m-f-d-20-60-wetzikon-lidl-svizzera-wetzikon"
+          "vendeur-m-w-d-20-60-wetzikon-lidl-svizzera-wetzikon"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-60-wetzikon-lidl-svizzera-wetzikon",
-        "sales-assistant-m-f-d-20-60-wetzikon-lidl-svizzera-wetzikon",
-        "assistant-commercial-m-f-d-20-60-wetzikon-lidl-svizzera-wetzikon"
+        "seller-m-w-d-20-60-wetzikon-lidl-svizzera-wetzikon",
+        "vendeur-m-w-d-20-60-wetzikon-lidl-svizzera-wetzikon"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -5134,7 +5138,7 @@
       "crawledAt": "2026-10-23T09:49:20.582Z",
       "firstSeenAt": "2026-09-10T23:05:45.537Z",
       "slugByLocale": {
-        "it": "venditore-m-w-d-40-60-1-lidl-svizzera-sierre",
+        "it": "seller-m-p-d-40-60-1-sierre-lidl-svizzera-sierre",
         "en": "seller-m-w-d-40-60-1-sierre-lidl-svizzera-sierre",
         "de": "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-0clj8s",
         "fr": "vendeur-m-m-j-40-60-1-sierre-lidl-svizzera-sierre"
@@ -5170,13 +5174,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3960",
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre",
-        "seller-m-p-d-40-60-1-sierre-lidl-svizzera-sierre"
+        "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre",
-          "seller-m-p-d-40-60-1-sierre-lidl-svizzera-sierre"
+          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre"
         ]
       },
       "salaryMin": 36300,
@@ -8032,8 +8034,8 @@
       "crawledAt": "2026-10-23T09:49:20.582Z",
       "slugByLocale": {
         "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-conthey-lidl-svizzera-conthey",
-        "en": "versatile-sales-assistant-m-w-d-40-conthey-lidl-svizzera-conthey",
-        "de": "allround-verkaufer-in-m-w-d-40-conthey-lidl-svizzera-conthey",
+        "en": "multi-purpose-seller-multi-purpose-seller-m-f-d-40-conthey-lidl-svizzera-conthey",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-conthey-lidl-svizzera-conthey",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-conthey-5mtpd9"
       },
       "titleByLocale": {
@@ -8054,19 +8056,22 @@
       "previousSlugsByLocale": {
         "en": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-conthey-lidl-svizzera-conthey",
-          "multi-purpose-seller-multi-purpose-seller-m-f-d-40-conthey-lidl-svizzera-conthey"
+          "versatile-sales-assistant-m-w-d-40-conthey-lidl-svizzera-conthey"
         ],
         "de": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-conthey-lidl-svizzera-conthey",
           "verkaufsmitarbeiter-in-m-w-d-40-conthey-lidl-svizzera-conthey",
-          "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-conthey-lidl-svizzera-conthey"
+          "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-conthey-lidl-svizzera-conthey",
+          "allround-verkaufer-in-m-w-d-40-conthey-lidl-svizzera-conthey"
         ]
       },
       "previousSlugs": [
         "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-conthey-lidl-svizzera-conthey",
         "verkaufsmitarbeiter-in-m-w-d-40-conthey-lidl-svizzera-conthey",
         "multi-purpose-seller-multi-purpose-seller-m-f-d-40-conthey-lidl-svizzera-conthey",
-        "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-conthey-lidl-svizzera-conthey"
+        "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-conthey-lidl-svizzera-conthey",
+        "versatile-sales-assistant-m-w-d-40-conthey-lidl-svizzera-conthey",
+        "allround-verkaufer-in-m-w-d-40-conthey-lidl-svizzera-conthey"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -8127,7 +8132,7 @@
       },
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-20-40-st-moritz-lidl-svizzera-st-moritz",
-        "en": "sales-assistant-m-w-d-20-40-st-moritz-lidl-svizzera-st-moritz",
+        "en": "seller-seller-m-f-d-20-40-st-moritz-lidl-svizzera-st-moritz",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-3xx59o",
         "fr": "vendeur-vendeur-h-f-d-20-40-st-moritz-lidl-svizzera-st-moritz"
       },
@@ -8141,7 +8146,7 @@
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-3xx59o",
-          "seller-seller-m-f-d-20-40-st-moritz-lidl-svizzera-st-moritz"
+          "sales-assistant-m-w-d-20-40-st-moritz-lidl-svizzera-st-moritz"
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-3xx59o"
@@ -8150,7 +8155,7 @@
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz",
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-3xx59o",
-        "seller-seller-m-f-d-20-40-st-moritz-lidl-svizzera-st-moritz"
+        "sales-assistant-m-w-d-20-40-st-moritz-lidl-svizzera-st-moritz"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -8283,7 +8288,7 @@
       "slugByLocale": {
         "it": "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey",
         "en": "assistant-manager-assistant-manager-h-f-d-80-lidl-svizzera-conthey",
-        "de": "stellvertretende-r-filialleiter-in-m-w-d-80-lidl-svizzera-conthey",
+        "de": "assistant-manager-assistant-manager-h-w-d-80-lidl-svizzera-conthey",
         "fr": "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr"
       },
       "titleByLocale": {
@@ -8356,7 +8361,7 @@
           "stellvertretender-manager-m-f-d-80-100-payerne-lidl-svizzera-payerne",
           "stellvertretender-geschaftsfuhrer-stellvertretende-geschaftsfuhrerin-80-lidl-svizzera-conthey",
           "stellvertretende-filialleitung-m-w-d-80-lidl-svizzera-conthey",
-          "assistant-manager-assistant-manager-h-w-d-80-lidl-svizzera-conthey"
+          "stellvertretende-r-filialleiter-in-m-w-d-80-lidl-svizzera-conthey"
         ],
         "fr": [
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-courgevaux-lw0dm5",
@@ -8411,7 +8416,7 @@
         "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-payerne",
         "stellvertretender-geschaftsfuhrer-stellvertretende-geschaftsfuhrerin-80-lidl-svizzera-conthey",
         "stellvertretende-filialleitung-m-w-d-80-lidl-svizzera-conthey",
-        "assistant-manager-assistant-manager-h-w-d-80-lidl-svizzera-conthey"
+        "stellvertretende-r-filialleiter-in-m-w-d-80-lidl-svizzera-conthey"
       ],
       "salarySource": "reported",
       "applyUrl": "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-conthey-648471",
@@ -8541,7 +8546,7 @@
         "it": "vendor-m-f-d-20-40-biel-bienne-lidl-svizzera-biel-bienne",
         "en": "vendor-m-f-d-20-40-biel-bienne-lidl-svizzera-biel-bienne",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-biel-bienne-b1saqr",
-        "fr": "vendeur-vendeuse-m-w-d-20-40-biel-bienne-lidl-svizzera-biel-bienne"
+        "fr": "fournisseur-h-f-d-20-40-bienne-lidl-svizzera-biel-bienne"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -8557,14 +8562,14 @@
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-biel-bienne-b1saqr",
-          "fournisseur-h-f-d-20-40-bienne-lidl-svizzera-biel-bienne"
+          "vendeur-vendeuse-m-w-d-20-40-biel-bienne-lidl-svizzera-biel-bienne"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-biel-bienne",
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-biel-bienne-b1saqr",
         "sales-assistant-m-w-d-20-40-biel-bienne-lidl-svizzera-biel-bienne-b1saqr",
-        "fournisseur-h-f-d-20-40-bienne-lidl-svizzera-biel-bienne"
+        "vendeur-vendeuse-m-w-d-20-40-biel-bienne-lidl-svizzera-biel-bienne"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -8852,7 +8857,7 @@
       },
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-20-80-1-lidl-svizzera-oeschgen",
-        "en": "sales-assistant-m-w-d-20-80-1-oeschgen-lidl-svizzera-oeschgen",
+        "en": "seller-seller-m-f-d-20-80-1-lidl-svizzera-oeschgen",
         "de": "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-oeschgen-qwl2yj",
         "fr": "vendeur-vendeur-h-f-d-20-80-1-lidl-svizzera-oeschgen"
       },
@@ -8866,7 +8871,7 @@
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-oeschgen-qwl2yj",
-          "seller-seller-m-f-d-20-80-1-lidl-svizzera-oeschgen"
+          "sales-assistant-m-w-d-20-80-1-oeschgen-lidl-svizzera-oeschgen"
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-oeschgen-qwl2yj"
@@ -8875,7 +8880,7 @@
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-oeschgen",
         "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-oeschgen-qwl2yj",
-        "seller-seller-m-f-d-20-80-1-lidl-svizzera-oeschgen"
+        "sales-assistant-m-w-d-20-80-1-oeschgen-lidl-svizzera-oeschgen"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -9815,7 +9820,7 @@
       "crawledAt": "2026-10-23T09:49:20.582Z",
       "slugByLocale": {
         "it": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-bellach-bewg0a",
-        "en": "cleaner-m-w-d-20-bellach-lidl-svizzera-bellach",
+        "en": "employee-cleaning-staff-m-f-d-20-bellach-lidl-svizzera-bellach",
         "de": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-bellach-bewg0a",
         "fr": "employe-personnel-de-nettoyage-m-f-d-20-bellach-lidl-svizzera-bellach"
       },
@@ -9837,7 +9842,7 @@
       "previousSlugsByLocale": {
         "en": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-lidl-svizzera-bellach",
-          "employee-cleaning-staff-m-f-d-20-bellach-lidl-svizzera-bellach"
+          "cleaner-m-w-d-20-bellach-lidl-svizzera-bellach"
         ],
         "fr": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-lidl-svizzera-bellach"
@@ -9845,7 +9850,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-lidl-svizzera-bellach",
-        "employee-cleaning-staff-m-f-d-20-bellach-lidl-svizzera-bellach"
+        "cleaner-m-w-d-20-bellach-lidl-svizzera-bellach"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -10058,7 +10063,7 @@
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-givisiez-lidl-svizzera-givisiez",
-        "en": "sales-assistant-m-w-d-40-givisiez-lidl-svizzera-givisiez",
+        "en": "seller-m-f-d-40-givisiez-lidl-svizzera-givisiez",
         "de": "verkaufer-m-w-d-40-givisiez-lidl-svizzera-givisiez",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-givisiez-yjhyy2"
       },
@@ -10096,11 +10101,11 @@
       "postalCode": "1762",
       "previousSlugsByLocale": {
         "en": [
-          "seller-m-f-d-40-givisiez-lidl-svizzera-givisiez"
+          "sales-assistant-m-w-d-40-givisiez-lidl-svizzera-givisiez"
         ]
       },
       "previousSlugs": [
-        "seller-m-f-d-40-givisiez-lidl-svizzera-givisiez"
+        "sales-assistant-m-w-d-40-givisiez-lidl-svizzera-givisiez"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600
@@ -10133,7 +10138,7 @@
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-marly-lidl-svizzera-marly",
-        "en": "sales-assistant-m-w-d-40-marly-lidl-svizzera-marly",
+        "en": "seller-h-f-d-40-marly-lidl-svizzera-marly",
         "de": "verkaufer-h-w-d-40-marly-lidl-svizzera-marly",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly-h3lbhq"
       },
@@ -10171,11 +10176,11 @@
       "postalCode": "1723",
       "previousSlugsByLocale": {
         "en": [
-          "seller-h-f-d-40-marly-lidl-svizzera-marly"
+          "sales-assistant-m-w-d-40-marly-lidl-svizzera-marly"
         ]
       },
       "previousSlugs": [
-        "seller-h-f-d-40-marly-lidl-svizzera-marly"
+        "sales-assistant-m-w-d-40-marly-lidl-svizzera-marly"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600
@@ -10220,8 +10225,8 @@
       },
       "slugByLocale": {
         "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-fribourg-lidl-svizzera-fribourg",
-        "en": "versatile-sales-assistant-m-w-d-40-fribourg-lidl-svizzera-fribourg",
-        "de": "allround-verkaufer-in-m-w-d-40-fribourg-lidl-svizzera-fribourg",
+        "en": "multipurpose-seller-multi-purpose-seller-m-f-d-40-fribourg-lidl-svizzera-fribourg",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-freiburg-lidl-svizzera-fribourg",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5"
       },
       "requirementsByLocale": {},
@@ -10235,12 +10240,13 @@
         ],
         "en": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5",
-          "multipurpose-seller-multi-purpose-seller-m-f-d-40-fribourg-lidl-svizzera-fribourg"
+          "versatile-sales-assistant-m-w-d-40-fribourg-lidl-svizzera-fribourg"
         ],
         "de": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-fribourg-jenvs5",
           "vielseitige-r-verkaufsmitarbeiter-in-m-w-d-40-fribourg-lidl-svizzera-fribourg",
-          "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-freiburg-lidl-svizzera-fribourg"
+          "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-freiburg-lidl-svizzera-fribourg",
+          "allround-verkaufer-in-m-w-d-40-fribourg-lidl-svizzera-fribourg"
         ]
       },
       "previousSlugs": [
@@ -10249,7 +10255,9 @@
         "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-fribourg-lidl-svizzera-fribourg",
         "vielseitige-r-verkaufsmitarbeiter-in-m-w-d-40-fribourg-lidl-svizzera-fribourg",
         "multipurpose-seller-multi-purpose-seller-m-f-d-40-fribourg-lidl-svizzera-fribourg",
-        "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-freiburg-lidl-svizzera-fribourg"
+        "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-freiburg-lidl-svizzera-fribourg",
+        "versatile-sales-assistant-m-w-d-40-fribourg-lidl-svizzera-fribourg",
+        "allround-verkaufer-in-m-w-d-40-fribourg-lidl-svizzera-fribourg"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -10299,7 +10307,7 @@
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-fribourg-lidl-svizzera-fribourg",
-        "en": "sales-assistant-m-w-d-40-fribourg-lidl-svizzera-fribourg",
+        "en": "seller-m-f-d-40-fribourg-lidl-svizzera-fribourg",
         "de": "verkaufer-m-w-d-40-freiburg-lidl-svizzera-fribourg",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-fribourg-jjj6lq"
       },
@@ -10337,11 +10345,11 @@
       "postalCode": "1700",
       "previousSlugsByLocale": {
         "en": [
-          "seller-m-f-d-40-fribourg-lidl-svizzera-fribourg"
+          "sales-assistant-m-w-d-40-fribourg-lidl-svizzera-fribourg"
         ]
       },
       "previousSlugs": [
-        "seller-m-f-d-40-fribourg-lidl-svizzera-fribourg"
+        "sales-assistant-m-w-d-40-fribourg-lidl-svizzera-fribourg"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600
@@ -10452,8 +10460,8 @@
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-lidl-svizzera-matran",
-        "en": "versatile-sales-assistant-m-w-d-40-matran-lidl-svizzera-matran",
-        "de": "vielseitige-r-verkaufsmitarbeiter-in-m-w-d-40-matran-lidl-svizzera-matran",
+        "en": "multi-purpose-seller-multi-purpose-seller-m-f-d-40-matran-lidl-svizzera-matran",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-lidl-svizzera-matran-nxe5fi"
       },
       "titleByLocale": {
@@ -10478,13 +10486,14 @@
         "en": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-matran-lidl-svizzera-matran",
           "sales-associate-m-w-d-40-matran-lidl-svizzera-matran",
-          "multi-purpose-seller-multi-purpose-seller-m-f-d-40-matran-lidl-svizzera-matran"
+          "versatile-sales-assistant-m-w-d-40-matran-lidl-svizzera-matran"
         ],
         "de": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-40-matran-lidl-svizzera-matran",
           "verkaufer-in-vielseitig-m-w-d-40-matran-lidl-svizzera-matran",
           "vielseitige-r-verkaufer-in-m-w-d-40-matran-lidl-svizzera-matran",
-          "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran"
+          "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran",
+          "vielseitige-r-verkaufsmitarbeiter-in-m-w-d-40-matran-lidl-svizzera-matran"
         ]
       },
       "previousSlugs": [
@@ -10494,7 +10503,9 @@
         "verkaufer-in-vielseitig-m-w-d-40-matran-lidl-svizzera-matran",
         "vielseitige-r-verkaufer-in-m-w-d-40-matran-lidl-svizzera-matran",
         "multi-purpose-seller-multi-purpose-seller-m-f-d-40-matran-lidl-svizzera-matran",
-        "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran"
+        "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-40-matran-lidl-svizzera-matran",
+        "versatile-sales-assistant-m-w-d-40-matran-lidl-svizzera-matran",
+        "vielseitige-r-verkaufsmitarbeiter-in-m-w-d-40-matran-lidl-svizzera-matran"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -10544,7 +10555,7 @@
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-matran-lidl-svizzera-matran",
-        "en": "sales-assistant-m-w-d-40-matran-lidl-svizzera-matran",
+        "en": "seller-m-f-d-40-matran-lidl-svizzera-matran",
         "de": "verkaufer-m-w-d-40-matran-lidl-svizzera-matran",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-matran-1yw6nk"
       },
@@ -10582,11 +10593,11 @@
       "postalCode": "1753",
       "previousSlugsByLocale": {
         "en": [
-          "seller-m-f-d-40-matran-lidl-svizzera-matran"
+          "sales-assistant-m-w-d-40-matran-lidl-svizzera-matran"
         ]
       },
       "previousSlugs": [
-        "seller-m-f-d-40-matran-lidl-svizzera-matran"
+        "sales-assistant-m-w-d-40-matran-lidl-svizzera-matran"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600
@@ -11027,7 +11038,7 @@
         "it": "vendor-m-f-d-20-60-pfaffikon-zh-lidl-svizzera-pfaffikon-zh",
         "en": "vendor-m-w-d-20-60-pfaffikon-zh-lidl-svizzera-pfaffikon-zh-jof68l",
         "de": "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-pfaffikon-zh-jof68l",
-        "fr": "vendeur-vendeuse-m-w-d-20-60-pfaffikon-zh-lidl-svizzera-pfaffikon-zh"
+        "fr": "fournisseur-m-w-d-20-60-pfaffikon-zh-lidl-svizzera-pfaffikon-zh-jof68l"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -11042,13 +11053,15 @@
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-pfaffikon-zh-jof68l",
-          "fournisseur-m-w-d-20-60-pfaffikon-zh-lidl-svizzera-pfaffikon-zh-jof68l"
+          "fournisseur-m-w-d-20-60-pfaffikon-zh-lidl-svizzera-pfaffikon-zh-jof68l",
+          "vendeur-vendeuse-m-w-d-20-60-pfaffikon-zh-lidl-svizzera-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-pfaffikon-zh",
         "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-pfaffikon-zh-jof68l",
-        "fournisseur-m-w-d-20-60-pfaffikon-zh-lidl-svizzera-pfaffikon-zh-jof68l"
+        "fournisseur-m-w-d-20-60-pfaffikon-zh-lidl-svizzera-pfaffikon-zh-jof68l",
+        "vendeur-vendeuse-m-w-d-20-60-pfaffikon-zh-lidl-svizzera-pfaffikon-zh"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -11182,9 +11195,9 @@
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "venditore-m-f-d-20-40-einsiedeln-lidl-svizzera-einsiedeln",
-        "en": "seller-m-w-d-20-40-einsiedeln-lidl-svizzera-einsiedeln",
+        "en": "sales-assistant-m-f-d-20-40-einsiedeln-lidl-svizzera-einsiedeln",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-einsiedeln-u7k3k4",
-        "fr": "vendeur-m-w-d-20-40-einsiedeln-lidl-svizzera-einsiedeln"
+        "fr": "assistant-commercial-m-f-d-20-40-einsiedeln-lidl-svizzera-einsiedeln"
       },
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-40% — Einsiedeln",
@@ -11204,17 +11217,17 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-verkauferin-m-w-d-20-40-einsiedeln-lidl-svizzera-einsiedeln",
-          "sales-assistant-m-f-d-20-40-einsiedeln-lidl-svizzera-einsiedeln"
+          "seller-m-w-d-20-40-einsiedeln-lidl-svizzera-einsiedeln"
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-40-einsiedeln-lidl-svizzera-einsiedeln",
-          "assistant-commercial-m-f-d-20-40-einsiedeln-lidl-svizzera-einsiedeln"
+          "vendeur-m-w-d-20-40-einsiedeln-lidl-svizzera-einsiedeln"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-einsiedeln-lidl-svizzera-einsiedeln",
-        "sales-assistant-m-f-d-20-40-einsiedeln-lidl-svizzera-einsiedeln",
-        "assistant-commercial-m-f-d-20-40-einsiedeln-lidl-svizzera-einsiedeln"
+        "seller-m-w-d-20-40-einsiedeln-lidl-svizzera-einsiedeln",
+        "vendeur-m-w-d-20-40-einsiedeln-lidl-svizzera-einsiedeln"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -11845,7 +11858,7 @@
       },
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-20-40-sois-lidl-svizzera-thusis",
-        "en": "sales-assistant-m-w-d-20-40-thusis-lidl-svizzera-thusis",
+        "en": "seller-seller-m-f-d-20-40-thusis-lidl-svizzera-thusis",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq",
         "fr": "vendeur-vendeur-h-f-d-20-40-ainsi-lidl-svizzera-thusis"
       },
@@ -11859,7 +11872,8 @@
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq",
-          "seller-seller-m-f-d-20-40-thusis-lidl-svizzera-thusis"
+          "seller-seller-m-f-d-20-40-thusis-lidl-svizzera-thusis",
+          "sales-assistant-m-w-d-20-40-thusis-lidl-svizzera-thusis"
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq"
@@ -11868,7 +11882,8 @@
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis",
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-thusis-lli2sq",
-        "seller-seller-m-f-d-20-40-thusis-lidl-svizzera-thusis"
+        "seller-seller-m-f-d-20-40-thusis-lidl-svizzera-thusis",
+        "sales-assistant-m-w-d-20-40-thusis-lidl-svizzera-thusis"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -12218,7 +12233,7 @@
       },
       "slugByLocale": {
         "it": "vicedirettore-di-filiale-vicedirettore-di-filiale-m-f-d-80-100-hagendorf-lidl-svizzera-hagendorf",
-        "en": "deputy-store-manager-m-w-d-80-100-hagendorf-lidl-svizzera-hagendorf",
+        "en": "i-need-to-see-the-current-job-data-to-find-this-title-and-translate-it-properly-reading-the-job-files-to-locate-this",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-hagendorf-lzoi9n",
         "fr": "directeur-directrice-de-succursale-adjoint-e-m-f-d-80-100-hagendorf-lidl-svizzera-hagendorf"
       },
@@ -12233,7 +12248,8 @@
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-hagendorf-lzoi9n",
           "assistant-store-manager-m-w-d-80-100-hagendorf-lidl-svizzera-hagendorf",
-          "i-need-to-see-the-current-job-data-to-find-this-title-and-translate-it-properly-reading-the-job-files-to-locate-this"
+          "i-need-to-see-the-current-job-data-to-find-this-title-and-translate-it-properly-reading-the-job-files-to-locate-this",
+          "deputy-store-manager-m-w-d-80-100-hagendorf-lidl-svizzera-hagendorf"
         ],
         "fr": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-hagendorf-lzoi9n"
@@ -12243,7 +12259,8 @@
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-hagendorf",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-hagendorf-lzoi9n",
         "assistant-store-manager-m-w-d-80-100-hagendorf-lidl-svizzera-hagendorf",
-        "i-need-to-see-the-current-job-data-to-find-this-title-and-translate-it-properly-reading-the-job-files-to-locate-this"
+        "i-need-to-see-the-current-job-data-to-find-this-title-and-translate-it-properly-reading-the-job-files-to-locate-this",
+        "deputy-store-manager-m-w-d-80-100-hagendorf-lidl-svizzera-hagendorf"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -12306,7 +12323,7 @@
       },
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-20-40-sette-siebnen-lidl-svizzera-siebnen",
-        "en": "sales-assistant-all-genders-20-40-siebnen-lidl-svizzera-siebnen",
+        "en": "seller-m-w-d-20-40-sevens-lidl-svizzera-siebnen-6kk30p",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-siebnen-6kk30p",
         "fr": "vendeur-m-w-d-20-40-sept-lidl-svizzera-siebnen-6kk30p"
       },
@@ -12320,7 +12337,8 @@
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-siebnen-6kk30p",
-          "seller-m-w-d-20-40-sevens-lidl-svizzera-siebnen-6kk30p"
+          "seller-m-w-d-20-40-sevens-lidl-svizzera-siebnen-6kk30p",
+          "sales-assistant-all-genders-20-40-siebnen-lidl-svizzera-siebnen"
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-siebnen-6kk30p"
@@ -12329,7 +12347,8 @@
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-siebnen",
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-siebnen-6kk30p",
-        "seller-m-w-d-20-40-sevens-lidl-svizzera-siebnen-6kk30p"
+        "seller-m-w-d-20-40-sevens-lidl-svizzera-siebnen-6kk30p",
+        "sales-assistant-all-genders-20-40-siebnen-lidl-svizzera-siebnen"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -12719,7 +12738,7 @@
       },
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-20-60-sabato-samstagern-lidl-svizzera-samstagern",
-        "en": "sales-assistant-m-w-d-20-60-samstagern-lidl-svizzera-samstagern",
+        "en": "seller-m-w-d-20-60-saturdays-lidl-svizzera-samstagern-i6qw5q",
         "de": "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-samstagern-i6qw5q",
         "fr": "vendeur-m-w-d-20-60-samedis-lidl-svizzera-samstagern-i6qw5q"
       },
@@ -12733,7 +12752,8 @@
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-samstagern-i6qw5q",
-          "seller-m-w-d-20-60-saturdays-lidl-svizzera-samstagern-i6qw5q"
+          "seller-m-w-d-20-60-saturdays-lidl-svizzera-samstagern-i6qw5q",
+          "sales-assistant-m-w-d-20-60-samstagern-lidl-svizzera-samstagern"
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-samstagern-i6qw5q"
@@ -12742,7 +12762,8 @@
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-samstagern",
         "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-samstagern-i6qw5q",
-        "seller-m-w-d-20-60-saturdays-lidl-svizzera-samstagern-i6qw5q"
+        "seller-m-w-d-20-60-saturdays-lidl-svizzera-samstagern-i6qw5q",
+        "sales-assistant-m-w-d-20-60-samstagern-lidl-svizzera-samstagern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -12962,9 +12983,9 @@
       },
       "slugByLocale": {
         "it": "venditore-m-f-d-20-40-brig-lidl-svizzera-brig",
-        "en": "sales-assistant-m-w-d-20-40-brig-lidl-svizzera-brig",
+        "en": "vendor-m-w-d-20-40-brig-lidl-svizzera-brig-ded680",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-brig-ded680",
-        "fr": "vendeur-vendeuse-m-w-d-20-40-brig-lidl-svizzera-brig"
+        "fr": "fournisseur-m-w-d-20-40-brig-lidl-svizzera-brig-ded680"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -12976,18 +12997,22 @@
         ],
         "en": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-brig-ded680",
-          "vendor-m-w-d-20-40-brig-lidl-svizzera-brig-ded680"
+          "vendor-m-w-d-20-40-brig-lidl-svizzera-brig-ded680",
+          "sales-assistant-m-w-d-20-40-brig-lidl-svizzera-brig"
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-brig-ded680",
-          "fournisseur-m-w-d-20-40-brig-lidl-svizzera-brig-ded680"
+          "fournisseur-m-w-d-20-40-brig-lidl-svizzera-brig-ded680",
+          "vendeur-vendeuse-m-w-d-20-40-brig-lidl-svizzera-brig"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-brig",
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-brig-ded680",
         "vendor-m-w-d-20-40-brig-lidl-svizzera-brig-ded680",
-        "fournisseur-m-w-d-20-40-brig-lidl-svizzera-brig-ded680"
+        "fournisseur-m-w-d-20-40-brig-lidl-svizzera-brig-ded680",
+        "sales-assistant-m-w-d-20-40-brig-lidl-svizzera-brig",
+        "vendeur-vendeuse-m-w-d-20-40-brig-lidl-svizzera-brig"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -18965,7 +18990,7 @@
         "it": "gestione-clienti-self-checkout-20-30-ostermundigen-lidl-svizzera-ostermundigen",
         "en": "customer-care-provider-self-checkout-20-30-lidl-svizzera-ostermundigen",
         "de": "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
-        "fr": "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
+        "fr": "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen"
       },
       "titleByLocale": {
         "it": "Gestione clienti Self-Checkout 20-30 — Ostermundigen",
@@ -19010,7 +19035,7 @@
         ],
         "fr": [
           "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
-          "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen"
+          "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
         ]
       },
       "previousSlugs": [
@@ -19020,7 +19045,7 @@
         "kundenbetreuer-kundenbetreuerin-self-checkout-40-60-lidl-svizzera-bern",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen",
-        "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen"
+        "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
       ],
       "salarySource": "reported",
       "applyUrl": "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-30-ostermundigen-694216",
@@ -21073,8 +21098,8 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-etoy-lidl-svizzera-etoy",
-        "en": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy-7xk07b",
-        "de": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy-7xk07b",
+        "en": "seller-m-f-d-40-etoy-lidl-svizzera-etoy",
+        "de": "verkaufer-m-w-d-40-etoy-lidl-svizzera-etoy",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy-7xk07b"
       },
       "country": "CH",
@@ -21082,6 +21107,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy",
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy-7xk07b"
+        ],
+        "en": [
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy-7xk07b"
+        ],
+        "de": [
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy-7xk07b"
         ]
       },

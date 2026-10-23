@@ -1095,7 +1095,7 @@
         "it": "tecnico-di-laboratorio-etat-de-fribourg-givisiez",
         "en": "specialist-laboratory-technician-etat-de-fribourg-givisiez",
         "de": "fachlaborant-in-etat-de-fribourg-ch",
-        "fr": "fachlaborant-in-etat-de-fribourg-givisiez"
+        "fr": "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -1143,7 +1143,7 @@
       "pensum": "95-100%",
       "previousSlugs": [
         "fachlaborant-in-etat-de-fribourg-ch",
-        "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
+        "fachlaborant-in-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1153,7 +1153,7 @@
           "fachlaborant-in-etat-de-fribourg-ch"
         ],
         "fr": [
-          "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
+          "fachlaborant-in-etat-de-fribourg-givisiez"
         ]
       },
       "firstSeenAt": "2026-10-03T09:26:31.698Z",
@@ -1680,7 +1680,7 @@
         "it": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "en": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "de": "polizeiaspirant-in-etat-de-fribourg-ch",
-        "fr": "polizeiaspirant-in-etat-de-fribourg-granges-paccot"
+        "fr": "aspirant-policier-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -1727,15 +1727,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "polizeiaspirant-in-etat-de-fribourg-ch",
-        "aspirant-policier-etat-de-fribourg-granges-paccot"
+        "polizeiaspirant-in-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polizeiaspirant-in-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "aspirant-policier-etat-de-fribourg-granges-paccot"
         ]
       },
       "firstSeenAt": "2026-09-01T07:25:20.010Z",
@@ -3465,9 +3461,9 @@
     },
     {
       "id": "etat-de-fribourg-058404fa70a6",
-      "slug": "hr-spezialist-in-etat-de-fribourg-hauterive-fr",
+      "slug": "specialista-hr-etat-de-fribourg-hauterive-fr-82b187",
       "slugByLocale": {
-        "it": "hr-spezialist-in-etat-de-fribourg-hauterive-fr",
+        "it": "specialista-hr-etat-de-fribourg-hauterive-fr-82b187",
         "en": "hr-specialist-etat-de-fribourg-hauterive-fr-82b187",
         "de": "hr-spezialist-in-etat-de-fribourg-ch",
         "fr": "specialiste-rh-etat-de-fribourg-hauterive-fr"
@@ -3518,12 +3514,12 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "hr-spezialist-in-etat-de-fribourg-ch",
-        "specialista-hr-etat-de-fribourg-hauterive-fr-82b187"
+        "hr-spezialist-in-etat-de-fribourg-hauterive-fr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-spezialist-in-etat-de-fribourg-ch",
-          "specialista-hr-etat-de-fribourg-hauterive-fr-82b187"
+          "hr-spezialist-in-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
           "hr-spezialist-in-etat-de-fribourg-ch"
@@ -4519,9 +4515,9 @@
     },
     {
       "id": "etat-de-fribourg-ebabd01b2f7a",
-      "slug": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg",
+      "slug": "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg",
+        "it": "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg",
         "en": "administrative-collaborator-ve-front-office-etat-de-fribourg-fribourg",
         "de": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch",
         "fr": "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch"
@@ -4572,12 +4568,12 @@
       "pensum": "80-90%",
       "previousSlugs": [
         "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch",
-        "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg"
+        "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch",
-          "collaboratore-amministrativo-ve-ufficio-anteriore-etat-de-fribourg-fribourg"
+          "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ve-front-office-etat-de-fribourg-ch"
@@ -6871,9 +6867,9 @@
     },
     {
       "id": "etat-de-fribourg-1bf9e211c3d8",
-      "slug": "economiste-etat-de-fribourg",
+      "slug": "economista-etat-de-fribourg-fribourg-78c340",
       "slugByLocale": {
-        "it": "economiste-etat-de-fribourg",
+        "it": "economista-etat-de-fribourg-fribourg-78c340",
         "en": "economist-etat-de-fribourg-fribourg",
         "de": "okonom-etat-de-fribourg-fribourg",
         "fr": "economiste-etat-de-fribourg-ch"
@@ -6926,14 +6922,14 @@
         "economiste-etat-de-fribourg-ch",
         "economiste-etat-de-fribourg-fribourg",
         "economista-etat-de-fribourg-fribourg",
-        "economista-etat-de-fribourg-fribourg-78c340"
+        "economiste-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "economiste-etat-de-fribourg-ch",
           "economiste-etat-de-fribourg-fribourg",
           "economista-etat-de-fribourg-fribourg",
-          "economista-etat-de-fribourg-fribourg-78c340"
+          "economiste-etat-de-fribourg"
         ],
         "en": [
           "economiste-etat-de-fribourg-ch"
@@ -7710,12 +7706,12 @@
     },
     {
       "id": "etat-de-fribourg-f46d297a1c3f",
-      "slug": "bibliothekar-in-e-gruppenleiter-in-etat-de-fribourg",
+      "slug": "bibliotecario-a-e-responsabile-di-gruppo-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "bibliothekar-in-und-gruppenleiter-in-etat-de-fribourg-ch",
-        "it": "bibliothekar-in-e-gruppenleiter-in-etat-de-fribourg",
-        "en": "bibliothekar-in-und-gruppenleiter-in-etat-de-fribourg-ch",
-        "fr": "bibliothekar-in-und-gruppenleiter-in-etat-de-fribourg-ch"
+        "it": "bibliotecario-a-e-responsabile-di-gruppo-etat-de-fribourg-fribourg",
+        "en": "librarian-and-group-leader-etat-de-fribourg-fribourg",
+        "fr": "bibliothecaire-et-chef-fe-de-groupe-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7765,11 +7761,19 @@
       "pensum": "65-70%",
       "previousSlugsByLocale": {
         "it": [
+          "bibliothekar-in-und-gruppenleiter-in-etat-de-fribourg-ch",
+          "bibliothekar-in-e-gruppenleiter-in-etat-de-fribourg"
+        ],
+        "en": [
+          "bibliothekar-in-und-gruppenleiter-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "bibliothekar-in-und-gruppenleiter-in-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "bibliothekar-in-und-gruppenleiter-in-etat-de-fribourg-ch"
+        "bibliothekar-in-und-gruppenleiter-in-etat-de-fribourg-ch",
+        "bibliothekar-in-e-gruppenleiter-in-etat-de-fribourg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7794,8 +7798,8 @@
       "slugByLocale": {
         "de": "diplomierte-r-administrative-r-mitarbeiter-in-kommunikationsbeauftragte-r-etat-de-fribourg",
         "it": "diplomierte-r-administrative-r-collaboratore-trice-kommunikationsbeauftragte-r-etat-de-fribourg",
-        "en": "diplomierte-r-administrative-r-mitarbeiter-in-kommunikationsbeauftragte-r-etat-de-fribourg",
-        "fr": "diplomierte-r-administrative-r-mitarbeiter-in-kommunikationsbeauftragte-r-etat-de-fribourg"
+        "en": "certified-administrative-employee-communications-officer-etat-de-fribourg-fribourg",
+        "fr": "collaborateur-trice-administratif-ve-diplome-e-charge-e-de-communication-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7846,6 +7850,12 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-r-administrative-r-mitarbeiter-in-kommunikationsbeauftragte-r-etat-de-fribourg"
+        ],
+        "en": [
+          "diplomierte-r-administrative-r-mitarbeiter-in-kommunikationsbeauftragte-r-etat-de-fribourg"
+        ],
+        "fr": [
+          "diplomierte-r-administrative-r-mitarbeiter-in-kommunikationsbeauftragte-r-etat-de-fribourg"
         ]
       },
       "previousSlugs": [
@@ -7870,12 +7880,12 @@
     },
     {
       "id": "etat-de-fribourg-768257a239b7",
-      "slug": "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch",
+      "slug": "dipendente-dell-amministrazione-dell-orp-del-nord-distretto-del-lago-etat-de-fribourg-morat",
       "slugByLocale": {
         "fr": "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch",
-        "it": "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch",
-        "en": "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch",
-        "de": "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
+        "it": "dipendente-dell-amministrazione-dell-orp-del-nord-distretto-del-lago-etat-de-fribourg-morat",
+        "en": "administration-employee-at-the-north-orp-lake-district-etat-de-fribourg-morat",
+        "de": "verwaltungsmitarbeiter-bei-north-orp-lake-district-etat-de-fribourg-morat"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7937,16 +7947,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T09:47:57.612Z"
+      "firstSeenAt": "2026-10-23T09:47:57.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-05553660040e",
-      "slug": "bibliothecaire-et-chef-fe-de-groupe-etat-de-fribourg-ch",
+      "slug": "leader-bibliotecario-e-di-gruppo-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "bibliothecaire-et-chef-fe-de-groupe-etat-de-fribourg-ch",
-        "it": "bibliothecaire-et-chef-fe-de-groupe-etat-de-fribourg-ch",
-        "en": "bibliothecaire-et-chef-fe-de-groupe-etat-de-fribourg-ch",
-        "de": "bibliothecaire-et-chef-fe-de-groupe-etat-de-fribourg-ch"
+        "it": "leader-bibliotecario-e-di-gruppo-etat-de-fribourg-fribourg",
+        "en": "librarian-and-group-leader-etat-de-fribourg-fribourg-c42e7c",
+        "de": "bibliothekar-und-gruppenleiter-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8009,16 +8033,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T09:47:56.798Z"
+      "firstSeenAt": "2026-10-23T09:47:56.798Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bibliothecaire-et-chef-fe-de-groupe-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "bibliothecaire-et-chef-fe-de-groupe-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "bibliothecaire-et-chef-fe-de-groupe-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bibliothecaire-et-chef-fe-de-groupe-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-e92ce54a7b89",
-      "slug": "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch",
+      "slug": "dipendente-amministrativo-r-della-rav-nord-seebezirk-etat-de-fribourg-morat",
       "slugByLocale": {
         "de": "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch",
-        "it": "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch",
-        "en": "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch",
-        "fr": "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
+        "it": "dipendente-amministrativo-r-della-rav-nord-seebezirk-etat-de-fribourg-morat",
+        "en": "administrative-employee-r-of-the-rav-nord-seebezirk-etat-de-fribourg-morat",
+        "fr": "employe-administratif-r-du-rav-nord-seebezirk-etat-de-fribourg-morat"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8080,16 +8118,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T09:47:55.981Z"
+      "firstSeenAt": "2026-10-23T09:47:55.981Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-73ddfe603b9a",
-      "slug": "verwaltungssachbearber-in-beim-bezirksgericht-der-sense-etat-de-fribourg-ch",
+      "slug": "impiegato-a-amministrativo-a-presso-il-tribunale-distrettuale-della-sense-etat-de-fribourg-tafers",
       "slugByLocale": {
         "de": "verwaltungssachbearber-in-beim-bezirksgericht-der-sense-etat-de-fribourg-ch",
-        "it": "verwaltungssachbearber-in-beim-bezirksgericht-der-sense-etat-de-fribourg-ch",
-        "en": "verwaltungssachbearber-in-beim-bezirksgericht-der-sense-etat-de-fribourg-ch",
-        "fr": "verwaltungssachbearber-in-beim-bezirksgericht-der-sense-etat-de-fribourg-ch"
+        "it": "impiegato-a-amministrativo-a-presso-il-tribunale-distrettuale-della-sense-etat-de-fribourg-tafers",
+        "en": "administrative-clerk-at-the-district-court-of-sense-etat-de-fribourg-tafers",
+        "fr": "collaborateur-trice-administratif-ve-aupres-du-tribunal-d-arrondissement-de-la-singine-etat-de-fribourg-tafers"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8151,16 +8203,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T09:47:55.138Z"
+      "firstSeenAt": "2026-10-23T09:47:55.138Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungssachbearber-in-beim-bezirksgericht-der-sense-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "verwaltungssachbearber-in-beim-bezirksgericht-der-sense-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "verwaltungssachbearber-in-beim-bezirksgericht-der-sense-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verwaltungssachbearber-in-beim-bezirksgericht-der-sense-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-e7a228d27153",
-      "slug": "collaborateur-trice-administratif-ve-diplome-e-charge-e-de-communication-etat-de-fribourg",
+      "slug": "collaboratore-amministrativo-graduate-communications-officer-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-diplome-e-charge-e-de-communication-etat-de-fribourg",
-        "it": "collaborateur-trice-administratif-ve-diplome-e-charge-e-de-communication-etat-de-fribourg",
-        "en": "collaborateur-trice-administratif-ve-diplome-e-charge-e-de-communication-etat-de-fribourg",
-        "de": "collaborateur-trice-administratif-ve-diplome-e-charge-e-de-communication-etat-de-fribourg"
+        "it": "collaboratore-amministrativo-graduate-communications-officer-etat-de-fribourg-fribourg",
+        "en": "administrative-collaborator-graduate-communications-officer-etat-de-fribourg-fribourg",
+        "de": "verwaltungsmitarbeiter-graduate-communications-officer-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8223,16 +8289,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T09:47:54.305Z"
+      "firstSeenAt": "2026-10-23T09:47:54.305Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ve-diplome-e-charge-e-de-communication-etat-de-fribourg"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-diplome-e-charge-e-de-communication-etat-de-fribourg"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ve-diplome-e-charge-e-de-communication-etat-de-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-diplome-e-charge-e-de-communication-etat-de-fribourg"
+      ]
     },
     {
       "id": "etat-de-fribourg-80eb351b10e5",
-      "slug": "verwaltungssachbearbeiter-in-hr-etat-de-fribourg-ch",
+      "slug": "impiegato-a-amministrativo-a-hr-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "verwaltungssachbearbeiter-in-hr-etat-de-fribourg-ch",
-        "it": "verwaltungssachbearbeiter-in-hr-etat-de-fribourg-ch",
-        "en": "verwaltungssachbearbeiter-in-hr-etat-de-fribourg-ch",
-        "fr": "verwaltungssachbearbeiter-in-hr-etat-de-fribourg-ch"
+        "it": "impiegato-a-amministrativo-a-hr-etat-de-fribourg-fribourg",
+        "en": "hr-administrative-clerk-etat-de-fribourg-fribourg",
+        "fr": "collaborateur-trice-administratif-ve-rh-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8295,16 +8375,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T09:47:53.489Z"
+      "firstSeenAt": "2026-10-23T09:47:53.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungssachbearbeiter-in-hr-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "verwaltungssachbearbeiter-in-hr-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "verwaltungssachbearbeiter-in-hr-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verwaltungssachbearbeiter-in-hr-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-14b50e126ecc",
-      "slug": "collaborateur-trice-administratif-ve-en-ressources-humaines-etat-de-fribourg-ch",
+      "slug": "collaboratore-amministrativo-nelle-risorse-umane-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-en-ressources-humaines-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-administratif-ve-en-ressources-humaines-etat-de-fribourg-ch",
-        "en": "collaborateur-trice-administratif-ve-en-ressources-humaines-etat-de-fribourg-ch",
-        "de": "collaborateur-trice-administratif-ve-en-ressources-humaines-etat-de-fribourg-ch"
+        "it": "collaboratore-amministrativo-nelle-risorse-umane-etat-de-fribourg-fribourg",
+        "en": "administrative-collaborator-in-human-resources-etat-de-fribourg-fribourg",
+        "de": "administrativer-mitarbeiter-in-human-resources-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8367,16 +8461,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T09:47:52.524Z"
+      "firstSeenAt": "2026-10-23T09:47:52.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ve-en-ressources-humaines-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-en-ressources-humaines-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ve-en-ressources-humaines-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-en-ressources-humaines-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-f4a4db41c37c",
-      "slug": "gruppenleiter-in-abteilung-steuerbezug-e-steuerausstande-etat-de-fribourg",
+      "slug": "responsabile-di-gruppo-reparto-riscossione-delle-imposte-e-arretrati-fiscali-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "gruppenleiter-in-abteilung-steuerbezug-und-steuerausstande-etat-de-fribourg-ch",
-        "it": "gruppenleiter-in-abteilung-steuerbezug-e-steuerausstande-etat-de-fribourg",
-        "en": "gruppenleiter-in-abteilung-steuerbezug-und-steuerausstande-etat-de-fribourg-ch",
-        "fr": "gruppenleiter-in-abteilung-steuerbezug-und-steuerausstande-etat-de-fribourg-ch"
+        "it": "responsabile-di-gruppo-reparto-riscossione-delle-imposte-e-arretrati-fiscali-etat-de-fribourg-fribourg",
+        "en": "team-leader-tax-collection-and-tax-arrears-department-etat-de-fribourg-fribourg",
+        "fr": "chef-fe-de-groupe-service-de-la-perception-des-impots-et-des-arrieres-fiscaux-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8427,11 +8535,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "gruppenleiter-in-abteilung-steuerbezug-und-steuerausstande-etat-de-fribourg-ch",
+          "gruppenleiter-in-abteilung-steuerbezug-e-steuerausstande-etat-de-fribourg"
+        ],
+        "en": [
+          "gruppenleiter-in-abteilung-steuerbezug-und-steuerausstande-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "gruppenleiter-in-abteilung-steuerbezug-und-steuerausstande-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "gruppenleiter-in-abteilung-steuerbezug-und-steuerausstande-etat-de-fribourg-ch"
+        "gruppenleiter-in-abteilung-steuerbezug-und-steuerausstande-etat-de-fribourg-ch",
+        "gruppenleiter-in-abteilung-steuerbezug-e-steuerausstande-etat-de-fribourg"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -8456,8 +8572,8 @@
       "slugByLocale": {
         "de": "administrative-r-mitarbeiter-in-studiensekretariat-etat-de-fribourg-ch",
         "it": "administrative-r-collaboratore-trice-studiensekretariat-etat-de-fribourg",
-        "en": "administrative-r-mitarbeiter-in-studiensekretariat-etat-de-fribourg-ch",
-        "fr": "administrative-r-mitarbeiter-in-studiensekretariat-etat-de-fribourg-ch"
+        "en": "administrative-staff-member-study-secretariat-etat-de-fribourg-fribourg",
+        "fr": "collaborateur-trice-administratif-ve-au-secretariat-des-etudes-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8508,6 +8624,12 @@
       "previousSlugsByLocale": {
         "it": [
           "administrative-r-mitarbeiter-in-studiensekretariat-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "administrative-r-mitarbeiter-in-studiensekretariat-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "administrative-r-mitarbeiter-in-studiensekretariat-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
@@ -8532,12 +8654,12 @@
     },
     {
       "id": "etat-de-fribourg-b23a5ccdafe7",
-      "slug": "secretaire-de-procureur-etat-de-fribourg-ch",
+      "slug": "segretario-del-procuratore-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "secretaire-de-procureur-etat-de-fribourg-ch",
-        "it": "secretaire-de-procureur-etat-de-fribourg-ch",
-        "en": "secretaire-de-procureur-etat-de-fribourg-ch",
-        "de": "secretaire-de-procureur-etat-de-fribourg-ch"
+        "it": "segretario-del-procuratore-etat-de-fribourg-fribourg",
+        "en": "secretary-of-the-prosecutor-etat-de-fribourg-fribourg",
+        "de": "staatsanwalt-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8600,16 +8722,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T09:47:48.229Z"
+      "firstSeenAt": "2026-10-23T09:47:48.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-procureur-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "secretaire-de-procureur-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "secretaire-de-procureur-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-de-procureur-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-bb2c5289ed92",
-      "slug": "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch",
+      "slug": "vicepresidente-della-commissione-di-espropriazione-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch",
-        "it": "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch",
-        "en": "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch",
-        "fr": "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
+        "it": "vicepresidente-della-commissione-di-espropriazione-etat-de-fribourg-fribourg",
+        "en": "vice-president-of-the-expropriation-commission-etat-de-fribourg-fribourg",
+        "fr": "vice-president-e-de-la-commission-d-expropriation-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8669,16 +8805,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-19T23:06:14.647Z"
+      "firstSeenAt": "2026-09-19T23:06:14.647Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vizeprasident-in-der-enteignungskommission-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-b36547e1dc26",
-      "slug": "chef-fe-de-groupe-aupres-du-secteur-encaissement-et-contentieux-etat-de-fribourg-ch",
+      "slug": "gruppo-leader-nel-settore-cassa-e-contenzioso-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "chef-fe-de-groupe-aupres-du-secteur-encaissement-et-contentieux-etat-de-fribourg-ch",
-        "it": "chef-fe-de-groupe-aupres-du-secteur-encaissement-et-contentieux-etat-de-fribourg-ch",
-        "en": "chef-fe-de-groupe-aupres-du-secteur-encaissement-et-contentieux-etat-de-fribourg-ch",
-        "de": "chef-fe-de-groupe-aupres-du-secteur-encaissement-et-contentieux-etat-de-fribourg-ch"
+        "it": "gruppo-leader-nel-settore-cassa-e-contenzioso-etat-de-fribourg-fribourg",
+        "en": "group-leader-in-the-cash-and-litigation-sector-etat-de-fribourg-fribourg",
+        "de": "gruppenfuhrer-im-bereich-cash-und-litigation-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8741,15 +8891,29 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T09:47:46.442Z"
+      "firstSeenAt": "2026-10-23T09:47:46.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-groupe-aupres-du-secteur-encaissement-et-contentieux-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "chef-fe-de-groupe-aupres-du-secteur-encaissement-et-contentieux-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "chef-fe-de-groupe-aupres-du-secteur-encaissement-et-contentieux-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-groupe-aupres-du-secteur-encaissement-et-contentieux-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-dfd41c9cd898",
-      "slug": "collaborateur-trice-administratif-ve-service-academique-etat-de-fribourg-ch",
+      "slug": "servizio-accademico-di-collaboratore-amministrativo-v-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-service-academique-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-administratif-ve-service-academique-etat-de-fribourg-ch",
-        "en": "collaborateur-trice-administratif-ve-service-academique-etat-de-fribourg-ch",
+        "it": "servizio-accademico-di-collaboratore-amministrativo-v-etat-de-fribourg-fribourg",
+        "en": "administrative-collaborator-v-academic-service-etat-de-fribourg-fribourg",
         "de": "collaborateur-trice-administratif-ve-service-academique-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -8813,16 +8977,27 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T09:47:45.622Z"
+      "firstSeenAt": "2026-10-23T09:47:45.622Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ve-service-academique-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-service-academique-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-service-academique-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-b8fe0913daef",
-      "slug": "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch",
+      "slug": "vicepresidente-della-commissione-per-gli-stanziamenti-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch",
-        "it": "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch",
+        "it": "vicepresidente-della-commissione-per-gli-stanziamenti-etat-de-fribourg-fribourg",
         "en": "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch",
-        "de": "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch"
+        "de": "vizeprasident-der-enteignungskommission-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8883,7 +9058,18 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-19T23:06:12.099Z"
+      "firstSeenAt": "2026-09-19T23:06:12.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vice-president-e-aupres-de-la-commission-d-expropriation-etat-de-fribourg-ch"
+      ]
     }
   ]
 }

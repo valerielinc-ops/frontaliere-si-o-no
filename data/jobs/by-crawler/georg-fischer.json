@@ -561,7 +561,7 @@
         "it": "pianificatore-di-produzione-in-m-f-d-80-georg-fischer-schaffhausen",
         "en": "production-planner-in-m-f-d-80-georg-fischer-schaffhausen",
         "de": "produktionsplanerin-m-w-d-80-georg-fischer-ch",
-        "fr": "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
+        "fr": "planificateur-de-production-en-h-f-d-80-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -606,8 +606,7 @@
       "jobReqId": "JR11554",
       "previousSlugs": [
         "produktionsplanerin-m-w-d-80-georg-fischer-ch",
-        "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen",
-        "planificateur-de-production-en-h-f-d-80-georg-fischer-schaffhausen"
+        "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -618,7 +617,7 @@
           "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
         ],
         "fr": [
-          "planificateur-de-production-en-h-f-d-80-georg-fischer-schaffhausen"
+          "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-10-16T09:32:14.777Z",
@@ -806,12 +805,12 @@
     },
     {
       "id": "georg-fischer-4d01562365be",
-      "slug": "microscopy-analytics-expert-m-f-d-georg-fischer-ch",
+      "slug": "esperto-di-microscopio-e-analisi-m-f-d-georg-fischer-schaffhausen",
       "slugByLocale": {
         "de": "microscopy-analytics-expert-m-f-d-georg-fischer-ch",
-        "it": "microscopy-analytics-expert-m-f-d-georg-fischer-ch",
+        "it": "esperto-di-microscopio-e-analisi-m-f-d-georg-fischer-schaffhausen",
         "en": "microscopy-analytics-expert-m-f-d-georg-fischer-ch",
-        "fr": "microscopy-analytics-expert-m-f-d-georg-fischer-ch"
+        "fr": "expert-en-microscope-et-analytique-h-f-d-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -873,15 +872,18 @@
       "firstSeenAt": "2026-10-23T09:41:09.246Z",
       "previousSlugsByLocale": {
         "it": [
-          "esperto-di-microscopia-e-analisi-m-f-d-georg-fischer-schaffhausen"
+          "esperto-di-microscopia-e-analisi-m-f-d-georg-fischer-schaffhausen",
+          "microscopy-analytics-expert-m-f-d-georg-fischer-ch"
         ],
         "fr": [
-          "expert-en-microscopie-et-analyse-h-f-d-georg-fischer-schaffhausen"
+          "expert-en-microscopie-et-analyse-h-f-d-georg-fischer-schaffhausen",
+          "microscopy-analytics-expert-m-f-d-georg-fischer-ch"
         ]
       },
       "previousSlugs": [
         "esperto-di-microscopia-e-analisi-m-f-d-georg-fischer-schaffhausen",
-        "expert-en-microscopie-et-analyse-h-f-d-georg-fischer-schaffhausen"
+        "expert-en-microscopie-et-analyse-h-f-d-georg-fischer-schaffhausen",
+        "microscopy-analytics-expert-m-f-d-georg-fischer-ch"
       ]
     },
     {

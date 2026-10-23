@@ -753,12 +753,12 @@
     },
     {
       "id": "imad-f112bcf6ed16",
-      "slug": "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x-10mois-imad-geneva",
+      "slug": "infermieri-uatr-unita-di-servizio-80-in-cmd-1-x-7-mesi-e-1-x-10-mesi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x",
-        "it": "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x-10mois-imad-geneva",
-        "en": "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x",
-        "de": "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x"
+        "it": "infermieri-uatr-unita-di-servizio-80-in-cmd-1-x-7-mesi-e-1-x-10-mesi-imad-geneva",
+        "en": "uatr-nurses-temporary-respite-units-80-in-cmd-1-x-7-months-and-1-x-10-months-imad-geneva",
+        "de": "uatr-krankenschwestern-temporary-rthrough-units-80-in-cmd-1-x-7-monate-und-1-x-10-monate-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -805,11 +805,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x",
+          "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x-10mois-imad-geneva"
+        ],
+        "en": [
+          "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x"
+        ],
+        "de": [
           "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x"
         ]
       },
       "previousSlugs": [
-        "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x"
+        "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x",
+        "infirmiers-eres-uatr-unites-d-accueil-temporaire-de-repit-a-80-en-cmd-1-x-7mois-et-1-x-10mois-imad-geneva"
       ],
       "salaryMin": 69200,
       "salaryMax": 96400,

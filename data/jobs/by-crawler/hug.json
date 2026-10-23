@@ -2179,7 +2179,7 @@
       "slugByLocale": {
         "it": "infermiera-crans-montana-80-hug-crans-montana",
         "en": "nurse-crans-montana-80-hug-crans-montana",
-        "de": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
+        "de": "krankenschwester-crans-montana-80-hug-crans-montana",
         "fr": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
@@ -2224,8 +2224,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
-        "krankenschwester-crans-montana-80-hug-crans-montana"
+        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2235,7 +2234,7 @@
           "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ],
         "de": [
-          "krankenschwester-crans-montana-80-hug-crans-montana"
+          "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ]
       },
       "needsRetranslation": true,
@@ -2260,7 +2259,7 @@
       "slug": "psicologo-psicoterapeuta-40-hug-geneve",
       "slugByLocale": {
         "it": "psicologo-psicoterapeuta-40-hug-geneve",
-        "en": "psychologue-psychotherapeute-40-hug-geneve",
+        "en": "psychologist-psychotherapist-40-hug-geneve",
         "de": "psychologe-psychotherapeut-40-hug-geneve",
         "fr": "psychologue-psychotherapeute-40-hug-geneve"
       },
@@ -2306,15 +2305,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-40-hug-geneve",
-        "psychologist-psychotherapist-40-hug-geneve"
+        "psychologue-psychotherapeute-40-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-40-hug-geneve"
         ],
         "en": [
-          "psychologist-psychotherapist-40-hug-geneve"
+          "psychologue-psychotherapeute-40-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-40-hug-geneve"
@@ -4404,12 +4402,12 @@
     },
     {
       "id": "hug-ffd5d1ebc7c1",
-      "slug": "chef-ou-cheffe-de-clinique-au-service-de-medecine-interne-generale-100-hug-geneve",
+      "slug": "capo-o-capo-di-clinica-presso-il-servizio-di-medicina-interna-generale-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-au-service-de-medecine-interne-generale-100-hug-geneve",
-        "it": "chef-ou-cheffe-de-clinique-au-service-de-medecine-interne-generale-100-hug-geneve",
-        "en": "chef-ou-cheffe-de-clinique-au-service-de-medecine-interne-generale-100-hug-geneve",
-        "de": "chef-ou-cheffe-de-clinique-au-service-de-medecine-interne-generale-100-hug-geneve"
+        "it": "capo-o-capo-di-clinica-presso-il-servizio-di-medicina-interna-generale-100-hug-geneve",
+        "en": "chief-or-chief-of-clinic-in-the-service-of-general-internal-medicine-100-hug-geneve",
+        "de": "chef-oder-chef-der-klinik-im-dienst-der-allgemeinen-inneren-medizin-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4468,16 +4466,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-23T09:27:58.842Z"
+      "firstSeenAt": "2026-10-23T09:27:58.842Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-au-service-de-medecine-interne-generale-100-hug-geneve"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-au-service-de-medecine-interne-generale-100-hug-geneve"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-au-service-de-medecine-interne-generale-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-au-service-de-medecine-interne-generale-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-ba3b6fe1f434",
-      "slug": "medecin-interne-au-service-d-ophtalmologie-100-hug-geneve",
+      "slug": "medico-nel-dipartimento-di-oftalmologia-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-au-service-d-ophtalmologie-100-hug-geneve",
-        "it": "medecin-interne-au-service-d-ophtalmologie-100-hug-geneve",
-        "en": "medecin-interne-au-service-d-ophtalmologie-100-hug-geneve",
-        "de": "medecin-interne-au-service-d-ophtalmologie-100-hug-geneve"
+        "it": "medico-nel-dipartimento-di-oftalmologia-100-hug-geneve",
+        "en": "physician-in-the-ophthalmology-department-100-hug-geneve",
+        "de": "arzt-in-der-abteilung-ophthalmologie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4536,7 +4548,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-23T09:27:58.839Z"
+      "firstSeenAt": "2026-10-23T09:27:58.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-au-service-d-ophtalmologie-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-au-service-d-ophtalmologie-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-au-service-d-ophtalmologie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-au-service-d-ophtalmologie-100-hug-geneve"
+      ]
     }
   ]
 }

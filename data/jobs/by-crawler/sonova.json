@@ -1592,10 +1592,10 @@
     },
     {
       "id": "sonova-ec9ba14ab3c8",
-      "slug": "crm-commercial-manager-sonova-ch",
+      "slug": "direttore-commerciale-crm-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "crm-commercial-manager-sonova-ch",
-        "it": "crm-commercial-manager-sonova-ch",
+        "it": "direttore-commerciale-crm-sonova-staefa-switzerland",
         "de": "crm-commercial-manager-sonova-ch",
         "fr": "crm-commercial-manager-sonova-ch"
       },
@@ -1654,7 +1654,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-23T09:15:43.184Z"
+      "firstSeenAt": "2026-10-23T09:15:43.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crm-commercial-manager-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "crm-commercial-manager-sonova-ch"
+      ]
     }
   ]
 }

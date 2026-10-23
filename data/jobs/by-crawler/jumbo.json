@@ -18338,12 +18338,12 @@
     },
     {
       "id": "jumbo-b70f3b2e-4db",
-      "slug": "rayonleiter-in-garden-jumbo-feuerthalen",
+      "slug": "responsabile-di-reparto-garden-jumbo-feuerthalen",
       "slugByLocale": {
         "de": "rayonleiter-in-garden-jumbo-feuerthalen",
-        "it": "rayonleiter-in-garden-jumbo-feuerthalen",
-        "en": "rayonleiter-in-garden-jumbo-feuerthalen",
-        "fr": "rayonleiter-in-garden-jumbo-feuerthalen"
+        "it": "responsabile-di-reparto-garden-jumbo-feuerthalen",
+        "en": "garden-department-manager-jumbo-feuerthalen",
+        "fr": "responsable-de-rayon-garden-jumbo-feuerthalen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18419,29 +18419,33 @@
       "firstSeenAt": "2026-10-23T09:25:59.266Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-di-reparto-garden-jumbo-feuerthalen"
+          "responsabile-di-reparto-garden-jumbo-feuerthalen",
+          "rayonleiter-in-garden-jumbo-feuerthalen"
         ],
         "en": [
-          "garden-department-manager-jumbo-feuerthalen"
+          "garden-department-manager-jumbo-feuerthalen",
+          "rayonleiter-in-garden-jumbo-feuerthalen"
         ],
         "fr": [
-          "responsable-de-rayon-garden-jumbo-feuerthalen"
+          "responsable-de-rayon-garden-jumbo-feuerthalen",
+          "rayonleiter-in-garden-jumbo-feuerthalen"
         ]
       },
       "previousSlugs": [
         "responsabile-di-reparto-garden-jumbo-feuerthalen",
         "garden-department-manager-jumbo-feuerthalen",
-        "responsable-de-rayon-garden-jumbo-feuerthalen"
+        "responsable-de-rayon-garden-jumbo-feuerthalen",
+        "rayonleiter-in-garden-jumbo-feuerthalen"
       ]
     },
     {
       "id": "jumbo-e76d43d2-c86",
-      "slug": "verkausberater-in-garden-jumbo-frauenfeld",
+      "slug": "consulente-alle-vendite-garden-jumbo-frauenfeld",
       "slugByLocale": {
         "de": "verkausberater-in-garden-jumbo-frauenfeld",
-        "it": "verkausberater-in-garden-jumbo-frauenfeld",
-        "en": "verkausberater-in-garden-jumbo-frauenfeld",
-        "fr": "verkausberater-in-garden-jumbo-frauenfeld"
+        "it": "consulente-alle-vendite-garden-jumbo-frauenfeld",
+        "en": "sales-advisor-garden-jumbo-frauenfeld",
+        "fr": "conseiller-ere-de-vente-jardin-jumbo-frauenfeld"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18514,7 +18518,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:25:59.263Z"
+      "firstSeenAt": "2026-10-23T09:25:59.263Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkausberater-in-garden-jumbo-frauenfeld"
+        ],
+        "en": [
+          "verkausberater-in-garden-jumbo-frauenfeld"
+        ],
+        "fr": [
+          "verkausberater-in-garden-jumbo-frauenfeld"
+        ]
+      },
+      "previousSlugs": [
+        "verkausberater-in-garden-jumbo-frauenfeld"
+      ]
     }
   ]
 }

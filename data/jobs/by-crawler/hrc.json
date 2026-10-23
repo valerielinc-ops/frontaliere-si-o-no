@@ -561,12 +561,12 @@
     },
     {
       "id": "hrc-9268347d3e2b",
-      "slug": "medecin-adjoint-m-w-d-aux-permanences-medicales-a-60-100-hopital-riviera-chablais-hrc-rennaz",
+      "slug": "assistente-medico-m-f-in-cliniche-al-60-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "fr": "medecin-adjoint-h-f-aux-permanences-medicales-a-60-100-hrc-rennaz",
-        "it": "medecin-adjoint-m-w-d-aux-permanences-medicales-a-60-100-hopital-riviera-chablais-hrc-rennaz",
-        "en": "medecin-adjoint-h-f-aux-permanences-medicales-a-60-100-hrc-rennaz",
-        "de": "medecin-adjoint-h-f-aux-permanences-medicales-a-60-100-hrc-rennaz"
+        "it": "assistente-medico-m-f-in-cliniche-al-60-100-hopital-riviera-chablais-hrc-rennaz",
+        "en": "assistant-physician-m-f-at-medical-clinics-at-60-100-hopital-riviera-chablais-hrc-rennaz",
+        "de": "assistenzarzt-m-w-in-medizinischen-kliniken-bei-60-100-hopital-riviera-chablais-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
       "companyKey": "hrc",
@@ -615,20 +615,24 @@
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-h-f-aux-permanences-medicales-a-60-100-hrc-rennaz",
-          "assistente-medico-m-f-in-cliniche-al-60-100-hopital-riviera-chablais-hrc-rennaz"
+          "assistente-medico-m-f-in-cliniche-al-60-100-hopital-riviera-chablais-hrc-rennaz",
+          "medecin-adjoint-m-w-d-aux-permanences-medicales-a-60-100-hopital-riviera-chablais-hrc-rennaz"
         ],
         "en": [
-          "assistant-physician-m-f-at-medical-clinics-at-60-100-hopital-riviera-chablais-hrc-rennaz"
+          "assistant-physician-m-f-at-medical-clinics-at-60-100-hopital-riviera-chablais-hrc-rennaz",
+          "medecin-adjoint-h-f-aux-permanences-medicales-a-60-100-hrc-rennaz"
         ],
         "de": [
-          "assistenzarzt-m-w-in-medizinischen-kliniken-bei-60-100-hopital-riviera-chablais-hrc-rennaz"
+          "assistenzarzt-m-w-in-medizinischen-kliniken-bei-60-100-hopital-riviera-chablais-hrc-rennaz",
+          "medecin-adjoint-h-f-aux-permanences-medicales-a-60-100-hrc-rennaz"
         ]
       },
       "previousSlugs": [
         "medecin-adjoint-h-f-aux-permanences-medicales-a-60-100-hrc-rennaz",
         "assistente-medico-m-f-in-cliniche-al-60-100-hopital-riviera-chablais-hrc-rennaz",
         "assistant-physician-m-f-at-medical-clinics-at-60-100-hopital-riviera-chablais-hrc-rennaz",
-        "assistenzarzt-m-w-in-medizinischen-kliniken-bei-60-100-hopital-riviera-chablais-hrc-rennaz"
+        "assistenzarzt-m-w-in-medizinischen-kliniken-bei-60-100-hopital-riviera-chablais-hrc-rennaz",
+        "medecin-adjoint-m-w-d-aux-permanences-medicales-a-60-100-hopital-riviera-chablais-hrc-rennaz"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

@@ -10,7 +10,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -56,11 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -444,7 +444,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -503,7 +503,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -526,7 +526,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -705,7 +705,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -755,7 +755,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -765,7 +765,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -876,7 +876,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -926,14 +926,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -1364,7 +1362,7 @@
         "it": "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach",
         "en": "employee-credit-administration-m-f-d-raiffeisen-egnach",
         "de": "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "fr": "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+        "fr": "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -1421,14 +1419,16 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach",
+          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach",
+        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
       ],
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -1935,7 +1935,7 @@
         "it": "specialista-bi-nella-gestione-dei-dati-di-rischio-m-f-d-raiffeisen-st-gallen",
         "en": "bi-specialist-in-risk-data-management-m-f-d-raiffeisen-st-gallen",
         "de": "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen",
-        "fr": "business-intelligence-spezialist-risk-management-m-w-d-raiffeisen-st-gallen"
+        "fr": "specialiste-bi-en-gestion-des-donnees-de-risque-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -1988,13 +1988,13 @@
           "business-intelligence-spezialist-risk-management-w-m-d-raiffeisen-st-gallen"
         ],
         "fr": [
-          "specialiste-bi-en-gestion-des-donnees-de-risque-h-f-d-raiffeisen-st-gallen"
+          "business-intelligence-spezialist-risk-management-m-w-d-raiffeisen-st-gallen"
         ]
       },
       "previousSlugs": [
         "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen",
         "business-intelligence-spezialist-risk-management-w-m-d-raiffeisen-st-gallen",
-        "specialiste-bi-en-gestion-des-donnees-de-risque-h-f-d-raiffeisen-st-gallen"
+        "business-intelligence-spezialist-risk-management-m-w-d-raiffeisen-st-gallen"
       ],
       "firstSeenAt": "2026-08-31T17:14:36.238Z",
       "salaryMin": 81500,
@@ -12143,12 +12143,12 @@
     },
     {
       "id": "raiffeisen-4eaa86038605",
-      "slug": "teamleiter-in-kundenberatung-raiffeisen-muri-ag",
+      "slug": "responsabile-del-team-di-consulenza-alla-clientela-raiffeisen-muri-ag",
       "slugByLocale": {
         "de": "teamleiter-in-kundenberatung-raiffeisen-muri-ag",
-        "it": "teamleiter-in-kundenberatung-raiffeisen-muri-ag",
-        "en": "teamleiter-in-kundenberatung-raiffeisen-muri-ag",
-        "fr": "teamleiter-in-kundenberatung-raiffeisen-muri-ag"
+        "it": "responsabile-del-team-di-consulenza-alla-clientela-raiffeisen-muri-ag",
+        "en": "customer-advisory-team-leader-raiffeisen-muri-ag",
+        "fr": "responsable-d-equipe-du-conseil-a-la-clientele-raiffeisen-muri-ag"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12210,19 +12210,23 @@
       "firstSeenAt": "2026-10-23T09:22:09.085Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-del-team-di-consulenza-alla-clientela-raiffeisen-muri-ag"
+          "responsabile-del-team-di-consulenza-alla-clientela-raiffeisen-muri-ag",
+          "teamleiter-in-kundenberatung-raiffeisen-muri-ag"
         ],
         "en": [
-          "team-leader-customer-advisory-raiffeisen-muri-ag"
+          "team-leader-customer-advisory-raiffeisen-muri-ag",
+          "teamleiter-in-kundenberatung-raiffeisen-muri-ag"
         ],
         "fr": [
-          "responsable-d-equipe-du-conseil-a-la-clientele-raiffeisen-muri-ag"
+          "responsable-d-equipe-du-conseil-a-la-clientele-raiffeisen-muri-ag",
+          "teamleiter-in-kundenberatung-raiffeisen-muri-ag"
         ]
       },
       "previousSlugs": [
         "responsabile-del-team-di-consulenza-alla-clientela-raiffeisen-muri-ag",
         "team-leader-customer-advisory-raiffeisen-muri-ag",
-        "responsable-d-equipe-du-conseil-a-la-clientele-raiffeisen-muri-ag"
+        "responsable-d-equipe-du-conseil-a-la-clientele-raiffeisen-muri-ag",
+        "teamleiter-in-kundenberatung-raiffeisen-muri-ag"
       ]
     },
     {
@@ -12612,12 +12616,12 @@
     },
     {
       "id": "raiffeisen-520f86a02820",
-      "slug": "leiter-vertrieb-m-w-d-raiffeisen-luzern",
+      "slug": "responsabile-vendite-m-f-d-raiffeisen-luzern",
       "slugByLocale": {
         "de": "leiter-vertrieb-w-m-d-raiffeisen-luzern",
-        "it": "leiter-vertrieb-m-w-d-raiffeisen-luzern",
-        "en": "leiter-vertrieb-w-m-d-raiffeisen-luzern",
-        "fr": "leiter-vertrieb-w-m-d-raiffeisen-luzern"
+        "it": "responsabile-vendite-m-f-d-raiffeisen-luzern",
+        "en": "head-of-sales-m-f-d-raiffeisen-luzern",
+        "fr": "responsable-des-ventes-h-f-d-raiffeisen-luzern"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12665,11 +12669,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-vertrieb-w-m-d-raiffeisen-luzern",
+          "leiter-vertrieb-m-w-d-raiffeisen-luzern"
+        ],
+        "en": [
+          "leiter-vertrieb-w-m-d-raiffeisen-luzern"
+        ],
+        "fr": [
           "leiter-vertrieb-w-m-d-raiffeisen-luzern"
         ]
       },
       "previousSlugs": [
-        "leiter-vertrieb-w-m-d-raiffeisen-luzern"
+        "leiter-vertrieb-w-m-d-raiffeisen-luzern",
+        "leiter-vertrieb-m-w-d-raiffeisen-luzern"
       ],
       "salaryMin": 117000,
       "salaryMax": 163000,
@@ -12692,8 +12704,8 @@
       "slugByLocale": {
         "fr": "membre-de-la-direction-f-h-d-raiffeisen-lausanne",
         "it": "membre-de-la-direction-f-h-d-raiffeisen-lausanne",
-        "en": "membre-de-la-direction-f-h-d-raiffeisen-lausanne",
-        "de": "membre-de-la-direction-f-h-d-raiffeisen-lausanne"
+        "en": "member-of-the-directorate-m-f-d-raiffeisen-lausanne",
+        "de": "mitglied-der-direktion-m-w-d-raiffeisen-lausanne"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",

@@ -4176,7 +4176,7 @@
         "fr": "stagiaire-universitaire-hes-data-engineer-h-f-x-80-100-vaudoise-ch",
         "it": "stagiaire-universitaire-hes-data-engineer-h-f-x-80-100-vaudoise-ch",
         "en": "stagiaire-universitaire-hes-data-engineer-h-f-x-80-100-vaudoise-ch",
-        "de": "stagiaire-universitaire-hes-data-engineer-h-f-x-80-100-vaudoise-ch"
+        "de": "universitats-fh-praktikant-in-data-engineer-m-w-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -4239,12 +4239,12 @@
     },
     {
       "id": "vaudoise-97ac4c415a90",
-      "slug": "chef-fe-de-projet-it-senior-f-m-x-80-100-vaudoise-ch",
+      "slug": "leader-del-progetto-it-senior-m-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-projet-it-senior-f-m-x-80-100-vaudoise-ch",
-        "it": "chef-fe-de-projet-it-senior-f-m-x-80-100-vaudoise-ch",
-        "en": "chef-fe-de-projet-it-senior-f-m-x-80-100-vaudoise-ch",
-        "de": "chef-fe-de-projet-it-senior-f-m-x-80-100-vaudoise-ch"
+        "it": "leader-del-progetto-it-senior-m-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "project-leader-it-senior-m-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "projektleiter-it-senior-m-w-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -4303,7 +4303,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-23T09:26:40.971Z"
+      "firstSeenAt": "2026-10-23T09:26:40.971Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-it-senior-f-m-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "chef-fe-de-projet-it-senior-f-m-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "chef-fe-de-projet-it-senior-f-m-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-it-senior-f-m-x-80-100-vaudoise-ch"
+      ]
     }
   ]
 }

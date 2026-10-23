@@ -3069,7 +3069,7 @@
         "it": "ict-integration-architect-applicazioni-tecniche-m-f-d-coopers-group-ag-bern",
         "en": "ict-integration-architect-technical-applications-m-f-d-coopers-group-ag-bern",
         "de": "ict-integrationsarchitekt-fachapplikationen-m-w-d-coopers-bern",
-        "fr": "ict-integrationsarchitekt-fachapplikationen-m-w-d-coopers-group-ag-bern"
+        "fr": "architecte-d-integration-des-tic-applications-techniques-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3150,12 +3150,14 @@
         ],
         "fr": [
           "ict-integrationsarchitekt-fachapplikationen-m-w-d-coopers-bern",
-          "architecte-d-integration-des-tic-applications-techniques-h-f-d-coopers-group-ag-bern"
+          "architecte-d-integration-des-tic-applications-techniques-h-f-d-coopers-group-ag-bern",
+          "ict-integrationsarchitekt-fachapplikationen-m-w-d-coopers-group-ag-bern"
         ]
       },
       "previousSlugs": [
         "ict-integrationsarchitekt-fachapplikationen-m-w-d-coopers-bern",
-        "architecte-d-integration-des-tic-applications-techniques-h-f-d-coopers-group-ag-bern"
+        "architecte-d-integration-des-tic-applications-techniques-h-f-d-coopers-group-ag-bern",
+        "ict-integrationsarchitekt-fachapplikationen-m-w-d-coopers-group-ag-bern"
       ]
     },
     {
@@ -3944,12 +3946,12 @@
     },
     {
       "id": "coopers-b20c391c86e4",
-      "slug": "regulatory-affairs-specialist-cmc-and-commercial-post-marketing-remediation-m-f-d-coopers",
+      "slug": "specialista-degli-affari-regolatori-cmc-e-commerciali-post-marketing-e-remediation-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "en": "regulatory-affairs-specialist-cmc-and-commercial-post-marketing-remediation-m-f-d-coopers",
-        "it": "regulatory-affairs-specialist-cmc-and-commercial-post-marketing-remediation-m-f-d-coopers",
-        "de": "regulatory-affairs-specialist-cmc-and-commercial-post-marketing-remediation-m-f-d-coopers",
-        "fr": "regulatory-affairs-specialist-cmc-and-commercial-post-marketing-remediation-m-f-d-coopers"
+        "it": "specialista-degli-affari-regolatori-cmc-e-commerciali-post-marketing-e-remediation-m-f-d-coopers-group-ag-basel-stadt",
+        "de": "spezialist-fur-regulatorische-angelegenheiten-cmc-und-kommerzielle-bereiche-post-marketing-abhilfema-nahmen-m-w-d",
+        "fr": "specialiste-des-affaires-reglementaires-cmc-et-commerciales-post-commercialisation-et-remediation-h-f-d-coopers-group-ag"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4019,16 +4021,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-23T09:25:13.281Z"
+      "firstSeenAt": "2026-10-23T09:25:13.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-affairs-specialist-cmc-and-commercial-post-marketing-remediation-m-f-d-coopers"
+        ],
+        "de": [
+          "regulatory-affairs-specialist-cmc-and-commercial-post-marketing-remediation-m-f-d-coopers"
+        ],
+        "fr": [
+          "regulatory-affairs-specialist-cmc-and-commercial-post-marketing-remediation-m-f-d-coopers"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-affairs-specialist-cmc-and-commercial-post-marketing-remediation-m-f-d-coopers"
+      ]
     },
     {
       "id": "coopers-5ff26817566f",
-      "slug": "logistics-warehouse-compliance-specialist-m-f-d-coopers-basel-stadt",
+      "slug": "logistica-warehouse-compliance-specialista-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "en": "logistics-warehouse-compliance-specialist-m-f-d-coopers-basel-stadt",
-        "it": "logistics-warehouse-compliance-specialist-m-f-d-coopers-basel-stadt",
-        "de": "logistics-warehouse-compliance-specialist-m-f-d-coopers-basel-stadt",
-        "fr": "logistics-warehouse-compliance-specialist-m-f-d-coopers-basel-stadt"
+        "it": "logistica-warehouse-compliance-specialista-m-f-d-coopers-group-ag-basel-stadt",
+        "de": "logistik-warehouse-compliance-spezialist-m-f-d-coopers-group-ag-basel-stadt",
+        "fr": "logistique-warehouse-compliance-specialiste-m-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4102,7 +4118,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-23T09:25:12.423Z"
+      "firstSeenAt": "2026-10-23T09:25:12.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistics-warehouse-compliance-specialist-m-f-d-coopers-basel-stadt"
+        ],
+        "de": [
+          "logistics-warehouse-compliance-specialist-m-f-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "logistics-warehouse-compliance-specialist-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "logistics-warehouse-compliance-specialist-m-f-d-coopers-basel-stadt"
+      ]
     }
   ]
 }

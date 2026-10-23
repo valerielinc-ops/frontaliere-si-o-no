@@ -2234,12 +2234,12 @@
     },
     {
       "id": "swica-75fa7307eb16",
-      "slug": "sachbearbeiter-gesundheit-alle-swica-zurich",
+      "slug": "responsabile-del-caso-sanitario-tutti-swica-gesundheitsorganisation-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-gesundheit-alle-swica-zurich",
-        "it": "sachbearbeiter-gesundheit-alle-swica-zurich",
-        "en": "sachbearbeiter-gesundheit-alle-swica-zurich",
-        "fr": "sachbearbeiter-gesundheit-alle-swica-zurich"
+        "it": "responsabile-del-caso-sanitario-tutti-swica-gesundheitsorganisation-zurich",
+        "en": "health-case-officer-all-swica-gesundheitsorganisation-zurich",
+        "fr": "agent-de-sante-tous-swica-gesundheitsorganisation-zurich"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2301,29 +2301,33 @@
       "firstSeenAt": "2026-10-14T21:24:28.184Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-del-caso-sanitario-tutti-swica-gesundheitsorganisation-zurich"
+          "responsabile-del-caso-sanitario-tutti-swica-gesundheitsorganisation-zurich",
+          "sachbearbeiter-gesundheit-alle-swica-zurich"
         ],
         "en": [
-          "health-case-officer-all-swica-gesundheitsorganisation-zurich"
+          "health-case-officer-all-swica-gesundheitsorganisation-zurich",
+          "sachbearbeiter-gesundheit-alle-swica-zurich"
         ],
         "fr": [
-          "agent-de-sante-tous-swica-gesundheitsorganisation-zurich"
+          "agent-de-sante-tous-swica-gesundheitsorganisation-zurich",
+          "sachbearbeiter-gesundheit-alle-swica-zurich"
         ]
       },
       "previousSlugs": [
         "responsabile-del-caso-sanitario-tutti-swica-gesundheitsorganisation-zurich",
         "health-case-officer-all-swica-gesundheitsorganisation-zurich",
-        "agent-de-sante-tous-swica-gesundheitsorganisation-zurich"
+        "agent-de-sante-tous-swica-gesundheitsorganisation-zurich",
+        "sachbearbeiter-gesundheit-alle-swica-zurich"
       ]
     },
     {
       "id": "swica-870b80b9be7d",
-      "slug": "kundenberater-alle-swica-winterthur",
+      "slug": "consulente-clienti-tutti-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
         "de": "kundenberater-alle-swica-winterthur",
-        "it": "kundenberater-alle-swica-winterthur",
-        "en": "kundenberater-alle-swica-winterthur",
-        "fr": "kundenberater-alle-swica-winterthur"
+        "it": "consulente-clienti-tutti-swica-gesundheitsorganisation-winterthur",
+        "en": "customer-advisor-all-swica-gesundheitsorganisation-winterthur",
+        "fr": "conseiller-a-la-clientele-tous-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2385,19 +2389,23 @@
       "firstSeenAt": "2026-07-28T22:14:24.090Z",
       "previousSlugsByLocale": {
         "it": [
-          "consulenti-del-cliente-tutti-swica-gesundheitsorganisation-winterthur"
+          "consulenti-del-cliente-tutti-swica-gesundheitsorganisation-winterthur",
+          "kundenberater-alle-swica-winterthur"
         ],
         "en": [
-          "customer-advisers-all-swica-gesundheitsorganisation-winterthur"
+          "customer-advisers-all-swica-gesundheitsorganisation-winterthur",
+          "kundenberater-alle-swica-winterthur"
         ],
         "fr": [
-          "conseillers-a-la-clientele-tous-swica-gesundheitsorganisation-winterthur"
+          "conseillers-a-la-clientele-tous-swica-gesundheitsorganisation-winterthur",
+          "kundenberater-alle-swica-winterthur"
         ]
       },
       "previousSlugs": [
         "consulenti-del-cliente-tutti-swica-gesundheitsorganisation-winterthur",
         "customer-advisers-all-swica-gesundheitsorganisation-winterthur",
-        "conseillers-a-la-clientele-tous-swica-gesundheitsorganisation-winterthur"
+        "conseillers-a-la-clientele-tous-swica-gesundheitsorganisation-winterthur",
+        "kundenberater-alle-swica-winterthur"
       ]
     }
   ]

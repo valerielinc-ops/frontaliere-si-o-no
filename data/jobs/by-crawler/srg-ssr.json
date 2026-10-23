@@ -3088,7 +3088,7 @@
         "it": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano",
         "en": "a-a-specialist-in-research-and-analysis-of-audience-data-srg-ssr-lugano",
         "de": "a-ein-spezialist-fur-forschung-und-analyse-von-publikumsdaten-srg-ssr-lugano",
-        "fr": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano"
+        "fr": "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3159,15 +3159,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-10-22T09:14:31.160Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-      ]
+      "firstSeenAt": "2026-10-22T09:14:31.160Z"
     },
     {
       "id": "srg-ssr-50e195e80f37",
@@ -3270,12 +3262,12 @@
     },
     {
       "id": "srg-ssr-3a18f1edcfcc",
-      "slug": "personality-manager-in-srf-srg-ssr-zurich",
+      "slug": "responsabile-della-gestione-delle-personalita-srf-srg-ssr-zurich",
       "slugByLocale": {
         "de": "personality-manager-in-srf-srg-ssr-zurich",
-        "it": "personality-manager-in-srf-srg-ssr-zurich",
+        "it": "responsabile-della-gestione-delle-personalita-srf-srg-ssr-zurich",
         "en": "personality-manager-in-srf-srg-ssr-zurich",
-        "fr": "personality-manager-in-srf-srg-ssr-zurich"
+        "fr": "responsable-des-personnalites-srf-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3351,7 +3343,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-23T09:16:37.033Z"
+      "firstSeenAt": "2026-10-23T09:16:37.033Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personality-manager-in-srf-srg-ssr-zurich"
+        ],
+        "fr": [
+          "personality-manager-in-srf-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "personality-manager-in-srf-srg-ssr-zurich"
+      ]
     }
   ]
 }

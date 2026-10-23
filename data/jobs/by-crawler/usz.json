@@ -12846,7 +12846,7 @@
       "slug": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
-        "en": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich",
+        "en": "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich",
         "de": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
         "fr": "pre-internat-en-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       },
@@ -12893,7 +12893,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-        "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+        "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12901,7 +12901,7 @@
         ],
         "en": [
           "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-          "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -16942,12 +16942,12 @@
     },
     {
       "id": "usz-0fa998957934",
-      "slug": "diplomierte-pflegefachperson-come-springer-in-pensum-nach-vereinbarung-universitatsspital-zurich-usz-zurich",
+      "slug": "infermiere-a-diplomato-a-come-sostituto-a-percentuale-d-impiego-da-concordare-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-als-springer-in-pensum-nach-vereinbarung-usz-ch",
-        "it": "diplomierte-pflegefachperson-come-springer-in-pensum-nach-vereinbarung-universitatsspital-zurich-usz-zurich",
-        "en": "diplomierte-pflegefachperson-als-springer-in-pensum-nach-vereinbarung-usz-ch",
-        "fr": "diplomierte-pflegefachperson-als-springer-in-pensum-nach-vereinbarung-usz-ch"
+        "it": "infermiere-a-diplomato-a-come-sostituto-a-percentuale-d-impiego-da-concordare-universitatsspital-zurich-usz-zurich",
+        "en": "registered-nurse-as-a-float-nurse-workload-by-agreement-universitatsspital-zurich-usz-zurich",
+        "fr": "infirmier-ere-diplome-e-comme-remplacant-e-taux-d-activite-a-convenir-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16994,11 +16994,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "diplomierte-pflegefachperson-als-springer-in-pensum-nach-vereinbarung-usz-ch",
+          "diplomierte-pflegefachperson-come-springer-in-pensum-nach-vereinbarung-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-als-springer-in-pensum-nach-vereinbarung-usz-ch"
+        ],
+        "fr": [
           "diplomierte-pflegefachperson-als-springer-in-pensum-nach-vereinbarung-usz-ch"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-als-springer-in-pensum-nach-vereinbarung-usz-ch"
+        "diplomierte-pflegefachperson-als-springer-in-pensum-nach-vereinbarung-usz-ch",
+        "diplomierte-pflegefachperson-come-springer-in-pensum-nach-vereinbarung-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17017,12 +17025,12 @@
     },
     {
       "id": "usz-5cecb08a5240",
-      "slug": "projektleiter-in-strategische-konzepte-e-ressourcenplanung-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "responsabile-di-progetto-concetti-strategici-e-pianificazione-delle-risorse-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "projektleiter-in-strategische-konzepte-und-ressourcenplanung-80-100-usz-ch",
-        "it": "projektleiter-in-strategische-konzepte-e-ressourcenplanung-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "projektleiter-in-strategische-konzepte-und-ressourcenplanung-80-100-usz-ch",
-        "fr": "projektleiter-in-strategische-konzepte-und-ressourcenplanung-80-100-usz-ch"
+        "it": "responsabile-di-progetto-concetti-strategici-e-pianificazione-delle-risorse-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "project-manager-strategic-concepts-and-resource-planning-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "gestionnaire-de-projet-dans-les-concepts-strategiques-et-la-planification-des-ressources-80-100-universitatsspital"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17069,11 +17077,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-strategische-konzepte-und-ressourcenplanung-80-100-usz-ch",
+          "projektleiter-in-strategische-konzepte-e-ressourcenplanung-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "projektleiter-in-strategische-konzepte-und-ressourcenplanung-80-100-usz-ch"
+        ],
+        "fr": [
           "projektleiter-in-strategische-konzepte-und-ressourcenplanung-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-strategische-konzepte-und-ressourcenplanung-80-100-usz-ch"
+        "projektleiter-in-strategische-konzepte-und-ressourcenplanung-80-100-usz-ch",
+        "projektleiter-in-strategische-konzepte-e-ressourcenplanung-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

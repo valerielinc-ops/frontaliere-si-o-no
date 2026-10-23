@@ -748,9 +748,9 @@
     },
     {
       "id": "etavis-868724ece206",
-      "slug": "chef-de-projet-etavis-romandie-sa-fribourg",
+      "slug": "responsabile-progetto-etavis-romandie-sa-fribourg",
       "slugByLocale": {
-        "it": "chef-de-projet-etavis-romandie-sa-fribourg",
+        "it": "responsabile-progetto-etavis-romandie-sa-fribourg",
         "en": "project-manager-etavis-romandie-sa-fribourg",
         "de": "projektleiter-etavis-romandie-sa-fribourg",
         "fr": "chef-de-projet-etavis-fribourg"
@@ -833,14 +833,14 @@
         "projektmanager-etavis-romandie-sa-fribourg",
         "responsabile-del-progetto-etavis-romandie-sa-fribourg",
         "chef-de-projet-etavis-fribourg",
-        "responsabile-progetto-etavis-romandie-sa-fribourg"
+        "chef-de-projet-etavis-romandie-sa-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-etavis-romandie-sa-fribourg",
           "responsabile-del-progetto-etavis-romandie-sa-fribourg",
           "chef-de-projet-etavis-fribourg",
-          "responsabile-progetto-etavis-romandie-sa-fribourg"
+          "chef-de-projet-etavis-romandie-sa-fribourg"
         ],
         "de": [
           "projektmanager-etavis-romandie-sa-fribourg"
@@ -4873,12 +4873,12 @@
     },
     {
       "id": "etavis-0b51cccb9755",
-      "slug": "sachbearbeiter-kreditoren-w-m-d-100-etavis-zurich",
+      "slug": "agenti-creditori-m-f-d-100-etavis-ag-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-kreditoren-w-m-d-100-etavis-zurich",
-        "it": "sachbearbeiter-kreditoren-w-m-d-100-etavis-zurich",
-        "en": "sachbearbeiter-kreditoren-w-m-d-100-etavis-zurich",
-        "fr": "sachbearbeiter-kreditoren-w-m-d-100-etavis-zurich"
+        "it": "agenti-creditori-m-f-d-100-etavis-ag-zurich",
+        "en": "agents-creditors-m-f-d-100-etavis-ag-zurich",
+        "fr": "agents-creanciers-h-f-d-100-etavis-ag-zurich"
       },
       "company": "ETAVIS AG",
       "companyKey": "etavis",
@@ -4941,19 +4941,23 @@
       "firstSeenAt": "2026-10-23T09:49:58.859Z",
       "previousSlugsByLocale": {
         "it": [
-          "agenti-creditori-m-f-d-100-etavis-ag-zurich"
+          "agenti-creditori-m-f-d-100-etavis-ag-zurich",
+          "sachbearbeiter-kreditoren-w-m-d-100-etavis-zurich"
         ],
         "en": [
-          "agents-creditors-m-f-d-100-etavis-ag-zurich"
+          "agents-creditors-m-f-d-100-etavis-ag-zurich",
+          "sachbearbeiter-kreditoren-w-m-d-100-etavis-zurich"
         ],
         "fr": [
-          "agents-creanciers-h-f-d-100-etavis-ag-zurich"
+          "agents-creanciers-h-f-d-100-etavis-ag-zurich",
+          "sachbearbeiter-kreditoren-w-m-d-100-etavis-zurich"
         ]
       },
       "previousSlugs": [
         "agenti-creditori-m-f-d-100-etavis-ag-zurich",
         "agents-creditors-m-f-d-100-etavis-ag-zurich",
-        "agents-creanciers-h-f-d-100-etavis-ag-zurich"
+        "agents-creanciers-h-f-d-100-etavis-ag-zurich",
+        "sachbearbeiter-kreditoren-w-m-d-100-etavis-zurich"
       ]
     },
     {

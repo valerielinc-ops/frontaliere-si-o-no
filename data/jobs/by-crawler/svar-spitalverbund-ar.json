@@ -8,7 +8,7 @@
       "slug": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
         "fr": "physiotherapeute-physiotherapiste-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
@@ -56,7 +56,7 @@
       "externalId": "4084559",
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-        "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +64,7 @@
         ],
         "en": [
           "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-          "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau"
@@ -917,12 +917,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-3cc75df02903",
-      "slug": "oberarztin-oberarzt-o-oberarztin-oberarzt-mbf-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "medica-medico-senior-oppure-medica-medico-senior-mbf-in-chirurgia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar",
-        "it": "oberarztin-oberarzt-o-oberarztin-oberarzt-mbf-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar",
-        "fr": "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar"
+        "it": "medica-medico-senior-oppure-medica-medico-senior-mbf-in-chirurgia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
+        "en": "senior-physician-senior-physician-senior-physician-mbf-surgery-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "medecin-superieur-medecin-superieur-medecin-superieur-chirurgie-mbf-h-f-d-spitalverbund-appenzell-ausserrhoden-svar"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -970,11 +970,19 @@
       "externalId": "4072292",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar",
+          "oberarztin-oberarzt-o-oberarztin-oberarzt-mbf-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar"
+        ],
+        "fr": [
           "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar"
+        "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar",
+        "oberarztin-oberarzt-o-oberarztin-oberarzt-mbf-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,
@@ -993,12 +1001,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-d2710a5b5882",
-      "slug": "fachverantwortliche-r-per-intensivpflege-bsc-in-pflege-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "responsabile-dell-assistenza-infermieristica-in-terapia-intensiva-bsc-in-cure-infermieristiche-m-f-d-spitalverbund",
       "slugByLocale": {
         "de": "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "fachverantwortliche-r-per-intensivpflege-bsc-in-pflege-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "responsabile-dell-assistenza-infermieristica-in-terapia-intensiva-bsc-in-cure-infermieristiche-m-f-d-spitalverbund",
+        "en": "professional-responsible-for-intensive-care-bsc-in-care-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "professionnel-responsable-des-soins-intensifs-bsc-en-soins-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -1046,11 +1054,19 @@
       "externalId": "4090643",
       "previousSlugsByLocale": {
         "it": [
+          "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
+          "fachverantwortliche-r-per-intensivpflege-bsc-in-pflege-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
           "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
         ]
       },
       "previousSlugs": [
-        "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
+        "fachverantwortliche-r-per-intensivpflege-bsc-in-pflege-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,

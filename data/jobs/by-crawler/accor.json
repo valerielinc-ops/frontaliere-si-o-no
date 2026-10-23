@@ -1738,7 +1738,7 @@
       "slugByLocale": {
         "it": "servizio-personale-25hours-hotel-zurich-langstrasse-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "en": "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "de": "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland",
+        "de": "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "fr": "personnel-de-service-25heures-hotel-zurich-langstrasse-h-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-1766008b"
       },
       "slugDisambiguator": "1766008b",
@@ -1784,7 +1784,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+        "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1792,7 +1792,7 @@
         ],
         "de": [
           "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-          "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+          "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
         ],
         "fr": [
           "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
@@ -2581,12 +2581,12 @@
     },
     {
       "id": "accor-c1e920a6400a",
-      "slug": "porteur-banquets-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6",
+      "slug": "banchi-di-vettore-m-f-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6",
       "slugByLocale": {
         "fr": "porteur-banquets-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6",
-        "it": "porteur-banquets-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6",
+        "it": "banchi-di-vettore-m-f-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6",
         "en": "porteur-banquets-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6",
-        "de": "porteur-banquets-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6"
+        "de": "carrier-bankette-m-w-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6"
       },
       "slugDisambiguator": "c1e920a6",
       "company": "Ibis Budget",
@@ -2646,7 +2646,18 @@
         }
       },
       "postalCode": "1820",
-      "firstSeenAt": "2026-10-23T09:42:20.629Z"
+      "firstSeenAt": "2026-10-23T09:42:20.629Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "porteur-banquets-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6"
+        ],
+        "de": [
+          "porteur-banquets-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6"
+        ]
+      },
+      "previousSlugs": [
+        "porteur-banquets-f-h-x-cdd-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-c1e920a6"
+      ]
     }
   ],
   "runId": "39931246185"

@@ -979,7 +979,7 @@
         "it": "avvocato-legale-global-procurement-dd-it-novartis-basel-city",
         "en": "legal-counsel-global-procurement-dd-it-novartis-ch",
         "de": "rechtsberater-globale-beschaffung-dd-it-novartis-basel-city",
-        "fr": "legal-counsel-global-procurement-dd-it-novartis-basel-city"
+        "fr": "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1022,14 +1022,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-global-procurement-dd-it-novartis-ch",
-        "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
+        "legal-counsel-global-procurement-dd-it-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-global-procurement-dd-it-novartis-ch"
         ],
         "fr": [
-          "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
+          "legal-counsel-global-procurement-dd-it-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:12.102Z",
@@ -1203,7 +1203,7 @@
         "it": "executive-clinical-program-leader-oncologia-clinica-traduzionale-novartis-basel-city",
         "en": "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
         "de": "executive-clinical-program-leader-translationale-klinische-onkologie-novartis-basel-city",
-        "fr": "executive-clinical-program-leader-translational-clinical-oncology-novartis-basel-city"
+        "fr": "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1246,14 +1246,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
-        "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
+        "executive-clinical-program-leader-translational-clinical-oncology-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch"
         ],
         "fr": [
-          "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
+          "executive-clinical-program-leader-translational-clinical-oncology-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:03.000Z",
@@ -2183,7 +2183,7 @@
         "en": "director-portfolio-analytics-novartis-ch",
         "it": "direttore-portfolio-analytics-novartis-basel-city",
         "de": "direktor-portfolio-analytics-novartis-basel-city",
-        "fr": "director-portfolio-analytics-novartis-basel-city"
+        "fr": "directeur-analyse-de-portefeuille-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2248,12 +2248,14 @@
           "director-portfolio-analytics-novartis-ch"
         ],
         "fr": [
-          "directeur-analyse-de-portefeuille-novartis-basel-city"
+          "directeur-analyse-de-portefeuille-novartis-basel-city",
+          "director-portfolio-analytics-novartis-basel-city"
         ]
       },
       "previousSlugs": [
         "director-portfolio-analytics-novartis-ch",
-        "directeur-analyse-de-portefeuille-novartis-basel-city"
+        "directeur-analyse-de-portefeuille-novartis-basel-city",
+        "director-portfolio-analytics-novartis-basel-city"
       ]
     },
     {
@@ -2423,12 +2425,12 @@
     },
     {
       "id": "novartis-d27fb3cd862c",
-      "slug": "biocatalysis-and-protein-engineering-industrial-post-doctoral-researcher-in-global",
+      "slug": "biocatalisi-e-ingegneria-delle-proteine-ricercatore-post-dottorato-industriale-in-chimica-global-discovery-novartis",
       "slugByLocale": {
         "en": "biocatalysis-and-protein-engineering-industrial-post-doctoral-researcher-in-global",
-        "it": "biocatalysis-and-protein-engineering-industrial-post-doctoral-researcher-in-global",
-        "de": "biocatalysis-and-protein-engineering-industrial-post-doctoral-researcher-in-global",
-        "fr": "biocatalysis-and-protein-engineering-industrial-post-doctoral-researcher-in-global"
+        "it": "biocatalisi-e-ingegneria-delle-proteine-ricercatore-post-dottorato-industriale-in-chimica-global-discovery-novartis",
+        "de": "biokatalyse-und-protein-engineering-industrieller-postdoktorand-in-global-discovery-chemistry-novartis-genesis-labs",
+        "fr": "biocatalyse-et-genie-des-proteines-chercheur-postdoctoral-industriel-en-chimie-de-la-decouverte-mondiale-novartis"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2487,7 +2489,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-23T09:21:06.329Z"
+      "firstSeenAt": "2026-10-23T09:21:06.329Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "biocatalysis-and-protein-engineering-industrial-post-doctoral-researcher-in-global"
+        ],
+        "de": [
+          "biocatalysis-and-protein-engineering-industrial-post-doctoral-researcher-in-global"
+        ],
+        "fr": [
+          "biocatalysis-and-protein-engineering-industrial-post-doctoral-researcher-in-global"
+        ]
+      },
+      "previousSlugs": [
+        "biocatalysis-and-protein-engineering-industrial-post-doctoral-researcher-in-global"
+      ]
     }
   ]
 }

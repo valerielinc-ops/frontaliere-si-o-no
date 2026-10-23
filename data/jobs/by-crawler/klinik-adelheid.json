@@ -746,12 +746,12 @@
     },
     {
       "id": "klinik-adelheid-5661a8c709ae",
-      "slug": "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
+      "slug": "medica-dirigente-medico-dirigente-100-con-specializzazione-in-pmr-klinik-adelheid-unterageri",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
-        "it": "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
-        "en": "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
-        "fr": "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri"
+        "it": "medica-dirigente-medico-dirigente-100-con-specializzazione-in-pmr-klinik-adelheid-unterageri",
+        "en": "lead-doctor-lead-doctor-100-with-specialist-pmr-klinik-adelheid-unterageri",
+        "fr": "medecin-en-chef-medecin-en-chef-100-avec-pmr-specialiste-klinik-adelheid-unterageri"
       },
       "company": "Klinik Adelheid",
       "companyKey": "klinik-adelheid",
@@ -809,7 +809,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:31:28.930Z"
+      "firstSeenAt": "2026-10-23T09:31:28.930Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri"
+      ]
     }
   ]
 }

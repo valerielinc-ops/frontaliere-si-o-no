@@ -1654,12 +1654,12 @@
     },
     {
       "id": "planzer-749a013b7e8d",
-      "slug": "collaboratore-trice-umschlag-m-w-d-planzer-dintikon",
+      "slug": "addetto-al-trasbordo-m-f-d-planzer-dintikon",
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
-        "it": "collaboratore-trice-umschlag-m-w-d-planzer-dintikon",
-        "en": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
-        "fr": "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+        "it": "addetto-al-trasbordo-m-f-d-planzer-dintikon",
+        "en": "employee-envelope-m-f-d-planzer-dintikon",
+        "fr": "l-enveloppe-des-employes-h-f-d-planzer-dintikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1708,11 +1708,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
+          "collaboratore-trice-umschlag-m-w-d-planzer-dintikon"
+        ],
+        "en": [
+          "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+        ],
+        "fr": [
           "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+        "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
+        "collaboratore-trice-umschlag-m-w-d-planzer-dintikon"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1731,12 +1739,12 @@
     },
     {
       "id": "planzer-a3565f0259ab",
-      "slug": "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach",
+      "slug": "meccatronico-con-competenze-a-tutto-tondo-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach",
-        "it": "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach",
-        "en": "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach",
-        "fr": "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach"
+        "it": "meccatronico-con-competenze-a-tutto-tondo-m-f-d-planzer-kallnach",
+        "en": "mechatronics-with-all-rounder-qualities-m-f-d-planzer-kallnach",
+        "fr": "mecatronique-aux-qualites-polyvalentes-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1796,7 +1804,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:36:41.306Z"
+      "firstSeenAt": "2026-09-23T23:36:41.306Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach"
+      ]
     },
     {
       "id": "planzer-8348defc9562",
@@ -1804,8 +1826,8 @@
       "slugByLocale": {
         "de": "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken",
         "it": "apprendistato-specialista-in-trasporti-stradali-cfc-planzer-daniken",
-        "en": "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken",
-        "fr": "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken"
+        "en": "apprenticeship-as-a-road-transport-specialist-efz-planzer-daniken",
+        "fr": "place-d-apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-daniken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1856,6 +1878,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken"
+        ],
+        "en": [
+          "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken"
+        ],
+        "fr": [
+          "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken"
         ]
       },
       "previousSlugs": [
@@ -1882,8 +1910,8 @@
       "slugByLocale": {
         "de": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken",
         "it": "apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-planzer-daniken",
-        "en": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken",
-        "fr": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken"
+        "en": "apprenticeship-as-a-logistics-specialist-efz-warehouse-specialization-planzer-daniken",
+        "fr": "place-d-apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-daniken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1934,6 +1962,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken"
+        ],
+        "en": [
+          "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken"
+        ],
+        "fr": [
+          "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken"
         ]
       },
       "previousSlugs": [
@@ -1956,12 +1990,12 @@
     },
     {
       "id": "planzer-cb77fd8a822d",
-      "slug": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-pratteln",
+      "slug": "posto-di-apprendistato-per-operatore-trice-di-manutenzione-afc-planzer-pratteln",
       "slugByLocale": {
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln",
-        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-pratteln",
-        "en": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln",
-        "fr": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln"
+        "it": "posto-di-apprendistato-per-operatore-trice-di-manutenzione-afc-planzer-pratteln",
+        "en": "apprenticeship-as-a-facility-maintenance-specialist-efz-planzer-pratteln",
+        "fr": "place-d-apprentissage-agent-e-d-exploitation-cfc-planzer-pratteln"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2011,11 +2045,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln",
+          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-pratteln"
+        ],
+        "en": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln"
+        ],
+        "fr": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln",
+        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-pratteln"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -2034,12 +2076,12 @@
     },
     {
       "id": "planzer-eb1c1ab82dab",
-      "slug": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+      "slug": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
-        "it": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+        "it": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
         "en": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
-        "fr": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        "fr": "gestionnaire-de-division-informatique-edi-integration-des-donnees-h-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2099,16 +2141,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:36:40.604Z"
+      "firstSeenAt": "2026-09-23T23:36:40.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-baeb62d2715b",
-      "slug": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
+      "slug": "chauffeur-cat-ce-ausiliario-m-f-d-planzer-bern",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
-        "it": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
-        "en": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
-        "fr": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+        "it": "chauffeur-cat-ce-ausiliario-m-f-d-planzer-bern",
+        "en": "chauffeur-cat-ce-auxiliary-m-f-d-planzer-bern",
+        "fr": "chauffeur-cat-ce-auxiliaire-h-f-d-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2168,16 +2221,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:20:55.839Z"
+      "firstSeenAt": "2026-10-23T09:20:55.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+        ],
+        "en": [
+          "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-0af3bbdfee7e",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-buchs",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-buchs",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-buchs",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-buchs",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-buchs",
         "en": "chauffeur-kat-ce-m-w-d-planzer-buchs",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-buchs"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-buchs"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2237,16 +2304,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:20:55.060Z"
+      "firstSeenAt": "2026-10-23T09:20:55.060Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-buchs"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-buchs"
+      ]
     },
     {
       "id": "planzer-d326c21ccbfa",
-      "slug": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
+      "slug": "chauffeur-cat-c-ce-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
-        "it": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
+        "it": "chauffeur-cat-c-ce-m-f-d-planzer-villmergen",
         "en": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
-        "fr": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+        "fr": "chauffeur-cat-c-ce-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2306,16 +2384,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:36:38.511Z"
+      "firstSeenAt": "2026-09-23T23:36:38.511Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+      ]
     },
     {
       "id": "planzer-2c5b6b917292",
-      "slug": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
+      "slug": "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
-        "it": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
+        "it": "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
         "en": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
-        "fr": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+        "fr": "chauffeur-entraineur-cat-be-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2375,7 +2464,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:36:37.809Z"
+      "firstSeenAt": "2026-09-23T23:36:37.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+      ]
     }
   ]
 }

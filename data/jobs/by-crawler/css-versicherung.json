@@ -3081,7 +3081,7 @@
         "it": "dati-del-controller-finanziario-bi-m-f-80-90-css-versicherung-luzern-hybrid",
         "en": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
         "de": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-        "fr": "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
+        "fr": "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3145,22 +3145,24 @@
         ],
         "fr": [
           "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-          "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
+          "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid",
+          "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
         ]
       },
       "previousSlugs": [
         "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-        "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
+        "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid",
+        "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
       ]
     },
     {
       "id": "css-versicherung-b66f8009a6fb",
-      "slug": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
+      "slug": "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid",
       "slugByLocale": {
         "de": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
-        "it": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
+        "it": "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid",
         "en": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
-        "fr": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid"
+        "fr": "collaborateur-trice-administratif-ve-du-hr-service-center-80-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3222,15 +3224,18 @@
       "firstSeenAt": "2026-10-23T09:31:11.148Z",
       "previousSlugsByLocale": {
         "it": [
-          "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid"
+          "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid",
+          "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid"
         ],
         "fr": [
-          "gestionnaire-administratif-ve-au-hr-service-center-80-90-css-versicherung-luzern-hybrid"
+          "gestionnaire-administratif-ve-au-hr-service-center-80-90-css-versicherung-luzern-hybrid",
+          "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid"
         ]
       },
       "previousSlugs": [
         "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid",
-        "gestionnaire-administratif-ve-au-hr-service-center-80-90-css-versicherung-luzern-hybrid"
+        "gestionnaire-administratif-ve-au-hr-service-center-80-90-css-versicherung-luzern-hybrid",
+        "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid"
       ]
     }
   ]
