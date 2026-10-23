@@ -34,6 +34,7 @@ import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPri
 import { NEXT_STEP_GROUP_LABELS, nextStepFor, type NextStep, type NextStepGroup } from '@/services/assistedApplicationNextStep';
 import { pdfRendererLine, type PdfRendererTone } from '@/services/assistedApplicationPdfRendererStatus';
 import { replaceAdminQuery } from '@/components/admin/lib/adminNavigation';
+import { useAdminConfirm } from '@/components/admin/ui/AdminConfirmDialog';
 import AssistedApplicationAutomationPanel from './AssistedApplicationAutomationPanel';
 
 type QueueFilter = AssistedApplicationAdminStatus | 'all';
@@ -139,7 +140,7 @@ function CandidateStatusPreview({ view }: { view: AssistedApplicationCandidateVi
     : '';
   return (
     <section
-      className="mt-4 rounded-xl border border-accent-border bg-accent-subtle/30 p-4"
+      className="mt-4 rounded-stripe border border-accent-border bg-accent-subtle/30 p-4"
       aria-label="Stato visto dal candidato"
       data-testid="assisted-application-candidate-preview"
     >
@@ -170,7 +171,7 @@ function CandidateStatusPreview({ view }: { view: AssistedApplicationCandidateVi
           <dd className="mt-1 text-body">{formatDate(view.updatedAt)}</dd>
         </div>
       </dl>
-      <p className="mt-3 text-[11px] leading-relaxed text-muted">Lettura generata dal backend in sola lettura; non apre né modifica il CV o la candidatura.</p>
+      <p className="mt-3 text-xs leading-relaxed text-muted">Lettura generata dal backend in sola lettura; non apre né modifica il CV o la candidatura.</p>
     </section>
   );
 }
@@ -318,7 +319,7 @@ function CvLink({ order }: { order: AssistedApplicationAdminOrder }) {
 function DataRow({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="min-w-0">
-      <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted">{label}</dt>
+      <dt className="text-xs font-semibold uppercase tracking-wide text-muted">{label}</dt>
       <dd className="mt-1 break-words text-sm text-body">{children}</dd>
     </div>
   );
@@ -335,8 +336,9 @@ function queueFilterFromQuery(value: string | null): QueueFilter {
     : 'all';
 }
 
-export default function AssistedApplicationAdmin({ locationKey }: { locationKey?: string }) {
+export default function AssistedApplicationAdmin({ locationKey, onSummary }: { locationKey?: string; onSummary?: (summary: { count: number; updatedAt: string }) => void }) {
   const { user, loading: authLoading } = useAuth();
+  const { requestConfirmation } = useAdminConfirm();
   const [orders, setOrders] = useState<AssistedApplicationAdminOrder[]>([]);
   // undefined until the queue has loaded once: nothing is said about the renderer before.
   const [pdfRenderer, setPdfRenderer] = useState<AssistedApplicationPdfRendererCheck | null | undefined>(undefined);
@@ -363,6 +365,7 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
       const data = await fetchAssistedApplicationAdminData(user);
       setOrders(data.orders);
       setPdfRenderer(data.pdfRenderer);
+      onSummary?.({ count: data.orders.length, updatedAt: new Date().toISOString() });
     } catch (error) {
       setMessage({ ok: false, text: error instanceof Error ? error.message : 'Impossibile caricare la coda candidature.' });
     } finally {
@@ -485,7 +488,16 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
 
   const refund = async (order: AssistedApplicationAdminOrder) => {
     if (pendingAction) return;
-    if (typeof window !== 'undefined' && !window.confirm(`Avviare il rimborso di ${paymentLabel(order)} per ${order.applicantName || 'questa candidatura'}?`)) return;
+    const confirmed = await requestConfirmation({
+      title: 'Avvia rimborso',
+      what: `Stai per avviare il rimborso di ${paymentLabel(order)} per ${order.applicantName || 'questa candidatura'}.`,
+      impact: 'Modifica il pagamento e marca l’ordine come rimborsato; l’automazione si ferma.',
+      input: `ordine=${order.orderId}, importo=${paymentLabel(order)}`,
+      expectedDuration: 'meno di 1 min',
+      confirmLabel: 'Avvia rimborso',
+      confirmVariant: 'danger',
+    });
+    if (!confirmed) return;
     const actionKey = `${order.orderId}:refund`;
     setPendingAction(actionKey);
     setMessage(null);
@@ -506,7 +518,7 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
     <section className={`${REPLAY_PRIVATE_CLASS} space-y-5`} {...REPLAY_PRIVATE_ATTRS} aria-labelledby="assisted-application-admin-title">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 id="assisted-application-admin-title" className="flex items-center gap-2 text-lg font-bold font-display text-strong">
+          <h2 id="assisted-application-admin-title" className="flex items-center gap-2 text-lg font-semibold font-display text-strong">
             <UserCheck size={20} className="text-accent" aria-hidden="true" />
             Coda candidature assistite
           </h2>
@@ -516,7 +528,7 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
           type="button"
           onClick={() => { void loadOrders(true); }}
           disabled={loading || refreshing}
-          className="inline-flex items-center gap-2 rounded-lg border border-edge px-3 py-2 text-sm font-medium text-subtle transition-colors hover:border-accent hover:text-link disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex items-center gap-2 rounded-stripe border border-edge px-3 py-2 text-sm font-medium text-subtle transition-colors hover:border-accent hover:text-link disabled:cursor-not-allowed disabled:opacity-60"
         >
           {refreshing ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : <RefreshCw size={14} aria-hidden="true" />}
           Aggiorna
@@ -524,13 +536,13 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
       </div>
 
       {rendererLine && (
-        <p className={`rounded-xl border px-3 py-2 text-xs ${PDF_RENDERER_STYLES[rendererLine.tone]}`} title={pdfRenderer?.error || undefined}>
+        <p className={`rounded-stripe border px-3 py-2 text-xs ${PDF_RENDERER_STYLES[rendererLine.tone]}`} title={pdfRenderer?.error || undefined}>
           {rendererLine.text}
         </p>
       )}
 
       {message && (
-        <div role="status" className={`rounded-xl border px-4 py-3 text-sm ${message.ok ? 'border-success-border bg-success-subtle text-success' : 'border-danger-border bg-danger-subtle text-danger'}`}>
+        <div role="status" className={`rounded-stripe border px-4 py-3 text-sm ${message.ok ? 'border-success-border bg-success-subtle text-success' : 'border-danger-border bg-danger-subtle text-danger'}`}>
           {message.text}
         </div>
       )}
@@ -584,11 +596,11 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
       </div>
 
       {loading ? (
-        <div className="flex items-center gap-2 rounded-xl border border-edge bg-surface p-6 text-sm text-subtle" role="status">
+        <div className="flex items-center gap-2 rounded-stripe border border-edge bg-surface p-6 text-sm text-subtle" role="status">
           <Loader2 size={16} className="animate-spin" aria-hidden="true" /> Caricamento coda candidature…
         </div>
       ) : visibleOrders.length === 0 ? (
-        <div className="rounded-xl border border-edge bg-surface p-6 text-sm text-subtle">
+        <div className="rounded-stripe border border-edge bg-surface p-6 text-sm text-subtle">
           Nessuna candidatura nello stato selezionato.
         </div>
       ) : (
@@ -597,11 +609,11 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
             const options = NEXT_STATUS_OPTIONS[order.submissionStatus];
             const step = steps.get(order.orderId) || nextStepFor(order);
             return (
-              <article key={order.orderId} className="rounded-2xl border border-edge bg-surface p-4 shadow-sm sm:p-5">
+              <article key={order.orderId} className="rounded-stripe border border-edge bg-surface p-4 shadow-stripe-sm sm:p-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted">{order.companyName || 'Azienda non indicata'}</p>
-                    <h3 className="mt-1 text-base font-bold text-strong">{order.jobTitle || order.jobId || 'Annuncio non indicato'}</h3>
+                    <h3 className="mt-1 text-base font-semibold text-strong">{order.jobTitle || order.jobId || 'Annuncio non indicato'}</h3>
                     <p className="mt-1 text-xs text-muted">Ordine {order.orderId} · creato {formatDate(order.createdAt)}</p>
                   </div>
                   <div className="flex flex-wrap items-center justify-end gap-2">
@@ -610,7 +622,7 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
                   </div>
                 </div>
 
-                <p className={`mt-3 rounded-xl border px-3 py-2 text-sm ${NEXT_STEP_STYLES[step.group]}`}>
+                <p className={`mt-3 rounded-stripe border px-3 py-2 text-sm ${NEXT_STEP_STYLES[step.group]}`}>
                   <strong>{NEXT_STEP_GROUP_LABELS[step.group]}.</strong> <span className="text-body">{step.detail}</span>
                 </p>
 
@@ -653,7 +665,7 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
                   </DataRow>
                   <DataRow label="Aperture e clic del candidato">
                     <CandidateEmails emails={order.candidateEmails || []} />
-                    <span className="mt-1 block text-[11px] text-muted">Le aperture sono indicative: alcuni client aprono ogni email alla consegna.</span>
+                    <span className="mt-1 block text-xs text-muted">Le aperture sono indicative: alcuni client aprono ogni email alla consegna.</span>
                   </DataRow>
                 </dl>
 
@@ -672,7 +684,7 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
                 )}
 
                 {order.submissionNotes && (
-                  <div className="mt-4 rounded-xl border border-warning-border bg-warning-subtle/60 px-3 py-2 text-sm text-body">
+                  <div className="mt-4 rounded-stripe border border-warning-border bg-warning-subtle/60 px-3 py-2 text-sm text-body">
                     <strong>Nota operativa:</strong> {order.submissionNotes}
                   </div>
                 )}
@@ -686,7 +698,7 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
                         onChange={(event) => setNotesByOrder((current) => ({ ...current, [order.orderId]: event.target.value }))}
                         rows={2}
                         maxLength={2000}
-                        className="mt-1 w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-sm text-strong"
+                        className="mt-1 w-full rounded-stripe border border-edge bg-surface-alt px-3 py-2 text-sm text-strong"
                         placeholder="Es. CAPTCHA obbligatorio, annuncio ritirato…"
                       />
                     </label>
@@ -699,7 +711,7 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
                             type="button"
                             onClick={() => { void transition(order, option.status); }}
                             disabled={pendingAction !== null}
-                            className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${option.status === 'blocked' ? 'border border-danger-border text-danger hover:bg-danger-subtle' : 'bg-accent text-on-accent hover:bg-accent-hover'}`}
+                            className={`inline-flex items-center gap-2 rounded-stripe px-3 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${option.status === 'blocked' ? 'border border-danger-border text-danger hover:bg-danger-subtle' : 'bg-accent text-on-accent hover:bg-accent-hover'}`}
                           >
                             {pendingAction === actionKey && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}
                             {option.status === 'submitted' ? <Send size={14} aria-hidden="true" /> : option.status === 'in_progress' ? <UserCheck size={14} aria-hidden="true" /> : <AlertTriangle size={14} aria-hidden="true" />}
@@ -712,7 +724,7 @@ export default function AssistedApplicationAdmin({ locationKey }: { locationKey?
                           type="button"
                           onClick={() => { void refund(order); }}
                           disabled={pendingAction !== null}
-                          className="inline-flex items-center gap-2 rounded-lg border border-danger-border px-3 py-2 text-sm font-semibold text-danger transition-colors hover:bg-danger-subtle disabled:cursor-not-allowed disabled:opacity-60"
+                          className="inline-flex items-center gap-2 rounded-stripe border border-danger-border px-3 py-2 text-sm font-semibold text-danger transition-colors hover:bg-danger-subtle disabled:cursor-not-allowed disabled:opacity-60"
                         >
                           {pendingAction === `${order.orderId}:refund` ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : <RotateCcw size={14} aria-hidden="true" />}
                           Avvia rimborso
