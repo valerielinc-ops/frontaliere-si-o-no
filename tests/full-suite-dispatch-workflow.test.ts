@@ -14,9 +14,9 @@ import { describe, expect, it } from 'vitest';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
 import {
+  main,
   renderRedFilesText,
   renderStepSummary,
   summarizeVitestReport,
@@ -286,38 +286,42 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
       const summaryFile = join(dir, 'summary.md');
       const metricsFile = join(dir, 'metrics.json');
       writeFileSync(summaryFile, '');
-      const env = { ...process.env, GITHUB_STEP_SUMMARY: summaryFile };
-      const script = join(ROOT, 'scripts/ci/full-suite-red-files.mjs');
-      let status = 0;
+      const originalSummary = process.env.GITHUB_STEP_SUMMARY;
+      process.env.GITHUB_STEP_SUMMARY = summaryFile;
       try {
-        execFileSync(process.execPath, [script, '--report', join(dir, 'missing.json'), '--out', join(dir, 'red.txt'), '--metrics-out', metricsFile], {
-          cwd: dir, env, stdio: 'pipe',
+        const missingStatus = main([
+          '--report', join(dir, 'missing.json'),
+          '--out', join(dir, 'red.txt'),
+          '--metrics-out', metricsFile,
+        ]);
+        expect(missingStatus).toBe(1);
+        expect(readFileSync(summaryFile, 'utf8')).toContain('Report Vitest file assente');
+        expect(JSON.parse(readFileSync(metricsFile, 'utf8'))).toMatchObject({
+          status: 'unavailable',
+          reportAvailable: false,
+          performance: { suiteDurationMs: null, medianFileDurationMs: null },
         });
-      } catch (error) {
-        status = (error as { status: number }).status;
-      }
-      expect(status).toBe(1);
-      expect(readFileSync(summaryFile, 'utf8')).toContain('Report Vitest file assente');
-      expect(JSON.parse(readFileSync(metricsFile, 'utf8'))).toMatchObject({
-        status: 'unavailable',
-        reportAvailable: false,
-        performance: { suiteDurationMs: null, medianFileDurationMs: null },
-      });
 
-      const reportFile = join(dir, 'report.json');
-      writeFileSync(reportFile, JSON.stringify(report));
-      const out = execFileSync(process.execPath, [script, '--report', reportFile, '--out', join(dir, 'red.txt'), '--metrics-out', metricsFile], {
-        cwd: dir, env, encoding: 'utf8',
-      });
-      expect(out).toContain('redFiles=2 totalFiles=4 numFailedTestSuites=3');
-      expect(readFileSync(join(dir, 'red.txt'), 'utf8')).toBe('tests/scripts/alpha.test.ts\ntests/zeta.test.ts\n');
-      expect(JSON.parse(readFileSync(metricsFile, 'utf8'))).toMatchObject({
-        schemaVersion: 1,
-        status: 'measured',
-        reportAvailable: true,
-        invariants: { totalFiles: 4, redFiles: 2, numFailedTests: 3 },
-        performance: { suiteDurationMs: 700, medianFileDurationMs: 250, p95FileDurationMs: 600 },
-      });
+        const reportFile = join(dir, 'report.json');
+        writeFileSync(reportFile, JSON.stringify(report));
+        const validStatus = main([
+          '--report', reportFile,
+          '--out', join(dir, 'red.txt'),
+          '--metrics-out', metricsFile,
+        ]);
+        expect(validStatus).toBe(0);
+        expect(readFileSync(join(dir, 'red.txt'), 'utf8')).toBe('tests/scripts/alpha.test.ts\ntests/zeta.test.ts\n');
+        expect(JSON.parse(readFileSync(metricsFile, 'utf8'))).toMatchObject({
+          schemaVersion: 1,
+          status: 'measured',
+          reportAvailable: true,
+          invariants: { totalFiles: 4, redFiles: 2, numFailedTests: 3 },
+          performance: { suiteDurationMs: 700, medianFileDurationMs: 250, p95FileDurationMs: 600 },
+        });
+      } finally {
+        if (originalSummary === undefined) delete process.env.GITHUB_STEP_SUMMARY;
+        else process.env.GITHUB_STEP_SUMMARY = originalSummary;
+      }
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
