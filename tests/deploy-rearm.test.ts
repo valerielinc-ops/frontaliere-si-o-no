@@ -448,6 +448,10 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
       translation_handoff_result: '${{ steps.translation_handoff.outcome }}',
       source_promotion_result: '${{ steps.source_promotion.outcome }}',
     });
+    const translationHandoffStep = doc.jobs['validate-promotion-trigger'].steps.find(
+      (step: any) => step.id === 'translation_handoff',
+    );
+    expect(translationHandoffStep.if).toBe('inputs.rearm_dispatch != true');
   });
 
   it('has exactly the permissions the dispatch needs and nothing more', () => {
