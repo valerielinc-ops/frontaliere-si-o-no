@@ -186,6 +186,6 @@ describe('translation deploy handoff admission', () => {
     expect(deploy).toContain('translation-deploy-handoff.mjs');
     expect(deploy).toContain('Reject an incomplete translation tree');
     expect(readFileSync(resolve('scripts/ci/rearm-deploy-build.mjs'), 'utf8'))
-      .toContain('readTranslationDeployHandoff');
+      .not.toContain('readTranslationDeployHandoff');
   });
 });

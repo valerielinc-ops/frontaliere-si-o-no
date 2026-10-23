@@ -69,7 +69,6 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { execFileSync } from 'node:child_process';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { createdSinceQuery } from './lib/run-listing-window.mjs';
-import { readTranslationDeployHandoff } from './translation-deploy-handoff.mjs';
 import { readDeployRearmStatuses, resolveDeployRearmRequest } from './deploy-rearm-request.mjs';
 import {
   buildLocaleFromJobName,
@@ -564,12 +563,10 @@ async function main() {
     return 0;
   }
 
-  const translationHandoff = readTranslationDeployHandoff();
-  if (!translationHandoff.admitted) {
-    console.log(`[rearm] skip: ${translationHandoff.reason}`);
-    return 0;
-  }
-
+  // This is the terminal build's admission, captured before the build ran.
+  // Do not reread the mutable translation marker here: build-history/data
+  // commits can create a newer pending marker while this run is finishing,
+  // and that must not suppress the bounded successor dispatch.
   const localeRecovery = process.env.REARM_SKIP_LOCALE_RECOVERY === '1'
     ? recoverySkip('recovery-disabled', 'locale recovery is disabled for the schedule-only resolver')
     : await inspectBuildLocaleRecovery({
