@@ -170,6 +170,38 @@ describe('r2-section-lock', () => {
     expect(encodingHeaders).toEqual([['accept-encoding', 'identity']]);
   });
 
+  it('normalizes method casing before deciding whether a successful response body is needed', async () => {
+    let canceled = false;
+    let seenMethod: string | undefined;
+    const request = createR2Request(
+      {
+        R2_S3_ENDPOINT: 'https://account.r2.cloudflarestorage.com',
+        R2_BUCKET: 'article-cdn',
+        R2_ACCESS_KEY_ID: 'access-key',
+        R2_SECRET_ACCESS_KEY: 'secret-key',
+      },
+      {
+        fetchImpl: async (_url, init) => {
+          seenMethod = String(init?.method);
+          return {
+            status: 200,
+            body: { cancel: async () => { canceled = true; } },
+            text: async () => '{}',
+          };
+        },
+      },
+    );
+
+    const response = await request({
+      method: 'get',
+      key: lockKey('frontaliere'),
+    });
+
+    expect(seenMethod).toBe('GET');
+    expect(canceled).toBe(false);
+    await expect(response.text()).resolves.toBe('{}');
+  });
+
   it('refuses weak S3 ETags as match conditions', () => {
     expect(normalizeS3MatchEtag(' W/"etag-1" ')).toBeUndefined();
     expect(normalizeS3MatchEtag('"etag-1"')).toBe('"etag-1"');
