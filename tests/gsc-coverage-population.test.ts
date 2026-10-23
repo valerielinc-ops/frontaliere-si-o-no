@@ -29,6 +29,13 @@ describe('canonical GSC Coverage population', () => {
       .toEqual(['/coverage-backed']);
   });
 
+  it('keeps existing compatibility paths in the cleanup candidate set', () => {
+    expect(collectCandidatePaths(
+      { paths: ['/coverage-backed'], unresolved: [] },
+      ['/recovered-only-in-compat', '/coverage-backed'],
+    )).toEqual(['/coverage-backed', '/recovered-only-in-compat']);
+  });
+
   it('deduplicates source-backed paths and keeps the unresolved residue out of candidates', () => {
     const population = readCanonicalGscCoverage(repositoryWith({
       source: 'gsc-coverage-drilldown',

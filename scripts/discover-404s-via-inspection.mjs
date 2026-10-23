@@ -104,12 +104,17 @@ async function detectSiteProperty(accessToken) {
 }
 
 /**
- * The only candidate source for this audit is the source-backed GSC Coverage
- * snapshot. In particular, do not expand job registries or public assembled
- * datasets here: those are a different orphan-job cohort.
+ * The candidate sources for this audit are the source-backed GSC Coverage
+ * snapshot plus the existing compatibility store, so recovered compat-only
+ * URLs can be inspected and removed. In particular, do not expand job
+ * registries or public assembled datasets here: those are a different
+ * orphan-job cohort.
  */
-export function collectCandidatePaths(population = readCanonicalGscCoverage(ROOT)) {
-  return [...new Set(population.paths)];
+export function collectCandidatePaths(
+  population = readCanonicalGscCoverage(ROOT),
+  compatPaths = [],
+) {
+  return [...new Set([...population.paths, ...compatPaths])];
 }
 
 /**
@@ -147,9 +152,14 @@ async function main() {
     console.log(`📐 GSC Coverage observed rows: ${populationSummary.observedRows}`);
   }
 
+  const compatPath = dataPath('seo-404-compat'); // sharded dir (issue #2988)
+  const compat = readCompatPathsStrict(ROOT);
+  if (!compat.source) compat.source = 'gsc-export';
+  if (!Array.isArray(compat.paths)) compat.paths = [];
+
   // Collect candidate URLs and rank by "most in need of inspection"
-  const candidates = collectCandidatePaths(population);
-  console.log(`📦 Candidate URLs: ${candidates.length} (canonical GSC cohort)`);
+  const candidates = collectCandidatePaths(population, compat.paths);
+  console.log(`📦 Candidate URLs: ${candidates.length} (GSC cohort + existing compat)`);
 
   const now = Date.now();
   const ranked = candidates
@@ -170,10 +180,6 @@ async function main() {
     return;
   }
 
-  const compatPath = dataPath('seo-404-compat'); // sharded dir (issue #2988)
-  const compat = readCompatPathsStrict(ROOT);
-  if (!compat.source) compat.source = 'gsc-export';
-  if (!Array.isArray(compat.paths)) compat.paths = [];
   const compatSet = new Set(compat.paths);
 
   let inspected = 0;
