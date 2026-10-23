@@ -108519,6 +108519,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bns-cambi-energia': {
+    title: 'BNS: tasso guida fermo e inflazione moderata | Frontaliere Ticino',
+    description: 'La BNS mantiene il tasso guida allo 0 per cento A settembre la BNS rinuncia alla formula sui cambi La pressione inflazionistica cresce solo lievemente',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasso, fermo, inflazione, moderata',
+    ogTitle: 'BNS: tasso guida allo 0 per cento e cambi',
+    ogDescription: 'La BNS mantiene il tasso guida allo 0 per cento A settembre la BNS rinuncia alla formula sui cambi La pressione inflazionistica cresce solo lievemente L\'IA può',
+    canonicalPath: '/articoli-svizzera/bns-cambi-energia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS: tasso guida fermo e inflazione moderata",
+      "description": "La BNS mantiene il tasso guida allo 0 per cento A settembre la BNS rinuncia alla formula sui cambi La pressione inflazionistica cresce solo lievemente",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-bns-cambi-energia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-22T23:00:19+00:00",
+      "dateModified": "2026-10-22T23:00:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bns-cambi-energia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sostenibilita-abitativa-svizzera': {
+    title: 'Abitare in Svizzera: uno su 6 spende oltre un terzo del reddito',
+    description: 'Il 16% supera un terzo del reddito lordo familiare Il 22% degli inquilini supera la soglia abitativa Il 7% dei proprietari supera lo stesso limite',
+    keywords: 'frontalieri, ticino, svizzera, italia, abitare, spende, oltre, terzo',
+    ogTitle: 'Abitare in Svizzera: uno su 6 spende oltre un terzo del reddito',
+    ogDescription: 'Il 16% supera un terzo del reddito lordo familiare Il 22% degli inquilini supera la soglia abitativa Il 7% dei proprietari supera lo stesso limite Il 36%',
+    canonicalPath: '/articoli-svizzera/sostenibilita-abitativa-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abitare in Svizzera: uno su 6 spende oltre un terzo del reddito",
+      "description": "Il 16% supera un terzo del reddito lordo familiare Il 22% degli inquilini supera la soglia abitativa Il 7% dei proprietari supera lo stesso limite",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sostenibilita-abitativa-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-23T00:22:46+00:00",
+      "dateModified": "2026-10-23T00:22:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sostenibilita-abitativa-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavoro-ridotto-normalizzazione-2027': {
+    title: 'Lavoro ridotto: il Consiglio federale prevede un graduale ritorno alla normalità',
+    description: 'Il Consiglio federale intende normalizzare gradualmente l’ILR Durata massima: 24 mesi fino al 31 gennaio 2027 Crescita prevista: 1,7% nel 2026 e 1,6%',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, ridotto, consiglio, federale',
+    ogTitle: 'Lavoro ridotto: normalizzazione ILR e scadenze 2027-2028',
+    ogDescription: 'Il Consiglio federale intende normalizzare gradualmente l’ILR Durata massima: 24 mesi fino al 31 gennaio 2027 Crescita prevista: 1,7% nel 2026 e 1,6% nel 2027',
+    canonicalPath: '/articoli-svizzera/lavoro-ridotto-normalizzazione-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro ridotto: il Consiglio federale prevede un graduale ritorno alla normalità",
+      "description": "Il Consiglio federale intende normalizzare gradualmente l’ILR Durata massima: 24 mesi fino al 31 gennaio 2027 Crescita prevista: 1,7% nel 2026 e 1,6%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lavoro-ridotto-normalizzazione-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-23T01:06:23+00:00",
+      "dateModified": "2026-10-23T01:06:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-ridotto-normalizzazione-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sondaggio-votazioni-novembre-svizzera': {
+    title: 'Voto 29 novembre: incerti AVS e materiale bellico',
+    description: 'Il voto del 29 novembre resta incerto su AVS e materiale bellico L\'IVA per la 13esima rendita: 46% sì, 49% no Materiale bellico: 49% contrari, 41%',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, novembre, incerti, materiale',
+    ogTitle: 'Voto 29 novembre: incerti AVS e materiale bellico',
+    ogDescription: 'Il voto del 29 novembre resta incerto su AVS e materiale bellico L\'IVA per la 13esima rendita: 46% sì, 49% no Materiale bellico: 49% contrari, 41% favorevoli',
+    canonicalPath: '/articoli-svizzera/sondaggio-votazioni-novembre-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto 29 novembre: incerti AVS e materiale bellico",
+      "description": "Il voto del 29 novembre resta incerto su AVS e materiale bellico L'IVA per la 13esima rendita: 46% sì, 49% no Materiale bellico: 49% contrari, 41%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sondaggio-votazioni-novembre-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-23T05:43:56+00:00",
+      "dateModified": "2026-10-23T05:43:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sondaggio-votazioni-novembre-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-23T09:28:48.902Z",
+  "generatedAt": "2026-10-23T14:10:51.486Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -8,19 +8,110 @@
       "members": [
         "TI"
       ],
-      "state": "partial",
+      "state": "fresh",
       "fetchedAt": "2026-10-23T09:27:57.975Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
-      "duties": [],
-      "unresolvedDuties": 0
+      "duties": [
+        {
+          "pharmacy": "delle Alpi",
+          "city": "Faido",
+          "coverageName": "Biasca e Valli",
+          "dutyType": "day",
+          "startsAt": "2026-10-16T16:00:00.000Z",
+          "endsAt": "2026-10-23T16:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+        },
+        {
+          "pharmacy": "Farmacia Salus",
+          "city": "Lugano",
+          "coverageName": "Luganese",
+          "dutyType": "day",
+          "startsAt": "2026-10-17T06:00:00.000Z",
+          "endsAt": "2026-10-24T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/luganese/"
+        },
+        {
+          "pharmacy": "San Rocco",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-10-19T16:30:00.000Z",
+          "endsAt": "2026-10-23T16:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Fuoriporta",
+          "city": "Mendrisio",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-10-20T06:00:00.000Z",
+          "endsAt": "2026-10-24T06:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "Amavita Biasca",
+          "city": "Biasca",
+          "coverageName": "Biasca e Valli",
+          "dutyType": "day",
+          "startsAt": "2026-10-23T16:00:00.000Z",
+          "endsAt": "2026-10-30T17:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
+        },
+        {
+          "pharmacy": "Portone",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-10-23T16:30:00.000Z",
+          "endsAt": "2026-10-26T17:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Farmacia Coop Vitality Viganello",
+          "city": "Viganello",
+          "coverageName": "Luganese",
+          "dutyType": "day",
+          "startsAt": "2026-10-24T06:00:00.000Z",
+          "endsAt": "2026-10-31T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/luganese/"
+        },
+        {
+          "pharmacy": "Internazionale Dr. Merloni",
+          "city": "Chiasso",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-10-24T06:00:00.000Z",
+          "endsAt": "2026-10-27T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "Stazione",
+          "city": "Bellinzona",
+          "coverageName": "Bellinzonese",
+          "dutyType": "day",
+          "startsAt": "2026-10-26T17:30:00.000Z",
+          "endsAt": "2026-10-30T17:30:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Giardino",
+          "city": "Coldrerio",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-10-27T07:00:00.000Z",
+          "endsAt": "2026-10-31T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        }
+      ],
+      "unresolvedDuties": 3
     },
     "GE": {
       "members": [
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-23T09:28:47.461Z",
+      "fetchedAt": "2026-10-23T14:10:50.000Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -104,7 +195,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-23T09:28:48.902Z",
+      "fetchedAt": "2026-10-23T14:10:51.486Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -233,7 +324,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-23T09:28:48.902Z",
+      "fetchedAt": "2026-10-23T14:10:51.486Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -317,7 +408,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-23T09:28:48.902Z",
+      "fetchedAt": "2026-10-23T14:10:51.486Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -401,7 +492,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-23T09:28:48.902Z",
+      "fetchedAt": "2026-10-23T14:10:51.486Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [

@@ -250,12 +250,12 @@
     },
     {
       "id": "kone-c3826232c75b",
-      "slug": "technicien-ne-de-maintenance-ascenseurs-region-fribourg-kone-ch",
+      "slug": "manutenzione-ascensore-tecnico-regione-fribourg-kone-lausanne",
       "slugByLocale": {
         "fr": "technicien-ne-de-maintenance-ascenseurs-region-fribourg-kone-ch",
-        "it": "technicien-ne-de-maintenance-ascenseurs-region-fribourg-kone-ch",
-        "en": "technicien-ne-de-maintenance-ascenseurs-region-fribourg-kone-ch",
-        "de": "technicien-ne-de-maintenance-ascenseurs-region-fribourg-kone-ch"
+        "it": "manutenzione-ascensore-tecnico-regione-fribourg-kone-lausanne",
+        "en": "maintenance-technician-elevators-fribourg-region-kone-lausanne",
+        "de": "instandhaltungstechniker-aufzuge-region-freiburg-kone-lausanne"
       },
       "company": "KONE",
       "companyKey": "kone",
@@ -314,7 +314,21 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-10-23T10:04:23.273Z"
+      "firstSeenAt": "2026-10-23T10:04:23.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-de-maintenance-ascenseurs-region-fribourg-kone-ch"
+        ],
+        "en": [
+          "technicien-ne-de-maintenance-ascenseurs-region-fribourg-kone-ch"
+        ],
+        "de": [
+          "technicien-ne-de-maintenance-ascenseurs-region-fribourg-kone-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-de-maintenance-ascenseurs-region-fribourg-kone-ch"
+      ]
     }
   ]
 }

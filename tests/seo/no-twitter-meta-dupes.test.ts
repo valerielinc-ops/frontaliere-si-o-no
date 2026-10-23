@@ -97,6 +97,11 @@ describe('Twitter card metadata policy', () => {
     expect(shell).toContain("import { buildTwitterCardMetaTags } from './twitterCardMeta';");
     expect(shell.match(/buildTwitterCardMetaTags\s*\(/g) ?? []).toHaveLength(1);
 
+    const seoHubs = readFileSync('build-plugins/seoHubsPlugin.ts', 'utf8');
+    expect(seoHubs).toContain("import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';");
+    expect(seoHubs.match(/const twitterCardMeta = buildTwitterCardMetaTags\s*\(/g) ?? []).toHaveLength(1);
+    expect(seoHubs.match(/\$\{twitterCardMeta\}/g) ?? []).toHaveLength(1);
+
     const staticPages = readFileSync('build-plugins/staticPagesPlugin.ts', 'utf8');
     expect(staticPages).toContain("import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';");
     expect(staticPages.match(/const twitterCardMeta = buildTwitterCardMetaTags\s*\(/g) ?? []).toHaveLength(1);
