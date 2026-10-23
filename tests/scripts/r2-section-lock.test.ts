@@ -202,6 +202,39 @@ describe('r2-section-lock', () => {
     await expect(response.text()).resolves.toBe('{}');
   });
 
+  it('converts Web Headers before signing and keeps identity encoding for HEAD', async () => {
+    let seenHeaders: Record<string, string> | undefined;
+    const request = createR2Request(
+      {
+        R2_S3_ENDPOINT: 'https://account.r2.cloudflarestorage.com',
+        R2_BUCKET: 'article-cdn',
+        R2_ACCESS_KEY_ID: 'access-key',
+        R2_SECRET_ACCESS_KEY: 'secret-key',
+      },
+      {
+        fetchImpl: async (_url, init) => {
+          seenHeaders = init?.headers as Record<string, string>;
+          return response(200, '', '"etag-headers"');
+        },
+      },
+    );
+
+    await request({
+      method: 'HEAD',
+      key: lockKey('frontaliere'),
+      headers: new Headers([
+        ['Accept-Encoding', 'gzip'],
+        ['X-Caller-Header', 'kept'],
+      ]),
+    });
+
+    expect(seenHeaders).toMatchObject({
+      'accept-encoding': 'identity',
+      'x-caller-header': 'kept',
+    });
+    expect(Object.keys(seenHeaders ?? {}).filter(name => name.toLowerCase() === 'accept-encoding')).toHaveLength(1);
+  });
+
   it('refuses weak S3 ETags as match conditions', () => {
     expect(normalizeS3MatchEtag(' W/"etag-1" ')).toBeUndefined();
     expect(normalizeS3MatchEtag('"etag-1"')).toBe('"etag-1"');
