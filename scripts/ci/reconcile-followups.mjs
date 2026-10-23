@@ -2818,8 +2818,8 @@ function addressedPrsForIssue(issueNumber, addressedPrs = []) {
 /**
  * Legacy cards predate the live `Target file:` field. Derive candidates only
  * from files changed by a merged PR that explicitly addresses this issue.
- * A cited path or basename narrows the set; otherwise the content proof below
- * tries every addressed file and still requires one complete acceptance rule.
+ * A cited path or basename narrows the set; without either citation there is
+ * no safe target for absence-based evidence, so the item remains unresolved.
  */
 function legacyTargetFiles(itemText, issueNumber, io, addressedPrs = []) {
   const fileExists = io && typeof io.fileExists === 'function' ? io.fileExists : () => false;
@@ -2839,7 +2839,10 @@ function legacyTargetFiles(itemText, issueNumber, io, addressedPrs = []) {
     const basename = file.split('/').at(-1);
     return basename && body.includes(basename);
   });
-  return byBasename.length ? [...new Set(byBasename)] : addressedFiles;
+  // Never infer the target from every file in the Addresses PR. Negative
+  // evidence is absence-based: an unrelated file can otherwise make a live
+  // follow-up look resolved merely because the obsolete token is missing.
+  return byBasename.length ? [...new Set(byBasename)] : [];
 }
 
 /**
