@@ -55,6 +55,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { adSlotHtml, endOfContentMultiplexHtml, eventsInfeedAdGridBlockHtml } from './lib/adSlotHtml';
 import {
   normalizeShellTitle,
+  stableTitleToken,
   truncateHeadline,
   TITLE_MAX_CHARS,
   TITLE_TARGET_CHARS,
@@ -3455,7 +3456,7 @@ export function renderOverflowLadderPage(params: {
 // as an outbound "official site" CTA + JSON-LD `sameAs`.
 
 interface DetailCopy {
-  metaTitle: (title: string, comune: string, dateToken?: string) => string;
+  metaTitle: (title: string, comune: string, dateToken?: string, disambiguator?: string) => string;
   metaDesc: (title: string, comune: string, when: string) => string;
   whenLabel: string;
   whereLabel: string;
@@ -3584,9 +3585,11 @@ function eventDetailMetaTitle(
   suffixes: readonly string[],
   dateToken = '',
   preferBrandSuffix = false,
+  disambiguator = '',
 ): string {
   const { title: completeTitle, qualifier } = splitEventTitleLanguageQualifier(rawTitle);
-  const qualifiedSuffixes = suffixes.map((suffix) => `${qualifier}${suffix}`);
+  const metadataQualifier = disambiguator.trim() ? ` · ${disambiguator.trim()}` : '';
+  const qualifiedSuffixes = suffixes.map((suffix) => `${qualifier}${metadataQualifier}${suffix}`);
   const suffixCandidates: EventDetailTitleSuffixCandidate[] = dateToken
     ? qualifiedSuffixes.flatMap((suffix) => {
       const candidates: Array<{ suffix: string; brandless?: string }> = [
@@ -3733,7 +3736,7 @@ const DETAIL_TITLE_SUFFIXES: Record<Locale, (comune: string) => string[]> = {
 
 const DETAIL_COPY: Record<Locale, DetailCopy> = {
   it: {
-    metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.it(c), d),
+    metaTitle: (t, c, d, disambiguator) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.it(c), d, false, disambiguator),
     metaDesc: (t, c, w) => `${t}: ${w} a ${c}, in Ticino. Per date e dettagli aggiornati, consulta il sito ufficiale dell'evento.`,
     whenLabel: 'Quando',
     whereLabel: 'Dove',
@@ -3763,7 +3766,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     adLabel: 'Pubblicità',
   },
   en: {
-    metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.en(c), d),
+    metaTitle: (t, c, d, disambiguator) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.en(c), d, false, disambiguator),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Ticino. For current dates and details, visit the event’s official website.`,
     whenLabel: 'When',
     whereLabel: 'Where',
@@ -3793,7 +3796,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     adLabel: 'Advertisement',
   },
   de: {
-    metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.de(c), d, true),
+    metaTitle: (t, c, d, disambiguator) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.de(c), d, true, disambiguator),
     metaDesc: (t, c, w) => `${t}: ${w} in ${c}, Tessin. Aktuelle Termine und Details stehen auf der offiziellen Veranstaltungsseite.`,
     whenLabel: 'Wann',
     whereLabel: 'Wo',
@@ -3823,7 +3826,7 @@ const DETAIL_COPY: Record<Locale, DetailCopy> = {
     adLabel: 'Werbung',
   },
   fr: {
-    metaTitle: (t, c, d) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.fr(c), d),
+    metaTitle: (t, c, d, disambiguator) => eventDetailMetaTitle(t, DETAIL_TITLE_SUFFIXES.fr(c), d, false, disambiguator),
     metaDesc: (t, c, w) => `${t} : ${w} à ${c}, au Tessin. Dates et détails à jour sur le site officiel de l’événement.`,
     whenLabel: 'Quand',
     whereLabel: 'Où',
@@ -3875,11 +3878,12 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
     // `DETAIL_TITLE_SUFFIXES` doc comment above. #3799: every candidate in
     // the cascade is substituted, so the min-budget check runs against the
     // real canton name at each degradation step too.
-    metaTitle: (t: string, c: string, d?: string) => eventDetailMetaTitle(
+    metaTitle: (t: string, c: string, d?: string, disambiguator?: string) => eventDetailMetaTitle(
       t,
       DETAIL_TITLE_SUFFIXES[locale](c).map(sub),
       d,
       locale === 'de',
+      disambiguator,
     ),
     metaDesc: (t: string, c: string, w: string) => sub(base.metaDesc(t, c, w)),
     lede: (w: string, ti: string, v: string, c: string) => sub(base.lede(w, ti, v, c)),
@@ -3888,6 +3892,136 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
     faqA1: (c: string, w: string) => sub(base.faqA1(c, w)),
   };
   detailCopyCache.set(cacheKey, out);
+  return out;
+}
+
+const EVENT_TITLE_STATUS_MARKER = /\s+\*+\s*(COMPLET|COMPLETA|ANNUL(?:É|E)|ANNULLAT[OA]|CANCEL(?:LED|ED)|ABGESAGT|AUSVERKAUFT|SOLD\s+OUT|FULL)\s*\*+\s*$/iu;
+
+function eventDetailDisplayComune(event: SiteEvent, comune: string, locale: Locale): string {
+  const canton = (event.canton || UNRESOLVED_CANTON_KEY).toUpperCase();
+  return comune === OTHER_EVENTS_COMUNE_KEY
+    ? cantonDisplayLabel(canton, locale)
+    : cleanRenderableEventText(comune) || cantonDisplayLabel(canton, locale);
+}
+
+function eventDetailTitleProbe(
+  event: SiteEvent,
+  locale: Locale,
+  comune: string,
+  disambiguator = '',
+): string {
+  const canton = (event.canton || UNRESOLVED_CANTON_KEY).toUpperCase();
+  const title = localizedTitle(event, locale);
+  const displayComune = eventDetailDisplayComune(event, comune, locale);
+  return detailCopyFor(canton, locale).metaTitle(
+    title,
+    displayComune,
+    eventDateToken(event.startDate, event.endDate, locale),
+    disambiguator,
+  );
+}
+
+function compactEventTextToken(value: string): string {
+  const words = cleanRenderableEventText(value)
+    .replace(/[^\p{L}\p{N}%]+/gu, ' ')
+    .trim()
+    .split(/\s+/u)
+    .filter(Boolean);
+  return words.slice(-2).join(' ');
+}
+
+function pickEventDetailTitleDisambiguator(event: SiteEvent, locale: Locale): string {
+  const localized = localizedTitle(event, locale);
+  const { title } = splitEventTitleLanguageQualifier(localized);
+  const status = EVENT_TITLE_STATUS_MARKER.exec(title)?.[1]?.trim();
+  if (status) return status;
+
+  const titleToken = compactEventTextToken(title);
+  if (titleToken && titleToken.length < title.length) return titleToken;
+
+  const venueToken = compactEventTextToken(eventVenue(event));
+  if (venueToken && venueToken.toLocaleLowerCase() !== title.toLocaleLowerCase()) return venueToken;
+
+  const statusToken = event.eventStatus === 'cancelled'
+    ? { it: 'Annullato', en: 'Cancelled', de: 'Abgesagt', fr: 'Annulé' }[locale]
+    : event.eventStatus === 'postponed'
+      ? { it: 'Posticipato', en: 'Postponed', de: 'Verschoben', fr: 'Reporté' }[locale]
+      : '';
+  if (statusToken) return statusToken;
+
+  // A repeated title with no factual tail still needs a deterministic escape
+  // hatch. This is used only for the residual collision, never for ordinary
+  // event pages, so the route-derived token does not become page copy.
+  return `rif. ${stableTitleToken(event.id)}`;
+}
+
+/**
+ * Build metadata-only disambiguators for the event pages whose capped
+ * `<title>` would otherwise collide. The visible H1/body/schema keep the
+ * source title; only the SERP title receives a short factual token (venue,
+ * status or title tail). A stable route token is the final fallback when two
+ * records expose exactly the same usable facts.
+ */
+export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]): Map<string, string> {
+  const out = new Map<string, string>();
+
+  for (const locale of LOCALES) {
+    const records = events.map((event) => ({
+      event,
+      comune: event.comune || OTHER_EVENTS_COMUNE_KEY,
+      baseTitle: eventDetailTitleProbe(event, locale, event.comune || OTHER_EVENTS_COMUNE_KEY),
+    }));
+    const groups = new Map<string, typeof records>();
+    for (const record of records) {
+      const key = record.baseTitle.replace(/\s+/g, ' ').trim().toLocaleLowerCase();
+      const group = groups.get(key) ?? [];
+      group.push(record);
+      groups.set(key, group);
+    }
+
+    const claimed = new Set<string>();
+    for (const [key, group] of groups) if (group.length === 1) claimed.add(key);
+
+    for (const group of groups.values()) {
+      if (group.length < 2) continue;
+      for (const record of group) {
+        const humanToken = pickEventDetailTitleDisambiguator(record.event, locale);
+        const candidates = [humanToken, `rif. ${stableTitleToken(record.event.id)}`]
+          .filter((candidate, index, all) => candidate && all.indexOf(candidate) === index);
+        let chosen = candidates[candidates.length - 1] || `rif. ${stableTitleToken(record.event.id)}`;
+        let finalKey = '';
+        for (const candidate of candidates) {
+          const candidateTitle = eventDetailTitleProbe(record.event, locale, record.comune, candidate);
+          const candidateKey = candidateTitle.replace(/\s+/g, ' ').trim().toLocaleLowerCase();
+          if (!claimed.has(candidateKey)) {
+            chosen = candidate;
+            finalKey = candidateKey;
+            break;
+          }
+        }
+        if (!finalKey) {
+          // Both the factual token and the first route token can already be
+          // claimed by unrelated singleton pages. Keep probing deterministic
+          // ordinal variants until the complete title key is free; accepting
+          // the last rejected candidate here would reintroduce the collision
+          // this pass is meant to remove.
+          const token = stableTitleToken(record.event.id);
+          for (let ordinal = 2; ; ordinal += 1) {
+            const candidate = `rif. ${token}-${ordinal}`;
+            const candidateTitle = eventDetailTitleProbe(record.event, locale, record.comune, candidate);
+            const candidateKey = candidateTitle.replace(/\s+/g, ' ').trim().toLocaleLowerCase();
+            if (claimed.has(candidateKey)) continue;
+            chosen = candidate;
+            finalKey = candidateKey;
+            break;
+          }
+        }
+        out.set(`${locale}|${record.event.id}`, chosen);
+        claimed.add(finalKey);
+      }
+    }
+  }
+
   return out;
 }
 
@@ -3982,6 +4116,8 @@ export function renderEventDetailPage(params: {
   dateStamp: string;
   distDir: string;
   detailHref: DetailHref;
+  /** Metadata-only token used when the capped event title collides. */
+  metaTitleDisambiguator?: string;
   /**
    * Set for the permanent archive page emitted for events that already ended
    * (`allEndedEvents`). Keeps the page indexable, shows a "this already took
@@ -3991,7 +4127,18 @@ export function renderEventDetailPage(params: {
    */
   isPast?: boolean;
 }): { urlPath: string; html: string; wordCount: number } {
-  const { locale, event, comune, eventSlug, sameComuneEvents, dateStamp, distDir, detailHref, isPast = false } = params;
+  const {
+    locale,
+    event,
+    comune,
+    eventSlug,
+    sameComuneEvents,
+    dateStamp,
+    distDir,
+    detailHref,
+    metaTitleDisambiguator = '',
+    isPast = false,
+  } = params;
   // #3739: an unresolved canton must route to the canton-neutral bucket, not
   // silently mislabel the event as Ticino.
   const canton = (event.canton || UNRESOLVED_CANTON_KEY).toUpperCase();
@@ -4153,7 +4300,7 @@ export function renderEventDetailPage(params: {
   const html = buildSeoPageHtml({
     includeTwitterCard: true,
     locale,
-    title: dc.metaTitle(title, displayComune, dateToken),
+    title: dc.metaTitle(title, displayComune, dateToken, metaTitleDisambiguator),
     description: dc.metaDesc(title, displayComune, when),
     canonicalUrl,
     hreflangHtml: buildEventAlternates(canton, comune, eventSlug),
@@ -4963,6 +5110,9 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           const m = detailSlugs.get(e.id);
           return m ? pathForEventDetail(locale, m.comune, m.slug, m.canton) : null;
         };
+      const eventTitleDisambiguators = buildEventDetailTitleDisambiguators([...all, ...pastEvents]);
+      const eventTitleDisambiguatorFor = (event: SiteEvent, locale: Locale): string | undefined =>
+        eventTitleDisambiguators.get(`${locale}|${event.id}`);
 
       const collector = new WriteCollector({ distDir, pluginName: 'eventsSeoPagesPlugin' });
       writeCatalogImages((relPath, contents) => collector.add(path.join(distDir, relPath), contents));
@@ -5133,6 +5283,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
                   dateStamp,
                   distDir,
                   detailHref,
+                  metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
                 }),
               );
             }
@@ -5169,6 +5320,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
                   dateStamp,
                   distDir,
                   detailHref,
+                  metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
                 }),
               );
             }
@@ -5265,6 +5417,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
                   dateStamp,
                   distDir,
                   detailHref,
+                  metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
                   isPast: true,
                 }),
               );

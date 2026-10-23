@@ -15,6 +15,7 @@ import {
   cleanEventText,
   pathForEventDetail,
   renderEventDetailPage,
+  buildEventDetailTitleDisambiguators,
   renderHubPage,
   renderComunePage,
   renderDigestPage,
@@ -36,6 +37,7 @@ import {
   normalizeCategoryKey,
 } from '../build-plugins/eventsSeoPagesPlugin';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
+import { stableTitleToken } from '../build-plugins/shared/titleSuffix';
 import { parsePath } from '../services/router';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
@@ -465,6 +467,124 @@ describe('renderEventDetailPage', () => {
     expect(titles[1].length).toBeLessThanOrEqual(60);
     expect(headings[0].length).toBeLessThanOrEqual(70);
     expect(headings[1].length).toBeLessThanOrEqual(70);
+  });
+
+  it('disambiguates capped titles that would otherwise collapse distinct events', () => {
+    const events = [
+      {
+        ...EVENT,
+        id: 'ge-agenda:escape-parc',
+        title: 'Escape Game en extérieur dans le parc des Bastions',
+        startDate: '2026-10-21',
+        endDate: '2026-10-25',
+        comune: 'Genève',
+        canton: 'GE',
+      },
+      {
+        ...EVENT,
+        id: 'ge-agenda:escape-ville',
+        title: 'Escape Game en plein air dans la Vieille Ville',
+        startDate: '2026-10-21',
+        endDate: '2026-10-25',
+        comune: 'Genève',
+        canton: 'GE',
+      },
+      {
+        ...EVENT,
+        id: 'ge-agenda:histoires',
+        title: 'Histoires gravées dans la pierre',
+        startDate: '2026-10-22',
+        comune: 'Genève',
+        canton: 'GE',
+      },
+      {
+        ...EVENT,
+        id: 'ge-agenda:histoires-complet',
+        title: 'Histoires gravées dans la pierre * COMPLET *',
+        startDate: '2026-10-22',
+        comune: 'Genève',
+        canton: 'GE',
+      },
+    ];
+    const disambiguators = buildEventDetailTitleDisambiguators(events as never);
+    const titles = events.map((event) => {
+      const rendered = renderEventDetailPage({
+        locale: 'it',
+        event: event as never,
+        comune: 'Genève',
+        eventSlug: slugifyEvent(event),
+        sameComuneEvents: events as never,
+        dateStamp: '2026-10-23',
+        distDir,
+        detailHref: (() => null) as never,
+        metaTitleDisambiguator: disambiguators.get(`it|${event.id}`),
+      });
+      return /<title>([^<]*)<\/title>/.exec(rendered.html)?.[1] ?? '';
+    });
+
+    expect(new Set(titles).size).toBe(titles.length);
+    expect(titles.every((title) => title.length <= 60)).toBe(true);
+    expect(titles.some((title) => title.includes('Bastions'))).toBe(true);
+    expect(titles.some((title) => title.includes('COMPLET'))).toBe(true);
+  });
+
+  it('probes a deterministic ordinal when both disambiguator candidates are claimed', () => {
+    const collisionTitle = 'Night';
+    // These two route ids intentionally share the deterministic 32-bit token
+    // so the test exercises the residual ordinal path with distinct records.
+    const firstId = 'ge-agenda:hc-3acdac2a';
+    const events = [
+      {
+        ...EVENT,
+        id: 'ge-agenda:ordinal-claims-human',
+        title: collisionTitle,
+        startDate: '2026-10-21',
+        endDate: '2026-10-21',
+        venue: 'Hall',
+        comune: 'Genève',
+        canton: 'GE',
+      },
+      {
+        ...EVENT,
+        id: 'ge-agenda:hc-a262df6c',
+        title: collisionTitle,
+        startDate: '2026-10-21',
+        endDate: '2026-10-21',
+        venue: 'Hall',
+        comune: 'Genève',
+        canton: 'GE',
+      },
+      {
+        ...EVENT,
+        id: firstId,
+        title: collisionTitle,
+        startDate: '2026-10-21',
+        endDate: '2026-10-21',
+        venue: 'Hall',
+        comune: 'Genève',
+        canton: 'GE',
+      },
+    ];
+    const disambiguators = buildEventDetailTitleDisambiguators(events as never);
+
+    expect(disambiguators.get(`it|${firstId}`)).toBe(`rif. ${stableTitleToken(firstId)}-2`);
+
+    const titles = events.map((event) => {
+      const rendered = renderEventDetailPage({
+        locale: 'it',
+        event: event as never,
+        comune: 'Genève',
+        eventSlug: slugifyEvent(event),
+        sameComuneEvents: events as never,
+        dateStamp: '2026-10-23',
+        distDir,
+        detailHref: (() => null) as never,
+        metaTitleDisambiguator: disambiguators.get(`it|${event.id}`),
+      });
+      return /<title>([^<]*)<\/title>/.exec(rendered.html)?.[1] ?? '';
+    });
+
+    expect(new Set(titles).size).toBe(titles.length);
   });
 
   it('uses a source-provided multi-day range in metadata, Event description and FAQ without changing the start-date URL', () => {
