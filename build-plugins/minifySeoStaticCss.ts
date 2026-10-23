@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { transform } from 'esbuild';
 import type { Plugin, ResolvedConfig } from 'vite';
@@ -11,9 +11,20 @@ export async function minifySeoStaticCss(source: string): Promise<string> {
 }
 
 /** Minify Vite's copied public stylesheet after the build has written it. */
-export async function minifySeoStaticCssFile(distDir: string): Promise<number> {
+export async function minifySeoStaticCssFile(distDir: string, sourcePath?: string): Promise<number> {
   const cssPath = path.join(distDir, 'assets', 'seo-static.css');
-  const source = await readFile(cssPath, 'utf8');
+  let source: string;
+  try {
+    source = await readFile(cssPath, 'utf8');
+  } catch (error) {
+    // Vite normally copies public/ before closeBundle. Incremental builds can
+    // leave that copy out when the output directory was prepared by a custom
+    // build-start plugin, so restore this stable public asset explicitly.
+    if (!sourcePath || (error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+    await mkdir(path.dirname(cssPath), { recursive: true });
+    await copyFile(sourcePath, cssPath);
+    source = await readFile(cssPath, 'utf8');
+  }
   const minified = await minifySeoStaticCss(source);
   const byteLength = Buffer.byteLength(minified);
 
@@ -29,6 +40,7 @@ export async function minifySeoStaticCssFile(distDir: string): Promise<number> {
 
 export function minifySeoStaticCssPlugin(): Plugin {
   let distDir = path.resolve('dist');
+  let sourcePath: string | undefined;
 
   return {
     name: 'minify-seo-static-css',
@@ -36,12 +48,13 @@ export function minifySeoStaticCssPlugin(): Plugin {
     enforce: 'post',
     configResolved(config: ResolvedConfig) {
       distDir = path.resolve(config.root, config.build.outDir);
+      sourcePath = path.resolve(config.root, 'public', 'assets', 'seo-static.css');
     },
     closeBundle: {
       order: 'post',
       sequential: true,
       async handler() {
-        await minifySeoStaticCssFile(distDir);
+        await minifySeoStaticCssFile(distDir, sourcePath);
       },
     },
   };
