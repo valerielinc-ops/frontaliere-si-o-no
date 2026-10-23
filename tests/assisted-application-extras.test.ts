@@ -242,7 +242,7 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
       const store = followupStore();
       await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: '<aa-1@candidature.frontaliereticino.ch>', sentAt: T0 });
       const codex = vi.fn(async (request: any) => (request.userText.includes('"factCheckFindings"') ? repair() : { body: invented }));
-      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
       await runFollowupSweep({ db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true, nowMs: T0 + 7 * DAY_MS });
       return { followup: store.read(`${ORDER_PATH}/automation/followup`), requests: (codex.mock.calls as any[]).map(([request]) => request) };
     };
@@ -286,7 +286,7 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
         elapsed += request.userText.includes('"factCheckFindings"') ? repairMs : firstMs;
         return { body: invented };
       });
-      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
       const summary = await runFollowupSweep({ db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true, nowMs: T0 + 7 * DAY_MS, clock: () => elapsed });
       return { summary, elapsed, requests, followup: (id: string) => store.read(`assisted_applications/${id}/automation/followup`), order: (id: string) => store.read(`assisted_applications/${id}`) };
     };
@@ -319,7 +319,7 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     expect(store.read(ORDER_PATH)).toMatchObject({ followupDueAt: T0 + 7 * DAY_MS });
     const codex = vi.fn(async () => ({ body: GOOD_FOLLOWUP }));
     const mails: any[] = [];
-    const sendCascade = vi.fn(async (items: any[]) => { mails.push(...items); return { failed: [], sent: [{ provider: 'resend' }] }; });
+    const sendCascade = vi.fn(async (items: any[]) => { mails.push(...items); return { failed: [], sent: [{ provider: 'maileroo' }] }; });
     const deps = { db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true };
 
     expect(await runFollowupSweep({ ...deps, nowMs: T0 + 6 * DAY_MS })).toMatchObject({ processed: 0 });
@@ -348,7 +348,7 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     const submission = { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: '<aa-1@candidature.frontaliereticino.ch>', sentAt: T0 };
     await scheduleFollowups(store.db, ORDER, submission);
     const codex = vi.fn(async () => ({ body: GOOD_FOLLOWUP }));
-    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
     const deps = { db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true };
     await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS });
     await runFollowupSweep({ ...deps, nowMs: T0 + 7 * DAY_MS + 13 * 60 * 60 * 1000 });
