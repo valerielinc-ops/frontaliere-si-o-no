@@ -85,6 +85,13 @@ const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+const SECO_HOMEPAGE_BY_LOCALE: Record<ArchiveHubLocale, string> = {
+  it: 'https://www.seco.admin.ch/seco/it/home.html',
+  en: 'https://www.seco.admin.ch/seco/en/home.html',
+  de: 'https://www.seco.admin.ch/seco/de/home.html',
+  fr: 'https://www.seco.admin.ch/seco/fr/home.html',
+};
+
 /** Build the archive page navigator independently from long-form copy. */
 export function buildCantonHubArchiveNavigation(opts: CantonHubArchiveNavigationOpts): string {
   const navigablePages = Math.max(1, Math.floor(opts.archiveNavigablePages ?? opts.totalPages));
@@ -210,7 +217,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   } = opts;
   const navigablePages = Math.max(1, Math.floor(archiveNavigablePages ?? totalPages));
   const isTi = canton === 'TI';
-  const secoHomepageUrl = `https://www.seco.admin.ch/${locale}`;
+  const secoHomepageUrl = SECO_HOMEPAGE_BY_LOCALE[locale];
   const out: string[] = [];
 
   // Zero is a measured empty inventory, never a reason to invent vacancies.
