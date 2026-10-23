@@ -8,6 +8,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/medimeo-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { selectMedimeoAddressLocality } from '../scripts/lib/medimeo-location.mjs';
 
 describe('Medimeo AG crawler parser', () => {
   // ── Constants ──
@@ -132,6 +133,25 @@ describe('Medimeo AG crawler parser', () => {
         addressCountry: 'CH',
         addressRegion: 'ZH',
       })).toBeNull();
+    });
+  });
+
+  describe('selectMedimeoAddressLocality', () => {
+    it('keeps a concrete source municipality when a multi-area locality is canton-only or ambiguous', () => {
+      expect(selectMedimeoAddressLocality(
+        'Biel / Solothurn / Mittelland',
+        'Soletta',
+        'SO',
+      )).toBe('Solothurn');
+      expect(selectMedimeoAddressLocality(
+        'Biel / Solothurn / Mittelland',
+        'Biel',
+        'SO',
+      )).toBe('Solothurn');
+    });
+
+    it('preserves a source locality that already belongs to the resolved canton', () => {
+      expect(selectMedimeoAddressLocality('Olten / Aargau', 'Olten', 'SO')).toBe('Olten');
     });
   });
 
