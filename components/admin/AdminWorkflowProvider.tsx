@@ -240,10 +240,13 @@ export function AdminWorkflowProvider({ children }: { children: ReactNode }) {
       return requestWithStatus(method, path.slice(prefix.length) || '/', body);
     };
     try {
-      return await dispatchWorkflowOnce({
+      const result = await dispatchWorkflowOnce({
         repository: ADMIN_GITHUB_REPOSITORY, workflowFile: workflow.id, ref: 'main', inputs: { ...(workflow.defaultInputs || {}), ...inputs },
         request: requestDispatch, sleep: (milliseconds: number) => sleep(milliseconds),
-      }) as { runId: number; run: Record<string, unknown> };
+      });
+      const runId = Number(result.runId);
+      if (!Number.isSafeInteger(runId) || runId < 1) throw new Error('GitHub ha restituito un run ID non rappresentabile.');
+      return { runId, run: result.run };
     } catch (error) {
       const identity = workflowDispatchErrorIdentity(error);
       if (identity.runId !== null && identity.htmlUrl !== null) throw new AdminWorkflowDispatchError(`GitHub ha creato il run ${identity.runId}, ma non è stato possibile verificarne il binding. Non ricliccare: controlla il run in Actions (${identity.htmlUrl}).`, true, identity.runId, identity.htmlUrl);

@@ -537,10 +537,15 @@ describe('Frontend authService — subscriber profile enrichment', () => {
 });
 
 describe('Profile enrichment — no subscriber creation side effect', () => {
-  it('only merges partial profile fields onto an existing subscriber', () => {
+  it('keeps partial profile persistence owner-scoped without creating a subscriber', () => {
     const source = readFileSync(resolve(root, 'services/profileFirestore.ts'), 'utf8');
-    expect(source).toContain('const existingSubscriber = await getDoc(subscriberRef);');
-    expect(source).toContain('if (!existingSubscriber.exists()) return;');
+    const saveFn = source.slice(
+      source.indexOf('export async function savePartialProfile'),
+      source.indexOf('async function authenticatedUidForEmail'),
+    );
+    expect(saveFn).toContain('saveUserProfileFields(uid, partial)');
+    expect(saveFn).not.toContain('newsletter_subscribers');
+    expect(saveFn).not.toContain('addDoc');
   });
 
   it('only toggles autologin on an existing subscriber', () => {
@@ -614,8 +619,8 @@ describe('UserProfile.tsx — profile persistence', () => {
 
   it('loads profile from newsletter_subscribers collection', () => {
     const loadFn = source.slice(
+      source.indexOf('const loadLegacyProfileFromFirestore'),
       source.indexOf('const loadProfileFromFirestore'),
-      source.indexOf('} catch {', source.indexOf('const loadProfileFromFirestore'))
     );
     expect(loadFn).toContain("'newsletter_subscribers'");
   });

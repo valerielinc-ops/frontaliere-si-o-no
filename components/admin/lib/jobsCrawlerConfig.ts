@@ -58,6 +58,20 @@ export function parseJsonObject(value: string): Record<string, unknown> {
   return parsed as Record<string, unknown>;
 }
 
+export function parseNumberMap(value: string): Record<string, number> {
+  const parsed = parseJsonObject(value);
+  const result: Record<string, number> = {};
+  for (const [key, rawValue] of Object.entries(parsed)) {
+    const trimmedKey = key.trim();
+    const numericValue = Number(rawValue);
+    if (!trimmedKey || !Number.isFinite(numericValue)) {
+      throw new Error('JSON non valido: attesi chiavi e punteggi numerici');
+    }
+    result[trimmedKey] = numericValue;
+  }
+  return result;
+}
+
 export function normalizeSeedMap(input: Record<string, unknown>): Record<string, string[]> {
   const output: Record<string, string[]> = {};
   for (const [key, value] of Object.entries(input || {})) {

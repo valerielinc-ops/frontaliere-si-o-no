@@ -14,6 +14,7 @@ import {
   mapCrawlerConfig,
   normalizeHost,
   normalizeSeedMap,
+  parseNumberMap,
   parseJsonObject,
   parseListInput,
 } from '@/components/admin/lib/jobsCrawlerConfig';
@@ -61,8 +62,8 @@ export default function ConfigurazioneCrawlerSection() {
         ...config,
         domainWhitelist: parseListInput(domainWhitelistText).map(normalizeHost).filter(Boolean),
         domainBlacklist: parseListInput(domainBlacklistText).map(normalizeHost).filter(Boolean),
-        companyPriorityByDomain: parseJsonObject(companyPriorityByDomainText),
-        companyPriorityByName: parseJsonObject(companyPriorityByNameText),
+        companyPriorityByDomain: parseNumberMap(companyPriorityByDomainText),
+        companyPriorityByName: parseNumberMap(companyPriorityByNameText),
         sourceSeedsByDomain: normalizeSeedMap(parseJsonObject(sourceSeedsByDomainText)),
         sourceSeedsByName: normalizeSeedMap(parseJsonObject(sourceSeedsByNameText)),
       };
