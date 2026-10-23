@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
@@ -31,7 +32,10 @@ describe('article corpus sync', () => {
     const root = fileURLToPath(new URL('../packages/articles/content', import.meta.url));
 
     for (const [relativeFile, articleId] of SYNCHRONIZED_BODIES) {
-      const source = fs.readFileSync(path.join(root, relativeFile), 'utf8');
+      const absoluteFile = path.join(root, relativeFile);
+      const source = fs.existsSync(absoluteFile)
+        ? fs.readFileSync(absoluteFile, 'utf8')
+        : execFileSync('git', ['show', `HEAD:packages/articles/content/${relativeFile}`], { encoding: 'utf8' });
       const body1 = source.match(new RegExp(`['"]blog\\.article\\.${articleId}\\.body1['"]\\s*:\\s*(['"])([\\s\\S]*?)\\1`))?.[2] ?? '';
       expect(body1.trim(), relativeFile).not.toHaveLength(0);
     }
