@@ -57,10 +57,100 @@ import {
   ASSET_EXT_ALTERNATION,
   ASSETS_SAME_ORIGIN_RX,
 } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
-import { formatCdnAssetReport, formatOffloadCoverageReport, verifyCdnAssetRefs } from './lib/cdn-asset-existence.mjs';
+import {
+  CDN_ASSET_CHECK_BUDGET_MS,
+  formatCdnAssetReport,
+  formatOffloadCoverageReport,
+  verifyCdnAssetRefs,
+} from './lib/cdn-asset-existence.mjs';
 
 const ORIGIN = 'https://frontaliereticino.ch';
 const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
+
+// A CDN 5xx is an edge/transit failure, not evidence that the asset is absent.
+// Keep this transport-local: the site's verifier is an adapted module with its
+// own soft-404 and publish-path contracts, while this deploy script owns the
+// retry boundary around the actual asset probes.
+const CDN_ASSET_RETRY_MAX_ATTEMPTS = 5;
+const CDN_ASSET_RETRY_DELAY_MS = 500;
+const CDN_ASSET_PROBE_TIMEOUT_MS = 8_000;
+
+function releaseCdnProbeResponse(response) {
+  try {
+    response?.body?.cancel?.();
+  } catch {
+    // The probe is fail-open; a test double or unusual Response body must not
+    // turn a transient CDN observation into a deploy failure.
+  }
+}
+
+/**
+ * Probe one rewritten asset with bounded retries for transient CDN 5xxs.
+ *
+ * The asset deadline includes HEAD, a possible GET fallback, backoff, and all
+ * retries. `globalDeadline` is shared by the caller across the whole URL set,
+ * so retrying one asset cannot extend the publish-path budget for the others.
+ * Network errors remain fail-open and are deliberately not retried here.
+ */
+async function retryCdnAssetProbe(
+  url,
+  {
+    fetchImpl = fetch,
+    requestInit = {},
+    maxAttempts = CDN_ASSET_RETRY_MAX_ATTEMPTS,
+    retryDelayMs = CDN_ASSET_RETRY_DELAY_MS,
+    timeoutMs = CDN_ASSET_PROBE_TIMEOUT_MS,
+    globalDeadline = Number.POSITIVE_INFINITY,
+    now = Date.now,
+    sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+  } = {},
+) {
+  const attemptsLimit = Number.isFinite(maxAttempts) ? Math.max(1, Math.floor(maxAttempts)) : 1;
+  const retryDelayBaseMs = Number.isFinite(retryDelayMs) ? Math.max(0, retryDelayMs) : 0;
+  const method = String(requestInit.method || 'HEAD').toUpperCase();
+  const assetDeadline = Math.min(now() + Math.max(1, timeoutMs), globalDeadline);
+  let response = null;
+
+  for (let attempt = 1; attempt <= attemptsLimit; attempt += 1) {
+    const remainingMs = Math.min(assetDeadline - now(), globalDeadline - now());
+    if (remainingMs < 1) {
+      throw new Error(`budget CDN esaurito prima della richiesta per ${url}`);
+    }
+
+    response = await fetchImpl(url, {
+      ...requestInit,
+      method,
+      signal: AbortSignal.timeout(Math.max(1, Math.floor(remainingMs))),
+    });
+
+    // Keep the existing HEAD→GET contract, but make both hops share the same
+    // per-asset and global deadlines instead of giving GET a fresh timeout.
+    if (method === 'HEAD' && (response.status === 405 || response.status === 501)) {
+      const headStatus = response.status;
+      releaseCdnProbeResponse(response);
+      const getRemainingMs = Math.min(assetDeadline - now(), globalDeadline - now());
+      if (getRemainingMs < 1) {
+        throw new Error(`HEAD ${headStatus} senza budget per GET di ${url}`);
+      }
+      response = await fetchImpl(url, {
+        ...requestInit,
+        method: 'GET',
+        signal: AbortSignal.timeout(Math.max(1, Math.floor(getRemainingMs))),
+      });
+    }
+
+    if (response.status < 500 || response.status > 599 || attempt >= attemptsLimit) return response;
+
+    const backoffRemainingMs = Math.min(assetDeadline - now(), globalDeadline - now());
+    const backoffMs = Math.min(retryDelayBaseMs * (2 ** (attempt - 1)), backoffRemainingMs);
+    if (backoffRemainingMs < 1 || backoffMs >= backoffRemainingMs) return response;
+
+    releaseCdnProbeResponse(response);
+    await sleepImpl(backoffMs);
+  }
+
+  return response;
+}
 
 // Offload targets: [dist subdir, url path prefix]. Only these prefixes are
 // rewritten/guarded/deleted.
@@ -969,7 +1059,17 @@ async function main() {
   })) console.log(line);
 
   if (cdnAssetUrls.length > 0) {
-    const results = await verifyCdnAssetRefs({ urls: cdnAssetUrls });
+    const globalDeadline = Date.now() + CDN_ASSET_CHECK_BUDGET_MS;
+    const results = await verifyCdnAssetRefs({
+      urls: cdnAssetUrls,
+      // The adapted site verifier keeps classification/reporting (including
+      // soft-404 HTML); this wrapper transports only the bounded 5xx retry from
+      // the corpus counterpart and shares one hard global deadline.
+      fetchImpl: (url, requestInit) => retryCdnAssetProbe(url, {
+        requestInit,
+        globalDeadline,
+      }),
+    });
     for (const line of formatCdnAssetReport(results, '[offload-generated-cdn]')) console.log(line);
   }
 }

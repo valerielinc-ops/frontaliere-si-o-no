@@ -274,4 +274,40 @@ describe('guardia di esistenza degli /assets/ riscritti sul CDN', () => {
       fs.rmSync(tmp, { recursive: true, force: true });
     }
   });
+
+  it('ritenta i 5xx transitori prima di classificare l asset come UNKNOWN', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'offload-retry-'));
+    try {
+      const dist = path.join(tmp, 'dist');
+      fs.mkdirSync(path.join(dist, 'blog'), { recursive: true });
+      fs.writeFileSync(
+        path.join(dist, 'blog', 'index.html'),
+        '<html><head><script src="/assets/retry.js"></script></head><body>x</body></html>',
+      );
+
+      const preload = path.join(tmp, 'stub-fetch.mjs');
+      fs.writeFileSync(
+        preload,
+        'let attempts = 0;\n'
+        + 'globalThis.fetch = async () => {\n'
+        + '  attempts += 1;\n'
+        + '  const status = attempts < 3 ? 502 : 200;\n'
+        + '  return { ok: status >= 200 && status < 300, status, headers: { get: () => "text/javascript" } };\n'
+        + '};\n'
+        + 'process.on("exit", () => console.log(`PROBE_ATTEMPTS=${attempts}`));\n',
+      );
+
+      const out = execFileSync(
+        process.execPath,
+        ['--import', `file://${preload}`, path.join(ROOT, 'scripts/offload-generated-images-cdn.mjs')],
+        { cwd: tmp, encoding: 'utf8', env: { ...process.env, CDN_BASE: 'https://cdn.example.test' } },
+      );
+
+      expect(out).toContain('PROBE_ATTEMPTS=3');
+      expect(out).toContain('1 presenti');
+      expect(out).not.toContain('::warning::');
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
 });

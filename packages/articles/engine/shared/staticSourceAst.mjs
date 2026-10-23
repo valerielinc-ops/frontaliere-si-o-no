@@ -66,7 +66,7 @@ function createSourceFile(source, fileName) {
  * backticks must become valid string-literal escapes. Computed and interpolated
  * names remain unsupported and therefore fail closed.
  */
-function normalizeTemplatePropertyNames(source) {
+function templatePropertyNameReplacements(source) {
   const scanner = ts.createScanner(ts.ScriptTarget.Latest, true, ts.LanguageVariant.Standard, source);
   const tokens = [];
   let kind;
@@ -100,6 +100,11 @@ function normalizeTemplatePropertyNames(source) {
     replacements.push({ start: token.pos, end: token.end, value: replacement });
   }
 
+  return replacements;
+}
+
+function normalizeTemplatePropertyNames(source) {
+  const replacements = templatePropertyNameReplacements(source);
   if (replacements.length === 0) return source;
   let normalized = source;
   for (let index = replacements.length - 1; index >= 0; index -= 1) {

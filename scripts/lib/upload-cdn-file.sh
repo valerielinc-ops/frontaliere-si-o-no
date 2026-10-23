@@ -130,6 +130,13 @@ _r2_timeout_s() {
   printf '%s\n' "$fallback"
 }
 
+# `date +%s` is interpolated as a JSON number below. A successful command with
+# unexpected output must not produce malformed recovery context (or arm a
+# cleanup path with an ambiguous lease timestamp).
+is_valid_recovery_timestamp() {
+  [[ "${1:-}" =~ ^[1-9][0-9]*$ ]]
+}
+
 # Extension → Content-Type. Explicit table, not auto-detection — see header
 # comment for why (.webp specifically is unreliable via rclone/Go mime sniff
 # on some runners).
@@ -361,10 +368,15 @@ if [ -n "$image_namespace" ]; then
     }
     image_lease_owner="${lease_identity:0:32}"
     image_lease_id="${lease_identity:32:32}"
-    image_lease_acquired_at="$(date +%s)000" || {
+    image_lease_timestamp_s="$(date +%s)" || {
       echo "::warning::[cdn-upload] could not create a recovery timestamp for the ${image_namespace} lease — skipping upload of ${cdn_key}"
       exit 0
     }
+    if ! is_valid_recovery_timestamp "$image_lease_timestamp_s"; then
+      echo "::warning::[cdn-upload] recovery timestamp for the ${image_namespace} lease is not a positive decimal — skipping upload of ${cdn_key}"
+      exit 0
+    fi
+    image_lease_acquired_at="${image_lease_timestamp_s}000"
     image_lease_context="$(printf '{\"version\":1,\"leases\":[{\"namespace\":\"%s\",\"owner\":\"%s\",\"leaseId\":\"%s\",\"acquiredAt\":%s,\"expiresAt\":0}]}' \
       "$image_namespace" "$image_lease_owner" "$image_lease_id" "$image_lease_acquired_at")"
     image_lease_owned_here=1

@@ -138,6 +138,27 @@ describe('static article TypeScript source reader', () => {
     ]);
   });
 
+  it('keeps CRLF and escaped backticks lossless through templatePropertyNameReplacements', () => {
+    const source = [
+      'const translations = {',
+      '  `crlf\r',
+      'line`: "value",',
+      '  `escaped\\`tick`: "other",',
+      '};',
+      'export default translations;',
+    ].join('\n');
+
+    const parsed = parseStaticSource(source, 'static-template-crlf.ts', {
+      normalizeTemplatePropertyNames: true,
+    });
+    const properties = readStaticObjectProperties(findTopLevelObjects(parsed)[0]);
+
+    expect(properties.map((property) => staticPropertyName(property.name))).toEqual([
+      'crlf\nline',
+      'escaped`tick',
+    ]);
+  });
+
   it('rejects computed keys, duplicate keys, dynamic values, and malformed trailing source', () => {
     const invalidSources = [
       moduleWith([
