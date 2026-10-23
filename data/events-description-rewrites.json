@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-23T19:11:17.546Z",
+  "generatedAt": "2026-10-23T20:21:13.543Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -32906,6 +32906,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T13:16:14.801Z"
     },
+    "guidle:AkmS5RD::704ebf3e00b4e6ec1d49d29491607d3430d957400418c68eeba03be76cb6d13a": {
+      "id": "guidle:AkmS5RD",
+      "sourceDescriptionHash": "704ebf3e00b4e6ec1d49d29491607d3430d957400418c68eeba03be76cb6d13a",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: MAAG Halle; cantone: ZH; categoria: Musical; organizzatore: Guidle; data: 2027-02-25; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: MAAG Halle; cantone: ZH; categoria: Musical; organizzatore: Guidle; data: 2027-02-25; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: MAAG Halle; canton: ZH; category: Musical; organiser: Guidle; date: 2027-02-25; time: 19:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: MAAG Halle; kanton: ZH; kategorie: Musical; veranstalter: Guidle; datum: 2027-02-25; uhrzeit: 19:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: MAAG Halle; canton: ZH; catégorie: Musical; organisateur: Guidle; date: 2027-02-25; heure: 19:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-23T20:17:20.301Z"
+    },
     "guidle:AKmZj4D::980c8c7b045beb70ff6d43bcaa360415bae666117ae9aa9f43b10b05cbb99c03": {
       "id": "guidle:AKmZj4D",
       "sourceDescriptionHash": "980c8c7b045beb70ff6d43bcaa360415bae666117ae9aa9f43b10b05cbb99c03",
@@ -33829,6 +33843,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T02:18:55.264Z"
+    },
+    "guidle:ALk1HJ5::cfd14adcfc98cc95523da8e0ec6dee14fe1b965a0dc71e7986ded964d82c7b15": {
+      "id": "guidle:ALk1HJ5",
+      "sourceDescriptionHash": "cfd14adcfc98cc95523da8e0ec6dee14fe1b965a0dc71e7986ded964d82c7b15",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Hotel & Landgasthof Rothorn; comune: Sigriswil; cantone: BE; categoria: Other Swiss folk music; organizzatore: Guidle; data: 2027-01-22; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Hotel & Landgasthof Rothorn; comune: Sigriswil; cantone: BE; categoria: Other Swiss folk music; organizzatore: Guidle; data: 2027-01-22; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Hotel & Landgasthof Rothorn; municipality: Sigriswil; canton: BE; category: Other Swiss folk music; organiser: Guidle; date: 2027-01-22; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Hotel & Landgasthof Rothorn; gemeinde: Sigriswil; kanton: BE; kategorie: Other Swiss folk music; veranstalter: Guidle; datum: 2027-01-22; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Hotel & Landgasthof Rothorn; commune: Sigriswil; canton: BE; catégorie: Other Swiss folk music; organisateur: Guidle; date: 2027-01-22; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-23T20:17:20.265Z"
     },
     "guidle:ALkVQkd::619c62372134a7e848232c23b689cff11b2b9cc35887562ec84745b10e888c59": {
       "id": "guidle:ALkVQkd",
@@ -169926,15 +169954,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AkmS5RD::704ebf3e00b4e6ec1d49d29491607d3430d957400418c68eeba03be76cb6d13a": {
-      "id": "guidle:AkmS5RD",
-      "sourceDescriptionHash": "704ebf3e00b4e6ec1d49d29491607d3430d957400418c68eeba03be76cb6d13a",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-23T18:21:46.084Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AKNQ7kk::862f0b552416016fc696f51d81d33f6435ce03d3ffaab65b8c2678d92a493b4e": {
       "id": "guidle:AKNQ7kk",
       "sourceDescriptionHash": "862f0b552416016fc696f51d81d33f6435ce03d3ffaab65b8c2678d92a493b4e",
@@ -170058,15 +170077,6 @@
       "code": "sentence-count",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T03:36:35.776Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:ALk1HJ5::cfd14adcfc98cc95523da8e0ec6dee14fe1b965a0dc71e7986ded964d82c7b15": {
-      "id": "guidle:ALk1HJ5",
-      "sourceDescriptionHash": "cfd14adcfc98cc95523da8e0ec6dee14fe1b965a0dc71e7986ded964d82c7b15",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-23T18:19:11.364Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
