@@ -131,6 +131,14 @@ function commitGroup(repoDir: string, runnerTemp: string, envOverrides: Record<s
   });
 }
 
+function repairGroupReceipts(repoDir: string, runnerTemp: string, envOverrides: Record<string, string> = {}) {
+  return spawnSync(BASH_BIN, [SCRIPT_PATH, '--group-receipt-repair', 'repair receipts'], {
+    cwd: repoDir,
+    encoding: 'utf8',
+    env: { ...groupEnv(repoDir, runnerTemp), ...envOverrides },
+  });
+}
+
 // Regression coverage for the post-#3701 shared-workspace commit-loss class:
 // crawler-group workflows run ~25 sibling crawlers as concurrent background
 // steps against ONE checkout. The legacy commit path (stash --include-untracked
@@ -976,6 +984,73 @@ exec ${JSON.stringify(process.execPath)} "$@"
         outcome: 'noop',
       });
       expect(readFileSync(githubOutput, 'utf8')).toBe(`has_changes=true\nfinal_commit=${published}\n`);
+    } finally {
+      rmSync(shimDir, { recursive: true, force: true });
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('repairs every missing receipt without reacquiring the global data lease', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-receipt-only-repair-'));
+    const shimDir = mkdtempSync(join(tmpdir(), 'gcd-node-receipt-only-shim-'));
+    const failureMarker = join(shimDir, 'failed-once');
+    const githubOutput = join(runnerTemp, 'github-output.txt');
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      for (const crawlerId of ['a', 'b']) {
+        writeFileSync(join(repoDir, 'data/jobs/by-crawler/' + crawlerId + '.json'), '[]\n');
+      }
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      for (const crawlerId of ['a', 'b']) {
+        writeFileSync(
+          join(repoDir, 'data/jobs/by-crawler/' + crawlerId + '.json'),
+          '[{"id":"' + crawlerId + '1"}]\n',
+        );
+        expect(deferGroupCommit(repoDir, runnerTemp, crawlerId).status).toBe(0);
+      }
+
+      writeFileSync(failureMarker, '0\n');
+      const shim = [
+        '#!/bin/bash',
+        'for arg in "$@"; do',
+        '  if [ "$arg" = "--batch-receipts" ] && [ "$(cat ' + JSON.stringify(failureMarker) + ')" = "0" ]; then',
+        "    printf 'synthetic receipt write failure\\n' >&2",
+        "    printf '1\\n' > " + JSON.stringify(failureMarker),
+        '    exit 1',
+        '  fi',
+        'done',
+        'exec ' + JSON.stringify(process.execPath) + ' "$@"',
+        '',
+      ].join('\n');
+      writeFileSync(join(shimDir, 'node'), shim);
+      chmodSync(join(shimDir, 'node'), 0o755);
+
+      const firstBatch = commitGroup(repoDir, runnerTemp, {
+        PATH: shimDir + delimiter + (process.env.PATH ?? ''),
+        GITHUB_OUTPUT: githubOutput,
+      });
+      expect(firstBatch.status, firstBatch.stdout + firstBatch.stderr).toBe(46);
+
+      const repair = repairGroupReceipts(repoDir, runnerTemp, {
+        DATA_PIPELINE_LEASE: '1',
+        GITHUB_OUTPUT: githubOutput,
+      });
+      expect(repair.status, repair.stdout + repair.stderr).toBe(0);
+      const published = execFileSync('git', ['rev-parse', 'origin/main'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).trim();
+      expect(readFileSync(join(runnerTemp, 'crawler-generation/receipts/a.json'), 'utf8'))
+        .toContain('"crawlerId":"a"');
+      expect(readFileSync(join(runnerTemp, 'crawler-generation/receipts/b.json'), 'utf8'))
+        .toContain('"crawlerId":"b"');
+      expect(readFileSync(githubOutput, 'utf8')).toBe('has_changes=true\nfinal_commit=' + published + '\n');
+      expect(repair.stdout + repair.stderr).toContain('without reacquiring the data-pipeline lease');
     } finally {
       rmSync(shimDir, { recursive: true, force: true });
       rmSync(originDir, { recursive: true, force: true });

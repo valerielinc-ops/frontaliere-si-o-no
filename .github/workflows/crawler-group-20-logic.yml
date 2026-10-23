@@ -7980,6 +7980,16 @@ jobs:
             if [ "$git_commit_exit" -eq 0 ]; then
               exit 0
             fi
+            if [ "$git_commit_exit" -eq 46 ]; then
+              echo "::notice::group commit: attempting receipt-only repair after the data tree was published"
+              bash scripts/lib/git-commit-data.sh --group-receipt-repair "Repair crawler group 20 delivery receipts"
+              receipt_repair_exit=$?
+              if [ "$receipt_repair_exit" -eq 0 ]; then
+                echo "✅ group commit: receipt-only repair completed without another data push"
+                exit 0
+              fi
+              echo "::warning::receipt-only repair failed (exit $receipt_repair_exit); continuing with the full same-generation retry"
+            fi
             if [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 46 ]; then
             echo "::error::group commit failed (exit $git_commit_exit); token-bound output was not published"
             echo "❌ group commit failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"

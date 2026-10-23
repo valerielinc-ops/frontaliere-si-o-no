@@ -877,13 +877,28 @@ export function reportCrawlerAlert({ slug, run, indent = 0 } = {}) {
   ];
 }
 
-function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLines } = {}) {
+function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLines, receiptRepairCommand } = {}) {
   if (typeof command !== 'string' || command.length === 0) throw new TypeError('token-bound commit command is required');
   if (typeof label !== 'string' || label.length === 0) throw new TypeError('token-bound commit label is required');
+  if (receiptRepairCommand !== undefined && (typeof receiptRepairCommand !== 'string' || receiptRepairCommand.length === 0)) {
+    throw new TypeError('receipt repair command must be a non-empty string when provided');
+  }
   const commandLines = command.split('\n').map((line) => `  ${line}`);
   const failureLines = nonRetryableFailureLines ?? [
     `  echo "::error::${label} failed (exit $git_commit_exit); token-bound output was not published"`,
     `  echo "❌ ${label} failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"`,
+  ];
+  const receiptRepairLines = receiptRepairCommand === undefined ? [] : [
+    `  if [ "$git_commit_exit" -eq ${RECEIPT_FAILURE_EXIT} ]; then`,
+    `    echo "::notice::${label}: attempting receipt-only repair after the data tree was published"`,
+    `    ${receiptRepairCommand}`,
+    '    receipt_repair_exit=$?',
+    '    if [ "$receipt_repair_exit" -eq 0 ]; then',
+    `      echo "✅ ${label}: receipt-only repair completed without another data push"`,
+    '      exit 0',
+    '    fi',
+    '    echo "::warning::receipt-only repair failed (exit $receipt_repair_exit); continuing with the full same-generation retry"',
+    '  fi',
   ];
   return [
     'set +e',
@@ -895,6 +910,7 @@ function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLine
     '  if [ "$git_commit_exit" -eq 0 ]; then',
     '    exit 0',
     '  fi',
+    ...receiptRepairLines,
     `  if [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RECEIPT_FAILURE_EXIT} ]; then`,
     ...failureLines,
     '    exit "$git_commit_exit"',
@@ -918,6 +934,7 @@ export function crawlerGroupBatchCommitRun(groupIndex) {
   return buildTokenBoundCommitRetryRun({
     command: `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${group} jobs"`,
     label: 'group commit',
+    receiptRepairCommand: `bash scripts/lib/git-commit-data.sh --group-receipt-repair "Repair crawler group ${group} delivery receipts"`,
   });
 }
 

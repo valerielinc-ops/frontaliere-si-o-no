@@ -5,6 +5,7 @@
 # Usage:
 #   bash scripts/lib/git-commit-data.sh "commit message" [extra-paths ...]
 #   bash scripts/lib/git-commit-data.sh --slice-only "commit message" [extra-paths ...]
+#   bash scripts/lib/git-commit-data.sh --group-receipt-repair "repair message"
 #   bash scripts/lib/git-commit-data.sh --extra-only "commit message" [extra-paths ...]
 #
 # --slice-only mode:
@@ -194,6 +195,7 @@ fi
 # ── Parse commit mode ────────────────────────────────────────────────────────
 SLICE_ONLY=false
 GROUP_BATCH=false
+GROUP_RECEIPT_REPAIR=false
 EXTRA_ONLY=false
 # Set to true (below) only for grouped crawler-group invocations, which share
 # one working copy across ~25 concurrent sibling crawlers and therefore must
@@ -210,12 +212,23 @@ elif [ "${1:-}" = "--group-batch" ]; then
   SLICE_ONLY=true
   GROUPED_ISOLATED=true
   shift
+elif [ "${1:-}" = "--group-receipt-repair" ]; then
+  # A receipt failure is emitted only after the grouped tree is already on the
+  # remote ref (or was confirmed there). This mode repairs the evidence from
+  # the durable descriptors without reacquiring the data-pipeline lease or
+  # attempting another push; the caller falls back to the full batch retry if
+  # the remote tree no longer matches those descriptors.
+  GROUP_BATCH=true
+  GROUP_RECEIPT_REPAIR=true
+  SLICE_ONLY=true
+  GROUPED_ISOLATED=true
+  shift
 elif [ "${1:-}" = "--slice-only" ]; then
   SLICE_ONLY=true
   shift
 fi
 
-COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch] 'commit message' [extra-paths...]}"
+COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch|--group-receipt-repair] 'commit message' [extra-paths...]}"
 shift
 EXTRA_PATHS=("$@")
 
@@ -702,6 +715,10 @@ if [ "$GROUP_BATCH" = true ]; then
     echo "ℹ️ crawler group batch: snapshot operations by class (excludes unchanged): ${_class_summary}"
   fi
   if [ "${#RESOLVED_FILES[@]}" -eq 0 ]; then
+    if [ "$GROUP_RECEIPT_REPAIR" = true ]; then
+      echo "❌ crawler group receipt-only repair found no durable commit descriptors"
+      exit 1
+    fi
     echo "ℹ️ crawler group batch: no successful crawler produced a commit descriptor"
     [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
     exit 0
@@ -2278,6 +2295,34 @@ git_fetch_retry() {
     sleep "$delay"
   done
 }
+
+# Exit 46 means the data tree is already durable but its generation receipts
+# are not. Rebuilding and pushing the whole batch here would reacquire the
+# global lease and can lose the repair window to another writer. Fetch only
+# the current remote tip and write receipts after verifying every descriptor's
+# exact snapshot is still present there. If a sibling has changed one of the
+# descriptor paths, this mode fails closed and the normal batch retry below
+# rebuilds the candidate tree instead.
+if [ "$GROUP_RECEIPT_REPAIR" = true ]; then
+  ensure_git_auth
+  git_fetch_retry
+  repair_remote_sha="$(git rev-parse origin/main)"
+  repair_receipt_exit=0
+  CRAWLER_GENERATION_RECEIPT_OUTCOME=noop \
+    CRAWLER_GENERATION_RECEIPT_COMMIT="$repair_remote_sha" \
+    CRAWLER_GENERATION_RECEIPT_REMOTE_BASE="$repair_remote_sha" \
+    CRAWLER_GENERATION_RECEIPT_VERIFY_DESCRIPTOR_SNAPSHOTS=1 \
+    node "$(dirname "$0")/crawler-generation-receipt.mjs" --batch-receipts \
+    || repair_receipt_exit=$?
+  if [ "$repair_receipt_exit" -ne 0 ]; then
+    echo "::error::crawler group receipt-only repair failed (exit ${repair_receipt_exit}); full batch retry remains required"
+    exit "$repair_receipt_exit"
+  fi
+  echo "✅ Crawler group delivery receipts repaired at ${repair_remote_sha} without reacquiring the data-pipeline lease"
+  [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
+  [ -n "${GITHUB_OUTPUT:-}" ] && echo "final_commit=$repair_remote_sha" >> "$GITHUB_OUTPUT"
+  exit 0
+fi
 
 # ── 3+4 loop: Sync, align, commit, push (with retry on race conditions) ────
 # 14 attempts with widened jitter: measured on 2026-07-10, a burst of 11
