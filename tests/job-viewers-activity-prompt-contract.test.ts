@@ -3,11 +3,12 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const SOURCE = readFileSync(resolve(__dirname, '../components/community/JobViewersActivityPrompt.tsx'), 'utf8');
+const JOB_BOARD_SOURCE = readFileSync(resolve(__dirname, '../components/community/JobBoard.tsx'), 'utf8');
 
-describe('job viewers activity prompt contract (follow-up #14492)', () => {
-  it('keeps the prompt delayed and bounds the synthetic viewer count', () => {
-    expect(SOURCE).toMatch(/DISPLAY_DELAY_MS\s*=\s*8_000/u);
-    expect(SOURCE).toMatch(/AUTO_DISMISS_MS\s*=\s*7_000/u);
+describe('job viewers activity prompt contract', () => {
+  it('shows promptly, then bounds the synthetic viewer count', () => {
+    expect(SOURCE).toMatch(/DISPLAY_DELAY_MS\s*=\s*1_500/u);
+    expect(SOURCE).toMatch(/AUTO_DISMISS_MS\s*=\s*3_500/u);
     expect(SOURCE).toMatch(/Math\.floor\(Math\.random\(\) \* 4\) \+ 2/u);
     expect(SOURCE).toMatch(/stored >= 2 && stored <= 5/u);
   });
@@ -19,10 +20,23 @@ describe('job viewers activity prompt contract (follow-up #14492)', () => {
     expect(SOURCE).toMatch(/runtimeViewerCounts\.set\(jobId, count\)/u);
   });
 
-  it('does not render before the delayed state is complete and uses the popup queue', () => {
-    expect(SOURCE).toMatch(/if \(!visible \|\| count === null\) return null/u);
-    expect(SOURCE).toMatch(/<BottomPromptShell/u);
-    expect(SOURCE).toMatch(/priority=\{POPUP_PRIORITY\.JOB_VIEWERS_ACTIVITY\}/u);
-    expect(SOURCE).toMatch(/onShown=\{handleShown\}/u);
+  it('renders independently of the popup queue and keeps the toast above ads', () => {
+    expect(SOURCE).toMatch(/if \(!visible \|\| count === null \|\| typeof document === 'undefined'\)/u);
+    expect(SOURCE).not.toMatch(/requestSlot\(/u);
+    expect(SOURCE).not.toMatch(/POPUP_PRIORITY/u);
+    expect(SOURCE).toMatch(/ABOVE_MOBILE_NAV_BOTTOM/u);
+    expect(SOURCE).toMatch(/subscribeToAutoAdOverlay\(setAutoAdClearance\)/u);
+    expect(SOURCE).toMatch(/--bottom-prompt-ad-clearance/u);
+    expect(SOURCE).toMatch(/data-testid="gamification-toast"/u);
+    expect(SOURCE).toMatch(/data-bottom-prompt/u);
+    expect(SOURCE).toMatch(/--bottom-prompt-offset/u);
+    expect(SOURCE).toMatch(/createPortal/u);
+    expect(SOURCE).toMatch(/bg-warning-strong text-on-accent rounded-xl shadow-lg/u);
+    expect(JOB_BOARD_SOURCE).not.toMatch(/requestSlot\('job-inline-auth-gate'/u);
+    expect(JOB_BOARD_SOURCE).not.toMatch(/releaseSlot\('job-inline-auth-gate'/u);
+  });
+
+  it('does not render before the delayed state is complete', () => {
+    expect(SOURCE).toMatch(/if \(!visible \|\| count === null/u);
   });
 });
