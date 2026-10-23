@@ -109,6 +109,25 @@ describe('article SEO fallback builder', () => {
     expect(normalized).not.toMatch(/[\u2028\u2029]/);
   });
 
+  it('preserves Unicode separators inside fenced code while normalizing them outside', () => {
+    for (const separator of [String.fromCharCode(0x2028), String.fromCharCode(0x2029)]) {
+      const source = [
+        `## Titolo${separator}Paragrafo`,
+        '```text',
+        `line one${separator}line two`,
+        '```',
+      ].join('\n');
+
+      expect(normalizeArticleMarkdown(source)).toBe([
+        '## Titolo',
+        'Paragrafo',
+        '```text',
+        `line one${separator}line two`,
+        '```',
+      ].join('\n'));
+    }
+  });
+
   it('clamps a skipped heading level under the article section wrapper', () => {
     const html = renderArticleDerivedSectionsHtml([
       { heading: 'Contesto', html: '<h4>Analisi</h4><p>Testo.</p>' },
