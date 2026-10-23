@@ -211,7 +211,7 @@ describe('employer messages on the alias', () => {
     expect(processed).toEqual({ ok: true, category: 'interview_invite', forwarded: 'sent' });
     const inbox = store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => store.read(path)!);
     expect(inbox).toHaveLength(1);
-    expect(inbox[0]).toMatchObject({ status: 'processed', category: 'interview_invite', verificationCode: '', verificationUrl: '', from: 'hr@arbeitgeber.ch', classifiedBy: 'codex', forwarded: { status: 'sent' } });
+    expect(inbox[0]).toMatchObject({ status: 'processed', category: 'interview_invite', verificationCode: '', verificationUrl: '', from: 'hr@arbeitgeber.ch', classifiedBy: 'codex', forwarded: { status: 'sent', provider: 'maileroo' } });
     const envelope = JSON.parse(bucket.files.get(inbox[0].rawKey)!);
     expect(Buffer.from(decryptJson(envelope, Buffer.from(RUN_KEY, 'base64')).raw, 'base64').toString('latin1')).toContain('Einladung zum Vorstellungsgespr');
     const [[items, options]] = sendCascade.mock.calls as any;
