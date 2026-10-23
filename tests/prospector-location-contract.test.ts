@@ -38,6 +38,7 @@ import {
   dedupeLocationCandidates,
   locationEvidenceCandidates,
   locationEvidenceKey,
+  sourceBackedSwissGeographyFields,
 } from '../scripts/lib/prospector/location-evidence.mjs';
 
 const SEED_URL = 'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1';
@@ -181,11 +182,26 @@ describe('prospector location and identity contract', () => {
         candidate: {
           location: 'Biel / Solothurn / Mittelland',
           addressLocality: 'Soletta',
+          addressRegion: 'BE',
           addressCountry: 'CH',
         },
       });
       expect(fields).toMatchObject({
         location: 'Biel / Solothurn / Mittelland',
+        addressLocality: 'Solothurn',
+        addressRegion: 'SO',
+      });
+    });
+
+    it('reprojects a concrete multi-area locality from another canton', () => {
+      const fields = sourceBackedSwissGeographyFields(
+        {
+          location: 'Winterthur / Solothurn / Mittelland',
+          addressLocality: 'Winterthur',
+        },
+        { location: 'Winterthur / Solothurn / Mittelland', canton: 'SO' },
+      );
+      expect(fields).toMatchObject({
         addressLocality: 'Solothurn',
         addressRegion: 'SO',
       });

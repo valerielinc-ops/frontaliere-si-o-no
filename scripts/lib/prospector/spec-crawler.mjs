@@ -273,7 +273,7 @@ export function geographyFieldsForDecision(decision = {}, options = {}) {
   }, geography);
   const addressLocality = String(projectedAddress?.addressLocality || '').trim()
     || String(geography.location || '').split(/[,;/|]/)[0].trim();
-  const addressRegion = String(candidate.addressRegion || '').trim() || geography.canton;
+  const addressRegion = String(projectedAddress?.addressRegion || geography.canton).trim();
   const addressCountry = String(
     candidate.addressCountry
       || candidate.country

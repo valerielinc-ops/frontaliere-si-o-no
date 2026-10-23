@@ -2,7 +2,6 @@ import {
   TEXT_RESCUE_AMBIGUOUS_TOKENS,
   inferSwissTargetCanton,
   isCantonRelevant,
-  isCantonOnlyLabel,
   isKnownSwissMunicipality,
   isKnownSwissMunicipalityInCanton,
   isLiechtensteinPostalCode,
@@ -374,14 +373,14 @@ export function sourceBackedSwissGeographyFields(value, resolved = null) {
     && isKnownSwissMunicipalityInCanton(rawAddressLocality, geography.canton, {
       allowOfficialLocality: true,
     });
-  // Multi-area source labels can carry an ambiguous municipality or a
-  // translated canton name in addressLocality. When the resolver has already
-  // established the target canton, select a concrete municipality from the
-  // source location parts in that canton. Do not reinterpret a concrete
-  // locality or invent one from a broad single-area label.
+  // Multi-area source labels can carry a locality from another canton, an
+  // ambiguous municipality, or a translated canton name in addressLocality.
+  // When the resolver has already established the target canton, select a
+  // concrete municipality from the source location parts in that canton. Do
+  // not reinterpret a concrete locality already verified in that canton or
+  // invent one from a broad single-area label.
   const addressLocality = rawAddressLocality
     && !(sourceLocationParts.length > 1
-      && isCantonOnlyLabel(rawAddressLocality)
       && !rawLocalityIsInResolvedCanton)
     ? rawAddressLocality
     : sourceLocationParts
