@@ -65,6 +65,7 @@ function jobBoardCompanySlugFromPath(pathname: string): string | null {
 export interface NavigationState {
  // State
  activeTab: ActiveTab;
+ adminSection: string;
  calcolatoreSubTab: CalcolatoreSubTab;
  confrontiSubTab: ConfrontiSubTab;
  fiscoSubTab: FiscoSubTab;
@@ -105,6 +106,7 @@ export interface NavigationState {
 
  // Setters
  setActiveTab: Dispatch<SetStateAction<ActiveTab>>;
+ setAdminSection: Dispatch<SetStateAction<string>>;
  setCalcolatoreSubTab: Dispatch<SetStateAction<CalcolatoreSubTab>>;
  setConfrontiSubTab: Dispatch<SetStateAction<ConfrontiSubTab>>;
  setFiscoSubTab: Dispatch<SetStateAction<FiscoSubTab>>;
@@ -164,6 +166,7 @@ export function useNavigationState(): NavigationState {
  });
 
  const [activeTab, setActiveTab] = useState<ActiveTab>(initialRoute.route.activeTab);
+ const [adminSection, setAdminSection] = useState<string>(initialRoute.route.adminSection || '');
  const [calcolatoreSubTab, setCalcolatoreSubTab] = useState<CalcolatoreSubTab>(initialRoute.route.calcolatoreSubTab || 'calculator');
  const [confrontiSubTab, setConfrontiSubTab] = useState<ConfrontiSubTab>(initialRoute.route.confrontiSubTab || 'exchange');
  const [fiscoSubTab, setFiscoSubTab] = useState<FiscoSubTab>(initialRoute.route.fiscoSubTab || 'tax-return');
@@ -503,6 +506,7 @@ export function useNavigationState(): NavigationState {
    }
  }
  setActiveTab(route.activeTab);
+ setAdminSection(route.adminSection || '');
  if (route.calcolatoreSubTab) setCalcolatoreSubTab(route.calcolatoreSubTab);
  if (route.confrontiSubTab) setConfrontiSubTab(route.confrontiSubTab);
  if (route.fiscoSubTab) setFiscoSubTab(route.fiscoSubTab);
@@ -1141,13 +1145,13 @@ export function useNavigationState(): NavigationState {
  }, [activeTab, guidaSubTab, vitaSubTab, fiscoSubTab]);
 
  return {
- activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
+ activeTab, adminSection, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
  blogArticle, blogSection, swissArticle, cantonArticle, cantonTopic, blogPage, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus,
  notFoundPath, jobBoardFilterParams, staticOverlay, articleStaticFallbackKey,
 
- setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
+ setActiveTab, setAdminSection, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setPharmacyPath, setStatsSubTab,
  setBlogArticle, setBlogSection, setSwissArticle, setCantonArticle, setCantonTopic, setBlogPage, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,

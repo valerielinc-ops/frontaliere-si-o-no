@@ -61,7 +61,7 @@ describe('handleRedazioneAdmin', () => {
   beforeEach(() => {
     mockDb = fakeDb();
     verifyIdToken.mockReset();
-    verifyIdToken.mockResolvedValue({ email: ADMIN_EMAIL, email_verified: true });
+    verifyIdToken.mockResolvedValue({ uid: 'aAqGpXr2mUQNQlio3gCxut4bBzH3', email: ADMIN_EMAIL, email_verified: true });
   });
 
   it('rejects a non-admin caller', async () => {

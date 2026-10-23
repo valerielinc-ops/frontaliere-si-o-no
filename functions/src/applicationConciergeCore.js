@@ -12,7 +12,7 @@ import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { randomUUID } from 'node:crypto';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
-import { assertAdmin } from './adminEmployerInsights.js';
+import { assertSiteAdmin } from './adminAuth.js';
 import { verifyCaller } from './stripePublisherCore.js';
 import { ASSISTED_APPLICATION_CONSENT_VERSION } from './assistedApplicationCheckout.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
@@ -537,13 +537,13 @@ async function createProposal(db, raw, adminEmail) {
 export async function handleManageApplicationConcierge(req) {
   const method = String(req.method || 'GET').toUpperCase();
   if (method !== 'GET' && method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
-  const auth = await assertAdmin(req);
+  const auth = await assertSiteAdmin(req);
   if (!auth.ok) return { status: auth.status, body: { ok: false, error: auth.error } };
   const db = getAdminDb();
   try {
     if (method === 'POST') {
       if (boundedString(req.body?.action, 40) !== 'createProposal') throw new ApplicationConciergeError('invalid_action', 400);
-      return { status: 200, body: { ok: true, service: await createProposal(db, req.body || {}, auth.adminEmail) } };
+      return { status: 200, body: { ok: true, service: await createProposal(db, req.body || {}, auth.email) } };
     }
     const snapshot = await db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).get();
     const services = await Promise.all((snapshot.docs || []).map(async (doc) => {

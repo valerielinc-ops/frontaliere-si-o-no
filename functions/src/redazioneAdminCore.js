@@ -7,7 +7,7 @@
  * client-side, byline driven by the static `data/authors.ts` editorial-profile
  * registry) and the real-journalist catalog (`journalist_articles`
  * Firestore collection, gated by `firestore.rules` to each author's own
- * uid). This function gives the admin (Valerie, see `assertAdmin`) a
+ * uid). This function gives the site admin a
  * single GET that lists real-journalist articles across ALL authors
  * (Admin SDK bypasses the per-uid rule) plus the current admin overrides
  * for the AI editorial-profile registry, and a POST that writes those overrides.
@@ -34,7 +34,7 @@
  */
 
 import { getAdminDb } from './newsletterResendWebhookCore.js';
-import { assertAdmin } from './adminEmployerInsights.js';
+import { assertSiteAdmin } from './adminAuth.js';
 
 const AUTHOR_PROFILES_COLLECTION = 'author_profiles';
 const ARTICLE_AUTHOR_OVERRIDES_COLLECTION = 'article_author_overrides';
@@ -132,7 +132,7 @@ async function handleMutate(db, req, adminEmail) {
 /**
  * Entry point. GET lists both catalogs + current overrides; POST mutates
  * an editorial profile override or an AI-catalog article reassignment. Both
- * modes require the verified admin (assertAdmin).
+ * modes require the verified site admin.
  */
 export async function handleRedazioneAdmin(req) {
   const method = String(req.method || 'GET').toUpperCase();
@@ -140,7 +140,7 @@ export async function handleRedazioneAdmin(req) {
     return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
   }
 
-  const auth = await assertAdmin(req);
+  const auth = await assertSiteAdmin(req);
   if (!auth.ok) {
     return { status: auth.status, body: { ok: false, error: auth.error } };
   }
@@ -148,7 +148,7 @@ export async function handleRedazioneAdmin(req) {
   const db = getAdminDb();
 
   if (method === 'POST') {
-    return handleMutate(db, req, auth.adminEmail);
+    return handleMutate(db, req, auth.email);
   }
 
   return handleList(db);

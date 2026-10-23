@@ -1,0 +1,24 @@
+{
+  "companyKey": "meggen-ch",
+  "companyName": "Schloss Meggenhorn",
+  "companyHost": "publicjobs.ch",
+  "platform": "publicjobs.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://publicjobs.ch/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Bildung Jobs 194 Stellen",
+    "Energie, Ingenieurwesen & Verkehr Jobs 33 Stellen",
+    "Gastronomie, Hotellerie & Hauswirtschaft Jobs 60 Stellen",
+    "Kinderkrippe & Kinderbetreuung Jobs 29 Stellen",
+    "Marketing, Kommunikation & PR Jobs 1 Stellen"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T11:02:46.409Z"
+}

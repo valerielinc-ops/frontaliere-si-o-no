@@ -45806,6 +45806,26 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'voto-iva-2028-pensione',
+ category: 'pensione',
+ date: '2026-10-23T03:49:50.323Z',
+ image: '/images/blog/article-voto-iva-2028-pensione.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'questionario-frontalieri-ticino-condizioni-lavoro',
+ category: 'novita',
+ date: '2026-10-23T09:28:26.287Z',
+ image: '/images/blog/article-questionario-frontalieri-ticino-condizioni-lavoro.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

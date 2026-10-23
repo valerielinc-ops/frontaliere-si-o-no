@@ -126,7 +126,7 @@ describe('#5130 — the gate is a no-op on the default all-locale build', () => 
     expect(addAt).toBeGreaterThan(-1);
     // Bound the window by the end of add() instead of a fixed char count:
     // #9131 grew the comments above the existence check past 2000 chars.
-    const addEnd = batch.indexOf('\n  }\n', addAt);
+    const addEnd = batch.indexOf('\n /**', addAt);
     expect(addEnd).toBeGreaterThan(addAt);
     const body = batch.slice(addAt, addEnd);
     const dropAt = body.indexOf('!shouldEmitPath(filePath, this._distDir)');

@@ -17,9 +17,12 @@ import EmployerHubCta from '@/components/community/EmployerHubCta';
 import CompanyFollowCta from '@/components/community/CompanyFollowCta';
 import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
-import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
+import { AUTHGATE_HEADLINE_EXPERIMENT_ID, useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertUnifiedEmailSubscriber } from '@/services/newsletterSubscribers';
+import { currentJobGateAssignment, recordJobGateExposure, shouldBypassJobGateExperiment, useJobGateExperiment } from '@/hooks/useJobGateExperiment';
+import { getJobGateSubscriberVariant, JOBGATE_EXPERIMENT_ID } from '@/services/jobGateExperiment';
+import { jobGateSkin } from '@/components/community/jobGateSkin';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
@@ -165,7 +168,7 @@ const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 
 export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob, onPostJob, onNavigateToSearch }: JobExpiredViewProps) {
  const [locale] = useLocale();
- const { headline: gateHeadline, variant: gateVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+  const { headline: gateHeadline, variant: headlineVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
  const isDesktopLg = useMediaQuery('(min-width: 1024px)');
  const googleButtonRef = useRef<HTMLDivElement>(null);
@@ -181,7 +184,11 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
 
  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
- const alreadySignedIn = hasAccessProp || !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY);
+  const alreadySignedIn = hasAccessProp || !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY);
+  const jobGate = useJobGateExperiment(shouldBypassJobGateExperiment() || alreadySignedIn);
+  const gateVariant = jobGate.enrolled ? jobGate.arm : headlineVariant;
+  const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : AUTHGATE_HEADLINE_EXPERIMENT_ID;
+  const gateSkin = jobGateSkin(jobGate.arm);
 
  const sectionSlug = SECTION_BY_LOCALE[locale] ?? SECTION_BY_LOCALE.it;
  const prefix = PREFIX_BY_LOCALE[locale] ?? '';
@@ -226,14 +233,17 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  }, [job.slug]);
 
  useEffect(() => {
- if (alreadySignedIn) return;
+ if (alreadySignedIn || !jobGate.ready) return;
  Analytics.trackJobAuthFunnel('gate_view', {
  company: job.company,
  jobTitle: localizedTitle,
  location: jobLocation,
  surface: 'expired',
+ variant: gateVariant,
+ experimentId: gateExperimentId,
+ jobSlug: job.slug,
  });
- }, [job.slug, alreadySignedIn]);
+  }, [job.slug, alreadySignedIn, jobGate.ready, gateVariant, gateExperimentId]);
 
  // Visible-gate impression, paired on cta_id with the email success below:
  // `job_auth_gate.expired.unknown.view` → `job_auth_gate.expired.email.success`.
@@ -242,13 +252,17 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
   section: 'expired',
   variant: 'view',
   ctaId: 'job_auth_gate.expired.unknown.view',
-  enabled: !alreadySignedIn,
-  emit: () => Analytics.trackJobAuthGate('view', {
-   surface: 'expired',
-   authState: 'anonymous',
-   variant: gateVariant,
-   jobSlug: job.slug,
-  }),
+   enabled: !alreadySignedIn && jobGate.ready,
+  emit: () => {
+   recordJobGateExposure(jobGate);
+   Analytics.trackJobAuthGate('view', {
+    surface: 'expired',
+    authState: 'anonymous',
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+    jobSlug: job.slug,
+   });
+  },
  });
 
  // ── Auth setup ──
@@ -262,7 +276,42 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  sessionStorage.setItem('auth_redirect_path', window.location.pathname);
 
  container.innerHTML = '';
- renderGoogleButton(container, { theme: 'outline', size: 'large', text: 'signin_with' })
+ renderGoogleButton(container, {
+  theme: 'outline',
+  size: 'large',
+  text: 'signin_with',
+  click_listener: () => {
+   Analytics.trackJobAuthGate('method_click', {
+    surface: 'expired',
+    method: 'google',
+    authState: 'anonymous',
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+    jobSlug: job.slug,
+   });
+   Analytics.trackJobAuthFunnel('auth_method_click', {
+    method: 'google',
+    company: job.company,
+    jobTitle: localizedTitle,
+    location: jobLocation,
+    surface: 'expired',
+    authState: 'anonymous',
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+    jobSlug: job.slug,
+   });
+   saveAuthJobContext({
+    slug: job.slug,
+    title: localizedTitle,
+    company: job.company,
+    location: job.location || job.addressLocality,
+    category: job.sector,
+    surface: 'expired',
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+   });
+  },
+ })
  .then(() => {
  if (!cancelled) setGoogleButtonReady(container.children.length > 0);
  })
@@ -270,7 +319,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  if (!cancelled) reportCaughtError(err, 'jobExpiredView.renderGoogleButton');
  });
  return () => { cancelled = true; };
- }, [alreadySignedIn, listingPath]);
+ }, [alreadySignedIn, listingPath, gateVariant, gateExperimentId, job.slug, job.company, localizedTitle, jobLocation]);
 
  useEffect(() => {
  if (alreadySignedIn) return;
@@ -281,7 +330,25 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  e.preventDefault();
  const email = emailInput.trim();
  if (!email || !validateEmailStrict(email).valid) return;
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'email', company: job.company, jobTitle: localizedTitle });
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'expired',
+  method: 'email',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: job.slug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'email',
+  company: job.company,
+  jobTitle: localizedTitle,
+  location: jobLocation,
+  surface: 'expired',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: job.slug,
+ });
  setEmailBusy(true);
  setEmailError(null);
  try {
@@ -290,6 +357,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  import('@/services/firebase'),
  ]);
  const firestore = getFirestore(await getApp());
+ const subscriberVariant = getJobGateSubscriberVariant(await currentJobGateAssignment());
  await upsertUnifiedEmailSubscriber(firestore, {
  email,
  source: 'job_expired',
@@ -299,12 +367,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  sourceComponent: 'JobExpiredView',
  sourceRouteFamily: 'job-board',
  jobContext: newsletterJobContext,
+ ...(subscriberVariant ? { variant: subscriberVariant } : {}),
  });
  Analytics.trackJobAuthGate('success', {
   surface: 'expired',
   method: 'email',
   authState: 'pending_email',
   variant: gateVariant,
+  experimentId: gateExperimentId,
   jobSlug: job.slug,
  });
  Analytics.trackJobAuthFunnel('auth_success', {
@@ -316,7 +386,15 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
   surface: 'expired',
   authState: 'pending_email',
   variant: gateVariant,
+  experimentId: gateExperimentId,
   jobSlug: job.slug,
+ });
+ Analytics.trackNewsletter('subscribe', email.split('@')[1] || 'unknown', {
+  sourceChannel: 'job_gate',
+  sourceCta: 'job_expired_email_unlock',
+  sourcePage: window.location.pathname,
+  jobSlug: job.slug,
+  registrationMethod: 'email',
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.reload();
@@ -901,20 +979,20 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  )}
 
  {/* Auth gate */}
- <div ref={gateImpressionRef} id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
- <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
- <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
+ <div ref={gateImpressionRef} id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className={gateSkin.container} data-jobgate-arm={jobGate.enrolled ? jobGate.arm : undefined}>
+ <h2 className={gateSkin.heading}>
+ <Eye className={gateSkin.headingIcon} aria-hidden="true" />
  <span>{gateHeadline}</span>
  </h2>
 
  {/* Trust signals — 2 lines at text-sm (matches active job gate) */}
- <ul className="mt-3 space-y-1.5 text-sm text-subtle">
+ <ul className={gateSkin.trustList}>
  <li className="flex items-center gap-2">
- <CheckCircle2 size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <CheckCircle2 size={14} className={gateSkin.trustIcon} aria-hidden="true" />
  <span>{locale === 'it' ? 'Gratis · Per sempre' : locale === 'de' ? 'Kostenlos · Für immer' : locale === 'fr' ? 'Gratuit · Pour toujours' : 'Free · Forever'}</span>
  </li>
  <li className="flex items-center gap-2">
- <Shield size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <Shield size={14} className={gateSkin.trustIcon} aria-hidden="true" />
  <span>{t('jobBoard.gate.privacyNote')}</span>
  </li>
  </ul>
@@ -926,16 +1004,34 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </p>
  )}
 
- <div className="mt-4 space-y-3">
+ <div className={gateSkin.actionsFirst ? 'space-y-3' : 'mt-4 space-y-3'}>
  <div className="space-y-2">
  <div ref={googleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!googleButtonReady && (
  <button
  type="button"
  onClick={() => {
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'google', company: job.company, jobTitle: localizedTitle });
+  Analytics.trackJobAuthGate('method_click', {
+   surface: 'expired',
+   method: 'google',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: job.slug,
+  });
+  Analytics.trackJobAuthFunnel('auth_method_click', {
+   method: 'google',
+   company: job.company,
+   jobTitle: localizedTitle,
+   location: jobLocation,
+   surface: 'expired',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: job.slug,
+  });
  }}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised text-strong text-sm font-semibold shadow-sm transition-colors"
+ className={gateSkin.googleFallbackButton}
  >
  {t('newsletter.popup.googleSignIn')}
  </button>
@@ -946,12 +1042,30 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  type="button"
  disabled={linkedInBusy}
  onClick={() => {
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', company: job.company, jobTitle: localizedTitle });
+  Analytics.trackJobAuthGate('method_click', {
+   surface: 'expired',
+   method: 'linkedin',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: job.slug,
+  });
+  Analytics.trackJobAuthFunnel('auth_method_click', {
+   method: 'linkedin',
+   company: job.company,
+   jobTitle: localizedTitle,
+   location: jobLocation,
+   surface: 'expired',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: job.slug,
+  });
  setLinkedInBusy(true);
- saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location || job.addressLocality, category: job.sector });
+ saveAuthJobContext({ slug: job.slug, title: localizedTitle, company: job.company, location: job.location || job.addressLocality, category: job.sector, surface: 'expired', variant: gateVariant, experimentId: gateExperimentId });
  signInWithLinkedIn().catch(() => setLinkedInBusy(false));
  }}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ className={gateSkin.linkedInButton}
  >
  {linkedInBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -963,24 +1077,24 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  email channel stays visible, but user can collapse it. */}
  <details open className="group">
  <summary className="flex items-center gap-3 cursor-pointer list-none py-1 -my-1 [&::-webkit-details-marker]:hidden">
- <div className="flex-1 h-px bg-surface-raised/50" />
- <span className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-subtle transition-colors">
+ <div className={gateSkin.divider} />
+ <span className={gateSkin.dividerLabel}>
  {t('jobBoard.authGateOrEmail')}
  <ChevronDown size={14} className="transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
  </span>
- <div className="flex-1 h-px bg-surface-raised/50" />
+ <div className={gateSkin.divider} />
  </summary>
  <form onSubmit={handleEmailSubmit} className="mt-3 space-y-2">
  <EmailInput
  value={emailInput}
  onChange={setEmailInput}
  placeholder={t('jobBoard.authGateEmailPlaceholder')}
- className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ className={gateSkin.emailInput}
  />
  <button
  type="submit"
- disabled={emailBusy || !emailInput.trim()}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ disabled={emailBusy || (gateSkin.emailSubmitDisabledWhenEmpty && !emailInput.trim())}
+ className={gateSkin.emailSubmit}
  >
  {emailBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
  {t('jobBoard.gate.emailCta')}

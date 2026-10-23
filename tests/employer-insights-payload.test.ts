@@ -16,7 +16,7 @@ const employerTypeSource = readFileSync(
   'utf8',
 );
 const adminPageSource = readFileSync(
-  new URL('../components/pages/AdminPanel.tsx', import.meta.url),
+  new URL('../components/admin/sections/AziendeSection.tsx', import.meta.url),
   'utf8',
 );
 const adminApiSource = readFileSync(

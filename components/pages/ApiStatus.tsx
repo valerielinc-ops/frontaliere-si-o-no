@@ -50,7 +50,7 @@ const ApiStatus: React.FC = () => {
  });
 
  // 3. GitHub issue tracking — now server-side. The PAT lives in the
- // createFeedbackIssue / githubAdminProxy Cloud Functions; the browser no
+ // createFeedbackIssue / adminGithub Cloud Functions; the browser no
  // longer receives a repo token, so there is nothing to check client-side.
  checks.push({
  name: 'GitHub Issue Tracking',

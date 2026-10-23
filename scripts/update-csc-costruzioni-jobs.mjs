@@ -731,6 +731,8 @@ export async function verifyCscDetailUrls(urls, options = {}) {
       throw new Error(`CSC detail invariant failed: ${candidate} redirected outside its exact detail contract to ${responseUrl}.`);
     }
     const isNcoreDetail = Boolean(canonicalCscNcoreDetailUrl(candidate));
+    let verifiedHtml = html;
+    let verifiedResponseUrl = responseUrl;
     let detail = isNcoreDetail
       ? parseCscNcoreJobDetail(html, candidate)
       : parseCscPrimaryJobDetail(html);
@@ -751,17 +753,25 @@ export async function verifyCscDetailUrls(urls, options = {}) {
       if (!cscResponseMatchesCandidate(renderedDetail.responseUrl, candidate)) {
         throw new Error(`CSC detail invariant failed: rendered detail redirected outside its exact detail contract to ${renderedDetail.responseUrl}.`);
       }
-      detail = parseCscNcoreJobDetail(renderedDetail.html, candidate);
+      verifiedHtml = renderedDetail.html;
+      verifiedResponseUrl = renderedDetail.responseUrl;
+      detail = parseCscNcoreJobDetail(verifiedHtml, candidate);
     }
     if (!detail) {
       throw new Error(`CSC detail invariant failed: ${candidate} did not return a canonical work-position page.`);
     }
     captureCscLiveStructureSnapshot(
-      html,
+      verifiedHtml,
       options.structureSnapshotPath
         || process.env.CSC_LIVE_STRUCTURE_SNAPSHOT_PATH
         || CSC_LIVE_STRUCTURE_SNAPSHOT,
     );
+    if (options.detailPageCache instanceof Map) {
+      options.detailPageCache.set(candidate, {
+        html: verifiedHtml,
+        responseUrl: verifiedResponseUrl,
+      });
+    }
     const firstCandidate = identities.get(detail.identity);
     if (firstCandidate && firstCandidate !== candidate) {
       throw new Error(`CSC detail invariant failed: ${candidate} and ${firstCandidate} share semantic identity ${detail.identity}.`);
@@ -847,6 +857,7 @@ export async function fetchCscJobUrls(options = {}) {
     renderDetailPage,
     timeoutMs,
     structureSnapshotPath: options.structureSnapshotPath,
+    detailPageCache: options.detailPageCache,
   });
   console.log(`✅ Discovered and verified ${urls.length}/${discovery.urls.length} CSC job detail URLs`);
   return { urls, authoritativeEmpty: false };
@@ -909,7 +920,7 @@ export function buildCscAuthoritativeEmptySummary(generatedAt, durationMs) {
 }
 
 /* ── Base Crawler ──────────────────────────────────────────── */
-function runBaseCrawler() {
+function runBaseCrawler(detailPageCache) {
   return runDedicatedBaseCrawler({
     root: ROOT,
     companyKeys: CSC_KEY,
@@ -922,6 +933,7 @@ function runBaseCrawler() {
       JOBS_CRAWLER_FETCH_RETRIES: process.env.JOBS_CRAWLER_FETCH_RETRIES || '2',
       JOBS_CRAWLER_CONCURRENCY: process.env.JOBS_CRAWLER_CONCURRENCY || '4',
     },
+    detailPageCache,
   });
 }
 
@@ -981,7 +993,8 @@ async function main() {
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
 
   // Step 1: Discover job detail URLs from the careers page
-  const discovery = await fetchCscJobUrls();
+  const detailPageCache = new Map();
+  const discovery = await fetchCscJobUrls({ detailPageCache });
   if (discovery.authoritativeEmpty) {
     // The listing was fetched and its explicit empty marker validated. Persist
     // an empty detail allowlist (never the listing URL) but do not run the base
@@ -1002,7 +1015,7 @@ async function main() {
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(CSC_KEY, DATA_JOBS).filter(isCscJob))
 
   // Step 3: Run the base crawler (fetches JSON-LD from detail pages)
-  await runBaseCrawler();
+  await runBaseCrawler(detailPageCache);
 
   // Step 4: Translate missing locales
   await translateMissingJobLocales({

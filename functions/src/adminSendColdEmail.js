@@ -7,7 +7,7 @@
  * writes) and visible in the dashboard.
  *
  * Safeguards (all enforced server-side, never trusting the client):
- *   1. Admin gate — Firebase ID token + ADMIN_EMAIL_ALLOWLIST (reuses assertAdmin).
+ *   1. Admin gate — Firebase ID token + shared site-admin identity gate.
  *   2. Verified email only — never sends to an inferred/guessed address.
  *   3. Suppression — refuses if the company opted out (employer_outreach_suppression).
  *   4. Dedup — refuses to re-send a touch already logged, unless `force: true`.

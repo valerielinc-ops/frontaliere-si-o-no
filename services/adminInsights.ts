@@ -3,7 +3,7 @@
  *
  * Calls the `adminEmployerInsights` Cloud Function with the admin's Firebase ID
  * token in the Authorization header (same auth idiom as AdminPanel's
- * getGitHubConnection → getAdminGithubToken). The endpoint is admin-gated
+ * adminGithub). The endpoint is admin-gated
  * server-side; this module never exposes the data to non-admins.
  */
 

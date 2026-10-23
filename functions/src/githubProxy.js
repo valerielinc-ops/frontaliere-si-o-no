@@ -2,28 +2,27 @@
  * githubProxy.js — server-side GitHub access so the repo PAT never reaches the
  * browser.
  *
- * Previously the client read `GITHUB_PAT` from Remote Config and called the
- * GitHub API directly — a repo-write token downloadable by every visitor. Now
- * two server endpoints hold the PAT:
- *
- *  - createFeedbackIssue: PUBLIC, reCAPTCHA-gated. Creates a single issue from
- *    the feedback form. (Reads are done unauthenticated client-side — the repo
- *    is public.)
- *  - githubAdminProxy: ADMIN-only (Firebase ID token email allowlist). Forwards
- *    arbitrary repo API calls for the admin dashboard's single `githubRequest`
- *    chokepoint.
+ * - createFeedbackIssue: public, reCAPTCHA-gated issue creation.
+ * - adminGithub: admin-only, explicit allowlisted GitHub calls for the admin
+ *   dashboard. The PAT remains inside the function runtime.
  */
 
-import { getAuth } from 'firebase-admin/auth';
+import { FieldValue } from 'firebase-admin/firestore';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { createAssessment } from './recaptchaVerification.js';
-import { githubApiHeaders } from './githubApiHeaders.js';
+import {
+  GITHUB_WORKFLOW_DISPATCH_API_VERSION,
+  githubApiHeaders,
+} from './githubApiHeaders.js';
+import { getAdminDb } from './newsletterResendWebhookCore.js';
+import { assertSiteAdmin } from './adminAuth.js';
 
-const ADMIN_EMAIL_ALLOWLIST = new Set(['valerielinc@gmail.com']);
 const FEEDBACK_RECAPTCHA_THRESHOLD = 0.5;
+const ADMIN_AUDIT_COLLECTION = 'admin_audit_log';
+const MAX_GITHUB_LOG_BYTES = 256 * 1024;
+
 // Exported: stripePublisherCore.js's dispatchPublisherSync reuses this same
-// base URL instead of re-hardcoding it (single source for the GitHub REST
-// API host across functions/).
+// base URL instead of re-hardcoding it (single source for the GitHub REST API).
 export const GITHUB_API = 'https://api.github.com';
 
 // Exported: stripePublisherCore.js's dispatchPublisherSync reuses this PAT +
@@ -112,50 +111,281 @@ export async function handleCreateFeedbackIssue(req) {
   };
 }
 
-// ── Admin: forward arbitrary repo API calls (ID-token gated) ───────────────
-async function assertAdmin(req) {
-  const header = req.get ? req.get('Authorization') : req.headers?.authorization;
-  const idToken = typeof header === 'string' && header.startsWith('Bearer ')
-    ? header.slice(7).trim()
-    : '';
-  if (!idToken) return { ok: false, status: 401, error: 'missing_id_token' };
+// ── Admin: allowlisted GitHub calls (ID-token gated) ───────────────────────
+function invalidGithubPath() {
+  return { ok: false, status: 400, error: 'path_not_allowed' };
+}
+
+function parseGithubPath(method, path) {
+  if (!['GET', 'POST'].includes(method) || typeof path !== 'string' || !path.startsWith('/') || path.includes('#')) {
+    return invalidGithubPath();
+  }
+
+  let url;
   try {
-    const decoded = await getAuth().verifyIdToken(idToken);
-    const email = (decoded.email || '').toLowerCase();
-    if (!decoded.email_verified || !ADMIN_EMAIL_ALLOWLIST.has(email)) {
-      return { ok: false, status: 403, error: 'not_admin' };
-    }
-    return { ok: true };
+    url = new URL(path, 'https://admin-github.invalid');
   } catch {
-    return { ok: false, status: 401, error: 'invalid_id_token' };
+    return invalidGithubPath();
+  }
+
+  const segments = url.pathname.split('/').filter(Boolean);
+  const queryKeys = [...url.searchParams.keys()];
+  const hasOnlyQueryKeys = (allowed) => queryKeys.every((key) => allowed.includes(key));
+  const workflowFile = segments[2];
+  const workflowFileValid = typeof workflowFile === 'string' && /^[A-Za-z0-9._-]+\.ya?ml$/i.test(workflowFile);
+  const numeric = (value) => typeof value === 'string' && /^\d+$/.test(value);
+
+  if (
+    method === 'GET'
+    && segments.length === 4
+    && segments[0] === 'actions'
+    && segments[1] === 'workflows'
+    && workflowFileValid
+    && segments[3] === 'runs'
+    && hasOnlyQueryKeys(['per_page'])
+    && (!url.searchParams.has('per_page') || /^\d{1,3}$/.test(url.searchParams.get('per_page')))
+  ) {
+    return { ok: true, kind: 'workflow_runs', workflowFile };
+  }
+
+  if (
+    method === 'GET'
+    && segments.length === 3
+    && segments[0] === 'actions'
+    && segments[1] === 'runs'
+    && numeric(segments[2])
+    && !url.search
+  ) {
+    return { ok: true, kind: 'run', runId: segments[2] };
+  }
+
+  if (
+    method === 'GET'
+    && segments.length === 4
+    && segments[0] === 'actions'
+    && segments[1] === 'runs'
+    && numeric(segments[2])
+    && segments[3] === 'jobs'
+    && hasOnlyQueryKeys(['per_page'])
+    && (!url.searchParams.has('per_page') || /^\d{1,3}$/.test(url.searchParams.get('per_page')))
+  ) {
+    return { ok: true, kind: 'run_jobs', runId: segments[2] };
+  }
+
+  if (
+    method === 'GET'
+    && segments.length === 4
+    && segments[0] === 'actions'
+    && segments[1] === 'jobs'
+    && numeric(segments[2])
+    && segments[3] === 'logs'
+    && !url.search
+  ) {
+    return { ok: true, kind: 'job_logs', jobId: segments[2] };
+  }
+
+  if (
+    method === 'POST'
+    && segments.length === 4
+    && segments[0] === 'actions'
+    && segments[1] === 'workflows'
+    && workflowFileValid
+    && segments[3] === 'dispatches'
+    && !url.search
+  ) {
+    return { ok: true, kind: 'workflow_dispatch', workflowFile };
+  }
+
+  return invalidGithubPath();
+}
+
+function truncateUtf8(value, maxBytes = MAX_GITHUB_LOG_BYTES) {
+  const encoded = Buffer.from(String(value || ''), 'utf8');
+  return formatUtf8Tail(encoded, maxBytes, encoded.byteLength > maxBytes);
+}
+
+function formatUtf8Tail(encoded, maxBytes, truncated) {
+  if (!truncated && encoded.byteLength <= maxBytes) return encoded.toString('utf8');
+
+  const prefix = '[log troncato: mostrati gli ultimi 256 KB]\n';
+  const prefixBytes = Buffer.byteLength(prefix, 'utf8');
+  if (prefixBytes >= maxBytes) return Buffer.from(prefix, 'utf8').subarray(0, maxBytes).toString('utf8');
+
+  const contentBytes = maxBytes - prefixBytes;
+  let start = Math.max(0, encoded.byteLength - contentBytes);
+  while (start < encoded.byteLength && (encoded[start] & 0xc0) === 0x80) start += 1;
+  return `${prefix}${encoded.subarray(start).toString('utf8')}`;
+}
+
+function responseChunkView(value) {
+  if (value == null) return Buffer.alloc(0);
+  if (value instanceof ArrayBuffer) return Buffer.from(value.slice(0));
+  if (ArrayBuffer.isView(value)) {
+    return Buffer.from(value.buffer, value.byteOffset, value.byteLength);
+  }
+  return Buffer.from(String(value), 'utf8');
+}
+
+async function readResponseTextTail(response, maxBytes = MAX_GITHUB_LOG_BYTES) {
+  const reader = response?.body?.getReader?.();
+  if (!reader) {
+    try {
+      return typeof response?.text === 'function' ? await response.text() : '';
+    } catch {
+      return '';
+    }
+  }
+
+  let tail = Buffer.alloc(0);
+  let totalBytes = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      // Keep only the tail before the next read; the view itself is never
+      // retained, so a producer can release/reuse its stream buffer.
+      const chunk = responseChunkView(value);
+      if (!chunk.byteLength) continue;
+      totalBytes += chunk.byteLength;
+      if (chunk.byteLength >= maxBytes) {
+        tail = Buffer.from(chunk.subarray(chunk.byteLength - maxBytes));
+        continue;
+      }
+      const combined = Buffer.concat([tail, chunk]);
+      tail = combined.byteLength > maxBytes
+        ? Buffer.from(combined.subarray(combined.byteLength - maxBytes))
+        : combined;
+    }
+    return formatUtf8Tail(tail, maxBytes, totalBytes > maxBytes);
+  } catch {
+    return '';
+  } finally {
+    try { reader.releaseLock?.(); } catch { /* the read verdict stays authoritative */ }
   }
 }
 
-/**
- * Return the GitHub connection (PAT + owner/repo) to a verified admin only.
- *
- * The admin dashboard is a single-trusted-user tool with a large, intricate
- * GitHub API surface (runs, jobs, logs, dispatches). Rather than proxy every
- * call, we hand the PAT to the authenticated admin's browser ONLY — gated by a
- * Firebase ID-token email allowlist + App Check. This removes `GITHUB_PAT` from
- * the universal public config (every visitor) while keeping the dashboard's
- * existing logic unchanged. The PAT reaches one trusted account instead of the
- * whole internet.
- */
-export async function handleGetAdminGithubToken(req) {
-  if (req.method !== 'POST') {
+async function readResponseBody(response) {
+  const text = await response.text().catch(() => '');
+  if (!text) return {};
+  try {
+    return JSON.parse(text);
+  } catch {
+    return { message: text };
+  }
+}
+
+function githubEndpoint(path, owner, repo) {
+  return `${GITHUB_API}/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}${path}`;
+}
+
+export async function handleAdminGithub(req, dependencies = {}) {
+  if (req?.method !== 'POST') {
     return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
   }
 
-  const auth = await assertAdmin(req);
-  if (!auth.ok) {
-    return { status: auth.status, body: { ok: false, error: auth.error } };
+  const authGate = dependencies.assertSiteAdmin || assertSiteAdmin;
+  const auth = await authGate(req);
+  if (!auth.ok) return { status: auth.status, body: { ok: false, error: auth.error } };
+
+  const method = String(req.body?.method || '').toUpperCase();
+  const path = req.body?.path;
+  const parsed = parseGithubPath(method, path);
+  if (!parsed.ok) return { status: parsed.status, body: { ok: false, error: parsed.error } };
+
+  const isDispatch = parsed.kind === 'workflow_dispatch';
+  const auditDb = isDispatch ? (dependencies.db || getAdminDb()) : null;
+  let dispatchAuditRef = null;
+  const writeDispatchAuditIntent = async () => {
+    if (!isDispatch) return true;
+    try {
+      dispatchAuditRef = await auditDb.collection(ADMIN_AUDIT_COLLECTION).add({
+        at: FieldValue.serverTimestamp(),
+        uid: auth.uid,
+        email: auth.email,
+        action: 'workflow_dispatch',
+        target: parsed.workflowFile,
+        inputs: req.body?.body?.inputs || req.body?.body || {},
+        status: 'pending',
+      });
+      return true;
+    } catch (error) {
+      console.error('adminGithub audit intent write failed', error);
+      return false;
+    }
+  };
+  const updateDispatchAudit = async (status) => {
+    if (!isDispatch) return;
+    try {
+      if (!dispatchAuditRef) throw new Error('audit intent reference missing');
+      if (typeof dispatchAuditRef.update === 'function') {
+        await dispatchAuditRef.update({ status });
+      } else if (typeof dispatchAuditRef.set === 'function') {
+        await dispatchAuditRef.set({ status }, { merge: true });
+      } else {
+        throw new Error('audit intent reference is not writable');
+      }
+    } catch (error) {
+      console.error('adminGithub audit status update failed', error);
+    }
+  };
+
+  if (!(await writeDispatchAuditIntent())) {
+    return { status: 500, body: { ok: false, error: 'audit_write_failed' } };
   }
 
-  const { pat, owner, repo } = await getRepoConfig();
+  const { pat, owner, repo } = dependencies.repoConfig || await getRepoConfig();
   if (!pat) {
+    await updateDispatchAudit(503);
     return { status: 503, body: { ok: false, error: 'github_not_configured' } };
   }
 
-  return { status: 200, body: { ok: true, token: pat, owner, repo } };
+  const fetchImpl = dependencies.fetchImpl || fetch;
+  const githubUrl = githubEndpoint(path, owner, repo);
+  const requestOptions = {
+    method,
+    headers: githubApiHeaders(pat, {
+      'Content-Type': 'application/json',
+      ...(isDispatch ? { 'X-GitHub-Api-Version': GITHUB_WORKFLOW_DISPATCH_API_VERSION } : {}),
+    }),
+    redirect: parsed.kind === 'job_logs' ? 'manual' : 'follow',
+  };
+  if (req.body?.body !== undefined) requestOptions.body = JSON.stringify(req.body.body);
+
+  let upstream;
+  let body;
+  try {
+    upstream = await fetchImpl(githubUrl, requestOptions);
+    if (parsed.kind === 'job_logs') {
+      if (upstream.status >= 300 && upstream.status < 400 && upstream.headers?.get('location')) {
+        const logResponse = await fetchImpl(upstream.headers.get('location'), { method: 'GET', redirect: 'follow' });
+        const logText = await readResponseTextTail(logResponse);
+        return {
+          status: logResponse.status,
+          body: logResponse.ok
+            ? { ok: true, text: truncateUtf8(logText) }
+            : { ok: false, error: 'github_error', message: truncateUtf8(logText) },
+        };
+      }
+      const logText = await readResponseTextTail(upstream);
+      body = upstream.ok
+        ? { ok: true, text: truncateUtf8(logText) }
+        : { ok: false, error: 'github_error', message: truncateUtf8(logText) };
+    } else {
+      const upstreamBody = await readResponseBody(upstream);
+      body = upstream.ok
+        ? { ok: true, data: upstreamBody }
+        : { ok: false, ...upstreamBody, error: upstreamBody?.message || 'github_error' };
+    }
+  } catch (error) {
+    console.error('adminGithub upstream request failed', error);
+    await updateDispatchAudit(502);
+    return { status: 502, body: { ok: false, error: 'github_unavailable' } };
+  }
+
+  const upstreamStatus = upstream?.status || 502;
+  await updateDispatchAudit(upstreamStatus);
+
+  return { status: upstreamStatus, body };
 }
+
+export { parseGithubPath };

@@ -119,6 +119,12 @@ html.dark .leaflet-container a {
   --_chart-area: #c7d2fe;
   --_chart-dot: #1e293b;
   --_chart-label: #475569;
+  /* Admin shell — navy rail with a theme-safe active state */
+  --_admin-rail: #0a2540;
+  --_admin-rail-ink: #f8fafc;
+  --_admin-rail-muted: #cbd5e1;
+  --_admin-rail-active: rgba(167, 139, 250, 0.18);
+  --_admin-rail-edge: rgba(255, 255, 255, 0.14);
 }
 html.dark {
   --_surface: #1e293b;       /* slate-800 */
@@ -194,6 +200,12 @@ html.dark {
   --_chart-area: rgba(167, 139, 250, 0.25);
   --_chart-dot: #e2e8f0;
   --_chart-label: #94a3b8;
+  /* Admin shell — a deeper rail keeps the same contrast in dark mode */
+  --_admin-rail: #061b30;
+  --_admin-rail-ink: #f1f5f9;
+  --_admin-rail-muted: #cbd5e1;
+  --_admin-rail-active: rgba(167, 139, 250, 0.24);
+  --_admin-rail-edge: rgba(226, 232, 240, 0.18);
 }
 
 /* Text accents need the lighter dark-mode tone for WCAG AA. Solid accent
@@ -201,6 +213,39 @@ html.dark {
 html.dark .text-link,
 html.dark .text-accent {
   color: var(--_link);
+}
+
+/* Admin-only browser surfaces. These stay scoped so the public site keeps its
+   existing selection and caret treatment, while the shell owns its controls. */
+.admin-shell {
+  accent-color: var(--color-accent);
+  caret-color: var(--color-accent);
+}
+.admin-shell ::selection {
+  background: var(--color-accent-subtle);
+  color: var(--color-heading);
+}
+.admin-shell dialog::backdrop {
+  background: color-mix(in srgb, var(--color-heading) 48%, transparent);
+}
+.admin-confirm-dialog {
+  margin: auto;
+  max-height: calc(100dvh - 2rem);
+}
+.admin-confirm-dialog::backdrop {
+  background: color-mix(in srgb, var(--color-heading) 48%, transparent);
+}
+@media (max-width: 639px) {
+  .admin-confirm-dialog {
+    position: fixed;
+    inset: auto 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: calc(100dvh - 0.75rem);
+    margin: 0;
+    border-radius: 0.75rem 0.75rem 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
 /* Hero gradient — decorative radial glow using semantic info + surface tokens */
@@ -1869,6 +1914,13 @@ input[type=number] { -moz-appearance: textfield; }
   --color-tab-active-border: var(--_tab-active-border);
   --color-tab-inactive-text: var(--_tab-inactive-text);
   --color-tab-hover-bg: var(--_tab-hover-bg);
+
+  /* Admin shell */
+  --color-admin-rail: var(--_admin-rail);
+  --color-admin-rail-ink: var(--_admin-rail-ink);
+  --color-admin-rail-muted: var(--_admin-rail-muted);
+  --color-admin-rail-active: var(--_admin-rail-active);
+  --color-admin-rail-edge: var(--_admin-rail-edge);
 
   /* Navigation — segment control */
   --color-segment-active-bg: var(--_segment-active-bg);

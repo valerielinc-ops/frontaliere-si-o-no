@@ -1,0 +1,22 @@
+{
+  "companyKey": "adato-ch",
+  "companyName": "Adato",
+  "companyHost": "stellen.adato.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://stellen.adato.ch/"
+  ],
+  "detailTemplate": "/job/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Sachbearbeiter/in HR-Administration BE (m/w/d)",
+    "Fachtechniker Instandhaltung in Biel/Bienne (m/w/d)",
+    "Call Agent/in Multi-Industries befristet (m/w/d)"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T10:58:20.910Z"
+}

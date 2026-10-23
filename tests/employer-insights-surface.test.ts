@@ -17,7 +17,7 @@ const publisherPage = readFileSync(
   'utf8',
 );
 const adminPage = readFileSync(
-  new URL('../components/pages/AdminPanel.tsx', import.meta.url),
+  new URL('../components/admin/sections/AziendeSection.tsx', import.meta.url),
   'utf8',
 );
 
@@ -75,8 +75,8 @@ describe('employer insights surface semantics', () => {
   });
 
   it('does not aggregate admin rows from different analytics sources', () => {
-    expect(adminPage).toContain('const firstSource = insightsRows[0]?.source || null;');
-    expect(adminPage).toContain('insightsRows.every(r => r.source === firstSource)');
+    expect(adminPage).toContain('const firstSource = rows[0]?.source || null;');
+    expect(adminPage).toContain('rows.every(r => r.source === firstSource)');
     expect(adminPage).toContain('source: commonSource');
   });
 });
