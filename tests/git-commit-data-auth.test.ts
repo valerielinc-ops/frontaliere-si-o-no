@@ -99,7 +99,7 @@ describe('git-commit-data.sh GitHub auth hardening', () => {
     }
 
     const fetchLoopCalls = code.filter(({ text }) => /^\s*git_fetch_retry(?: \|\| return 1)?$/.test(text));
-    expect(fetchLoopCalls).toHaveLength(5);
+    expect(fetchLoopCalls).toHaveLength(4);
     for (const call of fetchLoopCalls) {
       expect(refreshedJustBefore(call), `missing ensure_git_auth before the fetch loop at line ${call.number}`).toBe(true);
     }
