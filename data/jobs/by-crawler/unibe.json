@@ -1,7 +1,7 @@
 {
   "crawlerKey": "unibe",
-  "assembledAt": "2026-10-22T21:39:55.844Z",
-  "runId": "39856422958",
+  "assembledAt": "2026-10-23T09:31:37.749Z",
+  "runId": "39931115181",
   "jobs": [
     {
       "id": "unibe-8a556a727251",
@@ -34,7 +34,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/lehrstellen-polymechaniker-in-efz/c7672ba0-f824-464c-8363-5a5ae1e76c5e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.614Z",
+      "crawledAt": "2026-10-23T09:30:41.223Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -81,7 +81,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unibe-c213279f5926",
@@ -114,7 +115,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/schnupperlehre-polymechaniker-in-efz/81dbe0f1-3709-43d0-a231-247eae2dbfeb",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.614Z",
+      "crawledAt": "2026-10-23T09:30:41.223Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -194,7 +195,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-position-in-mathematical-foundations-of-machine-learning/1ce589e6-9dac-41ed-9cf3-128b3df135d2",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.613Z",
+      "crawledAt": "2026-10-23T09:30:41.222Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -275,7 +276,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-on-conditional-generative-modelling-of-local-high-impact-events-under-structured-scenarios/58eb1323-eeb1-4d2f-a8e4-765e087a907a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.612Z",
+      "crawledAt": "2026-10-23T09:30:41.222Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -360,7 +361,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/lehrstelle-dentalassistentin-efz-2027/2dfca9c9-b7a8-4e94-a1af-4b5132a042f1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.612Z",
+      "crawledAt": "2026-10-23T09:30:41.222Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -441,7 +442,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-on-conditional-generative-modelling-of-local-high-impact-events-under-structured-scenarios/35d91b0a-298f-4f5b-9230-91c4bb5fae9e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.611Z",
+      "crawledAt": "2026-10-23T09:30:41.221Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -516,7 +517,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/phd-stelle-neuropsychologie-neuropaediatrie-entwicklung-und-rehabilitation/6f878792-9e73-4111-945b-f17efbe24b56",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.610Z",
+      "crawledAt": "2026-10-23T09:30:41.221Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -566,86 +567,6 @@
       }
     },
     {
-      "id": "unibe-87c9fa0dc829",
-      "slug": "assistente-di-cattedra-non-tenure-track-in-clinical-cancer-informatics-universitat-bern-bern",
-      "slugByLocale": {
-        "it": "assistente-di-cattedra-non-tenure-track-in-clinical-cancer-informatics-universitat-bern-bern",
-        "en": "assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-br-werner-and-hedy",
-        "de": "assistenzprofessur-nicht-tenure-track-in-klinischer-krebsinformatik-br-werner-und-hedy-berger-janser-foundation-stiftung",
-        "fr": "professeure-adjointe-course-de-non-tenue-en-informatique-clinique-sur-le-cancer-br-werner-et-la-fondation-hedy-berger"
-      },
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "Assistant Professorship (non-tenure track) in Clinical Cancer Informatics<br/>Werner and Hedy Berger-Janser Foundation Endowed Professorship",
-      "titleByLocale": {
-        "it": "Assistente di cattedra (non-tenure track) in Clinical Cancer Informatics",
-        "en": "Assistant Professorship (non-tenure track) in Clinical Cancer Informatics<br/>Werner and Hedy Berger-Janser Foundation Endowed Professorship",
-        "de": "Assistenzprofessur (nicht Tenure Track) in Klinischer Krebsinformatik<br/>Werner und Hedy Berger-Janser Foundation Stiftung Stiftungsprofessur",
-        "fr": "Professeure adjointe (piste de non-tenue) en informatique clinique du cancer<br/>Werner et la Fondation Hedy Berger-Janser"
-      },
-      "description": "UniBE is quintessentially Bernese.\nWith us, you can expect a culture of respect and a healthy working environment.\n\n## Your profile\nYour Responsibilities\n• Develop and lead an innovative research program in clinical cancer informatics\n• Advancement of standardized terminologies, interoperabilities and mapping strategies to harmonize heterogeneous data sources\n• Integrate heterogeneous clinical data sources and develop advanced analytical approaches\n• Contribute to the development of AI-based decision-support tools in radiation oncology and medical oncology\n• Strengthen interdisciplinary collaboration between clinical and computational disciplines\n• Acquire competitive third-party funding\n• Contribute to undergraduate and graduate teaching and supervise early-career researchers\n• Actively participate in the strategic development of digital medicine at the Faculty of Medicine\nYour Profile\nWe are seeking a highly motivated and collaborative individual with:\n• A medical degree (MD or equivalent) or PhD with strong clinical insight\n• Excellent research achievements in clinical informatics, data interoperability and standardization, data science, or a related field\n• Experience with real-world medical data, AI, or computational methods in healthcare\n• A strong interest in translational and interdisciplinary research\n• Demonstrated ability (or strong potential) to lead research teams\n• Excellent communication skills and ability to work across disciplines\n• Fluency in English; German skills or willingness to acquire them\nWhat We Offer\n• A unique opportunity to shape a highly innovative and rapidly developing field\n• Access to excellent clinical and research infrastructure\n• Integration into a dynamic and collaborative academic environment\n• Dedicated funding through the endowed professorship\n• Support for career development and long-term perspectives (following an evaluation before the end of the four-year term, an extension by a further two years may be considered; long-term funding and the potential establishment of a structural professorship will also be reviewed.)\n\n## Self-conception\nThe University of Bern is committed to increasing the proportion of women in academic leadership positions and strongly encourages applications from female candidates and individuals from underrepresented groups. Applications under job-sharing models are welcome; interested parties are requested to submit a corresponding concept. Flexible working arrangements are supported. (https://www.vereinbarkeit.unibe.ch/index_eng.html)\nInternational reputation\nApplication and Contact\nApplications must be submitted solely electronically no later than 22 October 2026 to the Dean's Office of the Medical Faculty of the University of Bern by this link\nhttps://www.recruiting.medizin.unibe.ch/position/14352393\nFor further information, please contact the Chair of the appointment committee: Prof. Dr. Inti Zlobec, Professor of Digital Pathology at the Institute of Tissue Medicine and Pathology, and Director of the Department of Digital Medicine (DDM) (inti.zlobec@unibe.ch)\nFurther information regarding required documentation can be found under https://www.medizin.unibe.ch/research/academic_career_paths/professorship/index_eng.html#pane1397223\nor under https://kdrive.medicinebern.ch/app/share/991093/bc77beab-f75a-4634-bbeb-487240307ec0\nWith us, you create value.\nFor yourself and for society.\n\n## About us\nAbout the Position\nThe Faculty of Medicine of the University of Bern and Inselspital, Bern University Hospital invite applications for an Assistant Professorship in Clinical Cancer Informatics, funded by the Werner and Hedy Berger-Janser Foundation.\nThis endowed professorship is embedded within the University Comprehensive Cancer Center Inselspital (UCI) and jointly affiliated with the Department of Medical Oncology and the Department of Radiation Oncology.\nThe position aims to strengthen data-driven, patient-centered cancer research and to advance the integration of clinical data, artificial intelligence, and precision oncology. It is designed to serve as a key interface between clinical practice and data science, enabling the transformation of real-world data into clinically meaningful insights.\nScientific Environment\nBern offers a highly collaborative and rapidly evolving ecosystem in digital medicine, including:\n• Access to large-scale clinical datasets and real-world patient data\n• Established infrastructures in data science and clinical research\n• Strong interdisciplinary collaboration across clinical departments, biomedical research, and digital medicine\n• Integration within national and international research networks\nThe successful candidate will benefit from close collaboration with the Department of Clinical Research (DCR), the Department of Digital Medicine (DDM), and the Department for BioMedical Research (DBMR), the ARTORG Center for Biomedical Engineering Research and the Center for AI in Radiation Oncology (CAIRO).\nYour profile\n\n## Self-conception\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nIndividual career support\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
-      "descriptionByLocale": {
-        "it": "UniBE è quintessentialmente Bernese.\nCon noi, ci si può aspettare una cultura del rispetto e un ambiente di lavoro sano.\n\n## Il tuo profilo\nLe tue responsabilità\n• Sviluppare e condurre un programma di ricerca innovativo in informatica sul cancro clinico\n• Avanzamento delle terminologie standardizzate, interoperabilità e strategie di mappatura per armonizzare le fonti di dati eterogenee\n• Integrare fonti di dati clinici eterogenee e sviluppare approcci analitici avanzati\n• Contribuire allo sviluppo di strumenti di supporto decisionale basati su AI in oncologia delle radiazioni e oncologia medica\n• Rafforzare la collaborazione interdisciplinare tra discipline cliniche e computazionali\n• Acquisire un finanziamento competitivo di terze parti\n• Contribuisci all'insegnamento universitario e laureato e supervisiona i ricercatori di assistenza precoce\n• Partecipa attivamente allo sviluppo strategico della medicina digitale presso la Facoltà di Medicina\nIl tuo profilo\nStiamo cercando un individuo altamente motivato e collaborativo con:\n• Un grado medico (MD o equivalente) o PhD con una forte visione clinica\n• Ottimi risultati di ricerca in informatica clinica, interoperabilità dei dati e standardizzazione, scienza dei dati, o un campo correlato\n• Esperienza con dati medici reali, AI o metodi computazionali nella sanità\n• Un forte interesse per la ricerca traduttiva e interdisciplinare\n• Capacità dimostrata (o forte potenziale) per guidare i team di ricerca\n• Eccellente capacità di comunicazione e capacità di lavorare attraverso le discipline\n• Fluenza in inglese; competenze tedesche o volontà di acquisirle\nCosa offriamo\n• Un'occasione unica per modellare un campo altamente innovativo e in rapido sviluppo\n• Accesso a eccellenti infrastrutture cliniche e di ricerca\n• Integrazione in un ambiente accademico dinamico e collaborativo\n• Finanziamento dedicato attraverso la profescenza dotata\n• Sostegno allo sviluppo della carriera e alle prospettive a lungo termine (seguendo una valutazione prima della fine del termine di quattro anni, si può considerare un'estensione di altri due anni; saranno esaminati anche i finanziamenti a lungo termine e la potenziale creazione di una cattedra strutturale).\n\n## Autoconcezione\nL'Università di Berna si impegna ad aumentare la percentuale di donne in posizioni di leadership accademica e incoraggia fortemente le applicazioni da candidati femminili e individui da gruppi sottorappresentati. Le domande in base ai modelli di condivisione del lavoro sono benvenute; le parti interessate sono tenute a presentare un concetto corrispondente. Sono supportati accordi di lavoro flessibili. (https://www.vereinbarkeit.unibe.ch/index eng.html)\nreputazione internazionale\nApplicazione e contatto\nLe domande devono essere presentate esclusivamente elettronicamente entro il 22 ottobre 2026 presso l'Ufficio della Facoltà Medica dell'Università di Berna da questo link\nhttp://www.recruiting.medizin.unibe.ch/position/14352393\nPer ulteriori informazioni, si prega di contattare il presidente del comitato di nomina: Prof. Dr. Inti Zlobec, Professore di Patologia Digitale presso l'Istituto di Medicina e Patologia del Tessuto, e Direttore del Dipartimento di Medicina Digitale (DDM) (inti.zlobec@unibe.ch)\nUlteriori informazioni sulla documentazione richiesta possono essere trovate in https://www.medizin.unibe.ch/research/academic career paths/professorship/index eng.html#pane1397223\no su http://kdrive.medicinebern.ch/app/share/991093/bc77beab-f75a-4634-bbeb-487240307ec0\nCon noi, crei valore.\nPer te e per la società.\n\n## Informazioni su di noi\nInformazioni sulla posizione\nLa Facoltà di Medicina dell'Università di Berna e dell'Inselspital, l'Ospedale Universitario di Berna invitano le domande di Professore Assistente in Informatica del Cancro Clinico, finanziato dalla Fondazione Werner e Hedy Berger-Janser.\nQuesta cattedra è incorporata all'interno dell'University Comprehensive Cancer Center Inselspital (UCI) e in collaborazione con il Dipartimento di Oncologia Medica e il Dipartimento di Oncologia Radiazione.\nLa posizione mira a rafforzare la ricerca sul cancro basata sui dati, concentrata sul paziente e a promuovere l'integrazione dei dati clinici, dell'intelligenza artificiale e dell'oncologia di precisione. È progettato per servire come interfaccia chiave tra la pratica clinica e la scienza dei dati, consentendo la trasformazione dei dati del mondo reale in insight clinicamente significativi.\nAmbiente\nBern offre un ecosistema altamente collaborativo e in rapida evoluzione nella medicina digitale, tra cui:\n• Accesso ai set di dati clinici su larga scala e ai dati dei pazienti reali\n• Infrastrutture fondate nella scienza dei dati e nella ricerca clinica\n• Forte collaborazione interdisciplinare tra reparti clinici, ricerca biomedica e medicina digitale\n• Integrazione nelle reti di ricerca nazionali e internazionali\nIl candidato di successo beneficerà di una stretta collaborazione con il Dipartimento di Ricerca Clinica (DCR), il Dipartimento di Medicina Digitale (DDM), e il Dipartimento per la Ricerca BioMedical (DBMR), il Centro ARTORG per la Ricerca di Ingegneria Biomedica e il Centro per l'AI in Oncologia della Radiazione (CAIRO).\nIl tuo profilo\n\n## Autoconcezione\nMaggiori informazioni\nLavoro-Abo\nProcesso di applicazione\n\n## I tuoi vantaggi\nForte infrastruttura di ricerca e rete internazionale\nAmbiente collaborativo e team ambizioso\nSupporto professionale individuale\nAltri vantaggi\n\n## Lavorare all'Università di Berna\nL'Università di Berna non solo offre compiti entusiasmanti ma anche un ambiente che promuove attivamente lo sviluppo, la diversità e le pari opportunità. Scopri cosa ci fa stare fuori come un datore di lavoro e come si può crescere con noi.\nPagina della carriera\nPosizioni aperte",
-        "en": "UniBE is quintessentially Bernese.\nWith us, you can expect a culture of respect and a healthy working environment.\n\n## Your profile\nYour Responsibilities\n• Develop and lead an innovative research program in clinical cancer informatics\n• Advancement of standardized terminologies, interoperabilities and mapping strategies to harmonize heterogeneous data sources\n• Integrate heterogeneous clinical data sources and develop advanced analytical approaches\n• Contribute to the development of AI-based decision-support tools in radiation oncology and medical oncology\n• Strengthen interdisciplinary collaboration between clinical and computational disciplines\n• Acquire competitive third-party funding\n• Contribute to undergraduate and graduate teaching and supervise early-career researchers\n• Actively participate in the strategic development of digital medicine at the Faculty of Medicine\nYour Profile\nWe are seeking a highly motivated and collaborative individual with:\n• A medical degree (MD or equivalent) or PhD with strong clinical insight\n• Excellent research achievements in clinical informatics, data interoperability and standardization, data science, or a related field\n• Experience with real-world medical data, AI, or computational methods in healthcare\n• A strong interest in translational and interdisciplinary research\n• Demonstrated ability (or strong potential) to lead research teams\n• Excellent communication skills and ability to work across disciplines\n• Fluency in English; German skills or willingness to acquire them\nWhat We Offer\n• A unique opportunity to shape a highly innovative and rapidly developing field\n• Access to excellent clinical and research infrastructure\n• Integration into a dynamic and collaborative academic environment\n• Dedicated funding through the endowed professorship\n• Support for career development and long-term perspectives (following an evaluation before the end of the four-year term, an extension by a further two years may be considered; long-term funding and the potential establishment of a structural professorship will also be reviewed.)\n\n## Self-conception\nThe University of Bern is committed to increasing the proportion of women in academic leadership positions and strongly encourages applications from female candidates and individuals from underrepresented groups. Applications under job-sharing models are welcome; interested parties are requested to submit a corresponding concept. Flexible working arrangements are supported. (https://www.vereinbarkeit.unibe.ch/index_eng.html)\nInternational reputation\nApplication and Contact\nApplications must be submitted solely electronically no later than 22 October 2026 to the Dean's Office of the Medical Faculty of the University of Bern by this link\nhttps://www.recruiting.medizin.unibe.ch/position/14352393\nFor further information, please contact the Chair of the appointment committee: Prof. Dr. Inti Zlobec, Professor of Digital Pathology at the Institute of Tissue Medicine and Pathology, and Director of the Department of Digital Medicine (DDM) (inti.zlobec@unibe.ch)\nFurther information regarding required documentation can be found under https://www.medizin.unibe.ch/research/academic_career_paths/professorship/index_eng.html#pane1397223\nor under https://kdrive.medicinebern.ch/app/share/991093/bc77beab-f75a-4634-bbeb-487240307ec0\nWith us, you create value.\nFor yourself and for society.\n\n## About us\nAbout the Position\nThe Faculty of Medicine of the University of Bern and Inselspital, Bern University Hospital invite applications for an Assistant Professorship in Clinical Cancer Informatics, funded by the Werner and Hedy Berger-Janser Foundation.\nThis endowed professorship is embedded within the University Comprehensive Cancer Center Inselspital (UCI) and jointly affiliated with the Department of Medical Oncology and the Department of Radiation Oncology.\nThe position aims to strengthen data-driven, patient-centered cancer research and to advance the integration of clinical data, artificial intelligence, and precision oncology. It is designed to serve as a key interface between clinical practice and data science, enabling the transformation of real-world data into clinically meaningful insights.\nScientific Environment\nBern offers a highly collaborative and rapidly evolving ecosystem in digital medicine, including:\n• Access to large-scale clinical datasets and real-world patient data\n• Established infrastructures in data science and clinical research\n• Strong interdisciplinary collaboration across clinical departments, biomedical research, and digital medicine\n• Integration within national and international research networks\nThe successful candidate will benefit from close collaboration with the Department of Clinical Research (DCR), the Department of Digital Medicine (DDM), and the Department for BioMedical Research (DBMR), the ARTORG Center for Biomedical Engineering Research and the Center for AI in Radiation Oncology (CAIRO).\nYour profile\n\n## Self-conception\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nIndividual career support\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
-        "de": "UniBE ist typisch Bernerisch.\nBei uns erwarten Sie eine Kultur des Respekts und ein gesundes Arbeitsumfeld.\n\n## Dein Profil\nIhre Aufgaben\n• Entwicklung und Leitung eines innovativen Forschungsprogramms für klinische Krebsinformatik\n• Weiterentwicklung standardisierter Terminologien, Interoperabilitäten und Mapping-Strategien zur Harmonisierung heterogener Datenquellen\n• Integration heterogener klinischer Datenquellen und Entwicklung fortschrittlicher analytischer Ansätze\n• Beitrag zur Entwicklung von KI-basierten Entscheidungshilfeinstrumenten in der Strahlenonkologie und medizinischen Onkologie\n• Stärkung der interdisziplinären Zusammenarbeit zwischen klinischen und computergestützten Disziplinen\n• Erwerb wettbewerbsfähiger Drittmittel\n• Beitrag zu Undergraduate und Graduate Lehre und betreuen Nachwuchsforscher\n• Aktiv an der strategischen Entwicklung der digitalen Medizin an der Medizinischen Fakultät teilnehmen\nIhr Profil\nWir suchen eine hoch motivierte und kooperative Person mit:\n• Ein medizinischer Grad (MD oder gleichwertig) oder PhD mit starken klinischen Einblick\n• Hervorragende Forschungsleistungen in den Bereichen klinische Informatik, Dateninteroperabilität und -standardisierung, Data Science oder einem verwandten Bereich\n• Erfahrung mit realen medizinischen Daten, KI oder Computermethoden im Gesundheitswesen\n• Starkes Interesse an translationaler und interdisziplinärer Forschung\n• Nachweisliche Fähigkeit (oder starkes Potenzial), Forschungsteams zu führen\n• Hervorragende Kommunikationsfähigkeiten und Fähigkeit, disziplinübergreifend zu arbeiten\n• fließend Englisch; Deutschkenntnisse oder Bereitschaft, sie zu erwerben\nWas wir anbieten\n• Eine einzigartige Gelegenheit, ein hoch innovatives und sich schnell entwickelndes Feld zu gestalten\n• Zugang zu exzellenter klinischer und Forschungsinfrastruktur\n• Integration in ein dynamisches und kooperatives akademisches Umfeld\n• Dedizierte Förderung durch die Stiftungsprofessur\n• Unterstützung der Laufbahnentwicklung und der langfristigen Perspektiven (nach einer Evaluierung vor Ablauf der vierjährigen Amtszeit kann eine Verlängerung um weitere zwei Jahre in Betracht gezogen werden; auch die langfristige Förderung und die mögliche Etablierung einer Strukturprofessur werden überprüft.)\n\n## Selbstverständnis\nDie Universität Bern setzt sich für die Erhöhung des Frauenanteils in akademischen Führungspositionen ein und fördert nachdrücklich Bewerbungen von weiblichen Kandidaten und Personen aus unterrepräsentierten Gruppen. Bewerbungen im Rahmen von Jobsharing-Modellen sind willkommen; Interessenten werden gebeten, ein entsprechendes Konzept einzureichen. Flexible Arbeitsvereinbarungen werden unterstützt. (https://www.vereinbarkeit.unibe.ch/index eng.html)\nInternationale Reputation\nBewerbung und Kontakt\nBewerbungen müssen bis spätestens 22. Oktober 2026 ausschließlich elektronisch beim Dekanat der Medizinischen Fakultät der Universität Bern unter diesem Link eingereicht werden\nhttps://www.recruiting.medizin.unibe.ch/position/14352393\nFür weitere Informationen wenden Sie sich bitte an den Vorsitzenden des Berufungsausschusses: Prof. Dr. Inti Zlobec, Professor für Digitale Pathologie am Institut für Gewebemedizin und Pathologie und Direktor der Abteilung für Digitale Medizin (DDM) (inti.zlobec@unibe.ch)\nWeitere Informationen zu den erforderlichen Unterlagen finden Sie unter https://www.medizin.unibe.ch/research/academic career paths/professorship/index eng.html#pane1397223\noder unter https://kdrive.medicinebern.ch/app/share/991093/bc77beab-f75a-4634-bbeb-487240307ec0\nMit uns schaffen Sie Werte.\nFür dich und für die Gesellschaft.\n\n## Über uns\nÜber die Position\nDie Medizinische Fakultät der Universität Bern und das Inselspital des Universitätsklinikums Bern laden zur Bewerbung um eine Assistenzprofessur für Klinische Krebsinformatik ein, die von der Werner und Hedy Berger-Janser Stiftung gefördert wird.\nDiese Stiftungsprofessur ist in das University Comprehensive Cancer Center Inselspital (UCI) eingebettet und gemeinsam mit der Abteilung für Medizinische Onkologie und der Abteilung für Radioonkologie verbunden.\nDie Position zielt darauf ab, die datengesteuerte, patientenzentrierte Krebsforschung zu stärken und die Integration von klinischen Daten, künstlicher Intelligenz und Präzisionsonkologie voranzutreiben. Es dient als zentrale Schnittstelle zwischen klinischer Praxis und Data Science und ermöglicht die Transformation von realen Daten in klinisch bedeutsame Erkenntnisse.\nWissenschaftliche Umwelt\nBern bietet ein hochgradig kooperatives und sich schnell entwickelndes Ökosystem in der digitalen Medizin, einschließlich:\n• Zugang zu groß angelegten klinischen Datensätzen und realen Patientendaten\n• Etablierte Infrastrukturen in Data Science und klinischer Forschung\n• Starke interdisziplinäre Zusammenarbeit zwischen klinischen Abteilungen, biomedizinischer Forschung und digitaler Medizin\n• Integration in nationale und internationale Forschungsnetzwerke\nDer erfolgreiche Kandidat profitiert von der engen Zusammenarbeit mit dem Department of Clinical Research (DCR), dem Department of Digital Medicine (DDM) und dem Department for BioMedical Research (DBMR), dem ARTORG Center for Biomedical Engineering Research und dem Center for AI in Radiation Oncology (CAIRO).\nDein Profil\n\n## Selbstverständnis\nMehr Informationen\nJob-Abo\nAnwendungsprozess\n\n## Ihre Vorteile\nStarke Forschungsinfrastruktur und internationales Netzwerk\nKollaboratives Umfeld und ambitioniertes Team\nIndividuelle Karriereunterstützung\nSonstige Leistungen\n\n## Arbeiten an der Universität Bern\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeber auszeichnet und wie Sie mit uns wachsen können.\nKarriereseite\nOffene Positionen",
-        "fr": "UniBE est essentiellement bernois.\nAvec nous, vous pouvez vous attendre à une culture du respect et un environnement de travail sain.\n\n## Votre profil\nVos responsabilités\n• Élaborer et diriger un programme de recherche innovateur en informatique clinique sur le cancer\n• Amélioration des terminologies normalisées, des interopérabilités et des stratégies de cartographie pour harmoniser les sources de données hétérogènes\n• Intégrer des sources de données cliniques hétérogènes et développer des approches analytiques avancées\n• Contribuer au développement d'outils d'aide à la décision basés sur l'IA en oncologie radiologique et en oncologie médicale\n• Renforcer la collaboration interdisciplinaire entre les disciplines cliniques et computationnelles\n• Acquérir un financement concurrentiel de tiers\n• Contribuer à l'enseignement de premier cycle et de deuxième cycle et superviser les chercheurs en début de carrière\n• Participer activement au développement stratégique de la médecine numérique à la Faculté de médecine\nVotre profil\nNous recherchons une personne hautement motivée et collaborative avec :\n• Un diplôme médical (MD ou équivalent) ou un doctorat avec un fort aperçu clinique\n• Excellents résultats de recherche en informatique clinique, interopérabilité et normalisation des données, science des données ou domaine connexe\n• Expérience de données médicales, d'IA ou de méthodes de calcul dans le monde réel en soins de santé\n• Un vif intérêt pour la recherche translationnelle et interdisciplinaire\n• Capacité démontrée (ou fort potentiel) de diriger des équipes de recherche\n• Excellentes compétences en communication et capacité de travailler dans toutes les disciplines\n• Connaissance de l'anglais; compétences allemandes ou volonté de les acquérir\nCe que nous offrons\n• Une occasion unique de façonner un domaine hautement innovant et en développement rapide\n• Accès à une excellente infrastructure clinique et de recherche\n• Intégration dans un environnement académique dynamique et collaboratif\n• Financement dédié par le biais de la chaire\n• Soutien au perfectionnement professionnel et perspectives à long terme (à la suite d'une évaluation avant la fin de la période de quatre ans, une prolongation de deux ans peut être envisagée; le financement à long terme et l'établissement éventuel d'une chaire structurelle seront également examinés).\n\n## Auto-conception\nL ' Université de Berne s ' est engagée à accroître la proportion de femmes occupant des postes de direction et encourage vivement les candidatures de candidates et de personnes appartenant à des groupes sous-représentés. Les candidatures dans le cadre de modèles de partage des emplois sont les bienvenues; les parties intéressées sont invitées à soumettre un concept correspondant. Des modalités de travail flexibles sont prises en charge. (https://www.vereinbarkeit.unibe.ch/index eng.html)\nLa réputation internationale\nDemande et contact\nLes demandes doivent être soumises uniquement par voie électronique au plus tard le 22 octobre 2026 au bureau du doyen de la Faculté de médecine de l'Université de Berne par ce lien.\nhttps://www.recruiting.medizin.unibe.ch/position/14352393\nPour de plus amples renseignements, veuillez contacter le président du comité de nomination: Prof. Dr Inti Zlobec, professeur de pathologie numérique à l'Institut de médecine des tissus et de pathologie, et directeur du Département de médecine numérique (DDM) (inti.zlobec@unibe.ch)\nDe plus amples renseignements sur la documentation requise sont disponibles à l'adresse suivante : https://www.medizin.unibe.ch/research/academic career paths/professorship/index eng.html#pane1397223\nou sous https://kdrive.medicinebern.ch/app/share/991093/bc77beab-f75a-4634-bbeb-487240307ec0\nAvec nous, vous créez de la valeur.\nPour vous et pour la société.\n\n## Sur nous\nÀ propos de la position\nLa Faculté de médecine de l'Université de Berne et l'Hôpital universitaire de Berne invitent les candidats à un poste de professeur adjoint en informatique clinique du cancer, financé par la Fondation Werner et Hedy Berger-Janser.\nCe poste de professeur est intégré au Centre de cancérologie intégrale de l'Université (UCI) et affilié conjointement au Département d'oncologie médicale et au Département d'oncologie radiologique.\nLa position vise à renforcer la recherche sur le cancer axée sur les données, et à faire progresser l'intégration des données cliniques, de l'intelligence artificielle et de l'oncologie de précision. Il est conçu pour servir d'interface clé entre la pratique clinique et la science des données, permettant la transformation des données du monde réel en informations cliniquement significatives.\nEnvironnement scientifique\nBern offre un écosystème hautement collaboratif et en évolution rapide en médecine numérique, notamment :\n• Accès à des ensembles de données cliniques à grande échelle et à des données sur les patients du monde réel\n• Infrastructures établies en sciences des données et en recherche clinique\n• Forte collaboration interdisciplinaire entre les départements cliniques, la recherche biomédicale et la médecine numérique\n• Intégration au sein des réseaux de recherche nationaux et internationaux\nLe candidat retenu bénéficiera d'une collaboration étroite avec le Département de recherche clinique (DCR), le Département de médecine numérique (DDM) et le Département de recherche biomédicale (DBMR), le Centre ARTORG de recherche en génie biomédical et le Centre d'IA en oncologie radiologique (CAIRO).\nVotre profil\n\n## Auto-conception\nInformations supplémentaires\nEmploi-Abo\nProcessus de demande\n\n## Vos avantages\nForte infrastructure de recherche et réseau international\nEnvironnement collaboratif et équipe ambitieuse\nSoutien individuel aux carrières\nAutres prestations\n\n## Travaillant à l'Université de Berne\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous pouvez grandir avec nous.\nPage de carrière\nOuvrir les positions"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/job-vacancies/assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-werner-and-hedy-berger-janser-foundation-endowed-professorship/54f98e0e-b406-41a2-ad87-37a7d06823c1",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.610Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23",
-      "postedDate": "2026-09-23",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.unibe.ch/job-vacancies/assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-werner-and-hedy-berger-janser-foundation-endowed-professorship/54f98e0e-b406-41a2-ad87-37a7d06823c1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-br-werner-and-hedy"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-br-werner-and-hedy"
-        ],
-        "de": [
-          "assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-br-werner-and-hedy"
-        ],
-        "fr": [
-          "assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-br-werner-and-hedy"
-        ]
-      },
-      "firstSeenAt": "2026-09-24T00:02:05.730Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "unibe-776cba8785e7",
       "slug": "posizione-postdoc-precoce-sulla-governance-of-climate-extremes-universitat-bern-bern",
       "slugByLocale": {
@@ -676,7 +597,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/early-postdoc-position-on-the-governance-of-climate-extremes/6bc2f305-92d1-449a-b9e0-ecb994dffc82",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.609Z",
+      "crawledAt": "2026-10-23T09:30:41.220Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -727,9 +648,9 @@
     },
     {
       "id": "unibe-8d3e9e6a7b54",
-      "slug": "amministratore-trice-di-sistema-it-universitat-bern-bern",
+      "slug": "it-systemadministrator-in-universitat-bern-bern",
       "slugByLocale": {
-        "it": "amministratore-trice-di-sistema-it-universitat-bern-bern",
+        "it": "it-systemadministrator-in-universitat-bern-bern",
         "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
         "fr": "administrateur-systeme-informatique-universitat-bern-bern"
@@ -756,7 +677,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/it-systemadministrator-in/47fc7ff0-6645-4659-9cc2-7d7c64320128",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.607Z",
+      "crawledAt": "2026-10-23T09:30:41.219Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -778,20 +699,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "it-systemadministrator-in-unibe-bern",
-        "it-systemadministrator-in-universitat-bern-bern",
-        "it-systemadministrator-in-universitat-bern"
+        "it-systemadministrator-in-universitat-bern",
+        "amministratore-trice-di-sistema-it-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern",
-          "it-systemadministrator-in-universitat-bern-bern",
-          "it-systemadministrator-in-universitat-bern"
-        ],
-        "en": [
-          "it-systemadministrator-in-universitat-bern-bern"
-        ],
-        "fr": [
-          "it-systemadministrator-in-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern",
+          "amministratore-trice-di-sistema-it-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-25T14:57:34.448Z",
@@ -841,7 +756,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/sekretaer-in/a65030ab-a871-45b7-92f6-06bcb721623e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.607Z",
+      "crawledAt": "2026-10-23T09:30:41.220Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -922,7 +837,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/dozentur-fuer-innovative-anatomische-lehre/69f08921-1ab4-45c0-9531-1452e1b62d87",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.606Z",
+      "crawledAt": "2026-10-23T09:30:41.219Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1003,7 +918,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/communication-officer/c890dc16-def4-4eb5-a917-3798bd6c17d3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.604Z",
+      "crawledAt": "2026-10-23T09:30:41.219Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1084,7 +999,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/specialty-internships-innere-medizin-und-chirurgie-an-der-kleintierklinik/eeeccaf7-bd9a-40e9-ad2a-5c7d54f432c8",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.603Z",
+      "crawledAt": "2026-10-23T09:30:41.217Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1164,7 +1079,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/kommunikationsbeauftragten/f70eada7-2d61-4296-ae0c-0200d2a3ac9e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.603Z",
+      "crawledAt": "2026-10-23T09:30:41.217Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1249,7 +1164,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/lehrauftrag-sozialversicherungsrecht-nachfolge-prof-kurt-paerli/3adcb202-ef29-4f30-801c-2f81caeb1419",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.602Z",
+      "crawledAt": "2026-10-23T09:30:41.216Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1329,7 +1244,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/assistenzstelle-mit-moeglichkeit-zur-promotion/68bdd60b-60ec-479f-aa31-52a02ff3142e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.601Z",
+      "crawledAt": "2026-10-23T09:30:41.215Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1404,7 +1319,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitende-r-in-der-nutztiermedizin-zum-thema-infektionsschutz-beim-kalb/5b2f65ed-4e06-411e-a391-28b6f5306a74",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.601Z",
+      "crawledAt": "2026-10-23T09:30:41.216Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1458,7 +1373,7 @@
       "slugByLocale": {
         "it": "dottorando-e-assistente-universitat-bern-bern",
         "en": "doctoral-student-and-assistant-universitat-bern-bern",
-        "de": "doktorand-in-und-assistent-in-unibe-bern",
+        "de": "doktorand-in-und-assistent-in-universitat-bern-bern",
         "fr": "doctorant-e-et-assistant-e-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -1484,7 +1399,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorand-in-und-assistent-in/6a750fc5-edce-4199-947e-d84a17968b51",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.600Z",
+      "crawledAt": "2026-10-23T09:30:41.215Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1512,6 +1427,9 @@
         "it": [
           "doktorand-in-und-assistent-in-unibe-bern",
           "doktorand-in-e-assistent-in-universitat-bern-bern"
+        ],
+        "de": [
+          "doktorand-in-und-assistent-in-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-09-02T13:53:47.363Z",
@@ -1561,7 +1479,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/forschungspraktikum/3c9ceb04-3e02-4b4f-b772-dd2d4fb3568a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.600Z",
+      "crawledAt": "2026-10-23T09:30:41.215Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1618,7 +1536,7 @@
       "slugByLocale": {
         "it": "responsabile-dell-officina-100-universitat-bern-bern",
         "en": "workshop-manager-100-universitat-bern-bern",
-        "de": "werkstattleiter-in-100-unibe-bern",
+        "de": "werkstattleiter-in-100-universitat-bern-bern",
         "fr": "responsable-d-atelier-100-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -1644,7 +1562,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/werkstattleiter-in/6c6441c6-9e7a-41f7-b313-22604a10090a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.598Z",
+      "crawledAt": "2026-10-23T09:30:41.213Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1678,6 +1596,9 @@
         ],
         "fr": [
           "werkstattleiter-in-100-universitat-bern-bern"
+        ],
+        "de": [
+          "werkstattleiter-in-100-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-10-05T21:45:22.136Z",
@@ -1701,7 +1622,7 @@
       "slugByLocale": {
         "it": "laboratorio-assistente-laboratorio-di-ricerca-universitat-bern-bern",
         "en": "laboratory-assistant-laboratory-research-laboratory-universitat-bern-bern",
-        "de": "laborant-laborantin-forschungslabor-unibe-bern",
+        "de": "laborant-laborantin-forschungslabor-universitat-bern-bern",
         "fr": "assistant-de-laboratoire-laboratoire-de-recherche-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -1726,7 +1647,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/laborant-laborantin-forschungslabor/fef0917a-93a4-406a-9960-c049b795a564",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.598Z",
+      "crawledAt": "2026-10-23T09:30:41.214Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1760,6 +1681,9 @@
         ],
         "fr": [
           "laborant-laborantin-forschungslabor-universitat-bern-bern"
+        ],
+        "de": [
+          "laborant-laborantin-forschungslabor-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-10-05T21:45:22.142Z",
@@ -1783,7 +1707,7 @@
       "slugByLocale": {
         "it": "capo-dei-servizi-centrali-universitat-bern-bern",
         "en": "head-of-central-services-universitat-bern-bern",
-        "de": "leiter-in-zentrale-dienste-unibe-bern",
+        "de": "leiter-in-zentrale-dienste-universitat-bern-bern",
         "fr": "chef-des-services-centraux-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -1809,7 +1733,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/leiter-in-zentrale-dienste/bc02b75d-e6cc-4b51-b8a9-4d0b68f12f58",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.597Z",
+      "crawledAt": "2026-10-23T09:30:41.212Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1842,6 +1766,9 @@
           "leiter-in-zentrale-dienste-unibe-bern"
         ],
         "fr": [
+          "leiter-in-zentrale-dienste-unibe-bern"
+        ],
+        "de": [
           "leiter-in-zentrale-dienste-unibe-bern"
         ]
       },
@@ -1891,7 +1818,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-student-in-translational-cancer-research-snsf-project/49b665a5-4e94-4fb8-b005-3654ed74bd33",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.597Z",
+      "crawledAt": "2026-10-23T09:30:41.213Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1946,7 +1873,7 @@
       "slugByLocale": {
         "it": "segreteria-per-gli-studi-e-gli-esami-universitat-bern-bern",
         "en": "secretariat-for-studies-and-examinations-universitat-bern-bern",
-        "de": "studien-und-prufungssekretariat-unibe-bern",
+        "de": "studien-und-prufungssekretariat-universitat-bern-bern",
         "fr": "secretariat-pour-les-etudes-et-les-examens-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -1972,7 +1899,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/studien-und-pruefungssekretariat/1bbf4290-9b20-4ed5-93f4-632d09b8c409",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.596Z",
+      "crawledAt": "2026-10-23T09:30:41.211Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2007,6 +1934,9 @@
         ],
         "fr": [
           "studien-und-prufungssekretariat-universitat-bern-bern"
+        ],
+        "de": [
+          "studien-und-prufungssekretariat-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-10-07T21:41:51.674Z",
@@ -2026,9 +1956,9 @@
     },
     {
       "id": "unibe-3d4d202ffaef",
-      "slug": "european-college-of-veterinary-microbiology-residency-stelle-o-residency-phd-universitat-bern",
+      "slug": "european-college-of-veterinary-microbiology-residenza-o-residenza-phd-universitat-bern",
       "slugByLocale": {
-        "it": "european-college-of-veterinary-microbiology-residency-stelle-o-residency-phd-universitat-bern",
+        "it": "european-college-of-veterinary-microbiology-residenza-o-residenza-phd-universitat-bern",
         "en": "european-college-of-veterinary-microbiology-residency-stelle-oder-residency-phd-unibe-bern",
         "de": "european-college-of-veterinary-microbiology-residency-stelle-oder-residency-phd-unibe-bern",
         "fr": "european-college-of-veterinary-microbiology-residency-stelle-oder-residency-phd-unibe-bern"
@@ -2055,7 +1985,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/european-college-of-veterinary-microbiology-residency-stelle-oder-residency-phd/d1ed541a-4041-40f3-9d61-f003c69856b6",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.595Z",
+      "crawledAt": "2026-10-23T09:30:41.210Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2076,11 +2006,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "european-college-of-veterinary-microbiology-residency-stelle-oder-residency-phd-unibe-bern"
+        "european-college-of-veterinary-microbiology-residency-stelle-oder-residency-phd-unibe-bern",
+        "european-college-of-veterinary-microbiology-residency-stelle-o-residency-phd-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "european-college-of-veterinary-microbiology-residency-stelle-oder-residency-phd-unibe-bern"
+          "european-college-of-veterinary-microbiology-residency-stelle-oder-residency-phd-unibe-bern",
+          "european-college-of-veterinary-microbiology-residency-stelle-o-residency-phd-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-10-12T09:51:15.631Z",
@@ -2104,7 +2036,7 @@
       "slugByLocale": {
         "it": "assistenza-scientifica-universitat-bern-bern-ddb273",
         "en": "scientific-assistance-universitat-bern-bern-ddb273",
-        "de": "wissenschaftliche-assistenz-unibe-bern",
+        "de": "wissenschaftliche-assistenz-universitat-bern-bern",
         "fr": "assistance-scientifique-universitat-bern-bern-ddb273"
       },
       "company": "Universität Bern",
@@ -2130,7 +2062,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-assistenz/9a00041a-e3ee-4eb8-a059-27b7e68ad7c4",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.595Z",
+      "crawledAt": "2026-10-23T09:30:41.211Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2164,6 +2096,9 @@
         ],
         "fr": [
           "wissenschaftliche-assistenz-universitat-bern-bern"
+        ],
+        "de": [
+          "wissenschaftliche-assistenz-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.252Z",
@@ -2213,7 +2148,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/postdoc-position-statistical-data-science-and-machine-learning-for-climate-change-research/1fbd988b-7b0f-464a-b642-7be84463fdd2",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.594Z",
+      "crawledAt": "2026-10-23T09:30:41.210Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2294,7 +2229,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-beratung-business-development-controlling-und-analyse/adfb4c85-4ce8-4c70-b873-e04d37978e45",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.593Z",
+      "crawledAt": "2026-10-23T09:30:41.209Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2350,7 +2285,7 @@
       "slug": "responsabile-veterinary-services-universitat-bern-bern",
       "slugByLocale": {
         "it": "responsabile-veterinary-services-universitat-bern-bern",
-        "en": "head-of-veterinary-services-unibe-bern",
+        "en": "head-of-veterinary-services-universitat-bern-bern",
         "de": "leiter-veterinary-services-universitat-bern-bern",
         "fr": "responsable-veterinary-services-universitat-bern-bern"
       },
@@ -2377,7 +2312,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/head-of-veterinary-services/641a6d7e-e644-48ae-802d-82cf82eea5a6",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.593Z",
+      "crawledAt": "2026-10-23T09:30:41.210Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2409,6 +2344,9 @@
         ],
         "fr": [
           "head-of-veterinary-services-unibe-bern"
+        ],
+        "en": [
+          "head-of-veterinary-services-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-10-14T21:34:44.871Z",
@@ -2432,7 +2370,7 @@
       "slugByLocale": {
         "it": "assistente-veterinario-80-100-universitat-bern-bern-f41117f22e",
         "en": "veterinary-practice-assistant-80-100-universitat-bern-bern",
-        "de": "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
+        "de": "tiermedizinische-r-praxisassistent-in-80-100-universitat-bern-bern",
         "fr": "assistant-en-pratique-veterinaire-80-100-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -2457,7 +2395,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/tiermedizinische-r-praxisassistent-in/34730585-95ac-43fe-a0e1-55dd2b7eba79",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.592Z",
+      "crawledAt": "2026-10-23T09:30:41.209Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2485,6 +2423,9 @@
         "it": [
           "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern",
           "assistente-veterinario-80-100-universitat-bern-bern"
+        ],
+        "de": [
+          "tiermedizinische-r-praxisassistent-in-80-100-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-10-05T09:27:24.554Z",
@@ -2508,7 +2449,7 @@
       "slugByLocale": {
         "it": "responsabile-di-progetto-per-progetti-edilizi-universitat-bern-bern",
         "en": "construction-project-manager-universitat-bern-bern",
-        "de": "projektleiter-in-bauprojekte-unibe-bern",
+        "de": "projektleiter-in-bauprojekte-universitat-bern-bern",
         "fr": "chef-fe-de-projet-en-construction-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -2534,7 +2475,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/projektleiter-in-bauprojekte/8859449f-a3f2-498a-8d52-85020b51fd7d",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.591Z",
+      "crawledAt": "2026-10-23T09:30:41.208Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2567,6 +2508,9 @@
           "projektleiter-in-bauprojekte-unibe-bern"
         ],
         "fr": [
+          "projektleiter-in-bauprojekte-unibe-bern"
+        ],
+        "de": [
           "projektleiter-in-bauprojekte-unibe-bern"
         ]
       },
@@ -2617,7 +2561,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-in-machine-learning-in-medicine/6a1bff95-646a-4364-bcbc-44573750bc5f",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.553Z",
+      "crawledAt": "2026-10-23T09:30:41.185Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2672,7 +2616,7 @@
       "slugByLocale": {
         "it": "assistente-social-media-universitat-bern-bern",
         "en": "assistant-social-media-universitat-bern-bern",
-        "de": "hilfsassistenz-social-media-unibe-bern",
+        "de": "hilfsassistenz-social-media-universitat-bern-bern",
         "fr": "assistant-aux-medias-sociaux-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -2697,7 +2641,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/hilfsassistenz-social-media/3587c860-207d-447a-b45b-2a536028e226",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.552Z",
+      "crawledAt": "2026-10-23T09:30:41.184Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2728,6 +2672,9 @@
           "hilfsassistenz-social-media-unibe-bern"
         ],
         "fr": [
+          "hilfsassistenz-social-media-unibe-bern"
+        ],
+        "de": [
           "hilfsassistenz-social-media-unibe-bern"
         ]
       },
@@ -2778,7 +2725,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/a019205a-7815-4720-8c46-b556e203d5b1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.552Z",
+      "crawledAt": "2026-10-23T09:30:41.185Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2861,7 +2808,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/postdoctoral-position-in-bioinformatics-and-plant-paleogenomics/a7219ce4-37b7-4696-bc04-a58eef372339",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.551Z",
+      "crawledAt": "2026-10-23T09:30:41.184Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2915,7 +2862,7 @@
       "slug": "dottorato-studente-dottorando-protect-sh-universitat-bern-bern",
       "slugByLocale": {
         "it": "dottorato-studente-dottorando-protect-sh-universitat-bern-bern",
-        "en": "doctoral-student-doctoral-student-protect-sh-universitat-bern-bern",
+        "en": "doktorandin-doktorand-protect-sh-universitat-bern-bern",
         "de": "doktorandin-doktorand-protect-sh-unibe-bern",
         "fr": "doctorat-doctorant-protect-sh-universitat-bern-bern"
       },
@@ -2941,7 +2888,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorandin-doktorand-protect-sh/6ed72ffe-b830-40c4-b698-1dda3cb87966",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.550Z",
+      "crawledAt": "2026-10-23T09:30:41.183Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2963,14 +2910,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doktorandin-doktorand-protect-sh-unibe-bern",
-        "doktorandin-doktorand-protect-sh-universitat-bern-bern"
+        "doctoral-student-doctoral-student-protect-sh-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "doktorandin-doktorand-protect-sh-unibe-bern"
         ],
         "en": [
-          "doktorandin-doktorand-protect-sh-universitat-bern-bern"
+          "doctoral-student-doctoral-student-protect-sh-universitat-bern-bern"
         ],
         "fr": [
           "doktorandin-doktorand-protect-sh-unibe-bern"
@@ -2998,7 +2945,7 @@
         "it": "genisis-ch-assistente-di-ricerca-senior-universitat-bern-bern",
         "en": "genesis-ch-senior-reseach-assistant-unibe-bern",
         "de": "genesis-ch-senior-reseach-assistant-unibe-bern",
-        "fr": "genesis-ch-assistant-principal-de-recherche-universitat-bern-bern"
+        "fr": "genesis-ch-senior-reseach-assistant-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3022,7 +2969,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/genesis-ch-senior-reseach-assistant/e5a086ea-2375-4caf-a572-67f552a09d19",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.549Z",
+      "crawledAt": "2026-10-23T09:30:41.182Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3043,14 +2990,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "genesis-ch-senior-reseach-assistant-unibe-bern"
+        "genesis-ch-senior-reseach-assistant-unibe-bern",
+        "genesis-ch-assistant-principal-de-recherche-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "genesis-ch-senior-reseach-assistant-unibe-bern"
         ],
         "fr": [
-          "genesis-ch-senior-reseach-assistant-unibe-bern"
+          "genesis-ch-senior-reseach-assistant-unibe-bern",
+          "genesis-ch-assistant-principal-de-recherche-universitat-bern-bern"
         ]
       },
       "salaryMin": 115000,
@@ -3074,7 +3023,7 @@
         "it": "cattedra-di-medicina-d-urgenza-livello-aperto-direttore-e-primario-del-dipartimento-di-medicina-d-urgenza-universitat",
         "en": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
         "de": "professur-fur-notfallmedizin-alle-besoldungsgruppen-direktor-und-chefarzt-der-abteilung-fur-notfallmedizin-universitat",
-        "fr": "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+        "fr": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3098,7 +3047,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine/a04ed1f2-bcc4-4f6f-b8f0-f9ef17058ea1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.548Z",
+      "crawledAt": "2026-10-23T09:30:41.181Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3120,7 +3069,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-        "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
+        "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern",
+        "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3131,7 +3081,8 @@
         ],
         "fr": [
           "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
+          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern",
+          "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
         ]
       },
       "firstSeenAt": "2026-10-20T09:31:08.059Z",
@@ -3181,7 +3132,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/professur-fuer-notfallmedizin-open-rank-direktor-in-und-chefaerzt-in-der-universitaetsklinik-fuer-notfallmedizin/560dc4bd-d0af-43a1-9444-2d4501e16520",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.546Z",
+      "crawledAt": "2026-10-23T09:30:41.181Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3264,7 +3215,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/projektmanager-in-schweizer-register-fuer-seltene-krankheiten/d8e9d4e6-af02-4ee3-8aea-a15181b1b188",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.545Z",
+      "crawledAt": "2026-10-23T09:30:41.180Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3346,7 +3297,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/clinical-study-manager/a87ebc2a-8623-47ce-9ec7-c4b1f8b3db28",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.544Z",
+      "crawledAt": "2026-10-23T09:30:41.179Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3401,7 +3352,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-instituts-e-studienadministration-universitat-bern",
         "en": "institute-and-study-administration-assistant-universitat-bern-bern",
-        "de": "mitarbeiter-in-instituts-und-studienadministration-unibe-bern",
+        "de": "mitarbeiter-in-instituts-und-studienadministration-universitat-bern-bern",
         "fr": "collaborateur-dans-l-administration-de-l-institut-et-des-etudes-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -3426,7 +3377,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/mitarbeiter-in-instituts-und-studienadministration/4fea4e11-e3c2-408d-8b91-ad69276e1e0f",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.543Z",
+      "crawledAt": "2026-10-23T09:30:41.179Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3446,10 +3397,6 @@
       "applyUrl": "https://jobs.unibe.ch/offene-stellen/mitarbeiter-in-instituts-und-studienadministration/4fea4e11-e3c2-408d-8b91-ad69276e1e0f",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-instituts-und-studienadministration-unibe-bern",
-        "mitarbeiter-in-instituts-und-studienadministration-universitat-bern-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-instituts-und-studienadministration-unibe-bern"
@@ -3459,9 +3406,15 @@
         ],
         "fr": [
           "mitarbeiter-in-instituts-und-studienadministration-universitat-bern-bern"
+        ],
+        "de": [
+          "mitarbeiter-in-instituts-und-studienadministration-unibe-bern"
         ]
       },
-      "firstSeenAt": "2026-10-22T09:45:31.348Z",
+      "previousSlugs": [
+        "mitarbeiter-in-instituts-und-studienadministration-unibe-bern",
+        "mitarbeiter-in-instituts-und-studienadministration-universitat-bern-bern"
+      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3474,7 +3427,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:45:31.348Z"
     },
     {
       "id": "unibe-c72f43b01a1d",
@@ -3483,7 +3437,7 @@
         "it": "assistente-di-direzione-universitat-bern-bern",
         "en": "executive-assistant-universitat-bern-bern",
         "de": "direktionsassistent-in-unibe-bern",
-        "fr": "assistant-e-de-direction-universitat-bern-bern"
+        "fr": "direktionsassistent-in-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3507,7 +3461,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/direktionsassistent-in/ce13040c-d584-4780-8aab-93ffe0d63b2a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.539Z",
+      "crawledAt": "2026-10-23T09:30:41.178Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3530,7 +3484,8 @@
       "previousSlugs": [
         "direktionsassistent-in-unibe-bern",
         "direktionsassistent-in-universitat-bern-bern",
-        "direktionsassistent-in-universitat-bern"
+        "direktionsassistent-in-universitat-bern",
+        "assistant-e-de-direction-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3541,8 +3496,8 @@
           "direktionsassistent-in-universitat-bern-bern"
         ],
         "fr": [
-          "direktionsassistent-in-universitat-bern-bern",
-          "direktionsassistent-in-universitat-bern"
+          "direktionsassistent-in-universitat-bern",
+          "assistant-e-de-direction-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-10-21T09:52:54.503Z",
@@ -3566,7 +3521,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-scientifico-a-universitat-bern-bern",
         "en": "research-associate-universitat-bern-bern",
-        "de": "wissenschaftliche-r-mitarbeiter-in-unibe-bern",
+        "de": "wissenschaftliche-r-mitarbeiter-in-universitat-bern-bern",
         "fr": "collaborateur-trice-scientifique-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -3591,7 +3546,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in/c619a627-dba3-4670-b4c9-c700eece5af9",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.538Z",
+      "crawledAt": "2026-10-23T09:30:41.178Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3628,6 +3583,9 @@
         ],
         "fr": [
           "wissenschaftliche-r-mitarbeiter-in-universitat-bern-bern"
+        ],
+        "de": [
+          "wissenschaftliche-r-mitarbeiter-in-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-09-09T23:24:54.516Z",
@@ -3676,7 +3634,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/phd-student-position-in-cell-biology/e892564f-98c5-440d-851e-5ba3bc58d5bf",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.536Z",
+      "crawledAt": "2026-10-23T09:30:41.174Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3731,7 +3689,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-scientifico-a-universitat-bern-bern-9e72d2",
         "en": "research-associate-universitat-bern-bern-9e72d2",
-        "de": "wissenschaftliche-r-mitarbeiter-in-unibe-bern",
+        "de": "wissenschaftliche-r-mitarbeiter-in-universitat-bern-bern",
         "fr": "collaborateur-trice-scientifique-universitat-bern-bern-9e72d2"
       },
       "company": "Universität Bern",
@@ -3756,7 +3714,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in/c014eafd-3d69-4685-90d0-bf0ef9f98823",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.536Z",
+      "crawledAt": "2026-10-23T09:30:41.175Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3795,6 +3753,9 @@
         ],
         "fr": [
           "wissenschaftliche-r-mitarbeiter-in-universitat-bern-bern"
+        ],
+        "de": [
+          "wissenschaftliche-r-mitarbeiter-in-unibe-bern"
         ]
       },
       "firstSeenAt": "2026-09-09T23:24:54.516Z",
@@ -3843,7 +3804,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-position-in-bottom-up-bioenergetics-and-cell-metabolism/8ba13379-21aa-4373-97ab-a4a8f1aac815",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.535Z",
+      "crawledAt": "2026-10-23T09:30:41.174Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3863,21 +3824,6 @@
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/phd-position-in-bottom-up-bioenergetics-and-cell-metabolism/8ba13379-21aa-4373-97ab-a4a8f1aac815",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
-        ],
-        "de": [
-          "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
-        ],
-        "fr": [
-          "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:45:31.342Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3890,14 +3836,29 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:45:31.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
+        ],
+        "de": [
+          "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
+        ],
+        "fr": [
+          "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
+      ]
     },
     {
       "id": "unibe-4ea456e10e40",
       "slug": "posizione-del-phd-nccr-genesis-telerilevamento-dei-microrganismi-in-ambienti-estremi-universitat-bern-bern",
       "slugByLocale": {
         "it": "posizione-del-phd-nccr-genesis-telerilevamento-dei-microrganismi-in-ambienti-estremi-universitat-bern-bern",
-        "en": "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe",
+        "en": "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-universitat-bern-bern",
         "de": "phd-position-nfs-genesis-fernerkundung-von-mikroorganismen-in-extremen-umgebungen-universitat-bern-bern",
         "fr": "doctorat-nccr-genesis-teledetection-des-micro-organismes-dans-des-environnements-extremes-universitat-bern-bern"
       },
@@ -3923,7 +3884,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments/a5825edd-e430-405e-a30e-935d10b872db",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.533Z",
+      "crawledAt": "2026-10-23T09:30:41.173Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3943,21 +3904,6 @@
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments/a5825edd-e430-405e-a30e-935d10b872db",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
-        ],
-        "de": [
-          "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
-        ],
-        "fr": [
-          "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:24:46.703Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3970,14 +3916,33 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-07T15:24:46.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
+        ],
+        "de": [
+          "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
+        ],
+        "fr": [
+          "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
+        ],
+        "en": [
+          "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "unibe-48d94d14f351",
       "slug": "posizione-phd-nccr-genesis-combinando-tecniche-di-rilevamento-della-vita-remote-e-in-situ-universitat-bern-bern",
       "slugByLocale": {
         "it": "posizione-phd-nccr-genesis-combinando-tecniche-di-rilevamento-della-vita-remote-e-in-situ-universitat-bern-bern",
-        "en": "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe",
+        "en": "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-universitat-bern-bern",
         "de": "phd-position-nfs-genesis-kombination-von-remote-und-in-situ-lebenserkennungstechniken-universitat-bern-bern",
         "fr": "poste-de-doctorat-nccr-genesis-combiner-des-techniques-de-detection-de-la-vie-a-distance-et-in-situ-universitat-bern"
       },
@@ -4003,7 +3968,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques/7e52c2be-b908-4dfd-b634-c72519d07262",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.531Z",
+      "crawledAt": "2026-10-23T09:30:41.172Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4023,21 +3988,6 @@
       "applyUrl": "https://jobs.unibe.ch/job-vacancies/phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques/7e52c2be-b908-4dfd-b634-c72519d07262",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
-        ],
-        "de": [
-          "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
-        ],
-        "fr": [
-          "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:24:46.705Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -4050,16 +4000,35 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-07T15:24:46.705Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
+        ],
+        "de": [
+          "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
+        ],
+        "fr": [
+          "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
+        ],
+        "en": [
+          "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "unibe-505a70d9abed",
-      "slug": "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern",
+      "slug": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
-        "it": "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern",
-        "de": "postdoktorandin-im-projekt-bit-philology-universitat-bern-bern",
-        "fr": "chercheur-postdoctoral-dans-le-projet-bit-philology-universitat-bern-bern"
+        "it": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
+        "de": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
+        "fr": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4067,16 +4036,16 @@
       "title": "Postdoctoral researcher in the Bit Philology project",
       "titleByLocale": {
         "en": "Postdoctoral researcher in the Bit Philology project",
-        "it": "Ricercatore post-dottorato nel progetto Bit Philology",
-        "de": "Postdoktorandin im Projekt Bit Philology",
-        "fr": "Chercheur postdoctoral dans le projet Bit Philology"
+        "it": "Postdoctoral researcher in the Bit Philology project",
+        "de": "Postdoctoral researcher in the Bit Philology project",
+        "fr": "Postdoctoral researcher in the Bit Philology project"
       },
       "description": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## Your tasks and what we offer\nDevelop your research line and participate in project activities. This includes\n• working in archives;\n• clarifying rights and potential ethical issues;\n• communicating with archivists and authors/rights holders;\n• working with legacy hardware and software, using digital forensics methods;\n• studying the writing process of authors across different media;\n• studying archival materials such as unpublished texts and drafts of publications;\n• publishing and presenting your work locally and internationally;\n• contributing to the organisation of scholarly events;\n• collaborating with the rest of the team.\nParticipation in teaching is optional. The starting date is March 2027, with flexibility for a later start.\nWhat we offer\n• A dynamic and collaborative research environment at the Digital Humanities unit.\n• Work-life balance through flexible work schedules.\n• Training opportunities in all areas of the project and related fields.\n• Salary according to SNSF regulations.\n\n## Candidate profile\nPhD in textual scholarship (philology, textual criticism, scholarly editing, genetic criticism) or literary studies or digital humanities.\n• Prior experience in working with archives.\n• Prior experience or strong interest in contemporary Swiss French and/or Italian literature; born-digital archival records; computational literary studies.\n• Strong motivation to work independently as well as with others within a diverse, interdisciplinary environment.\n• Working proficiency in English and French; Italian is a plus.\n• Self-discipline and creative thinking.\nCollaborative environment and ambitious team\nApplication and Contact\n• Academic CV\n• Letter of motivation, explaining how you fit the candidate profile\n• One writing sample (publication, PhD chapter)\n• Contact details of two references\nPlease merge all the documents together into one PDF file and name the file as follows: yourSurname_BitPhil_postdoc.pdf (e.g. Spadini_BitPhil_postdoc.pdf).\nApplication deadline: 30 November 2026.\nInterview dates: between 7 and 12 January 2027.\nWith us, you create value.\nFor yourself and for society.\n\n## Research focus\nThe Bit Philology project studies born-digital materials in literary archives, with a focus on Swiss collections in French and Italian. As a significant portion of contemporary literature is created digitally, literary archives increasingly include born-digital documents-posing new challenges for their study. The project seeks to develop methods for cataloguing these archives, create prototypes for scholarly editions, and explore authors' creative processes through digital materials. It also aims to train future researchers and advance practices in textual scholarship and digital humanities. The project team is currently composed of two PhD students and a research associate in addition to the PI.\nThe postdoctoral researcher will work with born-digital archives of writers from Swiss collections dating from the 1980s to the early 2000s (Swiss Literary Archives, Centre des littératures en Suisse romande, Archivio Prezzolini). The postdoctoral researcher can develop their own research project, focusing on one or more authors and/or works. One possible research topic is the relationship between paper and digital documents in hybrid archives. In many cases, libraries and archives acquire digital content as part of a paper donation and these different sources should be studied together.\nYour tasks and what we offer\n\n## Candidate profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nInterdisciplinary collaboration\nTeam-oriented work\nFuture-oriented career prospects\nOther benefits\nYour Benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
       "descriptionByLocale": {
         "en": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## Your tasks and what we offer\nDevelop your research line and participate in project activities. This includes\n• working in archives;\n• clarifying rights and potential ethical issues;\n• communicating with archivists and authors/rights holders;\n• working with legacy hardware and software, using digital forensics methods;\n• studying the writing process of authors across different media;\n• studying archival materials such as unpublished texts and drafts of publications;\n• publishing and presenting your work locally and internationally;\n• contributing to the organisation of scholarly events;\n• collaborating with the rest of the team.\nParticipation in teaching is optional. The starting date is March 2027, with flexibility for a later start.\nWhat we offer\n• A dynamic and collaborative research environment at the Digital Humanities unit.\n• Work-life balance through flexible work schedules.\n• Training opportunities in all areas of the project and related fields.\n• Salary according to SNSF regulations.\n\n## Candidate profile\nPhD in textual scholarship (philology, textual criticism, scholarly editing, genetic criticism) or literary studies or digital humanities.\n• Prior experience in working with archives.\n• Prior experience or strong interest in contemporary Swiss French and/or Italian literature; born-digital archival records; computational literary studies.\n• Strong motivation to work independently as well as with others within a diverse, interdisciplinary environment.\n• Working proficiency in English and French; Italian is a plus.\n• Self-discipline and creative thinking.\nCollaborative environment and ambitious team\nApplication and Contact\n• Academic CV\n• Letter of motivation, explaining how you fit the candidate profile\n• One writing sample (publication, PhD chapter)\n• Contact details of two references\nPlease merge all the documents together into one PDF file and name the file as follows: yourSurname_BitPhil_postdoc.pdf (e.g. Spadini_BitPhil_postdoc.pdf).\nApplication deadline: 30 November 2026.\nInterview dates: between 7 and 12 January 2027.\nWith us, you create value.\nFor yourself and for society.\n\n## Research focus\nThe Bit Philology project studies born-digital materials in literary archives, with a focus on Swiss collections in French and Italian. As a significant portion of contemporary literature is created digitally, literary archives increasingly include born-digital documents-posing new challenges for their study. The project seeks to develop methods for cataloguing these archives, create prototypes for scholarly editions, and explore authors' creative processes through digital materials. It also aims to train future researchers and advance practices in textual scholarship and digital humanities. The project team is currently composed of two PhD students and a research associate in addition to the PI.\nThe postdoctoral researcher will work with born-digital archives of writers from Swiss collections dating from the 1980s to the early 2000s (Swiss Literary Archives, Centre des littératures en Suisse romande, Archivio Prezzolini). The postdoctoral researcher can develop their own research project, focusing on one or more authors and/or works. One possible research topic is the relationship between paper and digital documents in hybrid archives. In many cases, libraries and archives acquire digital content as part of a paper donation and these different sources should be studied together.\nYour tasks and what we offer\n\n## Candidate profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nInterdisciplinary collaboration\nTeam-oriented work\nFuture-oriented career prospects\nOther benefits\nYour Benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
-        "it": "UniBE è ambizioso.\nCon noi, si offre le migliori prestazioni e testare le vostre abilità contro il meglio.\n\n## I vostri compiti e ciò che offriamo\nSviluppa la tua linea di ricerca e partecipa alle attività di progetto. Questo include\n• lavorare negli archivi;\n• chiarire i diritti e le potenziali questioni etiche;\n• comunicare con archivisti e autori/destratori;\n• lavorare con hardware e software legacy, utilizzando metodi forensi digitali;\n• studiare il processo di scrittura di autori attraverso diversi media;\n• studiare materiali archivistici come testi inediti e progetti di pubblicazioni;\n• pubblicare e presentare il tuo lavoro a livello locale e internazionale;\n• contribuire all'organizzazione di eventi studiosi;\n• collaborando con il resto della squadra.\nLa partecipazione all'insegnamento è facoltativa. La data di partenza è marzo 2027, con flessibilità per un secondo inizio.\nCosa offriamo\n• Un ambiente di ricerca dinamico e collaborativo nell'unità Digital Humanities.\n• Bilancio della vita lavorativa attraverso programmi di lavoro flessibili.\n• Opportunità di formazione in tutte le aree del progetto e campi correlati.\n• Salario secondo le normative SNSF.\n\n## Profilo del candidato\nPhD in borsa di studio testuale (filologia, critica testuale, editing accademico, critica genetica) o studi letterari o umanitÃ digitali.\n• Esperienza prioritaria nel lavoro con gli archivi.\n• Esperienza prioritaria o forte interesse per la letteratura contemporanea svizzera francese e/o italiana; registrazioni archivistiche natalizie; studi letterari computazionali.\n• Forte motivazione a lavorare in modo indipendente e con gli altri all'interno di un ambiente diversificato e interdisciplinare.\n• La competenza di lavoro in inglese e francese; l'italiano è un plus.\n• Autodisciplina e pensiero creativo.\nAmbiente collaborativo e team ambizioso\nApplicazione e contatto\n• CV accademico\n• Lettera di motivazione, spiegando come si adatta il profilo del candidato\n• Un campione di scrittura (pubblicazione, capitolo di dottorato)\n• Dettagli di contatto di due riferimenti\nSi prega di unire tutti i documenti insieme in un file PDF e nominare il file come segue: yourSurname BitPhil postdoc.pdf (ad esempio Spadini BitPhil postdoc.pdf).\nTermine per la richiesta: 30 novembre 2026.\nDate di intervista: dal 7 al 12 gennaio 2027.\nCon noi, crei valore.\nPer te e per la società.\n\n## Obiettivo della ricerca\nIl progetto Bit Philology studia materiali di origine digitale negli archivi letterari, con un focus sulle collezioni svizzere in francese e italiano. Come una parte significativa della letteratura contemporanea viene creata digitalmente, gli archivi letterari includono sempre più documenti-digitali che pongono nuove sfide per il loro studio. Il progetto mira a sviluppare metodi per catalogare questi archivi, creare prototipi per edizioni accademiche, ed esplorare i processi creativi degli autori attraverso materiali digitali. Esso mira anche a formare futuri ricercatori e pratiche di anticipo in borse di studio testuale e umanitÃ digitali. Il team di progetto è attualmente composto da due studenti di dottorato e un socio di ricerca oltre al PI.\nIl ricercatore post-dottorato lavorerà con archivi natali di scrittori provenienti da collezioni svizzere risalenti agli anni '80 ai primi anni 2000 (Archivio letterario svizzero, Centre des littératures en Suisse romande, Archivio Prezzolini). Il ricercatore post-dottorato può sviluppare il proprio progetto di ricerca, concentrandosi su uno o più autori e/o opere. Un possibile argomento di ricerca è il rapporto tra carta e documenti digitali negli archivi ibridi. In molti casi, biblioteche e archivi acquisiscono contenuti digitali come parte di una donazione di carta e queste diverse fonti dovrebbero essere studiate insieme.\nI vostri compiti e ciò che offriamo\n\n## Profilo del candidato\nMaggiori informazioni\nLavoro-Abo\nProcesso di applicazione\n\n## I tuoi vantaggi\nCollaborazione interdisciplinare\nLavoro orientato al team\nProspettive di carriera orientate al futuro\nAltri vantaggi\nI tuoi vantaggi\n\n## Lavorare all'Università di Berna\nL'Università di Berna non solo offre compiti entusiasmanti ma anche un ambiente che promuove attivamente lo sviluppo, la diversità e le pari opportunità. Scopri cosa ci fa stare fuori come un datore di lavoro e come si può crescere con noi.\nPagina della carriera\nPosizioni aperte",
-        "de": "UniBE ist ehrgeizig.\nBei uns liefern Sie Spitzenleistungen und testen Ihre Fähigkeiten gegen die Besten.\n\n## Ihre Aufgaben und was wir anbieten\nEntwickeln Sie Ihre Forschungslinie und beteiligen Sie sich an Projektaktivitäten. Dazu gehören\n• Arbeiten in Archiven;\n• Klärung von Rechten und potenziellen ethischen Fragen;\n• Kommunikation mit Archivaren und Urhebern/Rechtsinhabern;\n• Arbeiten mit Legacy-Hardware und -Software unter Verwendung digitaler forensischer Methoden;\n• Studieren des Schreibprozesses von Autoren in verschiedenen Medien;\n• Studium von Archivmaterial wie unveröffentlichten Texten und Entwürfen von Publikationen;\n• Veröffentlichung und Präsentation Ihrer Arbeit lokal und international;\n• Beitrag zur Organisation wissenschaftlicher Veranstaltungen;\n• Zusammenarbeit mit dem Rest des Teams.\nDie Teilnahme am Unterricht ist optional. Startdatum ist März 2027, mit Flexibilität für einen späteren Start.\nWas wir anbieten\n• Ein dynamisches und kollaboratives Forschungsumfeld im Bereich Digital Humanities.\n• Work-Life-Balance durch flexible Arbeitszeiten.\n• Ausbildungsmöglichkeiten in allen Bereichen des Projekts und verwandten Bereichen.\n• Gehalt nach SNF-Vorschriften.\n\n## Bewerberprofil\nPhD in Textwissenschaft (Philologie, Textkritik, wissenschaftliche Bearbeitung, genetische Kritik) oder Literaturwissenschaft oder Digital Humanities.\n• Vorherige Erfahrung in der Arbeit mit Archiven.\n• Vorkenntnisse oder starkes Interesse an zeitgenössischer Schweizer französischer und / oder italienischer Literatur; geborene digitale Archivaufzeichnungen; Computerliteraturstudien.\n• Starke Motivation, unabhängig und mit anderen in einem vielfältigen, interdisziplinären Umfeld zu arbeiten.\n• Arbeitskenntnisse in Englisch und Französisch; Italienisch ist ein Plus.\n• Selbstdisziplin und kreatives Denken.\nKollaboratives Umfeld und ambitioniertes Team\nBewerbung und Kontakt\n• Akademischer Lebenslauf\n• Motivationsschreiben, in dem erklärt wird, wie Sie zum Kandidatenprofil passen\n• Eine Schreibprobe (Veröffentlichung, PhD-Kapitel)\n• Kontaktangaben zu zwei Referenzen\nBitte führen Sie alle Dokumente zu einer PDF-Datei zusammen und benennen Sie die Datei wie folgt: yourSurname BitPhil postdoc.pdf (z. B. Spadini BitPhil postdoc.pdf).\nAntragsfrist: 30. November 2026.\nInterviewdaten: zwischen dem 7. und 12. Januar 2027.\nMit uns schaffen Sie Werte.\nFür dich und für die Gesellschaft.\n\n## Forschungsschwerpunkt\nDas Projekt Bit Philology untersucht geborene digitale Materialien in literarischen Archiven mit Schwerpunkt auf Schweizer Sammlungen auf Französisch und Italienisch. Da ein bedeutender Teil der zeitgenössischen Literatur digital erstellt wird, enthalten literarische Archive zunehmend geborene digitale Dokumente, die neue Herausforderungen für ihr Studium darstellen. Ziel des Projekts ist es, Methoden zur Katalogisierung dieser Archive zu entwickeln, Prototypen für wissenschaftliche Ausgaben zu erstellen und die kreativen Prozesse von Autoren durch digitale Materialien zu erkunden. Es zielt auch darauf ab, zukünftige Forscher auszubilden und Praktiken in Textstipendien und Digital Humanities voranzutreiben. Das Projektteam besteht derzeit aus zwei Doktoranden und einem wissenschaftlichen Mitarbeiter zusätzlich zum PI.\nDie Postdoktorandin wird mit geborenen digitalen Schriftstellerarchiven aus Schweizer Sammlungen aus den 1980er bis Anfang der 2000er Jahre arbeiten (Schweizerisches Literaturarchiv, Centre des littératures en Suisse romande, Archivio Prezzolini). Der Postdoktorand kann ein eigenes Forschungsprojekt entwickeln, das sich auf einen oder mehrere Autoren und / oder Werke konzentriert. Ein mögliches Forschungsthema ist die Beziehung zwischen Papier und digitalen Dokumenten in hybriden Archiven. In vielen Fällen erwerben Bibliotheken und Archive digitale Inhalte im Rahmen einer Papierspende, und diese verschiedenen Quellen sollten gemeinsam untersucht werden.\nIhre Aufgaben und was wir anbieten\n\n## Bewerberprofil\nMehr Informationen\nJob-Abo\nAnwendungsprozess\n\n## Ihre Vorteile\nInterdisziplinäre Zusammenarbeit\nTeamorientierte Arbeit\nZukunftsorientierte Karriereperspektiven\nSonstige Leistungen\nIhre Vorteile\n\n## Arbeiten an der Universität Bern\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeber auszeichnet und wie Sie mit uns wachsen können.\nKarriereseite\nOffene Positionen",
-        "fr": "UniBE est ambitieux.\nAvec nous, vous offrez des performances supérieures et testez vos compétences contre les meilleurs.\n\n## Vos tâches et ce que nous offrons\nDéveloppez votre ligne de recherche et participez aux activités du projet. Cela comprend:\n• travailler dans les archives;\n• clarifier les droits et les questions éthiques potentielles;\n• communiquer avec les archivistes et les auteurs et titulaires de droits;\n• travailler avec le matériel et les logiciels existants, en utilisant des méthodes médico-légales numériques;\n• étudier le processus d'écriture des auteurs dans différents médias;\n• l'étude de documents d'archives tels que des textes inédits et des ébauches de publications;\n• publier et présenter votre travail aux niveaux local et international;\n• contribuer à l'organisation d'événements scientifiques;\n• collaborer avec le reste de l'équipe.\nLa participation à l'enseignement est facultative. La date de début est mars 2027, avec flexibilité pour un début ultérieur.\nCe que nous offrons\n• Un environnement de recherche dynamique et collaboratif à l'unité des humanités numériques.\n• L'équilibre entre le travail et la vie personnelle grâce à des horaires de travail flexibles.\n• Possibilités de formation dans tous les domaines du projet et dans les domaines connexes.\n• Salaire selon la réglementation SNSF.\n\n## Profil du candidat\nDoctorat en sciences du texte (philologie, critique textuelle, édition savante, critique génétique) ou études littéraires ou humanités numériques.\n• Expérience préalable de travail avec les archives.\n• Expérience antérieure ou fort intérêt pour la littérature suisse contemporaine française et/ou italienne; documents d'archives numériques nés; études littéraires informatiques.\n• Une forte motivation à travailler de façon indépendante et avec d'autres dans un environnement interdisciplinaire diversifié.\n• Compétence professionnelle en anglais et en français; l'italien est un plus.\n• Autodiscipline et pensée créative.\nEnvironnement collaboratif et équipe ambitieuse\nDemande et contact\n• CV universitaire\n• Lettre de motivation expliquant comment vous correspondez au profil du candidat\n• Un échantillon d'écriture (publication, chapitre du doctorat)\n• Coordonnées de deux références\nVeuillez fusionner tous les documents en un seul fichier PDF et nommer le fichier comme suit : votreNom BitPhil postdoc.pdf (par exemple Spadini BitPhil postdoc.pdf).\nDate limite de présentation des demandes : 30 novembre 2026.\nDates d'entrevue : entre le 7 et le 12 janvier 2027.\nAvec nous, vous créez de la valeur.\nPour vous et pour la société.\n\n## Axe de recherche\nLe projet Bit Philology étudie le matériel numérique né dans les archives littéraires, en mettant l'accent sur les collections suisses en français et en italien. Comme une partie importante de la littérature contemporaine est créée numériquement, les archives littéraires incluent de plus en plus de documents numériques nés, ce qui pose de nouveaux défis pour leur étude. Le projet vise à développer des méthodes de catalogage de ces archives, à créer des prototypes pour les éditions savantes et à explorer les processus créatifs des auteurs à travers des matériaux numériques. Il vise également à former les futurs chercheurs et à faire progresser les pratiques en matière de bourses d'études et de sciences humaines numériques. L'équipe du projet est actuellement composée de deux doctorants et d'un associé de recherche en plus de l'IP.\nLe chercheur postdoctoral travaillera avec les archives numériques des auteurs des collections suisses des années 1980 au début des années 2000 (Archivio Prezzolini, Archives littéraires suisses, Centre des littératures en Suisse romande). Le chercheur postdoctoral peut élaborer son propre projet de recherche, en se concentrant sur un ou plusieurs auteurs ou travaux. Un thème de recherche possible est la relation entre le papier et les documents numériques dans les archives hybrides. Dans de nombreux cas, les bibliothèques et les archives acquièrent du contenu numérique dans le cadre d'un don papier et ces différentes sources devraient être étudiées ensemble.\nVos tâches et ce que nous offrons\n\n## Profil du candidat\nInformations supplémentaires\nEmploi-Abo\nProcessus de demande\n\n## Vos avantages\nCollaboration interdisciplinaire\nTravaux axés sur l ' équipe\nPerspectives de carrière prospectives\nAutres prestations\nVos avantages\n\n## Travaillant à l'Université de Berne\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous pouvez grandir avec nous.\nPage de carrière\nOuvrir les positions"
+        "it": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## Your tasks and what we offer\nDevelop your research line and participate in project activities. This includes\n• working in archives;\n• clarifying rights and potential ethical issues;\n• communicating with archivists and authors/rights holders;\n• working with legacy hardware and software, using digital forensics methods;\n• studying the writing process of authors across different media;\n• studying archival materials such as unpublished texts and drafts of publications;\n• publishing and presenting your work locally and internationally;\n• contributing to the organisation of scholarly events;\n• collaborating with the rest of the team.\nParticipation in teaching is optional. The starting date is March 2027, with flexibility for a later start.\nWhat we offer\n• A dynamic and collaborative research environment at the Digital Humanities unit.\n• Work-life balance through flexible work schedules.\n• Training opportunities in all areas of the project and related fields.\n• Salary according to SNSF regulations.\n\n## Candidate profile\nPhD in textual scholarship (philology, textual criticism, scholarly editing, genetic criticism) or literary studies or digital humanities.\n• Prior experience in working with archives.\n• Prior experience or strong interest in contemporary Swiss French and/or Italian literature; born-digital archival records; computational literary studies.\n• Strong motivation to work independently as well as with others within a diverse, interdisciplinary environment.\n• Working proficiency in English and French; Italian is a plus.\n• Self-discipline and creative thinking.\nCollaborative environment and ambitious team\nApplication and Contact\n• Academic CV\n• Letter of motivation, explaining how you fit the candidate profile\n• One writing sample (publication, PhD chapter)\n• Contact details of two references\nPlease merge all the documents together into one PDF file and name the file as follows: yourSurname_BitPhil_postdoc.pdf (e.g. Spadini_BitPhil_postdoc.pdf).\nApplication deadline: 30 November 2026.\nInterview dates: between 7 and 12 January 2027.\nWith us, you create value.\nFor yourself and for society.\n\n## Research focus\nThe Bit Philology project studies born-digital materials in literary archives, with a focus on Swiss collections in French and Italian. As a significant portion of contemporary literature is created digitally, literary archives increasingly include born-digital documents-posing new challenges for their study. The project seeks to develop methods for cataloguing these archives, create prototypes for scholarly editions, and explore authors' creative processes through digital materials. It also aims to train future researchers and advance practices in textual scholarship and digital humanities. The project team is currently composed of two PhD students and a research associate in addition to the PI.\nThe postdoctoral researcher will work with born-digital archives of writers from Swiss collections dating from the 1980s to the early 2000s (Swiss Literary Archives, Centre des littératures en Suisse romande, Archivio Prezzolini). The postdoctoral researcher can develop their own research project, focusing on one or more authors and/or works. One possible research topic is the relationship between paper and digital documents in hybrid archives. In many cases, libraries and archives acquire digital content as part of a paper donation and these different sources should be studied together.\nYour tasks and what we offer\n\n## Candidate profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nInterdisciplinary collaboration\nTeam-oriented work\nFuture-oriented career prospects\nOther benefits\nYour Benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
+        "de": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## Your tasks and what we offer\nDevelop your research line and participate in project activities. This includes\n• working in archives;\n• clarifying rights and potential ethical issues;\n• communicating with archivists and authors/rights holders;\n• working with legacy hardware and software, using digital forensics methods;\n• studying the writing process of authors across different media;\n• studying archival materials such as unpublished texts and drafts of publications;\n• publishing and presenting your work locally and internationally;\n• contributing to the organisation of scholarly events;\n• collaborating with the rest of the team.\nParticipation in teaching is optional. The starting date is March 2027, with flexibility for a later start.\nWhat we offer\n• A dynamic and collaborative research environment at the Digital Humanities unit.\n• Work-life balance through flexible work schedules.\n• Training opportunities in all areas of the project and related fields.\n• Salary according to SNSF regulations.\n\n## Candidate profile\nPhD in textual scholarship (philology, textual criticism, scholarly editing, genetic criticism) or literary studies or digital humanities.\n• Prior experience in working with archives.\n• Prior experience or strong interest in contemporary Swiss French and/or Italian literature; born-digital archival records; computational literary studies.\n• Strong motivation to work independently as well as with others within a diverse, interdisciplinary environment.\n• Working proficiency in English and French; Italian is a plus.\n• Self-discipline and creative thinking.\nCollaborative environment and ambitious team\nApplication and Contact\n• Academic CV\n• Letter of motivation, explaining how you fit the candidate profile\n• One writing sample (publication, PhD chapter)\n• Contact details of two references\nPlease merge all the documents together into one PDF file and name the file as follows: yourSurname_BitPhil_postdoc.pdf (e.g. Spadini_BitPhil_postdoc.pdf).\nApplication deadline: 30 November 2026.\nInterview dates: between 7 and 12 January 2027.\nWith us, you create value.\nFor yourself and for society.\n\n## Research focus\nThe Bit Philology project studies born-digital materials in literary archives, with a focus on Swiss collections in French and Italian. As a significant portion of contemporary literature is created digitally, literary archives increasingly include born-digital documents-posing new challenges for their study. The project seeks to develop methods for cataloguing these archives, create prototypes for scholarly editions, and explore authors' creative processes through digital materials. It also aims to train future researchers and advance practices in textual scholarship and digital humanities. The project team is currently composed of two PhD students and a research associate in addition to the PI.\nThe postdoctoral researcher will work with born-digital archives of writers from Swiss collections dating from the 1980s to the early 2000s (Swiss Literary Archives, Centre des littératures en Suisse romande, Archivio Prezzolini). The postdoctoral researcher can develop their own research project, focusing on one or more authors and/or works. One possible research topic is the relationship between paper and digital documents in hybrid archives. In many cases, libraries and archives acquire digital content as part of a paper donation and these different sources should be studied together.\nYour tasks and what we offer\n\n## Candidate profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nInterdisciplinary collaboration\nTeam-oriented work\nFuture-oriented career prospects\nOther benefits\nYour Benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
+        "fr": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## Your tasks and what we offer\nDevelop your research line and participate in project activities. This includes\n• working in archives;\n• clarifying rights and potential ethical issues;\n• communicating with archivists and authors/rights holders;\n• working with legacy hardware and software, using digital forensics methods;\n• studying the writing process of authors across different media;\n• studying archival materials such as unpublished texts and drafts of publications;\n• publishing and presenting your work locally and internationally;\n• contributing to the organisation of scholarly events;\n• collaborating with the rest of the team.\nParticipation in teaching is optional. The starting date is March 2027, with flexibility for a later start.\nWhat we offer\n• A dynamic and collaborative research environment at the Digital Humanities unit.\n• Work-life balance through flexible work schedules.\n• Training opportunities in all areas of the project and related fields.\n• Salary according to SNSF regulations.\n\n## Candidate profile\nPhD in textual scholarship (philology, textual criticism, scholarly editing, genetic criticism) or literary studies or digital humanities.\n• Prior experience in working with archives.\n• Prior experience or strong interest in contemporary Swiss French and/or Italian literature; born-digital archival records; computational literary studies.\n• Strong motivation to work independently as well as with others within a diverse, interdisciplinary environment.\n• Working proficiency in English and French; Italian is a plus.\n• Self-discipline and creative thinking.\nCollaborative environment and ambitious team\nApplication and Contact\n• Academic CV\n• Letter of motivation, explaining how you fit the candidate profile\n• One writing sample (publication, PhD chapter)\n• Contact details of two references\nPlease merge all the documents together into one PDF file and name the file as follows: yourSurname_BitPhil_postdoc.pdf (e.g. Spadini_BitPhil_postdoc.pdf).\nApplication deadline: 30 November 2026.\nInterview dates: between 7 and 12 January 2027.\nWith us, you create value.\nFor yourself and for society.\n\n## Research focus\nThe Bit Philology project studies born-digital materials in literary archives, with a focus on Swiss collections in French and Italian. As a significant portion of contemporary literature is created digitally, literary archives increasingly include born-digital documents-posing new challenges for their study. The project seeks to develop methods for cataloguing these archives, create prototypes for scholarly editions, and explore authors' creative processes through digital materials. It also aims to train future researchers and advance practices in textual scholarship and digital humanities. The project team is currently composed of two PhD students and a research associate in addition to the PI.\nThe postdoctoral researcher will work with born-digital archives of writers from Swiss collections dating from the 1980s to the early 2000s (Swiss Literary Archives, Centre des littératures en Suisse romande, Archivio Prezzolini). The postdoctoral researcher can develop their own research project, focusing on one or more authors and/or works. One possible research topic is the relationship between paper and digital documents in hybrid archives. In many cases, libraries and archives acquire digital content as part of a paper donation and these different sources should be studied together.\nYour tasks and what we offer\n\n## Candidate profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nInterdisciplinary collaboration\nTeam-oriented work\nFuture-oriented career prospects\nOther benefits\nYour Benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions"
       },
       "needsRetranslation": true,
       "location": "Bern",
@@ -4084,7 +4053,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/postdoctoral-researcher-in-the-bit-philology-project/94b67730-9c6f-4778-a929-f55638ed0ff6",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.528Z",
+      "crawledAt": "2026-10-23T09:30:41.172Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4119,28 +4088,34 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:38:56.528Z",
+      "firstSeenAt": "2026-10-23T09:30:41.172Z",
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
+          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
+          "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern"
         ],
         "de": [
-          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
+          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
+          "postdoktorandin-im-projekt-bit-philology-universitat-bern-bern"
         ],
         "fr": [
-          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
+          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
+          "chercheur-postdoctoral-dans-le-projet-bit-philology-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
+        "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
+        "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern",
+        "postdoktorandin-im-projekt-bit-philology-universitat-bern-bern",
+        "chercheur-postdoctoral-dans-le-projet-bit-philology-universitat-bern-bern"
       ]
     },
     {
       "id": "unibe-d488deb6cf3a",
-      "slug": "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern-31a0201b74",
+      "slug": "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern",
       "slugByLocale": {
         "en": "ecvn-neurology-residency-training-program-in-bern-unibe-bern",
-        "it": "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern-31a0201b74",
+        "it": "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern",
         "de": "ecvn-neurologie-residency-training-programm-in-bern-universitat-bern-bern",
         "fr": "programme-de-formation-en-neurologie-a-berne-universitat-bern-bern"
       },
@@ -4166,7 +4141,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/ecvn-neurology-residency-training-program-in-bern/18d023ec-8b77-41f1-964d-56fa493606d9",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:38:56.526Z",
+      "crawledAt": "2026-10-23T09:30:41.171Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4189,12 +4164,14 @@
       "previousSlugsByLocale": {
         "it": [
           "ecvn-neurology-residency-training-program-in-bern-unibe-bern",
-          "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern"
+          "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern",
+          "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern-31a0201b74"
         ]
       },
       "previousSlugs": [
         "ecvn-neurology-residency-training-program-in-bern-unibe-bern",
-        "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern"
+        "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern",
+        "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern-31a0201b74"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4209,16 +4186,17 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:57:34.457Z"
+      "firstSeenAt": "2026-09-25T14:57:34.457Z",
+      "needsRetranslation": true
     },
     {
       "id": "unibe-12d39a0c8ed0",
-      "slug": "addetto-a-alla-reception-universitat-bern-bern",
+      "slug": "collaboratore-trice-empfang-universitat-bern",
       "slugByLocale": {
-        "de": "mitarbeiter-in-empfang-unibe-bern",
-        "it": "addetto-a-alla-reception-universitat-bern-bern",
-        "en": "reception-staff-member-universitat-bern-bern",
-        "fr": "collaborateur-rice-a-la-reception-universitat-bern-bern"
+        "de": "mitarbeiter-in-empfang-universitat-bern-bern",
+        "it": "collaboratore-trice-empfang-universitat-bern",
+        "en": "mitarbeiter-in-empfang-universitat-bern-bern",
+        "fr": "mitarbeiter-in-empfang-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4226,23 +4204,23 @@
       "title": "Mitarbeiter/in Empfang",
       "titleByLocale": {
         "de": "Mitarbeiter/in Empfang",
-        "it": "Addetto/a alla reception",
-        "en": "Reception staff member",
-        "fr": "Collaborateur·rice à la réception"
+        "it": "Collaboratore/trice Empfang",
+        "en": "Mitarbeiter/in Empfang",
+        "fr": "Mitarbeiter/in Empfang"
       },
       "description": "Die UniBE ist mittendrin.\nBei uns profitieren Sie von der zentralen Lage und verkehrstechnisch günstig gelegenen Standorten.\n\n## Ihre Aufgaben\n• Empfang und administrative Aufnahme von Patienten sowie Entgegennahme, Priorisierung und Weiterleitung von Telefonanrufen, insbesondere Notfälle\n• Bereitstellung sämtlicher Formulare und Dokumente am Empfang\n• Verbuchen von Anzahlungen sowie Kassenabrechnung / Tagesabschluss\n• Post- und E-Mail-Bearbeitung\n• Archivierung und Scanning von Patientendossiers\n• Ferien- und Abwesenheitsvertretung\n\n## Ihr Profil\n• Kauffrau/Kaufmann EFZ, Handelsschulabschluss oder Student/in der Vetsuisse Fakultät Bern\n• Sehr gute mündliche Deutsch- und Französischkenntnisse\n• Englischkenntnisse erwünscht\n• Gute Kenntnisse der MS Office-Produkte & Bereitschaft, unsere interne Software-Palette zu erlernen\n• Freude am Umgang mit Menschen sowie freundliches und sicheres Auftreten, auch in anspruchsvollen Situationen\n• Sorgfältige und verantwortungsbewusste Arbeitsweise, insbesondere beim Umgang mit Patienten- und Kundendaten.\n• Rasche Auffassungsgabe und Freude am Erlernen neuer Abläufe\n• Selbständige, strukturierte und zuverlässige Arbeitsweise\n• Bereitschaft zu gelegentlichen zusätzlichen Einsätzen bei Ferien- und Krankheitsvertretungen\nZentrale Lage im Herzen von Bern\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Darauf können Sie sich freuen\nDas ISME (Institut suisse de médecine équine) gehört zur Vetsuisse-Fakultät der Universität Bern und ist an den Standorten Bern und Avenches tätig: In Bern führen wir eine Überweisungsklinik für Pferde und andere Equiden, in Avenches ein Reproduktionszentrum und einen Veterinärdienst. Rund 65 Mitarbeitende sind bei uns in Forschung, Lehre und Dienstleistung tätig.\nSie erwartet ein abwechslungsreiches und lebendiges Arbeitsumfeld mit direktem Bezug zum Klinikalltag. Am Empfang sind Sie eine wichtige Schnittstelle zwischen Tierärztinnen und Tierärzten, Forschern und Forscherinnen, Studentinnen und Studenten, Pferdebesitzern und Pferdebesitzerinnen sowie weiteren internen und externen Stellen. Dabei übernehmen Sie abwechslungsreiche Aufgaben, erhalten Einblick in verschiedene Bereiche einer universitären Pferdeklinik und arbeiten in einem kollegialen und engagierten Team.\nIhre Aufgaben\n\n## Ihr Profil\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nInspirierendes Arbeitsumfeld\nInterdisziplinäre Zusammenarbeit\nTeamorientiertes Arbeiten\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
       "descriptionByLocale": {
         "de": "Die UniBE ist mittendrin.\nBei uns profitieren Sie von der zentralen Lage und verkehrstechnisch günstig gelegenen Standorten.\n\n## Ihre Aufgaben\n• Empfang und administrative Aufnahme von Patienten sowie Entgegennahme, Priorisierung und Weiterleitung von Telefonanrufen, insbesondere Notfälle\n• Bereitstellung sämtlicher Formulare und Dokumente am Empfang\n• Verbuchen von Anzahlungen sowie Kassenabrechnung / Tagesabschluss\n• Post- und E-Mail-Bearbeitung\n• Archivierung und Scanning von Patientendossiers\n• Ferien- und Abwesenheitsvertretung\n\n## Ihr Profil\n• Kauffrau/Kaufmann EFZ, Handelsschulabschluss oder Student/in der Vetsuisse Fakultät Bern\n• Sehr gute mündliche Deutsch- und Französischkenntnisse\n• Englischkenntnisse erwünscht\n• Gute Kenntnisse der MS Office-Produkte & Bereitschaft, unsere interne Software-Palette zu erlernen\n• Freude am Umgang mit Menschen sowie freundliches und sicheres Auftreten, auch in anspruchsvollen Situationen\n• Sorgfältige und verantwortungsbewusste Arbeitsweise, insbesondere beim Umgang mit Patienten- und Kundendaten.\n• Rasche Auffassungsgabe und Freude am Erlernen neuer Abläufe\n• Selbständige, strukturierte und zuverlässige Arbeitsweise\n• Bereitschaft zu gelegentlichen zusätzlichen Einsätzen bei Ferien- und Krankheitsvertretungen\nZentrale Lage im Herzen von Bern\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Darauf können Sie sich freuen\nDas ISME (Institut suisse de médecine équine) gehört zur Vetsuisse-Fakultät der Universität Bern und ist an den Standorten Bern und Avenches tätig: In Bern führen wir eine Überweisungsklinik für Pferde und andere Equiden, in Avenches ein Reproduktionszentrum und einen Veterinärdienst. Rund 65 Mitarbeitende sind bei uns in Forschung, Lehre und Dienstleistung tätig.\nSie erwartet ein abwechslungsreiches und lebendiges Arbeitsumfeld mit direktem Bezug zum Klinikalltag. Am Empfang sind Sie eine wichtige Schnittstelle zwischen Tierärztinnen und Tierärzten, Forschern und Forscherinnen, Studentinnen und Studenten, Pferdebesitzern und Pferdebesitzerinnen sowie weiteren internen und externen Stellen. Dabei übernehmen Sie abwechslungsreiche Aufgaben, erhalten Einblick in verschiedene Bereiche einer universitären Pferdeklinik und arbeiten in einem kollegialen und engagierten Team.\nIhre Aufgaben\n\n## Ihr Profil\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nInspirierendes Arbeitsumfeld\nInterdisziplinäre Zusammenarbeit\nTeamorientiertes Arbeiten\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
-        "it": "L'UniBE è nel bel mezzo.\nCon noi si beneficia della posizione centrale e delle posizioni comodamente situate.\n\n## I loro compiti\n• Ricevimento e ricezione amministrativa dei pazienti, nonché ricezione, priorità e inoltro delle telefonate, in particolare emergenze\n• Fornitura di tutti i moduli e documenti alla reception\n• Prenotazione di depositi e dichiarazione di cassa / chiusura del giorno\n• Elaborazione postale ed e-mail\n• Archiviazione e scansione dei dossier dei pazienti\n• Rappresentanza delle vacanze e delle assenze\n\n## Il tuo profilo\n• Kauffrau/Kaufmann EFZ, diploma di business school o studente/alla Facoltà di Vetsuisse Berna\n• Conoscenza orale molto buona di tedesco e francese\n• competenze linguistiche richieste\n• Buona conoscenza dei prodotti MS Office e la volontà di imparare la nostra gamma software interna\n• Piacere di avere a che fare con le persone così come il comportamento amichevole e sicuro, anche in situazioni difficili\n• Metodi di lavoro attenti e responsabili, soprattutto quando si tratta di dati del paziente e del cliente.\n• Rapida comprensione e gioia nell'apprendimento di nuovi processi\n• Metodo di lavoro indipendente, strutturato e affidabile\n• Prontezza per incarichi aggiuntivi occasionali presso i rappresentanti di vacanza e malattia\nPosizione centrale nel cuore di Berna\nApplicazione e contatto\nCon noi, crei valore.\nPer se stessi e per la società.\n\n## Non vedo l'ora.\nL'ISME (Institut suisse de médecine équine) fa parte della Facoltà di Vetsuisse dell'Università di Berna e opera nelle sedi di Berna e Avenches: A Berna gestiamo una clinica di riferimento per cavalli e altri equidi, in Avenches un centro riproduttivo e un servizio veterinario. Circa 65 dipendenti lavorano per noi nella ricerca, nell'insegnamento e nei servizi.\nSi aspetta un ambiente di lavoro vario e vivace con riferimento diretto alla vita quotidiana dell'ospedale. Alla reception, si è un'interfaccia importante tra veterinari, ricercatori, studenti, proprietari di cavalli e altri corpi interni ed esterni. Prenderai varie attività, acquisirai informazioni su varie aree di una clinica di cavalli universitari e lavorerai in una squadra collegiale e impegnata.\nI loro compiti\n\n## Il tuo profilo\nAbbonamento al lavoro\nProcedura di applicazione\n\n## I tuoi vantaggi\nAmbiente di lavoro stimolante\nCooperazione interdisciplinare\nLavoro orientato al team\n\n## Lavorare sulla UniBE\nL'Università di Berna non solo offre compiti entusiasmanti, ma anche un ambiente che promuove attivamente lo sviluppo, la diversità e le pari opportunità. Scopri cosa ci distingue come un datore di lavoro e come si ottiene avanti con noi.\nPagina della carriera\nPosti di lavoro",
-        "en": "The UniBE is in the middle of it.\nWith us you benefit from the central location and conveniently located locations.\n\n## Their tasks\n• Reception and administrative reception of patients as well as reception, prioritization and forwarding of telephone calls, in particular emergencies\n• Provision of all forms and documents at reception\n• Booking of deposits and cash statement / closing of the day\n• Postal and e-mail processing\n• Archiving and scanning of patient dossiers\n• Representation of holidays and absences\n\n## Your profile\n• Kauffrau/Kaufmann EFZ, business school diploma or student/in the Vetsuisse Faculty Bern\n• Very good oral knowledge of German and French\n• English language skills required\n• Good knowledge of MS Office products & willingness to learn our internal software range\n• Pleasure in dealing with people as well as friendly and safe behavior, even in demanding situations\n• Careful and responsible working methods, especially when dealing with patient and customer data.\n• Rapid comprehension and joy in learning new processes\n• Independent, structured and reliable working method\n• Readiness for occasional additional assignments at holiday and illness representatives\nCentral location in the heart of Bern\nApplication and contact\nWith us, you create value.\nFor themselves and society.\n\n## You can look forward to that.\nThe ISME (Institut suisse de médecine équine) is part of the Vetsuisse Faculty of the University of Bern and operates at the Bern and Avenches locations: In Bern we run a referral clinic for horses and other equidae, in Avenches a reproductive center and a veterinary service. Around 65 employees work for us in research, teaching and services.\nShe expects a varied and lively working environment with direct reference to everyday hospital life. At the reception, you are an important interface between veterinarians, researchers, students, horse owners and other internal and external bodies. You will take on varied tasks, gain insight into various areas of a university horse clinic and work in a collegial and committed team.\nTheir tasks\n\n## Your profile\nJob subscription\nApplication procedure\n\n## Your Benefits\nInspiring working environment\nInterdisciplinary cooperation\nTeam-oriented work\n\n## Working on the UniBE\nThe University of Bern not only offers exciting tasks, but also an environment that actively promotes development, diversity and equal opportunities. Discover what distinguishes us as an employer and how you get ahead with us.\nCareer page\nJob vacancies",
-        "fr": "L'UniBE est au milieu.\nAvec nous, vous bénéficiez de l'emplacement central et idéalement situé.\n\n## Leurs tâches\n• Réception et accueil administratif des patients ainsi que réception, hiérarchisation et transmission des appels téléphoniques, en particulier les urgences\n• Fourniture de tous les formulaires et documents à la réception\n• Réservation des dépôts et de l'état de caisse / clôture de la journée\n• Traitement postal et courrier électronique\n• Archivage et numérisation des dossiers des patients\n• Représentation des jours fériés et des absences\n\n## Votre profil\n• Kauffrau/Kaufmann EFZ, diplôme d'école de commerce ou étudiant/à la Faculté Vetsuisse Berne\n• Très bonne connaissance orale de l'allemand et du français\n• Compétences linguistiques requises\n• Bonne connaissance des produits MS Office et volonté d'apprendre notre gamme de logiciels internes\n• Plaisir de traiter avec les gens ainsi que le comportement amical et sûr, même dans des situations exigeantes\n• Méthodes de travail prudentes et responsables, surtout lorsqu'il s'agit de données sur les patients et les clients.\n• Compréhension rapide et joie d'apprendre de nouveaux processus\n• Méthode de travail indépendante, structurée et fiable\n• Préparation pour des affectations supplémentaires occasionnelles aux représentants des congés et des maladies\nSituation centrale au coeur de Berne\nDemande et contact\nAvec nous, vous créez de la valeur.\nPour eux-mêmes et la société.\n\n## Vous pouvez attendre avec impatience.\nL'ISME (Institut suisse de médecine équine) fait partie de la Faculté Vetsuisse de l'Université de Berne et opère aux sites de Berne et d'Avenches : A Berne, nous gérons une clinique de référence pour chevaux et autres équidés, à Avenches un centre de reproduction et un service vétérinaire. Environ 65 employés travaillent pour nous dans la recherche, l'enseignement et les services.\nElle s'attend à un environnement de travail varié et animé qui fait directement référence à la vie quotidienne des hôpitaux. A la réception, vous êtes une interface importante entre vétérinaires, chercheurs, étudiants, propriétaires de chevaux et autres organismes internes et externes. Vous assumerez des tâches variées, vous aurez un aperçu des différents domaines d'une clinique de cheval universitaire et travaillerez dans une équipe collégiale et engagée.\nLeurs tâches\n\n## Votre profil\nAbonnement emploi\nProcédure de demande\n\n## Vos avantages\nEnvironnement de travail inspirant\nCoopération interdisciplinaire\nTravaux axés sur l ' équipe\n\n## Travail sur l'UniBE\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous avancez avec nous.\nPage de carrière\nEmplois vacants"
+        "it": "Die UniBE ist mittendrin.\nBei uns profitieren Sie von der zentralen Lage und verkehrstechnisch günstig gelegenen Standorten.\n\n## Ihre Aufgaben\n• Empfang und administrative Aufnahme von Patienten sowie Entgegennahme, Priorisierung und Weiterleitung von Telefonanrufen, insbesondere Notfälle\n• Bereitstellung sämtlicher Formulare und Dokumente am Empfang\n• Verbuchen von Anzahlungen sowie Kassenabrechnung / Tagesabschluss\n• Post- und E-Mail-Bearbeitung\n• Archivierung und Scanning von Patientendossiers\n• Ferien- und Abwesenheitsvertretung\n\n## Ihr Profil\n• Kauffrau/Kaufmann EFZ, Handelsschulabschluss oder Student/in der Vetsuisse Fakultät Bern\n• Sehr gute mündliche Deutsch- und Französischkenntnisse\n• Englischkenntnisse erwünscht\n• Gute Kenntnisse der MS Office-Produkte & Bereitschaft, unsere interne Software-Palette zu erlernen\n• Freude am Umgang mit Menschen sowie freundliches und sicheres Auftreten, auch in anspruchsvollen Situationen\n• Sorgfältige und verantwortungsbewusste Arbeitsweise, insbesondere beim Umgang mit Patienten- und Kundendaten.\n• Rasche Auffassungsgabe und Freude am Erlernen neuer Abläufe\n• Selbständige, strukturierte und zuverlässige Arbeitsweise\n• Bereitschaft zu gelegentlichen zusätzlichen Einsätzen bei Ferien- und Krankheitsvertretungen\nZentrale Lage im Herzen von Bern\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Darauf können Sie sich freuen\nDas ISME (Institut suisse de médecine équine) gehört zur Vetsuisse-Fakultät der Universität Bern und ist an den Standorten Bern und Avenches tätig: In Bern führen wir eine Überweisungsklinik für Pferde und andere Equiden, in Avenches ein Reproduktionszentrum und einen Veterinärdienst. Rund 65 Mitarbeitende sind bei uns in Forschung, Lehre und Dienstleistung tätig.\nSie erwartet ein abwechslungsreiches und lebendiges Arbeitsumfeld mit direktem Bezug zum Klinikalltag. Am Empfang sind Sie eine wichtige Schnittstelle zwischen Tierärztinnen und Tierärzten, Forschern und Forscherinnen, Studentinnen und Studenten, Pferdebesitzern und Pferdebesitzerinnen sowie weiteren internen und externen Stellen. Dabei übernehmen Sie abwechslungsreiche Aufgaben, erhalten Einblick in verschiedene Bereiche einer universitären Pferdeklinik und arbeiten in einem kollegialen und engagierten Team.\nIhre Aufgaben\n\n## Ihr Profil\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nInspirierendes Arbeitsumfeld\nInterdisziplinäre Zusammenarbeit\nTeamorientiertes Arbeiten\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
+        "en": "Die UniBE ist mittendrin.\nBei uns profitieren Sie von der zentralen Lage und verkehrstechnisch günstig gelegenen Standorten.\n\n## Ihre Aufgaben\n• Empfang und administrative Aufnahme von Patienten sowie Entgegennahme, Priorisierung und Weiterleitung von Telefonanrufen, insbesondere Notfälle\n• Bereitstellung sämtlicher Formulare und Dokumente am Empfang\n• Verbuchen von Anzahlungen sowie Kassenabrechnung / Tagesabschluss\n• Post- und E-Mail-Bearbeitung\n• Archivierung und Scanning von Patientendossiers\n• Ferien- und Abwesenheitsvertretung\n\n## Ihr Profil\n• Kauffrau/Kaufmann EFZ, Handelsschulabschluss oder Student/in der Vetsuisse Fakultät Bern\n• Sehr gute mündliche Deutsch- und Französischkenntnisse\n• Englischkenntnisse erwünscht\n• Gute Kenntnisse der MS Office-Produkte & Bereitschaft, unsere interne Software-Palette zu erlernen\n• Freude am Umgang mit Menschen sowie freundliches und sicheres Auftreten, auch in anspruchsvollen Situationen\n• Sorgfältige und verantwortungsbewusste Arbeitsweise, insbesondere beim Umgang mit Patienten- und Kundendaten.\n• Rasche Auffassungsgabe und Freude am Erlernen neuer Abläufe\n• Selbständige, strukturierte und zuverlässige Arbeitsweise\n• Bereitschaft zu gelegentlichen zusätzlichen Einsätzen bei Ferien- und Krankheitsvertretungen\nZentrale Lage im Herzen von Bern\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Darauf können Sie sich freuen\nDas ISME (Institut suisse de médecine équine) gehört zur Vetsuisse-Fakultät der Universität Bern und ist an den Standorten Bern und Avenches tätig: In Bern führen wir eine Überweisungsklinik für Pferde und andere Equiden, in Avenches ein Reproduktionszentrum und einen Veterinärdienst. Rund 65 Mitarbeitende sind bei uns in Forschung, Lehre und Dienstleistung tätig.\nSie erwartet ein abwechslungsreiches und lebendiges Arbeitsumfeld mit direktem Bezug zum Klinikalltag. Am Empfang sind Sie eine wichtige Schnittstelle zwischen Tierärztinnen und Tierärzten, Forschern und Forscherinnen, Studentinnen und Studenten, Pferdebesitzern und Pferdebesitzerinnen sowie weiteren internen und externen Stellen. Dabei übernehmen Sie abwechslungsreiche Aufgaben, erhalten Einblick in verschiedene Bereiche einer universitären Pferdeklinik und arbeiten in einem kollegialen und engagierten Team.\nIhre Aufgaben\n\n## Ihr Profil\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nInspirierendes Arbeitsumfeld\nInterdisziplinäre Zusammenarbeit\nTeamorientiertes Arbeiten\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
+        "fr": "Die UniBE ist mittendrin.\nBei uns profitieren Sie von der zentralen Lage und verkehrstechnisch günstig gelegenen Standorten.\n\n## Ihre Aufgaben\n• Empfang und administrative Aufnahme von Patienten sowie Entgegennahme, Priorisierung und Weiterleitung von Telefonanrufen, insbesondere Notfälle\n• Bereitstellung sämtlicher Formulare und Dokumente am Empfang\n• Verbuchen von Anzahlungen sowie Kassenabrechnung / Tagesabschluss\n• Post- und E-Mail-Bearbeitung\n• Archivierung und Scanning von Patientendossiers\n• Ferien- und Abwesenheitsvertretung\n\n## Ihr Profil\n• Kauffrau/Kaufmann EFZ, Handelsschulabschluss oder Student/in der Vetsuisse Fakultät Bern\n• Sehr gute mündliche Deutsch- und Französischkenntnisse\n• Englischkenntnisse erwünscht\n• Gute Kenntnisse der MS Office-Produkte & Bereitschaft, unsere interne Software-Palette zu erlernen\n• Freude am Umgang mit Menschen sowie freundliches und sicheres Auftreten, auch in anspruchsvollen Situationen\n• Sorgfältige und verantwortungsbewusste Arbeitsweise, insbesondere beim Umgang mit Patienten- und Kundendaten.\n• Rasche Auffassungsgabe und Freude am Erlernen neuer Abläufe\n• Selbständige, strukturierte und zuverlässige Arbeitsweise\n• Bereitschaft zu gelegentlichen zusätzlichen Einsätzen bei Ferien- und Krankheitsvertretungen\nZentrale Lage im Herzen von Bern\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Darauf können Sie sich freuen\nDas ISME (Institut suisse de médecine équine) gehört zur Vetsuisse-Fakultät der Universität Bern und ist an den Standorten Bern und Avenches tätig: In Bern führen wir eine Überweisungsklinik für Pferde und andere Equiden, in Avenches ein Reproduktionszentrum und einen Veterinärdienst. Rund 65 Mitarbeitende sind bei uns in Forschung, Lehre und Dienstleistung tätig.\nSie erwartet ein abwechslungsreiches und lebendiges Arbeitsumfeld mit direktem Bezug zum Klinikalltag. Am Empfang sind Sie eine wichtige Schnittstelle zwischen Tierärztinnen und Tierärzten, Forschern und Forscherinnen, Studentinnen und Studenten, Pferdebesitzern und Pferdebesitzerinnen sowie weiteren internen und externen Stellen. Dabei übernehmen Sie abwechslungsreiche Aufgaben, erhalten Einblick in verschiedene Bereiche einer universitären Pferdeklinik und arbeiten in einem kollegialen und engagierten Team.\nIhre Aufgaben\n\n## Ihr Profil\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nInspirierendes Arbeitsumfeld\nInterdisziplinäre Zusammenarbeit\nTeamorientiertes Arbeiten\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen"
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/offene-stellen/mitarbeiter-in-empfang/bd05d652-274c-406f-b7f0-49dc3b15901f",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:38:56.516Z",
+      "crawledAt": "2026-10-23T09:30:41.170Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4267,19 +4245,28 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-unibe-bern",
-          "collaboratore-trice-empfang-universitat-bern"
+          "collaboratore-trice-empfang-universitat-bern",
+          "addetto-a-alla-reception-universitat-bern-bern"
         ],
         "en": [
-          "mitarbeiter-in-empfang-universitat-bern-bern"
+          "mitarbeiter-in-empfang-universitat-bern-bern",
+          "reception-staff-member-universitat-bern-bern"
         ],
         "fr": [
-          "mitarbeiter-in-empfang-universitat-bern-bern"
+          "mitarbeiter-in-empfang-universitat-bern-bern",
+          "collaborateur-rice-a-la-reception-universitat-bern-bern"
+        ],
+        "de": [
+          "mitarbeiter-in-empfang-unibe-bern"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-empfang-unibe-bern",
         "collaboratore-trice-empfang-universitat-bern",
-        "mitarbeiter-in-empfang-universitat-bern-bern"
+        "mitarbeiter-in-empfang-universitat-bern-bern",
+        "addetto-a-alla-reception-universitat-bern-bern",
+        "reception-staff-member-universitat-bern-bern",
+        "collaborateur-rice-a-la-reception-universitat-bern-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4294,41 +4281,42 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:38:56.516Z"
+      "firstSeenAt": "2026-10-23T09:30:41.170Z",
+      "needsRetranslation": true
     },
     {
-      "id": "unibe-ee2773288123",
-      "slug": "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern-4097c259f1",
+      "id": "unibe-e5623684eb7c",
+      "slug": "phd-position-in-experimental-low-energy-particle-physics-unibe-bern",
       "slugByLocale": {
-        "it": "programma-ecvn-neurology-residency-training-a-berna-universitat-bern-bern",
-        "en": "ecvn-neurology-residency-training-program-in-bern-unibe-bern",
-        "de": "ecvn-neurologie-residency-training-programm-in-bern-universitat-bern-bern",
-        "fr": "programme-de-formation-en-neurologie-a-berne-universitat-bern-bern"
+        "en": "phd-position-in-experimental-low-energy-particle-physics-unibe-bern",
+        "it": "phd-position-in-experimental-low-energy-particle-physics-unibe-bern",
+        "de": "phd-position-in-experimental-low-energy-particle-physics-unibe-bern",
+        "fr": "phd-position-in-experimental-low-energy-particle-physics-unibe-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
       "companyDomain": "unibe.ch",
-      "title": "ECVN Neurology Residency Training Program in Bern",
+      "title": "PhD Position in Experimental Low Energy Particle Physics",
       "titleByLocale": {
-        "it": "Programma ECVN Neurology Residency Training a Berna",
-        "en": "ECVN Neurology Residency Training Program in Bern",
-        "de": "ECVN Neurologie Residency Training Programm in Bern",
-        "fr": "Programme de formation en neurologie à Berne"
+        "en": "PhD Position in Experimental Low Energy Particle Physics",
+        "it": "PhD Position in Experimental Low Energy Particle Physics",
+        "de": "PhD Position in Experimental Low Energy Particle Physics",
+        "fr": "PhD Position in Experimental Low Energy Particle Physics"
       },
-      "description": "UniBE is central.\nWith us, you benefit from the central location and easy-to-reach sites.\n\n## The Residency Position\nYou will be supervised and work daily with two neurologists, supported by European and American specialist clinicians in a wide range of disciplines, including anesthesia, diagnostic imaging, internal medicine (general and nephrology), emergency and critical care, orthopedics, soft tissue surgery, dermatology, and ophthalmology.\nOur hospital has excellent facilities of an advanced referral hospital, including 3-Tesla MRI, CT, fluoroscopy, and electrophysiology, plus advanced neurosurgery equipment for computer-assisted brain and spine surgery, video-endoscopy, microsurgery, and minimally invasive surgery. On-site physiotherapy is also provided to our patients.\n\n## Responsibilities\nClinical Time\nYou will work under supervision with daily patient care, consultations, diagnostic procedures, and neurosurgeries. You will join weekly neurology journal and book clubs, as well as radiology, and neuropathology rounds. Clinical teaching of students and interns, as well as participation in emergency “out-of-hours” duty is expected.\nOff-Clinic Time\nYou will have 4-5 months to complete the required ECVN credentials, including clinical rotations in related specialties, and your own residency research project. Participation in international congresses is also encouraged. You will also receive 6 weeks of holidays – an ideal time to enjoy beautiful Switzerland with breathtaking landscapes and multiple possibilities for sports and other recreational activities.\nCandidate Profile\nWe seek a motivated veterinarian who:\n• Holds a veterinary degree\n• Has at least two years of general practice experience and/or has completed a rotating or specialty internship\n• Is proficient in English, in German and French (basic knowledge of the third language is required, along with a commitment to further improve)\n• Ideally, has had some exposure to neurology\n• Is ready to join emergency duty coverage, teaching, and academic activities\nWhat We Offer\n• A structured ECVN neurology residency\n• Collaboration with board-certified specialists across multiple disciplines\n• Access to advanced diagnostic and neurosurgical equipment\n• A well-balanced mix of clinical and off-clinic time\n• 6 weeks of vacation, plus compensation days to enjoy Swiss nature, sports, and culture\n• A supportive, international environment for clinical and academic development\nTeam-oriented work\nApplication and Contact\nApplications should be sent as a single PDF file, containing:\nCurriculum Vitae, Motivation letter, three Reference Letters, Copies of relevant Diplomas\nApplication Deadline: 22nd October 2026\nWith us, you create value.\nFor yourself and for society.\n\n## About Us\nThe Small Animal University Hospital of the Vetsuisse Faculty in Bern is a busy, multi-disciplinary, referral hospital in Switzerland. We are committed to providing high standards of patient care as well as postgraduate training (internships and residencies). Our hospital handles a diverse and interesting caseload, making it an excellent environment for both learning and teaching. A strong sense of teamwork adds a positive dynamic to daily clinical work.\nThe Residency Position\n\n## Responsibilities\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nIndividual support and guidance\nCollaborative environment and ambitious team\nCentral location in the heart of Bern\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
+      "description": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## Tasks\nThe successful candidate will join the Fundamental Neutron and Precision Physics Group at AEC/LHEP and work on the n2EDM experiment at the Paul Scherrer Institute (PSI) in Villigen, Switzerland.\n\n## \n• Profile\nApplicants should hold, or expect to obtain, an MSc degree in physics. A strong interest in experimental physics, precision measurements, data analysis, and computational methods is expected. Experience with programming, Monte Carlo simulations and statistical data analysis would be an advantage.\nInternational reputation\nApplication and Contact\nThe selection process will be conducted on a rolling basis, and the position will remain open until filled. The starting date is flexible and will be agreed upon with the successful candidate.\nWith us, you create value.\nFor yourself and for society.\n\n## Project description\nThe n2EDM experiment searches for the electric dipole moment of the neutron, providing a sensitive probe of physics beyond the Standard Model and of new sources of CP violation. The University of Bern is a long-standing member of the neutron EDM collaboration, with past and ongoing contributions to the development and operation of experimental hardware, data analysis, simulations, and the investigation and control of systematic effects.\nThe position is based at the University of Bern at the Albert Einstein Center for Fundamental Physics (AEC) and the Laboratory for High Energy Physics (LHEP) and involves regular experimental work at PSI, where the student will be fully integrated into the n2EDM experimental program and actively participate in data-taking shifts and the operation of the experiment.\nTasks\n\n## \n• Profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nHealthy corporate culture and good working atmosphere\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
       "descriptionByLocale": {
-        "it": "<b> UniBE è centrale. Con noi, si beneficia della posizione centrale e siti di facile accesso.\n\nAufgaben:\nSarete sorvegliati e lavorare quotidianamente con due neurologi, sostenuti da clinici specializzati europei e americani in una vasta gamma di discipline, tra cui anestesia, imaging diagnostico, medicina interna (generale e nefrologia), assistenza di emergenza e critica, ortopedia, chirurgia del tessuto morbido, dermatologia e oftalmologia.\nIl nostro ospedale dispone di eccellenti strutture di un ospedale di riferimento avanzato, tra cui 3-Tesla MRI, CT, fluoroscopia e elettrofisiologia, oltre a apparecchiature avanzate di neurochirurgia per la chirurgia cerebrale e spinale assistita da computer, video-endoscopia, microchirurgia e chirurgia minimamente invasiva. La fisioterapia in loco è fornita anche ai nostri pazienti.\n\nAnforderungen:\nTempo clinico\nPotrai lavorare sotto supervisione con la cura quotidiana del paziente, consultazioni, procedure diagnostiche e neurochirurghi. Ti unirai a periodici settimanali di neurologia e club di libri, così come radiologia, e giri di neuropatologia. L'insegnamento clinico di studenti e tirocinanti, così come la partecipazione all'emergenza \"out-of-hours\" dovere è previsto.\n\nTempo extra-clinico\nAvrete 4-5 mesi per completare le credenziali ECVN richieste, comprese le rotazioni cliniche nelle specialità correlate, e il vostro progetto di ricerca di residenza. È inoltre incoraggiata la partecipazione ai congressi internazionali. Riceverai anche 6 settimane di vacanza – un momento ideale per godersi la splendida Svizzera con paesaggi mozzafiato e possibilità multiple per lo sport e altre attività ricreative.\n\nProfilo del candidato\n\nCerchiamo un veterinario motivato che:\n\n• Detiene una laurea veterinaria\n\n• Ha almeno due anni di esperienza di pratica generale e/o ha completato un tirocinio rotante o speciale\n\n• È competente in inglese, in tedesco e in francese (è richiesta la conoscenza fondamentale della terza lingua, insieme ad un impegno per migliorare ulteriormente)\n\n• Idealmente, ha avuto qualche esposizione alla neurologia\n\n• È pronto ad aderire alla copertura di emergenza, l'insegnamento e le attività accademiche\n\nCosa offriamo\n\n• Una residenza di neurologia ECVN strutturata\n\n• Collaborazione con specialisti certificati dal Consiglio in più discipline\n\n• Accesso alle apparecchiature diagnostiche e neurochirurgiche avanzate\n\n• Un mix ben bilanciato di tempo clinico e off-clinico\n\n• 6 settimane di vacanza, più giorni di compensazione per godersi la natura, lo sport e la cultura svizzera\n\n• Un ambiente favorevole e internazionale per lo sviluppo clinico e accademico\n\nWir bieten:\nLavoro orientato al team",
-        "en": "UniBE is central.\nWith us, you benefit from the central location and easy-to-reach sites.\n\n## The Residency Position\nYou will be supervised and work daily with two neurologists, supported by European and American specialist clinicians in a wide range of disciplines, including anesthesia, diagnostic imaging, internal medicine (general and nephrology), emergency and critical care, orthopedics, soft tissue surgery, dermatology, and ophthalmology.\nOur hospital has excellent facilities of an advanced referral hospital, including 3-Tesla MRI, CT, fluoroscopy, and electrophysiology, plus advanced neurosurgery equipment for computer-assisted brain and spine surgery, video-endoscopy, microsurgery, and minimally invasive surgery. On-site physiotherapy is also provided to our patients.\n\n## Responsibilities\nClinical Time\nYou will work under supervision with daily patient care, consultations, diagnostic procedures, and neurosurgeries. You will join weekly neurology journal and book clubs, as well as radiology, and neuropathology rounds. Clinical teaching of students and interns, as well as participation in emergency “out-of-hours” duty is expected.\nOff-Clinic Time\nYou will have 4-5 months to complete the required ECVN credentials, including clinical rotations in related specialties, and your own residency research project. Participation in international congresses is also encouraged. You will also receive 6 weeks of holidays – an ideal time to enjoy beautiful Switzerland with breathtaking landscapes and multiple possibilities for sports and other recreational activities.\nCandidate Profile\nWe seek a motivated veterinarian who:\n• Holds a veterinary degree\n• Has at least two years of general practice experience and/or has completed a rotating or specialty internship\n• Is proficient in English, in German and French (basic knowledge of the third language is required, along with a commitment to further improve)\n• Ideally, has had some exposure to neurology\n• Is ready to join emergency duty coverage, teaching, and academic activities\nWhat We Offer\n• A structured ECVN neurology residency\n• Collaboration with board-certified specialists across multiple disciplines\n• Access to advanced diagnostic and neurosurgical equipment\n• A well-balanced mix of clinical and off-clinic time\n• 6 weeks of vacation, plus compensation days to enjoy Swiss nature, sports, and culture\n• A supportive, international environment for clinical and academic development\nTeam-oriented work\nApplication and Contact\nApplications should be sent as a single PDF file, containing:\nCurriculum Vitae, Motivation letter, three Reference Letters, Copies of relevant Diplomas\nApplication Deadline: 22nd October 2026\nWith us, you create value.\nFor yourself and for society.\n\n## About Us\nThe Small Animal University Hospital of the Vetsuisse Faculty in Bern is a busy, multi-disciplinary, referral hospital in Switzerland. We are committed to providing high standards of patient care as well as postgraduate training (internships and residencies). Our hospital handles a diverse and interesting caseload, making it an excellent environment for both learning and teaching. A strong sense of teamwork adds a positive dynamic to daily clinical work.\nThe Residency Position\n\n## Responsibilities\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nIndividual support and guidance\nCollaborative environment and ambitious team\nCentral location in the heart of Bern\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
-        "de": "<b>UniBE ist zentral.</b><br/> Bei uns profitieren Sie von der zentralen Lage und leicht erreichbaren Standorten.\n\nAufgaben:\nSie werden betreut und arbeiten täglich mit zwei Neurologen, unterstützt von europäischen und amerikanischen Fachärzten in einer Vielzahl von Disziplinen, einschließlich Anästhesie, diagnostische Bildgebung, Innere Medizin (Allgemein- und Nephrologie), Notfall- und Intensivmedizin, Orthopädie, Weichteilchirurgie, Dermatologie und Augenheilkunde.\nUnser Krankenhaus verfügt über ausgezeichnete Einrichtungen eines fortschrittlichen Überweisungskrankenhauses, einschließlich 3-Tesla-MRT, CT, Fluoroskopie und Elektrophysiologie sowie fortschrittliche Neurochirurgiegeräte für computergestützte Gehirn- und Wirbelsäulenchirurgie, Video-Endoskopie, Mikrochirurgie und minimalinvasive Chirurgie. Physiotherapie vor Ort wird auch unseren Patienten zur Verfügung gestellt.\n\nAnforderungen:\nKlinische Zeit\nSie werden unter Aufsicht mit täglicher Patientenversorgung, Konsultationen, Diagnoseverfahren und Neurochirurgien arbeiten. Sie werden wöchentlich Neurologie Journal und Buchclubs, sowie Radiologie und Neuropathologie Runden beitreten. Klinische Lehre von Studenten und Praktikanten, sowie die Teilnahme an Notfall \"out-of-hours\" Pflicht wird erwartet.\n\nOff-Clinic Zeit\nSie haben 4-5 Monate Zeit, um die erforderlichen ECVN-Anmeldeinformationen, einschließlich klinischer Rotationen in verwandten Fachgebieten, und Ihr eigenes Residency-Forschungsprojekt abzuschließen. Die Teilnahme an internationalen Kongressen wird ebenfalls gefördert. Sie erhalten auch 6 Wochen Urlaub - eine ideale Zeit, um die schöne Schweiz mit atemberaubenden Landschaften und zahlreichen Möglichkeiten für Sport und andere Freizeitaktivitäten zu genießen.\n\nBewerberprofil\n\nWir suchen einen motivierten Tierarzt, der:\n\n• Hat einen Veterinärabschluss\n\n• Hat mindestens zwei Jahre Erfahrung in der allgemeinen Praxis und / oder hat ein Rotations- oder Spezialpraktikum absolviert\n\n• Beherrscht Englisch, Deutsch und Französisch (Grundkenntnisse der dritten Sprache sind erforderlich, zusammen mit einer Verpflichtung zur weiteren Verbesserung)\n\n• Idealerweise hatte einige Exposition gegenüber Neurologie\n\n• Ist bereit, sich an Notdienstabdeckung, Lehre und akademischen Aktivitäten zu beteiligen\n\nWas wir anbieten\n\n• Eine strukturierte ECVN Neurologie Residenz\n\n• Zusammenarbeit mit Board-zertifizierten Spezialisten in mehreren Disziplinen\n\n• Zugang zu fortschrittlichen diagnostischen und neurochirurgischen Geräten\n\n• Eine ausgewogene Mischung aus klinischer und außerklinischer Zeit\n\n• 6 Urlaubswochen plus Entschädigungstage, um Schweizer Natur, Sport und Kultur zu genießen\n\n• Ein unterstützendes, internationales Umfeld für klinische und akademische Entwicklung\n\nWir bieten:\nTeamorientierte Arbeit",
-        "fr": "<b>UniBE est central.</b><br/> Avec nous, vous bénéficiez de l'emplacement central et des sites faciles d'accès.\n\nAufgaben:\nVous serez supervisé et travaillerez quotidiennement avec deux neurologues, soutenus par des cliniciens spécialisés européens et américains dans un large éventail de disciplines, y compris l'anesthésie, l'imagerie diagnostique, la médecine interne (générale et néphrologie), les soins d'urgence et critiques, l'orthopédie, la chirurgie des tissus mous, la dermatologie et l'ophtalmologie.\nNotre hôpital dispose d'excellentes installations d'un hôpital de référence avancé, y compris l'IRM 3-Tesla, CT, fluoroscopie et électrophysiologie, ainsi que des équipements de neurochirurgie avancés pour la chirurgie assistée par ordinateur du cerveau et de la colonne vertébrale, la vidéoendoscopie, la microchirurgie et la chirurgie minimalement invasive. La physiothérapie sur place est également fournie à nos patients.\n\nC'est pas vrai.\nHeure clinique\nVous travaillerez sous supervision avec des soins quotidiens, des consultations, des procédures diagnostiques et des neurochirurgies. Vous rejoindrez la revue de neurologie hebdomadaire et les clubs de livres, ainsi que la radiologie, et les rondes de neuropathologie. L'enseignement clinique des étudiants et des stagiaires, ainsi que la participation à une tâche d'urgence hors des heures est attendu.\n\nTemps libre\nVous disposerez de 4 à 5 mois pour compléter les titres de compétence requis, y compris les rotations cliniques dans des spécialités connexes, et votre propre projet de recherche en résidence. La participation aux congrès internationaux est également encouragée. Vous recevrez également 6 semaines de vacances – un moment idéal pour profiter de la belle Suisse avec des paysages à couper le souffle et de multiples possibilités de sports et autres activités récréatives.\n\nProfil du candidat\n\nNous cherchons un vétérinaire motivé qui:\n\n• Titulaire d'un diplôme vétérinaire\n\n• Dispose d'au moins deux années d'expérience en pratique générale et/ou a terminé un stage de rotation ou de spécialisation\n\n• Est compétent en anglais, en allemand et en français (une connaissance de base de la troisième langue est nécessaire, ainsi qu'un engagement à continuer d'améliorer)\n\n• Idéalement, a eu une certaine exposition à la neurologie\n\n• Est prêt à se joindre à la couverture de service d'urgence, l'enseignement et les activités académiques\n\nCe que nous offrons\n\n• Une résidence structurée en neurologie ECVN\n\n• Collaboration avec des spécialistes certifiés par le conseil d'administration dans plusieurs disciplines\n\n• Accès à des équipements diagnostiques et neurochirurgicaux avancés\n\n• Un mélange équilibré de temps clinique et hors clinique\n\n• 6 semaines de vacances, plus des jours de compensation pour profiter de la nature, du sport et de la culture suisses\n\n• Un environnement international favorable au développement clinique et universitaire\n\n- Oui.\nTravaux axés sur l ' équipe"
+        "en": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## Tasks\nThe successful candidate will join the Fundamental Neutron and Precision Physics Group at AEC/LHEP and work on the n2EDM experiment at the Paul Scherrer Institute (PSI) in Villigen, Switzerland.\n\n## \n• Profile\nApplicants should hold, or expect to obtain, an MSc degree in physics. A strong interest in experimental physics, precision measurements, data analysis, and computational methods is expected. Experience with programming, Monte Carlo simulations and statistical data analysis would be an advantage.\nInternational reputation\nApplication and Contact\nThe selection process will be conducted on a rolling basis, and the position will remain open until filled. The starting date is flexible and will be agreed upon with the successful candidate.\nWith us, you create value.\nFor yourself and for society.\n\n## Project description\nThe n2EDM experiment searches for the electric dipole moment of the neutron, providing a sensitive probe of physics beyond the Standard Model and of new sources of CP violation. The University of Bern is a long-standing member of the neutron EDM collaboration, with past and ongoing contributions to the development and operation of experimental hardware, data analysis, simulations, and the investigation and control of systematic effects.\nThe position is based at the University of Bern at the Albert Einstein Center for Fundamental Physics (AEC) and the Laboratory for High Energy Physics (LHEP) and involves regular experimental work at PSI, where the student will be fully integrated into the n2EDM experimental program and actively participate in data-taking shifts and the operation of the experiment.\nTasks\n\n## \n• Profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nHealthy corporate culture and good working atmosphere\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
+        "it": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## Tasks\nThe successful candidate will join the Fundamental Neutron and Precision Physics Group at AEC/LHEP and work on the n2EDM experiment at the Paul Scherrer Institute (PSI) in Villigen, Switzerland.\n\n## \n• Profile\nApplicants should hold, or expect to obtain, an MSc degree in physics. A strong interest in experimental physics, precision measurements, data analysis, and computational methods is expected. Experience with programming, Monte Carlo simulations and statistical data analysis would be an advantage.\nInternational reputation\nApplication and Contact\nThe selection process will be conducted on a rolling basis, and the position will remain open until filled. The starting date is flexible and will be agreed upon with the successful candidate.\nWith us, you create value.\nFor yourself and for society.\n\n## Project description\nThe n2EDM experiment searches for the electric dipole moment of the neutron, providing a sensitive probe of physics beyond the Standard Model and of new sources of CP violation. The University of Bern is a long-standing member of the neutron EDM collaboration, with past and ongoing contributions to the development and operation of experimental hardware, data analysis, simulations, and the investigation and control of systematic effects.\nThe position is based at the University of Bern at the Albert Einstein Center for Fundamental Physics (AEC) and the Laboratory for High Energy Physics (LHEP) and involves regular experimental work at PSI, where the student will be fully integrated into the n2EDM experimental program and actively participate in data-taking shifts and the operation of the experiment.\nTasks\n\n## \n• Profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nHealthy corporate culture and good working atmosphere\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
+        "de": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## Tasks\nThe successful candidate will join the Fundamental Neutron and Precision Physics Group at AEC/LHEP and work on the n2EDM experiment at the Paul Scherrer Institute (PSI) in Villigen, Switzerland.\n\n## \n• Profile\nApplicants should hold, or expect to obtain, an MSc degree in physics. A strong interest in experimental physics, precision measurements, data analysis, and computational methods is expected. Experience with programming, Monte Carlo simulations and statistical data analysis would be an advantage.\nInternational reputation\nApplication and Contact\nThe selection process will be conducted on a rolling basis, and the position will remain open until filled. The starting date is flexible and will be agreed upon with the successful candidate.\nWith us, you create value.\nFor yourself and for society.\n\n## Project description\nThe n2EDM experiment searches for the electric dipole moment of the neutron, providing a sensitive probe of physics beyond the Standard Model and of new sources of CP violation. The University of Bern is a long-standing member of the neutron EDM collaboration, with past and ongoing contributions to the development and operation of experimental hardware, data analysis, simulations, and the investigation and control of systematic effects.\nThe position is based at the University of Bern at the Albert Einstein Center for Fundamental Physics (AEC) and the Laboratory for High Energy Physics (LHEP) and involves regular experimental work at PSI, where the student will be fully integrated into the n2EDM experimental program and actively participate in data-taking shifts and the operation of the experiment.\nTasks\n\n## \n• Profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nHealthy corporate culture and good working atmosphere\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
+        "fr": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## Tasks\nThe successful candidate will join the Fundamental Neutron and Precision Physics Group at AEC/LHEP and work on the n2EDM experiment at the Paul Scherrer Institute (PSI) in Villigen, Switzerland.\n\n## \n• Profile\nApplicants should hold, or expect to obtain, an MSc degree in physics. A strong interest in experimental physics, precision measurements, data analysis, and computational methods is expected. Experience with programming, Monte Carlo simulations and statistical data analysis would be an advantage.\nInternational reputation\nApplication and Contact\nThe selection process will be conducted on a rolling basis, and the position will remain open until filled. The starting date is flexible and will be agreed upon with the successful candidate.\nWith us, you create value.\nFor yourself and for society.\n\n## Project description\nThe n2EDM experiment searches for the electric dipole moment of the neutron, providing a sensitive probe of physics beyond the Standard Model and of new sources of CP violation. The University of Bern is a long-standing member of the neutron EDM collaboration, with past and ongoing contributions to the development and operation of experimental hardware, data analysis, simulations, and the investigation and control of systematic effects.\nThe position is based at the University of Bern at the Albert Einstein Center for Fundamental Physics (AEC) and the Laboratory for High Energy Physics (LHEP) and involves regular experimental work at PSI, where the student will be fully integrated into the n2EDM experimental program and actively participate in data-taking shifts and the operation of the experiment.\nTasks\n\n## \n• Profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nHealthy corporate culture and good working atmosphere\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions"
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
-      "url": "https://jobs.unibe.ch/job-vacancies/ecvn-neurology-residency-training-program-in-bern/af0e41af-16a9-4d55-9cce-959b60141050",
+      "url": "https://jobs.unibe.ch/job-vacancies/phd-position-in-experimental-low-energy-particle-physics/efbab924-cc99-4432-ba76-bbab8608e9da",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:45:31.466Z",
+      "crawledAt": "2026-10-23T09:30:41.165Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4342,27 +4330,14 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-24",
-      "postedDate": "2026-09-24",
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.unibe.ch/job-vacancies/ecvn-neurology-residency-training-program-in-bern/af0e41af-16a9-4d55-9cce-959b60141050",
+      "applyUrl": "https://jobs.unibe.ch/job-vacancies/phd-position-in-experimental-low-energy-particle-physics/efbab924-cc99-4432-ba76-bbab8608e9da",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ecvn-neurology-residency-training-program-in-bern-unibe-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ecvn-neurology-residency-training-program-in-bern-unibe-bern"
-        ],
-        "de": [
-          "ecvn-neurology-residency-training-program-in-bern-unibe-bern"
-        ],
-        "fr": [
-          "ecvn-neurology-residency-training-program-in-bern-unibe-bern"
-        ]
+      "requirementsByLocale": {
+        "en": []
       },
-      "firstSeenAt": "2026-09-25T14:57:34.457Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -4376,7 +4351,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "firstSeenAt": "2026-10-23T09:30:41.165Z"
     }
   ]
 }
