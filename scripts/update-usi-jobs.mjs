@@ -115,6 +115,10 @@ const USI_BROWSER_HEADERS = {
 const USI_BROWSER_EXTRA_HEADERS = Object.fromEntries(
   Object.entries(USI_BROWSER_HEADERS).filter(([name]) => name !== 'User-Agent'),
 );
+const USI_TRANSLATE_HOSTS = new Map([
+  ['www-usi-ch.translate.goog', 'www.usi.ch'],
+  ['content-usi-ch.translate.goog', 'content.usi.ch'],
+]);
 
 /**
  * USI campuses and their cities.
@@ -345,6 +349,48 @@ function isUsiListingUrl(url = '') {
 }
 
 /**
+ * Build a Google Translate HTML proxy URL for an official USI listing.
+ * The proxy supplies a separate fetch egress while retaining the source
+ * locale, and the response is still accepted only after the USI marker check.
+ */
+export function buildUsiTranslateUrl(url = '') {
+  if (!isUsiListingUrl(url)) return '';
+  const source = new URL(url);
+  const locale = source.pathname.startsWith('/en/') ? 'en' : 'it';
+  source.hostname = `${source.hostname.replace(/\./g, '-')}.translate.goog`;
+  source.search = '';
+  source.searchParams.set('_x_tr_sl', locale);
+  source.searchParams.set('_x_tr_tl', locale);
+  source.searchParams.set('_x_tr_hl', locale);
+  source.searchParams.set('_x_tr_pto', 'wapp');
+  return source.toString();
+}
+
+/**
+ * Restore official USI URLs when a translated listing rewrites its links to
+ * translate.goog. Unknown hosts and malformed values remain untouched.
+ */
+export function normalizeUsiLinkUrl(rawUrl = '', locale = 'it') {
+  const value = String(rawUrl || '').trim();
+  if (!value) return '';
+  const baseUrl = locale === 'en' ? LISTING_URL_EN : LISTING_URL_IT;
+  let parsed;
+  try {
+    parsed = new URL(value, baseUrl);
+  } catch {
+    return value;
+  }
+  const sourceHost = USI_TRANSLATE_HOSTS.get(parsed.hostname.toLowerCase());
+  if (sourceHost) {
+    parsed.hostname = sourceHost;
+    for (const key of ['_x_tr_sl', '_x_tr_tl', '_x_tr_hl', '_x_tr_pto']) {
+      parsed.searchParams.delete(key);
+    }
+  }
+  return parsed.toString();
+}
+
+/**
  * A browser rescue must prove that it received the USI document, not another
  * 200 challenge page. The marker is present even when the listing is empty, so
  * this check does not turn a legitimate empty source into a parser failure.
@@ -436,6 +482,52 @@ export async function fetchUsiPageViaBrowser(url, timeoutMs, {
   }
 }
 
+/**
+ * Try a bounded clean-egress HTML rescue before paying the Chromium cost.
+ * Google Translate is used only as transport; the page must still contain
+ * the source-specific USI listing marker and must not be a WAF challenge.
+ */
+export async function fetchUsiPageViaTranslate(url, timeoutMs, {
+  fetchImpl = fetch,
+  attempts = 2,
+  sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+} = {}) {
+  const proxyUrl = buildUsiTranslateUrl(url);
+  if (!proxyUrl) return null;
+
+  let lastReason = 'unknown translate proxy failure';
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), Math.max(timeoutMs, 30000));
+    try {
+      const response = await fetchImpl(proxyUrl, {
+        headers: {
+          Accept: USI_BROWSER_HEADERS.Accept,
+          'Accept-Language': USI_BROWSER_HEADERS['Accept-Language'],
+          'User-Agent': USI_BROWSER_HEADERS['User-Agent'],
+        },
+        signal: controller.signal,
+      });
+      if (!response.ok) {
+        lastReason = `HTTP ${response.status}`;
+      } else {
+        const html = await response.text();
+        if (!looksLikeAntiBotChallenge(html) && looksLikeUsiListingHtml(html)) return html;
+        lastReason = looksLikeAntiBotChallenge(html)
+          ? 'Google Translate returned an anti-bot challenge'
+          : 'Google Translate response did not contain the verified USI listing marker';
+      }
+    } catch (error) {
+      lastReason = error?.message || String(error);
+    } finally {
+      clearTimeout(timer);
+    }
+    if (attempt < attempts) await sleepImpl(1500 * attempt);
+  }
+  console.warn(`⚠️ USI Google Translate fallback exhausted for ${url} (${lastReason}).`);
+  return null;
+}
+
 function isUsiTransportFailure(error) {
   const status = Number.isFinite(Number(error?.status)) ? Number(error.status) : null;
   return isConnectionLevelFetchError(error) || (status !== null && WAF_IP_BLOCK_STATUS.has(status));
@@ -460,13 +552,34 @@ function usiAntiBotChallengeError(url) {
 export async function fetchPage(url, timeoutMs = 15000, {
   fetchHtmlImpl = fetchHtml,
   browserFetchImpl = fetchUsiPageViaBrowser,
+  translateFetchImpl = fetchUsiPageViaTranslate,
 } = {}) {
   const requiresListingDocument = isUsiListingUrl(url);
   const isVerifiedResponse = (candidate) => Boolean(candidate)
     && (!requiresListingDocument || looksLikeUsiListingHtml(candidate));
+  const fetchVerifiedTranslateRescue = async () => {
+    if (!requiresListingDocument) return null;
+    try {
+      const translatedHtml = await translateFetchImpl(url, timeoutMs);
+      return isVerifiedResponse(translatedHtml) ? translatedHtml : null;
+    } catch (error) {
+      console.warn(`⚠️ USI Google Translate rescue failed for ${url}: ${error?.message || error}`);
+      return null;
+    }
+  };
   const fetchVerifiedBrowserRescue = async () => {
-    const browserHtml = await browserFetchImpl(url, timeoutMs);
-    return isVerifiedResponse(browserHtml) ? browserHtml : null;
+    try {
+      const browserHtml = await browserFetchImpl(url, timeoutMs);
+      return isVerifiedResponse(browserHtml) ? browserHtml : null;
+    } catch (error) {
+      console.warn(`⚠️ USI browser rescue failed for ${url}: ${error?.message || error}`);
+      return null;
+    }
+  };
+  const fetchVerifiedRescue = async () => {
+    const translatedHtml = await fetchVerifiedTranslateRescue();
+    if (translatedHtml) return translatedHtml;
+    return fetchVerifiedBrowserRescue();
   };
 
   let html;
@@ -477,8 +590,8 @@ export async function fetchPage(url, timeoutMs = 15000, {
     });
   } catch (error) {
     if (!isUsiTransportFailure(error)) throw error;
-    const browserHtml = await fetchVerifiedBrowserRescue();
-    if (browserHtml) return browserHtml;
+    const rescuedHtml = await fetchVerifiedRescue();
+    if (rescuedHtml) return rescuedHtml;
     throw error;
   }
 
@@ -486,8 +599,8 @@ export async function fetchPage(url, timeoutMs = 15000, {
   // page. Escalate both shapes for listing URLs instead of handing the parser
   // an HTML page that looks like a selector miss.
   if (looksLikeAntiBotChallenge(html) || !isVerifiedResponse(html)) {
-    const browserHtml = await fetchVerifiedBrowserRescue();
-    if (browserHtml) return browserHtml;
+    const rescuedHtml = await fetchVerifiedRescue();
+    if (rescuedHtml) return rescuedHtml;
     throw usiAntiBotChallengeError(url);
   }
   return html;
@@ -604,7 +717,9 @@ export function parseJobBlocks(html = '', locale = 'it') {
     // The title is the text before the <a> tag
     const linkMatch = [...afterStrong.matchAll(/(<a\b[^>]*>)([\s\S]*?)<\/a>/gi)]
       .find((match) => readAttr(match[1], 'href'));
-    const linkUrl = linkMatch ? readAttr(linkMatch[1], 'href').trim() : '';
+    const linkUrl = linkMatch
+      ? normalizeUsiLinkUrl(readAttr(linkMatch[1], 'href'), locale)
+      : '';
     const linkText = linkMatch ? linkMatch[2].replace(/<[^>]+>/g, '').trim() : '';
 
     // Title: everything before the <a> tag, cleaned of HTML

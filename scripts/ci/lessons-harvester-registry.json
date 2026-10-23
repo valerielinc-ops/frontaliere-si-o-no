@@ -183,6 +183,13 @@
       "decidedAt": "2026-10-20T10:17:13Z",
       "ref": "#9608, #9247, #9179",
       "reason": "Clausola in ISSUES.md: recovery pending va documentato come evidenza in attesa, senza un marker FIX_OUTCOME inventato."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-accepts-any",
+      "outcome": "declined",
+      "decidedAt": "2026-10-23T10:18:47Z",
+      "ref": "#14643, #13411, #12555",
+      "reason": "Gia' coperto da AGENTS.md #6: la shape non basta; guard e regex devono validare dominio/contesto e gestire unknown o ambigui invece di accettare qualunque valore."
     }
   ]
 }

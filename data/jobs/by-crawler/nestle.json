@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nestle",
-  "assembledAt": "2026-10-22T21:42:17.829Z",
-  "runId": "39857008155",
+  "assembledAt": "2026-10-23T09:51:16.032Z",
+  "runId": "39931635676",
   "jobs": [
     {
       "id": "nestle-1269774501",
@@ -34,7 +34,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Instandhaltungsmechanikerin/1269774501/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:42:13.145Z",
+      "crawledAt": "2026-10-23T09:51:03.645Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -116,7 +116,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Ing%C3%A9nieur%C2%B7e-R%C3%A9frig%C3%A9ration/1423268533/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:42:12.307Z",
+      "crawledAt": "2026-10-23T09:51:10.052Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -193,7 +193,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Syst%C3%A8mes-Qualit%C3%A9-Digitalisation-des-%C3%A9valuations-sensorielles-%286-mois%29/1437190933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:42:11.457Z",
+      "crawledAt": "2026-10-23T09:51:06.059Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -266,7 +266,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Technicien-ne-de-maintenance-en-horaire-4x8/1443671233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:42:10.649Z",
+      "crawledAt": "2026-10-23T09:51:07.671Z",
       "addressLocality": "Avenches",
       "addressCountry": "CH",
       "country": "CH",
@@ -339,7 +339,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Ing%C3%A9nieur%C2%B7e-projet/1440099833/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:42:09.869Z",
+      "crawledAt": "2026-10-23T09:51:08.476Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -419,7 +419,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-Ing%C3%A9nieur-e-Production-etou-Logistique-%2B-Am%C3%A9lioration-Continue/1437201133/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:42:09.097Z",
+      "crawledAt": "2026-10-23T09:51:04.462Z",
       "addressLocality": "Avenches",
       "addressCountry": "CH",
       "country": "CH",
@@ -492,7 +492,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products/1407549433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:42:08.353Z",
+      "crawledAt": "2026-10-23T09:51:09.268Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -568,7 +568,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-Ing%C3%A9nieur-e-Engineering/1437826133/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:42:07.587Z",
+      "crawledAt": "2026-10-23T09:51:06.865Z",
       "addressLocality": "Avenches",
       "addressCountry": "CH",
       "country": "CH",
@@ -641,7 +641,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Sales-Coordination-Specialist-Nestl%C3%A9-Waters/1449787833/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:42:06.856Z",
+      "crawledAt": "2026-10-23T09:51:05.271Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -658,9 +658,7 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Sales-Coordination-Specialist-Nestl%C3%A9-Waters/1449787833/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sales-coordination-specialist-nestle-waters-nestle-ch"
-      ],
+      "firstSeenAt": "2026-10-21T10:00:43.470Z",
       "previousSlugsByLocale": {
         "it": [
           "sales-coordination-specialist-nestle-waters-nestle-ch"
@@ -669,7 +667,9 @@
           "sales-coordination-specialist-nestle-waters-nestle-ch"
         ]
       },
-      "firstSeenAt": "2026-10-21T10:00:43.470Z",
+      "previousSlugs": [
+        "sales-coordination-specialist-nestle-waters-nestle-ch"
+      ],
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -717,7 +717,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:42:06.059Z",
+      "crawledAt": "2026-10-23T09:51:02.828Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -778,10 +778,10 @@
         "de": "NeStep-Talent im Bereich Geschmackstechnologien",
         "fr": "NeStep Talent dans les technologies de saveur"
       },
-      "description": "NeStep Talent in Flavor Technologies – Nestlé Product Technology Center\n\nLocation: Konolfingen, Switzerland\nWork model: Hybrid, with a significant presence in the offices required\nContract type / duration: Temporary – 12 months\nTarget start date: December 2026 / January 2027\n\nDeadline for applications: 26.10.2026\n\nBe a force for good and take your NeStep with Nestlé\n\nNeStep is a unique 12-month immersive experience at Nestlé in Switzerland for people who have recently completed their studies and want to learn fast, grow with purpose and make an impact. From day one, you spend at least half of your time owning one impactful project, combined with structured learning and continuous mentoring to deliver meaningful results.\n\nAs a NeStep Talent in Flavor Technologies at Nestlé, you will join our Flavour Technologies team in Konolfingen and contribute to the development of innovative nutrition products. Your mission will be to investigate flavor-matrix interactions in high-protein products and develop science-based solutions to improve flavor stability. Working closely with Product Development, Sensory Science and R&D experts, you will gain hands-on experience in food chemistry, analytical science and product innovation.\n\nHow you'll make an impact as a NeStep Talent in Flavor Technologies\n\n• Lead a scientific project focused on flavor stability in a high-protein product.\n\n• Design and conduct experiments, analyse results and identify route causes contributing to changes in flavor profile.\n\n• Collaborate with cross-functional experts to develop and validate solutions for improved flavor stability.\n\n• Translate scientific findings into actionable recommendations and present outcomes to a variety of stakeholders.\n\nWhat will make you successful\n\n• Recently completed Master's degree in Food Science, Food Technology, Chemistry, Analytical Chemistry or a related scientific discipline\n\n• Knowledge of food chemistry, strong analytical and problem-solving skills\n\n• Knowledge of flavors and flavor analytics (GC/MS) is a plus\n\n• Experience with laboratory work, experimental design and data analysis gained through studies, research projects or internships\n\n• Curiosity, initiative and the ability to collaborate effectively in a multidisciplinary environment\n\n• Fluency in English (written & spoken), knowledge of German is a plus\n\n• Demonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value\n\nEligibility criteria\n\n• Being a recent graduate from a Swiss higher education institution (master's degree completed within the last 12 months).\n\n• Swiss nationals, EU/EFTA nationals, or C permit holders only\n\nAt Nestlé, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities.\n\n• Learning and development opportunities, including mentoring and coaching.\n\n• Paid holidays beyond legal requirements.\n\n• Healthcare contribution and access to the Employee Assistance Program.\n\n• Attractive employee discounts across various products and services.\n\n• Potential reward for outstanding contribution.\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to learn, grow and be a force for good?\n\nApply now and take your NeStep with Nestlé.",
+      "description": "NeStep Talent in Flavor Technologies – Nestlé Product Technology Center\n\nLocation: Konolfingen, Switzerland\nWork model: Hybrid, with a significant presence in the offices required\nContract type / duration: Temporary – 12 months\nTarget start date: December 2026 / January 2027\n\nDeadline for applications: 26.10.2026\n\nBe a force for good and take your NeStep with Nestlé\n\nNeStep is a unique 12-month immersive experience at Nestlé in Switzerland for people who have recently completed their studies and want to learn fast, grow with purpose and make an impact. From day one, you spend at least half of your time owning one impactful project, combined with structured learning and continuous mentoring to deliver meaningful results.\n\nAs a NeStep Talent in Flavor Technologies at Nestlé, you will join our Flavour Technologies team in Konolfingen and contribute to the development of innovative nutrition products. Your mission will be to investigate flavor-matrix interactions in high-protein products and develop science-based solutions to improve flavor stability. Working closely with Product Development, Sensory Science and R&D experts, you will gain hands-on experience in food chemistry, analytical science and product innovation.\n\nHow you'll make an impact as a NeStep Talent in Flavor Technologies\n\n• Lead a scientific project focused on flavor stability in a high-protein product.\n\n• Design and conduct experiments, analyse results and identify route causes contributing to changes in flavor profile.\n\n• Collaborate with cross-functional experts to develop and validate solutions for improved flavor stability.\n\n• Translate scientific findings into actionable recommendations and present outcomes to a variety of stakeholders.\n\nWhat will make you successful\n\n• Recently completed Bachelor's or Master's degree in Food Science, Food Technology, Chemistry, Analytical Chemistry or a related scientific discipline\n\n• Knowledge of food chemistry, strong analytical and problem-solving skills\n\n• Knowledge of flavors and flavor analytics (GC/MS) is a plus\n\n• Experience with laboratory work, experimental design and data analysis gained through studies, research projects or internships\n\n• Curiosity, initiative and the ability to collaborate effectively in a multidisciplinary environment\n\n• Fluency in English (written & spoken), knowledge of German is a plus\n\n• Demonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value\n\nEligibility criteria\n\n• Being a recent graduate from a Swiss higher education institution (master's degree completed within the last 12 months).\n\n• Swiss nationals, EU/EFTA nationals, or C permit holders only\n\nAt Nestlé, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities.\n\n• Learning and development opportunities, including mentoring and coaching.\n\n• Paid holidays beyond legal requirements.\n\n• Healthcare contribution and access to the Employee Assistance Program.\n\n• Attractive employee discounts across various products and services.\n\n• Potential reward for outstanding contribution.\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to learn, grow and be a force for good?\n\nApply now and take your NeStep with Nestlé.",
       "descriptionByLocale": {
         "it": "NeStep Talent in tecnologie di aroma – Nestlé Product Technology Center\n\nUbicazione: Konolfingen, Svizzera\nModello di lavoro: ibrido, con una presenza significativa negli uffici richiesti\nTipo di contratto / durata: Temporaneo – 12 mesi\nData di inizio obiettivo: dicembre 2026 / gennaio 2027\n\nTermine ultimo per le domande: 26.10.2026\n\nEssere una forza per il bene e prendere il vostro NeStep con Nestlé\n\nNeStep è un'esperienza immersiva unica di 12 mesi a Nestlé in Svizzera per le persone che hanno recentemente completato i loro studi e vogliono imparare velocemente, crescere con lo scopo e fare un impatto. Dal primo giorno, si spende almeno la metà del vostro tempo possedere un progetto di impatto, combinato con apprendimento strutturato e mentoring continuo per fornire risultati significativi.\n\nIn qualità di NeStep Talent in Flavor Technologies a Nestlé, ti unirai al nostro team di Flavour Technologies a Konolfingen e contribuirai allo sviluppo di prodotti di nutrizione innovativi. La vostra missione sarà quella di indagare le interazioni di aroma-matrice nei prodotti ad alta proteina e sviluppare soluzioni basate sulla scienza per migliorare la stabilità del gusto. Lavorando a stretto contatto con gli esperti di sviluppo del prodotto, Sensory Science e R&D, otterrete esperienza pratica nella chimica alimentare, nella scienza analitica e nell'innovazione del prodotto.\n\nCome si può fare un impatto come NeStep Talent in Flavor Technologies\n\n• Condurre un progetto scientifico focalizzato sulla stabilità del gusto in un prodotto ad alta produttività.\n\n• Progettare e condurre esperimenti, analizzare i risultati e identificare le cause del percorso che contribuiscono a cambiamenti nel profilo del sapore.\n\n• Collabora con esperti interfunzionali per sviluppare e convalidare soluzioni per una migliore stabilità del gusto.\n\n• Tradurre i risultati scientifici in raccomandazioni attuabili e risultati attuali a una varietà di stakeholder.\n\nChe cosa vi farà successo\n\n• Recentemente completato Master in Scienze alimentari, Tecnologia alimentare, Chimica, Chimica analitica o una disciplina scientifica correlata\n\n• Conoscenza della chimica alimentare, forti capacità analitiche e di problem solving\n\n• Conoscenza dei sapori e analisi dei sapori (GC/MS) è un plus\n\n• Esperienza con lavori di laboratorio, progettazione sperimentale e analisi dei dati ottenuti attraverso studi, progetti di ricerca o stage\n\n• Curiosità, iniziativa e capacità di collaborare efficacemente in un ambiente multidisciplinare\n\n• Fluenza in inglese (scritto e parlato), la conoscenza del tedesco è un plus\n\n• Dimostrare coraggio, collaborazione, velocità e apprendimento continuo, traducendo le idee in un impatto misurabile e creando valore condiviso\n\nCriteri di ammissibilità\n\n• Essendo un recente laureato presso un istituto di istruzione superiore svizzero (la laurea magistrale è completata negli ultimi 12 mesi).\n\n• I cittadini svizzeri, i cittadini dell'UE/EFTA o i titolari del permesso C\n\nA Nestlé, mettiamo le persone nel cuore di tutto quello che facciamo\n\nI nostri vantaggi sono progettati per sostenere la crescita e il benessere, in modo da poter prosperare sul lavoro e nella vita:\n\n• Opzioni di lavoro flessibili, comprese le possibilità di lavoro ibride.\n\n• Opportunità di apprendimento e sviluppo, tra cui mentoring e coaching.\n\n• Vacanze pagate oltre i requisiti legali.\n\n• Contributo sanitario e accesso al programma di assistenza ai dipendenti.\n\n• Sconti interessanti dei dipendenti in vari prodotti e servizi.\n\n• Potenziale ricompensa per un contributo eccezionale.\n\nCosa aspettarsi dal nostro processo di assunzione\n\nSiamo impegnati in un'esperienza di assunzione inclusiva e rispettosa e siamo felici di fornire alloggi ragionevoli, se necessario. I nostri luoghi di lavoro sono pienamente accessibili e supportati da una forte cultura della sicurezza, con installazioni e procedure moderne per garantire un ambiente sicuro per tutti.\n\nIl processo di assunzione comprende tipicamente un'intervista con Talent Acquisition, un'intervista con il team di assunzione, e una discussione finale e offerta. Rivediamo le domande come vengono ricevute e chiudiamo il ruolo una volta che viene identificata una forte lista di candidati rilevanti, in modo da incoraggiarvi ad applicare presto. Tutte le informazioni sono trattate con riservatezza.\n\nStay vigilant: Nestlé contatterà i candidati solo tramite gli indirizzi e-mail ufficiali della società e non chiederà mai pagamenti o informazioni personali sensibili in qualsiasi fase del processo di assunzione.\n\nPronti ad imparare, crescere ed essere una forza per il bene?\n\nApplicare ora e prendere il NeStep con Nestlé.",
-        "en": "NeStep Talent in Flavor Technologies – Nestlé Product Technology Center\n\nLocation: Konolfingen, Switzerland\nWork model: Hybrid, with a significant presence in the offices required\nContract type / duration: Temporary – 12 months\nTarget start date: December 2026 / January 2027\n\nDeadline for applications: 26.10.2026\n\nBe a force for good and take your NeStep with Nestlé\n\nNeStep is a unique 12-month immersive experience at Nestlé in Switzerland for people who have recently completed their studies and want to learn fast, grow with purpose and make an impact. From day one, you spend at least half of your time owning one impactful project, combined with structured learning and continuous mentoring to deliver meaningful results.\n\nAs a NeStep Talent in Flavor Technologies at Nestlé, you will join our Flavour Technologies team in Konolfingen and contribute to the development of innovative nutrition products. Your mission will be to investigate flavor-matrix interactions in high-protein products and develop science-based solutions to improve flavor stability. Working closely with Product Development, Sensory Science and R&D experts, you will gain hands-on experience in food chemistry, analytical science and product innovation.\n\nHow you'll make an impact as a NeStep Talent in Flavor Technologies\n\n• Lead a scientific project focused on flavor stability in a high-protein product.\n\n• Design and conduct experiments, analyse results and identify route causes contributing to changes in flavor profile.\n\n• Collaborate with cross-functional experts to develop and validate solutions for improved flavor stability.\n\n• Translate scientific findings into actionable recommendations and present outcomes to a variety of stakeholders.\n\nWhat will make you successful\n\n• Recently completed Master's degree in Food Science, Food Technology, Chemistry, Analytical Chemistry or a related scientific discipline\n\n• Knowledge of food chemistry, strong analytical and problem-solving skills\n\n• Knowledge of flavors and flavor analytics (GC/MS) is a plus\n\n• Experience with laboratory work, experimental design and data analysis gained through studies, research projects or internships\n\n• Curiosity, initiative and the ability to collaborate effectively in a multidisciplinary environment\n\n• Fluency in English (written & spoken), knowledge of German is a plus\n\n• Demonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value\n\nEligibility criteria\n\n• Being a recent graduate from a Swiss higher education institution (master's degree completed within the last 12 months).\n\n• Swiss nationals, EU/EFTA nationals, or C permit holders only\n\nAt Nestlé, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities.\n\n• Learning and development opportunities, including mentoring and coaching.\n\n• Paid holidays beyond legal requirements.\n\n• Healthcare contribution and access to the Employee Assistance Program.\n\n• Attractive employee discounts across various products and services.\n\n• Potential reward for outstanding contribution.\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to learn, grow and be a force for good?\n\nApply now and take your NeStep with Nestlé.",
+        "en": "NeStep Talent in Flavor Technologies – Nestlé Product Technology Center\n\nLocation: Konolfingen, Switzerland\nWork model: Hybrid, with a significant presence in the offices required\nContract type / duration: Temporary – 12 months\nTarget start date: December 2026 / January 2027\n\nDeadline for applications: 26.10.2026\n\nBe a force for good and take your NeStep with Nestlé\n\nNeStep is a unique 12-month immersive experience at Nestlé in Switzerland for people who have recently completed their studies and want to learn fast, grow with purpose and make an impact. From day one, you spend at least half of your time owning one impactful project, combined with structured learning and continuous mentoring to deliver meaningful results.\n\nAs a NeStep Talent in Flavor Technologies at Nestlé, you will join our Flavour Technologies team in Konolfingen and contribute to the development of innovative nutrition products. Your mission will be to investigate flavor-matrix interactions in high-protein products and develop science-based solutions to improve flavor stability. Working closely with Product Development, Sensory Science and R&D experts, you will gain hands-on experience in food chemistry, analytical science and product innovation.\n\nHow you'll make an impact as a NeStep Talent in Flavor Technologies\n\n• Lead a scientific project focused on flavor stability in a high-protein product.\n\n• Design and conduct experiments, analyse results and identify route causes contributing to changes in flavor profile.\n\n• Collaborate with cross-functional experts to develop and validate solutions for improved flavor stability.\n\n• Translate scientific findings into actionable recommendations and present outcomes to a variety of stakeholders.\n\nWhat will make you successful\n\n• Recently completed Bachelor's or Master's degree in Food Science, Food Technology, Chemistry, Analytical Chemistry or a related scientific discipline\n\n• Knowledge of food chemistry, strong analytical and problem-solving skills\n\n• Knowledge of flavors and flavor analytics (GC/MS) is a plus\n\n• Experience with laboratory work, experimental design and data analysis gained through studies, research projects or internships\n\n• Curiosity, initiative and the ability to collaborate effectively in a multidisciplinary environment\n\n• Fluency in English (written & spoken), knowledge of German is a plus\n\n• Demonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value\n\nEligibility criteria\n\n• Being a recent graduate from a Swiss higher education institution (master's degree completed within the last 12 months).\n\n• Swiss nationals, EU/EFTA nationals, or C permit holders only\n\nAt Nestlé, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities.\n\n• Learning and development opportunities, including mentoring and coaching.\n\n• Paid holidays beyond legal requirements.\n\n• Healthcare contribution and access to the Employee Assistance Program.\n\n• Attractive employee discounts across various products and services.\n\n• Potential reward for outstanding contribution.\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to learn, grow and be a force for good?\n\nApply now and take your NeStep with Nestlé.",
         "de": "NeStep Talent in Flavor Technologies – Nestlé Product Technology Center\n\nStandort: Konolfingen, Schweiz\nArbeitsmodell: Hybrid, mit einer signifikanten Präsenz in den Büros erforderlich\nVertragsart / Laufzeit: Vorübergehend – 12 Monate\nStartdatum: Dezember 2026 / Januar 2027\n\nBewerbungsfrist: 26.10.2026\n\nSeien Sie eine Kraft für das Gute und nehmen Sie Ihren NeStep mit Nestlé\n\nNeStep ist eine einzigartige 12-monatige immersive Erfahrung bei Nestlé in der Schweiz für Menschen, die kürzlich ihr Studium abgeschlossen haben und schnell lernen, mit dem Ziel wachsen und etwas bewirken wollen. Vom ersten Tag an verbringen Sie mindestens die Hälfte Ihrer Zeit mit einem wirkungsvollen Projekt, kombiniert mit strukturiertem Lernen und kontinuierlichem Mentoring, um sinnvolle Ergebnisse zu liefern.\n\nAls NeStep Talent in Flavor Technologies bei Nestlé treten Sie unserem Flavour Technologies Team in Konolfingen bei und tragen zur Entwicklung innovativer Ernährungsprodukte bei. Ihre Mission wird es sein, Geschmack-Matrix-Wechselwirkungen in proteinreichen Produkten zu untersuchen und wissenschaftlich fundierte Lösungen zur Verbesserung der Geschmacksstabilität zu entwickeln. In enger Zusammenarbeit mit Produktentwicklung, Sensory Science und F & E-Experten sammeln Sie praktische Erfahrungen in der Lebensmittelchemie, der analytischen Wissenschaft und der Produktinnovation.\n\nWie Sie als NeStep Talent in Flavor Technologies etwas bewirken können\n\n• Führen Sie ein wissenschaftliches Projekt, das sich auf die Geschmacksstabilität in einem proteinreichen Produkt konzentriert.\n\n• Design und Durchführung von Experimenten, Analyse der Ergebnisse und Identifizierung von Routenursachen, die zu Veränderungen des Geschmacksprofils beitragen.\n\n• Arbeiten Sie mit funktionsübergreifenden Experten zusammen, um Lösungen für eine verbesserte Geschmacksstabilität zu entwickeln und zu validieren.\n\n• Übersetzen wissenschaftlicher Erkenntnisse in umsetzbare Empfehlungen und präsentieren Ergebnisse für eine Vielzahl von Interessengruppen.\n\nWas dich erfolgreich macht\n\n• Vor kurzem abgeschlossener Master-Abschluss in Food Science, Food Technology, Chemie, Analytische Chemie oder einer verwandten wissenschaftlichen Disziplin\n\n• Kenntnisse der Lebensmittelchemie, starke analytische und Problemlösung Fähigkeiten\n\n• Kenntnisse über Aromen und Geschmacksanalysen (GC/MS) sind ein Plus\n\n• Erfahrungen mit Laborarbeiten, experimentellem Design und Datenanalysen, die durch Studien, Forschungsprojekte oder Praktika gewonnen wurden\n\n• Neugier, Initiative und die Fähigkeit, in einem multidisziplinären Umfeld effektiv zusammenzuarbeiten\n\n• Englisch fließend (geschrieben & gesprochen), Deutschkenntnisse sind ein Plus\n\n• Demonstrieren Sie Mut, Zusammenarbeit, Geschwindigkeit und kontinuierliches Lernen, während Sie Ideen in messbare Auswirkungen übersetzen und gemeinsame Werte schaffen\n\nFörderkriterien\n\n• Absolvent einer Schweizer Hochschule (Masterabschluss in den letzten 12 Monaten).\n\n• Schweizer Staatsangehörige, EU/EFTA-Staatsangehörige oder nur Inhaber von C-Bewilligungen\n\nBei Nestlé stellen wir Menschen in den Mittelpunkt von allem, was wir tun\n\nUnsere Vorteile sind darauf ausgerichtet, Ihr Wachstum und Wohlbefinden zu unterstützen, damit Sie bei der Arbeit und im Leben gedeihen können:\n\n• Flexible Arbeitsmöglichkeiten, einschließlich hybrider Arbeitsmöglichkeiten.\n\n• Lern- und Entwicklungsmöglichkeiten, einschließlich Mentoring und Coaching.\n\n• Bezahlter Urlaub über die gesetzlichen Anforderungen hinaus.\n\n• Gesundheitsbeitrag und Zugang zum Employee Assistance Program.\n\n• Attraktive Mitarbeiterrabatte für verschiedene Produkte und Dienstleistungen.\n\n• Potenzielle Belohnung für ausstehenden Beitrag.\n\nWas Sie von unserem Einstellungsprozess erwarten können\n\nWir verpflichten uns zu einer inklusiven und respektvollen einstellungserfahrung und freuen uns, bei bedarf angemessene unterkünfte zu bieten. Unsere Arbeitsplätze sind vollständig zugänglich und werden von einer starken Sicherheitskultur mit modernen Installationen und Verfahren unterstützt, um eine sichere Umgebung für alle zu gewährleisten.\n\nDer Einstellungsprozess umfasst in der Regel ein Interview mit Talent Acquisition, ein Interview mit dem Einstellungsteam und eine abschließende Diskussion und ein Angebot. Wir überprüfen Bewerbungen, sobald sie eingegangen sind, und schließen die Rolle, sobald eine starke Liste relevanter Kandidaten identifiziert wurde, daher empfehlen wir Ihnen, sich frühzeitig zu bewerben. Alle Informationen werden vertraulich behandelt.\n\nBleiben Sie wachsam: Nestlé wird Kandidaten nur über offizielle Firmen-E-Mail-Adressen kontaktieren und zu keinem Zeitpunkt des Einstellungsprozesses Zahlungen oder sensible persönliche Informationen verlangen.\n\nBereit zu lernen, zu wachsen und eine Kraft für das Gute zu sein?\n\nBewerben Sie sich jetzt und nehmen Sie Ihren NeStep mit Nestlé.",
         "fr": "NeStep Talent in Flavor Technologies – Nestlé Product Technology Center\n\nLieu: Konolfingen, Suisse\nModèle de travail: hybride, avec une présence importante dans les bureaux requis\nType / durée du contrat : Temporaire – 12 mois\nDate de début prévue : décembre 2026 / janvier 2027\n\nDate limite de dépôt des candidatures: 26.10.2026\n\nSoyez une force pour le bien et prenez votre NeStep avec Nestlé\n\nNeStep est une expérience immersive unique de 12 mois à Nestlé en Suisse pour les personnes qui ont récemment terminé leurs études et veulent apprendre rapidement, grandir avec le but et faire un impact. Depuis le premier jour, vous passez au moins la moitié de votre temps à posséder un projet qui a un impact, combiné à l'apprentissage structuré et au mentorat continu pour obtenir des résultats significatifs.\n\nEn tant que Talent NeStep chez Nestlé, vous rejoindrez notre équipe de Flavour Technologies à Konolfingen et contribuerez au développement de produits nutritionnels innovants. Votre mission sera d'étudier les interactions saveur-matrice dans les produits à haute teneur en protéines et de développer des solutions basées sur la science pour améliorer la stabilité de la saveur. En étroite collaboration avec des experts en développement de produits, en science sensorielle et en R-D, vous acquerrez une expérience pratique en chimie alimentaire, en science analytique et en innovation de produits.\n\nComment vous ferez un impact en tant que NeStep Talent dans les technologies de parfum\n\n• Diriger un projet scientifique axé sur la stabilité de la saveur dans un produit riche en protéines.\n\n• Concevoir et mener des expériences, analyser les résultats et identifier les causes de la route contribuant aux changements dans le profil de saveur.\n\n• Collaborer avec des experts interfonctionnels pour développer et valider des solutions pour une meilleure stabilité de la saveur.\n\n• Traduire les résultats scientifiques en recommandations réalisables et présenter les résultats à divers intervenants.\n\nCe qui vous fera réussir\n\n• Diplômé récemment en sciences alimentaires, technologie alimentaire, chimie, chimie analytique ou discipline scientifique connexe\n\n• Connaissance de la chimie des aliments, compétences solides en analyse et résolution de problèmes\n\n• Connaissance des saveurs et de l'analyse de la saveur (GC/MS) est un plus\n\n• Expérience du travail en laboratoire, de la conception expérimentale et de l'analyse de données acquise grâce à des études, des projets de recherche ou des stages\n\n• Curiosité, initiative et capacité de collaborer efficacement dans un environnement multidisciplinaire\n\n• Connaissance de l'anglais (écrit et parlé), connaissance de l'allemand est un plus\n\n• Démontrer le courage, la collaboration, la rapidité et l'apprentissage continu, tout en traduisant les idées en un impact mesurable et en créant une valeur partagée\n\nCritères d'éligibilité\n\n• Être récemment diplômé d'un établissement d'enseignement supérieur suisse (maîtrise obtenue au cours des 12 derniers mois).\n\n• Les ressortissants suisses, les ressortissants de l'UE/AELE ou les titulaires de permis C seulement\n\nChez Nestlé, on place les gens au cœur de tout ce qu'on fait\n\nNos avantages sont conçus pour soutenir votre croissance et votre bien-être, afin que vous puissiez prospérer au travail et dans la vie:\n\n• Options de travail flexibles, y compris les possibilités de travail hybride.\n\n• Possibilités d'apprentissage et de perfectionnement, y compris le mentorat et l'encadrement.\n\n• Jours fériés payés au-delà des exigences légales.\n\n• Contribution en soins de santé et accès au Programme d'aide aux employés.\n\n• Des rabais attrayants pour les employés pour divers produits et services.\n\n• Récompensation potentielle pour contribution exceptionnelle.\n\nÀ quoi s'attendre de notre processus d'embauche\n\nNous sommes déterminés à offrir une expérience d'embauche inclusive et respectueuse et sommes heureux de fournir des mesures d'adaptation raisonnables au besoin. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de sécurité, avec des installations et des procédures modernes pour assurer un environnement sûr pour tous.\n\nLe processus d'embauche comprend habituellement une entrevue avec Talent Acquisition, une entrevue avec l'équipe d'embauche et une discussion et une offre finales. Nous examinons les candidatures reçues et clôturons le rôle une fois qu'une liste solide de candidats pertinents a été établie. Nous vous encourageons donc à présenter votre candidature tôt. Toutes les informations sont traitées de manière confidentielle.\n\nRestez vigilant : Nestlé communiquera uniquement avec les candidats par l'intermédiaire des adresses courriel officielles de l'entreprise et ne demandera jamais de paiements ou de renseignements personnels sensibles à aucune étape du processus d'embauche.\n\nPrêt à apprendre, grandir et être une force pour le bien?\n\nFaites votre demande dès maintenant et prenez votre NeStep avec Nestlé."
       },
@@ -790,7 +790,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-NeStep-Talent-in-Flavour-Technologies/1447579933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:42:05.323Z",
+      "crawledAt": "2026-10-23T09:50:52.291Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -866,7 +866,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Vet-Advisor-Tierarztberaterin-Purina/1432816633/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:42:04.594Z",
+      "crawledAt": "2026-10-23T09:51:02.036Z",
       "addressLocality": "La Tour-de-Peilz, CH +2 more…",
       "addressCountry": "CH",
       "country": "CH",
@@ -938,7 +938,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Human-Resources-Intern-Purina-EUR/1449045333/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:42:03.656Z",
+      "crawledAt": "2026-10-23T09:50:57.133Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1017,7 +1017,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Brand-Experience-Specialist/1429961333/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:59.327Z",
+      "crawledAt": "2026-10-23T09:51:00.437Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1090,7 +1090,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Regional-Key-Account-Manager/1414846433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:58.592Z",
+      "crawledAt": "2026-10-23T09:50:57.940Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1164,7 +1164,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Key-Account-Manager/1441924233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:57.797Z",
+      "crawledAt": "2026-10-23T09:50:56.335Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1244,7 +1244,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Key-Account-Manager-OOH/1442315333/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:57.008Z",
+      "crawledAt": "2026-10-23T09:50:58.758Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1309,7 +1309,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-Total-Rewards-Manager/1444809233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:56.239Z",
+      "crawledAt": "2026-10-23T09:50:55.514Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1388,7 +1388,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Senior-Associate-Marketing-Manager/1443868633/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:55.519Z",
+      "crawledAt": "2026-10-23T09:50:53.933Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1467,7 +1467,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-SHE-Lead/1440128933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:54.765Z",
+      "crawledAt": "2026-10-23T09:50:59.613Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1540,7 +1540,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Brand-Segment-Lead/1403467433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:54.013Z",
+      "crawledAt": "2026-10-23T09:50:54.728Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1615,7 +1615,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Stagiaire-Pr%C3%A9-HES-Food-Technology-%28Youth%29/1160674301/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:53.287Z",
+      "crawledAt": "2026-10-23T09:50:53.117Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1679,16 +1679,16 @@
       "description": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
       "descriptionByLocale": {
         "de": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
-        "it": "Posizione Panoramica\n\nUbicazione: Basilea, Svizzera\n\nSocietà: Nestlé Suisse SA\nLivello di occupazione: 100%\nTipo di contratto: Temporaneo\n\nInizio dell'occupazione: immediato o d'accordo\n\nVantaggi\n\n• Min. 25 giorni di vacanza all'anno, più a seconda dell'età\n\n• 18 settimane di congedo di maternità retribuito, 4 settimane di congedo di paternità pagato\n\n• 13. Scommessa mensile e opzione bonus\n\n• Prestazioni di fondo pensione al di sopra del minimo legale\n\n• Contributi all'assicurazione malattia giornaliera versata al 100% dal datore di lavoro\n\n• Località con luoghi di lavoro agili e collaborativi\n\n• Ambiente di lavoro dinamico e internazionale\n\n• Molte opportunità per lo sviluppo personale e lo sviluppo\n\nPosizione panoramica breve\n\nFabrik Basel è una società di produzione ad alte prestazioni di Nestlé Suisse S.A. e produce prodotti culinari del marchio THOMY per la Germania e l'estero.\n\nPer il nostro reparto di produzione stiamo cercando una personalità impegnata come dipendente immediatamente o di accordo: nella logistica.\n\nUna giornata nella vita di un dipendente: nella logistica\n\n• Tutto il lavoro con i camion\n\n• Disposizione dei contratti nazionali ed esteri\n\n• Trasporto merci\n\n• Scarico di materie prime\n\n• Assistenza con premi di pallet con etichetta SAP e stoccaggio\n\n• Campionamento del campione\n\n• Entrata e rimozione da stoccaggio\n\n• Fornitura di linee di produzione\n\n• Pulizia secondo piano di pulizia\n\n• Cooperazione con i contatti interni ed esterni\n\nQuesto li rende di successo.\n\n• Apprendistato completo nella logistica o nell'industria alimentare\n\n• Carrelli elevatori (riconosciuto SUVA)\n\n• Metodi di lavoro affidabili, precisi, efficienti e affidabili\n\n• Capacità SAP\n\n• Molto buone capacità orali e scritte tedesche\n\n• Prontezza per incarichi di lavoro flessibili in un'operazione a turni\n\nA Nestlé, vogliamo aiutare a plasmare un mondo migliore e più sano, ispirare le persone a vivere la vita più sana, e lavorare a una scala e ritmo che ha fatto la differenza. Lo facciamo promuovendo un ambiente diversificato, amichevole, solidale e collaborativo che ispira cambiamenti positivi, accoglie l'innovazione e consente alle persone e ai team di vincere.\n\nIl nostro obiettivo è quello di assumere membri di squadra amichevoli, rispettosi e ispiranti che si preoccupano della vita delle persone che tocchiamo ogni giorno.\n\nVorresti anche diventare parte della famiglia Thomy? Poi inviaci i tuoi documenti di candidatura completi (lettera di motivazione, CV, certificati, diplomi, ecc.) in tedesco direttamente online.",
-        "en": "Positions Overview\n\nLocation: Basel, Switzerland\n\nCompany: Nestlé Suisse SA\nLevel of employment: 100%\nContract type: Temporary\n\nStart of employment: immediately or by agreement\n\nBenefits\n\n• Min. 25 days of vacation per year, more depending on age\n\n• 18 weeks paid maternity leave, 4 weeks paid paternity leave\n\n• 13. Monthly wage and bonus option\n\n• Pension fund benefits above the statutory minimum\n\n• Contributions to day sickness allowance insurance paid 100% by the employer\n\n• Locations with agile and collaborative workplaces\n\n• Dynamic and international working environment\n\n• Many opportunities for personal development and development\n\nShort overview position\n\nFabrik Basel is a high-performance production company of Nestlé Suisse S.A. and produces culinary products of the THOMY brand for Germany and abroad.\n\nFor our production department we are looking for a committed personality as an employee immediately or by agreement: in logistics.\n\nA day in the life of an employee: in logistics\n\n• All work with trucks\n\n• Provision of domestic and export contracts\n\n• Export goods loading\n\n• Unloading of raw materials\n\n• Assistance with awards of pallets with SAP label as well as storage\n\n• Sample sampling\n\n• Entry and removal from storage\n\n• Supply of production lines\n\n• Cleaning work according to cleaning plan\n\n• Cooperation with internal and external contacts\n\nThis makes them successful.\n\n• Completed apprenticeship in logistics or in the food industry\n\n• Forklift (SUVA recognised)\n\n• Duty-conscious, accurate, efficient and reliable working methods\n\n• SAP skills\n\n• Very good oral and written German skills\n\n• Readiness for flexible work assignments in a shift operation\n\nAt Nestlé, we want to help shape a better and healthier world, inspire people to live healthier lives, and work at a scale and pace that made a difference. We do this by fostering a diverse, friendly, supportive and collaborative environment that inspires positive change, welcomes innovation and empowers people and teams to win.\n\nOur goal is to hire friendly, respectful and inspiring team members who care about the lives of the people we touch every day.\n\nWould you also like to become part of the Thomy family? Then send us your complete application documents (motivation letter, CV, certificates, diplomas, etc.) in German directly online.",
-        "fr": "Aperçu des postes\n\nLieu: Bâle, Suisse\n\nSociété: Nestlé Suisse SA\nNiveau d'emploi: 100%\nType de contrat : temporaire\n\nDébut de l'emploi: immédiatement ou par accord\n\nAvantages\n\n• Moins de 25 jours de vacances par an, plus selon l'âge\n\n• 18 semaines de congé de maternité payé, 4 semaines de congé de paternité payé\n\n• 13. Salaire mensuel et option bonus\n\n• Prestations de la caisse de retraite supérieures au minimum légal\n\n• Cotisations à l'assurance maladie de jour payées à 100% par l'employeur\n\n• Emplacements avec des lieux de travail agiles et collaboratifs\n\n• Environnement de travail dynamique et international\n\n• Nombreuses possibilités de développement personnel\n\nSituation générale\n\nFabrik Basel est une société de production de haute performance de Nestlé Suisse S.A. et produit des produits culinaires de la marque THOMY pour l'Allemagne et l'étranger.\n\nPour notre service de production, nous recherchons une personnalité engagée en tant qu'employé immédiatement ou par accord : en logistique.\n\nUne journée dans la vie d'un employé : en logistique\n\n• Tous travaillent avec des camions\n\n• Fourniture de contrats nationaux et d'exportation\n\n• Chargement des marchandises à l'exportation\n\n• Déchargement des matières premières\n\n• Assistance pour les récompenses de palettes avec l'étiquette SAP ainsi que le stockage\n\n• Échantillonnage\n\n• Entrée et sortie du stockage\n\n• Fourniture de lignes de production\n\n• Nettoyage selon plan de nettoyage\n\n• Coopération avec les contacts internes et externes\n\nCela leur donne du succès.\n\n• Apprentissage complet en logistique ou dans l'industrie alimentaire\n\n• Chariot élévateur (SUVA reconnu)\n\n• Méthodes de travail conscientes du devoir, précises, efficaces et fiables\n\n• Compétences SAP\n\n• Très bonnes compétences orales et écrites en allemand\n\n• Préparation à des affectations de travail flexibles dans un poste\n\nChez Nestlé, nous voulons aider à façonner un monde meilleur et plus sain, inciter les gens à vivre en meilleure santé et travailler à une échelle et à un rythme qui ont fait la différence. Nous le faisons en favorisant un environnement diversifié, amical, solidaire et collaboratif qui inspire un changement positif, accueille l'innovation et donne aux gens et aux équipes les moyens de gagner.\n\nNotre objectif est d'embaucher des membres de l'équipe sympathiques, respectueux et inspirants qui se soucient de la vie des gens que nous touchons chaque jour.\n\nVoulez-vous aussi faire partie de la famille Thomy ? Puis envoyez-nous vos documents de candidature complets (lettre de motivation, CV, certificats, diplômes, etc.) en allemand directement en ligne."
+        "it": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
+        "en": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
+        "fr": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu."
       },
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:41:52.517Z",
+      "crawledAt": "2026-10-23T09:50:49.853Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1699,8 +1699,8 @@
       "sector": "Food / Beverage",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-29",
-      "postedDate": "2026-07-29",
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
       "postingDateSource": "reported",
       "applyUrl": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
       "requirements": [],
@@ -1729,7 +1729,8 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "nestle-1446654833",
@@ -1762,7 +1763,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Produktions-Spezialistin/1446654833/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:41:51.729Z",
+      "crawledAt": "2026-10-23T09:50:19.551Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1842,7 +1843,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Intern-in-Food-Physics%2C-Materials-Science-and-Coffee-Innovation/1445530133/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:50.939Z",
+      "crawledAt": "2026-10-23T09:50:37.592Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -1921,7 +1922,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-HR-Business-Partner-Operations-Nestl%C3%A9-Waters-%28Suisse%29-SA/1429740633/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:50.177Z",
+      "crawledAt": "2026-10-23T09:49:57.541Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1985,16 +1986,16 @@
       "description": "Location: Vers-chez-les-Blanc and EPFL sites, Lausanne, Switzerland\nWork model: On-site, with flexibility to work across both locations\nContract type / duration: Internship, 6 months\nActivity rate: 100%\nTarget start date: As soon as possible\n\nBe a force for good and transform your potential into something extraordinary\n\nAs a Cell Biology and Nutrient Absorption Intern at Nestlé Research, your mission is to explore how dietary lipids are absorbed using an advanced human intestinal cell model and to generate insights that strengthen nutrition and health research. You will make a difference by collaborating closely with scientists, laboratory technicians, research assistants and multidisciplinary partners across Nestlé Research and local research facilities. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as a Cell Biology and Nutrient Absorption Intern\n\n• Investigating how dietary lipids are absorbed using a human stem cell-derived intestinal model\n\n• Generating high-quality experimental data and mechanistic insights on lipid uptake, metabolism and bioavailability\n\n• Optimizing lipid preparation, cell-based experiments and accurate analytical quantification\n\n• Connecting experimental findings with scientific literature in intestinal biology, lipid metabolism and nutrition\n\n• Communicating results through clear analyses, reports, presentations and discussions with multidisciplinary partner\n\nWhat will make you successful\n\n• Being a student or fresh graduate in Biology, Biotechnology, Biomedical Sciences, Nutrition, Life Sciences, or a related field.\n\n• Bringing a strong interest in gut physiology, lipid metabolism and advanced laboratory models that recreate biological processes\n\n• Having practical familiarity with molecular and cellular biology techniques, alongside data analysis and basic statistical tools\n\n• Being able to review and interpret scientific publications, while working with curiosity, precision, initiative and a collaborative mindset\n\n• Communicating fluently in English\n\n• Demonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value.\n\nAt Nestlé Research, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Learning and development opportunities to grow your career\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary.",
       "descriptionByLocale": {
         "en": "Location: Vers-chez-les-Blanc and EPFL sites, Lausanne, Switzerland\nWork model: On-site, with flexibility to work across both locations\nContract type / duration: Internship, 6 months\nActivity rate: 100%\nTarget start date: As soon as possible\n\nBe a force for good and transform your potential into something extraordinary\n\nAs a Cell Biology and Nutrient Absorption Intern at Nestlé Research, your mission is to explore how dietary lipids are absorbed using an advanced human intestinal cell model and to generate insights that strengthen nutrition and health research. You will make a difference by collaborating closely with scientists, laboratory technicians, research assistants and multidisciplinary partners across Nestlé Research and local research facilities. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as a Cell Biology and Nutrient Absorption Intern\n\n• Investigating how dietary lipids are absorbed using a human stem cell-derived intestinal model\n\n• Generating high-quality experimental data and mechanistic insights on lipid uptake, metabolism and bioavailability\n\n• Optimizing lipid preparation, cell-based experiments and accurate analytical quantification\n\n• Connecting experimental findings with scientific literature in intestinal biology, lipid metabolism and nutrition\n\n• Communicating results through clear analyses, reports, presentations and discussions with multidisciplinary partner\n\nWhat will make you successful\n\n• Being a student or fresh graduate in Biology, Biotechnology, Biomedical Sciences, Nutrition, Life Sciences, or a related field.\n\n• Bringing a strong interest in gut physiology, lipid metabolism and advanced laboratory models that recreate biological processes\n\n• Having practical familiarity with molecular and cellular biology techniques, alongside data analysis and basic statistical tools\n\n• Being able to review and interpret scientific publications, while working with curiosity, precision, initiative and a collaborative mindset\n\n• Communicating fluently in English\n\n• Demonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value.\n\nAt Nestlé Research, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Learning and development opportunities to grow your career\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary.",
-        "it": "Ubicazione: Vers-chez-les-Blanc e EPFL siti, Losanna, Svizzera\nModello di lavoro: On-site, con flessibilità per lavorare in entrambe le sedi\nTipo di contratto / durata: Stage, 6 mesi\nTasso di attività: 100%\nData di inizio destinazione: appena possibile\n\nEssere una forza per il bene e trasformare il vostro potenziale in qualcosa di straordinario\n\nCome Interno per la Biologia Cellulare e l'Absorbimento Nutriente presso Nestlé Research, la vostra missione è quella di esplorare come i lipidi dietetici vengono assorbiti utilizzando un modello avanzato di cellule intestinali umane e di generare intuizioni che rafforzano la nutrizione e la ricerca sulla salute. Si farà la differenza collaborando a stretto contatto con scienziati, tecnici di laboratorio, assistenti di ricerca e partner multidisciplinari in Nestlé Research e strutture di ricerca locali. Questa è la tua opportunità di fare un impatto mentre si guadagnano le mani sull'esperienza e sulla mentorship per iniziare la tua carriera.\n\nCome farete un impatto come una biologia cellulare e Nutriente Interno di assorbimento\n\n• Investigare come i lipidi dietetici vengono assorbiti utilizzando un modello intestinale derivato da cellule staminali umane\n\n• Generare dati sperimentali di alta qualità e approfondimenti meccanicistici sull'assorbimento dei lipidi, il metabolismo e la biodisponibilità\n\n• Ottimizzazione della preparazione dei lipidi, esperimenti basati sulle cellule e quantificazione analitica accurata\n\n• Collegare i risultati sperimentali con la letteratura scientifica nella biologia intestinale, nel metabolismo dei lipidi e nella nutrizione\n\n• Comunicare i risultati attraverso analisi chiare, report, presentazioni e discussioni con partner multidisciplinari\n\nChe cosa vi farà successo\n\n• Essendo uno studente o fresco laureato in Biologia, Biotecnologia, Scienze Biomedicali, Nutrizione, Scienze della Vita, o un campo correlato.\n\n• Portando un forte interesse per la fisiologia intestinale, il metabolismo lipidico e i modelli di laboratorio avanzati che ricreano i processi biologici\n\n• Avere familiarità pratica con le tecniche di biologia molecolare e cellulare, oltre all'analisi dei dati e agli strumenti statistici di base\n\n• Essere in grado di rivedere e interpretare le pubblicazioni scientifiche, lavorando con curiosità, precisione, iniziativa e una mentalità collaborativa\n\n• Comunicare fluentemente in inglese\n\n• Dimostrando coraggio, collaborazione, velocità e apprendimento continuo, traducendo le idee in un impatto misurabile e creando valore condiviso.\n\nA Nestlé Research, mettiamo le persone nel cuore di tutto quello che facciamo\n\nI nostri vantaggi sono progettati per sostenere la crescita e il benessere, in modo da poter prosperare sul lavoro e nella vita:\n\n• Opzioni di lavoro flessibili, comprese le possibilità di lavoro ibride (per ruoli basati su ufficio)\n\n• Opportunità di apprendimento e sviluppo per crescere la tua carriera\n\n• Contributo sanitario e accesso al programma di assistenza ai dipendenti\n\n• Sconti interessanti per i dipendenti su vari prodotti e servizi\n\nCosa aspettarsi dal nostro processo di assunzione\n\nSiamo impegnati in un'esperienza di assunzione inclusiva e rispettosa e siamo felici di fornire alloggi ragionevoli, se necessario. I nostri luoghi di lavoro sono pienamente accessibili e supportati da una forte cultura della sicurezza, con installazioni e procedure moderne per garantire un ambiente sicuro per tutti.\n\nIl processo di assunzione comprende tipicamente un'intervista con Talent Acquisition, un'intervista con il team di assunzione, e una discussione finale e offerta. Rivediamo le domande come vengono ricevute e chiudiamo il ruolo una volta che viene identificata una forte lista di candidati rilevanti, in modo da incoraggiarvi ad applicare presto. Tutte le informazioni sono trattate con riservatezza.\n\nStay vigilant: Nestlé contatterà i candidati solo tramite gli indirizzi e-mail ufficiali della società e non chiederà mai pagamenti o informazioni personali sensibili in qualsiasi fase del processo di assunzione.\n\nPronto a iniziare il tuo viaggio di carriera con noi?\n\nApplicare ora e trasformare il vostro potenziale in qualcosa di straordinario.",
-        "de": "Standort: Vers-chez-les-Blanc und EPFL-Standorte, Lausanne, Schweiz\nArbeitsmodell: Vor Ort, mit Flexibilität für beide Standorte\nVertragsart / Dauer: Praktikum, 6 Monate\nAktivitätsrate: 100%\nZielstartdatum: So bald wie möglich\n\nSeien Sie eine Kraft für das Gute und verwandeln Sie Ihr Potenzial in etwas Außergewöhnliches\n\nAls Praktikant für Zellbiologie und Nährstoffabsorption bei Nestlé Research besteht Ihre Mission darin, zu erforschen, wie Nahrungsfette mit einem fortschrittlichen menschlichen Darmzellmodell absorbiert werden, und Erkenntnisse zu generieren, die die Ernährungs- und Gesundheitsforschung stärken. Sie werden einen Unterschied machen, indem Sie eng mit Wissenschaftlern, Labortechnikern, Forschungsassistenten und multidisziplinären Partnern in Nestlé Research und lokalen Forschungseinrichtungen zusammenarbeiten. Dies ist Ihre Chance, Einfluss zu nehmen und gleichzeitig Erfahrung und Mentoring zu sammeln, um Ihre Karriere anzukurbeln.\n\nWie Sie einen Einfluss als Zellbiologie und Nährstoffabsorption Intern machen\n\n• Untersuchung, wie diätetische Lipide mit einem menschlichen Stammzell-abgeleiteten Darmmodell absorbiert werden\n\n• Generierung hochwertiger experimenteller Daten und mechanistischer Erkenntnisse zu Lipidaufnahme, Metabolismus und Bioverfügbarkeit\n\n• Optimierung der Lipidpräparation, zellbasierte Experimente und genaue analytische Quantifizierung\n\n• Verbindung von experimentellen Erkenntnissen mit wissenschaftlicher Literatur in Darmbiologie, Lipidstoffwechsel und Ernährung\n\n• Ergebnisse durch klare Analysen, Berichte, Präsentationen und Diskussionen mit multidisziplinären Partnern kommunizieren\n\nWas dich erfolgreich macht\n\n• Als Student oder frischer Absolvent in Biologie, Biotechnologie, Biomedizinische Wissenschaften, Ernährung, Life Sciences oder einem verwandten Bereich.\n\n• Ein starkes Interesse an Darmphysiologie, Lipidstoffwechsel und fortschrittlichen Labormodellen, die biologische Prozesse nachbilden\n\n• Praktische Vertrautheit mit molekular- und zellbiologischen Techniken neben Datenanalyse und grundlegenden statistischen Werkzeugen\n\n• In der Lage sein, wissenschaftliche Publikationen zu überprüfen und zu interpretieren, während Sie mit Neugier, Präzision, Initiative und einer kollaborativen Denkweise arbeiten\n\n• fließend auf Englisch kommunizieren\n\n• Demonstrieren Sie Mut, Zusammenarbeit, Geschwindigkeit und kontinuierliches Lernen, während Sie Ideen in messbare Auswirkungen übersetzen und gemeinsame Werte schaffen.\n\nBei Nestlé Research stellen wir Menschen in den Mittelpunkt von allem, was wir tun\n\nUnsere Vorteile sind darauf ausgerichtet, Ihr Wachstum und Wohlbefinden zu unterstützen, damit Sie bei der Arbeit und im Leben gedeihen können:\n\n• Flexible Arbeitsoptionen, einschließlich hybrider Arbeitsmöglichkeiten (für bürobasierte Rollen)\n\n• Lern- und Entwicklungsmöglichkeiten, um Ihre Karriere zu erweitern\n\n• Gesundheitsbeitrag und Zugang zum Employee Assistance Program\n\n• Attraktive Mitarbeiterrabatte für verschiedene Produkte und Dienstleistungen\n\nWas Sie von unserem Einstellungsprozess erwarten können\n\nWir verpflichten uns zu einer inklusiven und respektvollen einstellungserfahrung und freuen uns, bei bedarf angemessene unterkünfte zu bieten. Unsere Arbeitsplätze sind vollständig zugänglich und werden von einer starken Sicherheitskultur mit modernen Installationen und Verfahren unterstützt, um eine sichere Umgebung für alle zu gewährleisten.\n\nDer Einstellungsprozess umfasst in der Regel ein Interview mit Talent Acquisition, ein Interview mit dem Einstellungsteam und eine abschließende Diskussion und ein Angebot. Wir überprüfen Bewerbungen, sobald sie eingegangen sind, und schließen die Rolle, sobald eine starke Liste relevanter Kandidaten identifiziert wurde, daher empfehlen wir Ihnen, sich frühzeitig zu bewerben. Alle Informationen werden vertraulich behandelt.\n\nBleiben Sie wachsam: Nestlé wird Kandidaten nur über offizielle Firmen-E-Mail-Adressen kontaktieren und zu keinem Zeitpunkt des Einstellungsprozesses Zahlungen oder sensible persönliche Informationen verlangen.\n\nSind Sie bereit, Ihre Karriere mit uns zu beginnen?\n\nBewerben Sie sich jetzt und verwandeln Sie Ihr Potenzial in etwas Außergewöhnliches.",
-        "fr": "Lieu: Vers-chez-les-Blanc et sites de l'EPFL, Lausanne, Suisse\nModèle de travail : Sur place, avec flexibilité pour travailler dans les deux endroits\nType de contrat / durée: Stage, 6 mois\nTaux d'activité: 100%\nDate de début prévue: Dès que possible\n\nSoyez une force pour le bien et transformez votre potentiel en quelque chose d'extraordinaire\n\nEn tant que stagiaire en biologie cellulaire et absorption des nutriments à Nestlé Research, votre mission est d'explorer comment les lipides alimentaires sont absorbés à l'aide d'un modèle avancé de cellules intestinales humaines et de générer des idées qui renforcent la recherche en nutrition et en santé. Vous ferez une différence en collaborant étroitement avec les scientifiques, les techniciens de laboratoire, les assistants de recherche et les partenaires multidisciplinaires de Nestlé Research et des établissements de recherche locaux. C'est l'occasion de faire un impact tout en prenant la main sur l'expérience et le mentorat pour démarrer votre carrière.\n\nComment vous allez faire un impact comme un interne de biologie cellulaire et d'absorption des nutriments\n\n• Étudier comment les lipides alimentaires sont absorbés à l'aide d'un modèle intestinal dérivé des cellules souches humaines\n\n• Générer des données expérimentales de haute qualité et des idées mécanistes sur l'absorption, le métabolisme et la biodisponibilité des lipides\n\n• Optimisation de la préparation lipidique, expériences cellulaires et quantification analytique précise\n\n• Relier les résultats expérimentaux à la littérature scientifique en biologie intestinale, métabolisme des lipides et nutrition\n\n• Communiquer les résultats au moyen d'analyses, de rapports, de présentations et de discussions claires avec un partenaire multidisciplinaire\n\nCe qui vous fera réussir\n\n• Être étudiant ou diplômé en biologie, biotechnologie, sciences biomédicales, nutrition, sciences de la vie ou un domaine connexe.\n\n• Apporter un vif intérêt à la physiologie intestinale, au métabolisme lipidique et aux modèles de laboratoire avancés qui recréent les processus biologiques\n\n• Connaissance pratique des techniques de biologie moléculaire et cellulaire, ainsi que de l'analyse des données et des outils statistiques de base\n\n• Être en mesure d'examiner et d'interpréter les publications scientifiques, tout en travaillant avec curiosité, précision, initiative et un esprit de collaboration\n\n• Communiquer couramment en anglais\n\n• Démontrer le courage, la collaboration, la rapidité et l'apprentissage continu, tout en traduisant les idées en un impact mesurable et en créant une valeur partagée.\n\nChez Nestlé Research, nous mettons les gens au cœur de tout ce que nous faisons\n\nNos avantages sont conçus pour soutenir votre croissance et votre bien-être, afin que vous puissiez prospérer au travail et dans la vie:\n\n• Options de travail flexibles, y compris les possibilités de travail hybride (pour les rôles de bureau)\n\n• Possibilités d'apprentissage et de perfectionnement pour développer votre carrière\n\n• Contribution en soins de santé et accès au Programme d'aide aux employés\n\n• Réductions attrayantes pour les employés pour divers produits et services\n\nÀ quoi s'attendre de notre processus d'embauche\n\nNous sommes déterminés à offrir une expérience d'embauche inclusive et respectueuse et sommes heureux de fournir des mesures d'adaptation raisonnables au besoin. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de sécurité, avec des installations et des procédures modernes pour assurer un environnement sûr pour tous.\n\nLe processus d'embauche comprend habituellement une entrevue avec Talent Acquisition, une entrevue avec l'équipe d'embauche et une discussion et une offre finales. Nous examinons les candidatures reçues et clôturons le rôle une fois qu'une liste solide de candidats pertinents a été établie. Nous vous encourageons donc à présenter votre candidature tôt. Toutes les informations sont traitées de manière confidentielle.\n\nRestez vigilant : Nestlé communiquera uniquement avec les candidats par l'intermédiaire des adresses courriel officielles de l'entreprise et ne demandera jamais de paiements ou de renseignements personnels sensibles à aucune étape du processus d'embauche.\n\nPrêt à commencer votre parcours professionnel avec nous ?\n\nAppliquer maintenant et transformer votre potentiel en quelque chose d'extraordinaire."
+        "it": "Location: Vers-chez-les-Blanc and EPFL sites, Lausanne, Switzerland\nWork model: On-site, with flexibility to work across both locations\nContract type / duration: Internship, 6 months\nActivity rate: 100%\nTarget start date: As soon as possible\n\nBe a force for good and transform your potential into something extraordinary\n\nAs a Cell Biology and Nutrient Absorption Intern at Nestlé Research, your mission is to explore how dietary lipids are absorbed using an advanced human intestinal cell model and to generate insights that strengthen nutrition and health research. You will make a difference by collaborating closely with scientists, laboratory technicians, research assistants and multidisciplinary partners across Nestlé Research and local research facilities. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as a Cell Biology and Nutrient Absorption Intern\n\n• Investigating how dietary lipids are absorbed using a human stem cell-derived intestinal model\n\n• Generating high-quality experimental data and mechanistic insights on lipid uptake, metabolism and bioavailability\n\n• Optimizing lipid preparation, cell-based experiments and accurate analytical quantification\n\n• Connecting experimental findings with scientific literature in intestinal biology, lipid metabolism and nutrition\n\n• Communicating results through clear analyses, reports, presentations and discussions with multidisciplinary partner\n\nWhat will make you successful\n\n• Being a student or fresh graduate in Biology, Biotechnology, Biomedical Sciences, Nutrition, Life Sciences, or a related field.\n\n• Bringing a strong interest in gut physiology, lipid metabolism and advanced laboratory models that recreate biological processes\n\n• Having practical familiarity with molecular and cellular biology techniques, alongside data analysis and basic statistical tools\n\n• Being able to review and interpret scientific publications, while working with curiosity, precision, initiative and a collaborative mindset\n\n• Communicating fluently in English\n\n• Demonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value.\n\nAt Nestlé Research, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Learning and development opportunities to grow your career\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary.",
+        "de": "Location: Vers-chez-les-Blanc and EPFL sites, Lausanne, Switzerland\nWork model: On-site, with flexibility to work across both locations\nContract type / duration: Internship, 6 months\nActivity rate: 100%\nTarget start date: As soon as possible\n\nBe a force for good and transform your potential into something extraordinary\n\nAs a Cell Biology and Nutrient Absorption Intern at Nestlé Research, your mission is to explore how dietary lipids are absorbed using an advanced human intestinal cell model and to generate insights that strengthen nutrition and health research. You will make a difference by collaborating closely with scientists, laboratory technicians, research assistants and multidisciplinary partners across Nestlé Research and local research facilities. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as a Cell Biology and Nutrient Absorption Intern\n\n• Investigating how dietary lipids are absorbed using a human stem cell-derived intestinal model\n\n• Generating high-quality experimental data and mechanistic insights on lipid uptake, metabolism and bioavailability\n\n• Optimizing lipid preparation, cell-based experiments and accurate analytical quantification\n\n• Connecting experimental findings with scientific literature in intestinal biology, lipid metabolism and nutrition\n\n• Communicating results through clear analyses, reports, presentations and discussions with multidisciplinary partner\n\nWhat will make you successful\n\n• Being a student or fresh graduate in Biology, Biotechnology, Biomedical Sciences, Nutrition, Life Sciences, or a related field.\n\n• Bringing a strong interest in gut physiology, lipid metabolism and advanced laboratory models that recreate biological processes\n\n• Having practical familiarity with molecular and cellular biology techniques, alongside data analysis and basic statistical tools\n\n• Being able to review and interpret scientific publications, while working with curiosity, precision, initiative and a collaborative mindset\n\n• Communicating fluently in English\n\n• Demonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value.\n\nAt Nestlé Research, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Learning and development opportunities to grow your career\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary.",
+        "fr": "Location: Vers-chez-les-Blanc and EPFL sites, Lausanne, Switzerland\nWork model: On-site, with flexibility to work across both locations\nContract type / duration: Internship, 6 months\nActivity rate: 100%\nTarget start date: As soon as possible\n\nBe a force for good and transform your potential into something extraordinary\n\nAs a Cell Biology and Nutrient Absorption Intern at Nestlé Research, your mission is to explore how dietary lipids are absorbed using an advanced human intestinal cell model and to generate insights that strengthen nutrition and health research. You will make a difference by collaborating closely with scientists, laboratory technicians, research assistants and multidisciplinary partners across Nestlé Research and local research facilities. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as a Cell Biology and Nutrient Absorption Intern\n\n• Investigating how dietary lipids are absorbed using a human stem cell-derived intestinal model\n\n• Generating high-quality experimental data and mechanistic insights on lipid uptake, metabolism and bioavailability\n\n• Optimizing lipid preparation, cell-based experiments and accurate analytical quantification\n\n• Connecting experimental findings with scientific literature in intestinal biology, lipid metabolism and nutrition\n\n• Communicating results through clear analyses, reports, presentations and discussions with multidisciplinary partner\n\nWhat will make you successful\n\n• Being a student or fresh graduate in Biology, Biotechnology, Biomedical Sciences, Nutrition, Life Sciences, or a related field.\n\n• Bringing a strong interest in gut physiology, lipid metabolism and advanced laboratory models that recreate biological processes\n\n• Having practical familiarity with molecular and cellular biology techniques, alongside data analysis and basic statistical tools\n\n• Being able to review and interpret scientific publications, while working with curiosity, precision, initiative and a collaborative mindset\n\n• Communicating fluently in English\n\n• Demonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value.\n\nAt Nestlé Research, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Learning and development opportunities to grow your career\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://jobdetails.nestle.com/job/Lausanne-Cell-Biology-and-Nutrient-Absorption-Intern/1450286833/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:49.440Z",
+      "crawledAt": "2026-10-23T09:50:36.814Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2028,7 +2029,8 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-22T21:41:49.440Z"
+      "firstSeenAt": "2026-10-23T09:50:36.814Z",
+      "needsRetranslation": true
     },
     {
       "id": "nestle-1450272533",
@@ -2052,16 +2054,16 @@
       "description": "Location: Vers-Chez-Les-Blanc, Lausanne, Switzerland\nWork model: Hybrid\nActivity rate: 100%\nContract type / duration: Internship – 6 months\nStart date: February 2027 or August 2027, flexible\n\nBe a force for good and transform your potential into something extraordinary\n\nAs an R&D Intern in Clinical Digital Transformation at Nestlé Research, your mission is to help accelerate the use of digital health technologies, data and automation in clinical research. You will collaborate closely with scientists, clinical research professionals, data specialists and operational teams to assess digital solutions, analyze and visualize digital or clinical data, and optimize clinical research processes. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as an R&D Intern in Clinical Digital Transformation\n\n•\nAssessing digital health technologies, including wearables and sensors, to determine their scientific validity, measurement performance, usability and suitability for clinical studies.\n\n•\nReviewing scientific and technical literature related to digital measures, validation, usability and operational testing of digital devices.\n\n•\nAnalyzing clinical and digital datasets to identify patterns, assess data quality and translate findings into clear visualizations, dashboards and actionable insights.\n\n•\nIdentifying opportunities to automate repetitive activities and improve data-processing workflows across clinical research processes.\n\n•\nSupporting digital technology deployment in clinical studies, from protocols and questionnaires to testing, reporting and recommendations for scientific and operational teams.\n\nWhat will make you successful\n\n•\nBeing a current student or fresh graduate in life sciences engineering or a related field.\n\n•\nBringing a strong interest in applying digital technologies and data science to clinical research and health.\n\n•\nHaving practical experience with Python or R and the ability to work with structured and complex datasets; familiarity with Power BI, digital health technologies or digital biomarkers is an advantage.\n\n•\nBeing analytical, curious and proactive, with the confidence to ask questions, critically review scientific evidence, communicate findings clearly and collaborate across disciplines.\n\n•\nCommunicating fluently in English.\n\n•\nDemonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value.\n\nAt Nestlé Research, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n•\nFlexible working options, including hybrid work possibilities (for office-based roles)\n\n•\nLearning and development opportunities to grow your career\n\n•\nHealthcare contribution and access to the Employee Assistance Program\n\n•\nAttractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary.",
       "descriptionByLocale": {
         "en": "Location: Vers-Chez-Les-Blanc, Lausanne, Switzerland\nWork model: Hybrid\nActivity rate: 100%\nContract type / duration: Internship – 6 months\nStart date: February 2027 or August 2027, flexible\n\nBe a force for good and transform your potential into something extraordinary\n\nAs an R&D Intern in Clinical Digital Transformation at Nestlé Research, your mission is to help accelerate the use of digital health technologies, data and automation in clinical research. You will collaborate closely with scientists, clinical research professionals, data specialists and operational teams to assess digital solutions, analyze and visualize digital or clinical data, and optimize clinical research processes. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as an R&D Intern in Clinical Digital Transformation\n\n•\nAssessing digital health technologies, including wearables and sensors, to determine their scientific validity, measurement performance, usability and suitability for clinical studies.\n\n•\nReviewing scientific and technical literature related to digital measures, validation, usability and operational testing of digital devices.\n\n•\nAnalyzing clinical and digital datasets to identify patterns, assess data quality and translate findings into clear visualizations, dashboards and actionable insights.\n\n•\nIdentifying opportunities to automate repetitive activities and improve data-processing workflows across clinical research processes.\n\n•\nSupporting digital technology deployment in clinical studies, from protocols and questionnaires to testing, reporting and recommendations for scientific and operational teams.\n\nWhat will make you successful\n\n•\nBeing a current student or fresh graduate in life sciences engineering or a related field.\n\n•\nBringing a strong interest in applying digital technologies and data science to clinical research and health.\n\n•\nHaving practical experience with Python or R and the ability to work with structured and complex datasets; familiarity with Power BI, digital health technologies or digital biomarkers is an advantage.\n\n•\nBeing analytical, curious and proactive, with the confidence to ask questions, critically review scientific evidence, communicate findings clearly and collaborate across disciplines.\n\n•\nCommunicating fluently in English.\n\n•\nDemonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value.\n\nAt Nestlé Research, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n•\nFlexible working options, including hybrid work possibilities (for office-based roles)\n\n•\nLearning and development opportunities to grow your career\n\n•\nHealthcare contribution and access to the Employee Assistance Program\n\n•\nAttractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary.",
-        "it": "Ubicazione: Vers-Chez-Les-Blanc, Losanna, Svizzera\nModello di lavoro: Hybrid\nTasso di attività: 100%\nTipo di contratto / durata: Stage – 6 mesi\nData di inizio: febbraio 2027 o agosto 2027, flessibile\n\nEssere una forza per il bene e trasformare il vostro potenziale in qualcosa di straordinario\n\nIn qualità di R&D Intern in Clinical Digital Transformation presso Nestlé Research, la vostra missione è quella di aiutare ad accelerare l'uso delle tecnologie della salute digitale, dei dati e dell'automazione nella ricerca clinica. Collaborerai a stretto contatto con scienziati, professionisti della ricerca clinica, specialisti dei dati e team operativi per valutare le soluzioni digitali, analizzare e visualizzare i dati digitali o clinici e ottimizzare i processi di ricerca clinica. Questa è la tua opportunità di fare un impatto mentre si guadagnano le mani sull'esperienza e sulla mentorship per iniziare la tua carriera.\n\nCome farai un impatto come Interno R&D nella Trasformazione Digitale Clinica\n\n•\nValutare le tecnologie sanitarie digitali, inclusi i wearable e i sensori, per determinare la loro validità scientifica, le prestazioni di misura, l'usabilità e l'idoneità per gli studi clinici.\n\n•\nValutazione della letteratura scientifica e tecnica relativa alle misure digitali, validazione, usabilità e test operativi dei dispositivi digitali.\n\n•\nAnalizzando i dataset clinici e digitali per identificare i modelli, valutare la qualità dei dati e tradurre i risultati in chiare visualizzazioni, cruscotti e intuizioni attuabili.\n\n•\nIdentificare le opportunità per automatizzare le attività ripetitive e migliorare i flussi di lavoro di elaborazione dei dati attraverso i processi di ricerca clinica.\n\n•\nSostenere la diffusione della tecnologia digitale negli studi clinici, dai protocolli e dai questionari ai test, alla segnalazione e alle raccomandazioni per i team scientifici e operativi.\n\nChe cosa vi farà successo\n\n•\nEssendo uno studente attuale o fresco laureato in ingegneria delle scienze della vita o un campo correlato.\n\n•\nPortare un forte interesse nell'applicazione delle tecnologie digitali e della scienza dei dati alla ricerca clinica e alla salute.\n\n•\nAvere esperienza pratica con Python o R e la capacità di lavorare con dataset strutturati e complessi; la familiarità con Power BI, tecnologie per la salute digitale o biomarcatori digitali è un vantaggio.\n\n•\nEssendo analitico, curioso e proattivo, con la fiducia di porre domande, rivedere criticamente le prove scientifiche, comunicare i risultati chiaramente e collaborare attraverso le discipline.\n\n•\nComunicare fluentemente in inglese.\n\n•\nDimostrando coraggio, collaborazione, velocità e apprendimento continuo, traducendo le idee in un impatto misurabile e creando valore condiviso.\n\nA Nestlé Research, mettiamo le persone nel cuore di tutto quello che facciamo\n\nI nostri vantaggi sono progettati per sostenere la crescita e il benessere, in modo da poter prosperare sul lavoro e nella vita:\n\n•\nOpzioni di lavoro flessibili, comprese le possibilità di lavoro ibride (per ruoli basati su ufficio)\n\n•\nOpportunità di apprendimento e sviluppo per crescere la tua carriera\n\n•\nContributo sanitario e accesso al programma di assistenza ai dipendenti\n\n•\nSconti interessanti per i dipendenti su vari prodotti e servizi\n\nCosa aspettarsi dal nostro processo di assunzione\n\nSiamo impegnati in un'esperienza di assunzione inclusiva e rispettosa e siamo felici di fornire alloggi ragionevoli, se necessario. I nostri luoghi di lavoro sono pienamente accessibili e supportati da una forte cultura della sicurezza, con installazioni e procedure moderne per garantire un ambiente sicuro per tutti.\n\nIl processo di assunzione comprende tipicamente un'intervista con Talent Acquisition, un'intervista con il team di assunzione, e una discussione finale e offerta. Rivediamo le domande come vengono ricevute e chiudiamo il ruolo una volta che viene identificata una forte lista di candidati rilevanti, in modo da incoraggiarvi ad applicare presto. Tutte le informazioni sono trattate con riservatezza.\n\nStay vigilant: Nestlé contatterà i candidati solo tramite gli indirizzi e-mail ufficiali della società e non chiederà mai pagamenti o informazioni personali sensibili in qualsiasi fase del processo di assunzione.\n\nPronto a iniziare il tuo viaggio di carriera con noi?\n\nApplicare ora e trasformare il vostro potenziale in qualcosa di straordinario.",
-        "de": "Standort: Vers-Chez-Les-Blanc, Lausanne, Schweiz\nArbeitsmodell: Hybrid\nAktivitätsrate: 100%\nVertragsart/Dauer: Praktikum – 6 Monate\nStartdatum: Februar 2027 oder August 2027, flexibel\n\nSeien Sie eine Kraft für das Gute und verwandeln Sie Ihr Potenzial in etwas Außergewöhnliches\n\nAls R&D Intern in Clinical Digital Transformation bei Nestlé Research ist es Ihre Mission, den Einsatz digitaler Gesundheitstechnologien, Daten und Automatisierung in der klinischen Forschung zu beschleunigen. Sie arbeiten eng mit Wissenschaftlern, Fachleuten der klinischen Forschung, Datenspezialisten und Betriebsteams zusammen, um digitale Lösungen zu bewerten, digitale oder klinische Daten zu analysieren und zu visualisieren und klinische Forschungsprozesse zu optimieren. Dies ist Ihre Chance, Einfluss zu nehmen und gleichzeitig Erfahrung und Mentoring zu sammeln, um Ihre Karriere anzukurbeln.\n\nWie Sie als R & D-Praktikant in der klinischen digitalen Transformation etwas bewirken können\n\n•\nBewertung digitaler Gesundheitstechnologien, einschließlich Wearables und Sensoren, zur Bestimmung ihrer wissenschaftlichen Validität, Messleistung, Nutzbarkeit und Eignung für klinische Studien.\n\n•\nÜberprüfung der wissenschaftlichen und technischen Literatur zu digitalen Maßnahmen, Validierung, Nutzbarkeit und Betriebsprüfung digitaler Geräte.\n\n•\nAnalyse klinischer und digitaler Datensätze, um Muster zu identifizieren, die Datenqualität zu bewerten und Ergebnisse in klare Visualisierungen, Dashboards und umsetzbare Erkenntnisse zu übersetzen.\n\n•\nIdentifizierung von Möglichkeiten zur Automatisierung sich wiederholender Aktivitäten und zur Verbesserung der Datenverarbeitungs-Workflows in klinischen Forschungsprozessen.\n\n•\nUnterstützung des Einsatzes digitaler Technologien in klinischen Studien, von Protokollen und Fragebögen bis hin zu Tests, Berichten und Empfehlungen für wissenschaftliche und operative Teams.\n\nWas dich erfolgreich macht\n\n•\nAls aktueller Student oder frischer Absolvent in Life Sciences Engineering oder einem verwandten Bereich.\n\n•\nEin starkes Interesse an der Anwendung digitaler Technologien und Data Science in der klinischen Forschung und Gesundheit.\n\n•\nPraktische Erfahrung mit Python oder R und die Fähigkeit, mit strukturierten und komplexen Datensätzen zu arbeiten; die Vertrautheit mit Power BI, digitalen Gesundheitstechnologien oder digitalen Biomarkern ist von Vorteil.\n\n•\nAnalytisch, neugierig und proaktiv sein, mit dem Vertrauen, Fragen zu stellen, wissenschaftliche Beweise kritisch zu überprüfen, Erkenntnisse klar zu kommunizieren und disziplinübergreifend zusammenzuarbeiten.\n\n•\nfließend auf Englisch kommunizieren.\n\n•\nDemonstrieren Sie Mut, Zusammenarbeit, Geschwindigkeit und kontinuierliches Lernen, während Sie Ideen in messbare Auswirkungen übersetzen und gemeinsame Werte schaffen.\n\nBei Nestlé Research stellen wir Menschen in den Mittelpunkt von allem, was wir tun\n\nUnsere Vorteile sind darauf ausgerichtet, Ihr Wachstum und Wohlbefinden zu unterstützen, damit Sie bei der Arbeit und im Leben gedeihen können:\n\n•\nFlexible Arbeitsoptionen, einschließlich hybrider Arbeitsmöglichkeiten (für bürobasierte Rollen)\n\n•\nLern- und Entwicklungsmöglichkeiten, um Ihre Karriere zu erweitern\n\n•\nGesundheitsbeitrag und Zugang zum Employee Assistance Program\n\n•\nAttraktive Mitarbeiterrabatte für verschiedene Produkte und Dienstleistungen\n\nWas Sie von unserem Einstellungsprozess erwarten können\n\nWir verpflichten uns zu einer inklusiven und respektvollen einstellungserfahrung und freuen uns, bei bedarf angemessene unterkünfte zu bieten. Unsere Arbeitsplätze sind vollständig zugänglich und werden von einer starken Sicherheitskultur mit modernen Installationen und Verfahren unterstützt, um eine sichere Umgebung für alle zu gewährleisten.\n\nDer Einstellungsprozess umfasst in der Regel ein Interview mit Talent Acquisition, ein Interview mit dem Einstellungsteam und eine abschließende Diskussion und ein Angebot. Wir überprüfen Bewerbungen, sobald sie eingegangen sind, und schließen die Rolle, sobald eine starke Liste relevanter Kandidaten identifiziert wurde, daher empfehlen wir Ihnen, sich frühzeitig zu bewerben. Alle Informationen werden vertraulich behandelt.\n\nBleiben Sie wachsam: Nestlé wird Kandidaten nur über offizielle Firmen-E-Mail-Adressen kontaktieren und zu keinem Zeitpunkt des Einstellungsprozesses Zahlungen oder sensible persönliche Informationen verlangen.\n\nSind Sie bereit, Ihre Karriere mit uns zu beginnen?\n\nBewerben Sie sich jetzt und verwandeln Sie Ihr Potenzial in etwas Außergewöhnliches.",
-        "fr": "Lieu: Vers-Chez-Les-Blanc, Lausanne, Suisse\nModèle de travail: Hybride\nTaux d'activité: 100%\nType de contrat / durée: Stage – 6 mois\nDate de début: février 2027 ou août 2027, flexible\n\nSoyez une force pour le bien et transformez votre potentiel en quelque chose d'extraordinaire\n\nEn tant que stagiaire en R-D en transformation numérique clinique à Nestlé Research, votre mission est d'accélérer l'utilisation des technologies, des données et de l'automatisation numériques en recherche clinique. Vous collaborerez étroitement avec les scientifiques, les professionnels de la recherche clinique, les spécialistes des données et les équipes opérationnelles pour évaluer les solutions numériques, analyser et visualiser les données numériques ou cliniques et optimiser les processus de recherche clinique. C'est l'occasion de faire un impact tout en prenant la main sur l'expérience et le mentorat pour démarrer votre carrière.\n\nComment vous aurez un impact en tant que stagiaire en R-D en transformation numérique clinique\n\n•\nÉvaluer les technologies numériques de la santé, y compris les appareils portables et les capteurs, afin de déterminer leur validité scientifique, leur performance en matière de mesure, leur facilité d'utilisation et leur aptitude aux études cliniques.\n\n•\nExaminer la documentation scientifique et technique liée aux mesures numériques, à la validation, à la facilité d'utilisation et aux essais opérationnels des appareils numériques.\n\n•\nAnalyser les ensembles de données cliniques et numériques afin d'identifier les modèles, d'évaluer la qualité des données et de traduire les résultats en visualisations claires, en tableaux de bord et en idées exploitables.\n\n•\nIdentifier les possibilités d'automatiser les activités répétitives et d'améliorer les flux de travail du traitement des données dans les processus de recherche clinique.\n\n•\nAppuyer le déploiement de la technologie numérique dans les études cliniques, depuis les protocoles et les questionnaires jusqu'aux essais, rapports et recommandations à l'intention des équipes scientifiques et opérationnelles.\n\nCe qui vous fera réussir\n\n•\nÊtre un étudiant actuel ou un nouveau diplômé en génie des sciences de la vie ou un domaine connexe.\n\n•\nApporter un vif intérêt à l'application des technologies numériques et de la science des données à la recherche clinique et à la santé.\n\n•\nAvoir une expérience pratique avec Python ou R et la capacité de travailler avec des ensembles de données structurés et complexes; la connaissance de Power BI, des technologies de santé numériques ou des biomarqueurs numériques est un avantage.\n\n•\nÊtre analytique, curieux et proactif, avec la confiance pour poser des questions, examiner critiquement les données scientifiques, communiquer les résultats clairement et collaborer entre les disciplines.\n\n•\nCommuniquer couramment en anglais.\n\n•\nDémontrer le courage, la collaboration, la rapidité et l'apprentissage continu, tout en traduisant les idées en un impact mesurable et en créant une valeur partagée.\n\nChez Nestlé Research, nous mettons les gens au cœur de tout ce que nous faisons\n\nNos avantages sont conçus pour soutenir votre croissance et votre bien-être, afin que vous puissiez prospérer au travail et dans la vie:\n\n•\nOptions de travail flexibles, y compris les possibilités de travail hybride (pour les rôles de bureau)\n\n•\nPossibilités d'apprentissage et de perfectionnement pour développer votre carrière\n\n•\nContribution en soins de santé et accès au Programme d'aide aux employés\n\n•\nRéductions attrayantes pour les employés pour divers produits et services\n\nÀ quoi s'attendre de notre processus d'embauche\n\nNous sommes déterminés à offrir une expérience d'embauche inclusive et respectueuse et sommes heureux de fournir des mesures d'adaptation raisonnables au besoin. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de sécurité, avec des installations et des procédures modernes pour assurer un environnement sûr pour tous.\n\nLe processus d'embauche comprend habituellement une entrevue avec Talent Acquisition, une entrevue avec l'équipe d'embauche et une discussion et une offre finales. Nous examinons les candidatures reçues et clôturons le rôle une fois qu'une liste solide de candidats pertinents a été établie. Nous vous encourageons donc à présenter votre candidature tôt. Toutes les informations sont traitées de manière confidentielle.\n\nRestez vigilant : Nestlé communiquera uniquement avec les candidats par l'intermédiaire des adresses courriel officielles de l'entreprise et ne demandera jamais de paiements ou de renseignements personnels sensibles à aucune étape du processus d'embauche.\n\nPrêt à commencer votre parcours professionnel avec nous ?\n\nAppliquer maintenant et transformer votre potentiel en quelque chose d'extraordinaire."
+        "it": "Location: Vers-Chez-Les-Blanc, Lausanne, Switzerland\nWork model: Hybrid\nActivity rate: 100%\nContract type / duration: Internship – 6 months\nStart date: February 2027 or August 2027, flexible\n\nBe a force for good and transform your potential into something extraordinary\n\nAs an R&D Intern in Clinical Digital Transformation at Nestlé Research, your mission is to help accelerate the use of digital health technologies, data and automation in clinical research. You will collaborate closely with scientists, clinical research professionals, data specialists and operational teams to assess digital solutions, analyze and visualize digital or clinical data, and optimize clinical research processes. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as an R&D Intern in Clinical Digital Transformation\n\n•\nAssessing digital health technologies, including wearables and sensors, to determine their scientific validity, measurement performance, usability and suitability for clinical studies.\n\n•\nReviewing scientific and technical literature related to digital measures, validation, usability and operational testing of digital devices.\n\n•\nAnalyzing clinical and digital datasets to identify patterns, assess data quality and translate findings into clear visualizations, dashboards and actionable insights.\n\n•\nIdentifying opportunities to automate repetitive activities and improve data-processing workflows across clinical research processes.\n\n•\nSupporting digital technology deployment in clinical studies, from protocols and questionnaires to testing, reporting and recommendations for scientific and operational teams.\n\nWhat will make you successful\n\n•\nBeing a current student or fresh graduate in life sciences engineering or a related field.\n\n•\nBringing a strong interest in applying digital technologies and data science to clinical research and health.\n\n•\nHaving practical experience with Python or R and the ability to work with structured and complex datasets; familiarity with Power BI, digital health technologies or digital biomarkers is an advantage.\n\n•\nBeing analytical, curious and proactive, with the confidence to ask questions, critically review scientific evidence, communicate findings clearly and collaborate across disciplines.\n\n•\nCommunicating fluently in English.\n\n•\nDemonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value.\n\nAt Nestlé Research, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n•\nFlexible working options, including hybrid work possibilities (for office-based roles)\n\n•\nLearning and development opportunities to grow your career\n\n•\nHealthcare contribution and access to the Employee Assistance Program\n\n•\nAttractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary.",
+        "de": "Location: Vers-Chez-Les-Blanc, Lausanne, Switzerland\nWork model: Hybrid\nActivity rate: 100%\nContract type / duration: Internship – 6 months\nStart date: February 2027 or August 2027, flexible\n\nBe a force for good and transform your potential into something extraordinary\n\nAs an R&D Intern in Clinical Digital Transformation at Nestlé Research, your mission is to help accelerate the use of digital health technologies, data and automation in clinical research. You will collaborate closely with scientists, clinical research professionals, data specialists and operational teams to assess digital solutions, analyze and visualize digital or clinical data, and optimize clinical research processes. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as an R&D Intern in Clinical Digital Transformation\n\n•\nAssessing digital health technologies, including wearables and sensors, to determine their scientific validity, measurement performance, usability and suitability for clinical studies.\n\n•\nReviewing scientific and technical literature related to digital measures, validation, usability and operational testing of digital devices.\n\n•\nAnalyzing clinical and digital datasets to identify patterns, assess data quality and translate findings into clear visualizations, dashboards and actionable insights.\n\n•\nIdentifying opportunities to automate repetitive activities and improve data-processing workflows across clinical research processes.\n\n•\nSupporting digital technology deployment in clinical studies, from protocols and questionnaires to testing, reporting and recommendations for scientific and operational teams.\n\nWhat will make you successful\n\n•\nBeing a current student or fresh graduate in life sciences engineering or a related field.\n\n•\nBringing a strong interest in applying digital technologies and data science to clinical research and health.\n\n•\nHaving practical experience with Python or R and the ability to work with structured and complex datasets; familiarity with Power BI, digital health technologies or digital biomarkers is an advantage.\n\n•\nBeing analytical, curious and proactive, with the confidence to ask questions, critically review scientific evidence, communicate findings clearly and collaborate across disciplines.\n\n•\nCommunicating fluently in English.\n\n•\nDemonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value.\n\nAt Nestlé Research, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n•\nFlexible working options, including hybrid work possibilities (for office-based roles)\n\n•\nLearning and development opportunities to grow your career\n\n•\nHealthcare contribution and access to the Employee Assistance Program\n\n•\nAttractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary.",
+        "fr": "Location: Vers-Chez-Les-Blanc, Lausanne, Switzerland\nWork model: Hybrid\nActivity rate: 100%\nContract type / duration: Internship – 6 months\nStart date: February 2027 or August 2027, flexible\n\nBe a force for good and transform your potential into something extraordinary\n\nAs an R&D Intern in Clinical Digital Transformation at Nestlé Research, your mission is to help accelerate the use of digital health technologies, data and automation in clinical research. You will collaborate closely with scientists, clinical research professionals, data specialists and operational teams to assess digital solutions, analyze and visualize digital or clinical data, and optimize clinical research processes. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as an R&D Intern in Clinical Digital Transformation\n\n•\nAssessing digital health technologies, including wearables and sensors, to determine their scientific validity, measurement performance, usability and suitability for clinical studies.\n\n•\nReviewing scientific and technical literature related to digital measures, validation, usability and operational testing of digital devices.\n\n•\nAnalyzing clinical and digital datasets to identify patterns, assess data quality and translate findings into clear visualizations, dashboards and actionable insights.\n\n•\nIdentifying opportunities to automate repetitive activities and improve data-processing workflows across clinical research processes.\n\n•\nSupporting digital technology deployment in clinical studies, from protocols and questionnaires to testing, reporting and recommendations for scientific and operational teams.\n\nWhat will make you successful\n\n•\nBeing a current student or fresh graduate in life sciences engineering or a related field.\n\n•\nBringing a strong interest in applying digital technologies and data science to clinical research and health.\n\n•\nHaving practical experience with Python or R and the ability to work with structured and complex datasets; familiarity with Power BI, digital health technologies or digital biomarkers is an advantage.\n\n•\nBeing analytical, curious and proactive, with the confidence to ask questions, critically review scientific evidence, communicate findings clearly and collaborate across disciplines.\n\n•\nCommunicating fluently in English.\n\n•\nDemonstrating courage, collaboration, speed and continuous learning, while translating ideas into measurable impact and creating shared value.\n\nAt Nestlé Research, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n•\nFlexible working options, including hybrid work possibilities (for office-based roles)\n\n•\nLearning and development opportunities to grow your career\n\n•\nHealthcare contribution and access to the Employee Assistance Program\n\n•\nAttractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to start your career journey with us?\n\nApply now and transform your potential into something extraordinary."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://jobdetails.nestle.com/job/Lausanne-R&D-Intern-Clinical-Digital-Transformation/1450272533/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:48.663Z",
+      "crawledAt": "2026-10-23T09:50:18.731Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2095,7 +2097,8 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-22T21:41:48.663Z"
+      "firstSeenAt": "2026-10-23T09:50:18.731Z",
+      "needsRetranslation": true
     },
     {
       "id": "nestle-1447470933",
@@ -2128,7 +2131,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Culinary-Specialist-R&D-Chef-Nestl%C3%A9-Craftsmanship-community/1447470933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:47.918Z",
+      "crawledAt": "2026-10-23T09:49:55.931Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2145,21 +2148,6 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Culinary-Specialist-R&D-Chef-Nestl%C3%A9-Craftsmanship-community/1447470933/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-22T09:43:28.335Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "culinary-specialist-r-d-chef-nestle-craftsmanship-community-nestle-ch"
-        ],
-        "de": [
-          "culinary-specialist-r-d-chef-nestle-craftsmanship-community-nestle-ch"
-        ],
-        "fr": [
-          "culinary-specialist-r-d-chef-nestle-craftsmanship-community-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "culinary-specialist-r-d-chef-nestle-craftsmanship-community-nestle-ch"
-      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2174,7 +2162,22 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-22T09:43:28.335Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "culinary-specialist-r-d-chef-nestle-craftsmanship-community-nestle-ch"
+        ],
+        "de": [
+          "culinary-specialist-r-d-chef-nestle-craftsmanship-community-nestle-ch"
+        ],
+        "fr": [
+          "culinary-specialist-r-d-chef-nestle-craftsmanship-community-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "culinary-specialist-r-d-chef-nestle-craftsmanship-community-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1440625733",
@@ -2207,7 +2210,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Community-Manager/1440625733/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:47.180Z",
+      "crawledAt": "2026-10-23T09:50:03.196Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2285,7 +2288,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Lead-Patent-Counsel-Digital-&-AI/1429790233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:46.434Z",
+      "crawledAt": "2026-10-23T09:49:59.148Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2358,7 +2361,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Associate-Robotics-Specialist/1440612733/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:45.683Z",
+      "crawledAt": "2026-10-23T09:50:34.366Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -2431,7 +2434,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Projektingenieur-Bau-&-Projektkoordination/1429133833/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:41:44.941Z",
+      "crawledAt": "2026-10-23T09:50:17.963Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2514,7 +2517,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-F&B-and-Event-Coordination-Intern/1449913533/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:44.178Z",
+      "crawledAt": "2026-10-23T09:50:17.133Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2531,21 +2534,6 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-F&B-and-Event-Coordination-Intern/1449913533/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-22T09:43:24.470Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "f-b-and-event-coordination-intern-nestle-ch"
-        ],
-        "de": [
-          "f-b-and-event-coordination-intern-nestle-ch"
-        ],
-        "fr": [
-          "f-b-and-event-coordination-intern-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "f-b-and-event-coordination-intern-nestle-ch"
-      ],
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -2560,7 +2548,22 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-22T09:43:24.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-and-event-coordination-intern-nestle-ch"
+        ],
+        "de": [
+          "f-b-and-event-coordination-intern-nestle-ch"
+        ],
+        "fr": [
+          "f-b-and-event-coordination-intern-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-and-event-coordination-intern-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1367415633",
@@ -2593,7 +2596,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Engineering-Specialist/1367415633/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:43.432Z",
+      "crawledAt": "2026-10-23T09:50:44.186Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2676,7 +2679,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Specialist-in-Lipids/1437922033/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:42.726Z",
+      "crawledAt": "2026-10-23T09:50:43.390Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2749,7 +2752,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Digital-and-Automation-Engineering-Specialist-%28DMOMES%29/1441367033/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:41.960Z",
+      "crawledAt": "2026-10-23T09:50:32.539Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2822,7 +2825,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Lab-Data-Technology-Specialist-Nestl%C3%A9-Research/1424001933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:41.191Z",
+      "crawledAt": "2026-10-23T09:50:33.592Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2895,7 +2898,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Recipe-Formulation-Specialist-IF-&-Toddler/1413824133/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:40.429Z",
+      "crawledAt": "2026-10-23T09:49:51.840Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2968,7 +2971,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-InstandhalterIn-Mechanik-100/1432885433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:41:39.670Z",
+      "crawledAt": "2026-10-23T09:49:52.645Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3041,7 +3044,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Specialist-Regenerative-Agriculture-%28Coffee-&-Cocoa%29/1437138433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:38.953Z",
+      "crawledAt": "2026-10-23T09:50:40.884Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3114,7 +3117,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Ing%C3%A9nieur-e-Syst%C3%A8mes-Logistiques/1448395433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:38.114Z",
+      "crawledAt": "2026-10-23T09:50:41.710Z",
       "addressLocality": "Avenches",
       "addressCountry": "CH",
       "country": "CH",
@@ -3193,7 +3196,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Senior-Acquisitions-&-Business-Development-Manager/1441989433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:37.332Z",
+      "crawledAt": "2026-10-23T09:50:31.749Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -3266,7 +3269,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Proficiency-Testing-Coordinator/1437626733/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:36.599Z",
+      "crawledAt": "2026-10-23T09:50:39.190Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3339,7 +3342,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Specialist-Biostatistician/1438056933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:35.881Z",
+      "crawledAt": "2026-10-23T09:50:40.110Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3387,7 +3390,7 @@
       "slugByLocale": {
         "it": "pianificatore-di-domanda-e-di-alimentazione-nestle-henniez",
         "en": "demand-supply-planner-nestle-ch",
-        "de": "demand-supply-planer-nestle-henniez",
+        "de": "nachfrage-und-versorgungsplan-nestle-henniez",
         "fr": "demande-planificateur-de-l-offre-nestle-henniez"
       },
       "company": "Nestlé",
@@ -3412,7 +3415,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Demand-&-Supply-Planner/1433695933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:35.151Z",
+      "crawledAt": "2026-10-23T09:50:36.007Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -3435,7 +3438,7 @@
         "demand-supply-planner-business-growth-solutions-nestle-ch",
         "demande-planificateur-de-l-offre-nestle-la-tour-de-peilz-ch",
         "demand-supply-planner-nestle-henniez",
-        "nachfrage-und-versorgungsplan-nestle-henniez"
+        "demand-supply-planer-nestle-henniez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3445,7 +3448,7 @@
           "demande-planificateur-de-l-offre-nestle-la-tour-de-peilz-ch"
         ],
         "de": [
-          "nachfrage-und-versorgungsplan-nestle-henniez"
+          "demand-supply-planer-nestle-henniez"
         ],
         "fr": [
           "demand-supply-planner-nestle-henniez"
@@ -3474,7 +3477,7 @@
       "slugByLocale": {
         "it": "ingenieur-e-digitale-e-performance-nestle-henniez-ch",
         "en": "automaticien-ne-specialiste-digital-nestle-ch",
-        "de": "automatiker-in-und-digitalspezialist-in-nestle-henniez",
+        "de": "automatician-ne-digital-spezialist-nestle-henniez",
         "fr": "ingenieur-e-digital-performance-nestle-ch"
       },
       "company": "Nestlé",
@@ -3499,7 +3502,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Automaticien_ne-&-Sp%C3%A9cialiste-Digital/1383951133/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:34.389Z",
+      "crawledAt": "2026-10-23T09:50:38.391Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -3525,13 +3528,13 @@
         ],
         "de": [
           "automaticien-ne-specialiste-digital-nestle-henniez",
-          "automatician-ne-digital-spezialist-nestle-henniez"
+          "automatiker-in-und-digitalspezialist-in-nestle-henniez"
         ]
       },
       "previousSlugs": [
         "automaticien-ne-specialiste-digital-nestle-ch",
         "automaticien-ne-specialiste-digital-nestle-henniez",
-        "automatician-ne-digital-spezialist-nestle-henniez"
+        "automatiker-in-und-digitalspezialist-in-nestle-henniez"
       ],
       "firstSeenAt": "2026-05-25T13:33:29.386Z",
       "salaryMin": 60500,
@@ -3581,7 +3584,7 @@
       "url": "https://jobdetails.nestle.com/job/Z%C3%BCrich-Coffee-Specialist-Nespresso/1403654933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:41:33.611Z",
+      "crawledAt": "2026-10-23T09:49:53.462Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3654,7 +3657,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Junior-Research-Assistant/1416597933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:32.841Z",
+      "crawledAt": "2026-10-23T09:50:35.173Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3727,7 +3730,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-R&D-Chefs-Culinarium-Intern-Nestl%C3%A9-Research/1441247633/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:32.111Z",
+      "crawledAt": "2026-10-23T09:50:44.990Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3800,7 +3803,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Machine-Quality-Senior-Specialist/1444251733/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:31.356Z",
+      "crawledAt": "2026-10-23T09:50:42.581Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -3873,7 +3876,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Product-Development-Intern/1445277433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:30.606Z",
+      "crawledAt": "2026-10-23T09:50:30.933Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3952,7 +3955,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Associate-R&D-Specialist-System-Performance/1416095233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:29.858Z",
+      "crawledAt": "2026-10-23T09:50:29.319Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -4025,7 +4028,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Global-Procurement-Manager-Machines/1429178133/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:29.118Z",
+      "crawledAt": "2026-10-23T09:50:22.762Z",
       "addressLocality": "Romont",
       "addressCountry": "CH",
       "country": "CH",
@@ -4098,7 +4101,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-%28probiotische-Produkte%29/1441914833/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:41:28.365Z",
+      "crawledAt": "2026-10-23T09:50:51.477Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -4149,7 +4152,7 @@
         "it": "paralegale-aziendale-nestle-vevey",
         "en": "corporate-paralegal-nestle-ch",
         "de": "rechtswidrige-handlungen-nestle-vevey",
-        "fr": "societe-parajuridique-nestle-vevey"
+        "fr": "corporate-paralegal-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -4173,7 +4176,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Corporate-Paralegal/1431907233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:27.615Z",
+      "crawledAt": "2026-10-23T09:49:58.338Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -4192,7 +4195,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "corporate-paralegal-nestle-ch",
-        "corporate-paralegal-nestle-vevey"
+        "corporate-paralegal-nestle-vevey",
+        "societe-parajuridique-nestle-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4200,7 +4204,7 @@
           "corporate-paralegal-nestle-vevey"
         ],
         "fr": [
-          "corporate-paralegal-nestle-vevey"
+          "societe-parajuridique-nestle-vevey"
         ]
       },
       "firstSeenAt": "2026-08-31T17:20:00.826Z",
@@ -4251,7 +4255,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Food-&-Beverage-Manager/1444365933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:26.871Z",
+      "crawledAt": "2026-10-23T09:49:56.740Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4330,7 +4334,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Stagiaire-RH-MPC-3%2B1-Pr%C3%A9-HEG/1437629533/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:26.116Z",
+      "crawledAt": "2026-10-23T09:50:10.542Z",
       "addressLocality": "Romont",
       "addressCountry": "CH",
       "country": "CH",
@@ -4403,7 +4407,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Stagiaire-ing%C3%A9nieur-e-en-efficacit%C3%A9-%C3%A9nerg%C3%A9tique/1437635933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:25.343Z",
+      "crawledAt": "2026-10-23T09:50:11.344Z",
       "addressLocality": "Romont",
       "addressCountry": "CH",
       "country": "CH",
@@ -4480,7 +4484,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-100/1437672033/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:41:24.601Z",
+      "crawledAt": "2026-10-23T09:50:12.194Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -4557,7 +4561,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Marketing-Coordinator/1448482533/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:23.860Z",
+      "crawledAt": "2026-10-23T09:50:08.122Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -4636,7 +4640,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Produktion-100/1386110633/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:41:23.149Z",
+      "crawledAt": "2026-10-23T09:50:20.361Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -4712,7 +4716,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Recipe-Formulation-Specialist/1413721933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:22.420Z",
+      "crawledAt": "2026-10-23T09:50:07.259Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -4791,7 +4795,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Digital-Food-Safety-Early-Warning-Associate-Specialist/1411239433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:21.649Z",
+      "crawledAt": "2026-10-23T09:50:06.429Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4867,7 +4871,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Global-Head-of-Coffee-R&D/1448607533/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:20.893Z",
+      "crawledAt": "2026-10-23T09:49:55.144Z",
       "addressLocality": "Romont",
       "addressCountry": "CH",
       "country": "CH",
@@ -4949,7 +4953,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Accounting-Specialist-Nestl%C3%A9-Waters/1440140233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:20.082Z",
+      "crawledAt": "2026-10-23T09:49:54.272Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -5022,7 +5026,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur_trice-logistique-en-horaires-48-%28HFD%29/1434672433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:19.332Z",
+      "crawledAt": "2026-10-23T09:50:24.381Z",
       "addressLocality": "Romont",
       "addressCountry": "CH",
       "country": "CH",
@@ -5099,7 +5103,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Corporate-Insurance-Specialist-Non-Life-&-Insured-Benefits/1443653133/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:18.551Z",
+      "crawledAt": "2026-10-23T09:50:23.550Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -5172,7 +5176,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Technology-Development-Intern/1445264133/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:17.825Z",
+      "crawledAt": "2026-10-23T09:50:30.150Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -5255,7 +5259,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Global-Medical-Communication-Lead/1424424033/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:17.064Z",
+      "crawledAt": "2026-10-23T09:50:26.881Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -5328,7 +5332,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Manufacturing-Specialist/1430315433/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:16.349Z",
+      "crawledAt": "2026-10-23T09:50:50.696Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5401,7 +5405,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Senior-Technician/1434936533/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:15.604Z",
+      "crawledAt": "2026-10-23T09:50:45.789Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5452,7 +5456,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
         "en": "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "de": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
+        "de": "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe",
         "fr": "gestionnaire-de-projet-pour-les-systemes-de-boissons-hors-maison-nestle-orbe"
       },
       "company": "Nestlé",
@@ -5477,7 +5481,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Project-Manager-for-Out-of-Home-Beverage-Systems/1444841133/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:14.856Z",
+      "crawledAt": "2026-10-23T09:50:25.201Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -5496,16 +5500,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "project-manager-for-out-of-home-beverage-systems-nestle-orbe",
-        "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe"
+        "project-manager-for-out-of-home-beverage-systems-nestle-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-for-out-of-home-beverage-systems-nestle-ch",
           "project-manager-for-out-of-home-beverage-systems-nestle-orbe"
-        ],
-        "de": [
-          "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe"
         ]
       },
       "firstSeenAt": "2026-10-12T09:45:30.943Z",
@@ -5556,7 +5556,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Digital-Process-Design-Engineer/1437634233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:14.122Z",
+      "crawledAt": "2026-10-23T09:49:59.952Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5629,7 +5629,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Senior-EngineerSenior-R&D-Specialist-Systems-Innovation/1416630333/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:13.398Z",
+      "crawledAt": "2026-10-23T09:50:14.647Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -5701,7 +5701,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieure-Digital-Manufacturing/1437691733/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:12.639Z",
+      "crawledAt": "2026-10-23T09:50:21.967Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -5774,7 +5774,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-IP-Paralegal/1428221633/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:11.856Z",
+      "crawledAt": "2026-10-23T09:50:21.173Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -5851,7 +5851,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieur-e-S&H-%28Safety-&-Health%29/1437624533/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:11.121Z",
+      "crawledAt": "2026-10-23T09:50:09.718Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -5924,7 +5924,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Nutrition-&-Health-Administrative-Assistant/1411701033/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:10.372Z",
+      "crawledAt": "2026-10-23T09:50:05.634Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5999,7 +5999,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Packaging-Development-Intern/1442306933/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:09.607Z",
+      "crawledAt": "2026-10-23T09:50:04.818Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -6072,7 +6072,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-Ing%C3%A9nieur-e-Digital-Transformation-&-AI-Agents/1448870533/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:08.841Z",
+      "crawledAt": "2026-10-23T09:50:04.004Z",
       "addressLocality": "Avenches",
       "addressCountry": "CH",
       "country": "CH",
@@ -6145,7 +6145,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Communications-Manager-Content-&-Editorial/1396565233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:08.114Z",
+      "crawledAt": "2026-10-23T09:50:49.049Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -6218,7 +6218,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur_trice-de-production-%28HFD%29/1271549401/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:07.379Z",
+      "crawledAt": "2026-10-23T09:50:13.831Z",
       "addressLocality": "Romont",
       "addressCountry": "CH",
       "country": "CH",
@@ -6297,7 +6297,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Senior-Technician-in-Analytical-Chemistry/1441316833/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:06.612Z",
+      "crawledAt": "2026-10-23T09:50:15.460Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -6370,7 +6370,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Packaging-Development-Intern/1442310833/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:05.850Z",
+      "crawledAt": "2026-10-23T09:50:02.376Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -6445,7 +6445,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur_trice-Torr%C3%A9faction-48-%28HFD%29/1407947533/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:05.083Z",
+      "crawledAt": "2026-10-23T09:50:00.760Z",
       "addressLocality": "Romont",
       "addressCountry": "CH",
       "country": "CH",
@@ -6521,7 +6521,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieur-e-Qualit%C3%A9/1437619733/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:41:04.311Z",
+      "crawledAt": "2026-10-23T09:50:08.926Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -6600,7 +6600,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Technician-in-Lipids-Analytics/1408503233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:03.560Z",
+      "crawledAt": "2026-10-23T09:50:01.571Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -6676,7 +6676,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Learning-Governance-&-Partnerships-Lead/1446703033/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:02.822Z",
+      "crawledAt": "2026-10-23T09:50:28.522Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -6693,12 +6693,7 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Learning-Governance-&-Partnerships-Lead/1446703033/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "learning-governance-partnerships-lead-flexible-location-nestle-ch",
-        "learning-governance-partnerships-lead-posizione-flessibile-nestle-vevey",
-        "learning-governance-partnerships-lead-flexibler-standort-nestle-vevey",
-        "learning-governance-partnerships-lead-nestle-ch"
-      ],
+      "firstSeenAt": "2026-10-21T10:00:25.906Z",
       "previousSlugsByLocale": {
         "it": [
           "learning-governance-partnerships-lead-flexible-location-nestle-ch",
@@ -6710,7 +6705,12 @@
           "learning-governance-partnerships-lead-flexibler-standort-nestle-vevey"
         ]
       },
-      "firstSeenAt": "2026-10-21T10:00:25.906Z",
+      "previousSlugs": [
+        "learning-governance-partnerships-lead-flexible-location-nestle-ch",
+        "learning-governance-partnerships-lead-posizione-flessibile-nestle-vevey",
+        "learning-governance-partnerships-lead-flexibler-standort-nestle-vevey",
+        "learning-governance-partnerships-lead-nestle-ch"
+      ],
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -6758,7 +6758,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Communications-Manager-Social-Media-&-Campaigns/1449465833/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:02.046Z",
+      "crawledAt": "2026-10-23T09:50:27.686Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -6837,7 +6837,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Specialist-Lipids/1435371233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:01.303Z",
+      "crawledAt": "2026-10-23T09:50:26.095Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -6910,7 +6910,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Corporate-Learning-Excellence-Lead/1446704233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:41:00.505Z",
+      "crawledAt": "2026-10-23T09:50:16.292Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -7029,7 +7029,8 @@
         }
       },
       "postalCode": "1800",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "crawlerMissStreak": 1
     },
     {
       "id": "nestle-1438078233",
@@ -7062,7 +7063,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Marketing-ROI-Insight-Expert/1438078233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:40:59.037Z",
+      "crawledAt": "2026-10-23T09:50:13.015Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -7135,7 +7136,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Intern-Soft-Matter-&-Coffee-Beverage-Innovation/1442392333/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:40:58.259Z",
+      "crawledAt": "2026-10-23T09:50:47.414Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -7211,7 +7212,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Intern-Powder-Structure-and-Performance/1444437833/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:40:57.496Z",
+      "crawledAt": "2026-10-23T09:50:48.249Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -7284,7 +7285,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Innovation-Insight-Intern/1445236233/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:40:56.721Z",
+      "crawledAt": "2026-10-23T09:50:46.627Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -7403,7 +7404,8 @@
         }
       },
       "postalCode": "1350",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "crawlerMissStreak": 1
     },
     {
       "id": "nestle-978705001",
@@ -7411,7 +7413,7 @@
       "slugByLocale": {
         "it": "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch",
         "en": "apprenti-e-brassage-and-beverage-technologist-nestle-henniez-ch",
-        "de": "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch",
+        "de": "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez",
         "fr": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
       },
       "company": "Nestlé",
@@ -7436,7 +7438,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:40:55.225Z",
+      "crawledAt": "2026-10-23T09:49:51.012Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -7455,14 +7457,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
-        "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez"
+        "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
         ],
         "de": [
-          "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez"
+          "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch"
         ]
       },
       "firstSeenAt": "2026-10-12T09:45:59.851Z",
@@ -7513,7 +7515,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
       "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:40:54.431Z",
+      "crawledAt": "2026-10-23T09:49:50.184Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -7790,6 +7792,74 @@
       "postalCode": "1800",
       "addressRegion": "VD",
       "crawlerMissStreak": 2
+    },
+    {
+      "id": "nestle-1450663933",
+      "slug": "regional-procurement-manager-road-transport-nestle-ch",
+      "slugByLocale": {
+        "en": "regional-procurement-manager-road-transport-nestle-ch",
+        "it": "regional-procurement-manager-road-transport-nestle-ch",
+        "de": "regional-procurement-manager-road-transport-nestle-ch",
+        "fr": "regional-procurement-manager-road-transport-nestle-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Regional Procurement Manager - Road Transport",
+      "titleByLocale": {
+        "en": "Regional Procurement Manager - Road Transport",
+        "it": "Regional Procurement Manager - Road Transport",
+        "de": "Regional Procurement Manager - Road Transport",
+        "fr": "Regional Procurement Manager - Road Transport"
+      },
+      "description": "Location: La Tour-de-Peilz, Switzerland\nWork model: Hybrid / Full time\n\nContract type / duration: Permanent\n\nBe a force for good and feel trusted to make decisions that matter.\n\nAs a Regional Procurement Manager – Road Transport at Nestlé Global Procurement, reporting directly to the Global Category Leader, your mission is to implement the category strategy for regional spend, leveraging strategic sourcing processes, tools, and policies. We operate on a truly global scale, bringing together over 40 nationalities across three dynamic hubs in Switzerland, Panama, and Malaysia. This is your chance to drive innovation, sustainability, and impact at scale, ensuring value creation through responsibly sourced supply across diverse categories.\n\nHow you’ll make an impact as a Regional Procurement Manager – Road Transport\n\n• Contribute to the global sourcing strategy with regional inputs, implementation and communication plan and supplier management plan.\n\n• Communicate sourcing strategy to T-Hubs Teams and ensure full alignment to secure successful implementation.\n\n• Identify appropriate suppliers for the spend category selected in collaboration with markets and HQ functions.\n\n• Preparing and executing negotiation events - seeking best TCO contracts and beneficial commercial agreements with suppliers as approved by the Category Procurement managers.\n\n• Lower Total Cost of Ownership.\n\n• Monitoring market trends impacting on the smooth implementation of contracts and impacting our TCO (Total cost of ownership).\n\n• Ensure that all the key suppliers within the spend category in charge completely adhere to Nestlé standards (Responsible Sourcing, Reverse factoring, SHE certifications).\n\nWhat will make you successful\n\n• Degree in Procurement, Business Administration, Supply Chain, Economics, Finance or Engineering.\n\n• Solid sourcing experience in a global logistics environment, ideally including Road Transport, with a strong track record in developing and implementing sourcing strategies.\n\n• Proven ability to lead projects, drive change and demonstrate strong functional leadership.\n\n• Strong expertise in risk management, responsible sourcing, supplier relationship management and negotiation, with excellent communication and influencing skills.\n\n• Fluency in English, French and/or German is essential, other languages such as Italian, Polish or Spanish is a big plus.\n\nAt Nestlé Global Procurement, we place people at the heart of everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to Be a Force for Good?\n\nApply now and feel trusted to make decisions that matter.\n\n#Nestradecareer",
+      "descriptionByLocale": {
+        "en": "Location: La Tour-de-Peilz, Switzerland\nWork model: Hybrid / Full time\n\nContract type / duration: Permanent\n\nBe a force for good and feel trusted to make decisions that matter.\n\nAs a Regional Procurement Manager – Road Transport at Nestlé Global Procurement, reporting directly to the Global Category Leader, your mission is to implement the category strategy for regional spend, leveraging strategic sourcing processes, tools, and policies. We operate on a truly global scale, bringing together over 40 nationalities across three dynamic hubs in Switzerland, Panama, and Malaysia. This is your chance to drive innovation, sustainability, and impact at scale, ensuring value creation through responsibly sourced supply across diverse categories.\n\nHow you’ll make an impact as a Regional Procurement Manager – Road Transport\n\n• Contribute to the global sourcing strategy with regional inputs, implementation and communication plan and supplier management plan.\n\n• Communicate sourcing strategy to T-Hubs Teams and ensure full alignment to secure successful implementation.\n\n• Identify appropriate suppliers for the spend category selected in collaboration with markets and HQ functions.\n\n• Preparing and executing negotiation events - seeking best TCO contracts and beneficial commercial agreements with suppliers as approved by the Category Procurement managers.\n\n• Lower Total Cost of Ownership.\n\n• Monitoring market trends impacting on the smooth implementation of contracts and impacting our TCO (Total cost of ownership).\n\n• Ensure that all the key suppliers within the spend category in charge completely adhere to Nestlé standards (Responsible Sourcing, Reverse factoring, SHE certifications).\n\nWhat will make you successful\n\n• Degree in Procurement, Business Administration, Supply Chain, Economics, Finance or Engineering.\n\n• Solid sourcing experience in a global logistics environment, ideally including Road Transport, with a strong track record in developing and implementing sourcing strategies.\n\n• Proven ability to lead projects, drive change and demonstrate strong functional leadership.\n\n• Strong expertise in risk management, responsible sourcing, supplier relationship management and negotiation, with excellent communication and influencing skills.\n\n• Fluency in English, French and/or German is essential, other languages such as Italian, Polish or Spanish is a big plus.\n\nAt Nestlé Global Procurement, we place people at the heart of everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to Be a Force for Good?\n\nApply now and feel trusted to make decisions that matter.\n\n#Nestradecareer",
+        "it": "Location: La Tour-de-Peilz, Switzerland\nWork model: Hybrid / Full time\n\nContract type / duration: Permanent\n\nBe a force for good and feel trusted to make decisions that matter.\n\nAs a Regional Procurement Manager – Road Transport at Nestlé Global Procurement, reporting directly to the Global Category Leader, your mission is to implement the category strategy for regional spend, leveraging strategic sourcing processes, tools, and policies. We operate on a truly global scale, bringing together over 40 nationalities across three dynamic hubs in Switzerland, Panama, and Malaysia. This is your chance to drive innovation, sustainability, and impact at scale, ensuring value creation through responsibly sourced supply across diverse categories.\n\nHow you’ll make an impact as a Regional Procurement Manager – Road Transport\n\n• Contribute to the global sourcing strategy with regional inputs, implementation and communication plan and supplier management plan.\n\n• Communicate sourcing strategy to T-Hubs Teams and ensure full alignment to secure successful implementation.\n\n• Identify appropriate suppliers for the spend category selected in collaboration with markets and HQ functions.\n\n• Preparing and executing negotiation events - seeking best TCO contracts and beneficial commercial agreements with suppliers as approved by the Category Procurement managers.\n\n• Lower Total Cost of Ownership.\n\n• Monitoring market trends impacting on the smooth implementation of contracts and impacting our TCO (Total cost of ownership).\n\n• Ensure that all the key suppliers within the spend category in charge completely adhere to Nestlé standards (Responsible Sourcing, Reverse factoring, SHE certifications).\n\nWhat will make you successful\n\n• Degree in Procurement, Business Administration, Supply Chain, Economics, Finance or Engineering.\n\n• Solid sourcing experience in a global logistics environment, ideally including Road Transport, with a strong track record in developing and implementing sourcing strategies.\n\n• Proven ability to lead projects, drive change and demonstrate strong functional leadership.\n\n• Strong expertise in risk management, responsible sourcing, supplier relationship management and negotiation, with excellent communication and influencing skills.\n\n• Fluency in English, French and/or German is essential, other languages such as Italian, Polish or Spanish is a big plus.\n\nAt Nestlé Global Procurement, we place people at the heart of everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to Be a Force for Good?\n\nApply now and feel trusted to make decisions that matter.\n\n#Nestradecareer",
+        "de": "Location: La Tour-de-Peilz, Switzerland\nWork model: Hybrid / Full time\n\nContract type / duration: Permanent\n\nBe a force for good and feel trusted to make decisions that matter.\n\nAs a Regional Procurement Manager – Road Transport at Nestlé Global Procurement, reporting directly to the Global Category Leader, your mission is to implement the category strategy for regional spend, leveraging strategic sourcing processes, tools, and policies. We operate on a truly global scale, bringing together over 40 nationalities across three dynamic hubs in Switzerland, Panama, and Malaysia. This is your chance to drive innovation, sustainability, and impact at scale, ensuring value creation through responsibly sourced supply across diverse categories.\n\nHow you’ll make an impact as a Regional Procurement Manager – Road Transport\n\n• Contribute to the global sourcing strategy with regional inputs, implementation and communication plan and supplier management plan.\n\n• Communicate sourcing strategy to T-Hubs Teams and ensure full alignment to secure successful implementation.\n\n• Identify appropriate suppliers for the spend category selected in collaboration with markets and HQ functions.\n\n• Preparing and executing negotiation events - seeking best TCO contracts and beneficial commercial agreements with suppliers as approved by the Category Procurement managers.\n\n• Lower Total Cost of Ownership.\n\n• Monitoring market trends impacting on the smooth implementation of contracts and impacting our TCO (Total cost of ownership).\n\n• Ensure that all the key suppliers within the spend category in charge completely adhere to Nestlé standards (Responsible Sourcing, Reverse factoring, SHE certifications).\n\nWhat will make you successful\n\n• Degree in Procurement, Business Administration, Supply Chain, Economics, Finance or Engineering.\n\n• Solid sourcing experience in a global logistics environment, ideally including Road Transport, with a strong track record in developing and implementing sourcing strategies.\n\n• Proven ability to lead projects, drive change and demonstrate strong functional leadership.\n\n• Strong expertise in risk management, responsible sourcing, supplier relationship management and negotiation, with excellent communication and influencing skills.\n\n• Fluency in English, French and/or German is essential, other languages such as Italian, Polish or Spanish is a big plus.\n\nAt Nestlé Global Procurement, we place people at the heart of everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to Be a Force for Good?\n\nApply now and feel trusted to make decisions that matter.\n\n#Nestradecareer",
+        "fr": "Location: La Tour-de-Peilz, Switzerland\nWork model: Hybrid / Full time\n\nContract type / duration: Permanent\n\nBe a force for good and feel trusted to make decisions that matter.\n\nAs a Regional Procurement Manager – Road Transport at Nestlé Global Procurement, reporting directly to the Global Category Leader, your mission is to implement the category strategy for regional spend, leveraging strategic sourcing processes, tools, and policies. We operate on a truly global scale, bringing together over 40 nationalities across three dynamic hubs in Switzerland, Panama, and Malaysia. This is your chance to drive innovation, sustainability, and impact at scale, ensuring value creation through responsibly sourced supply across diverse categories.\n\nHow you’ll make an impact as a Regional Procurement Manager – Road Transport\n\n• Contribute to the global sourcing strategy with regional inputs, implementation and communication plan and supplier management plan.\n\n• Communicate sourcing strategy to T-Hubs Teams and ensure full alignment to secure successful implementation.\n\n• Identify appropriate suppliers for the spend category selected in collaboration with markets and HQ functions.\n\n• Preparing and executing negotiation events - seeking best TCO contracts and beneficial commercial agreements with suppliers as approved by the Category Procurement managers.\n\n• Lower Total Cost of Ownership.\n\n• Monitoring market trends impacting on the smooth implementation of contracts and impacting our TCO (Total cost of ownership).\n\n• Ensure that all the key suppliers within the spend category in charge completely adhere to Nestlé standards (Responsible Sourcing, Reverse factoring, SHE certifications).\n\nWhat will make you successful\n\n• Degree in Procurement, Business Administration, Supply Chain, Economics, Finance or Engineering.\n\n• Solid sourcing experience in a global logistics environment, ideally including Road Transport, with a strong track record in developing and implementing sourcing strategies.\n\n• Proven ability to lead projects, drive change and demonstrate strong functional leadership.\n\n• Strong expertise in risk management, responsible sourcing, supplier relationship management and negotiation, with excellent communication and influencing skills.\n\n• Fluency in English, French and/or German is essential, other languages such as Italian, Polish or Spanish is a big plus.\n\nAt Nestlé Global Procurement, we place people at the heart of everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to Be a Force for Good?\n\nApply now and feel trusted to make decisions that matter.\n\n#Nestradecareer"
+      },
+      "location": "La Tour-de-Peilz",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Regional-Procurement-Manager-Road-Transport/1450663933/",
+      "source": "Nestlé Switzerland Dedicated Parser (SuccessFactors)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-23T09:51:01.211Z",
+      "addressLocality": "La Tour-de-Peilz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T00:00:00Z",
+      "postedDate": "2026-10-23T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Regional-Procurement-Manager-Road-Transport/1450663933/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1814",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-23T09:51:01.211Z"
     }
   ]
 }

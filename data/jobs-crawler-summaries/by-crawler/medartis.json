@@ -1,7 +1,7 @@
 {
   "key": "medartis",
   "label": "Medartis",
-  "generatedAt": "2026-10-22T21:40:02.350Z",
+  "generatedAt": "2026-10-23T09:28:07.019Z",
   "total": 8,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 1,
   "unchangedCount": 7,
-  "durationMs": 10823,
-  "avgDurationMs": 10823,
+  "durationMs": 10471,
+  "avgDurationMs": 10471,
   "durationHistory": [
-    10823
+    10471
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:39:50.016Z",
+      "crawledAt": "2026-10-23T09:27:56.056Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -126,7 +126,7 @@
       "url": "https://careers.medartis.com/job/Produktionsmitarbeiterin-Reinraum/1433594733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:39:51.166Z",
+      "crawledAt": "2026-10-23T09:27:57.165Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://careers.medartis.com/job/Junior-Finance-Manager/1428557533/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:39:50.591Z",
+      "crawledAt": "2026-10-23T09:27:56.614Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-AngularJava/1440346933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:39:49.472Z",
+      "crawledAt": "2026-10-23T09:27:55.496Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
       "url": "https://careers.medartis.com/job/Supply-&-Production-Planner-100/1406388933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:39:47.602Z",
+      "crawledAt": "2026-10-23T09:27:53.666Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -295,7 +295,7 @@
       "url": "https://careers.medartis.com/job/Senior-Global-Product-Manager-CMF/1443182933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:39:45.712Z",
+      "crawledAt": "2026-10-23T09:27:51.713Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -339,7 +339,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-%28Angular-Java%29/1440347033/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:39:44.738Z",
+      "crawledAt": "2026-10-23T09:27:50.733Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -411,5 +411,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }

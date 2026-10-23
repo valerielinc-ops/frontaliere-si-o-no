@@ -105,6 +105,32 @@ describe('host-prepared complete review patch', () => {
     expect(() => writeReviewDiff({ base: 'a'.repeat(40), head: f.base, directory: f.output, exclusions: ['data'], cwd: f.repo })).toThrow();
   });
 
+  it('falls back to the local merge-base when GitHub cannot render a large comparison', () => {
+    const f = fixture();
+    writeFileSync(join(f.repo, 'refresh.json'), '{"changed":true}\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'large data refresh');
+    const head = f.git('rev-parse', 'HEAD');
+    const api: Record<string, string> = {
+      'repos/o/r/pulls/14825': JSON.stringify({ base: { sha: f.base } }),
+    };
+
+    main({
+      HEAD_SHA: head,
+      REPO: 'o/r',
+      PR_NUMBER: '14825',
+      CTX_DIR: f.output,
+      REVIEW_DIFF_EXCLUSIONS: 'data',
+    }, {
+      api: (endpoint: string) => {
+        if (endpoint.includes('/compare/')) throw new Error('HTTP 422: diff not available');
+        return api[endpoint];
+      },
+      cwd: f.repo,
+    });
+
+    expect(readFileSync(join(f.output, 'diff.patch'), 'utf8')).toContain('refresh.json');
+  });
+
   // Issue #9189. Reproduces the real topology of #9141: the branch was
   // force-pushed, so the previous review's commit sits on abandoned history and
   // `merge_base(lastRev, HEAD)` lands on `main` — 90 commits behind HEAD there,

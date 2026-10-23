@@ -123,10 +123,31 @@ export function main(env = process.env, { api: injectedApi, cwd = process.cwd() 
   if (!/^[\w.-]+\/[\w.-]+$/.test(repo ?? '')) throw new Error('Invalid repository');
   if (!/^\d+$/.test(env.PR_NUMBER ?? '')) throw new Error('Invalid PR number');
   const api = injectedApi ?? (endpoint => run(ghCommand(), ['api', endpoint]).trim());
-  // Only use compare metadata. Its patches may be absent/truncated; Git below
-  // supplies the complete patch, including deletes and binary-change headers.
-  const mergeBaseWith = from =>
-    sha(JSON.parse(api(`repos/${repo}/compare/${from}...${head}`)).merge_base_commit.sha);
+  // Only use compare metadata when GitHub can produce it. Its patches may be
+  // absent/truncated; Git below supplies the complete patch, including deletes
+  // and binary-change headers. Large data-only refreshes can make the compare
+  // endpoint return HTTP 422 (`diff: not_available`) even though the checkout
+  // has the complete history. In that case the local merge-base is equivalent
+  // and keeps the review fail-closed without asking the API to render the
+  // multi-million-line patch.
+  const localMergeBaseWith = from => {
+    try {
+      const value = run(gitCommand(), ['merge-base', from, head], { cwd, stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+      return value ? sha(value) : null;
+    } catch {
+      return null;
+    }
+  };
+  const mergeBaseWith = from => {
+    try {
+      return sha(JSON.parse(api(`repos/${repo}/compare/${from}...${head}`)).merge_base_commit.sha);
+    } catch (error) {
+      const local = localMergeBaseWith(from);
+      if (!local) throw error;
+      console.log(`GitHub compare non disponibile per ${from}...${head}; uso il merge-base locale ${local}.`);
+      return local;
+    }
+  };
   const incremental = Boolean(env.INCREMENTAL_BASE);
   // The PR's own contribution boundary — the same merge-base form `tests.yml`
   // already uses for `changed-paths.txt`. EVERY patch is anchored here, so no

@@ -16,12 +16,11 @@
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_reha_80__402991314a.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/praktikant_in_buchhaltung_fce9843ec7.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_hotellerie_70_100__3e83ef1d95.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter__in_k_che_80__34254277e3.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf__verk_rzt__65e531cb61.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_technischer_dienst_ww__100__ec505ebaf2.pdf"
   ],
   "notes": "Dedicated Berit Klinik crawler parses the Next.js careers page and extracts descriptions from CMS-hosted Stelleninserat PDFs.",
-  "updatedAt": "2026-10-22T21:25:18.483Z",
+  "updatedAt": "2026-10-23T09:30:46.651Z",
   "seedMetaByUrl": {
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf_dbd1e8bae0.pdf": {
       "location": "Speicher",
@@ -72,14 +71,6 @@
       "postingDateSource": "unknown"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_hotellerie_70_100__3e83ef1d95.pdf": {
-      "location": "Speicher",
-      "canton": "AR",
-      "company": "Berit Klinik",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter__in_k_che_80__34254277e3.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",

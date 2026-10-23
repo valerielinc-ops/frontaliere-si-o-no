@@ -1,15 +1,15 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-10-22T21:26:31.348Z",
-  "runId": "39855978735",
+  "assembledAt": "2026-10-23T09:22:48.970Z",
+  "runId": "39930737321",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -50,7 +50,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:26:24.821Z",
+      "crawledAt": "2026-10-23T09:22:44.287Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -79,8 +79,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -88,10 +88,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -156,7 +156,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:26:24.820Z",
+      "crawledAt": "2026-10-23T09:22:44.286Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -234,7 +234,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:26:24.819Z",
+      "crawledAt": "2026-10-23T09:22:44.286Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -306,7 +306,7 @@
       "applyUrl": "https://app.beehire.com/invite/DYAYXSAFI",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:26:24.818Z",
+      "crawledAt": "2026-10-23T09:22:44.285Z",
       "previousSlugs": [
         "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
       ],
@@ -383,7 +383,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:26:24.818Z",
+      "crawledAt": "2026-10-23T09:22:44.285Z",
       "previousSlugs": [
         "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
       ],
@@ -454,7 +454,7 @@
       "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:26:24.817Z",
+      "crawledAt": "2026-10-23T09:22:44.284Z",
       "previousSlugs": [
         "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -531,7 +531,7 @@
       "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:26:24.816Z",
+      "crawledAt": "2026-10-23T09:22:44.283Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -561,6 +561,134 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ghol-328ae8b07693",
+      "slug": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest",
+      "slugByLocale": {
+        "fr": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest",
+        "it": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest",
+        "en": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest",
+        "de": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Collaborateur.trice des admissions des urgences",
+      "titleByLocale": {
+        "fr": "Collaborateur.trice des admissions des urgences",
+        "it": "Collaborateur.trice des admissions des urgences",
+        "en": "Collaborateur.trice des admissions des urgences",
+        "de": "Collaborateur.trice des admissions des urgences"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Être en charge du processus d’admission des patients stationnaire et ambulatoire (horaires variables, 7/7)\n\n• Assurer la mise à jour des informations administratives liées aux séjours des patients\n\n• Être responsable du recueil et du contrôle de la couverture d’assurance des patients\n\n• Maitriser les procédures administratives de votre secteur\n\n• Accueillir, orienter et assurer les communications internes et externes, ainsi que les relations avec la patientèle\n\n• Gérer les appels téléphonique et boite mails du service\n\n• Collaborer avec les services connexes (réception, de facturation, débiteur, et médico-soignants)\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• 3 ans d’expérience dans un poste équivalent\n\n• Intérêt pour le secteur de la santé\n\n• Sens de l’accueil\n\n• Bonne gestion du stress\n\n• Flexibilité et disponibilité\n\n• Esprit d’entraide\n\n• Volonté de travail en équipe\n\n• Force de proposition\n\n• Parfaite maitrise du français (lu, écrit, parlé)\n\n• Bonne connaissance en anglais (A2/B1 minimum)\n\n• Aisance dans l’utilisation des outils informatiques (Pack MSOffice)\n\n• Connaissance Opale (un atout)\n Niveau de formation :\n CFC Employé.e de commerce ou titre jugé équivalent\n Avantages :\n Intégrer l’équipe des Admissions de Nyon, c’est bénéficier d’un véritable plan d’intégration pour être rapidement opérationnel.le dans une équipe à taille humaine. Vous évoluerez dans un environnement de travail agréable, soutenu par une série de procédures bien établies. L’Hôpital de Nyon évolue pour accueillir les patient.e.s au sein d’une infrastructure moderne et accueillante.\n Un cadre de travail agréable au sein d’une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
+      "descriptionByLocale": {
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Être en charge du processus d’admission des patients stationnaire et ambulatoire (horaires variables, 7/7)\n\n• Assurer la mise à jour des informations administratives liées aux séjours des patients\n\n• Être responsable du recueil et du contrôle de la couverture d’assurance des patients\n\n• Maitriser les procédures administratives de votre secteur\n\n• Accueillir, orienter et assurer les communications internes et externes, ainsi que les relations avec la patientèle\n\n• Gérer les appels téléphonique et boite mails du service\n\n• Collaborer avec les services connexes (réception, de facturation, débiteur, et médico-soignants)\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• 3 ans d’expérience dans un poste équivalent\n\n• Intérêt pour le secteur de la santé\n\n• Sens de l’accueil\n\n• Bonne gestion du stress\n\n• Flexibilité et disponibilité\n\n• Esprit d’entraide\n\n• Volonté de travail en équipe\n\n• Force de proposition\n\n• Parfaite maitrise du français (lu, écrit, parlé)\n\n• Bonne connaissance en anglais (A2/B1 minimum)\n\n• Aisance dans l’utilisation des outils informatiques (Pack MSOffice)\n\n• Connaissance Opale (un atout)\n Niveau de formation :\n CFC Employé.e de commerce ou titre jugé équivalent\n Avantages :\n Intégrer l’équipe des Admissions de Nyon, c’est bénéficier d’un véritable plan d’intégration pour être rapidement opérationnel.le dans une équipe à taille humaine. Vous évoluerez dans un environnement de travail agréable, soutenu par une série de procédures bien établies. L’Hôpital de Nyon évolue pour accueillir les patient.e.s au sein d’une infrastructure moderne et accueillante.\n Un cadre de travail agréable au sein d’une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
+        "it": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Être en charge du processus d’admission des patients stationnaire et ambulatoire (horaires variables, 7/7)\n\n• Assurer la mise à jour des informations administratives liées aux séjours des patients\n\n• Être responsable du recueil et du contrôle de la couverture d’assurance des patients\n\n• Maitriser les procédures administratives de votre secteur\n\n• Accueillir, orienter et assurer les communications internes et externes, ainsi que les relations avec la patientèle\n\n• Gérer les appels téléphonique et boite mails du service\n\n• Collaborer avec les services connexes (réception, de facturation, débiteur, et médico-soignants)\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• 3 ans d’expérience dans un poste équivalent\n\n• Intérêt pour le secteur de la santé\n\n• Sens de l’accueil\n\n• Bonne gestion du stress\n\n• Flexibilité et disponibilité\n\n• Esprit d’entraide\n\n• Volonté de travail en équipe\n\n• Force de proposition\n\n• Parfaite maitrise du français (lu, écrit, parlé)\n\n• Bonne connaissance en anglais (A2/B1 minimum)\n\n• Aisance dans l’utilisation des outils informatiques (Pack MSOffice)\n\n• Connaissance Opale (un atout)\n Niveau de formation :\n CFC Employé.e de commerce ou titre jugé équivalent\n Avantages :\n Intégrer l’équipe des Admissions de Nyon, c’est bénéficier d’un véritable plan d’intégration pour être rapidement opérationnel.le dans une équipe à taille humaine. Vous évoluerez dans un environnement de travail agréable, soutenu par une série de procédures bien établies. L’Hôpital de Nyon évolue pour accueillir les patient.e.s au sein d’une infrastructure moderne et accueillante.\n Un cadre de travail agréable au sein d’une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
+        "en": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Être en charge du processus d’admission des patients stationnaire et ambulatoire (horaires variables, 7/7)\n\n• Assurer la mise à jour des informations administratives liées aux séjours des patients\n\n• Être responsable du recueil et du contrôle de la couverture d’assurance des patients\n\n• Maitriser les procédures administratives de votre secteur\n\n• Accueillir, orienter et assurer les communications internes et externes, ainsi que les relations avec la patientèle\n\n• Gérer les appels téléphonique et boite mails du service\n\n• Collaborer avec les services connexes (réception, de facturation, débiteur, et médico-soignants)\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• 3 ans d’expérience dans un poste équivalent\n\n• Intérêt pour le secteur de la santé\n\n• Sens de l’accueil\n\n• Bonne gestion du stress\n\n• Flexibilité et disponibilité\n\n• Esprit d’entraide\n\n• Volonté de travail en équipe\n\n• Force de proposition\n\n• Parfaite maitrise du français (lu, écrit, parlé)\n\n• Bonne connaissance en anglais (A2/B1 minimum)\n\n• Aisance dans l’utilisation des outils informatiques (Pack MSOffice)\n\n• Connaissance Opale (un atout)\n Niveau de formation :\n CFC Employé.e de commerce ou titre jugé équivalent\n Avantages :\n Intégrer l’équipe des Admissions de Nyon, c’est bénéficier d’un véritable plan d’intégration pour être rapidement opérationnel.le dans une équipe à taille humaine. Vous évoluerez dans un environnement de travail agréable, soutenu par une série de procédures bien établies. L’Hôpital de Nyon évolue pour accueillir les patient.e.s au sein d’une infrastructure moderne et accueillante.\n Un cadre de travail agréable au sein d’une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
+        "de": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Être en charge du processus d’admission des patients stationnaire et ambulatoire (horaires variables, 7/7)\n\n• Assurer la mise à jour des informations administratives liées aux séjours des patients\n\n• Être responsable du recueil et du contrôle de la couverture d’assurance des patients\n\n• Maitriser les procédures administratives de votre secteur\n\n• Accueillir, orienter et assurer les communications internes et externes, ainsi que les relations avec la patientèle\n\n• Gérer les appels téléphonique et boite mails du service\n\n• Collaborer avec les services connexes (réception, de facturation, débiteur, et médico-soignants)\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• 3 ans d’expérience dans un poste équivalent\n\n• Intérêt pour le secteur de la santé\n\n• Sens de l’accueil\n\n• Bonne gestion du stress\n\n• Flexibilité et disponibilité\n\n• Esprit d’entraide\n\n• Volonté de travail en équipe\n\n• Force de proposition\n\n• Parfaite maitrise du français (lu, écrit, parlé)\n\n• Bonne connaissance en anglais (A2/B1 minimum)\n\n• Aisance dans l’utilisation des outils informatiques (Pack MSOffice)\n\n• Connaissance Opale (un atout)\n Niveau de formation :\n CFC Employé.e de commerce ou titre jugé équivalent\n Avantages :\n Intégrer l’équipe des Admissions de Nyon, c’est bénéficier d’un véritable plan d’intégration pour être rapidement opérationnel.le dans une équipe à taille humaine. Vous évoluerez dans un environnement de travail agréable, soutenu par une série de procédures bien établies. L’Hôpital de Nyon évolue pour accueillir les patient.e.s au sein d’une infrastructure moderne et accueillante.\n Un cadre de travail agréable au sein d’une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/WkSW4quSz",
+      "applyUrl": "https://app.beehire.com/invite/WkSW4quSz",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-23T09:22:44.283Z",
+      "needsRetranslation": true,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-23T09:22:44.283Z"
+    },
+    {
+      "id": "ghol-ca7b74ad5b09",
+      "slug": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "fr": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "it": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Technicien de maintenance",
+      "titleByLocale": {
+        "fr": "Technicien de maintenance",
+        "it": "Technicien de maintenance",
+        "en": "Technicien de maintenance",
+        "de": "Technicien de maintenance"
+      },
+      "description": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) regroupe plusieurs établissements de soins dans la région de La Côte et assure une prise en charge de proximité pour la population.\n Votre mission :\n Au sein du service biomédical du GHOL, vous assurez l’entretien, la maintenance préventive et les réparations courantes des équipements utilisés dans les établissements hospitaliers et médico-sociaux du groupe.\n Intégré à une équipe composée du responsable de service et de trois techniciens biomédicaux, vous contribuez à la fiabilité du matériel, à la sécurité des utilisateurs et à la continuité des activités de soins.\n Ce poste concret et varié s’adresse à une personne manuelle, curieuse et polyvalente, désireuse de développer ses compétences techniques dans un environnement stimulant.\n Vos activités principales :\n\n• Effectuer la maintenance préventive et les réparations courantes sur différents équipements, notamment les lits hospitaliers, fauteuils roulants, fauteuils de soins et divans d’examen.\n\n• Contrôler le bon fonctionnement du matériel, identifier les anomalies et diagnostiquer les pannes courantes.\n\n• Réaliser les interventions nécessaires dans le respect des procédures établies et des exigences de sécurité.\n\n• Documenter les interventions et assurer le suivi des équipements dans la GMAO (gestion de maintenance assistée par ordinateur).\n\n• Collaborer avec les équipes soignantes et les différents services afin de répondre à leurs besoins techniques.\n\n• Participer à la gestion et au suivi du parc d’équipements sur les différents sites du GHOL.\n\n• Selon votre progression et votre niveau d’autonomie, vous pourrez également intervenir sur des équipements plus complexes et contribuer à des projets techniques.\n Votre profil\n\n• Vous disposez d’une bonne habileté manuelle et d’un intérêt marqué pour la technique et la maintenance.\n\n• Vous êtes polyvalent, pragmatique et capable de rechercher des solutions adaptées aux problèmes rencontrés.\n\n• Vous faites preuve de curiosité, de rigueur et d’autonomie, tout en sachant reconnaître vos limites et demander conseil lorsque nécessaire.\n\n• Vous appréciez le travail en équipe et adoptez une attitude discrète et respectueuse de la confidentialité, indispensable en milieu hospitalier.\n\n• Vous maîtrisez les outils informatiques courants, notamment Microsoft Word et Excel.\n\n• Vous êtes titulaire du permis de conduire, indispensable pour les déplacements entre les différents établissements du GHOL.\n Diplômes / formation :\n CFC ou brevet fédéral dans un domaine technique (agent d’exploitation, polymécanicien, électronicien, mécanicien en maintenance, etc.)\n Les atouts supplémentaires :\n\n• Une connaissance d’un logiciel de GMAO.\n\n• Une expérience en milieu hospitalier ou médico-social, appréciée mais non indispensable.\n Nous vous offrons\n\n• Un poste diversifié, au cœur du fonctionnement des établissements de soins.\n\n• Un encadrement de proximité et le soutien d’une équipe expérimentée.\n\n• La possibilité de développer vos compétences et de gagner progressivement en autonomie.\n\n• Des perspectives d’évolution vers des interventions plus complexes et la participation à des projets techniques.\n\n• Une possibilité d’engagement en CDI à l’issue du CDD d’un an, selon vos compétences, votre implication et les résultats obtenus.",
+      "descriptionByLocale": {
+        "fr": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) regroupe plusieurs établissements de soins dans la région de La Côte et assure une prise en charge de proximité pour la population.\n Votre mission :\n Au sein du service biomédical du GHOL, vous assurez l’entretien, la maintenance préventive et les réparations courantes des équipements utilisés dans les établissements hospitaliers et médico-sociaux du groupe.\n Intégré à une équipe composée du responsable de service et de trois techniciens biomédicaux, vous contribuez à la fiabilité du matériel, à la sécurité des utilisateurs et à la continuité des activités de soins.\n Ce poste concret et varié s’adresse à une personne manuelle, curieuse et polyvalente, désireuse de développer ses compétences techniques dans un environnement stimulant.\n Vos activités principales :\n\n• Effectuer la maintenance préventive et les réparations courantes sur différents équipements, notamment les lits hospitaliers, fauteuils roulants, fauteuils de soins et divans d’examen.\n\n• Contrôler le bon fonctionnement du matériel, identifier les anomalies et diagnostiquer les pannes courantes.\n\n• Réaliser les interventions nécessaires dans le respect des procédures établies et des exigences de sécurité.\n\n• Documenter les interventions et assurer le suivi des équipements dans la GMAO (gestion de maintenance assistée par ordinateur).\n\n• Collaborer avec les équipes soignantes et les différents services afin de répondre à leurs besoins techniques.\n\n• Participer à la gestion et au suivi du parc d’équipements sur les différents sites du GHOL.\n\n• Selon votre progression et votre niveau d’autonomie, vous pourrez également intervenir sur des équipements plus complexes et contribuer à des projets techniques.\n Votre profil\n\n• Vous disposez d’une bonne habileté manuelle et d’un intérêt marqué pour la technique et la maintenance.\n\n• Vous êtes polyvalent, pragmatique et capable de rechercher des solutions adaptées aux problèmes rencontrés.\n\n• Vous faites preuve de curiosité, de rigueur et d’autonomie, tout en sachant reconnaître vos limites et demander conseil lorsque nécessaire.\n\n• Vous appréciez le travail en équipe et adoptez une attitude discrète et respectueuse de la confidentialité, indispensable en milieu hospitalier.\n\n• Vous maîtrisez les outils informatiques courants, notamment Microsoft Word et Excel.\n\n• Vous êtes titulaire du permis de conduire, indispensable pour les déplacements entre les différents établissements du GHOL.\n Diplômes / formation :\n CFC ou brevet fédéral dans un domaine technique (agent d’exploitation, polymécanicien, électronicien, mécanicien en maintenance, etc.)\n Les atouts supplémentaires :\n\n• Une connaissance d’un logiciel de GMAO.\n\n• Une expérience en milieu hospitalier ou médico-social, appréciée mais non indispensable.\n Nous vous offrons\n\n• Un poste diversifié, au cœur du fonctionnement des établissements de soins.\n\n• Un encadrement de proximité et le soutien d’une équipe expérimentée.\n\n• La possibilité de développer vos compétences et de gagner progressivement en autonomie.\n\n• Des perspectives d’évolution vers des interventions plus complexes et la participation à des projets techniques.\n\n• Une possibilité d’engagement en CDI à l’issue du CDD d’un an, selon vos compétences, votre implication et les résultats obtenus.",
+        "it": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) regroupe plusieurs établissements de soins dans la région de La Côte et assure une prise en charge de proximité pour la population.\n Votre mission :\n Au sein du service biomédical du GHOL, vous assurez l’entretien, la maintenance préventive et les réparations courantes des équipements utilisés dans les établissements hospitaliers et médico-sociaux du groupe.\n Intégré à une équipe composée du responsable de service et de trois techniciens biomédicaux, vous contribuez à la fiabilité du matériel, à la sécurité des utilisateurs et à la continuité des activités de soins.\n Ce poste concret et varié s’adresse à une personne manuelle, curieuse et polyvalente, désireuse de développer ses compétences techniques dans un environnement stimulant.\n Vos activités principales :\n\n• Effectuer la maintenance préventive et les réparations courantes sur différents équipements, notamment les lits hospitaliers, fauteuils roulants, fauteuils de soins et divans d’examen.\n\n• Contrôler le bon fonctionnement du matériel, identifier les anomalies et diagnostiquer les pannes courantes.\n\n• Réaliser les interventions nécessaires dans le respect des procédures établies et des exigences de sécurité.\n\n• Documenter les interventions et assurer le suivi des équipements dans la GMAO (gestion de maintenance assistée par ordinateur).\n\n• Collaborer avec les équipes soignantes et les différents services afin de répondre à leurs besoins techniques.\n\n• Participer à la gestion et au suivi du parc d’équipements sur les différents sites du GHOL.\n\n• Selon votre progression et votre niveau d’autonomie, vous pourrez également intervenir sur des équipements plus complexes et contribuer à des projets techniques.\n Votre profil\n\n• Vous disposez d’une bonne habileté manuelle et d’un intérêt marqué pour la technique et la maintenance.\n\n• Vous êtes polyvalent, pragmatique et capable de rechercher des solutions adaptées aux problèmes rencontrés.\n\n• Vous faites preuve de curiosité, de rigueur et d’autonomie, tout en sachant reconnaître vos limites et demander conseil lorsque nécessaire.\n\n• Vous appréciez le travail en équipe et adoptez une attitude discrète et respectueuse de la confidentialité, indispensable en milieu hospitalier.\n\n• Vous maîtrisez les outils informatiques courants, notamment Microsoft Word et Excel.\n\n• Vous êtes titulaire du permis de conduire, indispensable pour les déplacements entre les différents établissements du GHOL.\n Diplômes / formation :\n CFC ou brevet fédéral dans un domaine technique (agent d’exploitation, polymécanicien, électronicien, mécanicien en maintenance, etc.)\n Les atouts supplémentaires :\n\n• Une connaissance d’un logiciel de GMAO.\n\n• Une expérience en milieu hospitalier ou médico-social, appréciée mais non indispensable.\n Nous vous offrons\n\n• Un poste diversifié, au cœur du fonctionnement des établissements de soins.\n\n• Un encadrement de proximité et le soutien d’une équipe expérimentée.\n\n• La possibilité de développer vos compétences et de gagner progressivement en autonomie.\n\n• Des perspectives d’évolution vers des interventions plus complexes et la participation à des projets techniques.\n\n• Une possibilité d’engagement en CDI à l’issue du CDD d’un an, selon vos compétences, votre implication et les résultats obtenus.",
+        "en": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) regroupe plusieurs établissements de soins dans la région de La Côte et assure une prise en charge de proximité pour la population.\n Votre mission :\n Au sein du service biomédical du GHOL, vous assurez l’entretien, la maintenance préventive et les réparations courantes des équipements utilisés dans les établissements hospitaliers et médico-sociaux du groupe.\n Intégré à une équipe composée du responsable de service et de trois techniciens biomédicaux, vous contribuez à la fiabilité du matériel, à la sécurité des utilisateurs et à la continuité des activités de soins.\n Ce poste concret et varié s’adresse à une personne manuelle, curieuse et polyvalente, désireuse de développer ses compétences techniques dans un environnement stimulant.\n Vos activités principales :\n\n• Effectuer la maintenance préventive et les réparations courantes sur différents équipements, notamment les lits hospitaliers, fauteuils roulants, fauteuils de soins et divans d’examen.\n\n• Contrôler le bon fonctionnement du matériel, identifier les anomalies et diagnostiquer les pannes courantes.\n\n• Réaliser les interventions nécessaires dans le respect des procédures établies et des exigences de sécurité.\n\n• Documenter les interventions et assurer le suivi des équipements dans la GMAO (gestion de maintenance assistée par ordinateur).\n\n• Collaborer avec les équipes soignantes et les différents services afin de répondre à leurs besoins techniques.\n\n• Participer à la gestion et au suivi du parc d’équipements sur les différents sites du GHOL.\n\n• Selon votre progression et votre niveau d’autonomie, vous pourrez également intervenir sur des équipements plus complexes et contribuer à des projets techniques.\n Votre profil\n\n• Vous disposez d’une bonne habileté manuelle et d’un intérêt marqué pour la technique et la maintenance.\n\n• Vous êtes polyvalent, pragmatique et capable de rechercher des solutions adaptées aux problèmes rencontrés.\n\n• Vous faites preuve de curiosité, de rigueur et d’autonomie, tout en sachant reconnaître vos limites et demander conseil lorsque nécessaire.\n\n• Vous appréciez le travail en équipe et adoptez une attitude discrète et respectueuse de la confidentialité, indispensable en milieu hospitalier.\n\n• Vous maîtrisez les outils informatiques courants, notamment Microsoft Word et Excel.\n\n• Vous êtes titulaire du permis de conduire, indispensable pour les déplacements entre les différents établissements du GHOL.\n Diplômes / formation :\n CFC ou brevet fédéral dans un domaine technique (agent d’exploitation, polymécanicien, électronicien, mécanicien en maintenance, etc.)\n Les atouts supplémentaires :\n\n• Une connaissance d’un logiciel de GMAO.\n\n• Une expérience en milieu hospitalier ou médico-social, appréciée mais non indispensable.\n Nous vous offrons\n\n• Un poste diversifié, au cœur du fonctionnement des établissements de soins.\n\n• Un encadrement de proximité et le soutien d’une équipe expérimentée.\n\n• La possibilité de développer vos compétences et de gagner progressivement en autonomie.\n\n• Des perspectives d’évolution vers des interventions plus complexes et la participation à des projets techniques.\n\n• Une possibilité d’engagement en CDI à l’issue du CDD d’un an, selon vos compétences, votre implication et les résultats obtenus.",
+        "de": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) regroupe plusieurs établissements de soins dans la région de La Côte et assure une prise en charge de proximité pour la population.\n Votre mission :\n Au sein du service biomédical du GHOL, vous assurez l’entretien, la maintenance préventive et les réparations courantes des équipements utilisés dans les établissements hospitaliers et médico-sociaux du groupe.\n Intégré à une équipe composée du responsable de service et de trois techniciens biomédicaux, vous contribuez à la fiabilité du matériel, à la sécurité des utilisateurs et à la continuité des activités de soins.\n Ce poste concret et varié s’adresse à une personne manuelle, curieuse et polyvalente, désireuse de développer ses compétences techniques dans un environnement stimulant.\n Vos activités principales :\n\n• Effectuer la maintenance préventive et les réparations courantes sur différents équipements, notamment les lits hospitaliers, fauteuils roulants, fauteuils de soins et divans d’examen.\n\n• Contrôler le bon fonctionnement du matériel, identifier les anomalies et diagnostiquer les pannes courantes.\n\n• Réaliser les interventions nécessaires dans le respect des procédures établies et des exigences de sécurité.\n\n• Documenter les interventions et assurer le suivi des équipements dans la GMAO (gestion de maintenance assistée par ordinateur).\n\n• Collaborer avec les équipes soignantes et les différents services afin de répondre à leurs besoins techniques.\n\n• Participer à la gestion et au suivi du parc d’équipements sur les différents sites du GHOL.\n\n• Selon votre progression et votre niveau d’autonomie, vous pourrez également intervenir sur des équipements plus complexes et contribuer à des projets techniques.\n Votre profil\n\n• Vous disposez d’une bonne habileté manuelle et d’un intérêt marqué pour la technique et la maintenance.\n\n• Vous êtes polyvalent, pragmatique et capable de rechercher des solutions adaptées aux problèmes rencontrés.\n\n• Vous faites preuve de curiosité, de rigueur et d’autonomie, tout en sachant reconnaître vos limites et demander conseil lorsque nécessaire.\n\n• Vous appréciez le travail en équipe et adoptez une attitude discrète et respectueuse de la confidentialité, indispensable en milieu hospitalier.\n\n• Vous maîtrisez les outils informatiques courants, notamment Microsoft Word et Excel.\n\n• Vous êtes titulaire du permis de conduire, indispensable pour les déplacements entre les différents établissements du GHOL.\n Diplômes / formation :\n CFC ou brevet fédéral dans un domaine technique (agent d’exploitation, polymécanicien, électronicien, mécanicien en maintenance, etc.)\n Les atouts supplémentaires :\n\n• Une connaissance d’un logiciel de GMAO.\n\n• Une expérience en milieu hospitalier ou médico-social, appréciée mais non indispensable.\n Nous vous offrons\n\n• Un poste diversifié, au cœur du fonctionnement des établissements de soins.\n\n• Un encadrement de proximité et le soutien d’une équipe expérimentée.\n\n• La possibilité de développer vos compétences et de gagner progressivement en autonomie.\n\n• Des perspectives d’évolution vers des interventions plus complexes et la participation à des projets techniques.\n\n• Une possibilité d’engagement en CDI à l’issue du CDD d’un an, selon vos compétences, votre implication et les résultats obtenus."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "logistics",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/kgMrU8wmj",
+      "applyUrl": "https://app.beehire.com/invite/kgMrU8wmj",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-23T09:22:44.281Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-23T09:22:44.281Z"
     }
   ]
 }

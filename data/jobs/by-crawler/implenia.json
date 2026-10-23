@@ -1,6 +1,6 @@
 {
   "crawlerKey": "implenia",
-  "assembledAt": "2026-10-22T21:46:07.331Z",
+  "assembledAt": "2026-10-23T09:39:02.799Z",
   "jobs": [
     {
       "id": "implenia-95ef097ca0d2",
@@ -33,7 +33,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Holzbau%2C-%28mwd%29%2C-80-100/10512-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:34:33.602Z",
+      "crawledAt": "2026-10-23T09:38:47.860Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -160,7 +160,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-bb465b15a6c8",
@@ -193,7 +194,7 @@
       "url": "https://jobs.implenia.com/job/Junior-Fachspezialist-Bauphysik-&-Akustik-%28mwd%29%2C-Opfikon%2C-80-100/12967-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:48.012Z",
+      "crawledAt": "2026-10-23T09:38:47.685Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -213,21 +214,6 @@
       "applyUrl": "https://jobs.implenia.com/job/Junior-Fachspezialist-Bauphysik-&-Akustik-%28mwd%29%2C-Opfikon%2C-80-100/12967-de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "junior-fachspezialist-bauphysik-akustik-m-w-d-opfikon-80-100-implenia-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "junior-fachspezialist-bauphysik-akustik-m-w-d-opfikon-80-100-implenia-ch"
-        ],
-        "en": [
-          "junior-fachspezialist-bauphysik-akustik-m-w-d-opfikon-80-100-implenia-ch"
-        ],
-        "fr": [
-          "junior-fachspezialist-bauphysik-akustik-m-w-d-opfikon-80-100-implenia-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:34:32.485Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -240,7 +226,22 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:34:32.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-fachspezialist-bauphysik-akustik-m-w-d-opfikon-80-100-implenia-ch"
+        ],
+        "en": [
+          "junior-fachspezialist-bauphysik-akustik-m-w-d-opfikon-80-100-implenia-ch"
+        ],
+        "fr": [
+          "junior-fachspezialist-bauphysik-akustik-m-w-d-opfikon-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-fachspezialist-bauphysik-akustik-m-w-d-opfikon-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-01993c38de3e",
@@ -306,10 +307,9 @@
           "bewirtschafter-gewerbeimmobilien-m-w-d-bern-postparc-80-implenia-ch"
         ]
       },
-      "firstSeenAt": "2026-10-22T09:34:31.777Z",
       "salaryMin": 75600,
       "salaryMax": 114400,
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -319,7 +319,9 @@
           "maxValue": 114400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:34:31.777Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-b37431587563",
@@ -352,7 +354,7 @@
       "url": "https://jobs.implenia.com/job/Baulogistikplaner-%28mwd%29%2C-Opfikon%2C-80-100/13564-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:46.923Z",
+      "crawledAt": "2026-10-23T09:38:46.905Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -426,7 +428,7 @@
       "url": "https://jobs.implenia.com/job/Zeichner-Baulogistik-%28mwd%29%2C-Opfikon%2C-80-100/13568-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:46.644Z",
+      "crawledAt": "2026-10-23T09:38:47.240Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -502,7 +504,7 @@
       "url": "https://jobs.implenia.com/job/%28Junior%29-Immobilienbewirtschafter-%28mwd%29%2C-Wallisellen%2C-80-100/13751-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:45.893Z",
+      "crawledAt": "2026-10-23T09:38:45.985Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 43",
@@ -582,7 +584,7 @@
       "url": "https://jobs.implenia.com/job/G%C3%A9rant-%28hfx%29%2C-Neuch%C3%A2tel%2C-90/13843-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:45.253Z",
+      "crawledAt": "2026-10-23T09:38:45.185Z",
       "addressLocality": "Rue Saint-Honoré 2 Case postale-2000 Neuchâtel",
       "postalCode": "2000",
       "streetAddress": "",
@@ -659,7 +661,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-GUTU-Z%C3%BCrich-%28wmd%29/13772-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:43.215Z",
+      "crawledAt": "2026-10-23T09:38:43.449Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -797,7 +799,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-7f909357ebdd",
@@ -874,7 +877,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-be33c942baa6",
@@ -907,7 +911,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-%28wmd%29-Rohbau%2C-Ausbau-und-Architektur-Data-Center/13774-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:44.641Z",
+      "crawledAt": "2026-10-23T09:38:44.575Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -989,7 +993,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-Neubau-GUTU-Gisikon-%28wmd%29/12704-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:44.815Z",
+      "crawledAt": "2026-10-23T09:38:44.735Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -1077,7 +1081,7 @@
       "url": "https://jobs.implenia.com/job/Projektsupport-Real-Estate-Development-%2880-100/13850-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:49.508Z",
+      "crawledAt": "2026-10-23T09:38:57.631Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1154,7 +1158,7 @@
       "url": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-%28mwd%29%2C-Bern%2C-40-100/13831-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:43.636Z",
+      "crawledAt": "2026-10-23T09:38:43.759Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Bogenschützenstrasse 9B",
@@ -1228,7 +1232,7 @@
       "url": "https://jobs.implenia.com/job/Contact-Center-Platform-Specialist-%28mwd%29%2C-Winterthur%2C-80-100/13899-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:53.161Z",
+      "crawledAt": "2026-10-23T09:38:51.440Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -1279,9 +1283,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "initiativbewerbung-implenia-opfikon",
+        "en": "own-initiative-application-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "initiativbewerbung-implenia-ch"
+        "fr": "demande-d-initiative-implenia-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1305,7 +1309,7 @@
       "url": "https://jobs.implenia.com/job/Initiativbewerbung/12287-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:42.303Z",
+      "crawledAt": "2026-10-23T09:38:43.207Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -1335,18 +1339,17 @@
         ],
         "en": [
           "speculative-application-implenia-opfikon",
-          "own-initiative-application-implenia-opfikon"
+          "initiativbewerbung-implenia-opfikon"
         ],
         "fr": [
-          "demande-d-initiative-implenia-opfikon"
+          "initiativbewerbung-implenia-ch"
         ]
       },
       "previousSlugs": [
         "initiativbewerbung-implenia-ch",
         "speculative-application-implenia-opfikon",
         "initiativebewerbung-implenia-opfikon",
-        "own-initiative-application-implenia-opfikon",
-        "demande-d-initiative-implenia-opfikon"
+        "initiativbewerbung-implenia-opfikon"
       ],
       "firstSeenAt": "2026-08-11T10:27:35.418Z",
       "salaryMin": 73500,
@@ -1394,7 +1397,7 @@
       "url": "https://jobs.implenia.com/job/Sachbearbeiter-Center-und-Mixed-Use-Site-Management-%28mwd%29%2C-Basel-%28St%C3%BCckipark%29%2C-80-100/13854-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:41.431Z",
+      "crawledAt": "2026-10-23T09:38:42.399Z",
       "addressLocality": "Basilea Città",
       "postalCode": "4057",
       "streetAddress": "",
@@ -1472,7 +1475,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Tunnelbau-%28mwd%29-80-100/9854-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:40.986Z",
+      "crawledAt": "2026-10-23T09:38:41.860Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -1564,7 +1567,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Tunnelbau-%28mwd%29-80-100/10973-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:40.710Z",
+      "crawledAt": "2026-10-23T09:38:41.562Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -1638,7 +1641,7 @@
       "url": "https://jobs.implenia.com/job/Juniorprojektleiter-Elektro-%28mwd%29%2C-Gisikon%2C-80-100/13043-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:40.154Z",
+      "crawledAt": "2026-10-23T09:38:40.767Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "An der Reuss 5",
@@ -1717,7 +1720,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Elektroplanung-%28mwd%29%2C-Gisikon-Opfikon-Bern%29/13041-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:39.976Z",
+      "crawledAt": "2026-10-23T09:38:40.491Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -1799,7 +1802,7 @@
       "url": "https://jobs.implenia.com/job/Sicherheitsw%C3%A4rter-Sicherheitschef/12496-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:39.669Z",
+      "crawledAt": "2026-10-23T09:38:40.079Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -1881,7 +1884,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Baumeister-Neu-undoder-Umbau-%28wmd%29/11598-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:39.490Z",
+      "crawledAt": "2026-10-23T09:38:39.719Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -1957,7 +1960,7 @@
       "url": "https://jobs.implenia.com/job/Vermietungsspezialist-Immobilien-%28mwd%29%2C-Basel%2C-50/13962-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:38.584Z",
+      "crawledAt": "2026-10-23T09:38:39.016Z",
       "addressLocality": "Basel Wohnen 1",
       "postalCode": "4057",
       "streetAddress": "Drahtzugstrasse 62",
@@ -2031,7 +2034,7 @@
       "url": "https://jobs.implenia.com/job/Senior-Projektleiterin-Spezialtiefbau%2C-80-100/11845-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:38.156Z",
+      "crawledAt": "2026-10-23T09:38:38.539Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -2124,7 +2127,7 @@
       "url": "https://jobs.implenia.com/job/IT-Business-Partner-%28mwd%29-80-100/13797-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:36.313Z",
+      "crawledAt": "2026-10-23T09:38:36.957Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2210,7 +2213,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Ausf%C3%BChrung-Instandsetzung-%28wmd%29/13602-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:37.635Z",
+      "crawledAt": "2026-10-23T09:38:38.071Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -2291,7 +2294,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Neubau-Opfikon-%28wmd%29/13900-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:37.345Z",
+      "crawledAt": "2026-10-23T09:38:37.803Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2371,7 +2374,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Baumeister-Opfikon-%28wmd%29/13901-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:37.168Z",
+      "crawledAt": "2026-10-23T09:38:57.896Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2492,7 +2495,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-9e6a835a50f7",
@@ -2570,7 +2574,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-dca8c77c909a",
@@ -2677,7 +2682,7 @@
       "url": "https://jobs.implenia.com/job/Workforce-Manager-%28mwd%29%2C-Winterthur%2C-80-100/13898-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:51.774Z",
+      "crawledAt": "2026-10-23T09:38:49.961Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -2754,7 +2759,7 @@
       "url": "https://jobs.implenia.com/job/Sachbearbeiter-Prozessbuchhaltung-%28mwd%29%2C-Winterthur-oder-Z%C3%BCrich-%28Opfikon%29%2C-40-100/13675-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:52.430Z",
+      "crawledAt": "2026-10-23T09:38:50.593Z",
       "addressLocality": "Technikumstrasse 61 Postfach-8400 Winterthur",
       "postalCode": "8400",
       "streetAddress": "",
@@ -2828,7 +2833,7 @@
       "url": "https://jobs.implenia.com/job/Leiterin-Modernisierung-Deutschschweiz/13667-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:34:19.091Z",
+      "crawledAt": "2026-10-23T09:38:32.981Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2905,7 +2910,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-HLKS-f%C3%BCr-Datacenter-%28wmd%29/13777-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:34:18.849Z",
+      "crawledAt": "2026-10-23T09:38:32.721Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2986,7 +2991,7 @@
       "url": "https://jobs.implenia.com/job/Health-&-Safety-Supervisor-%28mwd%29/13776-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:34:18.541Z",
+      "crawledAt": "2026-10-23T09:38:32.448Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3061,7 +3066,7 @@
       "url": "https://jobs.implenia.com/job/Projektingenieur-%28wmd%29-Civil%2C-Structural-&-Architectural-Data-Center/13775-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:34:18.304Z",
+      "crawledAt": "2026-10-23T09:38:32.156Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3128,7 +3133,7 @@
       "url": "https://jobs.implenia.com/job/Planungsleiter-Datacenter-%28wmd%29/13773-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:34:18.059Z",
+      "crawledAt": "2026-10-23T09:38:31.791Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3244,7 +3249,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-c0bbfbc455f7",
@@ -3318,7 +3324,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-2ab40c821f94",
@@ -3351,7 +3358,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Umbau-%28wmd%29/13922-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:34.494Z",
+      "crawledAt": "2026-10-23T09:38:37.621Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3472,7 +3479,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-2390919b2a06",
@@ -3549,7 +3557,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-39de7516dd80",
@@ -3582,7 +3591,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-Umbau-%28wmd%29-Z%C3%BCrich/13438-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:36.050Z",
+      "crawledAt": "2026-10-23T09:38:36.679Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3602,15 +3611,14 @@
       "applyUrl": "https://jobs.implenia.com/job/Bauleiter-Umbau-%28wmd%29-Z%C3%BCrich/13438-de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "bauleiter-umbau-w-m-d-zurich-implenia-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-umbau-w-m-d-zurich-implenia-ch"
         ]
       },
-      "firstSeenAt": "2026-09-25T14:56:25.900Z",
+      "previousSlugs": [
+        "bauleiter-umbau-w-m-d-zurich-implenia-ch"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -3623,7 +3631,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:56:25.900Z"
     },
     {
       "id": "implenia-7229d3395662",
@@ -3656,7 +3665,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Elektrotechnik-%28wmd%29/13245-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:35.878Z",
+      "crawledAt": "2026-10-23T09:38:36.402Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3732,7 +3741,7 @@
       "url": "https://jobs.implenia.com/job/Projekleiter-GUTU-Spezialprojekte-%28wmd%29/13876-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:35.609Z",
+      "crawledAt": "2026-10-23T09:38:36.108Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3814,7 +3823,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiterin-Lehrger%C3%BCstbau-und-Br%C3%BCckenbau%2C-80-100/12594-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:35.436Z",
+      "crawledAt": "2026-10-23T09:38:35.935Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3888,7 +3897,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Sanit%C3%A4r-%28mwd%29%2C-Opfikon%2C-100/13680-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:35.258Z",
+      "crawledAt": "2026-10-23T09:38:35.660Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3965,7 +3974,7 @@
       "url": "https://jobs.implenia.com/job/Polier-im-Lehrger%C3%BCst-und-Br%C3%BCckenbau-100-%28wm%29/12585-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:34.941Z",
+      "crawledAt": "2026-10-23T09:38:35.358Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -4045,7 +4054,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Bauphysik-&-Nachhaltigkeit-%28mwd%29/13800-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:34:14.782Z",
+      "crawledAt": "2026-10-23T09:38:34.991Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -4095,7 +4104,7 @@
       "id": "implenia-6f24131d849a",
       "slug": "responsabile-senior-dei-costi-del-data-center-m-f-d-opfikon-80-100-implenia-glattpark-opfikon",
       "slugByLocale": {
-        "it": "senior-cost-manager-data-center-m-w-d-opfikon-80-100-implenia-ch",
+        "it": "responsabile-senior-dei-costi-del-data-center-m-f-d-opfikon-80-100-implenia-glattpark-opfikon",
         "en": "senior-cost-manager-data-center-m-w-d-opfikon-80-100-implenia-ch",
         "de": "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch",
         "fr": "gestionnaire-principal-des-couts-h-f-d-opfikon-80-100-implenia-glattpark-opfikon"
@@ -4122,7 +4131,7 @@
       "url": "https://jobs.implenia.com/job/Senior-Cost-Manager-Data-Center-%28mwd%29%2C-Opfikon%2C-80-100/13859-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:34:14.546Z",
+      "crawledAt": "2026-10-23T09:38:33.152Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -4145,11 +4154,13 @@
       "previousSlugs": [
         "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch",
         "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch-21syud",
-        "senior-cost-manager-data-center-m-w-d-opfikon-80-100-implenia-ch-21syud"
+        "senior-cost-manager-data-center-m-w-d-opfikon-80-100-implenia-ch-21syud",
+        "senior-cost-manager-data-center-m-w-d-opfikon-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch"
+          "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch",
+          "senior-cost-manager-data-center-m-w-d-opfikon-80-100-implenia-ch"
         ],
         "en": [
           "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch",
@@ -4209,7 +4220,7 @@
       "url": "https://jobs.implenia.com/job/G%C3%A9rant-d'immeubles-commerciaux-%28hfx%29%2C-Gen%C3%A8ve%2C-80-100/13849-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:30.240Z",
+      "crawledAt": "2026-10-23T09:38:27.491Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "streetAddress": "Avenue Louis-Aubert 20",
@@ -4295,7 +4306,7 @@
       "url": "https://jobs.implenia.com/job/Collaborateur-immobilier-commercial-exp%C3%A9riment%C3%A9-%28fhx%29%2C-Gen%C3%A8ve%2C-50/13842-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:29.388Z",
+      "crawledAt": "2026-10-23T09:38:26.609Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "streetAddress": "Avenue Louis-Aubert 20",
@@ -4369,7 +4380,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-%28mwd%29%2C-Gisikon%2C-80-100/12487-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:33.228Z",
+      "crawledAt": "2026-10-23T09:38:30.682Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4443,7 +4454,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Neubau-GUTU-Gisikon-%28wmd%29/12695-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:33.041Z",
+      "crawledAt": "2026-10-23T09:38:30.425Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4493,7 +4504,7 @@
       "slug": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "it": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
-        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
+        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
         "de": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
         "fr": "construction-de-bois-de-contremaitre-m-f-d-80-100-implenia-rumlang"
       },
@@ -4519,7 +4530,7 @@
       "url": "https://jobs.implenia.com/job/Vorarbeiter-Holzbau-%28mwd%29%2C-80-100/12920-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:32.855Z",
+      "crawledAt": "2026-10-23T09:38:30.260Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -4544,8 +4555,7 @@
         "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
         "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
         "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
-        "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
-        "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
+        "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4556,7 +4566,7 @@
           "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
         ],
         "en": [
-          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3"
         ],
         "fr": [
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
@@ -4608,7 +4618,7 @@
       "url": "https://jobs.implenia.com/job/Bau-Projektleiter%28wmd%29-f%C3%BCr-Hotelbau%2C-Andermatt/13686-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:32.685Z",
+      "crawledAt": "2026-10-23T09:38:30.004Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4684,7 +4694,7 @@
       "url": "https://jobs.implenia.com/job/Polier-Holzbau-%28mwd%29%2C-80-100/12918-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:32.422Z",
+      "crawledAt": "2026-10-23T09:38:29.727Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -4760,7 +4770,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Neubau-Gisikon-%28wmd%29/13685-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:31.993Z",
+      "crawledAt": "2026-10-23T09:38:29.225Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4844,7 +4854,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Kalkulation-Zentralschweiz-%28wmd%29%2C-80-100/12911-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:31.636Z",
+      "crawledAt": "2026-10-23T09:38:29.055Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4920,7 +4930,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Heizung-%28mwd%29%2C-Gisikon%2C-80-100/10333-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:31.313Z",
+      "crawledAt": "2026-10-23T09:38:28.764Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "An der Reuss 5",
@@ -4996,7 +5006,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Baumeister-Luzern-%28wmd%29/12839-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:31.127Z",
+      "crawledAt": "2026-10-23T09:38:28.341Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -5072,7 +5082,7 @@
       "url": "https://jobs.implenia.com/job/%28Senior%29-Immobilienbewirtschafter-%28mwd%29%2C-Bern%2C-50-100/13769-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:34:09.855Z",
+      "crawledAt": "2026-10-23T09:38:30.996Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Bogenschützenstrasse 9B",
@@ -5154,7 +5164,7 @@
       "url": "https://jobs.implenia.com/job/Vermietungsspezialist-Immobilien-%28mwd%29%2C-Olten%2C-100/13817-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:56.621Z",
+      "crawledAt": "2026-10-23T09:38:55.300Z",
       "addressLocality": "Aarauerstrasse 11 Postfach-4601 Olten",
       "postalCode": "4600",
       "streetAddress": "",
@@ -5228,7 +5238,7 @@
       "url": "https://jobs.implenia.com/job/Projektleitung-Immobilienbuchhaltung-%28mwd%29%2C-Winterthur-oder-Opfikon%2C-60-100/13858-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:50.081Z",
+      "crawledAt": "2026-10-23T09:38:48.401Z",
       "addressLocality": "Technikumstrasse 61 Postfach-8400 Winterthur",
       "postalCode": "8400",
       "streetAddress": "",
@@ -5308,7 +5318,7 @@
       "url": "https://jobs.implenia.com/job/Kaufm%C3%A4nnischer-Leiter-Senior-Bewirtschafter-%28mwd%29%2C-Zentrum-Regensdorf%2C-80-100/13557-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:55.978Z",
+      "crawledAt": "2026-10-23T09:38:54.519Z",
       "addressLocality": "Einkaufszentrum Regensdorf Zentrum 1-8105 Zentrum Regensdorf",
       "postalCode": "8105",
       "streetAddress": "",
@@ -5382,7 +5392,7 @@
       "url": "https://jobs.implenia.com/job/Lernender-Fachfrau-mann-Kundendialog/13491-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:55.253Z",
+      "crawledAt": "2026-10-23T09:38:53.782Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -5456,7 +5466,7 @@
       "url": "https://jobs.implenia.com/job/Standortleiter-Wohnimmobilien-%28mwd%29%2C-Olten%2C-80-100/13804-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:53.805Z",
+      "crawledAt": "2026-10-23T09:38:52.197Z",
       "addressLocality": "Aarauerstrasse 11 Postfach-4601 Olten",
       "postalCode": "4600",
       "streetAddress": "",
@@ -5530,7 +5540,7 @@
       "url": "https://jobs.implenia.com/job/Customer-Consultant-Bewirtschaftung-%28mwd%29%2C-Winterthur%2C-60-100/12689-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:54.441Z",
+      "crawledAt": "2026-10-23T09:38:53.001Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -5604,7 +5614,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Neubau-Baumeister-Aarau-%28mwd%29/11078-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:28.501Z",
+      "crawledAt": "2026-10-23T09:38:25.852Z",
       "addressLocality": "Aarau",
       "postalCode": "5000",
       "streetAddress": "",
@@ -5682,7 +5692,7 @@
       "url": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-%28mwd%29%2C-Winterthur%2C-80-100/13865-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:51.017Z",
+      "crawledAt": "2026-10-23T09:38:49.128Z",
       "addressLocality": "Technikumstrasse 61 Postfach-8400 Winterthur",
       "postalCode": "8400",
       "streetAddress": "",
@@ -5836,7 +5846,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Umbau-%28wmd%29/10421-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:40.453Z",
+      "crawledAt": "2026-10-23T09:38:41.159Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -5914,7 +5924,7 @@
       "url": "https://jobs.implenia.com/job/%28Senior%29-Legal-Counsel-%28mwd%29-80-100/13724-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:37.910Z",
+      "crawledAt": "2026-10-23T09:38:38.252Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -6148,7 +6158,7 @@
       "url": "https://jobs.implenia.com/job/Immobilienbuchhalter-%28mwd%29%2C-Olten%2C-60/13663-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:58.000Z",
+      "crawledAt": "2026-10-23T09:38:56.883Z",
       "addressLocality": "Aarauerstrasse 11 Postfach-4601 Olten",
       "postalCode": "4600",
       "streetAddress": "",
@@ -6214,23 +6224,23 @@
       "title": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d), Zug, 70%",
       "titleByLocale": {
         "de": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d), Zug, 70%",
-        "it": "Property Manager (m/f/d), Zug, 70 %",
-        "en": "Property Manager (m/f/d), Zug, 70 %",
-        "fr": "Gestionnaire de propriétés (h/f/d), Zug, 70 %"
+        "it": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d), Zug, 70%",
+        "en": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d), Zug, 70%",
+        "fr": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d), Zug, 70%"
       },
       "description": "An unserem Standort «Wohnen» in Zug fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren.\n\nWenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als\n\nSachbearbeiter Immobilienbewirtschaftung (m/w/d)\n\nZug, 70%\n\nDas bewegst du:\n\n• Du verantwortest die Unterstützung des Teams bei sämtlichen administrativen Tätigkeiten innerhalb des Standortes, um einen reibungslosen Ablauf zu gewährleisten\n\n• Als erster Ansprechpartner vor Ort übernimmst du die Kundenbetreuung und bist für den Erstkontakt mit Kunden und Mietern zuständig\n\n• Kommunikation mit der Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern gehört zu deinen Aufgaben, um einen effektiven Informationsaustausch sicherzustellen\n\n• Du bist verantwortlich für die Durchführung von Schlussabrechnungen und Depotauflösungen sowie für die Einholung und Beurteilung von Offerten, die Vergabe von Aufträgen an Handwerksbetriebe und die Überwachung der Arbeiten\n\n• Die Kontierung, Verarbeitung und Weiterbelastung von Kreditorenaufträgen und -rechnungen sowie die Debitorenkontrolle und Bearbeitung des Mahnwesens fallen ebenfalls in deinen Verantwortungsbereich\n\nDeshalb gelingt es dir:\n\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und vorzugsweise über den Sachbearbeiter Immobilienbewirtschaftung oder die Bereitschaft diese Weiterbildung zu absolvieren\n\n• Erste Berufserfahrung als Sachbearbeiter:in (von Vorteil in der Immobilienbranche o.ä.) konntest du bereits sammeln\n\n• Du bist teamfähig, belastbar und zeichnest dich durch deine kunden- und dienstleistungsorientierte Persönlichkeit aus\n\n• Eine eigenständige und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten qualifizieren dich im Umgang mit unterschiedlichen Personengruppen\n\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch\n\nHier einige unserer Benefits:\n\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab.\n\nWeitere Informationen zu unseren Benefits findest du auf unserer Karriereseite.\n\n#Wincasa",
       "descriptionByLocale": {
         "de": "An unserem Standort «Wohnen» in Zug fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren.\n\nWenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als\n\nSachbearbeiter Immobilienbewirtschaftung (m/w/d)\n\nZug, 70%\n\nDas bewegst du:\n\n• Du verantwortest die Unterstützung des Teams bei sämtlichen administrativen Tätigkeiten innerhalb des Standortes, um einen reibungslosen Ablauf zu gewährleisten\n\n• Als erster Ansprechpartner vor Ort übernimmst du die Kundenbetreuung und bist für den Erstkontakt mit Kunden und Mietern zuständig\n\n• Kommunikation mit der Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern gehört zu deinen Aufgaben, um einen effektiven Informationsaustausch sicherzustellen\n\n• Du bist verantwortlich für die Durchführung von Schlussabrechnungen und Depotauflösungen sowie für die Einholung und Beurteilung von Offerten, die Vergabe von Aufträgen an Handwerksbetriebe und die Überwachung der Arbeiten\n\n• Die Kontierung, Verarbeitung und Weiterbelastung von Kreditorenaufträgen und -rechnungen sowie die Debitorenkontrolle und Bearbeitung des Mahnwesens fallen ebenfalls in deinen Verantwortungsbereich\n\nDeshalb gelingt es dir:\n\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und vorzugsweise über den Sachbearbeiter Immobilienbewirtschaftung oder die Bereitschaft diese Weiterbildung zu absolvieren\n\n• Erste Berufserfahrung als Sachbearbeiter:in (von Vorteil in der Immobilienbranche o.ä.) konntest du bereits sammeln\n\n• Du bist teamfähig, belastbar und zeichnest dich durch deine kunden- und dienstleistungsorientierte Persönlichkeit aus\n\n• Eine eigenständige und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten qualifizieren dich im Umgang mit unterschiedlichen Personengruppen\n\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch\n\nHier einige unserer Benefits:\n\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab.\n\nWeitere Informationen zu unseren Benefits findest du auf unserer Karriereseite.\n\n#Wincasa",
-        "it": "Nella nostra posizione \"Vivere\" a Zug, gli inquilini non solo si sentono a casa, ma sono anche serviti in modo ottimale ed efficiente dalla nostra nuova assegnazione di compiti nella squadra. Questo non solo ha vantaggi per gli inquilini e la proprietà, ma anche per voi. Attraverso una maggiore specializzazione nella squadra, lavoriamo più strettamente insieme, e tutti possono concentrarsi sui loro punti di forza.\n\nSe il tuo cuore batte per il settore immobiliare, sei motivato, orientato verso l'obiettivo e anche come lavorare in una squadra, allora non vediamo l'ora della tua applicazione come\n\nResponsabile della proprietà (m/f/d)\n\nTreno, 70 %\n\nQuesto è ciò che ti muove:\n\n• Sarete responsabili di sostenere il team in tutte le attività amministrative all'interno del sito per garantire un funzionamento regolare\n\n• Come primo punto di contatto sul sito, si prende il controllo del supporto clienti e sono responsabili del primo contatto con i clienti e gli inquilini\n\n• Comunicare con l'inquilino, la manutenzione domestica, le imprese artigianali e gli uffici è uno dei vostri compiti per garantire uno scambio efficace di informazioni.\n\n• L'utente è responsabile dell'esecuzione delle dichiarazioni finali e degli insediamenti custodi, nonché dell'ottenimento e della valutazione delle offerte, dell'aggiudicazione dei contratti alle imprese artigianali e del monitoraggio del lavoro\n\n• La contabilità, il trattamento e l'inoltro degli ordini e delle fatture creditori, nonché il controllo e il trattamento del debitore del sistema d'esecuzione rientrano anche nella vostra area di responsabilità.\n\nEcco perché hai successo:\n\n• Hai completato la formazione commerciale di base e preferibilmente l'ufficio di gestione della proprietà o la volontà di completare questa ulteriore formazione\n\n• Prima esperienza professionale come impiegato: in (vantaggio nel settore immobiliare o simile) si potrebbe già raccogliere\n\n• Siete team capace, resiliente e distinto dalla vostra personalità orientata al cliente e al servizio\n\n• Un metodo di lavoro indipendente e orientato agli obiettivi e buone capacità di comunicazione si qualificano nel trattare con diversi gruppi di persone\n\n• Comunichi verbalmente e per iscritto fluentemente in tedesco\n\nEcco alcuni dei nostri vantaggi:\n\n• Ore lavorative: Viviamo il lavoro mobile con ore di lavoro individuali (anno) e/o lavoro part-time. Fino al 40% home office è possibile. L'equilibrio della vita lavorativa è una priorità assoluta per noi, perché i dipendenti equilibrati e rilassati sono importanti per noi. L'acquisto di vacanze aggiuntive è possibile.\n\n• Mobilità e cibo: riceverete un contributo per il telefono cellulare. Per il vostro cibo, offriamo anche un contributo.\n\n• Istruzione e formazione: promuovere i dipendenti è una parte importante della nostra cultura. Approfittate del generoso sostegno all'istruzione e alla formazione interna ed esterna. Offriamo opportunità di carriera nelle funzioni gestionali, specialistiche e di progetto\n\n• Salär: Con noi, puoi aspettarti una remunerazione basata sul mercato con una retribuzione assoluta pari a tutti i generi. I benefici pensione sono attraenti e si può scegliere quello giusto per voi da modelli diversi. L'assicurazione contro gli infortuni copre il dipartimento ospedaliero privato.\n\nUlteriori informazioni sui nostri vantaggi possono essere trovate nella nostra pagina di carriera.\n\n♪Wincasa",
-        "en": "At our “Living” location in Zug, tenants not only feel at home, but are also served optimally and efficiently by our new allocation of tasks in the team. This not only has advantages for tenants and ownership, but also for you. Through more specialization in the team, we work more closely together, and everyone can focus on their strengths.\n\nIf your heart beats for real estate, you are motivated, goal-oriented and also like to work in a team, then we look forward to your application as\n\nProperty Manager (m/f/d)\n\nTrain, 70 %\n\nThis is what moves you:\n\n• You will be responsible for supporting the team in all administrative activities within the site to ensure a smooth operation\n\n• As the first point of contact on site, you take over the customer support and are responsible for the first contact with customers and tenants\n\n• Communicating with the tenant, home maintenance, craft businesses and offices is one of your tasks to ensure an effective exchange of information.\n\n• You are responsible for carrying out final statements and custodial settlements as well as for obtaining and assessing offers, awarding contracts to craft businesses and monitoring the work\n\n• The accounting, processing and forwarding of creditor orders and invoices as well as the debtor control and processing of the dunning system also fall within your area of responsibility.\n\nThis is why you succeed:\n\n• You have completed basic commercial training and preferably the property management clerk or the willingness to complete this further training\n\n• First professional experience as a clerk: in (advantage in the real estate industry or similar) you could already collect\n\n• You are team capable, resilient and distinguished by your customer- and service-oriented personality\n\n• An independent and goal-oriented working method as well as good communication skills qualify you in dealing with different groups of people\n\n• You communicate verbally and in writing fluently in German\n\nHere are some of our benefits:\n\n• Working hours: We live mobile work with individual (year) working hours and/or part-time work. Up to 40% home office is possible. Work-life balance is a top priority for us, because balanced and relaxed employees are important to us. The purchase of additional holidays is possible.\n\n• Mobility and food: You will receive a contribution for the mobile phone. For your food, we also make a contribution.\n\n• Education and training: Promoting employees is an important part of our culture. Benefit from generous support in internal and external education and training. We offer career opportunities in management, specialist and project functions\n\n• Salär: With us, you can expect a market-based remuneration with absolute equal pay for all genders. The pension benefits are attractive and you can choose the right one for you from different models. Accident protection insurance covers the private hospital department.\n\nMore information about our benefits can be found on our career page.\n\n#Wincasa",
-        "fr": "À notre emplacement de vie à Zug, les locataires non seulement se sentent chez eux, mais sont également servis de manière optimale et efficace par notre nouvelle répartition des tâches dans l'équipe. Cela a non seulement des avantages pour les locataires et la propriété, mais aussi pour vous. Grâce à une plus grande spécialisation au sein de l'équipe, nous travaillons plus étroitement ensemble et chacun peut se concentrer sur ses forces.\n\nSi votre cœur bat pour l'immobilier, vous êtes motivé, orienté vers les objectifs et aussi aimer travailler en équipe, alors nous attendons avec impatience votre application comme\n\nGestionnaire de propriétés (h/f/d)\n\nTrain, 70 %\n\nC'est ce qui vous pousse:\n\n• Vous serez responsable du soutien de l'équipe dans toutes les activités administratives sur le site pour assurer un bon fonctionnement\n\n• Comme premier point de contact sur le site, vous prenez en charge le support client et êtes responsable du premier contact avec les clients et les locataires\n\n• Communiquer avec le locataire, l'entretien de la maison, les entreprises artisanales et les bureaux est l'une de vos tâches pour assurer un échange efficace d'informations.\n\n• Vous êtes responsable de l'exécution des déclarations finales et des règlements de garde ainsi que de l'obtention et de l'évaluation des offres, de l'attribution des contrats aux entreprises artisanales et du suivi des travaux\n\n• La comptabilité, le traitement et la transmission des ordres et factures des créanciers ainsi que le contrôle et le traitement du système de dunning par le débiteur relèvent également de votre domaine de responsabilité.\n\nC'est pourquoi vous réussissez:\n\n• Vous avez suivi une formation commerciale de base et de préférence le commis à la gestion immobilière ou la volonté de suivre cette formation complémentaire.\n\n• Première expérience professionnelle comme commis: dans (avantage dans l'industrie immobilière ou similaire) vous pourriez déjà collecter\n\n• Vous êtes capable d'équipe, résilient et distingué par votre personnalité orientée client et service\n\n• Une méthode de travail indépendante et orientée vers l'objectif ainsi que de bonnes compétences en communication vous qualifient pour traiter avec différents groupes de personnes\n\n• Vous communiquez verbalement et par écrit couramment en allemand\n\nVoici quelques-uns de nos avantages:\n\n• Heures de travail: Nous vivons un travail mobile avec des heures de travail individuelles (année) et/ou à temps partiel. Jusqu'à 40% de bureau à domicile est possible. L'équilibre entre le travail et la vie personnelle est une priorité absolue pour nous, car les employés équilibrés et détendus sont importants pour nous. L'achat de jours fériés supplémentaires est possible.\n\n• Mobilité et nourriture: Vous recevrez une contribution pour le téléphone mobile. Pour votre nourriture, nous apportons également une contribution.\n\n• Éducation et formation: La promotion des employés est un élément important de notre culture. Bénéficiez d'un soutien généreux dans l'éducation et la formation internes et externes. Nous offrons des opportunités de carrière dans les fonctions de gestion, de spécialiste et de projet\n\n• Salär: Avec nous, vous pouvez vous attendre à une rémunération basée sur le marché avec un salaire absolu égal pour tous les sexes. Les prestations de retraite sont attrayantes et vous pouvez choisir la bonne pour vous parmi différents modèles. L ' assurance contre les accidents couvre le service hospitalier privé.\n\nPour en savoir plus sur nos avantages, consultez notre page de carrière.\n\n#Wincasa"
+        "it": "An unserem Standort «Wohnen» in Zug fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren.\n\nWenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als\n\nSachbearbeiter Immobilienbewirtschaftung (m/w/d)\n\nZug, 70%\n\nDas bewegst du:\n\n• Du verantwortest die Unterstützung des Teams bei sämtlichen administrativen Tätigkeiten innerhalb des Standortes, um einen reibungslosen Ablauf zu gewährleisten\n\n• Als erster Ansprechpartner vor Ort übernimmst du die Kundenbetreuung und bist für den Erstkontakt mit Kunden und Mietern zuständig\n\n• Kommunikation mit der Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern gehört zu deinen Aufgaben, um einen effektiven Informationsaustausch sicherzustellen\n\n• Du bist verantwortlich für die Durchführung von Schlussabrechnungen und Depotauflösungen sowie für die Einholung und Beurteilung von Offerten, die Vergabe von Aufträgen an Handwerksbetriebe und die Überwachung der Arbeiten\n\n• Die Kontierung, Verarbeitung und Weiterbelastung von Kreditorenaufträgen und -rechnungen sowie die Debitorenkontrolle und Bearbeitung des Mahnwesens fallen ebenfalls in deinen Verantwortungsbereich\n\nDeshalb gelingt es dir:\n\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und vorzugsweise über den Sachbearbeiter Immobilienbewirtschaftung oder die Bereitschaft diese Weiterbildung zu absolvieren\n\n• Erste Berufserfahrung als Sachbearbeiter:in (von Vorteil in der Immobilienbranche o.ä.) konntest du bereits sammeln\n\n• Du bist teamfähig, belastbar und zeichnest dich durch deine kunden- und dienstleistungsorientierte Persönlichkeit aus\n\n• Eine eigenständige und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten qualifizieren dich im Umgang mit unterschiedlichen Personengruppen\n\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch\n\nHier einige unserer Benefits:\n\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab.\n\nWeitere Informationen zu unseren Benefits findest du auf unserer Karriereseite.\n\n#Wincasa",
+        "en": "An unserem Standort «Wohnen» in Zug fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren.\n\nWenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als\n\nSachbearbeiter Immobilienbewirtschaftung (m/w/d)\n\nZug, 70%\n\nDas bewegst du:\n\n• Du verantwortest die Unterstützung des Teams bei sämtlichen administrativen Tätigkeiten innerhalb des Standortes, um einen reibungslosen Ablauf zu gewährleisten\n\n• Als erster Ansprechpartner vor Ort übernimmst du die Kundenbetreuung und bist für den Erstkontakt mit Kunden und Mietern zuständig\n\n• Kommunikation mit der Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern gehört zu deinen Aufgaben, um einen effektiven Informationsaustausch sicherzustellen\n\n• Du bist verantwortlich für die Durchführung von Schlussabrechnungen und Depotauflösungen sowie für die Einholung und Beurteilung von Offerten, die Vergabe von Aufträgen an Handwerksbetriebe und die Überwachung der Arbeiten\n\n• Die Kontierung, Verarbeitung und Weiterbelastung von Kreditorenaufträgen und -rechnungen sowie die Debitorenkontrolle und Bearbeitung des Mahnwesens fallen ebenfalls in deinen Verantwortungsbereich\n\nDeshalb gelingt es dir:\n\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und vorzugsweise über den Sachbearbeiter Immobilienbewirtschaftung oder die Bereitschaft diese Weiterbildung zu absolvieren\n\n• Erste Berufserfahrung als Sachbearbeiter:in (von Vorteil in der Immobilienbranche o.ä.) konntest du bereits sammeln\n\n• Du bist teamfähig, belastbar und zeichnest dich durch deine kunden- und dienstleistungsorientierte Persönlichkeit aus\n\n• Eine eigenständige und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten qualifizieren dich im Umgang mit unterschiedlichen Personengruppen\n\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch\n\nHier einige unserer Benefits:\n\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab.\n\nWeitere Informationen zu unseren Benefits findest du auf unserer Karriereseite.\n\n#Wincasa",
+        "fr": "An unserem Standort «Wohnen» in Zug fühlen sich die Mieter nicht nur wie zuhause, sondern werden durch unsere neue Aufgabenverteilung im Team auch optimal und effizient betreut. Das hat nicht nur Vorteile für Mietende und die Eigentümerschaft, sondern auch für dich. Durch mehr Spezialisierung im Team arbeiten wir enger zusammen, und alle können sich auf ihre Stärken konzentrieren.\n\nWenn dein Herz für Immobilien schlägt, du motiviert sowie zielorientiert bist und ausserdem gerne im Team arbeitest, dann freuen wir uns auf deine Bewerbung als\n\nSachbearbeiter Immobilienbewirtschaftung (m/w/d)\n\nZug, 70%\n\nDas bewegst du:\n\n• Du verantwortest die Unterstützung des Teams bei sämtlichen administrativen Tätigkeiten innerhalb des Standortes, um einen reibungslosen Ablauf zu gewährleisten\n\n• Als erster Ansprechpartner vor Ort übernimmst du die Kundenbetreuung und bist für den Erstkontakt mit Kunden und Mietern zuständig\n\n• Kommunikation mit der Mieterschaft, Hauswartung, Handwerksbetrieben und Ämtern gehört zu deinen Aufgaben, um einen effektiven Informationsaustausch sicherzustellen\n\n• Du bist verantwortlich für die Durchführung von Schlussabrechnungen und Depotauflösungen sowie für die Einholung und Beurteilung von Offerten, die Vergabe von Aufträgen an Handwerksbetriebe und die Überwachung der Arbeiten\n\n• Die Kontierung, Verarbeitung und Weiterbelastung von Kreditorenaufträgen und -rechnungen sowie die Debitorenkontrolle und Bearbeitung des Mahnwesens fallen ebenfalls in deinen Verantwortungsbereich\n\nDeshalb gelingt es dir:\n\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung und vorzugsweise über den Sachbearbeiter Immobilienbewirtschaftung oder die Bereitschaft diese Weiterbildung zu absolvieren\n\n• Erste Berufserfahrung als Sachbearbeiter:in (von Vorteil in der Immobilienbranche o.ä.) konntest du bereits sammeln\n\n• Du bist teamfähig, belastbar und zeichnest dich durch deine kunden- und dienstleistungsorientierte Persönlichkeit aus\n\n• Eine eigenständige und zielorientierte Arbeitsweise sowie gute Kommunikationsfähigkeiten qualifizieren dich im Umgang mit unterschiedlichen Personengruppen\n\n• Du kommunizierst mündlich und schriftlich fliessend in Deutsch\n\nHier einige unserer Benefits:\n\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab.\n\nWeitere Informationen zu unseren Benefits findest du auf unserer Karriereseite.\n\n#Wincasa"
       },
       "location": "Zug",
       "canton": "ZG",
       "url": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-%28mwd%29%2C-Zug%2C-70/13437-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:57.257Z",
+      "crawledAt": "2026-10-23T09:38:56.040Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "streetAddress": "Feldpark 3",
@@ -6276,7 +6286,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:40:59.382Z"
+      "firstSeenAt": "2026-10-05T21:40:59.382Z",
+      "needsRetranslation": true
     },
     {
       "id": "implenia-461541389397",
@@ -6293,23 +6304,23 @@
       "title": "AI Business Specialist (m/w/d) 80-100%",
       "titleByLocale": {
         "de": "AI Business Spezialist (m/w/d) 80-100%",
-        "en": "AI Business Specialist (m/f/d) 80-100 %",
+        "en": "AI Business Specialist (m/w/d) 80-100%",
         "it": "AI Business Specialista (m/w/d) 80-100%",
         "fr": "AI Business Spécialiste (m/w/d) 80-100%"
       },
       "description": "Du suchst eine neue Herausforderung im IT-Umfeld, begeisterst dich für die Möglichkeiten von AI und möchtest diese dort einsetzen, wo sie echten Mehrwert schafft? Du bist eine innovative Persönlichkeit, denkst unternehmerisch, erkennst Optimierungspotenziale und setzt diese gemeinsam mit dem Business pragmatisch um? Gemeinsam mit den Fachbereichen treibst du die digitale Transformation des Konzerns voran und entwickelst innovative Lösungen mit messbarem Nutzen. Dann suchen wir dich für unsere neu geschaffene Position als AI Business Specialist (m/w/d) 80-100% .\n\nDein Arbeitsort ist unser Hauptsitz im Ambassador House in Opfikon, mit der Möglichkeit, auch teilweise im Home-Office zu arbeiten.\n\n## Aufgaben\n\nWelche Aufgaben erwarten dich als AI Business Specialist (m/w/d) 80-100%?\n\n•\nIn dieser Rolle analysierst du gemeinsam mit den Fachbereichen bestehende Geschäftsprozesse und identifizierst konkrete Optimierungs- und Effizienzpotenziale.\n\n•\nDarauf aufbauend prüfst du, wie moderne Technologien wie AI und Automatisierung bestehende Prozesse sinnvoll verbessern können, und bewertest mögliche Lösungen nach ihrem geschäftlichen Nutzen.\n\n•\nDu konzipierst und gestaltest optimierte Geschäftsprozesse, setzt passende Lösungen selbstständig in kurzen Projekten um und stellst sicher, dass daraus ein messbarer Mehrwert und Return on Investment (ROI) für das Business entsteht.\n\n•\nDabei arbeitest du hands-on mit gängigen AI- und Automatisierungslösungen wie Copilot, Claude, Power Automate oder vergleichbaren Plattformen.\n\n•\nAls Sparringspartner der Fachbereiche berätst du interne Stakeholder bei der Analyse und Weiterentwicklung ihrer Prozesse und unterstützt sie dabei, geeignete technologische Lösungen gezielt einzusetzen.\n\n•\nDu befähigst Teams durch Schulungen, Workshops und Coaching, die entwickelten Lösungen nachhaltig und eigenständig in ihren Arbeitsalltag zu integrieren.\n\n•\nDu bringst neue Ideen, Technologien und Arbeitsweisen ins Unternehmen ein und förderst deren sinnvollen und praxisnahen Einsatz innerhalb der Organisation.\n\n•\nAls verbindende Schnittstelle zwischen Business und Technologie trägst du aktiv dazu bei, Geschäftsprozesse weiterzuentwickeln und die digitale Transformation im Unternehmen voranzutreiben.\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als AI Business Specialist (m/w/d) 80-100%?\n\n•\nDu verfügst über einen passenden fachlichen Hintergrund, beispielsweise durch eine Ausbildung oder ein Studium in Wirtschaftsinformatik, Betriebswirtschaft, Digital Business, Informatik oder einem vergleichbaren Bereich, ergänzt durch relevante Berufserfahrung.\n\n•\nDu bringst fundierte Erfahrung in der Analyse, Optimierung und Neugestaltung von Geschäftsprozessen mit und verstehst es, komplexe Abläufe strukturiert zu erfassen und Verbesserungspotenziale zu erkennen.\n\n•\nIdealerweise hast du Erfahrung in der Prozessoptimierung, Business Analyse, Unternehmensberatung oder einer vergleichbaren Funktion und bist es gewohnt, eng mit unterschiedlichen Fachbereichen zusammenzuarbeiten.\n\n•\nDu interessierst dich für AI, Automatisierung und digitale Innovationen und verfolgst aktuelle Entwicklungen mit Neugier, Offenheit und Begeisterung.\n\n•\nDu bringst praktische Erfahrung im Umgang mit gängigen AI- und Automatisierungslösungen wie Copilot, Claude, Power Automate oder vergleichbaren Tools mit.\n\n•\nDu denkst vernetzt und unternehmerisch, erkennst Chancen und verstehst es, Verbesserungspotenziale in konkrete Lösungen mit einem nachvollziehbaren geschäftlichen Mehrwert zu übersetzen.\n\n•\nDu trittst beratend und überzeugend auf, kommunizierst sicher auf unterschiedlichen Ebenen und kannst verschiedene Anspruchsgruppen für neue Prozesse und Technologien begeistern.\n\n•\nDu arbeitest pragmatisch, selbstständig und lösungsorientiert und hast Freude daran, gemeinsam mit den Fachbereichen sichtbare und messbare Resultate zu erzielen.\n\n•\nDu verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\n## Benefits\n\n• Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle mit bis zu 40% Homeoffice\n\n• Eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\n• Eine spannende Auswahl an Benefits:\n\n• 5 Wochen Ferien (6 Wochen ab dem 50. Lebensjahr) und 9 bezahlte Brückentage\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• zahlreiche Preisnachlässe auf namhafte Anbieter von Produkt- und Dienstleistungen\n\nWieso unsere Mitarbeitenden gerne bei uns arbeiten, sagen sie dir gleich selbst in folgendem Video: https://youtu.be/wtuhlIfjJq8.\n\n## Wie läuft der Bewerbungsprozess bei Implenia ab?\n\nBei Implenia erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Implenia schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Über Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com.\n\n...\n\n*Wir bitten die Personalvermittler, keine unaufgeforderten Lebensläufe einzureichen. Alle Einsendungen werden nicht berücksichtigt und stellen keine Verpflichtung dar.",
       "descriptionByLocale": {
         "de": "Du suchst eine neue Herausforderung im IT-Umfeld, begeisterst dich für die Möglichkeiten von AI und möchtest diese dort einsetzen, wo sie echten Mehrwert schafft? Du bist eine innovative Persönlichkeit, denkst unternehmerisch, erkennst Optimierungspotenziale und setzt diese gemeinsam mit dem Business pragmatisch um? Gemeinsam mit den Fachbereichen treibst du die digitale Transformation des Konzerns voran und entwickelst innovative Lösungen mit messbarem Nutzen. Dann suchen wir dich für unsere neu geschaffene Position als AI Business Specialist (m/w/d) 80-100% .\n\nDein Arbeitsort ist unser Hauptsitz im Ambassador House in Opfikon, mit der Möglichkeit, auch teilweise im Home-Office zu arbeiten.\n\n## Aufgaben\n\nWelche Aufgaben erwarten dich als AI Business Specialist (m/w/d) 80-100%?\n\n•\nIn dieser Rolle analysierst du gemeinsam mit den Fachbereichen bestehende Geschäftsprozesse und identifizierst konkrete Optimierungs- und Effizienzpotenziale.\n\n•\nDarauf aufbauend prüfst du, wie moderne Technologien wie AI und Automatisierung bestehende Prozesse sinnvoll verbessern können, und bewertest mögliche Lösungen nach ihrem geschäftlichen Nutzen.\n\n•\nDu konzipierst und gestaltest optimierte Geschäftsprozesse, setzt passende Lösungen selbstständig in kurzen Projekten um und stellst sicher, dass daraus ein messbarer Mehrwert und Return on Investment (ROI) für das Business entsteht.\n\n•\nDabei arbeitest du hands-on mit gängigen AI- und Automatisierungslösungen wie Copilot, Claude, Power Automate oder vergleichbaren Plattformen.\n\n•\nAls Sparringspartner der Fachbereiche berätst du interne Stakeholder bei der Analyse und Weiterentwicklung ihrer Prozesse und unterstützt sie dabei, geeignete technologische Lösungen gezielt einzusetzen.\n\n•\nDu befähigst Teams durch Schulungen, Workshops und Coaching, die entwickelten Lösungen nachhaltig und eigenständig in ihren Arbeitsalltag zu integrieren.\n\n•\nDu bringst neue Ideen, Technologien und Arbeitsweisen ins Unternehmen ein und förderst deren sinnvollen und praxisnahen Einsatz innerhalb der Organisation.\n\n•\nAls verbindende Schnittstelle zwischen Business und Technologie trägst du aktiv dazu bei, Geschäftsprozesse weiterzuentwickeln und die digitale Transformation im Unternehmen voranzutreiben.\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als AI Business Specialist (m/w/d) 80-100%?\n\n•\nDu verfügst über einen passenden fachlichen Hintergrund, beispielsweise durch eine Ausbildung oder ein Studium in Wirtschaftsinformatik, Betriebswirtschaft, Digital Business, Informatik oder einem vergleichbaren Bereich, ergänzt durch relevante Berufserfahrung.\n\n•\nDu bringst fundierte Erfahrung in der Analyse, Optimierung und Neugestaltung von Geschäftsprozessen mit und verstehst es, komplexe Abläufe strukturiert zu erfassen und Verbesserungspotenziale zu erkennen.\n\n•\nIdealerweise hast du Erfahrung in der Prozessoptimierung, Business Analyse, Unternehmensberatung oder einer vergleichbaren Funktion und bist es gewohnt, eng mit unterschiedlichen Fachbereichen zusammenzuarbeiten.\n\n•\nDu interessierst dich für AI, Automatisierung und digitale Innovationen und verfolgst aktuelle Entwicklungen mit Neugier, Offenheit und Begeisterung.\n\n•\nDu bringst praktische Erfahrung im Umgang mit gängigen AI- und Automatisierungslösungen wie Copilot, Claude, Power Automate oder vergleichbaren Tools mit.\n\n•\nDu denkst vernetzt und unternehmerisch, erkennst Chancen und verstehst es, Verbesserungspotenziale in konkrete Lösungen mit einem nachvollziehbaren geschäftlichen Mehrwert zu übersetzen.\n\n•\nDu trittst beratend und überzeugend auf, kommunizierst sicher auf unterschiedlichen Ebenen und kannst verschiedene Anspruchsgruppen für neue Prozesse und Technologien begeistern.\n\n•\nDu arbeitest pragmatisch, selbstständig und lösungsorientiert und hast Freude daran, gemeinsam mit den Fachbereichen sichtbare und messbare Resultate zu erzielen.\n\n•\nDu verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\n## Benefits\n\n• Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle mit bis zu 40% Homeoffice\n\n• Eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\n• Eine spannende Auswahl an Benefits:\n\n• 5 Wochen Ferien (6 Wochen ab dem 50. Lebensjahr) und 9 bezahlte Brückentage\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• zahlreiche Preisnachlässe auf namhafte Anbieter von Produkt- und Dienstleistungen\n\nWieso unsere Mitarbeitenden gerne bei uns arbeiten, sagen sie dir gleich selbst in folgendem Video: https://youtu.be/wtuhlIfjJq8.\n\n## Wie läuft der Bewerbungsprozess bei Implenia ab?\n\nBei Implenia erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Implenia schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Über Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com.\n\n...\n\n*Wir bitten die Personalvermittler, keine unaufgeforderten Lebensläufe einzureichen. Alle Einsendungen werden nicht berücksichtigt und stellen keine Verpflichtung dar.",
-        "it": "Sei alla ricerca di una nuova sfida nell'ambiente IT, sei entusiasta delle possibilità di AI e vorresti usarlo dove crea un valore aggiunto reale? Sei una personalità innovativa, pensa imprenditoriale, riconosce il potenziale di ottimizzazione e lo implementa pragmaticamente insieme all'azienda? Insieme ai reparti, guiderai la trasformazione digitale del Gruppo e svilupperai soluzioni innovative con benefici misurabili. Allora siamo alla ricerca di voi per la nostra nuova posizione creata come AI Business Specialist (m/f/d) 80-100%.\n\nIl vostro luogo di lavoro è la nostra sede nella Ambasciatrice House di Opfikon, con la possibilità di lavorare in parte nella sede.\n\n## Compiti\n\nQuali compiti vi attendono come AI Business Specialist (m/f/d) 80-100%?\n\n•\nIn questo ruolo, analizzerai i processi aziendali esistenti insieme ai reparti e identificherai le potenzialità di ottimizzazione ed efficienza concrete.\n\n•\nIn base a questo, esaminerai come le moderne tecnologie come l'AI e l'automazione possano migliorare significativamente i processi esistenti e valutare le possibili soluzioni in base ai loro vantaggi aziendali.\n\n•\nProgettare e progettare processi di business ottimizzati, implementare soluzioni adatte indipendentemente in progetti brevi e garantire che questo si traduce in un valore aggiunto misurabile e ritorno sugli investimenti (ROI) per l'azienda.\n\n•\nSi lavora a mani vuote con soluzioni AI comuni e di automazione come Copilot, Claude, Power Automate o piattaforme paragonabili.\n\n•\nCome partner sparring dei dipartimenti, si consiglia agli stakeholder interni di analizzare e sviluppare ulteriormente i loro processi e di supportarli nell'uso mirato di soluzioni tecnologiche adeguate.\n\n•\nPotenziate i team attraverso formazione, workshop e coaching per integrare le soluzioni sviluppate in modo sostenibile e indipendente nel loro lavoro quotidiano.\n\n•\nPorti nuove idee, tecnologie e modi di lavorare in azienda e promuovi il loro uso significativo e pratico all'interno dell'organizzazione.\n\n•\nCome interfaccia di collegamento tra business e tecnologia, contribuisci attivamente a sviluppare ulteriormente i processi aziendali e a promuovere la trasformazione digitale in azienda.\n\n## Requisiti\n\nQuali requisiti porti come AI Business Specialist (m/f/d) 80-100%?\n\n•\nHai uno sfondo professionale adatto, per esempio formando o studiando in informatica aziendale, amministrazione aziendale, business digitale, informatica o un campo comparabile, completato da esperienza professionale rilevante.\n\n•\nPorti un'esperienza approfondita nell'analisi, nell'ottimizzazione e nella riprogettazione dei processi aziendali e comprendi come catturare processi complessi in modo strutturato e identificare il potenziale di miglioramento.\n\n•\nIdealmente, si ha esperienza nell'ottimizzazione dei processi, nell'analisi aziendale, nella consulenza di gestione o in una funzione comparabile e sono utilizzati per lavorare a stretto contatto con diverse aree specialistiche.\n\n•\nSei interessato a AI, automazione e innovazioni digitali e segui gli sviluppi attuali con curiosità, apertura ed entusiasmo.\n\n•\nSi porterà esperienza pratica nel trattare con soluzioni AI comuni e di automazione come Copilot, Claude, Power Automate o strumenti simili.\n\n•\nPensate in rete e imprenditoriale, riconoscete le opportunità e comprendete come tradurre il potenziale di miglioramento in soluzioni concrete con un valore aggiunto aziendale comprensibile.\n\n•\nSi agisce in modo consultivo e convincente, comunicare in modo sicuro a diversi livelli e può ispirare diversi stakeholder per nuovi processi e tecnologie.\n\n•\nLavorate in modo pragmatico, indipendente e orientato alla soluzione e godetevi di lavorare insieme alle aree specializzate per ottenere risultati visibili e misurabili.\n\n•\nHai una buona conoscenza del tedesco e dell'inglese in parola e nella scrittura.\n\n## Vantaggi\n\n• Un ambiente di lavoro multiculturale con la possibilità di plasmare un futuro degno di vivere\n\n• Tecnologie all'avanguardia e un luogo di lavoro contemporaneo in un'azienda sostenibile\n\n• Una società che promuove il talento e la formazione dei propri dipendenti\n\n• La sicurezza di un gruppo finanziariamente sano con radici forti in Svizzera\n\n• Modelli di lavoro flessibili con fino al 40% ufficio domestico\n\n• Eccellente assicurazione di viaggio per voi e coloro che vivono nella stessa famiglia\n\n• Una selezione emozionante di vantaggi:\n\n• 5 settimane di vacanza (6 settimane dall'età 50) e 9 giorni di ponte pagati\n\n• un fondo pensione interno con una copertura molto buona e 3 livelli di contributo\n\n• numerosi sconti sui noti fornitori di prodotti e servizi\n\nPerché i nostri dipendenti amano lavorare per noi, si raccontano nel seguente video: https://youtu.be/wtuhlIfjJq8.\n\n## Qual è il processo di applicazione a Implenia?\n\nA Implenia, puoi aspettarti un processo di applicazione semplice e trasparente:\n\n• Applicazione online con CV\n\n• Chiamata iniziale personale per telefono, digitalmente o sul sito\n\n• Seconda riunione e fase di offerta\n\n## Che altro è importante per noi\n\nA Implenia, apprezziamo e viviamo la diversità. Il nostro processo di reclutamento mira quindi a promuovere la diversità, l'uguaglianza e l'inclusione.\n\n## Informazioni su Implenia\n\nCome fornitore leader di servizi edili e immobiliari svizzeri, Implenia sviluppa, realizza e gestisce spazi abitativi, ambienti di lavoro e infrastrutture per le generazioni future in Svizzera e in Germania. Implenia offre anche progetti di tunnelling e infrastrutture correlate in altri mercati. L'azienda combina il know-how di unità di consulenza, sviluppo, pianificazione e esecuzione altamente qualificate sotto un tetto in un fornitore di servizi di costruzione e immobiliare integrato, multinazionale leader. Con sede a Opfikon vicino a Zurigo, Implenia impiega oltre 8.000 persone (FTE) in tutta Europa e ha raggiunto un fatturato di 3,5 miliardi di franchi nel 2025. Maggiori informazioni su implenia.com.\n\n...\n\n*Chiediamo ai reclutatori di non presentare CV non richiesti. Tutte le conclusioni non sono considerate e non costituiscono un obbligo.",
-        "en": "Are you looking for a new challenge in the IT environment, are you enthusiastic about the possibilities of AI and would like to use it where it creates real added value? You are an innovative personality, think entrepreneurially, recognize potential for optimization and implement it pragmatically together with the business? Together with the departments, you will drive the digital transformation of the Group and develop innovative solutions with measurable benefits. Then we are looking for you for our newly created position as AI Business Specialist (m/f/d) 80-100%.\n\nYour place of work is our headquarters in the Ambassador House in Opfikon, with the possibility to work partly in the home office.\n\n## Tasks\n\nWhat tasks await you as AI Business Specialist (m/f/d) 80-100%?\n\n•\nIn this role, you will analyze existing business processes together with the departments and identify concrete optimization and efficiency potentials.\n\n•\nBased on this, you will examine how modern technologies such as AI and automation can meaningfully improve existing processes and evaluate possible solutions according to their business benefits.\n\n•\nYou design and design optimized business processes, implement suitable solutions independently in short projects and ensure that this results in a measurable added value and return on investment (ROI) for the business.\n\n•\nYou work hands-on with common AI and automation solutions such as Copilot, Claude, Power Automate or comparable platforms.\n\n•\nAs a sparring partner of the departments, you advise internal stakeholders on the analysis and further development of their processes and support them in the targeted use of suitable technological solutions.\n\n•\nYou empower teams through training, workshops and coaching to integrate the developed solutions sustainably and independently into their everyday work.\n\n•\nYou bring new ideas, technologies and ways of working into the company and promote their meaningful and practical use within the organization.\n\n•\nAs a connecting interface between business and technology, you actively contribute to further developing business processes and driving digital transformation in the company.\n\n## Requirements\n\nWhat requirements do you bring as an AI Business Specialist (m/f/d) 80-100%?\n\n•\nYou have a suitable professional background, for example by training or studying in business informatics, business administration, digital business, computer science or a comparable field, supplemented by relevant professional experience.\n\n•\nYou bring in-depth experience in the analysis, optimization and redesign of business processes and understand how to capture complex processes in a structured manner and identify potential for improvement.\n\n•\nIdeally, you have experience in process optimization, business analysis, management consulting or a comparable function and are used to working closely with different specialist areas.\n\n•\nYou are interested in AI, automation and digital innovations and follow current developments with curiosity, openness and enthusiasm.\n\n•\nYou will bring practical experience in dealing with common AI and automation solutions such as Copilot, Claude, Power Automate or similar tools.\n\n•\nYou think networked and entrepreneurial, recognize opportunities and understand how to translate potential for improvement into concrete solutions with a comprehensible business added value.\n\n•\nYou act in an advisory and convincing manner, communicate safely at different levels and can inspire different stakeholders for new processes and technologies.\n\n•\nYou work pragmatically, independently and solution-oriented and enjoy working together with the specialist areas to achieve visible and measurable results.\n\n•\nYou have very good knowledge of German and English in word and writing.\n\n## Benefits\n\n• A multicultural working environment with the chance to shape a future worth living\n\n• State-of-the-art technologies and a contemporary workplace at a sustainable company\n\n• A company that promotes talent and the training of its employees\n\n• The security of a financially healthy, broad-based group with strong roots in Switzerland\n\n• Flexible working models with up to 40% home office\n\n• Excellent travel insurance for you and those living in the same household\n\n• An exciting selection of benefits:\n\n• 5 weeks of vacation (6 weeks from age 50) and 9 paid bridge days\n\n• an in-house pension fund with very good coverage and 3 contribution levels\n\n• numerous discounts on well-known suppliers of products and services\n\nWhy our employees like to work for us, they tell you themselves in the following video: https://youtu.be/wtuhlIfjJq8.\n\n## What is the application process at Implenia?\n\nAt Implenia, you can expect a simple and transparent application process:\n\n• Online application with CV\n\n• Personal initial call by telephone, digitally or on site\n\n• Second meeting and offer phase\n\n## What else is important to us\n\nAt Implenia, we value and live diversity. Our recruitment process is therefore aimed at promoting diversity, equality and inclusion.\n\n## About Implenia\n\nAs a leading Swiss construction and real estate service provider, Implenia develops, realizes and manages living spaces, working environments and infrastructure for future generations in Switzerland and Germany. Implenia also offers tunnelling and related infrastructure projects in other markets. The company combines the know-how of highly qualified consulting, development, planning and execution units under one roof into an integrated, multinationally leading construction and real estate service provider. Headquartered in Opfikon near Zurich, Implenia employs more than 8,000 people (FTE) across Europe and achieved a turnover of CHF 3.5 billion in 2025. More information at implenia.com.\n\n...\n\n*We ask recruiters not to submit unsolicited CVs. All submissions are not considered and do not constitute an obligation.",
-        "fr": "Cherchez-vous un nouveau défi dans l'environnement informatique, êtes-vous enthousiaste par les possibilités de l'IA et aimeriez-vous l'utiliser là où il crée une réelle valeur ajoutée? Vous êtes une personnalité innovante, pensez entrepreneurial, reconnaissez le potentiel d'optimisation et la mettre en œuvre de manière pragmatique avec l'entreprise? Avec les départements, vous piloterez la transformation numérique du Groupe et développerez des solutions innovantes avec des avantages mesurables. Ensuite, nous vous recherchons pour notre nouveau poste de spécialiste des affaires de l'IA (h/f/d) 80-100%.\n\nVotre lieu de travail est notre siège à la Maison des Ambassadeurs à Opfikon, avec la possibilité de travailler en partie dans le bureau d'attache.\n\n## Tâche\n\nQuelles tâches vous attendent en tant que spécialiste des affaires de l'IA (h/f/d) 80-100%?\n\n•\nDans ce rôle, vous analyserez les processus opérationnels existants avec les ministères et identifierez des potentiels concrets d'optimisation et d'efficacité.\n\n•\nSur cette base, vous examinerez comment les technologies modernes telles que l'IA et l'automatisation peuvent améliorer de façon significative les processus existants et évaluer les solutions possibles en fonction de leurs avantages commerciaux.\n\n•\nVous concevez et concevez des processus d'affaires optimisés, implémentez des solutions appropriées indépendamment dans de courts projets et assurez-vous que cela donne une valeur ajoutée mesurable et un retour sur investissement (ROI) pour l'entreprise.\n\n•\nVous travaillez directement avec des solutions communes d'IA et d'automatisation telles que Copilot, Claude, Power Automate ou des plateformes comparables.\n\n•\nEn tant que partenaire des ministères, vous conseillez les intervenants internes sur l'analyse et le développement de leurs processus et les aidez à utiliser des solutions technologiques appropriées.\n\n•\nVous autonomisez les équipes par la formation, les ateliers et le coaching pour intégrer les solutions développées de manière durable et indépendante dans leur travail quotidien.\n\n•\nVous apportez de nouvelles idées, technologies et façons de travailler dans l'entreprise et de promouvoir leur utilisation significative et pratique au sein de l'organisation.\n\n•\nEn tant qu'interface de connexion entre l'entreprise et la technologie, vous contribuez activement au développement des processus d'affaires et à la transformation numérique de l'entreprise.\n\n## Exigences\n\nQuelles sont les exigences que vous apportez en tant que spécialiste des affaires de l'IA (h/f/d) 80-100%?\n\n•\nVous avez une formation professionnelle appropriée, par exemple par une formation ou des études en informatique des affaires, administration des affaires, entreprise numérique, informatique ou un domaine comparable, complétée par une expérience professionnelle pertinente.\n\n•\nVous apportez une expérience approfondie dans l'analyse, l'optimisation et la refonte des processus opérationnels et comprenez comment saisir les processus complexes de manière structurée et identifier le potentiel d'amélioration.\n\n•\nIdéalement, vous avez une expérience dans l'optimisation des processus, l'analyse des affaires, le conseil en gestion ou une fonction comparable et sont utilisés pour travailler en étroite collaboration avec différents domaines spécialisés.\n\n•\nVous êtes intéressé par l'IA, l'automatisation et les innovations numériques et suivez les développements actuels avec curiosité, ouverture et enthousiasme.\n\n•\nVous apporterez une expérience pratique dans le traitement de solutions communes d'IA et d'automatisation telles que Copilot, Claude, Power Automate ou des outils similaires.\n\n•\nVous pensez réseau et entrepreneurial, reconnaître les opportunités et comprendre comment traduire le potentiel d'amélioration en solutions concrètes avec une valeur ajoutée commerciale compréhensible.\n\n•\nVous agissez de manière consultative et convaincante, vous communiquez en toute sécurité à différents niveaux et vous pouvez inspirer différents intervenants pour de nouveaux processus et technologies.\n\n•\nVous travaillez de façon pragmatique, indépendante et orientée vers la solution et vous aimez travailler avec les domaines spécialisés pour obtenir des résultats visibles et mesurables.\n\n•\nVous avez une très bonne connaissance de l'allemand et de l'anglais dans la parole et l'écriture.\n\n## Avantages\n\n• Un environnement de travail multiculturel avec la chance de façonner un avenir digne de vie\n\n• Des technologies de pointe et un lieu de travail contemporain dans une entreprise durable\n\n• Une entreprise qui promeut le talent et la formation de ses employés\n\n• La sécurité d'un groupe en bonne santé financière et à base large ayant de solides racines en Suisse\n\n• Modèles de travail flexibles avec jusqu'à 40% de bureaux à domicile\n\n• Excellente assurance voyage pour vous et ceux qui vivent dans le même ménage\n\n• Une sélection passionnante de bénéfices:\n\n• 5 semaines de vacances (6 semaines à partir de 50 ans) et 9 jours de pont payés\n\n• un fonds de pension interne avec une très bonne couverture et 3 niveaux de cotisation\n\n• de nombreux rabais sur les fournisseurs connus de produits et services\n\nPourquoi nos employés aiment travailler pour nous, ils vous disent eux-mêmes dans la vidéo suivante: https://youtu.be/wtuhlIfjJq8.\n\n## Quel est le processus de demande à Implenia?\n\nÀ Implenia, vous pouvez vous attendre à un processus de demande simple et transparent:\n\n• Demande en ligne avec CV\n\n• Appel personnel initial par téléphone, numériquement ou sur place\n\n• Deuxième réunion et phase d ' offre\n\n## Ce qui est important pour nous\n\nChez Implenia, nous valorisons et vivons la diversité. Notre processus de recrutement vise donc à promouvoir la diversité, l'égalité et l'inclusion.\n\n## À propos d'Implenia\n\nEn tant que premier fournisseur suisse de services immobiliers et de construction, Implenia développe, réalise et gère des espaces de vie, des environnements de travail et des infrastructures pour les générations futures en Suisse et en Allemagne. Implenia propose également des projets de tunnel et d'infrastructures connexes sur d'autres marchés. L'entreprise combine le savoir-faire d'unités hautement qualifiées de conseil, de développement, de planification et d'exécution sous un même toit en un fournisseur intégré de services immobiliers et de construction. Basée à Opfikon près de Zurich, Implenia emploie plus de 8 000 personnes (ETP) en Europe et a réalisé un chiffre d'affaires de 3,5 milliards de CHF en 2025. Plus d'informations sur implenia.com.\n\n...\n\n*Nous demandons aux recruteurs de ne pas soumettre de CV non sollicités. Toutes les présentations ne sont pas considérées et ne constituent pas une obligation."
+        "it": "Du suchst eine neue Herausforderung im IT-Umfeld, begeisterst dich für die Möglichkeiten von AI und möchtest diese dort einsetzen, wo sie echten Mehrwert schafft? Du bist eine innovative Persönlichkeit, denkst unternehmerisch, erkennst Optimierungspotenziale und setzt diese gemeinsam mit dem Business pragmatisch um? Gemeinsam mit den Fachbereichen treibst du die digitale Transformation des Konzerns voran und entwickelst innovative Lösungen mit messbarem Nutzen. Dann suchen wir dich für unsere neu geschaffene Position als AI Business Specialist (m/w/d) 80-100% .\n\nDein Arbeitsort ist unser Hauptsitz im Ambassador House in Opfikon, mit der Möglichkeit, auch teilweise im Home-Office zu arbeiten.\n\n## Aufgaben\n\nWelche Aufgaben erwarten dich als AI Business Specialist (m/w/d) 80-100%?\n\n•\nIn dieser Rolle analysierst du gemeinsam mit den Fachbereichen bestehende Geschäftsprozesse und identifizierst konkrete Optimierungs- und Effizienzpotenziale.\n\n•\nDarauf aufbauend prüfst du, wie moderne Technologien wie AI und Automatisierung bestehende Prozesse sinnvoll verbessern können, und bewertest mögliche Lösungen nach ihrem geschäftlichen Nutzen.\n\n•\nDu konzipierst und gestaltest optimierte Geschäftsprozesse, setzt passende Lösungen selbstständig in kurzen Projekten um und stellst sicher, dass daraus ein messbarer Mehrwert und Return on Investment (ROI) für das Business entsteht.\n\n•\nDabei arbeitest du hands-on mit gängigen AI- und Automatisierungslösungen wie Copilot, Claude, Power Automate oder vergleichbaren Plattformen.\n\n•\nAls Sparringspartner der Fachbereiche berätst du interne Stakeholder bei der Analyse und Weiterentwicklung ihrer Prozesse und unterstützt sie dabei, geeignete technologische Lösungen gezielt einzusetzen.\n\n•\nDu befähigst Teams durch Schulungen, Workshops und Coaching, die entwickelten Lösungen nachhaltig und eigenständig in ihren Arbeitsalltag zu integrieren.\n\n•\nDu bringst neue Ideen, Technologien und Arbeitsweisen ins Unternehmen ein und förderst deren sinnvollen und praxisnahen Einsatz innerhalb der Organisation.\n\n•\nAls verbindende Schnittstelle zwischen Business und Technologie trägst du aktiv dazu bei, Geschäftsprozesse weiterzuentwickeln und die digitale Transformation im Unternehmen voranzutreiben.\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als AI Business Specialist (m/w/d) 80-100%?\n\n•\nDu verfügst über einen passenden fachlichen Hintergrund, beispielsweise durch eine Ausbildung oder ein Studium in Wirtschaftsinformatik, Betriebswirtschaft, Digital Business, Informatik oder einem vergleichbaren Bereich, ergänzt durch relevante Berufserfahrung.\n\n•\nDu bringst fundierte Erfahrung in der Analyse, Optimierung und Neugestaltung von Geschäftsprozessen mit und verstehst es, komplexe Abläufe strukturiert zu erfassen und Verbesserungspotenziale zu erkennen.\n\n•\nIdealerweise hast du Erfahrung in der Prozessoptimierung, Business Analyse, Unternehmensberatung oder einer vergleichbaren Funktion und bist es gewohnt, eng mit unterschiedlichen Fachbereichen zusammenzuarbeiten.\n\n•\nDu interessierst dich für AI, Automatisierung und digitale Innovationen und verfolgst aktuelle Entwicklungen mit Neugier, Offenheit und Begeisterung.\n\n•\nDu bringst praktische Erfahrung im Umgang mit gängigen AI- und Automatisierungslösungen wie Copilot, Claude, Power Automate oder vergleichbaren Tools mit.\n\n•\nDu denkst vernetzt und unternehmerisch, erkennst Chancen und verstehst es, Verbesserungspotenziale in konkrete Lösungen mit einem nachvollziehbaren geschäftlichen Mehrwert zu übersetzen.\n\n•\nDu trittst beratend und überzeugend auf, kommunizierst sicher auf unterschiedlichen Ebenen und kannst verschiedene Anspruchsgruppen für neue Prozesse und Technologien begeistern.\n\n•\nDu arbeitest pragmatisch, selbstständig und lösungsorientiert und hast Freude daran, gemeinsam mit den Fachbereichen sichtbare und messbare Resultate zu erzielen.\n\n•\nDu verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\n## Benefits\n\n• Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle mit bis zu 40% Homeoffice\n\n• Eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\n• Eine spannende Auswahl an Benefits:\n\n• 5 Wochen Ferien (6 Wochen ab dem 50. Lebensjahr) und 9 bezahlte Brückentage\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• zahlreiche Preisnachlässe auf namhafte Anbieter von Produkt- und Dienstleistungen\n\nWieso unsere Mitarbeitenden gerne bei uns arbeiten, sagen sie dir gleich selbst in folgendem Video: https://youtu.be/wtuhlIfjJq8.\n\n## Wie läuft der Bewerbungsprozess bei Implenia ab?\n\nBei Implenia erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Implenia schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Über Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com.\n\n...\n\n*Wir bitten die Personalvermittler, keine unaufgeforderten Lebensläufe einzureichen. Alle Einsendungen werden nicht berücksichtigt und stellen keine Verpflichtung dar.",
+        "en": "Du suchst eine neue Herausforderung im IT-Umfeld, begeisterst dich für die Möglichkeiten von AI und möchtest diese dort einsetzen, wo sie echten Mehrwert schafft? Du bist eine innovative Persönlichkeit, denkst unternehmerisch, erkennst Optimierungspotenziale und setzt diese gemeinsam mit dem Business pragmatisch um? Gemeinsam mit den Fachbereichen treibst du die digitale Transformation des Konzerns voran und entwickelst innovative Lösungen mit messbarem Nutzen. Dann suchen wir dich für unsere neu geschaffene Position als AI Business Specialist (m/w/d) 80-100% .\n\nDein Arbeitsort ist unser Hauptsitz im Ambassador House in Opfikon, mit der Möglichkeit, auch teilweise im Home-Office zu arbeiten.\n\n## Aufgaben\n\nWelche Aufgaben erwarten dich als AI Business Specialist (m/w/d) 80-100%?\n\n•\nIn dieser Rolle analysierst du gemeinsam mit den Fachbereichen bestehende Geschäftsprozesse und identifizierst konkrete Optimierungs- und Effizienzpotenziale.\n\n•\nDarauf aufbauend prüfst du, wie moderne Technologien wie AI und Automatisierung bestehende Prozesse sinnvoll verbessern können, und bewertest mögliche Lösungen nach ihrem geschäftlichen Nutzen.\n\n•\nDu konzipierst und gestaltest optimierte Geschäftsprozesse, setzt passende Lösungen selbstständig in kurzen Projekten um und stellst sicher, dass daraus ein messbarer Mehrwert und Return on Investment (ROI) für das Business entsteht.\n\n•\nDabei arbeitest du hands-on mit gängigen AI- und Automatisierungslösungen wie Copilot, Claude, Power Automate oder vergleichbaren Plattformen.\n\n•\nAls Sparringspartner der Fachbereiche berätst du interne Stakeholder bei der Analyse und Weiterentwicklung ihrer Prozesse und unterstützt sie dabei, geeignete technologische Lösungen gezielt einzusetzen.\n\n•\nDu befähigst Teams durch Schulungen, Workshops und Coaching, die entwickelten Lösungen nachhaltig und eigenständig in ihren Arbeitsalltag zu integrieren.\n\n•\nDu bringst neue Ideen, Technologien und Arbeitsweisen ins Unternehmen ein und förderst deren sinnvollen und praxisnahen Einsatz innerhalb der Organisation.\n\n•\nAls verbindende Schnittstelle zwischen Business und Technologie trägst du aktiv dazu bei, Geschäftsprozesse weiterzuentwickeln und die digitale Transformation im Unternehmen voranzutreiben.\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als AI Business Specialist (m/w/d) 80-100%?\n\n•\nDu verfügst über einen passenden fachlichen Hintergrund, beispielsweise durch eine Ausbildung oder ein Studium in Wirtschaftsinformatik, Betriebswirtschaft, Digital Business, Informatik oder einem vergleichbaren Bereich, ergänzt durch relevante Berufserfahrung.\n\n•\nDu bringst fundierte Erfahrung in der Analyse, Optimierung und Neugestaltung von Geschäftsprozessen mit und verstehst es, komplexe Abläufe strukturiert zu erfassen und Verbesserungspotenziale zu erkennen.\n\n•\nIdealerweise hast du Erfahrung in der Prozessoptimierung, Business Analyse, Unternehmensberatung oder einer vergleichbaren Funktion und bist es gewohnt, eng mit unterschiedlichen Fachbereichen zusammenzuarbeiten.\n\n•\nDu interessierst dich für AI, Automatisierung und digitale Innovationen und verfolgst aktuelle Entwicklungen mit Neugier, Offenheit und Begeisterung.\n\n•\nDu bringst praktische Erfahrung im Umgang mit gängigen AI- und Automatisierungslösungen wie Copilot, Claude, Power Automate oder vergleichbaren Tools mit.\n\n•\nDu denkst vernetzt und unternehmerisch, erkennst Chancen und verstehst es, Verbesserungspotenziale in konkrete Lösungen mit einem nachvollziehbaren geschäftlichen Mehrwert zu übersetzen.\n\n•\nDu trittst beratend und überzeugend auf, kommunizierst sicher auf unterschiedlichen Ebenen und kannst verschiedene Anspruchsgruppen für neue Prozesse und Technologien begeistern.\n\n•\nDu arbeitest pragmatisch, selbstständig und lösungsorientiert und hast Freude daran, gemeinsam mit den Fachbereichen sichtbare und messbare Resultate zu erzielen.\n\n•\nDu verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\n## Benefits\n\n• Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle mit bis zu 40% Homeoffice\n\n• Eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\n• Eine spannende Auswahl an Benefits:\n\n• 5 Wochen Ferien (6 Wochen ab dem 50. Lebensjahr) und 9 bezahlte Brückentage\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• zahlreiche Preisnachlässe auf namhafte Anbieter von Produkt- und Dienstleistungen\n\nWieso unsere Mitarbeitenden gerne bei uns arbeiten, sagen sie dir gleich selbst in folgendem Video: https://youtu.be/wtuhlIfjJq8.\n\n## Wie läuft der Bewerbungsprozess bei Implenia ab?\n\nBei Implenia erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Implenia schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Über Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com.\n\n...\n\n*Wir bitten die Personalvermittler, keine unaufgeforderten Lebensläufe einzureichen. Alle Einsendungen werden nicht berücksichtigt und stellen keine Verpflichtung dar.",
+        "fr": "Du suchst eine neue Herausforderung im IT-Umfeld, begeisterst dich für die Möglichkeiten von AI und möchtest diese dort einsetzen, wo sie echten Mehrwert schafft? Du bist eine innovative Persönlichkeit, denkst unternehmerisch, erkennst Optimierungspotenziale und setzt diese gemeinsam mit dem Business pragmatisch um? Gemeinsam mit den Fachbereichen treibst du die digitale Transformation des Konzerns voran und entwickelst innovative Lösungen mit messbarem Nutzen. Dann suchen wir dich für unsere neu geschaffene Position als AI Business Specialist (m/w/d) 80-100% .\n\nDein Arbeitsort ist unser Hauptsitz im Ambassador House in Opfikon, mit der Möglichkeit, auch teilweise im Home-Office zu arbeiten.\n\n## Aufgaben\n\nWelche Aufgaben erwarten dich als AI Business Specialist (m/w/d) 80-100%?\n\n•\nIn dieser Rolle analysierst du gemeinsam mit den Fachbereichen bestehende Geschäftsprozesse und identifizierst konkrete Optimierungs- und Effizienzpotenziale.\n\n•\nDarauf aufbauend prüfst du, wie moderne Technologien wie AI und Automatisierung bestehende Prozesse sinnvoll verbessern können, und bewertest mögliche Lösungen nach ihrem geschäftlichen Nutzen.\n\n•\nDu konzipierst und gestaltest optimierte Geschäftsprozesse, setzt passende Lösungen selbstständig in kurzen Projekten um und stellst sicher, dass daraus ein messbarer Mehrwert und Return on Investment (ROI) für das Business entsteht.\n\n•\nDabei arbeitest du hands-on mit gängigen AI- und Automatisierungslösungen wie Copilot, Claude, Power Automate oder vergleichbaren Plattformen.\n\n•\nAls Sparringspartner der Fachbereiche berätst du interne Stakeholder bei der Analyse und Weiterentwicklung ihrer Prozesse und unterstützt sie dabei, geeignete technologische Lösungen gezielt einzusetzen.\n\n•\nDu befähigst Teams durch Schulungen, Workshops und Coaching, die entwickelten Lösungen nachhaltig und eigenständig in ihren Arbeitsalltag zu integrieren.\n\n•\nDu bringst neue Ideen, Technologien und Arbeitsweisen ins Unternehmen ein und förderst deren sinnvollen und praxisnahen Einsatz innerhalb der Organisation.\n\n•\nAls verbindende Schnittstelle zwischen Business und Technologie trägst du aktiv dazu bei, Geschäftsprozesse weiterzuentwickeln und die digitale Transformation im Unternehmen voranzutreiben.\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als AI Business Specialist (m/w/d) 80-100%?\n\n•\nDu verfügst über einen passenden fachlichen Hintergrund, beispielsweise durch eine Ausbildung oder ein Studium in Wirtschaftsinformatik, Betriebswirtschaft, Digital Business, Informatik oder einem vergleichbaren Bereich, ergänzt durch relevante Berufserfahrung.\n\n•\nDu bringst fundierte Erfahrung in der Analyse, Optimierung und Neugestaltung von Geschäftsprozessen mit und verstehst es, komplexe Abläufe strukturiert zu erfassen und Verbesserungspotenziale zu erkennen.\n\n•\nIdealerweise hast du Erfahrung in der Prozessoptimierung, Business Analyse, Unternehmensberatung oder einer vergleichbaren Funktion und bist es gewohnt, eng mit unterschiedlichen Fachbereichen zusammenzuarbeiten.\n\n•\nDu interessierst dich für AI, Automatisierung und digitale Innovationen und verfolgst aktuelle Entwicklungen mit Neugier, Offenheit und Begeisterung.\n\n•\nDu bringst praktische Erfahrung im Umgang mit gängigen AI- und Automatisierungslösungen wie Copilot, Claude, Power Automate oder vergleichbaren Tools mit.\n\n•\nDu denkst vernetzt und unternehmerisch, erkennst Chancen und verstehst es, Verbesserungspotenziale in konkrete Lösungen mit einem nachvollziehbaren geschäftlichen Mehrwert zu übersetzen.\n\n•\nDu trittst beratend und überzeugend auf, kommunizierst sicher auf unterschiedlichen Ebenen und kannst verschiedene Anspruchsgruppen für neue Prozesse und Technologien begeistern.\n\n•\nDu arbeitest pragmatisch, selbstständig und lösungsorientiert und hast Freude daran, gemeinsam mit den Fachbereichen sichtbare und messbare Resultate zu erzielen.\n\n•\nDu verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\n## Benefits\n\n• Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle mit bis zu 40% Homeoffice\n\n• Eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\n• Eine spannende Auswahl an Benefits:\n\n• 5 Wochen Ferien (6 Wochen ab dem 50. Lebensjahr) und 9 bezahlte Brückentage\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• zahlreiche Preisnachlässe auf namhafte Anbieter von Produkt- und Dienstleistungen\n\nWieso unsere Mitarbeitenden gerne bei uns arbeiten, sagen sie dir gleich selbst in folgendem Video: https://youtu.be/wtuhlIfjJq8.\n\n## Wie läuft der Bewerbungsprozess bei Implenia ab?\n\nBei Implenia erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Implenia schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Über Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com.\n\n...\n\n*Wir bitten die Personalvermittler, keine unaufgeforderten Lebensläufe einzureichen. Alle Einsendungen werden nicht berücksichtigt und stellen keine Verpflichtung dar."
       },
       "location": "Glattpark (Opfikon)",
       "canton": "ZH",
       "url": "https://jobs.implenia.com/job/AI-Business-Specialist-%28mwd%29-80-100/13879-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:34.125Z",
+      "crawledAt": "2026-10-23T09:38:37.421Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -6352,7 +6363,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T22:32:46.524Z"
+      "firstSeenAt": "2026-10-08T22:32:46.524Z",
+      "needsRetranslation": true
     },
     {
       "id": "implenia-b64db1a786d7",
@@ -6369,23 +6381,23 @@
       "title": "AI Business Specialist (Real Estate Management) (m/w/d) 80-100%",
       "titleByLocale": {
         "de": "AI Business Spezialist (Real Estate Management) (m/w/d) 80-100%",
-        "en": "AI Business Specialist (Real Estate Management) (m/f/d) 80-100 %",
+        "en": "AI Business Specialist (Real Estate Management) (m/w/d) 80-100%",
         "it": "AI Business Specialista (Real Estate Management) (m/w/d) 80-100%",
         "fr": "AI Business Spécialiste (Real Estate Management) (m/w/d) 80-100%"
       },
       "description": "Du suchst eine neue Herausforderung im IT-Umfeld, begeisterst dich für die Möglichkeiten von AI und möchtest diese dort einsetzen, wo sie echten Mehrwert schafft? Du bist eine innovative Persönlichkeit, denkst unternehmerisch, erkennst Optimierungspotenziale und setzt diese gemeinsam mit dem Business pragmatisch um? Gemeinsam mit den Fachbereichen treibst du die digitale Transformation des Konzerns voran und entwickelst innovative Lösungen mit messbarem Nutzen. Dann suchen wir dich für unsere neu geschaffene Position als AI Business Specialist (Real Estate Management) (m/w/d) 80-100% .\n\nDein Arbeitsort ist unser Hauptsitz im Ambassador House in Opfikon, mit der Möglichkeit, auch teilweise im Home-Office zu arbeiten.\n\n## Aufgaben\n\nWelche Aufgaben erwarten dich als AI Business Specialist (Real Estate Management) (m/w/d) 80-100%?\n\n•\nIn dieser Rolle entwickelst du gemeinsam mit den Fachbereichen AI-basierte Lösungen für das Real Estate Management und identifizierst konkrete Einsatzmöglichkeiten mit geschäftlichem Mehrwert.\n\n•\nDu analysierst fachliche Anforderungen und bestehende Geschäftsprozesse und übersetzt diese in technische AI- und Datenlösungen.\n\n•\nDu konzipierst und realisierst AI-Use-Cases selbstständig, von der Anforderungsanalyse über die technische Konzeption und Entwicklung bis zur Einführung im Arbeitsalltag.\n\n•\nDabei arbeitest du hands-on mit modernen AI-Technologien und Pro-Code-Ansätzen und setzt unter anderem Python und SQL sowie geeignete AI-Modelle, APIs und Plattformen ein.\n\n•\nDu arbeitest mit unterschiedlichen Datenquellen, analysierst und strukturierst Daten und entwickelst daraus skalierbare und praxisnahe Lösungen für das Real Estate Management.\n\n•\nAls Sparringspartner der Fachbereiche berätst du interne Stakeholder und unterstützt sie dabei, Business-Anforderungen in geeignete technologische Lösungen zu übersetzen.\n\n•\nDu befähigst Teams durch Schulungen, Workshops und Coaching, die entwickelten Lösungen zu verstehen und nachhaltig in ihren Arbeitsalltag zu integrieren.\n\n•\nDu bringst neue Ideen, Technologien und Arbeitsweisen ins Unternehmen ein und förderst deren sinnvollen und praxisnahen Einsatz innerhalb der Organisation.\n\n•\nAls verbindende Schnittstelle zwischen Real Estate Business und Technologie trägst du aktiv dazu bei, innovative AI-Lösungen im Unternehmen voranzutreiben und nachhaltig zu etablieren.\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als AI Business Specialist (Real Estate Management) (m/w/d) 80-100%?\n\n•\nDu verfügst über einen passenden fachlichen und technischen Hintergrund, beispielsweise durch relevante Berufserfahrung, eine Ausbildung, Weiterbildung oder ein Studium in Informatik, Wirtschaftsinformatik, Data Science, Digital Business oder einem vergleichbaren Bereich.\n\n•\nDu bringst fundierte Erfahrung in der Entwicklung und Umsetzung von AI- und Datenlösungen mit und verstehst es, fachliche Anforderungen in konkrete technische Lösungen zu übersetzen.\n\n•\nDu verfügst über praktische Erfahrung mit modernen AI-Technologien und Pro-Code-Ansätzen sowie gute Programmierkenntnisse, insbesondere in Python und SQL.\n\n•\nErfahrung im Real Estate Management bzw. in der Immobilienbranche ist von Vorteil.\n\n•\nDu interessierst dich für AI, Daten und digitale Innovationen und verfolgst aktuelle Entwicklungen mit Neugier, Offenheit und Begeisterung.\n\n•\nDu denkst vernetzt und unternehmerisch, erkennst Chancen und verstehst es, technologische Möglichkeiten in konkrete Lösungen mit einem nachvollziehbaren geschäftlichen Mehrwert zu übersetzen.\n\n•\nDu trittst beratend und überzeugend auf, kommunizierst sicher auf unterschiedlichen Ebenen und kannst verschiedene Anspruchsgruppen für neue Technologien und Lösungen begeistern.\n\n•\nDu arbeitest pragmatisch, selbstständig und lösungsorientiert und hast Freude daran, gemeinsam mit den Fachbereichen sichtbare und messbare Resultate zu erzielen.\n\n•\nDu verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\n## Benefits\n\n• Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle mit bis zu 40% Homeoffice\n\n• Eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\n• Eine spannende Auswahl an Benefits:\n\n• 5 Wochen Ferien (6 Wochen ab dem 50. Lebensjahr) und 9 bezahlte Brückentage\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• zahlreiche Preisnachlässe auf namhafte Anbieter von Produkt- und Dienstleistungen\n\nWieso unsere Mitarbeitenden gerne bei uns arbeiten, sagen sie dir gleich selbst in folgendem Video: https://youtu.be/wtuhlIfjJq8.\n\n## Wie läuft der Bewerbungsprozess bei Implenia ab?\n\nBei Implenia erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Implenia schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Über Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com.\n\n...\n\n*Wir bitten die Personalvermittler, keine unaufgeforderten Lebensläufe einzureichen. Alle Einsendungen werden nicht berücksichtigt und stellen keine Verpflichtung dar.",
       "descriptionByLocale": {
         "de": "Du suchst eine neue Herausforderung im IT-Umfeld, begeisterst dich für die Möglichkeiten von AI und möchtest diese dort einsetzen, wo sie echten Mehrwert schafft? Du bist eine innovative Persönlichkeit, denkst unternehmerisch, erkennst Optimierungspotenziale und setzt diese gemeinsam mit dem Business pragmatisch um? Gemeinsam mit den Fachbereichen treibst du die digitale Transformation des Konzerns voran und entwickelst innovative Lösungen mit messbarem Nutzen. Dann suchen wir dich für unsere neu geschaffene Position als AI Business Specialist (Real Estate Management) (m/w/d) 80-100% .\n\nDein Arbeitsort ist unser Hauptsitz im Ambassador House in Opfikon, mit der Möglichkeit, auch teilweise im Home-Office zu arbeiten.\n\n## Aufgaben\n\nWelche Aufgaben erwarten dich als AI Business Specialist (Real Estate Management) (m/w/d) 80-100%?\n\n•\nIn dieser Rolle entwickelst du gemeinsam mit den Fachbereichen AI-basierte Lösungen für das Real Estate Management und identifizierst konkrete Einsatzmöglichkeiten mit geschäftlichem Mehrwert.\n\n•\nDu analysierst fachliche Anforderungen und bestehende Geschäftsprozesse und übersetzt diese in technische AI- und Datenlösungen.\n\n•\nDu konzipierst und realisierst AI-Use-Cases selbstständig, von der Anforderungsanalyse über die technische Konzeption und Entwicklung bis zur Einführung im Arbeitsalltag.\n\n•\nDabei arbeitest du hands-on mit modernen AI-Technologien und Pro-Code-Ansätzen und setzt unter anderem Python und SQL sowie geeignete AI-Modelle, APIs und Plattformen ein.\n\n•\nDu arbeitest mit unterschiedlichen Datenquellen, analysierst und strukturierst Daten und entwickelst daraus skalierbare und praxisnahe Lösungen für das Real Estate Management.\n\n•\nAls Sparringspartner der Fachbereiche berätst du interne Stakeholder und unterstützt sie dabei, Business-Anforderungen in geeignete technologische Lösungen zu übersetzen.\n\n•\nDu befähigst Teams durch Schulungen, Workshops und Coaching, die entwickelten Lösungen zu verstehen und nachhaltig in ihren Arbeitsalltag zu integrieren.\n\n•\nDu bringst neue Ideen, Technologien und Arbeitsweisen ins Unternehmen ein und förderst deren sinnvollen und praxisnahen Einsatz innerhalb der Organisation.\n\n•\nAls verbindende Schnittstelle zwischen Real Estate Business und Technologie trägst du aktiv dazu bei, innovative AI-Lösungen im Unternehmen voranzutreiben und nachhaltig zu etablieren.\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als AI Business Specialist (Real Estate Management) (m/w/d) 80-100%?\n\n•\nDu verfügst über einen passenden fachlichen und technischen Hintergrund, beispielsweise durch relevante Berufserfahrung, eine Ausbildung, Weiterbildung oder ein Studium in Informatik, Wirtschaftsinformatik, Data Science, Digital Business oder einem vergleichbaren Bereich.\n\n•\nDu bringst fundierte Erfahrung in der Entwicklung und Umsetzung von AI- und Datenlösungen mit und verstehst es, fachliche Anforderungen in konkrete technische Lösungen zu übersetzen.\n\n•\nDu verfügst über praktische Erfahrung mit modernen AI-Technologien und Pro-Code-Ansätzen sowie gute Programmierkenntnisse, insbesondere in Python und SQL.\n\n•\nErfahrung im Real Estate Management bzw. in der Immobilienbranche ist von Vorteil.\n\n•\nDu interessierst dich für AI, Daten und digitale Innovationen und verfolgst aktuelle Entwicklungen mit Neugier, Offenheit und Begeisterung.\n\n•\nDu denkst vernetzt und unternehmerisch, erkennst Chancen und verstehst es, technologische Möglichkeiten in konkrete Lösungen mit einem nachvollziehbaren geschäftlichen Mehrwert zu übersetzen.\n\n•\nDu trittst beratend und überzeugend auf, kommunizierst sicher auf unterschiedlichen Ebenen und kannst verschiedene Anspruchsgruppen für neue Technologien und Lösungen begeistern.\n\n•\nDu arbeitest pragmatisch, selbstständig und lösungsorientiert und hast Freude daran, gemeinsam mit den Fachbereichen sichtbare und messbare Resultate zu erzielen.\n\n•\nDu verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\n## Benefits\n\n• Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle mit bis zu 40% Homeoffice\n\n• Eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\n• Eine spannende Auswahl an Benefits:\n\n• 5 Wochen Ferien (6 Wochen ab dem 50. Lebensjahr) und 9 bezahlte Brückentage\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• zahlreiche Preisnachlässe auf namhafte Anbieter von Produkt- und Dienstleistungen\n\nWieso unsere Mitarbeitenden gerne bei uns arbeiten, sagen sie dir gleich selbst in folgendem Video: https://youtu.be/wtuhlIfjJq8.\n\n## Wie läuft der Bewerbungsprozess bei Implenia ab?\n\nBei Implenia erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Implenia schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Über Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com.\n\n...\n\n*Wir bitten die Personalvermittler, keine unaufgeforderten Lebensläufe einzureichen. Alle Einsendungen werden nicht berücksichtigt und stellen keine Verpflichtung dar.",
-        "it": "Sei alla ricerca di una nuova sfida nell'ambiente IT, sei entusiasta delle possibilità di AI e vorresti usarlo dove crea un valore aggiunto reale? Sei una personalità innovativa, pensa imprenditoriale, riconosce il potenziale di ottimizzazione e lo implementa pragmaticamente insieme all'azienda? Insieme ai reparti, guiderai la trasformazione digitale del Gruppo e svilupperai soluzioni innovative con benefici misurabili. Allora siamo alla ricerca di voi per la nostra nuova posizione creata come AI Business Specialist (Real Estate Management) (m/f/d) 80-100%.\n\nIl vostro luogo di lavoro è la nostra sede nella Ambasciatrice House di Opfikon, con la possibilità di lavorare in parte nella sede.\n\n## Compiti\n\nQuali compiti vi aspettano come AI Business Specialist (Real Estate Management) (m/f/d) 80-100%?\n\n•\nIn questo ruolo, si sviluppano soluzioni basate su AI per la gestione immobiliare insieme alle aree specializzate e identificare applicazioni concrete con valore aggiunto aziendale.\n\n•\nAnalizzerai i requisiti professionali e i processi aziendali esistenti e li tradurrai in soluzioni tecniche AI e dati.\n\n•\nProgettare e realizzare casi di uso dell'intelligenza artificiale in modo indipendente, dall'analisi dei requisiti alla concezione tecnica e allo sviluppo all'implementazione nel lavoro quotidiano.\n\n•\nSi lavora hands-on con moderne tecnologie AI e approcci pro-code e utilizzare Python e SQL, nonché i modelli AI adatti, API e piattaforme.\n\n•\nSi lavora con diverse fonti di dati, analizzare e strutturare i dati e sviluppare soluzioni scalabili e pratiche per la gestione immobiliare.\n\n•\nCome partner sparring dei dipartimenti, si consiglia agli stakeholder interni e li supporta nel tradurre i requisiti aziendali in soluzioni tecnologiche adeguate.\n\n•\nPotenziate i team attraverso formazione, workshop e coaching per comprendere le soluzioni sviluppate e integrarle nel loro lavoro quotidiano.\n\n•\nPorti nuove idee, tecnologie e modi di lavorare in azienda e promuovi il loro uso significativo e pratico all'interno dell'organizzazione.\n\n•\nCome interfaccia di collegamento tra business immobiliare e tecnologia, si contribuisce attivamente a promuovere soluzioni AI innovative in azienda e stabilendoli in modo sostenibile.\n\n## Requisiti\n\nQuali requisiti porti come AI Business Specialist (Real Estate Management) (m/f/d) 80-100%?\n\n•\nHai uno sfondo professionale e tecnico adatto, ad esempio attraverso esperienza professionale rilevante, un'istruzione, un'ulteriore formazione o uno studio in informatica, informatica aziendale, scienza dei dati, business digitale o un campo comparabile.\n\n•\nHai una profonda esperienza nello sviluppo e nell'implementazione di soluzioni AI e dati e capire come tradurre i requisiti tecnici in soluzioni tecniche concrete.\n\n•\nHai esperienza pratica con le moderne tecnologie AI e approcci pro-code, così come buone capacità di programmazione, soprattutto in Python e SQL.\n\n•\nL'esperienza nella gestione immobiliare o nel settore immobiliare è vantaggioso.\n\n•\nSei interessato a AI, dati e innovazioni digitali e segui gli sviluppi attuali con curiosità, apertura e entusiasmo.\n\n•\nPensate connessi e imprenditoriali, riconoscete le opportunità e comprendete come tradurre le possibilità tecnologiche in soluzioni concrete con un valore aggiunto aziendale comprensibile.\n\n•\nSi agisce in modo consultivo e convincente, comunicare in modo sicuro a diversi livelli e può ispirare diversi stakeholder per nuove tecnologie e soluzioni.\n\n•\nLavorate in modo pragmatico, indipendente e orientato alla soluzione e godetevi di lavorare insieme alle aree specializzate per ottenere risultati visibili e misurabili.\n\n•\nHai una buona conoscenza del tedesco e dell'inglese in parola e nella scrittura.\n\n## Vantaggi\n\n• Un ambiente di lavoro multiculturale con la possibilità di plasmare un futuro degno di vivere\n\n• Tecnologie all'avanguardia e un luogo di lavoro contemporaneo in un'azienda sostenibile\n\n• Una società che promuove il talento e la formazione dei propri dipendenti\n\n• La sicurezza di un gruppo finanziariamente sano con radici forti in Svizzera\n\n• Modelli di lavoro flessibili con fino al 40% ufficio domestico\n\n• Eccellente assicurazione di viaggio per voi e coloro che vivono nella stessa famiglia\n\n• Una selezione emozionante di vantaggi:\n\n• 5 settimane di vacanza (6 settimane dall'età 50) e 9 giorni di ponte pagati\n\n• un fondo pensione interno con una copertura molto buona e 3 livelli di contributo\n\n• numerosi sconti sui noti fornitori di prodotti e servizi\n\nPerché i nostri dipendenti amano lavorare per noi, si raccontano nel seguente video: https://youtu.be/wtuhlIfjJq8.\n\n## Qual è il processo di applicazione a Implenia?\n\nA Implenia, puoi aspettarti un processo di applicazione semplice e trasparente:\n\n• Applicazione online con CV\n\n• Chiamata iniziale personale per telefono, digitalmente o sul sito\n\n• Seconda riunione e fase di offerta\n\n## Che altro è importante per noi\n\nA Implenia, apprezziamo e viviamo la diversità. Il nostro processo di reclutamento mira quindi a promuovere la diversità, l'uguaglianza e l'inclusione.\n\n## Informazioni su Implenia\n\nCome fornitore leader di servizi edili e immobiliari svizzeri, Implenia sviluppa, realizza e gestisce spazi abitativi, ambienti di lavoro e infrastrutture per le generazioni future in Svizzera e in Germania. Implenia offre anche progetti di tunnelling e infrastrutture correlate in altri mercati. L'azienda combina il know-how di unità di consulenza, sviluppo, pianificazione e esecuzione altamente qualificate sotto un tetto in un fornitore di servizi di costruzione e immobiliare integrato, multinazionale leader. Con sede a Opfikon vicino a Zurigo, Implenia impiega oltre 8.000 persone (FTE) in tutta Europa e ha raggiunto un fatturato di 3,5 miliardi di franchi nel 2025. Maggiori informazioni su implenia.com.\n\n...\n\n*Chiediamo ai reclutatori di non presentare CV non richiesti. Tutte le conclusioni non sono considerate e non costituiscono un obbligo.",
-        "en": "Are you looking for a new challenge in the IT environment, are you enthusiastic about the possibilities of AI and would like to use it where it creates real added value? You are an innovative personality, think entrepreneurially, recognize potential for optimization and implement it pragmatically together with the business? Together with the departments, you will drive the digital transformation of the Group and develop innovative solutions with measurable benefits. Then we are looking for you for our newly created position as AI Business Specialist (Real Estate Management) (m/f/d) 80-100%.\n\nYour place of work is our headquarters in the Ambassador House in Opfikon, with the possibility to work partly in the home office.\n\n## Tasks\n\nWhat tasks await you as an AI Business Specialist (Real Estate Management) (m/f/d) 80-100%?\n\n•\nIn this role, you develop AI-based solutions for real estate management together with the specialist areas and identify concrete applications with added business value.\n\n•\nYou will analyze professional requirements and existing business processes and translate them into technical AI and data solutions.\n\n•\nYou design and realize AI use cases independently, from requirements analysis to technical conception and development to implementation in everyday work.\n\n•\nYou work hands-on with modern AI technologies and pro-code approaches and use Python and SQL as well as suitable AI models, APIs and platforms.\n\n•\nYou work with different data sources, analyze and structure data and develop scalable and practical solutions for real estate management.\n\n•\nAs a sparring partner of the departments, you advise internal stakeholders and support them in translating business requirements into suitable technological solutions.\n\n•\nYou empower teams through training, workshops and coaching to understand the developed solutions and to integrate them into their everyday work.\n\n•\nYou bring new ideas, technologies and ways of working into the company and promote their meaningful and practical use within the organization.\n\n•\nAs a connecting interface between real estate business and technology, you actively contribute to advancing innovative AI solutions in the company and establishing them sustainably.\n\n## Requirements\n\nWhat requirements do you bring as an AI Business Specialist (Real Estate Management) (m/f/d) 80-100%?\n\n•\nYou have a suitable professional and technical background, for example through relevant professional experience, an education, further education or a study in computer science, business informatics, data science, digital business or a comparable field.\n\n•\nYou have profound experience in the development and implementation of AI and data solutions and understand how to translate technical requirements into concrete technical solutions.\n\n•\nYou have practical experience with modern AI technologies and pro-code approaches, as well as good programming skills, especially in Python and SQL.\n\n•\nExperience in real estate management or In the real estate industry is beneficial.\n\n•\nYou are interested in AI, data and digital innovations and follow current developments with curiosity, openness and enthusiasm.\n\n•\nYou think connected and entrepreneurial, recognize opportunities and understand how to translate technological possibilities into concrete solutions with a comprehensible business added value.\n\n•\nYou act in an advisory and convincing manner, communicate safely at different levels and can inspire different stakeholders for new technologies and solutions.\n\n•\nYou work pragmatically, independently and solution-oriented and enjoy working together with the specialist areas to achieve visible and measurable results.\n\n•\nYou have very good knowledge of German and English in word and writing.\n\n## Benefits\n\n• A multicultural working environment with the chance to shape a future worth living\n\n• State-of-the-art technologies and a contemporary workplace at a sustainable company\n\n• A company that promotes talent and the training of its employees\n\n• The security of a financially healthy, broad-based group with strong roots in Switzerland\n\n• Flexible working models with up to 40% home office\n\n• Excellent travel insurance for you and those living in the same household\n\n• An exciting selection of benefits:\n\n• 5 weeks of vacation (6 weeks from age 50) and 9 paid bridge days\n\n• an in-house pension fund with very good coverage and 3 contribution levels\n\n• numerous discounts on well-known suppliers of products and services\n\nWhy our employees like to work for us, they tell you themselves in the following video: https://youtu.be/wtuhlIfjJq8.\n\n## What is the application process at Implenia?\n\nAt Implenia, you can expect a simple and transparent application process:\n\n• Online application with CV\n\n• Personal initial call by telephone, digitally or on site\n\n• Second meeting and offer phase\n\n## What else is important to us\n\nAt Implenia, we value and live diversity. Our recruitment process is therefore aimed at promoting diversity, equality and inclusion.\n\n## About Implenia\n\nAs a leading Swiss construction and real estate service provider, Implenia develops, realizes and manages living spaces, working environments and infrastructure for future generations in Switzerland and Germany. Implenia also offers tunnelling and related infrastructure projects in other markets. The company combines the know-how of highly qualified consulting, development, planning and execution units under one roof into an integrated, multinationally leading construction and real estate service provider. Headquartered in Opfikon near Zurich, Implenia employs more than 8,000 people (FTE) across Europe and achieved a turnover of CHF 3.5 billion in 2025. More information at implenia.com.\n\n...\n\n*We ask recruiters not to submit unsolicited CVs. All submissions are not considered and do not constitute an obligation.",
-        "fr": "Cherchez-vous un nouveau défi dans l'environnement informatique, êtes-vous enthousiaste par les possibilités de l'IA et aimeriez-vous l'utiliser là où il crée une réelle valeur ajoutée? Vous êtes une personnalité innovante, pensez entrepreneurial, reconnaissez le potentiel d'optimisation et la mettre en œuvre de manière pragmatique avec l'entreprise? Avec les départements, vous piloterez la transformation numérique du Groupe et développerez des solutions innovantes avec des avantages mesurables. Ensuite, nous vous recherchons pour notre nouveau poste de spécialiste des affaires AI (Gestion immobilière) (h/f/d) 80-100%.\n\nVotre lieu de travail est notre siège à la Maison des Ambassadeurs à Opfikon, avec la possibilité de travailler en partie dans le bureau d'attache.\n\n## Tâche\n\nQuelles tâches vous attendent en tant que spécialiste en affaires de l'IA (gestion immobilière) (h/f/d) 80-100%?\n\n•\nDans ce rôle, vous développez des solutions basées sur l'IA pour la gestion immobilière avec les domaines spécialisés et identifiez des applications concrètes à valeur ajoutée.\n\n•\nVous analyserez les exigences professionnelles et les processus opérationnels existants et les traduireez en solutions techniques d'IA et de données.\n\n•\nVous concevez et réalisez des cas d'utilisation de l'IA indépendamment, de l'analyse des exigences à la conception et au développement techniques à la mise en œuvre dans le travail quotidien.\n\n•\nVous travaillez directement avec les technologies modernes d'IA et les approches pro-code et utilisez Python et SQL ainsi que des modèles, API et plates-formes d'IA adaptés.\n\n•\nVous travaillez avec différentes sources de données, analysez et structurez les données et développez des solutions évolutives et pratiques pour la gestion immobilière.\n\n•\nEn tant que partenaire des ministères, vous conseillez les intervenants internes et les aidez à traduire les exigences opérationnelles en solutions technologiques appropriées.\n\n•\nVous autonomisez les équipes par la formation, les ateliers et le coaching pour comprendre les solutions développées et les intégrer dans leur travail quotidien.\n\n•\nVous apportez de nouvelles idées, technologies et façons de travailler dans l'entreprise et de promouvoir leur utilisation significative et pratique au sein de l'organisation.\n\n•\nEn tant qu'interface de connexion entre l'activité immobilière et la technologie, vous contribuez activement à faire progresser les solutions d'IA innovantes dans l'entreprise et à les établir durablement.\n\n## Exigences\n\nQuelles sont les exigences que vous apportez en tant que spécialiste en affaires AI (Gestion immobilière) (h/f/d) 80-100%?\n\n•\nVous disposez d'une formation professionnelle et technique appropriée, par exemple par l'intermédiaire d'une expérience professionnelle pertinente, d'une formation, d'une formation complémentaire ou d'une étude en informatique, en informatique commerciale, en science des données, en commerce numérique ou dans un domaine comparable.\n\n•\nVous avez une expérience profonde dans le développement et la mise en œuvre de solutions d'IA et de données et comprenez comment traduire les exigences techniques en solutions techniques concrètes.\n\n•\nVous avez une expérience pratique des technologies modernes d'IA et des approches pro-code, ainsi que de bonnes compétences en programmation, en particulier en Python et SQL.\n\n•\nExpérience en gestion immobilière ou dans l'industrie immobilière est bénéfique.\n\n•\nVous êtes intéressé par l'IA, les données et les innovations numériques et suivez les développements actuels avec curiosité, ouverture et enthousiasme.\n\n•\nVous pensez connecté et entrepreneurial, reconnaître les opportunités et comprendre comment traduire les possibilités technologiques en solutions concrètes avec une valeur ajoutée commerciale compréhensible.\n\n•\nVous agissez de manière consultative et convaincante, communiquez en toute sécurité à différents niveaux et pouvez inspirer différentes parties prenantes pour de nouvelles technologies et solutions.\n\n•\nVous travaillez de façon pragmatique, indépendante et orientée vers la solution et vous aimez travailler avec les domaines spécialisés pour obtenir des résultats visibles et mesurables.\n\n•\nVous avez une très bonne connaissance de l'allemand et de l'anglais dans la parole et l'écriture.\n\n## Avantages\n\n• Un environnement de travail multiculturel avec la chance de façonner un avenir digne de vie\n\n• Des technologies de pointe et un lieu de travail contemporain dans une entreprise durable\n\n• Une entreprise qui promeut le talent et la formation de ses employés\n\n• La sécurité d'un groupe en bonne santé financière et à base large ayant de solides racines en Suisse\n\n• Modèles de travail flexibles avec jusqu'à 40% de bureaux à domicile\n\n• Excellente assurance voyage pour vous et ceux qui vivent dans le même ménage\n\n• Une sélection passionnante de bénéfices:\n\n• 5 semaines de vacances (6 semaines à partir de 50 ans) et 9 jours de pont payés\n\n• un fonds de pension interne avec une très bonne couverture et 3 niveaux de cotisation\n\n• de nombreux rabais sur les fournisseurs connus de produits et services\n\nPourquoi nos employés aiment travailler pour nous, ils vous disent eux-mêmes dans la vidéo suivante: https://youtu.be/wtuhlIfjJq8.\n\n## Quel est le processus de demande à Implenia?\n\nÀ Implenia, vous pouvez vous attendre à un processus de demande simple et transparent:\n\n• Demande en ligne avec CV\n\n• Appel personnel initial par téléphone, numériquement ou sur place\n\n• Deuxième réunion et phase d ' offre\n\n## Ce qui est important pour nous\n\nChez Implenia, nous valorisons et vivons la diversité. Notre processus de recrutement vise donc à promouvoir la diversité, l'égalité et l'inclusion.\n\n## À propos d'Implenia\n\nEn tant que premier fournisseur suisse de services immobiliers et de construction, Implenia développe, réalise et gère des espaces de vie, des environnements de travail et des infrastructures pour les générations futures en Suisse et en Allemagne. Implenia propose également des projets de tunnel et d'infrastructures connexes sur d'autres marchés. L'entreprise combine le savoir-faire d'unités hautement qualifiées de conseil, de développement, de planification et d'exécution sous un même toit en un fournisseur intégré de services immobiliers et de construction. Basée à Opfikon près de Zurich, Implenia emploie plus de 8 000 personnes (ETP) en Europe et a réalisé un chiffre d'affaires de 3,5 milliards de CHF en 2025. Plus d'informations sur implenia.com.\n\n...\n\n*Nous demandons aux recruteurs de ne pas soumettre de CV non sollicités. Toutes les présentations ne sont pas considérées et ne constituent pas une obligation."
+        "it": "Du suchst eine neue Herausforderung im IT-Umfeld, begeisterst dich für die Möglichkeiten von AI und möchtest diese dort einsetzen, wo sie echten Mehrwert schafft? Du bist eine innovative Persönlichkeit, denkst unternehmerisch, erkennst Optimierungspotenziale und setzt diese gemeinsam mit dem Business pragmatisch um? Gemeinsam mit den Fachbereichen treibst du die digitale Transformation des Konzerns voran und entwickelst innovative Lösungen mit messbarem Nutzen. Dann suchen wir dich für unsere neu geschaffene Position als AI Business Specialist (Real Estate Management) (m/w/d) 80-100% .\n\nDein Arbeitsort ist unser Hauptsitz im Ambassador House in Opfikon, mit der Möglichkeit, auch teilweise im Home-Office zu arbeiten.\n\n## Aufgaben\n\nWelche Aufgaben erwarten dich als AI Business Specialist (Real Estate Management) (m/w/d) 80-100%?\n\n•\nIn dieser Rolle entwickelst du gemeinsam mit den Fachbereichen AI-basierte Lösungen für das Real Estate Management und identifizierst konkrete Einsatzmöglichkeiten mit geschäftlichem Mehrwert.\n\n•\nDu analysierst fachliche Anforderungen und bestehende Geschäftsprozesse und übersetzt diese in technische AI- und Datenlösungen.\n\n•\nDu konzipierst und realisierst AI-Use-Cases selbstständig, von der Anforderungsanalyse über die technische Konzeption und Entwicklung bis zur Einführung im Arbeitsalltag.\n\n•\nDabei arbeitest du hands-on mit modernen AI-Technologien und Pro-Code-Ansätzen und setzt unter anderem Python und SQL sowie geeignete AI-Modelle, APIs und Plattformen ein.\n\n•\nDu arbeitest mit unterschiedlichen Datenquellen, analysierst und strukturierst Daten und entwickelst daraus skalierbare und praxisnahe Lösungen für das Real Estate Management.\n\n•\nAls Sparringspartner der Fachbereiche berätst du interne Stakeholder und unterstützt sie dabei, Business-Anforderungen in geeignete technologische Lösungen zu übersetzen.\n\n•\nDu befähigst Teams durch Schulungen, Workshops und Coaching, die entwickelten Lösungen zu verstehen und nachhaltig in ihren Arbeitsalltag zu integrieren.\n\n•\nDu bringst neue Ideen, Technologien und Arbeitsweisen ins Unternehmen ein und förderst deren sinnvollen und praxisnahen Einsatz innerhalb der Organisation.\n\n•\nAls verbindende Schnittstelle zwischen Real Estate Business und Technologie trägst du aktiv dazu bei, innovative AI-Lösungen im Unternehmen voranzutreiben und nachhaltig zu etablieren.\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als AI Business Specialist (Real Estate Management) (m/w/d) 80-100%?\n\n•\nDu verfügst über einen passenden fachlichen und technischen Hintergrund, beispielsweise durch relevante Berufserfahrung, eine Ausbildung, Weiterbildung oder ein Studium in Informatik, Wirtschaftsinformatik, Data Science, Digital Business oder einem vergleichbaren Bereich.\n\n•\nDu bringst fundierte Erfahrung in der Entwicklung und Umsetzung von AI- und Datenlösungen mit und verstehst es, fachliche Anforderungen in konkrete technische Lösungen zu übersetzen.\n\n•\nDu verfügst über praktische Erfahrung mit modernen AI-Technologien und Pro-Code-Ansätzen sowie gute Programmierkenntnisse, insbesondere in Python und SQL.\n\n•\nErfahrung im Real Estate Management bzw. in der Immobilienbranche ist von Vorteil.\n\n•\nDu interessierst dich für AI, Daten und digitale Innovationen und verfolgst aktuelle Entwicklungen mit Neugier, Offenheit und Begeisterung.\n\n•\nDu denkst vernetzt und unternehmerisch, erkennst Chancen und verstehst es, technologische Möglichkeiten in konkrete Lösungen mit einem nachvollziehbaren geschäftlichen Mehrwert zu übersetzen.\n\n•\nDu trittst beratend und überzeugend auf, kommunizierst sicher auf unterschiedlichen Ebenen und kannst verschiedene Anspruchsgruppen für neue Technologien und Lösungen begeistern.\n\n•\nDu arbeitest pragmatisch, selbstständig und lösungsorientiert und hast Freude daran, gemeinsam mit den Fachbereichen sichtbare und messbare Resultate zu erzielen.\n\n•\nDu verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\n## Benefits\n\n• Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle mit bis zu 40% Homeoffice\n\n• Eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\n• Eine spannende Auswahl an Benefits:\n\n• 5 Wochen Ferien (6 Wochen ab dem 50. Lebensjahr) und 9 bezahlte Brückentage\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• zahlreiche Preisnachlässe auf namhafte Anbieter von Produkt- und Dienstleistungen\n\nWieso unsere Mitarbeitenden gerne bei uns arbeiten, sagen sie dir gleich selbst in folgendem Video: https://youtu.be/wtuhlIfjJq8.\n\n## Wie läuft der Bewerbungsprozess bei Implenia ab?\n\nBei Implenia erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Implenia schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Über Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com.\n\n...\n\n*Wir bitten die Personalvermittler, keine unaufgeforderten Lebensläufe einzureichen. Alle Einsendungen werden nicht berücksichtigt und stellen keine Verpflichtung dar.",
+        "en": "Du suchst eine neue Herausforderung im IT-Umfeld, begeisterst dich für die Möglichkeiten von AI und möchtest diese dort einsetzen, wo sie echten Mehrwert schafft? Du bist eine innovative Persönlichkeit, denkst unternehmerisch, erkennst Optimierungspotenziale und setzt diese gemeinsam mit dem Business pragmatisch um? Gemeinsam mit den Fachbereichen treibst du die digitale Transformation des Konzerns voran und entwickelst innovative Lösungen mit messbarem Nutzen. Dann suchen wir dich für unsere neu geschaffene Position als AI Business Specialist (Real Estate Management) (m/w/d) 80-100% .\n\nDein Arbeitsort ist unser Hauptsitz im Ambassador House in Opfikon, mit der Möglichkeit, auch teilweise im Home-Office zu arbeiten.\n\n## Aufgaben\n\nWelche Aufgaben erwarten dich als AI Business Specialist (Real Estate Management) (m/w/d) 80-100%?\n\n•\nIn dieser Rolle entwickelst du gemeinsam mit den Fachbereichen AI-basierte Lösungen für das Real Estate Management und identifizierst konkrete Einsatzmöglichkeiten mit geschäftlichem Mehrwert.\n\n•\nDu analysierst fachliche Anforderungen und bestehende Geschäftsprozesse und übersetzt diese in technische AI- und Datenlösungen.\n\n•\nDu konzipierst und realisierst AI-Use-Cases selbstständig, von der Anforderungsanalyse über die technische Konzeption und Entwicklung bis zur Einführung im Arbeitsalltag.\n\n•\nDabei arbeitest du hands-on mit modernen AI-Technologien und Pro-Code-Ansätzen und setzt unter anderem Python und SQL sowie geeignete AI-Modelle, APIs und Plattformen ein.\n\n•\nDu arbeitest mit unterschiedlichen Datenquellen, analysierst und strukturierst Daten und entwickelst daraus skalierbare und praxisnahe Lösungen für das Real Estate Management.\n\n•\nAls Sparringspartner der Fachbereiche berätst du interne Stakeholder und unterstützt sie dabei, Business-Anforderungen in geeignete technologische Lösungen zu übersetzen.\n\n•\nDu befähigst Teams durch Schulungen, Workshops und Coaching, die entwickelten Lösungen zu verstehen und nachhaltig in ihren Arbeitsalltag zu integrieren.\n\n•\nDu bringst neue Ideen, Technologien und Arbeitsweisen ins Unternehmen ein und förderst deren sinnvollen und praxisnahen Einsatz innerhalb der Organisation.\n\n•\nAls verbindende Schnittstelle zwischen Real Estate Business und Technologie trägst du aktiv dazu bei, innovative AI-Lösungen im Unternehmen voranzutreiben und nachhaltig zu etablieren.\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als AI Business Specialist (Real Estate Management) (m/w/d) 80-100%?\n\n•\nDu verfügst über einen passenden fachlichen und technischen Hintergrund, beispielsweise durch relevante Berufserfahrung, eine Ausbildung, Weiterbildung oder ein Studium in Informatik, Wirtschaftsinformatik, Data Science, Digital Business oder einem vergleichbaren Bereich.\n\n•\nDu bringst fundierte Erfahrung in der Entwicklung und Umsetzung von AI- und Datenlösungen mit und verstehst es, fachliche Anforderungen in konkrete technische Lösungen zu übersetzen.\n\n•\nDu verfügst über praktische Erfahrung mit modernen AI-Technologien und Pro-Code-Ansätzen sowie gute Programmierkenntnisse, insbesondere in Python und SQL.\n\n•\nErfahrung im Real Estate Management bzw. in der Immobilienbranche ist von Vorteil.\n\n•\nDu interessierst dich für AI, Daten und digitale Innovationen und verfolgst aktuelle Entwicklungen mit Neugier, Offenheit und Begeisterung.\n\n•\nDu denkst vernetzt und unternehmerisch, erkennst Chancen und verstehst es, technologische Möglichkeiten in konkrete Lösungen mit einem nachvollziehbaren geschäftlichen Mehrwert zu übersetzen.\n\n•\nDu trittst beratend und überzeugend auf, kommunizierst sicher auf unterschiedlichen Ebenen und kannst verschiedene Anspruchsgruppen für neue Technologien und Lösungen begeistern.\n\n•\nDu arbeitest pragmatisch, selbstständig und lösungsorientiert und hast Freude daran, gemeinsam mit den Fachbereichen sichtbare und messbare Resultate zu erzielen.\n\n•\nDu verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\n## Benefits\n\n• Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle mit bis zu 40% Homeoffice\n\n• Eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\n• Eine spannende Auswahl an Benefits:\n\n• 5 Wochen Ferien (6 Wochen ab dem 50. Lebensjahr) und 9 bezahlte Brückentage\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• zahlreiche Preisnachlässe auf namhafte Anbieter von Produkt- und Dienstleistungen\n\nWieso unsere Mitarbeitenden gerne bei uns arbeiten, sagen sie dir gleich selbst in folgendem Video: https://youtu.be/wtuhlIfjJq8.\n\n## Wie läuft der Bewerbungsprozess bei Implenia ab?\n\nBei Implenia erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Implenia schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Über Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com.\n\n...\n\n*Wir bitten die Personalvermittler, keine unaufgeforderten Lebensläufe einzureichen. Alle Einsendungen werden nicht berücksichtigt und stellen keine Verpflichtung dar.",
+        "fr": "Du suchst eine neue Herausforderung im IT-Umfeld, begeisterst dich für die Möglichkeiten von AI und möchtest diese dort einsetzen, wo sie echten Mehrwert schafft? Du bist eine innovative Persönlichkeit, denkst unternehmerisch, erkennst Optimierungspotenziale und setzt diese gemeinsam mit dem Business pragmatisch um? Gemeinsam mit den Fachbereichen treibst du die digitale Transformation des Konzerns voran und entwickelst innovative Lösungen mit messbarem Nutzen. Dann suchen wir dich für unsere neu geschaffene Position als AI Business Specialist (Real Estate Management) (m/w/d) 80-100% .\n\nDein Arbeitsort ist unser Hauptsitz im Ambassador House in Opfikon, mit der Möglichkeit, auch teilweise im Home-Office zu arbeiten.\n\n## Aufgaben\n\nWelche Aufgaben erwarten dich als AI Business Specialist (Real Estate Management) (m/w/d) 80-100%?\n\n•\nIn dieser Rolle entwickelst du gemeinsam mit den Fachbereichen AI-basierte Lösungen für das Real Estate Management und identifizierst konkrete Einsatzmöglichkeiten mit geschäftlichem Mehrwert.\n\n•\nDu analysierst fachliche Anforderungen und bestehende Geschäftsprozesse und übersetzt diese in technische AI- und Datenlösungen.\n\n•\nDu konzipierst und realisierst AI-Use-Cases selbstständig, von der Anforderungsanalyse über die technische Konzeption und Entwicklung bis zur Einführung im Arbeitsalltag.\n\n•\nDabei arbeitest du hands-on mit modernen AI-Technologien und Pro-Code-Ansätzen und setzt unter anderem Python und SQL sowie geeignete AI-Modelle, APIs und Plattformen ein.\n\n•\nDu arbeitest mit unterschiedlichen Datenquellen, analysierst und strukturierst Daten und entwickelst daraus skalierbare und praxisnahe Lösungen für das Real Estate Management.\n\n•\nAls Sparringspartner der Fachbereiche berätst du interne Stakeholder und unterstützt sie dabei, Business-Anforderungen in geeignete technologische Lösungen zu übersetzen.\n\n•\nDu befähigst Teams durch Schulungen, Workshops und Coaching, die entwickelten Lösungen zu verstehen und nachhaltig in ihren Arbeitsalltag zu integrieren.\n\n•\nDu bringst neue Ideen, Technologien und Arbeitsweisen ins Unternehmen ein und förderst deren sinnvollen und praxisnahen Einsatz innerhalb der Organisation.\n\n•\nAls verbindende Schnittstelle zwischen Real Estate Business und Technologie trägst du aktiv dazu bei, innovative AI-Lösungen im Unternehmen voranzutreiben und nachhaltig zu etablieren.\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als AI Business Specialist (Real Estate Management) (m/w/d) 80-100%?\n\n•\nDu verfügst über einen passenden fachlichen und technischen Hintergrund, beispielsweise durch relevante Berufserfahrung, eine Ausbildung, Weiterbildung oder ein Studium in Informatik, Wirtschaftsinformatik, Data Science, Digital Business oder einem vergleichbaren Bereich.\n\n•\nDu bringst fundierte Erfahrung in der Entwicklung und Umsetzung von AI- und Datenlösungen mit und verstehst es, fachliche Anforderungen in konkrete technische Lösungen zu übersetzen.\n\n•\nDu verfügst über praktische Erfahrung mit modernen AI-Technologien und Pro-Code-Ansätzen sowie gute Programmierkenntnisse, insbesondere in Python und SQL.\n\n•\nErfahrung im Real Estate Management bzw. in der Immobilienbranche ist von Vorteil.\n\n•\nDu interessierst dich für AI, Daten und digitale Innovationen und verfolgst aktuelle Entwicklungen mit Neugier, Offenheit und Begeisterung.\n\n•\nDu denkst vernetzt und unternehmerisch, erkennst Chancen und verstehst es, technologische Möglichkeiten in konkrete Lösungen mit einem nachvollziehbaren geschäftlichen Mehrwert zu übersetzen.\n\n•\nDu trittst beratend und überzeugend auf, kommunizierst sicher auf unterschiedlichen Ebenen und kannst verschiedene Anspruchsgruppen für neue Technologien und Lösungen begeistern.\n\n•\nDu arbeitest pragmatisch, selbstständig und lösungsorientiert und hast Freude daran, gemeinsam mit den Fachbereichen sichtbare und messbare Resultate zu erzielen.\n\n•\nDu verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\n## Benefits\n\n• Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle mit bis zu 40% Homeoffice\n\n• Eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\n• Eine spannende Auswahl an Benefits:\n\n• 5 Wochen Ferien (6 Wochen ab dem 50. Lebensjahr) und 9 bezahlte Brückentage\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• zahlreiche Preisnachlässe auf namhafte Anbieter von Produkt- und Dienstleistungen\n\nWieso unsere Mitarbeitenden gerne bei uns arbeiten, sagen sie dir gleich selbst in folgendem Video: https://youtu.be/wtuhlIfjJq8.\n\n## Wie läuft der Bewerbungsprozess bei Implenia ab?\n\nBei Implenia erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Implenia schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Über Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com.\n\n...\n\n*Wir bitten die Personalvermittler, keine unaufgeforderten Lebensläufe einzureichen. Alle Einsendungen werden nicht berücksichtigt und stellen keine Verpflichtung dar."
       },
       "location": "Glattpark (Opfikon)",
       "canton": "ZH",
       "url": "https://jobs.implenia.com/job/AI-Business-Specialist-%28Real-Estate-Management%29-%28mwd%29-80-100/13880-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:45:33.939Z",
+      "crawledAt": "2026-10-23T09:38:37.244Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -6428,8 +6440,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T21:23:06.615Z"
+      "firstSeenAt": "2026-10-08T21:23:06.615Z",
+      "needsRetranslation": true
     }
   ],
-  "runId": "39856124150"
+  "runId": "39930862305"
 }

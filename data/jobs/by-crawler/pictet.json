@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-10-22T21:16:10.612Z",
-  "runId": "39855245159",
+  "assembledAt": "2026-10-23T09:19:33.298Z",
+  "runId": "39930088522",
   "jobs": [
     {
       "id": "pictet-db445e2a0d29",
@@ -79,7 +79,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "crawlerMissStreak": 1
     },
     {
       "id": "pictet-322536378fd5",
@@ -112,7 +113,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125032&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:16:03.369Z",
+      "crawledAt": "2026-10-23T09:19:27.658Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -192,7 +193,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125291&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:16:00.635Z",
+      "crawledAt": "2026-10-23T09:19:24.959Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -211,21 +212,6 @@
       "jobReqId": "125291",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-risk-manager-pictet-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-risk-manager-pictet-zurich"
-        ],
-        "de": [
-          "business-risk-manager-pictet-zurich"
-        ],
-        "fr": [
-          "business-risk-manager-pictet-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:23:24.028Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -239,7 +225,22 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "firstSeenAt": "2026-10-22T09:23:24.028Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-risk-manager-pictet-zurich"
+        ],
+        "de": [
+          "business-risk-manager-pictet-zurich"
+        ],
+        "fr": [
+          "business-risk-manager-pictet-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "business-risk-manager-pictet-zurich"
+      ]
     },
     {
       "id": "pictet-6fd1878b21fb",
@@ -272,7 +273,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125282&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:59.953Z",
+      "crawledAt": "2026-10-23T09:19:24.365Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -291,21 +292,6 @@
       "jobReqId": "125282",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "client-relationship-officer-eastern-europe-market-pictet-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "client-relationship-officer-eastern-europe-market-pictet-zurich"
-        ],
-        "de": [
-          "client-relationship-officer-eastern-europe-market-pictet-zurich"
-        ],
-        "fr": [
-          "client-relationship-officer-eastern-europe-market-pictet-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:23:23.325Z",
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -319,7 +305,22 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "firstSeenAt": "2026-10-22T09:23:23.325Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-eastern-europe-market-pictet-zurich"
+        ],
+        "de": [
+          "client-relationship-officer-eastern-europe-market-pictet-zurich"
+        ],
+        "fr": [
+          "client-relationship-officer-eastern-europe-market-pictet-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-eastern-europe-market-pictet-zurich"
+      ]
     },
     {
       "id": "pictet-b8312df4028c",
@@ -352,7 +353,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125252&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:58.316Z",
+      "crawledAt": "2026-10-23T09:19:22.994Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -371,18 +372,6 @@
       "jobReqId": "125252",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-22T09:23:21.437Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "financial-controlling-analyst-pictet-geneva"
-        ],
-        "fr": [
-          "financial-controlling-analyst-pictet-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "financial-controlling-analyst-pictet-geneva"
-      ],
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -396,7 +385,20 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "firstSeenAt": "2026-10-22T09:23:21.437Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-controlling-analyst-pictet-geneva"
+        ],
+        "fr": [
+          "financial-controlling-analyst-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "financial-controlling-analyst-pictet-geneva"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "pictet-00abbc675c37",
@@ -566,7 +568,7 @@
         "it": "consigliere-legale-squadra-investimenti-pictet-group-geneva",
         "en": "legal-adviser-investment-team-pictet-geneva",
         "de": "rechtsberater-investment-team-pictet-group-geneva",
-        "fr": "conseiller-juridique-equipe-d-investissement-pictet-group-geneva"
+        "fr": "legal-adviser-investment-team-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -611,7 +613,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-adviser-investment-team-pictet-geneva",
-        "legal-adviser-investment-team-pictet-group-geneva"
+        "conseiller-juridique-equipe-d-investissement-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -622,7 +624,7 @@
         ],
         "fr": [
           "legal-adviser-investment-team-pictet-geneva",
-          "legal-adviser-investment-team-pictet-group-geneva"
+          "conseiller-juridique-equipe-d-investissement-pictet-group-geneva"
         ]
       },
       "firstSeenAt": "2026-10-19T09:20:38.189Z",
@@ -721,6 +723,75 @@
       },
       "postalCode": "8001",
       "crawlerMissStreak": 2
+    },
+    {
+      "id": "pictet-698c61cc0947",
+      "slug": "senior-investment-specialist-pictet-geneva",
+      "slugByLocale": {
+        "en": "senior-investment-specialist-pictet-geneva",
+        "it": "senior-investment-specialist-pictet-geneva",
+        "de": "senior-investment-specialist-pictet-geneva",
+        "fr": "senior-investment-specialist-pictet-geneva"
+      },
+      "company": "Pictet Group",
+      "companyKey": "pictet",
+      "companyDomain": "pictet.com",
+      "title": "Senior Investment Specialist",
+      "titleByLocale": {
+        "en": "Senior Investment Specialist",
+        "it": "Senior Investment Specialista",
+        "de": "Senior Investment Spezialist",
+        "fr": "Senior Investment Spécialiste"
+      },
+      "description": "Your team\n\nPictet Wealth Management combines more than 220 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions and family office services.\n\nIts Geneva-based affiliate, Pictet North America Advisors (PNAA) , an SEC-registered independent Advisor, is seeking to recruit a Senior Investment Specialist to strengthen its Investment team .\n\nYour role\n\nYou will build tailored multi-asset solutions, advise clients directly, and help shape the investment content and product shelf. You will support CRMs’ business development activities by identifying and presenting the most suitable investment solutions. The role combines client-facing advice with portfolio analysis, research coordination, and investment risk oversight, all within the regulatory and tax framework applicable to US persons.\n\nKey Responsibilities\n\nClient advisory and service\n\n• Act as the investment point of contact for a portfolio of PNAA clients, alongside relationship managers; present ideas, proposals and portfolio reviews directly to clients.\n\n• Design and implement investment proposals (advisory mandates, discretionary portfolios, or hybrids), including large cash deployment, liquidity management and rollover of maturing instruments.\n\n• Perform in-depth portfolio analysis (asset allocation, concentration and liquidity risk) and recommend diversification strategies.\n\n• Advise on asset/liability management, including Lombard and credit-line exposures, collateral coverage and the impact of interest-rate changes.\n\n• Coordinate account onboardings and transfers with operations, portfolio managers and other internal teams.\n\nSupport to relationship managers\n\n• Respond to requests on portfolio reviews, bond and equity lists, mandate performance, specific instruments and market opportunities.\n\n• Work closely with relationship managers to increase share of wallet and expand the client base.\n\nInvestment research and product shelf\n\n• Write and distribute regular advisory notes on equities, fixed income, funds, commodities and thematic ideas, including relative-value trades and annual top-picks.\n\n• Contribute to recurring publications such as weekly market commentary, monthly reports and fund factsheets.\n\n• Coordinate investment case reviews with internal and external analysts, maintain the approved investment universe and help select high-conviction ideas.\n\n• Assess new products for the shelf (e.g. alternative funds, SMAs), ensuring suitability for US taxpayers.\n\n• Monitor firm-wide and client-level exposure to sensitive or downgraded instruments and coordinate remediation with relationship managers, clients and investment committees.\n\nPortfolio management support and projects\n\n• Provide cover for portfolio managers: invest/divest portfolios, rebalance, manage cash and trade short-term instruments (e.g. T-Bills, fiduciary deposits).\n\n• Contribute to strategic projects, including digital client communication, internal tools, process automation and new mandate offerings.\n\nYour profile\n\n• Master’s degree in finance or equivalent qualification.\n\n• Postgraduate CIIA/CFA (or similar) preferred.\n\n• At least 10 years’ investment advisory/management experience, including client-facing responsibilities.\n\n• Strong client focus; able to work effectively under pressure.\n\n• Ideally, cross-asset experience with emphasis on equities, bonds, derivatives, structured products and alternative investments.\n\n• Highest integrity, strong team spirit, and genuine passion for security analysis and investment management.\n\n• Excellent English, written and spoken; experience with US clients and regulatory framework is an asset.\n\n• Strong understanding of portfolio construction, investment processes and risk management.\n\n• Flexible, able to meet tight deadlines and manage multiple tasks, including administrative duties.\n\n• Able to communicate complex financial concepts clearly and persuasively, building strong client relationships.\n\n• Proven team player with the ability to work autonomously.\n\n• Residence in Switzerland required, or willingness to relocate.\n\nAs the successful applicant, you will be thorough and methodical in your approach to your work. In addition to excellent analytical skills and the ability to process information, you will have proven experience in the field of equity portfolio management. Your excellent communication skills will enable you to work closely with your colleagues.\n\nYou stand out for your results-driven customer-focused approach as well as your integrity and discretion. You show initiative and work accurately and autonomously, paying due regard to the confidential nature of the work allocated to you.\n\nRef: SIS/FT/MK\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+      "descriptionByLocale": {
+        "en": "Your team\n\nPictet Wealth Management combines more than 220 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions and family office services.\n\nIts Geneva-based affiliate, Pictet North America Advisors (PNAA) , an SEC-registered independent Advisor, is seeking to recruit a Senior Investment Specialist to strengthen its Investment team .\n\nYour role\n\nYou will build tailored multi-asset solutions, advise clients directly, and help shape the investment content and product shelf. You will support CRMs’ business development activities by identifying and presenting the most suitable investment solutions. The role combines client-facing advice with portfolio analysis, research coordination, and investment risk oversight, all within the regulatory and tax framework applicable to US persons.\n\nKey Responsibilities\n\nClient advisory and service\n\n• Act as the investment point of contact for a portfolio of PNAA clients, alongside relationship managers; present ideas, proposals and portfolio reviews directly to clients.\n\n• Design and implement investment proposals (advisory mandates, discretionary portfolios, or hybrids), including large cash deployment, liquidity management and rollover of maturing instruments.\n\n• Perform in-depth portfolio analysis (asset allocation, concentration and liquidity risk) and recommend diversification strategies.\n\n• Advise on asset/liability management, including Lombard and credit-line exposures, collateral coverage and the impact of interest-rate changes.\n\n• Coordinate account onboardings and transfers with operations, portfolio managers and other internal teams.\n\nSupport to relationship managers\n\n• Respond to requests on portfolio reviews, bond and equity lists, mandate performance, specific instruments and market opportunities.\n\n• Work closely with relationship managers to increase share of wallet and expand the client base.\n\nInvestment research and product shelf\n\n• Write and distribute regular advisory notes on equities, fixed income, funds, commodities and thematic ideas, including relative-value trades and annual top-picks.\n\n• Contribute to recurring publications such as weekly market commentary, monthly reports and fund factsheets.\n\n• Coordinate investment case reviews with internal and external analysts, maintain the approved investment universe and help select high-conviction ideas.\n\n• Assess new products for the shelf (e.g. alternative funds, SMAs), ensuring suitability for US taxpayers.\n\n• Monitor firm-wide and client-level exposure to sensitive or downgraded instruments and coordinate remediation with relationship managers, clients and investment committees.\n\nPortfolio management support and projects\n\n• Provide cover for portfolio managers: invest/divest portfolios, rebalance, manage cash and trade short-term instruments (e.g. T-Bills, fiduciary deposits).\n\n• Contribute to strategic projects, including digital client communication, internal tools, process automation and new mandate offerings.\n\nYour profile\n\n• Master’s degree in finance or equivalent qualification.\n\n• Postgraduate CIIA/CFA (or similar) preferred.\n\n• At least 10 years’ investment advisory/management experience, including client-facing responsibilities.\n\n• Strong client focus; able to work effectively under pressure.\n\n• Ideally, cross-asset experience with emphasis on equities, bonds, derivatives, structured products and alternative investments.\n\n• Highest integrity, strong team spirit, and genuine passion for security analysis and investment management.\n\n• Excellent English, written and spoken; experience with US clients and regulatory framework is an asset.\n\n• Strong understanding of portfolio construction, investment processes and risk management.\n\n• Flexible, able to meet tight deadlines and manage multiple tasks, including administrative duties.\n\n• Able to communicate complex financial concepts clearly and persuasively, building strong client relationships.\n\n• Proven team player with the ability to work autonomously.\n\n• Residence in Switzerland required, or willingness to relocate.\n\nAs the successful applicant, you will be thorough and methodical in your approach to your work. In addition to excellent analytical skills and the ability to process information, you will have proven experience in the field of equity portfolio management. Your excellent communication skills will enable you to work closely with your colleagues.\n\nYou stand out for your results-driven customer-focused approach as well as your integrity and discretion. You show initiative and work accurately and autonomously, paying due regard to the confidential nature of the work allocated to you.\n\nRef: SIS/FT/MK\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "it": "Your team\n\nPictet Wealth Management combines more than 220 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions and family office services.\n\nIts Geneva-based affiliate, Pictet North America Advisors (PNAA) , an SEC-registered independent Advisor, is seeking to recruit a Senior Investment Specialist to strengthen its Investment team .\n\nYour role\n\nYou will build tailored multi-asset solutions, advise clients directly, and help shape the investment content and product shelf. You will support CRMs’ business development activities by identifying and presenting the most suitable investment solutions. The role combines client-facing advice with portfolio analysis, research coordination, and investment risk oversight, all within the regulatory and tax framework applicable to US persons.\n\nKey Responsibilities\n\nClient advisory and service\n\n• Act as the investment point of contact for a portfolio of PNAA clients, alongside relationship managers; present ideas, proposals and portfolio reviews directly to clients.\n\n• Design and implement investment proposals (advisory mandates, discretionary portfolios, or hybrids), including large cash deployment, liquidity management and rollover of maturing instruments.\n\n• Perform in-depth portfolio analysis (asset allocation, concentration and liquidity risk) and recommend diversification strategies.\n\n• Advise on asset/liability management, including Lombard and credit-line exposures, collateral coverage and the impact of interest-rate changes.\n\n• Coordinate account onboardings and transfers with operations, portfolio managers and other internal teams.\n\nSupport to relationship managers\n\n• Respond to requests on portfolio reviews, bond and equity lists, mandate performance, specific instruments and market opportunities.\n\n• Work closely with relationship managers to increase share of wallet and expand the client base.\n\nInvestment research and product shelf\n\n• Write and distribute regular advisory notes on equities, fixed income, funds, commodities and thematic ideas, including relative-value trades and annual top-picks.\n\n• Contribute to recurring publications such as weekly market commentary, monthly reports and fund factsheets.\n\n• Coordinate investment case reviews with internal and external analysts, maintain the approved investment universe and help select high-conviction ideas.\n\n• Assess new products for the shelf (e.g. alternative funds, SMAs), ensuring suitability for US taxpayers.\n\n• Monitor firm-wide and client-level exposure to sensitive or downgraded instruments and coordinate remediation with relationship managers, clients and investment committees.\n\nPortfolio management support and projects\n\n• Provide cover for portfolio managers: invest/divest portfolios, rebalance, manage cash and trade short-term instruments (e.g. T-Bills, fiduciary deposits).\n\n• Contribute to strategic projects, including digital client communication, internal tools, process automation and new mandate offerings.\n\nYour profile\n\n• Master’s degree in finance or equivalent qualification.\n\n• Postgraduate CIIA/CFA (or similar) preferred.\n\n• At least 10 years’ investment advisory/management experience, including client-facing responsibilities.\n\n• Strong client focus; able to work effectively under pressure.\n\n• Ideally, cross-asset experience with emphasis on equities, bonds, derivatives, structured products and alternative investments.\n\n• Highest integrity, strong team spirit, and genuine passion for security analysis and investment management.\n\n• Excellent English, written and spoken; experience with US clients and regulatory framework is an asset.\n\n• Strong understanding of portfolio construction, investment processes and risk management.\n\n• Flexible, able to meet tight deadlines and manage multiple tasks, including administrative duties.\n\n• Able to communicate complex financial concepts clearly and persuasively, building strong client relationships.\n\n• Proven team player with the ability to work autonomously.\n\n• Residence in Switzerland required, or willingness to relocate.\n\nAs the successful applicant, you will be thorough and methodical in your approach to your work. In addition to excellent analytical skills and the ability to process information, you will have proven experience in the field of equity portfolio management. Your excellent communication skills will enable you to work closely with your colleagues.\n\nYou stand out for your results-driven customer-focused approach as well as your integrity and discretion. You show initiative and work accurately and autonomously, paying due regard to the confidential nature of the work allocated to you.\n\nRef: SIS/FT/MK\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "de": "Your team\n\nPictet Wealth Management combines more than 220 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions and family office services.\n\nIts Geneva-based affiliate, Pictet North America Advisors (PNAA) , an SEC-registered independent Advisor, is seeking to recruit a Senior Investment Specialist to strengthen its Investment team .\n\nYour role\n\nYou will build tailored multi-asset solutions, advise clients directly, and help shape the investment content and product shelf. You will support CRMs’ business development activities by identifying and presenting the most suitable investment solutions. The role combines client-facing advice with portfolio analysis, research coordination, and investment risk oversight, all within the regulatory and tax framework applicable to US persons.\n\nKey Responsibilities\n\nClient advisory and service\n\n• Act as the investment point of contact for a portfolio of PNAA clients, alongside relationship managers; present ideas, proposals and portfolio reviews directly to clients.\n\n• Design and implement investment proposals (advisory mandates, discretionary portfolios, or hybrids), including large cash deployment, liquidity management and rollover of maturing instruments.\n\n• Perform in-depth portfolio analysis (asset allocation, concentration and liquidity risk) and recommend diversification strategies.\n\n• Advise on asset/liability management, including Lombard and credit-line exposures, collateral coverage and the impact of interest-rate changes.\n\n• Coordinate account onboardings and transfers with operations, portfolio managers and other internal teams.\n\nSupport to relationship managers\n\n• Respond to requests on portfolio reviews, bond and equity lists, mandate performance, specific instruments and market opportunities.\n\n• Work closely with relationship managers to increase share of wallet and expand the client base.\n\nInvestment research and product shelf\n\n• Write and distribute regular advisory notes on equities, fixed income, funds, commodities and thematic ideas, including relative-value trades and annual top-picks.\n\n• Contribute to recurring publications such as weekly market commentary, monthly reports and fund factsheets.\n\n• Coordinate investment case reviews with internal and external analysts, maintain the approved investment universe and help select high-conviction ideas.\n\n• Assess new products for the shelf (e.g. alternative funds, SMAs), ensuring suitability for US taxpayers.\n\n• Monitor firm-wide and client-level exposure to sensitive or downgraded instruments and coordinate remediation with relationship managers, clients and investment committees.\n\nPortfolio management support and projects\n\n• Provide cover for portfolio managers: invest/divest portfolios, rebalance, manage cash and trade short-term instruments (e.g. T-Bills, fiduciary deposits).\n\n• Contribute to strategic projects, including digital client communication, internal tools, process automation and new mandate offerings.\n\nYour profile\n\n• Master’s degree in finance or equivalent qualification.\n\n• Postgraduate CIIA/CFA (or similar) preferred.\n\n• At least 10 years’ investment advisory/management experience, including client-facing responsibilities.\n\n• Strong client focus; able to work effectively under pressure.\n\n• Ideally, cross-asset experience with emphasis on equities, bonds, derivatives, structured products and alternative investments.\n\n• Highest integrity, strong team spirit, and genuine passion for security analysis and investment management.\n\n• Excellent English, written and spoken; experience with US clients and regulatory framework is an asset.\n\n• Strong understanding of portfolio construction, investment processes and risk management.\n\n• Flexible, able to meet tight deadlines and manage multiple tasks, including administrative duties.\n\n• Able to communicate complex financial concepts clearly and persuasively, building strong client relationships.\n\n• Proven team player with the ability to work autonomously.\n\n• Residence in Switzerland required, or willingness to relocate.\n\nAs the successful applicant, you will be thorough and methodical in your approach to your work. In addition to excellent analytical skills and the ability to process information, you will have proven experience in the field of equity portfolio management. Your excellent communication skills will enable you to work closely with your colleagues.\n\nYou stand out for your results-driven customer-focused approach as well as your integrity and discretion. You show initiative and work accurately and autonomously, paying due regard to the confidential nature of the work allocated to you.\n\nRef: SIS/FT/MK\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "fr": "Your team\n\nPictet Wealth Management combines more than 220 years of Swiss banking heritage with global investment expertise. The Partner-owned financial services group offers a comprehensive service for wealthy individuals and families, including discretionary and advisory investment solutions and family office services.\n\nIts Geneva-based affiliate, Pictet North America Advisors (PNAA) , an SEC-registered independent Advisor, is seeking to recruit a Senior Investment Specialist to strengthen its Investment team .\n\nYour role\n\nYou will build tailored multi-asset solutions, advise clients directly, and help shape the investment content and product shelf. You will support CRMs’ business development activities by identifying and presenting the most suitable investment solutions. The role combines client-facing advice with portfolio analysis, research coordination, and investment risk oversight, all within the regulatory and tax framework applicable to US persons.\n\nKey Responsibilities\n\nClient advisory and service\n\n• Act as the investment point of contact for a portfolio of PNAA clients, alongside relationship managers; present ideas, proposals and portfolio reviews directly to clients.\n\n• Design and implement investment proposals (advisory mandates, discretionary portfolios, or hybrids), including large cash deployment, liquidity management and rollover of maturing instruments.\n\n• Perform in-depth portfolio analysis (asset allocation, concentration and liquidity risk) and recommend diversification strategies.\n\n• Advise on asset/liability management, including Lombard and credit-line exposures, collateral coverage and the impact of interest-rate changes.\n\n• Coordinate account onboardings and transfers with operations, portfolio managers and other internal teams.\n\nSupport to relationship managers\n\n• Respond to requests on portfolio reviews, bond and equity lists, mandate performance, specific instruments and market opportunities.\n\n• Work closely with relationship managers to increase share of wallet and expand the client base.\n\nInvestment research and product shelf\n\n• Write and distribute regular advisory notes on equities, fixed income, funds, commodities and thematic ideas, including relative-value trades and annual top-picks.\n\n• Contribute to recurring publications such as weekly market commentary, monthly reports and fund factsheets.\n\n• Coordinate investment case reviews with internal and external analysts, maintain the approved investment universe and help select high-conviction ideas.\n\n• Assess new products for the shelf (e.g. alternative funds, SMAs), ensuring suitability for US taxpayers.\n\n• Monitor firm-wide and client-level exposure to sensitive or downgraded instruments and coordinate remediation with relationship managers, clients and investment committees.\n\nPortfolio management support and projects\n\n• Provide cover for portfolio managers: invest/divest portfolios, rebalance, manage cash and trade short-term instruments (e.g. T-Bills, fiduciary deposits).\n\n• Contribute to strategic projects, including digital client communication, internal tools, process automation and new mandate offerings.\n\nYour profile\n\n• Master’s degree in finance or equivalent qualification.\n\n• Postgraduate CIIA/CFA (or similar) preferred.\n\n• At least 10 years’ investment advisory/management experience, including client-facing responsibilities.\n\n• Strong client focus; able to work effectively under pressure.\n\n• Ideally, cross-asset experience with emphasis on equities, bonds, derivatives, structured products and alternative investments.\n\n• Highest integrity, strong team spirit, and genuine passion for security analysis and investment management.\n\n• Excellent English, written and spoken; experience with US clients and regulatory framework is an asset.\n\n• Strong understanding of portfolio construction, investment processes and risk management.\n\n• Flexible, able to meet tight deadlines and manage multiple tasks, including administrative duties.\n\n• Able to communicate complex financial concepts clearly and persuasively, building strong client relationships.\n\n• Proven team player with the ability to work autonomously.\n\n• Residence in Switzerland required, or willingness to relocate.\n\nAs the successful applicant, you will be thorough and methodical in your approach to your work. In addition to excellent analytical skills and the ability to process information, you will have proven experience in the field of equity portfolio management. Your excellent communication skills will enable you to work closely with your colleagues.\n\nYou stand out for your results-driven customer-focused approach as well as your integrity and discretion. You show initiative and work accurately and autonomously, paying due regard to the confidential nature of the work allocated to you.\n\nRef: SIS/FT/MK\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below"
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125144&selected_lang=en_GB",
+      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-23T09:19:22.067Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Finanza / Banca privata",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125144&selected_lang=en_GB",
+      "jobReqId": "125144",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 174500,
+      "salaryMax": 306000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 174500,
+          "maxValue": 306000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204",
+      "firstSeenAt": "2026-10-23T09:19:22.067Z"
     }
   ]
 }

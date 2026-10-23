@@ -337,7 +337,10 @@ describe('expanded plate-auction connectors', () => {
     });
     const originalFetch = globalThis.fetch;
     globalThis.fetch = vi.fn(async (url: string | URL) => {
-      expect(String(url)).toBe(SZ_PUBLIC_API_RELAY_URL);
+      const relayRequestUrl = new URL(String(url));
+      expect(`${relayRequestUrl.origin}${relayRequestUrl.pathname}`).toBe(SZ_PUBLIC_API_RELAY_URL);
+      expect(relayRequestUrl.searchParams.get('source')).toBe('sz');
+      expect(relayRequestUrl.searchParams.get('fresh')).toBe(String(new Date('2026-09-15T09:00:00.000Z').getTime()));
       return new Response(apiResponse, { status: 200 });
     }) as typeof fetch;
 

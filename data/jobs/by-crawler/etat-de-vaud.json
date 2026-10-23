@@ -1,7 +1,7 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-10-22T21:46:17.257Z",
-  "runId": "39856271430",
+  "assembledAt": "2026-10-23T09:45:32.921Z",
+  "runId": "39930988141",
   "jobs": [
     {
       "id": "etat-de-vaud-5725",
@@ -34,7 +34,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5725",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:10.230Z",
+      "crawledAt": "2026-10-23T09:45:24.648Z",
       "addressLocality": "Puidoux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5956",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:09.776Z",
+      "crawledAt": "2026-10-23T09:45:24.195Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5966",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:09.316Z",
+      "crawledAt": "2026-10-23T09:45:23.736Z",
       "addressLocality": "Grandson",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -271,7 +271,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5896",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:08.852Z",
+      "crawledAt": "2026-10-23T09:45:23.278Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -356,7 +356,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5978",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:08.402Z",
+      "crawledAt": "2026-10-23T09:45:22.827Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -430,7 +430,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5927",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:07.949Z",
+      "crawledAt": "2026-10-23T09:45:22.376Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -504,7 +504,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5986",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:07.495Z",
+      "crawledAt": "2026-10-23T09:45:21.914Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -578,7 +578,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5985",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:07.040Z",
+      "crawledAt": "2026-10-23T09:45:21.453Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -652,7 +652,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5983",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:06.565Z",
+      "crawledAt": "2026-10-23T09:45:20.962Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -726,7 +726,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6007",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:06.104Z",
+      "crawledAt": "2026-10-23T09:45:20.475Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -855,7 +855,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-6024",
@@ -888,7 +889,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6024",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:05.174Z",
+      "crawledAt": "2026-10-23T09:45:20.006Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -968,7 +969,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6017",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:04.717Z",
+      "crawledAt": "2026-10-23T09:45:19.551Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1048,7 +1049,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6008",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:04.269Z",
+      "crawledAt": "2026-10-23T09:45:19.092Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1130,7 +1131,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6001",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:03.815Z",
+      "crawledAt": "2026-10-23T09:45:18.636Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1212,7 +1213,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5990",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:03.356Z",
+      "crawledAt": "2026-10-23T09:45:18.181Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1292,7 +1293,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5989",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:02.896Z",
+      "crawledAt": "2026-10-23T09:45:17.725Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1372,7 +1373,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5977",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:02.442Z",
+      "crawledAt": "2026-10-23T09:45:17.267Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1452,7 +1453,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5939",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:01.986Z",
+      "crawledAt": "2026-10-23T09:45:16.801Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1526,7 +1527,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6030",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:01.530Z",
+      "crawledAt": "2026-10-23T09:45:16.347Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1608,7 +1609,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6025",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:01.074Z",
+      "crawledAt": "2026-10-23T09:45:15.885Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1690,7 +1691,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6031",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:00.618Z",
+      "crawledAt": "2026-10-23T09:45:15.429Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1770,7 +1771,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6009",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:46:00.157Z",
+      "crawledAt": "2026-10-23T09:45:14.971Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1852,7 +1853,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5996",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:59.682Z",
+      "crawledAt": "2026-10-23T09:45:14.517Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1932,7 +1933,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6044",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:59.212Z",
+      "crawledAt": "2026-10-23T09:45:14.067Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2012,7 +2013,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6037",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:58.758Z",
+      "crawledAt": "2026-10-23T09:45:13.607Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2096,7 +2097,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6026",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:58.287Z",
+      "crawledAt": "2026-10-23T09:45:13.143Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2176,7 +2177,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6027",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:57.831Z",
+      "crawledAt": "2026-10-23T09:45:12.686Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2256,7 +2257,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6021",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:57.359Z",
+      "crawledAt": "2026-10-23T09:45:12.233Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2336,7 +2337,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6042",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:56.904Z",
+      "crawledAt": "2026-10-23T09:45:11.781Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2418,7 +2419,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6040",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:56.449Z",
+      "crawledAt": "2026-10-23T09:45:11.332Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2498,7 +2499,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6043",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:55.998Z",
+      "crawledAt": "2026-10-23T09:45:10.884Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2578,7 +2579,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6032",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:55.529Z",
+      "crawledAt": "2026-10-23T09:45:10.408Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2658,7 +2659,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5980",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:55.074Z",
+      "crawledAt": "2026-10-23T09:45:09.950Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2738,7 +2739,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6048",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:54.624Z",
+      "crawledAt": "2026-10-23T09:45:09.387Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2818,7 +2819,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6039",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:54.160Z",
+      "crawledAt": "2026-10-23T09:45:08.932Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2898,7 +2899,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6022",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:53.656Z",
+      "crawledAt": "2026-10-23T09:45:08.468Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2978,7 +2979,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5934",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:53.203Z",
+      "crawledAt": "2026-10-23T09:45:08.013Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3058,7 +3059,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6059",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:52.728Z",
+      "crawledAt": "2026-10-23T09:45:07.526Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3078,21 +3079,6 @@
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6059",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "teleconseiller-ere-etat-de-vaud-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teleconseiller-ere-etat-de-vaud-lausanne"
-        ],
-        "en": [
-          "teleconseiller-ere-etat-de-vaud-lausanne"
-        ],
-        "de": [
-          "teleconseiller-ere-etat-de-vaud-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3105,7 +3091,22 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teleconseiller-ere-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "teleconseiller-ere-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "teleconseiller-ere-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "teleconseiller-ere-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6055",
@@ -3138,7 +3139,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6055",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:52.274Z",
+      "crawledAt": "2026-10-23T09:45:07.072Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3158,21 +3159,6 @@
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6055",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "responsable-du-domaine-exploitation-etat-de-vaud-morges"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsable-du-domaine-exploitation-etat-de-vaud-morges"
-        ],
-        "en": [
-          "responsable-du-domaine-exploitation-etat-de-vaud-morges"
-        ],
-        "de": [
-          "responsable-du-domaine-exploitation-etat-de-vaud-morges"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:32:52.468Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3185,7 +3171,22 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:32:52.468Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-domaine-exploitation-etat-de-vaud-morges"
+        ],
+        "en": [
+          "responsable-du-domaine-exploitation-etat-de-vaud-morges"
+        ],
+        "de": [
+          "responsable-du-domaine-exploitation-etat-de-vaud-morges"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-du-domaine-exploitation-etat-de-vaud-morges"
+      ]
     },
     {
       "id": "etat-de-vaud-6054",
@@ -3218,7 +3219,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6054",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:51.808Z",
+      "crawledAt": "2026-10-23T09:45:06.618Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3238,21 +3239,6 @@
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6054",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
-        ],
-        "en": [
-          "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
-        ],
-        "de": [
-          "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:32:52.032Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3265,7 +3251,22 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:32:52.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
+        ],
+        "en": [
+          "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
+        ],
+        "de": [
+          "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
+      ]
     },
     {
       "id": "etat-de-vaud-6051",
@@ -3298,7 +3299,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6051",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:51.354Z",
+      "crawledAt": "2026-10-23T09:45:06.155Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3318,21 +3319,6 @@
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6051",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
-        ],
-        "en": [
-          "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
-        ],
-        "de": [
-          "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:32:51.588Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -3345,7 +3331,22 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:32:51.588Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6047",
@@ -3378,7 +3379,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6047",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:45:50.885Z",
+      "crawledAt": "2026-10-23T09:45:05.690Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3398,21 +3399,6 @@
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6047",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "secretaire-de-direction-etat-de-vaud-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-de-direction-etat-de-vaud-lausanne"
-        ],
-        "en": [
-          "secretaire-de-direction-etat-de-vaud-lausanne"
-        ],
-        "de": [
-          "secretaire-de-direction-etat-de-vaud-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:24.618Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3425,7 +3411,22 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-direction-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "secretaire-de-direction-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "secretaire-de-direction-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-de-direction-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5891",
@@ -4034,6 +4035,282 @@
         }
       },
       "crawlerMissStreak": 2
+    },
+    {
+      "id": "etat-de-vaud-6060",
+      "slug": "specialiste-en-gestion-des-identites-et-des-acces-iam-etat-de-vaud-renens-vd",
+      "slugByLocale": {
+        "fr": "specialiste-en-gestion-des-identites-et-des-acces-iam-etat-de-vaud-renens-vd",
+        "it": "specialiste-en-gestion-des-identites-et-des-acces-iam-etat-de-vaud-renens-vd",
+        "en": "specialiste-en-gestion-des-identites-et-des-acces-iam-etat-de-vaud-renens-vd",
+        "de": "specialiste-en-gestion-des-identites-et-des-acces-iam-etat-de-vaud-renens-vd"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Spécialiste en gestion des identités et des accès (IAM)",
+      "titleByLocale": {
+        "fr": "Spécialiste en gestion des identités et des accès (IAM)",
+        "it": "Spécialiste en gestion des identités et des accès (IAM)",
+        "en": "Spécialiste en gestion des identités et des accès (IAM)",
+        "de": "Spécialiste en gestion des identités et des accès (IAM)"
+      },
+      "description": "Dans le cadre d’un remplacement, la Direction générale du numérique et des systèmes d’information (DGNSI) de l’État de Vaud recherche un-e Spécialiste sécurité IAM pour une mission à durée déterminée, du 18 janvier au 31 juillet 2027. Vous êtes spécialiste en sécurité des systèmes d’information et disposez d’une solide expertise en gestion des identités numériques et des accès (IAM) ? Vous souhaitez mettre vos compétences au service des systèmes d’information de l’administration cantonale vaudoise (ACV) et contribuer à la protection de ses données et infrastructures numériques ? Rejoignez notre équipe et participez activement au renforcement de la sécurité du système d’information cantonal, à la maîtrise des risques et à l’amélioration continue des processus de gestion des identités et des accès.\n\n• Sécurité des systèmes d’information et IAM : contribuer à la mise en œuvre de la stratégie et des standards d’architecture de sécurité, identifier les risques et recommander les mesures de protection adaptées.\n• Gestion des identités et des accès : piloter, coordonner et administrer les différentes campagnes de recertification des identités numériques et de leurs droits d’accès, traiter les demandes de support relevant du périmètre IAG (gouvernance des identités et des accès) et contribuer à l’amélioration des processus associés.\n• Gestion des risques et conformité : participer à la mise en œuvre opérationnelle du système de management de la sécurité de l’information (SMSI), notamment selon la norme ISO 27001, ainsi qu’à l’appréciation et au traitement des risques.\n• Accompagnement des projets : apporter une expertise en sécurité lors du développement ou de l’acquisition de solutions informatiques, évaluer les exigences de sécurité et contribuer à l’intégration des mesures de protection.\n• Conseil et sensibilisation : accompagner les équipes, conseiller les spécialistes et sensibiliser les collaboratrices et collaborateurs aux risques liés à la sécurité de l’information et aux bonnes pratiques.\n• Veille technologique : suivre l’évolution des menaces, des technologies et des standards de sécurité, puis partager les informations pertinentes avec les équipes concernées. CV en français et lettre de candidature au format PDF. Merci de joindre également les certificats de travail et diplômes. Pour tout renseignement complémentaire, veuillez consulter le cahier des charges en cliquant ici ou contacter le responsable d'entité Identité, Accès , Jean-Philippe Chautard (jean-philippe.chautard@vd.ch ) qui est à votre disposition.\n\n• Brevet fédéral d’informaticien ou titre jugé équivalent.\n• Au minimum cinq ans d’expérience dans le domaine de la sécurité des systèmes d’information.\n• Expérience confirmée en gestion des identités numériques et des cycles de vie des comptes et des accès.\n• Expérience pratique avec une solution IAM et dans la gestion des habilitations et des droits d’accès.\n• Expérience dans l’administration et la gestion des objets Active Directory et MS Exchange.\n• Bonnes connaissances générales de la sécurité informatique : réseaux, applications, bases de données et middleware.\n• Connaissance de la norme ISO 27001 et, idéalement, expérience de sa mise en œuvre et du maintien de la conformité.\n• Connaissances des référentiels et standards de sécurité tels que les CIS Controls et le NIST.\n• Connaissances de Linux, LDAP et PowerShell ; une familiarité avec l’environnement EasyVista constitue un atout.\n• Un postgrade en sécurité de l’information et une certification CISSP sont souhaités.\n• Anglais de niveau B2 et allemand de niveau B1 souhaités. Contraintes particulières :\n• Accréditation Police exigée\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Dans le cadre d’un remplacement, la Direction générale du numérique et des systèmes d’information (DGNSI) de l’État de Vaud recherche un-e Spécialiste sécurité IAM pour une mission à durée déterminée, du 18 janvier au 31 juillet 2027. Vous êtes spécialiste en sécurité des systèmes d’information et disposez d’une solide expertise en gestion des identités numériques et des accès (IAM) ? Vous souhaitez mettre vos compétences au service des systèmes d’information de l’administration cantonale vaudoise (ACV) et contribuer à la protection de ses données et infrastructures numériques ? Rejoignez notre équipe et participez activement au renforcement de la sécurité du système d’information cantonal, à la maîtrise des risques et à l’amélioration continue des processus de gestion des identités et des accès.\n\n• Sécurité des systèmes d’information et IAM : contribuer à la mise en œuvre de la stratégie et des standards d’architecture de sécurité, identifier les risques et recommander les mesures de protection adaptées.\n• Gestion des identités et des accès : piloter, coordonner et administrer les différentes campagnes de recertification des identités numériques et de leurs droits d’accès, traiter les demandes de support relevant du périmètre IAG (gouvernance des identités et des accès) et contribuer à l’amélioration des processus associés.\n• Gestion des risques et conformité : participer à la mise en œuvre opérationnelle du système de management de la sécurité de l’information (SMSI), notamment selon la norme ISO 27001, ainsi qu’à l’appréciation et au traitement des risques.\n• Accompagnement des projets : apporter une expertise en sécurité lors du développement ou de l’acquisition de solutions informatiques, évaluer les exigences de sécurité et contribuer à l’intégration des mesures de protection.\n• Conseil et sensibilisation : accompagner les équipes, conseiller les spécialistes et sensibiliser les collaboratrices et collaborateurs aux risques liés à la sécurité de l’information et aux bonnes pratiques.\n• Veille technologique : suivre l’évolution des menaces, des technologies et des standards de sécurité, puis partager les informations pertinentes avec les équipes concernées. CV en français et lettre de candidature au format PDF. Merci de joindre également les certificats de travail et diplômes. Pour tout renseignement complémentaire, veuillez consulter le cahier des charges en cliquant ici ou contacter le responsable d'entité Identité, Accès , Jean-Philippe Chautard (jean-philippe.chautard@vd.ch ) qui est à votre disposition.\n\n• Brevet fédéral d’informaticien ou titre jugé équivalent.\n• Au minimum cinq ans d’expérience dans le domaine de la sécurité des systèmes d’information.\n• Expérience confirmée en gestion des identités numériques et des cycles de vie des comptes et des accès.\n• Expérience pratique avec une solution IAM et dans la gestion des habilitations et des droits d’accès.\n• Expérience dans l’administration et la gestion des objets Active Directory et MS Exchange.\n• Bonnes connaissances générales de la sécurité informatique : réseaux, applications, bases de données et middleware.\n• Connaissance de la norme ISO 27001 et, idéalement, expérience de sa mise en œuvre et du maintien de la conformité.\n• Connaissances des référentiels et standards de sécurité tels que les CIS Controls et le NIST.\n• Connaissances de Linux, LDAP et PowerShell ; une familiarité avec l’environnement EasyVista constitue un atout.\n• Un postgrade en sécurité de l’information et une certification CISSP sont souhaités.\n• Anglais de niveau B2 et allemand de niveau B1 souhaités. Contraintes particulières :\n• Accréditation Police exigée\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Dans le cadre d’un remplacement, la Direction générale du numérique et des systèmes d’information (DGNSI) de l’État de Vaud recherche un-e Spécialiste sécurité IAM pour une mission à durée déterminée, du 18 janvier au 31 juillet 2027. Vous êtes spécialiste en sécurité des systèmes d’information et disposez d’une solide expertise en gestion des identités numériques et des accès (IAM) ? Vous souhaitez mettre vos compétences au service des systèmes d’information de l’administration cantonale vaudoise (ACV) et contribuer à la protection de ses données et infrastructures numériques ? Rejoignez notre équipe et participez activement au renforcement de la sécurité du système d’information cantonal, à la maîtrise des risques et à l’amélioration continue des processus de gestion des identités et des accès.\n\n• Sécurité des systèmes d’information et IAM : contribuer à la mise en œuvre de la stratégie et des standards d’architecture de sécurité, identifier les risques et recommander les mesures de protection adaptées.\n• Gestion des identités et des accès : piloter, coordonner et administrer les différentes campagnes de recertification des identités numériques et de leurs droits d’accès, traiter les demandes de support relevant du périmètre IAG (gouvernance des identités et des accès) et contribuer à l’amélioration des processus associés.\n• Gestion des risques et conformité : participer à la mise en œuvre opérationnelle du système de management de la sécurité de l’information (SMSI), notamment selon la norme ISO 27001, ainsi qu’à l’appréciation et au traitement des risques.\n• Accompagnement des projets : apporter une expertise en sécurité lors du développement ou de l’acquisition de solutions informatiques, évaluer les exigences de sécurité et contribuer à l’intégration des mesures de protection.\n• Conseil et sensibilisation : accompagner les équipes, conseiller les spécialistes et sensibiliser les collaboratrices et collaborateurs aux risques liés à la sécurité de l’information et aux bonnes pratiques.\n• Veille technologique : suivre l’évolution des menaces, des technologies et des standards de sécurité, puis partager les informations pertinentes avec les équipes concernées. CV en français et lettre de candidature au format PDF. Merci de joindre également les certificats de travail et diplômes. Pour tout renseignement complémentaire, veuillez consulter le cahier des charges en cliquant ici ou contacter le responsable d'entité Identité, Accès , Jean-Philippe Chautard (jean-philippe.chautard@vd.ch ) qui est à votre disposition.\n\n• Brevet fédéral d’informaticien ou titre jugé équivalent.\n• Au minimum cinq ans d’expérience dans le domaine de la sécurité des systèmes d’information.\n• Expérience confirmée en gestion des identités numériques et des cycles de vie des comptes et des accès.\n• Expérience pratique avec une solution IAM et dans la gestion des habilitations et des droits d’accès.\n• Expérience dans l’administration et la gestion des objets Active Directory et MS Exchange.\n• Bonnes connaissances générales de la sécurité informatique : réseaux, applications, bases de données et middleware.\n• Connaissance de la norme ISO 27001 et, idéalement, expérience de sa mise en œuvre et du maintien de la conformité.\n• Connaissances des référentiels et standards de sécurité tels que les CIS Controls et le NIST.\n• Connaissances de Linux, LDAP et PowerShell ; une familiarité avec l’environnement EasyVista constitue un atout.\n• Un postgrade en sécurité de l’information et une certification CISSP sont souhaités.\n• Anglais de niveau B2 et allemand de niveau B1 souhaités. Contraintes particulières :\n• Accréditation Police exigée\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Dans le cadre d’un remplacement, la Direction générale du numérique et des systèmes d’information (DGNSI) de l’État de Vaud recherche un-e Spécialiste sécurité IAM pour une mission à durée déterminée, du 18 janvier au 31 juillet 2027. Vous êtes spécialiste en sécurité des systèmes d’information et disposez d’une solide expertise en gestion des identités numériques et des accès (IAM) ? Vous souhaitez mettre vos compétences au service des systèmes d’information de l’administration cantonale vaudoise (ACV) et contribuer à la protection de ses données et infrastructures numériques ? Rejoignez notre équipe et participez activement au renforcement de la sécurité du système d’information cantonal, à la maîtrise des risques et à l’amélioration continue des processus de gestion des identités et des accès.\n\n• Sécurité des systèmes d’information et IAM : contribuer à la mise en œuvre de la stratégie et des standards d’architecture de sécurité, identifier les risques et recommander les mesures de protection adaptées.\n• Gestion des identités et des accès : piloter, coordonner et administrer les différentes campagnes de recertification des identités numériques et de leurs droits d’accès, traiter les demandes de support relevant du périmètre IAG (gouvernance des identités et des accès) et contribuer à l’amélioration des processus associés.\n• Gestion des risques et conformité : participer à la mise en œuvre opérationnelle du système de management de la sécurité de l’information (SMSI), notamment selon la norme ISO 27001, ainsi qu’à l’appréciation et au traitement des risques.\n• Accompagnement des projets : apporter une expertise en sécurité lors du développement ou de l’acquisition de solutions informatiques, évaluer les exigences de sécurité et contribuer à l’intégration des mesures de protection.\n• Conseil et sensibilisation : accompagner les équipes, conseiller les spécialistes et sensibiliser les collaboratrices et collaborateurs aux risques liés à la sécurité de l’information et aux bonnes pratiques.\n• Veille technologique : suivre l’évolution des menaces, des technologies et des standards de sécurité, puis partager les informations pertinentes avec les équipes concernées. CV en français et lettre de candidature au format PDF. Merci de joindre également les certificats de travail et diplômes. Pour tout renseignement complémentaire, veuillez consulter le cahier des charges en cliquant ici ou contacter le responsable d'entité Identité, Accès , Jean-Philippe Chautard (jean-philippe.chautard@vd.ch ) qui est à votre disposition.\n\n• Brevet fédéral d’informaticien ou titre jugé équivalent.\n• Au minimum cinq ans d’expérience dans le domaine de la sécurité des systèmes d’information.\n• Expérience confirmée en gestion des identités numériques et des cycles de vie des comptes et des accès.\n• Expérience pratique avec une solution IAM et dans la gestion des habilitations et des droits d’accès.\n• Expérience dans l’administration et la gestion des objets Active Directory et MS Exchange.\n• Bonnes connaissances générales de la sécurité informatique : réseaux, applications, bases de données et middleware.\n• Connaissance de la norme ISO 27001 et, idéalement, expérience de sa mise en œuvre et du maintien de la conformité.\n• Connaissances des référentiels et standards de sécurité tels que les CIS Controls et le NIST.\n• Connaissances de Linux, LDAP et PowerShell ; une familiarité avec l’environnement EasyVista constitue un atout.\n• Un postgrade en sécurité de l’information et une certification CISSP sont souhaités.\n• Anglais de niveau B2 et allemand de niveau B1 souhaités. Contraintes particulières :\n• Accréditation Police exigée\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Dans le cadre d’un remplacement, la Direction générale du numérique et des systèmes d’information (DGNSI) de l’État de Vaud recherche un-e Spécialiste sécurité IAM pour une mission à durée déterminée, du 18 janvier au 31 juillet 2027. Vous êtes spécialiste en sécurité des systèmes d’information et disposez d’une solide expertise en gestion des identités numériques et des accès (IAM) ? Vous souhaitez mettre vos compétences au service des systèmes d’information de l’administration cantonale vaudoise (ACV) et contribuer à la protection de ses données et infrastructures numériques ? Rejoignez notre équipe et participez activement au renforcement de la sécurité du système d’information cantonal, à la maîtrise des risques et à l’amélioration continue des processus de gestion des identités et des accès.\n\n• Sécurité des systèmes d’information et IAM : contribuer à la mise en œuvre de la stratégie et des standards d’architecture de sécurité, identifier les risques et recommander les mesures de protection adaptées.\n• Gestion des identités et des accès : piloter, coordonner et administrer les différentes campagnes de recertification des identités numériques et de leurs droits d’accès, traiter les demandes de support relevant du périmètre IAG (gouvernance des identités et des accès) et contribuer à l’amélioration des processus associés.\n• Gestion des risques et conformité : participer à la mise en œuvre opérationnelle du système de management de la sécurité de l’information (SMSI), notamment selon la norme ISO 27001, ainsi qu’à l’appréciation et au traitement des risques.\n• Accompagnement des projets : apporter une expertise en sécurité lors du développement ou de l’acquisition de solutions informatiques, évaluer les exigences de sécurité et contribuer à l’intégration des mesures de protection.\n• Conseil et sensibilisation : accompagner les équipes, conseiller les spécialistes et sensibiliser les collaboratrices et collaborateurs aux risques liés à la sécurité de l’information et aux bonnes pratiques.\n• Veille technologique : suivre l’évolution des menaces, des technologies et des standards de sécurité, puis partager les informations pertinentes avec les équipes concernées. CV en français et lettre de candidature au format PDF. Merci de joindre également les certificats de travail et diplômes. Pour tout renseignement complémentaire, veuillez consulter le cahier des charges en cliquant ici ou contacter le responsable d'entité Identité, Accès , Jean-Philippe Chautard (jean-philippe.chautard@vd.ch ) qui est à votre disposition.\n\n• Brevet fédéral d’informaticien ou titre jugé équivalent.\n• Au minimum cinq ans d’expérience dans le domaine de la sécurité des systèmes d’information.\n• Expérience confirmée en gestion des identités numériques et des cycles de vie des comptes et des accès.\n• Expérience pratique avec une solution IAM et dans la gestion des habilitations et des droits d’accès.\n• Expérience dans l’administration et la gestion des objets Active Directory et MS Exchange.\n• Bonnes connaissances générales de la sécurité informatique : réseaux, applications, bases de données et middleware.\n• Connaissance de la norme ISO 27001 et, idéalement, expérience de sa mise en œuvre et du maintien de la conformité.\n• Connaissances des référentiels et standards de sécurité tels que les CIS Controls et le NIST.\n• Connaissances de Linux, LDAP et PowerShell ; une familiarité avec l’environnement EasyVista constitue un atout.\n• Un postgrade en sécurité de l’information et une certification CISSP sont souhaités.\n• Anglais de niveau B2 et allemand de niveau B1 souhaités. Contraintes particulières :\n• Accréditation Police exigée\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Renens VD",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6060",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-23T09:45:05.243Z",
+      "addressLocality": "Renens VD",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1020",
+      "streetAddress": "Place du Château 1",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6060",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-23T09:45:05.243Z"
+    },
+    {
+      "id": "etat-de-vaud-6057",
+      "slug": "greffier-ere-etat-de-vaud-renens-vd",
+      "slugByLocale": {
+        "fr": "greffier-ere-etat-de-vaud-renens-vd",
+        "it": "greffier-ere-etat-de-vaud-renens-vd",
+        "en": "greffier-ere-etat-de-vaud-renens-vd",
+        "de": "greffier-ere-etat-de-vaud-renens-vd"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Greffier·ère",
+      "titleByLocale": {
+        "fr": "Greffier·ère",
+        "de": "Greffier·ère",
+        "it": "Greffier·ère",
+        "en": "Greffier·ère"
+      },
+      "description": "Le domaine judiciaire vous intéresse ? Rédiger des décisions judiciaires et prendre des procès-verbaux lors d'audiences vous motive particulièrement ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachées à l’Ordre judiciaire vaudois, les neuf justices de paix du canton statuent en première instance en matière civile. Elles sont également autorités de protection de l'adulte et de l'enfant. La Justice de paix du district de l'Ouest lausannois , qui emploie près de 20 magistrat·e·s et collaborateur·trice·s, recherche un·e greffier·ière .\n\n• Assister les juges de la Justice de paix lors des audiences.\n• Analyser les dossiers, procéder à toutes les recherches utiles, notamment juridiques, permettant de préparer l’audience et l’activité rédactionnelle.\n• Tenir à jour les procès-verbaux d'audience et établir des projets de décisions judiciaires en rédigeant l’état de fait et en veillant à traiter tous les moyens de droits (sur la base de notes ou d’instructions).\n• Effectuer les corrections apportées par le·a juge en charge du dossier et veiller à la bienfacture de l’original de la décision ainsi qu’à sa finalisation.\n• Participer à la gestion des dossiers (courrier, téléphones, etc.) et procéder à des recherches juridiques. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici Vous avez des questions ? Mme Laetitia Viquerat, Première greffière, se tient volontiers à votre disposition au 021 316 10 89.\n\n• Master en droit ou titre universitaire jugé équivalent\n• Plusieurs années d'expérience professionnelle souhaitées\n• Sens du service public et des responsabilités\n• Goût pour la rédaction de décisions judiciaires et la prise de procès-verbaux\n• Excellente orthographe, maîtrise de la dactylographie, rigueur, précision et discrétion\n• Très bonne résistance au stress Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites ainsi qu'un casier judiciaire datant de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Le domaine judiciaire vous intéresse ? Rédiger des décisions judiciaires et prendre des procès-verbaux lors d'audiences vous motive particulièrement ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachées à l’Ordre judiciaire vaudois, les neuf justices de paix du canton statuent en première instance en matière civile. Elles sont également autorités de protection de l'adulte et de l'enfant. La Justice de paix du district de l'Ouest lausannois , qui emploie près de 20 magistrat·e·s et collaborateur·trice·s, recherche un·e greffier·ière .\n\n• Assister les juges de la Justice de paix lors des audiences.\n• Analyser les dossiers, procéder à toutes les recherches utiles, notamment juridiques, permettant de préparer l’audience et l’activité rédactionnelle.\n• Tenir à jour les procès-verbaux d'audience et établir des projets de décisions judiciaires en rédigeant l’état de fait et en veillant à traiter tous les moyens de droits (sur la base de notes ou d’instructions).\n• Effectuer les corrections apportées par le·a juge en charge du dossier et veiller à la bienfacture de l’original de la décision ainsi qu’à sa finalisation.\n• Participer à la gestion des dossiers (courrier, téléphones, etc.) et procéder à des recherches juridiques. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici Vous avez des questions ? Mme Laetitia Viquerat, Première greffière, se tient volontiers à votre disposition au 021 316 10 89.\n\n• Master en droit ou titre universitaire jugé équivalent\n• Plusieurs années d'expérience professionnelle souhaitées\n• Sens du service public et des responsabilités\n• Goût pour la rédaction de décisions judiciaires et la prise de procès-verbaux\n• Excellente orthographe, maîtrise de la dactylographie, rigueur, précision et discrétion\n• Très bonne résistance au stress Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites ainsi qu'un casier judiciaire datant de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Le domaine judiciaire vous intéresse ? Rédiger des décisions judiciaires et prendre des procès-verbaux lors d'audiences vous motive particulièrement ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachées à l’Ordre judiciaire vaudois, les neuf justices de paix du canton statuent en première instance en matière civile. Elles sont également autorités de protection de l'adulte et de l'enfant. La Justice de paix du district de l'Ouest lausannois , qui emploie près de 20 magistrat·e·s et collaborateur·trice·s, recherche un·e greffier·ière .\n\n• Assister les juges de la Justice de paix lors des audiences.\n• Analyser les dossiers, procéder à toutes les recherches utiles, notamment juridiques, permettant de préparer l’audience et l’activité rédactionnelle.\n• Tenir à jour les procès-verbaux d'audience et établir des projets de décisions judiciaires en rédigeant l’état de fait et en veillant à traiter tous les moyens de droits (sur la base de notes ou d’instructions).\n• Effectuer les corrections apportées par le·a juge en charge du dossier et veiller à la bienfacture de l’original de la décision ainsi qu’à sa finalisation.\n• Participer à la gestion des dossiers (courrier, téléphones, etc.) et procéder à des recherches juridiques. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici Vous avez des questions ? Mme Laetitia Viquerat, Première greffière, se tient volontiers à votre disposition au 021 316 10 89.\n\n• Master en droit ou titre universitaire jugé équivalent\n• Plusieurs années d'expérience professionnelle souhaitées\n• Sens du service public et des responsabilités\n• Goût pour la rédaction de décisions judiciaires et la prise de procès-verbaux\n• Excellente orthographe, maîtrise de la dactylographie, rigueur, précision et discrétion\n• Très bonne résistance au stress Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites ainsi qu'un casier judiciaire datant de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Le domaine judiciaire vous intéresse ? Rédiger des décisions judiciaires et prendre des procès-verbaux lors d'audiences vous motive particulièrement ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachées à l’Ordre judiciaire vaudois, les neuf justices de paix du canton statuent en première instance en matière civile. Elles sont également autorités de protection de l'adulte et de l'enfant. La Justice de paix du district de l'Ouest lausannois , qui emploie près de 20 magistrat·e·s et collaborateur·trice·s, recherche un·e greffier·ière .\n\n• Assister les juges de la Justice de paix lors des audiences.\n• Analyser les dossiers, procéder à toutes les recherches utiles, notamment juridiques, permettant de préparer l’audience et l’activité rédactionnelle.\n• Tenir à jour les procès-verbaux d'audience et établir des projets de décisions judiciaires en rédigeant l’état de fait et en veillant à traiter tous les moyens de droits (sur la base de notes ou d’instructions).\n• Effectuer les corrections apportées par le·a juge en charge du dossier et veiller à la bienfacture de l’original de la décision ainsi qu’à sa finalisation.\n• Participer à la gestion des dossiers (courrier, téléphones, etc.) et procéder à des recherches juridiques. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici Vous avez des questions ? Mme Laetitia Viquerat, Première greffière, se tient volontiers à votre disposition au 021 316 10 89.\n\n• Master en droit ou titre universitaire jugé équivalent\n• Plusieurs années d'expérience professionnelle souhaitées\n• Sens du service public et des responsabilités\n• Goût pour la rédaction de décisions judiciaires et la prise de procès-verbaux\n• Excellente orthographe, maîtrise de la dactylographie, rigueur, précision et discrétion\n• Très bonne résistance au stress Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites ainsi qu'un casier judiciaire datant de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Le domaine judiciaire vous intéresse ? Rédiger des décisions judiciaires et prendre des procès-verbaux lors d'audiences vous motive particulièrement ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachées à l’Ordre judiciaire vaudois, les neuf justices de paix du canton statuent en première instance en matière civile. Elles sont également autorités de protection de l'adulte et de l'enfant. La Justice de paix du district de l'Ouest lausannois , qui emploie près de 20 magistrat·e·s et collaborateur·trice·s, recherche un·e greffier·ière .\n\n• Assister les juges de la Justice de paix lors des audiences.\n• Analyser les dossiers, procéder à toutes les recherches utiles, notamment juridiques, permettant de préparer l’audience et l’activité rédactionnelle.\n• Tenir à jour les procès-verbaux d'audience et établir des projets de décisions judiciaires en rédigeant l’état de fait et en veillant à traiter tous les moyens de droits (sur la base de notes ou d’instructions).\n• Effectuer les corrections apportées par le·a juge en charge du dossier et veiller à la bienfacture de l’original de la décision ainsi qu’à sa finalisation.\n• Participer à la gestion des dossiers (courrier, téléphones, etc.) et procéder à des recherches juridiques. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici Vous avez des questions ? Mme Laetitia Viquerat, Première greffière, se tient volontiers à votre disposition au 021 316 10 89.\n\n• Master en droit ou titre universitaire jugé équivalent\n• Plusieurs années d'expérience professionnelle souhaitées\n• Sens du service public et des responsabilités\n• Goût pour la rédaction de décisions judiciaires et la prise de procès-verbaux\n• Excellente orthographe, maîtrise de la dactylographie, rigueur, précision et discrétion\n• Très bonne résistance au stress Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites ainsi qu'un casier judiciaire datant de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Renens VD",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6057",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-23T09:45:04.789Z",
+      "addressLocality": "Renens VD",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1020",
+      "streetAddress": "Place du Château 1",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6057",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 69000,
+      "salaryMax": 118000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69000,
+          "maxValue": 118000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-08T09:29:34.086Z"
+    },
+    {
+      "id": "etat-de-vaud-6056",
+      "slug": "stagiaire-a-la-direction-du-logement-politique-du-logement-etat-de-vaud-lausanne",
+      "slugByLocale": {
+        "fr": "stagiaire-a-la-direction-du-logement-politique-du-logement-etat-de-vaud-lausanne",
+        "it": "stagiaire-a-la-direction-du-logement-politique-du-logement-etat-de-vaud-lausanne",
+        "en": "stagiaire-a-la-direction-du-logement-politique-du-logement-etat-de-vaud-lausanne",
+        "de": "stagiaire-a-la-direction-du-logement-politique-du-logement-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Stagiaire à la direction du logement (Politique du logement)",
+      "titleByLocale": {
+        "fr": "Stagiaire à la direction du logement (Politique du logement)",
+        "it": "Stagiaire à la direction du logement (Politique du logement)",
+        "en": "Stagiaire à la direction du logement (Politique du logement)",
+        "de": "Stagiaire à la direction du logement (Politique du logement)"
+      },
+      "description": "La Direction générale du territoire et du logement (DGTL) est en charge de l'aménagement du territoire (plan directeur cantonal, planification directrices et d'affectation, projet d'agglomération), du cadastre et de la géoinformation (géoportail cantonal), des autorisations en matière de permis de construire et de la politique du logement au niveau cantonal. Rejoignez une équipe soudée, collaborative et passionnée par la politique du logement. Vous évoluerez dans un environnement de travail dynamique, doté de bureaux modernes et lumineux.\n\n• Appui aux travaux liés à la politique cantonale du logement\n• Appui à la mise en œuvre de la Vision logement, en collaboration avec la responsable de missions\n• Développement et structuration du suivi statistique de la politique du logement\n• Soutien transversal Pour de plus amples informations, veuillez contacter Madame Sarah Meyer, Directrice de la Direction du logement, à l'adresse e-mail sarah.meyer2@vd.ch\n\n• Formation universitaire ou HES, en fin de formation ou achevée récemment, dans un domaine pertinent: sciences politiques, administration publique, économie, droit ou formation jugée équivalente\n• Aisance avec les chiffres\n• Expérience professionnelle dans la gestion de dossiers administratifs\n• Excellentes connaissances des outils informatiques word, excel, powerpoint\n• Autonomie, conscience professionnelle, discrétion, sens de l'organisation, esprit d'entraide et de collaboration Merci de soumettre un dossier complet (CV, lettre de motivation, certificats de travail, diplômes pertinents pour la fonction)\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "La Direction générale du territoire et du logement (DGTL) est en charge de l'aménagement du territoire (plan directeur cantonal, planification directrices et d'affectation, projet d'agglomération), du cadastre et de la géoinformation (géoportail cantonal), des autorisations en matière de permis de construire et de la politique du logement au niveau cantonal. Rejoignez une équipe soudée, collaborative et passionnée par la politique du logement. Vous évoluerez dans un environnement de travail dynamique, doté de bureaux modernes et lumineux.\n\n• Appui aux travaux liés à la politique cantonale du logement\n• Appui à la mise en œuvre de la Vision logement, en collaboration avec la responsable de missions\n• Développement et structuration du suivi statistique de la politique du logement\n• Soutien transversal Pour de plus amples informations, veuillez contacter Madame Sarah Meyer, Directrice de la Direction du logement, à l'adresse e-mail sarah.meyer2@vd.ch\n\n• Formation universitaire ou HES, en fin de formation ou achevée récemment, dans un domaine pertinent: sciences politiques, administration publique, économie, droit ou formation jugée équivalente\n• Aisance avec les chiffres\n• Expérience professionnelle dans la gestion de dossiers administratifs\n• Excellentes connaissances des outils informatiques word, excel, powerpoint\n• Autonomie, conscience professionnelle, discrétion, sens de l'organisation, esprit d'entraide et de collaboration Merci de soumettre un dossier complet (CV, lettre de motivation, certificats de travail, diplômes pertinents pour la fonction)\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "La Direction générale du territoire et du logement (DGTL) est en charge de l'aménagement du territoire (plan directeur cantonal, planification directrices et d'affectation, projet d'agglomération), du cadastre et de la géoinformation (géoportail cantonal), des autorisations en matière de permis de construire et de la politique du logement au niveau cantonal. Rejoignez une équipe soudée, collaborative et passionnée par la politique du logement. Vous évoluerez dans un environnement de travail dynamique, doté de bureaux modernes et lumineux.\n\n• Appui aux travaux liés à la politique cantonale du logement\n• Appui à la mise en œuvre de la Vision logement, en collaboration avec la responsable de missions\n• Développement et structuration du suivi statistique de la politique du logement\n• Soutien transversal Pour de plus amples informations, veuillez contacter Madame Sarah Meyer, Directrice de la Direction du logement, à l'adresse e-mail sarah.meyer2@vd.ch\n\n• Formation universitaire ou HES, en fin de formation ou achevée récemment, dans un domaine pertinent: sciences politiques, administration publique, économie, droit ou formation jugée équivalente\n• Aisance avec les chiffres\n• Expérience professionnelle dans la gestion de dossiers administratifs\n• Excellentes connaissances des outils informatiques word, excel, powerpoint\n• Autonomie, conscience professionnelle, discrétion, sens de l'organisation, esprit d'entraide et de collaboration Merci de soumettre un dossier complet (CV, lettre de motivation, certificats de travail, diplômes pertinents pour la fonction)\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "La Direction générale du territoire et du logement (DGTL) est en charge de l'aménagement du territoire (plan directeur cantonal, planification directrices et d'affectation, projet d'agglomération), du cadastre et de la géoinformation (géoportail cantonal), des autorisations en matière de permis de construire et de la politique du logement au niveau cantonal. Rejoignez une équipe soudée, collaborative et passionnée par la politique du logement. Vous évoluerez dans un environnement de travail dynamique, doté de bureaux modernes et lumineux.\n\n• Appui aux travaux liés à la politique cantonale du logement\n• Appui à la mise en œuvre de la Vision logement, en collaboration avec la responsable de missions\n• Développement et structuration du suivi statistique de la politique du logement\n• Soutien transversal Pour de plus amples informations, veuillez contacter Madame Sarah Meyer, Directrice de la Direction du logement, à l'adresse e-mail sarah.meyer2@vd.ch\n\n• Formation universitaire ou HES, en fin de formation ou achevée récemment, dans un domaine pertinent: sciences politiques, administration publique, économie, droit ou formation jugée équivalente\n• Aisance avec les chiffres\n• Expérience professionnelle dans la gestion de dossiers administratifs\n• Excellentes connaissances des outils informatiques word, excel, powerpoint\n• Autonomie, conscience professionnelle, discrétion, sens de l'organisation, esprit d'entraide et de collaboration Merci de soumettre un dossier complet (CV, lettre de motivation, certificats de travail, diplômes pertinents pour la fonction)\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "La Direction générale du territoire et du logement (DGTL) est en charge de l'aménagement du territoire (plan directeur cantonal, planification directrices et d'affectation, projet d'agglomération), du cadastre et de la géoinformation (géoportail cantonal), des autorisations en matière de permis de construire et de la politique du logement au niveau cantonal. Rejoignez une équipe soudée, collaborative et passionnée par la politique du logement. Vous évoluerez dans un environnement de travail dynamique, doté de bureaux modernes et lumineux.\n\n• Appui aux travaux liés à la politique cantonale du logement\n• Appui à la mise en œuvre de la Vision logement, en collaboration avec la responsable de missions\n• Développement et structuration du suivi statistique de la politique du logement\n• Soutien transversal Pour de plus amples informations, veuillez contacter Madame Sarah Meyer, Directrice de la Direction du logement, à l'adresse e-mail sarah.meyer2@vd.ch\n\n• Formation universitaire ou HES, en fin de formation ou achevée récemment, dans un domaine pertinent: sciences politiques, administration publique, économie, droit ou formation jugée équivalente\n• Aisance avec les chiffres\n• Expérience professionnelle dans la gestion de dossiers administratifs\n• Excellentes connaissances des outils informatiques word, excel, powerpoint\n• Autonomie, conscience professionnelle, discrétion, sens de l'organisation, esprit d'entraide et de collaboration Merci de soumettre un dossier complet (CV, lettre de motivation, certificats de travail, diplômes pertinents pour la fonction)\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6056",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-23T09:45:04.337Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1003",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6056",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-23T09:45:04.337Z"
+    },
+    {
+      "id": "etat-de-vaud-6050",
+      "slug": "chef-fe-de-projet-infrastructures-et-securite-etat-de-vaud-lausanne",
+      "slugByLocale": {
+        "fr": "chef-fe-de-projet-infrastructures-et-securite-etat-de-vaud-lausanne",
+        "it": "chef-fe-de-projet-infrastructures-et-securite-etat-de-vaud-lausanne",
+        "en": "chef-fe-de-projet-infrastructures-et-securite-etat-de-vaud-lausanne",
+        "de": "chef-fe-de-projet-infrastructures-et-securite-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Chef·fe de projet infrastructures et sécurité",
+      "titleByLocale": {
+        "fr": "Chef·fe de projet infrastructures et sécurité",
+        "it": "Chef·fe de projet infrastructures et sécurité",
+        "en": "Chef·fe de projet infrastructures et sécurité",
+        "de": "Chef·fe de projet infrastructures et sécurité"
+      },
+      "description": "Le domaine judiciaire vous intéresse ? Contribuer à l’organisation de la justice vaudoise, à travers des projets d’envergure et des thématiques juridiques variées vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Le Secrétariat général de l’Ordre judiciaire vaudois (SG-OJV) assure la coordination administrative, stratégique et transversale de l’ensemble de l’Ordre judiciaire. Il pilote des missions clés telles que la gestion des ressources humaines, les finances, la communication, le support juridique, l’administration générale ainsi que le soutien à la gouvernance et aux projets institutionnels. Composé d’une cinquantaine de collaborateur·trice·s engagé·e·s, le SG-OJV recherche un·e Chef·fe de projet infrastructures et sécurité.\n\n• Assurer la fonction de chef·fe de projet infrastructures\n• Assurer la fonction de chef·fe de projet sécurité et répondant·e sécurité des offices judiciaires\n• Assurer la gestion logistique des fournitures particulières\n• Fournir des prestations en matière informatique en relation avec la section organisation et système d'information\n• Agir en qualité de répondant \"marché public\" pour l'Ordre judiciaire vaudois Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? Mme Nathalie De la Vega, Responsable de la Direction infrastructures, se tient volontiers à votre disposition au 021 316 01 71.\n\n• Titre universitaire et/ou formation technique utile à la fonction\n• Gestion de la sécurité/sûreté en entreprise\n• Conduite de projets liés aux infrastructures et à la sécurité\n• Gestion des bâtiments et infrastructures (loués ou en propriété de l'Etat)\n• Connaissance de la procédure de marchés publics Dans le cadre de la procédure de recrutement, les candidat · e · s seront amené · e · s à présenter un extrait du registre des poursuites et un casier judiciaire de moins de 3 mois. Pour des raisons de gestion documentaire, nous vous remercions de transmettre votre dossier, y compris la lettre de motivation, en un seul document PDF.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Le domaine judiciaire vous intéresse ? Contribuer à l’organisation de la justice vaudoise, à travers des projets d’envergure et des thématiques juridiques variées vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Le Secrétariat général de l’Ordre judiciaire vaudois (SG-OJV) assure la coordination administrative, stratégique et transversale de l’ensemble de l’Ordre judiciaire. Il pilote des missions clés telles que la gestion des ressources humaines, les finances, la communication, le support juridique, l’administration générale ainsi que le soutien à la gouvernance et aux projets institutionnels. Composé d’une cinquantaine de collaborateur·trice·s engagé·e·s, le SG-OJV recherche un·e Chef·fe de projet infrastructures et sécurité.\n\n• Assurer la fonction de chef·fe de projet infrastructures\n• Assurer la fonction de chef·fe de projet sécurité et répondant·e sécurité des offices judiciaires\n• Assurer la gestion logistique des fournitures particulières\n• Fournir des prestations en matière informatique en relation avec la section organisation et système d'information\n• Agir en qualité de répondant \"marché public\" pour l'Ordre judiciaire vaudois Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? Mme Nathalie De la Vega, Responsable de la Direction infrastructures, se tient volontiers à votre disposition au 021 316 01 71.\n\n• Titre universitaire et/ou formation technique utile à la fonction\n• Gestion de la sécurité/sûreté en entreprise\n• Conduite de projets liés aux infrastructures et à la sécurité\n• Gestion des bâtiments et infrastructures (loués ou en propriété de l'Etat)\n• Connaissance de la procédure de marchés publics Dans le cadre de la procédure de recrutement, les candidat · e · s seront amené · e · s à présenter un extrait du registre des poursuites et un casier judiciaire de moins de 3 mois. Pour des raisons de gestion documentaire, nous vous remercions de transmettre votre dossier, y compris la lettre de motivation, en un seul document PDF.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Le domaine judiciaire vous intéresse ? Contribuer à l’organisation de la justice vaudoise, à travers des projets d’envergure et des thématiques juridiques variées vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Le Secrétariat général de l’Ordre judiciaire vaudois (SG-OJV) assure la coordination administrative, stratégique et transversale de l’ensemble de l’Ordre judiciaire. Il pilote des missions clés telles que la gestion des ressources humaines, les finances, la communication, le support juridique, l’administration générale ainsi que le soutien à la gouvernance et aux projets institutionnels. Composé d’une cinquantaine de collaborateur·trice·s engagé·e·s, le SG-OJV recherche un·e Chef·fe de projet infrastructures et sécurité.\n\n• Assurer la fonction de chef·fe de projet infrastructures\n• Assurer la fonction de chef·fe de projet sécurité et répondant·e sécurité des offices judiciaires\n• Assurer la gestion logistique des fournitures particulières\n• Fournir des prestations en matière informatique en relation avec la section organisation et système d'information\n• Agir en qualité de répondant \"marché public\" pour l'Ordre judiciaire vaudois Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? Mme Nathalie De la Vega, Responsable de la Direction infrastructures, se tient volontiers à votre disposition au 021 316 01 71.\n\n• Titre universitaire et/ou formation technique utile à la fonction\n• Gestion de la sécurité/sûreté en entreprise\n• Conduite de projets liés aux infrastructures et à la sécurité\n• Gestion des bâtiments et infrastructures (loués ou en propriété de l'Etat)\n• Connaissance de la procédure de marchés publics Dans le cadre de la procédure de recrutement, les candidat · e · s seront amené · e · s à présenter un extrait du registre des poursuites et un casier judiciaire de moins de 3 mois. Pour des raisons de gestion documentaire, nous vous remercions de transmettre votre dossier, y compris la lettre de motivation, en un seul document PDF.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Le domaine judiciaire vous intéresse ? Contribuer à l’organisation de la justice vaudoise, à travers des projets d’envergure et des thématiques juridiques variées vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Le Secrétariat général de l’Ordre judiciaire vaudois (SG-OJV) assure la coordination administrative, stratégique et transversale de l’ensemble de l’Ordre judiciaire. Il pilote des missions clés telles que la gestion des ressources humaines, les finances, la communication, le support juridique, l’administration générale ainsi que le soutien à la gouvernance et aux projets institutionnels. Composé d’une cinquantaine de collaborateur·trice·s engagé·e·s, le SG-OJV recherche un·e Chef·fe de projet infrastructures et sécurité.\n\n• Assurer la fonction de chef·fe de projet infrastructures\n• Assurer la fonction de chef·fe de projet sécurité et répondant·e sécurité des offices judiciaires\n• Assurer la gestion logistique des fournitures particulières\n• Fournir des prestations en matière informatique en relation avec la section organisation et système d'information\n• Agir en qualité de répondant \"marché public\" pour l'Ordre judiciaire vaudois Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? Mme Nathalie De la Vega, Responsable de la Direction infrastructures, se tient volontiers à votre disposition au 021 316 01 71.\n\n• Titre universitaire et/ou formation technique utile à la fonction\n• Gestion de la sécurité/sûreté en entreprise\n• Conduite de projets liés aux infrastructures et à la sécurité\n• Gestion des bâtiments et infrastructures (loués ou en propriété de l'Etat)\n• Connaissance de la procédure de marchés publics Dans le cadre de la procédure de recrutement, les candidat · e · s seront amené · e · s à présenter un extrait du registre des poursuites et un casier judiciaire de moins de 3 mois. Pour des raisons de gestion documentaire, nous vous remercions de transmettre votre dossier, y compris la lettre de motivation, en un seul document PDF.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Le domaine judiciaire vous intéresse ? Contribuer à l’organisation de la justice vaudoise, à travers des projets d’envergure et des thématiques juridiques variées vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Le Secrétariat général de l’Ordre judiciaire vaudois (SG-OJV) assure la coordination administrative, stratégique et transversale de l’ensemble de l’Ordre judiciaire. Il pilote des missions clés telles que la gestion des ressources humaines, les finances, la communication, le support juridique, l’administration générale ainsi que le soutien à la gouvernance et aux projets institutionnels. Composé d’une cinquantaine de collaborateur·trice·s engagé·e·s, le SG-OJV recherche un·e Chef·fe de projet infrastructures et sécurité.\n\n• Assurer la fonction de chef·fe de projet infrastructures\n• Assurer la fonction de chef·fe de projet sécurité et répondant·e sécurité des offices judiciaires\n• Assurer la gestion logistique des fournitures particulières\n• Fournir des prestations en matière informatique en relation avec la section organisation et système d'information\n• Agir en qualité de répondant \"marché public\" pour l'Ordre judiciaire vaudois Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? Mme Nathalie De la Vega, Responsable de la Direction infrastructures, se tient volontiers à votre disposition au 021 316 01 71.\n\n• Titre universitaire et/ou formation technique utile à la fonction\n• Gestion de la sécurité/sûreté en entreprise\n• Conduite de projets liés aux infrastructures et à la sécurité\n• Gestion des bâtiments et infrastructures (loués ou en propriété de l'Etat)\n• Connaissance de la procédure de marchés publics Dans le cadre de la procédure de recrutement, les candidat · e · s seront amené · e · s à présenter un extrait du registre des poursuites et un casier judiciaire de moins de 3 mois. Pour des raisons de gestion documentaire, nous vous remercions de transmettre votre dossier, y compris la lettre de motivation, en un seul document PDF.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6050",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-23T09:45:03.869Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1003",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/6050",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-23T09:45:03.869Z"
     }
   ]
 }

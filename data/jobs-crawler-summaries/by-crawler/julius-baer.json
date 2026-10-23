@@ -1,18 +1,61 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-10-22T21:15:58.612Z",
-  "total": 64,
-  "newCount": 3,
+  "generatedAt": "2026-10-23T09:17:29.093Z",
+  "total": 65,
+  "newCount": 4,
   "updatedCount": 10,
   "removedCount": 2,
   "unchangedCount": 51,
-  "durationMs": 37639,
-  "avgDurationMs": 37639,
+  "durationMs": 35778,
+  "avgDurationMs": 35778,
   "durationHistory": [
-    37639
+    35778
   ],
   "newJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Head---Data-Platform---Analytics-100---m-f-d-_r-16704-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Head---Data-Platform---Analytics-100---m-f-d-_r-16704-2",
+      "title": "Head Data Office-100% (m/f/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "head-data-office-100-m-f-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-23T09:17:11.105Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-23T09:17:11.105Z",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 16
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Non-Financial-Risk-Expert-100---f-m-d-_r-19790-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Non-Financial-Risk-Expert-100---f-m-d-_r-19790-2",
@@ -42,12 +85,12 @@
         "location": "Zurich"
       },
       "needsRetranslation": true,
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-22T21:15:40.376Z",
+      "firstSeenAt": "2026-10-23T09:17:11.105Z",
       "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -85,7 +128,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-22T09:15:02.620Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -127,7 +170,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-22T09:15:02.620Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -171,7 +214,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-20T21:13:38.037Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -213,7 +256,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-14T21:14:43.872Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -259,7 +302,7 @@
       "localeMismatchSuppressedLen": 3264,
       "retranslationAttempts": 31,
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -301,7 +344,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-12T21:15:14.256Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -343,7 +386,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -385,7 +428,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -427,7 +470,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -473,7 +516,7 @@
       "localeMismatchSuppressedLen": 2568,
       "retranslationAttempts": 31,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -515,7 +558,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-13T21:58:04.445Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -561,7 +604,7 @@
       "localeMismatchSuppressedLen": 2652,
       "retranslationAttempts": 31,
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -691,7 +734,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-30T21:10:36.349Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -734,7 +777,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-22T09:15:02.620Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -776,7 +819,7 @@
         "location": "Geneva"
       },
       "firstSeenAt": "2026-10-22T09:15:02.620Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 174500,
       "salaryMax": 306000,
       "currency": "CHF",
@@ -818,7 +861,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-15T09:16:14.905Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -860,7 +903,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-20T21:13:38.037Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -903,7 +946,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-19T09:14:22.817Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -945,7 +988,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-15T21:16:45.339Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -987,7 +1030,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1029,7 +1072,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-02T23:09:43.976Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1071,7 +1114,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -1113,7 +1156,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-16T09:10:24.994Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1155,7 +1198,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-16T09:10:24.994Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "currency": "CHF",
@@ -1197,7 +1240,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-15T21:16:45.339Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 7400,
       "salaryMax": 11200,
       "currency": "CHF",
@@ -1239,7 +1282,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-13T21:16:07.418Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 71100,
       "salaryMax": 124700,
       "currency": "CHF",
@@ -1281,7 +1324,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-13T09:13:52.039Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1324,7 +1367,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-12T21:15:14.256Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1366,7 +1409,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-09T21:11:04.933Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1408,7 +1451,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-12T21:15:14.256Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -1453,7 +1496,7 @@
       "localeMismatchSuppressedLen": 2997,
       "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-21T15:57:50.187Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1495,7 +1538,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-12T09:14:18.277Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1541,7 +1584,7 @@
       "localeMismatchSuppressedLen": 5322,
       "retranslationAttempts": 31,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -1583,7 +1626,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-08T22:10:54.683Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1625,7 +1668,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -1667,7 +1710,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-08T23:21:09.003Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1709,7 +1752,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-03T09:10:35.151Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1751,7 +1794,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -1793,7 +1836,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1835,7 +1878,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-29T09:13:05.388Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1877,7 +1920,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-26T13:54:14.518Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1919,7 +1962,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-23T23:36:02.791Z",
-      "crawledAt": "2026-10-22T21:15:40.376Z",
+      "crawledAt": "2026-10-23T09:17:11.105Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1933,5 +1976,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }

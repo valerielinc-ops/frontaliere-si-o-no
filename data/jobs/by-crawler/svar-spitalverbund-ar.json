@@ -1,14 +1,14 @@
 {
   "crawlerKey": "svar-spitalverbund-ar",
-  "assembledAt": "2026-10-22T21:19:02.986Z",
-  "runId": "39854654407",
+  "assembledAt": "2026-10-23T09:25:54.421Z",
+  "runId": "39929574258",
   "jobs": [
     {
       "id": "svar-spitalverbund-ar-2a40555c66fb",
       "slug": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
         "fr": "physiotherapeute-physiotherapiste-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
@@ -56,7 +56,7 @@
       "externalId": "4084559",
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-        "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +64,7 @@
         ],
         "en": [
           "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-          "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau"
@@ -83,7 +83,8 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "svar-spitalverbund-ar-f741e0b7c5b0",
@@ -164,7 +165,8 @@
           "maxValue": 182000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "svar-spitalverbund-ar-8e6008d84935",
@@ -197,7 +199,7 @@
       "url": "https://live.solique.ch/svar/job/details/4085167",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:55.899Z",
+      "crawledAt": "2026-10-23T09:25:47.837Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -277,7 +279,7 @@
       "url": "https://live.solique.ch/svar/job/details/4085193",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:55.263Z",
+      "crawledAt": "2026-10-23T09:25:47.227Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -376,7 +378,7 @@
       "url": "https://live.solique.ch/svar/job/details/4084221",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:54.704Z",
+      "crawledAt": "2026-10-23T09:25:46.643Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -459,7 +461,7 @@
       "url": "https://live.solique.ch/svar/job/details/4087010",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:54.122Z",
+      "crawledAt": "2026-10-23T09:25:46.058Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -540,7 +542,7 @@
       "url": "https://live.solique.ch/svar/job/details/4086894",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:53.541Z",
+      "crawledAt": "2026-10-23T09:25:45.494Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -621,7 +623,7 @@
       "url": "https://live.solique.ch/svar/job/details/4084146",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:52.896Z",
+      "crawledAt": "2026-10-23T09:25:44.897Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -702,7 +704,7 @@
       "url": "https://live.solique.ch/svar/job/details/4087647",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:52.303Z",
+      "crawledAt": "2026-10-23T09:25:44.275Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -776,13 +778,12 @@
         "de": "Ihre Aufgaben\n• Fachgerechte und kompetente Pflege und Betreuung von Wöchnerinnen, Schwangeren und gynäkologischen Patientinnen\n• Förderung einer familienzentrierten Betreuung / ganzheitliche Betreuung der Frauen und Familien und Betreuung der Wöchnerinnen und ihren Neugeborenen\n• Betreuung von Frauen mit gynäkologischen Erkrankungen und nach gynäkologischen operativen Eingriffen, sowie anderen chirurgischen Eingriffen\n• Beitrag zu einer wertschätzenden, respektvollen, interdisziplinären und interprofessionellen Zusammenarbeit\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Unterstützung und stellvertretende Übernahme von Aktivitäten des täglichen Lebens\n• Mitwirkung und Ausführung von präventiven, therapeutischen und diagnostischen Massnahmen\n\nIhr Profil\n• Erfolgreiche Ausbildung als Diplomierte Pflegefachfrau/-mann HF/KJFF/FH\n• Idealerweise haben Sie bereits Erfahrung in verschiedenen Disziplinen im Akutspital sammeln können\n• Interesse an der Pflege von Wöchnerinnen und Säuglingen\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Hohe Sozialkompetenz und flexibles, teamorientiertes Handeln\n• Aufgestellte und teamorientierte Grundhaltung\n• Sie sind eine kommunikative und offene Persönlichkeit, welche die Patienten in den Mittelpunkt stellt\n\nZusätzlich profitieren Sie von\n\nEintritt: 06. Oktober 2026",
         "fr": "Leurs tâches\n• Soins professionnels et compétents des femmes qui ont récemment accouché, des femmes enceintes et des patients gynécologiques\n• Promotion des soins axés sur la famille / soins holistiques aux femmes et aux familles et soins aux femmes qui ont récemment accouché et à leurs nouveau-nés\n• Soins des femmes atteintes de maladies gynécologiques et après des interventions chirurgicales gynécologiques, ainsi que d'autres interventions chirurgicales\n• Contribution à une coopération reconnaissante, respectueuse, interdisciplinaire et interprofessionnelle\n• Mise en œuvre indépendante du processus de soins et de traitement dans le cadre de la coopération interdisciplinaire\n• Appui et prise en charge adjointe des activités de la vie quotidienne\n• Coopération et mise en œuvre de mesures préventives, thérapeutiques et diagnostiques\n\nVotre profil\n• Formation réussie comme infirmière qualifiée HF/KJFF/FH\n• Idéalement, vous avez déjà acquis de l'expérience dans différentes disciplines dans l'hôpital aigu\n• Intérêt pour les soins aux nouveau-nés et aux nourrissons\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Hautes compétences sociales et actions flexibles et axées sur l'équipe\n• Une attitude établie et axée sur l'équipe\n• Vous êtes une personnalité communicative et ouverte qui se concentre sur les patients\n\nEn outre, vous bénéficiez\n\nEntrée : 06. Octobre 2026"
       },
-      "needsRetranslation": false,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4089996",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:51.634Z",
+      "crawledAt": "2026-10-23T09:25:43.675Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -802,10 +803,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4089996",
-      "previousSlugs": [
-        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
-        "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
@@ -818,7 +815,10 @@
           "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare"
         ]
       },
-      "firstSeenAt": "2026-10-05T09:17:14.410Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
+        "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
       "salaryMin": 81000,
       "salaryMax": 113000,
       "salarySource": "estimated",
@@ -831,7 +831,9 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-05T09:17:14.410Z",
+      "needsRetranslation": false
     },
     {
       "id": "svar-spitalverbund-ar-557b6027b5b1",
@@ -912,6 +914,159 @@
         }
       },
       "crawlerMissStreak": 2
+    },
+    {
+      "id": "svar-spitalverbund-ar-3cc75df02903",
+      "slug": "oberarztin-oberarzt-o-oberarztin-oberarzt-mbf-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "de": "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar",
+        "it": "oberarztin-oberarzt-o-oberarztin-oberarzt-mbf-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar",
+        "fr": "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Oberärztin / Oberarzt oder Oberärztin / Oberarzt mbF Chirurgie (m/w/d)",
+      "titleByLocale": {
+        "de": "Oberärztin / Oberarzt oder Oberärztin / Oberarzt mbF Chirurgie (m/w/d)",
+        "it": "Oberärztin / Oberarzt o Oberärztin / Oberarzt mbF Chirurgie (m/w/d)",
+        "en": "Oberärztin / Oberarzt oder Oberärztin / Oberarzt mbF Chirurgie (m/w/d)",
+        "fr": "Oberärztin / Oberarzt oder Oberärztin / Oberarzt mbF Chirurgie (m/w/d)"
+      },
+      "description": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026",
+      "descriptionByLocale": {
+        "de": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026",
+        "it": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026",
+        "en": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026",
+        "fr": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4072292",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-23T09:25:43.082Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4072292",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4072292",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-oder-oberarztin-oberarzt-mbf-chirurgie-m-w-d-svar-spitalverbund-ar"
+      ],
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-23T09:25:43.082Z"
+    },
+    {
+      "id": "svar-spitalverbund-ar-d2710a5b5882",
+      "slug": "fachverantwortliche-r-per-intensivpflege-bsc-in-pflege-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "de": "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "fachverantwortliche-r-per-intensivpflege-bsc-in-pflege-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau",
+        "fr": "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Fachverantwortliche/r für Intensivpflege BSc in Pflege (m/w/d)",
+      "titleByLocale": {
+        "de": "Fachverantwortliche/r für Intensivpflege BSc in Pflege (m/w/d)",
+        "it": "Fachverantwortliche/r per Intensivpflege BSc in Pflege (m/w/d)",
+        "en": "Fachverantwortliche/r für Intensivpflege BSc in Pflege (m/w/d)",
+        "fr": "Fachverantwortliche/r für Intensivpflege BSc in Pflege (m/w/d)"
+      },
+      "description": "Ihre Aufgaben\n• Pflegerische Fachverantwortung für die Intensivstation mit sechs Pflegebetten, davon zwei Beatmungsplätze\n• Verantwortung für intensivpflegebedürftige Patientinnen und Patienten mit unterschiedlich komplexen Gesundheitseinschränkungen unter Berücksichtigung des Pflege- und Behandlungskonzeptes\n• Aktive Mitgestaltung der fachlichen Entwicklung der Intensivstation durch Erstellen von evidenzbasierten Standards und Pflegekonzepte im interprofessionellen Setting\n• Fachkompetente Zusammenarbeit mit Ärzten aus verschiedenen Fachdisziplinen\n• Unterstützung der Pflegefachpersonen in anspruchsvollen Pflegesituationen und in der Umsetzung von übergeordneten Konzepten und Standards\n• Verantwortlich für Qualitätsarbeiten auf der Intensivstation und Mitarbeit in der Qualitätsgruppe unter der Leitung der Pflegeentwicklung\n• Mitarbeit in Arbeits- und Projektgruppen in Absprache mit der Teamleitung Intensivstation\n\nIhr Profil\n• Sie weisen den Bachelor of Science in Pflege auf oder bringen sogar den Master in Pflege mit\n• Als Grundausbildung haben Sie eine abgeschlossene Ausbildung als Dipl. Expertin/Experte NDS Intensivpflege oder Sie besitzen einen ausländischen Abschluss als Gesundheits- und Krankenschwester, als Gesundheits- und Krankenpfleger mit Weiterbildung in Intensiv- und Anästhesiepflege\n• Sie übernehmen gerne Verantwortung und haben Freude am Gestalten von neuen Prozessen\n• Berufserfahrung in einer ähnlichen Funktion wünschenswert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie leben eine ausgeprägte Teamfähigkeit und pflegen eine patientenorientierte Arbeitsweise\n• Sie weisen eine hohe Einsatzbereitschaft auf und setzen sich verantwortungsvoll für das Wohl der Patientinnen und Patienten ein\n• Das Arbeiten in einem kleinen, engagierten, zuverlässigen und motivierten Team bereitet Ihnen Freude\n\nZusätzlich profitieren Sie von\n\nEintritt: 24. Juni 2026",
+      "descriptionByLocale": {
+        "de": "Ihre Aufgaben\n• Pflegerische Fachverantwortung für die Intensivstation mit sechs Pflegebetten, davon zwei Beatmungsplätze\n• Verantwortung für intensivpflegebedürftige Patientinnen und Patienten mit unterschiedlich komplexen Gesundheitseinschränkungen unter Berücksichtigung des Pflege- und Behandlungskonzeptes\n• Aktive Mitgestaltung der fachlichen Entwicklung der Intensivstation durch Erstellen von evidenzbasierten Standards und Pflegekonzepte im interprofessionellen Setting\n• Fachkompetente Zusammenarbeit mit Ärzten aus verschiedenen Fachdisziplinen\n• Unterstützung der Pflegefachpersonen in anspruchsvollen Pflegesituationen und in der Umsetzung von übergeordneten Konzepten und Standards\n• Verantwortlich für Qualitätsarbeiten auf der Intensivstation und Mitarbeit in der Qualitätsgruppe unter der Leitung der Pflegeentwicklung\n• Mitarbeit in Arbeits- und Projektgruppen in Absprache mit der Teamleitung Intensivstation\n\nIhr Profil\n• Sie weisen den Bachelor of Science in Pflege auf oder bringen sogar den Master in Pflege mit\n• Als Grundausbildung haben Sie eine abgeschlossene Ausbildung als Dipl. Expertin/Experte NDS Intensivpflege oder Sie besitzen einen ausländischen Abschluss als Gesundheits- und Krankenschwester, als Gesundheits- und Krankenpfleger mit Weiterbildung in Intensiv- und Anästhesiepflege\n• Sie übernehmen gerne Verantwortung und haben Freude am Gestalten von neuen Prozessen\n• Berufserfahrung in einer ähnlichen Funktion wünschenswert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie leben eine ausgeprägte Teamfähigkeit und pflegen eine patientenorientierte Arbeitsweise\n• Sie weisen eine hohe Einsatzbereitschaft auf und setzen sich verantwortungsvoll für das Wohl der Patientinnen und Patienten ein\n• Das Arbeiten in einem kleinen, engagierten, zuverlässigen und motivierten Team bereitet Ihnen Freude\n\nZusätzlich profitieren Sie von\n\nEintritt: 24. Juni 2026",
+        "it": "Ihre Aufgaben\n• Pflegerische Fachverantwortung für die Intensivstation mit sechs Pflegebetten, davon zwei Beatmungsplätze\n• Verantwortung für intensivpflegebedürftige Patientinnen und Patienten mit unterschiedlich komplexen Gesundheitseinschränkungen unter Berücksichtigung des Pflege- und Behandlungskonzeptes\n• Aktive Mitgestaltung der fachlichen Entwicklung der Intensivstation durch Erstellen von evidenzbasierten Standards und Pflegekonzepte im interprofessionellen Setting\n• Fachkompetente Zusammenarbeit mit Ärzten aus verschiedenen Fachdisziplinen\n• Unterstützung der Pflegefachpersonen in anspruchsvollen Pflegesituationen und in der Umsetzung von übergeordneten Konzepten und Standards\n• Verantwortlich für Qualitätsarbeiten auf der Intensivstation und Mitarbeit in der Qualitätsgruppe unter der Leitung der Pflegeentwicklung\n• Mitarbeit in Arbeits- und Projektgruppen in Absprache mit der Teamleitung Intensivstation\n\nIhr Profil\n• Sie weisen den Bachelor of Science in Pflege auf oder bringen sogar den Master in Pflege mit\n• Als Grundausbildung haben Sie eine abgeschlossene Ausbildung als Dipl. Expertin/Experte NDS Intensivpflege oder Sie besitzen einen ausländischen Abschluss als Gesundheits- und Krankenschwester, als Gesundheits- und Krankenpfleger mit Weiterbildung in Intensiv- und Anästhesiepflege\n• Sie übernehmen gerne Verantwortung und haben Freude am Gestalten von neuen Prozessen\n• Berufserfahrung in einer ähnlichen Funktion wünschenswert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie leben eine ausgeprägte Teamfähigkeit und pflegen eine patientenorientierte Arbeitsweise\n• Sie weisen eine hohe Einsatzbereitschaft auf und setzen sich verantwortungsvoll für das Wohl der Patientinnen und Patienten ein\n• Das Arbeiten in einem kleinen, engagierten, zuverlässigen und motivierten Team bereitet Ihnen Freude\n\nZusätzlich profitieren Sie von\n\nEintritt: 24. Juni 2026",
+        "en": "Ihre Aufgaben\n• Pflegerische Fachverantwortung für die Intensivstation mit sechs Pflegebetten, davon zwei Beatmungsplätze\n• Verantwortung für intensivpflegebedürftige Patientinnen und Patienten mit unterschiedlich komplexen Gesundheitseinschränkungen unter Berücksichtigung des Pflege- und Behandlungskonzeptes\n• Aktive Mitgestaltung der fachlichen Entwicklung der Intensivstation durch Erstellen von evidenzbasierten Standards und Pflegekonzepte im interprofessionellen Setting\n• Fachkompetente Zusammenarbeit mit Ärzten aus verschiedenen Fachdisziplinen\n• Unterstützung der Pflegefachpersonen in anspruchsvollen Pflegesituationen und in der Umsetzung von übergeordneten Konzepten und Standards\n• Verantwortlich für Qualitätsarbeiten auf der Intensivstation und Mitarbeit in der Qualitätsgruppe unter der Leitung der Pflegeentwicklung\n• Mitarbeit in Arbeits- und Projektgruppen in Absprache mit der Teamleitung Intensivstation\n\nIhr Profil\n• Sie weisen den Bachelor of Science in Pflege auf oder bringen sogar den Master in Pflege mit\n• Als Grundausbildung haben Sie eine abgeschlossene Ausbildung als Dipl. Expertin/Experte NDS Intensivpflege oder Sie besitzen einen ausländischen Abschluss als Gesundheits- und Krankenschwester, als Gesundheits- und Krankenpfleger mit Weiterbildung in Intensiv- und Anästhesiepflege\n• Sie übernehmen gerne Verantwortung und haben Freude am Gestalten von neuen Prozessen\n• Berufserfahrung in einer ähnlichen Funktion wünschenswert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie leben eine ausgeprägte Teamfähigkeit und pflegen eine patientenorientierte Arbeitsweise\n• Sie weisen eine hohe Einsatzbereitschaft auf und setzen sich verantwortungsvoll für das Wohl der Patientinnen und Patienten ein\n• Das Arbeiten in einem kleinen, engagierten, zuverlässigen und motivierten Team bereitet Ihnen Freude\n\nZusätzlich profitieren Sie von\n\nEintritt: 24. Juni 2026",
+        "fr": "Ihre Aufgaben\n• Pflegerische Fachverantwortung für die Intensivstation mit sechs Pflegebetten, davon zwei Beatmungsplätze\n• Verantwortung für intensivpflegebedürftige Patientinnen und Patienten mit unterschiedlich komplexen Gesundheitseinschränkungen unter Berücksichtigung des Pflege- und Behandlungskonzeptes\n• Aktive Mitgestaltung der fachlichen Entwicklung der Intensivstation durch Erstellen von evidenzbasierten Standards und Pflegekonzepte im interprofessionellen Setting\n• Fachkompetente Zusammenarbeit mit Ärzten aus verschiedenen Fachdisziplinen\n• Unterstützung der Pflegefachpersonen in anspruchsvollen Pflegesituationen und in der Umsetzung von übergeordneten Konzepten und Standards\n• Verantwortlich für Qualitätsarbeiten auf der Intensivstation und Mitarbeit in der Qualitätsgruppe unter der Leitung der Pflegeentwicklung\n• Mitarbeit in Arbeits- und Projektgruppen in Absprache mit der Teamleitung Intensivstation\n\nIhr Profil\n• Sie weisen den Bachelor of Science in Pflege auf oder bringen sogar den Master in Pflege mit\n• Als Grundausbildung haben Sie eine abgeschlossene Ausbildung als Dipl. Expertin/Experte NDS Intensivpflege oder Sie besitzen einen ausländischen Abschluss als Gesundheits- und Krankenschwester, als Gesundheits- und Krankenpfleger mit Weiterbildung in Intensiv- und Anästhesiepflege\n• Sie übernehmen gerne Verantwortung und haben Freude am Gestalten von neuen Prozessen\n• Berufserfahrung in einer ähnlichen Funktion wünschenswert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Sie leben eine ausgeprägte Teamfähigkeit und pflegen eine patientenorientierte Arbeitsweise\n• Sie weisen eine hohe Einsatzbereitschaft auf und setzen sich verantwortungsvoll für das Wohl der Patientinnen und Patienten ein\n• Das Arbeiten in einem kleinen, engagierten, zuverlässigen und motivierten Team bereitet Ihnen Freude\n\nZusätzlich profitieren Sie von\n\nEintritt: 24. Juni 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4090643",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-23T09:25:42.389Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4090643",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4090643",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortliche-r-fur-intensivpflege-bsc-in-pflege-m-w-d-svar-spitalverbund-ar-herisau"
+      ],
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

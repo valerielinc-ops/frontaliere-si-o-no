@@ -54,6 +54,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isCantonTicinoOscPosting } from './lib/crawler-company-ownership.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -379,6 +380,55 @@ function normalizeDetailUrl(rawUrl = '') {
 // ──────────────────────────────────────────────────────────────
 
 /**
+ * Fetch one Ti.CH discovery source with the shared transient retry policy.
+ *
+ * Keep the response body inside the retry operation: undici can surface a
+ * connection reset while reading the body even after response headers arrived,
+ * and retrying the whole request is the only safe recovery for a source
+ * snapshot. Persistent HTTP responses still return to the caller so its
+ * listing/RSS fallback policy remains unchanged.
+ */
+async function fetchTichDiscoverySource({
+  url,
+  fetchImpl,
+  timeoutMs,
+  headers,
+  label,
+  retries,
+  retryBaseMs,
+}) {
+  const retryOptions = { label: `Ti.CH ${label}` };
+  if (Number.isFinite(retries)) retryOptions.retries = retries;
+  if (Number.isFinite(retryBaseMs)) retryOptions.retryBaseMs = retryBaseMs;
+
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetchImpl(url, {
+        signal: controller.signal,
+        headers,
+      });
+
+      if (RETRYABLE_STATUS.has(res.status)) {
+        const error = new Error(`HTTP ${res.status}${res.statusText ? ` ${res.statusText}` : ''} from ${url}`);
+        error.status = res.status;
+        error.retryable = true;
+        error.response = res;
+        throw error;
+      }
+
+      return {
+        res,
+        text: res.ok ? await res.text() : null,
+      };
+    } finally {
+      clearTimeout(timer);
+    }
+  }, retryOptions);
+}
+
+/**
  * Fetch Ti.CH job detail URLs from the listing page and RSS feed.
  *
  * The listing page at concorsi.ti.ch is a plain SSR HTML table
@@ -402,21 +452,23 @@ export async function fetchTichJobDetailUrls(options = {}) {
 
   // ── Step 1: Fetch the main listing page ──
   console.log(`🔍 Fetching Ti.CH listing page: ${LISTING_URL}`);
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetchImpl(LISTING_URL, {
-      signal: controller.signal,
+    const { res, text: html } = await fetchTichDiscoverySource({
+      url: LISTING_URL,
+      fetchImpl,
+      timeoutMs,
       headers: {
         Accept: 'text/html',
         'User-Agent': userAgent,
       },
+      label: 'listing discovery',
+      retries: options.retries,
+      retryBaseMs: options.retryBaseMs,
     });
 
     if (!res.ok) {
       console.warn(`⚠️ Listing returned ${res.status} — will try RSS fallback.`);
     } else {
-      const html = await res.text();
       if (!/<title[^>]*>[^<]*Amministrazione Cantonale Ticino Jobportal/i.test(html)
           || !/\bjobsearch\b/i.test(html)) {
         throw new Error('Ti.CH listing identity marker missing.');
@@ -436,27 +488,27 @@ export async function fetchTichJobDetailUrls(options = {}) {
     }
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err.message} — will try RSS fallback.`);
-  } finally {
-    clearTimeout(timer);
   }
 
   // ── Step 2: Fetch the RSS/Atom feed as fallback/supplement ──
   console.log(`🔍 Fetching Ti.CH RSS feed: ${RSS_URL}`);
-  const rssController = new AbortController();
-  const rssTimer = setTimeout(() => rssController.abort(), timeoutMs);
   try {
-    const res = await fetchImpl(RSS_URL, {
-      signal: rssController.signal,
+    const { res, text: xml } = await fetchTichDiscoverySource({
+      url: RSS_URL,
+      fetchImpl,
+      timeoutMs,
       headers: {
         Accept: 'application/atom+xml, application/rss+xml, application/xml, text/xml',
         'User-Agent': userAgent,
       },
+      label: 'RSS discovery',
+      retries: options.retries,
+      retryBaseMs: options.retryBaseMs,
     });
 
     if (!res.ok) {
       console.warn(`⚠️ RSS feed returned ${res.status} — skipping.`);
     } else {
-      const xml = await res.text();
       if (!/<feed\b[^>]*xmlns=["']http:\/\/www\.w3\.org\/2005\/Atom["']/i.test(xml)
           || !/<title>Amministrazione Cantonale Ticino Jobportal\b/i.test(xml)) {
         throw new Error('Ti.CH RSS identity marker missing.');
@@ -486,8 +538,6 @@ export async function fetchTichJobDetailUrls(options = {}) {
     }
   } catch (err) {
     console.warn(`⚠️ RSS feed fetch failed: ${err.message}`);
-  } finally {
-    clearTimeout(rssTimer);
   }
 
   if (!listingSucceeded && !rssSucceeded) {
