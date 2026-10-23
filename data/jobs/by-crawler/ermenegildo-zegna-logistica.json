@@ -193,12 +193,12 @@
         "de": "Group Control Spezialist",
         "fr": "Group Control Spécialiste"
       },
-      "slug": "group-control-specialist-zegna",
+      "slug": "group-control-specialista-ermenegildo-zegna-group-stabio",
       "slugByLocale": {
         "en": "group-control-specialist-zegna",
-        "it": "group-control-specialist-zegna",
-        "de": "group-control-specialist-zegna",
-        "fr": "group-control-specialist-zegna"
+        "it": "group-control-specialista-ermenegildo-zegna-group-stabio",
+        "de": "group-control-spezialist-ermenegildo-zegna-group-stabio",
+        "fr": "group-control-specialiste-ermenegildo-zegna-group-stabio"
       },
       "department": "Corporate and Staff Functions/Finance & Control",
       "category": "Corporate and Staff Functions/Finance & Control",
@@ -234,7 +234,21 @@
       },
       "streetAddress": "Via Lugano 13",
       "postalCode": "6855",
-      "firstSeenAt": "2026-10-22T21:23:38.970Z"
+      "firstSeenAt": "2026-10-22T21:23:38.970Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-control-specialist-zegna"
+        ],
+        "de": [
+          "group-control-specialist-zegna"
+        ],
+        "fr": [
+          "group-control-specialist-zegna"
+        ]
+      },
+      "previousSlugs": [
+        "group-control-specialist-zegna"
+      ]
     }
   ]
 }

@@ -91,12 +91,12 @@
     },
     {
       "id": "spruengli-a86faef4ae4e",
-      "slug": "stv-filialleiter-in-80-100-zurich-hb-haupthalle-confiserie-sprungli-ag-zurich",
+      "slug": "vice-responsabile-di-filiale-80-100-zurich-hb-haupthalle-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
         "de": "stv-filialleiter-in-80-100-zurich-hb-haupthalle-spruengli-zurich",
-        "it": "stv-filialleiter-in-80-100-zurich-hb-haupthalle-confiserie-sprungli-ag-zurich",
-        "en": "stv-filialleiter-in-80-100-zurich-hb-haupthalle-confiserie-sprungli-ag-zurich",
-        "fr": "stv-filialleiter-in-80-100-zurich-hb-haupthalle-confiserie-sprungli-ag-zurich"
+        "it": "vice-responsabile-di-filiale-80-100-zurich-hb-haupthalle-confiserie-sprungli-ag-zurich",
+        "en": "deputy-store-manager-80-100-zurich-hb-main-concourse-confiserie-sprungli-ag-zurich",
+        "fr": "responsable-adjoint-e-de-filiale-80-100-zurich-hb-hall-principal-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -144,14 +144,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-80-100-zurich-hb-haupthalle-spruengli-zurich"
+          "stv-filialleiter-in-80-100-zurich-hb-haupthalle-spruengli-zurich",
+          "stv-filialleiter-in-80-100-zurich-hb-haupthalle-confiserie-sprungli-ag-zurich"
+        ],
+        "en": [
+          "stv-filialleiter-in-80-100-zurich-hb-haupthalle-confiserie-sprungli-ag-zurich"
+        ],
+        "fr": [
+          "stv-filialleiter-in-80-100-zurich-hb-haupthalle-confiserie-sprungli-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-80-100-zurich-hb-haupthalle-spruengli-zurich"
+        "stv-filialleiter-in-80-100-zurich-hb-haupthalle-spruengli-zurich",
+        "stv-filialleiter-in-80-100-zurich-hb-haupthalle-confiserie-sprungli-ag-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

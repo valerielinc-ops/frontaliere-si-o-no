@@ -8,6 +8,7 @@ import {
   parsePkbListingPage,
   parsePkbDetailPage,
   buildPkbJob,
+  isPkbAuthoritativeEmptyListing,
 } from '../scripts/lib/pkb-private-bank-job-parser.mjs';
 
 const PKB_UPDATER = readFileSync(new URL('../scripts/update-pkb-private-bank-jobs.mjs', import.meta.url), 'utf8');
@@ -67,6 +68,12 @@ const DETAIL_HTML_VOID_META_COLLISION = `
 </div>
 </body></html>`;
 
+const EMPTY_LISTING_HTML = `
+<div class="searchResultsBody" role="list">
+  <div class="btnContainer"><h3 class="noResults">Non ci sono risultati ...</h3></div>
+  <div class="hidden" id="totalResultsCount">0</div>
+</div>`;
+
 describe('PKB Private Bank crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(PKB_KEY).toBe('pkb-private-bank');
@@ -86,6 +93,11 @@ describe('PKB Private Bank crawler parser', () => {
     it('returns empty array for empty/invalid HTML', () => {
       expect(parsePkbListingPage('')).toEqual([]);
       expect(parsePkbListingPage('<html><body>bounce snippet</body></html>')).toEqual([]);
+    });
+
+    it('recognizes Arca24 explicit empty-state evidence', () => {
+      expect(isPkbAuthoritativeEmptyListing(EMPTY_LISTING_HTML)).toBe(true);
+      expect(isPkbAuthoritativeEmptyListing('<div id="totalResultsCount">0</div>')).toBe(false);
     });
   });
 
@@ -178,6 +190,20 @@ describe('PKB Private Bank crawler parser', () => {
       expect(result).toMatchObject({ jobs: [], succeeded: 1, failed: 0, fetchOutcome: 'selector_miss' });
     });
 
+    it('marks an explicit Arca24 no-results page as an authoritative empty snapshot', async () => {
+      vi.stubGlobal('fetch', async () => new Response(EMPTY_LISTING_HTML));
+
+      const result = await fetchPkbJobUrls({ timeoutMs: 100 });
+
+      expect(result).toMatchObject({
+        jobs: [],
+        succeeded: 1,
+        failed: 0,
+        fetchOutcome: 'filtered_empty',
+        authoritativeEmptySnapshot: true,
+      });
+    });
+
     it('preserves an anti-bot response as a fetch failure instead of an empty board', async () => {
       vi.stubGlobal('fetch', async () => new Response('', { status: 403 }));
 
@@ -191,8 +217,11 @@ describe('PKB Private Bank crawler parser', () => {
   it('wires discovery outcomes into the exit summary guard', () => {
     expect(PKB_UPDATER).toContain("registerCrawlerSummaryGuard(PKB_KEY, 'PKB', summaryCounts)");
     expect(PKB_UPDATER).toContain('fetchAndParsePkbJobs(summaryCounts)');
-    expect(PKB_UPDATER).toContain('summaryCounts.abortKind = failed > 0 ? \'connection-level-fetch\' : \'no-jobs-parsed\';');
+    expect(PKB_UPDATER).toContain('summaryCounts.abortKind = authoritativeEmptySnapshot');
+    expect(PKB_UPDATER).toContain("failed > 0 ? 'connection-level-fetch' : 'no-jobs-parsed'");
     expect(PKB_UPDATER).toContain('summaryCounts.lastFetchOutcome = fetchOutcome;');
     expect(PKB_UPDATER).toContain('lastFetchOutcome: summaryCounts.lastFetchOutcome');
+    expect(PKB_UPDATER).toContain('authoritativeEmptySnapshot: true');
+    expect(PKB_UPDATER).toContain('publishAuthoritativeEmptySnapshot');
   });
 });

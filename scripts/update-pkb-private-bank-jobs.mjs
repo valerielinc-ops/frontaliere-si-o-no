@@ -43,6 +43,7 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -92,16 +93,28 @@ async function fetchAndParsePkbJobs(summaryCounts = null) {
   console.log(`🏦 Fetching ${COMPANY_NAME} jobs from Arca24 (${COMPANY_DOMAIN})...`);
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
-  const { jobs: listingJobs, attempted, succeeded, failed, fetchOutcome } = await fetchPkbJobUrls({ timeoutMs });
+  const {
+    jobs: listingJobs,
+    attempted,
+    succeeded,
+    failed,
+    fetchOutcome,
+    authoritativeEmptySnapshot,
+    authoritativeEmptyEvidence,
+  } = await fetchPkbJobUrls({ timeoutMs });
   if (summaryCounts) {
     summaryCounts.discovered = listingJobs.length;
     summaryCounts.lastFetchOutcome = fetchOutcome;
+    summaryCounts.authoritativeEmptySnapshot = authoritativeEmptySnapshot === true;
+    summaryCounts.authoritativeEmptyEvidence = authoritativeEmptyEvidence || null;
   }
   console.log(`  📦 Listing pages: ${succeeded}/${attempted} fetched, ${listingJobs.length} job link(s) found`);
   if (listingJobs.length === 0) {
     if (summaryCounts) {
       summaryCounts.parsed = 0;
-      summaryCounts.abortKind = failed > 0 ? 'connection-level-fetch' : 'no-jobs-parsed';
+      summaryCounts.abortKind = authoritativeEmptySnapshot
+        ? null
+        : failed > 0 ? 'connection-level-fetch' : 'no-jobs-parsed';
     }
     console.log(`⚠️ No listing jobs found (${fetchOutcome}). Keeping existing PKB jobs unchanged.`);
     return [];
@@ -220,9 +233,65 @@ function cleanStoredJobsOnSoftExit() {
   });
 }
 
+/**
+ * Retire the previous PKB slice only when Arca24 positively declared that the
+ * tenant has no open offers. A parser miss continues through the soft-exit
+ * path above and keeps the live slice intact.
+ */
+async function publishAuthoritativeEmptySnapshot(beforeSnapshot, evidence) {
+  const priorJobs = readExistingCrawlerJobs(PKB_KEY, DATA_JOBS).filter(isPkbJob);
+  const emptyDiff = computeCrawlDiff(beforeSnapshot, new Map());
+  const archived = archiveRemovedJobsToSlice(priorJobs, PKB_KEY);
+
+  writeJobsCrawlerSlice(PKB_KEY, [], {
+    skipShrinkGuard: true,
+    preserveExistingSlugs: true,
+  });
+  writeJsonAtomic(DATA_JOBS, []);
+  if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJsonAtomic(PUBLIC_DATA_JOBS, []);
+  printCrawlChangeSummary(emptyDiff, 'PKB');
+  writeCrawlChangeSummaryToGH(emptyDiff, 'PKB');
+
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: PKB_KEY,
+    label: 'PKB',
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: 0,
+    parsed: 0,
+    written: 0,
+    lastFetchOutcome: 'filtered_empty',
+    abortKind: null,
+    authoritativeEmptySnapshot: true,
+    authoritativeSnapshotVerified: true,
+    authoritativeEmptyEvidence: evidence,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: emptyDiff.removedJobs.length,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: emptyDiff.removedJobs.slice(0, 30),
+    unchangedJobs: [],
+  });
+  await assembleJobsDataset();
+  console.log(`ℹ️ Persisted authoritative PKB zero; archived ${archived} expired route(s).`);
+}
+
 async function main() {
   setCrawlerStartTime();
-  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    authoritativeEmptySnapshot: false,
+    authoritativeEmptyEvidence: null,
+  };
   registerCrawlerSummaryGuard(PKB_KEY, 'PKB', summaryCounts);
   console.log(`🏦 Running dedicated ${COMPANY_NAME} jobs crawler (Arca24)...`);
 
@@ -230,6 +299,14 @@ async function main() {
 
   const parsedJobs = await fetchAndParsePkbJobs(summaryCounts);
   if (parsedJobs.length === 0) {
+    if (summaryCounts.authoritativeEmptySnapshot) {
+      console.log('✅ PKB source proves there are no active offers.');
+      await publishAuthoritativeEmptySnapshot(
+        _beforeSnapshot,
+        summaryCounts.authoritativeEmptyEvidence,
+      );
+      return;
+    }
     console.log('⚠️ No valid jobs parsed — keeping existing PKB jobs unchanged.');
     await cleanStoredJobsOnSoftExit();
     return;
@@ -259,6 +336,8 @@ async function main() {
     discovered: summaryCounts.discovered,
     parsed: summaryCounts.parsed,
     lastFetchOutcome: summaryCounts.lastFetchOutcome,
+    authoritativeEmptySnapshot: false,
+    authoritativeSnapshotVerified: false,
     written: _sliceJobs.length,
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,

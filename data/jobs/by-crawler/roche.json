@@ -10,7 +10,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "system-development-troubleshooter-roche-rotkreuz"
+        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -53,14 +53,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "developpement-du-systeme-depanneur-roche-rotkreuz"
+        "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "developpement-du-systeme-depanneur-roche-rotkreuz"
+          "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
       "salaryMin": 74500,
@@ -3173,7 +3173,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "leitender-rechtsberater-rechtliche-geschaftsentwicklung-gesellschaftsrecht-roche-basel",
-        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -3216,7 +3216,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3226,7 +3226,7 @@
           "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ],
         "fr": [
-          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+          "senior-legal-counsel-legal-business-development-corporate-roche-basel"
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:04.141Z",
@@ -3326,7 +3326,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
+        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -3370,12 +3370,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst",
+        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
+        ],
+        "de": [
+          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -5641,7 +5645,7 @@
         "it": "gestione-globale-dei-contratti-e-dei-partner-roche-basel",
         "en": "global-expert-contracting-partner-management-roche-ch",
         "de": "globales-experten-contracting-partner-management-roche-basel",
-        "fr": "global-expert-contracting-partner-management-roche-basel"
+        "fr": "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -5684,7 +5688,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-expert-contracting-partner-management-roche-ch",
-        "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
+        "global-expert-contracting-partner-management-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5695,7 +5699,7 @@
         ],
         "fr": [
           "global-expert-contracting-partner-management-roche-ch",
-          "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
+          "global-expert-contracting-partner-management-roche-basel"
         ]
       },
       "firstSeenAt": "2026-10-15T21:14:39.547Z",
@@ -5954,7 +5958,7 @@
       "slug": "esperto-di-produzione-temporaneo-a-18-mesi-kaiseraugst-roche-kaiseraugst",
       "slugByLocale": {
         "it": "esperto-di-produzione-temporaneo-a-18-mesi-kaiseraugst-roche-kaiseraugst",
-        "en": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst",
+        "en": "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst",
         "de": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
         "fr": "expert-en-production-temporaire-a-18-mois-kaiseraugst-roche-kaiseraugst"
       },
@@ -5999,8 +6003,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst",
-        "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst"
+        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6009,7 +6012,7 @@
         ],
         "en": [
           "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-          "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst"
+          "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst"
         ],
         "fr": [
           "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch"
@@ -7971,7 +7974,7 @@
         "en": "global-ecosystem-insights-enabling-leader-cvrm-roche-ch",
         "it": "global-ecosystem-insights-enabling-leader-cvrm-roche-ch",
         "de": "global-ecosystem-insights-enabling-leader-cvrm-roche-ch",
-        "fr": "global-ecosystem-insights-enabling-leader-cvrm-roche-ch"
+        "fr": "perspectives-des-ecosystemes-mondiaux-leader-habilitant-cvrm-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8033,12 +8036,12 @@
     },
     {
       "id": "roche-969c9108d302",
-      "slug": "internship-in-ai-for-laboratory-automation-pharma-research-early-development-roche-ch",
+      "slug": "tirocinio-sull-ia-per-l-automazione-di-laboratorio-ricerca-farmaceutica-e-sviluppo-iniziale-roche-basel",
       "slugByLocale": {
         "en": "internship-in-ai-for-laboratory-automation-pharma-research-early-development-roche-ch",
-        "it": "internship-in-ai-for-laboratory-automation-pharma-research-early-development-roche-ch",
-        "de": "internship-in-ai-for-laboratory-automation-pharma-research-early-development-roche-ch",
-        "fr": "internship-in-ai-for-laboratory-automation-pharma-research-early-development-roche-ch"
+        "it": "tirocinio-sull-ia-per-l-automazione-di-laboratorio-ricerca-farmaceutica-e-sviluppo-iniziale-roche-basel",
+        "de": "praktikum-im-bereich-ki-fur-die-laborautomatisierung-pharma-research-early-development-roche-basel",
+        "fr": "stage-en-ia-pour-l-automatisation-des-laboratoires-recherche-pharmaceutique-et-developpement-precoce-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8081,7 +8084,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -8097,7 +8099,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-22T21:13:31.496Z"
+      "firstSeenAt": "2026-10-22T21:13:31.496Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-in-ai-for-laboratory-automation-pharma-research-early-development-roche-ch"
+        ],
+        "de": [
+          "internship-in-ai-for-laboratory-automation-pharma-research-early-development-roche-ch"
+        ],
+        "fr": [
+          "internship-in-ai-for-laboratory-automation-pharma-research-early-development-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-in-ai-for-laboratory-automation-pharma-research-early-development-roche-ch"
+      ]
     },
     {
       "id": "roche-98bec1dd8a79",
@@ -8163,7 +8179,6 @@
         ]
       },
       "firstSeenAt": "2026-10-20T21:14:05.573Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -8182,12 +8197,12 @@
     },
     {
       "id": "roche-9ec778782ead",
-      "slug": "head-of-supply-chain-operations-logistics-roche-ch",
+      "slug": "responsabile-supply-chain-operations-logistica-roche-basel",
       "slugByLocale": {
         "en": "head-of-supply-chain-operations-logistics-roche-ch",
-        "it": "head-of-supply-chain-operations-logistics-roche-ch",
-        "de": "head-of-supply-chain-operations-logistics-roche-ch",
-        "fr": "head-of-supply-chain-operations-logistics-roche-ch"
+        "it": "responsabile-supply-chain-operations-logistica-roche-basel",
+        "de": "leiter-lieferkette-operations-logistik-roche-basel",
+        "fr": "responsable-chaine-d-approvisionnement-operations-logistique-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8245,16 +8260,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-22T21:13:29.463Z"
+      "firstSeenAt": "2026-10-22T21:13:29.463Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-supply-chain-operations-logistics-roche-ch"
+        ],
+        "de": [
+          "head-of-supply-chain-operations-logistics-roche-ch"
+        ],
+        "fr": [
+          "head-of-supply-chain-operations-logistics-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-supply-chain-operations-logistics-roche-ch"
+      ]
     },
     {
       "id": "roche-6db310c935c7",
-      "slug": "global-lead-resource-circularity-80-100-roche-ch",
+      "slug": "circolazione-globale-delle-risorse-di-piombo-80-100-roche-basel",
       "slugByLocale": {
         "en": "global-lead-resource-circularity-80-100-roche-ch",
-        "it": "global-lead-resource-circularity-80-100-roche-ch",
-        "de": "global-lead-resource-circularity-80-100-roche-ch",
-        "fr": "global-lead-resource-circularity-80-100-roche-ch"
+        "it": "circolazione-globale-delle-risorse-di-piombo-80-100-roche-basel",
+        "de": "globale-leitressourcenkreisularitat-80-100-roche-basel",
+        "fr": "circularite-mondiale-des-ressources-en-plomb-80-100-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8312,7 +8341,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-22T21:13:28.670Z"
+      "firstSeenAt": "2026-10-22T21:13:28.670Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-lead-resource-circularity-80-100-roche-ch"
+        ],
+        "de": [
+          "global-lead-resource-circularity-80-100-roche-ch"
+        ],
+        "fr": [
+          "global-lead-resource-circularity-80-100-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-lead-resource-circularity-80-100-roche-ch"
+      ]
     },
     {
       "id": "roche-d0e54df64eb1",
@@ -8364,7 +8407,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "universitatspraktikant-in-im-bereich-spurenanalytik-startdatum-01-01-2027-12-monate-roche"
@@ -8395,12 +8437,12 @@
     },
     {
       "id": "roche-1a47838f4df6",
-      "slug": "praktikum-biotechnologische-produktion-single-use-e-antibody-drug-conjugate-technologie-ab-februar-in-basel-per-12-monate-roche-basel",
+      "slug": "tirocinio-produzione-biotecnologica-tecnologia-single-use-e-antibody-drug-conjugate-da-febbraio-a-basilea-per-12-mesi",
       "slugByLocale": {
         "de": "praktikum-biotechnologische-produktion-single-use-und-antibody-drug-conjugate-technologie",
-        "it": "praktikum-biotechnologische-produktion-single-use-e-antibody-drug-conjugate-technologie-ab-februar-in-basel-per-12-monate-roche-basel",
-        "en": "praktikum-biotechnologische-produktion-single-use-und-antibody-drug-conjugate-technologie",
-        "fr": "praktikum-biotechnologische-produktion-single-use-und-antibody-drug-conjugate-technologie"
+        "it": "tirocinio-produzione-biotecnologica-tecnologia-single-use-e-antibody-drug-conjugate-da-febbraio-a-basilea-per-12-mesi",
+        "en": "internship-biotechnological-production-single-use-and-antibody-drug-conjugate-technology-from-february-in-basel-for-12",
+        "fr": "stage-production-biotechnologiques-usage-unique-et-technologie-conjuguee-des-anticorps-de-fevrier-a-bale-pendant-12-mois"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8443,14 +8485,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-biotechnologische-produktion-single-use-und-antibody-drug-conjugate-technologie",
+          "praktikum-biotechnologische-produktion-single-use-e-antibody-drug-conjugate-technologie-ab-februar-in-basel-per-12-monate-roche-basel"
+        ],
+        "en": [
+          "praktikum-biotechnologische-produktion-single-use-und-antibody-drug-conjugate-technologie"
+        ],
+        "fr": [
           "praktikum-biotechnologische-produktion-single-use-und-antibody-drug-conjugate-technologie"
         ]
       },
       "previousSlugs": [
-        "praktikum-biotechnologische-produktion-single-use-und-antibody-drug-conjugate-technologie"
+        "praktikum-biotechnologische-produktion-single-use-und-antibody-drug-conjugate-technologie",
+        "praktikum-biotechnologische-produktion-single-use-e-antibody-drug-conjugate-technologie-ab-februar-in-basel-per-12-monate-roche-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
