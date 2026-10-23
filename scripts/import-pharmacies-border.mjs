@@ -703,7 +703,13 @@ async function main() {
   );
   const enrichmentOutput = buildPharmacyEnrichmentSnapshot(previousEnrichment, enrichmentResult, fetchedAt);
 
-  if (!allDutiesFailed) {
+  // A preserved catalogue is a valid fallback for identity continuity, but it
+  // must not be paired with a newer duty snapshot. Publishing that mixed pair
+  // creates a partial release and turns a transient source outage into a
+  // site-wide noindex event. Keep the previous atomic Ticino release intact;
+  // the next successful catalogue fetch can advance all three files together.
+  const publishTicinoRelease = !allDutiesFailed && ticinoOutput._preserved !== true;
+  if (publishTicinoRelease) {
     const atomic = buildAtomicPharmacySnapshots({
       catalogue: ticinoOutput,
       duties: dutiesSnapshot,
@@ -720,6 +726,8 @@ async function main() {
     await writeJson(TICINO_OUTPUT_PATH, atomic.catalogue);
     await writeJson(DUTIES_PATH, atomic.duties);
     await writeJson(DUTIES_STATUS_PATH, atomic.status);
+  } else if (ticinoOutput._preserved === true) {
+    console.warn('[import-pharmacies-border] Ticino catalogue was preserved; retaining the previous atomic catalogue+duties+status release');
   }
   await writeJson(ITALY_OUTPUT_PATH, italyOutput);
   await writeJson(ENRICHMENT_OUTPUT_PATH, enrichmentOutput);

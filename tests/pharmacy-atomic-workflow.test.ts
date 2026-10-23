@@ -16,6 +16,13 @@ describe('pharmacy atomic refresh workflow', () => {
     expect(source).toContain('preserving the previous snapshot');
   });
 
+  it('does not publish fresh duties beside a preserved Ticino catalogue', () => {
+    const source = readFileSync(BORDER_IMPORTER, 'utf8');
+    expect(source).toContain('const publishTicinoRelease = !allDutiesFailed && ticinoOutput._preserved !== true;');
+    expect(source).toContain('if (publishTicinoRelease) {');
+    expect(source).toContain('retaining the previous atomic catalogue+duties+status release');
+  });
+
   it('keeps the duty alias free of a release-less main writer', () => {
     const source = readFileSync(resolve(WORKFLOWS, 'sync-pharmacy-duties.yml'), 'utf8');
     expect(source).toContain('workflow_dispatch: {}');
