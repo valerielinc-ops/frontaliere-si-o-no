@@ -819,7 +819,7 @@ is_transient_pr_create_failure() {
   local detail_lc
   detail_lc="$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]')"
   case "$detail_lc" in
-    *'http 500'*|*'http 502'*|*'http 503'*|*'http 504'*|*'bad gateway'*|*'service unavailable'*|*'gateway timeout'*|*'something went wrong'*|*'timed out'*|*'timeout'*|*'etimedout'*|*'econnreset'*|*'eai_again'*|*'socket hang up'*)
+    *'http 408'*|*'http 425'*|*'http 429'*|*'http 500'*|*'http 502'*|*'http 503'*|*'http 504'*|*'bad gateway'*|*'service unavailable'*|*'gateway timeout'*|*'something went wrong'*|*'timed out'*|*'timeout'*|*'etimedout'*|*'econnreset'*|*'eai_again'*|*'socket hang up'*)
       return 0
       ;;
     *)
