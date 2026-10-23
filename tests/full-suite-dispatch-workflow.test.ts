@@ -112,6 +112,7 @@ describe('full-suite-dispatch.yml: checkout pieno e dati runtime', () => {
     expect(run).toContain('--only firestore');
     expect(run).toContain('--project frontaliereticino-rules-test');
     expect(run).toContain('status=$?');
+    expect(run).toContain('FULL_SUITE_EXIT_CODE');
     expect(run).toContain('exit "$status"');
   });
 
@@ -169,15 +170,16 @@ describe('full-suite-dispatch.yml: la suite è intera e il rosso resta rosso', (
     }
   });
 
-  it('il riepilogo dei file rossi e l\'upload del report girano `if: always()` dopo la suite', () => {
+  it('il riepilogo dei file rossi, delle metriche e l\'upload girano `if: always()` dopo la suite', () => {
     const summaryIndex = indexOf(runIncludes('scripts/ci/full-suite-red-files.mjs'));
     const uploadIndex = indexOf((s) => String(s.uses ?? '').startsWith('actions/upload-artifact@'));
     expect(summaryIndex).toBeGreaterThan(testIndex);
     expect(uploadIndex).toBeGreaterThan(summaryIndex);
     expect(steps[summaryIndex].if).toBe('always()');
     expect(steps[uploadIndex].if).toBe('always()');
+    expect(String(steps[summaryIndex].run)).toContain('--metrics-out full-suite-performance.json');
     const uploaded = String(steps[uploadIndex].with?.path ?? '');
-    for (const file of ['full-suite-report.json', 'full-suite-red-files.txt', 'full-suite-vitest.log']) {
+    for (const file of ['full-suite-report.json', 'full-suite-red-files.txt', 'full-suite-performance.json', 'full-suite-vitest.log']) {
       expect(uploaded).toContain(file);
     }
   });
@@ -197,11 +199,17 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
     numTotalTestSuites: 7,
     numFailedTestSuites: 3,
     numFailedTests: 3,
+    startTime: 1000,
     testResults: [
-      { name: `${root}/tests/ok.test.ts`, status: 'passed', assertionResults: [{ status: 'passed' }] },
+      {
+        name: `${root}/tests/ok.test.ts`, status: 'passed', startTime: 1000, endTime: 1300,
+        assertionResults: [{ status: 'passed' }],
+      },
       {
         name: `${root}/tests/zeta.test.ts`,
         status: 'failed',
+        startTime: 1100,
+        endTime: 1700,
         message: '',
         assertionResults: [
           { status: 'failed', failureMessages: ['AssertionError: expected 1 to be 2 | pipe\nstack'] },
@@ -212,10 +220,12 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
       {
         name: `${root}/tests/scripts/alpha.test.ts`,
         status: 'failed',
+        startTime: 1200,
+        endTime: 1400,
         message: 'Error: Cannot find module data/jobs.json',
         assertionResults: [],
       },
-      { name: `${root}/tests/skip.test.ts`, status: 'skipped', assertionResults: [] },
+      { name: `${root}/tests/skip.test.ts`, status: 'skipped', startTime: 1400, endTime: 1400, assertionResults: [] },
     ],
   };
 
@@ -229,6 +239,15 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
       { file: 'tests/scripts/alpha.test.ts', failedTests: 0, message: 'Error: Cannot find module data/jobs.json' },
       { file: 'tests/zeta.test.ts', failedTests: 2, message: 'AssertionError: expected 1 to be 2 | pipe' },
     ]);
+    expect(summary.performance).toEqual({
+      reportStartTimeMs: 1000,
+      reportEndTimeMs: 1700,
+      suiteDurationMs: 700,
+      timedFiles: 4,
+      medianFileDurationMs: 250,
+      p95FileDurationMs: 600,
+      maxFileDurationMs: 600,
+    });
     expect(renderRedFilesText(summary)).toBe('tests/scripts/alpha.test.ts\ntests/zeta.test.ts\n');
   });
 
@@ -238,6 +257,8 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
     expect(text).toContain('- file rossi: **2** (elencati qui sotto)');
     // Le suite di Vitest restano visibili, ma con la loro etichetta: mai come «file».
     expect(text).toContain('(`numFailedTestSuites`, file + blocchi `describe`): 3 su 7');
+    expect(text).toContain('- durata Vitest: **700 ms**');
+    expect(text).toContain('- durata file: mediana **250 ms**, p95 **600 ms**, massimo **600 ms**');
     expect(text).not.toMatch(/file[^\n]*\*\*3\*\*/);
     expect(text).toContain('| `tests/zeta.test.ts` | 2 | AssertionError: expected 1 to be 2 \\| pipe |');
     expect(text).toContain('| `tests/scripts/alpha.test.ts` | 0 |');
@@ -263,12 +284,13 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
     const dir = mkdtempSync(join(tmpdir(), 'full-suite-red-files-'));
     try {
       const summaryFile = join(dir, 'summary.md');
+      const metricsFile = join(dir, 'metrics.json');
       writeFileSync(summaryFile, '');
       const env = { ...process.env, GITHUB_STEP_SUMMARY: summaryFile };
       const script = join(ROOT, 'scripts/ci/full-suite-red-files.mjs');
       let status = 0;
       try {
-        execFileSync(process.execPath, [script, '--report', join(dir, 'missing.json'), '--out', join(dir, 'red.txt')], {
+        execFileSync(process.execPath, [script, '--report', join(dir, 'missing.json'), '--out', join(dir, 'red.txt'), '--metrics-out', metricsFile], {
           cwd: dir, env, stdio: 'pipe',
         });
       } catch (error) {
@@ -276,14 +298,26 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
       }
       expect(status).toBe(1);
       expect(readFileSync(summaryFile, 'utf8')).toContain('Report Vitest file assente');
+      expect(JSON.parse(readFileSync(metricsFile, 'utf8'))).toMatchObject({
+        status: 'unavailable',
+        reportAvailable: false,
+        performance: { suiteDurationMs: null, medianFileDurationMs: null },
+      });
 
       const reportFile = join(dir, 'report.json');
       writeFileSync(reportFile, JSON.stringify(report));
-      const out = execFileSync(process.execPath, [script, '--report', reportFile, '--out', join(dir, 'red.txt')], {
+      const out = execFileSync(process.execPath, [script, '--report', reportFile, '--out', join(dir, 'red.txt'), '--metrics-out', metricsFile], {
         cwd: dir, env, encoding: 'utf8',
       });
       expect(out).toContain('redFiles=2 totalFiles=4 numFailedTestSuites=3');
       expect(readFileSync(join(dir, 'red.txt'), 'utf8')).toBe('tests/scripts/alpha.test.ts\ntests/zeta.test.ts\n');
+      expect(JSON.parse(readFileSync(metricsFile, 'utf8'))).toMatchObject({
+        schemaVersion: 1,
+        status: 'measured',
+        reportAvailable: true,
+        invariants: { totalFiles: 4, redFiles: 2, numFailedTests: 3 },
+        performance: { suiteDurationMs: 700, medianFileDurationMs: 250, p95FileDurationMs: 600 },
+      });
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
