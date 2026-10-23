@@ -16,8 +16,7 @@ import {
  * consumers (jobsSeoPagesPlugin seeding window.__EXPIRED_JOB_DATA__) keep
  * reading `data/expired-jobs.json` directly and are unaffected.
  *
- * Mirrors localeJobsSplitPlugin's emit contract (apply:'build', closeBundle for
- * dist + configureServer for the dev server).
+ * Build-only emit contract: apply:'build' and closeBundle for dist.
  */
 export function expiredJobsSplitPlugin(rootDir: string): Plugin {
   const expiredJobsPath = path.resolve(rootDir, 'data', 'expired-jobs.json');
@@ -68,13 +67,6 @@ export function expiredJobsSplitPlugin(rootDir: string): Plugin {
         console.log(`[expired-jobs-split] Generated slim index + ${count} detail files`);
       }
     },
-    configureServer() {
-      // In dev, emit to public/data/ so the dev server can serve them.
-      const publicDir = path.resolve(rootDir, 'public');
-      const count = generateFiles(publicDir);
-      if (count > 0) {
-        console.log(`[expired-jobs-split] Dev: generated slim index + ${count} detail files in public/data/`);
-      }
-    },
+    // Expired files are generated only during build (closeBundle).
   };
 }

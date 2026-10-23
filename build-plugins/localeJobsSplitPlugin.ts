@@ -85,7 +85,7 @@ const DETAIL_FIELDS = new Set([
  * `jobs-{locale}.json` monolith is intentionally NOT emitted — its descriptions
  * duplicated job-detail and were never needed for listing (see inline note).
  *
- * Also generates files in `public/data/` for the Vite dev server.
+ * Locale files are emitted into dist/data/ during the build.
  */
 export function localeJobsSplitPlugin(rootDir: string): Plugin {
  const dataJobsPath = path.resolve(rootDir, 'data', 'jobs.json');
@@ -276,13 +276,6 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + ${CANTON_SHARD_KEYS.length * LOCALES.length} canton shards + slug map (+ sharded slug map) + ${count} detail files (${count} jobs)`);
  }
  },
- configureServer(server) {
- // In dev, generate files in public/data/ so the dev server can serve them
- const publicDir = path.resolve(rootDir, 'public');
- const count = generateFiles(publicDir);
- if (count > 0) {
- console.log(`[locale-jobs-split] Dev: generated 4 slim index files + slug map + detail files in public/data/`);
- }
- },
+ // Locale files are generated only during build (closeBundle).
  };
 }
