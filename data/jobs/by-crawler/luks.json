@@ -926,7 +926,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -973,7 +973,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -981,7 +981,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -10025,7 +10025,7 @@
       "id": "luks-5e1f8ddfed0d",
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
+        "it": "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "en": "nursing-specialist-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
         "fr": "specialiste-des-soins-infirmiers-hf-fh-urogynecologie-60-luzerner-kantonsspital-luks-luzern"
@@ -10073,13 +10073,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-        "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-          "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
@@ -15649,9 +15647,9 @@
     },
     {
       "id": "luks-5d80ee6615cc",
-      "slug": "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern",
+      "slug": "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern",
+        "it": "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern",
         "en": "medical-secretary-medical-secretary-gastroenterology-hepatology-80-90-luzerner-kantonsspital-luks-luzern",
         "de": "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
         "fr": "secretaire-medical-secretaire-medical-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
@@ -15700,12 +15698,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
-        "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern"
+        "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
-          "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern"
+          "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern"
@@ -17339,8 +17337,7 @@
       "previousSlugs": [
         "laborantin-laborant-herstellung-80-luks-luzern",
         "laborantin-laborant-herstellung-60-100-luks-luzern"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "luks-aad06b419591",
@@ -17449,7 +17446,6 @@
         "de": "Das Luzerner Kantonsspital mit den Standorten Luzern, Sursee und Wolhusen ist ein Unternehmen der LUKS Gruppe und gehört damit einer der führenden Spitalgruppen der Schweiz an. Die über 8000 Mitarbeitenden sind mit Herzlichkeit, Kompetenz und Engagement rund um die Uhr für das Wohl der Patientinnen und Patienten da. Die Kliniken und Institute der LUKS Gruppe bieten medizinische Leistungen von höchster Qualität. Wir bieten in unserem Team ab Juli 2027 einen Ausbildungsplatz an als\n\nAufgaben:\n• Sie arbeiten mit im Team und erlernen so den Umgang mit kranken und/oder verletzten Menschen\n\n• Sie werden in die Arbeiten im hilfstherapeutischen, administrativen und hauswirtschaftlichen Bereich eingeführt\n\nAnforderungen:\n- Sie sind eine flexible, initiative und kommunikative Person mit freundlichem Umgang und Interesse am Menschen\n- Sie verfügen über eine höhere Schulbildung wie z.B. die Matura oder eine abgeschlossene Berufsbildung mit Berufsmaturität\n- Die Mindestdauer für ein Praktikum beträgt drei Monate oder nach Absprache\n\nWir bieten:\n• abwechslungsreiche Tätigkeit\n\n• fundierter Einblick in den Beruf der Physiotherapie/Ergotherapie im Akutspital auf den verschiedensten Abteilungen oder auf der Neuro- / Muskuloskelettalen Rehabilitation\n\n• Teilnahme an Rapporten und Fortbildungen\n\n• fortschrittliche Sozialleistungen und gute Erreichbarkeit mit öffentlichen Verkehrsmitteln",
         "fr": "L'Hôpital cantonal de Lucerne avec ses emplacements à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient donc à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 000 employés sont là avec chaleur, compétence et engagement 24 heures sur 24. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. Nous offrons dans notre équipe de février 2027 un lieu d'entraînement comme\n\nTâches :\n• Vous travaillez en équipe et apprenez comment traiter les personnes malades ou blessées\n\n• Ils sont introduits dans le secteur auxiliaire, administratif et domestique\n\nExigences\n- Vous êtes une personne flexible, initiative et communicative avec des relations amicales et l'intérêt pour les gens\n- Vous avez un enseignement supérieur tel que le Matura ou une formation professionnelle complète avec maturité professionnelle\n- La durée minimale d'un stage est de trois mois ou par accord\n\nNous offrons:\n• activité variée\n\n• une connaissance approfondie de la profession de physiothérapie/thérapie professionnelle dans l'hôpital aigu de différents départements ou sur la réadaptation neuro-/musculaire\n\n• Participation aux rapports et à la formation\n\n• avantages sociaux progressifs et une bonne accessibilité avec les transports publics"
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/vorpraktikant-in-physiotherapie-akutbereich/4dfa241f-f23c-42c9-9807-6a4a59c1c035",
@@ -17759,12 +17755,12 @@
     },
     {
       "id": "luks-54a1e4119897",
-      "slug": "pharma-assistentin-pharma-assistent-o-drogistin-drogist-60-100-luzerner-kantonsspital-luks-luzern",
+      "slug": "assistente-di-farmacia-assistente-di-farmacia-oppure-droghista-droghista-60-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-60-100-luks-luzern",
-        "it": "pharma-assistentin-pharma-assistent-o-drogistin-drogist-60-100-luzerner-kantonsspital-luks-luzern",
-        "en": "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-60-100-luks-luzern",
-        "fr": "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-60-100-luks-luzern"
+        "it": "assistente-di-farmacia-assistente-di-farmacia-oppure-droghista-droghista-60-100-luzerner-kantonsspital-luks-luzern",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-or-drogist-drogist-60-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-ou-drogiste-drogiste-60-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17783,7 +17779,6 @@
         "en": "The Lucerne Canton Hospital with its locations in Lucerne, Sursee and Wolhusen is a company of the LUKS Group and thus belongs to one of the leading hospital groups in Switzerland. The more than 8,500 employees are there with warmth, competence and commitment around the clock for the well-being of patients. The clinics and institutes of the LUKS Group offer medical services of the highest quality. <br/><br/ >For our team we are looking for reinforcement as of 1 February 2027 or by agreement.\n\nTasks:\n• The focus of your activity is the safe and careful direction of medicines for the inpatient and ambulatory area\n\n• In close cooperation with doctors and nursing staff, you contribute to a smooth medication process\n\n• In addition, you take on assignments in the public pharmacy and take care of administrative tasks such as warehouse management and health insurance accounts via Ofac\n\nRequirements\n• You have completed training as a pharmaceutical assistant EFZ, pharmaceutical assistant EFZ or drugist/drugist EFZ\n\n• Thanks to your rapid comprehension, you will quickly find your way into new processes and keep an overview even in a dynamic environment.\n\n• An exact, reliable and quality-conscious way of working distinguishes you – as well as your willingness to participate in hectic situations.\n\n• With your warm and team-oriented nature, you appreciate interprofessional cooperation and meet others with strong social skills.\n\nWe offer:\n• Enjoy an exciting working environment at the interface between public pharmacy, hospital pharmacy and outpatient care\n\n• Modern systems such as PropharmaX and the clinic information system LUKiS help you to work efficiently and to have important information available quickly.\n\n• With us, you can expect a varied task with insights into different areas – including oncology and radio-oncology.\n\n• In addition, you have the opportunity to actively participate in the further development of our services and to gradually assume responsibility.",
         "fr": "L'hôpital du canton de Lucerne avec ses implantations à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient ainsi à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 500 employés sont là avec chaleur, compétence et engagement 24 heures sur 24 pour le bien-être des patients. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. <br/><br/ > Pour notre équipe, nous cherchons des renforts au 1er février 2027 ou par accord.\n\nTâches :\n• Le centre de votre activité est la direction sûre et prudente des médicaments pour les patients hospitalisés et ambulatoires\n\n• En étroite collaboration avec les médecins et le personnel infirmier, vous contribuez à un processus médicamenteux fluide\n\n• En outre, vous effectuez des missions dans la pharmacie publique et vous occupez de tâches administratives telles que la gestion des entrepôts et les comptes d'assurance maladie via Ofac\n\nExigences\n• Vous avez suivi une formation en tant qu'assistant pharmaceutique EFZ, assistant pharmaceutique EFZ ou pharmacien/drogue EFZ\n\n• Grâce à votre compréhension rapide, vous trouverez rapidement votre chemin dans de nouveaux processus et garder un aperçu même dans un environnement dynamique.\n\n• Une façon de travailler exacte, fiable et soucieuse de la qualité vous distingue – ainsi que votre volonté de participer à des situations agitées.\n\n• Avec votre nature chaleureuse et axée sur l'équipe, vous appréciez la coopération interprofessionnelle et rencontrez d'autres personnes avec de solides compétences sociales.\n\nNous offrons:\n• Profitez d'un environnement de travail passionnant à l'interface entre pharmacie publique, pharmacie hospitalière et soins ambulatoires\n\n• Des systèmes modernes comme PropharmaX et le système d'information clinique LUKiS vous aident à travailler efficacement et à disposer rapidement d'informations importantes.\n\n• Avec nous, vous pouvez vous attendre à une tâche variée avec des idées sur différents domaines – y compris l'oncologie et la radio-oncologie.\n\n• De plus, vous avez l'occasion de participer activement au développement de nos services et d'assumer progressivement vos responsabilités."
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/pharma-assistentin-pharma-assistent-oder-drogistin-drogist/1ec09cc7-c171-4595-bccc-940b119f6d46",
@@ -17813,11 +17808,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-60-100-luks-luzern",
+          "pharma-assistentin-pharma-assistent-o-drogistin-drogist-60-100-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-60-100-luks-luzern"
+        ],
+        "fr": [
           "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-60-100-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-60-100-luks-luzern"
+        "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-60-100-luks-luzern",
+        "pharma-assistentin-pharma-assistent-o-drogistin-drogist-60-100-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -17836,12 +17839,12 @@
     },
     {
       "id": "luks-208fdce2b748",
-      "slug": "leiterin-leiter-kooperationen-e-strategische-partnerschaften-70-100-luzerner-kantonsspital-luks-luzern",
+      "slug": "responsabile-delle-cooperazioni-e-delle-partnership-strategiche-70-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "leiterin-leiter-kooperationen-und-strategische-partnerschaften-70-100-luks-luzern",
-        "it": "leiterin-leiter-kooperationen-e-strategische-partnerschaften-70-100-luzerner-kantonsspital-luks-luzern",
-        "en": "leiterin-leiter-kooperationen-und-strategische-partnerschaften-70-100-luks-luzern",
-        "fr": "leiterin-leiter-kooperationen-und-strategische-partnerschaften-70-100-luks-luzern"
+        "it": "responsabile-delle-cooperazioni-e-delle-partnership-strategiche-70-100-luzerner-kantonsspital-luks-luzern",
+        "en": "head-of-cooperation-and-strategic-partnerships-70-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "chef-de-la-cooperation-et-des-partenariats-strategiques-70-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17860,7 +17863,6 @@
         "en": "The Lucerne Canton Hospital with its locations in Lucerne, Sursee and Wolhusen is a company of the LUKS Group and thus belongs to one of the leading hospital groups in Switzerland. The more than 8,500 employees are there with warmth, competence and commitment around the clock for the well-being of patients. The clinics and institutes of the LUKS Group offer medical services of the highest quality. <br/><br/ >For our team we are looking for reinforcement immediately or by agreement.\n\nTasks:\n• They are the central point of contact for strategic partnerships and control the cooperation portfolio of the LUKS Group. You create transparency about priorities, responsibilities and risks and ensure consistent monitoring of ongoing cooperation\n\n• Together with internal specialist departments and external partner organisations, you will identify new cooperation potentials, develop sustainable cooperation models and develop business cases, potential analyses and sound decision-making bases for the management.\n\n• They develop and accompany cooperation projects independently in close coordination with the Chief Medical Officer (CMO) until decision-making maturity and ensure the binding implementation and follow-up of the agreed measures after decisions have been made.\n\n• They support LUKS Group applications within the framework of extra-cantonal hospital planning and ensure structured coordination with the participating internal specialist departments.\n\nRequirements\n• They have a university degree, ideally with a business focus or a corresponding further education, and have several years of professional experience in the healthcare sector as well as a good understanding of medical, business and regulatory contexts\n\n• They think and act entrepreneurially, have practical experience in project management as well as in the conception of cooperation models and business plans and drive complex projects forward in a structured and targeted manner.\n\n• High resilience and flexibility, networked thinking, strong personal responsibility, teamwork and implementation strength distinguish you\n\n• With your communication, moderation and negotiation skills, you convince at different hierarchical levels, build trusting relationships and also develop viable solutions for different interests.\n\nWe offer:\n• They help shape the strategic development of the cooperation network of the LUKS Group and make a concrete contribution to health care in Central Switzerland and beyond.\n\n• In this responsible role, you can expect a great deal of technical room for manoeuvre, in which you can contribute your own ideas, develop partnerships and shape the future orientation of partner management.\n\n• You will become part of a dedicated team in corporate development, in which a lively professional exchange, mutual support and positive cooperation shape everyday work\n\n• Through close cooperation with medical and business managers as well as the management, you will expand your network within and outside the LUKS Group and gain a wide range of insights into strategic issues.",
         "fr": "L'hôpital du canton de Lucerne avec ses implantations à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient ainsi à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 500 employés sont là avec chaleur, compétence et engagement 24 heures sur 24 pour le bien-être des patients. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. <br/><br/ > Pour notre équipe, nous cherchons du renfort immédiatement ou d'un commun accord.\n\nTâches :\n• Ils sont le point de contact central pour les partenariats stratégiques et contrôlent le portefeuille de coopération du groupe LUKS. Vous créez la transparence sur les priorités, les responsabilités et les risques et assurez un suivi cohérent de la coopération continue\n\n• En collaboration avec les services spécialisés internes et les organisations partenaires externes, vous identifierez de nouveaux potentiels de coopération, développerez des modèles de coopération durable et développerez des analyses de rentabilisation, des analyses potentielles et des bases de décision solides pour la gestion.\n\n• Ils élaborent et accompagnent les projets de coopération de manière indépendante, en étroite coordination avec le médecin-chef (CMO) jusqu'à ce que la prise de décision soit mûre et assurent la mise en œuvre et le suivi contraignants des mesures convenues après la prise de décisions.\n\n• Ils soutiennent les applications du groupe LUKS dans le cadre de la planification hospitalière extra-cantonale et assurent une coordination structurée avec les départements spécialisés internes participants.\n\nExigences\n• Ils ont un diplôme universitaire, idéalement axé sur les affaires ou une formation complémentaire correspondante, et ont plusieurs années d'expérience professionnelle dans le secteur de la santé ainsi qu'une bonne compréhension des contextes médicaux, commerciaux et réglementaires\n\n• Ils pensent et agissent de manière entrepreneuriale, possèdent une expérience pratique dans la gestion de projets ainsi que dans la conception de modèles de coopération et de plans d'affaires et font avancer les projets complexes de manière structurée et ciblée.\n\n• Haute résilience et flexibilité, pensée en réseau, forte responsabilité personnelle, travail d'équipe et force de mise en œuvre vous distinguent\n\n• Avec vos compétences en communication, modération et négociation, vous convainquez à différents niveaux hiérarchiques, construisez des relations de confiance et développez des solutions viables pour différents intérêts.\n\nNous offrons:\n• Ils contribuent au développement stratégique du réseau de coopération du groupe LUKS et apportent une contribution concrète aux soins de santé en Suisse centrale et au-delà.\n\n• Dans ce rôle responsable, vous pouvez vous attendre à beaucoup de marge de manœuvre technique, dans laquelle vous pouvez apporter vos propres idées, développer des partenariats et façonner l'orientation future de la gestion des partenaires.\n\n• Vous ferez partie d'une équipe dédiée au développement des entreprises, dans laquelle un échange professionnel animé, un soutien mutuel et une coopération positive façonnent le travail quotidien\n\n• Grâce à une étroite collaboration avec les responsables médicaux et commerciaux ainsi qu'avec la direction, vous élargirez votre réseau au sein et à l'extérieur du groupe LUKS et gagnerez un large éventail de points de vue sur les questions stratégiques."
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/leiterin-leiter-kooperationen-und-strategische-partnerschaften-70/b4a6cb23-1d58-48d1-9d6d-2b54bafe5a21",
@@ -17890,11 +17892,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-kooperationen-und-strategische-partnerschaften-70-100-luks-luzern",
+          "leiterin-leiter-kooperationen-e-strategische-partnerschaften-70-100-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "leiterin-leiter-kooperationen-und-strategische-partnerschaften-70-100-luks-luzern"
+        ],
+        "fr": [
           "leiterin-leiter-kooperationen-und-strategische-partnerschaften-70-100-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-kooperationen-und-strategische-partnerschaften-70-100-luks-luzern"
+        "leiterin-leiter-kooperationen-und-strategische-partnerschaften-70-100-luks-luzern",
+        "leiterin-leiter-kooperationen-e-strategische-partnerschaften-70-100-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 117000,
       "salaryMax": 163000,
@@ -17913,11 +17923,11 @@
     },
     {
       "id": "luks-3abb8af4ef72",
-      "slug": "mpa-dermatologie-allergologie-80-100-luks-sursee",
+      "slug": "dermatologia-mpa-allergologia-80-100-luzerner-kantonsspital-luks-sursee",
       "slugByLocale": {
         "de": "mpa-dermatologie-allergologie-80-100-luks-sursee",
-        "it": "mpa-dermatologie-allergologie-80-100-luks-sursee",
-        "en": "mpa-dermatologie-allergologie-80-100-luks-sursee",
+        "it": "dermatologia-mpa-allergologia-80-100-luzerner-kantonsspital-luks-sursee",
+        "en": "mpa-dermatology-allergology-80-100-luzerner-kantonsspital-luks-sursee",
         "fr": "mpa-dermatologie-allergologie-80-100-luks-sursee"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -17937,7 +17947,6 @@
         "en": "The Lucerne Canton Hospital with its locations in Lucerne, Sursee and Wolhusen is a company of the LUKS Group and thus belongs to one of the leading hospital groups in Switzerland. The more than 8,500 employees are there with warmth, competence and commitment around the clock for the well-being of patients. The clinics and institutes of the LUKS Group offer medical services of the highest quality. <br/><br/ >We are looking for our team on January 1, 2027 or by appointment.\n\nTasks:\n• Together with your teammates, you are responsible for the smooth organization and implementation of the consultation hours in our Centre for Dermatology and Allergology\n\n• They operate the reception as well as the telephone, coordinate the office hours and perform various general administration tasks.\n\n• The care of the patients gives you pleasure and the consultation assistance (including blood sampling, injections, allergy tests, light therapy, etc.) is one of your central areas of activity.\n\nRequirements\n• You have completed training as an MPA and/or medical secretary with professional experience in office hours\n\n• They value the exchange among themselves and contribute to an open, appreciative and constructive cooperation.\n\n• Even in demanding and hectic situations, you maintain an overview and always treat our patients with appreciation, empathy and professionalism.\n\n• The safe handling of IT systems and your knowledge of medical terminology round off your profile\n\nWe offer:\n• Look forward to a motivated, committed team and a modern workplace. You work in a small, highly professional team with flat hierarchy and du-culture\n\n• For a coordinated work-life balance, we offer you regulated working hours from Monday to Friday. This allows you to combine professional activity and leisure activities\n\n• Your further development is important to us: Thanks to our wide variety of internal educational offers, you benefit from targeted and individual competence development and promotion.",
         "fr": "L'hôpital du canton de Lucerne avec ses implantations à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient ainsi à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 500 employés sont là avec chaleur, compétence et engagement 24 heures sur 24 pour le bien-être des patients. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. Nous cherchons notre équipe le 1er janvier 2027 ou sur rendez-vous.\n\nTâches :\n• En collaboration avec vos coéquipiers, vous êtes responsable de l'organisation et de la mise en oeuvre harmonieuses des heures de consultation dans notre Centre de dermatologie et d'allergologie\n\n• Ils gèrent la réception ainsi que le téléphone, coordonnent les heures de bureau et exécutent diverses tâches administratives générales.\n\n• Les soins des patients vous donnent plaisir et l'assistance de consultation (y compris l'échantillonnage sanguin, les injections, les tests d'allergie, la luminothérapie, etc.) est l'un de vos domaines d'activité centraux.\n\nExigences\n• Vous avez suivi une formation en tant que député et/ou secrétaire médical ayant une expérience professionnelle en heures de bureau\n\n• Ils apprécient les échanges entre eux et contribuent à une coopération ouverte, reconnaissante et constructive.\n\n• Même dans des situations exigeantes et agitées, vous maintenez un aperçu et traitez toujours nos patients avec reconnaissance, empathie et professionnalisme.\n\n• La manipulation sécuritaire des systèmes informatiques et votre connaissance de la terminologie médicale complètent votre profil\n\nNous offrons:\n• Réjouissez-vous d'une équipe motivée et engagée et d'un milieu de travail moderne. Vous travaillez dans une petite équipe hautement professionnelle avec hiérarchie plate et du-culture\n\n• Pour un équilibre travail-vie personnelle coordonné, nous vous offrons des horaires de travail réglementés du lundi au vendredi. Cela vous permet de combiner activité professionnelle et loisirs\n\n• Votre développement est important pour nous : grâce à notre grande variété d'offres éducatives internes, vous bénéficiez d'un développement et d'une promotion ciblés et individuels des compétences."
       },
-      "needsRetranslation": true,
       "location": "Sursee",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/mpa-dermatologie-allergologie/6fb81432-19c6-4e2b-b8b7-730a3345def2",
@@ -17978,16 +17987,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:16:41.223Z"
+      "firstSeenAt": "2026-10-23T09:16:41.223Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-dermatologie-allergologie-80-100-luks-sursee"
+        ],
+        "en": [
+          "mpa-dermatologie-allergologie-80-100-luks-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-dermatologie-allergologie-80-100-luks-sursee"
+      ]
     },
     {
       "id": "luks-6dbc1851bf41",
-      "slug": "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luzerner-kantonsspital-luks-luzern",
+      "slug": "project-manager-project-manager-sviluppo-aziendale-70-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luks-luzern",
-        "it": "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luzerner-kantonsspital-luks-luzern",
-        "en": "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luks-luzern",
-        "fr": "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luks-luzern"
+        "it": "project-manager-project-manager-sviluppo-aziendale-70-100-luzerner-kantonsspital-luks-luzern",
+        "en": "project-manager-project-manager-corporate-development-70-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "gestionnaire-de-projet-gestionnaire-de-projet-developpement-corporatif-70-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18035,11 +18055,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luks-luzern",
+          "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luks-luzern"
+        ],
+        "fr": [
           "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luks-luzern"
+        "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luks-luzern",
+        "projektleiterin-projektleiter-unternehmensentwicklung-70-100-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

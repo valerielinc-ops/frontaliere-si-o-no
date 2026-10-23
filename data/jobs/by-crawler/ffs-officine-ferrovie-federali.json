@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sbb-bccd9915f410",
-      "slug": "automatiker-in-elektroniker-in-per-la-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
+      "slug": "tecnico-a-d-automazione-elettronico-a-per-la-revisione-dei-componenti-nel-settore-dell-elettrotecnica-ffs-officine",
       "slugByLocale": {
-        "it": "automatiker-in-elektroniker-in-per-la-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
-        "en": "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
+        "it": "tecnico-a-d-automazione-elettronico-a-per-la-revisione-dei-componenti-nel-settore-dell-elettrotecnica-ffs-officine",
+        "en": "automation-technician-electronics-technician-for-component-refurbishment-in-the-field-of-electrical-engineering-ffs",
         "de": "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
-        "fr": "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn"
+        "fr": "automaticien-ne-electronicien-ne-pour-la-remise-en-etat-de-composants-dans-le-domaine-de-l-electrotechnique-ffs-officine"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -83,24 +83,24 @@
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
-          "automatiker-in-elektroniker-in-per-la-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
-          "automatista-elettronico-a-per-il-ricondizionamento-dei-componenti-nel-settore-dell-elettrotecnica-ffs-officine-ferrovie"
+          "automatista-elettronico-a-per-il-ricondizionamento-dei-componenti-nel-settore-dell-elettrotecnica-ffs-officine-ferrovie",
+          "automatiker-in-elektroniker-in-per-la-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn"
         ],
         "en": [
-          "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
-          "automation-technician-electronics-technician-for-component-refurbishment-in-the-field-of-electrical-engineering-ffs"
+          "automation-technician-electronics-technician-for-component-refurbishment-in-the-field-of-electrical-engineering-ffs",
+          "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn"
         ],
         "fr": [
-          "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
-          "automaticien-ne-electronicien-ne-pour-la-refection-des-composants-dans-le-domaine-de-l-electrotechnique-ffs-officine"
+          "automaticien-ne-electronicien-ne-pour-la-refection-des-composants-dans-le-domaine-de-l-electrotechnique-ffs-officine",
+          "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn"
         ]
       },
       "previousSlugs": [
         "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
-        "automatiker-in-elektroniker-in-per-la-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
         "automatista-elettronico-a-per-il-ricondizionamento-dei-componenti-nel-settore-dell-elettrotecnica-ffs-officine-ferrovie",
         "automation-technician-electronics-technician-for-component-refurbishment-in-the-field-of-electrical-engineering-ffs",
-        "automaticien-ne-electronicien-ne-pour-la-refection-des-composants-dans-le-domaine-de-l-electrotechnique-ffs-officine"
+        "automaticien-ne-electronicien-ne-pour-la-refection-des-composants-dans-le-domaine-de-l-electrotechnique-ffs-officine",
+        "automatiker-in-elektroniker-in-per-la-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -119,15 +119,14 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/automatiker-in-elektroniker-in-fuer-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik/25403ef7-839b-4dff-bc49-545620ffb2e8",
-      "firstSeenAt": "2026-10-23T09:33:28.275Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-23T09:33:28.275Z"
     },
     {
       "id": "sbb-9c40b250ef56",
       "slug": "responsabile-delle-applicazioni-r-sistemi-di-pianificazione-ferroviaria-proprietario-del-prodotto-80-100-ffs-officine",
       "slugByLocale": {
         "it": "responsabile-delle-applicazioni-r-sistemi-di-pianificazione-ferroviaria-proprietario-del-prodotto-80-100-ffs-officine",
-        "en": "applikationsverantwortliche-r-bahnplanungssysteme-product-owner-80-100-ffs-officine-ferrovie-federali-6362-stansstad",
+        "en": "responsible-for-applications-r-railway-planning-systems-product-owner-80-100-ffs-officine-ferrovie-federali-6362",
         "de": "applikationsverantwortliche-r-bahnplanungssysteme-product-owner-80-100-ffs-officine-ferrovie-federali-6362-stansstad",
         "fr": "responsable-des-applications-r-systemes-de-planification-ferroviaire-proprietaire-du-produit-80-100-ffs-officine"
       },
@@ -208,15 +207,14 @@
           "applikationsverantwortliche-r-bahnplanungssysteme-product-owner-80-100-ffs-officine-ferrovie-federali-6362-stansstad"
         ],
         "en": [
-          "responsible-for-applications-r-railway-planning-systems-product-owner-80-100-ffs-officine-ferrovie-federali-6362"
+          "applikationsverantwortliche-r-bahnplanungssysteme-product-owner-80-100-ffs-officine-ferrovie-federali-6362-stansstad"
         ],
         "fr": [
           "applikationsverantwortliche-r-bahnplanungssysteme-product-owner-80-100-ffs-officine-ferrovie-federali-6362-stansstad"
         ]
       },
       "previousSlugs": [
-        "applikationsverantwortliche-r-bahnplanungssysteme-product-owner-80-100-ffs-officine-ferrovie-federali-6362-stansstad",
-        "responsible-for-applications-r-railway-planning-systems-product-owner-80-100-ffs-officine-ferrovie-federali-6362"
+        "applikationsverantwortliche-r-bahnplanungssysteme-product-owner-80-100-ffs-officine-ferrovie-federali-6362-stansstad"
       ]
     },
     {
@@ -3971,7 +3969,7 @@
         "it": "gestore-trice-immobiliare-ffs-officine-ferrovie-federali-olten",
         "en": "real-estate-manager-ffs-officine-ferrovie-federali-olten",
         "de": "immobilienbewirtschafter-in-ffs-officine-ferrovie-federali-olten",
-        "fr": "gestionnaire-immobilier-ere-ffs-officine-ferrovie-federali-olten"
+        "fr": "gerant-e-d-immeubles-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4029,14 +4027,14 @@
       "crawledAt": "2026-10-23T09:33:46.275Z",
       "previousSlugs": [
         "immobilienbewirtschafter-in-ffs-officine-ferrovie-federali-olten",
-        "gerant-e-d-immeubles-ffs-officine-ferrovie-federali-olten"
+        "gestionnaire-immobilier-ere-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "immobilienbewirtschafter-in-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
-          "gerant-e-d-immeubles-ffs-officine-ferrovie-federali-olten"
+          "gestionnaire-immobilier-ere-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-10-15T09:30:39.804Z",
@@ -4065,7 +4063,7 @@
       "slugByLocale": {
         "it": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne-8def9eb896",
         "en": "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
-        "de": "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne",
+        "de": "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
         "fr": "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -4132,7 +4130,7 @@
       "crawledAt": "2026-10-23T09:33:46.798Z",
       "previousSlugs": [
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-        "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+        "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4143,7 +4141,7 @@
         ],
         "de": [
           "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
-          "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
+          "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
         ]
       },
       "salaryMin": 73000,
@@ -6243,7 +6241,7 @@
       "slugByLocale": {
         "it": "ingegnere-della-sicurezza-ferroviaria-ffs-officine-ferrovie-federali-geneve",
         "en": "railway-safety-engineer-ffs-officine-ferrovie-federali-geneve",
-        "de": "eisenbahnsicherheitsausrustung-ffs-officine-ferrovie-federali-geneve",
+        "de": "eisenbahnsicherheitsingenieur-ffs-officine-ferrovie-federali-geneve",
         "fr": "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -6309,7 +6307,7 @@
       "crawledAt": "2026-10-23T09:33:51.298Z",
       "previousSlugs": [
         "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve",
-        "eisenbahnsicherheitsingenieur-ffs-officine-ferrovie-federali-geneve"
+        "eisenbahnsicherheitsausrustung-ffs-officine-ferrovie-federali-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6320,7 +6318,7 @@
         ],
         "de": [
           "mecanicien-ne-installations-de-securite-ferroviaires-ffs-officine-ferrovie-federali-geneve",
-          "eisenbahnsicherheitsingenieur-ffs-officine-ferrovie-federali-geneve"
+          "eisenbahnsicherheitsausrustung-ffs-officine-ferrovie-federali-geneve"
         ]
       },
       "firstSeenAt": "2026-10-17T21:28:22.465Z",
@@ -7088,7 +7086,7 @@
       "id": "sbb-2e7144cac881",
       "slug": "diagnostico-diagnostico-veicolo-risoluzione-dei-problemi-ffs-officine-ferrovie-federali-winterthur-8392e3adc3",
       "slugByLocale": {
-        "it": "diagnostico-diagnostico-veicolo-risoluzione-dei-problemi-ffs-officine-ferrovie-federali-winterthur-8392e3adc3",
+        "it": "diagnostico-diagnostico-veicolo-risoluzione-dei-problemi-ffs-officine-ferrovie-federali-winterthur",
         "en": "diagnostician-vehicle-diagnostician-troubleshooting-ffs-officine-ferrovie-federali-winterthur",
         "de": "diagnostiker-in-fahrzeugdiagnostiker-in-storungssuche-ffs-officine-ferrovie-federali-winterthur",
         "fr": "diagnostic-diagnostic-de-vehicule-diagnostic-ffs-officine-ferrovie-federali-winterthur"
@@ -7151,13 +7149,11 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-22T21:24:15.149Z",
       "previousSlugs": [
-        "diagnostiker-in-fahrzeugdiagnostiker-in-storungssuche-ffs-officine-ferrovie-federali-winterthur",
-        "diagnostico-diagnostico-veicolo-risoluzione-dei-problemi-ffs-officine-ferrovie-federali-winterthur"
+        "diagnostiker-in-fahrzeugdiagnostiker-in-storungssuche-ffs-officine-ferrovie-federali-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diagnostiker-in-fahrzeugdiagnostiker-in-storungssuche-ffs-officine-ferrovie-federali-winterthur",
-          "diagnostico-diagnostico-veicolo-risoluzione-dei-problemi-ffs-officine-ferrovie-federali-winterthur"
+          "diagnostiker-in-fahrzeugdiagnostiker-in-storungssuche-ffs-officine-ferrovie-federali-winterthur"
         ]
       },
       "firstSeenAt": "2026-09-25T15:01:23.999Z",
@@ -8356,9 +8352,9 @@
       "slug": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
-        "en": "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "en": "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
         "de": "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "fr": "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
+        "fr": "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -8427,8 +8423,8 @@
       "crawledAt": "2026-10-23T09:34:20.784Z",
       "previousSlugs": [
         "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
-        "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+        "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8436,11 +8432,11 @@
         ],
         "en": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten"
+          "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+          "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-10-10T09:25:30.948Z",
@@ -10834,7 +10830,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke-12-2026/ccd01a0f-250a-477d-a0c6-32ccf0164df3",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-61287b0752b6",
@@ -11044,9 +11041,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11107,8 +11104,8 @@
       "crawledAt": "2026-10-23T09:33:52.295Z",
       "previousSlugs": [
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+        "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11116,11 +11113,11 @@
         ],
         "en": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf"
+          "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+          "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
       "firstSeenAt": "2026-10-17T21:28:22.977Z",
@@ -12943,12 +12940,12 @@
     },
     {
       "id": "sbb-8b59e0a3a37b",
-      "slug": "monteur-in-fahrleitung-b100-e-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau",
+      "slug": "montatore-trice-di-linee-di-contatto-b100-e-conducente-di-veicoli-ferroviari-ffs-officine-ferrovie-federali-arth-goldau",
       "slugByLocale": {
-        "it": "monteur-in-fahrleitung-b100-e-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau",
-        "en": "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau",
+        "it": "montatore-trice-di-linee-di-contatto-b100-e-conducente-di-veicoli-ferroviari-ffs-officine-ferrovie-federali-arth-goldau",
+        "en": "catenary-installer-b100-and-railway-vehicle-driver-ffs-officine-ferrovie-federali-arth-goldau",
         "de": "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau",
-        "fr": "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau"
+        "fr": "monteur-euse-de-lignes-de-contact-b100-et-conducteur-rice-de-vehicules-moteurs-ffs-officine-ferrovie-federali-arth"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13024,14 +13021,21 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/aaa2e4ee-90c0-4b6d-8f80-a4e95175911d",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-23T09:33:52.798Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau",
+          "monteur-in-fahrleitung-b100-e-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau"
+        ],
+        "en": [
+          "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau"
+        ],
+        "fr": [
           "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau"
         ]
       },
       "previousSlugs": [
-        "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau"
+        "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau",
+        "monteur-in-fahrleitung-b100-e-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau"
       ],
       "salaryMin": 74500,
       "salaryMax": 127000,

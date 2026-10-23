@@ -26,6 +26,12 @@ export const JOB_LOCATION_CLASS_TOKENS = new Set([
   'vacancy-region', 'vacancy_region', 'vacancy-detail-region', 'vacancy_detail_region',
 ]);
 
+// SuccessFactors/SuccessFactors-derived templates put one or more vacancy
+// locations in a value span nested inside the job-location wrapper. The token
+// is only authoritative when the caller has already established that wrapper;
+// a standalone value span is common in search cards and page chrome.
+export const JOB_LOCATION_VALUE_CLASS_TOKENS = new Set(['jobgeolocation']);
+
 /**
  * Structured location evidence selected by the shared resolver. Known address
  * fields are normalised to strings; vendor-specific fields survive the spread.

@@ -1924,12 +1924,12 @@
     },
     {
       "id": "canton-valais-346c406d1206",
-      "slug": "un-ou-une-stagiaire-juriste-100-6-12-mois-canton-valais-ch",
+      "slug": "addestramento-legale-100-6-12-mesi-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-ou-une-stagiaire-juriste-100-6-12-mois-canton-valais-ch",
-        "it": "un-ou-une-stagiaire-juriste-100-6-12-mois-canton-valais-ch",
-        "en": "un-ou-une-stagiaire-juriste-100-6-12-mois-canton-valais-ch",
-        "de": "un-ou-une-stagiaire-juriste-100-6-12-mois-canton-valais-ch"
+        "it": "addestramento-legale-100-6-12-mesi-canton-du-valais-sion",
+        "en": "legal-trainee-100-6-12-months-canton-du-valais-sion",
+        "de": "legal-trainee-100-6-12-monate-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1987,16 +1987,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:49:05.179Z"
+      "firstSeenAt": "2026-10-23T09:49:05.179Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-ou-une-stagiaire-juriste-100-6-12-mois-canton-valais-ch"
+        ],
+        "en": [
+          "un-ou-une-stagiaire-juriste-100-6-12-mois-canton-valais-ch"
+        ],
+        "de": [
+          "un-ou-une-stagiaire-juriste-100-6-12-mois-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-ou-une-stagiaire-juriste-100-6-12-mois-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-e7af1d388a93",
-      "slug": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-de-langue-allemande-ou",
+      "slug": "collaboratore-specializzato-o-collaboratore-specializzato-in-tedesco-o-bilingue-tedesco-francese-60-canton-du-valais",
       "slugByLocale": {
         "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-de-langue-allemande-ou",
-        "it": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-de-langue-allemande-ou",
-        "en": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-de-langue-allemande-ou",
-        "de": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-de-langue-allemande-ou"
+        "it": "collaboratore-specializzato-o-collaboratore-specializzato-in-tedesco-o-bilingue-tedesco-francese-60-canton-du-valais",
+        "en": "a-specialist-collaborator-or-a-specialist-collaborator-in-german-or-bilingual-german-french-60-canton-du-valais-sion",
+        "de": "ein-fachmitarbeiter-oder-ein-fachmitarbeiter-in-deutsch-oder-zweisprachig-deutsch-franzosisch-60-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2054,16 +2068,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:49:04.452Z"
+      "firstSeenAt": "2026-10-23T09:49:04.452Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-de-langue-allemande-ou"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-de-langue-allemande-ou"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-de-langue-allemande-ou"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-de-langue-allemande-ou"
+      ]
     },
     {
       "id": "canton-valais-512e908e5e8f",
-      "slug": "jurist-in-60-canton-du-valais-brig",
+      "slug": "giurista-60-canton-du-valais-brig",
       "slugByLocale": {
         "de": "jurist-in-60-canton-valais-ch",
-        "it": "jurist-in-60-canton-du-valais-brig",
-        "en": "jurist-in-60-canton-valais-ch",
-        "fr": "jurist-in-60-canton-valais-ch"
+        "it": "giurista-60-canton-du-valais-brig",
+        "en": "lawyer-60-canton-du-valais-brig",
+        "fr": "juriste-60-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2108,14 +2136,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "jurist-in-60-canton-valais-ch",
+          "jurist-in-60-canton-du-valais-brig"
+        ],
+        "en": [
+          "jurist-in-60-canton-valais-ch"
+        ],
+        "fr": [
           "jurist-in-60-canton-valais-ch"
         ]
       },
       "previousSlugs": [
-        "jurist-in-60-canton-valais-ch"
+        "jurist-in-60-canton-valais-ch",
+        "jurist-in-60-canton-du-valais-brig"
       ],
       "salaryMin": 36300,
       "salaryMax": 54900,
@@ -2134,12 +2169,12 @@
     },
     {
       "id": "canton-valais-160aa231bbe4",
-      "slug": "verantwortliche-r-per-kulturvermittlung-80-canton-du-valais-brig",
+      "slug": "responsabile-della-mediazione-culturale-80-canton-du-valais-brig",
       "slugByLocale": {
         "de": "verantwortliche-r-fur-kulturvermittlung-80-canton-valais-ch",
-        "it": "verantwortliche-r-per-kulturvermittlung-80-canton-du-valais-brig",
-        "en": "verantwortliche-r-fur-kulturvermittlung-80-canton-valais-ch",
-        "fr": "verantwortliche-r-fur-kulturvermittlung-80-canton-valais-ch"
+        "it": "responsabile-della-mediazione-culturale-80-canton-du-valais-brig",
+        "en": "responsible-for-cultural-education-80-canton-du-valais-brig",
+        "fr": "responsable-de-l-education-culturelle-80-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2184,14 +2219,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "verantwortliche-r-fur-kulturvermittlung-80-canton-valais-ch",
+          "verantwortliche-r-per-kulturvermittlung-80-canton-du-valais-brig"
+        ],
+        "en": [
+          "verantwortliche-r-fur-kulturvermittlung-80-canton-valais-ch"
+        ],
+        "fr": [
           "verantwortliche-r-fur-kulturvermittlung-80-canton-valais-ch"
         ]
       },
       "previousSlugs": [
-        "verantwortliche-r-fur-kulturvermittlung-80-canton-valais-ch"
+        "verantwortliche-r-fur-kulturvermittlung-80-canton-valais-ch",
+        "verantwortliche-r-per-kulturvermittlung-80-canton-du-valais-brig"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -2210,12 +2252,12 @@
     },
     {
       "id": "canton-valais-dda8bac30528",
-      "slug": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
+      "slug": "un-collaboratore-amministrativo-70-canton-du-valais-monthey",
       "slugByLocale": {
         "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
-        "it": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
-        "en": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
-        "de": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+        "it": "un-collaboratore-amministrativo-70-canton-du-valais-monthey",
+        "en": "an-administrative-collaborator-70-canton-du-valais-monthey",
+        "de": "ein-administrativer-mitarbeiter-70-canton-du-valais-monthey"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2273,16 +2315,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:49:02.346Z"
+      "firstSeenAt": "2026-10-23T09:49:02.346Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+        ],
+        "en": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-be85404a5ff7",
-      "slug": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch",
+      "slug": "collaboratore-specializzato-o-collaboratore-specializzato-50-60-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch",
-        "it": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch",
-        "en": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch",
-        "de": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch"
+        "it": "collaboratore-specializzato-o-collaboratore-specializzato-50-60-canton-du-valais-sion",
+        "en": "a-specialist-collaborator-or-a-specialist-collaborator-50-60-canton-du-valais-sion",
+        "de": "ein-spezialisierter-mitarbeiter-oder-ein-spezialisierter-mitarbeiter-50-60-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2340,16 +2396,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:49:01.634Z"
+      "firstSeenAt": "2026-10-23T09:49:01.634Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-daf76cfaab2a",
-      "slug": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais",
+      "slug": "un-collaboratore-amministrativo-80-100-canton-du-valais-martigny",
       "slugByLocale": {
         "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais",
-        "it": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais",
-        "en": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais",
-        "de": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais"
+        "it": "un-collaboratore-amministrativo-80-100-canton-du-valais-martigny",
+        "en": "an-administrative-collaborator-80-100-canton-du-valais-martigny",
+        "de": "ein-administrativer-mitarbeiter-80-100-canton-du-valais-martigny"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2407,16 +2477,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T12:09:16.997Z"
+      "firstSeenAt": "2026-07-10T12:09:16.997Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais"
+        ],
+        "en": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais"
+        ],
+        "de": [
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais"
+      ]
     },
     {
       "id": "canton-valais-b0b548db7b43",
-      "slug": "deux-agents-de-detention-centraliste-veilleur-ou-deux-agentes-de-detention-centraliste",
+      "slug": "due-ufficiali-di-detenzione-centralista-guardiano-o-due-agenti-di-detenzione-centralisti-guardiano-100-posti-canton-du",
       "slugByLocale": {
         "fr": "deux-agents-de-detention-centraliste-veilleur-ou-deux-agentes-de-detention-centraliste",
-        "it": "deux-agents-de-detention-centraliste-veilleur-ou-deux-agentes-de-detention-centraliste",
-        "en": "deux-agents-de-detention-centraliste-veilleur-ou-deux-agentes-de-detention-centraliste",
-        "de": "deux-agents-de-detention-centraliste-veilleur-ou-deux-agentes-de-detention-centraliste"
+        "it": "due-ufficiali-di-detenzione-centralista-guardiano-o-due-agenti-di-detenzione-centralisti-guardiano-100-posti-canton-du",
+        "en": "two-male-centralist-detention-officers-watchmen-or-two-female-centralist-detention-officers-watchwomen-full-time",
+        "de": "zwei-zentralistische-haftbeamte-wachter-oder-zwei-zentralistische-haftbeamte-wachter-100-posten-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2461,7 +2545,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2475,16 +2558,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:49:00.265Z"
+      "firstSeenAt": "2026-10-23T09:49:00.265Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "deux-agents-de-detention-centraliste-veilleur-ou-deux-agentes-de-detention-centraliste"
+        ],
+        "en": [
+          "deux-agents-de-detention-centraliste-veilleur-ou-deux-agentes-de-detention-centraliste"
+        ],
+        "de": [
+          "deux-agents-de-detention-centraliste-veilleur-ou-deux-agentes-de-detention-centraliste"
+        ]
+      },
+      "previousSlugs": [
+        "deux-agents-de-detention-centraliste-veilleur-ou-deux-agentes-de-detention-centraliste"
+      ]
     },
     {
       "id": "canton-valais-0f8ecb37f8fa",
-      "slug": "un-chef-ou-une-cheffe-de-la-police-judiciaire-canton-valais-ch",
+      "slug": "capo-della-polizia-giudiziaria-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-chef-ou-une-cheffe-de-la-police-judiciaire-canton-valais-ch",
-        "it": "un-chef-ou-une-cheffe-de-la-police-judiciaire-canton-valais-ch",
-        "en": "un-chef-ou-une-cheffe-de-la-police-judiciaire-canton-valais-ch",
-        "de": "un-chef-ou-une-cheffe-de-la-police-judiciaire-canton-valais-ch"
+        "it": "capo-della-polizia-giudiziaria-canton-du-valais-sion",
+        "en": "a-chief-of-the-judicial-police-canton-du-valais-sion",
+        "de": "chef-der-justizpolizei-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2542,16 +2639,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:48:59.576Z"
+      "firstSeenAt": "2026-10-23T09:48:59.576Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-chef-ou-une-cheffe-de-la-police-judiciaire-canton-valais-ch"
+        ],
+        "en": [
+          "un-chef-ou-une-cheffe-de-la-police-judiciaire-canton-valais-ch"
+        ],
+        "de": [
+          "un-chef-ou-une-cheffe-de-la-police-judiciaire-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-chef-ou-une-cheffe-de-la-police-judiciaire-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-88cb5d61e4ab",
-      "slug": "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-engagement-de-duree-determinee-de-5",
+      "slug": "un-consulente-fiscale-o-un-consulente-fiscale-80-100-appuntamento-fisso-a-5-anni-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-engagement-de-duree-determinee-de-5",
-        "it": "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-engagement-de-duree-determinee-de-5",
-        "en": "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-engagement-de-duree-determinee-de-5",
-        "de": "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-engagement-de-duree-determinee-de-5"
+        "it": "un-consulente-fiscale-o-un-consulente-fiscale-80-100-appuntamento-fisso-a-5-anni-canton-du-valais-sion",
+        "en": "a-tax-revisor-or-a-tax-reviser-80-100-5-year-fixed-term-appointment-canton-du-valais-sion",
+        "de": "ein-steuerrevisor-oder-ein-steuerrevisor-80-100-5-jahrige-befristete-ernennung-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2609,16 +2720,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:48:58.866Z"
+      "firstSeenAt": "2026-10-23T09:48:58.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-engagement-de-duree-determinee-de-5"
+        ],
+        "en": [
+          "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-engagement-de-duree-determinee-de-5"
+        ],
+        "de": [
+          "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-engagement-de-duree-determinee-de-5"
+        ]
+      },
+      "previousSlugs": [
+        "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-engagement-de-duree-determinee-de-5"
+      ]
     },
     {
       "id": "canton-valais-a5c2b1adec18",
-      "slug": "un-ou-une-stagiaire-juriste-80-100-des-le-1er-janvier-2027-stage-valable-pour-l-obtention",
+      "slug": "uno-o-uno-studente-di-avvocato-80-100-a-partire-dal-1-gennaio-2027-stage-valido-per-ottenere-un-brevetto-di-avvocato",
       "slugByLocale": {
         "fr": "un-ou-une-stagiaire-juriste-80-100-des-le-1er-janvier-2027-stage-valable-pour-l-obtention",
-        "it": "un-ou-une-stagiaire-juriste-80-100-des-le-1er-janvier-2027-stage-valable-pour-l-obtention",
-        "en": "un-ou-une-stagiaire-juriste-80-100-des-le-1er-janvier-2027-stage-valable-pour-l-obtention",
-        "de": "un-ou-une-stagiaire-juriste-80-100-des-le-1er-janvier-2027-stage-valable-pour-l-obtention"
+        "it": "uno-o-uno-studente-di-avvocato-80-100-a-partire-dal-1-gennaio-2027-stage-valido-per-ottenere-un-brevetto-di-avvocato",
+        "en": "one-or-one-lawyer-trainee-80-100-as-of-1-january-2027-internship-valid-for-obtaining-a-lawyer-s-patent-canton-du-valais",
+        "de": "ein-oder-ein-rechtsanwaltspraktikant-80-100-ab-1-januar-2027-praktikum-gultig-fur-die-erlangung-eines-anwaltspatents"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2676,16 +2801,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:48:58.180Z"
+      "firstSeenAt": "2026-10-23T09:48:58.180Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-ou-une-stagiaire-juriste-80-100-des-le-1er-janvier-2027-stage-valable-pour-l-obtention"
+        ],
+        "en": [
+          "un-ou-une-stagiaire-juriste-80-100-des-le-1er-janvier-2027-stage-valable-pour-l-obtention"
+        ],
+        "de": [
+          "un-ou-une-stagiaire-juriste-80-100-des-le-1er-janvier-2027-stage-valable-pour-l-obtention"
+        ]
+      },
+      "previousSlugs": [
+        "un-ou-une-stagiaire-juriste-80-100-des-le-1er-janvier-2027-stage-valable-pour-l-obtention"
+      ]
     },
     {
       "id": "canton-valais-85b1ac3c776d",
-      "slug": "einschatzer-in-80-100-canton-valais-ch",
+      "slug": "valutatore-trice-80-100-canton-du-valais-sion",
       "slugByLocale": {
         "de": "einschatzer-in-80-100-canton-valais-ch",
-        "it": "einschatzer-in-80-100-canton-valais-ch",
-        "en": "einschatzer-in-80-100-canton-valais-ch",
-        "fr": "einschatzer-in-80-100-canton-valais-ch"
+        "it": "valutatore-trice-80-100-canton-du-valais-sion",
+        "en": "assessor-80-100-canton-du-valais-sion",
+        "fr": "evaluateur-trice-80-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2730,7 +2869,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2744,16 +2882,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:48:57.490Z"
+      "firstSeenAt": "2026-10-23T09:48:57.490Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "einschatzer-in-80-100-canton-valais-ch"
+        ],
+        "en": [
+          "einschatzer-in-80-100-canton-valais-ch"
+        ],
+        "fr": [
+          "einschatzer-in-80-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "einschatzer-in-80-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-4c59737f232d",
-      "slug": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-canton-valais-ch",
+      "slug": "collaboratore-specializzato-o-collaboratore-specializzato-100-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-canton-valais-ch",
-        "it": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-canton-valais-ch",
-        "en": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-canton-valais-ch",
-        "de": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-canton-valais-ch"
+        "it": "collaboratore-specializzato-o-collaboratore-specializzato-100-canton-du-valais-sion",
+        "en": "a-specialist-collaborator-or-a-specialist-collaborator-100-canton-du-valais-sion",
+        "de": "ein-fachmitarbeiter-oder-ein-fachmitarbeiter-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2811,16 +2963,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:48:56.793Z"
+      "firstSeenAt": "2026-10-23T09:48:56.793Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-891d33a54ec1",
-      "slug": "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-canton-valais-ch",
+      "slug": "un-recensore-fiscale-o-un-recensore-fiscale-80-100-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-canton-valais-ch",
-        "it": "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-canton-valais-ch",
-        "en": "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-canton-valais-ch",
-        "de": "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-canton-valais-ch"
+        "it": "un-recensore-fiscale-o-un-recensore-fiscale-80-100-canton-du-valais-sion",
+        "en": "a-tax-reviewer-or-tax-reviewer-80-100-canton-du-valais-sion",
+        "de": "steuergutachter-oder-steuergutachter-80-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2878,7 +3044,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:48:56.063Z"
+      "firstSeenAt": "2026-10-23T09:48:56.063Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-taxateur-reviseur-ou-une-taxatrice-reviseuse-80-100-canton-valais-ch"
+      ]
     }
   ]
 }

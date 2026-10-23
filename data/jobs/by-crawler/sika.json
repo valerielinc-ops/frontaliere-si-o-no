@@ -3406,12 +3406,12 @@
     },
     {
       "id": "sika-1e087e605757",
-      "slug": "project-leader-elastic-sealants-adhesives-sika-ch",
+      "slug": "leader-del-progetto-sigillanti-elastici-e-adesivi-sika-zurich-zurich",
       "slugByLocale": {
         "en": "project-leader-elastic-sealants-adhesives-sika-ch",
-        "it": "project-leader-elastic-sealants-adhesives-sika-ch",
+        "it": "leader-del-progetto-sigillanti-elastici-e-adesivi-sika-zurich-zurich",
         "de": "project-leader-elastic-sealants-adhesives-sika-ch",
-        "fr": "project-leader-elastic-sealants-adhesives-sika-ch"
+        "fr": "chef-de-projet-sealants-et-adhesifs-elastiques-sika-zurich-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3470,7 +3470,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:27:24.846Z"
+      "firstSeenAt": "2026-10-23T09:27:24.846Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-leader-elastic-sealants-adhesives-sika-ch"
+        ],
+        "fr": [
+          "project-leader-elastic-sealants-adhesives-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-leader-elastic-sealants-adhesives-sika-ch"
+      ]
     }
   ]
 }

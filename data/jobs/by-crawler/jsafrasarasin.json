@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "en": "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
-        "de": "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel",
+        "de": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
         "fr": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -60,11 +60,12 @@
           "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
         ],
         "de": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+          "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
         ]
       },
       "previousSlugs": [
-        "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+        "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+        "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
       ],
       "firstSeenAt": "2026-08-23T09:42:52.269Z",
       "salaryMin": 109000,
@@ -959,12 +960,12 @@
     },
     {
       "id": "jsafrasarasin-962fcdd39284",
-      "slug": "risk-performance-specialist-jsafrasarasin-ch",
+      "slug": "risk-performance-specialista-j-safra-sarasin-basel-ch",
       "slugByLocale": {
         "en": "risk-performance-specialist-jsafrasarasin-ch",
-        "it": "risk-performance-specialist-jsafrasarasin-ch",
-        "de": "risk-performance-specialist-jsafrasarasin-ch",
-        "fr": "risk-performance-specialist-jsafrasarasin-ch"
+        "it": "risk-performance-specialista-j-safra-sarasin-basel-ch",
+        "de": "risk-performance-spezialist-j-safra-sarasin-basel-ch",
+        "fr": "risk-performance-specialiste-j-safra-sarasin-basel-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -1025,23 +1026,23 @@
       "firstSeenAt": "2026-10-23T09:18:41.166Z",
       "previousSlugsByLocale": {
         "it": [
-          "risk-performance-specialist-jsafrasarasin-ch",
-          "risk-performance-specialista-j-safra-sarasin-basel-ch"
+          "risk-performance-specialista-j-safra-sarasin-basel-ch",
+          "risk-performance-specialist-jsafrasarasin-ch"
         ],
         "de": [
-          "risk-performance-specialist-jsafrasarasin-ch",
-          "risk-performance-spezialist-j-safra-sarasin-basel-ch"
+          "risk-performance-spezialist-j-safra-sarasin-basel-ch",
+          "risk-performance-specialist-jsafrasarasin-ch"
         ],
         "fr": [
-          "risk-performance-specialist-jsafrasarasin-ch",
-          "risk-performance-specialiste-j-safra-sarasin-basel-ch"
+          "risk-performance-specialiste-j-safra-sarasin-basel-ch",
+          "risk-performance-specialist-jsafrasarasin-ch"
         ]
       },
       "previousSlugs": [
-        "risk-performance-specialist-jsafrasarasin-ch",
         "risk-performance-specialista-j-safra-sarasin-basel-ch",
         "risk-performance-spezialist-j-safra-sarasin-basel-ch",
-        "risk-performance-specialiste-j-safra-sarasin-basel-ch"
+        "risk-performance-specialiste-j-safra-sarasin-basel-ch",
+        "risk-performance-specialist-jsafrasarasin-ch"
       ]
     }
   ]

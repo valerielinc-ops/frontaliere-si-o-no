@@ -1866,7 +1866,7 @@
           "devops-engineer-endpoint-protection-swisscom-bern-drxc7o"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-14T21:22:17.850Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -2462,7 +2462,7 @@
       "slugByLocale": {
         "it": "supporto-per-le-tic-swisscom-geneva-geneve",
         "en": "ict-support-swisscom-geneva-geneve",
-        "de": "ict-supporter-swisscom-geneva-geneve",
+        "de": "ikt-unterstutzung-swisscom-geneva-geneve",
         "fr": "ict-supporter-swisscom-geneva-geneve-drxc3d"
       },
       "category": "general",
@@ -2483,7 +2483,7 @@
       "id": "swisscom-sede-ticino-4f581523d083",
       "previousSlugs": [
         "ict-supporter-swisscom-geneva-geneve-drxc3d",
-        "ikt-unterstutzung-swisscom-geneva-geneve"
+        "ict-supporter-swisscom-geneva-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2494,7 +2494,7 @@
         ],
         "de": [
           "ict-supporter-swisscom-geneva-geneve-drxc3d",
-          "ikt-unterstutzung-swisscom-geneva-geneve"
+          "ict-supporter-swisscom-geneva-geneve"
         ]
       },
       "firstSeenAt": "2026-10-19T21:32:55.701Z",
@@ -2773,12 +2773,12 @@
         "de": "Treasury Spezialist",
         "fr": "Treasury Spécialiste"
       },
-      "slug": "treasury-specialist-swisscom-bern-qpzgog",
+      "slug": "treasury-specialista-swisscom-bern",
       "slugByLocale": {
-        "it": "treasury-specialist-swisscom-bern-qpzgog",
-        "en": "treasury-specialist-swisscom-bern-qpzgog",
+        "it": "treasury-specialista-swisscom-bern",
+        "en": "finance-specialist-swisscom-bern",
         "de": "treasury-specialist-swisscom-bern-qpzgog",
-        "fr": "treasury-specialist-swisscom-bern-qpzgog"
+        "fr": "treasury-specialiste-swisscom-bern"
       },
       "category": "general",
       "datePosted": "2026-10-22",
@@ -2815,23 +2815,23 @@
       "firstSeenAt": "2026-10-23T09:23:51.441Z",
       "previousSlugsByLocale": {
         "it": [
-          "treasury-specialist-swisscom-bern-qpzgog",
-          "treasury-specialista-swisscom-bern"
+          "treasury-specialista-swisscom-bern",
+          "treasury-specialist-swisscom-bern-qpzgog"
         ],
         "en": [
-          "treasury-specialist-swisscom-bern-qpzgog",
-          "finance-specialist-swisscom-bern"
+          "finance-specialist-swisscom-bern",
+          "treasury-specialist-swisscom-bern-qpzgog"
         ],
         "fr": [
-          "treasury-specialist-swisscom-bern-qpzgog",
-          "treasury-specialiste-swisscom-bern"
+          "treasury-specialiste-swisscom-bern",
+          "treasury-specialist-swisscom-bern-qpzgog"
         ]
       },
       "previousSlugs": [
-        "treasury-specialist-swisscom-bern-qpzgog",
         "treasury-specialista-swisscom-bern",
         "finance-specialist-swisscom-bern",
-        "treasury-specialiste-swisscom-bern"
+        "treasury-specialiste-swisscom-bern",
+        "treasury-specialist-swisscom-bern-qpzgog"
       ]
     },
     {

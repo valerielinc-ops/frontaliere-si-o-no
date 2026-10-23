@@ -399,7 +399,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-ikea-aubonne",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -446,7 +446,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-aubonne",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "mitarbeiter-logistikmanager-60-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -454,7 +454,7 @@
           "collaborateur-trice-logistique-60-ikea-aubonne"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "mitarbeiter-logistikmanager-60-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",
@@ -2333,12 +2333,12 @@
     },
     {
       "id": "ikea-d7fdbc0f2039",
-      "slug": "store-graphic-communication-leader-80-100-ikea-ch",
+      "slug": "responsabile-della-comunicazione-grafica-del-negozio-80-100-ikea-vernier-geneve",
       "slugByLocale": {
         "fr": "store-graphic-communication-leader-80-100-ikea-ch",
-        "it": "store-graphic-communication-leader-80-100-ikea-ch",
+        "it": "responsabile-della-comunicazione-grafica-del-negozio-80-100-ikea-vernier-geneve",
         "en": "store-graphic-communication-leader-80-100-ikea-ch",
-        "de": "store-graphic-communication-leader-80-100-ikea-ch"
+        "de": "leiter-in-fur-grafische-kommunikation-im-store-80-100-ikea-vernier-geneve"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2400,18 +2400,18 @@
       "firstSeenAt": "2026-09-29T21:13:03.347Z",
       "previousSlugsByLocale": {
         "it": [
-          "store-graphic-communication-leader-80-100-ikea-ch",
-          "responsabile-della-comunicazione-grafica-del-negozio-80-100-ikea-vernier-geneve"
+          "responsabile-della-comunicazione-grafica-del-negozio-80-100-ikea-vernier-geneve",
+          "store-graphic-communication-leader-80-100-ikea-ch"
         ],
         "de": [
-          "store-graphic-communication-leader-80-100-ikea-ch",
-          "leitung-grafische-kommunikation-im-store-80-100-ikea-vernier-geneve"
+          "leitung-grafische-kommunikation-im-store-80-100-ikea-vernier-geneve",
+          "store-graphic-communication-leader-80-100-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "store-graphic-communication-leader-80-100-ikea-ch",
         "responsabile-della-comunicazione-grafica-del-negozio-80-100-ikea-vernier-geneve",
-        "leitung-grafische-kommunikation-im-store-80-100-ikea-vernier-geneve"
+        "leitung-grafische-kommunikation-im-store-80-100-ikea-vernier-geneve",
+        "store-graphic-communication-leader-80-100-ikea-ch"
       ]
     },
     {
@@ -2574,12 +2574,12 @@
     },
     {
       "id": "ikea-c1824890a1d1",
-      "slug": "unit-facility-manager-100-ikea-ch",
+      "slug": "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino",
       "slugByLocale": {
         "en": "unit-facility-manager-100-ikea-ch",
-        "it": "unit-facility-manager-100-ikea-ch",
+        "it": "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino",
         "de": "unit-facility-manager-100-ikea-ch",
-        "fr": "unit-facility-manager-100-ikea-ch"
+        "fr": "chef-d-unite-des-installations-100-ikea-grancia-ticino"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2640,18 +2640,18 @@
       "firstSeenAt": "2026-10-23T09:12:18.397Z",
       "previousSlugsByLocale": {
         "it": [
-          "unit-facility-manager-100-ikea-ch",
-          "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino"
+          "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino",
+          "unit-facility-manager-100-ikea-ch"
         ],
         "fr": [
-          "unit-facility-manager-100-ikea-ch",
-          "chef-d-unite-des-installations-100-ikea-grancia-ticino"
+          "chef-d-unite-des-installations-100-ikea-grancia-ticino",
+          "unit-facility-manager-100-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "unit-facility-manager-100-ikea-ch",
         "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino",
-        "chef-d-unite-des-installations-100-ikea-grancia-ticino"
+        "chef-d-unite-des-installations-100-ikea-grancia-ticino",
+        "unit-facility-manager-100-ikea-ch"
       ],
       "needsRetranslation": true
     },

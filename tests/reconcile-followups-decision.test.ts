@@ -33,6 +33,7 @@ import {
   dailyBucketGateInputs,
   decideBucketVerifyRequest,
   isAggregateTitle,
+  legacyAddressEvidence,
   decideReconcileAction,
   isReconcileFlagComment,
   isStrongAutoCloseEvidence,
@@ -47,6 +48,32 @@ import { applyBlockedRecheck, planBlockedRecheck, unblockedCommentBody } from '.
 import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
 import { parseFollowupItems } from '../scripts/ci/followup-resolution-match.mjs';
 import { rebuildDailyBody } from '../scripts/ci/gate-minted-followups.mjs';
+
+describe('legacyAddressEvidence — target provenance is mandatory for negative proof', () => {
+  it('does not resolve against the first unrelated file in an Addresses PR', () => {
+    const item = [
+      '### Legacy item',
+      '- Suggested action: replace `oldGuard()` with `newGuard()`',
+    ].join('\n');
+    const io = {
+      fileExists: (file: string) => file === 'a.js' || file === 'b.js',
+      readFile: (file: string) => file === 'a.js'
+        ? 'export function run() { newGuard(); }'
+        : 'export function run() { oldGuard(); }',
+    };
+    const addressedPrs = [{
+      number: 14874,
+      mergedAt: '2026-10-23T00:00:00Z',
+      body: 'Addresses #12345',
+      files: [{ path: 'a.js' }, { path: 'b.js' }],
+    }];
+
+    const evidence = legacyAddressEvidence(item, 12345, io, addressedPrs);
+
+    expect(evidence.resolved).toBe(false);
+    expect(evidence.targetFiles).toEqual([]);
+  });
+});
 
 describe('alreadyCommented — esito vuoto riuscito distinto dall’errore (#8034)', () => {
   it('tratta stdout vuoto/whitespace come lista commenti vuota, ma null come errore', () => {

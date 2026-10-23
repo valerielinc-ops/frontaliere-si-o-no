@@ -29,9 +29,14 @@ import {
 import { decodeEntities as decodeScrapedHtmlEntities } from './lib/prospector/entities.mjs';
 import {
   JOB_LOCATION_CLASS_TOKENS,
+  JOB_LOCATION_VALUE_CLASS_TOKENS,
   resolveSourceBackedSwissGeography,
 } from './lib/prospector/location-evidence.mjs';
-import { readAttr, readVacancySummaryLocation } from './lib/html-attr.mjs';
+import {
+  readAttr,
+  readVacancySummaryLocation,
+  scanHtmlTags,
+} from './lib/html-attr.mjs';
 import {
   canonicalSwissCityName,
   findSwissCityInText,
@@ -670,6 +675,10 @@ function hasJobLocationClass(attrs) {
   return classTokens(attrs).some((token) => JOB_LOCATION_CLASS_TOKENS.has(token.toLowerCase()));
 }
 
+function hasJobLocationValueClass(attrs) {
+  return classTokens(attrs).some((token) => JOB_LOCATION_VALUE_CLASS_TOKENS.has(token.toLowerCase()));
+}
+
 function hasNonCurrentJobScope(attrs) {
   return classTokens(attrs).some((token) => NON_CURRENT_JOB_SCOPE_CLASS_TOKENS.has(token.toLowerCase()));
 }
@@ -781,6 +790,7 @@ export function extractSourceLocationObservation(html = '', pageUrl = '', {
   const stack = [];
   const domBeforeGate = emptyLocationEvidenceCounts();
   const domAfterGate = emptyLocationEvidenceCounts();
+  const domCandidates = [];
   const tagRx = /<(\/?)\s*([a-z][a-z0-9:-]*)\b([^>]*)>/gi;
   let match;
   while ((match = tagRx.exec(html))) {
@@ -795,26 +805,47 @@ export function extractSourceLocationObservation(html = '', pageUrl = '', {
     const blocked = Boolean(stack.at(-1)?.blocked) || hasNonCurrentJobScope(attrs);
     const jobScoped = !blocked && (Boolean(stack.at(-1)?.jobScoped) || hasJobScope(attrs));
     const itemprops = readAttr(attrs, 'itemprop').split(/\s+/);
-    if (!blocked && (hasJobLocationClass(attrs) || (jobScoped && itemprops.includes('addressLocality')))) {
+    const inJobLocationScope = stack.some((item) => item.jobLocationScope);
+    const jobLocationClass = hasJobLocationClass(attrs);
+    const nestedJobLocationValue = inJobLocationScope && hasJobLocationValueClass(attrs);
+    const microdataLocality = jobScoped && itemprops.includes('addressLocality');
+    if (!blocked && (jobLocationClass || nestedJobLocationValue || microdataLocality)) {
       const location = elementValue(html, tagRx.lastIndex, tagName, attrs);
       if (location) {
         domBeforeGate['strong-markup'] = 1;
         if (isUsableSourceLocation(location)) {
           domAfterGate['strong-markup'] = 1;
-          return withLocationEvidenceCounts(
-            { location, evidence: 'strong-markup' },
-            {
-              jsonld: structuredBeforeGate.jsonld,
-              'strong-markup': domBeforeGate['strong-markup'],
-            },
-            { ...structuredAfterGate, 'strong-markup': domAfterGate['strong-markup'] },
-            includeDiagnostics,
-          );
+          domCandidates.push({
+            location,
+            // A nested source value is narrower than its wrapper, and a
+            // vacancy wrapper is narrower than schema microdata that may be
+            // the employer's seat. Rank those scopes before choosing one.
+            priority: nestedJobLocationValue ? 3 : jobLocationClass ? 2 : 1,
+          });
         }
       }
     }
 
-    if (!VOID_HTML_TAGS.has(tagName) && !/\/\s*$/.test(attrs)) stack.push({ tagName, jobScoped, blocked });
+    if (!VOID_HTML_TAGS.has(tagName) && !/\/\s*$/.test(attrs)) {
+      stack.push({
+        tagName,
+        jobScoped,
+        blocked,
+        jobLocationScope: !blocked && (Boolean(stack.at(-1)?.jobLocationScope) || jobLocationClass),
+      });
+    }
+  }
+  const [strongMarkup] = domCandidates.sort((left, right) => right.priority - left.priority);
+  if (strongMarkup) {
+    return withLocationEvidenceCounts(
+      { location: strongMarkup.location, evidence: 'strong-markup' },
+      {
+        jsonld: structuredBeforeGate.jsonld,
+        'strong-markup': domBeforeGate['strong-markup'],
+      },
+      { ...structuredAfterGate, 'strong-markup': domAfterGate['strong-markup'] },
+      includeDiagnostics,
+    );
   }
   return withLocationEvidenceCounts(
     { location: '', evidence: 'generic' },
@@ -1055,10 +1086,9 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
     return !nationwideHeadings.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
   }
   const strongMarkupDeclaresBothLocations = locationEvidence === 'strong-markup'
-    && !sourceLocationMatches(publishedLocation, sourceLocation)
     && renderedJobLocationFields.length > 1
     && renderedJobLocationFields.some((field) => visibleFieldMatchesLocation(field, publishedLocation))
-    && renderedJobLocationFields.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
+    && renderedJobLocationFields.some((field) => !visibleFieldMatchesLocation(field, publishedLocation));
   if (strongMarkupDeclaresBothLocations) return true;
   const visibleMatchesPublished = visibleFields.some((field) => (
     visibleFieldMatchesLocation(field, publishedLocation)
@@ -1067,6 +1097,10 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
   const visibleMatchesStructured = visibleFields.some((field) => (
     visibleFieldMatchesLocation(field, sourceLocation)
   ));
+  const visibleFieldsDeclareBothLocations = !sourceLocationMatches(publishedLocation, sourceLocation)
+    && visibleFields.length > 1
+    && visibleMatchesStructured;
+  if (visibleFieldsDeclareBothLocations) return true;
   return !visibleMatchesStructured;
 }
 
@@ -1097,14 +1131,106 @@ export function workdayPrimaryLocationFromUrl(rawUrl = '') {
 }
 
 /**
- * Campi della riga subito sotto il titolo della vacancy (`Oensingen,
- * 01.06.2027, 100%` su jobs.sbb.ch, `Gérance <br> Genève | Taux…` su
- * jobs.livit.ch). Su questi template il JSON-LD dichiara la sede dell'azienda
- * (Hilfikerstrasse 1, 3000 Bern; Altstetterstrasse 124, 8048 Zürich) per ogni
- * vacancy, mentre la località della vacancy è un campo della riga di titolo.
- * Solo se l'H1 è il titolo della vacancy e il campo è breve: una tagline del
- * sito non è un campo della vacancy.
+ * Campi della riga sotto il titolo della vacancy (`Oensingen, 01.06.2027,
+ * 100%` su jobs.sbb.ch, `Gérance <br> Genève | Taux…` su jobs.livit.ch) e
+ * delle sequenze di metadati equivalenti (Medimeo rende tipo, ruolo, materia
+ * e `Region Solothurn` come sibling separati). Su questi template il JSON-LD
+ * dichiara la sede dell'azienda per ogni vacancy, mentre la località è un
+ * campo della testata. Solo se l'H1 è il titolo della vacancy, il blocco è
+ * vicino e ogni campo è breve: una tagline lontana non è un campo vacancy.
  */
+const HEADING_SUBLINE_ELEMENT_TAGS = new Set(['div', 'p', 'h2', 'h3', 'span']);
+
+function directHeadingSublineElements(source, start, maxLength = 1500) {
+  const window = source.slice(start, start + maxLength);
+  const tags = scanHtmlTags(window);
+  const elements = [];
+  const stack = [];
+  let current = null;
+  let cursor = 0;
+
+  for (const tag of tags) {
+    if (tag.closing) {
+      const matchingIndex = stack.lastIndexOf(tag.name);
+      if (matchingIndex < 0) continue;
+      stack.length = matchingIndex;
+      if (stack.length === 0 && current) {
+        current.end = tag.end;
+        current.html = window.slice(current.contentStart, tag.index);
+        elements.push(current);
+        current = null;
+        if (elements.length >= 12) break;
+      }
+      cursor = tag.end;
+      continue;
+    }
+
+    if (stack.length === 0) {
+      const gap = window.slice(cursor, tag.index).replace(/<!--[\s\S]*?-->/g, '').trim();
+      if (gap || !HEADING_SUBLINE_ELEMENT_TAGS.has(tag.name)) break;
+      current = {
+        tagName: tag.name,
+        raw: tag.raw,
+        contentStart: tag.end,
+        end: tag.end,
+        html: '',
+      };
+    }
+
+    if (!tag.selfClosing && !VOID_HTML_TAGS.has(tag.name)) {
+      stack.push(tag.name);
+    } else if (stack.length === 0 && current) {
+      current.end = tag.end;
+      current.html = '';
+      elements.push(current);
+      current = null;
+      if (elements.length >= 12) break;
+    }
+    cursor = tag.end;
+  }
+
+  return elements;
+}
+
+function hasHeadingSublineMetadataMarker(rawTag) {
+  const identity = [
+    readAttr(rawTag, 'id'),
+    readAttr(rawTag, 'class'),
+    readAttr(rawTag, 'itemprop'),
+    readAttr(rawTag, 'data-testid'),
+  ].join(' ').replace(/([a-z])([A-Z])/g, '$1 $2');
+  if (!identity) return false;
+  if (/\b(?:description|content|body|intro|text)\b/i.test(identity)) return false;
+  return /(?:^|[\s_-])(?:meta(?:data)?|sub(?:title|titel)|location|geo|ort(?:header)?|standort|summary)(?:$|[\s_-])/i.test(identity);
+}
+
+function headingSublineElementFields(element) {
+  return plainText(String(element?.html || '').replace(/<br\s*\/?>/gi, ' | '))
+    .split(/\s*[|,;·•]\s*/)
+    .map((field) => field.trim())
+    .filter((field) => field && field.length <= 60);
+}
+
+function looksLikeHeadingSublineField(field) {
+  return field.length <= 60 && !/[.!?]\s*$/u.test(field);
+}
+
+function hasHeadingSublineSignal(field) {
+  return /\b\d{1,2}[./]\d{1,2}[./]\d{2,4}\b|\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/u.test(field)
+    || /\b(?:ab sofort|per sofort|nach vereinbarung|d[eè]s maintenant|[àa] partir|da subito|su richiesta)\b/iu.test(field);
+}
+
+function hasHeadingSublineEmploymentSignal(field) {
+  // Medimeo's unmarked metadata sequence has no date or workload field, but
+  // starts with an explicit contract type (`Festanstellung`). Keep that
+  // vacancy-specific evidence while rejecting arbitrary short prose runs.
+  return /\b(?:festanstellung|unbefristet|befristet|vollzeit|teilzeit|full[- ]?time|part[- ]?time|permanent|temporary|temps plein|temps partiel|tempo pieno|tempo parziale)\b/iu.test(field);
+}
+
+function hasHeadingSublineVacancySignal(field) {
+  return hasHeadingSublineSignal(field) || hasHeadingSublineEmploymentSignal(field);
+}
+
 export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
   const source = String(html || '');
   const title = normalizePlace(vacancyTitle);
@@ -1117,13 +1243,34 @@ export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
   while ((heading = headingRx.exec(source))) {
     const headingText = normalizePlace(heading[1]);
     if (!headingText || !(headingText.includes(title) || title.includes(headingText))) continue;
-    const after = source.slice(headingRx.lastIndex, headingRx.lastIndex + 1500);
-    const next = /^\s*<(div|p|h2|h3|span)\b[^>]*>([\s\S]{0,600}?)<\/\1>/i.exec(after);
-    if (!next) continue;
-    fields.push(...plainText(next[2].replace(/<br\s*\/?>/gi, ' | '))
-      .split(/\s*[|,;·•]\s*/)
-      .map((field) => field.trim())
-      .filter((field) => field && field.length <= 60));
+    const siblings = directHeadingSublineElements(source, headingRx.lastIndex);
+    const first = siblings[0];
+    if (!first) continue;
+
+    const firstFields = headingSublineElementFields(first);
+    const firstIsMarked = hasHeadingSublineMetadataMarker(first.raw);
+    const block = [];
+    for (const sibling of siblings) {
+      const siblingFields = headingSublineElementFields(sibling);
+      if (!siblingFields.length) {
+        if (block.length === 0) continue;
+        break;
+      }
+      const marked = hasHeadingSublineMetadataMarker(sibling.raw);
+      const signal = siblingFields.some(hasHeadingSublineSignal);
+      const shortFields = siblingFields.every(looksLikeHeadingSublineField);
+      const allowed = marked || signal
+        || (sibling.tagName !== 'h2' && sibling.tagName !== 'h3' && shortFields);
+      if (!allowed) break;
+      block.push(...siblingFields);
+    }
+
+    // A lone generic prose element is not vacancy metadata. An unmarked run
+    // must carry vacancy-specific evidence (date, workload, start marker or
+    // explicit contract type); its length alone cannot establish ownership.
+    const blockHasVacancySignal = block.some(hasHeadingSublineVacancySignal);
+    if (!firstIsMarked && !blockHasVacancySignal) continue;
+    fields.push(...block);
   }
   return fields;
 }

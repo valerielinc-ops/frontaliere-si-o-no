@@ -544,7 +544,7 @@
       "slug": "terapeuta-del-lavoro-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-hopital-du-jura-h-ju-delemont",
-        "en": "ergotherapeute-hopital-du-jura-h-ju-delemont",
+        "en": "occupational-therapist-hopital-du-jura-h-ju-delemont",
         "de": "ergotherapeut-hopital-du-jura-h-ju-delemont",
         "fr": "ergotherapeute-h-ju-hopital-du-jura-delemont"
       },
@@ -593,7 +593,7 @@
       "previousSlugs": [
         "berufstherapeut-hopital-du-jura-h-ju-delemont",
         "ergotherapeute-h-ju-hopital-du-jura-delemont",
-        "occupational-therapist-hopital-du-jura-h-ju-delemont"
+        "ergotherapeute-hopital-du-jura-h-ju-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -601,7 +601,7 @@
         ],
         "en": [
           "ergotherapeute-h-ju-hopital-du-jura-delemont",
-          "occupational-therapist-hopital-du-jura-h-ju-delemont"
+          "ergotherapeute-hopital-du-jura-h-ju-delemont"
         ],
         "de": [
           "berufstherapeut-hopital-du-jura-h-ju-delemont",
@@ -1194,7 +1194,7 @@
       "slugByLocale": {
         "it": "infermiera-hopital-du-jura-h-ju-delemont",
         "en": "nurse-hopital-du-jura-h-ju-delemont",
-        "de": "infirmier-ere-hopital-du-jura-h-ju-delemont",
+        "de": "krankenschwester-hopital-du-jura-h-ju-delemont",
         "fr": "infirmier-ere-h-ju-hopital-du-jura-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
@@ -1241,7 +1241,7 @@
       "externalId": "4601",
       "previousSlugs": [
         "infirmier-ere-h-ju-hopital-du-jura-delemont",
-        "krankenschwester-hopital-du-jura-h-ju-delemont"
+        "infirmier-ere-hopital-du-jura-h-ju-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1252,7 +1252,7 @@
         ],
         "de": [
           "infirmier-ere-h-ju-hopital-du-jura-delemont",
-          "krankenschwester-hopital-du-jura-h-ju-delemont"
+          "infirmier-ere-hopital-du-jura-h-ju-delemont"
         ]
       },
       "firstSeenAt": "2026-10-09T21:15:43.316Z",
@@ -1352,12 +1352,12 @@
     },
     {
       "id": "h-ju-hopital-du-jura-e84fe0c782bb",
-      "slug": "medecin-pediatre-h-ju-hopital-du-jura-porrentruy",
+      "slug": "medico-pediatrico-hopital-du-jura-h-ju-porrentruy",
       "slugByLocale": {
         "fr": "medecin-pediatre-h-ju-hopital-du-jura-porrentruy",
-        "it": "medecin-pediatre-h-ju-hopital-du-jura-porrentruy",
-        "en": "medecin-pediatre-h-ju-hopital-du-jura-porrentruy",
-        "de": "medecin-pediatre-h-ju-hopital-du-jura-porrentruy"
+        "it": "medico-pediatrico-hopital-du-jura-h-ju-porrentruy",
+        "en": "pediatric-doctor-hopital-du-jura-h-ju-porrentruy",
+        "de": "kinderarzt-hopital-du-jura-h-ju-porrentruy"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -1416,7 +1416,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:20:50.865Z"
+      "firstSeenAt": "2026-10-23T09:20:50.865Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-pediatre-h-ju-hopital-du-jura-porrentruy"
+        ],
+        "en": [
+          "medecin-pediatre-h-ju-hopital-du-jura-porrentruy"
+        ],
+        "de": [
+          "medecin-pediatre-h-ju-hopital-du-jura-porrentruy"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-pediatre-h-ju-hopital-du-jura-porrentruy"
+      ]
     }
   ]
 }
