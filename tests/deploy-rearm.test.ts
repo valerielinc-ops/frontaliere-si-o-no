@@ -451,7 +451,11 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     const translationHandoffStep = doc.jobs['validate-promotion-trigger'].steps.find(
       (step: any) => step.id === 'translation_handoff',
     );
-    expect(translationHandoffStep.if).toBe('inputs.rearm_dispatch != true');
+    expect(translationHandoffStep.if).toBe(
+      "inputs.rearm_dispatch != true || github.event_name != 'workflow_dispatch' || github.actor != 'github-actions[bot]'",
+    );
+    expect(translationHandoffStep.if).toContain("github.actor != 'github-actions[bot]'");
+    expect(translationHandoffStep.if).toContain("github.event_name != 'workflow_dispatch'");
   });
 
   it('has exactly the permissions the dispatch needs and nothing more', () => {
