@@ -19,7 +19,7 @@ import { JOBS_CRAWLER_CONFIG_DEFAULTS } from '../functions/src/jobsCrawlerConfig
 
 const ADMIN_ROOT = resolve(__dirname, '..', 'components', 'admin');
 const SERVICES_ROOT = resolve(__dirname, '..', 'services');
-const ROUTER_DATA_AVAILABLE = [
+const routerDataAvailable = [
   'routerBlogData.ts', 'routerSwissData.ts', 'blogArticleIds.ts',
 ].every((file) => existsSync(resolve(__dirname, '..', 'services', file)));
 const ALL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
@@ -81,7 +81,7 @@ describe('admin crawler configuration defaults', () => {
   });
 });
 
-describe.skipIf(!ROUTER_DATA_AVAILABLE)('admin fase 1 router', () => {
+describe.skipIf(!routerDataAvailable)('admin fase 1 router', () => {
   let router: typeof import('@/services/router');
 
   beforeAll(async () => {
