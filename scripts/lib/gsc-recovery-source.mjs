@@ -50,8 +50,11 @@ export async function fetchGscSearchAnalyticsRows(token, body, {
   throw new Error(`GSC response incomplete: safety cap reached at ${rows.length} rows`);
 }
 
-async function fetchFinalDateAvailability(token, { today, lookbackDays, fetchImpl }) {
-  const startDate = shiftGscDay(today, -(lookbackDays - 1));
+async function fetchFinalDateAvailability(token, { today, days, lookbackDays, fetchImpl }) {
+  // Keep the selector's configured lookback for current-window candidates,
+  // but also probe one full window before its earliest candidate so the
+  // selected window's previous-period baseline can be measured completely.
+  const startDate = shiftGscDay(today, -(lookbackDays + days - 1));
   const probeBody = {
     startDate,
     endDate: today,
@@ -79,7 +82,7 @@ export async function selectGscRecoveryWindows(token, {
   lookbackDays = GSC_FINAL_WINDOW_LOOKBACK_DAYS,
   fetchImpl = fetch,
 } = {}) {
-  const probe = await fetchFinalDateAvailability(token, { today, lookbackDays, fetchImpl });
+  const probe = await fetchFinalDateAvailability(token, { today, days, lookbackDays, fetchImpl });
   return selectLatestGscFinalWindow({
     today,
     days,
