@@ -155,7 +155,14 @@ export function parseLocarnoDate(dateStr = '') {
  * Returns array of job objects.
  */
 export function parseLocarnoListingHtml(html) {
-  if (!html || typeof html !== 'string') return [];
+  if (!html || typeof html !== 'string') {
+    const jobs = [];
+    Object.defineProperty(jobs, 'fetchOutcome', {
+      value: 'selector_miss',
+      enumerable: false,
+    });
+    return jobs;
+  }
 
   const jobs = [];
 

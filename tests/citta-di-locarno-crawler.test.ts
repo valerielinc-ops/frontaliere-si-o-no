@@ -246,8 +246,12 @@ describe('Locarno crawler — listing HTML parsing', () => {
   });
 
   it('returns empty for empty input', () => {
-    expect(parseLocarnoListingHtml('')).toHaveLength(0);
-    expect(parseLocarnoListingHtml(null as any)).toHaveLength(0);
+    const empty = parseLocarnoListingHtml('');
+    const invalid = parseLocarnoListingHtml(null as any);
+    expect(empty).toHaveLength(0);
+    expect(invalid).toHaveLength(0);
+    expect(empty.fetchOutcome).toBe('selector_miss');
+    expect(invalid.fetchOutcome).toBe('selector_miss');
   });
 
   it('stamps the explicit empty board but keeps selector drift fail-closed', () => {
