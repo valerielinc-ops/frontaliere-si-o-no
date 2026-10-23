@@ -17,7 +17,7 @@ import {
   resolveAdsReportWindow,
 } from '../scripts/lib/ads-performance-report.mjs';
 import { AD_CLIENT } from '../services/adsenseSlots.ts';
-import { fetchAdsenseData, fetchGa4Data, parseCliArgs } from '../scripts/ads-performance-report.mjs';
+import { fetchAdsenseData, fetchAggregateSection, fetchGa4Data, parseCliArgs } from '../scripts/ads-performance-report.mjs';
 
 const NOW = new Date('2026-10-23T12:00:00.000Z');
 
@@ -355,6 +355,44 @@ describe('ads performance report API client', () => {
     expect(queriedDimensions.map((dimension) => dimension.name)).not.toContain('customEvent:request_id');
     expect(queriedDimensions.map((dimension) => dimension.name)).not.toContain('pagePath');
     expect(JSON.stringify(observedBodies)).not.toContain('request_id');
+  });
+
+  it('marks an aggregate section partial when a rendered custom dimension is missing', async () => {
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      const body = JSON.parse(String(init?.body || '{}')) as Record<string, unknown>;
+      if (url.endsWith(':checkCompatibility')) return ga4CompatibilityResponse(body);
+
+      const dimensions = (body.dimensions as Array<{ name: string }>).map(({ name }) => name);
+      const metrics = (body.metrics as Array<{ name: string }>).map(({ name }) => name);
+      return Response.json({
+        rowCount: 1,
+        rows: [{
+          dimensionValues: dimensions.map((name) => ({ value: name === 'eventName' ? 'ad_page_diag' : 'mobile' })),
+          metricValues: metrics.map((name) => ({ value: name === 'eventCount' ? '1' : '0' })),
+        }],
+      });
+    });
+
+    const result = await fetchAggregateSection({
+      property: 'properties/12345',
+      window: settledWindow(),
+      headers: { Authorization: 'Bearer test-token' },
+      fetchImpl: fetchImpl as typeof fetch,
+      eventNames: ['ad_page_diag'],
+      candidateDimensions: ['eventName', 'deviceCategory'],
+      candidateMetrics: ['eventCount'],
+      metadataStatus: 'available',
+      availableDimensions: new Set(['deviceCategory']),
+      availableMetrics: new Set(),
+      sectionName: 'GA4 ad page diagnostics report',
+      renderDimensions: ['deviceCategory', 'customEvent:page_template'],
+    });
+
+    expect(result.status).toBe('partial');
+    expect(result.missingDimensions).toEqual(['customEvent:page_template']);
+    expect(result.missingMetrics).toEqual([]);
+    expect(result.unqueriedMetrics).toEqual([]);
   });
 
   it('does not treat omitted compatibility entries as compatible', async () => {
