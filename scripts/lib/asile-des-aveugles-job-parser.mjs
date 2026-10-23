@@ -403,6 +403,7 @@ async function fetchAsilePage(
       console.warn(`  Direct fetch to the Asile des aveugles ${url} returned a WAF challenge — retrying via Jina clean-IP proxy...`);
       const rescued = await fetchJinaImpl(url, { timeoutMs });
       if (rescued != null) return rescued;
+      throw new Error(`Asile des aveugles WAF challenge could not be rescued for ${url}`);
     }
     return html;
   } catch (error) {

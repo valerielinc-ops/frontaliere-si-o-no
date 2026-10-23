@@ -215,6 +215,13 @@ describe('Fondation Asile des aveugles source-backed crawler', () => {
     })).rejects.toBe(original);
   });
 
+  it('fails closed when a 200 WAF challenge cannot be rescued', async () => {
+    await expect(fetchAllAsileDesAveuglesJobs({
+      fetchHtmlImpl: vi.fn(async () => '<html><body>Just a moment...</body></html>'),
+      fetchJinaImpl: vi.fn(async () => null),
+    })).rejects.toThrow('Asile des aveugles WAF challenge could not be rescued');
+  });
+
   it('skips a duplicate ASSC title when the detail names another Vaud municipality', async () => {
     const duplicateListing = LISTING_HTML.replace(
       '</tbody>',

@@ -140,6 +140,13 @@ describe('ZAUGG AG official-source crawler', () => {
     expect(fetchJinaImpl).toHaveBeenCalledWith(OFFICIAL_DETAIL_URL, { timeoutMs: 20000 });
   });
 
+  it('fails closed when a 200 WAF challenge cannot be rescued', async () => {
+    await expect(fetchAllZauggJobs({
+      fetchHtmlImpl: vi.fn(async () => '<html><body>Just a moment...</body></html>'),
+      fetchJinaImpl: vi.fn(async () => null),
+    })).rejects.toThrow('ZAUGG WAF challenge could not be rescued');
+  });
+
   it('accepts only the official employer host, not .com or job marketplaces', () => {
     expect(isTrustedDomain(OFFICIAL_DETAIL_URL)).toBe(true);
     expect(isTrustedDomain('https://careers.zaugg.swiss/jobs/3728')).toBe(true);

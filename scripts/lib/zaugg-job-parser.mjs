@@ -314,6 +314,7 @@ async function fetchZauggPage(
       console.warn(`  Direct fetch to ZAUGG ${url} returned a WAF challenge — retrying via Jina clean-IP proxy...`);
       const rescued = await fetchJinaImpl(url, { timeoutMs });
       if (rescued != null) return rescued;
+      throw new Error(`ZAUGG WAF challenge could not be rescued for ${url}`);
     }
     return html;
   } catch (error) {
