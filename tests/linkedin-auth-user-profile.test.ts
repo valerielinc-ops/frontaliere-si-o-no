@@ -499,7 +499,7 @@ describe('PII enumeration — rules and client agree (#5751)', () => {
       .filter((f) => LIST_CALL.test(readFileSync(f, 'utf8')))
       .map((f) => relative(root, f))
       .sort();
-    expect(listers).toEqual(['components/pages/AdminPanel.tsx']);
+    expect(listers).toEqual(['components/admin/lib/newsletterStats.ts']);
   });
 });
 

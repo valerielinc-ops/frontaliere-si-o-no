@@ -64,7 +64,7 @@ describe('cold-email commercial copy', () => {
     const root = path.resolve(import.meta.dirname, '..');
     expect(fs.readFileSync(path.join(root, 'functions/src/adminSendColdEmail.js'), 'utf8'))
       .toContain('OUTREACH_METRIC_LABELS.applyClicks');
-    expect(fs.readFileSync(path.join(root, 'components/pages/AdminPanel.tsx'), 'utf8'))
+    expect(fs.readFileSync(path.join(root, 'components/admin/sections/AziendeSection.tsx'), 'utf8'))
       .toContain('OUTREACH_METRIC_LABELS.applyClicks');
   });
 

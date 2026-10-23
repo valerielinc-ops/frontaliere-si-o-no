@@ -34,6 +34,11 @@ vi.mock('../functions/src/recaptchaVerification.js', () => ({
 import { assertSiteAdmin } from '../functions/src/adminAuth.js';
 import { handleAdminGithub } from '../functions/src/githubProxy.js';
 import { handleAdminJobsCrawlerConfig } from '../functions/src/adminJobsCrawlerConfig.js';
+import { JOBS_CRAWLER_CONFIG_DEFAULTS } from '../functions/src/jobsCrawlerConfig.js';
+import {
+  expectedWorkflowTimeoutMs,
+  isExpectedWorkflowDuration,
+} from '../services/adminWorkflowTimeout';
 
 function request(method: string, body: unknown, token = 'id-token') {
   return {
@@ -52,10 +57,36 @@ function jsonResponse(status: number, body: unknown, headers: HeadersInit = {}) 
   } as any;
 }
 
-function createConfigDb(initial: Record<string, unknown> | null = null) {
+function streamResponse(status: number, body: string, headers: HeadersInit = {}) {
+  const bytes = Buffer.from(body, 'utf8');
+  let offset = 0;
+  const read = vi.fn(async () => {
+    if (offset >= bytes.length) return { done: true, value: undefined };
+    const nextOffset = Math.min(bytes.length, offset + 64 * 1024);
+    const value = Uint8Array.from(bytes.subarray(offset, nextOffset));
+    offset = nextOffset;
+    return { done: false, value };
+  });
+  const text = vi.fn(async () => {
+    throw new Error('stream response must not be materialized with text()');
+  });
+  return {
+    status,
+    ok: status >= 200 && status < 300,
+    headers: new Headers(headers),
+    body: { getReader: () => ({ read, releaseLock: vi.fn() }) },
+    text,
+  } as any;
+}
+
+function createConfigDb(
+  initial: Record<string, unknown> | null = null,
+  options: { rejectAudit?: boolean; rejectAuditUpdate?: boolean } = {},
+) {
   let document = initial;
   const writes: Array<{ data: Record<string, unknown>; options: unknown }> = [];
   const audits: Record<string, unknown>[] = [];
+  const auditOperations: Array<{ kind: 'add' | 'update'; data: Record<string, unknown> }> = [];
   const db = {
     collection: (name: string) => ({
       doc: () => ({
@@ -66,11 +97,21 @@ function createConfigDb(initial: Record<string, unknown> | null = null) {
         },
       }),
       add: async (data: Record<string, unknown>) => {
-        if (name === 'admin_audit_log') audits.push(data);
+        if (name !== 'admin_audit_log') return undefined;
+        if (options.rejectAudit) throw new Error('audit add rejected');
+        audits.push(data);
+        auditOperations.push({ kind: 'add', data: { ...data } });
+        return {
+          update: async (patch: Record<string, unknown>) => {
+            if (options.rejectAuditUpdate) throw new Error('audit update rejected');
+            Object.assign(data, patch);
+            auditOperations.push({ kind: 'update', data: { ...patch } });
+          },
+        };
       },
     }),
   };
-  return { db, writes, audits };
+  return { db, writes, audits, auditOperations };
 }
 
 describe('site-admin identity and GitHub proxy', () => {
@@ -138,9 +179,11 @@ describe('site-admin identity and GitHub proxy', () => {
     expect(fetchImpl).not.toHaveBeenCalled();
   });
 
-  it('audits workflow dispatches with the upstream HTTP status and inputs', async () => {
-    const { db, audits } = createConfigDb();
+  it('writes a pending audit intent before dispatch and updates it with the upstream status', async () => {
+    const { db, audits, auditOperations } = createConfigDb();
     const fetchImpl = vi.fn(async (_url: string, options: RequestInit) => {
+      expect(auditOperations).toHaveLength(1);
+      expect(auditOperations[0].data.status).toBe('pending');
       expect(options.headers).toMatchObject({ 'X-GitHub-Api-Version': '2026-03-10' });
       return jsonResponse(200, {
       workflow_run_id: 9001,
@@ -164,18 +207,77 @@ describe('site-admin identity and GitHub proxy', () => {
       inputs: { group: 'all', dry_run: 'false' },
       status: 200,
     });
+    expect(auditOperations.map(({ kind }) => kind)).toEqual(['add', 'update']);
+    expect(auditOperations[0].data.status).toBe('pending');
+    expect(auditOperations[1].data).toEqual({ status: 200 });
     expect(mocks.serverTimestamp).toHaveBeenCalled();
+  });
+
+  it('does not dispatch when the audit intent cannot be written', async () => {
+    const { db } = createConfigDb(null, { rejectAudit: true });
+    const fetchImpl = vi.fn();
+    const result = await handleAdminGithub(request('POST', {
+      method: 'POST',
+      path: '/actions/workflows/orchestrate-crawlers.yml/dispatches',
+      body: { ref: 'main', inputs: { group: 'all' } },
+    }), { fetchImpl, db });
+
+    expect(result).toEqual({ status: 500, body: { ok: false, error: 'audit_write_failed' } });
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
+  it('keeps the GitHub response when the final audit update fails', async () => {
+    const { db, audits, auditOperations } = createConfigDb(null, { rejectAuditUpdate: true });
+    const fetchImpl = vi.fn(async () => jsonResponse(204, {}));
+    const result = await handleAdminGithub(request('POST', {
+      method: 'POST',
+      path: '/actions/workflows/orchestrate-crawlers.yml/dispatches',
+      body: { ref: 'main', inputs: { group: 'all' } },
+    }), { fetchImpl, db });
+
+    expect(result.status).toBe(204);
+    expect(audits).toHaveLength(1);
+    expect(audits[0].status).toBe('pending');
+    expect(auditOperations.map(({ kind }) => kind)).toEqual(['add']);
+  });
+
+  it('keeps the pending-to-final audit order for a successful 204 dispatch', async () => {
+    const { db, audits, auditOperations } = createConfigDb();
+    const fetchImpl = vi.fn(async () => jsonResponse(204, {}));
+    const result = await handleAdminGithub(request('POST', {
+      method: 'POST',
+      path: '/actions/workflows/orchestrate-crawlers.yml/dispatches',
+      body: { ref: 'main', inputs: { group: 'all' } },
+    }), { fetchImpl, db });
+
+    expect(result.status).toBe(204);
+    expect(audits[0].status).toBe(204);
+    expect(auditOperations.map(({ kind }) => kind)).toEqual(['add', 'update']);
+    expect(auditOperations[0].data.status).toBe('pending');
+    expect(auditOperations[1].data).toEqual({ status: 204 });
+  });
+
+  it('records the not-configured dispatch outcome without contacting GitHub', async () => {
+    const { db, audits, auditOperations } = createConfigDb();
+    const fetchImpl = vi.fn();
+    const result = await handleAdminGithub(request('POST', {
+      method: 'POST',
+      path: '/actions/workflows/orchestrate-crawlers.yml/dispatches',
+      body: { ref: 'main', inputs: { group: 'all' } },
+    }), { fetchImpl, db, repoConfig: { pat: '', owner: 'owner', repo: 'repo' } });
+
+    expect(result).toEqual({ status: 503, body: { ok: false, error: 'github_not_configured' } });
+    expect(fetchImpl).not.toHaveBeenCalled();
+    expect(audits[0]).toMatchObject({ status: 503, target: 'orchestrate-crawlers.yml' });
+    expect(auditOperations.map(({ kind }) => kind)).toEqual(['add', 'update']);
   });
 
   it('follows job-log redirects without auth and keeps a UTF-8-safe tail capped at 256 KiB', async () => {
     const logText = `${'x'.repeat(300 * 1024)}\n🙂 ERROR: boom`;
+    const logResponse = streamResponse(200, logText);
     const fetchImpl = vi.fn()
       .mockResolvedValueOnce(jsonResponse(302, {}, { location: 'https://blob.example/log' }))
-      .mockResolvedValueOnce({
-        status: 200,
-        ok: true,
-        text: vi.fn(async () => logText),
-      });
+      .mockResolvedValueOnce(logResponse);
     const result = await handleAdminGithub(request('POST', {
       method: 'GET',
       path: '/actions/jobs/77/logs',
@@ -187,7 +289,48 @@ describe('site-admin identity and GitHub proxy', () => {
     expect(text.startsWith('[log troncato: mostrati gli ultimi 256 KB]\n')).toBe(true);
     expect(text.endsWith('🙂 ERROR: boom')).toBe(true);
     expect(text).not.toContain('\uFFFD');
+    expect(logResponse.text).not.toHaveBeenCalled();
     expect(fetchImpl).toHaveBeenNthCalledWith(2, 'https://blob.example/log', { method: 'GET', redirect: 'follow' });
+  });
+
+  it('keeps every legacy crawler seed and restores the Swatch country filter', () => {
+    const legacySeeds = {
+      'vfc.com': [
+        'https://vfc.wd5.myworkdayjobs.com/vfc_careers?Location_Country=187134fccb084a0ea9b4b95f23890dbe',
+      ],
+      'swatchgroup.com': ['https://www.swatchgroup.com/en/job-finder?jf_country=40'],
+      'ubs.com': [
+        'https://www.ubs.com/global/en/careers/search-jobs.html',
+        'https://www.ubs.com/global/en/careers.html',
+      ],
+      'schindler.com': [
+        'https://job.schindler.com',
+        'https://www.schindler.com/com/internet/en/careers.html',
+      ],
+      'avaloq.com': ['https://www.avaloq.com/careers'],
+      'nozominetworks.com': ['https://www.nozominetworks.com/company/careers/'],
+      'medacta.com': ['https://www.medacta.com/EN/careers'],
+      'cler.ch': [
+        'https://www.cler.ch/it/banca-cler/jobs-und-karriere/cercare-candidatura/offene-stellen',
+      ],
+    };
+
+    for (const [host, seeds] of Object.entries(legacySeeds)) {
+      expect(JOBS_CRAWLER_CONFIG_DEFAULTS.sourceSeeds.byDomain[host]).toEqual(seeds);
+    }
+  });
+
+  it('uses an explicit 30-minute fallback for malformed workflow durations', () => {
+    const root = resolve(__dirname, '..');
+    const declaredDurations = [
+      readFileSync(resolve(root, 'components/pages/AdminPanel.tsx'), 'utf8'),
+      readFileSync(resolve(root, 'build-plugins/crawlerRegistryPlugin.ts'), 'utf8'),
+    ].flatMap((source) => [...source.matchAll(/expectedDuration:\s*'([^']+)'/g)].map((match) => match[1]));
+    expect(declaredDurations.length).toBeGreaterThan(0);
+    expect(declaredDurations.every(isExpectedWorkflowDuration)).toBe(true);
+    expect(isExpectedWorkflowDuration('variabile')).toBe(false);
+    expect(expectedWorkflowTimeoutMs('variabile')).toBe(45 * 60_000);
+    expect(expectedWorkflowTimeoutMs('60-90 min')).toBe(120 * 60_000);
   });
 });
 

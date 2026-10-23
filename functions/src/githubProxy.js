@@ -200,18 +200,68 @@ function parseGithubPath(method, path) {
 }
 
 function truncateUtf8(value, maxBytes = MAX_GITHUB_LOG_BYTES) {
-  const text = String(value || '');
-  const encoded = Buffer.from(text, 'utf8');
-  if (encoded.byteLength <= maxBytes) return text;
+  const encoded = Buffer.from(String(value || ''), 'utf8');
+  return formatUtf8Tail(encoded, maxBytes, encoded.byteLength > maxBytes);
+}
+
+function formatUtf8Tail(encoded, maxBytes, truncated) {
+  if (!truncated && encoded.byteLength <= maxBytes) return encoded.toString('utf8');
 
   const prefix = '[log troncato: mostrati gli ultimi 256 KB]\n';
   const prefixBytes = Buffer.byteLength(prefix, 'utf8');
   if (prefixBytes >= maxBytes) return Buffer.from(prefix, 'utf8').subarray(0, maxBytes).toString('utf8');
 
   const contentBytes = maxBytes - prefixBytes;
-  let start = encoded.byteLength - contentBytes;
+  let start = Math.max(0, encoded.byteLength - contentBytes);
   while (start < encoded.byteLength && (encoded[start] & 0xc0) === 0x80) start += 1;
   return `${prefix}${encoded.subarray(start).toString('utf8')}`;
+}
+
+function responseChunkView(value) {
+  if (value == null) return Buffer.alloc(0);
+  if (value instanceof ArrayBuffer) return Buffer.from(value);
+  if (ArrayBuffer.isView(value)) {
+    return Buffer.from(value.buffer, value.byteOffset, value.byteLength);
+  }
+  return Buffer.from(String(value), 'utf8');
+}
+
+async function readResponseTextTail(response, maxBytes = MAX_GITHUB_LOG_BYTES) {
+  const reader = response?.body?.getReader?.();
+  if (!reader) {
+    try {
+      return typeof response?.text === 'function' ? await response.text() : '';
+    } catch {
+      return '';
+    }
+  }
+
+  let tail = Buffer.alloc(0);
+  let totalBytes = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      // Keep only the tail before the next read; the view itself is never
+      // retained, so a producer can release/reuse its stream buffer.
+      const chunk = responseChunkView(value);
+      if (!chunk.byteLength) continue;
+      totalBytes += chunk.byteLength;
+      if (chunk.byteLength >= maxBytes) {
+        tail = Buffer.from(chunk.subarray(chunk.byteLength - maxBytes));
+        continue;
+      }
+      const combined = Buffer.concat([tail, chunk]);
+      tail = combined.byteLength > maxBytes
+        ? Buffer.from(combined.subarray(combined.byteLength - maxBytes))
+        : combined;
+    }
+    return formatUtf8Tail(tail, maxBytes, totalBytes > maxBytes);
+  } catch {
+    return '';
+  } finally {
+    try { reader.releaseLock?.(); } catch { /* the read verdict stays authoritative */ }
+  }
 }
 
 async function readResponseBody(response) {
@@ -244,31 +294,49 @@ export async function handleAdminGithub(req, dependencies = {}) {
 
   const isDispatch = parsed.kind === 'workflow_dispatch';
   const auditDb = isDispatch ? (dependencies.db || getAdminDb()) : null;
-  const writeDispatchAudit = async (status) => {
+  let dispatchAuditRef = null;
+  const writeDispatchAuditIntent = async () => {
     if (!isDispatch) return true;
     try {
-      await auditDb.collection(ADMIN_AUDIT_COLLECTION).add({
+      dispatchAuditRef = await auditDb.collection(ADMIN_AUDIT_COLLECTION).add({
         at: FieldValue.serverTimestamp(),
         uid: auth.uid,
         email: auth.email,
         action: 'workflow_dispatch',
         target: parsed.workflowFile,
         inputs: req.body?.body?.inputs || req.body?.body || {},
-        status,
+        status: 'pending',
       });
       return true;
     } catch (error) {
-      console.error('adminGithub audit write failed', error);
+      console.error('adminGithub audit intent write failed', error);
       return false;
     }
   };
+  const updateDispatchAudit = async (status) => {
+    if (!isDispatch) return;
+    try {
+      if (!dispatchAuditRef) throw new Error('audit intent reference missing');
+      if (typeof dispatchAuditRef.update === 'function') {
+        await dispatchAuditRef.update({ status });
+      } else if (typeof dispatchAuditRef.set === 'function') {
+        await dispatchAuditRef.set({ status }, { merge: true });
+      } else {
+        throw new Error('audit intent reference is not writable');
+      }
+    } catch (error) {
+      console.error('adminGithub audit status update failed', error);
+    }
+  };
+
+  if (!(await writeDispatchAuditIntent())) {
+    return { status: 500, body: { ok: false, error: 'audit_write_failed' } };
+  }
 
   const { pat, owner, repo } = dependencies.repoConfig || await getRepoConfig();
   if (!pat) {
-    const audited = await writeDispatchAudit(503);
-    return audited
-      ? { status: 503, body: { ok: false, error: 'github_not_configured' } }
-      : { status: 500, body: { ok: false, error: 'audit_write_failed' } };
+    await updateDispatchAudit(503);
+    return { status: 503, body: { ok: false, error: 'github_not_configured' } };
   }
 
   const fetchImpl = dependencies.fetchImpl || fetch;
@@ -290,7 +358,7 @@ export async function handleAdminGithub(req, dependencies = {}) {
     if (parsed.kind === 'job_logs') {
       if (upstream.status >= 300 && upstream.status < 400 && upstream.headers?.get('location')) {
         const logResponse = await fetchImpl(upstream.headers.get('location'), { method: 'GET', redirect: 'follow' });
-        const logText = await logResponse.text().catch(() => '');
+        const logText = await readResponseTextTail(logResponse);
         return {
           status: logResponse.status,
           body: logResponse.ok
@@ -298,7 +366,7 @@ export async function handleAdminGithub(req, dependencies = {}) {
             : { ok: false, error: 'github_error', message: truncateUtf8(logText) },
         };
       }
-      const logText = await upstream.text().catch(() => '');
+      const logText = await readResponseTextTail(upstream);
       body = upstream.ok
         ? { ok: true, text: truncateUtf8(logText) }
         : { ok: false, error: 'github_error', message: truncateUtf8(logText) };
@@ -310,16 +378,12 @@ export async function handleAdminGithub(req, dependencies = {}) {
     }
   } catch (error) {
     console.error('adminGithub upstream request failed', error);
-    const audited = await writeDispatchAudit(502);
-    return audited
-      ? { status: 502, body: { ok: false, error: 'github_unavailable' } }
-      : { status: 500, body: { ok: false, error: 'audit_write_failed' } };
+    await updateDispatchAudit(502);
+    return { status: 502, body: { ok: false, error: 'github_unavailable' } };
   }
 
   const upstreamStatus = upstream?.status || 502;
-  if (!(await writeDispatchAudit(upstreamStatus))) {
-    return { status: 500, body: { ok: false, error: 'audit_write_failed' } };
-  }
+  await updateDispatchAudit(upstreamStatus);
 
   return { status: upstreamStatus, body };
 }

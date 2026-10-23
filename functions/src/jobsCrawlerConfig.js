@@ -36,7 +36,7 @@ const DEFAULT_JOBS_CRAWLER_CONFIG = {
       'vfc.com': [
         'https://vfc.wd5.myworkdayjobs.com/vfc_careers?Location_Country=187134fccb084a0ea9b4b95f23890dbe',
       ],
-      'swatchgroup.com': ['https://www.swatchgroup.com/en/job-finder'],
+      'swatchgroup.com': ['https://www.swatchgroup.com/en/job-finder?jf_country=40'],
       'ubs.com': [
         'https://www.ubs.com/global/en/careers/search-jobs.html',
         'https://www.ubs.com/global/en/careers.html',
