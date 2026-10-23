@@ -529,7 +529,7 @@ describe('renderEventDetailPage', () => {
   });
 
   it('probes a deterministic ordinal when both disambiguator candidates are claimed', () => {
-    const collisionTitle = 'Repeated Event Night';
+    const collisionTitle = 'Night';
     const firstId = 'ge-agenda:ordinal-collision-a';
     const events = [
       {
@@ -538,7 +538,7 @@ describe('renderEventDetailPage', () => {
         title: collisionTitle,
         startDate: '2026-10-21',
         endDate: '2026-10-21',
-        venue: '',
+        venue: 'Hall',
         comune: 'Genève',
         canton: 'GE',
       },
@@ -548,14 +548,14 @@ describe('renderEventDetailPage', () => {
         title: collisionTitle,
         startDate: '2026-10-21',
         endDate: '2026-10-21',
-        venue: '',
+        venue: 'Hall',
         comune: 'Genève',
         canton: 'GE',
       },
       {
         ...EVENT,
         id: 'ge-agenda:ordinal-claims-human',
-        title: `${collisionTitle} · Event Night`,
+        title: `${collisionTitle} · Hall`,
         startDate: '2026-10-21',
         endDate: '2026-10-21',
         venue: '',
