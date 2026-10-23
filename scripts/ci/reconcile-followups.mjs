@@ -2248,7 +2248,8 @@ async function main() {
       aggGate = dailyBucketCloseGate(iss.body || '', diskIo, ...(gateInputs?.gateArgs ?? []));
     }
     const isAggregate = aggGate.blocks;
-    const hasPriorFlag = alreadyCommented(iss.number, lookupComments());
+    lookupComments();
+    const hasPriorFlag = alreadyCommented(iss.number);
     if (hasPriorFlag === null) {
       console.log(`::warning::reconcile-followups: impossibile leggere i commenti di #${iss.number}; flag/chiusura non determinabili, issue lasciata nel ciclo`);
     }
