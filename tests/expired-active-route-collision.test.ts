@@ -4,7 +4,10 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { assembleExpiredJobs, persistExpiredArchive } from '../scripts/assemble-jobs-dataset.mjs';
-import { repairExpiredRoutesAgainstActive } from '../scripts/lib/expired-jobs-archive.mjs';
+import {
+  archiveRemovedJobsToSlice,
+  repairExpiredRoutesAgainstActive,
+} from '../scripts/lib/expired-jobs-archive.mjs';
 
 const COLLIDING_ROUTE = 'same-title-company-lugano';
 const ACTIVE_URL = 'https://jobs.example.test/active-1';
@@ -23,6 +26,7 @@ function activeJob() {
 function expiredJob(sourceIdentity = `url:${EXPIRED_URL}`) {
   return {
     slug: COLLIDING_ROUTE,
+    expiredAt: '2026-10-20T00:00:00.000Z',
     slugByLocale: { it: COLLIDING_ROUTE, de: COLLIDING_ROUTE, en: 'expired-en' },
     previousSlugs: [COLLIDING_ROUTE, 'expired-old'],
     previousSlugsByLocale: { it: [COLLIDING_ROUTE], de: [COLLIDING_ROUTE] },
@@ -101,6 +105,32 @@ describe('repairExpiredRoutesAgainstActive', () => {
       expect(published[0].slug).not.toBe(COLLIDING_ROUTE);
       expect(active.slug).toBe(COLLIDING_ROUTE);
       expect(repair.repairedRoutes).toBe(1);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('repairs an existing expired slice before a slice-only crawler commit', () => {
+    const root = mkdtempSync(join(tmpdir(), 'expired-slice-only-route-'));
+    try {
+      const active = activeJob();
+      const expired = expiredJob();
+      const sliceDir = join(root, 'expired-slices');
+      mkdirSync(sliceDir, { recursive: true });
+      writeFileSync(join(sliceDir, 'ipersonal.json'), JSON.stringify([expired]));
+
+      const added = archiveRemovedJobsToSlice([], 'ipersonal', {
+        dir: sliceDir,
+        activeJobs: [active],
+      });
+
+      const persisted = JSON.parse(
+        readFileSync(join(sliceDir, 'ipersonal.json'), 'utf8'),
+      );
+      expect(added).toBe(0);
+      expect(persisted[0].slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
+      expect(persisted[0].slug).not.toBe(COLLIDING_ROUTE);
+      expect(active.slug).toBe(COLLIDING_ROUTE);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
