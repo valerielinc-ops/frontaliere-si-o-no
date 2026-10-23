@@ -57,12 +57,15 @@ describe('decideLatestPublish', () => {
     })).toMatchObject({ action: 'skip', reason: 'no-successful-build' });
   });
 
-  it('does not treat a successful push run as a build artifact', () => {
-    expect(decideLatestPublish({
+  it('hands a successful push build to the publisher', () => {
+    const verdict = decideLatestPublish({
       builds: [{ ...build(3, SHA_LATEST, '2026-10-20T13:00:00Z'), event: 'push' }],
       publishRuns: [],
       lastSuccessfulDeployment: null,
-    })).toMatchObject({ action: 'skip', reason: 'no-successful-build' });
+    });
+
+    expect(verdict).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
+    expect(verdict.candidate).toMatchObject({ id: 3, event: 'push' });
   });
 
   it.each(['queued', 'in_progress', 'waiting', 'pending', 'requested'])(
@@ -339,6 +342,6 @@ describe('Pages publish queue wiring', () => {
     };
     const publisher = workflow.jobs?.rearm?.steps?.find((step) => step.run?.includes('deploy-publish.yml'));
 
-    expect(publisher?.if).toBe("github.event_name == 'workflow_dispatch' && needs.build-locale.result == 'success'");
+    expect(publisher?.if).toBe("(github.event_name == 'workflow_dispatch' || github.event_name == 'push') && needs.build-locale.result == 'success'");
   });
 });
