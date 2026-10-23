@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spitex-zuerich",
-  "assembledAt": "2026-10-22T21:28:26.760Z",
-  "runId": "39855978735",
+  "assembledAt": "2026-10-23T09:23:00.893Z",
+  "runId": "39930737321",
   "jobs": [
     {
       "id": "spitex-zuerich-45bfb7867815",
@@ -35,7 +35,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ioan641fwjqhbsh83ulusl7ok95yfp1",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:20.778Z",
+      "crawledAt": "2026-10-23T09:22:56.282Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ypv2le9p78ygmhn2pogybj1gphgx2ls",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:19.606Z",
+      "crawledAt": "2026-10-23T09:22:55.203Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/nynx0x50jck8ymsizisnbynw0pr33uf",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:18.483Z",
+      "crawledAt": "2026-10-23T09:22:54.102Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -261,7 +261,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/vyppgz6sflfv51sivm47ggunzrip7tw",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:17.371Z",
+      "crawledAt": "2026-10-23T09:22:53.305Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/4bjxg6mkpmzso26jy7lg4zdxb3bikx5",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:16.521Z",
+      "crawledAt": "2026-10-23T09:22:52.552Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -412,7 +412,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/cjo4ai0y4m3ynl7pxfi0qinbgdwkm1e",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:15.381Z",
+      "crawledAt": "2026-10-23T09:22:51.520Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -496,7 +496,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/5771uviifporguue2ei1cz0s4hfatvk",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:14.648Z",
+      "crawledAt": "2026-10-23T09:22:50.694Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -578,7 +578,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/qhzv875aem65xs7acfh0wgj8sz1saui",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:13.930Z",
+      "crawledAt": "2026-10-23T09:22:49.626Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -597,15 +597,14 @@
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/qhzv875aem65xs7acfh0wgj8sz1saui",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "team-coach-home-and-care-80-100-a-spitex-zuerich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "team-coach-home-and-care-80-100-a-spitex-zuerich-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:50:49.293Z",
+      "previousSlugs": [
+        "team-coach-home-and-care-80-100-a-spitex-zuerich-zurich"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -618,7 +617,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:50:49.293Z"
     },
     {
       "id": "spitex-zuerich-aa734f3415ba",
@@ -646,13 +646,12 @@
         "de": "Spitex Zürich betreut mit etwa 1'500 Mitarbeitenden an 22 Spitex-Standorten rund 10‘000 Kundinnen und Kunden und erbringt so jährlich über 1 Mio. Einsätze. Neben den vier Hauptgeschäftsfeldern Somatic Care, Memory Care, Mental Care und Home & Care bietet Spitex Zürich Spezialdienste wie z.B. Wundversorgung, Stoma- und Kontinenzpflege und spezialisierte Palliative Care.\nUnser Wundspezialisten-Team besteht aus 11 diplomierten Wundspezialistinnen und -spezialisten. Wir unterstützen innerhalb unserer Spitex-Standorte die Pflegeteams bei komplexen Wunden (Beurteilung, Versorgung etc.) und organisieren unseren Alltag weitgehend selbst.\nZur Ergänzung unseres Teams suchen wir eine erfahrene, verantwortungsbewusste Persönlichkeit als\n\n(a)lle sind angesprochen. Geschlecht, Herkunft, Alter? Uns interessieren deine Qualifikation und Begeisterung für die Arbeit.\n\nDEINE AUFGABEN\n• Ermittlung des Pflegebedarfs sowie Steuerung des Pflegeprozesses inkl. Fallführung und Evaluation\n• Bedarfsgerechte Betreuung und Pflege (komplexe, akute, chronische und palliative Situationen inkl. Medikation und Wundpflege)\n• Beratung der Fallführenden in der Therapie von Wunden und deren Schulung\n• Einführung von neuen Mitarbeitenden in die Wundtherapie (FaGe, Dipl. Pflegefachpersonen sowie Berufsbildende) i m Schulen von Schülern in der Wundpflege\n• Hygiene- und Materialverantwortliche im Zentrum\n\nDU FINDEST BEI UNS\n• Eine sinnstiftende und selbstständige Tätigkeit mit viel Handlungs- und Gestaltungsspielraum\n• Ein starkes und vielfältiges Team im Rücken\n• Zeit, unsere Kundinnen und Kunden ungestört zu pflegen und zu betreuen\n• Eine wertschätzende Kultur mit Begegnung auf Augenhöhe\n• Attraktive Fort- und Weiterbildungsmöglichkeiten sowie modernste Arbeitsmittel\n• Eine lernende und zukunftsgerichtete Organisation\n• Familienfreundliche Anstellungsbedingungen und ausgezeichnete Sozialleistungen\n• Zusätzliche Ferien: Du hast jedes Jahr die Möglichkeit, 1 oder 2 Ferienwochen dazu zu kaufen\n• Unsere weiteren Vorteile findest du hier: https://jobs.spitex-zuerich.ch/vorteile/\n\nDU BRINGST MIT\n• Abgeschlossene Pflegeausbildung auf Tertiärstufe sowie Weiterbildung als Wundexpertin\n• Freundliches und wertschätzendes Auftreten sowie körperliche und psychische Belastbarkeit\n• Freude an Veränderung und an der Zusammenarbeit im Team\n• Hohes Verantwortungsbewusstsein, Selbstständigkeit und Flexibilität\n• Gute Kenntnisse der deutschen Sprache in Wort und Schrift, mind. Niveau B2\n• Führerausweis Kat. B oder Bereitschaft mit dem Elektrovelo unterwegs zu sein\nErfahre mehr, wie wir bei Spitex Zürich arbeiten: Arbeitsmodell Spitex Zürich . Im persönlichen Gespräch finden wir gemeinsam heraus, welches Modell für dich am besten passt.\nDas ist noch nicht der richtige Job für dich? Dann schau dir gerne unsere weiteren Stellen an oder melde dich bei einem HR-Coach, um weitere Möglichkeiten zu besprechen.\n\n• Arbeitszeit: Teilzeit",
         "fr": "Avec environ 1 500 employés dans 22 emplacements Spitex, Spitex Zurich dessert environ 10 000 clients et fournit ainsi plus d'un million de clients par an. missions. En plus des quatre principaux domaines d'activité Somatic Care, Memory Care, Mental Care et Home & Care, Spitex Zurich offre des services spéciaux tels que les soins de plaie, de stoma et de continence et les soins palliatifs spécialisés.\nNotre équipe spécialisée en plaies est composée de 11 spécialistes qualifiés en plaies. Dans nos emplacements Spitex, nous soutenons les équipes de soins pour les blessures complexes (évaluation, soins, etc.) et organisons notre vie quotidienne en grande partie nous-mêmes.\nPour compléter notre équipe, nous recherchons une personnalité expérimentée et responsable\n\n(a)lle sont adressées. Sexe, origine, âge ? Nous sommes intéressés par votre qualification et votre enthousiasme pour le travail.\n\nVos tâches\n• Détermination du besoin de soins et de contrôle du processus de soins, y compris Gestion et évaluation des cas\n• Soins et soins axés sur les besoins (complexes, aigus, chroniques et palliatifs, y compris) Médicaments et soins des plaies\n• Conseils aux sujets de la thérapie des blessures et de leur formation\n• Introduction de nouveaux employés à la thérapie des plaies (FaGe, Dipl.) Professionnels des soins infirmiers et stagiaires professionnels dans les écoles d'élèves en soins des plaies\n• Hygiène et gestion des matériaux dans le centre\n\nVous nous trouvez au moins.\n• Une activité significative et indépendante avec beaucoup de possibilités d'action et de conception\n• Une équipe forte et diversifiée au dos\n• Le temps de prendre soin de nos clients et de les soutenir sans gêne\n• Une culture reconnaissante avec une rencontre au niveau des yeux\n• Possibilités de formation attrayantes et équipements de pointe\n• Une organisation apprenante et tournée vers l'avenir\n• Conditions d'emploi favorables à la famille et excellents avantages sociaux\n• Vacances supplémentaires: Vous avez la possibilité d'acheter 1 ou 2 semaines de vacances chaque année\n• Nos autres avantages peuvent être consultés ici: https://jobs.spitex-zuerich.ch/ benefits/\n\nTu amènes avec toi\n• Achevé la formation infirmière au niveau supérieur et la formation continue en tant qu'expert des blessures\n• Appréciation amicale et reconnaissante ainsi que résilience physique et psychologique\n• Joy du changement et de la coopération dans l'équipe\n• Haut sens des responsabilités, indépendance et flexibilité\n• Bonne connaissance de la langue allemande dans la parole et l'écriture, esprit. Catégorie B2\n• Permis de conduire Cat. B ou volonté de voyager avec le véhicule électrique\nDécouvrez comment nous travaillons chez Spitex Zurich : modèle de travail Spitex Zurich. Dans une conversation personnelle, nous découvrons ensemble quel modèle vous convient le mieux.\nCe n'est pas le bon boulot pour toi ? Ensuite, jetez un oeil à nos autres positions ou contactez un entraîneur RH pour discuter d'autres possibilités.\n\n• Temps de travail: temps partiel"
       },
-      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/43jag5jtai5x0utbf4ywxr8l5payjlq",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:12.758Z",
+      "crawledAt": "2026-10-23T09:22:48.590Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -671,20 +670,6 @@
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/43jag5jtai5x0utbf4ywxr8l5payjlq",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
-        ],
-        "en": [
-          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
-        ],
-        "fr": [
-          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
-        ]
-      },
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
@@ -697,7 +682,22 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
+        ],
+        "en": [
+          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
+        ],
+        "fr": [
+          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "spitex-zuerich-fa06da56b8bf",
@@ -725,13 +725,12 @@
         "de": "Deine Leidenschaft ist es, Wissen weiterzugeben und zukünftige Pflegefachpersonen in ihrer Entwicklung zu begleiten?\nUnsere Berufsbildnerinnen und Berufsbildner sind bei Spitex Zürich in einem eigenen Team organisiert und können sich so vollumfänglich auf die Begleitung der Studierenden und Lernenden konzentrieren. Das heisst für dich: Die enge Zusammenarbeit im Team ermöglicht dir einen guten Austausch und beste Resultate. Dabei wirst du durch die Bildungs- und Ausbildungsverantwortlichen aktiv unterstützt. Du arbeitest situativ standortübergreifend, hast ein starkes Team im Rücken, arbeitest eigenverantwortlich und geniesst viele Freiheiten und Gestaltungs-möglichkeiten in der praktischen Berufsausbildung.\nZur Verstärkung unserer Berufsbildner-Teams suchen wir ab sofort oder nach Vereinbarung eine Persönlichkeit als\n\nDEINE AUFGABEN\n• Du begleitest, förderst und befähigst Studierende in der praktischen und theoretischen Ausbildung und stellst damit eine qualitativ hochwertige Ausbildung von Studierenden Pflege HF/FH sicher. Bei Bedarf beteiligst du dich auch an der Ausbildung von Lernenden FaGe.\n• Während Praxislerntagen arbeiten wir nach dem Konzept der Lern- und Arbeitsgemeinschaft und fördern eine engagierte und praxisorientierte Ausbildung, bei der du aktiv zur Weiterentwicklung der Auszubildenden beitragen kannst.\n• Du arbeitest standortübergreifend und eng mit anderen Berufsbildner-Teams, den Ausbildungs- und Bildungsverantwortlichen, dem Coach-Trio und den Pflegeteams zusammen.\n• Du führst regelmässige Ausbildungs- und Qualifikationsgespräche mit deinen Auszubildende.\n• Du wirkst bei der Öffentlichkeitsarbeit (Quartierveranstaltungen, Veranstaltungen an Höheren Fachschulen oder Fachhochschulen) der Spitex Zürich aktiv mit\n• Du unterrichtest Studierende an Lernbereich Training Transfer Tagen und setzt deine methodisch-didaktischen Fähigkeiten zielorientiert ein.\n• Damit du fachlich am Puls der Praxis bleibst, ergänzt du deine Tätigkeit mit einzelnen Pflegeeinsätzen.\n\nDU FINDEST BEI UNS\n• Eine sinnstiftende Tätigkeit mit grossem Einfluss auf die Entwicklung zukünftiger Pflegefachpersonen\n• Ein spezialisiertes Berufsbildner-Team mit regelmässigem fachlichem Austausch\n• Viel Eigenverantwortung sowie Handlungs- und Gestaltungsspielraum\n• Eine wertschätzende Führungskultur mit kurzen Entscheidungswegen\n• Attraktive Anstellungsbedingungen und weitere Benefits: unsere weiteren Vorteile findest du\n• Unsere weiteren Vorteile findest du hier: https://jobs.spitex-zuerich.ch/vorteile/\n\nDU BRINGST MIT\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau oder Pflegefachmann HF\n• SVEB-Zertifikat Praxisausbildner/-in (Stufe 1) vorhanden oder die Bereitschaft dieses zu absolvieren\n• Mindestens zwei Jahre Berufserfahrung als Dipl. Pflegefachperson\n• Flair für digitale Tools und sehr gute Deutschkenntnisse in Wort und Schrift\n• Freude an der Ausbildung von Jugendlichen und Erwachsenen und Interesse an der Gestaltung individueller Lernsettings\n• Hohes Verantwortungsbewusstsein, Organisationsfähigkeit und Selbstständigkeit\n• Du bist gerne mit dem E-Bike unterwegs und/oder hast einen Führerausweis Kat. B\n\n• Arbeitszeit: Teilzeit / Vollzeit",
         "fr": "Votre passion est de transmettre des connaissances et d'accompagner les futurs professionnels de soins dans leur développement?\nNos formateurs professionnels sont organisés dans leur propre équipe à Spitex Zurich et peuvent ainsi se concentrer pleinement sur l'accompagnement des étudiants et des apprenants. Cela signifie pour vous: La coopération étroite au sein de l'équipe vous permet un bon échange et de meilleurs résultats. Vous serez activement soutenus par les responsables de l'éducation et de la formation. Vous travaillez en situation à travers les lieux, avez une solide équipe derrière vous, travaillez de manière indépendante et profitez de nombreuses libertés et possibilités de formation professionnelle pratique.\nPour renforcer nos équipes de formateurs professionnels, nous recherchons une personnalité\n\nVos tâches\n• Vous accompagnez, promeutz et autonomisez les étudiants dans la formation pratique et théorique et ainsi assurer une formation de haute qualité des étudiants s'occupent de HF/FH. Si nécessaire, vous participez également à la formation de l'apprenant FaGe.\n• Pendant les journées d'apprentissage pratique, nous travaillons selon le concept de la communauté d'apprentissage et de travail et promouvons une éducation engagée et axée sur la pratique, dans laquelle vous pouvez contribuer activement au développement des apprentis.\n• Vous travaillez sur plusieurs sites et en étroite collaboration avec d'autres équipes de formateurs professionnels, les responsables de la formation et de l'éducation, le trio d'entraîneurs et les équipes de soins.\n• Vous organisez régulièrement des discussions de formation et de qualification avec vos stagiaires.\n• Vous participez activement aux relations publiques (événements du trimestre, événements dans les écoles techniques supérieures ou les collèges techniques) à Spitex Zurich\n• Vous enseignez aux étudiants des journées de transfert et utilisez vos compétences méthodologiques et didactiques d'une manière orientée vers l'objectif.\n• Afin de rester sur le pouls de la pratique, vous ajoutez votre activité avec des tâches de soins individuels.\n\nVous nous trouvez au moins.\n• Une activité significative avec une grande influence sur le développement des futurs professionnels de soins\n• Une équipe de formateurs professionnels spécialisés avec des échanges professionnels réguliers\n• Beaucoup de responsabilité personnelle ainsi que la possibilité d'action et de conception\n• Une culture de leadership reconnaissante avec de courtes pistes de décision\n• Conditions d'emploi attractives et autres avantages: nos autres avantages peuvent être trouvés\n• Nos autres avantages peuvent être consultés ici: https://jobs.spitex-zuerich.ch/ benefits/\n\nTu amènes avec toi\n• Formation terminée en tant que diplômé. Infirmière ou infirmière HF\n• SVEB certificat formateur pratique/en (niveau 1) disponible ou prêt à compléter\n• Au moins deux ans d'expérience professionnelle en tant que Dipl. Professionnels des soins infirmiers\n• Flair pour outils numériques et très bonne connaissance de l'allemand en mots et en écriture\n• La joie dans l'éducation des jeunes et des adultes et l'intérêt pour la conception de cadres d'apprentissage individuels\n• Haute responsabilité, capacité organisationnelle et indépendance\n• Vous aimez voyager en vélo électronique et/ou avoir un permis de conduire Kat. B\n\n• Heures de travail: à temps partiel / à temps plein"
       },
-      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ftcl1sap4pjlx3fu7uqqo9spw2rx2sn",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:28:11.592Z",
+      "crawledAt": "2026-10-23T09:22:47.484Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -750,15 +749,14 @@
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/ftcl1sap4pjlx3fu7uqqo9spw2rx2sn",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "berufsbildner-in-fur-studierende-pflege-hf-fh-80-100-a-spitex-zuerich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-in-fur-studierende-pflege-hf-fh-80-100-a-spitex-zuerich-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-29T21:28:46.748Z",
+      "previousSlugs": [
+        "berufsbildner-in-fur-studierende-pflege-hf-fh-80-100-a-spitex-zuerich-zurich"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -771,7 +769,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-29T21:28:46.748Z",
+      "needsRetranslation": false
     },
     {
       "id": "spitex-zuerich-f1b81bf1d50f",
