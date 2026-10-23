@@ -128,7 +128,7 @@
     if (state.busy || state.stopped || state.done || !state.kit) return;
     state.busy = true;
     try {
-      const page = F.pageState(document, { sawForm: state.sawForm });
+      const page = F.pageState(document, { sawForm: state.sawForm, channelType: state.kit?.channelType });
       if (page.kind === 'confirmed') {
         // A confirmation counts only after this tab reached the send button
         // (in this document or an earlier one of the same tab).
@@ -168,7 +168,7 @@
         state.sawForm = true;
         await send({ type: 'mark', sawForm: true });
       }
-      const after = F.pageState(document, { sawForm: state.sawForm });
+      const after = F.pageState(document, { sawForm: state.sawForm, channelType: state.kit?.channelType });
       if (after.kind === 'final') {
         state.sawFinal = true;
         if (result.missing.length) {
@@ -194,7 +194,7 @@
       }
       if (after.nextDisabled) return; // an upload or a choice still settling: the next mutation retries
       // One press per page: the next one waits for the page to change.
-      const signature = F.pageSignature(document);
+      const signature = F.pageSignature(document, state.kit?.channelType);
       if (signature === state.lastAdvance && Date.now() - state.lastAdvanceAt < 8000) return;
       if (state.advances >= MAX_ADVANCES) {
         show('Troppi passaggi: mi fermo, continua tu.', 'warn');

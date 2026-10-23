@@ -1,12 +1,12 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { LIST_PROMPT_RE, extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
+import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
-function extract(html: string, url = 'https://jobs.example/apply') {
+function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, string> = {}) {
   const { window } = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url });
   // JSDOM does not implement the browser's rendered-text `innerText`; the
   // extractor uses it to keep an icon glyph separate from its aria label.
@@ -24,7 +24,7 @@ function extract(html: string, url = 'https://jobs.example/apply') {
   vi.stubGlobal('document', window.document);
   vi.stubGlobal('location', window.location);
   vi.stubGlobal('CSS', { escape: (value: string) => String(value).replace(/["\\\]]/g, '\\$&') });
-  return extractFieldsInPage();
+  return extractFieldsInPage(context);
 }
 
 afterEach(() => {
@@ -296,6 +296,94 @@ describe('portal field extraction', () => {
     // A search box is no select, even with a list of its own.
     expect(page.fields.find((field: any) => field.label === 'Suche')).toMatchObject({ kind: 'combobox', selectLike: false });
     expect(page.fields.find((field: any) => field.label === 'Geburtsdatum')).toMatchObject({ kind: 'text', inputType: 'date', widget: 'ui5-date', datePattern: 'dd.MM.yyyy', required: true });
+  });
+
+  it('recognizes required lazy SuccessFactors lists without prompt decoration', () => {
+    const page = extract(`
+      <form>
+        <label for="permit">Do you hold a valid work permit for Switzerland?</label>
+        <input id="permit" type="text" role="combobox" aria-controls="permit-list" aria-required="true">
+        <ul id="permit-list" role="listbox"></ul>
+        <label for="source">How did you hear about this position?</label>
+        <input id="source" type="text" role="combobox" aria-owns="source-list" required>
+        <ul id="source-list" role="listbox"></ul>
+        <button type="button"></button>
+        <button type="button">Read and accept the data privacy statement.</button>
+        <button type="submit">Apply</button>
+      </form>`, 'https://career5.successfactors.eu/careers');
+
+    expect(page.fields.filter((field: any) => ['Do you hold a valid work permit for Switzerland?', 'How did you hear about this position?'].includes(field.label))).toEqual(expect.arrayContaining([
+      expect.objectContaining({ kind: 'combobox', required: true, selectLike: true, ownedList: 'permit-list' }),
+      expect.objectContaining({ kind: 'combobox', required: true, selectLike: true, ownedList: 'source-list' }),
+    ]));
+    expect(page.buttons.map((button: any) => button.text)).toEqual(expect.arrayContaining([
+      '',
+      'Read and accept the data privacy statement.',
+      'Apply',
+    ]));
+  });
+
+  it('recognizes a branded SuccessFactors tenant from its application route', () => {
+    const page = extract(`
+      <form>
+        <label for="permit">Do you hold a valid work permit for Switzerland? (erforderlich)</label>
+        <input id="permit" type="text" role="combobox" aria-controls="popup permit-list" aria-owns="permit-list">
+        <div id="popup"></div><ul id="permit-list" role="listbox"></ul>
+        <label for="optional">Optional source</label>
+        <input id="optional" type="text" role="combobox" aria-controls="optional-list">
+        <ul id="optional-list" role="listbox"></ul>
+      </form>`, 'https://careers.example.ch/talentcommunity/apply/1448418433/?locale=en_US');
+
+    expect(page.fields.find((field: any) => /^Do you hold a valid work permit for Switzerland\?/.test(field.label))).toMatchObject({
+      kind: 'combobox',
+      required: true,
+      selectLike: true,
+      ownedList: 'permit-list',
+    });
+    expect(page.fields.find((field: any) => field.label === 'Optional source')).toMatchObject({
+      kind: 'combobox',
+      required: false,
+      selectLike: false,
+      ownedList: 'optional-list',
+    });
+  });
+
+  it('forwards the validated ATS context to every portal frame', async () => {
+    const url = 'https://careers.example.ch/careers';
+    const html = `<form>
+      <label for="permit" data-required>Do you hold a valid work permit for Switzerland?</label>
+      <input id="permit" type="text" role="combobox" aria-controls="popup permit-list" aria-owns="permit-list">
+      <div id="popup"></div><ul id="permit-list" role="listbox"></ul>
+    </form>`;
+    extract(html, url);
+    const context = {};
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_fn: unknown, args: Record<string, string>) => extractFieldsInPage(args)),
+    };
+    const page = { url: () => url, frames: () => [frame], context: () => context };
+    registerPortalChannelType(context, 'successfactors');
+
+    const snapshot = await extractFields(page as any, { listboxOptions: false });
+    expect(snapshot.fields.find((field: any) => field.label === 'Do you hold a valid work permit for Switzerland?'))
+      .toMatchObject({ selectLike: true, ownedList: 'permit-list' });
+    expect(frame.evaluate).toHaveBeenCalledWith(extractFieldsInPage, { channelType: 'successfactors' });
+  });
+
+  it('keeps a required non-SuccessFactors ARIA autocomplete as a text combobox', () => {
+    const page = extract(`
+      <form>
+        <label for="city">City</label>
+        <input id="city" type="text" role="combobox" class="rcmpaginatedselectinput" aria-controls="city-options" aria-required="true">
+        <ul id="city-options" role="listbox"></ul>
+      </form>`, 'https://jobs.example.ch/apply');
+
+    expect(page.fields.find((field: any) => field.label === 'City')).toMatchObject({
+      kind: 'combobox',
+      required: true,
+      selectLike: false,
+      ownedList: 'city-options',
+    });
   });
 
   it('answers «Vermittlungsbüro?» with its No, whatever the plan said, and never asks the candidate', () => {

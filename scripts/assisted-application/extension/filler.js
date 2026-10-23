@@ -67,7 +67,10 @@
   const NON_CANDIDATE_ADDRESS_CONTEXT_RE = /\b(employer|company|organization|work history|employment|professional experience|reference|school|university|emergency contact|billing|shipping|delivery|recipient|supplier|customer|client|datore di lavoro|esperienza professionale|fatturazione|spedizione|fornitore|cliente|riferimento|scuola|universita|arbeitgeber|unternehmen|berufserfahrung|rechnungsadresse|lieferadresse|notfallkontakt|referenz|schule|arbeitgeberadresse|adresse de facturation|adresse de livraison|employeur|experience professionnelle|reference|ecole|universite|contact d urgence)\b/;
   const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
   const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
-  const REQUIRED_RE = /(\*|\brequired\b|\bobbligator[ioa]\b|\bobligatoire\b|\bpflicht(?:ig)?\b|\bobligatorisch\b)/i;
+  // Keep the same required-marker vocabulary as the portal snapshot. A
+  // SuccessFactors label may carry only “(erforderlich)” while the input has
+  // neither native nor ARIA requiredness.
+  const REQUIRED_RE = /\*|\b(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\b/i;
   const CV_RE = /\b(cv|curriculum|lebenslauf|resume)\b/;
   const LETTER_RE = /\b(lettera|cover letter|anschreiben|motivation|motivazione|lettre)\b/;
   // A generic attachments field: it takes the requested documents (kit.documents.extra).
@@ -210,12 +213,12 @@
    * reading puts on each (radio options carry their own). Empty without
    * runner-fields.js or when the reading fails: the page's own names remain.
    */
-  function runnerLabels() {
+  function runnerLabels(channelType = '') {
     const read = root.CompilaRunnerFields;
     const byId = new Map();
     if (typeof read !== 'function') return byId;
     try {
-      for (const field of read().fields || []) {
+      for (const field of read({ channelType }).fields || []) {
         if (field.id) byId.set(field.id, field.label || '');
         for (const option of field.options || []) if (option.aaId) byId.set(option.aaId, field.label || '');
       }
@@ -225,6 +228,56 @@
     return byId;
   }
   const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id')) || '';
+
+  function markerText(node) {
+    return String(node?.innerText || node?.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  }
+
+  function hasRequiredMarker(element, labelText = '') {
+    if (element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required')) return true;
+    const doc = element.ownerDocument;
+    const labels = new Set(element.labels || []);
+    if (element.id) {
+      const direct = doc.querySelector(`label[for="${element.id.replace(/["\\]/g, "\\$&")}"]`);
+      if (direct) labels.add(direct);
+    }
+    const wrapping = element.closest('label');
+    if (wrapping) labels.add(wrapping);
+    for (const id of (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+      const node = doc.getElementById(id);
+      if (node) labels.add(node);
+    }
+    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
+    const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
+    if (groupLabel && !groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
+    const marker = (node, adjacent = false) => {
+      if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
+      const text = markerText(node);
+      const className = String(node.className?.baseVal || node.className || '');
+      const inline = node.nodeType === 3 || /^(abbr|b|em|i|small|span|strong|sup)$/i.test(node.tagName || '');
+      let pseudo = '';
+      try {
+        pseudo = `${doc.defaultView.getComputedStyle(node, '::before').content} ${doc.defaultView.getComputedStyle(node, '::after').content}`;
+      } catch {
+        // Some portal-owned nodes do not expose computed styles.
+      }
+      return (adjacent && inline && /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\s*\)?)$/i.test(text))
+        || (!adjacent && REQUIRED_RE.test(text))
+        || (inline || !adjacent) && /required|mandatory|pflichtfeld/i.test(className)
+        || (inline || !adjacent) && /\*/.test(pseudo.replace(/["']/g, ''));
+    };
+    for (const label of labels) {
+      if (marker(label)) return true;
+      for (const direction of ['previousSibling', 'nextSibling']) {
+        let sibling = label[direction];
+        while (sibling?.nodeType === 3 && !String(sibling.textContent || '').trim()) sibling = sibling[direction];
+        if (sibling && marker(sibling, true)) return true;
+      }
+    }
+    return false;
+  }
+
+  const isRequiredControl = (element, labelText = '') => hasRequiredMarker(element, labelText || labelOf(element));
 
   /** The heading a control sits under (JOIN asks one question per step, in an h2). */
   function questionOf(element) {
@@ -243,9 +296,9 @@
    * The page's questions: text-like inputs, selects, comboboxes, files,
    * checkboxes, radio groups (native and ARIA) and date pickers.
    */
-  function collect(doc) {
+  function collect(doc, channelType = '') {
     const entries = [];
-    const runner = runnerLabels();
+    const runner = runnerLabels(channelType);
     const inPicker = (element) => element.closest('[data-scope="date-picker"]');
     for (const picker of doc.querySelectorAll('[data-scope="date-picker"][data-part="root"]')) {
       if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: questionOf(picker) || labelOf(picker), required: true });
@@ -266,7 +319,7 @@
       if (type === 'search' && !searchSelect) continue;
       if (inPicker(element) || element.disabled || element.readOnly) continue;
       if (type !== 'file' && !isShown(element)) continue;
-      const requiredByAttribute = element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required');
+      const requiredByAttribute = isRequiredControl(element);
       if (type === 'radio') {
         const key = element.name || element.closest('[role="radiogroup"], fieldset') || element;
         if (!radiosByName.has(key)) radiosByName.set(key, []);
@@ -279,7 +332,8 @@
             : element.tagName === 'TEXTAREA' ? 'textarea' : type === 'date' ? 'native-date' : 'text';
       const label = labelOf(element);
       const labels = labelsOf(element, label, runnerLabelOf(runner, element));
-      entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)), type });
+      entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)),
+        ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}), type });
     }
     // Workday's dropdowns: buttons that open a listbox (the runner's «listbox» fields).
     for (const button of doc.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
@@ -293,7 +347,7 @@
         element: button,
         label,
         labels: labelsOf(button, label, runnerLabelOf(runner, button)),
-        required: button.getAttribute('aria-required') === 'true' || REQUIRED_RE.test(label),
+        required: isRequiredControl(button) || REQUIRED_RE.test(label),
         type: 'listbox',
       });
     }
@@ -308,7 +362,7 @@
         options: radios.map((radio) => ({ element: radio, label: labelOf(radio) })),
         label: legend || question,
         labels,
-        required: radios.some((radio) => radio.required) || labels.some((value) => REQUIRED_RE.test(value)),
+        required: radios.some((radio) => isRequiredControl(radio)) || labels.some((value) => REQUIRED_RE.test(value)),
       });
     }
     // ARIA radios (div role="radio"), grouped under the question they answer.
@@ -346,7 +400,7 @@
     if (entry.kind === 'date') return element.hasAttribute('data-empty') || !element.querySelector('[data-selected], [aria-selected="true"]');
     if (entry.kind === 'combobox') {
       // A SuccessFactors picklist holds its choice in the input itself.
-      if (selectLike(element)) return !String(element.value || '').trim() || SELECT_PROMPT_RE.test(String(element.value).trim());
+      if (entry.selectLike ?? selectLike(element)) return !String(element.value || '').trim() || SELECT_PROMPT_RE.test(String(element.value).trim());
       if (String(element.value || '').trim()) return false;
       // react-select shows the choice next to the input, or a placeholder.
       const box = comboBox(element);
@@ -529,10 +583,26 @@
     return scored[0].option;
   }
 
+  function ownedListFor(input) {
+    const doc = input.ownerDocument;
+    const idRefs = (value) => String(value || '').trim().split(/\s+/).filter(Boolean);
+    const owns = idRefs(input.getAttribute('aria-owns'));
+    const controls = idRefs(input.getAttribute('aria-controls'));
+    // Resolve both ARIA IDREF attributes once. SuccessFactors may expose a
+    // popup plus the real listbox in aria-controls and repeat only the latter
+    // in aria-owns; the role identifies the target both for classification and
+    // for option reads.
+    const shared = controls.filter((id) => owns.includes(id));
+    const refs = [...new Set([...shared, ...controls, ...owns])];
+    const nodes = refs.map((id) => doc.getElementById(id)).filter(Boolean);
+    const listbox = nodes.find((node) => node.getAttribute('role')?.toLowerCase() === 'listbox');
+    const element = listbox || nodes[0] || null;
+    return { id: element?.id || refs[0] || '', element, listbox: Boolean(listbox) };
+  }
+
   function optionsNear(input) {
     const doc = input.ownerDocument;
-    const listId = input.getAttribute('aria-controls') || input.getAttribute('aria-owns');
-    const scope = (listId && doc.getElementById(listId)) || doc;
+    const scope = ownedListFor(input).element || doc;
     return [...scope.querySelectorAll('[role="option"], [id*="-option-"]')].filter(isShown)
       .map((element) => ({ element, label: textOf(element) }));
   }
@@ -543,15 +613,55 @@
   // French form uses «Aucune sélection», which must remain an empty select
   // rather than being treated as text already filled by the candidate.
   const SELECT_PROMPT_RE = /^(bitte (aus)?w(ä|a)hlen|please select|select|seleziona(re)?|s(é|e)lectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
-  function selectLike(input) {
-    return Boolean(input.getAttribute('aria-owns') || input.getAttribute('aria-controls'))
+  // Keep this page contract aligned with fields.mjs and the portal's
+  // classifier: branded tenants are identified by their ATS route/context,
+  // not only by a vendor hostname.
+  const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
+  const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
+  const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
+  const SUCCESS_FACTORS_CHANNEL_RE = /^(?:success[\s._-]?factors|sapsf)$/i;
+  const SUCCESS_FACTORS_CHANNEL_MARKER_SELECTOR = [
+    '[data-aa-portal-channel~="successfactors" i]',
+    '[data-aa-portal-channel~="sapsf" i]',
+    '[data-ats~="successfactors" i]',
+    '[data-ats~="sapsf" i]',
+    '[data-channel~="successfactors" i]',
+    '[data-channel~="sapsf" i]',
+    '[data-portal~="successfactors" i]',
+    '[data-portal~="sapsf" i]',
+  ].join(', ');
+  const isSuccessFactorsPage = (input, channelType = '') => {
+    const doc = input.ownerDocument;
+    const location = doc.defaultView?.location;
+    const hostname = String(location?.hostname || '');
+    const path = [location?.pathname, location?.search, location?.hash].filter(Boolean).join(' ');
+    const channelMarker = [
+      doc.defaultView?.__frontalierePortalChannelType,
+      doc.documentElement?.getAttribute('data-aa-portal-channel'),
+      doc.documentElement?.getAttribute('data-ats'),
+      doc.body?.getAttribute('data-ats'),
+      doc.body?.getAttribute('data-channel'),
+      doc.body?.getAttribute('data-portal'),
+    ].some((value) => String(value || '').split(/[\s,;|]+/).some((token) => SUCCESS_FACTORS_CHANNEL_RE.test(token)));
+    return String(channelType).toLowerCase() === 'successfactors'
+      || SUCCESS_FACTORS_HOST_RE.test(hostname)
+      || SUCCESS_FACTORS_ROUTE_RE.test(path)
+      || SUCCESS_FACTORS_URL_MARKER_RE.test(path)
+      || channelMarker
+      || Boolean(doc.querySelector(SUCCESS_FACTORS_CHANNEL_MARKER_SELECTOR));
+  };
+  function selectLike(input, channelType = '') {
+    const owned = ownedListFor(input);
+    const required = isRequiredControl(input);
+    return Boolean(owned.id)
       && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '')
         || SELECT_PROMPT_RE.test(input.value || '')
-        || /paginatedselect/i.test(String(input.className || '')));
+        || (isSuccessFactorsPage(input, channelType) && /paginatedselect/i.test(String(input.className || '')))
+        || (isSuccessFactorsPage(input, channelType) && required && owned.listbox));
   }
 
-  async function chooseInCombobox(input, answer) {
-    if (selectLike(input)) {
+  async function chooseInCombobox(input, answer, selectLikeOverride = null) {
+    if (selectLikeOverride ?? selectLike(input)) {
       // A select by another name: opened, never typed into.
       press(input);
       const option = await waitFor(() => bestOption(optionsNear(input).filter((item) => !SELECT_PROMPT_RE.test(item.label)), answer), Math.max(config.waitMs, 8000));
@@ -756,7 +866,7 @@
         return true;
       }
       case 'combobox':
-        return chooseInCombobox(element, answer.value);
+        return chooseInCombobox(element, answer.value, entry.selectLike);
       case 'listbox': {
         // Open it, click the option the answer names (lib/portal/fill.mjs: exact label).
         press(element);
@@ -842,7 +952,7 @@
     const filled = [];
     const missing = [];
     const failed = [];
-    const entries = collect(doc);
+    const entries = collect(doc, kit?.channelType);
     for (const entry of entries) {
       if (!isEmpty(entry)) continue;
       const answer = answerFor(entry, kit);
@@ -874,14 +984,14 @@
    * before this tab saw any application form (sawForm): on a review page with
    * no field, «Invia candidatura» is the send button, never a start.
    */
-  function pageState(doc, { sawForm = false } = {}) {
+  function pageState(doc, { sawForm = false, channelType = '' } = {}) {
     const text = textOf(doc.body);
     if (REFUSED_RE.test(text)) return { kind: 'refused' };
     // An error page may retain generic thank-you copy; refusal is authoritative.
     if (CONFIRM_RE.test(text)) return { kind: 'confirmed' };
     const next = nextButton(doc);
-    if (VERIFY_RE.test(text) && !collect(doc).some((entry) => entry.required) && !next && !finalButton(doc)) return { kind: 'verify' };
-    const required = collect(doc).filter((entry) => entry.required).length;
+    if (VERIFY_RE.test(text) && !collect(doc, channelType).some((entry) => entry.required) && !next && !finalButton(doc)) return { kind: 'verify' };
+    const required = collect(doc, channelType).filter((entry) => entry.required).length;
     if (!sawForm && !next && !required) {
       const start = buttons(doc).find((button) => APPLY_RE.test(button.text) && !APPLY_LATER_RE.test(button.text) && !SOCIAL_RE.test(button.text)
         && !/^(conferma|confirm|bestatig|confirmer|invia|send|absenden|envoyer|submit)/i.test(normalize(button.text)));
@@ -899,8 +1009,8 @@
   }
 
   /** What changes when the portal moves to another step. */
-  function pageSignature(doc) {
-    return `${doc.defaultView.location.pathname}|${collect(doc).map((entry) => `${entry.kind}:${normalize(entry.label)}`).join('|')}`;
+  function pageSignature(doc, channelType = '') {
+    return `${doc.defaultView.location.pathname}|${collect(doc, channelType).map((entry) => `${entry.kind}:${normalize(entry.label)}`).join('|')}`;
   }
 
   root.CompilaCandidatura = {

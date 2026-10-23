@@ -83,6 +83,16 @@ describe('fill kit', () => {
       extra: [],
     });
   });
+
+  it('carries a validated SuccessFactors channel to the owner extension', () => {
+    const kit = buildFillKit({
+      orderId: ORDER,
+      order,
+      draft: { ...draft, channel: { type: 'successfactors', applyUrl: 'https://career5.successfactors.eu/careers' } },
+      flow: takenOver,
+    });
+    expect(kit.channelType).toBe('successfactors');
+  });
 });
 
 // P4 (owner decisions of 2026-10-03): the status the candidate chose, as the portal planner's sentence, and the birth

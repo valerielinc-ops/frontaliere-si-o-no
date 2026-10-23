@@ -2,11 +2,62 @@
 // Do not edit: run `node scripts/assisted-application/extension/build-runner-fields.mjs`.
 (function (root) {
   'use strict';
-  root.CompilaRunnerFields = function extractFieldsInPage() {
+  root.CompilaRunnerFields = function extractFieldsInPage({ channelType = '' } = {}) {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
+  // The ATS classifier knows both vendor hosts and employer-branded
+  // Jobs2Web routes. Keep this contract self-contained: this function is
+  // evaluated in a page and is also rendered into the extension runner.
+  const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
+  const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
+  const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
+  const SUCCESS_FACTORS_CHANNEL_RE = /^(?:success[\s._-]?factors|sapsf)$/i;
+  const SUCCESS_FACTORS_CHANNEL_MARKER_SELECTOR = [
+    '[data-aa-portal-channel~="successfactors" i]',
+    '[data-aa-portal-channel~="sapsf" i]',
+    '[data-ats~="successfactors" i]',
+    '[data-ats~="sapsf" i]',
+    '[data-channel~="successfactors" i]',
+    '[data-channel~="sapsf" i]',
+    '[data-portal~="successfactors" i]',
+    '[data-portal~="sapsf" i]',
+  ].join(', ');
+  const isSuccessFactorsPage = (validatedChannelType = channelType) => {
+    const location = window.location;
+    const hostname = String(location?.hostname || '');
+    const path = [location?.pathname, location?.search, location?.hash].filter(Boolean).join(' ');
+    const channelMarker = [
+      window.__frontalierePortalChannelType,
+      document.documentElement?.getAttribute('data-aa-portal-channel'),
+      document.documentElement?.getAttribute('data-ats'),
+      document.body?.getAttribute('data-ats'),
+      document.body?.getAttribute('data-channel'),
+      document.body?.getAttribute('data-portal'),
+    ].some((value) => String(value || '').split(/[\s,;|]+/).some((token) => SUCCESS_FACTORS_CHANNEL_RE.test(token)));
+    return String(validatedChannelType).toLowerCase() === 'successfactors'
+      || SUCCESS_FACTORS_HOST_RE.test(hostname)
+      || SUCCESS_FACTORS_ROUTE_RE.test(path)
+      || SUCCESS_FACTORS_URL_MARKER_RE.test(path)
+      || channelMarker
+      || Boolean(document.querySelector(SUCCESS_FACTORS_CHANNEL_MARKER_SELECTOR));
+  };
+  const idRefs = (value) => String(value || '').trim().split(/\s+/).filter(Boolean);
+  const ownedListFor = (element) => {
+    const owns = idRefs(element.getAttribute('aria-owns'));
+    const controls = idRefs(element.getAttribute('aria-controls'));
+    // A control may name a popup and its listbox in aria-controls while
+    // repeating the listbox in aria-owns. Prefer a shared reference, then
+    // controls, then owns; the role, not attribute order, identifies the
+    // effective option list.
+    const shared = controls.filter((id) => owns.includes(id));
+    const refs = [...new Set([...shared, ...controls, ...owns])];
+    const nodes = refs.map((id) => document.getElementById(id)).filter(Boolean);
+    const listbox = nodes.find((node) => node.getAttribute('role')?.toLowerCase() === 'listbox');
+    const target = listbox || nodes[0] || null;
+    return { id: target?.id || refs[0] || '', element: target, listbox: Boolean(listbox) };
+  };
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
-  const REQUIRED_LABEL = /\*|\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/i;
+  const REQUIRED_LABEL = /\*|\b(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\b/i;
   // Ids a framework generates, which say nothing to the planner: React's
   // useId (":r3:", "_r_3_", "«r3»"), MUI's "mui-12", "input-7", hex ids.
   const GENERATED_ID_RE = /(^|[:_«])r_?[0-9a-z]{1,4}_?[:»]|_r_\d+_|^(mui|input|field|file|upload)[-_:]?\d+$|^[a-f0-9-]{16,}$/i;
@@ -89,6 +140,7 @@
     return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
   };
   const hasRequiredMarker = (element, labelText) => {
+    if (element.hasAttribute('data-required')) return true;
     const labels = new Set();
     for (const label of element.labels || []) labels.add(label);
     const direct = element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
@@ -103,8 +155,9 @@
     const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
     if (groupLabel && !groupLabel.contains(element)
       && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
-    const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire)\s*\)?)$/i;
+    const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\s*\)?)$/i;
     const marker = (node, adjacent = false) => {
+      if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
       const text = clean(node.innerText || node.textContent);
       const className = String(node.className?.baseVal || node.className || '');
       const inline = node.nodeType === 3 || /^(abbr|b|em|i|small|span|strong|sup)$/i.test(node.tagName || '');
@@ -335,7 +388,7 @@
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
     // is a trap whatever its size: never a field of the form.
     if (element.getAttribute('data-automation-id') === 'beecatcher' || HONEYPOT_LABEL.test(labelFor(element))) continue;
-    const required = element.required || element.getAttribute('aria-required') === 'true';
+    const required = element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required');
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
@@ -380,14 +433,20 @@
       // SuccessFactors' picklists (Coop, 2026-10-03): an input that shows
       // «Bitte auswählen» and loads its options into the list it owns once
       // opened. A select by another name: its options are read (extractFields).
-      field.ownedList = clean(element.getAttribute('aria-owns') || element.getAttribute('aria-controls') || '');
+      const owned = ownedListFor(element);
+      field.ownedList = owned.id;
       field.selectLike = Boolean(field.ownedList)
         // SuccessFactors localises its empty value too: Rolex's French form
         // says «Aucune sélection», not «Sélectionnez». It is still the same
         // owned picklist, not a free-text combobox.
         && (EMPTY_PICKLIST_RE.test(element.getAttribute('placeholder') || '')
           || EMPTY_PICKLIST_RE.test(element.value || '')
-          || /paginatedselect/i.test(String(element.className || '')));
+          || (isSuccessFactorsPage(channelType) && /paginatedselect/i.test(String(element.className || '')))
+          // Some SuccessFactors tenants omit the prompt/class decoration on
+          // required lazy picklists. The ARIA-owned listbox is the stable
+          // control contract; without this branch the initial form snapshot
+          // has no options and the planner cannot select the required value.
+          || (isSuccessFactorsPage(channelType) && field.required && owned.listbox));
     }
     if (type === 'checkbox') field.checked = element.checked;
     fields.push(field);

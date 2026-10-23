@@ -47,10 +47,16 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     .slice(0, 60);
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field?.key, field?.value]));
   const language = LETTER_FILE_LABEL[draft.language] ? draft.language : 'it';
+  // Keep the validated ATS kind with the owner handoff. An employer-branded
+  // SuccessFactors page cannot identify itself from its hostname alone; when
+  // the draft or redirect already carries the ATS kind, the extension passes
+  // it to the same field classifier as the portal runner.
+  const channelType = text(flow.channelType || draft.channel?.via || draft.channel?.type, 40);
   return {
     version: 1,
     orderId,
     applyUrl: text(draft.channel?.applyUrl || draft.job?.applyUrl, 2000),
+    channelType,
     job: { title: text(draft.job?.title || order.jobTitle, 200), company: text(order.companyName, 200) },
     language,
     identity: {
