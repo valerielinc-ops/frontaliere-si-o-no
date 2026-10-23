@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-23T14:26:01.653Z",
+  "generatedAt": "2026-10-23T15:32:08.700Z",
   "totalEvents": 15047,
   "events": [
     {
@@ -334288,7 +334288,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Sécheron si svolge un’animazione di Halloween dedicata ai giochi. La ludoteca collabora con l’espace de quartier de Sécheron; l’iniziativa è gratuita e aperta a tutti.",
+      "descriptionByLocale": {
+        "it": "A Sécheron si svolge un’animazione di Halloween dedicata ai giochi. La ludoteca collabora con l’espace de quartier de Sécheron; l’iniziativa è gratuita e aperta a tutti.",
+        "en": "Sécheron hosts a Halloween animation centred on games. The ludothèque is organising it with the Sécheron neighbourhood space, and the event is free and open to everyone.",
+        "de": "In Sécheron findet eine Halloween-Veranstaltung mit Spielen statt. Die Ludothek organisiert sie gemeinsam mit dem Quartiertreffpunkt von Sécheron; der Eintritt ist frei und die Veranstaltung steht allen offen.",
+        "fr": "À Sécheron, une animation consacrée à Halloween propose une soirée autour des jeux. La ludothèque l’organise avec l’espace de quartier de Sécheron; l’accès est gratuit et ouvert à toutes et tous."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:fa3c196ae776431690c215cf7d98dce2",
@@ -415965,7 +415973,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è una proiezione organizzata dalla Ville de Genève Agenda a Ginevra. Si svolge nel cantone di Ginevra ed è a pagamento.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è una proiezione organizzata dalla Ville de Genève Agenda a Ginevra. Si svolge nel cantone di Ginevra ed è a pagamento.",
+        "en": "This event is a film screening organized by Ville de Genève Agenda in Geneva. It takes place in the canton of Geneva and requires paid admission.",
+        "de": "Die Veranstaltung ist eine Filmvorführung der Ville de Genève Agenda in Genf. Sie findet im Kanton Genf statt und ist kostenpflichtig.",
+        "fr": "Cet événement est une projection organisée par Ville de Genève Agenda à Genève. Il se déroule dans le canton de Genève et l’entrée est payante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AYadQ9Z",
@@ -419274,7 +419290,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La proiezione, proposta a Ginevra nell’ambito del festival celtico organizzato dalle ADEM, è dedicata alla Scozia. Il documentario, realizzato da Christophe Maillet e Gérard Pont nel 2017, presenta un percorso musicale legato a Joanne McIver e dura 60 minuti.",
+      "descriptionByLocale": {
+        "it": "La proiezione, proposta a Ginevra nell’ambito del festival celtico organizzato dalle ADEM, è dedicata alla Scozia. Il documentario, realizzato da Christophe Maillet e Gérard Pont nel 2017, presenta un percorso musicale legato a Joanne McIver e dura 60 minuti.",
+        "en": "This screening in Geneva is part of the Celtic festival organized by ADEM and focuses on Scotland. The 2017 documentary by Christophe Maillet and Gérard Pont follows a musical journey featuring Joanne McIver and has a running time of 60 minutes.",
+        "de": "Die Vorführung in Genf findet im Rahmen des von ADEM organisierten keltischen Festivals statt und widmet sich Schottland. Der Dokumentarfilm von Christophe Maillet und Gérard Pont aus dem Jahr 2017 verbindet eine musikalische Reise mit Joanne McIver und dauert 60 Minuten.",
+        "fr": "Cette projection à Genève s’inscrit dans le festival celtique organisé par les ADEM et est consacrée à l’Écosse. Le documentaire de Christophe Maillet et Gérard Pont, daté de 2017, suit un parcours musical avec Joanne McIver et dure 60 minutes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:17e46402cd9d4395aba85373d7d6ec7f",
@@ -583081,7 +583105,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il corso ricorrente a Bivio riguarda la cura degli sci da fondo, compresi sciolinatura e levigatura. Si svolge a Surses, nel cantone GR, e Bivio figura come organizzazione associata all’evento.",
+      "descriptionByLocale": {
+        "it": "Il corso ricorrente a Bivio riguarda la cura degli sci da fondo, compresi sciolinatura e levigatura. Si svolge a Surses, nel cantone GR, e Bivio figura come organizzazione associata all’evento.",
+        "en": "The recurring course in Bivio concerns the care of cross-country skis, including waxing and grinding. It is listed in Surses, in canton GR, with Bivio named as the organization associated with the event.",
+        "de": "Der wiederkehrende Kurs in Bivio befasst sich mit der Pflege von Langlaufskiern, darunter Wachsen und Schleifen. Er ist in Surses im Kanton GR aufgeführt; Bivio wird als mit der Veranstaltung verbundene Organisation genannt.",
+        "fr": "Le cours récurrent à Bivio porte sur l’entretien des skis de fond, notamment le fartage et le meulage. Il est indiqué à Surses, dans le canton de GR, et Bivio est mentionné comme l’organisation associée à l’événement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a0c89bb0e2834945994eec4878f32393",
@@ -618947,7 +618979,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento allo Stadtkeller è dedicato a Jerry and The Sailors. Il programma propone rock’n’roll e rockabilly, con l’uso dello slap-bass.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento allo Stadtkeller è dedicato a Jerry and The Sailors. Il programma propone rock’n’roll e rockabilly, con l’uso dello slap-bass.",
+        "en": "The event at Stadtkeller features Jerry and The Sailors. Their programme combines rock ’n’ roll and rockabilly with slap bass.",
+        "de": "Im Stadtkeller treten Jerry and The Sailors mit einem Programm aus Rock’n’Roll und Rockabilly auf. Zum musikalischen Profil gehört auch der Einsatz des Slap-Basses.",
+        "fr": "Le rendez-vous au Stadtkeller est consacré à Jerry and The Sailors. Le groupe y interprète du rock’n’roll et du rockabilly, avec une place accordée à la slap-bass."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:edc0e3bf93484534995ce40409f5bb58",
@@ -620050,7 +620090,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Musique Simili propone un concerto a cappella al Kreuz Nidau, a Nidau, nel cantone di Berna. Il repertorio include melodie rom, musette, rebetiko e canzoni.",
+      "descriptionByLocale": {
+        "it": "Musique Simili propone un concerto a cappella al Kreuz Nidau, a Nidau, nel cantone di Berna. Il repertorio include melodie rom, musette, rebetiko e canzoni.",
+        "en": "Musique Simili presents an a cappella concert at Kreuz Nidau in Nidau, canton of Bern. Its repertoire draws on Roma melodies, musette, rebetiko and canzoni.",
+        "de": "Musique Simili gibt ein A-cappella-Konzert im Kreuz Nidau in Nidau, Kanton Bern. Zum Repertoire zählen Musette, Rembetiko, Canzoni und Roma-Melodien.",
+        "fr": "Musique Simili présente un concert a cappella au Kreuz Nidau, à Nidau dans le canton de Berne. Le programme associe musette, rebetiko, canzoni et mélodies roms."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AjTMGZm",
@@ -623516,7 +623564,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "J.Bernardt è un evento di musica pop al Plaza Klub, nel cantone di ZH. La serata presenta l’artista J e prevede un biglietto di CHF 39,80.",
+      "descriptionByLocale": {
+        "it": "J.Bernardt è un evento di musica pop al Plaza Klub, nel cantone di ZH. La serata presenta l’artista J e prevede un biglietto di CHF 39,80.",
+        "en": "J.Bernardt is a pop music event at Plaza Klub in the canton of ZH. The event features the performer J, and admission costs CHF 39.80.",
+        "de": "J.Bernardt ist eine Pop-Veranstaltung im Plaza Klub im Kanton ZH. Als auftretender Künstler ist J angegeben; der Eintritt kostet CHF 39,80.",
+        "fr": "J.Bernardt est un événement de musique pop au Plaza Klub, dans le canton de ZH. La soirée présente l’artiste J et l’entrée coûte 39,80 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AkpLvFE",
@@ -634157,7 +634213,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Mojo-T si esibisce nel blues allo Schmidechäuer di Burgdorf. Il biglietto costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "Mojo-T si esibisce nel blues allo Schmidechäuer di Burgdorf. Il biglietto costa 15 CHF.",
+        "en": "Mojo-T performs blues at Schmidechäuer in Burgdorf. Admission costs CHF 15.",
+        "de": "Mojo-T tritt mit Blues im Schmidechäuer in Burgdorf auf. Der Eintritt kostet 15 CHF.",
+        "fr": "Mojo-T se produit dans le domaine du blues au Schmidechäuer, à Burgdorf. L’entrée coûte 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AJ4Hbb1",
@@ -636962,7 +637026,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Nel Bergkirchli di Arosa, Simone Roggen al violino e Karolina Öhman al violoncello si esibiscono insieme. Il concerto propone un repertorio che accosta Johann Sebastian Bach e Béla Bartók a Pēteris Vasks e Zoltán Kodály.",
+      "descriptionByLocale": {
+        "it": "Nel Bergkirchli di Arosa, Simone Roggen al violino e Karolina Öhman al violoncello si esibiscono insieme. Il concerto propone un repertorio che accosta Johann Sebastian Bach e Béla Bartók a Pēteris Vasks e Zoltán Kodály.",
+        "en": "At Bergkirchli in Arosa, Simone Roggen plays violin and Karolina Öhman plays cello in a joint performance. The repertoire brings together works linked to Johann Sebastian Bach and Béla Bartók, alongside pieces by Pēteris Vasks and Zoltán Kodály.",
+        "de": "Im Bergkirchli in Arosa treten Simone Roggen an der Violine und Karolina Öhman am Violoncello gemeinsam auf. Das Repertoire verbindet Werke von Johann Sebastian Bach und Béla Bartók mit Kompositionen von Pēteris Vasks und Zoltán Kodály.",
+        "fr": "Au Bergkirchli d’Arosa, Simone Roggen au violon et Karolina Öhman au violoncelle se produisent en duo. Le répertoire associe des œuvres de Johann Sebastian Bach et de Béla Bartók à celles de Pēteris Vasks et de Zoltán Kodály."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ad1c9aac10c9424584c29ac8cfd4949f",
@@ -638575,7 +638647,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Alla Salle Métropole, Marc Lavoine propone un concerto intimo con Alain Lanty al pianoforte. Il repertorio ripercorre la carriera dell’artista e si inserisce nella tradizione della chanson francese.",
+      "descriptionByLocale": {
+        "it": "Alla Salle Métropole, Marc Lavoine propone un concerto intimo con Alain Lanty al pianoforte. Il repertorio ripercorre la carriera dell’artista e si inserisce nella tradizione della chanson francese.",
+        "en": "At Salle Métropole, Marc Lavoine is accompanied on piano by Alain Lanty in an intimate concert. The programme revisits songs from his career and connects them with the French chanson tradition.",
+        "de": "In der Salle Métropole gestaltet Marc Lavoine gemeinsam mit Alain Lanty am Klavier ein intimes Konzert. Die Auswahl greift Lieder aus seiner Laufbahn auf und würdigt die französische Chanson-Tradition.",
+        "fr": "À la Salle Métropole, Marc Lavoine se produit dans un format intime avec Alain Lanty au piano. Le répertoire revient sur son parcours et s’inscrit dans l’univers de la chanson française."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AMyuAEX",
