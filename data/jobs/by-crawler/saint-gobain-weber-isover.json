@@ -1,7 +1,7 @@
 {
   "crawlerKey": "saint-gobain-weber-isover",
-  "assembledAt": "2026-10-22T21:42:48.444Z",
-  "runId": "39856862281",
+  "assembledAt": "2026-10-23T09:54:14.551Z",
+  "runId": "39931503959",
   "jobs": [
     {
       "id": "saint-gobain-weber-isover-83fbeed91d21",
@@ -84,7 +84,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "saint-gobain-weber-isover-71f389ea1914",
@@ -118,7 +119,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/4c52349a-75f6-4f9c-87ca-db1a9bf5a083/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:42:39.635Z",
+      "crawledAt": "2026-10-23T09:54:08.024Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -199,7 +200,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/83a8c5e4-a3ce-40f6-8976-e560026801cf/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:42:38.304Z",
+      "crawledAt": "2026-10-23T09:54:06.876Z",
       "addressLocality": "Switzerland",
       "addressRegion": "AG",
       "addressCountry": "CH",

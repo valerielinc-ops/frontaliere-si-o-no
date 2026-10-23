@@ -176,12 +176,15 @@ export function jobGateSubscriberVariant(arm) {
 }
 
 /**
- * The `source_cta` values the JobBoard auth gate sends with its `newsletter`
- * subscribe event (`job_gate_<provider>_unlock`, `job_board_email_unlock`).
- * Deliberately NOT every `job_gate` channel: the expired/orphan/bridge views,
- * saved-jobs nudge and salary alert share the channel but not the gate UI.
+ * The `source_cta` values every auth-gate surface sends with its `newsletter`
+ * subscribe event. Saved-jobs nudges and salary alerts share the `job_gate`
+ * channel but are not auth-gate experiment surfaces and stay excluded.
  */
 export function isJobGateNewsletterCta(sourceCta) {
   const cta = String(sourceCta ?? '');
-  return /^job_gate_[a-z]+_unlock$/.test(cta) || cta === 'job_board_email_unlock';
+  return /^job_gate_[a-z]+_unlock$/.test(cta)
+    || cta === 'job_board_email_unlock'
+    || cta === 'job_expired_email_unlock'
+    || cta === 'job_orphan_email_unlock'
+    || cta === 'job_bridge_email_unlock';
 }

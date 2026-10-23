@@ -1,7 +1,7 @@
 {
   "crawlerKey": "css-versicherung",
-  "assembledAt": "2026-10-22T21:26:32.340Z",
-  "runId": "39855834706",
+  "assembledAt": "2026-10-23T09:32:02.536Z",
+  "runId": "39930614376",
   "jobs": [
     {
       "id": "css-versicherung-b3eb37f0ac8f",
@@ -34,7 +34,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-zofingen-aarau-frick/36b01376-f5e2-4689-be50-0d98b88c4186",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:26:01.940Z",
+      "crawledAt": "2026-10-23T09:31:41.611Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -114,7 +114,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-baden/121c903a-23a4-46ea-964d-65eb52d151f9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:26:01.416Z",
+      "crawledAt": "2026-10-23T09:31:40.587Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -215,7 +215,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-prevoyance/673035ed-9a32-41a5-ac43-1a504e852e7d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:26:00.825Z",
+      "crawledAt": "2026-10-23T09:31:39.536Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -289,7 +289,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-in-im-kundenservice-mit-mehrjaehriger-erfahrung/2ba5404b-0c75-4bea-bcf0-1c1a8968ef2a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:26:00.290Z",
+      "crawledAt": "2026-10-23T09:31:38.532Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -363,7 +363,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-kundenservice-center-mit-digitaler-affinitaet/cb6d6cce-b8b1-4f71-940b-a7b6db2348d6",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:59.715Z",
+      "crawledAt": "2026-10-23T09:31:37.540Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -483,7 +483,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseiller-ere-a-la-clientele/a0bc53ae-4e56-48ab-8a89-d28c039618c0",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:25:59.191Z",
+      "crawledAt": "2026-10-23T09:31:36.538Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "",
@@ -563,7 +563,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden/2851f164-4bd7-47ae-87c0-e1578f3e1b32",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:58.781Z",
+      "crawledAt": "2026-10-23T09:31:35.612Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -690,7 +690,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "css-versicherung-7579d966a51a",
@@ -723,7 +724,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland/93efaee9-1ba8-4855-893e-355485b803a2",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:57.879Z",
+      "crawledAt": "2026-10-23T09:31:34.539Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -797,7 +798,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spezialist-in-batchbetrieb-und-job-scheduling-control-m/d10a0c04-3282-45df-9eed-1153478b9884",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:57.341Z",
+      "crawledAt": "2026-10-23T09:31:33.519Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -877,7 +878,7 @@
       "url": "https://jobs.css.ch/offene-stellen/medizinische-r-kodierer-in/5cf8fc5e-bfee-43df-a92a-3ff3770ffa7a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:56.842Z",
+      "crawledAt": "2026-10-23T09:31:32.536Z",
       "addressLocality": "Luzern oder/und Lausanne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -951,7 +952,7 @@
       "url": "https://jobs.css.ch/offene-stellen/codeurs-medicaux/324723a6-3096-4bb8-910e-fc9001d440cc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:25:56.289Z",
+      "crawledAt": "2026-10-23T09:31:31.545Z",
       "addressLocality": "Lausanne ou/et Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1025,7 +1026,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-aout-2027/da021750-bf53-4696-90af-1ade7bfdce22",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:25:55.749Z",
+      "crawledAt": "2026-10-23T09:31:30.533Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1101,7 +1102,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-sierre-aout-2027/d0d3a31e-7739-409c-8e43-ae2e431ea572",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:25:55.230Z",
+      "crawledAt": "2026-10-23T09:31:29.527Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -1185,7 +1186,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-sion-aout-2027/486c19d0-44f5-4da7-8746-23bb110eb9ec",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:25:54.690Z",
+      "crawledAt": "2026-10-23T09:31:28.538Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -1266,7 +1267,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-bulle-aout-2027/0589f501-046d-431d-8873-1df9f75ae7a9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:25:54.158Z",
+      "crawledAt": "2026-10-23T09:31:27.517Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -1347,7 +1348,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-agent-e-relation-client-aout-2027/0ce11c26-41f7-467a-8c60-78962d50b68d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:25:52.674Z",
+      "crawledAt": "2026-10-23T09:31:26.541Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1423,7 +1424,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-mit-mehrjaehriger-erfahrung-in-telefonischem-kundenservice/19a2e87f-94a8-470a-a939-f33365f8f0c4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:50.671Z",
+      "crawledAt": "2026-10-23T09:31:25.556Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1497,7 +1498,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-basel/7f55d1f7-00e0-44e9-8d69-c5271cf145a6",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:48.732Z",
+      "crawledAt": "2026-10-23T09:31:24.597Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -1577,7 +1578,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-solothurn/bad3c41e-29ef-45e4-bb71-8cabfb7d8a4b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:46.756Z",
+      "crawledAt": "2026-10-23T09:31:23.492Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1657,7 +1658,7 @@
       "url": "https://jobs.css.ch/offene-stellen/chef-fe-de-team-verification-des-prestations-etranger/bee92436-64a3-4838-83a3-dcad6507a73d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:25:44.673Z",
+      "crawledAt": "2026-10-23T09:31:22.866Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1731,7 +1732,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-liestal/65734ccc-44c7-4cb9-bc6f-ac30370008d9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:42.677Z",
+      "crawledAt": "2026-10-23T09:31:22.346Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -1805,7 +1806,7 @@
       "url": "https://jobs.css.ch/offene-stellen/datenbank-engineer-w-m/e59881ad-9b97-43bd-be38-8816f9cbbe83",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:40.667Z",
+      "crawledAt": "2026-10-23T09:31:21.696Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1871,7 +1872,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-mit-erfahrung-im-kundenkontakt/62a58b34-677a-4eed-9d15-26a22a7001fc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:38.696Z",
+      "crawledAt": "2026-10-23T09:31:21.116Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1945,7 +1946,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpertin-fachexperte-leistungsgrundlagen-qualitaetssicherung/c84a2cb4-6856-4f7e-bacf-46133710d72e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:36.659Z",
+      "crawledAt": "2026-10-23T09:31:20.440Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2024,7 +2025,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-uzwil/4cbe0ce1-81b9-4dd1-b8b5-fe44dd5363de",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:34.741Z",
+      "crawledAt": "2026-10-23T09:31:19.865Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -2100,7 +2101,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-kundenservice-center-mit-fokus-im-einzelleben/eaac4b0f-761b-492a-a362-3d26eb873f4f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:32.679Z",
+      "crawledAt": "2026-10-23T09:31:19.230Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -2174,7 +2175,7 @@
       "url": "https://jobs.css.ch/offene-stellen/medizinische-r-spezialist-in-im-bereich-der-medizinischen-kodierung/37a8f29a-e489-4285-b512-52d2050fb6b4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:30.682Z",
+      "crawledAt": "2026-10-23T09:31:18.622Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2248,7 +2249,7 @@
       "url": "https://jobs.css.ch/offene-stellen/java-software-engineer-w-m/7d23b93b-6649-4864-a8a6-c699c3a2de82",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:28.716Z",
+      "crawledAt": "2026-10-23T09:31:18.019Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2314,7 +2315,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-solothurn/9a5d6f95-791b-44fa-8316-1289055423c8",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:26.673Z",
+      "crawledAt": "2026-10-23T09:31:17.370Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2396,7 +2397,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-stadt-zuerich/241c7a9c-0d03-4433-8176-895954fa3864",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:24.713Z",
+      "crawledAt": "2026-10-23T09:31:16.771Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -2478,7 +2479,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-zug/09b1ef54-7498-4704-81de-225c94db1d8b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:22.744Z",
+      "crawledAt": "2026-10-23T09:31:16.229Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -2560,7 +2561,7 @@
       "url": "https://jobs.css.ch/offene-stellen/assistant-e-au-service-du-medecin-conseil/84ad5b1d-ddf4-4f01-af88-d36ea128f222",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:25:20.683Z",
+      "crawledAt": "2026-10-23T09:31:15.712Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2636,7 +2637,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-duedingen/bcc80b1b-eab3-4c7a-9360-8c9deb4530df",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:18.689Z",
+      "crawledAt": "2026-10-23T09:31:15.263Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -2716,7 +2717,7 @@
       "url": "https://jobs.css.ch/offene-stellen/esperta-o-previdenziale-f-m-agenzia-generale-lugano/949018ad-add2-4982-98e0-0bb1bf173c3a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-22T21:25:16.733Z",
+      "crawledAt": "2026-10-23T09:31:14.616Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -2782,7 +2783,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-frick/ae8b34e3-96fe-42d8-8433-1e1edd46db74",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:14.745Z",
+      "crawledAt": "2026-10-23T09:31:13.908Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -2864,7 +2865,7 @@
       "url": "https://jobs.css.ch/offene-stellen/specialiste-medical-e-verification-de-prestatations-spitex-soins/70cbd5c1-5a43-4b46-b74f-8e4ee3b82324",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:25:12.684Z",
+      "crawledAt": "2026-10-23T09:31:13.402Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2944,7 +2945,7 @@
       "url": "https://jobs.css.ch/offene-stellen/gruppenleiter-in-wirtschaftlichkeitspruefung-bvm/60adce02-53fa-41d2-b770-ccc919450f20",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:10.201Z",
+      "crawledAt": "2026-10-23T09:31:12.908Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3024,7 +3025,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachspezialist-in-pharma-medikamente/30b99223-70f1-48eb-ada4-15db01678666",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:08.164Z",
+      "crawledAt": "2026-10-23T09:31:12.455Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3044,21 +3045,6 @@
       "applyUrl": "https://jobs.css.ch/offene-stellen/fachspezialist-in-pharma-medikamente/30b99223-70f1-48eb-ada4-15db01678666",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
-        ],
-        "en": [
-          "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
-        ],
-        "fr": [
-          "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:36:34.094Z",
       "salaryMin": 62600,
       "salaryMax": 95400,
       "salarySource": "estimated",
@@ -3071,7 +3057,22 @@
           "maxValue": 95400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:36:34.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
+        ],
+        "en": [
+          "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
+        ],
+        "fr": [
+          "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
+      ]
     },
     {
       "id": "css-versicherung-36d2a547ef1b",
@@ -3080,7 +3081,7 @@
         "it": "dati-del-controller-finanziario-bi-m-f-80-90-css-versicherung-luzern-hybrid",
         "en": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
         "de": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-        "fr": "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
+        "fr": "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3104,7 +3105,7 @@
       "url": "https://jobs.css.ch/offene-stellen/financial-controller-data-bi-w-m/c5be35c0-e354-49ee-897a-7f666ac28400",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:06.678Z",
+      "crawledAt": "2026-10-23T09:31:11.894Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3124,20 +3125,6 @@
       "applyUrl": "https://jobs.css.ch/offene-stellen/financial-controller-data-bi-w-m/c5be35c0-e354-49ee-897a-7f666ac28400",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-        "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid"
-        ],
-        "fr": [
-          "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-          "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:36:32.945Z",
       "salaryMin": 67100,
       "salaryMax": 114300,
       "salarySource": "estimated",
@@ -3150,16 +3137,32 @@
           "maxValue": 114300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:36:32.945Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid"
+        ],
+        "fr": [
+          "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
+          "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid",
+          "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
+        ]
+      },
+      "previousSlugs": [
+        "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
+        "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid",
+        "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
+      ]
     },
     {
       "id": "css-versicherung-b66f8009a6fb",
-      "slug": "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid",
+      "slug": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
       "slugByLocale": {
         "de": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
-        "it": "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid",
+        "it": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
         "en": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
-        "fr": "gestionnaire-administratif-ve-au-hr-service-center-80-90-css-versicherung-luzern-hybrid"
+        "fr": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3167,23 +3170,23 @@
       "title": "Sachbearbeiter/in HR Service Center 80-90%",
       "titleByLocale": {
         "de": "Sachbearbeiter/in HR Service Center 80-90%",
-        "it": "Impiegato/a del centro servizi HR 80-90%",
-        "en": "HR Service Center Clerk 80-90%",
-        "fr": "Gestionnaire administratif·ve au HR Service Center 80-90%"
+        "it": "Impiegato/a del Centro servizi HR 80-90%",
+        "en": "HR Service Center Administrator 80-90%",
+        "fr": "Collaborateur/trice administratif/ve du HR Service Center 80-90%"
       },
       "description": "Du liebst die HR-Administration und punktest mit Verlässlichkeit, Diskretion und Serviceorientierung? In unserem HR Service Center bist du erste Anlaufstelle für alle CSS-Mitarbeitenden - eine verantwortungsvolle und abwechslungsreiche Aufgabe. Bei uns kannst du dich sowohl fachlich als auch persönlich weiterentwickeln. Klingt interessant? Wir - Luzia, Susi, Nadine, Lilian - freuen uns, dich kennenzulernen!\n\nSo sieht dein Alltag aus\n\n• Zum Herzstück: Du bist für unsere Mitarbeitenden da – ob persönlich, digital oder telefonisch – und beantwortest ihre Anliegen mit Herz und Verlässlichkeit.\n\n• Dank dir werden Ein- und Austritte, Mutationen und Personaldossiers fachgerecht bearbeitet.\n\n• Du pflegst alle lohnrelevanten Mutationen in SAP SuccessFactors und hilfst beim monatlichen Lohnlauf mit.\n\n• Du erstellst Arbeitsverträge und weitere HR-Korrespondenz und -Dokumente (wie beispielsweise Zwischenverdienstabrechnungen, Arbeitgeberbescheinigungen und Weiterbildungsvereinbarungen) und stellst eine sorgfältige sowie termingerechte Bearbeitung sicher.\n\n• Deine Ideen sind gefragt: Du trägst aktiv zur Optimierung und Automatisierung von HR-Prozessen bei und unterstützt die Einführung sowie die Weiterentwicklung digitaler HR-Anwendungen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Der Kontakt mit Menschen macht dir Freude – du bringst eine ausgeprägte Kunden- und Serviceorientierung mit und arbeitest gerne im Team.\n\n• Du denkst mit: Deine selbstständige, präzise und effiziente Arbeitsweise ist ein Markenzeichen von dir.\n\n• Du bist flexibel und kannst auch bei wechselnden, nicht immer planbaren Aufträgen rasch und umsichtig reagieren. Dabei setzt du die richtigen Prioritäten und behältst auch in einem dynamischen, operativen Umfeld den Überblick\n\n• Mit deiner abgeschlossenen kaufmännischen Ausbildung, der Weiterbildung als HR Assistent/in und mindestens zwei Jahre Berufserfahrung, besitzt du das fachliche Know-how, um deine Aufgaben kompetent und erfolgreich zu meistern.\n\n• Deine IT-Affinität zeichnet dich aus: Du verfügst über ausgezeichnete Kenntnisse in MS Office sowie in SAP SuccessFactors/Employee Central und findest dich in einer komplexen Toollandschaft sicher und effizient zurecht.\n\n• Du kommunizierst stilsicher und professionell in deiner Muttersprache Deutsch - Französisch ist ein grosses Plus.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Bilde dich weiter: Wir sehen es gerne, wenn du dich intern oder extern weiterbildest und unterstützen grosszügig mit Zeit und Geld.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\n• Engagiere dich sozial: Das Leben meint es gut mit dir? Dann lass andere an deinem Glück teilhaben und erweitere alleine oder im Team deinen Horizont.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nLuzia Baumann ist für dich da.\n058 277 43 71\n\nFragen zum Bewerbungsprozess?\nChantal Hügli ist für dich da.\n058 277 60 33\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
       "descriptionByLocale": {
         "de": "Du liebst die HR-Administration und punktest mit Verlässlichkeit, Diskretion und Serviceorientierung? In unserem HR Service Center bist du erste Anlaufstelle für alle CSS-Mitarbeitenden - eine verantwortungsvolle und abwechslungsreiche Aufgabe. Bei uns kannst du dich sowohl fachlich als auch persönlich weiterentwickeln. Klingt interessant? Wir - Luzia, Susi, Nadine, Lilian - freuen uns, dich kennenzulernen!\n\nSo sieht dein Alltag aus\n\n• Zum Herzstück: Du bist für unsere Mitarbeitenden da – ob persönlich, digital oder telefonisch – und beantwortest ihre Anliegen mit Herz und Verlässlichkeit.\n\n• Dank dir werden Ein- und Austritte, Mutationen und Personaldossiers fachgerecht bearbeitet.\n\n• Du pflegst alle lohnrelevanten Mutationen in SAP SuccessFactors und hilfst beim monatlichen Lohnlauf mit.\n\n• Du erstellst Arbeitsverträge und weitere HR-Korrespondenz und -Dokumente (wie beispielsweise Zwischenverdienstabrechnungen, Arbeitgeberbescheinigungen und Weiterbildungsvereinbarungen) und stellst eine sorgfältige sowie termingerechte Bearbeitung sicher.\n\n• Deine Ideen sind gefragt: Du trägst aktiv zur Optimierung und Automatisierung von HR-Prozessen bei und unterstützt die Einführung sowie die Weiterentwicklung digitaler HR-Anwendungen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Der Kontakt mit Menschen macht dir Freude – du bringst eine ausgeprägte Kunden- und Serviceorientierung mit und arbeitest gerne im Team.\n\n• Du denkst mit: Deine selbstständige, präzise und effiziente Arbeitsweise ist ein Markenzeichen von dir.\n\n• Du bist flexibel und kannst auch bei wechselnden, nicht immer planbaren Aufträgen rasch und umsichtig reagieren. Dabei setzt du die richtigen Prioritäten und behältst auch in einem dynamischen, operativen Umfeld den Überblick\n\n• Mit deiner abgeschlossenen kaufmännischen Ausbildung, der Weiterbildung als HR Assistent/in und mindestens zwei Jahre Berufserfahrung, besitzt du das fachliche Know-how, um deine Aufgaben kompetent und erfolgreich zu meistern.\n\n• Deine IT-Affinität zeichnet dich aus: Du verfügst über ausgezeichnete Kenntnisse in MS Office sowie in SAP SuccessFactors/Employee Central und findest dich in einer komplexen Toollandschaft sicher und effizient zurecht.\n\n• Du kommunizierst stilsicher und professionell in deiner Muttersprache Deutsch - Französisch ist ein grosses Plus.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Bilde dich weiter: Wir sehen es gerne, wenn du dich intern oder extern weiterbildest und unterstützen grosszügig mit Zeit und Geld.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\n• Engagiere dich sozial: Das Leben meint es gut mit dir? Dann lass andere an deinem Glück teilhaben und erweitere alleine oder im Team deinen Horizont.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nLuzia Baumann ist für dich da.\n058 277 43 71\n\nFragen zum Bewerbungsprozess?\nChantal Hügli ist für dich da.\n058 277 60 33\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
-        "it": "Amate l'amministrazione HR e il punteggio con affidabilità, discrezione e orientamento al servizio? Nel nostro HR Service Center, sei il primo punto di contatto per tutti i dipendenti CSS - un compito responsabile e vario. Con noi si può sviluppare sia professionalmente che personalmente. Sembra interessante? Noi - Luzia, Susi, Nadine, Lilian - siamo felici di conoscerti!\n\nQuesto è ciò che la tua vita quotidiana sembra\n\n• Al centro di esso: Lei è lì per i nostri dipendenti - sia personalmente, digitalmente o per telefono - e rispondere alle loro preoccupazioni con cuore e affidabilità.\n\n• Grazie a voi, ingressi e uscite, mutazioni e dossier del personale sono gestiti professionalmente.\n\n• Mantenete tutte le mutazioni retributive in SAP SuccessFactors e aiutate con la corsa mensile del salario.\n\n• L'utente crea contratti di lavoro e altre corrispondenze e documenti HR (come ad esempio rapporti di reddito intermedio, certificati di lavoro e accordi di formazione) e assicura un'attenta e tempestiva elaborazione.\n\n• Le tue idee sono richieste: contribuisci attivamente all'ottimizzazione e all'automazione dei processi HR e supporta l'introduzione e l'ulteriore sviluppo delle applicazioni HR digitali.\n\nLo porti con te.\n\n• Prima di tutto: il contatto con le persone ti rende felice – porti un forte orientamento al cliente e al servizio e goditi il lavoro in un team.\n\n• Pensi: il tuo modo di lavorare indipendente, preciso ed efficiente è un tuo marchio.\n\n• Sei flessibile e può reagire rapidamente e prudentemente anche con il cambiamento, non sempre compiti pianificabili. Hai impostato le priorità giuste e mantenere una panoramica anche in un ambiente dinamico e operativo.\n\n• Con la vostra formazione commerciale completa, ulteriore formazione come assistente HR e almeno due anni di esperienza professionale, avete il know-how professionale per padroneggiare i vostri compiti con competenza e successo.\n\n• La tua affinità IT ti distingue: hai una conoscenza eccellente di MS Office e SAP SuccessFactors/Employee Central e trova la tua strada verso un paesaggio di strumenti complesso in modo sicuro ed efficiente.\n\n• Comunichi elegantemente e professionalmente nella tua lingua madre tedesco - francese è un grande plus.\n\n• Lavoro flessibile: Adapt il vostro lavoro per il vostro stile di vita ogni anno con opzioni part-time e altri modelli flessibili come l'ufficio di casa e altro ancora.\n\n• Godetevi il vostro portafoglio: vantaggi come bonus, Reka, premio di assicurazione sanitaria scontato e altri che rapidamente compongono alcune migliaia all'anno.\n\n• Scegli il tuo modello di vacanza: 5 o 6 settimane di vacanza? La tua decisione. Di conseguenza, lavori 41 o 42 ore alla settimana.\n\n• Migliorati ulteriormente: Ci piace vederlo se ti istruisci internamente o esternamente e sosteniamo generosamente con il tempo e il denaro.\n\n• Soggiorno in forma: Posti di lavoro ergonomici, promozione del benessere mentale e molte altre offerte intorno alla vostra salute.\n\n• Engage Socially: La vita significa bene per te? Allora lasciate che gli altri condividano la vostra felicità ed espandono i vostri orizzonti da soli o in una squadra.\n\nInformazioni di contatto\n\nDomande sul tuo lavoro al tuo manager?\nLuzia Baumann è qui per te.\n058 277 43 71\n\nDomande sul processo di applicazione?\nChantal Hügli è qui per te.\n058 277 60 33\n\nIl tuo futuro team\n\nCirca 1,7 milioni di clienti, circa 100 agenzie, circa 3000 dipendenti e uno dei principali assicuratori svizzeri di salute e proprietà. Si', siamo piuttosto grandi. Fortunatamente. Perché ci dà anche grandi opportunità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti sani, ma non ci riposeremo su questo: Abbiamo ancora un sacco di piani per il futuro - forse insieme a te?",
-        "en": "You love HR administration and score with reliability, discretion and service orientation? In our HR Service Center, you are the first point of contact for all CSS employees - a responsible and varied task. With us you can develop both professionally and personally. Sounds interesting? We - Luzia, Susi, Nadine, Lilian - are happy to meet you!\n\nThis is what your everyday life looks like\n\n• At the heart of it: You are there for our employees – whether personally, digitally or by phone – and answer their concerns with heart and reliability.\n\n• Thanks to you, entrances and exits, mutations and personnel dossiers are handled professionally.\n\n• You maintain all wage-relevant mutations in SAP SuccessFactors and help with the monthly wage run.\n\n• You create employment contracts and other HR correspondence and documents (such as interim earnings reports, employer certificates and training agreements) and ensure careful and timely processing.\n\n• Your ideas are in demand: You actively contribute to the optimization and automation of HR processes and support the introduction and further development of digital HR applications.\n\nYou bring that with you\n\n• First things first: Contact with people makes you happy – you bring a strong customer and service orientation and enjoy working in a team.\n\n• You think: Your independent, precise and efficient way of working is a trademark of yours.\n\n• You are flexible and can react quickly and prudently even with changing, not always plannable tasks. You set the right priorities and keep an overview even in a dynamic, operational environment.\n\n• With your completed commercial training, further training as an HR assistant and at least two years of professional experience, you have the professional know-how to master your tasks competently and successfully.\n\n• Your IT affinity sets you apart: You have excellent knowledge of MS Office and SAP SuccessFactors/Employee Central and find your way around a complex tool landscape safely and efficiently.\n\n• You communicate stylishly and professionally in your mother tongue German - French is a big plus.\n\n• Work Flexible: Adapt your work to your lifestyle annually with part-time options and other flexible models like home office and more.\n\n• Enjoy your wallet: Benefits such as bonus, Reka, discounted health insurance premium and others that quickly make up a few thousands a year.\n\n• Choose your holiday model: 5 or 6 weeks holiday? Your decision. Accordingly, you work 41 or 42 hours a week.\n\n• Improve yourself further: We like to see it if you educate yourself internally or externally and support generously with time and money.\n\n• Stay fit: Ergonomic workplaces, promotion of mental well-being and many other offers around your health.\n\n• Engage Socially: Does Life Mean Good to You? Then let others share your happiness and expand your horizons alone or in a team.\n\nContact details\n\nQuestions about your job to your manager?\nLuzia Baumann is here for you.\n058 277 43 71\n\nQuestions about the application process?\nChantal Hügli is here for you.\n058 277 60 33\n\nYour future team\n\nAround 1.7 million customers, around 100 agencies, around 3000 employees and one of the leading Swiss health and property insurers. Yeah, we're pretty big. Fortunately. Because it also gives us great opportunities to really make a difference. Our roots date back to 1899. Since then we have grown healthy, but we do not rest on this: We still have a lot of plans for the future - maybe together with you?",
-        "fr": "Vous aimez l'administration des RH et marquer avec fiabilité, discrétion et orientation du service? Dans notre centre de services RH, vous êtes le premier point de contact pour tous les employés CSS - une tâche responsable et variée. Avec nous vous pouvez développer à la fois professionnellement et personnellement. Ça semble intéressant ? Nous - Luzia, Susi, Nadine, Lilian - sommes heureux de vous rencontrer!\n\nC'est à ça que ressemble ta vie quotidienne\n\n• Au cœur : Vous êtes là pour nos employés – que ce soit personnellement, numériquement ou par téléphone – et répondez à leurs préoccupations avec cœur et fiabilité.\n\n• Grâce à vous, les entrées et sorties, mutations et dossiers personnels sont traités professionnellement.\n\n• Vous maintenez toutes les mutations liées au salaire dans SAP SuccessFactors et aidez à l'exécution du salaire mensuel.\n\n• Vous créez des contrats d'emploi et d'autres documents et correspondances en matière de RH (tels que les rapports intérimaires de rémunération, les certificats d'employeur et les ententes de formation) et vous assurez un traitement prudent et opportun.\n\n• Vos idées sont en demande : vous contribuez activement à l'optimisation et à l'automatisation des processus RH et soutenez l'introduction et le développement d'applications RH numériques.\n\nApporte ça avec toi.\n\n• Tout d'abord : le contact avec les gens vous rend heureux – vous apportez une forte orientation client et service et aimez travailler en équipe.\n\n• Vous pensez : Votre façon de travailler indépendante, précise et efficace est votre marque de fabrique.\n\n• Vous êtes flexible et pouvez réagir rapidement et avec prudence même avec des tâches changeantes, pas toujours planifiables. Vous définissez les bonnes priorités et gardez un aperçu même dans un environnement dynamique et opérationnel.\n\n• Avec votre formation commerciale, votre formation continue en tant qu'assistant RH et au moins deux années d'expérience professionnelle, vous avez le savoir-faire professionnel pour maîtriser vos tâches avec compétence et succès.\n\n• Votre affinité informatique vous distingue: Vous avez une excellente connaissance de MS Office et SAP SuccessFactors/Employee Central et trouvez votre chemin autour d'un paysage d'outils complexes en toute sécurité et efficacité.\n\n• Vous communiquez élégamment et professionnellement dans votre langue maternelle Allemand - Français est un grand plus.\n\n• Travail flexible : Adaptez votre travail à votre style de vie chaque année avec des options à temps partiel et d'autres modèles flexibles comme le bureau à domicile et plus encore.\n\n• Profitez de votre portefeuille : avantages tels que bonus, Reka, primes d'assurance-maladie à prix réduit et autres qui composent rapidement quelques milliers par an.\n\n• Choisissez votre modèle de vacances: 5 ou 6 semaines de vacances? Ta décision. Par conséquent, vous travaillez 41 ou 42 heures par semaine.\n\n• Améliorez-vous davantage: Nous aimons voir si vous vous éduquez en interne ou en externe et soutenez généreusement avec le temps et l'argent.\n\n• Restez en forme : milieux de travail ergonomiques, promotion du bien-être mental et de nombreuses autres offres autour de votre santé.\n\n• Engager socialement: La vie est - elle bonne pour vous? Alors laissez les autres partager votre bonheur et élargir vos horizons seul ou en équipe.\n\nCoordonnées\n\nDes questions sur votre travail à votre manager ?\nLuzia Baumann est là pour vous.\n058 277 43 71\n\nDes questions sur le processus de demande?\nChantal Hügli est là pour vous.\n058 277 60 33\n\nVotre future équipe\n\nEnviron 1,7 million de clients, une centaine d'agences, près de 3000 salariés et l'un des principaux assureurs suisses. Ouais, nous sommes assez grands. Heureusement. Parce qu'il nous donne aussi de grandes occasions de vraiment faire la différence. Nos racines remontent à 1899. Depuis, nous sommes en bonne santé, mais nous ne nous reposons pas là-dessus : Nous avons encore beaucoup de plans pour l'avenir - peut-être avec vous ?"
+        "it": "Amate l'amministrazione HR e il punteggio con affidabilità, discrezione e orientamento al servizio? Nel nostro HR Service Center, sei il primo punto di contatto per tutti i dipendenti CSS - un compito responsabile e vario. Con noi si può sviluppare sia professionalmente che personalmente. Sembra interessante? Noi - Luzia, Susi, Nadine, Lilian - siamo felici di conoscervi!\n\nQuesto è ciò che la tua vita quotidiana sembra\n\n• Al centro di esso: Lei è lì per i nostri dipendenti – sia personalmente, digitalmente o per telefono – e rispondere alle loro preoccupazioni con cuore e affidabilità.\n\n• Grazie a voi, ingressi e uscite, mutazioni e dossier del personale sono gestiti professionalmente.\n\n• Mantenete tutte le mutazioni retributive in SAP SuccessFactors e aiutate con la corsa mensile del salario.\n\n• L'utente crea contratti di lavoro e altre corrispondenze e documenti HR (come ad esempio rapporti di reddito intermedio, certificati di lavoro e accordi di formazione) e assicura un'attenta e tempestiva elaborazione.\n\n• Le tue idee sono richieste: contribuisci attivamente all'ottimizzazione e all'automazione dei processi HR e supporta l'introduzione e l'ulteriore sviluppo delle applicazioni HR digitali.\n\nLo porti con te.\n\n• Prima di tutto: il contatto con le persone ti rende felice – porti un forte orientamento al cliente e al servizio e goditi il lavoro in una squadra.\n\n• Pensi: il tuo modo di lavorare indipendente, preciso ed efficiente è un tuo marchio.\n\n• Sei flessibile e può reagire rapidamente e prudentemente anche con il cambiamento, non sempre compiti pianificabili. Hai impostato le priorità giuste e mantenere una panoramica anche in un ambiente dinamico e operativo.\n\n• Con la vostra formazione commerciale completa, ulteriore formazione come assistente HR e almeno due anni di esperienza professionale, avete il know-how professionale per padroneggiare i vostri compiti con competenza e successo.\n\n• La tua affinità IT ti distingue: Hai una conoscenza eccellente di MS Office e SAP SuccessFactors/Employee Central e trova la tua strada intorno a un paesaggio di strumenti complesso in modo sicuro ed efficiente.\n\n• Comunichi elegantemente e professionalmente nella tua lingua madre tedesco - francese è un grande vantaggio.\n\n• Lavoro flessibile: Adapt il vostro lavoro al vostro stile di vita ogni anno con opzioni part-time e altri modelli flessibili come l'ufficio di casa e altro ancora.\n\n• Godetevi il vostro portafoglio: vantaggi come bonus, Reka, premio di assicurazione sanitaria scontato e altri che rapidamente compongono alcune migliaia all'anno.\n\n• Scegli il tuo modello di vacanza: 5 o 6 settimane di vacanza? La tua decisione. Di conseguenza, lavori 41 o 42 ore alla settimana.\n\n• Migliorati ulteriormente: Ci piace vederlo se ti istruisci internamente o esternamente e sosteniamo generosamente con il tempo e il denaro.\n\n• Soggiorno in forma: Posti di lavoro ergonomici, promozione del benessere mentale e molte altre offerte intorno alla vostra salute.\n\n• Engage Socially: La vita significa bene per te? Allora lasciate che gli altri condividano la vostra felicità ed espandono i vostri orizzonti da soli o in una squadra.\n\nInformazioni di contatto\n\nDomande sulla posizione del tuo manager?\nLuzia Baumann è qui per te.\n058 277 43 71\n\nDomande sul processo di applicazione?\nChantal Hügli è qui per te.\n058 277 60 33\n\nIl tuo futuro team\n\nCirca 1,7 milioni di clienti, circa 100 agenzie, circa 3000 dipendenti e uno dei principali assicuratori svizzeri di salute e proprietà. Si', siamo piuttosto grandi. Fortunatamente. Perché ci dà anche grandi opportunità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti sani, ma non ci riposeremo su questo: Abbiamo un sacco di piani per il futuro - forse insieme a te?",
+        "en": "You love HR administration and score with reliability, discretion and service orientation? In our HR Service Center, you are the first point of contact for all CSS employees - a responsible and varied task. With us you can develop both professionally and personally. Sounds interesting? We - Luzia, Susi, Nadine, Lilian - are happy to meet you!\n\nThis is what your everyday life looks like\n\n• At the heart of it: You are there for our employees – whether personally, digitally or by phone – and answer their concerns with heart and reliability.\n\n• Thanks to you, entrances and exits, mutations and personnel dossiers are handled professionally.\n\n• You maintain all wage-relevant mutations in SAP SuccessFactors and help with the monthly wage run.\n\n• You create employment contracts and other HR correspondence and documents (such as interim earnings reports, employer certificates and training agreements) and ensure careful and timely processing.\n\n• Your ideas are in demand: You actively contribute to the optimization and automation of HR processes and support the introduction and further development of digital HR applications.\n\nYou bring that with you\n\n• First things first: Contact with people makes you happy – you bring a strong customer and service orientation and enjoy working in a team.\n\n• You think: Your independent, precise and efficient way of working is a trademark of yours.\n\n• You are flexible and can react quickly and prudently even with changing, not always plannable tasks. You set the right priorities and keep an overview even in a dynamic, operational environment.\n\n• With your completed commercial training, further training as an HR assistant and at least two years of professional experience, you have the professional know-how to master your tasks competently and successfully.\n\n• Your IT affinity sets you apart: You have excellent knowledge of MS Office and SAP SuccessFactors/Employee Central and find your way around a complex tool landscape safely and efficiently.\n\n• You communicate stylishly and professionally in your mother tongue German - French is a big plus.\n\n• Work Flexible: Adapt your work to your lifestyle annually with part-time options and other flexible models like home office and more.\n\n• Enjoy your wallet: Benefits such as bonus, Reka, discounted health insurance premium and others that quickly make up a few thousands a year.\n\n• Choose your holiday model: 5 or 6 weeks holiday? Your decision. Accordingly, you work 41 or 42 hours a week.\n\n• Improve yourself further: We like to see it if you educate yourself internally or externally and support generously with time and money.\n\n• Stay fit: Ergonomic workplaces, promotion of mental well-being and many other offers around your health.\n\n• Engage Socially: Does Life Mean Good to You? Then let others share your happiness and expand your horizons alone or in a team.\n\nContact details\n\nQuestions about the position to your manager(s)?\nLuzia Baumann is here for you.\n058 277 43 71\n\nQuestions about the application process?\nChantal Hügli is here for you.\n058 277 60 33\n\nYour future team\n\nAround 1.7 million customers, around 100 agencies, around 3000 employees and one of the leading Swiss health and property insurers. Yeah, we're pretty big. Fortunately. Because it also gives us great opportunities to really make a difference. Our roots date back to 1899. Since then we have grown healthy, but we do not rest on this: We have a lot of plans for the future - maybe together with you?",
+        "fr": "Vous aimez l'administration des RH et marquer avec fiabilité, discrétion et orientation de service? Dans notre Centre de services RH, vous êtes le premier point de contact pour tous les employés CSS - une tâche responsable et variée. Avec nous vous pouvez développer à la fois professionnellement et personnellement. Ça semble intéressant ? Nous - Luzia, Susi, Nadine, Lilian - sommes heureux de vous rencontrer!\n\nC'est à ça que ressemble votre vie quotidienne\n\n• Au cœur : Vous êtes là pour nos employés – que ce soit personnellement, numériquement ou par téléphone – et répondez à leurs préoccupations avec cœur et fiabilité.\n\n• Grâce à vous, les entrées et sorties, mutations et dossiers personnels sont traités professionnellement.\n\n• Vous maintenez toutes les mutations liées au salaire dans SAP SuccessFactors et aidez à l'exécution mensuelle du salaire.\n\n• Vous créez des contrats d'emploi et d'autres documents et correspondances RH (tels que les rapports intérimaires de rémunération, les certificats d'employeur et les ententes de formation) et vous assurez un traitement prudent et opportun.\n\n• Vos idées sont en demande : Vous contribuez activement à l'optimisation et à l'automatisation des processus RH et soutenez l'introduction et le développement d'applications RH numériques.\n\nApporte ça avec toi.\n\n• Tout d'abord : le contact avec les gens vous rend heureux – vous apportez une forte orientation client et service et aimez travailler en équipe.\n\n• Vous pensez : Votre façon de travailler indépendante, précise et efficace est votre marque de fabrique.\n\n• Vous êtes flexible et pouvez réagir rapidement et prudemment même avec des tâches changeantes, pas toujours planifiables. Vous définissez les bonnes priorités et gardez un aperçu même dans un environnement dynamique et opérationnel.\n\n• Avec votre formation commerciale, votre formation continue en tant qu'assistant RH et au moins deux ans d'expérience professionnelle, vous avez le savoir-faire professionnel pour maîtriser vos tâches avec compétence et succès.\n\n• Votre affinité informatique vous distingue: Vous avez une excellente connaissance de MS Office et SAP SuccessFactors/Employee Central et trouvez votre chemin dans un paysage d'outils complexes en toute sécurité et efficacement.\n\n• Vous communiquez élégamment et professionnellement dans votre langue maternelle Allemand - Français est un grand plus.\n\n• Work Flexible: Adaptez votre travail à votre style de vie chaque année avec des options à temps partiel et d'autres modèles flexibles comme le bureau à domicile et plus encore.\n\n• Profitez de votre portefeuille : des avantages tels que bonus, Reka, primes d'assurance maladie à prix réduit et d'autres qui composent rapidement quelques milliers par an.\n\n• Choisissez votre modèle de vacances : 5 ou 6 semaines de vacances ? Votre décision. Par conséquent, vous travaillez 41 ou 42 heures par semaine.\n\n• Améliorez-vous davantage: Nous aimons voir si vous vous éduquez en interne ou en externe et soutenez généreusement avec le temps et l'argent.\n\n• Restez en forme : milieux de travail ergonomiques, promotion du bien-être mental et de nombreuses autres offres autour de votre santé.\n\n• Engager socialement: La vie est - elle bonne pour vous? Alors laissez les autres partager votre bonheur et élargir vos horizons seul ou en équipe.\n\nCoordonnées\n\nDes questions sur le poste à votre(s) gestionnaire(s)?\nLuzia Baumann est là pour vous.\n058 277 43 71\n\nDes questions sur le processus de demande?\nChantal Hügli est là pour vous.\n058 277 60 33\n\nVotre future équipe\n\nEnviron 1,7 million de clients, une centaine d'agences, près de 3000 employés et l'un des principaux assureurs suisses. Oui, on est gros. Heureusement. Parce qu'il nous donne aussi de grandes occasions de vraiment faire une différence. Nos racines remontent à 1899. Depuis, nous sommes en bonne santé, mais nous ne nous reposons pas là-dessus : Nous avons beaucoup de plans pour l'avenir - peut-être avec vous ?"
       },
       "location": "Luzern / hybrid",
       "canton": "LU",
       "url": "https://jobs.css.ch/offene-stellen/sachbearbeiter-in-hr-service-center/b720a35c-0065-48c9-b8c3-a1e0e3c79fd1",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:25:05.803Z",
+      "crawledAt": "2026-10-23T09:31:11.148Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3218,18 +3221,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:25:05.803Z",
+      "firstSeenAt": "2026-10-23T09:31:11.148Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid"
+          "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
+          "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid"
         ],
         "fr": [
-          "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid"
+          "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
+          "gestionnaire-administratif-ve-au-hr-service-center-80-90-css-versicherung-luzern-hybrid"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid"
-      ]
+        "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
+        "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid",
+        "gestionnaire-administratif-ve-au-hr-service-center-80-90-css-versicherung-luzern-hybrid"
+      ],
+      "needsRetranslation": true
     }
   ]
 }

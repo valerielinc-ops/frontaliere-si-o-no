@@ -20,6 +20,10 @@ import { useLocale } from '@/services/i18n';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
+import { currentJobGateAssignment, recordJobGateExposure, shouldBypassJobGateExperiment, useJobGateExperiment } from '@/hooks/useJobGateExperiment';
+import { getJobGateSubscriberVariant, JOBGATE_EXPERIMENT_ID } from '@/services/jobGateExperiment';
+import { jobGateSkin } from '@/components/community/jobGateSkin';
+import { AUTHGATE_HEADLINE_EXPERIMENT_ID } from '@/services/authGateExperiment';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
@@ -180,6 +184,10 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
 
  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
  const alreadySignedIn = hasAccessProp || !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY);
+ const jobGate = useJobGateExperiment(shouldBypassJobGateExperiment() || alreadySignedIn);
+ const gateVariant = jobGate.enrolled ? jobGate.arm : 'control';
+ const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : AUTHGATE_HEADLINE_EXPERIMENT_ID;
+ const gateSkin = jobGateSkin(jobGate.arm);
 
  const prefix = PREFIX_BY_LOCALE[locale] ?? '';
  const sectionSlug = SECTION_BY_LOCALE[locale] ?? SECTION_BY_LOCALE.it;
@@ -204,6 +212,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  }, [countdown, targetPath]);
 
  useEffect(() => {
+ if (alreadySignedIn) return;
  const container = googleButtonRef.current;
  if (!container) return;
  let cancelled = false;
@@ -212,7 +221,39 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  sessionStorage.setItem('auth_redirect_path', targetPath);
 
  container.innerHTML = '';
- renderGoogleButton(container, { theme: 'outline', size: 'large', text: 'signin_with' })
+ renderGoogleButton(container, {
+  theme: 'outline',
+  size: 'large',
+  text: 'signin_with',
+  click_listener: () => {
+   Analytics.trackJobAuthGate('method_click', {
+    surface: 'bridge',
+    method: 'google',
+    authState: 'anonymous',
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+    jobSlug: targetSlug,
+   });
+   Analytics.trackJobAuthFunnel('auth_method_click', {
+    method: 'google',
+    company: jobData?.company,
+    jobTitle: localizedTitle,
+    location: jobData?.location,
+    surface: 'bridge',
+    authState: 'anonymous',
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+    jobSlug: targetSlug,
+   });
+   saveAuthJobContext({
+    ...newsletterJobContext,
+    title: localizedTitle,
+    surface: 'bridge',
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+   });
+  },
+ })
  .then(() => {
  if (!cancelled) setGoogleButtonReady(container.children.length > 0);
  })
@@ -220,38 +261,47 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  if (!cancelled) reportCaughtError(err, 'jobBridgeView.renderGoogleButton');
  });
  return () => { cancelled = true; };
- }, [targetPath]);
+ }, [targetPath, alreadySignedIn, gateVariant, gateExperimentId, targetSlug, jobData?.company, jobData?.location, localizedTitle]);
 
  useEffect(() => {
+ if (alreadySignedIn) return;
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
- }, []);
+ }, [alreadySignedIn]);
 
  // ── Analytics ──
- // The bridge gate had no event at all. Same contract as the expired/orphan
+ // Bridge uses the same contract as the expired/orphan
  // siblings: `job_auth_funnel` gate_view on mount, a visible-gate
  // `job_auth_gate.bridge.unknown.view` impression, and the email success
  // `job_auth_gate.bridge.email.success` in handleEmailSubmit.
  useEffect(() => {
- if (alreadySignedIn) return;
+ if (alreadySignedIn || !jobGate.ready) return;
  Analytics.trackJobAuthFunnel('gate_view', {
   company: jobData?.company,
   jobTitle: localizedTitle,
   location: jobData?.location,
   surface: 'bridge',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: targetSlug,
  });
- }, [targetSlug, alreadySignedIn]);
+ }, [targetSlug, alreadySignedIn, jobGate.ready, gateVariant, gateExperimentId, jobData?.company, jobData?.location, localizedTitle]);
 
  const gateImpressionRef = useCaptureImpression({
   page: 'job_auth_gate',
   section: 'bridge',
   variant: 'view',
   ctaId: 'job_auth_gate.bridge.unknown.view',
-  enabled: !alreadySignedIn,
-  emit: () => Analytics.trackJobAuthGate('view', {
-   surface: 'bridge',
-   authState: 'anonymous',
-   jobSlug: targetSlug,
-  }),
+  enabled: !alreadySignedIn && jobGate.ready,
+  emit: () => {
+   recordJobGateExposure(jobGate);
+   Analytics.trackJobAuthGate('view', {
+    surface: 'bridge',
+    authState: 'anonymous',
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+    jobSlug: targetSlug,
+   });
+  },
  });
 
  const redirectCopy = (REDIRECT_COPY[locale] ?? REDIRECT_COPY.it).replace('{n}', String(countdown));
@@ -281,6 +331,25 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  e.preventDefault();
  const email = emailInput.trim();
  if (!email || !validateEmailStrict(email).valid) return;
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'bridge',
+  method: 'email',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: targetSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'email',
+  company: jobData?.company,
+  jobTitle: localizedTitle,
+  location: jobData?.location,
+  surface: 'bridge',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: targetSlug,
+ });
  setEmailBusy(true);
  setEmailError(null);
  try {
@@ -289,6 +358,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  import('@/services/firebase'),
  ]);
  const firestore = getFirestore(await getApp());
+ const subscriberVariant = getJobGateSubscriberVariant(await currentJobGateAssignment());
  await upsertNewsletterSubscriber(firestore, {
  email,
  source: 'job_bridge',
@@ -302,11 +372,14 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  registrationMethod: 'email',
  locationInterest: newsletterJobContext.location,
  sectorInterest: newsletterJobContext.category,
+ ...(subscriberVariant ? { variant: subscriberVariant } : {}),
  });
  Analytics.trackJobAuthGate('success', {
   surface: 'bridge',
   method: 'email',
   authState: 'pending_email',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
   jobSlug: targetSlug,
  });
  Analytics.trackJobAuthFunnel('auth_success', {
@@ -317,7 +390,16 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
   location: jobData?.location,
   surface: 'bridge',
   authState: 'pending_email',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
   jobSlug: targetSlug,
+ });
+ Analytics.trackNewsletter('subscribe', email.split('@')[1] || 'unknown', {
+  sourceChannel: 'job_gate',
+  sourceCta: 'job_bridge_email_unlock',
+  sourcePage: window.location.pathname,
+  jobSlug: targetSlug,
+  registrationMethod: 'email',
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.href = targetPath;
@@ -392,20 +474,48 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
 
  {/* Sign-in block — hidden when user is already authenticated */}
  {!alreadySignedIn && (
- <div ref={gateImpressionRef} role="region" aria-label={SIGNUP_COPY[locale] ?? SIGNUP_COPY.it} className="rounded-stripe border border-accent-border bg-accent-subtle p-5 space-y-3">
+ <div ref={gateImpressionRef} id="job-auth-gate" role="region" aria-label={SIGNUP_COPY[locale] ?? SIGNUP_COPY.it} className={`${gateSkin.container} space-y-3`} data-jobgate-arm={jobGate.enrolled ? jobGate.arm : undefined}>
  <p className="text-sm font-semibold text-strong">
  {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
  </p>
  {/* Trust signals */}
  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{locale === 'it' ? 'Accesso immediato' : locale === 'de' ? 'Sofortiger Zugang' : locale === 'fr' ? 'Accès immédiat' : 'Instant access'}</span>
- <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{locale === 'it' ? 'Niente spam' : locale === 'de' ? 'Kein Spam' : locale === 'fr' ? 'Pas de spam' : 'No spam'}</span>
+ <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className={gateSkin.trustIcon} />{locale === 'it' ? 'Accesso immediato' : locale === 'de' ? 'Sofortiger Zugang' : locale === 'fr' ? 'Accès immédiat' : 'Instant access'}</span>
+ <span className="inline-flex items-center gap-1"><Shield size={12} className={gateSkin.trustIcon} />{locale === 'it' ? 'Niente spam' : locale === 'de' ? 'Kein Spam' : locale === 'fr' ? 'Pas de spam' : 'No spam'}</span>
  </div>
  <div ref={googleButtonRef} className="flex justify-center" />
  {!googleButtonReady && (
  <a
  href={`/?redirect=${encodeURIComponent(listingPath)}`}
- className="inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 rounded-stripe border border-edge bg-surface text-sm font-semibold text-strong hover:bg-surface-raised transition-colors"
+ onClick={() => {
+  Analytics.trackJobAuthGate('method_click', {
+   surface: 'bridge',
+   method: 'google',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: targetSlug,
+  });
+  Analytics.trackJobAuthFunnel('auth_method_click', {
+   method: 'google',
+   company: jobData?.company,
+   jobTitle: localizedTitle,
+   location: jobData?.location,
+   surface: 'bridge',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: targetSlug,
+  });
+  saveAuthJobContext({
+   ...newsletterJobContext,
+   title: localizedTitle,
+   surface: 'bridge',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+  });
+ }}
+ className={gateSkin.googleFallbackButton}
  >
  {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'}
  </a>
@@ -415,11 +525,36 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  type="button"
  disabled={linkedInBusy}
  onClick={() => {
- setLinkedInBusy(true);
- saveAuthJobContext(newsletterJobContext);
- signInWithLinkedIn().catch(() => setLinkedInBusy(false));
+  Analytics.trackJobAuthGate('method_click', {
+   surface: 'bridge',
+   method: 'linkedin',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: targetSlug,
+  });
+  Analytics.trackJobAuthFunnel('auth_method_click', {
+   method: 'linkedin',
+   company: jobData?.company,
+   jobTitle: localizedTitle,
+   location: jobData?.location,
+   surface: 'bridge',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: targetSlug,
+  });
+  setLinkedInBusy(true);
+  saveAuthJobContext({
+   ...newsletterJobContext,
+   title: localizedTitle,
+   surface: 'bridge',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+  });
+  signInWithLinkedIn().catch(() => setLinkedInBusy(false));
  }}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ className={gateSkin.linkedInButton}
  >
  {linkedInBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -428,21 +563,21 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  </button>
  )}
  <div className="flex items-center gap-3">
- <div className="flex-1 h-px bg-surface-raised/50" />
+ <div className={gateSkin.divider} />
  <span className="text-sm text-muted">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
- <div className="flex-1 h-px bg-surface-raised/50" />
+ <div className={gateSkin.divider} />
  </div>
  <form onSubmit={handleEmailSubmit} className="space-y-2">
  <EmailInput
  value={emailInput}
  onChange={setEmailInput}
  placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it}
- className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ className={gateSkin.emailInput}
  />
  <button
  type="submit"
- disabled={emailBusy || !emailInput.trim()}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ disabled={emailBusy || (gateSkin.emailSubmitDisabledWhenEmpty && !emailInput.trim())}
+ className={gateSkin.emailSubmit}
  >
  {emailBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
  {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}

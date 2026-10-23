@@ -1,13 +1,13 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-10-22T21:20:15.411Z",
-  "runId": "39855245159",
+  "assembledAt": "2026-10-23T09:23:06.166Z",
+  "runId": "39930088522",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
+        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:20:08.214Z",
+      "crawledAt": "2026-10-23T09:22:59.609Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -57,11 +57,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -118,7 +120,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:20:07.131Z",
+      "crawledAt": "2026-10-23T09:22:58.559Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -206,7 +208,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:20:06.060Z",
+      "crawledAt": "2026-10-23T09:22:57.553Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -284,7 +286,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:20:04.974Z",
+      "crawledAt": "2026-10-23T09:22:56.543Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -425,7 +427,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:20:03.851Z",
+      "crawledAt": "2026-10-23T09:22:55.539Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -560,7 +562,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:20:02.773Z",
+      "crawledAt": "2026-10-23T09:22:54.552Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -658,7 +660,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:20:01.685Z",
+      "crawledAt": "2026-10-23T09:22:53.541Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -742,9 +744,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -769,7 +771,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:20:00.621Z",
+      "crawledAt": "2026-10-23T09:22:52.535Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -822,18 +824,18 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
-        "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
+          "emergency-medical-technician-in-training-see-spital-horgen"
         ],
         "fr": [
-          "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -884,7 +886,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:59.576Z",
+      "crawledAt": "2026-10-23T09:22:51.515Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -988,7 +990,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:58.538Z",
+      "crawledAt": "2026-10-23T09:22:50.501Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1087,7 +1089,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:57.476Z",
+      "crawledAt": "2026-10-23T09:22:49.474Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1194,7 +1196,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:56.470Z",
+      "crawledAt": "2026-10-23T09:22:48.452Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1304,7 +1306,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:55.416Z",
+      "crawledAt": "2026-10-23T09:22:47.433Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1411,7 +1413,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:54.380Z",
+      "crawledAt": "2026-10-23T09:22:46.443Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1520,7 +1522,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:53.315Z",
+      "crawledAt": "2026-10-23T09:22:45.453Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1617,7 +1619,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:52.271Z",
+      "crawledAt": "2026-10-23T09:22:44.438Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1728,7 +1730,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:51.193Z",
+      "crawledAt": "2026-10-23T09:22:43.393Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1833,7 +1835,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:50.075Z",
+      "crawledAt": "2026-10-23T09:22:42.404Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1940,7 +1942,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:49.037Z",
+      "crawledAt": "2026-10-23T09:22:41.379Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2045,7 +2047,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:47.985Z",
+      "crawledAt": "2026-10-23T09:22:40.357Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2165,7 +2167,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:46.935Z",
+      "crawledAt": "2026-10-23T09:22:39.358Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2274,7 +2276,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:45.846Z",
+      "crawledAt": "2026-10-23T09:22:38.353Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2357,7 +2359,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:44.814Z",
+      "crawledAt": "2026-10-23T09:22:37.348Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2439,7 +2441,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:43.739Z",
+      "crawledAt": "2026-10-23T09:22:36.370Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2521,7 +2523,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:42.719Z",
+      "crawledAt": "2026-10-23T09:22:35.369Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2602,7 +2604,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:41.626Z",
+      "crawledAt": "2026-10-23T09:22:34.360Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2657,7 +2659,7 @@
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "nursing-expert-see-spital-horgen",
+        "en": "pflegeexpert-in-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2683,7 +2685,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1283/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:40.579Z",
+      "crawledAt": "2026-10-23T09:22:33.356Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2706,7 +2708,7 @@
       "previousSlugs": [
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
-        "pflegeexpert-in-see-spital-horgen"
+        "nursing-expert-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2714,7 +2716,7 @@
         ],
         "en": [
           "care-expert-see-spital-horgen",
-          "pflegeexpert-in-see-spital-horgen"
+          "nursing-expert-see-spital-horgen"
         ],
         "fr": [
           "pflegeexpert-in-see-spital-ch"
@@ -2768,7 +2770,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:39.443Z",
+      "crawledAt": "2026-10-23T09:22:32.343Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2851,7 +2853,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:38.326Z",
+      "crawledAt": "2026-10-23T09:22:31.306Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2948,7 +2950,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:37.202Z",
+      "crawledAt": "2026-10-23T09:22:30.272Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3030,7 +3032,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:36.131Z",
+      "crawledAt": "2026-10-23T09:22:29.244Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3111,7 +3113,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1298/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:34.988Z",
+      "crawledAt": "2026-10-23T09:22:28.228Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3193,7 +3195,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:33.944Z",
+      "crawledAt": "2026-10-23T09:22:27.220Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3275,7 +3277,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:32.838Z",
+      "crawledAt": "2026-10-23T09:22:26.179Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3356,7 +3358,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1294/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:31.833Z",
+      "crawledAt": "2026-10-23T09:22:25.204Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3438,7 +3440,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:30.768Z",
+      "crawledAt": "2026-10-23T09:22:24.211Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3497,7 +3499,7 @@
         "it": "controller-see-spital-horgen",
         "en": "controller-in-see-spital-ch",
         "de": "controller-in-see-spital-ch",
-        "fr": "controleur-see-spital-horgen"
+        "fr": "controller-in-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3521,7 +3523,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1304/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:29.692Z",
+      "crawledAt": "2026-10-23T09:22:23.219Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3543,14 +3545,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "controller-in-see-spital-ch",
-        "controller-in-see-spital-horgen"
+        "controleur-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "controller-in-see-spital-ch"
         ],
         "fr": [
-          "controller-in-see-spital-horgen"
+          "controleur-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:20:56.042Z",
@@ -3601,7 +3603,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:28.592Z",
+      "crawledAt": "2026-10-23T09:22:22.222Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3685,7 +3687,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:27.516Z",
+      "crawledAt": "2026-10-23T09:22:21.232Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3768,7 +3770,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1311/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:26.438Z",
+      "crawledAt": "2026-10-23T09:22:20.254Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3852,7 +3854,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-22T21:19:25.398Z",
+      "crawledAt": "2026-10-23T09:22:19.216Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3938,7 +3940,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1312/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:19:24.318Z",
+      "crawledAt": "2026-10-23T09:22:18.218Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3989,6 +3991,75 @@
         }
       },
       "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-45d5674e835c",
+      "slug": "study-nurse-onkologie-see-spital-ch",
+      "slugByLocale": {
+        "de": "study-nurse-onkologie-see-spital-ch",
+        "it": "study-nurse-onkologie-see-spital-ch",
+        "en": "study-nurse-onkologie-see-spital-ch",
+        "fr": "study-nurse-onkologie-see-spital-ch"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Study Nurse Onkologie",
+      "titleByLocale": {
+        "de": "Study Nurse Onkologie",
+        "it": "Studio infermiera oncologia",
+        "en": "Study Nurse Oncology",
+        "fr": "Étude Infirmière Oncologie"
+      },
+      "description": "Per sofort oder nach Vereinbarung suchen wir eine*n Study Nurse Onkologie\n40%\n\nIhr Aufgabengebiet:\n\n• Rekrutierung und Betreuung von Studienpatient*innen – Sie sind erste Ansprechperson und begleiten die Teilnehmenden kompetent durch den Studienverlauf.\n• Kontakt mit den Ärzten und unterstützen der Studienaktivität\n• Datenerhebung auch mittels digitale Dokumentation (eCRF)\n• Probengewinnung und Verarbeitung, Datenerhebung eHealth Plattform\n• Studienprotokolle gemäss Gesetzgebung und Standards (SOPs) umsetzten\n• Interdisziplinäre Zusammenarbeit – in enger Abstimmung mit Prüfärzt*innen, Studienkoordinator*innen und externen Partnern gestalten Sie den Studienalltag aktiv mit.\n• Begleitung spannender Studienprojekte – Sie arbeiten an hochkarätigen klinischen Studien in einem dynamischen und digital orientierten Umfeld mit.\n\nIhr Profil:\n\n• Erfahrung im Bereich klinischer Studien, eCRF, Digitalisierung\n• Erfahrung in der Arbeit nach SOPs und GCP\n• Analytisches und lösungsorientiertes Denken und Handeln\n• Flexibilität und Teamfähigkeit\n• Exakte und verlässliche Arbeitsweise, Wille zur Eigeninitiative und Eigenverantwortung\n• Sehr gute MS-Office Kenntnisse\n• Gute Englischkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team\n• Attraktive Arbeitszeiten: Kein Nacht- oder Wochenenddienst\n• Arbeitsort mit bester Anbindung an öffentlichen Verkehr, kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten\n• Angenehmes Arbeitsklima in attraktivem Standort nahe Zürich\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+      "descriptionByLocale": {
+        "de": "Per sofort oder nach Vereinbarung suchen wir eine*n Study Nurse Onkologie\n40%\n\nIhr Aufgabengebiet:\n\n• Rekrutierung und Betreuung von Studienpatient*innen – Sie sind erste Ansprechperson und begleiten die Teilnehmenden kompetent durch den Studienverlauf.\n• Kontakt mit den Ärzten und unterstützen der Studienaktivität\n• Datenerhebung auch mittels digitale Dokumentation (eCRF)\n• Probengewinnung und Verarbeitung, Datenerhebung eHealth Plattform\n• Studienprotokolle gemäss Gesetzgebung und Standards (SOPs) umsetzten\n• Interdisziplinäre Zusammenarbeit – in enger Abstimmung mit Prüfärzt*innen, Studienkoordinator*innen und externen Partnern gestalten Sie den Studienalltag aktiv mit.\n• Begleitung spannender Studienprojekte – Sie arbeiten an hochkarätigen klinischen Studien in einem dynamischen und digital orientierten Umfeld mit.\n\nIhr Profil:\n\n• Erfahrung im Bereich klinischer Studien, eCRF, Digitalisierung\n• Erfahrung in der Arbeit nach SOPs und GCP\n• Analytisches und lösungsorientiertes Denken und Handeln\n• Flexibilität und Teamfähigkeit\n• Exakte und verlässliche Arbeitsweise, Wille zur Eigeninitiative und Eigenverantwortung\n• Sehr gute MS-Office Kenntnisse\n• Gute Englischkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team\n• Attraktive Arbeitszeiten: Kein Nacht- oder Wochenenddienst\n• Arbeitsort mit bester Anbindung an öffentlichen Verkehr, kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten\n• Angenehmes Arbeitsklima in attraktivem Standort nahe Zürich\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "it": "Immediatamente o con accordo stiamo cercando un'infermiera di studio Oncology\n40%\n\nLa vostra area di responsabilità:\n\n• Reclutamento e supporto dei pazienti di studio – Lei è il primo contatto e accompagna con competenza i partecipanti attraverso il corso dei loro studi.\n• Contatto con i medici e sostenere l'attività di studio\n• Raccolta dei dati anche mediante documentazione digitale (eCRF)\n• Raccolta e elaborazione dei campioni, piattaforma eHealth raccolta dati\n• Protocolli di studio attuati in conformità alla legislazione e agli standard (SOP)\n• Cooperazione interdisciplinare – in stretto coordinamento con gli investigatori, i coordinatori di studio e i partner esterni, si forma attivamente la vita quotidiana di studio.\n• Accompagnamento di progetti di studio entusiasmanti – Lavorano su studi clinici di alto profilo in un ambiente dinamico e digitalmente orientato.\n\nIl tuo profilo:\n\n• Esperienza negli studi clinici, eCRF, digitalizzazione\n• Esperienza di lavoro dopo le SOP e GCP\n• pensiero e azione analitici e orientati alla soluzione\n• Flessibilità e lavoro di squadra\n• Metodo di lavoro preciso e affidabile, volontà di prendere iniziativa e responsabilità personale\n• Ottima conoscenza di MS-Office\n• Buone competenze in inglese in parole e scrittura, altre lingue sono vantaggiose\n\nCosa ti offriamo:\n\n• Lavorare in modo indipendente in un team motivato e collaborativo\n• Ore lavorative interessanti: Nessun servizio di notte o di fine settimana\n• Posto di lavoro con migliori connessioni ai trasporti pubblici, posti auto per il personale economico.\n• Infrastrutture moderne e un ambiente di lavoro dove si può sentire a proprio agio\n• Vantaggi diversi – dai grandi sconti ai dipendenti per ulteriori offerte di istruzione\n• Piacevole atmosfera di lavoro in una posizione attraente vicino a Zurigo\n\nVantaggi\nOltre a numerosi vantaggi di Fringe (servizi aggiuntivi), si beneficiano di promozioni mirate e ulteriori offerte di istruzione a tutti i livelli. Condizioni di lavoro moderne\n• 42 ore settimanali (docenti 50)\n• Gli straordinari sono solitamente compensati dal tempo libero della stessa durata\n• 5 settimane di vacanza, a partire da 50 anni 6 settimane\n• Quotidiano 20 min\n• Il tempo di cambio è considerato come orario di lavoro\n• Possibilità di Home Office\n\nFormazione continua\n• Formazione interna per i dipendenti\n• Partecipazione ai costi e alle ore di lavoro per un'ulteriore formazione e formazione da parte del datore di lavoro\n• Come ospedale per l'istruzione e la formazione, offriamo vari stage e apprendisti\n• Seminari di sviluppo della leadership\n\nRiduzioni e condizioni\n• Consigli nutrizionali ridotti e massaggio\n• Vaccinazione annua libera dell'influenza\n• Barca Ospedale in affitto\n• Pasti gratuiti per i lavoratori notturni\n• In Horgen e dintorni, diverse aziende selezionate concedono almeno il 10% di sconto per presentare la carta d'identità (ad esempio i biglietti annuali dello Zoo di Zurigo, 15% di sconto in Alpamare, Brack.ch fino al 25% ecc.)\n• Sconti delle pulci presso i partner di amag (Audi, VW, Seat, Skoda), BWM e Mini e Mercedes e Smart\n\nAssicurazione estesa\n• See-Spital offre 16 settimane di congedo di maternità al 100% di prosecuzione salariale invece della legalmente richiesto 14 settimane all'80%\n• Premio per l'assicurazione complementare contro gli infortuni (privato) a spese del datore di lavoro\n\nBilancia della vita lavorativa\n• Possibilità di impiego parziale e oraria (su richiesta)\n• Ore lavorative flessibili (ore lavorative annuali)\n• Opportunità per congedo non pagato\n\nGestione della salute sul lavoro\n• Salute e sicurezza sul lavoro\n• Team e attività ospedaliere (Summer Festival, Christmas Apéro)\n• Gestione della presenza\n• Gestione dei casi esterni\n• Gestione generazionale\n\nAltri vantaggi\n• Bonus fedeltà da 10 anni di servizio ogni 5 anni (vacanze o salari)\n• 13. Salari mensili (pagamento giugno e dicembre)\n• Camere e appartamenti del personale a Horgen e Kilchberg\n• Comitato del personale\n• Opzioni di cibo economiche nel ristorante del personale",
+        "en": "Immediately or by agreement we are looking for a Study Nurse Oncology\n40%\n\nYour area of responsibility:\n\n• Recruitment and support of study patients – You are the first contact person and competently accompany the participants through the course of their studies.\n• Contact with doctors and support the study activity\n• Data collection also by means of digital documentation (eCRF)\n• Sample collection and processing, data collection eHealth platform\n• Implemented study protocols in accordance with legislation and standards (SOPs)\n• Interdisciplinary cooperation – in close coordination with investigators, study coordinators and external partners, you actively shape everyday study life.\n• Accompanying exciting study projects – They work on high-profile clinical trials in a dynamic and digitally oriented environment.\n\nYour profile:\n\n• Experience in clinical trials, eCRF, digitalization\n• Experience working after SOPs and GCP\n• Analytical and solution-oriented thinking and action\n• Flexibility and teamwork\n• Precise and reliable working method, willingness to take initiative and personal responsibility\n• Excellent MS-Office knowledge\n• Good English skills in words and writing, other languages are advantageous\n\nWhat we offer you:\n\n• Working independently in a motivated and collaborative team\n• Attractive working hours: No night or weekend service\n• Workplace with best connections to public transport, cost-effective staff parking spaces.\n• Modern infrastructure and a work environment where you can feel comfortable\n• Diverse benefits – from great employee discounts to further education offers\n• Pleasant working atmosphere in an attractive location near Zurich\n\nBenefits\nIn addition to numerous Fringe Benefits (additional services), you benefit from targeted promotion and further education offers at all levels. Modern employment conditions\n• 42 hour week (Doctors 50)\n• Overtime is usually compensated by free time of the same duration\n• 5 weeks holiday, from 50 years of age 6 week\n• Daily 20 min paid break\n• Changing time is considered as working time\n• Possibility for Home Office\n\nOngoing training\n• Internal training for employees\n• Participation in costs and working hours for further education and training by employer\n• As an education and training hospital, we offer various internships and apprenticeships\n• Leadership Development Seminars\n\nRebates and conditions\n• Reduced nutrition advice and massage\n• Annually free flu vaccination\n• Hospital boat for rent\n• Free meals for night workers\n• In Horgen and the surrounding area, various selected companies grant at least 10% discount when presenting the identity card (e.g. Free Zoo Zurich annual tickets, 15% discount in the Alpamare, Brack.ch up to 25% etc.)\n• Fleet discounts at amag partners (Audi, VW, Seat, Skoda), BWM and Mini as well as Mercedes and Smart\n\nExtensive insurance\n• See-Spital offers 16 weeks of maternity leave at 100% wage continuation instead of the legally required 14 weeks at 80%\n• Premium for accident supplementary insurance (private) at the expense of the employer\n\nWork-life balance\n• Possibility of part-time and hourly employment (on demand)\n• Flexible working hours (annual working hours)\n• Opportunity for unpaid leave\n\nOccupational health management\n• Occupational health and safety\n• Team and hospital-wide activities (Summer Festival, Christmas Apéro)\n• Presence management\n• External case management\n• Generational management\n\nOther benefits\n• Loyalty bonus from 10 years of service every 5 years (vacations or wages)\n• 13. Monthly wage (disbursement June and December)\n• Staff rooms and apartments in Horgen and Kilchberg\n• Staff Committee\n• Cheap food options in the staff restaurant",
+        "fr": "Immédiatement ou d'un commun accord, nous cherchons une infirmière d'études Oncologie\n40%\n\nVotre domaine de responsabilité :\n\n• Recrutement et soutien des patients de l'étude – Vous êtes la première personne de contact et accompagnez les participants avec compétence tout au long de leurs études.\n• Contact avec les médecins et soutien de l'activité d'étude\n• Collecte de données également au moyen de documents numériques (eCRF)\n• Collecte et traitement d'échantillons, collecte de données Plateforme eHealth\n• Mise en œuvre des protocoles d'étude conformément à la législation et aux normes (SOP)\n• Coopération interdisciplinaire – en étroite coordination avec les chercheurs, les coordinateurs d'études et les partenaires externes, vous façonnez activement la vie d'étude quotidienne.\n• Accompagner des projets d'étude passionnants – Ils travaillent sur des essais cliniques de grande envergure dans un environnement dynamique et orienté numériquement.\n\nVotre profil:\n\n• Expérience dans les essais cliniques, eCRF, numérisation\n• Expérience de travail après les SOP et le GCP\n• La pensée et l'action analytiques et orientées vers la solution\n• Flexibilité et travail d'équipe\n• Méthode de travail précise et fiable, volonté de prendre des initiatives et responsabilité personnelle\n• Excellente connaissance du MS-Office\n• Bonnes compétences en anglais en mots et en écriture, d'autres langues sont avantageuses\n\nCe que nous vous offrons:\n\n• Travailler de façon indépendante dans une équipe motivée et collaborative\n• Horaires de travail attractifs: Pas de service de nuit ou de week-end\n• Lieu de travail avec les meilleures connexions aux transports en commun, des places de stationnement pour le personnel économiques.\n• Infrastructure moderne et environnement de travail où vous pouvez vous sentir à l'aise\n• Avantages divers – de grandes réductions pour les employés aux offres de formation continue\n• Ambiance de travail agréable dans un endroit attrayant près de Zurich\n\nAvantages\nEn plus de nombreux Fringe Benefits (services supplémentaires), vous bénéficiez d'offres ciblées de promotion et de formation continue à tous les niveaux. Conditions d'emploi modernes\n• 42 heures par semaine (Doctors 50)\n• Les heures supplémentaires sont généralement compensées par un temps libre de même durée\n• 5 semaines de vacances, à partir de 50 ans 6 semaines\n• Pause quotidienne payée de 20 min\n• L'évolution du temps est considérée comme du temps de travail\n• Possibilité pour le Home Office\n\nFormation continue\n• Formation interne des salariés\n• Participation des employeurs aux coûts et aux heures de travail pour la formation continue\n• En tant qu'hôpital d'éducation et de formation, nous proposons divers stages et apprentissages\n• Séminaires de perfectionnement en leadership\n\nRemboursements et conditions\n• Conseils nutritionnels et massages réduits\n• Vaccination antigrippale gratuite chaque année\n• Bateau hospitalier à louer\n• Repas gratuits pour les travailleurs de nuit\n• À Horgen et dans les environs, différentes entreprises sélectionnées accordent au moins 10% de réduction lors de la présentation de la carte d'identité (par exemple, les billets annuels du Zoo gratuit de Zurich, 15% de réduction dans l'Alpamare, Brack.ch jusqu'à 25%, etc.)\n• Réductions de flotte chez les partenaires amag (Audi, VW, Seat, Skoda), BWM et Mini ainsi que Mercedes et Smart\n\nAssurance étendue\n• See-Spital offre 16 semaines de congé de maternité à 100% de maintien du salaire au lieu des 14 semaines légalement requises à 80%\n• Prime pour assurance complémentaire accident (privée) aux frais de l'employeur\n\nÉquilibre travail-vie privée\n• Possibilité d'emploi à temps partiel et horaire (sur demande)\n• Temps de travail flexible (heures de travail annuelles)\n• Possibilité de congé non rémunéré\n\nGestion de la santé au travail\n• Santé et sécurité au travail\n• Activités en équipe et à l'échelle de l'hôpital (Festival d'été, Noël Apéro)\n• Gestion de la présence\n• Gestion externe des dossiers\n• Gestion des générations\n\nAutres prestations\n• Prime de fidélité à partir de 10 ans de service tous les 5 ans (vacances ou salaires)\n• 13. Salaire mensuel (dépenses de juin et décembre)\n• Chambres du personnel et appartements à Horgen et Kilchberg\n• Comité du personnel\n• Options de restauration bon marché dans le restaurant du personnel"
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1284/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-23T09:22:17.187Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1284/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "See-Spital",
+      "contractDuration": "permanent",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-23T09:22:17.187Z"
     }
   ]
 }

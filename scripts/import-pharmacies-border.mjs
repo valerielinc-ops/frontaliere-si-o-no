@@ -36,6 +36,7 @@ import {
   ITALY_BORDER_PROVINCES,
   ITALY_PHARMACY_DATASET_PAGE,
   TICINO_PHARMACY_PDF_URL,
+  TICINO_PHARMACY_PDF_URLS,
   buildItalianBorderRecords,
   buildOsmQuery,
   buildTicinoCompleteRecords,
@@ -317,6 +318,25 @@ async function fetchBuffer(url) {
   return Buffer.from(await response.arrayBuffer());
 }
 
+/**
+ * Fetch the official Ticino catalogue through the canonical host first, then
+ * retry the same published PDF through the canton mirror when the primary
+ * transport budget is exhausted. Persistent HTTP errors still fail closed.
+ */
+export async function fetchTicinoPdfBuffer(fetchSource = fetchBuffer) {
+  let lastError;
+  for (const [index, sourceUrl] of TICINO_PHARMACY_PDF_URLS.entries()) {
+    try {
+      return await fetchSource(sourceUrl);
+    } catch (error) {
+      lastError = error;
+      if (!isRetryBudgetExhausted(error) || index === TICINO_PHARMACY_PDF_URLS.length - 1) throw error;
+      console.warn(`[import-pharmacies-border] ${sourceUrl} exhausted its transient retry budget; trying the official Ticino mirror`);
+    }
+  }
+  throw lastError;
+}
+
 async function discoverItalyDownloadUrl() {
   if (process.env.PHARMACY_ITALY_DOWNLOAD_URL) return process.env.PHARMACY_ITALY_DOWNLOAD_URL;
   const page = await fetchText(ITALY_PHARMACY_DATASET_PAGE, { accept: 'text/html' });
@@ -370,7 +390,7 @@ async function readTicinoPdfText() {
   const tempDir = await mkdtemp(resolve(tmpdir(), 'frontaliere-pharmacies-'));
   const pdfPath = resolve(tempDir, 'ticino-pharmacies.pdf');
   try {
-    await writeFile(pdfPath, await fetchBuffer(TICINO_PHARMACY_PDF_URL));
+    await writeFile(pdfPath, await fetchTicinoPdfBuffer());
     const { stdout } = await execFileAsync('pdftotext', ['-layout', pdfPath, '-'], { maxBuffer: 4 * 1024 * 1024 });
     return { text: stdout, source: TICINO_PHARMACY_PDF_URL };
   } catch (error) {
@@ -683,7 +703,13 @@ async function main() {
   );
   const enrichmentOutput = buildPharmacyEnrichmentSnapshot(previousEnrichment, enrichmentResult, fetchedAt);
 
-  if (!allDutiesFailed) {
+  // A preserved catalogue is a valid fallback for identity continuity, but it
+  // must not be paired with a newer duty snapshot. Publishing that mixed pair
+  // creates a partial release and turns a transient source outage into a
+  // site-wide noindex event. Keep the previous atomic Ticino release intact;
+  // the next successful catalogue fetch can advance all three files together.
+  const publishTicinoRelease = !allDutiesFailed && ticinoOutput._preserved !== true;
+  if (publishTicinoRelease) {
     const atomic = buildAtomicPharmacySnapshots({
       catalogue: ticinoOutput,
       duties: dutiesSnapshot,
@@ -700,6 +726,8 @@ async function main() {
     await writeJson(TICINO_OUTPUT_PATH, atomic.catalogue);
     await writeJson(DUTIES_PATH, atomic.duties);
     await writeJson(DUTIES_STATUS_PATH, atomic.status);
+  } else if (ticinoOutput._preserved === true) {
+    console.warn('[import-pharmacies-border] Ticino catalogue was preserved; retaining the previous atomic catalogue+duties+status release');
   }
   await writeJson(ITALY_OUTPUT_PATH, italyOutput);
   await writeJson(ENRICHMENT_OUTPUT_PATH, enrichmentOutput);

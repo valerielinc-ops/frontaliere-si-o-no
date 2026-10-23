@@ -1157,7 +1157,7 @@ function toNormalizedSet(values) {
  * Temporarily injects the env vars that the old subprocess would receive,
  * then restores the original values after the pipeline completes.
  */
-async function runSharedCrawlerInProcess({ root, env }) {
+async function runSharedCrawlerInProcess({ root, env, detailPageCache }) {
   // Save original env values we're about to override
   const overrides = {};
   const originals = {};
@@ -1174,7 +1174,7 @@ async function runSharedCrawlerInProcess({ root, env }) {
   try {
     // Dynamic import to avoid loading 7k-line module at parse time
     const { runSharedCrawlerPipeline } = await import('./shared-jobs-crawler.mjs');
-    return await runSharedCrawlerPipeline();
+    return await runSharedCrawlerPipeline({ detailPageCache });
   } finally {
     // Restore original env values
     for (const [key, value] of Object.entries(originals)) {
@@ -4672,6 +4672,7 @@ export async function runDedicatedBaseCrawler({
   forceLocalizationWhenAiEnabledOnly = false,
   localizeExistingOnly = false,
   dataJobsPath,
+  detailPageCache,
 }) {
   const scopedCompanyKeys = toNormalizedSet(companyKeys);
   if (scopedCompanyKeys.length === 0) {
@@ -4745,7 +4746,7 @@ export async function runDedicatedBaseCrawler({
   // lafonte, … and the standard template) is covered without per-script seeds.
   seedCrawlerSlicesFromDataJobs(root, scopedCompanyKeys, resolvedDataJobsPath);
 
-  return runSharedCrawlerInProcess({ root, env });
+  return runSharedCrawlerInProcess({ root, env, detailPageCache });
 }
 
 /**

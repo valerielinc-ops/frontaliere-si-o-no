@@ -5221,7 +5221,13 @@ function buildKnownJobUrlsSet(preloadedJobs, nowMs = Date.now()) {
   );
 }
 
-async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls = new Set()) {
+async function processCompany(
+  company,
+  hintsRegex,
+  crawlerConfig,
+  knownJobUrls = new Set(),
+  runtimeOptions = {},
+) {
   const result = {
     company: company.name,
     companyKey: company.key,
@@ -5692,8 +5698,12 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   // 2) Fallback on job detail pages when JSON-LD is absent
   if (enabledModes.has('html') && jobLinks.size > 0) {
     const allLinks = [...jobLinks];
-    // seedDetailUrls bypass skip-optimization: they must always be re-fetched
+    // seedDetailUrls bypass skip-optimization: they must always be considered
     // so that _targetScope metadata is present for the merge exclusion bypass.
+    // A dedicated runner may provide a just-verified page cache here. This is
+    // important for client-rendered detail pages: the verification step may
+    // have needed a browser to obtain the real posting, while a second plain
+    // fetch would return only the app shell.
     const unknownLinks = knownJobUrls.size > 0
       ? allLinks.filter((u) => isSeedDetailUrl(u) || !knownJobUrls.has(canonicalizeJobUrl(u)))
       : allLinks;
@@ -5705,12 +5715,20 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
     for (const detailUrl of links) {
       try {
         const seedMeta = getAdapterSeedMetaForUrl(adapter, detailUrl);
-        const res = await fetchWithTimeout(detailUrl, {
-          userAgent: adapter?.userAgent,
-          timeoutMs: adapter?.requestTimeoutMs,
-        });
-        if (!res.ok) continue;
-        const html = await res.text();
+        const cachedPage = runtimeOptions?.detailPageCache instanceof Map
+          ? runtimeOptions.detailPageCache.get(detailUrl)
+          : null;
+        let html;
+        if (cachedPage && typeof cachedPage.html === 'string') {
+          html = cachedPage.html;
+        } else {
+          const res = await fetchWithTimeout(detailUrl, {
+            userAgent: adapter?.userAgent,
+            timeoutMs: adapter?.requestTimeoutMs,
+          });
+          if (!res.ok) continue;
+          html = await res.text();
+        }
         const sourceTag = jobLinkSources.get(detailUrl) || 'detail_link';
         const signals = quickJobPageSignals(html, detailUrl);
         // When a detail page embeds JSON-LD JobPosting (e.g. Prospective career center SPAs),
@@ -6087,7 +6105,7 @@ async function runHousekeeping() {
   await execFileAsync('node', [script], { cwd: ROOT, maxBuffer: 1024 * 1024 * 4 });
 }
 
-async function main() {
+async function main(runtimeOptions = {}) {
   const startedAt = new Date().toISOString();
   aiLocalizationCalls = 0;
   aiPageValidationCalls = 0;
@@ -6243,7 +6261,7 @@ async function main() {
     const hintsRegex = /(career|careers|jobs|job|vacanc|offerta|lavor|karriere|stellen|emploi|candid|join-us|work-with-us)/i;
     results = await runWithConcurrency(
       companiesToCrawl,
-      (company) => processCompany(company, hintsRegex, crawlerConfig, knownJobUrls),
+      (company) => processCompany(company, hintsRegex, crawlerConfig, knownJobUrls, runtimeOptions),
       MAX_CONCURRENCY
     );
     incomingJobs = results.flatMap((r) => r.extractedJobs).map((job) => {

@@ -1,18 +1,64 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-10-22T21:28:34.454Z",
+  "generatedAt": "2026-10-23T09:33:13.941Z",
   "total": 240,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 61,
-  "removedCount": 0,
-  "unchangedCount": 179,
-  "durationMs": 481746,
-  "avgDurationMs": 481746,
+  "removedCount": 1,
+  "unchangedCount": 178,
+  "durationMs": 481954,
+  "avgDurationMs": 481954,
   "durationHistory": [
-    481746
+    481954
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Servicemonteur/in Sanitär (100%)",
+      "slug": "servicemonteur-in-sanitar-100-guyer-warme-und-wasser-ag-zurich",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-in-sanitaer-1032",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-in-sanitaer-1032",
+      "company": "Guyer Wärme und Wasser AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Zürichbergstrasse 80",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-10-23T09:32:59.900Z",
+      "coordinates": [
+        47.3765752,
+        8.5603708
+      ],
+      "id": "burkhalter-group-5f0c4b67cc0d",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-05-13T21:47:32.310Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Servicetechniker/in Elektro (80 - 100%)",
@@ -35,7 +81,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.482Z",
+      "crawledAt": "2026-10-23T09:32:59.910Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -85,7 +131,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.486Z",
+      "crawledAt": "2026-10-23T09:32:59.913Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -125,7 +171,7 @@
       "postedDate": "2026-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.486Z",
+      "crawledAt": "2026-10-23T09:32:59.914Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -170,7 +216,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.495Z",
+      "crawledAt": "2026-10-23T09:32:59.922Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -215,7 +261,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.495Z",
+      "crawledAt": "2026-10-23T09:32:59.923Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -260,7 +306,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.502Z",
+      "crawledAt": "2026-10-23T09:32:59.929Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -305,7 +351,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.504Z",
+      "crawledAt": "2026-10-23T09:32:59.932Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -350,7 +396,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.505Z",
+      "crawledAt": "2026-10-23T09:32:59.932Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -395,7 +441,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.507Z",
+      "crawledAt": "2026-10-23T09:32:59.934Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -440,7 +486,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.507Z",
+      "crawledAt": "2026-10-23T09:32:59.935Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -485,7 +531,7 @@
       "postedDate": "2026-04-17",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.509Z",
+      "crawledAt": "2026-10-23T09:32:59.936Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -530,7 +576,7 @@
       "postedDate": "2025-11-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.528Z",
+      "crawledAt": "2026-10-23T09:32:59.955Z",
       "coordinates": [
         47.0490246,
         8.2699265
@@ -575,7 +621,7 @@
       "postedDate": "2025-07-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.533Z",
+      "crawledAt": "2026-10-23T09:32:59.963Z",
       "coordinates": [
         46.7666214,
         9.7987071
@@ -620,7 +666,7 @@
       "postedDate": "2025-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.534Z",
+      "crawledAt": "2026-10-23T09:32:59.965Z",
       "coordinates": [
         47.4475084,
         8.2958604
@@ -665,7 +711,7 @@
       "postedDate": "2025-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.539Z",
+      "crawledAt": "2026-10-23T09:32:59.971Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -710,7 +756,7 @@
       "postedDate": "2025-06-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.540Z",
+      "crawledAt": "2026-10-23T09:32:59.972Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -755,7 +801,7 @@
       "postedDate": "2025-06-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.541Z",
+      "crawledAt": "2026-10-23T09:32:59.972Z",
       "coordinates": [
         46.2693588,
         6.9555405
@@ -800,7 +846,7 @@
       "postedDate": "2025-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.543Z",
+      "crawledAt": "2026-10-23T09:32:59.974Z",
       "coordinates": [
         46.9709598,
         9.5592226
@@ -845,7 +891,7 @@
       "postedDate": "2025-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.544Z",
+      "crawledAt": "2026-10-23T09:32:59.976Z",
       "coordinates": [
         46.4615857,
         6.842294
@@ -890,7 +936,7 @@
       "postedDate": "2025-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.545Z",
+      "crawledAt": "2026-10-23T09:32:59.976Z",
       "coordinates": [
         46.5432538,
         6.6239502
@@ -935,7 +981,7 @@
       "postedDate": "2025-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.545Z",
+      "crawledAt": "2026-10-23T09:32:59.977Z",
       "coordinates": [
         46.5084544,
         6.8486817
@@ -980,7 +1026,7 @@
       "postedDate": "2024-10-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.552Z",
+      "crawledAt": "2026-10-23T09:32:59.984Z",
       "coordinates": [
         46.4681047,
         7.2859582
@@ -1025,7 +1071,7 @@
       "postedDate": "2024-09-27",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.553Z",
+      "crawledAt": "2026-10-23T09:32:59.984Z",
       "coordinates": [
         47.5075582,
         8.5391731
@@ -1070,7 +1116,7 @@
       "postedDate": "2024-09-27",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.553Z",
+      "crawledAt": "2026-10-23T09:32:59.985Z",
       "coordinates": [
         47.4957592,
         8.7649392
@@ -1115,7 +1161,7 @@
       "postedDate": "2024-08-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.557Z",
+      "crawledAt": "2026-10-23T09:32:59.989Z",
       "coordinates": [
         47.0656402,
         8.2903717
@@ -1160,7 +1206,7 @@
       "postedDate": "2024-06-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.558Z",
+      "crawledAt": "2026-10-23T09:32:59.990Z",
       "coordinates": [
         46.782653,
         9.681166
@@ -1205,7 +1251,7 @@
       "postedDate": "2024-05-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.560Z",
+      "crawledAt": "2026-10-23T09:32:59.991Z",
       "coordinates": [
         46.1078893,
         7.0998918
@@ -1251,7 +1297,7 @@
       "postedDate": "2024-05-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.560Z",
+      "crawledAt": "2026-10-23T09:32:59.992Z",
       "coordinates": [
         46.1078893,
         7.0998918
@@ -1297,7 +1343,7 @@
       "postedDate": "2024-04-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.561Z",
+      "crawledAt": "2026-10-23T09:32:59.993Z",
       "coordinates": [
         46.7902021,
         9.8213899
@@ -1342,7 +1388,7 @@
       "postedDate": "2023-11-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.566Z",
+      "crawledAt": "2026-10-23T09:32:59.998Z",
       "coordinates": [
         46.3115908,
         7.6406428
@@ -1367,7 +1413,53 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Servicetechniker Wasserschaden (100%)",
+      "slug": "servizio-tecnico-danni-all-acqua-100-guyer-warme-und-wasser-ag-zurich",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-wasserschaden-100-1342",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-wasserschaden-100-1342",
+      "company": "Guyer Wärme und Wasser AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-31",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-10-22T09:21:04.859Z",
+      "coordinates": [
+        47.3765752,
+        8.5603708
+      ],
+      "id": "burkhalter-group-ec1b9218b4b5",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-08-31T17:18:01.555Z",
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-wasserschaden-100-1342",
+      "postalCode": "8001",
+      "streetAddress": "Zürichbergstrasse 80",
+      "datePosted": "2026-08-31",
+      "postingDateSource": "reported",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Servicetechniker/in Heizung / Sanitär (100%)",
@@ -1394,7 +1486,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.474Z",
+      "crawledAt": "2026-10-23T09:32:59.901Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -1438,7 +1530,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.475Z",
+      "crawledAt": "2026-10-23T09:32:59.902Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -1482,7 +1574,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.475Z",
+      "crawledAt": "2026-10-23T09:32:59.903Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -1522,7 +1614,7 @@
       "postedDate": "2026-09-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.477Z",
+      "crawledAt": "2026-10-23T09:32:59.904Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -1567,7 +1659,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.478Z",
+      "crawledAt": "2026-10-23T09:32:59.906Z",
       "coordinates": [
         46.1080222,
         7.9256477
@@ -1612,7 +1704,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.480Z",
+      "crawledAt": "2026-10-23T09:32:59.908Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -1627,51 +1719,6 @@
       "postalCode": "6030",
       "streetAddress": "Neuhaltenstrasse 3",
       "datePosted": "2026-09-15",
-      "postingDateSource": "reported",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Servicetechniker Wasserschaden (100%)",
-      "slug": "servizio-tecnico-danni-all-acqua-100-guyer-warme-und-wasser-ag-zurich",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-wasserschaden-100-1342",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-wasserschaden-100-1342",
-      "company": "Guyer Wärme und Wasser AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-31",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.480Z",
-      "coordinates": [
-        47.3765752,
-        8.5603708
-      ],
-      "id": "burkhalter-group-ec1b9218b4b5",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-08-31T17:18:01.555Z",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-wasserschaden-100-1342",
-      "postalCode": "8001",
-      "streetAddress": "Zürichbergstrasse 80",
-      "datePosted": "2026-08-31",
       "postingDateSource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1702,7 +1749,7 @@
       "postedDate": "2026-08-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.481Z",
+      "crawledAt": "2026-10-23T09:32:59.909Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -1747,7 +1794,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.483Z",
+      "crawledAt": "2026-10-23T09:32:59.910Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1792,7 +1839,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.484Z",
+      "crawledAt": "2026-10-23T09:32:59.911Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1837,7 +1884,7 @@
       "postedDate": "2026-08-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.484Z",
+      "crawledAt": "2026-10-23T09:32:59.912Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -1882,7 +1929,7 @@
       "postedDate": "2026-07-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.485Z",
+      "crawledAt": "2026-10-23T09:32:59.912Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -1927,7 +1974,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.487Z",
+      "crawledAt": "2026-10-23T09:32:59.914Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1972,7 +2019,7 @@
       "postedDate": "2026-07-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.487Z",
+      "crawledAt": "2026-10-23T09:32:59.915Z",
       "coordinates": [
         46.9669411,
         9.5551841
@@ -2017,7 +2064,7 @@
       "postedDate": "2026-06-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.488Z",
+      "crawledAt": "2026-10-23T09:32:59.916Z",
       "coordinates": [
         46.7204645,
         9.5593501
@@ -2062,7 +2109,7 @@
       "postedDate": "2026-06-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.491Z",
+      "crawledAt": "2026-10-23T09:32:59.919Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -2107,7 +2154,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.494Z",
+      "crawledAt": "2026-10-23T09:32:59.921Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -2152,7 +2199,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.496Z",
+      "crawledAt": "2026-10-23T09:32:59.923Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -2197,7 +2244,7 @@
       "postedDate": "2026-05-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.496Z",
+      "crawledAt": "2026-10-23T09:32:59.924Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -2242,7 +2289,7 @@
       "postedDate": "2026-05-19",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.499Z",
+      "crawledAt": "2026-10-23T09:32:59.927Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -2287,7 +2334,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.500Z",
+      "crawledAt": "2026-10-23T09:32:59.927Z",
       "coordinates": [
         47.3935972,
         8.1643977
@@ -2332,7 +2379,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.500Z",
+      "crawledAt": "2026-10-23T09:32:59.928Z",
       "coordinates": [
         47.3096077,
         7.8926763
@@ -2377,7 +2424,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.501Z",
+      "crawledAt": "2026-10-23T09:32:59.929Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -2422,7 +2469,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.502Z",
+      "crawledAt": "2026-10-23T09:32:59.930Z",
       "coordinates": [
         47.2541809,
         7.002328
@@ -2467,7 +2514,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.503Z",
+      "crawledAt": "2026-10-23T09:32:59.931Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -2512,7 +2559,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.504Z",
+      "crawledAt": "2026-10-23T09:32:59.931Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -2557,7 +2604,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.505Z",
+      "crawledAt": "2026-10-23T09:32:59.933Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -2602,7 +2649,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.506Z",
+      "crawledAt": "2026-10-23T09:32:59.934Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -2647,7 +2694,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.508Z",
+      "crawledAt": "2026-10-23T09:32:59.936Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -2692,7 +2739,7 @@
       "postedDate": "2026-03-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-10-22T21:28:21.509Z",
+      "crawledAt": "2026-10-23T09:32:59.937Z",
       "coordinates": [
         47.3939007,
         8.6488896
@@ -2715,7 +2762,52 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "title": "Servicetechniker/in Heizung (100%)",
+      "slug": "tecnico-a-di-servizio-heizung-100-halter-gebaudetechnik-ag-dubendorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-in-heizung-100-1621",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-in-heizung-100-1621",
+      "company": "Halter Gebäudetechnik AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Dübendorf",
+      "addressLocality": "Dübendorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-03-30",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-10-23T09:32:59.938Z",
+      "coordinates": [
+        47.3939007,
+        8.6488896
+      ],
+      "id": "burkhalter-group-f885fc9f212a",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Alte Landstrasse 12",
+      "postalCode": "8600",
+      "firstSeenAt": "2026-05-11T21:39:47.340Z",
+      "salarySource": "reported",
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-in-heizung-100-1621",
+      "datePosted": "2026-03-30",
+      "postingDateSource": "reported",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }

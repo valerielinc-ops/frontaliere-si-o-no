@@ -1,7 +1,7 @@
 {
   "key": "octapharma",
   "label": "Octapharma",
-  "generatedAt": "2026-10-22T21:21:00.827Z",
+  "generatedAt": "2026-10-23T09:30:53.796Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5880,
-  "avgDurationMs": 5880,
+  "durationMs": 6880,
+  "avgDurationMs": 6880,
   "durationHistory": [
-    5880
+    6880
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Manager-Quality-Applications/1410853533/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:20:43.436Z",
+      "crawledAt": "2026-10-23T09:30:38.829Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Expert-Clinical-Trial-Documentation-Clinical-Trial-Associate-%28CTA%29/1425186833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:20:42.799Z",
+      "crawledAt": "2026-10-23T09:30:38.153Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Digital-Marketing-Manager-International-Business-Units/1442919833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:20:42.185Z",
+      "crawledAt": "2026-10-23T09:30:37.509Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -151,5 +151,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }

@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-22T21:16:17.300Z",
+  "generatedAt": "2026-10-23T09:19:28.375Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 7675,
-  "avgDurationMs": 7675,
+  "durationMs": 6255,
+  "avgDurationMs": 6255,
   "durationHistory": [
-    7675
+    6255
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:15:59.179Z",
+      "crawledAt": "2026-10-23T09:19:13.287Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -80,7 +80,7 @@
       "url": "https://careers.straumann.com/global/en/job/22285/global-medical-education-workflow-application-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:16:01.058Z",
+      "crawledAt": "2026-10-23T09:19:15.369Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -121,7 +121,7 @@
       "url": "https://careers.straumann.com/global/en/job/22204/global-head-of-dso-education-services",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:16:00.606Z",
+      "crawledAt": "2026-10-23T09:19:14.641Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -162,7 +162,7 @@
       "url": "https://careers.straumann.com/global/en/job/22282/intern-rdi-academy-product-development",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:16:00.121Z",
+      "crawledAt": "2026-10-23T09:19:14.299Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -203,7 +203,7 @@
       "url": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:59.818Z",
+      "crawledAt": "2026-10-23T09:19:14.017Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -244,7 +244,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:15:59.512Z",
+      "crawledAt": "2026-10-23T09:19:13.605Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -274,5 +274,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }

@@ -2528,7 +2528,7 @@ export const Analytics = {
    action,
    email_domain: emailDomain,
    source_cta: context.sourceCta,
-   // jobgate: the JobBoard gate's subscribe carries the visitor's arm
+   // jobgate: every auth-gate subscribe carries the visitor's arm
    // (empty object for every other CTA or when the experiment is off).
    ...jobGateNewsletterTags(context.sourceCta),
   });

@@ -142,13 +142,17 @@ jobs:
               > full-suite-vitest.log 2>&1"
           status=$?
           cat full-suite-vitest.log
+          printf 'FULL_SUITE_EXIT_CODE=%s\n' "$status" >> "$GITHUB_ENV"
           exit "$status"
 
       - name: Summarize red files
         # `always()`: il riepilogo serve proprio quando la suite è rossa. Se il
         # report manca (timeout, crash) lo step lo dice ed esce 1.
         if: always()
-        run: node scripts/ci/full-suite-red-files.mjs --report full-suite-report.json --out full-suite-red-files.txt
+        run: node scripts/ci/full-suite-red-files.mjs \
+          --report full-suite-report.json \
+          --out full-suite-red-files.txt \
+          --metrics-out full-suite-performance.json
 
       - name: Upload full-suite report
         if: always()
@@ -158,6 +162,7 @@ jobs:
           path: |
             full-suite-report.json
             full-suite-red-files.txt
+            full-suite-performance.json
             full-suite-vitest.log
           if-no-files-found: warn
           retention-days: 30

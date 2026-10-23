@@ -1,0 +1,24 @@
+{
+  "companyKey": "hotel-feldbach-ch",
+  "companyName": "Hotel Feldbach",
+  "companyHost": "eventlokale.ch",
+  "platform": "eventlokale.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.eventlokale.ch/"
+  ],
+  "detailTemplate": "/site/_redaktionell/51/Eventjobs/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 13,
+  "sampleTitles": [
+    "ZFV Catering-Mitarbeiter/in 60-80% | Zürich",
+    "VBS Verband-Services AG Leiter/in eventcampus 100% | Pratteln",
+    "Grandhotel Giessbach Praktikant/in Event 80-100% | Brienz",
+    "Gemeinde Baar Veranstaltungstechniker/in 100% | Baar",
+    "V-ZUG AG Event Specialist 100% | Rüfenacht"
+  ],
+  "canton": "TG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T10:58:42.094Z"
+}

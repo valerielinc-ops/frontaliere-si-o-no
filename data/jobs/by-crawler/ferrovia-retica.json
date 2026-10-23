@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-10-22T21:20:26.656Z",
-  "runId": "39854213635",
+  "assembledAt": "2026-10-23T09:17:15.848Z",
+  "runId": "39929184100",
   "jobs": [
     {
       "title": "Kunden- und Reiseberater/in Railservice (50-100%)",
@@ -25,15 +25,15 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-22T21:20:23.761Z",
+      "crawledAt": "2026-10-23T09:17:12.434Z",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "consulente-clienti-e-viaggi-railservice-50-100-ferrovia-retica-rhb-bernina",
+      "slug": "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina",
       "slugByLocale": {
-        "it": "consulente-clienti-e-viaggi-railservice-50-100-ferrovia-retica-rhb-bernina",
-        "en": "customer-and-travel-consultant-railservice-50-100-ferrovia-retica-rhb-bernina",
+        "it": "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina",
+        "en": "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina",
         "de": "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina",
-        "fr": "clientele-et-consultant-en-voyages-railservice-50-100-ferrovia-retica-rhb-bernina"
+        "fr": "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina"
       },
       "titleByLocale": {
         "de": "Kunden- und Reiseberater/in Railservice (50-100%)",
@@ -59,21 +59,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:20:23.761Z",
+      "firstSeenAt": "2026-10-23T09:17:12.434Z",
       "previousSlugsByLocale": {
         "it": [
-          "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina"
+          "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina",
+          "consulente-clienti-e-viaggi-railservice-50-100-ferrovia-retica-rhb-bernina"
         ],
         "en": [
-          "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina"
+          "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina",
+          "customer-and-travel-consultant-railservice-50-100-ferrovia-retica-rhb-bernina"
         ],
         "fr": [
-          "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina"
+          "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina",
+          "clientele-et-consultant-en-voyages-railservice-50-100-ferrovia-retica-rhb-bernina"
         ]
       },
       "previousSlugs": [
-        "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina"
-      ]
+        "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina",
+        "consulente-clienti-e-viaggi-railservice-50-100-ferrovia-retica-rhb-bernina",
+        "customer-and-travel-consultant-railservice-50-100-ferrovia-retica-rhb-bernina",
+        "clientele-et-consultant-en-voyages-railservice-50-100-ferrovia-retica-rhb-bernina"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Rangiermitarbeiter/in (50-100%)",
@@ -97,14 +104,14 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-22T21:20:23.761Z",
+      "crawledAt": "2026-10-23T09:17:12.434Z",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "collaboratore-trice-di-manovra-50-100-ferrovia-retica-rhb-chur",
       "slugByLocale": {
         "it": "collaboratore-trice-di-manovra-50-100-ferrovia-retica-rhb-chur",
         "en": "ranger-staff-member-50-100-ferrovia-retica-rhb-chur",
-        "de": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur-fbijuv",
+        "de": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
         "fr": "fonctionnaires-des-rangers-50-100-ferrovia-retica-rhb-chur"
       },
       "titleByLocale": {
@@ -125,11 +132,13 @@
           "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur"
         ],
         "de": [
-          "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur"
+          "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
+          "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur-fbijuv"
         ]
       },
       "previousSlugs": [
-        "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur"
+        "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
+        "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur-fbijuv"
       ],
       "applyUrl": "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2025-2052/",
       "addressLocality": "Chur",
@@ -148,7 +157,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-24T22:02:42.027Z"
+      "firstSeenAt": "2026-06-24T22:02:42.027Z",
+      "needsRetranslation": true
     },
     {
       "title": "Technischer Kontrolleur/In (80-100%)",
@@ -172,7 +182,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-22T21:20:23.761Z",
+      "crawledAt": "2026-10-23T09:17:12.434Z",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "technischer-kontrolleur-in-80-100-ferrovia-retica-rhb-chur",
@@ -230,7 +240,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-22T21:20:23.761Z",
+      "crawledAt": "2026-10-23T09:17:12.434Z",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "quereinsteiger-in-zugbegleitung-100-samedan-ferrovia-retica-rhb-samedan",
@@ -304,7 +314,7 @@
         "fr": "Rangers (50-100%)"
       },
       "percentage": "50-100%",
-      "crawledAt": "2026-10-22T21:20:23.761Z",
+      "crawledAt": "2026-10-23T09:17:12.434Z",
       "applyUrl": "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2278/",
       "addressLocality": "Chur",
       "addressRegion": "GR",
@@ -387,7 +397,7 @@
         "fr": "Géomatistes (80-100%)"
       },
       "percentage": "80-100%",
-      "crawledAt": "2026-10-22T21:20:23.761Z",
+      "crawledAt": "2026-10-23T09:17:12.434Z",
       "applyUrl": "https://www.rhb.ch/it/job/geomatiker-in-80-100_2026-2261/",
       "addressLocality": "Chur",
       "addressRegion": "GR",
@@ -453,7 +463,7 @@
         "fr": "Chef de la région des ventes Grisons Nord (80-100%)"
       },
       "percentage": "80-100%",
-      "crawledAt": "2026-10-22T21:20:23.761Z",
+      "crawledAt": "2026-10-23T09:17:12.434Z",
       "applyUrl": "https://www.rhb.ch/it/job/leiter-in-vertriebsregion-graubunden-nord-80-100_2026-2276/",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
@@ -519,7 +529,7 @@
         "fr": "Mécanicien • Installateur (80-100%)"
       },
       "percentage": "80-100%",
-      "crawledAt": "2026-10-22T21:20:23.761Z",
+      "crawledAt": "2026-10-23T09:17:12.434Z",
       "applyUrl": "https://www.rhb.ch/it/job/mechaniker-in-monteur-in-80-100_2026-2274/",
       "addressLocality": "Chur",
       "addressRegion": "GR",
@@ -585,7 +595,7 @@
         "fr": "Nettoyeurs de véhicules (50-100%)"
       },
       "percentage": "50-100%",
-      "crawledAt": "2026-10-22T21:20:23.761Z",
+      "crawledAt": "2026-10-23T09:17:12.434Z",
       "applyUrl": "https://www.rhb.ch/it/job/fahrzeugreiniger-in-50-100_2026-2273/",
       "addressLocality": "Chur",
       "addressRegion": "GR",
@@ -639,12 +649,12 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-22T21:20:23.761Z",
+      "crawledAt": "2026-10-23T09:17:12.434Z",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "rangers-50-100-ferrovia-retica-rhb-chur",
+      "slug": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
       "slugByLocale": {
-        "it": "rangers-50-100-ferrovia-retica-rhb-chur",
+        "it": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
         "en": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
         "de": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
         "fr": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur"
@@ -676,12 +686,15 @@
       "firstSeenAt": "2026-06-24T22:02:42.027Z",
       "previousSlugsByLocale": {
         "it": [
-          "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur"
+          "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
+          "rangers-50-100-ferrovia-retica-rhb-chur"
         ]
       },
       "previousSlugs": [
-        "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur"
-      ]
+        "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
+        "rangers-50-100-ferrovia-retica-rhb-chur"
+      ],
+      "needsRetranslation": true
     }
   ]
 }

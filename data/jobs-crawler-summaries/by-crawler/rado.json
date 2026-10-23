@@ -1,17 +1,17 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-10-22T21:25:24.235Z",
+  "generatedAt": "2026-10-23T09:28:26.125Z",
   "total": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 345681,
-  "avgDurationMs": 345681,
+  "durationMs": 377597,
+  "avgDurationMs": 377597,
   "durationHistory": [
-    345681
+    377597
   ],
   "newJobs": [
     {
@@ -28,13 +28,13 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/en/job/33557",
-      "applyUrl": "https://www.swatchgroup.com/en/job/33557",
+      "url": "https://swatchgroup.com/en/job/33557",
+      "applyUrl": "https://swatchgroup.com/en/job/33557",
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-22T21:24:47.922Z",
-      "firstSeenAt": "2026-10-22T21:24:47.922Z",
+      "crawledAt": "2026-10-23T09:27:49.514Z",
+      "firstSeenAt": "2026-10-23T09:27:49.514Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 85000,
@@ -56,5 +56,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }

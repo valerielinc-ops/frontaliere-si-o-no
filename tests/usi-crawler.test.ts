@@ -1,11 +1,14 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
+  buildUsiTranslateUrl,
   buildUsiSourceDescription,
   classifyUsiFetchError,
   dropUsiFabricatedText,
   fetchPage,
   fetchUsiPageViaBrowser,
+  fetchUsiPageViaTranslate,
   looksLikeUsiListingHtml,
+  normalizeUsiLinkUrl,
   stripUsiWrapper,
 } from '../scripts/update-usi-jobs.mjs';
 
@@ -110,6 +113,33 @@ describe('classifyUsiFetchError', () => {
 describe('USI listing transport rescue', () => {
   const listingUrl = 'https://www.usi.ch/it/universita/collabora-con-noi/concorsi-e-offerte-di-lavoro';
   const listingHtml = '<html><body><h1>Concorsi e le offerte di lavoro</h1></body></html>';
+  const noTranslateRescue = { translateFetchImpl: vi.fn(async () => null) };
+
+  it('builds a same-locale Google Translate proxy URL for the official listing', () => {
+    expect(buildUsiTranslateUrl(listingUrl)).toBe(
+      'https://www-usi-ch.translate.goog/it/universita/collabora-con-noi/concorsi-e-offerte-di-lavoro?_x_tr_sl=it&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
+    );
+  });
+
+  it('restores known translated USI links to their official host', () => {
+    expect(normalizeUsiLinkUrl(
+      'https://content-usi-ch.translate.goog/sites/default/files/call.pdf?_x_tr_sl=it&_x_tr_tl=it&_x_tr_hl=it',
+      'it',
+    )).toBe('https://content.usi.ch/sites/default/files/call.pdf');
+  });
+
+  it('accepts only a verified listing from the Google Translate rescue', async () => {
+    const fetchImpl = vi.fn(async (url) => {
+      expect(url).toBe(buildUsiTranslateUrl(listingUrl));
+      return new Response(listingHtml, { status: 200 });
+    });
+
+    await expect(fetchUsiPageViaTranslate(listingUrl, 1000, {
+      fetchImpl,
+      attempts: 1,
+    })).resolves.toBe(listingHtml);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
 
   it('keeps a verified listing after a non-2xx browser navigation response', async () => {
     const page = {
@@ -203,7 +233,11 @@ describe('USI listing transport rescue', () => {
     });
     const browserFetchImpl = vi.fn(async () => listingHtml);
 
-    await expect(fetchPage(listingUrl, 1000, { fetchHtmlImpl, browserFetchImpl })).resolves.toBe(listingHtml);
+    await expect(fetchPage(listingUrl, 1000, {
+      fetchHtmlImpl,
+      browserFetchImpl,
+      ...noTranslateRescue,
+    })).resolves.toBe(listingHtml);
 
     expect(fetchHtmlImpl).toHaveBeenCalledWith(listingUrl, expect.objectContaining({
       headers: expect.objectContaining({
@@ -214,6 +248,25 @@ describe('USI listing transport rescue', () => {
     expect(browserFetchImpl).toHaveBeenCalledWith(listingUrl, 1000);
   });
 
+  it('tries the verified clean-egress rescue before Chromium', async () => {
+    const fetchHtmlImpl = vi.fn(async () => {
+      const error: any = new Error('HTTP 403');
+      error.status = 403;
+      throw error;
+    });
+    const translateFetchImpl = vi.fn(async () => listingHtml);
+    const browserFetchImpl = vi.fn(async () => listingHtml);
+
+    await expect(fetchPage(listingUrl, 1000, {
+      fetchHtmlImpl,
+      translateFetchImpl,
+      browserFetchImpl,
+    })).resolves.toBe(listingHtml);
+
+    expect(translateFetchImpl).toHaveBeenCalledWith(listingUrl, 1000);
+    expect(browserFetchImpl).not.toHaveBeenCalled();
+  });
+
   it('rescues a known 200 challenge but does not browser-fallback a real endpoint error', async () => {
     const browserFetchImpl = vi.fn(async () => listingHtml);
     const challenge = '<html><body>Just a moment... enable JavaScript and cookies to continue</body></html>';
@@ -221,6 +274,7 @@ describe('USI listing transport rescue', () => {
     await expect(fetchPage(listingUrl, 1000, {
       fetchHtmlImpl: async () => challenge,
       browserFetchImpl,
+      ...noTranslateRescue,
     })).resolves.toBe(listingHtml);
     expect(browserFetchImpl).toHaveBeenCalledTimes(1);
 
@@ -230,6 +284,7 @@ describe('USI listing transport rescue', () => {
     await expect(fetchPage(listingUrl, 1000, {
       fetchHtmlImpl: async () => { throw notFound; },
       browserFetchImpl,
+      ...noTranslateRescue,
     })).rejects.toBe(notFound);
     expect(browserFetchImpl).not.toHaveBeenCalled();
   });
@@ -241,6 +296,7 @@ describe('USI listing transport rescue', () => {
     await expect(fetchPage(listingUrl, 1000, {
       fetchHtmlImpl: async () => unverified,
       browserFetchImpl,
+      ...noTranslateRescue,
     })).rejects.toMatchObject({ status: 403, antiBotChallenge: true });
     expect(browserFetchImpl).toHaveBeenCalledTimes(1);
   });

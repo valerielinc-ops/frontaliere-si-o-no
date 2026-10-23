@@ -1,19 +1,20 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-10-22T21:16:52.917Z",
-  "total": 3,
+  "generatedAt": "2026-10-23T09:18:23.485Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 2,
-  "durationMs": 4208,
-  "avgDurationMs": 4208,
+  "durationMs": 2564,
+  "avgDurationMs": 2564,
   "durationHistory": [
-    4208
+    2564
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "Analista investimenti e strategia",
       "slug": "analista-investimenti-e-strategia-tarchini-group-mendrisio",
@@ -45,9 +46,8 @@
       "firstSeenAt": "2026-10-01T09:14:30.664Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-22T21:16:37.376Z",
+      "crawledAt": "2026-10-21T09:15:44.199Z",
       "postalCode": "6850",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -57,7 +57,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Sales Manager",
@@ -92,7 +91,7 @@
       "applicationEmail": "info@tarchinigroup.com",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-22T21:16:37.392Z",
+      "crawledAt": "2026-10-23T09:18:11.336Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -132,7 +131,7 @@
       "firstSeenAt": "2026-09-29T21:13:20.401Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-22T21:16:37.396Z",
+      "crawledAt": "2026-10-23T09:18:11.352Z",
       "postalCode": "6850",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -143,5 +142,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }

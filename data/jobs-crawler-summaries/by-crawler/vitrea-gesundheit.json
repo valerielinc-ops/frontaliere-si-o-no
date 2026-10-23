@@ -1,7 +1,7 @@
 {
   "key": "vitrea-gesundheit",
   "label": "Vitrea Gesundheit",
-  "generatedAt": "2026-10-22T21:18:53.931Z",
+  "generatedAt": "2026-10-23T09:18:42.346Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 5,
   "removedCount": 1,
   "unchangedCount": 5,
-  "durationMs": 25129,
-  "avgDurationMs": 25129,
+  "durationMs": 26275,
+  "avgDurationMs": 26275,
   "durationHistory": [
-    25129
+    26275
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/g8v0il8oipya608e4bte80w18xfprka",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:34.224Z",
+      "crawledAt": "2026-10-23T09:18:25.125Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/mycubn7y0iv658o7pavr48xvje6am2b",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:27.069Z",
+      "crawledAt": "2026-10-23T09:18:17.098Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/fo990g9aq3owmwqjcb72gxuaucsvmld",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:25.395Z",
+      "crawledAt": "2026-10-23T09:18:15.080Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/gjj21a42hg7skg88wgmyelxo2zyrgin",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:23.303Z",
+      "crawledAt": "2026-10-23T09:18:13.457Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/tl5y7k7s748tvd0kis0732cbj9wge5j",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:21.599Z",
+      "crawledAt": "2026-10-23T09:18:11.769Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/2gfadtqulq33v25vz23ta6othjuh304",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:38.420Z",
+      "crawledAt": "2026-10-23T09:18:29.119Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ff4p38yxswahnwtbj0qnskopi7lfgaq",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:32.576Z",
+      "crawledAt": "2026-10-23T09:18:23.066Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -376,7 +376,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/uh8032hdkhzw0no7a1qevnvz4ooypse",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:30.467Z",
+      "crawledAt": "2026-10-23T09:18:21.069Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -417,7 +417,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/vtd3tvr1wlejzvbzo4pwbnas87ta65o",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:18:29.235Z",
+      "crawledAt": "2026-10-23T09:18:19.049Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -488,5 +488,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }
