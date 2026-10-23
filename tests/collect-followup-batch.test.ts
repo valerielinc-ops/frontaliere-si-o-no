@@ -22,6 +22,9 @@ import {
   readCompleteMergedPRSearch,
   MERGED_PR_SEARCH_ATTEMPTS,
   MERGED_PR_SEARCH_RETRY_DELAYS_MS,
+  readCompletePRComments,
+  PR_COMMENTS_READ_ATTEMPTS,
+  PR_COMMENTS_READ_RETRY_DELAYS_MS,
   hasTriageComment,
   latestTriageCommentBody,
   latestTriageComment,
@@ -233,6 +236,34 @@ describe('collector fail-closed parsing', () => {
     )).toThrow(/incompleta\/non verificabile/);
     expect(reads).toBe(MERGED_PR_SEARCH_ATTEMPTS);
     expect(delays).toEqual([...MERGED_PR_SEARCH_RETRY_DELAYS_MS]);
+  });
+});
+
+describe('lettura commenti PR con retry bounded', () => {
+  const complete = JSON.stringify({ comments: [] });
+
+  it('recupera uno snapshot GraphQL transitorio senza trasformarlo in un batch vuoto', () => {
+    let reads = 0;
+    const delays: number[] = [];
+    const result = readCompletePRComments(
+      () => (++reads === 1 ? null : complete),
+      { sleep: (delay) => delays.push(delay), log: () => {} },
+    );
+
+    expect(result).toBe(complete);
+    expect(reads).toBe(2);
+    expect(delays).toEqual([PR_COMMENTS_READ_RETRY_DELAYS_MS[0]]);
+  });
+
+  it('resta fail-closed dopo il budget bounded su risposte illeggibili', () => {
+    let reads = 0;
+    const delays: number[] = [];
+    expect(readCompletePRComments(
+      () => { reads += 1; return null; },
+      { sleep: (delay) => delays.push(delay), log: () => {} },
+    )).toBeNull();
+    expect(reads).toBe(PR_COMMENTS_READ_ATTEMPTS);
+    expect(delays).toEqual([...PR_COMMENTS_READ_RETRY_DELAYS_MS]);
   });
 });
 
@@ -592,7 +623,7 @@ describe('item demotato dal gate DOPO il marker (run 36212700029, 36202115664)',
     const lines: string[] = [];
     expect(verifyPersistenceCli(['9633'], { read: () => null, log: (l: string) => lines.push(l) })).toBe(false);
     expect(verifyPersistenceCli(['9633'], { read: () => JSON.stringify({ comments: [] }), log: (l: string) => lines.push(l) })).toBe(false);
-    expect(lines.every((line) => line.includes('senza marker di triage leggibile'))).toBe(true);
+    expect(lines.filter((line) => line.includes('senza marker di triage leggibile'))).toHaveLength(2);
   });
 });
 
