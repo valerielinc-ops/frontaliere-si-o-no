@@ -4,7 +4,7 @@ import { classifyEventsPage } from './eventsSections.mjs';
 import { isBlogSectionPath } from './articleSections.mjs';
 import { loadCantonUrlSlugs, parseCantonUrlSlug, resolveCantonGroup } from './canton-url-slugs.mjs';
 
-const SUPPORTED_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
+const SUPPORTED_LOCALES = Object.freeze(['en', 'de', 'fr']);
 
 function normalizePath(input = '') {
   let path = String(input || '').trim();
@@ -102,6 +102,7 @@ export function classifyAnalyticsPath(inputPath = '') {
   const fuelRoots = ['/prezzi-benzina', '/prezzi-diesel', '/fuel-prices', '/diesel-price-switzerland', '/benzinpreise', '/dieselpreise', '/prix-essence', '/prix-diesel'];
   const healthRoots = ['/premi-cassa-malati', '/health-insurance-premiums', '/krankenkassenpraemien', '/primes-assurance-maladie'];
   const borderWaitRoots = ['/traffico-dogane', '/border-wait', '/grenzwartezeiten', '/temps-attente-frontiere'];
+  const articleRoots = ['/articoli-frontaliere', '/cross-border-articles', '/artikel-grenzgaenger', '/articles-frontaliers'];
   const guideRoots = ['/guida-frontaliere', '/cross-border-guide', '/grenzgaenger-guide', '/guide-frontalier'];
   const compareRoots = ['/compara-servizi', '/compare-services', '/services-vergleichen', '/comparer-services'];
   const calculatorRoots = ['/calcola-stipendio', '/salary-calculator', '/lohnrechner', '/calcul-salaire'];
@@ -150,8 +151,7 @@ export function classifyAnalyticsPath(inputPath = '') {
     return { contentGroup: 'guides', pageTemplate: 'border_wait', siteSection: 'guide', contentLocale, routeFamily: 'border_wait' };
   }
 
-  const firstLocalSegment = localPath.split('/').filter(Boolean)[0] || '';
-  if (firstLocalSegment && isBlogSectionPath(`/${firstLocalSegment}/`)) {
+  if (startsWithAny(localPath, articleRoots)) {
     const hasChild = localPath.split('/').filter(Boolean).length > 1;
     return { contentGroup: 'articles', pageTemplate: hasChild ? 'article_detail' : 'article_index', siteSection: 'articles', contentLocale, routeFamily: hasChild ? 'article_detail' : 'article_index' };
   }
@@ -196,9 +196,21 @@ export function classifyAnalyticsPath(inputPath = '') {
 /** Add canonical canton context for recovery reports without widening the shared analytics taxonomy. */
 export function classifyAnalyticsRecoveryPath(inputPath = '') {
   const context = classifyAnalyticsPath(inputPath);
-  if (context.contentGroup !== 'jobs' && context.contentGroup !== 'events') return context;
   const normalizedPath = normalizePath(inputPath);
   const localPath = normalizedPath.replace(new RegExp(`^/(${SUPPORTED_LOCALES.join('|')})(?=/|$)`, 'i'), '') || '/';
+  const firstLocalSegment = localPath.split('/').filter(Boolean)[0] || '';
+  if (firstLocalSegment && isBlogSectionPath(`/${firstLocalSegment}/`)) {
+    const hasChild = localPath.split('/').filter(Boolean).length > 1;
+    const pageTemplate = hasChild ? 'article_detail' : 'article_index';
+    return {
+      ...context,
+      contentGroup: 'articles',
+      pageTemplate,
+      siteSection: 'articles',
+      routeFamily: pageTemplate,
+    };
+  }
+  if (context.contentGroup !== 'jobs' && context.contentGroup !== 'events') return context;
   const canton = context.contentGroup === 'jobs'
     ? getJobBoardCanton(localPath, context.contentLocale)
     : getEventsCanton(localPath, context.contentLocale);

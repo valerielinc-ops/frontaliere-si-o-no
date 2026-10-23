@@ -29,26 +29,25 @@ describe('analytics opportunity utils', () => {
     });
   });
 
-  it('uses the canonical article-section registry for all four locales and both sections', () => {
+  it('uses canonical article sections only in recovery classification', () => {
     const cases = [
-      ['/articoli-frontaliere/permesso-g/', 'it'],
-      ['/en/cross-border-articles/permit-g/', 'en'],
-      ['/de/grenzgaenger-artikel/permit-g/', 'de'],
-      ['/fr/articles-frontalier/permis-g/', 'fr'],
-      ['/it-articolo/unknown/', 'it'],
-      ['/en/swiss-articles/work-in-switzerland/', 'en'],
-      ['/de/schweiz-artikel/arbeit/', 'de'],
-      ['/fr/articles-suisse/travail/', 'fr'],
+      ['/articoli-frontaliere/permesso-g/', 'it', 'articles'],
+      ['/en/cross-border-articles/permit-g/', 'en', 'articles'],
+      ['/de/grenzgaenger-artikel/permit-g/', 'de', 'other'],
+      ['/fr/articles-frontalier/permis-g/', 'fr', 'other'],
+      ['/articoli-svizzera/lavoro/', 'it', 'other'],
+      ['/en/swiss-articles/work-in-switzerland/', 'en', 'other'],
+      ['/de/schweiz-artikel/arbeit/', 'de', 'other'],
+      ['/fr/articles-suisse/travail/', 'fr', 'other'],
     ];
 
-    for (const [path, locale] of cases) {
+    for (const [path, locale, commonGroup] of cases) {
       const context = classifyAnalyticsPath(path);
-      if (path.includes('unknown')) {
-        expect(context).toMatchObject({ contentGroup: 'other', contentLocale: locale });
-      } else {
-        expect(context).toMatchObject({ contentGroup: 'articles', pageTemplate: 'article_detail', contentLocale: locale });
-      }
+      expect(context).toMatchObject({ contentGroup: commonGroup, contentLocale: locale });
+      expect(classifyAnalyticsRecoveryPath(path)).toMatchObject({ contentGroup: 'articles', pageTemplate: 'article_detail', contentLocale: locale });
     }
+    expect(classifyAnalyticsPath('/it-articolo/unknown/')).toMatchObject({ contentGroup: 'other', contentLocale: 'it' });
+    expect(classifyAnalyticsRecoveryPath('/it-articolo/unknown/')).toMatchObject({ contentGroup: 'other', contentLocale: 'it' });
   });
 
   it('resolves canton from the locale-specific canonical job-board section registry', () => {
