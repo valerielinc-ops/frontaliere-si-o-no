@@ -6,6 +6,7 @@ import { join, resolve } from 'node:path';
 import {
   acquireImageNamespaceLeases,
   IMAGE_LOCK_KEY_PREFIX,
+  IMAGE_LOCK_RELEASE_RETRY_MS,
   imageNamespaceForKey,
   imageNamespaceLockKey,
   parseImageNamespaces,
@@ -438,7 +439,73 @@ globalThis.fetch = async () => ({
     expect(objects.get(imageNamespaceLockKey('blog'))?.payload.releasedAt).toEqual(expect.any(Number));
   });
 
-  it('shares one timeout across namespaces and releases the first lease if the remaining budget expires', async () => {
+  it('retries a transient release read before failing closed', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    const leases = await acquireImageNamespaceLeases(['blog'], {
+      request: baseRequest,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+    let getAttempts = 0;
+    let transientRead = true;
+    const sleeps: number[] = [];
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (input.method === 'GET') {
+        getAttempts += 1;
+        if (transientRead) {
+          transientRead = false;
+          throw new TypeError('fetch failed');
+        }
+      }
+      return baseRequest(input);
+    };
+
+    await expect(releaseImageNamespaceLeases(leases, {
+      request,
+      sleep: async (ms) => sleeps.push(ms),
+    })).resolves.toEqual(['blog']);
+
+    expect(getAttempts).toBe(2);
+    expect(sleeps).toEqual([IMAGE_LOCK_RELEASE_RETRY_MS]);
+    expect(objects.get(imageNamespaceLockKey('blog'))?.payload).toMatchObject({
+      owner: leases[0].owner,
+      leaseId: leases[0].leaseId,
+      releasedAt: expect.any(Number),
+    });
+  });
+
+  it('keeps an owned lease active when every release read fails', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    const leases = await acquireImageNamespaceLeases(['blog'], {
+      request: baseRequest,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+    let getAttempts = 0;
+    const sleeps: number[] = [];
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (input.method === 'GET') {
+        getAttempts += 1;
+        throw new TypeError('fetch failed');
+      }
+      return baseRequest(input);
+    };
+
+    await expect(releaseImageNamespaceLeases(leases, {
+      request,
+      sleep: async (ms) => sleeps.push(ms),
+    })).rejects.toThrow('fetch failed');
+
+    expect(getAttempts).toBe(4);
+    expect(sleeps).toEqual([
+      IMAGE_LOCK_RELEASE_RETRY_MS,
+      IMAGE_LOCK_RELEASE_RETRY_MS,
+      IMAGE_LOCK_RELEASE_RETRY_MS,
+    ]);
+    expect(objects.get(imageNamespaceLockKey('blog'))?.payload).not.toHaveProperty('releasedAt');
+  });
+
+  it('does not take over a still-live lease when the shared acquisition budget expires', async () => {
     const { request: baseRequest, calls, objects } = fakeR2();
     let now = 1_000;
     const placesKey = imageNamespaceLockKey('places');
@@ -481,6 +548,7 @@ globalThis.fetch = async () => ({
       expiresAt: now,
     });
     expect(objects.get(placesKey)?.payload).toMatchObject({ owner: 'other-owner', leaseId: 'other-lease' });
+    expect(objects.get(placesKey)?.payload.expiresAt).toBe(100_000);
     expect(calls.filter(({ method, key }) => method === 'PUT' && key === placesKey)).toHaveLength(2);
     expect(calls.filter(({ method, key, headers }) => (
       method === 'PUT' && key === imageNamespaceLockKey('blog') && headers['if-match']
