@@ -302,6 +302,20 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
           performance: { suiteDurationMs: null, medianFileDurationMs: null },
         });
 
+        const malformedFile = join(dir, 'malformed.json');
+        writeFileSync(malformedFile, JSON.stringify({ success: false }));
+        const malformedStatus = main([
+          '--report', malformedFile,
+          '--out', join(dir, 'red.txt'),
+          '--metrics-out', metricsFile,
+        ]);
+        expect(malformedStatus).toBe(1);
+        expect(JSON.parse(readFileSync(metricsFile, 'utf8'))).toMatchObject({
+          status: 'unavailable',
+          reportAvailable: false,
+          reason: expect.stringContaining('testResults'),
+        });
+
         const reportFile = join(dir, 'report.json');
         writeFileSync(reportFile, JSON.stringify(report));
         const validStatus = main([

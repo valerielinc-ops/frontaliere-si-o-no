@@ -264,6 +264,23 @@ function appendStepSummary(text) {
   if (target) fs.appendFileSync(target, text);
 }
 
+function reportFailure(args, reason) {
+  writePerformanceSnapshot(args.metricsOut, performanceSnapshot({
+    report: null,
+    summary: null,
+    performance: null,
+    reportAvailable: false,
+    reason,
+    reportPath: args.report,
+  }));
+  const text = `## Suite completa (checkout pieno)\n\n**Report Vitest ${reason}: \`${args.report}\`.** `
+    + 'La run non ha misurato i file rossi: guarda il log dello step `npm test` '
+    + '(timeout dello step, crash del processo o reporter JSON non scritto).\n';
+  appendStepSummary(text);
+  process.stderr.write(`::error::report Vitest ${reason}: ${args.report}\n`);
+  return 1;
+}
+
 export function main(argv = process.argv.slice(2)) {
   const args = parseArgs(argv);
   let report;
@@ -271,22 +288,14 @@ export function main(argv = process.argv.slice(2)) {
     report = JSON.parse(fs.readFileSync(args.report, 'utf8'));
   } catch (error) {
     const reason = error?.code === 'ENOENT' ? 'file assente' : `non leggibile (${error?.message ?? error})`;
-    writePerformanceSnapshot(args.metricsOut, performanceSnapshot({
-      report: null,
-      summary: null,
-      performance: null,
-      reportAvailable: false,
-      reason,
-      reportPath: args.report,
-    }));
-    const text = `## Suite completa (checkout pieno)\n\n**Report Vitest ${reason}: \`${args.report}\`.** `
-      + 'La run non ha misurato i file rossi: guarda il log dello step `npm test` '
-      + '(timeout dello step, crash del processo o reporter JSON non scritto).\n';
-    appendStepSummary(text);
-    process.stderr.write(`::error::report Vitest ${reason}: ${args.report}\n`);
-    return 1;
+    return reportFailure(args, reason);
   }
-  const summary = summarizeVitestReport(report, process.cwd());
+  let summary;
+  try {
+    summary = summarizeVitestReport(report, process.cwd());
+  } catch (error) {
+    return reportFailure(args, `formato non riconosciuto (${error?.message ?? error})`);
+  }
   writePerformanceSnapshot(args.metricsOut, performanceSnapshot({
     report,
     summary,
