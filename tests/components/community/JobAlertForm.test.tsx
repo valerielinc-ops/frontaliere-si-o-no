@@ -274,6 +274,20 @@ describe('JobAlertForm — city landing location seed', () => {
     fireEvent.click(basel);
     expect(basel.getAttribute('aria-pressed')).toBe('false');
   });
+
+  it('normalizes a case-variant landing label before selecting and submitting it', async () => {
+    render(<JobAlertForm authUser={authUser} initialLocations={['lugano']} />);
+    expandForm();
+
+    const lugano = screen.getByRole('button', { name: 'Lugano' });
+    expect(lugano.getAttribute('aria-pressed')).toBe('true');
+
+    typeKeywordAndSubmit('infermiere');
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+    expect(createAlertMock.mock.calls[0][2]).toEqual(expect.objectContaining({
+      locations: ['Lugano'],
+    }));
+  });
 });
 
 describe('JobAlertForm — initialCantonCode prefill (issue #4298)', () => {

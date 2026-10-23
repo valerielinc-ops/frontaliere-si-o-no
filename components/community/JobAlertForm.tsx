@@ -144,6 +144,18 @@ const LOCATIONS = [
  { value: 'Coira', label: 'Coira / Chur' },
 ];
 
+function normalizeLocationSeeds(locations: string[]): string[] {
+ const canonicalByKey = new Map(
+  LOCATIONS.map((location) => [location.value.toLocaleLowerCase('en'), location.value]),
+ );
+ return Array.from(new Set(
+  locations
+   .map((location) => location.trim())
+   .filter(Boolean)
+   .map((location) => canonicalByKey.get(location.toLocaleLowerCase('en')) ?? location),
+ ));
+}
+
 const CONTRACT_TYPES = [
  { value: 'full-time', labelKey: 'jobBoard.contract.fullTime' },
  { value: 'part-time', labelKey: 'jobBoard.contract.partTime' },
@@ -206,8 +218,8 @@ export default function JobAlertForm({
  // preferences controller; the average user just types and submits.
  const [showAdvanced, setShowAdvanced] = useState(false);
  const [keyword, setKeyword] = useState(initialKeyword);
- const [selectedLocations, setSelectedLocations] = useState<string[]>(() => [...initialLocations]);
- const initialLocationsSeedRef = useRef<string[]>([...initialLocations]);
+ const [selectedLocations, setSelectedLocations] = useState<string[]>(() => normalizeLocationSeeds(initialLocations));
+ const initialLocationsSeedRef = useRef<string[]>(normalizeLocationSeeds(initialLocations));
  const selectedLocationsEditedRef = useRef(false);
  const [selectedContracts, setSelectedContracts] = useState<string[]>([]);
  const [selectedSectors, setSelectedSectors] = useState<string[]>([]);
@@ -275,7 +287,7 @@ export default function JobAlertForm({
  // A city landing can resolve its canonical label after the first list load.
  // Refresh that seed while the visitor hasn't edited the location chips.
  useEffect(() => {
-  const next = Array.from(new Set(initialLocations.map((location) => location.trim()).filter(Boolean)));
+  const next = normalizeLocationSeeds(initialLocations);
   const previous = initialLocationsSeedRef.current;
   const locationsStillSeeded = selectedLocations.length === previous.length
    && previous.every((location) => selectedLocations.includes(location));
