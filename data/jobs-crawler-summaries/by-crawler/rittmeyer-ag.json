@@ -1,7 +1,7 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-10-23T09:54:35.705Z",
+  "generatedAt": "2026-10-23T21:34:09.020Z",
   "total": 11,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 12189,
-  "avgDurationMs": 12189,
+  "durationMs": 15190,
+  "avgDurationMs": 15190,
   "durationHistory": [
-    12189
+    15190
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:08.643Z",
+      "crawledAt": "2026-10-23T21:33:43.605Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -90,7 +90,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:09.574Z",
+      "crawledAt": "2026-10-23T21:33:44.866Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "firstSeenAt": "2026-10-01T09:27:19.173Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:10.498Z",
+      "crawledAt": "2026-10-23T21:33:45.955Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "firstSeenAt": "2026-09-26T14:26:58.217Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:11.255Z",
+      "crawledAt": "2026-10-23T21:33:47.087Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -216,7 +216,7 @@
       "firstSeenAt": "2026-09-11T23:25:37.393Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:12.015Z",
+      "crawledAt": "2026-10-23T21:33:48.182Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -258,7 +258,7 @@
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:12.749Z",
+      "crawledAt": "2026-10-23T21:33:49.106Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -291,7 +291,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:13.499Z",
+      "crawledAt": "2026-10-23T21:33:50.245Z",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -333,7 +333,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:14.380Z",
+      "crawledAt": "2026-10-23T21:33:51.331Z",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -384,7 +384,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:15.249Z",
+      "crawledAt": "2026-10-23T21:33:52.421Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -426,7 +426,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:16.152Z",
+      "crawledAt": "2026-10-23T21:33:53.520Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -471,7 +471,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:54:17.039Z",
+      "crawledAt": "2026-10-23T21:33:54.614Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -481,5 +481,5 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }
