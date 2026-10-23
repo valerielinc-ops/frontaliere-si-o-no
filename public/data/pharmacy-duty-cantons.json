@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T23:57:55.567Z",
+  "generatedAt": "2026-10-23T03:28:55.384Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -9,7 +9,7 @@
         "TI"
       ],
       "state": "partial",
-      "fetchedAt": "2026-10-22T23:57:07.120Z",
+      "fetchedAt": "2026-10-23T03:28:05.849Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
       "duties": [],
@@ -20,7 +20,7 @@
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-22T23:57:54.477Z",
+      "fetchedAt": "2026-10-23T03:28:53.986Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -104,7 +104,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-22T23:57:55.567Z",
+      "fetchedAt": "2026-10-23T03:28:55.384Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -242,7 +242,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-22T23:57:55.567Z",
+      "fetchedAt": "2026-10-23T03:28:55.384Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -326,7 +326,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-22T23:57:55.567Z",
+      "fetchedAt": "2026-10-23T03:28:55.384Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -410,7 +410,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-22T23:57:55.567Z",
+      "fetchedAt": "2026-10-23T03:28:55.384Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [
