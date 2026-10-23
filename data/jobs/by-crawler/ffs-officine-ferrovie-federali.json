@@ -81,7 +81,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/automatiker-in-elektroniker-in-fuer-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik/25403ef7-839b-4dff-bc49-545620ffb2e8",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-22T21:24:05.152Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn"
@@ -10902,7 +10901,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke-12-2026/ccd01a0f-250a-477d-a0c6-32ccf0164df3",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-61287b0752b6",

@@ -2282,7 +2282,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-22T21:28:50.988Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Fernsehstrasse 1-4",
@@ -3134,7 +3133,7 @@
       "slugByLocale": {
         "it": "cucina-capo-de-partie-zfv-unternehmungen-luzern",
         "en": "cook-chief-de-partie-zfv-unternehmungen-luzern",
-        "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
+        "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040",
         "fr": "cuisinier-chef-de-partie-zfv-unternehmungen-luzern"
       },
       "company": "ZFV-Unternehmungen",
@@ -3179,15 +3178,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
-        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040"
+        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
         ],
         "de": [
-          "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040"
+          "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:58.994Z",
@@ -4437,7 +4435,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-22T21:28:31.358Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Paradeplatz 6",
@@ -4532,7 +4529,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-22T21:28:30.346Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Paradeplatz 6",
@@ -4555,11 +4551,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-gastronomie-zfv-unternehmungen-zurich"
+          "leiter-in-gastronomie-zfv-unternehmungen-zurich",
+          "head-of-gastronomy-zfv-unternehmungen-zurich",
+          "responsable-de-la-restauration-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "head-of-gastronomy-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "responsable-de-la-restauration-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
-        "leiter-in-gastronomie-zfv-unternehmungen-zurich"
+        "leiter-in-gastronomie-zfv-unternehmungen-zurich",
+        "head-of-gastronomy-zfv-unternehmungen-zurich",
+        "responsable-de-la-restauration-zfv-unternehmungen-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -6078,7 +6084,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-22T21:28:16.348Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Paradeplatz 6",

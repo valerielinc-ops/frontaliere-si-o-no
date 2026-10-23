@@ -2071,13 +2071,24 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-14T09:28:13.505Z"
+      "firstSeenAt": "2026-10-14T09:28:13.505Z",
+      "previousSlugs": [
+        "personalwesen-administration-assistent-60-basel-tally-weijl-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "personalwesen-administration-assistent-60-basel-tally-weijl-basel"
+        ],
+        "de": [
+          "personalwesen-administration-assistent-60-basel-tally-weijl-basel"
+        ]
+      }
     },
     {
       "id": "tally-weijl-a99d5dedc597",
       "slug": "hr-administration-assistant-60-basel-tally-weijl-basel-2",
       "slugByLocale": {
-        "de": "hr-administration-assistant-60-basel-tally-weijl-basel",
+        "de": "hr-administration-assistant-60-basel-tally-weijl-basel-bh58cq",
         "it": "hr-administration-assistant-60-basel-tally-weijl-basel-2",
         "en": "hr-administration-assistant-60-basel-tally-weijl-basel-2",
         "fr": "hr-administration-assistant-60-basel-tally-weijl-basel-2"
@@ -2142,6 +2153,9 @@
       "firstSeenAt": "2026-10-14T09:28:13.505Z",
       "previousSlugsByLocale": {
         "it": [
+          "hr-administration-assistant-60-basel-tally-weijl-basel"
+        ],
+        "de": [
           "hr-administration-assistant-60-basel-tally-weijl-basel"
         ]
       },

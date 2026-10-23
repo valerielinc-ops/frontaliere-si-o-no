@@ -1078,7 +1078,6 @@
       "jobNumber": "WAG02568",
       "pensum": "60 - 80%",
       "contractLabel": "Saisonanstellung",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -1551,7 +1550,6 @@
       "jobNumber": "WAG02604",
       "pensum": "40%",
       "contractLabel": "Saisonanstellung",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -1623,7 +1621,6 @@
       "jobNumber": "WAG02600",
       "pensum": "10 - 20%",
       "contractLabel": "Saisonanstellung",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1910,7 +1907,6 @@
       "jobNumber": "WAG02606",
       "pensum": "40%",
       "contractLabel": "Saisonanstellung",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2103,7 +2099,7 @@
       "slugByLocale": {
         "it": "restauro-integrale-weisse-arena-gruppe-laax",
         "en": "allrounder-in-restauration-weisse-arena-gruppe-laax",
-        "de": "allrounder-in-restauration-weisse-arena-ch",
+        "de": "allrounder-in-restauration-weisse-arena-ch-6pqlbp",
         "fr": "restauration-complete-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
@@ -2160,6 +2156,9 @@
         ],
         "en": [
           "all-rounder-restoration-weisse-arena-gruppe-laax"
+        ],
+        "de": [
+          "allrounder-in-restauration-weisse-arena-ch"
         ]
       },
       "firstSeenAt": "2026-08-27T00:40:02.612Z",
