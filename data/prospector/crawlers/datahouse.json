@@ -1,0 +1,20 @@
+{
+  "companyKey": "datahouse",
+  "companyName": "datahouse",
+  "companyHost": "jobs.smartrecruiters.com",
+  "platform": "smartrecruiters.com",
+  "mode": "microdata",
+  "seedUrls": [
+    "https://jobs.smartrecruiters.com/wuestpartner/744000094409475-system-architect-wuest-dimensions-80-100-w-m-d-"
+  ],
+  "detailTemplate": "/wuestpartner/744000094409475-system-architect-wuest-dimensions-80-100-w-m-d-",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "System Architect Wüest Dimensions 80-100% (w/m/d)"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-23T10:58:51.210Z"
+}

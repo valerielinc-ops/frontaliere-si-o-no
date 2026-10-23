@@ -5,16 +5,15 @@
   "platform": "personio.de",
   "mode": "jsonld",
   "seedUrls": [
-    "https://nine-internet-solutions-ag.jobs.personio.de/job/1032092?language=en&display=en"
+    "https://nine-internet-solutions-ag.jobs.personio.de/job/1032092"
   ],
   "detailTemplate": "/job/1032092",
   "detailEnrichment": false,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [
-    "open application"
+    "Initiativbewerbung"
   ],
-  "canton": "ZH",
   "sourceLang": "en",
-  "learnedAt": "2026-10-22T11:55:31.553Z"
+  "learnedAt": "2026-10-23T10:58:54.604Z"
 }
