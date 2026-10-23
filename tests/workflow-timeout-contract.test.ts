@@ -109,4 +109,20 @@ describe('timeout-capped Claude workflows keep their downstream diagnostics aliv
     expect(committer).toMatch(/git_fetch_retry\ntranslation_handoff_recovery_guard_or_skip true\nif ! git rebase origin\/main/u);
     expect(committer).toMatch(/translation_handoff_recovery_guard_or_skip true\n\n# Push/u);
   });
+
+  it('keeps the out-of-scope manual workflow recovery reachable after cancellation', () => {
+    const document = YAML.parse(readFileSync(join(ROOT, TRANSLATE_PENDING_MANUAL), 'utf8')) as any;
+    const recovery = document.jobs?.translate_timeout_recovery;
+    const fallbackStep = recovery?.steps?.find((step: any) => step.name === 'Release translation deploy fallback after job timeout');
+
+    expect(recovery?.needs).toBe('translate');
+    expect(recovery?.if).toMatch(/^always\(\)\s*&&/u);
+    expect(recovery?.if).toContain("needs.translate.result != 'success'");
+    expect(recovery?.if).toContain("needs.translate.result != 'skipped'");
+    expect(fallbackStep?.env).toMatchObject({
+      TRANSLATION_DEPLOY_HANDOFF_STATE: 'fallback',
+      TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID: '${{ github.run_id }}',
+      TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT: '${{ github.run_attempt }}',
+    });
+  });
 });
