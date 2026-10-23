@@ -39,7 +39,7 @@ function useStatusToastStackOffset(enabled: boolean): number {
         const computed = window.getComputedStyle(element);
         if (computed.display === 'none' || computed.visibility === 'hidden') return;
         const rect = element.getBoundingClientRect();
-        if (rect.height <= 0 || rect.top <= 0 || rect.bottom < viewportHeight - 4) return;
+        if (computed.position !== 'fixed' || rect.height <= 0 || rect.top <= 0 || rect.bottom <= viewportHeight / 2) return;
         nextOffset = Math.max(nextOffset, Math.ceil(viewportHeight - rect.top + STATUS_TOAST_GAP_PX));
       });
       setOffset((current) => current === nextOffset ? current : nextOffset);
