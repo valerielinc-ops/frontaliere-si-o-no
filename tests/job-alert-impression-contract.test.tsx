@@ -359,10 +359,19 @@ describe('#13202 — anonymous job-detail origin survives the form and auth repl
 });
 
 describe('#13204 — board one-tap preserves only criteria supported by JobAlertConfig', () => {
-  it('passes active location, contract, sector, and canton values beside the category keyword', () => {
+  it('preserves a route city or explicit location and leaves unscoped searches empty', () => {
     const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
     expect(board).toContain('keywordLabel={boardFilterAlertKeywordLabel}');
-    expect(board).toContain("locations: selectedLocation === 'all' ? [] : [selectedLocation]");
+    expect(board).toContain(`const selectedBoardAlertLocation = selectedLocation === 'all'
+  ? null
+  : uniqueLocalities.find((locality) => locality.value === selectedLocation)?.label || selectedLocation;`);
+    expect(board).toContain(`const boardFilterAlertLocations = boardRouteAlertLocation
+  ? [boardRouteAlertLocation]
+  : selectedBoardAlertLocation
+   ? [selectedBoardAlertLocation]
+   : [];`);
+    expect(board).toContain('locations: boardFilterAlertLocations');
+    expect(board).toContain('initialLocations={locationSlugFilter && boardRouteAlertLocation ? [boardRouteAlertLocation] : []}');
     expect(board).toContain("contractTypes: selectedContract === 'all' ? [] : [selectedContract]");
     expect(board).toContain("sectors: selectedSector === 'all' ? [] : [selectedSector]");
     expect(board).toContain('cantonCode={boardFilterAlertCantonCode}');
