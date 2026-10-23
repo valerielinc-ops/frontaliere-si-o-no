@@ -265,6 +265,12 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         if: "always() && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
         run: crawlerGroupBatchCommitRun(Number(group)),
       });
+      expect(crawlerGroupBatchCommitRun(Number(group))).toContain(
+        'bash scripts/lib/git-commit-data.sh --group-receipt-repair',
+      );
+      expect(crawlerGroupBatchCommitRun(Number(group))).toContain(
+        '&& bash scripts/lib/git-commit-data.sh --group-receipt-repair',
+      );
       const jobWithFutureTail = structuredClone(job);
       jobWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
       const finalizer = stepByName(jobWithFutureTail.steps, 'Finalize crawler generation manifest (shadow)');
