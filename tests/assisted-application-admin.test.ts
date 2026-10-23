@@ -153,7 +153,7 @@ describe('assisted application admin access contract', () => {
 describe('handleAssistedApplicationAdmin', () => {
   beforeEach(() => {
     mocks.verifyIdToken.mockReset();
-    mocks.verifyIdToken.mockResolvedValue({ email: ADMIN_EMAIL, email_verified: true });
+    mocks.verifyIdToken.mockResolvedValue({ uid: 'aAqGpXr2mUQNQlio3gCxut4bBzH3', email: ADMIN_EMAIL, email_verified: true });
     mocks.resolveCvLink.mockReset();
     mocks.resolveCvLink.mockResolvedValue('https://storage.example.test/signed-cv');
     mocks.getStripe.mockReset();

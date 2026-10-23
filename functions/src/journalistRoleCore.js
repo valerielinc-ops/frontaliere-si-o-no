@@ -4,9 +4,8 @@
  * The role itself lives in `journalists/{uid}` — a Firestore-doc-backed
  * permission (doc exists + `active: true` grants access to the gated publish
  * dashboard). `firestore.rules` allows the client to READ its own doc only;
- * ALL writes go through this Cloud Function (Admin SDK), gated by
- * `assertAdmin` (same allowlist as `adminEmployerInsights.js` /
- * `adminSendColdEmail.js` — reused here, not duplicated).
+ * ALL writes go through this Cloud Function (Admin SDK), gated by the shared
+ * site-admin identity check.
  *
  * GET (list mode, no body) → { ok, journalists: [{ uid, email, displayName,
  * active, grantedAt, grantedBy }] } — every doc in `journalists`, newest
@@ -22,7 +21,7 @@
 
 import { getAuth } from 'firebase-admin/auth';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
-import { assertAdmin } from './adminEmployerInsights.js';
+import { assertSiteAdmin } from './adminAuth.js';
 // Pragmatic email shape check (server-side) — single source of truth shared
 // with adminEmployerInsights.js, newsletterSubscriberAuthSync.js and
 // stripePublisherCore.js.
@@ -96,7 +95,7 @@ async function handleMutate(db, req, adminEmail) {
 
 /**
  * Entry point. GET lists journalists; POST grants/revokes the role.
- * Both modes require the verified admin (assertAdmin).
+ * Both modes require the verified site admin.
  */
 export async function handleManageJournalistRole(req) {
   const method = String(req.method || 'GET').toUpperCase();
@@ -104,7 +103,7 @@ export async function handleManageJournalistRole(req) {
     return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
   }
 
-  const auth = await assertAdmin(req);
+  const auth = await assertSiteAdmin(req);
   if (!auth.ok) {
     return { status: auth.status, body: { ok: false, error: auth.error } };
   }
@@ -112,7 +111,7 @@ export async function handleManageJournalistRole(req) {
   const db = getAdminDb();
 
   if (method === 'POST') {
-    return handleMutate(db, req, auth.adminEmail);
+    return handleMutate(db, req, auth.email);
   }
 
   return handleList(db);
