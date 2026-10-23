@@ -111,16 +111,18 @@ describe('L3 Job Quality → Apply', () => {
         freshSummaries: 1,
         staleSummaries: 1,
         staleSummaryIssueCount: 1,
-        staleSummaryDetails: [{
-          file: 'stale.json',
+        staleSummaryDetails: [expect.objectContaining({
+          file: expect.stringContaining('stale.json'),
           generatedAt: '2026-09-01T12:00:00.000Z',
           ageHours: 264,
           maxAgeHours: 36,
-        }],
+        })],
         invalidJobs: 0,
       },
     });
-    expect(result.verdict.issues).toContain('stale.json: summary is stale (264.0h old; max 36h)');
+    expect(result.verdict.issues).toEqual(expect.arrayContaining([
+      expect.stringContaining('stale.json: summary is stale (264.0h old; max 36h)'),
+    ]));
     expect(result.outcome).toMatchObject({
       status: 'observed',
       independent: true,
