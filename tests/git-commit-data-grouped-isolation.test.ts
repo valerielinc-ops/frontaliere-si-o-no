@@ -1045,10 +1045,10 @@ exec ${JSON.stringify(process.execPath)} "$@"
         cwd: repoDir,
         encoding: 'utf8',
       }).trim();
-      expect(readFileSync(join(runnerTemp, 'crawler-generation/receipts/a.json'), 'utf8'))
-        .toContain('"crawlerId":"a"');
-      expect(readFileSync(join(runnerTemp, 'crawler-generation/receipts/b.json'), 'utf8'))
-        .toContain('"crawlerId":"b"');
+      expect(JSON.parse(readFileSync(join(runnerTemp, 'crawler-generation/receipts/a.json'), 'utf8')).crawlerId)
+        .toBe('a');
+      expect(JSON.parse(readFileSync(join(runnerTemp, 'crawler-generation/receipts/b.json'), 'utf8')).crawlerId)
+        .toBe('b');
       expect(readFileSync(githubOutput, 'utf8')).toBe('has_changes=true\nfinal_commit=' + published + '\n');
       expect(repair.stdout + repair.stderr).toContain('without reacquiring the data-pipeline lease');
     } finally {
