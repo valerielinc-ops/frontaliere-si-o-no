@@ -103,6 +103,12 @@ const SEARCH_PAGE_SIZE = 100;
 // unverifiable after the bounded retry budget still fails closed.
 export const MERGED_PR_SEARCH_ATTEMPTS = 3;
 export const MERGED_PR_SEARCH_RETRY_DELAYS_MS = Object.freeze([250, 1000]);
+// GitHub's GraphQL read can transiently fail after a long sequence of PR reads
+// with a repository-resolution error. A single unreadable comments snapshot
+// must not discard the whole scheduled window, but persistent or malformed
+// responses still fail closed after this bounded retry budget.
+export const PR_COMMENTS_READ_ATTEMPTS = 3;
+export const PR_COMMENTS_READ_RETRY_DELAYS_MS = Object.freeze([250, 1000]);
 // Capacità della sessione provider: 14 PR (era 4, 2026-09-27), con cron ogni
 // 2h (era 3h). Il 4 nasceva dalla run 34602892494, arrivata al tetto provider di
 // allora (32 minuti) su una finestra di 36 PR. Con 4 la coda non si smaltiva:
@@ -423,6 +429,53 @@ export function hasTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
   }
   const comments = Array.isArray(data) ? data : data && Array.isArray(data.comments) ? data.comments : [];
   return comments.some((c) => isPrimaryTriageMarker(c?.body, prefix));
+}
+
+/**
+ * Read one PR's comments with the same bounded, fail-closed policy as the
+ * paginated merged-PR search. `gh pr view --json comments` is a source for the
+ * collection cursor: a transient GraphQL failure is retryable, but an empty,
+ * malformed, or persistently unavailable response must remain an error rather
+ * than becoming an empty comments list.
+ *
+ * @param {() => string|null} read
+ * @param {{attempts?: number, retryDelaysMs?: number[], sleep?: (ms:number)=>void, log?: (line:string)=>void}} [options]
+ * @returns {string|null} a parseable comments payload, or null after retries
+ */
+export function readCompletePRComments(read, {
+  attempts = PR_COMMENTS_READ_ATTEMPTS,
+  retryDelaysMs = PR_COMMENTS_READ_RETRY_DELAYS_MS,
+  sleep = waitForMergedPRSearchRetry,
+  log = () => {},
+} = {}) {
+  if (typeof read !== 'function') throw new TypeError('lettura commenti PR mancante');
+  const maxAttempts = Number.isInteger(attempts) && attempts > 0
+    ? attempts
+    : PR_COMMENTS_READ_ATTEMPTS;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    let raw = null;
+    try {
+      raw = read();
+    } catch {
+      raw = null;
+    }
+    let data = null;
+    try {
+      data = JSON.parse(raw || '');
+    } catch {
+      data = null;
+    }
+    const readable = Array.isArray(data)
+      || Boolean(data && Array.isArray(data.comments));
+    if (readable) return raw;
+
+    if (attempt >= maxAttempts) break;
+    const delayMs = Number(retryDelaysMs[attempt - 1]) || 0;
+    log(`Snapshot commenti PR non verificabile (tentativo ${attempt}/${maxAttempts}); nuovo snapshot tra ${delayMs} ms.`);
+    sleep(delayMs);
+  }
+  return null;
 }
 
 /** Return the latest follow-up marker body, or null when comments are unreadable. */
@@ -1228,7 +1281,10 @@ export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRN
     const n = pr.number;
 
     // Idempotency: already triaged?
-    const commentsRaw = gh(['pr', 'view', String(n), ...repoArgs, '--json', 'comments']);
+    const commentsRaw = readCompletePRComments(
+      () => gh(['pr', 'view', String(n), ...repoArgs, '--json', 'comments']),
+      { log: (line) => console.log(`PR #${n}: ${line}`) },
+    );
     if (commentsRaw === null) throw new Error(`commenti PR #${n} non leggibili: raccolta incompleta`);
     let commentsPayload;
     try { commentsPayload = JSON.parse(commentsRaw); } catch { commentsPayload = null; }
@@ -1320,7 +1376,10 @@ export function verifyPersistenceCli(prNumbers, {
       incomplete = true;
       continue;
     }
-    const comments = read(pr);
+    const comments = readCompletePRComments(
+      () => read(pr),
+      { log: (line) => log(`PR #${pr}: ${line}`) },
+    );
     if (comments === null || !hasTriageComment(comments)) {
       log(`triage incompleta: PR #${pr} senza marker di triage leggibile`);
       incomplete = true;
