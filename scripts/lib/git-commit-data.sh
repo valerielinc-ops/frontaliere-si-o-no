@@ -228,7 +228,7 @@ elif [ "${1:-}" = "--slice-only" ]; then
   shift
 fi
 
-COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch|--group-receipt-repair] 'commit message' [extra-paths...]}"
+COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch] 'commit message' [extra-paths...]}"
 shift
 EXTRA_PATHS=("$@")
 

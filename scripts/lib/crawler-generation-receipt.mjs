@@ -668,11 +668,9 @@ export function runCrawlerGroupCommitBatchReceiptsCli() {
   for (const descriptor of descriptors) {
     if (verifyDescriptorSnapshots) {
       for (const file of descriptor.files) {
-        const published = readCommitFile(cwd, commit, file.path);
-        const publishedMode = published.state === 'present'
-          ? readCommitSnapshotBase(cwd, commit, file.path).mode
-          : null;
-        if (published.state !== file.state || published.blobOid !== file.blobOid || publishedMode !== file.mode) {
+        const published = readCommitSnapshotBase(cwd, commit, file.path);
+        const publishedState = published.blobOid === null ? 'absent' : 'present';
+        if (publishedState !== file.state || published.blobOid !== file.blobOid || published.mode !== file.mode) {
           throw new TypeError(`Crawler receipt repair snapshot mismatch: ${descriptor.crawlerId}:${file.path}`);
         }
       }
