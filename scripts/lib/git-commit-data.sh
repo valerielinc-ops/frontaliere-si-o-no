@@ -420,11 +420,12 @@ if [ "${#EXTRA_PATHS[@]}" -gt 0 ]; then
 fi
 
 # A grouped crawler shares its checkout with every sibling. Directory-valued
-# extras (most commonly data/jobs-crawler-adapters/) therefore describe the
-# union of every concurrent writer, not this crawler's ownership: recording
-# that live directory diff in one successful descriptor could sweep a failed
-# sibling's partial output into the group commit. Defer mode keeps only the
-# exact per-crawler standard files plus explicit file extras.
+# extras therefore describe the union of every concurrent writer, not this
+# crawler's ownership: recording a live directory diff in one successful
+# descriptor could sweep a failed sibling's partial output into the group
+# commit. The per-crawler adapter directory is the one intentional exception:
+# narrow it to the adapter matching JOBS_SLICE_FILE, while keeping all other
+# directory extras excluded.
 #
 # This exclusion is safe by construction, not a data-loss gap: no crawler
 # group run writes data/jobs-crawler-adapters/registry.json or _meta.json.
@@ -443,6 +444,10 @@ if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
     for path_item in "${EXTRA_PATHS[@]}"; do
       normalized_path="${path_item%/}"
       if [[ "$path_item" == */ ]] || [[ -d "$normalized_path" ]]; then
+        if [[ "$normalized_path" == "data/jobs-crawler-adapters" || "$normalized_path" == "data/jobs-crawler-adapters/adapters" ]] \
+          && [ -n "${SLICE_BASENAME:-}" ]; then
+          ALL_FILES+=("data/jobs-crawler-adapters/adapters/${SLICE_BASENAME}")
+        fi
         continue
       fi
       ALL_FILES+=("$path_item")
