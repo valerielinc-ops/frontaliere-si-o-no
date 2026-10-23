@@ -5,7 +5,7 @@ import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { BUILD_DATE_STAMP } from '../build-plugins/constants';
-import { eventsSeoPagesPlugin, pathFor, renderHistoricalEventsArchivePage } from '../build-plugins/eventsSeoPagesPlugin';
+import { eventsSeoPagesPlugin, pathFor, renderComunePage, renderHistoricalEventsArchivePage } from '../build-plugins/eventsSeoPagesPlugin';
 import { reset } from '../build-plugins/sharedWriteRegistry';
 import { isEmittedEventArchivePath, replaceEmittedEventArchivePaths } from '../build-plugins/shared/eventArchiveCompat';
 import { MAX_HTML_BYTES } from '../scripts/audit-page-weight.mjs';
@@ -37,6 +37,17 @@ async function emitFixture(root: string) {
 }
 
 describe('source-backed municipal event archives', () => {
+  it('keeps the Italian Cevio municipal title inside the practical SERP budget', () => {
+    const page = renderComunePage({
+      locale: 'it', canton: 'TI', comune: 'Cevio', events: [event('cevio', 'Cevio', 3)],
+      dateStamp: BUILD_DATE_STAMP, weekendDays: new Set(), distDir: temporary(),
+    });
+    const dom = new JSDOM(page.html);
+    expect(dom.window.document.title).toBe('Eventi a Cevio: agenda aggiornata | Frontaliere Ticino');
+    expect(dom.window.document.title.length).toBeLessThanOrEqual(60);
+    dom.window.close();
+  });
+
   it.each(['it', 'en', 'de', 'fr'] as const)('keeps the old municipal URL as an explicitly historical, noindex source listing (%s)', (locale) => {
     const options = { locale, entries: entries(2), page: 1, pageCount: 1, distDir: temporary(), municipality: { canton: 'GE', comune: 'Lancy' }, municipalHub: true };
     const page = renderHistoricalEventsArchivePage(options);

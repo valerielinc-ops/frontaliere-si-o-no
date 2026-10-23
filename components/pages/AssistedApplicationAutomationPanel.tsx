@@ -9,6 +9,7 @@ import {
 import { LEGACY_RENDERER_NOTE } from '@/services/assistedApplicationPdfRendererStatus';
 import { sentSummaryIt } from '@/services/assistedApplicationSentRecord';
 import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
+import { useAdminConfirm } from '@/components/admin/ui/AdminConfirmDialog';
 
 /**
  * Owner view of the automated assisted application for one order: flow
@@ -111,6 +112,7 @@ export default function AssistedApplicationAutomationPanel({
   user: { getIdToken: () => Promise<string> } | null | undefined;
   onChanged: (message: { ok: boolean; text: string }) => Promise<void> | void;
 }) {
+  const { requestConfirmation } = useAdminConfirm();
   const automation = order.automation || null;
   const flow = automation?.flow || null;
   const draft = automation?.draft || null;
@@ -142,6 +144,42 @@ export default function AssistedApplicationAutomationPanel({
     } finally {
       setBusy(null);
     }
+  };
+
+  const retrySubmit = async () => {
+    const confirmed = await requestConfirmation({
+      title: 'Riprova invio candidatura',
+      what: `Stai per rilanciare l’invio automatico di «${order.jobTitle}» presso ${order.companyName}.`,
+      impact: 'Il robot ripartirà sul portale del datore e potrebbe inviare la candidatura.',
+      input: `ordine=${order.orderId}, azienda=${order.companyName}`,
+      expectedDuration: 'pochi minuti',
+      confirmLabel: 'Riprova l’invio',
+    });
+    if (confirmed) await act('automationRetrySubmit', needsFactAck ? { acknowledgeFactWarnings: ackFacts } : {}, 'Invio automatico rilanciato: parte entro pochi minuti.');
+  };
+
+  const markSubmitted = async () => {
+    const confirmed = await requestConfirmation({
+      title: 'Segna candidatura come inviata',
+      what: 'Stai per confermare manualmente che la candidatura è stata inviata sul portale.',
+      impact: 'Aggiorna l’ordine e invia al cliente l’email di conferma.',
+      input: `ordine=${order.orderId}`,
+      expectedDuration: 'meno di 1 min',
+      confirmLabel: 'Segna come inviata',
+    });
+    if (confirmed) await act('automationMarkSubmitted', {}, 'Candidatura segnata come inviata: il cliente riceve la conferma.');
+  };
+
+  const handoffToCandidate = async () => {
+    const confirmed = await requestConfirmation({
+      title: 'Affida candidatura al candidato',
+      what: 'Stai per affidare al candidato il completamento dell’invio sul portale.',
+      impact: 'Invia al candidato un’email con link, risposte e documenti necessari.',
+      input: `ordine=${order.orderId}`,
+      expectedDuration: 'meno di 1 min',
+      confirmLabel: 'Affida al candidato',
+    });
+    if (confirmed) await act('automationHandoff', {}, 'Affidata al candidato: riceve link, risposte e documenti.');
   };
 
   // The fill extension (scripts/assisted-application/extension): its bridge
@@ -236,8 +274,17 @@ export default function AssistedApplicationAutomationPanel({
       } catch (error) {
         // The send button was already pressed with no confirmation: a kit only
         // after Valerie checked the portal (a second application could leave).
-        if ((error as { code?: string })?.code !== 'submission_unconfirmed'
-          || !window.confirm('Il pulsante d’invio è già stato premuto senza conferma del portale. Hai controllato sul portale che la candidatura NON sia arrivata?')) throw error;
+        if ((error as { code?: string })?.code !== 'submission_unconfirmed') throw error;
+        const confirmed = await requestConfirmation({
+          title: 'Verifica invio candidatura',
+          what: 'Il portale ha registrato un tentativo d’invio senza conferma dell’esito.',
+          impact: 'Un nuovo tentativo potrebbe creare una candidatura duplicata.',
+          input: `ordine=${order.orderId}, azienda=${order.companyName}`,
+          expectedDuration: 'meno di 1 min',
+          confirmLabel: 'Confermo: non è arrivata',
+          confirmVariant: 'danger',
+        });
+        if (!confirmed) return;
         result = await runAutomationAdminAction(user, order.orderId, 'automationFillKit', { confirmNotReceived: true });
       }
       markedByExtension.current = false;
@@ -283,7 +330,7 @@ export default function AssistedApplicationAutomationPanel({
     }
   };
 
-  const button = 'inline-flex min-h-[40px] items-center gap-2 rounded-lg px-3 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60';
+  const button = 'inline-flex min-h-[40px] items-center gap-2 rounded-stripe px-3 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60';
   const primary = `${button} bg-accent text-on-accent hover:bg-accent-hover`;
   const secondary = `${button} border border-edge text-subtle hover:border-accent hover:text-link`;
   const spinner = (name: string) => (busy === name ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : null);
@@ -296,9 +343,9 @@ export default function AssistedApplicationAutomationPanel({
   const canUpload = order.paymentStatus === 'paid' && ['awaiting_upload', 'ready_for_manual_submission', 'in_progress', 'blocked'].includes(order.submissionStatus);
 
   return (
-    <div className="mt-4 space-y-4 rounded-xl border border-info-border bg-info-subtle/30 p-4">
+    <div className="mt-4 space-y-4 rounded-stripe border border-info-border bg-info-subtle/30 p-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h4 className="flex items-center gap-2 text-sm font-bold text-strong">
+        <h4 className="flex items-center gap-2 text-sm font-semibold text-strong">
           <Bot size={16} className="text-info" aria-hidden="true" /> Automazione
         </h4>
         <span className="text-xs text-subtle">
@@ -329,7 +376,7 @@ export default function AssistedApplicationAutomationPanel({
       )}
 
       {(automation?.inbox || []).length > 0 && (
-        <div className="rounded-lg border border-edge bg-surface p-3 text-xs text-body">
+        <div className="rounded-stripe border border-edge bg-surface p-3 text-xs text-body">
           <p className="font-semibold uppercase tracking-wide text-muted">Risposte del datore (alias)</p>
           <ul className="mt-1 space-y-1">
             {(automation?.inbox || []).map((item) => (
@@ -344,7 +391,7 @@ export default function AssistedApplicationAutomationPanel({
       )}
 
       {(automation?.followup || automation?.interviewPrep || draft?.sent) && (
-        <div className="rounded-lg border border-edge bg-surface p-3 text-xs text-body">
+        <div className="rounded-stripe border border-edge bg-surface p-3 text-xs text-body">
           <p className="font-semibold uppercase tracking-wide text-muted">Dopo l’invio</p>
           {draft?.sent && (
             <div className="mt-1">
@@ -381,7 +428,7 @@ export default function AssistedApplicationAutomationPanel({
       )}
 
       {(automation?.accounts || []).length > 0 && (
-        <div className="rounded-lg border border-edge bg-surface p-3 text-xs text-body">
+        <div className="rounded-stripe border border-edge bg-surface p-3 text-xs text-body">
           <p className="font-semibold uppercase tracking-wide text-muted">Account sui portali (creati sull’alias)</p>
           <ul className="mt-1 space-y-1">
             {(automation?.accounts || []).map((account) => (
@@ -402,7 +449,7 @@ export default function AssistedApplicationAutomationPanel({
       )}
 
       {flow && flow.feedback.length > 0 && (
-        <div className="rounded-lg border border-warning-border bg-warning-subtle/50 p-3 text-xs text-body">
+        <div className="rounded-stripe border border-warning-border bg-warning-subtle/50 p-3 text-xs text-body">
           <strong>Feedback del candidato:</strong>
           <ul className="mt-1 list-disc pl-4">{flow.feedback.map((item) => <li key={`${item.round}-${item.at}`}>giro {item.round}: {item.text}</li>)}</ul>
         </div>
@@ -420,7 +467,7 @@ export default function AssistedApplicationAutomationPanel({
           {(draft.ats || draft.legitimacy || draft.tailoredCv) && (
             <div className="grid gap-2 text-xs text-body sm:grid-cols-2">
               {draft.ats && (
-                <div className="rounded-lg border border-edge bg-surface p-3">
+                <div className="rounded-stripe border border-edge bg-surface p-3">
                   <p className="font-semibold uppercase tracking-wide text-muted">ATS (career-ops)</p>
                   <p className="mt-1">CV del candidato: <strong>{draft.ats.original.structural.grade}</strong> ({draft.ats.original.structural.score}/100) · parole chiave {draft.ats.original.keywords.coverage ?? '—'}%</p>
                   {draft.ats.tailored && <p>CV adattato: <strong>{draft.ats.tailored.structural.grade}</strong> ({draft.ats.tailored.structural.score}/100) · parole chiave {draft.ats.tailored.keywords.coverage ?? '—'}%{typeof draft.ats.tailored.keywords.ceiling === 'number' ? <> · tetto onesto {draft.ats.tailored.keywords.ceiling}%</> : null}</p>}
@@ -430,7 +477,7 @@ export default function AssistedApplicationAutomationPanel({
                 </div>
               )}
               {draft.legitimacy && (
-                <div className={`rounded-lg border p-3 ${draft.legitimacy.tier === 'suspicious' ? 'border-danger-border bg-danger-subtle/50' : 'border-edge bg-surface'}`}>
+                <div className={`rounded-stripe border p-3 ${draft.legitimacy.tier === 'suspicious' ? 'border-danger-border bg-danger-subtle/50' : 'border-edge bg-surface'}`}>
                   <p className="font-semibold uppercase tracking-wide text-muted">Legittimità annuncio (Block G)</p>
                   <p className="mt-1"><strong>{LEGITIMACY_TIERS[draft.legitimacy.tier] || draft.legitimacy.tier}</strong>{draft.legitimacy.ageDays !== null ? ` · ${draft.legitimacy.ageDays} giorni` : ' · data non nota'}</p>
                   <p className="text-muted">{draft.legitimacy.signals.filter((signal) => signal.weight !== 'neutral').map((signal) => `${signal.weight === 'positive' ? '+' : '−'} ${signal.key}`).join(' · ') || 'nessun segnale netto'}</p>
@@ -441,7 +488,7 @@ export default function AssistedApplicationAutomationPanel({
                 </div>
               )}
               {draft.tailoredCv && (
-                <div className="rounded-lg border border-edge bg-surface p-3 sm:col-span-2">
+                <div className="rounded-stripe border border-edge bg-surface p-3 sm:col-span-2">
                   <p className="font-semibold uppercase tracking-wide text-muted">CV adattato ATS</p>
                   <p className="mt-1">
                     {TAILORED_CV_LABELS[draft.tailoredCv.status] || draft.tailoredCv.status} · scelta del candidato: {draft.cvChoice === 'original' ? 'CV originale' : draft.cvChoice === 'inplace' ? 'CV originale con le righe adattate' : draft.candidateCvChoice === 'inplace' ? `CV originale con le righe adattate, non più offerto${draft.tailoredCv.status === 'ready' ? ' → vale il CV adattato' : ''}` : 'CV adattato'}
@@ -463,7 +510,7 @@ export default function AssistedApplicationAutomationPanel({
             </div>
           )}
 
-          <details className="rounded-lg border border-edge bg-surface p-3 text-xs">
+          <details className="rounded-stripe border border-edge bg-surface p-3 text-xs">
             <summary className="cursor-pointer font-semibold text-strong">Requisiti e prove ({draft.requirements.length})</summary>
             <ul className="mt-2 space-y-1.5">
               {draft.requirements.map((requirement, index) => {
@@ -480,7 +527,7 @@ export default function AssistedApplicationAutomationPanel({
           </details>
 
           {draft.questions.length > 0 && (
-            <div className="space-y-2 rounded-lg border border-edge bg-surface p-3">
+            <div className="space-y-2 rounded-stripe border border-edge bg-surface p-3">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted">Domande per il candidato (puoi rispondere tu se te lo ha detto via email)</p>
               {draft.questions.map((question) => (
                 <label key={question.id} className="block text-xs text-body">
@@ -495,7 +542,7 @@ export default function AssistedApplicationAutomationPanel({
           )}
 
           {unsupported.length > 0 && (
-            <div className="rounded-lg border border-danger-border bg-danger-subtle/50 p-3 text-xs text-body">
+            <div className="rounded-stripe border border-danger-border bg-danger-subtle/50 p-3 text-xs text-body">
               <p className="flex items-center gap-1 font-semibold text-danger"><AlertTriangle size={14} aria-hidden="true" /> Fatti non trovati nel CV o nell’annuncio</p>
               <ul className="mt-1 list-disc pl-4">{unsupported.map((item) => <li key={`${item.field}-${item.token}`}><strong>{item.token}</strong> ({item.kind}) — «{item.context}»</li>)}</ul>
               {/* A send the runner stopped is confirmed next to «Riprova l’invio automatico», with the same tick. */}
@@ -503,14 +550,14 @@ export default function AssistedApplicationAutomationPanel({
             </div>
           )}
           {advisories.length > 0 && (
-            <div className="rounded-lg border border-edge bg-surface-subtle p-3 text-xs text-body">
+            <div className="rounded-stripe border border-edge bg-surface-subtle p-3 text-xs text-body">
               <p className="font-semibold text-heading">Da controllare (non blocca l’invio)</p>
               <ul className="mt-1 list-disc pl-4">{advisories.map((item) => <li key={`${item.field}-${item.kind}-${item.token}`}><strong>{item.token}</strong> ({item.kind}){item.context ? <> — «{item.context}»</> : null}</li>)}</ul>
             </div>
           )}
           {/* A profile that is not a full match no longer needs a tick here: the candidate is told on the review page. */}
           {draft.verdict === 'poor' && (
-            <p className="rounded-lg border border-info-border bg-info-subtle/60 px-3 py-2 text-xs text-body">
+            <p className="rounded-stripe border border-info-border bg-info-subtle/60 px-3 py-2 text-xs text-body">
               Il CV non soddisfa un requisito indispensabile dell’annuncio. La bozza prosegue comunque: la pagina della candidatura lo dice al candidato, con i requisiti che non risultano dal CV quando ce ne sono, e la scelta di inviarla resta sua.
             </p>
           )}
@@ -522,30 +569,30 @@ export default function AssistedApplicationAutomationPanel({
           ))}
 
           {(draft.candidateEditedAt || Object.keys(flow?.formOverrides || {}).length > 0) && (
-            <p className="rounded-lg border border-info-border bg-info-subtle/60 px-3 py-2 text-xs text-body">
+            <p className="rounded-stripe border border-info-border bg-info-subtle/60 px-3 py-2 text-xs text-body">
               Il candidato ha modificato {draft.candidateEditedAt ? `i testi (${formatMs(draft.candidateEditedAt)})` : 'i suoi dati'}
               {Object.keys(flow?.formOverrides || {}).length > 0 && `; campi: ${Object.keys(flow?.formOverrides || {}).join(', ')}`}.
             </p>
           )}
           <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
             Lettera ({draft.language})
-            <textarea value={letter} onChange={(event) => setLetter(event.target.value)} rows={10} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
+            <textarea value={letter} onChange={(event) => setLetter(event.target.value)} rows={10} className="mt-1 w-full rounded-stripe border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
           </label>
           {draft.coverLetterUrl && <a className="inline-flex items-center gap-1 text-xs text-link hover:underline" href={draft.coverLetterUrl} target="_blank" rel="noreferrer"><FileText size={13} aria-hidden="true" /> PDF lettera</a>}
           {draft.coverLetterRenderer === 'legacy' && <span className="ml-2 text-xs text-warning">{LEGACY_RENDERER_NOTE}</span>}
           <div className="grid gap-2 sm:grid-cols-2">
             <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
               Email a (vuoto = portale)
-              <input value={emailTo} onChange={(event) => setEmailTo(event.target.value)} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
+              <input value={emailTo} onChange={(event) => setEmailTo(event.target.value)} className="mt-1 w-full rounded-stripe border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
             </label>
             <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
               Oggetto
-              <input value={emailSubject} onChange={(event) => setEmailSubject(event.target.value)} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
+              <input value={emailSubject} onChange={(event) => setEmailSubject(event.target.value)} className="mt-1 w-full rounded-stripe border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
             </label>
           </div>
           <label className="block text-xs font-semibold uppercase tracking-wide text-muted">
             Testo email
-            <textarea value={emailBody} onChange={(event) => setEmailBody(event.target.value)} rows={6} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
+            <textarea value={emailBody} onChange={(event) => setEmailBody(event.target.value)} rows={6} className="mt-1 w-full rounded-stripe border border-edge bg-surface px-3 py-2 text-sm normal-case tracking-normal text-body" />
           </label>
           <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationEditDraft', { coverLetterText: letter, emailTo, emailSubject, emailBody }, 'Bozza aggiornata e ricontrollata.'); }}>
             {spinner('automationEditDraft') || <Save size={14} aria-hidden="true" />} Salva modifiche
@@ -556,7 +603,7 @@ export default function AssistedApplicationAutomationPanel({
       {flow && (
         <>
         {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && Boolean(draft?.portalAnswers?.answers?.length) && (
-          <details className="rounded-lg border border-edge p-3 text-sm">
+          <details className="rounded-stripe border border-edge p-3 text-sm">
             <summary className="cursor-pointer font-medium">Già inserito nel portale ({draft?.portalAnswers?.answers.length} risposte)</summary>
             <dl className="mt-2 space-y-1">
               {draft?.portalAnswers?.answers.map((item) => (
@@ -594,7 +641,7 @@ export default function AssistedApplicationAutomationPanel({
                   </label>
                 </div>
               )}
-              <button type="button" className={primary} disabled={Boolean(busy) || (needsFactAck && !ackFacts)} onClick={() => { if (window.confirm(`Rilanciare l’invio automatico di «${order.jobTitle}» presso ${order.companyName}? Il robot riparte subito sul portale del datore.`)) void act('automationRetrySubmit', needsFactAck ? { acknowledgeFactWarnings: ackFacts } : {}, 'Invio automatico rilanciato: parte entro pochi minuti.'); }}>
+              <button type="button" className={primary} disabled={Boolean(busy) || (needsFactAck && !ackFacts)} onClick={() => { void retrySubmit(); }}>
                 {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
               </button>
             </>
@@ -607,12 +654,12 @@ export default function AssistedApplicationAutomationPanel({
             <p className="w-full text-xs text-subtle">Per compilare il portale con un clic installa l’estensione «Compila candidatura» (cartella <code>scripts/assisted-application/extension</code>, istruzioni nel README).</p>
           ))}
           {flow.state === 'owner_takeover' && draft?.round === flow.round && (
-            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { if (window.confirm('Confermi che la candidatura è stata inviata sul portale? Il cliente riceverà l’email di conferma.')) void act('automationMarkSubmitted', {}, 'Candidatura segnata come inviata: il cliente riceve la conferma.'); }}>
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void markSubmitted(); }}>
               {spinner('automationMarkSubmitted') || <CheckCircle2 size={14} aria-hidden="true" />} Segna come inviata
             </button>
           )}
           {flow.state === 'owner_takeover' && draft?.round === flow.round && (
-            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { if (window.confirm('Il candidato riceverà un’email per completare lui l’invio sul portale. Procedere?')) void act('automationHandoff', {}, 'Affidata al candidato: riceve link, risposte e documenti.'); }}>
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void handoffToCandidate(); }}>
               {spinner('automationHandoff') || <UserCheck size={14} aria-hidden="true" />} Affida al candidato
             </button>
           )}

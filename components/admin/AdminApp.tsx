@@ -1,5 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState, type ComponentType, type LazyExoticComponent, type MouseEvent } from 'react';
-import { Copy, Loader2, Shield } from 'lucide-react';
+import { Command, Copy, Loader2 } from 'lucide-react';
 import {
   getAdminSection,
   getVisibleAdminSections,
@@ -16,6 +16,10 @@ import {
   navigateAdminSection,
   replaceAdminQuery,
 } from './lib/adminNavigation';
+import { useAdminShellVariant } from './lib/adminShellVariant';
+import { AdminButton } from './ui/AdminButton';
+import { AdminConfirmProvider } from './ui/AdminConfirmDialog';
+import { AdminShell } from './ui/AdminShell';
 
 const OggiSection = lazy(() => import('./sections/OggiSection'));
 const CrawlerSection = lazy(() => import('./sections/CrawlerSection'));
@@ -65,10 +69,10 @@ function WorkflowSummary({ section }: { section: string }) {
   }, { ok: 0, error: 0, pending: 0 });
   if (summary.ok === 0 && summary.error === 0 && summary.pending === 0) return null;
   return (
-    <span className="ml-1 inline-flex items-center gap-1" aria-label={`${summary.ok} ok, ${summary.error} errori, ${summary.pending} in corso`}>
-      {summary.ok > 0 && <span className="inline-flex min-w-5 justify-center rounded-full bg-success-subtle px-1.5 py-0.5 text-[10px] font-bold text-success">{summary.ok}</span>}
-      {summary.error > 0 && <span className="inline-flex min-w-5 justify-center rounded-full bg-danger-subtle px-1.5 py-0.5 text-[10px] font-bold text-danger">{summary.error}</span>}
-      {summary.pending > 0 && <span className="inline-flex min-w-5 justify-center rounded-full bg-warning-subtle px-1.5 py-0.5 text-[10px] font-bold text-warning">{summary.pending}</span>}
+    <span className="ml-1 inline-flex items-center gap-1" aria-label={`${summary.ok} riusciti, ${summary.error} errori, ${summary.pending} in corso`}>
+      {summary.ok > 0 && <span className="inline-flex min-w-6 justify-center rounded-full bg-success-subtle px-1.5 py-0.5 text-xs font-semibold tabular-nums text-success">{summary.ok}</span>}
+      {summary.error > 0 && <span className="inline-flex min-w-6 justify-center rounded-full bg-danger-subtle px-1.5 py-0.5 text-xs font-semibold tabular-nums text-danger">{summary.error}</span>}
+      {summary.pending > 0 && <span className="inline-flex min-w-6 justify-center rounded-full bg-warning-subtle px-1.5 py-0.5 text-xs font-semibold tabular-nums text-warning">{summary.pending}</span>}
     </span>
   );
 }
@@ -80,14 +84,14 @@ function AdminNavigation({ sections, activeSection, onNavigate }: {
 }) {
   const groups = ['oggi', 'lavoro', 'aziende', 'redazione', 'sistema'] as const;
   return (
-    <nav aria-label="Sezioni amministrazione" className="space-y-3">
+    <nav aria-label="Sezioni amministrazione" className="space-y-4">
       {groups.map((group) => {
         const groupSections = sections.filter((section) => section.group === group);
         if (groupSections.length === 0) return null;
         return (
-          <div key={group} className="space-y-1">
-            <p className="px-1 text-[10px] font-bold uppercase tracking-wide text-muted">{GROUP_LABELS[group]}</p>
-            <div className="flex gap-2 border-b border-edge pb-1 flex-wrap">
+          <div key={group} className="space-y-2">
+            <p className="text-xs font-normal text-muted">{GROUP_LABELS[group]}</p>
+            <div className="flex flex-wrap gap-1 border-b border-edge pb-1">
               {groupSections.map((section) => {
                 const active = section.slug === activeSection;
                 return (
@@ -97,9 +101,9 @@ function AdminNavigation({ sections, activeSection, onNavigate }: {
                     aria-current={active ? 'page' : undefined}
                     onClick={(event) => onNavigate(event, section)}
                     title={section.description}
-                    className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-t-lg transition-colors ${active ? 'bg-surface text-accent border border-b-0 border-edge' : 'text-muted hover:text-body'}`}
+                    className={`inline-flex min-h-10 items-center gap-1.5 rounded-stripe px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${active ? 'border border-edge bg-surface text-accent shadow-stripe-sm' : 'text-subtle hover:bg-surface-raised hover:text-heading'}`}
                   >
-                    <span>{section.label}</span>
+                    <span>{section.slug ? section.label : 'Panoramica'}</span>
                     <WorkflowSummary section={section.slug} />
                   </a>
                 );
@@ -112,7 +116,35 @@ function AdminNavigation({ sections, activeSection, onNavigate }: {
   );
 }
 
-function AdminAppContent({ requestedSection }: { requestedSection?: string }) {
+function SectionLoading() {
+  return <div className="rounded-stripe border border-edge bg-surface p-6" role="status"><div className="flex items-center gap-2 text-sm text-subtle"><span className="h-4 w-4 animate-pulse rounded-full bg-accent-subtle" aria-hidden="true" />Caricamento sezione…</div></div>;
+}
+
+function LegacyAdminContent({ activeSection, selectedSection, visibleSections, handleNavigate, copyCanonicalLink, copyFeedback, locationKey }: {
+  activeSection: string;
+  selectedSection: AdminSection;
+  visibleSections: readonly AdminSection[];
+  handleNavigate: (event: MouseEvent<HTMLAnchorElement>, section: AdminSection) => void;
+  copyCanonicalLink: () => Promise<boolean>;
+  copyFeedback: boolean;
+  locationKey: string;
+}) {
+  const SectionComponent = SECTION_COMPONENTS[selectedSection.slug] || OggiSection;
+  return (
+    <div className="space-y-6">
+      <header className="flex flex-col gap-4 rounded-stripe border border-accent-border bg-accent-subtle p-5 text-body sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-start gap-3"><Command size={25} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" /><div><h1 className="font-display text-2xl font-light text-heading">Pannello amministrazione</h1><p className="mt-1 text-sm text-subtle">{selectedSection.description}</p></div></div>
+        <AdminButton onClick={() => void copyCanonicalLink()}>{copyFeedback ? 'Link copiato' : 'Copia link'}</AdminButton>
+      </header>
+      <AdminNavigation sections={visibleSections} activeSection={activeSection} onNavigate={handleNavigate} />
+      <Suspense fallback={<SectionLoading />} key={locationKey}>
+        <SectionComponent />
+      </Suspense>
+    </div>
+  );
+}
+
+function AdminAppContent({ requestedSection, shellVariant }: { requestedSection?: string; shellVariant: 'v1' | 'v2' }) {
   const workflow = useAdminWorkflow();
   const initialSection = isAdminSectionSlug(requestedSection)
     ? requestedSection
@@ -165,8 +197,8 @@ function AdminAppContent({ requestedSection }: { requestedSection?: string }) {
   }), [activeSection, copyCanonicalLink, locationKey]);
 
   const selectedSection = getAdminSection(activeSection);
-  const SectionComponent = SECTION_COMPONENTS[selectedSection.slug] || OggiSection;
   const visibleSections = getVisibleAdminSections();
+  const SectionComponent = SECTION_COMPONENTS[selectedSection.slug] || OggiSection;
 
   const handleNavigate = (event: MouseEvent<HTMLAnchorElement>, target: AdminSection) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
@@ -176,41 +208,46 @@ function AdminAppContent({ requestedSection }: { requestedSection?: string }) {
 
   return (
     <AdminNavigationContext.Provider value={navigation}>
-      <div className="space-y-6">
-        <div className="bg-gradient-to-br from-accent-strong to-accent-strong-hover rounded-2xl p-6 text-on-accent shadow-lg">
-          <div className="flex items-center justify-between gap-3 flex-wrap">
-            <div>
-              <div className="flex items-center gap-3 mb-2">
-                <Shield size={28} />
-                <h1 className="text-2xl font-bold font-display">Pannello Amministrazione</h1>
-              </div>
-              <p className="text-on-accent/70 text-sm">{selectedSection.description}</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <button type="button" onClick={() => void copyCanonicalLink()} className="inline-flex items-center gap-2 rounded-lg bg-surface/15 px-3 py-2 text-sm font-medium text-on-accent hover:bg-surface/25">
-                <Copy size={14} />
-                Copia link
-              </button>
-              {copyFeedback && <span role="status" className="text-sm text-on-accent">Link copiato</span>}
-            </div>
-          </div>
-        </div>
-
-        <AdminNavigation sections={visibleSections} activeSection={activeSection} onNavigate={handleNavigate} />
-
-        <Suspense fallback={<div className="flex items-center justify-center py-16 text-muted" role="status"><Loader2 size={20} className="mr-2 animate-spin" />Caricamento sezione…</div>}>
-          <SectionComponent key={selectedSection.slug} />
-        </Suspense>
-      </div>
+      {shellVariant === 'v2' ? (
+        <AdminShell
+          sections={visibleSections}
+          activeSection={activeSection}
+          onNavigate={handleNavigate}
+          onCopyLink={() => { void copyCanonicalLink(); }}
+          copyFeedback={copyFeedback}
+          getGroupBadge={(group) => group === 'lavoro' ? workflow.getSummary('jobs').error : null}
+        >
+          <Suspense fallback={<SectionLoading />} key={locationKey}>
+            <SectionComponent />
+          </Suspense>
+        </AdminShell>
+      ) : (
+        <LegacyAdminContent
+          activeSection={activeSection}
+          selectedSection={selectedSection}
+          visibleSections={visibleSections}
+          handleNavigate={handleNavigate}
+          copyCanonicalLink={copyCanonicalLink}
+          copyFeedback={copyFeedback}
+          locationKey={locationKey}
+        />
+      )}
     </AdminNavigationContext.Provider>
   );
 }
 
-export default function AdminApp({ adminSection }: { adminSection?: string } = {}) {
-  return (
-    <AdminWorkflowProvider>
-      <AdminAppContent requestedSection={adminSection} />
-    </AdminWorkflowProvider>
-  );
+function AdminShellLoading() {
+  return <div className="admin-shell flex min-h-[50vh] items-center justify-center bg-surface-alt px-4" role="status"><div className="flex items-center gap-2 text-sm text-subtle"><span className="h-4 w-4 animate-pulse rounded-full bg-accent-subtle" aria-hidden="true" />Preparazione pannello amministrazione…</div></div>;
 }
 
+export default function AdminApp({ adminSection }: { adminSection?: string } = {}) {
+  const shellVariant = useAdminShellVariant();
+  if (!shellVariant) return <AdminShellLoading />;
+  return (
+    <AdminConfirmProvider>
+      <AdminWorkflowProvider>
+        <AdminAppContent requestedSection={adminSection} shellVariant={shellVariant} />
+      </AdminWorkflowProvider>
+    </AdminConfirmProvider>
+  );
+}

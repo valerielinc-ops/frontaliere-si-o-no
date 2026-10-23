@@ -295,6 +295,7 @@ import {
 } from 'lucide-react';
 import { TELEGRAM_CHANNEL_URL, isTelegramChannelConfigured } from '@/services/telegramChannel';
 import { isSiteAdminUid } from '@/services/adminIdentity';
+import { shouldHideSiteNavigation, useAdminShellVariant } from '@/components/admin/lib/adminShellVariant';
 import { FOOTER_LINK_GROUP_CLASS } from '@/components/footer/footerLinkGroup';
 import type { FuelStationMapPayload } from '@/components/pages/FuelStationMap';
 
@@ -448,6 +449,8 @@ const App: React.FC = () => {
 
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
+ const adminShellVariant = useAdminShellVariant(activeTab === 'admin');
+ const hideSiteNavigation = shouldHideSiteNavigation(activeTab, adminShellVariant);
  const [autoAdOverlayClearance, setAutoAdOverlayClearance] = useState(() => getAutoAdOverlayClearance());
  useEffect(() => subscribeToAutoAdOverlay(setAutoAdOverlayClearance), []);
  // Keeps floating third-party overlays (AdSense ad-intents chip) off the
@@ -2598,7 +2601,7 @@ const App: React.FC = () => {
  )}
 
  {/* Navbar */}
- <nav ref={mainNavRef} aria-label="Navigazione principale" className="sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300">
+ <nav ref={mainNavRef} aria-label="Navigazione principale" className={hideSiteNavigation ? 'hidden' : 'sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300'}>
  <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
  <div className="flex justify-between h-14 md:h-20 items-center">
  {/* Logo Section */}
@@ -4353,7 +4356,7 @@ const App: React.FC = () => {
  {/* Mobile Bottom Navigation Bar */}
  <nav
  aria-label="Navigazione mobile"
- className="mobile-bottom-nav fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]"
+ className={hideSiteNavigation ? 'hidden' : 'mobile-bottom-nav fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]'}
  style={{ '--mobile-nav-ad-clearance': `${autoAdOverlayClearance}px` } as React.CSSProperties}
  >
  <div className="grid grid-cols-6 h-14">

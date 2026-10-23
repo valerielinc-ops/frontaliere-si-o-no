@@ -116,6 +116,7 @@ export const BOT_AUDIT_LIVE_DATA_ROOTS = Object.freeze([
   'data/thin-page-promotions.jsonl',
   'data/tiktok-posted.json',
   'data/tiktok-queue.json',
+  'data/translation-deploy-handoff.json',
   'data/translation-observability-history.json',
   'data/translation-observability-state.json',
   'data/translation-stats-history.json',
@@ -542,6 +543,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
       'data/translation-stats-history.json',
     ],
     reason: 'these paths are asserted in parsed deploy workflow configuration; the test reads workflow and source files, not the changing data files',
+  },
+  {
+    file: 'tests/workflow-timeout-contract.test.ts',
+    roots: ['data/translation-deploy-handoff.json'],
+    reason: 'the path is asserted in parsed translation timeout workflows; the test reads workflow and committer source, not the changing handoff marker',
   },
   {
     file: 'tests/discover-404s-workflow.test.ts',
