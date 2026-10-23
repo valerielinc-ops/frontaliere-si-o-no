@@ -4324,12 +4324,13 @@ function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
 
 /**
  * A locale-shard sitemap contains the other three locales by design. When a
- * caller opts into checking a foreign file, build one recursive inventory of
+ * caller opts into checking a foreign file, build one streaming inventory of
  * the completed dist tree instead of opening/readdir-ing a parent directory
  * for every cross-shard URL. Job-detail URLs usually have unique parent
  * directories, so a per-parent cache still performs one directory syscall per
  * URL. The map is scoped to one reconciliation pass so a later build pass
- * cannot observe a stale filesystem snapshot.
+ * cannot observe a stale filesystem snapshot. `opendir` keeps the transient
+ * directory-entry buffer bounded; only the path sets survive the walk.
  */
 export interface ForeignDirectoryIndex {
   hasFile(filePath: string): Promise<boolean>;
@@ -4349,20 +4350,24 @@ export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIn
   }> => {
     if (inventory) return inventory;
 
-    inventory = fs.promises
-      .readdir(distDir, { recursive: true, withFileTypes: true })
-      .then((entries) => {
-        const regularFiles = new Set<string>();
-        const symlinks = new Set<string>();
-        for (const entry of entries) {
-          const filePath = path.resolve(entry.parentPath, entry.name);
+    inventory = (async () => {
+      const regularFiles = new Set<string>();
+      const symlinks = new Set<string>();
+      const pendingDirectories = [path.resolve(distDir)];
+
+      while (pendingDirectories.length > 0) {
+        const directory = pendingDirectories.pop()!;
+        const handle = await fs.promises.opendir(directory);
+        for await (const entry of handle) {
+          const filePath = path.resolve(directory, entry.name);
           if (entry.isSymbolicLink()) symlinks.add(filePath);
-          else if (entry.isFile()) {
-            regularFiles.add(filePath);
-          }
+          else if (entry.isFile()) regularFiles.add(filePath);
+          else if (entry.isDirectory()) pendingDirectories.push(filePath);
         }
-        return { regularFiles, symlinks };
-      })
+      }
+
+      return { regularFiles, symlinks };
+    })()
       .catch((error: unknown) => {
         if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
           return {

@@ -425,28 +425,24 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     }
   });
 
-  it('uses one recursive dist inventory for foreign-locale probes', async () => {
+  it('uses one streaming dist inventory for foreign-locale probes', async () => {
     fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([EN, DE, FR]), 'utf-8');
 
     const previousBuildLocale = process.env.BUILD_LOCALE;
-    const readdirSpy = vi.spyOn(fs.promises, 'readdir');
+    const opendirSpy = vi.spyOn(fs.promises, 'opendir');
     process.env.BUILD_LOCALE = 'it';
     try {
       vi.resetModules();
       const shard = await import('../build-plugins/relatedSearchClustersPlugin');
       await shard.reconcileSitemapJobsWithDist(dist, []);
 
-      const recursiveCalls = readdirSpy.mock.calls.filter(([, options]) =>
-        Boolean(
-          options &&
-          typeof options === 'object' &&
-          (options as { recursive?: boolean }).recursive === true,
-        ),
+      const inventoryRootCalls = opendirSpy.mock.calls.filter(([directory]) =>
+        path.resolve(String(directory)) === path.resolve(dist),
       );
-      expect(recursiveCalls).toHaveLength(1);
+      expect(inventoryRootCalls).toHaveLength(1);
       expect(shard.extractSitemapLocs(readSitemap())).toEqual([EN, DE, FR]);
     } finally {
-      readdirSpy.mockRestore();
+      opendirSpy.mockRestore();
       if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
       else process.env.BUILD_LOCALE = previousBuildLocale;
     }
