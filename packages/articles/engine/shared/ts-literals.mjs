@@ -8,7 +8,7 @@
  */
 
 const STATIC_LITERAL_QUOTES = new Set(['"', "'", '`']);
-const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|\r\n|0[0-9]|[\s\S])/g;
+const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|\r\n|[\s\S])/g;
 const TS_CODE_POINT_ESCAPE_RX = /^(x[0-9a-fA-F]{2}|u\{[0-9a-fA-F]+\})/u;
 
 /** Decode one TypeScript code-point escape without re-scanning its output. */
@@ -227,10 +227,7 @@ export function decodeStaticStringLiteral(raw, quote = "'", options = {}) {
       case 'b': return '\b';
       case 'f': return '\f';
       case 'v': return '\v';
-      // Legacy octal escapes (`\\01`..`\\07`) are not NUL plus a digit.
-      // Preserve the raw token so this reader agrees with the TypeScript
-      // decoder and never publishes a silently altered value.
-      case '0': return escape.length === 1 ? '\0' : whole;
+      case '0': return '\0';
       case '\\': return '\\';
       case "'": return "'";
       case '"': return '"';

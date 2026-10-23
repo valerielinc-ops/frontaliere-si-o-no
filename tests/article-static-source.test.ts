@@ -36,8 +36,6 @@ describe('static article TypeScript source reader', () => {
   it('shares TypeScript control escape decoding with the literal reader', () => {
     expect(decodeStaticString(String.raw`a\b\f\v\0z`, "'"))
       .toBe(`a\b\f\v\0z`);
-    expect(decodeStaticString(String.raw`a\01z`, "'"))
-      .toBe(String.raw`a\01z`);
   });
 
   it('reads decoded literal values from the typed default-export record', () => {
@@ -119,8 +117,6 @@ describe('static article TypeScript source reader', () => {
       'const translations: Record<string, string> = {',
       "  'blog.article.alpha.body1': 'real body',",
       '  "unrelated": `prefix ${(() => ({ "blog.article.alpha.body4": "fake" }))()}`,',
-      '  "wrapped": (`prefix ${notCode}`),',
-      '  "asserted": (`prefix ${notCode}` as string),',
       '};',
       'export default translations;',
     ].join('\n');

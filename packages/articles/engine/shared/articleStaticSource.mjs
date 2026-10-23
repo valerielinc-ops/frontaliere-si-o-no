@@ -56,27 +56,8 @@ function staticPropertyName(name) {
  * there must not abort extraction of the article namespace. Article keys keep
  * the strict static-literal check below.
  */
-function isInterpolatedTemplateExpression(node) {
-  let current = node;
-  while (current) {
-    if (ts.isTemplateExpression(current)) return true;
-    if (
-      ts.isParenthesizedExpression(current)
-      || ts.isAsExpression(current)
-      || ts.isTypeAssertionExpression(current)
-      || ts.isNonNullExpression(current)
-      || (typeof ts.isSatisfiesExpression === 'function' && ts.isSatisfiesExpression(current))
-    ) {
-      current = current.expression;
-      continue;
-    }
-    break;
-  }
-  return false;
-}
-
 function skipNonArticleTemplateLiteral(property, key) {
-  return !key.startsWith(ARTICLE_KEY_PREFIX) && isInterpolatedTemplateExpression(property.initializer);
+  return !key.startsWith(ARTICLE_KEY_PREFIX) && ts.isTemplateExpression(property.initializer);
 }
 
 function findTranslationObject(sourceFile, sourcePath) {

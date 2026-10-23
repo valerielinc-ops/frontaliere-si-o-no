@@ -273,9 +273,7 @@ export function decodeStaticString(raw, quote, options = {}) {
       case 'b': value += '\b'; break;
       case 'f': value += '\f'; break;
       case 'v': value += '\v'; break;
-      // Legacy octal escapes (`\\01`..`\\07`) are not NUL plus a digit.
-      // Keep the source token intact rather than changing the published value.
-      case '0': value += /[0-9]/u.test(raw[cursor + 2] ?? '') ? token : '\0'; break;
+      case '0': value += '\0'; break;
       case '\\': value += '\\'; break;
       case "'": value += "'"; break;
       case '"': value += '"'; break;
