@@ -18,6 +18,7 @@ const runtimeViewerCounts = new Map<string, number>();
 
 const STATUS_TOAST_SELECTORS = [
   '[data-testid="gamification-toast"]',
+  '[data-bottom-prompt]',
   '[class*="z-[9999]"]',
 ].join(',');
 
