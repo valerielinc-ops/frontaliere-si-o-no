@@ -638,7 +638,12 @@ const App: React.FC = () => {
 
  const { inputs, setInputs, result, setResult, handleCalculate, urlHydrated } = useSimulationState(activeTab, seoLanding);
  const deferredResult = useDeferredValue(result);
- const isResultStale = deferredResult !== result;
+ // The deferred value is useful after an existing result changes, but it must
+ // not hide the first result forever when the transition is starved by other
+ // startup work. Keep the old deferred value for subsequent edits and fall
+ // back to the raw value only while no deferred result exists yet.
+ const visibleResult = deferredResult ?? result;
+ const isResultStale = deferredResult !== result && deferredResult !== null;
 
  // Wrap the hook's handleTabChange to also close the mobile menu
  const handleTabChange = useCallback((tab: ActiveTab) => {
@@ -2341,7 +2346,7 @@ const App: React.FC = () => {
 
  // FRO-367: TabContentContext passes app-level state to lazy tab components.
  const tabContentValue = useMemo<TabContentState>(() => ({
- inputs, setInputs, result: deferredResult, isResultStale, handleCalculate,
+ inputs, setInputs, result: visibleResult, isResultStale, handleCalculate,
  showDeferredHomeWidgets, seoLanding, setSeoLanding,
  userProfile, authUser, authLoading, isPrivilegedAdmin,
  googleSignIn, facebookSignIn,
@@ -2352,7 +2357,7 @@ const App: React.FC = () => {
  jobSlug, setJobSlug,
  setActiveTab: setActiveTab as any, navigateTo,
  setContactPrefill, glossaryTerm, setGlossaryTerm,
- }), [inputs, deferredResult, isResultStale, handleCalculate, showDeferredHomeWidgets, seoLanding, userProfile, authUser, authLoading, isPrivilegedAdmin, googleSignIn, facebookSignIn, adminGoogleButtonReady, taxReturnCountry, borderCrossing, blogArticle, jobSlug, navigateTo, glossaryTerm]);
+ }), [inputs, visibleResult, isResultStale, handleCalculate, showDeferredHomeWidgets, seoLanding, userProfile, authUser, authLoading, isPrivilegedAdmin, googleSignIn, facebookSignIn, adminGoogleButtonReady, taxReturnCountry, borderCrossing, blogArticle, jobSlug, navigateTo, glossaryTerm]);
 
  // Desktop side-rail ads (≥1400px): wrap the SPA <main> in the 3-col rail grid
  // on content tabs that have empty desktop gutters (index.css already reserves
