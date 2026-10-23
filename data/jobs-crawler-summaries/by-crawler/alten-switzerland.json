@@ -1,11 +1,11 @@
 {
   "key": "alten-switzerland",
   "label": "ALTEN Switzerland",
-  "generatedAt": "2026-10-22T21:24:47.725Z",
+  "generatedAt": "2026-10-23T09:47:25.932Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
-  "lastFetchOutcome": "anti_bot_block",
+  "lastFetchOutcome": "connection_error",
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "abortKind": null,
@@ -20,5 +20,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }
