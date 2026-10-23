@@ -3542,12 +3542,20 @@ export function buildStandaloneCrossRepoWorkflow({
   }
 
   if (isTranslatePendingArtifact) {
+    // A first attempt has no successor guard to execute, so it is implicitly
+    // authorized. Reruns must expose the real guard outcome to the separate
+    // timeout-recovery job; otherwise a denied CAS claim could still publish
+    // the fallback marker through a downstream `always()` job.
+    job.outputs = {
+      ...(job.outputs ?? {}),
+      recovery_guard: "${{ github.run_attempt == 1 && 'success' || steps.recovery_guard.outcome }}",
+    };
     job.needs = 'translate_queue_guard';
     job.if = "needs.translate_queue_guard.outputs.run == 'true'";
     job.concurrency = concurrency;
     if (timeoutRecoveryJob) {
       timeoutRecoveryJob.needs = ['translate_queue_guard', 'translate'];
-      timeoutRecoveryJob.if = "always() && needs.translate_queue_guard.outputs.run == 'true' && needs.translate.result != 'success' && needs.translate.result != 'skipped' && inputs.dry_run != true";
+      timeoutRecoveryJob.if = "always() && needs.translate_queue_guard.outputs.run == 'true' && needs.translate.result != 'success' && needs.translate.result != 'skipped' && needs.translate.outputs.recovery_guard == 'success' && inputs.dry_run != true";
     }
   }
 

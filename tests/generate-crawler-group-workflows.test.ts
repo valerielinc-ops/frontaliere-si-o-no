@@ -3172,6 +3172,9 @@ describe('cross-repo crawler execution artifacts', () => {
     });
     expect(job.steps.indexOf(guard)).toBeGreaterThan(job.steps.indexOf(checkoutReady));
     expect(job.steps.filter((step: any) => step.name === 'Validate recovery successor claim')).toHaveLength(1);
+    expect(job.outputs?.recovery_guard).toBe(
+      "${{ github.run_attempt == 1 && 'success' || steps.recovery_guard.outcome }}",
+    );
 
     const recoveryReady = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
     const postGuardAlways = job.steps
@@ -3220,6 +3223,9 @@ describe('cross-repo crawler execution artifacts', () => {
       queue: 'max',
     });
     expect(timeoutRecoveryJob.needs).toEqual(['translate_queue_guard', 'translate']);
+    expect(timeoutRecoveryJob.if).toBe(
+      "always() && needs.translate_queue_guard.outputs.run == 'true' && needs.translate.result != 'success' && needs.translate.result != 'skipped' && needs.translate.outputs.recovery_guard == 'success' && inputs.dry_run != true",
+    );
     expect(timeoutRecoveryJob.concurrency).toBeUndefined();
     expect(timeoutFallbackStep?.env?.TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID).toBe('${{ github.run_id }}');
     expect(timeoutFallbackStep?.env?.TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT).toBe('${{ github.run_attempt }}');
