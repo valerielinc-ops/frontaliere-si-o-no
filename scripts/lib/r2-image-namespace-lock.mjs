@@ -801,6 +801,10 @@ export async function releaseImageNamespaceLeasesWithDeadline(
   return { status: 'released', timedOut: false, released: released.filter(Boolean) };
 }
 
+export function releaseNotOwnedIsFatal({ fenceMissingCandidate = false, ignoreNotOwned = false } = {}) {
+  return !fenceMissingCandidate && !ignoreNotOwned;
+}
+
 function parseCommandOptions(command, args) {
   const commandFlags = COMMAND_OPTION_RULES.get(command);
   if (!commandFlags) {
@@ -945,7 +949,7 @@ async function main(args = process.argv.slice(2), env = process.env) {
     }
     const released = await releaseImageNamespaceLeases(context.leases, { request, fenceMissingCandidate });
     const notReleased = context.leases.map(({ namespace }) => namespace).filter((namespace) => !released.includes(namespace));
-    if (notReleased.length > 0 && !ignoreNotOwned) {
+    if (notReleased.length > 0 && releaseNotOwnedIsFatal({ fenceMissingCandidate, ignoreNotOwned })) {
       console.error(`[r2-image-namespace-lock] not released (lease no longer owned or present): ${notReleased.join(', ')}`);
       process.exitCode = 1;
     }
