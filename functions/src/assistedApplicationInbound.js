@@ -311,7 +311,11 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       for (const attachment of message.attachments) {
         total += attachment.content.length;
         if (total > MAX_FORWARD_ATTACHMENTS_BYTES) break;
-        attachments.push({ filename: attachment.filename || 'allegato', content: attachment.content.toString('base64') });
+        attachments.push({
+          filename: attachment.filename || 'allegato',
+          ...(attachment.contentType ? { contentType: attachment.contentType } : {}),
+          content: attachment.content.toString('base64'),
+        });
       }
       const forward = buildForward({ order, message, classification, sender: sender || message.from });
       const replyTo = sender && sender !== OWNER_MAILBOX && !sender.endsWith('@candidature.frontaliereticino.ch') ? sender : undefined;
