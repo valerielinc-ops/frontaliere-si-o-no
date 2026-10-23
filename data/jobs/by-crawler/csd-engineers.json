@@ -2807,12 +2807,12 @@
     },
     {
       "id": "csd-engineers-19816aaeb7fc",
-      "slug": "praktikant-umwelt-80-100-w-m-d-csd-engineers-ch",
+      "slug": "interno-ambiente-80-100-m-f-d-csd-engineers-bern",
       "slugByLocale": {
         "de": "praktikant-umwelt-80-100-w-m-d-csd-engineers-ch",
-        "it": "praktikant-umwelt-80-100-w-m-d-csd-engineers-ch",
-        "en": "praktikant-umwelt-80-100-w-m-d-csd-engineers-ch",
-        "fr": "praktikant-umwelt-80-100-w-m-d-csd-engineers-ch"
+        "it": "interno-ambiente-80-100-m-f-d-csd-engineers-bern",
+        "en": "internship-environment-80-100-m-f-d-csd-engineers-bern",
+        "fr": "environnement-des-stages-80-100-h-f-d-csd-engineers-bern"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2871,7 +2871,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-22T21:33:49.034Z"
+      "firstSeenAt": "2026-10-22T21:33:49.034Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-umwelt-80-100-w-m-d-csd-engineers-ch"
+        ],
+        "en": [
+          "praktikant-umwelt-80-100-w-m-d-csd-engineers-ch"
+        ],
+        "fr": [
+          "praktikant-umwelt-80-100-w-m-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-umwelt-80-100-w-m-d-csd-engineers-ch"
+      ]
     }
   ]
 }
