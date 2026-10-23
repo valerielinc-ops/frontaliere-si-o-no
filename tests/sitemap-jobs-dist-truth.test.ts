@@ -225,6 +225,21 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(readSitemap()).not.toContain('ricerca-projektleiter-m-w-d');
   });
 
+  it('leaves the full dist-truth decision to the final pass when doing the early mirror patch', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([MISSING, KNOWN_MIRROR, HEALTHY]), 'utf-8');
+    writePage(KNOWN_MIRROR, selfCanonical(KNOWN_MIRROR));
+
+    await reconcileSitemapJobsWithDist(dist, [KNOWN_MIRROR], { checkDistTruth: false });
+
+    expect(readSitemap()).not.toContain('ricerca-projektleiter-m-w-d');
+    expect(readSitemap()).toContain('ricerca-groupe-mutuel-emploi');
+
+    await reconcileFinalSitemapsWithDist(dist, []);
+
+    expect(readSitemap()).not.toContain('ricerca-groupe-mutuel-emploi');
+    expect(readSitemap()).toContain('sviluppatore-acme-lugano');
+  });
+
   it('never drops a healthy self-canonical job URL', async () => {
     await reconcileSitemapJobsWithDist(dist, []);
     const out = readSitemap();
@@ -407,6 +422,33 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     } finally {
       if (prev === undefined) delete process.env.BUILD_LOCALE;
       else process.env.BUILD_LOCALE = prev;
+    }
+  });
+
+  it('uses one recursive dist inventory for foreign-locale probes', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([EN, DE, FR]), 'utf-8');
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    const readdirSpy = vi.spyOn(fs.promises, 'readdir');
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      vi.resetModules();
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+
+      const recursiveCalls = readdirSpy.mock.calls.filter(([, options]) =>
+        Boolean(
+          options &&
+          typeof options === 'object' &&
+          (options as { recursive?: boolean }).recursive === true,
+        ),
+      );
+      expect(recursiveCalls).toHaveLength(1);
+      expect(shard.extractSitemapLocs(readSitemap())).toEqual([EN, DE, FR]);
+    } finally {
+      readdirSpy.mockRestore();
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
     }
   });
 });

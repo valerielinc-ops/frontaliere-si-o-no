@@ -4322,12 +4322,6 @@ function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
   return error instanceof Error && 'code' in error && typeof error.code === 'string';
 }
 
-export type ForeignDirEntry = {
-  isDirectory(): boolean;
-  isFile(): boolean;
-  isSymbolicLink(): boolean;
-};
-
 /**
  * A locale-shard sitemap contains the other three locales by design. When a
  * caller opts into checking a foreign file, build one recursive inventory of
@@ -4338,34 +4332,37 @@ export type ForeignDirEntry = {
  * cannot observe a stale filesystem snapshot.
  */
 export interface ForeignDirectoryIndex {
-  entriesFor(directory: string): Promise<ReadonlyMap<string, ForeignDirEntry>>;
+  hasFile(filePath: string): Promise<boolean>;
+  hasSymlink(filePath: string): Promise<boolean>;
 }
 
 export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIndex {
-  let inventory: Promise<ReadonlyMap<string, ReadonlyMap<string, ForeignDirEntry>>> | null = null;
-  const empty = new Map<string, ForeignDirEntry>();
+  let inventory: Promise<{
+    files: ReadonlySet<string>;
+    symlinks: ReadonlySet<string>;
+  }> | null = null;
 
-  const loadInventory = (): Promise<ReadonlyMap<string, ReadonlyMap<string, ForeignDirEntry>>> => {
+  const loadInventory = (): Promise<{
+    files: ReadonlySet<string>;
+    symlinks: ReadonlySet<string>;
+  }> => {
     if (inventory) return inventory;
 
     inventory = fs.promises
       .readdir(distDir, { recursive: true, withFileTypes: true })
       .then((entries) => {
-        const byDirectory = new Map<string, Map<string, ForeignDirEntry>>();
+        const files = new Set<string>();
+        const symlinks = new Set<string>();
         for (const entry of entries) {
-          const directory = path.resolve(entry.parentPath);
-          let children = byDirectory.get(directory);
-          if (!children) {
-            children = new Map<string, ForeignDirEntry>();
-            byDirectory.set(directory, children);
-          }
-          children.set(entry.name, entry);
+          const filePath = path.resolve(entry.parentPath, entry.name);
+          if (entry.isSymbolicLink()) symlinks.add(filePath);
+          else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) files.add(filePath);
         }
-        return byDirectory;
+        return { files, symlinks };
       })
       .catch((error: unknown) => {
         if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
-          return new Map<string, Map<string, ForeignDirEntry>>();
+          return { files: new Set<string>(), symlinks: new Set<string>() };
         }
         throw error;
       });
@@ -4374,8 +4371,11 @@ export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIn
   };
 
   return {
-    entriesFor(directory: string): Promise<ReadonlyMap<string, ForeignDirEntry>> {
-      return loadInventory().then((byDirectory) => byDirectory.get(path.resolve(directory)) ?? empty);
+    hasFile(filePath: string): Promise<boolean> {
+      return loadInventory().then(({ files }) => files.has(path.resolve(filePath)));
+    },
+    hasSymlink(filePath: string): Promise<boolean> {
+      return loadInventory().then(({ symlinks }) => symlinks.has(path.resolve(filePath)));
     },
   };
 }
@@ -4396,24 +4396,16 @@ async function probeForeignPresentPage(
   indexPath: string,
   flatPath: string,
 ): Promise<ForeignProbe | null> {
-  const routeName = path.basename(routePath);
-  const entries = await index.entriesFor(path.dirname(routePath));
-  const routeEntry = entries.get(routeName);
-  const flatEntry = entries.get(`${routeName}.html`);
-
   // Symlinked route directories need stat-following to distinguish the
   // directory-index and flat-file representations. They are not emitted by
   // the build, so preserve the old probe path rather than guessing.
-  if (routeEntry?.isSymbolicLink()) return null;
+  if (await index.hasSymlink(routePath)) return null;
 
   const candidates: string[] = [];
-  if (routeEntry?.isDirectory()) {
-    candidates.push(indexPath);
-  } else if (routeEntry?.isFile()) {
-    if (path.extname(urlPath).toLowerCase() === '.html') candidates.push(routePath);
-    else return { kind: 'non-html' };
-  }
-  if (flatEntry?.isFile() || flatEntry?.isSymbolicLink()) candidates.push(flatPath);
+  const routeFile = await index.hasFile(routePath);
+  if (routeFile && path.extname(urlPath).toLowerCase() === '.html') candidates.push(routePath);
+  if (await index.hasFile(indexPath) || await index.hasSymlink(indexPath)) candidates.push(indexPath);
+  if (await index.hasFile(flatPath) || await index.hasSymlink(flatPath)) candidates.push(flatPath);
   if (candidates.length === 0) return { kind: 'missing' };
 
   for (const candidate of candidates) {
