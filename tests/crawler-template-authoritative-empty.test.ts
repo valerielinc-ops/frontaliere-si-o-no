@@ -407,6 +407,7 @@ describe('standard crawler authoritative-empty policy', () => {
     expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith(
       [expect.objectContaining({ id: 'test-old-1', slug: 'old-job' })],
       COMPANY_KEY,
+      { activeJobs: expect.any(Array) },
     );
     expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
       COMPANY_KEY,
@@ -773,7 +774,11 @@ describe('standard crawler authoritative-empty policy', () => {
       {},
     );
     expect(validator).not.toHaveBeenCalled();
-    expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith([], COMPANY_KEY);
+    expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith(
+      [],
+      COMPANY_KEY,
+      { activeJobs: expect.any(Array) },
+    );
     expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
       COMPANY_KEY,
       expect.arrayContaining([
@@ -844,7 +849,11 @@ describe('standard crawler authoritative-empty policy', () => {
       [freshJob],
       {},
     );
-    expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith([], COMPANY_KEY);
+    expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith(
+      [],
+      COMPANY_KEY,
+      { activeJobs: expect.any(Array) },
+    );
     expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
       COMPANY_KEY,
       expect.arrayContaining([

@@ -408,6 +408,9 @@ export function mergeSourceIdentityHistory(survivor, removed) {
  * @param {string} crawlerKey
  * @param {object} [opts]
  * @param {string} [opts.dir] - Override directory (default: data/jobs/expired/by-crawler)
+ * @param {object[]} [opts.activeJobs] - Current active generation. When provided,
+ *   expired routes that belong to a distinct source posting are disambiguated
+ *   before the slice is persisted (including slice-only crawler runs).
  * @returns {number} added count
  */
 /**
@@ -486,14 +489,24 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     }
   }
 
-  // A repair alone changes no slug, so the counters above stay put: write it
-  // out anyway, otherwise the bad value survives on disk until the next add.
-  if (added === 0 && bySlug.size === sizeBefore && repaired === 0 && !metadataChanged) return 0;
+  const needsArchiveWrite = added > 0
+    || bySlug.size !== sizeBefore
+    || repaired > 0
+    || metadataChanged;
+  const hasActiveGeneration = Array.isArray(opts.activeJobs) && opts.activeJobs.length > 0;
+  // A route repair can be the only mutation on a clean housekeeping run, so
+  // keep reading the existing archive when the caller supplies the current
+  // active generation. Without that opt-in, preserve the historical no-op.
+  if (!needsArchiveWrite && !hasActiveGeneration) return 0;
 
   const archived = collapseDuplicateRouteEntries(
     [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
     { source: 'archive-removed-jobs-to-slice' },
   ).entries;
+  const routeRepair = Array.isArray(opts.activeJobs)
+    ? repairExpiredRoutesAgainstActive(archived, opts.activeJobs)
+    : { changed: 0 };
+  if (!needsArchiveWrite && routeRepair.changed === 0) return 0;
   writeJsonAtomic(slicePath, archived);
   return added;
 }

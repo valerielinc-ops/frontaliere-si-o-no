@@ -13580,6 +13580,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.title': 'Fragebogen für Grenzgänger: Gehalt in Ordnung, aber zu viele Pendelfahrten',
     'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.excerpt': '1.542 online im Mai 2026 gesammelte Antworten 73% mit dem Gehalt zufrieden 31,7% täglich mehr als eineinhalb Stunden unterwegs 76,9% würden nicht umziehen',
     'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.sanitari-italiani-fuga-svizzera.title': 'Grenzgänger im Gesundheitswesen: Como ringt nach Luft',
+    'blog.article.sanitari-italiani-fuga-svizzera.excerpt': 'Etwa 5\'000 italienische Grenzgänger im Tessiner Gesundheitswesen Bis zu 12% in öffentlichen Krankenhäusern Bis zu 30% im privaten Sektor Gesundheitssteuer von 3% bis 6%',
+    'blog.article.sanitari-italiani-fuga-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

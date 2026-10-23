@@ -113074,6 +113074,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sanitari-italiani-fuga-svizzera': {
+    title: 'Operatori sanitari frontalieri: Como boccheggia',
+    description: 'Circa 5\'000 frontalieri italiani nella sanità ticinese Fino al 12% negli ospedali pubblici Fino al 30% nel settore privato Tassa salute dal 3% al 6%',
+    keywords: 'frontalieri, ticino, svizzera, italia, operatori, sanitari, como, boccheggia',
+    ogTitle: 'Operatori sanitari frontalieri: Como boccheggia',
+    ogDescription: 'Circa 5\'000 frontalieri italiani nella sanità ticinese Fino al 12% negli ospedali pubblici Fino al 30% nel settore privato Tassa salute dal 3% al 6%',
+    canonicalPath: '/articoli-frontaliere/sanitari-italiani-fuga-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Operatori sanitari frontalieri: Como boccheggia",
+      "description": "Circa 5'000 frontalieri italiani nella sanità ticinese Fino al 12% negli ospedali pubblici Fino al 30% nel settore privato Tassa salute dal 3% al 6%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-confusione-tassa-salute-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-23T15:23:51+00:00",
+      "dateModified": "2026-10-23T15:23:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanitari-italiani-fuga-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
