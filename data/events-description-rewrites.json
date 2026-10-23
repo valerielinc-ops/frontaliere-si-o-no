@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-23T05:18:43.645Z",
+  "generatedAt": "2026-10-23T06:20:21.441Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -143898,6 +143898,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T02:16:09.171Z"
     },
+    "myswitzerland:dc341248727d459c8bc99e28e6d8d423::9519fec644e42d4302c402c1bb4aed4b7a744b4cb676e6af653e0d1c01948f3f": {
+      "id": "myswitzerland:dc341248727d459c8bc99e28e6d8d423",
+      "sourceDescriptionHash": "9519fec644e42d4302c402c1bb4aed4b7a744b4cb676e6af653e0d1c01948f3f",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Dübendorf; cantone: ZH; categoria: Event; organizzatore: MySwitzerland; data: 2027-01-29; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Dübendorf; cantone: ZH; categoria: Event; organizzatore: MySwitzerland; data: 2027-01-29; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Dübendorf; canton: ZH; category: Event; organiser: MySwitzerland; date: 2027-01-29; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Dübendorf; kanton: ZH; kategorie: Event; veranstalter: MySwitzerland; datum: 2027-01-29; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Dübendorf; canton: ZH; catégorie: Event; organisateur: MySwitzerland; date: 2027-01-29; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-23T06:16:15.025Z"
+    },
     "myswitzerland:dc36df9b3f614be9ab8c8d45d6507151::ee372aa48ced4fdf24fe25265d83ddf2a6cd3631f57e72aa041af91755ff1144": {
       "id": "myswitzerland:dc36df9b3f614be9ab8c8d45d6507151",
       "sourceDescriptionHash": "ee372aa48ced4fdf24fe25265d83ddf2a6cd3631f57e72aa041af91755ff1144",
@@ -173904,15 +173918,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T09:37:17.203Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:dc341248727d459c8bc99e28e6d8d423::9519fec644e42d4302c402c1bb4aed4b7a744b4cb676e6af653e0d1c01948f3f": {
-      "id": "myswitzerland:dc341248727d459c8bc99e28e6d8d423",
-      "sourceDescriptionHash": "9519fec644e42d4302c402c1bb4aed4b7a744b4cb676e6af653e0d1c01948f3f",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T11:26:17.589Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
