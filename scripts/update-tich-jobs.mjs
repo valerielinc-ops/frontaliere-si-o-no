@@ -600,7 +600,10 @@ export async function fetchTichJobDetailUrls(options = {}) {
   }
 
   if (!listingSucceeded && !rssSucceeded && !officialSucceeded) {
-    throw new Error('Ti.CH discovery failed: SSR listing, RSS fallback, and official listing were unavailable.');
+    throw new Error(
+      'Ti.CH discovery failed: both primary portal sources (SSR listing and RSS fallback) '
+      + 'and the official listing were unavailable.',
+    );
   }
   const byIdentity = new Map();
   for (const rawUrl of allUrls) {
