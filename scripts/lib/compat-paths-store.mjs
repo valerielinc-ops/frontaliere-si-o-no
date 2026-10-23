@@ -34,6 +34,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { filterSafeCompatPaths } from './compat-path-safety.mjs';
 import { fnv1a32Mod } from './fnv1a.mjs';
 import { shardFileName, listShardFilesIn, SHARD_FILE_RE } from './shard-file-naming.mjs';
 import { writeShardFileIfChanged, writeFileAtomic } from './atomic-shard-write.mjs';
@@ -294,8 +295,9 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null } = 
  * `data` is `{ ...meta, paths }`; `paths` is de-duped, distributed by
  * `compatShardIndex`, each shard sorted for a stable diff. Meta (everything
  * except `paths`) goes to the manifest. The legacy monolith is removed if
- * present (it cannot be pushed). Returns `{ totalPaths, shardCount,
- * shardsWritten }`.
+ * present (it cannot be pushed). Unsafe externally observed paths are rejected
+ * here as the single data-ingress gate and reported before the write. Returns
+ * `{ totalPaths, shardCount, shardsWritten, rejectedPaths }`.
  *
  * Only shards whose serialized content actually differs from what's on disk
  * are written (2026-08-30, issue #6384): with 146 commits/30d touching this
@@ -310,7 +312,15 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
   const { paths: rawPaths, ...meta } = data || {};
   delete meta.shardCount;
   delete meta.totalPaths;
-  const uniq = [...new Set((Array.isArray(rawPaths) ? rawPaths : []).filter((p) => typeof p === 'string'))];
+  const { safePaths, rejectedPaths } = filterSafeCompatPaths(rawPaths);
+  if (rejectedPaths.length > 0) {
+    const sample = rejectedPaths.slice(0, 3).join(' | ');
+    console.warn(
+      `[compat-paths-store] rejected ${rejectedPaths.length} unsafe URL path(s) at ingress; `
+      + `sample: ${sample}`,
+    );
+  }
+  const uniq = [...new Set(safePaths)];
 
   const buckets = Array.from({ length: COMPAT_SHARD_COUNT }, () => []);
   for (const p of uniq) buckets[compatShardIndex(p)].push(p);
@@ -337,5 +347,10 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
     /* best-effort */
   }
 
-  return { totalPaths: uniq.length, shardCount: COMPAT_SHARD_COUNT, shardsWritten };
+  return {
+    totalPaths: uniq.length,
+    shardCount: COMPAT_SHARD_COUNT,
+    shardsWritten,
+    rejectedPaths: rejectedPaths.length,
+  };
 }

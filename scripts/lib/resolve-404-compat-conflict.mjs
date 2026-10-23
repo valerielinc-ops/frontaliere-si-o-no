@@ -61,6 +61,7 @@ import {
   COMPAT_LEGACY_FILE,
   compatManifestFile,
 } from './compat-paths-store.mjs';
+import { filterSafeCompatPaths } from './compat-path-safety.mjs';
 import { shardFileName, SHARD_FILE_RE } from './shard-file-naming.mjs';
 
 const STATE_FILE = 'data/inspection-state.json';
@@ -382,7 +383,13 @@ const legacy = readLegacyCandidate(mergedFiles);
 const candidateSet = new Set();
 for (const p of shardPaths) candidateSet.add(p);
 for (const p of legacy.paths) candidateSet.add(p);
-const candidatePaths = Array.from(candidateSet);
+const rawCandidatePaths = Array.from(candidateSet);
+const { safePaths: candidatePaths, rejectedPaths } = filterSafeCompatPaths(rawCandidatePaths);
+if (rejectedPaths.length > 0) {
+  process.stdout.write(
+    `[resolve-404-compat] rejected ${rejectedPaths.length} unsafe URL path(s) before merge persistence\n`,
+  );
+}
 const manifestMeta = readManifestMeta(manifestConflict, legacy.meta);
 
 // The resolver's family baseline is the clean candidate for unaffected shards
