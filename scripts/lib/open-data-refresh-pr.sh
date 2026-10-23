@@ -844,6 +844,9 @@ while :; do
   fi
 
   pr_create_failure="$(printf '%s' "$pr_create_output" | tr '\n' ' ' | cut -c1-300)"
+  # Keep the machine-readable list on stdout. run-bounded emits its timing
+  # diagnostics on stderr; merging the streams here would make an empty list
+  # look non-empty and could treat a timing line as a PR number.
   if ! PR_AFTER_CREATE_FAILURE="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr list stable refresh PR after create failure" \
     gh pr list \
     --repo "$REPOSITORY" \
