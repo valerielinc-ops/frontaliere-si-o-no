@@ -1298,8 +1298,10 @@ function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
     const entries = [...raw.slice(closingIndex + 1).matchAll(entriesRe)];
     // `Object.entries(map)` may also sit inline inside the writer call.
     const inlineEntriesRe = new RegExp(`\\bObject\\.entries\\(\\s*${escapedVariable}\\s*\\)`);
-    const inlineReachesSink = sinkRanges.some(({ start, end }) => start > closingIndex
-      && inlineEntriesRe.test(raw.slice(start, end)));
+    const inlineReachesSink = sinkRanges.some(({ start, end }) => {
+      if (start > closingIndex || closingIndex >= end) return false;
+      return inlineEntriesRe.test(raw.slice(closingIndex + 1, end));
+    });
     const reachesOutputSink = inlineReachesSink || entries.some((entry) => {
       const derivedVariable = entry[1];
       const entriesStart = closingIndex + 1 + (entry.index ?? 0);
@@ -1598,7 +1600,11 @@ function flagOutputSinkRanges(source, flags) {
   const flagLiteralRes = [...flags].map((flag) => new RegExp(
     `(["'\`])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1`,
   ));
-  const readsFlag = (text) => flagLiteralRes.some((re) => re.test(text));
+  const flagPropertyRes = [...flags].map((flag) => new RegExp(
+    `\\[\\s*(["'])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1\\s*\\]`,
+  ));
+  const readsFlag = (text) => flagLiteralRes.some((re) => re.test(text))
+    || flagPropertyRes.some((re) => re.test(text));
   const ranges = fileWriterCalls(raw).filter((writer) => readsFlag(writer.target));
   for (const declaration of raw.matchAll(/\bfunction\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g)) {
     const name = declaration[1];
@@ -1623,8 +1629,14 @@ function flagOutputSinkRanges(source, flags) {
       });
     }
     if (boundParams.size === 0) continue;
-    for (const writer of fileWriterCalls(raw, bodyOpen, bodyClose)) {
-      if (boundParams.has(writer.target)) ranges.push({ start: writer.start, end: writer.end });
+    const boundWriters = fileWriterCalls(raw, bodyOpen, bodyClose)
+      .filter((writer) => boundParams.has(writer.target));
+    if (boundWriters.length > 0) {
+      // Include the complete writer function, not only appendFileSync().
+      // Output keys are often assembled in a literal array immediately before
+      // the write (for example `lines.join('\\n')`), so the array would remain
+      // outside a narrow call range and appear unproven to the audit.
+      ranges.push({ start: bodyOpen, end: bodyClose });
     }
   }
   return ranges;
