@@ -855,7 +855,6 @@ while :; do
     --head "$BRANCH" \
     --json number \
     --jq '.[0].number // empty')"; then
-    --jq '.[0].number // empty')"; then
     echo "::error::Unable to verify the stable refresh PR after gh pr create failed: ${pr_create_failure}" >&2
     exit 1
   fi
