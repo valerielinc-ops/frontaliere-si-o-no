@@ -1,22 +1,25 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-10-23T09:46:23.703Z",
+  "generatedAt": "2026-10-23T21:32:28.141Z",
   "total": 2,
   "discovered": 1,
   "parsed": 1,
   "lastFetchOutcome": "ok",
+  "authoritativeEmptySnapshot": false,
+  "authoritativeSnapshotVerified": false,
   "written": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5002,
-  "avgDurationMs": 5002,
+  "durationMs": 5316,
+  "avgDurationMs": 5316,
   "durationHistory": [
-    5002
+    5316
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Compliance Officer",
       "company": "PKB Private Bank SA",
@@ -38,9 +41,10 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-23T09:46:10.994Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-23T21:32:08.727Z",
       "id": "pkb-private-bank-861a521add1e",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-23T09:46:10.994Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -48,17 +52,14 @@
       "applyUrl": "https://careers.pkb.ch/job/view-job.php?id=31-compliance-officer-lugano&language=it",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-10-23T09:46:10.994Z",
-      "_qualityScore": 86,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 23,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Risk Officer",
       "company": "PKB Private Bank SA",
@@ -90,7 +91,7 @@
       "applyUrl": "https://careers.pkb.ch/job/view-job.php?id=30-risk-officer-lugano&language=it",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -102,5 +103,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }
