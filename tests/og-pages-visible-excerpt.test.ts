@@ -15,7 +15,7 @@ const temporaryRoots: string[] = [];
 afterEach(() => temporaryRoots.splice(0).forEach(root => fs.rmSync(root, { recursive: true, force: true })));
 
 const ARTICLE_ID = 'frontaliere-educatore-ticino-stipendio-requisiti';
-const EXPECTED_VISIBLE_EXCERPT = 'Scala lorda LIS 2026 per educatori: classi 12–14, tredicesima, titolo SSS o equivalente e verifiche separate per permesso e statuto fiscale.';
+const EXPECTED_VISIBLE_EXCERPT = 'Stipendi lordi LIS 2026 per educatori dell’infanzia: classi 12–14, tredicesima, titolo SSS o equivalente, candidatura, permesso G e statuto fiscale.';
 const EXPECTED_SEO_DESCRIPTION = 'Stipendi lordi LIS 2026 per educatori dell’infanzia: classi 12–14, tredicesima, titolo SSS o equivalente, candidatura, permesso G e statuto fiscale.';
 const EXPECTED_CANONICAL = `https://frontaliereticino.ch/articoli-frontaliere/${ARTICLE_ID}/`;
 
