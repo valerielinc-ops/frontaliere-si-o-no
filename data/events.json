@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-23T15:32:08.700Z",
+  "generatedAt": "2026-10-23T16:25:31.545Z",
   "totalEvents": 15047,
   "events": [
     {
@@ -644947,7 +644947,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Emeli Sandé si esibirà al Casino Bern in un concerto di musica soul. L’evento si terrà a Bern e l’ingresso costa 2 CHF.",
+      "descriptionByLocale": {
+        "it": "Emeli Sandé si esibirà al Casino Bern in un concerto di musica soul. L’evento si terrà a Bern e l’ingresso costa 2 CHF.",
+        "en": "Emeli Sandé will perform soul music at Casino Bern. The event takes place in Bern, and admission costs CHF 2.",
+        "de": "Emeli Sandé tritt im Casino Bern mit einem Soul-Konzert auf. Die Veranstaltung findet in Bern statt; der Eintritt kostet 2 CHF.",
+        "fr": "Emeli Sandé donnera un concert de soul au Casino Bern. L’événement se déroulera à Bern et l’entrée coûte 2 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:256ff76d0298475c828edb4a589c10e5",
@@ -656096,7 +656104,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "«Nelson Goerner» è un appuntamento musicale in programma al Victoria Hall. L’evento è organizzato da Guidle.",
+      "descriptionByLocale": {
+        "it": "«Nelson Goerner» è un appuntamento musicale in programma al Victoria Hall. L’evento è organizzato da Guidle.",
+        "en": "“Nelson Goerner” is a music event scheduled at Victoria Hall. The event is organised by Guidle.",
+        "de": "„Nelson Goerner“ ist eine Musikveranstaltung im Victoria Hall. Die Veranstaltung wird von Guidle organisiert.",
+        "fr": "« Nelson Goerner » est un rendez-vous musical prévu au Victoria Hall. L’événement est organisé par Guidle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0665fe9240bf491a8fa35a8f9186bdc0",
