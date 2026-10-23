@@ -221,7 +221,8 @@ describe('profession journey links', () => {
       netSalaryPrefilled: false,
     });
     expect(fallback).toContain('Enter annual gross pay to estimate net');
-    expect(fallback).toContain('Enter your annual gross pay to estimate net pay.');
+    expect(fallback).toContain('Enter annual gross to simulate the Italy-Switzerland regime with Ticino withholding tax');
+    expect(fallback).toContain('does not calculate tax for the canton on this page');
   });
 
   it('builds the existing q-filtered alert route without creating another landing', () => {

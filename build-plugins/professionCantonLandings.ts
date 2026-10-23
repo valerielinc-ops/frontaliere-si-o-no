@@ -55,6 +55,16 @@ import { renderPeerComparison, type PeerRow } from './shared/peerCohortCompariso
 import { isSalaryEligibleProfessionId, buildSalaryProfessionCantonPath } from './salaryProfessionCantonData';
 import { resolveProfessionCantonsFlushed } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { getJobBoardSlugForCanton } from '../services/jobBoardSlugs';
+import {
+  buildProfessionJourneyAlertHref,
+  buildProfessionJourneyNetHrefForLocale,
+  buildProfessionJourneySearchHref,
+  PROFESSION_JOURNEY_ANCHORS,
+  renderProfessionCompaniesEmptyState,
+  renderProfessionJourney,
+  renderProfessionRequirementsGuidance,
+} from './shared/professionJourney';
 import {
   H2_STYLE,
   BREADCRUMB_CLASS,
@@ -230,6 +240,10 @@ export function renderProfessionCantonPage(opts: {
   const homeHref = locale === 'it' ? '/' : `${PROFESSION_LOCALE_PREFIX[locale]}/`;
 
   const salary = professionSalaryPresentation(locale, cantonKey, snapshot.reportedSalary);
+  const roleKw = professionRoleKeywordAny(locale, id);
+  const jobBoardPath = `${PROFESSION_LOCALE_PREFIX[locale]}/${getJobBoardSlugForCanton(cantonKey, locale)}/`
+    .replace(/\/{2,}/g, '/');
+  const roleSearchHref = buildProfessionJourneySearchHref(jobBoardPath, roleKw);
 
   const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_CLASS}">
   <a href="${homeHref}" class="${BREADCRUMB_LINK_CLASS}">${esc(c.breadcrumbHome)}</a>
@@ -256,12 +270,12 @@ export function renderProfessionCantonPage(opts: {
     ? employerNames.join('')
     : `${employerNames.slice(0, -1).join(', ')}${andWord}${employerNames[employerNames.length - 1]}`;
   const employers = snapshot.topEmployers.length > 0
-    ? `<h2 style="${H2_STYLE}">${esc(c.employersHeading(cantonName))}</h2>
+    ? `<section id="${PROFESSION_JOURNEY_ANCHORS.companies}"><h2 style="${H2_STYLE}">${esc(c.employersHeading(cantonName))}</h2>
 <p class="my-2">${esc(c.employersLead(role, cantonName, employerList))}</p>
 <ul class="flex flex-wrap gap-2 my-2">${snapshot.topEmployers
         .map((e) => `<li class="rounded-full bg-surface-alt px-3 py-1 text-sm">${esc(e.name)} <span class="text-subtle">(${e.count})</span></li>`)
-        .join('')}</ul>`
-    : '';
+        .join('')}</ul></section>`
+    : renderProfessionCompaniesEmptyState(locale, roleSearchHref);
 
   // ── Il confronto con le professioni pari dello stesso cantone (#7596) ──
   //
@@ -363,11 +377,25 @@ export function renderProfessionCantonPage(opts: {
     sourceNote: c.peerSource,
   });
 
-  const roleKw = professionRoleKeywordAny(locale, id);
   const cantonSlug = SALARY_STATS_CANTON_SLUGS[cantonKey][locale];
   // Link to the per-canton salary stats landing (shipped in PR #2085) + the
   // job board filtered by this role.
   const ctaHref = buildSalaryStatsPath(locale, cantonSlug);
+  const reportedGrossChf = salary.source === 'sample' ? snapshot.reportedSalary?.medianChf : null;
+  const journeyHtml = renderProfessionJourney({
+    locale,
+    professionKey: id,
+    roleLabel: `${role} · ${cantonName}`,
+    hrefs: {
+      offers: roleSearchHref,
+      requirements: `#${PROFESSION_JOURNEY_ANCHORS.requirements}`,
+      net: buildProfessionJourneyNetHrefForLocale(locale, reportedGrossChf),
+      companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
+      alert: buildProfessionJourneyAlertHref(jobBoardPath, roleKw),
+    },
+    netSalaryPrefilled: salary.source === 'sample',
+  });
+  const requirementsGuidance = renderProfessionRequirementsGuidance(locale, role);
 
   const prose = renderCantonSeoProse({
     locale: locale as CantonSeoLocale,
@@ -436,7 +464,9 @@ export function renderProfessionCantonPage(opts: {
 ${header}
 ${tiles}
 ${salary.noteHtml}
+${journeyHtml}
 ${DRIVEBY_AD_SNIPPET}
+${requirementsGuidance}
 ${employers}
 ${peerComparison}
 ${recentComparison}

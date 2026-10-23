@@ -73,10 +73,26 @@ import {
 import { resolveProfessionCitiesFlushed } from './shared/buildSignals';
 import { renderProfessionCityInsights, type ProfessionCitySnapshots } from './professionCityInsights';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { getJobBoardSlugForCanton } from '../services/jobBoardSlugs';
+import {
+  buildProfessionJourneyAlertHref,
+  buildProfessionJourneyNetHrefForLocale,
+  buildProfessionJourneySearchHref,
+  PROFESSION_JOURNEY_ANCHORS,
+  renderProfessionCompaniesEmptyState,
+  renderProfessionJourney,
+  renderProfessionRequirementsGuidance,
+} from './shared/professionJourney';
 
 /** Minimum real active jobs for a (city, profession) page to be emitted. */
 const MIN_JOBS = 3;
 const SITEMAP_FILE = 'sitemap-profession-cities.xml';
+const JOB_BOARD_LOCATION_FILTER_PREFIX: Record<ProfessionLocale, string> = {
+  it: 'localita',
+  en: 'location',
+  de: 'standort',
+  fr: 'localite',
+};
 
 const OG_LOCALE: Record<ProfessionLocale, string> = {
   it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH',
@@ -321,13 +337,20 @@ export function renderProfessionCityPage(opts: {
   const employerList = employerNames.length <= 1
     ? employerNames.join('')
     : `${employerNames.slice(0, -1).join(', ')}${andWord}${employerNames[employerNames.length - 1]}`;
+  // The `location-*` second segment is the interactive JobBoard route filter
+  // (`parseLocationSlugFilter`), unlike the bare city hub path, which is a
+  // static overlay and cannot consume q/alert query parameters.
+  const jobBoardPath = `${PROFESSION_LOCALE_PREFIX[locale]}/${getJobBoardSlugForCanton(def.cantonUrlKey, locale)}/${JOB_BOARD_LOCATION_FILTER_PREFIX[locale]}-${def.key}/`
+    .replace(/\/{2,}/g, '/');
+  const roleKeyword = professionRoleKeyword(locale, id);
+  const roleSearchHref = buildProfessionJourneySearchHref(jobBoardPath, roleKeyword);
   const employers = snapshot.topEmployers.length > 0
-    ? `<h2 style="${H2_STYLE}">${esc(c.employersHeading(cityDisplay))}</h2>
+    ? `<section id="${PROFESSION_JOURNEY_ANCHORS.companies}"><h2 style="${H2_STYLE}">${esc(c.employersHeading(cityDisplay))}</h2>
 <p class="my-2">${esc(c.employersLead(role, cityDisplay, employerList))}</p>
 <ul class="flex flex-wrap gap-2 my-2">${snapshot.topEmployers
         .map((e) => `<li class="rounded-full bg-surface-alt px-3 py-1 text-sm">${esc(e.name)} <span class="text-subtle">(${e.count})</span></li>`)
-        .join('')}</ul>`
-    : '';
+        .join('')}</ul></section>`
+    : renderProfessionCompaniesEmptyState(locale, roleSearchHref);
 
   // CTA + prose link to the city hub itself — the always-live, broader
   // listing for this city (also the below-floor bridge target).
@@ -339,6 +362,22 @@ export function renderProfessionCityPage(opts: {
   const insights = renderProfessionCityInsights({ locale, cityKey, id, snapshot, byCity, minJobs: MIN_JOBS });
 
   const professionCityInlineAd = `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`;
+
+  const reportedGrossChf = salary.source === 'sample' ? snapshot.reportedSalary?.medianChf : null;
+  const journeyHtml = renderProfessionJourney({
+    locale,
+    professionKey: id,
+    roleLabel: `${role} · ${cityDisplay}`,
+    hrefs: {
+      offers: roleSearchHref,
+      requirements: `#${PROFESSION_JOURNEY_ANCHORS.requirements}`,
+      net: buildProfessionJourneyNetHrefForLocale(locale, reportedGrossChf),
+      companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
+      alert: buildProfessionJourneyAlertHref(jobBoardPath, roleKeyword),
+    },
+    netSalaryPrefilled: salary.source === 'sample',
+  });
+  const requirementsGuidance = renderProfessionRequirementsGuidance(locale, role);
 
   // ── Stessa collisione di professionCantonLandings.ts, qui ancora LATENTE ──
   //
@@ -371,7 +410,9 @@ export function renderProfessionCityPage(opts: {
 ${header}
 ${tiles}
 ${salary.noteHtml}
+${journeyHtml}
 ${DRIVEBY_AD_SNIPPET}
+${requirementsGuidance}
 ${employers}
 ${insights}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cityDisplay))} →</a></p>
