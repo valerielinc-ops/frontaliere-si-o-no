@@ -4356,9 +4356,9 @@ export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIn
       const htmlFiles = new Set<string>();
       const symlinks = new Set<string>();
       const pendingDirectories = [path.resolve(distDir)];
-
-      while (pendingDirectories.length > 0) {
-        const directory = pendingDirectories.pop()!;
+      let nextDirectory = 0;
+      let activeDirectories = 0;
+      const scanDirectory = async (directory: string): Promise<void> => {
         let handle: fs.Dir;
         try {
           handle = await fs.promises.opendir(directory);
@@ -4366,9 +4366,7 @@ export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIn
           // A generated directory can disappear between the parent walk and
           // this opendir. Keep entries already discovered and skip only the
           // vanished subtree instead of invalidating the whole inventory.
-          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
-            continue;
-          }
+          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) return;
           throw error;
         }
 
@@ -4385,12 +4383,43 @@ export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIn
         } catch (error: unknown) {
           // The directory may disappear while its handle is being consumed.
           // The entries yielded before the race remain valid for this pass.
-          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
-            continue;
-          }
+          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) return;
           throw error;
         }
-      }
+      };
+
+      // Keep at most a small, fixed number of directory handles in flight so
+      // a large dist tree stays bounded while independent locale directories
+      // can be scanned concurrently. The scheduler only declares completion
+      // after every worker has observed the current queue length, so children
+      // discovered after the root scan cannot be skipped.
+      const workerCount = 16;
+      await new Promise<void>((resolve, reject) => {
+        let failed = false;
+        const schedule = (): void => {
+          if (failed) return;
+          while (activeDirectories < workerCount && nextDirectory < pendingDirectories.length) {
+            const directory = pendingDirectories[nextDirectory++];
+            activeDirectories += 1;
+            void scanDirectory(directory)
+              .catch((error: unknown) => {
+                failed = true;
+                reject(error);
+              })
+              .finally(() => {
+                activeDirectories -= 1;
+                if (failed) return;
+                if (activeDirectories === 0 && nextDirectory >= pendingDirectories.length) {
+                  resolve();
+                } else {
+                  schedule();
+                }
+              });
+          }
+          if (!failed && activeDirectories === 0 && nextDirectory >= pendingDirectories.length) resolve();
+        };
+        schedule();
+      });
 
       return { htmlFiles, symlinks };
     })();
