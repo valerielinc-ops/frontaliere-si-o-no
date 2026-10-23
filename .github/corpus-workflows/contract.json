@@ -4,20 +4,20 @@
   "generatorSha256": "52707e496d7d51e4f17e612c68ffb20e38c827374b4152378e448d95be43c13f",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "db65cc13c7529f85b75af8330e247200e7f11453",
+  "sourceCommit": "707ce4378202524d0a87c2e15317373931c1d36a",
   "artifactObservation": {
     "generatorSha256": "52707e496d7d51e4f17e612c68ffb20e38c827374b4152378e448d95be43c13f",
     "sourceRef": "main",
-    "sourceCommit": "db65cc13c7529f85b75af8330e247200e7f11453"
+    "sourceCommit": "707ce4378202524d0a87c2e15317373931c1d36a"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 650,
+  "crawlerCount": 652,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:bcef9b1dd02b444e16c75560d1d61ed39f6911f33d2112b32849b47f1fc67183",
+    "rosterDigest": "sha256:0b185eda62f75daddfa82baa4ba398ba7735410bee9d1f5703231938d8e0de4a",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -174,6 +174,7 @@
     "scripts/update-clinique-la-source-jobs.mjs",
     "scripts/update-clinique-le-noirmont-jobs.mjs",
     "scripts/update-cnp-jobs.mjs",
+    "scripts/update-company-jobs.mjs",
     "scripts/update-concara-jobs.mjs",
     "scripts/update-concordia-jobs.mjs",
     "scripts/update-constellium-jobs.mjs",
@@ -483,6 +484,7 @@
     "scripts/update-selecta-jobs.mjs",
     "scripts/update-senevita-jobs.mjs",
     "scripts/update-seniorenzentrum-engelhof-jobs.mjs",
+    "scripts/update-servicekuhn-ch-jobs.mjs",
     "scripts/update-sfs-group-jobs.mjs",
     "scripts/update-sicpa-jobs.mjs",
     "scripts/update-siegfried-jobs.mjs",
@@ -1066,8 +1068,8 @@
     {
       "file": "crawler-group-12.yml",
       "sourceLogic": "crawler-group-12-logic.yml",
-      "sourceSha256": "0a8f5983aec96841e61fa6d3aad9385a94f08eaffb6c2aa7143568452cdb2b3a",
-      "artifactSha256": "b0d249f67592d15f12741312693b797e80553d1b381c5a75b733a4c7d4d3fed2",
+      "sourceSha256": "53bcfb4ed5b32ca8014257a005ea4e22717558d8e5525baa1a4e26eea8a68a18",
+      "artifactSha256": "5e9605d5e3c05ebab7ab4b49bb51927dac896800008ad4498a2f4936c66665ae",
       "generatorSha256": "52707e496d7d51e4f17e612c68ffb20e38c827374b4152378e448d95be43c13f",
       "members": [
         "klinik-sgm",
@@ -1098,14 +1100,15 @@
         "canton-ticino-osc",
         "stadt-luzern",
         "lindt-spruengli",
-        "axa"
+        "axa",
+        "servicekuhn-ch"
       ]
     },
     {
       "file": "crawler-group-13.yml",
       "sourceLogic": "crawler-group-13-logic.yml",
-      "sourceSha256": "12e4d4bd7f12b2657419488fabcab5cb840903437e41cfb373dff6591b452776",
-      "artifactSha256": "a8622f3f5441a1d1fb5abb8463a11ad23d74981d36389b7dbc5047a5a81e2fa6",
+      "sourceSha256": "98f4aa0f422f0c9a15f0c8788c68ca0e5bf67f035868fe6262d2c196b22f88e5",
+      "artifactSha256": "25ae57536f054a0cf99e65db04ced49a32d9f25b2e4ea65d870db3a121ab6bf1",
       "generatorSha256": "52707e496d7d51e4f17e612c68ffb20e38c827374b4152378e448d95be43c13f",
       "members": [
         "pwc",
@@ -1136,7 +1139,8 @@
         "1a-hunkeler",
         "abraxas",
         "afry",
-        "buehler"
+        "buehler",
+        "company"
       ]
     },
     {
