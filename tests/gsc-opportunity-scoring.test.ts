@@ -1,12 +1,28 @@
 import { describe, expect, it } from 'vitest';
 import {
+  compareGscMetric,
   computeCtrGaps,
   computeOpportunityScore,
   computePositionOpportunity,
+  rankRecoveryQueue,
   rankPageOpportunities,
 } from '../scripts/lib/gsc-opportunity-scoring.mjs';
 
 describe('gsc-opportunity-scoring', () => {
+  it('compares measured metrics without turning missing values into zero', () => {
+    expect(compareGscMetric(8, 10)).toEqual({ current: 8, baseline: 10, delta: -2, relativeDelta: -0.2 });
+    expect(compareGscMetric(5, 0)).toEqual({ current: 5, baseline: 0, delta: 5, relativeDelta: null });
+    expect(compareGscMetric(null, 10)).toEqual({ current: null, baseline: 10, delta: null, relativeDelta: null });
+  });
+
+  it('ranks recovery items by measured loss with a stable path tie-breaker', () => {
+    expect(rankRecoveryQueue([
+      { path: '/b/', estimatedLostClicks: 5 },
+      { path: '/z/', estimatedLostClicks: 10 },
+      { path: '/a/', estimatedLostClicks: 10 },
+    ]).map((item) => item.path)).toEqual(['/a/', '/z/', '/b/']);
+  });
+
   it('computePositionOpportunity ramps toward 1 near position 4 and is 0 outside [4,20]', () => {
     expect(computePositionOpportunity(1)).toBe(0);
     expect(computePositionOpportunity(4)).toBe(1);

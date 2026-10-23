@@ -22,6 +22,36 @@ const CTR_GAP_PEER_BAND = 3;
 const CTR_GAP_PEER_BAND_WIDE = 10;
 const CTR_GAP_MIN_PEERS = 3;
 
+function finiteMetric(value) {
+  const number = Number(value);
+  return value !== null && value !== undefined && Number.isFinite(number) ? number : null;
+}
+
+/** Compare one current metric with its measured baseline without inventing zeroes. */
+export function compareGscMetric(current, baseline) {
+  const currentValue = finiteMetric(current);
+  const baselineValue = finiteMetric(baseline);
+  if (currentValue === null || baselineValue === null) {
+    return { current: currentValue, baseline: baselineValue, delta: null, relativeDelta: null };
+  }
+  const delta = currentValue - baselineValue;
+  return {
+    current: currentValue,
+    baseline: baselineValue,
+    delta: Number(delta.toFixed(6)),
+    relativeDelta: baselineValue === 0 ? null : Number((delta / baselineValue).toFixed(6)),
+  };
+}
+
+/** Sort a recovery queue by measured loss, using URL as a stable tie-breaker. */
+export function rankRecoveryQueue(entries = [], metric = 'estimatedLostClicks') {
+  return [...entries].sort((a, b) => {
+    const aValue = finiteMetric(a?.[metric]) ?? 0;
+    const bValue = finiteMetric(b?.[metric]) ?? 0;
+    return bValue - aValue || String(a?.path || '').localeCompare(String(b?.path || ''));
+  });
+}
+
 /**
  * 0 outside the "near page 1" band [4,20], ramping toward 1 as position
  * approaches 4 — a query at position 5 needs a much smaller push to reach

@@ -1,0 +1,11 @@
+{
+  "_comment": "Una posizione null non diventa zero: le righe con zero impression non contribuiscono al denominatore della posizione media.",
+  "path": "/en/swiss-articles/position-unknown/",
+  "currentRows": [
+    { "path": "/en/swiss-articles/position-unknown/", "clicks": 3, "impressions": 100, "position": null },
+    { "path": "/en/swiss-articles/position-unknown/", "clicks": 0, "impressions": 0, "position": 4 }
+  ],
+  "baselineRows": [
+    { "path": "/en/swiss-articles/position-unknown/", "clicks": 3, "impressions": 100, "position": 5 }
+  ]
+}

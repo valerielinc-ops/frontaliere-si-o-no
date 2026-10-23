@@ -1,0 +1,5 @@
+{
+  "_comment": "Search Analytics API contract: rowLimit is capped per request, while pagination may continue across requests.",
+  "maxRowLimitPerRequest": 25000,
+  "expectedRows": 1
+}

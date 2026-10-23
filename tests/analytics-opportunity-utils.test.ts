@@ -5,6 +5,7 @@ import {
   buildAnalyticsSnapshot,
   buildNearWinQueries,
   classifyAnalyticsPath,
+  classifyAnalyticsRecoveryPath,
   clusterTopQueries,
 } from '../scripts/lib/analytics-opportunity-utils.mjs';
 
@@ -26,6 +27,35 @@ describe('analytics opportunity utils', () => {
       pageTemplate: 'job_detail',
       routeFamily: 'job_detail',
     });
+  });
+
+  it('uses canonical article sections only in recovery classification', () => {
+    const cases = [
+      ['/articoli-frontaliere/permesso-g/', 'it', 'articles'],
+      ['/en/cross-border-articles/permit-g/', 'en', 'articles'],
+      ['/de/grenzgaenger-artikel/permit-g/', 'de', 'other'],
+      ['/fr/articles-frontalier/permis-g/', 'fr', 'other'],
+      ['/articoli-svizzera/lavoro/', 'it', 'other'],
+      ['/en/swiss-articles/work-in-switzerland/', 'en', 'other'],
+      ['/de/schweiz-artikel/arbeit/', 'de', 'other'],
+      ['/fr/articles-suisse/travail/', 'fr', 'other'],
+    ];
+
+    for (const [path, locale, commonGroup] of cases) {
+      const context = classifyAnalyticsPath(path);
+      expect(context).toMatchObject({ contentGroup: commonGroup, contentLocale: locale });
+      expect(classifyAnalyticsRecoveryPath(path)).toMatchObject({ contentGroup: 'articles', pageTemplate: 'article_detail', contentLocale: locale });
+    }
+    expect(classifyAnalyticsPath('/it-articolo/unknown/')).toMatchObject({ contentGroup: 'other', contentLocale: 'it' });
+    expect(classifyAnalyticsRecoveryPath('/it-articolo/unknown/')).toMatchObject({ contentGroup: 'other', contentLocale: 'it' });
+  });
+
+  it('resolves canton from the locale-specific canonical job-board section registry', () => {
+    expect(classifyAnalyticsRecoveryPath('/cerca-lavoro-ticino/ricerca-infermieri/')).toMatchObject({ contentLocale: 'it', canton: 'TI' });
+    expect(classifyAnalyticsRecoveryPath('/en/find-jobs-geneva/search-nurse/')).toMatchObject({ contentLocale: 'en', canton: 'GE' });
+    expect(classifyAnalyticsRecoveryPath('/de/jobs-in-der-waadt/suche-pflege/')).toMatchObject({ contentLocale: 'de', canton: 'VD' });
+    expect(classifyAnalyticsRecoveryPath('/fr/trouver-emploi-vaud/recherche-soins/')).toMatchObject({ contentLocale: 'fr', canton: 'VD' });
+    expect(classifyAnalyticsRecoveryPath('/de/jobs-im-tessin/')).toMatchObject({ contentLocale: 'de', canton: 'TI' });
   });
 
   it('aggregates rows by template', () => {
