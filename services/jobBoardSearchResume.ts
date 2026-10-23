@@ -1,5 +1,5 @@
 import { CANTON_CODES } from './cantonList';
-import { JOB_BOARD_CANTON_AGGREGATE } from './jobBoardSlugs';
+import { CANTON_URL_SLUGS, JOB_BOARD_CANTON_AGGREGATE } from './jobBoardSlugs';
 
 export const JOB_BOARD_SEARCH_RESUME_STORAGE_KEY = 'frontaliere_job_board_search_resume_v1';
 export const JOB_BOARD_SEARCH_RESUME_VERSION = 1 as const;
@@ -9,7 +9,11 @@ const MAX_FILTER_VALUE_LENGTH = 120;
 const CATEGORIES = new Set(['all', 'tech', 'finance', 'health', 'engineering', 'admin', 'hospitality', 'sales', 'other']);
 const CONTRACTS = new Set(['all', 'full-time', 'part-time', 'temporary', 'contract', 'internship']);
 const DATE_RANGES = new Set(['all', '24h', '3d', '7d', '30d', '90d']);
-const VALID_CANTONS = new Set([...CANTON_CODES, JOB_BOARD_CANTON_AGGREGATE]);
+const VALID_CANTONS = new Set([
+  ...CANTON_CODES,
+  ...Object.keys(CANTON_URL_SLUGS.cantonGroups ?? {}),
+  JOB_BOARD_CANTON_AGGREGATE,
+]);
 const LOCATION_ROUTE_SLUG = /^(?:localita|location|standort|localite)-[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 export interface JobBoardSearchResumeInput {

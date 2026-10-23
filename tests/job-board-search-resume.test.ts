@@ -98,6 +98,21 @@ describe('job board search resume', () => {
     expect(search({ routeSlug: 'lavoro-basel' })).toBeNull();
   });
 
+  it('accepts canonical half-canton URL groups with their city landing', () => {
+    const baselSearch = search({
+      canton: 'BASILEA',
+      keyword: 'infermiere',
+      routeSlug: 'localita-basel',
+    });
+    const appenzellSearch = search({
+      canton: 'APPENZELLO',
+      keyword: 'cuoco',
+    });
+
+    expect(baselSearch).toMatchObject({ canton: 'BASILEA', routeSlug: 'localita-basel' });
+    expect(appenzellSearch).toMatchObject({ canton: 'APPENZELLO' });
+  });
+
   it('rejects unknown filter values and prevents a locality from becoming a canton', () => {
     expect(search({ canton: 'lugano' })).toBeNull();
     expect(search({ canton: 'XX' })).toBeNull();
