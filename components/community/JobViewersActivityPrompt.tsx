@@ -46,6 +46,10 @@ function useStatusToastStackOffset(enabled: boolean): number {
     };
     const scheduleMeasure = () => {
       if (frame !== null) return;
+      if (typeof window.requestAnimationFrame !== 'function') {
+        measure();
+        return;
+      }
       frame = window.requestAnimationFrame(measure);
     };
     const observer = new MutationObserver(scheduleMeasure);
@@ -54,7 +58,9 @@ function useStatusToastStackOffset(enabled: boolean): number {
     measure();
 
     return () => {
-      if (frame !== null) window.cancelAnimationFrame(frame);
+      if (frame !== null && typeof window.cancelAnimationFrame === 'function') {
+        window.cancelAnimationFrame(frame);
+      }
       observer.disconnect();
       window.removeEventListener('resize', scheduleMeasure);
     };
