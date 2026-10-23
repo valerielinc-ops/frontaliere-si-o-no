@@ -234,6 +234,55 @@ if [ -n "${TRANSLATION_DEPLOY_HANDOFF_STATE:-}" ]; then
   esac
 fi
 
+# A timeout-recovery write is compare-and-set against the exact translation
+# run that left the marker pending. The remote ref is checked after every
+# fetch/sync below as well as by the writer against the local marker; this
+# prevents a queued stale recovery from releasing a later run's admission hold.
+if [ -n "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" ] || [ -n "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT:-}" ]; then
+  if [ "${TRANSLATION_DEPLOY_HANDOFF_STATE:-}" != 'fallback' ] \
+    || ! [[ "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" =~ ^[0-9]+$ ]] \
+    || ! [[ "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT:-}" =~ ^[0-9]+$ ]] \
+    || [ "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" != "${GITHUB_RUN_ID:-}" ] \
+    || [ "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT:-}" != "${GITHUB_RUN_ATTEMPT:-}" ]; then
+    echo "❌ Translation handoff recovery requires fallback state and expected run id/attempt matching GITHUB_RUN_ID/GITHUB_RUN_ATTEMPT" >&2
+    exit 1
+  fi
+fi
+
+translation_handoff_recovery_guard_or_skip() {
+  local candidate_committed="${1:-false}" check_output check_status
+  [ -n "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" ] || return 0
+  if check_output="$(node scripts/ci/translation-deploy-handoff.mjs \
+    --matches pending "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID" "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT" \
+    --git-ref refs/remotes/origin/main 2>&1)"; then
+    printf '%s\n' "$check_output"
+    return 0
+  else
+    check_status=$?
+  fi
+  if [ "$check_status" -eq 1 ]; then
+    if [ "$candidate_committed" = 'true' ]; then
+      git reset --mixed HEAD~1
+    fi
+    echo "ℹ️ Translation handoff marker no longer belongs to this pending run; skipping stale fallback recovery"
+    exit 0
+  fi
+  echo "❌ Could not validate the remote translation handoff marker; refusing timeout recovery" >&2
+  printf '%s\n' "$check_output" >&2
+  exit 1
+}
+
+translation_handoff_recovery_prepare_candidate() {
+  [ -n "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" ] || return 0
+  translation_handoff_recovery_guard_or_skip false
+  node scripts/ci/translation-deploy-handoff.mjs --write fallback
+  if ! node scripts/ci/translation-deploy-handoff.mjs \
+    --matches fallback "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID" "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT"; then
+    echo "❌ Local translation handoff did not become fallback for the expected run" >&2
+    exit 1
+  fi
+}
+
 # ── Append GitHub Actions run URL to commit message for traceability ─────────
 if [ -n "${GITHUB_RUN_ID:-}" ] && [ -n "${GITHUB_REPOSITORY:-}" ]; then
   RUN_URL="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
@@ -1891,7 +1940,11 @@ if [ "$SLICE_ONLY" = false ] && [ -f "data/jobs.json" ]; then
 fi
 
 if [ -n "${TRANSLATION_DEPLOY_HANDOFF_STATE:-}" ]; then
-  node scripts/ci/translation-deploy-handoff.mjs --write "$TRANSLATION_DEPLOY_HANDOFF_STATE"
+  if [ -z "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" ]; then
+    node scripts/ci/translation-deploy-handoff.mjs --write "$TRANSLATION_DEPLOY_HANDOFF_STATE"
+  else
+    echo "ℹ️ Deferring timeout-recovery handoff write until the remote marker has been validated"
+  fi
 fi
 
 # ── 1. Detect changes ──────────────────────────────────────────────────────
@@ -1916,7 +1969,8 @@ if [ "$GROUPED_ISOLATED" != true ]; then
     fi
   done
 
-  if git diff --quiet && git diff --cached --quiet && [ "$HAS_UNTRACKED" = false ]; then
+  if git diff --quiet && git diff --cached --quiet && [ "$HAS_UNTRACKED" = false ] \
+    && [ -z "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" ]; then
     echo "ℹ️ No changes detected"
     [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
     exit 0
@@ -3264,6 +3318,7 @@ while true; do
 # ── 3. Sync with remote (stash → rebase → pop → merge if needed) ──────────
 ensure_git_auth
 git_fetch_retry
+translation_handoff_recovery_guard_or_skip false
 old_history_guard_main
 LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse origin/main)
@@ -3293,6 +3348,11 @@ if [ "$LOCAL" != "$REMOTE" ]; then
 
   cleanup_rebase_snapshot "$SNAPSHOT_DIR"
 fi
+
+# The pull/rebase above can refresh origin/main beyond the initial fetch. Only
+# construct the fallback candidate once that exact remote marker still belongs
+# to this recovery run.
+translation_handoff_recovery_prepare_candidate
 
 # ── 4. Stage, commit, push ────────────────────────────────────────────────
 # Keep canonical files aligned after any merge path.
@@ -3417,6 +3477,7 @@ git commit -m "$COMMIT_MSG"
 # Last-moment rebase: fetch latest remote right before push to minimise race window
 ensure_git_auth
 git_fetch_retry
+translation_handoff_recovery_guard_or_skip true
 if ! git rebase origin/main 2>/dev/null; then
   echo "⚠️ Last-moment rebase conflict — resolving with 3-way JSON merge..."
   git rebase --abort 2>/dev/null || true
@@ -3435,6 +3496,10 @@ if ! git rebase origin/main 2>/dev/null; then
     "  🔀 Resolving stash-pop conflict after last-moment rebase..."
   cleanup_rebase_snapshot "$LAST_MOMENT_SNAPSHOT_DIR"
 
+  # The merge pull above may have moved origin/main again; revalidate before
+  # staging or rebuilding a fallback candidate from the recovered run.
+  translation_handoff_recovery_prepare_candidate
+
   collect_stageable_files
   if [ "${#STAGEABLE_FILES[@]}" -gt 0 ]; then
     git add "${STAGEABLE_FILES[@]}"
@@ -3447,6 +3512,11 @@ if ! git rebase origin/main 2>/dev/null; then
 git commit -m "$COMMIT_MSG"
   # Fall through to the push below
 fi
+
+# Recheck after either successful rebase or conflict-resolution merge, just
+# before the guarded push. A lease rejection loops back through a fresh fetch
+# and this same marker check before rebuilding.
+translation_handoff_recovery_guard_or_skip true
 
 # Push — if rejected, undo commit and re-run sync from step 3
 push_attempt=$((push_attempt + 1))

@@ -987,3 +987,69 @@ jobs:
       group: jobs-data-pipeline
       cancel-in-progress: false
       queue: max
+  translate_timeout_recovery:
+    needs:
+      - translate_queue_guard
+      - translate
+    if: always() && needs.translate_queue_guard.outputs.run == 'true' && needs.translate.result != 'success' && needs.translate.result != 'skipped' && inputs.dry_run != true
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout frontaliere-si-o-no (sparse timeout recovery)
+        id: checkout_timeout_recovery
+        uses: actions/checkout@v7
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          fetch-depth: 50
+          persist-credentials: false
+          ref: main
+          clean: true
+          sparse-checkout: |-
+            /*
+            !/public/images/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/dist-size-history.jsonl
+            !/data/evidence-index.json
+            !/data/health-premiums/
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: bash scripts/ci/crawler-retry-cmd.sh npm ci --ignore-scripts
+      - name: Prepare Firebase credentials for timeout recovery
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::error::Firebase secrets not set — cannot load write credentials for timeout recovery."
+            exit 1
+          fi
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+      - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
+        run: |
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT missing from Remote Config — cannot publish the timeout fallback marker."
+            exit 1
+          fi
+          git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
+          echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
+          echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"
+      - name: Release translation deploy fallback after job timeout
+        env:
+          TRANSLATION_DEPLOY_HANDOFF_STATE: fallback
+          TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID: ${{ github.run_id }}
+          TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT: ${{ github.run_attempt }}
+          SKIP_AI_TRANSLATION: "1"
+        run: bash scripts/lib/git-commit-data.sh --slice-only "⚠️ Release translation deploy fallback after job timeout" data/translation-deploy-handoff.json
