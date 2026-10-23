@@ -180,6 +180,21 @@ const IST_SHARED_PORTAL_COMPANIES = new Set([
 ]);
 const IST_DETAIL_TENANT_RE = /\b(?:international\s+school\s+of\s+ticino|scuola\s+internazionale\s+(?:di|del)\s+ticino|école\s+internationale\s+du\s+tessin|internationale\s+schule\s+des\s+tessins)\b/i;
 const IST_ROLE_TENANT_SIGNAL_RE = /(?:\b(?:the\s+)?international\s+school\s+of\s+ticino\s+(?:\([^)]*\)\s+)?(?:is\s+(?:seeking|looking\s+for|recruiting|hiring))\b|\bscuola\s+internazionale\s+(?:di|del)\s+ticino\s+(?:cerca|sta\s+cercando)\b|\bécole\s+internationale\s+du\s+tessin\s+(?:recherche|cherche)\b|\binternationale\s+schule\s+des\s+tessins\s+sucht\b)/i;
+const IST_GENERIC_SWISS_LOCATION_RE = /^(?:lugano|cadempino),\s*ch$/i;
+const IST_GENERIC_GROUP_ROLE_RE = /\binspired\s+education\s+group\s+school\b/i;
+const IST_GENERIC_IB_SCHOOL_RE = /\bib\s+world\s+school\b/i;
+const IST_CAMPUS_IDENTITY_FIELDS = [
+  'tenant',
+  'tenantName',
+  'facility',
+  'facilityName',
+  'school',
+  'schoolName',
+  'employer',
+  'organization',
+  'site',
+  'siteName',
+];
 const TRAILING_COUNTRY_CODE_RE = /,\s*([A-Za-z]{2})\s*$/;
 const IST_DETAIL_REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
 const IST_NATIVE_FIELD_ALIASES = {
@@ -207,6 +222,39 @@ const IST_NATIVE_FILLED_MESSAGE_RE = /^sorry,\s*this\s+position\s+has\s+been\s+f
 
 function hasVerifiedIstRoleTenantSignal(detail = {}) {
   return IST_ROLE_TENANT_SIGNAL_RE.test(normalizeSpace(detail.description));
+}
+
+function hasConflictingCampusIdentity(detail = {}) {
+  return IST_CAMPUS_IDENTITY_FIELDS
+    .map((field) => normalize(detail[field]))
+    .filter(Boolean)
+    .some((value) => (
+      !IST_SHARED_PORTAL_COMPANIES.has(value)
+      && !IST_DETAIL_TENANT_RE.test(value)
+    ));
+}
+
+/**
+ * The current portal has one Swiss vacancy whose native detail omits both
+ * `facility` and `tenant`: it exposes only the shared organization, the
+ * native `Lugano, CH` location, and a role body explicitly scoped to an
+ * Inspired IB World School. Keep this fallback narrower than a city allowlist
+ * so a generic Swiss row without the source's role-context proof remains
+ * incomplete and cannot certify an empty IST source.
+ */
+function hasVerifiedGenericSwissIstSignal(detail = {}, sourceUrl = detail.sourceUrl) {
+  if (hasConflictingCampusIdentity(detail)) return false;
+  if (!IST_GENERIC_SWISS_LOCATION_RE.test(normalizeSpace(detail.location))) return false;
+  if (!IST_GENERIC_GROUP_ROLE_RE.test(normalizeSpace(detail.description))) return false;
+  if (!IST_GENERIC_IB_SCHOOL_RE.test(normalizeSpace(detail.description))) return false;
+
+  try {
+    const parsed = new URL(String(sourceUrl || ''));
+    return parsed.hostname.toLowerCase() === IST_COMPANY_HOST
+      && /^\/job\/[^/]+\/\d+\/?$/i.test(parsed.pathname);
+  } catch {
+    return false;
+  }
 }
 
 function normalizeIstFieldMarker(value = '') {
@@ -434,7 +482,7 @@ export function hasIstSitemapPositiveHint(jobUrls = []) {
   });
 }
 
-export function isIstDetailJob(detail = {}) {
+export function isIstDetailJob(detail = {}, sourceUrl = detail.sourceUrl) {
   const detailIdentityValues = [
     detail.hiringOrganization,
     detail.company,
@@ -454,7 +502,7 @@ export function isIstDetailJob(detail = {}) {
   const detailCompanies = [detail.hiringOrganization, detail.company]
     .map((value) => normalize(value))
     .filter(Boolean);
-  const normalizedSourceUrl = normalize(detail.sourceUrl).replace(/[-_/]+/g, ' ');
+  const normalizedSourceUrl = normalize(sourceUrl).replace(/[-_/]+/g, ' ');
   const hasIstTenantMarker = IST_DETAIL_TENANT_RE.test(normalizedSourceUrl);
   const hasVerifiedIstTenant = detailIdentityValues.some((value) => IST_DETAIL_TENANT_RE.test(value));
   const hasOnlySharedPortalCompanies = detailCompanies.length === 0
@@ -468,7 +516,11 @@ export function isIstDetailJob(detail = {}) {
   // retained as the portal's verified fallback for pages whose structured
   // detail payload contains only the shared group organization.
   return hasVerifiedIstTenant
-    || (hasOnlySharedPortalCompanies && (hasIstTenantMarker || hasVerifiedIstRoleTenantSignal(detail)));
+    || (hasOnlySharedPortalCompanies && (
+      hasIstTenantMarker
+      || hasVerifiedIstRoleTenantSignal(detail)
+      || hasVerifiedGenericSwissIstSignal(detail, sourceUrl)
+    ));
 }
 
 function isTrustedDomain(rawUrl = '') {
@@ -959,7 +1011,7 @@ export function classifyIstDetailPage({
     ...extractIstMicrodata(html),
     sourceUrl,
   });
-  if (!hasCompleteIstDetailEvidence(detail)) {
+  if (!hasCompleteIstDetailEvidence(detail, sourceUrl)) {
     return {
       outcome: 'incomplete',
       evidence: 'unknown-template',
@@ -974,7 +1026,7 @@ export function classifyIstDetailPage({
     sourceUrl,
     finalUrl,
     detail,
-    isIst: isIstDetailJob(detail),
+    isIst: isIstDetailJob(detail, sourceUrl),
   };
 }
 
@@ -1069,7 +1121,7 @@ export function parseCountryCode(locText = '') {
  * location or tenant marker can be selector drift on an IST posting and must
  * keep the run fail-closed.
  */
-export function hasCompleteIstDetailEvidence(detail = {}) {
+export function hasCompleteIstDetailEvidence(detail = {}, sourceUrl = detail.sourceUrl) {
   const location = normalizeSpace(detail.location);
   if (!normalizeSpace(detail.title) || !location) return false;
 
@@ -1102,7 +1154,7 @@ export function hasCompleteIstDetailEvidence(detail = {}) {
   ]
     .map((value) => normalize(value))
     .filter(Boolean);
-  const hasIstTenantEvidence = isIstDetailJob(detail);
+  const hasIstTenantEvidence = isIstDetailJob(detail, sourceUrl);
 
   // A foreign location is not enough on its own: if tenant/identity fields
   // disappear after a schema change, the detail must remain fail-closed.
