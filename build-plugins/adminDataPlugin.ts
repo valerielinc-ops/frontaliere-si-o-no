@@ -18,6 +18,7 @@
 import fs from 'fs';
 import path from 'path';
 import type { Plugin } from 'vite';
+import { ADMIN_SECTION_SLUGS } from '../components/admin/adminSections';
 
 /** Admin-only files to copy from data/ → dist/data/ (relative to project root). */
 const ADMIN_DATA_FILES = [
@@ -49,6 +50,40 @@ const RUNTIME_DATA_FILES = [
 
 /** Every file this plugin copies, in one list for the copy loop + dev middleware. */
 export const COPIED_DATA_FILES = [...ADMIN_DATA_FILES, ...RUNTIME_DATA_FILES];
+
+export const ADMIN_ROUTE_SLUG = 'gestione-contenuti-xk9mp2q';
+export const ADMIN_STATIC_SECTION_SLUGS = ADMIN_SECTION_SLUGS;
+
+function withAdminRobots(shell: string): string {
+ // Quote-flexible: dist-shrink may remove quotes from single-token
+ // attributes, so replace an existing robots tag before injecting a new one.
+ if (/<meta\s+name=["']?robots["']?[^>]*>/i.test(shell)) {
+  return shell.replace(
+   /<meta\s+name=["']?robots["']?[^>]*>/i,
+   '<meta name="robots" content="noindex, nofollow" />',
+  );
+ }
+ return shell.replace(
+  /<head(\s[^>]*)?>/i,
+  (match) => `${match}\n <meta name="robots" content="noindex, nofollow" />`,
+ );
+}
+
+/** Emit one noindex shell for every live section, including the admin root. */
+export function emitAdminStaticShells(distDir: string, indexHtml: string): string[] {
+ const emitted: string[] = [];
+ const shell = withAdminRobots(indexHtml);
+ for (const sectionSlug of ADMIN_STATIC_SECTION_SLUGS) {
+  const sectionDir = sectionSlug
+   ? path.resolve(distDir, ADMIN_ROUTE_SLUG, sectionSlug)
+   : path.resolve(distDir, ADMIN_ROUTE_SLUG);
+  fs.mkdirSync(sectionDir, { recursive: true });
+  const target = path.resolve(sectionDir, 'index.html');
+  fs.writeFileSync(target, shell, 'utf-8');
+  emitted.push(target);
+ }
+ return emitted;
+}
 
 export function adminDataPlugin(root: string): Plugin {
  const routeToSource = new Map(
@@ -91,36 +126,13 @@ export function adminDataPlugin(root: string): Plugin {
 
  console.log(` 📋 Source data: copied ${copied} files to dist/data/ (${ADMIN_DATA_FILES.length} admin + ${RUNTIME_DATA_FILES.length} runtime)`);
 
- // Generate static HTML shell for the admin route so GitHub Pages serves it
- // directly (fresh chunk hashes) without the 404→redirect dance that causes
- // browsers with stale cached index.html to request non-existent old chunks.
- // The slug is intentionally obfuscated; it must stay in sync with router.ts.
- const ADMIN_SLUG = 'gestione-contenuti-xk9mp2q';
+ // Generate static HTML shells for every live admin section so GitHub Pages
+ // serves direct deep links without the 404→redirect dance that causes stale
+ // browsers to request old chunks.
  const indexHtml = path.resolve(distDir, 'index.html');
  if (fs.existsSync(indexHtml)) {
- const adminDir = path.resolve(distDir, ADMIN_SLUG);
- fs.mkdirSync(adminDir, { recursive: true });
- // Copy the SPA shell, then force `noindex, nofollow` on the admin route.
- // The admin panel is an internal tool and must never appear in SERPs,
- // so it is exempt from the site-wide BreadcrumbList requirement (D.2).
- let shell = fs.readFileSync(indexHtml, 'utf-8');
- // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
- // attribute values lose their quotes in dist/ (`name=robots`). A quote-mandatory
- // regex misses the minified shell meta → falls through to the <head> branch and
- // injects a SECOND robots meta while the original survives.
- if (/<meta\s+name=["']?robots["']?[^>]*>/i.test(shell)) {
- shell = shell.replace(
- /<meta\s+name=["']?robots["']?[^>]*>/i,
- '<meta name="robots" content="noindex, nofollow" />'
- );
- } else {
- shell = shell.replace(
- /<head(\s[^>]*)?>/i,
- (m) => `${m}\n <meta name="robots" content="noindex, nofollow" />`
- );
- }
- fs.writeFileSync(path.resolve(adminDir, 'index.html'), shell, 'utf-8');
- console.log(` 🔐 Admin route: generated dist/${ADMIN_SLUG}/index.html (noindex)`);
+ const emitted = emitAdminStaticShells(distDir, fs.readFileSync(indexHtml, 'utf-8'));
+ console.log(` 🔐 Admin routes: generated ${emitted.length} section shell(s) under dist/${ADMIN_ROUTE_SLUG}/ (noindex)`);
  }
  },
  };

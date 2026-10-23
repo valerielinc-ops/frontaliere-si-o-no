@@ -33,6 +33,7 @@ import {
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { NEXT_STEP_GROUP_LABELS, nextStepFor, type NextStep, type NextStepGroup } from '@/services/assistedApplicationNextStep';
 import { pdfRendererLine, type PdfRendererTone } from '@/services/assistedApplicationPdfRendererStatus';
+import { replaceAdminQuery } from '@/components/admin/lib/adminNavigation';
 import AssistedApplicationAutomationPanel from './AssistedApplicationAutomationPanel';
 
 type QueueFilter = AssistedApplicationAdminStatus | 'all';
@@ -323,12 +324,23 @@ function DataRow({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-export default function AssistedApplicationAdmin() {
+function readAdminQuery(): URLSearchParams {
+  return typeof window === 'undefined' ? new URLSearchParams() : new URLSearchParams(window.location.search);
+}
+
+function queueFilterFromQuery(value: string | null): QueueFilter {
+  if (value === 'all') return 'all';
+  return ASSISTED_APPLICATION_ADMIN_STATUSES.includes(value as AssistedApplicationAdminStatus)
+    ? value as AssistedApplicationAdminStatus
+    : 'all';
+}
+
+export default function AssistedApplicationAdmin({ locationKey }: { locationKey?: string }) {
   const { user, loading: authLoading } = useAuth();
   const [orders, setOrders] = useState<AssistedApplicationAdminOrder[]>([]);
   // undefined until the queue has loaded once: nothing is said about the renderer before.
   const [pdfRenderer, setPdfRenderer] = useState<AssistedApplicationPdfRendererCheck | null | undefined>(undefined);
-  const [filter, setFilter] = useState<QueueFilter>('all');
+  const [filter, setFilter] = useState<QueueFilter>(() => queueFilterFromQuery(readAdminQuery().get('stato')));
   const [stepFilter, setStepFilter] = useState<NextStepGroup | 'all'>('all');
   const [notesByOrder, setNotesByOrder] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
@@ -337,6 +349,10 @@ export default function AssistedApplicationAdmin() {
   const [candidatePreview, setCandidatePreview] = useState<AssistedApplicationCandidateView | null>(null);
   const [candidatePreviewLoading, setCandidatePreviewLoading] = useState<string | null>(null);
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
+
+  useEffect(() => {
+    setFilter(queueFilterFromQuery(readAdminQuery().get('stato')));
+  }, [locationKey]);
 
   const loadOrders = async (isRefresh = false) => {
     if (isRefresh) setRefreshing(true);
@@ -358,11 +374,13 @@ export default function AssistedApplicationAdmin() {
   const toggleCandidatePreview = async (order: AssistedApplicationAdminOrder) => {
     if (candidatePreview?.orderId === order.orderId) {
       setCandidatePreview(null);
+      replaceAdminQuery({ ordine: null });
       return;
     }
     if (candidatePreviewLoading || pendingAction) return;
     setCandidatePreview(null);
     setCandidatePreviewLoading(order.orderId);
+    replaceAdminQuery({ ordine: order.orderId });
     setMessage(null);
     try {
       setCandidatePreview(await fetchAssistedApplicationCandidateView(user, order.orderId));
@@ -371,6 +389,25 @@ export default function AssistedApplicationAdmin() {
     } finally {
       setCandidatePreviewLoading(null);
     }
+  };
+
+  useEffect(() => {
+    const orderId = readAdminQuery().get('ordine');
+    if (!orderId) {
+      if (candidatePreview) setCandidatePreview(null);
+      return;
+    }
+    const order = orders.find((candidate) => candidate.orderId === orderId);
+    if (!order || candidatePreview?.orderId === orderId || candidatePreviewLoading) return;
+    void toggleCandidatePreview(order);
+    // The URL is the source of truth for a deep-linked order; the callback is
+    // intentionally invoked only after the queue has loaded the matching row.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [orders, locationKey, candidatePreview, candidatePreviewLoading]);
+
+  const selectStatus = (next: QueueFilter) => {
+    setFilter(next);
+    replaceAdminQuery({ stato: next === 'all' ? null : next });
   };
 
   useEffect(() => {
@@ -503,7 +540,7 @@ export default function AssistedApplicationAdmin() {
           type="button"
           role="tab"
           aria-selected={filter === 'all'}
-          onClick={() => setFilter('all')}
+          onClick={() => selectStatus('all')}
           className={`shrink-0 rounded-t-lg px-3 py-2 text-sm font-medium ${filter === 'all' ? 'border border-b-0 border-edge bg-surface text-accent' : 'text-muted hover:text-body'}`}
         >
           Tutte <span className="ml-1 text-xs">({orders.length})</span>
@@ -514,7 +551,7 @@ export default function AssistedApplicationAdmin() {
             type="button"
             role="tab"
             aria-selected={filter === status}
-            onClick={() => setFilter(status)}
+            onClick={() => selectStatus(status)}
             className={`shrink-0 rounded-t-lg px-3 py-2 text-sm font-medium ${filter === status ? 'border border-b-0 border-edge bg-surface text-accent' : 'text-muted hover:text-body'}`}
           >
             {STATUS_LABELS[status]} <span className="ml-1 text-xs">({counts[status]})</span>
