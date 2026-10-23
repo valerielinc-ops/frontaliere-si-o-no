@@ -47,4 +47,36 @@ describe('technical operations output audit', () => {
 
     expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced')).toEqual([]);
   });
+
+  it('does not treat an unrelated file writer in the delegate as a GitHub output', () => {
+    const scriptPath = path.resolve('scripts/ci/publish-receipts.mjs');
+    const delegatedSource = [
+      "import fs from 'node:fs';",
+      'function writeGithubOutputs(file) {',
+      "  const lines = ['pages_deployed=1'];",
+      "  fs.writeFileSync('/tmp/report', ['missing=from-report']);",
+      "  fs.appendFileSync(file, `${lines.join('\\n')}\\n`);",
+      '}',
+      "writeGithubOutputs(args['github-output']);",
+    ].join('\n');
+    const source = [
+      'name: delegated report output',
+      'on: [push]',
+      'jobs:',
+      '  resolve:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: receipts',
+      '        run: node scripts/ci/publish-receipts.mjs --resolve --github-output "$GITHUB_OUTPUT"',
+      '      - run: echo "${{ steps.receipts.outputs.missing }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/output-flag.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => candidate === scriptPath,
+      readFile: () => delegatedSource,
+    });
+
+    expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced'))
+      .toHaveLength(1);
+  });
 });

@@ -1298,10 +1298,7 @@ function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
     const entries = [...raw.slice(closingIndex + 1).matchAll(entriesRe)];
     // `Object.entries(map)` may also sit inline inside the writer call.
     const inlineEntriesRe = new RegExp(`\\bObject\\.entries\\(\\s*${escapedVariable}\\s*\\)`);
-    const inlineReachesSink = sinkRanges.some(({ start, end }) => {
-      if (start > closingIndex || closingIndex >= end) return false;
-      return inlineEntriesRe.test(raw.slice(closingIndex + 1, end));
-    });
+    const inlineReachesSink = sinkRanges.some(({ start, end }) => inlineEntriesRe.test(raw.slice(start, end)));
     const reachesOutputSink = inlineReachesSink || entries.some((entry) => {
       const derivedVariable = entry[1];
       const entriesStart = closingIndex + 1 + (entry.index ?? 0);
@@ -1586,6 +1583,124 @@ function fileWriterCalls(source, start = 0, end = String(source || '').length) {
   return writers;
 }
 
+function statementEnd(source, start) {
+  const raw = String(source || '');
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  let parentheses = 0;
+  let brackets = 0;
+  let braces = 0;
+  for (let index = start; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\') {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '(') parentheses += 1;
+    else if (char === ')') parentheses -= 1;
+    else if (char === '[') brackets += 1;
+    else if (char === ']') brackets -= 1;
+    else if (char === '{') braces += 1;
+    else if (char === '}') braces -= 1;
+    else if (char === ';' && parentheses === 0 && brackets === 0 && braces === 0) {
+      return index + 1;
+    }
+  }
+  return raw.length;
+}
+
+function identifierReferences(source) {
+  const raw = String(source || '');
+  const keywords = new Set([
+    'const', 'let', 'var', 'return', 'true', 'false', 'null', 'undefined',
+    'new', 'typeof', 'instanceof', 'await', 'void', 'Object', 'String',
+  ]);
+  const references = new Set();
+  for (const match of raw.matchAll(/\b[A-Za-z_$][A-Za-z0-9_$]*\b/g)) {
+    const name = match[0];
+    const index = match.index ?? 0;
+    if (keywords.has(name) || raw[index - 1] === '.') continue;
+    references.add(name);
+  }
+  return references;
+}
+
+function variableDeclarationRange(source, name, before, lowerBound) {
+  const raw = String(source || '');
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const declarationRe = new RegExp(`\\b(?:const|let|var)\\s+${escaped}\\s*=`, 'g');
+  let candidate = null;
+  for (const match of raw.matchAll(declarationRe)) {
+    const index = match.index ?? 0;
+    if (index >= before) break;
+    if (index >= lowerBound) candidate = { start: index, end: statementEnd(raw, index) };
+  }
+  return candidate;
+}
+
+function outputWriterDependencyRanges(source, writer, lowerBound) {
+  const raw = String(source || '');
+  const openingIndex = raw.indexOf('(', writer.start);
+  const closingIndex = writer.end - 1;
+  if (openingIndex < 0 || closingIndex < openingIndex) {
+    return [{ start: writer.start, end: writer.end }];
+  }
+  const argumentsList = splitTopLevelArguments(raw.slice(openingIndex + 1, closingIndex));
+  const ranges = [{ start: writer.start, end: writer.end }];
+  const seenDeclarations = new Set();
+  const pending = argumentsList.slice(1).map((argument) => argument.text);
+  while (pending.length > 0) {
+    for (const reference of identifierReferences(pending.shift())) {
+      if (seenDeclarations.has(reference)) continue;
+      const declaration = variableDeclarationRange(raw, reference, writer.start, lowerBound);
+      if (!declaration) continue;
+      seenDeclarations.add(reference);
+      ranges.push(declaration);
+      const assignment = raw.indexOf('=', declaration.start);
+      if (assignment >= 0 && assignment < declaration.end) {
+        pending.push(raw.slice(assignment + 1, declaration.end));
+      }
+    }
+  }
+  return ranges;
+}
+
 /**
  * Sink ranges of a script that receives its output file through one of
  * `flags`: a writer whose target reads the flag directly
@@ -1631,12 +1746,8 @@ function flagOutputSinkRanges(source, flags) {
     if (boundParams.size === 0) continue;
     const boundWriters = fileWriterCalls(raw, bodyOpen, bodyClose)
       .filter((writer) => boundParams.has(writer.target));
-    if (boundWriters.length > 0) {
-      // Include the complete writer function, not only appendFileSync().
-      // Output keys are often assembled in a literal array immediately before
-      // the write (for example `lines.join('\\n')`), so the array would remain
-      // outside a narrow call range and appear unproven to the audit.
-      ranges.push({ start: bodyOpen, end: bodyClose });
+    for (const writer of boundWriters) {
+      ranges.push(...outputWriterDependencyRanges(raw, writer, bodyOpen + 1));
     }
   }
   return ranges;
