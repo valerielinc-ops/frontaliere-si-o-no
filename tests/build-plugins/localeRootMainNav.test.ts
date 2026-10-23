@@ -75,6 +75,22 @@ function renderLocaleRoot(locale: 'en' | 'de' | 'fr'): string {
 
 const NON_IT_LOCALES = ['en', 'de', 'fr'] as const;
 
+const NEW_SE_RANKING_ORPHAN_HREFS = {
+  en: [
+    '/en/taxes-and-pension/calculate-retirement/',
+    '/en/cross-border-guide/work-permits-guide/',
+  ],
+  de: [
+    '/de/steuern-und-vorsorge/',
+    '/de/steuern-und-vorsorge/rente-berechnen/',
+    '/de/grenzgaenger-ratgeber/arbeitsbewilligungen/',
+  ],
+  fr: [
+    '/fr/impots-et-retraite/calculer-pension/',
+    '/fr/guide-frontalier/permis-de-travail/',
+  ],
+} as const;
+
 describe('locale-root SPA shells — internal links (#5428)', () => {
   it.each(NON_IT_LOCALES)('localizes the SEO head for /%s/ and keeps titles within 60 characters', (locale) => {
     const html = renderLocaleRootShell(SEO_SHELL, locale);
@@ -109,6 +125,13 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
       expect(html).toContain(`href="${buildFaqHubPath(locale)}"`);
     },
   );
+
+  it.each(NON_IT_LOCALES)('/%s/ links the localized pages reported as orphaned by SE Ranking', (locale) => {
+    const html = renderLocaleRoot(locale);
+    for (const href of NEW_SE_RANKING_ORPHAN_HREFS[locale]) {
+      expect(html).toContain(`href="${href}"`);
+    }
+  });
 
   it.each(NON_IT_LOCALES)('/%s/ links its own pharmacy directory hub', (locale) => {
     const html = renderLocaleRoot(locale);
