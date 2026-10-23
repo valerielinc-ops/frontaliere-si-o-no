@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 818,
+      "5": 819,
       "6": 5054
     },
-    "publishedCovers": 7555,
+    "publishedCovers": 7556,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207701,6 +207701,39 @@
         "provider": "openai-codex",
         "assetId": "article-hug-primo-ospedale-svizzero-2027",
         "imageUrl": "/images/blog/article-hug-primo-ospedale-svizzero-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-iva-aumento-pensione-sondaggio": {
+      "cover": "/images/blog/article-iva-aumento-pensione-sondaggio.webp",
+      "hash": "05b399c4fa8b772123358cff17fb98923b2ec686469de47493daf86f7f072901",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "iva-aumento-pensione-sondaggio",
+          "category": "pensione",
+          "date": "2026-10-23T23:16:56.572Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-iva-aumento-pensione-sondaggio.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-iva-aumento-pensione-sondaggio",
+        "imageUrl": "/images/blog/article-iva-aumento-pensione-sondaggio.webp",
         "evidence": "generated-engine-record"
       }
     }

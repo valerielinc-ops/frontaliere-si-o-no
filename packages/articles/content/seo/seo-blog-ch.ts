@@ -108714,6 +108714,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iva-aumento-pensione-sondaggio': {
+    title: 'Aumento IVA per extra pensione: 49% contrari nel primo sondaggio',
+    description: '49% contrari, 46% favorevoli e 5% indecisi. IVA +0,4 punti per finanziare il pagamento extra AHV. Il pagamento aggiuntivo parte a dicembre 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, extra, pensione, contrari',
+    ogTitle: 'Aumento IVA per extra pensione: 49% contrari nel primo sondaggio',
+    ogDescription: '49% contrari, 46% favorevoli e 5% indecisi.',
+    canonicalPath: '/articoli-svizzera/iva-aumento-pensione-sondaggio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento IVA per extra pensione: 49% contrari nel primo sondaggio",
+      "description": "49% contrari, 46% favorevoli e 5% indecisi. IVA +0,4 punti per finanziare il pagamento extra AHV. Il pagamento aggiuntivo parte a dicembre 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-iva-aumento-pensione-sondaggio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-23T23:16:56+00:00",
+      "dateModified": "2026-10-23T23:16:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iva-aumento-pensione-sondaggio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
