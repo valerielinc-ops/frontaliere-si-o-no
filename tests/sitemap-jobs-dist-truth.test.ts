@@ -46,6 +46,7 @@ const SHARD_HEALTHY = `${BASE}/de/jobs-im-aargau/bridge-healthy/`;
 const META_REFRESH = `${BASE}/de/jobs-im-tessin/legacy-refresh/`;
 const MISSING_CANONICAL = `${BASE}/de/jobs-im-tessin/missing-canonical/`;
 const UNQUOTED_CANONICAL = `${BASE}/de/jobs-im-tessin/unquoted-canonical/`;
+const FOREIGN_PDF = `${BASE}/de/jobs-im-aargau/document.pdf`;
 
 const selfCanonical = (loc: string) =>
   `<!doctype html><html><head><link rel="canonical" href="${loc}"></head><body>ok</body></html>`;
@@ -441,6 +442,27 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     }
   });
 
+  it('keeps a foreign non-HTML file even when its flat HTML sibling exists', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), wrap([FOREIGN_PDF]), 'utf-8');
+    const pdfPath = path.join(dist, new URL(FOREIGN_PDF).pathname.replace(/^\/+/, ''));
+    fs.mkdirSync(path.dirname(pdfPath), { recursive: true });
+    fs.writeFileSync(pdfPath, '%PDF-1.7', 'utf8');
+    fs.writeFileSync(`${pdfPath}.html`, noindexBridge(`${BASE}/de/jobs-im-aargau/`), 'utf8');
+
+    vi.resetModules();
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      expect(shard.extractSitemapLocs(fs.readFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), 'utf8')))
+        .toEqual([FOREIGN_PDF]);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+    }
+  });
+
   it('uses one streaming dist inventory for foreign-locale probes', async () => {
     fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([EN, DE, FR]), 'utf-8');
 
@@ -461,6 +483,30 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
       opendirSpy.mockRestore();
       if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
       else process.env.BUILD_LOCALE = previousBuildLocale;
+    }
+  });
+
+  it('keeps entries discovered before a nested directory disappears', async () => {
+    const raceRoot = path.join(dist, 'race-dist');
+    const vanished = path.join(raceRoot, 'vanished');
+    fs.mkdirSync(vanished, { recursive: true });
+    const stable = path.join(raceRoot, 'stable.html');
+    fs.writeFileSync(stable, '<html></html>', 'utf8');
+
+    const realOpendir = fs.promises.opendir;
+    const opendirSpy = vi.spyOn(fs.promises, 'opendir').mockImplementation((directory, options) => {
+      if (path.resolve(String(directory)) === path.resolve(vanished)) {
+        const error = Object.assign(new Error('directory disappeared'), { code: 'ENOENT' });
+        return Promise.reject(error);
+      }
+      return realOpendir.call(fs.promises, directory, options);
+    });
+    try {
+      const index = createForeignDirectoryIndex(raceRoot);
+      expect(await index.hasFile(stable)).toBe(true);
+      expect(await index.hasFile(path.join(vanished, 'gone.html'))).toBe(false);
+    } finally {
+      opendirSpy.mockRestore();
     }
   });
 

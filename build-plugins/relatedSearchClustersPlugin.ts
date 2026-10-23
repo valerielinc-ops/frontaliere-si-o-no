@@ -4330,7 +4330,9 @@ function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
  * directories, so a per-parent cache still performs one directory syscall per
  * URL. The map is scoped to one reconciliation pass so a later build pass
  * cannot observe a stale filesystem snapshot. `opendir` keeps the transient
- * directory-entry buffer bounded; only the path sets survive the walk.
+ * directory-entry buffer bounded; only the HTML and symlink path sets survive
+ * the walk. Non-HTML regular-file candidates are checked with a targeted
+ * `stat` instead of retaining every asset path in memory.
  */
 export interface ForeignDirectoryIndex {
   hasFile(filePath: string): Promise<boolean>;
@@ -4340,55 +4342,76 @@ export interface ForeignDirectoryIndex {
 
 export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIndex {
   let inventory: Promise<{
-    regularFiles: ReadonlySet<string>;
+    htmlFiles: ReadonlySet<string>;
     symlinks: ReadonlySet<string>;
   }> | null = null;
 
   const loadInventory = (): Promise<{
-    regularFiles: ReadonlySet<string>;
+    htmlFiles: ReadonlySet<string>;
     symlinks: ReadonlySet<string>;
   }> => {
     if (inventory) return inventory;
 
     inventory = (async () => {
-      const regularFiles = new Set<string>();
+      const htmlFiles = new Set<string>();
       const symlinks = new Set<string>();
       const pendingDirectories = [path.resolve(distDir)];
 
       while (pendingDirectories.length > 0) {
         const directory = pendingDirectories.pop()!;
-        const handle = await fs.promises.opendir(directory);
-        for await (const entry of handle) {
-          const filePath = path.resolve(directory, entry.name);
-          if (entry.isSymbolicLink()) symlinks.add(filePath);
-          else if (entry.isFile()) regularFiles.add(filePath);
-          else if (entry.isDirectory()) pendingDirectories.push(filePath);
+        let handle: fs.Dir;
+        try {
+          handle = await fs.promises.opendir(directory);
+        } catch (error: unknown) {
+          // A generated directory can disappear between the parent walk and
+          // this opendir. Keep entries already discovered and skip only the
+          // vanished subtree instead of invalidating the whole inventory.
+          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
+            continue;
+          }
+          throw error;
+        }
+
+        try {
+          for await (const entry of handle) {
+            const filePath = path.resolve(directory, entry.name);
+            if (entry.isSymbolicLink()) symlinks.add(filePath);
+            else if (entry.isFile() && path.extname(entry.name).toLowerCase() === '.html') {
+              htmlFiles.add(filePath);
+            } else if (entry.isDirectory()) {
+              pendingDirectories.push(filePath);
+            }
+          }
+        } catch (error: unknown) {
+          // The directory may disappear while its handle is being consumed.
+          // The entries yielded before the race remain valid for this pass.
+          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
+            continue;
+          }
+          throw error;
         }
       }
 
-      return { regularFiles, symlinks };
-    })()
-      .catch((error: unknown) => {
-        if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
-          return {
-            regularFiles: new Set<string>(),
-            symlinks: new Set<string>(),
-          };
-        }
-        throw error;
-      });
+      return { htmlFiles, symlinks };
+    })();
 
     return inventory;
   };
 
   return {
     hasFile(filePath: string): Promise<boolean> {
-      return loadInventory().then(({ regularFiles }) =>
-        path.basename(filePath).toLowerCase().endsWith('.html') &&
-        regularFiles.has(path.resolve(filePath)));
+      return loadInventory().then(({ htmlFiles }) => htmlFiles.has(path.resolve(filePath)));
     },
     hasRegularFile(filePath: string): Promise<boolean> {
-      return loadInventory().then(({ regularFiles }) => regularFiles.has(path.resolve(filePath)));
+      // This method is used only for the route-path candidate. A targeted
+      // stat preserves non-HTML file detection without retaining every PDF,
+      // image, font, and other static asset in the walk's path set.
+      return fs.promises.stat(path.resolve(filePath)).then((stat) => stat.isFile()).catch((error: unknown) => {
+        if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
+          return false;
+        }
+        throw error;
+      });
     },
     hasSymlink(filePath: string): Promise<boolean> {
       return loadInventory().then(({ symlinks }) => symlinks.has(path.resolve(filePath)));
