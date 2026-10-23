@@ -167,6 +167,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -180,7 +181,6 @@ jobs:
           watchdog_path="$state_dir/klinik-schuetzen.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/klinik-schuetzen.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -210,7 +210,7 @@ jobs:
 
           # ---- klinik-schuetzen: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run klinik-schuetzen" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -245,7 +245,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.worker.status"
@@ -259,7 +258,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/klinik-schuetzen.worker.sh"
@@ -370,6 +368,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -383,7 +382,6 @@ jobs:
           watchdog_path="$state_dir/epi-geneve.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/epi-geneve.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -413,7 +411,7 @@ jobs:
 
           # ---- epi-geneve: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run epi-geneve" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -448,7 +446,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.worker.status"
@@ -462,7 +459,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/epi-geneve.worker.sh"
@@ -573,6 +569,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -586,7 +583,6 @@ jobs:
           watchdog_path="$state_dir/grand-hotel-des-bains-kempinski.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/grand-hotel-des-bains-kempinski.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -616,7 +612,7 @@ jobs:
 
           # ---- kempinski: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run kempinski" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -651,7 +647,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/kempinski.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/kempinski.worker.status"
@@ -665,7 +660,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/kempinski.worker.sh"
@@ -776,6 +770,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -789,7 +784,6 @@ jobs:
           watchdog_path="$state_dir/vaxcyte.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/vaxcyte.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -819,7 +813,7 @@ jobs:
 
           # ---- vaxcyte: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run vaxcyte" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -854,7 +848,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.worker.status"
@@ -868,7 +861,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/vaxcyte.worker.sh"
@@ -979,6 +971,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -992,7 +985,6 @@ jobs:
           watchdog_path="$state_dir/tether.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/tether.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -1022,7 +1014,7 @@ jobs:
 
           # ---- tether: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run tether" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1057,7 +1049,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/tether.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/tether.worker.status"
@@ -1071,7 +1062,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/tether.worker.sh"
@@ -1182,6 +1172,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -1195,7 +1186,6 @@ jobs:
           watchdog_path="$state_dir/schulthess-klinik.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/schulthess-klinik.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -1225,7 +1215,7 @@ jobs:
 
           # ---- schulthess-klinik: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run schulthess-klinik" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1260,7 +1250,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.worker.status"
@@ -1274,7 +1263,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/schulthess-klinik.worker.sh"
@@ -1385,6 +1373,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -1398,7 +1387,6 @@ jobs:
           watchdog_path="$state_dir/vitrea-gesundheit.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/vitrea-gesundheit.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -1428,7 +1416,7 @@ jobs:
 
           # ---- vitrea-gesundheit: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run vitrea-gesundheit" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1463,7 +1451,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.worker.status"
@@ -1477,7 +1464,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/vitrea-gesundheit.worker.sh"
@@ -1588,6 +1574,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -1601,7 +1588,6 @@ jobs:
           watchdog_path="$state_dir/citta-di-mendrisio.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/citta-di-mendrisio.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -1631,7 +1617,7 @@ jobs:
 
           # ---- mendrisio: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run mendrisio" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1666,7 +1652,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.worker.status"
@@ -1680,7 +1665,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/mendrisio.worker.sh"
@@ -1791,6 +1775,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -1804,7 +1789,6 @@ jobs:
           watchdog_path="$state_dir/valora.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/valora.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -1834,7 +1818,7 @@ jobs:
 
           # ---- valora: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run valora" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1869,7 +1853,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/valora.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/valora.worker.status"
@@ -1883,7 +1866,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/valora.worker.sh"
@@ -1994,6 +1976,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -2007,7 +1990,6 @@ jobs:
           watchdog_path="$state_dir/talan.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/talan.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -2037,7 +2019,7 @@ jobs:
 
           # ---- talan: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run talan" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2072,7 +2054,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/talan.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/talan.worker.status"
@@ -2086,7 +2067,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/talan.worker.sh"
@@ -2197,6 +2177,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -2210,7 +2191,6 @@ jobs:
           watchdog_path="$state_dir/straumann.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/straumann.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -2240,7 +2220,7 @@ jobs:
 
           # ---- straumann: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run straumann" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2275,7 +2255,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/straumann.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/straumann.worker.status"
@@ -2289,7 +2268,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/straumann.worker.sh"
@@ -2400,6 +2378,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -2413,7 +2392,6 @@ jobs:
           watchdog_path="$state_dir/faulhaber.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/faulhaber.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -2443,7 +2421,7 @@ jobs:
 
           # ---- faulhaber: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run faulhaber" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2478,7 +2456,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.worker.status"
@@ -2492,7 +2469,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/faulhaber.worker.sh"
@@ -2603,6 +2579,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -2616,7 +2593,6 @@ jobs:
           watchdog_path="$state_dir/ipersonal.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/ipersonal.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -2646,7 +2622,7 @@ jobs:
 
           # ---- ipersonal: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run ipersonal" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2681,7 +2657,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.worker.status"
@@ -2695,7 +2670,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/ipersonal.worker.sh"
@@ -2806,6 +2780,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -2819,7 +2794,6 @@ jobs:
           watchdog_path="$state_dir/eraneos.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/eraneos.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -2849,7 +2823,7 @@ jobs:
 
           # ---- eraneos: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run eraneos" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2884,7 +2858,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/eraneos.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/eraneos.worker.status"
@@ -2898,7 +2871,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/eraneos.worker.sh"
@@ -3009,6 +2981,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -3022,7 +2995,6 @@ jobs:
           watchdog_path="$state_dir/h-ju-hopital-du-jura.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/h-ju-hopital-du-jura.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -3052,7 +3024,7 @@ jobs:
 
           # ---- h-ju-hopital-du-jura: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run h-ju-hopital-du-jura" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3087,7 +3059,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.worker.status"
@@ -3101,7 +3072,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/h-ju-hopital-du-jura.worker.sh"
@@ -3212,6 +3182,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -3225,7 +3196,6 @@ jobs:
           watchdog_path="$state_dir/gavi.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/gavi.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -3255,7 +3225,7 @@ jobs:
 
           # ---- gavi: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run gavi" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3290,7 +3260,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/gavi.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/gavi.worker.status"
@@ -3304,7 +3273,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/gavi.worker.sh"
@@ -3415,6 +3383,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -3428,7 +3397,6 @@ jobs:
           watchdog_path="$state_dir/clinique-la-source.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/clinique-la-source.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -3458,7 +3426,7 @@ jobs:
 
           # ---- clinique-la-source: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run clinique-la-source" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3493,7 +3461,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.worker.status"
@@ -3507,7 +3474,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/clinique-la-source.worker.sh"
@@ -3618,6 +3584,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -3631,7 +3598,6 @@ jobs:
           watchdog_path="$state_dir/cedes.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/cedes.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -3661,7 +3627,7 @@ jobs:
 
           # ---- cedes: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run cedes" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3696,7 +3662,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/cedes.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/cedes.worker.status"
@@ -3710,7 +3675,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/cedes.worker.sh"
@@ -3821,6 +3785,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -3834,7 +3799,6 @@ jobs:
           watchdog_path="$state_dir/bracco.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/bracco.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -3864,7 +3828,7 @@ jobs:
 
           # ---- bracco: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run bracco" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3899,7 +3863,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/bracco.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/bracco.worker.status"
@@ -3913,7 +3876,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/bracco.worker.sh"
@@ -4024,6 +3986,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -4037,7 +4000,6 @@ jobs:
           watchdog_path="$state_dir/bms-building.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/bms-building.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -4067,7 +4029,7 @@ jobs:
 
           # ---- bms-building: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run bms-building" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4102,7 +4064,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/bms-building.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/bms-building.worker.status"
@@ -4116,7 +4077,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/bms-building.worker.sh"
@@ -4227,6 +4187,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -4240,7 +4201,6 @@ jobs:
           watchdog_path="$state_dir/citta-di-bellinzona.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/citta-di-bellinzona.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -4270,7 +4230,7 @@ jobs:
 
           # ---- citta-di-bellinzona: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run citta-di-bellinzona" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4305,7 +4265,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.worker.status"
@@ -4319,7 +4278,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/citta-di-bellinzona.worker.sh"
@@ -4430,6 +4388,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -4443,7 +4402,6 @@ jobs:
           watchdog_path="$state_dir/berner-klinik-montana.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/berner-klinik-montana.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -4473,7 +4431,7 @@ jobs:
 
           # ---- berner-klinik-montana: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run berner-klinik-montana" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4508,7 +4466,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.worker.status"
@@ -4522,7 +4479,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/berner-klinik-montana.worker.sh"
@@ -4630,6 +4586,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -4643,7 +4600,6 @@ jobs:
           watchdog_path="$state_dir/agroscope.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/agroscope.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -4673,7 +4629,7 @@ jobs:
 
           # ---- agroscope: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run agroscope" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4708,7 +4664,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/agroscope.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/agroscope.worker.status"
@@ -4722,7 +4677,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/agroscope.worker.sh"
@@ -4833,6 +4787,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -4846,7 +4801,6 @@ jobs:
           watchdog_path="$state_dir/amstein-walthert.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/amstein-walthert.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -4876,7 +4830,7 @@ jobs:
 
           # ---- amstein-walthert: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run amstein-walthert" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4911,7 +4865,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.worker.status"
@@ -4925,7 +4878,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/amstein-walthert.worker.sh"
@@ -5036,6 +4988,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -5049,7 +5002,6 @@ jobs:
           watchdog_path="$state_dir/caseificio-gottardo.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/caseificio-gottardo.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -5079,7 +5031,7 @@ jobs:
 
           # ---- caseificio-gottardo: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run caseificio-gottardo" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5114,7 +5066,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.worker.status"
@@ -5128,7 +5079,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/caseificio-gottardo.worker.sh"
@@ -5239,6 +5189,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -5252,7 +5203,6 @@ jobs:
           watchdog_path="$state_dir/neoproconseils.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/neoproconseils.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -5282,7 +5232,7 @@ jobs:
 
           # ---- neoproconseils: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run neoproconseils" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5317,7 +5267,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/neoproconseils.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/neoproconseils.worker.status"
@@ -5331,7 +5280,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/neoproconseils.worker.sh"
@@ -5442,6 +5390,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -5455,7 +5404,6 @@ jobs:
           watchdog_path="$state_dir/rituals-cosmetics.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/rituals-cosmetics.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -5485,7 +5433,7 @@ jobs:
 
           # ---- rituals-cosmetics: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run rituals-cosmetics" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5520,7 +5468,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/rituals-cosmetics.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/rituals-cosmetics.worker.status"
@@ -5534,7 +5481,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/rituals-cosmetics.worker.sh"
@@ -5645,6 +5591,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -5658,7 +5605,6 @@ jobs:
           watchdog_path="$state_dir/vista.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/vista.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -5688,7 +5634,7 @@ jobs:
 
           # ---- vista: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run vista" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5723,7 +5669,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/vista.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/vista.worker.status"
@@ -5737,7 +5682,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/vista.worker.sh"
@@ -5848,6 +5792,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           mkdir -p "$state_dir/slots"
@@ -5861,7 +5806,6 @@ jobs:
           watchdog_path="$state_dir/fmi.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/fmi.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -5891,7 +5835,7 @@ jobs:
 
           # ---- fmi: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run fmi" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5926,7 +5870,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-05/fmi.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-05/fmi.worker.status"
@@ -5940,7 +5883,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-05"
           worker_path="$RUNNER_TEMP/crawler-generation/group-05/fmi.worker.sh"
@@ -7686,7 +7628,7 @@ jobs:
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
               echo "::error::$slug: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
               watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-              if ! node scripts/lib/github-issue-creator.mjs --title "Crawler Failure: Run $slug" --description "$watchdog_description" --log-excerpt-file "$state_dir/$slug.log" --priority 2 --label Bug --workflow "Run $slug"; then
+              if ! node scripts/lib/github-issue-creator.mjs --title "Crawler Failure: Run $slug" --description "$watchdog_description" --log-excerpt-file "$state_dir/$slug.log" --priority 2 --label Bug --workflow "Run $slug" --require-persisted; then
                 echo "::error::$slug: the watchdog-timeout issue could not be filed; failing the group verdict"
                 failure_count=$((failure_count + 1))
               fi

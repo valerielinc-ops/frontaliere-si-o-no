@@ -1031,7 +1031,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
   work.push('exit 0');
 
   outer.push(`# ---- ${crawler.slug}: ${timeoutMinutes} minute target wall timeout ----`);
-  outer.push('# shellcheck disable=SC2016 -- child-shell variables expand inside the quoted bash -c body');
+  outer.push('# shellcheck disable=SC2016');
   outer.push(
     `timeout --signal=TERM --kill-after=30s ${timeoutMinutes}m bash -c ${shellQuote(work.join('\n'))}`,
   );
@@ -1478,6 +1478,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     'done',
   ].join('\n');
   return [
+    '# shellcheck disable=SC2016,SC1003',
     'set -euo pipefail',
     `state_dir="$RUNNER_TEMP/crawler-generation/group-${nn}"`,
     'mkdir -p "$state_dir/slots"',
@@ -1492,11 +1493,8 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
     // A leftover crawl-exit would be positive proof this launch never gave.
     ...(crawlExitFileName === null ? [] : [`rm -f "$state_dir/${crawlExitFileName}"`]),
-    '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
-    '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(worker)} > "$worker_path"`,
-    '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(launcher)} > "$launcher_path"`,
     'if command -v setsid >/dev/null 2>&1; then',
     '  env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &',

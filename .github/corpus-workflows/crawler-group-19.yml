@@ -241,6 +241,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/migros-ticino.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -254,7 +255,6 @@ jobs:
           watchdog_path="$state_dir/migros-ticino.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/migros-ticino.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -319,7 +319,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/migros.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/migros.worker.status"
@@ -333,7 +332,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/migros.worker.sh"
@@ -443,6 +441,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/mikron.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -456,7 +455,6 @@ jobs:
           watchdog_path="$state_dir/mikron.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/mikron.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -521,7 +519,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/mikron.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/mikron.worker.status"
@@ -535,7 +532,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/mikron.worker.sh"
@@ -645,6 +641,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/rsbj.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -658,7 +655,6 @@ jobs:
           watchdog_path="$state_dir/rsbj.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/rsbj.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -723,7 +719,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/rsbj.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/rsbj.worker.status"
@@ -737,7 +732,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/rsbj.worker.sh"
@@ -847,6 +841,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/sulzer.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -860,7 +855,6 @@ jobs:
           watchdog_path="$state_dir/sulzer.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/sulzer.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -925,7 +919,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/sulzer.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/sulzer.worker.status"
@@ -939,7 +932,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/sulzer.worker.sh"
@@ -1049,6 +1041,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/suchtfachstelle-zuerich.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -1062,7 +1055,6 @@ jobs:
           watchdog_path="$state_dir/suchtfachstelle-zuerich.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/suchtfachstelle-zuerich.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -1127,7 +1119,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/suchtfachstelle-zuerich.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/suchtfachstelle-zuerich.worker.status"
@@ -1141,7 +1132,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/suchtfachstelle-zuerich.worker.sh"
@@ -1251,6 +1241,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/swissquote.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -1264,7 +1255,6 @@ jobs:
           watchdog_path="$state_dir/swissquote.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/swissquote.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -1329,7 +1319,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/swissquote.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/swissquote.worker.status"
@@ -1343,7 +1332,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/swissquote.worker.sh"
@@ -1453,6 +1441,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/medartis.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -1466,7 +1455,6 @@ jobs:
           watchdog_path="$state_dir/medartis.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/medartis.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -1531,7 +1519,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/medartis.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/medartis.worker.status"
@@ -1545,7 +1532,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/medartis.worker.sh"
@@ -1655,6 +1641,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/rapelli.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -1668,7 +1655,6 @@ jobs:
           watchdog_path="$state_dir/rapelli.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/rapelli.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -1733,7 +1719,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/rapelli.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/rapelli.worker.status"
@@ -1747,7 +1732,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/rapelli.worker.sh"
@@ -1857,6 +1841,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/stadler-rail.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -1870,7 +1855,6 @@ jobs:
           watchdog_path="$state_dir/stadler-rail.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/stadler-rail.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -1935,7 +1919,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/stadler-rail.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/stadler-rail.worker.status"
@@ -1949,7 +1932,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/stadler-rail.worker.sh"
@@ -2059,6 +2041,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/stiftung-kind-autismus.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -2072,7 +2055,6 @@ jobs:
           watchdog_path="$state_dir/stiftung-kind-autismus.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/stiftung-kind-autismus.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -2137,7 +2119,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/stiftung-kind-autismus.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/stiftung-kind-autismus.worker.status"
@@ -2151,7 +2132,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/stiftung-kind-autismus.worker.sh"
@@ -2261,6 +2241,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/komax.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -2274,7 +2255,6 @@ jobs:
           watchdog_path="$state_dir/komax.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/komax.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -2339,7 +2319,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/komax-group.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/komax-group.worker.status"
@@ -2353,7 +2332,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/komax-group.worker.sh"
@@ -2463,6 +2441,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/spitaeler-schaffhausen.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -2476,7 +2455,6 @@ jobs:
           watchdog_path="$state_dir/spitaeler-schaffhausen.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/spitaeler-schaffhausen.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -2541,7 +2519,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/spitaeler-schaffhausen.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/spitaeler-schaffhausen.worker.status"
@@ -2555,7 +2532,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/spitaeler-schaffhausen.worker.sh"
@@ -2664,6 +2640,7 @@ jobs:
           SKIP_AI_TRANSLATION: \${{ inputs.skip_ai_translation || '0' }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -2677,7 +2654,6 @@ jobs:
           watchdog_path="$state_dir/grace-la-margna.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/grace-la-margna.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -2742,7 +2718,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/grace.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/grace.worker.status"
@@ -2756,7 +2731,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/grace.worker.sh"
@@ -2866,6 +2840,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/okjob.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -2879,7 +2854,6 @@ jobs:
           watchdog_path="$state_dir/okjob.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/okjob.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -2944,7 +2918,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/okjob.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/okjob.worker.status"
@@ -2958,7 +2931,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/okjob.worker.sh"
@@ -3068,6 +3040,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/goline.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -3081,7 +3054,6 @@ jobs:
           watchdog_path="$state_dir/goline.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/goline.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -3146,7 +3118,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/goline.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/goline.worker.status"
@@ -3160,7 +3131,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/goline.worker.sh"
@@ -3271,6 +3241,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/sune-egge.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -3284,7 +3255,6 @@ jobs:
           watchdog_path="$state_dir/sune-egge.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/sune-egge.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -3349,7 +3319,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/sune-egge.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/sune-egge.worker.status"
@@ -3363,7 +3332,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/sune-egge.worker.sh"
@@ -3473,6 +3441,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/klinik-susenberg.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -3486,7 +3455,6 @@ jobs:
           watchdog_path="$state_dir/klinik-susenberg.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/klinik-susenberg.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -3551,7 +3519,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/klinik-susenberg.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/klinik-susenberg.worker.status"
@@ -3565,7 +3532,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/klinik-susenberg.worker.sh"
@@ -3675,6 +3641,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/integra-biosciences.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -3688,7 +3655,6 @@ jobs:
           watchdog_path="$state_dir/integra-biosciences.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/integra-biosciences.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -3753,7 +3719,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/integra-biosciences.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/integra-biosciences.worker.status"
@@ -3767,7 +3732,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/integra-biosciences.worker.sh"
@@ -3877,6 +3841,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/forel-klinik.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -3890,7 +3855,6 @@ jobs:
           watchdog_path="$state_dir/forel-klinik.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/forel-klinik.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -3955,7 +3919,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/forel-klinik.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/forel-klinik.worker.status"
@@ -3969,7 +3932,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/forel-klinik.worker.sh"
@@ -4079,6 +4041,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/hfr-hopital-fribourgeois.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -4092,7 +4055,6 @@ jobs:
           watchdog_path="$state_dir/hfr-hopital-fribourgeois.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/hfr-hopital-fribourgeois.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -4157,7 +4119,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/hfr-hopital-fribourgeois.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/hfr-hopital-fribourgeois.worker.status"
@@ -4171,7 +4132,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/hfr-hopital-fribourgeois.worker.sh"
@@ -4281,6 +4241,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/gz-dielsdorf.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -4294,7 +4255,6 @@ jobs:
           watchdog_path="$state_dir/gz-dielsdorf.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/gz-dielsdorf.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -4359,7 +4319,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/gz-dielsdorf.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/gz-dielsdorf.worker.status"
@@ -4373,7 +4332,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/gz-dielsdorf.worker.sh"
@@ -4483,6 +4441,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/csl-behring.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -4496,7 +4455,6 @@ jobs:
           watchdog_path="$state_dir/csl-behring.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/csl-behring.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -4561,7 +4519,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/csl-behring.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/csl-behring.worker.status"
@@ -4575,7 +4532,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/csl-behring.worker.sh"
@@ -4685,6 +4641,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/cseb.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -4698,7 +4655,6 @@ jobs:
           watchdog_path="$state_dir/cseb.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/cseb.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -4763,7 +4719,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/cseb.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/cseb.worker.status"
@@ -4777,7 +4732,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/cseb.worker.sh"
@@ -4887,6 +4841,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/bucher-suter.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -4900,7 +4855,6 @@ jobs:
           watchdog_path="$state_dir/bucher-suter.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/bucher-suter.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -4965,7 +4919,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/bucher-suter.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/bucher-suter.worker.status"
@@ -4979,7 +4932,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/bucher-suter.worker.sh"
@@ -5089,6 +5041,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/alpiq.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -5102,7 +5055,6 @@ jobs:
           watchdog_path="$state_dir/alpiq.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/alpiq.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -5167,7 +5119,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/alpiq.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/alpiq.worker.status"
@@ -5181,7 +5132,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/alpiq.worker.sh"
@@ -5291,6 +5241,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/vereinaklosters.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -5304,7 +5255,6 @@ jobs:
           watchdog_path="$state_dir/vereinaklosters.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/vereinaklosters.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -5369,7 +5319,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/vereinaklosters.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/vereinaklosters.worker.status"
@@ -5383,7 +5332,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/vereinaklosters.worker.sh"
@@ -5493,6 +5441,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/unibe.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -5506,7 +5455,6 @@ jobs:
           watchdog_path="$state_dir/unibe.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/unibe.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -5571,7 +5519,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/unibe.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/unibe.worker.status"
@@ -5585,7 +5532,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/unibe.worker.sh"
@@ -5695,6 +5641,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/convit-holding.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -5708,7 +5655,6 @@ jobs:
           watchdog_path="$state_dir/convit-holding.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/convit-holding.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -5773,7 +5719,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/convit.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/convit.worker.status"
@@ -5787,7 +5732,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/convit.worker.sh"
@@ -5897,6 +5841,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/agat.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -5910,7 +5855,6 @@ jobs:
           watchdog_path="$state_dir/agat.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/agat.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -5975,7 +5919,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/agat.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/agat.worker.status"
@@ -5989,7 +5932,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/agat.worker.sh"
@@ -6099,6 +6041,7 @@ jobs:
           JOBS_SLICE_FILE: data/jobs/by-crawler/hanseisenring.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
+          # shellcheck disable=SC2016,SC1003
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           mkdir -p "$state_dir/slots"
@@ -6112,7 +6055,6 @@ jobs:
           watchdog_path="$state_dir/hanseisenring.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           rm -f "$state_dir/hanseisenring.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
 
@@ -6177,7 +6119,6 @@ jobs:
             exit 1
           fi
           exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           script_path="$RUNNER_TEMP/crawler-generation/group-19/hanseisenring.sh"
           worker_status_file="$RUNNER_TEMP/crawler-generation/group-19/hanseisenring.worker.status"
@@ -6191,7 +6132,6 @@ jobs:
           printf '\''%s\n'\'' "$crawler_exit" > "$worker_status_tmp"
           mv -f "$worker_status_tmp" "$worker_status_file"
           exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-19"
           worker_path="$RUNNER_TEMP/crawler-generation/group-19/hanseisenring.worker.sh"
