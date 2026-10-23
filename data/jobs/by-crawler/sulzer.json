@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sulzer",
-  "assembledAt": "2026-10-23T09:27:40.491Z",
-  "runId": "39931115181",
+  "assembledAt": "2026-10-23T21:27:50.045Z",
+  "runId": "40025993440",
   "jobs": [
     {
       "id": "sulzer-afada70e7cca",
@@ -34,7 +34,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Head-of-Product--Solution---Segment-Marketing_JR103919",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:27:34.074Z",
+      "crawledAt": "2026-10-23T21:27:42.681Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:27:33.327Z",
+      "crawledAt": "2026-10-23T21:27:42.021Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Digital-Internal-Communications-Working-Student--Trainee-_JR105047",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:27:32.563Z",
+      "crawledAt": "2026-10-23T21:27:41.341Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -269,7 +269,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/R-D-Chemical-Recycling-Intern_JR104882-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:27:31.787Z",
+      "crawledAt": "2026-10-23T21:27:40.579Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -349,7 +349,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Legal-Assistant---Paralegal_JR105145-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:27:31.040Z",
+      "crawledAt": "2026-10-23T21:27:39.910Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -390,6 +390,82 @@
           "@type": "QuantitativeValue",
           "minValue": 85000,
           "maxValue": 145000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8400"
+    },
+    {
+      "id": "sulzer-4ed9fde99a09",
+      "slug": "machine-diagnostics-ingegnere-sulzer-winterthur",
+      "slugByLocale": {
+        "en": "machine-diagnostics-engineer-sulzer-ch",
+        "it": "machine-diagnostics-ingegnere-sulzer-winterthur",
+        "de": "machine-diagnostics-ingenieur-sulzer-winterthur",
+        "fr": "machine-diagnostics-ingenieur-sulzer-winterthur"
+      },
+      "company": "Sulzer",
+      "companyKey": "sulzer",
+      "companyDomain": "sulzer.com",
+      "title": "Machine Diagnostics Engineer",
+      "titleByLocale": {
+        "en": "Machine Diagnostics Engineer",
+        "it": "Machine Diagnostics Ingegnere",
+        "de": "Machine Diagnostics Ingenieur",
+        "fr": "Machine Diagnostics Ingénieur"
+      },
+      "description": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for a Machine Diagnostics Engineer (100%) to join our team within the Flow division in Switzerland to help us take Sulzer to the next level.\n\nIn this role, you will be responsible for machine diagnostics activities related to pump technology. Join our team if you want to contribute to technology development and support in the field of experimental dynamics, vibration and modal analysis, acoustics, and related data analysis techniques.\nYour main tasks and responsibilities:\n\n• Project work on Machine Diagnostics projects\n\n• Development of machinery diagnostic and pump condition monitoring solutions\n\n• Analysis of pump and system operation data\n\n• Vibration, acoustic and other dynamic measurements in the testbed, measurement data analysis and interpretation\n\n• Support test bed activities with experimental dynamics, sensor and data acquisition activities\n\n• Field vibration surveys and analysis on pumps\n\n• Travel to test facilities, customer sites or other locations can occasionally be required\n\nTo succeed in this role, you will need:\n\n• Master’s degree in Mechanical Engineering or a related field\n\n• Knowledge and experience in the field of vibration and modal analysis\n\n• Ideally, 3-4 years of experience in machine dynamics, vibration and experimental modal analysis, acoustics, machinery diagnostics and condition monitoring, and data analysis techniques\n\n• Hands-on experience in data acquisition systems, instrumentation and conducting experimental test campaigns\n\n• Solid understanding of rotating equipment; experience with pump technology is a plus\n\n• Strong analytical and problem-solving skills\n\n• Proficiency in tools such as Excel, MATLAB, and LabView\n\n• Team player with excellent communication and collaboration skills\n\n• Fluent in English, German is a plus\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "descriptionByLocale": {
+        "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for a Machine Diagnostics Engineer (100%) to join our team within the Flow division in Switzerland to help us take Sulzer to the next level.\n\nIn this role, you will be responsible for machine diagnostics activities related to pump technology. Join our team if you want to contribute to technology development and support in the field of experimental dynamics, vibration and modal analysis, acoustics, and related data analysis techniques.\nYour main tasks and responsibilities:\n\n• Project work on Machine Diagnostics projects\n\n• Development of machinery diagnostic and pump condition monitoring solutions\n\n• Analysis of pump and system operation data\n\n• Vibration, acoustic and other dynamic measurements in the testbed, measurement data analysis and interpretation\n\n• Support test bed activities with experimental dynamics, sensor and data acquisition activities\n\n• Field vibration surveys and analysis on pumps\n\n• Travel to test facilities, customer sites or other locations can occasionally be required\n\nTo succeed in this role, you will need:\n\n• Master’s degree in Mechanical Engineering or a related field\n\n• Knowledge and experience in the field of vibration and modal analysis\n\n• Ideally, 3-4 years of experience in machine dynamics, vibration and experimental modal analysis, acoustics, machinery diagnostics and condition monitoring, and data analysis techniques\n\n• Hands-on experience in data acquisition systems, instrumentation and conducting experimental test campaigns\n\n• Solid understanding of rotating equipment; experience with pump technology is a plus\n\n• Strong analytical and problem-solving skills\n\n• Proficiency in tools such as Excel, MATLAB, and LabView\n\n• Team player with excellent communication and collaboration skills\n\n• Fluent in English, German is a plus\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "it": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for a Machine Diagnostics Engineer (100%) to join our team within the Flow division in Switzerland to help us take Sulzer to the next level.\n\nIn this role, you will be responsible for machine diagnostics activities related to pump technology. Join our team if you want to contribute to technology development and support in the field of experimental dynamics, vibration and modal analysis, acoustics, and related data analysis techniques.\nYour main tasks and responsibilities:\n\n• Project work on Machine Diagnostics projects\n\n• Development of machinery diagnostic and pump condition monitoring solutions\n\n• Analysis of pump and system operation data\n\n• Vibration, acoustic and other dynamic measurements in the testbed, measurement data analysis and interpretation\n\n• Support test bed activities with experimental dynamics, sensor and data acquisition activities\n\n• Field vibration surveys and analysis on pumps\n\n• Travel to test facilities, customer sites or other locations can occasionally be required\n\nTo succeed in this role, you will need:\n\n• Master’s degree in Mechanical Engineering or a related field\n\n• Knowledge and experience in the field of vibration and modal analysis\n\n• Ideally, 3-4 years of experience in machine dynamics, vibration and experimental modal analysis, acoustics, machinery diagnostics and condition monitoring, and data analysis techniques\n\n• Hands-on experience in data acquisition systems, instrumentation and conducting experimental test campaigns\n\n• Solid understanding of rotating equipment; experience with pump technology is a plus\n\n• Strong analytical and problem-solving skills\n\n• Proficiency in tools such as Excel, MATLAB, and LabView\n\n• Team player with excellent communication and collaboration skills\n\n• Fluent in English, German is a plus\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "de": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for a Machine Diagnostics Engineer (100%) to join our team within the Flow division in Switzerland to help us take Sulzer to the next level.\n\nIn this role, you will be responsible for machine diagnostics activities related to pump technology. Join our team if you want to contribute to technology development and support in the field of experimental dynamics, vibration and modal analysis, acoustics, and related data analysis techniques.\nYour main tasks and responsibilities:\n\n• Project work on Machine Diagnostics projects\n\n• Development of machinery diagnostic and pump condition monitoring solutions\n\n• Analysis of pump and system operation data\n\n• Vibration, acoustic and other dynamic measurements in the testbed, measurement data analysis and interpretation\n\n• Support test bed activities with experimental dynamics, sensor and data acquisition activities\n\n• Field vibration surveys and analysis on pumps\n\n• Travel to test facilities, customer sites or other locations can occasionally be required\n\nTo succeed in this role, you will need:\n\n• Master’s degree in Mechanical Engineering or a related field\n\n• Knowledge and experience in the field of vibration and modal analysis\n\n• Ideally, 3-4 years of experience in machine dynamics, vibration and experimental modal analysis, acoustics, machinery diagnostics and condition monitoring, and data analysis techniques\n\n• Hands-on experience in data acquisition systems, instrumentation and conducting experimental test campaigns\n\n• Solid understanding of rotating equipment; experience with pump technology is a plus\n\n• Strong analytical and problem-solving skills\n\n• Proficiency in tools such as Excel, MATLAB, and LabView\n\n• Team player with excellent communication and collaboration skills\n\n• Fluent in English, German is a plus\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+        "fr": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nWe are looking for a Machine Diagnostics Engineer (100%) to join our team within the Flow division in Switzerland to help us take Sulzer to the next level.\n\nIn this role, you will be responsible for machine diagnostics activities related to pump technology. Join our team if you want to contribute to technology development and support in the field of experimental dynamics, vibration and modal analysis, acoustics, and related data analysis techniques.\nYour main tasks and responsibilities:\n\n• Project work on Machine Diagnostics projects\n\n• Development of machinery diagnostic and pump condition monitoring solutions\n\n• Analysis of pump and system operation data\n\n• Vibration, acoustic and other dynamic measurements in the testbed, measurement data analysis and interpretation\n\n• Support test bed activities with experimental dynamics, sensor and data acquisition activities\n\n• Field vibration surveys and analysis on pumps\n\n• Travel to test facilities, customer sites or other locations can occasionally be required\n\nTo succeed in this role, you will need:\n\n• Master’s degree in Mechanical Engineering or a related field\n\n• Knowledge and experience in the field of vibration and modal analysis\n\n• Ideally, 3-4 years of experience in machine dynamics, vibration and experimental modal analysis, acoustics, machinery diagnostics and condition monitoring, and data analysis techniques\n\n• Hands-on experience in data acquisition systems, instrumentation and conducting experimental test campaigns\n\n• Solid understanding of rotating equipment; experience with pump technology is a plus\n\n• Strong analytical and problem-solving skills\n\n• Proficiency in tools such as Excel, MATLAB, and LabView\n\n• Team player with excellent communication and collaboration skills\n\n• Fluent in English, German is a plus\n\nWhat we offer you\n\n• An innovative, vibrant and agile culture\n\n• Excellent social benefits (holidays, pension fund etc.)\n\n• Access to a wide range of discounts on Everyday Shopping, Entertainment and Lifestyle\n\n• Central workplace, only 5 minutes from Winterthur train station\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA."
+      },
+      "needsRetranslation": true,
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Machine-Diagnostics-Engineer_JR103447-1",
+      "source": "Sulzer Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-23T21:27:38.847Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Machine-Diagnostics-Engineer_JR103447-1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "jobReqId": "JR103447",
+      "previousSlugsByLocale": {
+        "it": [
+          "machine-diagnostics-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "machine-diagnostics-engineer-sulzer-ch"
+      ],
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
       },

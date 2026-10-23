@@ -1,5 +1,55 @@
 [
   {
+    "slug": "sap-produktion-consulente-stadler-rail-bussnang",
+    "title": "SAP Produktion Consultant",
+    "titleByLocale": {
+      "it": "SAP Produktion Consulente",
+      "en": "SAP Production Consultant",
+      "de": "SAP Produktion Berater",
+      "fr": "Conseiller en production SAP"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFESSIONALE\n\n• Studi completi in IT o in altra formazione comparabile\n\n• Diversi anni di comprovata esperienza di consulenza in SAP PP, idealmente in produzione (ad esempio ingegneria meccanica e impiantistica, costruzione di veicoli ferroviari) e esperienza in Engineer-to-Order ETO\n\n• Conoscenza dei Fiori funzionali nell'area di PP/PEO incl. Relazioni analitiche\n\n• Comprensione tecnologica: analisi degli errori di debug e lettura del codice ABAP, specificazione degli oggetti RICEFW (report, interfacce, conversioni, miglioramenti, forme, flussi di lavoro)\n\n• Analisi strutturata dei problemi e in grado di fornire soluzioni di alta qualità in un modello globale\n\n• Molto buone competenze in tedesco e inglese obbligatoria, così come la volontà 10-20% di viaggiare è necessaria\n\nTASKS\n\n• Elaborazione delle richieste di supporto e cambiamento dalla comunità degli utenti chiave\n\n• Progettazione, configurazione e test delle funzionalità SAP PP/PEO\n\n• Analisi degli argomenti delle interfacce SAP PP/PEO con altri moduli (ad esempio MDM, MM, QM)\n\n• Supporto per i rollout SAP S/4HANA e la gestione dei cambiamenti\n\n• Garantire la documentazione e il rispetto delle best practice SAP",
+      "en": "PROFILE\n\n• Completed studies in IT or other comparable education\n\n• Several years of proven consulting experience in SAP PP, ideally in production (e.g. mechanical and plant engineering, rail vehicle construction) as well as experience in Engineer-to-Order ETO\n\n• Functional Fiori knowledge in the area of PP/PEO incl. Analytical reports\n\n• Technological understanding: Debugging error analysis and reading ABAP code, specification of RICEFW objects (reports, interfaces, conversions, enhancements, forms, workflows)\n\n• Structured analysis of problems and able to provide high-quality solutions in a global template\n\n• Very good German and English skills mandatory, as well as 10-20% willingness to travel is required\n\nTASKS\n\n• Processing support and change requests from the key user community\n\n• Design, configuration and testing of SAP PP/PEO functionalities\n\n• Analysis of interfaces topics SAP PP/PEO with other modules (e.g. MDM, MM, QM)\n\n• Support for SAP S/4HANA rollouts and change management\n\n• Ensuring documentation and compliance with SAP best practices",
+      "de": "PROFIL\n\n• Abgeschlossenes Studium im Bereich IT oder andere vergleichbare Ausbildung\n\n• Mehrjährige, praxiserprobte Beratungserfahrung im SAP PP, idealerweise in der Fertigung (z.B. Maschinen- und Anlagenbau, Schienenfahrzeugbau) sowie Erfahrung in Engineer-to-Order ETO\n\n• Funktionales Fiori-Wissen im Bereich PP/PEO inkl. analytischer Berichte\n\n• Technologisches Verständnis: Mittels Debugging Fehleranalysen durchführen und ABAP-Code lesen, Spezifikation von RICEFW-Objekten (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows)\n\n• Strukturierte Analyse von Problemen und fähig in einem globalen Template qualitativ hochwertige Lösungen bereit zu stellen\n\n• Sehr gute Deutsch und Englischkenntnisse obligatorisch, sowie 10-20% Reisebereitschaft wird vorausgesetzt\n\nAUFGABEN\n\n• Bearbeitung von Support- und Änderungsanfragen aus der Key-User-Community\n\n• Design, Konfiguration und Test von SAP PP/PEO-Funktionalitäten\n\n• Analyse von Schnittstellen Themen SAP PP/PEO mit anderen Modulen (z. B. MDM, MM, QM)\n\n• Unterstützung bei SAP S/4HANA Rollouts und Change Management\n\n• Sicherstellung von Dokumentation und Einhaltung von SAP Best Practices",
+      "fr": "PROFIL\n\n• Études terminées en TI ou dans un autre enseignement comparable\n\n• Plusieurs années d'expérience de conseil éprouvée en SAP PP, idéalement en production (p. ex. mécanique et génie des installations, construction de véhicules ferroviaires) ainsi qu'une expérience en ingénieur à commande ETO\n\n• Connaissances Fiori fonctionnelles dans le domaine de PP/PEO incl. Rapports analytiques\n\n• Compréhension technologique : Débogage de l'analyse des erreurs et lecture du code ABAP, spécification des objets RICEFW (rapports, interfaces, conversions, améliorations, formulaires, flux de travail)\n\n• Analyse structurée des problèmes et capable de fournir des solutions de haute qualité dans un modèle global\n\n• Très bonne compétence allemande et anglaise obligatoire, ainsi que 10-20% volonté de voyager est nécessaire\n\nTÂCHES\n\n• Traitement des demandes de soutien et de changement de la communauté des utilisateurs clés\n\n• Conception, configuration et essais des fonctionnalités SAP PP/PEO\n\n• Analyse des sujets des interfaces SAP PP/PEO avec d'autres modules (p. ex. MDM, MM, QM)\n\n• Soutien au déploiement et à la gestion du changement SAP S/4HANA\n\n• Assurer la documentation et le respect des meilleures pratiques du SAP"
+    },
+    "slugByLocale": {
+      "it": "sap-produktion-consulente-stadler-rail-bussnang",
+      "en": "sap-produktion-consultant-stadler-rail-ch",
+      "de": "sap-produktion-consultant-stadler-rail-ch",
+      "fr": "conseiller-en-production-sap-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-10-23T10:08:56.552Z",
+    "previousSlugs": [
+      "sap-produktion-consultant-stadler-rail-ch",
+      "consulente-sap-hr-it-stadler-rail-bussnang",
+      "sap-hr-it-consultant-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "sap-produktion-consultant-stadler-rail-ch",
+        "consulente-sap-hr-it-stadler-rail-bussnang",
+        "sap-hr-it-consultant-stadler-rail-ch"
+      ],
+      "fr": [
+        "sap-hr-it-consultant-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 60000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/bussnang-sap-produktion-consultant-tg-t-9565/1361661855",
+    "firstSeenAt": "2026-07-20T22:24:13.310Z"
+  },
+  {
     "slug": "meccanica-di-follow-up-del-cliente-stadler-rail-bussnang",
     "title": "Mechaniker:in Kundennacharbeiten",
     "titleByLocale": {
@@ -510,6 +560,7 @@
       "initiativbewerbung-fur-studierende-stadler-rail-ch-4c61e1f0",
       "initiativbewerbung-fur-studierende-stadler-rail-ch-d10a15db",
       "initiativbewerbung-fur-studierende-stadler-rail-ch-0467a218",
+      "initiativbewerbung-fur-studierende-stadler-rail-ch-31b8ddba",
       "initiativbewerbung-fur-studierende-stadler-rail-ch"
     ],
     "previousSlugsByLocale": {
@@ -536,6 +587,7 @@
         "initiativbewerbung-fur-studierende-stadler-rail-ch-4c61e1f0",
         "initiativbewerbung-fur-studierende-stadler-rail-ch-d10a15db",
         "initiativbewerbung-fur-studierende-stadler-rail-ch-0467a218",
+        "initiativbewerbung-fur-studierende-stadler-rail-ch-31b8ddba",
         "initiativbewerbung-fur-studierende-stadler-rail-ch"
       ],
       "en": [
@@ -560,6 +612,7 @@
         "initiativbewerbung-fur-studierende-stadler-rail-ch-4c61e1f0",
         "initiativbewerbung-fur-studierende-stadler-rail-ch-d10a15db",
         "initiativbewerbung-fur-studierende-stadler-rail-ch-0467a218",
+        "initiativbewerbung-fur-studierende-stadler-rail-ch-31b8ddba",
         "initiativbewerbung-fur-studierende-stadler-rail-ch"
       ],
       "fr": [
@@ -584,6 +637,7 @@
         "initiativbewerbung-fur-studierende-stadler-rail-ch-4c61e1f0",
         "initiativbewerbung-fur-studierende-stadler-rail-ch-d10a15db",
         "initiativbewerbung-fur-studierende-stadler-rail-ch-0467a218",
+        "initiativbewerbung-fur-studierende-stadler-rail-ch-31b8ddba",
         "initiativbewerbung-fur-studierende-stadler-rail-ch"
       ]
     },
@@ -1510,6 +1564,7 @@
       "cost-engineer-stadler-rail-ch-17c19eea",
       "cost-engineer-stadler-rail-ch-33b7845a",
       "cost-engineer-stadler-rail-ch-ad7d2923",
+      "cost-engineer-stadler-rail-ch-be423135",
       "cost-engineer-stadler-rail-ch"
     ],
     "previousSlugsByLocale": {
@@ -1537,6 +1592,7 @@
         "cost-engineer-stadler-rail-ch-17c19eea",
         "cost-engineer-stadler-rail-ch-33b7845a",
         "cost-engineer-stadler-rail-ch-ad7d2923",
+        "cost-engineer-stadler-rail-ch-be423135",
         "cost-engineer-stadler-rail-ch"
       ]
     },
@@ -2261,6 +2317,7 @@
       "inbetriebsetzungstechniker-in-typentest-stadler-rail-ch-a8124901",
       "inbetriebsetzungstechniker-in-typentest-stadler-rail-ch-ff96015d",
       "inbetriebsetzungstechniker-in-typentest-stadler-rail-ch-45855d53",
+      "inbetriebsetzungstechniker-in-typentest-stadler-rail-ch-4fa3a8e9",
       "inbetriebsetzungstechniker-in-typentest-stadler-rail-ch"
     ],
     "previousSlugsByLocale": {
@@ -2288,6 +2345,7 @@
         "inbetriebsetzungstechniker-in-typentest-stadler-rail-ch-a8124901",
         "inbetriebsetzungstechniker-in-typentest-stadler-rail-ch-ff96015d",
         "inbetriebsetzungstechniker-in-typentest-stadler-rail-ch-45855d53",
+        "inbetriebsetzungstechniker-in-typentest-stadler-rail-ch-4fa3a8e9",
         "inbetriebsetzungstechniker-in-typentest-stadler-rail-ch"
       ]
     },
@@ -7307,55 +7365,5 @@
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "sap-produktion-consulente-stadler-rail-bussnang",
-    "title": "SAP Produktion Consultant",
-    "titleByLocale": {
-      "it": "SAP Produktion Consulente",
-      "en": "SAP Production Consultant",
-      "de": "SAP Produktion Berater",
-      "fr": "Conseiller en production SAP"
-    },
-    "company": "Stadler Rail",
-    "companyKey": "stadler-rail",
-    "location": "Bussnang",
-    "addressLocality": "Bussnang",
-    "descriptionByLocale": {
-      "it": "PROFESSIONALE\n\n• Studi completi in IT o in altra formazione comparabile\n\n• Diversi anni di comprovata esperienza di consulenza in SAP PP, idealmente in produzione (ad esempio ingegneria meccanica e impiantistica, costruzione di veicoli ferroviari) e esperienza in Engineer-to-Order ETO\n\n• Conoscenza dei Fiori funzionali nell'area di PP/PEO incl. Relazioni analitiche\n\n• Comprensione tecnologica: analisi degli errori di debug e lettura del codice ABAP, specificazione degli oggetti RICEFW (report, interfacce, conversioni, miglioramenti, forme, flussi di lavoro)\n\n• Analisi strutturata dei problemi e in grado di fornire soluzioni di alta qualità in un modello globale\n\n• Molto buone competenze in tedesco e inglese obbligatoria, così come la volontà 10-20% di viaggiare è necessaria\n\nTASKS\n\n• Elaborazione delle richieste di supporto e cambiamento dalla comunità degli utenti chiave\n\n• Progettazione, configurazione e test delle funzionalità SAP PP/PEO\n\n• Analisi degli argomenti delle interfacce SAP PP/PEO con altri moduli (ad esempio MDM, MM, QM)\n\n• Supporto per i rollout SAP S/4HANA e la gestione dei cambiamenti\n\n• Garantire la documentazione e il rispetto delle best practice SAP",
-      "en": "PROFILE\n\n• Completed studies in IT or other comparable education\n\n• Several years of proven consulting experience in SAP PP, ideally in production (e.g. mechanical and plant engineering, rail vehicle construction) as well as experience in Engineer-to-Order ETO\n\n• Functional Fiori knowledge in the area of PP/PEO incl. Analytical reports\n\n• Technological understanding: Debugging error analysis and reading ABAP code, specification of RICEFW objects (reports, interfaces, conversions, enhancements, forms, workflows)\n\n• Structured analysis of problems and able to provide high-quality solutions in a global template\n\n• Very good German and English skills mandatory, as well as 10-20% willingness to travel is required\n\nTASKS\n\n• Processing support and change requests from the key user community\n\n• Design, configuration and testing of SAP PP/PEO functionalities\n\n• Analysis of interfaces topics SAP PP/PEO with other modules (e.g. MDM, MM, QM)\n\n• Support for SAP S/4HANA rollouts and change management\n\n• Ensuring documentation and compliance with SAP best practices",
-      "de": "PROFIL\n\n• Abgeschlossenes Studium im Bereich IT oder andere vergleichbare Ausbildung\n\n• Mehrjährige, praxiserprobte Beratungserfahrung im SAP PP, idealerweise in der Fertigung (z.B. Maschinen- und Anlagenbau, Schienenfahrzeugbau) sowie Erfahrung in Engineer-to-Order ETO\n\n• Funktionales Fiori-Wissen im Bereich PP/PEO inkl. analytischer Berichte\n\n• Technologisches Verständnis: Mittels Debugging Fehleranalysen durchführen und ABAP-Code lesen, Spezifikation von RICEFW-Objekten (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows)\n\n• Strukturierte Analyse von Problemen und fähig in einem globalen Template qualitativ hochwertige Lösungen bereit zu stellen\n\n• Sehr gute Deutsch und Englischkenntnisse obligatorisch, sowie 10-20% Reisebereitschaft wird vorausgesetzt\n\nAUFGABEN\n\n• Bearbeitung von Support- und Änderungsanfragen aus der Key-User-Community\n\n• Design, Konfiguration und Test von SAP PP/PEO-Funktionalitäten\n\n• Analyse von Schnittstellen Themen SAP PP/PEO mit anderen Modulen (z. B. MDM, MM, QM)\n\n• Unterstützung bei SAP S/4HANA Rollouts und Change Management\n\n• Sicherstellung von Dokumentation und Einhaltung von SAP Best Practices",
-      "fr": "PROFIL\n\n• Études terminées en TI ou dans un autre enseignement comparable\n\n• Plusieurs années d'expérience de conseil éprouvée en SAP PP, idéalement en production (p. ex. mécanique et génie des installations, construction de véhicules ferroviaires) ainsi qu'une expérience en ingénieur à commande ETO\n\n• Connaissances Fiori fonctionnelles dans le domaine de PP/PEO incl. Rapports analytiques\n\n• Compréhension technologique : Débogage de l'analyse des erreurs et lecture du code ABAP, spécification des objets RICEFW (rapports, interfaces, conversions, améliorations, formulaires, flux de travail)\n\n• Analyse structurée des problèmes et capable de fournir des solutions de haute qualité dans un modèle global\n\n• Très bonne compétence allemande et anglaise obligatoire, ainsi que 10-20% volonté de voyager est nécessaire\n\nTÂCHES\n\n• Traitement des demandes de soutien et de changement de la communauté des utilisateurs clés\n\n• Conception, configuration et essais des fonctionnalités SAP PP/PEO\n\n• Analyse des sujets des interfaces SAP PP/PEO avec d'autres modules (p. ex. MDM, MM, QM)\n\n• Soutien au déploiement et à la gestion du changement SAP S/4HANA\n\n• Assurer la documentation et le respect des meilleures pratiques du SAP"
-    },
-    "slugByLocale": {
-      "it": "sap-produktion-consulente-stadler-rail-bussnang",
-      "en": "sap-produktion-consultant-stadler-rail-ch",
-      "de": "sap-produktion-consultant-stadler-rail-ch",
-      "fr": "conseiller-en-production-sap-stadler-rail-bussnang"
-    },
-    "sector": "Rail vehicle manufacturing",
-    "expiredAt": "2026-10-23T10:08:56.552Z",
-    "previousSlugs": [
-      "sap-produktion-consultant-stadler-rail-ch",
-      "consulente-sap-hr-it-stadler-rail-bussnang",
-      "sap-hr-it-consultant-stadler-rail-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "sap-produktion-consultant-stadler-rail-ch",
-        "consulente-sap-hr-it-stadler-rail-bussnang",
-        "sap-hr-it-consultant-stadler-rail-ch"
-      ],
-      "fr": [
-        "sap-hr-it-consultant-stadler-rail-ch"
-      ]
-    },
-    "postalCode": "9565",
-    "salaryMin": 60000,
-    "salaryMax": 102000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.stadlerrail.com/job/bussnang-sap-produktion-consultant-tg-t-9565/1361661855",
-    "firstSeenAt": "2026-07-20T22:24:13.310Z"
   }
 ]
