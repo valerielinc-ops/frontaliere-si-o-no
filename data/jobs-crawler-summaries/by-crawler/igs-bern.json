@@ -1,7 +1,7 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-10-23T09:18:26.242Z",
+  "generatedAt": "2026-10-23T21:24:16.691Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4506,
-  "avgDurationMs": 4506,
+  "durationMs": 4729,
+  "avgDurationMs": 4729,
   "durationHistory": [
-    4506
+    4729
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:18:12.335Z",
+      "crawledAt": "2026-10-23T21:24:05.118Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3302",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job167324?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:18:11.810Z",
+      "crawledAt": "2026-10-23T21:24:04.581Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:18:11.282Z",
+      "crawledAt": "2026-10-23T21:24:04.024Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -154,5 +154,5 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }

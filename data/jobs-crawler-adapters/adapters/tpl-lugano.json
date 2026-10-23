@@ -8,9 +8,32 @@
     "html",
     "generic_ats"
   ],
-  "seedUrls": [],
+  "seedUrls": [
+    "https://www.tplsa.ch/2/50/candidati/?idhr=777",
+    "https://www.tplsa.ch/2/50/candidati/?idhr=778"
+  ],
   "notes": "TPL Lugano public transport careers page. Positions listed when available.",
-  "updatedAt": "2026-09-01T10:35:38.202Z",
-  "seedDetailUrls": [],
-  "seedMetaByUrl": {}
+  "updatedAt": "2026-10-23T21:23:50.941Z",
+  "seedDetailUrls": [
+    "https://www.tplsa.ch/2/50/candidati/?idhr=777",
+    "https://www.tplsa.ch/2/50/candidati/?idhr=778"
+  ],
+  "seedMetaByUrl": {
+    "https://www.tplsa.ch/2/50/candidati/?idhr=777": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "TPL - Trasporti Pubblici Luganesi",
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
+      "postingDateSource": "reported"
+    },
+    "https://www.tplsa.ch/2/50/candidati/?idhr=778": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "TPL - Trasporti Pubblici Luganesi",
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
+      "postingDateSource": "reported"
+    }
+  }
 }

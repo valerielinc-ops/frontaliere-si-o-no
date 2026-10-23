@@ -1,7 +1,7 @@
 {
   "key": "tecan",
   "label": "Tecan",
-  "generatedAt": "2026-10-23T09:19:15.385Z",
+  "generatedAt": "2026-10-23T21:25:42.961Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9211,
-  "avgDurationMs": 9211,
+  "durationMs": 8395,
+  "avgDurationMs": 8395,
   "durationHistory": [
-    9211
+    8395
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://careers.tecan.com/job/Manufacturing-Engineer/1437075333/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:18:59.336Z",
+      "crawledAt": "2026-10-23T21:25:32.213Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://careers.tecan.com/job/EHS-Specialist/1428299133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:18:58.755Z",
+      "crawledAt": "2026-10-23T21:25:31.643Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -126,7 +126,7 @@
       "url": "https://careers.tecan.com/job/Production-Engineer/1393509133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:18:57.702Z",
+      "crawledAt": "2026-10-23T21:25:30.442Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "url": "https://careers.tecan.com/job/Supply-Manager-Operations/1434868433/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:18:56.022Z",
+      "crawledAt": "2026-10-23T21:25:28.831Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -213,7 +213,7 @@
       "url": "https://careers.tecan.com/job/Technical-Writer/1226895301/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:18:55.514Z",
+      "crawledAt": "2026-10-23T21:25:28.257Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -258,7 +258,7 @@
       "url": "https://careers.tecan.com/job/Internal-Communication-Trainee/1442940033/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:18:58.218Z",
+      "crawledAt": "2026-10-23T21:25:31.033Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -299,7 +299,7 @@
       "url": "https://careers.tecan.com/job/Service-Team-Leader-Switzerland-&-Austria/1434115733/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:18:57.110Z",
+      "crawledAt": "2026-10-23T21:25:29.977Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -341,7 +341,7 @@
       "url": "https://careers.tecan.com/job/Global-Trade-Compliance-Manager/1420284933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:18:56.590Z",
+      "crawledAt": "2026-10-23T21:25:29.397Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -371,5 +371,5 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }
