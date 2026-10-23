@@ -18,12 +18,12 @@ export function CopyButton({ text, label }: { text: string; label?: string }) {
     <button
       type="button"
       onClick={() => void handleCopy()}
-      className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-surface-raised hover:bg-surface-raised transition-colors font-mono"
+      className="inline-flex min-h-10 min-w-0 max-w-full items-center gap-1.5 rounded-stripe border border-edge bg-surface px-3 py-2 text-sm font-medium text-body transition-colors hover:border-accent hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       title={`Copia: ${text}`}
       aria-label={`Copia ${label || text}`}
     >
-      {copied ? <Check size={12} className="text-success" /> : <Copy size={12} className="text-muted" />}
-      <span className="max-w-[200px] truncate">{text}</span>
+      {copied ? <Check size={15} className="text-success" aria-hidden="true" /> : <Copy size={15} className="text-muted" aria-hidden="true" />}
+      <span className="min-w-0 max-w-[200px] truncate">{text}</span>
     </button>
   );
 }

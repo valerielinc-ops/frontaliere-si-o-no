@@ -829,7 +829,7 @@
         "de": "medizinische-praxisassistentin-medizinischen-praxisassistenten-kardiologie-40-assistant-e",
         "it": "assistente-di-studio-medico-assistente-di-studio-medico-40-hopital-fribourgeois-hfr-hfr-tafers",
         "en": "medical-practice-assistant-medical-assistant-40-hopital-fribourgeois-hfr-hfr-tafers",
-        "fr": "medizinische-r-praxisassistent-in-assistant-e-medical-e-40-hfr-hopital-fribourgeois-hfr"
+        "fr": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-cardiologie-40-assistant-e-medical-e-en-cardiologie-40"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -887,15 +887,14 @@
           "medizinische-r-praxisassistent-in-assistant-e-medical-e-40-hfr-hopital-fribourgeois-hfr"
         ],
         "fr": [
-          "medizinische-r-praxisassistent-in-assistant-e-medical-e-40-hfr-hopital-fribourgeois-hfr",
-          "assistant-de-pratique-medicale-assistant-de-pratique-medicale-cardiologie-40-assistant-e-medical-e-en-cardiologie-40"
+          "assistant-de-pratique-medicale-assistant-de-pratique-medicale-cardiologie-40-assistant-e-medical-e-en-cardiologie-40",
+          "medizinische-r-praxisassistent-in-assistant-e-medical-e-40-hfr-hopital-fribourgeois-hfr"
         ]
       },
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-assistant-e-medical-e-40-hfr-hopital-fribourgeois-hfr",
         "medizinische-r-praxisassistent-in-assistent-e-medical-e-40-hopital-fribourgeois-hfr-hfr-tafers",
-        "medizinische-praxisassistentin-medizinischen-praxisassistenten-kardiologie-40-assistant-e",
-        "assistant-de-pratique-medicale-assistant-de-pratique-medicale-cardiologie-40-assistant-e-medical-e-en-cardiologie-40"
+        "medizinische-praxisassistentin-medizinischen-praxisassistenten-kardiologie-40-assistant-e"
       ],
       "firstSeenAt": "2026-10-15T21:48:47.889Z",
       "salaryMin": 34000,
@@ -2697,7 +2696,7 @@
       "slug": "terapista-occupazionale-40-hopital-fribourgeois-hfr-hfr-tafers",
       "slugByLocale": {
         "it": "terapista-occupazionale-40-hopital-fribourgeois-hfr-hfr-tafers",
-        "en": "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hopital-fribourgeois-hfr-tafers",
+        "en": "occupational-therapist-occupational-therapist-40-ergotherapist-40-hopital-fribourgeois-hfr-hfr-tafers",
         "de": "ergotherapeutin-ergotherapeuten-40-hfr-hopital-fribourgeois-hfr-tafers",
         "fr": "ergotherapie-40-hopital-fribourgeois-hfr-hfr-tafers"
       },
@@ -2754,7 +2753,7 @@
         "ergotherapeutin-ergotherapeuten-40-hopital-fribourgeois-hfr-tafers",
         "occupational-therapist-40-hopital-fribourgeois-hfr-hfr-tafers",
         "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hfr-hopital-fribourgeois-hfr-tafers",
-        "occupational-therapist-occupational-therapist-40-ergotherapist-40-hopital-fribourgeois-hfr-hfr-tafers"
+        "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hopital-fribourgeois-hfr-tafers"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2772,7 +2771,7 @@
           "physiotherapist-in-80-hopital-fribourgeois-hfr-hfr-tafers",
           "ergotherapeutin-ergotherapeuten-40-hopital-fribourgeois-hfr-tafers",
           "occupational-therapist-40-hopital-fribourgeois-hfr-hfr-tafers",
-          "occupational-therapist-occupational-therapist-40-ergotherapist-40-hopital-fribourgeois-hfr-hfr-tafers"
+          "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hopital-fribourgeois-hfr-tafers"
         ],
         "de": [
           "physiotherapeut-in-80-hopital-fribourgeois-hfr-tafers"

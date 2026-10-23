@@ -1041,7 +1041,7 @@
       "slug": "libraio-a-90-a-orell-fussli-thalia-bern",
       "slugByLocale": {
         "it": "libraio-a-90-a-orell-fussli-thalia-bern",
-        "en": "buchhandler-in-90-a-orell-fussli-thalia-bern",
+        "en": "bookseller-90-a-orell-fussli-thalia-bern",
         "de": "buchhandler-in-90-a-orell-fuessli-thalia-bern",
         "fr": "libraire-90-a-orell-fussli-thalia-bern"
       },
@@ -1090,14 +1090,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "buchhandler-in-90-a-orell-fuessli-thalia-bern",
-        "bookseller-90-a-orell-fussli-thalia-bern"
+        "buchhandler-in-90-a-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "buchhandler-in-90-a-orell-fuessli-thalia-bern"
         ],
         "en": [
-          "bookseller-90-a-orell-fussli-thalia-bern"
+          "buchhandler-in-90-a-orell-fussli-thalia-bern"
         ],
         "fr": [
           "buchhandler-in-90-a-orell-fuessli-thalia-bern"
@@ -1123,9 +1123,9 @@
       "slug": "libraio-70-a-orell-fussli-thalia-bern",
       "slugByLocale": {
         "it": "libraio-70-a-orell-fussli-thalia-bern",
-        "en": "buchhandler-in-70-a-orell-fussli-thalia-bern",
+        "en": "bookseller-70-a-orell-fussli-thalia-bern",
         "de": "buchhandler-in-70-a-orell-fuessli-thalia-bern",
-        "fr": "libraire-70-a-orell-fussli-thalia-bern"
+        "fr": "librairie-70-a-orell-fussli-thalia-bern"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -1173,19 +1173,18 @@
       "previousSlugs": [
         "buchhandler-in-70-a-orell-fuessli-thalia-bern",
         "buchhandler-in-70-a-orell-fussli-thalia-bern",
-        "bookseller-70-a-orell-fussli-thalia-bern",
-        "librairie-70-a-orell-fussli-thalia-bern"
+        "libraire-70-a-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "buchhandler-in-70-a-orell-fuessli-thalia-bern"
         ],
         "en": [
-          "bookseller-70-a-orell-fussli-thalia-bern"
+          "buchhandler-in-70-a-orell-fussli-thalia-bern"
         ],
         "fr": [
           "buchhandler-in-70-a-orell-fussli-thalia-bern",
-          "librairie-70-a-orell-fussli-thalia-bern"
+          "libraire-70-a-orell-fussli-thalia-bern"
         ]
       },
       "firstSeenAt": "2026-10-16T09:32:54.743Z",
@@ -1917,7 +1916,7 @@
       "slug": "risorse-umane-consulente-orell-fussli-thalia-zurich",
       "slugByLocale": {
         "it": "risorse-umane-consulente-orell-fussli-thalia-zurich",
-        "en": "hr-consultant-orell-fussli-thalia-zurich",
+        "en": "hr-banana-orell-fussli-thalia-zurich",
         "de": "personalwesen-berater-orell-fussli-thalia-zurich",
         "fr": "consultant-en-ressources-humaines-orell-fussli-thalia-zurich"
       },
@@ -1973,13 +1972,13 @@
           "consulente-hr-orell-fussli-thalia-zurich"
         ],
         "en": [
-          "hr-banana-orell-fussli-thalia-zurich"
+          "hr-consultant-orell-fussli-thalia-zurich"
         ]
       },
       "previousSlugs": [
         "hr-consultant-orell-fuessli-thalia-zurich",
         "consulente-hr-orell-fussli-thalia-zurich",
-        "hr-banana-orell-fussli-thalia-zurich"
+        "hr-consultant-orell-fussli-thalia-zurich"
       ],
       "firstSeenAt": "2026-10-08T22:26:30.309Z",
       "salaryMin": 83000,
@@ -1999,12 +1998,12 @@
     },
     {
       "id": "orell-fuessli-thalia-4a868e6b8e53",
-      "slug": "stv-filialleitung-100-a-orell-fuessli-thalia-pfaffikon-sz",
+      "slug": "vice-responsabile-di-filiale-100-a-orell-fussli-thalia-pfaffikon-sz",
       "slugByLocale": {
         "de": "stv-filialleitung-100-a-orell-fuessli-thalia-pfaffikon-sz",
-        "it": "stv-filialleitung-100-a-orell-fuessli-thalia-pfaffikon-sz",
-        "en": "stv-filialleitung-100-a-orell-fuessli-thalia-pfaffikon-sz",
-        "fr": "stv-filialleitung-100-a-orell-fuessli-thalia-pfaffikon-sz"
+        "it": "vice-responsabile-di-filiale-100-a-orell-fussli-thalia-pfaffikon-sz",
+        "en": "deputy-branch-manager-100-a-orell-fussli-thalia-pfaffikon-sz",
+        "fr": "gestion-des-succursales-100-a-orell-fussli-thalia-pfaffikon-sz"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -2051,7 +2050,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2065,7 +2063,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:58:03.173Z"
+      "firstSeenAt": "2026-10-23T09:58:03.173Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-filialleitung-100-a-orell-fuessli-thalia-pfaffikon-sz"
+        ],
+        "en": [
+          "stv-filialleitung-100-a-orell-fuessli-thalia-pfaffikon-sz"
+        ],
+        "fr": [
+          "stv-filialleitung-100-a-orell-fuessli-thalia-pfaffikon-sz"
+        ]
+      },
+      "previousSlugs": [
+        "stv-filialleitung-100-a-orell-fuessli-thalia-pfaffikon-sz"
+      ]
     }
   ],
   "runId": "39931375435"
