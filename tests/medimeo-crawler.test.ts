@@ -8,7 +8,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/medimeo-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
-import { selectMedimeoAddressLocality } from '../scripts/lib/medimeo-location.mjs';
+import { sourceBackedSwissGeographyFields } from '../scripts/lib/prospector/location-evidence.mjs';
 
 describe('Medimeo AG crawler parser', () => {
   // ── Constants ──
@@ -136,22 +136,51 @@ describe('Medimeo AG crawler parser', () => {
     });
   });
 
-  describe('selectMedimeoAddressLocality', () => {
-    it('keeps a concrete source municipality when a multi-area locality is canton-only or ambiguous', () => {
-      expect(selectMedimeoAddressLocality(
-        'Biel / Solothurn / Mittelland',
-        'Soletta',
-        'SO',
-      )).toBe('Solothurn');
-      expect(selectMedimeoAddressLocality(
-        'Biel / Solothurn / Mittelland',
-        'Biel',
-        'SO',
-      )).toBe('Solothurn');
+  describe('source-backed geography projection', () => {
+    it('selects a concrete municipality from a multi-area source label', () => {
+      expect(sourceBackedSwissGeographyFields(
+        {
+          location: 'Biel / Solothurn / Mittelland',
+          addressLocality: 'Soletta',
+          addressCountry: 'CH',
+        },
+        {
+          location: 'Biel / Solothurn / Mittelland',
+          canton: 'SO',
+          addressCountry: 'CH',
+        },
+      )).toMatchObject({
+        location: 'Biel / Solothurn / Mittelland',
+        addressLocality: 'Solothurn',
+        addressRegion: 'SO',
+      });
+      expect(sourceBackedSwissGeographyFields(
+        {
+          location: 'Biel / Solothurn / Mittelland',
+          addressLocality: 'Biel',
+          addressCountry: 'CH',
+        },
+        {
+          location: 'Biel / Solothurn / Mittelland',
+          canton: 'SO',
+          addressCountry: 'CH',
+        },
+      )?.addressLocality).toBe('Solothurn');
     });
 
-    it('preserves a source locality that already belongs to the resolved canton', () => {
-      expect(selectMedimeoAddressLocality('Olten / Aargau', 'Olten', 'SO')).toBe('Olten');
+    it('preserves a concrete source locality for a multi-area location', () => {
+      expect(sourceBackedSwissGeographyFields(
+        {
+          location: 'Olten / Aargau',
+          addressLocality: 'Olten',
+          addressCountry: 'CH',
+        },
+        {
+          location: 'Olten / Aargau',
+          canton: 'SO',
+          addressCountry: 'CH',
+        },
+      )?.addressLocality).toBe('Olten');
     });
   });
 

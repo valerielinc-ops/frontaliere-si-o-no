@@ -7,7 +7,6 @@ import {
   resolveMedimeoChGeography,
   isTrustedDomain,
 } from '../scripts/lib/medimeo-ch-job-parser.mjs';
-import { selectMedimeoAddressLocality } from '../scripts/lib/medimeo-location.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Medimeo AG crawler parser', () => {
@@ -134,14 +133,6 @@ describe('Medimeo AG crawler parser', () => {
         addressRegion: 'ZH',
       })).toBeNull();
     });
-  });
-
-  it('shares Medimeo locality hardening for multi-area source locations', () => {
-    expect(selectMedimeoAddressLocality(
-      'Biel / Solothurn / Mittelland',
-      'Soletta',
-      'SO',
-    )).toBe('Solothurn');
   });
 
   // ── slugify (imported from crawler-template) ──

@@ -21,7 +21,6 @@ import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
-import { selectMedimeoAddressLocality } from './medimeo-location.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -289,7 +288,7 @@ export async function fetchAllMedimeoChJobs() {
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: selectMedimeoAddressLocality(location, addressLocality, canton),
+      addressLocality,
       addressRegion: normalizeSpace(addressRegion || canton),
       addressCountry: normalizeSpace(addressCountry || 'CH'),
       country: normalizeSpace(addressCountry || 'CH'),

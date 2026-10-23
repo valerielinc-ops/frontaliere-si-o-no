@@ -2,11 +2,13 @@ import {
   TEXT_RESCUE_AMBIGUOUS_TOKENS,
   inferSwissTargetCanton,
   isCantonRelevant,
+  isCantonOnlyLabel,
   isKnownSwissMunicipality,
   isKnownSwissMunicipalityInCanton,
   isLiechtensteinPostalCode,
   normalizeSwissCantonCode,
   normalizeSwissTargetLocationText,
+  swissCityFromLocationField,
   swissMunicipalityCantons,
 } from '../target-swiss-locations.mjs';
 import {
@@ -362,9 +364,29 @@ export function sourceBackedSwissGeographyFields(value, resolved = null) {
   const geography = resolved || resolveSourceBackedSwissGeography(value);
   if (!geography) return null;
   const evidence = value && typeof value === 'object' ? /** @type {any} */ (value) : {};
-  const addressLocality = String(
-    evidence.addressLocality || String(geography.location || '').split(/[,;/|]/)[0],
-  ).replace(/\s+/g, ' ').trim();
+  const rawAddressLocality = String(evidence.addressLocality || '')
+    .replace(/\s+/g, ' ').trim();
+  const sourceLocationParts = String(geography.location || '')
+    .split(/[,;/|]/)
+    .map((part) => part.replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+  // Multi-area source labels can carry an ambiguous municipality or a
+  // translated canton name in addressLocality. When the resolver has already
+  // established the target canton, select a concrete municipality from the
+  // source location parts in that canton. Do not reinterpret a concrete
+  // locality or invent one from a broad single-area label.
+  const addressLocality = rawAddressLocality
+    && !(sourceLocationParts.length > 1 && isCantonOnlyLabel(rawAddressLocality))
+    ? rawAddressLocality
+    : sourceLocationParts
+      .map((part) => swissCityFromLocationField(part, geography.canton))
+      .find((candidate) => candidate
+        && isKnownSwissMunicipalityInCanton(candidate, geography.canton, {
+          allowOfficialLocality: true,
+        }))
+      || rawAddressLocality
+      || sourceLocationParts[0]
+      || '';
   const addressCountry = String(
     geography.addressCountry || evidence.addressCountry || evidence.country || '',
   ).replace(/\s+/g, ' ').trim();
