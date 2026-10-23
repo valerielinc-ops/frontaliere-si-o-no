@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type KeyboardEvent, type MouseEvent, type ReactNode, type RefObject } from 'react';
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type MouseEvent, type ReactNode, type RefObject } from 'react';
 import { Building2, Check, Command, Copy, LayoutDashboard, Newspaper, Search, Settings2, Workflow } from 'lucide-react';
 import { useAdminWorkflow } from '@/components/admin/AdminWorkflowProvider';
 import { getAdminSection, type AdminSection, type AdminSectionGroup } from '@/components/admin/adminSections';
@@ -89,7 +89,7 @@ function PaletteInput({
 }) {
   const listId = `${id}-list`;
   const activeItem = items[activeIndex];
-  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: ReactKeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'ArrowDown') { event.preventDefault(); setSearchOpen(true); onActiveIndex(items.length ? (activeIndex + 1) % items.length : 0); }
     else if (event.key === 'ArrowUp') { event.preventDefault(); setSearchOpen(true); onActiveIndex(items.length ? (activeIndex - 1 + items.length) % items.length : 0); }
     else if (event.key === 'Home' && items.length) { event.preventDefault(); onActiveIndex(0); }
