@@ -361,6 +361,8 @@ export type UnifiedEmailConsentInput = {
   sourceRouteFamily?: string | null;
   locale?: string | null;
   jobContext?: NewsletterJobContext | null;
+  /** Experiment arm of a visible auth-gate capture. */
+  variant?: string | null;
   /** Typed email starts pending; an authenticated provider can confirm now. */
   registrationMethod?: 'email' | 'authenticated';
   /** This wrapper is used by visible feature/subscription actions. */
@@ -447,6 +449,7 @@ export function unifiedEmailConsentInput(input: UnifiedEmailConsentInput): Newsl
     status: authenticated ? 'confirmed' : 'pending',
     isActive: authenticated,
     jobContext: input.jobContext || null,
+    ...(input.variant ? { variant: input.variant } : {}),
     // This is the base relationship created by registering for a site
     // feature. It is governed by the registration terms, not a second
     // checkbox. Typed email still needs the link that proves possession of
