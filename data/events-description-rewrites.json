@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-23T15:30:26.615Z",
+  "generatedAt": "2026-10-23T16:23:45.678Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -30554,6 +30554,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T15:22:09.943Z"
     },
+    "guidle:AiUTdi5::413b0ad4f157ffa7d1fd49372771c4a638464d2befc927d925c491f572f1d0c0": {
+      "id": "guidle:AiUTdi5",
+      "sourceDescriptionHash": "413b0ad4f157ffa7d1fd49372771c4a638464d2befc927d925c491f572f1d0c0",
+      "description": "Emeli Sandé si esibirà al Casino Bern in un concerto di musica soul. L’evento si terrà a Bern e l’ingresso costa 2 CHF.",
+      "descriptionByLocale": {
+        "it": "Emeli Sandé si esibirà al Casino Bern in un concerto di musica soul. L’evento si terrà a Bern e l’ingresso costa 2 CHF.",
+        "en": "Emeli Sandé will perform soul music at Casino Bern. The event takes place in Bern, and admission costs CHF 2.",
+        "de": "Emeli Sandé tritt im Casino Bern mit einem Soul-Konzert auf. Die Veranstaltung findet in Bern statt; der Eintritt kostet 2 CHF.",
+        "fr": "Emeli Sandé donnera un concert de soul au Casino Bern. L’événement se déroulera à Bern et l’entrée coûte 2 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-23T16:19:16.494Z"
+    },
     "guidle:AivhDN6::95d56fc129030979ab4331f2e3cf214c920c8578c8f2c397b9a169005a4a1908": {
       "id": "guidle:AivhDN6",
       "sourceDescriptionHash": "95d56fc129030979ab4331f2e3cf214c920c8578c8f2c397b9a169005a4a1908",
@@ -48571,6 +48585,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T19:15:43.008Z"
+    },
+    "guidle:AySiFWh::e23d78bbcdb8541a87ad1f2027ad9d53744d58357db6257bf1f94e5b4d6ae60e": {
+      "id": "guidle:AySiFWh",
+      "sourceDescriptionHash": "e23d78bbcdb8541a87ad1f2027ad9d53744d58357db6257bf1f94e5b4d6ae60e",
+      "description": "«Nelson Goerner» è un appuntamento musicale in programma al Victoria Hall. L’evento è organizzato da Guidle.",
+      "descriptionByLocale": {
+        "it": "«Nelson Goerner» è un appuntamento musicale in programma al Victoria Hall. L’evento è organizzato da Guidle.",
+        "en": "“Nelson Goerner” is a music event scheduled at Victoria Hall. The event is organised by Guidle.",
+        "de": "„Nelson Goerner“ ist eine Musikveranstaltung im Victoria Hall. Die Veranstaltung wird von Guidle organisiert.",
+        "fr": "« Nelson Goerner » est un rendez-vous musical prévu au Victoria Hall. L’événement est organisé par Guidle."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-23T16:18:08.058Z"
     },
     "guidle:AYSr55s::519073eec22d71ee8cea7a6325824306b647583a8b1f7cd2bc956a3be07d3c0b": {
       "id": "guidle:AYSr55s",
@@ -168801,8 +168829,8 @@
       "id": "guidle:A3jt2a4",
       "sourceDescriptionHash": "b9c689e3dc375ad816f1fe5b686aaa8003a57f9909f63ca89f3c7d32e2b3ad99",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-23T14:18:37.348Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-23T16:18:51.884Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -169008,8 +169036,8 @@
       "id": "guidle:A8cRJPT",
       "sourceDescriptionHash": "8e04db402c04f30491ce9f1944805eddfa81a10b9b4fbb4d1c852f162a4df4b2",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-23T14:19:32.561Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-23T16:19:07.058Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -169413,8 +169441,8 @@
       "id": "guidle:AFJFSeB",
       "sourceDescriptionHash": "1f5b99e766e271217200244dcddf9dd5e1b6414dd4a8d9ba24bcf94197ea8ad5",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-23T14:18:31.123Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-23T16:18:40.236Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -169640,15 +169668,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-19T20:26:18.107Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AiUTdi5::413b0ad4f157ffa7d1fd49372771c4a638464d2befc927d925c491f572f1d0c0": {
-      "id": "guidle:AiUTdi5",
-      "sourceDescriptionHash": "413b0ad4f157ffa7d1fd49372771c4a638464d2befc927d925c491f572f1d0c0",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-23T14:16:18.743Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -169926,8 +169945,8 @@
       "id": "guidle:AMfrXvB",
       "sourceDescriptionHash": "b0016f89e6e2693c487e7413843e3b937afb3cf772d27c50003e5e2101c8f3a1",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-23T14:16:54.919Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-23T16:19:52.219Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -170547,8 +170566,8 @@
       "id": "guidle:ATZYs5D",
       "sourceDescriptionHash": "54c22c787737812e5d9514b68cb12c3f3b3bb8bc0a8a522da2bf77c8914a5dce",
       "code": "promotional-language",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-23T14:18:11.082Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-23T16:18:22.630Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171035,15 +171054,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T01:29:42.566Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AySiFWh::e23d78bbcdb8541a87ad1f2027ad9d53744d58357db6257bf1f94e5b4d6ae60e": {
-      "id": "guidle:AySiFWh",
-      "sourceDescriptionHash": "e23d78bbcdb8541a87ad1f2027ad9d53744d58357db6257bf1f94e5b4d6ae60e",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-23T14:18:01.495Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
