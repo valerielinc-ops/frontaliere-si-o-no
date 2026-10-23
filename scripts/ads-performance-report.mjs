@@ -15,9 +15,9 @@
 import { mkdirSync, realpathSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { AD_CLIENT } from '../services/adsenseSlots.ts';
 import { DEFAULT_GA4_PROPERTY_ID, getServiceAccountToken } from './lib/ga4-service-account.mjs';
 import { fetchManualSlotReport } from './lib/adsense-manual-slot-report.mjs';
+import { resolveAdSenseAccount } from './lib/adsense-account.mjs';
 import { getAdSenseToken } from './revenue-monitor.mjs';
 import {
   ADSENSE_LOW_SAMPLE_REQUESTS,
@@ -86,7 +86,7 @@ async function readResponse(response, label) {
 }
 
 function adSenseAccountName() {
-  return `accounts/${AD_CLIENT.replace(/^ca-/, '')}`;
+  return resolveAdSenseAccount();
 }
 
 export async function fetchAdsenseData({

@@ -45,11 +45,11 @@ const SITE_URL = 'https://frontaliereticino.ch';
 // Publisher pricing constants — single source of truth mirrored from
 // services/publisherPricing.ts (drift-guarded by tests/publisher-pricing-mirror.test.ts).
 import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
-import { AD_CLIENT } from '../services/adsenseSlots.ts';
 // Canonical canary-ad gate (scripts/lib/canaryAd.mjs — single source of truth,
 // same helper used by newsletter/blast/job-alert broadcast gates).
 import { isCanaryJob } from './lib/canaryAd.mjs';
 import { fetchManualSlotReport, renderManualSlotReport } from './lib/adsense-manual-slot-report.mjs';
+import { resolveAdSenseAccount } from './lib/adsense-account.mjs';
 import { requireCompleteAdsenseReport } from './lib/adsense-report-coverage.mjs';
 import { settledWindow } from './lib/analytics-settled-window.mjs';
 import {
@@ -206,7 +206,7 @@ export function last7Days(now = new Date()) {
 // ── AdSense (reports:generate) ──────────────────────────────
 export async function fetchAdSenseReport(token, { fetchImpl = fetch, now = new Date() } = {}) {
   // Target the site publisher from the shared registry, not an account-list index.
-  const account = `accounts/${AD_CLIENT.replace(/^ca-/, '')}`;
+  const account = resolveAdSenseAccount();
   const accountRes = await fetchImpl(`https://adsense.googleapis.com/v2/${account}`, {
     headers: { Authorization: `Bearer ${token}` },
     signal: AbortSignal.timeout(30_000),

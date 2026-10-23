@@ -20,6 +20,7 @@
 
 import { windowDates } from './safe.mjs';
 import { ADSENSE_REPORT_MAX_ROWS, adsenseReportCoverage } from '../adsense-report-coverage.mjs';
+import { resolveAdSenseAccount } from '../adsense-account.mjs';
 
 // Default no-op logger; tests inject a vi.fn() to assert log shape, and the
 // production caller picks up the real console.log via the default below.
@@ -99,12 +100,7 @@ export async function fetchAdsenseChannelRevenue({
 
   const token = await refreshAccessToken({ clientId, clientSecret, refreshToken, fetchImpl });
 
-  const acctRes = await fetchImpl('https://adsense.googleapis.com/v2/accounts', {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  if (!acctRes.ok) throw new Error(`adsense accounts ${acctRes.status}: ${await acctRes.text()}`);
-  const acct = (await acctRes.json()).accounts?.[0]?.name;
-  if (!acct) throw new Error('no AdSense account');
+  const acct = resolveAdSenseAccount();
 
   const { start, end } = windowDates(windowDays);
   log(`[adsense] querying ${acct} window=${start}..${end} (${windowDays}d) dims=DATE,URL_CHANNEL_NAME`);
