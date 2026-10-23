@@ -334,7 +334,9 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     expect(employerMail.text).not.toContain('+41');
     expect(sendCascade.mock.calls[0][1]).toEqual(expect.objectContaining({ delayMs: 0, forceProvider: 'maileroo' }));
     expect(sendCascade.mock.calls[1][1]).toEqual({ delayMs: 0, forceProvider: 'maileroo' });
-    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'scheduled', sent: 1, dueAt: followupDueAt(T0, 2) });
+    const sentFollowup = store.read(`${ORDER_PATH}/automation/followup`);
+    expect(sentFollowup).toMatchObject({ state: 'scheduled', sent: 1, dueAt: followupDueAt(T0, 2) });
+    expect(sentFollowup?.history?.at(-1)).toMatchObject({ event: 'sent', provider: 'maileroo' });
 
     await runFollowupSweep({ ...deps, nowMs: T0 + 14 * DAY_MS });
     await runFollowupSweep({ ...deps, nowMs: T0 + 15 * DAY_MS });
