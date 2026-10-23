@@ -8600,6 +8600,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sondaggio-votazioni-novembre-svizzera.title': 'Abstimmung vom 29. November: AVS und Kriegsmaterial ungewiss',
     'blog.article.sondaggio-votazioni-novembre-svizzera.excerpt': 'Die Abstimmung vom 29.',
     'blog.article.sondaggio-votazioni-novembre-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.franco-euro-cambio-ottobre-2026.title': 'EUR/CHF-Wechselkurs um 0,92 am 23. Oktober 2026',
+    'blog.article.franco-euro-cambio-ottobre-2026.excerpt': 'EUR/CHF um 0,92 am 23.',
+    'blog.article.franco-euro-cambio-ottobre-2026.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

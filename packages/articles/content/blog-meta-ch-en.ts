@@ -8600,6 +8600,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sondaggio-votazioni-novembre-svizzera.title': 'November 29 vote: AVS and military materiel uncertain',
     'blog.article.sondaggio-votazioni-novembre-svizzera.excerpt': 'The November 29 vote on AVS and military materiel remains uncertain VAT for the 13th pension payment: 46% yes, 49% no Military materiel: 49% opposed, 41% in favor',
     'blog.article.sondaggio-votazioni-novembre-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.franco-euro-cambio-ottobre-2026.title': 'EUR/CHF exchange rate around 0,92 on October 23, 2026',
+    'blog.article.franco-euro-cambio-ottobre-2026.excerpt': 'EUR/CHF around 0,92 as of October 23, 2026 One Swiss franc is worth approximately 1,09 euros The franc regains strength after a temporary weakening Geopolitics',
+    'blog.article.franco-euro-cambio-ottobre-2026.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

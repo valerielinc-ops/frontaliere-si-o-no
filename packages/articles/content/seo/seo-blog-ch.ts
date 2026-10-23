@@ -108675,6 +108675,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franco-euro-cambio-ottobre-2026': {
+    title: 'Cambio EUR/CHF intorno a 0,92 il 23 ottobre 2026',
+    description: 'EUR/CHF intorno a 0,92 al 23 ottobre 2026 Un franco svizzero vale circa 1,09 euro Il franco riprende forza dopo un indebolimento temporaneo',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, intorno, ottobre, franco',
+    ogTitle: 'Cambio Franco Svizzero Euro 23 Ottobre 2026',
+    ogDescription: 'EUR/CHF intorno a 0,92 al 23 ottobre 2026 Un franco svizzero vale circa 1,09 euro Il franco riprende forza dopo un indebolimento temporaneo Geopolitica',
+    canonicalPath: '/articoli-svizzera/franco-euro-cambio-ottobre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio EUR/CHF intorno a 0,92 il 23 ottobre 2026",
+      "description": "EUR/CHF intorno a 0,92 al 23 ottobre 2026 Un franco svizzero vale circa 1,09 euro Il franco riprende forza dopo un indebolimento temporaneo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-franco-euro-cambio-ottobre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-23T16:48:57+00:00",
+      "dateModified": "2026-10-23T16:48:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franco-euro-cambio-ottobre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

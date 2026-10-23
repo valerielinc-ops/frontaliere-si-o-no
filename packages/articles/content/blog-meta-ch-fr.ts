@@ -8600,6 +8600,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sondaggio-votazioni-novembre-svizzera.title': 'Vote du 29 novembre : incertitude concernant l’AVS et le matériel de guerre',
     'blog.article.sondaggio-votazioni-novembre-svizzera.excerpt': 'Le vote du 29 novembre reste incertain concernant l’AVS et le matériel de guerre La TVA pour la 13e rente : 46 % oui, 49 % non Matériel de guerre : 49 % opposés, 41 % favorables',
     'blog.article.sondaggio-votazioni-novembre-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.franco-euro-cambio-ottobre-2026.title': 'Taux de change EUR/CHF autour de 0,92 le 23 octobre 2026',
+    'blog.article.franco-euro-cambio-ottobre-2026.excerpt': 'EUR/CHF autour de 0,92 au 23 octobre 2026 Un franc suisse vaut environ 1,09 euro Le franc reprend de la vigueur après un affaiblissement temporaire Géopolitique',
+    'blog.article.franco-euro-cambio-ottobre-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
