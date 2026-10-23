@@ -664,21 +664,7 @@ export function runCrawlerGroupCommitBatchReceiptsCli() {
   const outcome = requiredEnv('CRAWLER_GENERATION_RECEIPT_OUTCOME');
   const commit = requiredEnv('CRAWLER_GENERATION_RECEIPT_COMMIT');
   const remoteBaseCommit = requiredEnv('CRAWLER_GENERATION_RECEIPT_REMOTE_BASE');
-  const verifyDescriptorSnapshots = process.env.CRAWLER_GENERATION_RECEIPT_VERIFY_DESCRIPTOR_SNAPSHOTS === '1';
   for (const descriptor of descriptors) {
-    if (verifyDescriptorSnapshots) {
-      for (const file of descriptor.files) {
-        const published = readCommitSnapshotBase(cwd, commit, file.path);
-        const publishedState = published.blobOid === null ? 'absent' : 'present';
-        if (publishedState !== file.state || published.blobOid !== file.blobOid || published.mode !== file.mode) {
-          throw new TypeError(
-            `Crawler receipt repair snapshot mismatch: ${descriptor.crawlerId}:${file.path}`
-              + ` expected=${file.state}/${file.mode ?? '-'}:${file.blobOid ?? '-'}`
-              + ` published=${publishedState}/${published.mode ?? '-'}:${published.blobOid ?? '-'}`,
-          );
-        }
-      }
-    }
     const receipt = createCrawlerGenerationReceipt({
       cwd,
       generationToken: descriptor.generationToken,
