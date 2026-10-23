@@ -1,130 +1,5 @@
 [
   {
-    "timestamp": "2026-10-04T17:31:46.379Z",
-    "label": "after",
-    "total": 31128,
-    "needsRetranslation": 18847,
-    "suppressed": 119,
-    "incomplete": 20900,
-    "complete": 10228,
-    "slotsPresent": 10228,
-    "flaggedAmongSlotsPresent": 77,
-    "verifiedTranslated": 10151,
-    "sourceCopyExcused": 308,
-    "slotsPresentByLength": 31101,
-    "languageVerified": 16334,
-    "missingByLocale": {
-      "it": 5590,
-      "en": 5648,
-      "de": 805,
-      "fr": 5463
-    },
-    "queueAge": {
-      "count": 18847,
-      "withTimestamp": 18847,
-      "oldestAgeDays": 468.7,
-      "p50AgeDays": 10.7,
-      "p90AgeDays": 86.3,
-      "buckets": {
-        "0-1d": 120,
-        "1-2d": 1036,
-        "2-7d": 6078,
-        "0-7d": 7234,
-        "7-30d": 5379,
-        "30-90d": 4457,
-        "90-180d": 1772,
-        "180d+": 5
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 346,
-      "withTimestamp": 346,
-      "oldestAgeDays": 193.7,
-      "p50AgeDays": 33.2,
-      "p90AgeDays": 109.2,
-      "buckets": {
-        "0-1d": 0,
-        "1-2d": 5,
-        "2-7d": 12,
-        "0-7d": 17,
-        "7-30d": 101,
-        "30-90d": 162,
-        "90-180d": 65,
-        "180d+": 1
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 10804,
-      "sampled": 120,
-      "processed": 1,
-      "residual": 0,
-      "residualRate": 0,
-      "window": {
-        "size": 120,
-        "processed": 11,
-        "residual": 1,
-        "residualRate": 0.09090909090909091,
-        "runs": 2,
-        "measured": false,
-        "queueCandidates": 10804
-      }
-    },
-    "publicationHold": {
-      "held": 0,
-      "byCrawler": {}
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3284
-      },
-      {
-        "company": "STA Personal AG",
-        "pending": 1740
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1583
-      },
-      {
-        "company": "Stellentreff AG",
-        "pending": 942
-      },
-      {
-        "company": "yellowshark AG",
-        "pending": 853
-      },
-      {
-        "company": "Stellenpartner AG",
-        "pending": 794
-      },
-      {
-        "company": "Galaxus",
-        "pending": 561
-      },
-      {
-        "company": "Gourmador frigemo AG Unterseen",
-        "pending": 495
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 366
-      },
-      {
-        "company": "PEMSA",
-        "pending": 256
-      }
-    ]
-  },
-  {
     "timestamp": "2026-10-04T17:48:13.599Z",
     "label": "before",
     "total": 31128,
@@ -28269,5 +28144,109 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-23T07:43:28.424Z",
+    "label": "before",
+    "total": 32941,
+    "needsRetranslation": 1984,
+    "suppressed": 126,
+    "incomplete": 2383,
+    "complete": 30558,
+    "slotsPresent": 30558,
+    "flaggedAmongSlotsPresent": 20,
+    "verifiedTranslated": 30538,
+    "sourceCopyExcused": 285,
+    "slotsPresentByLength": 32911,
+    "languageVerified": 32206,
+    "missingByLocale": {
+      "it": 8,
+      "en": 8,
+      "de": 18,
+      "fr": 17
+    },
+    "queueAge": {
+      "count": 1984,
+      "withTimestamp": 1984,
+      "oldestAgeDays": 192.9,
+      "p50AgeDays": 42.3,
+      "p90AgeDays": 112.8,
+      "buckets": {
+        "0-1d": 58,
+        "1-2d": 8,
+        "2-7d": 75,
+        "0-7d": 141,
+        "7-30d": 675,
+        "30-90d": 779,
+        "90-180d": 380,
+        "180d+": 9
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 697,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 0,
+      "byCrawler": {}
+    },
+    "predicateVersion": "1da5183e64b93101",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 208,
+      "complete": 200
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 474
+      },
+      {
+        "company": "Medbase",
+        "pending": 106
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 105
+      },
+      {
+        "company": "UFA AG",
+        "pending": 104
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 102
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 78
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 75
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 60
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 60
+      },
+      {
+        "company": "ETAVIS AG",
+        "pending": 35
+      }
+    ]
   }
 ]
