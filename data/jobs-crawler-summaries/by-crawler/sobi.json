@@ -1,7 +1,7 @@
 {
   "key": "sobi",
   "label": "Sobi",
-  "generatedAt": "2026-10-22T21:16:04.437Z",
+  "generatedAt": "2026-10-23T09:28:03.821Z",
   "total": 9,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 4584,
-  "avgDurationMs": 4584,
+  "durationMs": 3735,
+  "avgDurationMs": 3735,
   "durationHistory": [
-    4584
+    3735
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000141444319-senior-manager-market-access-specialty-care",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:48.719Z",
+      "crawledAt": "2026-10-23T09:27:49.425Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000148941430-global-pv-partnership-operations-director",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:48.718Z",
+      "crawledAt": "2026-10-23T09:27:49.424Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000153234089-global-product-safety-science-lead",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:48.716Z",
+      "crawledAt": "2026-10-23T09:27:49.422Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000153497244-sales-representative-nephrology-haematology-junior-",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:48.715Z",
+      "crawledAt": "2026-10-23T09:27:49.421Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000153753715-regional-medical-excellence-associate-director-director",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:48.713Z",
+      "crawledAt": "2026-10-23T09:27:49.420Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000154365554-market-access-manager",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:48.712Z",
+      "crawledAt": "2026-10-23T09:27:49.418Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000155179203-external-quality-operations-manager",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:48.710Z",
+      "crawledAt": "2026-10-23T09:27:49.416Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -336,7 +336,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000155225129-medical-science-liaison-haemophilia",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:15:48.702Z",
+      "crawledAt": "2026-10-23T09:27:49.411Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -411,5 +411,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }
