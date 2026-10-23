@@ -4,7 +4,7 @@
     "title": "Arztsekretärin / Arztsekretär",
     "titleByLocale": {
       "it": "Segretario medico / Segretario medico",
-      "en": "Medical Secretary / Medical Secretary",
+      "en": "Arztsekretärin / Arztsekretär",
       "de": "Arztsekretärin / Arztsekretär",
       "fr": "Secrétaire médical / Secrétaire médical"
     },
@@ -20,16 +20,17 @@
     },
     "slugByLocale": {
       "it": "segretario-medico-segretario-medico-psychiatrische-dienste-aargau-pdag-zofingen",
-      "en": "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-zofingen",
+      "en": "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-zofingen",
       "de": "arztsekretarin-arztsekretar-pdag-zofingen",
       "fr": "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-zofingen"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-10-23T10:03:39.354Z",
+    "expiredAt": "2026-10-23T10:03:09.198Z",
     "previousSlugs": [
       "medical-secretary-psychiatrische-dienste-aargau-pdag-zofingen",
       "arztsekretarin-arztsekretar-pdag-zofingen",
-      "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-zofingen"
+      "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-zofingen",
+      "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-zofingen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -37,7 +38,8 @@
       ],
       "en": [
         "medical-secretary-psychiatrische-dienste-aargau-pdag-zofingen",
-        "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-zofingen"
+        "arztsekretarin-arztsekretar-psychiatrische-dienste-aargau-pdag-zofingen",
+        "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-zofingen"
       ]
     },
     "postalCode": "4800",
