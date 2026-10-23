@@ -204,6 +204,13 @@ FETCH_TIMEOUT_SECONDS=300
 API_TIMEOUT_SECONDS=60
 GH_PR_TIMEOUT_SECONDS=60
 
+# GitHub's PR-create GraphQL mutation can fail after the branch is safely
+# published (for example, the 502 observed in workflow run 39927344744). Keep
+# the recovery bounded and retry only responses that identify a transient
+# transport/service condition; validation, auth and unreadable failures remain
+# fatal.
+PR_CREATE_MAX_ATTEMPTS=3
+
 # This is the 180-second push ceiling introduced for issue 12262 / PR 12318.
 PUSH_TIMEOUT_SECONDS=180
 
@@ -809,10 +816,64 @@ if [ -n "$OPEN_PR" ]; then
   exit 0
 fi
 
-run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr create stable refresh PR" \
-  gh pr create \
-  --repo "$REPOSITORY" \
-  --base main \
-  --head "$BRANCH" \
-  --title "$TITLE" \
-  --body-file "$BODY_FILE"
+is_retryable_pr_create_failure() {
+  local output="$1"
+  [[ "$output" =~ HTTP[[:space:]]+(408|425|429|5[0-9]{2})([^0-9]|$) ]]
+}
+
+create_refresh_pr() {
+  local attempt=1 output status existing_pr list_status
+  while [ "$attempt" -le "$PR_CREATE_MAX_ATTEMPTS" ]; do
+    if output="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr create stable refresh PR" \
+      gh pr create \
+      --repo "$REPOSITORY" \
+      --base main \
+      --head "$BRANCH" \
+      --title "$TITLE" \
+      --body-file "$BODY_FILE" 2>&1)"; then
+      printf '%s\n' "$output"
+      return 0
+    else
+      status=$?
+    fi
+    printf '%s\n' "$output" >&2
+
+    if ! is_retryable_pr_create_failure "$output"; then
+      return "$status"
+    fi
+
+    # A mutation may have reached GitHub even when its response was a 5xx.
+    # Confirm the stable PR before retrying, otherwise a second mutation could
+    # turn an already-delivered refresh into a false failure or duplicate.
+    if existing_pr="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr list stable refresh PR after create failure" \
+      gh pr list \
+      --repo "$REPOSITORY" \
+      --state open \
+      --base main \
+      --head "$BRANCH" \
+      --json number \
+      --jq '.[0].number // empty')"; then
+      :
+    else
+      list_status=$?
+      printf '%s\n' "$existing_pr" >&2
+      echo "::error::Unable to verify the refresh PR after a transient create failure; refusing a duplicate retry" >&2
+      return "$list_status"
+    fi
+    if [ -n "$existing_pr" ]; then
+      echo "Refresh PR #$existing_pr was created despite the transient create failure; no duplicate create attempted."
+      return 0
+    fi
+
+    if [ "$attempt" -ge "$PR_CREATE_MAX_ATTEMPTS" ]; then
+      echo "::error::gh pr create stable refresh PR failed after ${PR_CREATE_MAX_ATTEMPTS} bounded attempts" >&2
+      return "$status"
+    fi
+
+    echo "::warning::gh pr create stable refresh PR returned a transient error on attempt ${attempt}/${PR_CREATE_MAX_ATTEMPTS}; retrying" >&2
+    sleep "$attempt"
+    attempt=$((attempt + 1))
+  done
+}
+
+create_refresh_pr
