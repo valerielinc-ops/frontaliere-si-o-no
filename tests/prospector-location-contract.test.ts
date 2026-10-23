@@ -170,6 +170,26 @@ describe('prospector location and identity contract', () => {
       expect(fields).toMatchObject({ location: 'Bellinzona', canton: 'TI', addressCountry: 'CH' });
       expect(fields).not.toHaveProperty('duplicateCandidates');
     });
+
+    it('selects a source municipality when a multi-area candidate has a canton label', () => {
+      const fields = geographyFieldsForDecision({
+        geography: {
+          location: 'Biel / Solothurn / Mittelland',
+          canton: 'SO',
+          addressCountry: 'CH',
+        },
+        candidate: {
+          location: 'Biel / Solothurn / Mittelland',
+          addressLocality: 'Soletta',
+          addressCountry: 'CH',
+        },
+      });
+      expect(fields).toMatchObject({
+        location: 'Biel / Solothurn / Mittelland',
+        addressLocality: 'Solothurn',
+        addressRegion: 'SO',
+      });
+    });
   });
 
   it('closes the spec dispatcher when collection fails after an earlier seed', async () => {
