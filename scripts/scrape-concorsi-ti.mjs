@@ -35,15 +35,15 @@
  */
 
 import { decode as decodeHTML } from 'html-entities';
-import fs from 'node:fs';
+import fs, { realpathSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const OUT_PATH = path.join(ROOT, 'data', 'seo', 'concorsi-ti.json');
-const SOURCE_URL = 'https://www4.ti.ch/index.php?id=147427';
+export const SOURCE_URL = 'https://www4.ti.ch/index.php?id=147427';
 const USER_AGENT =
   'FrontaliereTicinoBot/1.0 (+https://frontaliereticino.ch; seo-research)';
 
@@ -64,6 +64,16 @@ function stripTags(s) {
   ).trim();
 }
 
+/** Validate the official page before consuming its job links. */
+export function isTichOfficialListingHtml(html = '') {
+  const source = String(html || '');
+  return (
+    /<h1\b[^>]*>[\s\S]{0,240}?\bConcorsi generali\b/i.test(source) &&
+    /www\.concorsi\.ti\.ch/i.test(source) &&
+    /\bScadenza\s*:/i.test(source)
+  );
+}
+
 /**
  * Parse the listing HTML. The Canton Ticino TYPO3 CMS wraps each concorso
  * in a `<div class="ce-bodytext">` block containing:
@@ -76,7 +86,7 @@ function stripTags(s) {
  * minor CMS template changes because we only rely on the "no.", "Scadenza:"
  * and `<strong>` anchors — not on exact tag structure.
  */
-function parseConcorsiHtml(html) {
+export function parseConcorsiHtml(html) {
   const rows = [];
   const seen = new Set();
 
@@ -84,12 +94,12 @@ function parseConcorsiHtml(html) {
   const blocks = html.split(/<div class="ce-bodytext"/i).slice(1);
 
   for (const block of blocks) {
-    const yidMatch = /href="(https?:\/\/www\.concorsi\.ti\.ch\/[^"]*yid=(\d+)[^"]*)"/i.exec(
+    const yidMatch = /href\s*=\s*(["'])(https?:\/\/www\.concorsi\.ti\.ch\/[^"']*yid=(\d+)[^"']*)\1/i.exec(
       block,
     );
     if (!yidMatch) continue;
-    const url = yidMatch[1].replace(/&amp;/g, '&');
-    const yid = yidMatch[2];
+    const url = yidMatch[2].replace(/&amp;/g, '&');
+    const yid = yidMatch[3];
     if (seen.has(yid)) continue;
 
     const refMatch = /no\.\s*(\d{1,3}\/\d{2})/i.exec(block);
@@ -265,7 +275,11 @@ async function main() {
   console.log(`[scrape-concorsi-ti] wrote ${concorsi.length} concorsi → ${OUT_PATH}`);
 }
 
-main().catch((err) => {
-  console.error('[scrape-concorsi-ti] fatal:', err);
-  process.exitCode = 1;
-});
+if (process.argv[1] && (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; }
+})()) {
+  main().catch((err) => {
+    console.error('[scrape-concorsi-ti] fatal:', err);
+    process.exitCode = 1;
+  });
+}

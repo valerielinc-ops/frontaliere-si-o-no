@@ -21,6 +21,7 @@ const { fetchTichJobDetailUrls } = await import('../scripts/update-tich-jobs.mjs
 
 const LISTING_URL = 'https://www.concorsi.ti.ch/';
 const RSS_URL = 'https://www.concorsi.ti.ch/rss_generator-rss0.php?unit=act&lang=it';
+const OFFICIAL_LISTING_URL = 'https://www4.ti.ch/index.php?id=147427';
 
 const listingHtml = `<!doctype html>
 <html>
@@ -34,6 +35,21 @@ const rssXml = `<?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Amministrazione Cantonale Ticino Jobportal</title>
 </feed>`;
+
+const officialListingHtml = `<!doctype html>
+<html>
+  <body>
+    <h1>Concorsi generali</h1>
+    <div class="ce-bodytext">
+      <p>no. 02/26</p>
+      <p><strong>Concorso generale Aiuto cucina<br> presso Ufficio della refezione, Bellinzona</strong></p>
+      <p>Scadenza: 31.12.2026</p>
+      <a href="https://www.concorsi.ti.ch/offerte-d%27impieghi.html?yid=4059">Vai al concorso</a>
+    </div>
+    <a href="https://www.concorsi.ti.ch/">Fonte ufficiale</a>
+    <p>Scadenza: 31.12.2026</p>
+  </body>
+</html>`;
 
 describe('fetchTichJobDetailUrls', () => {
   it('retries a transient discovery failure before falling back to the RSS source', async () => {
@@ -64,5 +80,27 @@ describe('fetchTichJobDetailUrls', () => {
     ]);
     expect(attempts.get(LISTING_URL)).toBe(2);
     expect(attempts.get(RSS_URL)).toBe(1);
+  });
+
+  it('uses the validated official Canton listing when both portal sources are unavailable', async () => {
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === OFFICIAL_LISTING_URL) return new Response(officialListingHtml, { status: 200 });
+      throw new TypeError('fetch failed');
+    });
+
+    const result = await fetchTichJobDetailUrls({
+      fetchImpl,
+      retries: 0,
+      retryBaseMs: 0,
+      timeoutMs: 1_000,
+    });
+
+    expect(result.listingSucceeded).toBe(false);
+    expect(result.rssSucceeded).toBe(false);
+    expect(result.officialSucceeded).toBe(true);
+    expect(result.urls).toEqual([
+      "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
+    ]);
+    expect(fetchImpl).toHaveBeenCalledWith(OFFICIAL_LISTING_URL, expect.anything());
   });
 });

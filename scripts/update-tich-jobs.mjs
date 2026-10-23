@@ -55,6 +55,11 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isCantonTicinoOscPosting } from './lib/crawler-company-ownership.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
+import {
+  SOURCE_URL as OFFICIAL_LISTING_URL,
+  isTichOfficialListingHtml,
+  parseConcorsiHtml,
+} from './scrape-concorsi-ti.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -368,6 +373,19 @@ function normalizeDetailUrl(rawUrl = '') {
   try {
     const u = new URL(url);
     u.searchParams.delete('sid');
+    let decodedPath = u.pathname;
+    try {
+      decodedPath = decodeURIComponent(decodedPath);
+    } catch {
+      // Leave malformed encoding for the canonical invariant to reject.
+    }
+    if (
+      u.hostname.toLowerCase() === 'www.concorsi.ti.ch' &&
+      decodedPath === "/offerte-d'impieghi.html" &&
+      /^\d+$/.test(u.searchParams.get('yid') || '')
+    ) {
+      return `${DETAIL_BASE}offerte-d'impieghi.html?yid=${u.searchParams.get('yid')}`;
+    }
     return u.href;
   } catch {
     // Fallback: simple regex strip
@@ -540,8 +558,52 @@ export async function fetchTichJobDetailUrls(options = {}) {
     console.warn(`⚠️ RSS feed fetch failed: ${err.message}`);
   }
 
+  // ── Step 3: Use the official Canton page when the Rexx portal egress is down ──
+  // The official page is a separate, live source of the same direct detail
+  // links. It is only consulted after both portal endpoints fail, so it does
+  // not change the normal listing/RSS union or hide an identity regression.
+  let officialSucceeded = false;
   if (!listingSucceeded && !rssSucceeded) {
-    throw new Error('Ti.CH discovery failed: both the SSR listing and RSS fallback were unavailable.');
+    console.log(`🔍 Fetching Ti.CH official listing fallback: ${OFFICIAL_LISTING_URL}`);
+    try {
+      const { res, text: html } = await fetchTichDiscoverySource({
+        url: OFFICIAL_LISTING_URL,
+        fetchImpl,
+        timeoutMs,
+        headers: {
+          Accept: 'text/html, application/xhtml+xml',
+          'User-Agent': userAgent,
+        },
+        label: 'official listing fallback',
+        retries: options.retries,
+        retryBaseMs: options.retryBaseMs,
+      });
+
+      if (!res.ok) {
+        console.warn(`⚠️ Official Ti.CH listing returned ${res.status} — no fallback available.`);
+      } else {
+        if (!isTichOfficialListingHtml(html)) {
+          throw new Error('Official Ti.CH listing identity marker missing.');
+        }
+        officialSucceeded = true;
+        const officialRows = parseConcorsiHtml(html);
+        for (const row of officialRows) {
+          discoveredOccurrences += 1;
+          const normalized = normalizeDetailUrl(row.url);
+          if (normalized) allUrls.add(normalized);
+        }
+        console.log(`  📦 Official Ti.CH listing: ${allUrls.size} job URL(s) found`);
+      }
+    } catch (err) {
+      console.warn(`⚠️ Official Ti.CH listing fetch failed: ${err.message}`);
+    }
+  }
+
+  if (!listingSucceeded && !rssSucceeded && !officialSucceeded) {
+    throw new Error(
+      'Ti.CH discovery failed: both primary portal sources (SSR listing and RSS fallback) '
+      + 'and the official listing were unavailable.',
+    );
   }
   const byIdentity = new Map();
   for (const rawUrl of allUrls) {
@@ -566,6 +628,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
     sourceZero: urls.length === 0,
     listingSucceeded,
     rssSucceeded,
+    officialSucceeded,
     discoveredOccurrences,
     duplicateIdentity: Math.max(0, discoveredOccurrences - urls.length),
   };
@@ -618,7 +681,7 @@ export function ensureAdapterSeedUrls(
   writeJsonAtomic(adapterPath, adapter);
   const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
   assertTichAdapterParity(persisted, seedUrls);
-  console.log(`📝 Adapter ${TICH_KEY} updated with ${seedUrls.length} seed URLs (listing/RSS parity verified).`);
+  console.log(`📝 Adapter ${TICH_KEY} updated with ${seedUrls.length} seed URLs (listing/RSS/official-source parity verified).`);
   return persisted;
 }
 
@@ -627,6 +690,11 @@ export function ensureAdapterSeedUrls(
 // ──────────────────────────────────────────────────────────────
 
 function runBaseCrawler() {
+  const existingProxyHosts = String(process.env.JOBS_CRAWLER_FETCH_PROXY || '')
+    .split(',')
+    .map((host) => host.trim())
+    .filter(Boolean);
+  const proxyHosts = [...new Set([...existingProxyHosts, 'www.concorsi.ti.ch'])].join(',');
   return runDedicatedBaseCrawler({
     root: ROOT,
     companyKeys: TICH_KEY,
@@ -634,6 +702,7 @@ function runBaseCrawler() {
     forceLocalizeKeys: TICH_KEY,
     disableWorkdayForce: true,
     forceLocalizationWhenAiEnabledOnly: true,
+    extraEnv: { JOBS_CRAWLER_FETCH_PROXY: proxyHosts },
   });
 }
 
