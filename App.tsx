@@ -153,7 +153,7 @@ const BlogArticles = lazyRetry(() => {
  import('@/services/router').then(m => m.preloadBlogData()).catch(() => {});
  return import('@/components/community/BlogArticles');
 });
-const AdminPanel = lazyRetry(() => import('@/components/pages/AdminPanel'));
+const AdminPanel = lazyRetry(() => import('@/components/admin/AdminApp'));
 const Glossary = lazyRetry(() => import('@/components/pages/Glossary'));
 const TicineseDialect = lazyRetry(() => import('@/components/vita/TicineseDialect'));
 const FaqSection = lazyRetry(() => import('@/components/pages/FaqSection'));
@@ -393,7 +393,7 @@ const App: React.FC = () => {
 
  // Navigation state: tabs, sub-tabs, deep links, popstate, SEO effects, etc.
  const {
- activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
+ activeTab, adminSection, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
  blogArticle, blogSection, swissArticle, cantonArticle, cantonTopic, blogPage, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus, notFoundPath,
@@ -3397,7 +3397,7 @@ const App: React.FC = () => {
  </p>
  </div>
  ) : isPrivilegedAdmin ? (
- <AdminPanel />
+ <AdminPanel adminSection={adminSection} />
  ) : (
  <div className="flex flex-col items-center justify-center py-20 space-y-4">
  <Shield size={48} className="text-danger" />
