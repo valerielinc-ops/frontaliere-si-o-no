@@ -2352,6 +2352,9 @@ describe('source-detail location measurement (issue 5253)', () => {
     expect((await run(livit, 'Lausanne')).locationMismatch).toBe(true);
     // Una riga dopo un H1 che non è il titolo della vacancy non è un campo della vacancy.
     expect(vacancyHeadingSublineFields('<h1>Karriere bei uns</h1><p>Zürich, Basel, Bern</p>', 'Chef de Rang')).toEqual([]);
+    // Una prosa indipendente subito dopo un H1 non diventa metadata solo
+    // perché nomina una città.
+    expect(vacancyHeadingSublineFields('<h1>Chef de Rang</h1><div>Work in Zürich.</div>', 'Chef de Rang')).toEqual([]);
   });
 
   // Fixture anonimizzate dal markup reale delle due pagine che il 2026-10-04

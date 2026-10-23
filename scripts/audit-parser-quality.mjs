@@ -32,7 +32,11 @@ import {
   JOB_LOCATION_VALUE_CLASS_TOKENS,
   resolveSourceBackedSwissGeography,
 } from './lib/prospector/location-evidence.mjs';
-import { readAttr, readVacancySummaryLocation } from './lib/html-attr.mjs';
+import {
+  readAttr,
+  readVacancySummaryLocation,
+  scanHtmlTags,
+} from './lib/html-attr.mjs';
 import {
   canonicalSwissCityName,
   findSwissCityInText,
@@ -1135,6 +1139,86 @@ export function workdayPrimaryLocationFromUrl(rawUrl = '') {
  * campo della testata. Solo se l'H1 è il titolo della vacancy, il blocco è
  * vicino e ogni campo è breve: una tagline lontana non è un campo vacancy.
  */
+const HEADING_SUBLINE_ELEMENT_TAGS = new Set(['div', 'p', 'h2', 'h3', 'span']);
+
+function directHeadingSublineElements(source, start, maxLength = 1500) {
+  const window = source.slice(start, start + maxLength);
+  const tags = scanHtmlTags(window);
+  const elements = [];
+  const stack = [];
+  let current = null;
+  let cursor = 0;
+
+  for (const tag of tags) {
+    if (tag.closing) {
+      const matchingIndex = stack.lastIndexOf(tag.name);
+      if (matchingIndex < 0) continue;
+      stack.length = matchingIndex;
+      if (stack.length === 0 && current) {
+        current.end = tag.end;
+        current.html = window.slice(current.contentStart, tag.index);
+        elements.push(current);
+        current = null;
+        if (elements.length >= 12) break;
+      }
+      cursor = tag.end;
+      continue;
+    }
+
+    if (stack.length === 0) {
+      const gap = window.slice(cursor, tag.index).replace(/<!--[\s\S]*?-->/g, '').trim();
+      if (gap || !HEADING_SUBLINE_ELEMENT_TAGS.has(tag.name)) break;
+      current = {
+        tagName: tag.name,
+        raw: tag.raw,
+        contentStart: tag.end,
+        end: tag.end,
+        html: '',
+      };
+    }
+
+    if (!tag.selfClosing && !VOID_HTML_TAGS.has(tag.name)) {
+      stack.push(tag.name);
+    } else if (stack.length === 0 && current) {
+      current.end = tag.end;
+      current.html = '';
+      elements.push(current);
+      current = null;
+      if (elements.length >= 12) break;
+    }
+    cursor = tag.end;
+  }
+
+  return elements;
+}
+
+function hasHeadingSublineMetadataMarker(rawTag) {
+  const identity = [
+    readAttr(rawTag, 'id'),
+    readAttr(rawTag, 'class'),
+    readAttr(rawTag, 'itemprop'),
+    readAttr(rawTag, 'data-testid'),
+  ].join(' ').replace(/([a-z])([A-Z])/g, '$1 $2');
+  if (!identity) return false;
+  if (/\b(?:description|content|body|intro|text)\b/i.test(identity)) return false;
+  return /(?:^|[\s_-])(?:meta(?:data)?|sub(?:title|titel)|location|geo|ort(?:header)?|standort|summary)(?:$|[\s_-])/i.test(identity);
+}
+
+function headingSublineElementFields(element) {
+  return plainText(String(element?.html || '').replace(/<br\s*\/?>/gi, ' | '))
+    .split(/\s*[|,;·•]\s*/)
+    .map((field) => field.trim())
+    .filter((field) => field && field.length <= 60);
+}
+
+function looksLikeHeadingSublineField(field) {
+  return field.length <= 60 && !/[.!?]\s*$/u.test(field);
+}
+
+function hasHeadingSublineSignal(field) {
+  return /\b\d{1,2}[./]\d{1,2}[./]\d{2,4}\b|\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/u.test(field);
+}
+
 export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
   const source = String(html || '');
   const title = normalizePlace(vacancyTitle);
@@ -1147,23 +1231,33 @@ export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
   while ((heading = headingRx.exec(source))) {
     const headingText = normalizePlace(heading[1]);
     if (!headingText || !(headingText.includes(title) || title.includes(headingText))) continue;
-    const after = source.slice(headingRx.lastIndex, headingRx.lastIndex + 1500);
-    const elementRx = /<(div|p|h2|h3|span)\b[^>]*>([\s\S]{0,600}?)<\/\1>/gi;
-    let element;
-    let consumedUntil = 0;
-    let siblingCount = 0;
-    while ((element = elementRx.exec(after)) && siblingCount < 12) {
-      // A wrapper can contain the leaf metadata elements. Read the wrapper
-      // once, then skip its nested matches so one field is not duplicated.
-      if (element.index < consumedUntil) continue;
-      const value = plainText(element[2].replace(/<br\s*\/?>/gi, ' | '));
-      fields.push(...value
-        .split(/\s*[|,;·•]\s*/)
-        .map((field) => field.trim())
-        .filter((field) => field && field.length <= 60));
-      consumedUntil = elementRx.lastIndex;
-      siblingCount += 1;
+    const siblings = directHeadingSublineElements(source, headingRx.lastIndex);
+    const first = siblings[0];
+    if (!first) continue;
+
+    const firstFields = headingSublineElementFields(first);
+    const firstIsMarked = hasHeadingSublineMetadataMarker(first.raw);
+    const block = [];
+    for (const sibling of siblings) {
+      const siblingFields = headingSublineElementFields(sibling);
+      if (!siblingFields.length) {
+        if (block.length === 0) continue;
+        break;
+      }
+      const marked = hasHeadingSublineMetadataMarker(sibling.raw);
+      const signal = siblingFields.some(hasHeadingSublineSignal);
+      const shortFields = siblingFields.every(looksLikeHeadingSublineField);
+      const allowed = marked || signal
+        || (sibling.tagName !== 'h2' && sibling.tagName !== 'h3' && shortFields);
+      if (!allowed) break;
+      block.push(...siblingFields);
     }
+
+    // A lone generic prose element is not vacancy metadata. Unmarked fields
+    // are accepted only as a contiguous short run (the Medimeo shape) or when
+    // the field itself carries an unambiguous date/workload signal.
+    if (!firstIsMarked && block.length < 2 && !firstFields.some(hasHeadingSublineSignal)) continue;
+    fields.push(...block);
   }
   return fields;
 }
