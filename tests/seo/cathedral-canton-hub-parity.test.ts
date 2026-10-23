@@ -53,8 +53,10 @@ describe('Phase 8(g) — canton hub editorial structure', () => {
     expect(blocks[3]).not.toMatch(/oltre 100 aziende|ogni 12 ore|offerte attive/);
     // Language requirements are checked against the source listing.
     expect(blocks[6]).toMatch(/lingua della pagina o di una traduzione/);
-    // Sources line points to seco.admin.ch.
-    expect(blocks[7]).toMatch(/seco\.admin\.ch/);
+    // Sources line points directly to the Italian SECO homepage, avoiding its
+    // language redirect.
+    expect(blocks[7]).toContain('https://www.seco.admin.ch/seco/it/home.html');
+    expect(blocks[7]).not.toContain('href="https://www.seco.admin.ch/it"');
     // FAQ is a collapsible <details>.
     expect(blocks[8].startsWith('<details ')).toBe(true);
     expect(blocks[8]).toMatch(/Domande frequenti sulla ricerca lavoro in Ticino/);

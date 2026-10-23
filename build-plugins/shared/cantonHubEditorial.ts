@@ -85,6 +85,13 @@ const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+const SECO_HOMEPAGE_BY_LOCALE: Record<ArchiveHubLocale, string> = {
+  it: 'https://www.seco.admin.ch/seco/it/home.html',
+  en: 'https://www.seco.admin.ch/seco/en/home.html',
+  de: 'https://www.seco.admin.ch/seco/de/home.html',
+  fr: 'https://www.seco.admin.ch/seco/fr/home.html',
+};
+
 /** Build the archive page navigator independently from long-form copy. */
 export function buildCantonHubArchiveNavigation(opts: CantonHubArchiveNavigationOpts): string {
   const navigablePages = Math.max(1, Math.floor(opts.archiveNavigablePages ?? opts.totalPages));
@@ -210,6 +217,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   } = opts;
   const navigablePages = Math.max(1, Math.floor(archiveNavigablePages ?? totalPages));
   const isTi = canton === 'TI';
+  const secoHomepageUrl = SECO_HOMEPAGE_BY_LOCALE[locale];
   const out: string[] = [];
 
   // Zero is a measured empty inventory, never a reason to invent vacancies.
@@ -255,7 +263,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
       `I dettagli mostrati possono includere data di pubblicazione, azienda, località e requisiti. La completezza dipende dalla fonte: verifica sulla pagina originale le informazioni necessarie per valutare e inviare la candidatura.`,
       `Le condizioni per lavorare in Svizzera dipendono dalla situazione personale. Per verificare autorizzazioni, requisiti e procedura applicabili, consulta le informazioni ufficiali della <a class="s-676LjN" href="https://www.sem.admin.ch/sem/it/home/themen/aufenthalt.html" rel="noopener noreferrer">Segreteria di Stato della migrazione (SEM)</a>; questa pagina non determina quale autorizzazione si applichi.`,
       `Puoi usare la ricerca e i filtri disponibili per esplorare gli annunci. La lingua della pagina o di una traduzione non indica le lingue richieste dal datore: controlla i requisiti espliciti nella fonte originale o chiedi conferma all’azienda.`,
-      `<p class="s-M4r-xq">Fonte: <a class="s-676LjN" href="https://www.seco.admin.ch" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
+      `<p class="s-M4r-xq">Fonte: <a class="s-676LjN" href="${secoHomepageUrl}" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
     );
   } else {
     const cantonOrCh = display === 'Svizzera' ? 'in Svizzera' : `nel Canton ${display}`;
@@ -265,7 +273,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
       `Per ogni posizione vengono mantenuti metadati utili alla valutazione: data di pubblicazione, azienda, località, requisiti richiesti e collegamento diretto alla candidatura sul sito originale del datore di lavoro. Le offerte sono filtrate ${esc(cantonOrCh)} e vengono aggiornate ogni 12 ore.`,
       `I frontalieri con permesso G hanno diritto a candidarsi a posizioni in tutta la Svizzera; la guida inclusa nella sezione lavoro spiega la procedura per richiedere un permesso di lavoro, i settori con maggiore domanda e i salari mediani per categoria professionale nel mercato del lavoro ${esc(cantonOrSwiss)}.`,
       `Il motore di ricerca integrato permette di filtrare per settore, tipo di contratto (tempo indeterminato, determinato, part-time), località e data di pubblicazione. La funzione di allerta e-mail notifica automaticamente le nuove offerte che corrispondono ai criteri salvati, così non si perde nessuna opportunità.`,
-      `<p class="s-M4r-xq">Fonte: <a class="s-676LjN" href="https://www.seco.admin.ch" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
+      `<p class="s-M4r-xq">Fonte: <a class="s-676LjN" href="${secoHomepageUrl}" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
     );
   }
 
@@ -279,7 +287,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
       `<p class="s-F2hp6o"><strong>La lingua dell’annuncio tradotto indica le lingue richieste?</strong> No. Controlla i requisiti linguistici espliciti nell’annuncio originale o chiedi conferma al datore di lavoro.</p>` +
       `<p class="s-F2hp6o"><strong>Come verifico la retribuzione?</strong> Consulta gli importi e le condizioni indicati dal datore nella fonte originale. Questa pagina non stima il salario del ruolo.</p>` +
       `<p class="s-F2hp6o"><strong>Come ritrovare gli annunci che mi interessano?</strong> Usa gli strumenti di ricerca disponibili e verifica sempre i dettagli e la disponibilità sulla pagina originale.</p>` +
-      `<p class="s-fb-foD">Fonte: <a class="s-676LjN" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-676LjN" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · Dati Frontaliere Ticino</p>` +
+      `<p class="s-fb-foD">Fonte: <a class="s-676LjN" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-676LjN" href="${secoHomepageUrl}" rel="noopener">SECO</a> · Dati Frontaliere Ticino</p>` +
       `</div></details>`,
     );
   } else {
@@ -295,7 +303,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
       `<p class="s-F2hp6o"><strong>${esc(`Quali sono i settori con più domanda ${cantonOrCh}?`)}</strong> I settori con maggiore domanda per frontalieri nel 2026 sono: servizi finanziari e bancari, farmaceutico e chimico, IT e software, edilizia e impiantistica, sanità e assistenza, ristorazione e turismo, logistica e trasporti.</p>` +
       `<p class="s-F2hp6o"><strong>${esc(`Qual è lo stipendio medio per un frontaliere ${cantonOrCh}?`)}</strong> ${esc(`Lo stipendio mediano lordo ${cantonOrSwiss} è di circa CHF ${fmtChfDot(faqSalary.medianLow)}-${fmtChfDot(faqSalary.medianHigh)} annui (fonte BFS, rilevazione struttura salari ${display === 'Svizzera' ? 'nazionale' : `Grossregion del Canton ${display}`}), variabile per settore: IT/Software CHF ${fmtChfDot(faqSalary.it)}+, Banca/Finanza CHF ${fmtChfDot(faqSalary.finance)}+, Pharma CHF ${fmtChfDot(faqSalary.pharma)}+, Commercio CHF ${fmtChfDot(faqSalary.retail)}.`)} Usa il <a class="s-676LjN" href="/calcola-stipendio/">simulatore fiscale</a> per calcolare il netto.</p>` +
       `<p class="s-F2hp6o"><strong>Come attivare le notifiche per nuove offerte?</strong> Imposta i tuoi criteri di ricerca (settore, località, parole chiave) e attiva le allerte e-mail: riceverai una notifica automatica quando vengono pubblicate nuove posizioni corrispondenti.</p>` +
-      `<p class="s-fb-foD">Fonte: <a class="s-676LjN" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-676LjN" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · Dati Frontaliere Ticino</p>` +
+      `<p class="s-fb-foD">Fonte: <a class="s-676LjN" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-676LjN" href="${secoHomepageUrl}" rel="noopener">SECO</a> · Dati Frontaliere Ticino</p>` +
       `</div></details>`,
     );
   }
