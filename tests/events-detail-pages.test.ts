@@ -530,8 +530,30 @@ describe('renderEventDetailPage', () => {
 
   it('probes a deterministic ordinal when both disambiguator candidates are claimed', () => {
     const collisionTitle = 'Night';
-    const firstId = 'ge-agenda:ordinal-collision-a';
+    // These two route ids intentionally share the deterministic 32-bit token
+    // so the test exercises the residual ordinal path with distinct records.
+    const firstId = 'ge-agenda:hc-3acdac2a';
     const events = [
+      {
+        ...EVENT,
+        id: 'ge-agenda:ordinal-claims-human',
+        title: collisionTitle,
+        startDate: '2026-10-21',
+        endDate: '2026-10-21',
+        venue: 'Hall',
+        comune: 'Genève',
+        canton: 'GE',
+      },
+      {
+        ...EVENT,
+        id: 'ge-agenda:hc-a262df6c',
+        title: collisionTitle,
+        startDate: '2026-10-21',
+        endDate: '2026-10-21',
+        venue: 'Hall',
+        comune: 'Genève',
+        canton: 'GE',
+      },
       {
         ...EVENT,
         id: firstId,
@@ -539,36 +561,6 @@ describe('renderEventDetailPage', () => {
         startDate: '2026-10-21',
         endDate: '2026-10-21',
         venue: 'Hall',
-        comune: 'Genève',
-        canton: 'GE',
-      },
-      {
-        ...EVENT,
-        id: 'ge-agenda:ordinal-collision-b',
-        title: collisionTitle,
-        startDate: '2026-10-21',
-        endDate: '2026-10-21',
-        venue: 'Hall',
-        comune: 'Genève',
-        canton: 'GE',
-      },
-      {
-        ...EVENT,
-        id: 'ge-agenda:ordinal-claims-human',
-        title: `${collisionTitle} · Hall`,
-        startDate: '2026-10-21',
-        endDate: '2026-10-21',
-        venue: '',
-        comune: 'Genève',
-        canton: 'GE',
-      },
-      {
-        ...EVENT,
-        id: 'ge-agenda:ordinal-claims-fallback',
-        title: `${collisionTitle} · rif. ${stableTitleToken(firstId)}`,
-        startDate: '2026-10-21',
-        endDate: '2026-10-21',
-        venue: '',
         comune: 'Genève',
         canton: 'GE',
       },
