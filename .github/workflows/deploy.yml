@@ -203,6 +203,11 @@ jobs:
           sparse-checkout-cone-mode: false
       - name: Reject an incomplete translation tree
         id: translation_handoff
+        # Only the workflow's own GITHUB_TOKEN dispatch may carry the
+        # rearm input. A human workflow_dispatch can set the boolean input,
+        # but its actor is not github-actions[bot], so it still runs this
+        # strict gate and remains fail-closed on a pending marker.
+        if: inputs.rearm_dispatch != true || github.event_name != 'workflow_dispatch' || github.actor != 'github-actions[bot]'
         run: node scripts/ci/translation-deploy-handoff.mjs
       - name: Reject non-main or unverified source
         id: source_promotion

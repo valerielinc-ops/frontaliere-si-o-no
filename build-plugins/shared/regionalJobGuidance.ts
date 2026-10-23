@@ -5,6 +5,10 @@ export type RegionalGuidanceCanton = 'GR' | 'GE' | 'VD' | 'NE';
 
 export interface RegionalJobRecord {
   company?: string | null;
+  /** Stable canonical company profile slug, passed from the validated job record. */
+  companyIdentity?: string | null;
+  /** Canonical path looked up in the already-emitted indexable employer registry. */
+  companyHref?: string | null;
   location?: string | null;
 }
 
@@ -62,6 +66,8 @@ interface GuidanceCopy {
   citiesTitle: string;
   companiesTitle: string;
   emptyInventory: string;
+  inventoryCoverage: (jobs: number, citiesShown: number, citiesTotal: number, companiesShown: number, companiesTotal: number) => string;
+  companyNationalScopeLabel: string;
   officialJobSearchLabel: string;
   mobilitySourceLabel: string;
   mobilityNetworkSourceLabel?: string;
@@ -101,6 +107,8 @@ const COPY: Record<TargetKey, GuidanceCopy> = {
     citiesTitle: 'Località indicate negli annunci raccolti',
     companiesTitle: 'Aziende indicate negli annunci raccolti',
     emptyInventory: 'Al momento non risultano annunci raccolti per questo cantone. Puoi consultare l’archivio cantonale e il portale ufficiale del lavoro dei Grigioni.',
+    inventoryCoverage: (jobs, citiesShown, citiesTotal, companiesShown, companiesTotal) => `L’inventario conta ${jobs.toLocaleString('it-CH')} annunci raccolti; qui sono mostrate ${citiesShown} delle ${citiesTotal} località e ${companiesShown} delle ${companiesTotal} aziende rilevate negli annunci.`,
+    companyNationalScopeLabel: 'Profilo aziendale nazionale · Svizzera intera',
     officialJobSearchLabel: 'Uffici regionali di collocamento dei Grigioni',
     mobilitySourceLabel: 'Rete di trasporti pubblici dei Grigioni e informazioni sugli orari',
     languageSourceLabel: 'Situazione linguistica ufficiale dei Grigioni',
@@ -126,6 +134,8 @@ const COPY: Record<TargetKey, GuidanceCopy> = {
     citiesTitle: 'Localités mentionnées dans les annonces indexées',
     companiesTitle: 'Employeurs mentionnés dans les annonces indexées',
     emptyInventory: 'Aucune annonce recueillie n’est actuellement affichée pour ce canton. Consultez l’archive cantonale et les services officiels de recherche d’emploi.',
+    inventoryCoverage: (jobs, citiesShown, citiesTotal, companiesShown, companiesTotal) => `L’inventaire compte ${jobs.toLocaleString('fr-CH')} annonces recueillies ; ${citiesShown} des ${citiesTotal} localités et ${companiesShown} des ${companiesTotal} employeurs relevés dans les annonces sont affichés ici.`,
+    companyNationalScopeLabel: 'Profil employeur · toute la Suisse',
     officialJobSearchLabel: 'Office cantonal de l’emploi : trouver un emploi',
     mobilitySourceLabel: 'Planificateur d’itinéraires des TPG',
     jobWord: (count) => `${count} offre${count === 1 ? '' : 's'}`,
@@ -150,6 +160,8 @@ const COPY: Record<TargetKey, GuidanceCopy> = {
     citiesTitle: 'Localités mentionnées dans les annonces indexées',
     companiesTitle: 'Employeurs mentionnés dans les annonces indexées',
     emptyInventory: 'Aucune annonce recueillie n’est actuellement affichée pour ce canton. Consultez l’archive cantonale et les services officiels de recherche d’emploi.',
+    inventoryCoverage: (jobs, citiesShown, citiesTotal, companiesShown, companiesTotal) => `L’inventaire compte ${jobs.toLocaleString('fr-CH')} annonces recueillies ; ${citiesShown} des ${citiesTotal} localités et ${companiesShown} des ${companiesTotal} employeurs relevés dans les annonces sont affichés ici.`,
+    companyNationalScopeLabel: 'Profil employeur · toute la Suisse',
     officialJobSearchLabel: 'État de Vaud : rechercher un emploi',
     mobilitySourceLabel: 'Planificateur d’itinéraires Mobilis Vaud',
     mobilityNetworkSourceLabel: 'Réseau régional des bus vaudois',
@@ -175,6 +187,8 @@ const COPY: Record<TargetKey, GuidanceCopy> = {
     citiesTitle: 'Localités mentionnées dans les annonces indexées',
     companiesTitle: 'Employeurs mentionnés dans les annonces indexées',
     emptyInventory: 'Aucune annonce recueillie n’est actuellement affichée pour ce canton. Consultez l’archive cantonale et les services officiels de recherche d’emploi.',
+    inventoryCoverage: (jobs, citiesShown, citiesTotal, companiesShown, companiesTotal) => `L’inventaire compte ${jobs.toLocaleString('fr-CH')} annonces recueillies ; ${citiesShown} des ${citiesTotal} localités et ${companiesShown} des ${companiesTotal} employeurs relevés dans les annonces sont affichés ici.`,
+    companyNationalScopeLabel: 'Profil employeur · toute la Suisse',
     officialJobSearchLabel: 'État de Neuchâtel : offres d’emploi',
     mobilitySourceLabel: 'Réseau de transports publics Onde Verte',
     jobWord: (count) => `${count} offre${count === 1 ? '' : 's'}`,
@@ -217,9 +231,28 @@ function locality(job: RegionalJobRecord): string {
   return String(job.location || '').split(',')[0].trim();
 }
 
-function collectInventory(jobs: readonly RegionalJobRecord[], cityHubs: readonly RegionalCityHub[]) {
+function safeCompanyProfileHref(value: unknown, locale: RegionalLocale): string | null {
+  const href = String(value ?? '');
+  const expectedPrefix = locale === 'it' ? '/aziende/' : `/${locale}/aziende/`;
+  const slug = href.startsWith(expectedPrefix) && href.endsWith('/')
+    ? href.slice(expectedPrefix.length, -1)
+    : '';
+  if (!slug || slug.includes('/') || href !== href.trim() || href.startsWith('//') || href.includes('\\') || /[?#\u0000-\u001f]/.test(href)) {
+    return null;
+  }
+
+  try {
+    const base = 'https://regional-job-guidance.invalid';
+    const parsed = new URL(href, base);
+    return parsed.origin === base && parsed.pathname === href && !parsed.search && !parsed.hash ? href : null;
+  } catch {
+    return null;
+  }
+}
+
+function collectInventory(jobs: readonly RegionalJobRecord[], cityHubs: readonly RegionalCityHub[], locale: RegionalLocale) {
   const cityCounts = new Map<string, { name: string; count: number }>();
-  const companyCounts = new Map<string, { name: string; count: number }>();
+  const companyCounts = new Map<string, { identity: string; name: string; count: number; hrefCandidate?: string; conflictingHref: boolean }>();
 
   for (const job of jobs) {
     const city = locality(job);
@@ -231,11 +264,23 @@ function collectInventory(jobs: readonly RegionalJobRecord[], cityHubs: readonly
     }
 
     const company = String(job.company || '').trim();
-    const companyKey = company.normalize('NFKC').toLocaleLowerCase();
-    if (company && companyKey) {
+    const companyNameKey = company.normalize('NFKC').toLocaleLowerCase();
+    const companyIdentity = String(job.companyIdentity || '').trim().normalize('NFKC').toLocaleLowerCase();
+    const companyHref = companyIdentity && typeof job.companyHref === 'string' ? job.companyHref : undefined;
+    const companyKey = companyIdentity ? `slug:${companyIdentity}` : `name:${companyNameKey}`;
+    if (company && companyNameKey) {
       const current = companyCounts.get(companyKey);
       if (current) current.count++;
-      else companyCounts.set(companyKey, { name: company, count: 1 });
+      else companyCounts.set(companyKey, { identity: companyKey, name: company, count: 1, hrefCandidate: companyHref, conflictingHref: false });
+
+      if (current && companyHref && !current.conflictingHref) {
+        if (current.hrefCandidate && current.hrefCandidate !== companyHref) {
+          current.hrefCandidate = undefined;
+          current.conflictingHref = true;
+        } else if (!current.hrefCandidate) {
+          current.hrefCandidate = companyHref;
+        }
+      }
     }
   }
 
@@ -246,8 +291,14 @@ function collectInventory(jobs: readonly RegionalJobRecord[], cityHubs: readonly
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
       .slice(0, 6),
     companies: [...companyCounts.values()]
-      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+      .map((company) => ({
+        ...company,
+        href: company.conflictingHref ? undefined : safeCompanyProfileHref(company.hrefCandidate, locale) || undefined,
+      }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name) || a.identity.localeCompare(b.identity))
       .slice(0, 6),
+    totalCities: cityCounts.size,
+    totalCompanies: companyCounts.size,
   };
 }
 
@@ -280,17 +331,24 @@ function renderInventory(
     const label = href ? `<a href="${escapeHtml(canonicalPath(href))}">${display}</a>` : display;
     return `<li>${label} · ${escapeHtml(copy.jobWord(city.count))}</li>`;
   });
-  const companyItems = inventory.companies.map((company) =>
-    `<li>${escapeHtml(company.name)} · ${escapeHtml(copy.jobWord(company.count))}</li>`,
-  );
+  const companyItems = inventory.companies.map((company) => {
+    const companyName = escapeHtml(company.name);
+    const companyLabel = company.href
+      ? `<a href="${escapeHtml(company.href)}">${companyName}</a> <span data-regional-company-scope>${escapeHtml(copy.companyNationalScopeLabel)}</span>`
+      : companyName;
+    return `<li>${companyLabel} · ${escapeHtml(copy.jobWord(company.count))}</li>`;
+  });
   const parts: string[] = [];
+  parts.push(`<p class="s-L9sOKI" data-regional-inventory-coverage>${escapeHtml(copy.inventoryCoverage(opts.jobs.length, inventory.cities.length, inventory.totalCities, inventory.companies.length, inventory.totalCompanies))}</p>`);
   if (cityItems.length > 0) {
     parts.push(`<div><h4 class="s-iZTOT1">${escapeHtml(copy.citiesTitle)}</h4><ul class="s-N93mPe">${cityItems.join('')}</ul></div>`);
   }
   if (companyItems.length > 0) {
     parts.push(`<div><h4 class="s-iZTOT1">${escapeHtml(copy.companiesTitle)}</h4><ul class="s-N93mPe">${companyItems.join('')}</ul></div>`);
   }
-  return parts.length > 0 ? `<div data-regional-job-inventory>${parts.join('')}</div>` : '';
+  return parts.length > 0
+    ? `<div data-regional-job-inventory data-regional-inventory-jobs="${opts.jobs.length}" data-regional-inventory-cities-total="${inventory.totalCities}" data-regional-inventory-cities-shown="${inventory.cities.length}" data-regional-inventory-companies-total="${inventory.totalCompanies}" data-regional-inventory-companies-shown="${inventory.companies.length}">${parts.join('')}</div>`
+    : '';
 }
 
 /**
@@ -306,7 +364,7 @@ export function renderRegionalJobGuidance(opts: RegionalJobGuidanceOptions): str
   const copy = COPY[key];
 
   const count = opts.jobs.length;
-  const inventory = collectInventory(opts.jobs, opts.cityHubs);
+  const inventory = collectInventory(opts.jobs, opts.cityHubs, locale);
   const archiveHref = canonicalPath(opts.archiveHref);
   const faq = copy.faqs(opts.display)
     .map(({ question, answer }) => `<p class="s-F2hp6o"><strong>${escapeHtml(question)}</strong> ${escapeHtml(answer)}</p>`)
@@ -322,9 +380,9 @@ export function renderRegionalJobGuidance(opts: RegionalJobGuidanceOptions): str
     `${nav}<h2 class="s-h0yI7F">${escapeHtml(copy.heading)}</h2>` +
     `<p class="s-L9sOKI">${escapeHtml(copy.opening(opts.display, count))}</p>` +
     archiveLink +
+    renderInventory(opts, copy, inventory) +
     `<h3 class="s-8S_vke">${escapeHtml(copy.localTitle)}</h3><p class="s-L9sOKI">${escapeHtml(copy.localText)}</p>` +
     `<h3 class="s-8S_vke">${escapeHtml(copy.mobilityTitle)}</h3><p class="s-L9sOKI">${escapeHtml(copy.mobilityText)} ${mobilitySource ? `<a href="${escapeHtml(mobilitySource.href)}" rel="noopener noreferrer">${escapeHtml(mobilityLinkLabel)}</a>.` : ''}</p>` +
-    renderInventory(opts, copy, inventory) +
     `<h3 class="s-8S_vke">${escapeHtml(copy.languageTitle)}</h3><p class="s-L9sOKI">${escapeHtml(copy.languageText)}${languageSource ? ` <a href="${escapeHtml(languageSource.href)}" rel="noopener noreferrer">${escapeHtml(copy.languageSourceLabel || SOURCE_LABEL[locale].language)}</a>.` : ''}</p>` +
     sourceLinks +
     `<details class="s-01GpQM"><summary class="s-qAjSfB">${locale === 'it' ? 'Domande frequenti sulla ricerca lavoro' : 'Questions fréquentes sur la recherche d’emploi'}</summary><div class="s-4vhLHi">${faq}</div></details>` +
