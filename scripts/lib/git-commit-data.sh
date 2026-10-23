@@ -446,7 +446,10 @@ if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
       if [[ "$path_item" == */ ]] || [[ -d "$normalized_path" ]]; then
         if [[ "$normalized_path" == "data/jobs-crawler-adapters" || "$normalized_path" == "data/jobs-crawler-adapters/adapters" ]] \
           && [ -n "${SLICE_BASENAME:-}" ]; then
-          ALL_FILES+=("data/jobs-crawler-adapters/adapters/${SLICE_BASENAME}")
+          adapter_path="data/jobs-crawler-adapters/adapters/${SLICE_BASENAME}"
+          if [ -e "$adapter_path" ] || git ls-files --error-unmatch -- "$adapter_path" >/dev/null 2>&1; then
+            ALL_FILES+=("$adapter_path")
+          fi
         fi
         continue
       fi
