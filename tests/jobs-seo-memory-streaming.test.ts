@@ -282,6 +282,34 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     }
   });
 
+  it('bounds jobs-SEO pending writes at the phase threshold and preserves bytes', async () => {
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobs-seo-memory-streaming-'));
+    tempDirs.push(distDir);
+    const threshold = 128;
+    const collector = new WriteCollector({
+      pluginName: 'jobsSeoPagesPlugin',
+      autoFlushThreshold: threshold,
+    });
+    const pageCount = threshold * 3 + 17;
+    let peakPending = 0;
+
+    for (let index = 0; index < pageCount; index += 1) {
+      const relativePath = `cerca-lavoro-ticino/phase-bound-${index}/index.html`;
+      const html = `<html><body>phase-bound-${index}</body></html>`;
+      collector.add(path.join(distDir, relativePath), html);
+      peakPending = Math.max(peakPending, collector.count);
+      if ((index + 1) % threshold === 0) await collector.awaitDrainSlot(2);
+    }
+    await collector.flush();
+
+    expect(peakPending).toBeLessThanOrEqual(threshold);
+    for (let index = 0; index < pageCount; index += 1) {
+      const relativePath = `cerca-lavoro-ticino/phase-bound-${index}/index.html`;
+      expect(fs.readFileSync(path.join(distDir, relativePath), 'utf8'))
+        .toBe(`<html><body>phase-bound-${index}</body></html>`);
+    }
+  });
+
   it('pins the retained-set markers and bounded expired cache cardinalities', () => {
     const source = fs.readFileSync(
       path.resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
@@ -292,6 +320,7 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(source).toContain('const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512');
     expect(source).toContain('const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512');
     expect(source).toContain('const JOBS_SEO_HTML_GC_INTERVAL_MB = 1024');
+    expect(source).toContain('autoFlushThreshold: HUB_PAGE_WRITE_FLUSH_THRESHOLD,');
     expect(source).toContain('jobsSeoHtmlGcRuns,');
     expect(source).toContain('const flushHubPageWritesIfNeeded = async (): Promise<void> => {');
     expect(source).toContain('  maybeForceJobsSeoHtmlGc();\n };');

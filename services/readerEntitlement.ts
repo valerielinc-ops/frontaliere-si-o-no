@@ -19,7 +19,9 @@
  * the one signed-in, paying reader whose subscription is active.
  */
 
-export const READER_NOADS_ACTIVE_KEY = 'reader_noads_active';
+import { READER_NOADS_ACTIVE_KEY } from './readerEntitlementKey';
+
+export { READER_NOADS_ACTIVE_KEY };
 
 /** Sub-statuses treated as "still ad-free" (past_due keeps a dunning grace window). */
 const ACTIVE_ENTITLEMENT_STATUSES = new Set(['active', 'trialing', 'past_due']);
