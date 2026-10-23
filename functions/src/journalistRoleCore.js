@@ -26,6 +26,7 @@ import { assertSiteAdmin } from './adminAuth.js';
 // with adminEmployerInsights.js, newsletterSubscriberAuthSync.js and
 // stripePublisherCore.js.
 import { EMAIL_RE } from './lib/emailValidation.js';
+import { writeAdminAuditLog } from './adminAudit.js';
 
 const JOURNALISTS_COLLECTION = 'journalists';
 const ACTIONS = new Set(['grant', 'revoke']);
@@ -48,7 +49,7 @@ async function handleList(db) {
 }
 
 /** POST → grant or revoke the journalist role for the Auth user with this email. */
-async function handleMutate(db, req, adminEmail) {
+async function handleMutate(db, req, auth) {
   const raw = req.body && typeof req.body === 'object' ? req.body : {};
   const action = String(raw.action || '').trim();
   const email = String(raw.email || '').trim().toLowerCase();
@@ -75,10 +76,11 @@ async function handleMutate(db, req, adminEmail) {
         displayName: authUser.displayName || email,
         active: true,
         grantedAt: new Date().toISOString(),
-        grantedBy: adminEmail,
+        grantedBy: auth.email,
       },
       { merge: true },
     );
+    await writeAdminAuditLog({ db, auth, action: 'journalist_role_grant', target: authUser.uid, status: 200, details: { emailDomain: email.split('@')[1] || '' } });
     return { status: 200, body: { ok: true } };
   }
 
@@ -90,6 +92,7 @@ async function handleMutate(db, req, adminEmail) {
       revokedAt: new Date().toISOString(),
     });
   }
+  await writeAdminAuditLog({ db, auth, action: 'journalist_role_revoke', target: authUser.uid, status: 200, details: { emailDomain: email.split('@')[1] || '' } });
   return { status: 200, body: { ok: true } };
 }
 
@@ -111,7 +114,7 @@ export async function handleManageJournalistRole(req) {
   const db = getAdminDb();
 
   if (method === 'POST') {
-    return handleMutate(db, req, auth.email);
+    return handleMutate(db, req, auth);
   }
 
   return handleList(db);

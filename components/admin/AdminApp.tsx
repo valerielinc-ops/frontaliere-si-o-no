@@ -19,7 +19,15 @@ import {
 import { useAdminShellVariant } from './lib/adminShellVariant';
 import { AdminButton } from './ui/AdminButton';
 import { AdminConfirmProvider } from './ui/AdminConfirmDialog';
-import { AdminShell } from './ui/AdminShell';
+import { AdminShell, type AdminPaletteItem } from './ui/AdminShell';
+import { useAuth } from '@/services/authService';
+import { cdnDataUrl } from '@/services/cdnDataBase';
+import { loadCrawlerData } from './lib/jobsCrawlerConfig';
+import { fetchAdminEmployerInsights } from '@/services/adminInsights';
+import { fetchAssistedApplicationOrders, type AssistedApplicationAdminStatus } from '@/services/assistedApplicationAdminService';
+import { failedCrawlerRunCount, loadAdminTodayRuns } from '@/services/adminTodayRuns';
+import { localDateKey } from '@/services/adminCron';
+import { loadNewsletterStats } from '@/components/admin/lib/newsletterStats';
 
 const OggiSection = lazy(() => import('./sections/OggiSection'));
 const CrawlerSection = lazy(() => import('./sections/CrawlerSection'));
@@ -31,6 +39,8 @@ const RedazioneSection = lazy(() => import('./sections/RedazioneSection'));
 const GiornalistiSection = lazy(() => import('./sections/GiornalistiSection'));
 const NewsletterSection = lazy(() => import('./sections/NewsletterSection'));
 const SaluteSection = lazy(() => import('./sections/SaluteSection'));
+const FlagSection = lazy(() => import('./sections/FlagSection'));
+const RegistroSection = lazy(() => import('./sections/RegistroSection'));
 
 const SECTION_COMPONENTS: Record<string, LazyExoticComponent<ComponentType>> = {
   '': OggiSection,
@@ -43,6 +53,8 @@ const SECTION_COMPONENTS: Record<string, LazyExoticComponent<ComponentType>> = {
   giornalisti: GiornalistiSection,
   newsletter: NewsletterSection,
   salute: SaluteSection,
+  flag: FlagSection,
+  registro: RegistroSection,
 };
 
 const GROUP_LABELS: Record<AdminSectionGroup, string> = {
@@ -145,6 +157,7 @@ function LegacyAdminContent({ activeSection, selectedSection, visibleSections, h
 }
 
 function AdminAppContent({ requestedSection, shellVariant }: { requestedSection?: string; shellVariant: 'v1' | 'v2' }) {
+  const { user } = useAuth();
   const workflow = useAdminWorkflow();
   const initialSection = isAdminSectionSlug(requestedSection)
     ? requestedSection
@@ -152,6 +165,43 @@ function AdminAppContent({ requestedSection, shellVariant }: { requestedSection?
   const [activeSection, setActiveSection] = useState(initialSection);
   const [locationKey, setLocationKey] = useState(() => `${window.location.pathname}${window.location.search}${window.location.hash}`);
   const [copyFeedback, setCopyFeedback] = useState(false);
+  const [navigationBadges, setNavigationBadges] = useState<Record<string, number>>({});
+  const [paletteItems, setPaletteItems] = useState<AdminPaletteItem[]>([]);
+
+  useEffect(() => {
+    let mounted = true;
+    void loadCrawlerData(cdnDataUrl).then(({ summaries }) => {
+      if (!mounted) return;
+      setPaletteItems(summaries.map((summary) => ({ id: `crawler-${summary.key}`, label: summary.label, kind: 'crawler', group: 'lavoro', description: `${summary.total.toLocaleString('it-IT')} offerte attive`, onSelect: () => { navigateAdminSection('crawler'); replaceAdminQuery({ q: summary.label }); } })));
+    }).catch(() => undefined);
+    return () => { mounted = false; };
+  }, []);
+
+  useEffect(() => {
+    let mounted = true;
+    const statuses: AssistedApplicationAdminStatus[] = ['ready_for_manual_submission', 'in_progress', 'blocked'];
+    void Promise.allSettled([
+      fetchAdminEmployerInsights(user),
+      Promise.all(statuses.map((status) => fetchAssistedApplicationOrders(user, status))),
+      loadAdminTodayRuns(user),
+      loadNewsletterStats(),
+    ]).then(([insightsResult, applicationsResult, runsResult, newsletterResult]) => {
+      if (!mounted) return;
+      const insights = insightsResult.status === 'fulfilled' ? insightsResult.value : [];
+      const applications = applicationsResult.status === 'fulfilled' ? applicationsResult.value.flat() : [];
+      const runs = runsResult.status === 'fulfilled' ? runsResult.value : [];
+      const newsletterAvailable = newsletterResult.status === 'fulfilled';
+      const crawlerFailures = runsResult.status === 'fulfilled' ? failedCrawlerRunCount(runs, localDateKey(new Date())) : undefined;
+      setNavigationBadges({
+        ...(crawlerFailures === undefined ? {} : { crawler: crawlerFailures }),
+        aziende: insights.filter((row) => row.outreach?.replied && !row.outreach.suppressed).length,
+        candidature: applications.length,
+        ...(newsletterAvailable ? { newsletter: 1 } : {}),
+      });
+      setPaletteItems((current) => [...current, ...insights.map((row) => ({ id: `company-${row.companyKey}`, label: row.companyName, kind: 'company' as const, group: 'aziende' as const, description: 'Apri insights azienda', onSelect: () => { navigateAdminSection('aziende'); replaceAdminQuery({ q: row.companyName }); } }))]);
+    });
+    return () => { mounted = false; };
+  }, [user]);
 
   const syncLocation = useCallback(() => {
     const route = currentAdminRoute();
@@ -199,6 +249,8 @@ function AdminAppContent({ requestedSection, shellVariant }: { requestedSection?
   const selectedSection = getAdminSection(activeSection);
   const visibleSections = getVisibleAdminSections();
   const SectionComponent = SECTION_COMPONENTS[selectedSection.slug] || OggiSection;
+  const crawlerBadge = navigationBadges.crawler ?? workflow.getSummary('jobs').error;
+  const ownerTriageCount = crawlerBadge + (navigationBadges.aziende || 0) + (navigationBadges.candidature || 0) + (navigationBadges.newsletter || 0);
 
   const handleNavigate = (event: MouseEvent<HTMLAnchorElement>, target: AdminSection) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
@@ -215,7 +267,18 @@ function AdminAppContent({ requestedSection, shellVariant }: { requestedSection?
           onNavigate={handleNavigate}
           onCopyLink={() => { void copyCanonicalLink(); }}
           copyFeedback={copyFeedback}
-          getGroupBadge={(group) => group === 'lavoro' ? workflow.getSummary('jobs').error : null}
+          paletteItems={paletteItems}
+          getSectionBadge={(section) => {
+            if (section === '') return ownerTriageCount || null;
+            if (section === 'crawler') return crawlerBadge || null;
+            return navigationBadges[section] || null;
+          }}
+          getGroupBadge={(group) => {
+            if (group === 'oggi') return ownerTriageCount || null;
+            if (group === 'lavoro') return crawlerBadge || null;
+            if (group === 'aziende') return (navigationBadges.aziende || 0) + (navigationBadges.candidature || 0) || null;
+            return null;
+          }}
         >
           <Suspense fallback={<SectionLoading />} key={locationKey}>
             <SectionComponent />

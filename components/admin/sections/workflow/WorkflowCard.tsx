@@ -17,6 +17,7 @@ export function WorkflowCard({
   onCopy,
   onOpen,
 }: {
+  key?: string | number;
   workflow: WorkflowActionDefinition;
   state: WorkflowRunState;
   onRun: () => void;

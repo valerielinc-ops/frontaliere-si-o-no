@@ -26,6 +26,7 @@ const ALL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const EXPECTED_LIVE_SLUGS = [
   '', 'crawler', 'automazioni', 'configurazione-crawler', 'aziende', 'candidature',
   'redazione', 'giornalisti', 'newsletter', 'salute',
+  'flag', 'registro',
 ] as const;
 const BASE_ADMIN_CLOUD_FUNCTIONS = [
   'adminGithub',
@@ -38,6 +39,8 @@ const BASE_ADMIN_CLOUD_FUNCTIONS = [
   'manageAssistedApplicationAdmin',
   'applicationConcierge',
   'manageApplicationConcierge',
+  'adminAuditLog',
+  'adminRemoteConfig',
 ] as const;
 
 function adminFiles(root: string): string[] {
@@ -54,7 +57,7 @@ describe('admin fase 1 registry', () => {
     expect(ADMIN_SECTIONS.filter((section) => section.slug === '')).toHaveLength(1);
     expect(ADMIN_SECTIONS.filter((section) => section.slug !== '').every((section) => /^[a-z0-9-]+$/.test(section.slug))).toBe(true);
     expect(ADMIN_SECTIONS.every((section) => ADMIN_SECTION_GROUPS.includes(section.group))).toBe(true);
-    expect(ADMIN_SECTIONS.filter((section) => section.planned).map((section) => section.slug)).toEqual(['flag', 'registro']);
+    expect(ADMIN_SECTIONS.filter((section) => section.planned).map((section) => section.slug)).toEqual([]);
     expect(getVisibleAdminSections().map((section) => section.slug)).toEqual(EXPECTED_LIVE_SLUGS);
   });
 
@@ -133,8 +136,13 @@ describe('admin static shells', () => {
       expect(existsSync(target), relative).toBe(true);
       expect(readFileSync(target, 'utf8')).toMatch(/name="robots" content="noindex, nofollow"/);
     }
-    expect(existsSync(join(temporaryRoot, ADMIN_ROUTE_SLUG, 'flag', 'index.html'))).toBe(false);
-    expect(existsSync(join(temporaryRoot, ADMIN_ROUTE_SLUG, 'registro', 'index.html'))).toBe(false);
+    expect(existsSync(join(temporaryRoot, ADMIN_ROUTE_SLUG, 'flag', 'index.html'))).toBe(true);
+    expect(existsSync(join(temporaryRoot, ADMIN_ROUTE_SLUG, 'registro', 'index.html'))).toBe(true);
+  });
+
+  it('keeps shared admin links on the non-localized canonical route', () => {
+    const source = readFileSync(resolve(__dirname, '..', 'components', 'admin', 'lib', 'adminNavigation.ts'), 'utf8');
+    expect(source).toContain("buildPath({ activeTab: 'admin', adminSection: section }, 'it')");
   });
 });
 
@@ -161,7 +169,7 @@ describe('admin fase 1 section boundaries', () => {
 
   it('loads each live section as an independent lazy module', () => {
     const source = readFileSync(resolve(ADMIN_ROOT, 'AdminApp.tsx'), 'utf8');
-    for (const name of ['Oggi', 'Crawler', 'Automazioni', 'ConfigurazioneCrawler', 'Aziende', 'Candidature', 'Redazione', 'Giornalisti', 'Newsletter', 'Salute']) {
+    for (const name of ['Oggi', 'Crawler', 'Automazioni', 'ConfigurazioneCrawler', 'Aziende', 'Candidature', 'Redazione', 'Giornalisti', 'Newsletter', 'Salute', 'Flag', 'Registro']) {
       expect(source).toContain(`const ${name}Section = lazy(() => import('./sections/${name}Section'))`);
     }
   });

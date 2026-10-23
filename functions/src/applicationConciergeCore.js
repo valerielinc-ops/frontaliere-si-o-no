@@ -13,6 +13,7 @@ import { getStorage } from 'firebase-admin/storage';
 import { randomUUID } from 'node:crypto';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { assertSiteAdmin } from './adminAuth.js';
+import { writeAdminAuditLog } from './adminAudit.js';
 import { verifyCaller } from './stripePublisherCore.js';
 import { ASSISTED_APPLICATION_CONSENT_VERSION } from './assistedApplicationCheckout.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
@@ -543,7 +544,16 @@ export async function handleManageApplicationConcierge(req) {
   try {
     if (method === 'POST') {
       if (boundedString(req.body?.action, 40) !== 'createProposal') throw new ApplicationConciergeError('invalid_action', 400);
-      return { status: 200, body: { ok: true, service: await createProposal(db, req.body || {}, auth.email) } };
+      const service = await createProposal(db, req.body || {}, auth.email);
+      await writeAdminAuditLog({
+        db,
+        auth,
+        action: 'application_concierge_proposal_create',
+        target: boundedString(req.body?.serviceId, 200),
+        status: 200,
+        details: { jobId: boundedString(req.body?.jobId, 200) },
+      });
+      return { status: 200, body: { ok: true, service } };
     }
     const snapshot = await db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).get();
     const services = await Promise.all((snapshot.docs || []).map(async (doc) => {

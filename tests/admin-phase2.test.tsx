@@ -12,6 +12,11 @@ import { getVisibleAdminSections } from '@/components/admin/adminSections';
 import { resolveAdminShellVariant, shouldHideSiteNavigation } from '@/components/admin/lib/adminShellVariant';
 import { getConfigValue } from '@/services/firebase';
 
+const adminNavigationMocks = vi.hoisted(() => ({
+  navigateAdminSection: vi.fn(),
+  replaceAdminQuery: vi.fn(),
+}));
+
 vi.mock('@/components/admin/AdminWorkflowProvider', () => ({
   useAdminWorkflow: () => ({
     getSummary: () => ({ ok: 2, error: 1, pending: 3 }),
@@ -20,6 +25,8 @@ vi.mock('@/components/admin/AdminWorkflowProvider', () => ({
 
 vi.mock('@/components/admin/lib/adminNavigation', () => ({
   adminSectionPath: (section: string) => `/gestione-contenuti-xk9mp2q/${section ? `${section}/` : ''}`,
+  navigateAdminSection: adminNavigationMocks.navigateAdminSection,
+  replaceAdminQuery: adminNavigationMocks.replaceAdminQuery,
 }));
 
 const ADMIN_ROOT = resolve(__dirname, '..', 'components', 'admin');
@@ -103,6 +110,29 @@ describe('admin fase 2 shell contract', () => {
     expect(screen.getByRole('navigation', { name: 'Sezioni Lavoro' })).toBeInTheDocument();
     expect(screen.getByRole('navigation', { name: 'Gruppi amministrazione' })).toBeInTheDocument();
     expect(screen.getByText('Contenuto crawler')).toBeInTheDocument();
+  });
+
+  it('espone una palette combobox navigabile con frecce e Invio', () => {
+    adminNavigationMocks.navigateAdminSection.mockClear();
+    render(
+      <AdminShell
+        sections={getVisibleAdminSections()}
+        activeSection=""
+        onNavigate={() => {}}
+        onCopyLink={() => {}}
+        copyFeedback={false}
+      >
+        <p>Contenuto oggi</p>
+      </AdminShell>,
+    );
+
+    const input = screen.getAllByRole('combobox')[0];
+    fireEvent.focus(input);
+    fireEvent.change(input, { target: { value: 'Crawler' } });
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+    fireEvent.keyDown(input, { key: 'ArrowUp' });
+    fireEvent.keyDown(input, { key: 'Enter' });
+    expect(adminNavigationMocks.navigateAdminSection).toHaveBeenCalledWith('crawler');
   });
 });
 

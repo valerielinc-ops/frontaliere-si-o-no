@@ -156,6 +156,36 @@ describe('site-admin identity and GitHub proxy', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
 
+  it('allows aggregate runs, deploy-run filters and the explicit account rate-limit endpoint', async () => {
+    const urls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string) => {
+      urls.push(url);
+      return jsonResponse(200, { workflow_runs: [] });
+    });
+    const aggregate = await handleAdminGithub(request('POST', {
+      method: 'GET',
+      path: '/actions/runs?created=%3E%3D2026-10-23T00%3A00%3A00.000Z&per_page=100&status=completed&branch=main',
+    }), { fetchImpl });
+    const rateLimit = await handleAdminGithub(request('POST', {
+      method: 'GET',
+      path: '/rate_limit',
+    }), { fetchImpl });
+
+    expect(aggregate.status).toBe(200);
+    expect(rateLimit.status).toBe(200);
+    expect(urls[0]).toBe('https://api.github.com/repos/valerielinc-ops/frontaliere-si-o-no/actions/runs?created=%3E%3D2026-10-23T00%3A00%3A00.000Z&per_page=100&status=completed&branch=main');
+    expect(urls[1]).toBe('https://api.github.com/rate_limit');
+  });
+
+  it('rejects unapproved runs queries and rate-limit query parameters', async () => {
+    const fetchImpl = vi.fn();
+    for (const path of ['/actions/runs?foo=bar', '/actions/runs?per_page=101', '/rate_limit?per_page=1']) {
+      const result = await handleAdminGithub(request('POST', { method: 'GET', path }), { fetchImpl });
+      expect(result).toEqual({ status: 400, body: { ok: false, error: 'path_not_allowed' } });
+    }
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
   it('rejects paths outside the explicit GitHub allowlist', async () => {
     const fetchImpl = vi.fn();
     const result = await handleAdminGithub(request('POST', {
@@ -201,7 +231,6 @@ describe('site-admin identity and GitHub proxy', () => {
     expect(audits).toHaveLength(1);
     expect(audits[0]).toMatchObject({
       uid: 'aAqGpXr2mUQNQlio3gCxut4bBzH3',
-      email: 'valerielinc@gmail.com',
       action: 'workflow_dispatch',
       target: 'orchestrate-crawlers.yml',
       inputs: { group: 'all', dry_run: 'false' },
@@ -213,17 +242,17 @@ describe('site-admin identity and GitHub proxy', () => {
     expect(mocks.serverTimestamp).toHaveBeenCalled();
   });
 
-  it('does not dispatch when the audit intent cannot be written', async () => {
+  it('keeps the GitHub request best-effort when the audit intent cannot be written', async () => {
     const { db } = createConfigDb(null, { rejectAudit: true });
-    const fetchImpl = vi.fn();
+    const fetchImpl = vi.fn(async () => jsonResponse(502, { message: 'upstream unavailable' }));
     const result = await handleAdminGithub(request('POST', {
       method: 'POST',
       path: '/actions/workflows/orchestrate-crawlers.yml/dispatches',
       body: { ref: 'main', inputs: { group: 'all' } },
     }), { fetchImpl, db });
 
-    expect(result).toEqual({ status: 500, body: { ok: false, error: 'audit_write_failed' } });
-    expect(fetchImpl).not.toHaveBeenCalled();
+    expect(result).toEqual({ status: 502, body: { ok: false, error: 'upstream unavailable', message: 'upstream unavailable' } });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
 
   it('keeps the GitHub response when the final audit update fails', async () => {

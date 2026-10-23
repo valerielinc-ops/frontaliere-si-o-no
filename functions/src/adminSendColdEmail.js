@@ -23,6 +23,7 @@ import { buildSequence, bodyToHtml, OUTREACH_METRIC_LABELS } from './coldEmailSe
 import { OUTREACH_OPTOUT_EMAIL } from './outreachIdentity.js';
 import { buildInsightsUrl } from './employerInsights.js';
 import { buildUnsubUrl } from './outreachUnsubscribe.js';
+import { writeAdminAuditLog } from './adminAudit.js';
 
 const INSIGHTS_COLLECTION = 'employer_insights';
 const CONTACTS_COLLECTION = 'employer_contacts';
@@ -59,7 +60,7 @@ async function getDoc(db, collection, id) {
  *           sendEmail: (msg: { from: string, to: string, subject: string, text: string,
  *                              html: string, unsubUrl: string }) => Promise<{ messageId?: string }> }} args
  */
-export async function handleAdminSendColdEmail({ companyKey, touch, force, secret, db, sendEmail }) {
+export async function handleAdminSendColdEmail({ companyKey, touch, force, secret, db, sendEmail, auditAuth = null, auditDb = db }) {
   const key = String(companyKey || '').trim();
   const touchNum = Number(touch);
   if (!key) return { status: 400, body: { ok: false, error: 'missing_company_key' } };
@@ -171,8 +172,10 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
     // Email sent but confirmed write failed. The pending marker is still set
     // (arrayRemove above was part of the same failed write), so dedup will
     // block any retry. tracked:false flags the missing confirmed record.
+    await writeAdminAuditLog({ db: auditDb, auth: auditAuth, action: 'employer_outreach_send', target: key, status: 200, details: { touch: touchNum, force: Boolean(force), tracked: false } });
     return { status: 200, body: { ok: true, touch: touchNum, to: toEmail, messageId, tracked: false } };
   }
 
+  await writeAdminAuditLog({ db: auditDb, auth: auditAuth, action: 'employer_outreach_send', target: key, status: 200, details: { touch: touchNum, force: Boolean(force), tracked: true } });
   return { status: 200, body: { ok: true, touch: touchNum, to: toEmail, messageId, tracked: true } };
 }

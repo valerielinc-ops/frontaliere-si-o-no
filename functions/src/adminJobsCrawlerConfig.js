@@ -1,6 +1,7 @@
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { assertSiteAdmin } from './adminAuth.js';
+import { writeAdminAuditLog } from './adminAudit.js';
 import {
   JOBS_CRAWLER_CONFIG_DEFAULTS,
   normalizeJobsCrawlerConfig,
@@ -8,7 +9,6 @@ import {
 
 const CONFIG_COLLECTION = 'admin_config';
 const CONFIG_DOCUMENT = 'jobsCrawler';
-const AUDIT_COLLECTION = 'admin_audit_log';
 
 function response(status, body) {
   return { status, body };
@@ -111,15 +111,14 @@ export async function handleAdminJobsCrawlerConfig(req, dependencies = {}) {
       updatedBy: auth.email,
     }, { merge: true });
 
-    await db.collection(AUDIT_COLLECTION).add({
-      at: FieldValue.serverTimestamp(),
-      uid: auth.uid,
-      email: auth.email,
+    await writeAdminAuditLog({
+      db,
+      auth,
       action: 'crawler_config_update',
       target: `${CONFIG_COLLECTION}/${CONFIG_DOCUMENT}`,
-      changedFields,
-      diff,
       status: 200,
+      details: { changedFields, diff },
+      legacyFields: { changedFields, diff },
     });
 
     return response(200, {

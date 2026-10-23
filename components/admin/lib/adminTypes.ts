@@ -103,8 +103,10 @@ export interface OwnerStats {
   simulationDocs: number | null;
   forumQuestions: number | null;
   newsletterActive: number | null;
-  publicFiles: Record<string, boolean>;
+  publicFiles: Record<string, PublicFileStatus>;
 }
+
+export type PublicFileStatus = 'ok' | 'missing' | 'unknown';
 
 export interface NewsletterInsight {
   currentRate: number;

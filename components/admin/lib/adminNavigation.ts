@@ -1,4 +1,4 @@
-import { buildPath, parsePath, pushRoute, type AppRoute } from '@/services/router';
+import { buildPath, parsePath, type AppRoute } from '@/services/router';
 
 export const ADMIN_CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
 
@@ -8,16 +8,21 @@ export function currentAdminRoute(): AppRoute {
 }
 
 export function adminSectionPath(section: string): string {
-  return buildPath({ activeTab: 'admin', adminSection: section });
+  // Admin is a private, non-localised surface. Keeping its links on the
+  // Italian canonical path means every shared deep link has a matching static
+  // noindex shell; locale-prefixed public routes do not need duplicate shells.
+  return buildPath({ activeTab: 'admin', adminSection: section }, 'it');
 }
 
 export function canonicalAdminUrl(): string {
-  if (typeof window === 'undefined') return `${ADMIN_CANONICAL_ORIGIN}/gestione-contenuti-xk9mp2q/`;
-  return `${ADMIN_CANONICAL_ORIGIN}${window.location.pathname}${window.location.search}${window.location.hash}`;
+  if (typeof window === 'undefined') return `${ADMIN_CANONICAL_ORIGIN}${adminSectionPath('')}`;
+  const route = currentAdminRoute();
+  return `${ADMIN_CANONICAL_ORIGIN}${adminSectionPath(route.adminSection)}${window.location.search}${window.location.hash}`;
 }
 
 export function navigateAdminSection(section: string): void {
-  pushRoute({ activeTab: 'admin', adminSection: section });
+  const path = adminSectionPath(section);
+  history.pushState({ route: { activeTab: 'admin', adminSection: section } }, '', path);
   window.dispatchEvent(new PopStateEvent('popstate'));
 }
 

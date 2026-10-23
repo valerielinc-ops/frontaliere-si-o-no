@@ -12,6 +12,7 @@ import { randomUUID } from 'node:crypto';
 import { getStorage } from 'firebase-admin/storage';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { assertSiteAdmin } from './adminAuth.js';
+import { writeAdminAuditLog } from './adminAudit.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
@@ -943,7 +944,18 @@ export async function handleAssistedApplicationAdmin(req) {
   const db = getAdminDb();
   try {
     if (method === 'GET') return await handleListAssistedApplications(db, requestedStatus(req), requestedBillingMode(req));
-    return await handleMutate(db, req, auth.email);
+    const result = await handleMutate(db, req, auth.email);
+    if (result.status >= 200 && result.status < 300 && boundedString(req.body?.action, 80) !== 'candidateView') {
+      await writeAdminAuditLog({
+        db,
+        auth,
+        action: `assisted_application_${boundedString(req.body?.action, 80)}`,
+        target: boundedString(req.body?.orderId, 200) || 'queue',
+        status: result.status,
+        details: { submissionStatus: result.body?.submissionStatus || null },
+      });
+    }
+    return result;
   } catch (error) {
     return transitionErrorResponse(error);
   }

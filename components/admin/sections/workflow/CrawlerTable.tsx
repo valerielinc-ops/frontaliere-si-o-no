@@ -1,7 +1,7 @@
-import { Fragment, type Dispatch, type ReactNode, type SetStateAction } from 'react';
+import { Fragment, useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from 'react';
 import {
   AlertTriangle, ArrowDown, ArrowUp, ChevronDown, ChevronRight,
-  Clock3, ExternalLink, Loader2, Play, Search,
+  Clock3, Download, ExternalLink, Loader2, Play, Search,
 } from 'lucide-react';
 import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { CopyButton } from '@/components/admin/ui/CopyButton';
@@ -21,6 +21,9 @@ import type {
   WorkflowContext,
   WorkflowRunState,
 } from '@/components/admin/lib/adminTypes';
+import { downloadCsv, datedExportFilename } from '@/components/admin/lib/csv';
+import { AdminPagination } from '@/components/admin/ui/AdminPagination';
+import { pageSlice } from '@/components/admin/lib/pagination';
 
 function crawlerChangeFilterToQuery(value: CrawlerChangeFilter): string | null {
   switch (value) {
@@ -73,6 +76,9 @@ export function CrawlerTable({
   runWorkflowWithConfirmation,
   renderWorkflowCard = () => null,
 }: CrawlerTableProps) {
+
+ const [page, setPage] = useState(1);
+ useEffect(() => { setPage(1); }, [crawlerNameFilter, crawlerChangeFilter, crawlerSort.column, crawlerSort.direction]);
 
  const context: WorkflowContext = 'jobs';
  const meta = WORKFLOW_CONTEXT_META[context];
@@ -236,6 +242,14 @@ export function CrawlerTable({
  };
 
  const sorted = [...filtered].sort(compareCrawlerRows);
+ const pageSize = 50;
+ const pageRows = pageSlice(sorted, page, pageSize);
+ const exportCrawlerRows = () => downloadCsv(datedExportFilename('crawler'), ['Crawler', 'Chiave', 'Stato', 'Attivi', 'Nuovi', 'Aggiornati', 'Rimossi', 'Invariati', 'Qualità', 'Ultima esecuzione'], sorted.map((row) => {
+ const state = row.wf ? getWorkflowState(row.wf.id) : null;
+ const failure = state?.status === 'completed' && state.conclusion && state.conclusion !== 'success';
+ const running = row.wf ? isWorkflowRunDispatchLocked(state) : false;
+ return [row.title, row.key, failure ? 'Errore' : running ? 'In corso' : state?.conclusion === 'success' ? 'OK' : 'In attesa', row.summary?.activeJobCount ?? '', row.summary?.newCount ?? '', row.summary?.updatedCount ?? '', row.summary?.removedCount ?? '', row.summary?.unchangedCount ?? '', row.summary?.qualityScore?.avgScore ?? '', state?.updatedAt || row.summary?.generatedAt || ''];
+ }));
 
  // Aggregate totals for the header (from filtered rows)
  const totals = sorted.reduce((acc, r) => {
@@ -352,7 +366,7 @@ export function CrawlerTable({
  <>
  {/* Summary bar + filters */}
  <div className="flex flex-col gap-2">
- <div className="flex flex-wrap items-center gap-3 px-3 py-2 rounded-stripe bg-surface-alt/40 border border-edge text-sm">
+ <div className="flex flex-col items-start gap-2 px-3 py-2 rounded-stripe bg-surface-alt/40 border border-edge text-sm sm:flex-row sm:flex-wrap sm:items-center">
  <span className="font-semibold text-body">{filtered.length}/{rows.length} crawler</span>
  {/* Source badge: makes clear these numbers are per-crawler last-run diffs,
  NOT the daily job-board delta from jobs-stats.json (todayAdded/todayUpdated/todayRemoved). */}
@@ -370,17 +384,13 @@ export function CrawlerTable({
  {relativeTime(latestSummaryAt, true)}
  </span>
  )}
- <span className="text-muted" aria-hidden="true">·</span>
  <span className="font-semibold text-subtle">{totals.active} annunci attivi</span>
  {totals.newCount > 0 && <span className="text-success font-semibold" title="Totale aggiunti nelle ultime run (Δ run, ≠ delta giornaliero)">+{totals.newCount} nuove</span>}
  {totals.updated > 0 && <span className="text-accent font-semibold" title="Totale aggiornati nelle ultime run (Δ run, ≠ delta giornaliero)">~{totals.updated} agg.</span>}
  {totals.removed > 0 && <span className="text-danger font-semibold" title="Totale rimossi nelle ultime run (Δ run, ≠ delta giornaliero)">-{totals.removed} rim.</span>}
  {totals.unchanged > 0 && <span className="text-muted" title="Totale invariati nelle ultime run (Δ run, ≠ delta giornaliero)">={totals.unchanged} inv.</span>}
  {failedWorkflowCount > 0 && (
- <>
- <span className="text-muted" aria-hidden="true">·</span>
  <span className="text-danger font-semibold">{failedWorkflowCount} falliti</span>
- </>
  )}
  </div>
  {retryFailedProgress?.running && (
@@ -426,6 +436,7 @@ export function CrawlerTable({
  <option value="unchanged">Invariati</option>
  <option value="quality-low">Qualità bassa</option>
  </select>
+ <AdminButton icon={<Download size={14} aria-hidden="true" />} onClick={exportCrawlerRows} disabled={sorted.length === 0}>Esporta CSV</AdminButton>
  {(crawlerNameFilter || crawlerChangeFilter !== 'all') && (
  <button
  onClick={() => {
@@ -443,7 +454,7 @@ export function CrawlerTable({
  </div>
 
  {/* Table */}
- <div className="w-full overflow-x-auto rounded-stripe border border-edge">
+ <div className="hidden w-full overflow-x-auto rounded-stripe border border-edge md:block">
  <table className="min-w-[800px] w-full text-sm tabular-nums">
  <thead>
  <tr className="bg-surface-alt/40 text-subtle border-b border-edge">
@@ -462,7 +473,7 @@ export function CrawlerTable({
  </tr>
  </thead>
  <tbody>
- {sorted.map(row => {
+ {pageRows.map(row => {
  const wfState = row.wf ? getWorkflowState(row.wf.id) : null;
  const isSuccess = wfState?.status === 'completed' && wfState.conclusion === 'success';
  const isFailure = wfState?.status === 'completed' && wfState.conclusion != null && wfState.conclusion !== 'success';
@@ -704,6 +715,17 @@ export function CrawlerTable({
  </tbody>
  </table>
  </div>
+ <div className="space-y-3 md:hidden">
+ {pageRows.map((row) => {
+ const state = row.wf ? getWorkflowState(row.wf.id) : null;
+ const failure = state?.status === 'completed' && state.conclusion != null && state.conclusion !== 'success';
+ const running = isWorkflowRunDispatchLocked(state);
+ const summary = row.summary;
+ return <article key={`mobile-${row.key}`} className={`rounded-stripe border p-4 ${failure ? 'border-danger-border bg-danger-subtle' : 'border-edge bg-surface'}`}><div className="flex items-start justify-between gap-3"><div className="min-w-0"><h3 className="break-words font-semibold text-heading">{row.title}</h3><p className="mt-1 break-all text-xs text-subtle">{row.wf?.groupId || row.key}</p></div><AdminStatusPill tone={failure ? 'danger' : running ? 'accent' : state?.conclusion === 'success' ? 'success' : 'neutral'}>{failure ? 'Errore' : running ? 'In corso' : state?.conclusion === 'success' ? 'OK' : 'In attesa'}</AdminStatusPill></div><div className="mt-3 grid grid-cols-2 gap-2 text-sm"><div><span className="block text-muted">Attivi</span><span className="font-medium text-heading">{summary?.activeJobCount ?? '—'}</span></div><div><span className="block text-muted">Δ annunci</span><span className="font-medium text-heading">+{summary?.newCount || 0} / ~{summary?.updatedCount || 0} / -{summary?.removedCount || 0}</span></div><div><span className="block text-muted">Qualità</span><span className="font-medium text-heading">{summary?.qualityScore?.avgScore ?? '—'}</span></div><div><span className="block text-muted">Ultimo run</span><span className="font-medium text-heading">{state?.updatedAt ? relativeTime(state.updatedAt, true) : summary?.generatedAt ? relativeTime(summary.generatedAt, true) : '—'}</span></div><div><span className="block text-muted">Pianificazione</span><span className="font-mono text-heading">{row.schedule || '—'}</span></div></div>{row.wf && <div className="mt-3 flex flex-wrap gap-2"><AdminButton variant="primary" icon={<Play size={14} aria-hidden="true" />} loading={running} loadingLabel="Avvio…" onClick={() => void runWorkflowWithConfirmation(row.wf!.id)} aria-label={`Avvia ${row.title}`}>Avvia gruppo</AdminButton>{state?.htmlUrl && <a href={state.htmlUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-10 items-center gap-1 rounded-stripe border border-edge px-3 py-2 text-sm text-body"><ExternalLink size={14} aria-hidden="true" />Run</a>}</div>}</article>;
+ })}
+ {pageRows.length === 0 && <p className="rounded-stripe border border-edge bg-surface px-4 py-6 text-center text-sm text-subtle">Nessun crawler nel filtro.</p>}
+ </div>
+ <AdminPagination page={page} total={sorted.length} pageSize={pageSize} onPageChange={setPage} />
  </>
  );
  })()}
