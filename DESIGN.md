@@ -185,6 +185,93 @@ The CSS defines a 6px Stripe radius token, while implemented controls commonly u
 - Control-state transitions commonly use 150ms; broader navigation and surface transitions use 300ms with `cubic-bezier(0.4, 0, 0.2, 1)`.
 - `prefers-reduced-motion` reduces animation and transition durations to `0.01ms` and disables smooth scrolling.
 
+## Admin panel (Operate surface)
+
+The owner-admin panel is a private, operational surface built from the `components/admin` modules. It uses the same semantic light/dark system as the public product, but has its own navy rail and a denser information hierarchy. The canonical surface is Italian and is not duplicated per locale.
+
+### Structure
+
+`AdminShell` has two responsive shells, with the breakpoint at 1024px (`lg`):
+
+| Viewport | Structure | Behavior |
+| --- | --- | --- |
+| Desktop, ≥1024px | Fixed navy side rail, 248px wide, plus a sticky top bar | The rail has five groups. The top bar shows the group/section path, `Copia link`, and the navigation/search palette with `⌘K` (also `Ctrl+K`); the current URL is exposed in the wider desktop header. |
+| Phone, <1024px | Compact sticky header, horizontally scrollable section chips, and a fixed five-item bottom tab bar | The header keeps the current section visible; chips show the sections in the current group; the bottom bar uses the `env(safe-area-inset-bottom)` safe area. The same palette is available from the compact header. |
+
+The five groups and their live section slugs are:
+
+| Group | Sections |
+| --- | --- |
+| Oggi | Oggi (root section) |
+| Lavoro | Crawler, Automazioni, Configurazione crawler |
+| Aziende | Aziende, Candidature |
+| Redazione | Redazione, Giornalisti, Newsletter |
+| Sistema | Salute, Flag, Registro |
+
+The Oggi home places `Tabellone delle esecuzioni` and `Tocca a te` in one grid from 1280px (`xl`) upward. Below that threshold they stack, with the actionable triage surface first on narrow layouts. The board switches from its table to cards on smaller screens.
+
+### Semantic shell tokens
+
+The shell-specific CSS intermediates live in `index.css` as `--_admin-*` variables. Their `@theme` aliases expose Tailwind utilities; light and dark values switch through the `html.dark` block without a `dark:` class in admin markup.
+
+| CSS intermediate | Light | Dark | Tailwind alias and use |
+| --- | --- | --- | --- |
+| `--_admin-rail` | `#0a2540` | `#061b30` | `--color-admin-rail`; `bg-admin-rail` for the desktop rail and compact phone header |
+| `--_admin-rail-ink` | `#f8fafc` | `#f1f5f9` | `--color-admin-rail-ink`; `text-admin-rail-ink` for brand and active rail text |
+| `--_admin-rail-muted` | `#cbd5e1` | `#cbd5e1` | `--color-admin-rail-muted`; `text-admin-rail-muted` for group labels and inactive rail text |
+| `--_admin-rail-active` | `rgba(167, 139, 250, 0.18)` | `rgba(167, 139, 250, 0.24)` | `--color-admin-rail-active`; `bg-admin-rail-active` for the selected rail item |
+| `--_admin-rail-edge` | `rgba(255, 255, 255, 0.14)` | `rgba(226, 232, 240, 0.18)` | `--color-admin-rail-edge`; `border-admin-rail-edge` for the rail separator |
+
+The rest of the shell composes these with the existing semantic aliases (`surface`, `surface-alt`, `surface-raised`, `heading`, `body`, `subtle`, `muted`, `edge`, `accent`, `on-accent`, and the status `success`/`warning`/`danger`/`info` families). These aliases are also declared in `@theme`, so components use utilities such as `bg-surface`, `text-subtle`, `border-edge`, and `bg-danger-subtle` rather than hard-coded colors.
+
+### Components and interaction patterns
+
+| Component or pattern | Implemented contract |
+| --- | --- |
+| `AdminShell` | Owns the rail, top bar, mobile header, section chips, bottom tabs, route-aware search palette, badges, and `Copia link`. The palette searches sections, actions, and operational data and is keyboard-navigable. |
+| `AdminSectionHeader` | Provides the page title and summary plus one primary action slot. A view has one primary action and one `Aggiorna` control; secondary controls remain subordinate. |
+| `AdminButton` | Shared action control with `primary`, `secondary`, and `danger` variants, common focus/disabled states, and a loading state with an explicit loading label. |
+| `AdminStatusPill` | A rounded status pill with a current-color dot, an optional Lucide status icon, and text. Its tones are `success`, `danger`, `accent`, `warning`, `neutral`, and `info`. |
+| Impact pills | Workflow actions expose the three impact labels `Solo lettura`, `Modifica dati`, and `Pubblica contenuti`, with distinct neutral, warning, and danger treatments and Lucide `Eye`, `Database`, and `Megaphone` icons. |
+| `AdminConfirmDialog` | Uses a native dialog. The title names the human action (for example, “Rilancia workflow fallito”) and the confirmation button names the action too. It is centered on desktop; at phone width it becomes a bottom sheet and reserves the safe-area inset. |
+| `AdminSkeleton` | Provides the loading state as pulsing, semantic-surface rows with an accessible status label. |
+| `AdminPagination` | Keeps list pagination bounded and explicit: page number, total elements, and `Precedente`/`Successiva` controls; the default page size is 50. |
+| Typed banners | `AdminMessageBanner` accepts the `AdminMessage` shape (`ok`, `warn`, or `error`) and maps it to status tokens and `status`/`alert` semantics. Source-health warnings use the same Italian, typed distinction. |
+
+### Operate rules
+
+- Keep admin text at 12px or larger. Use sentence case and neutral muted styling for table headings; use `tabular-nums` for counts, times, durations, IDs, and other aligned values.
+- Failed rows use a `danger-subtle` background. Do not add colored side borders; the failure state is carried by the row surface, status pill, and action label.
+- Render unavailable values as muted `—` or `n/d`, never as a visually prominent zero or an invented value.
+- Do not use all-caps eyebrows, hero-metric callout boxes, or decorative hierarchy that competes with the operational answer. Regular surface cards carry metrics.
+- Source errors are written in Italian and remain distinct from an empty state. For example, Oggi reports schedule/run source failures separately from `Nessuna esecuzione prevista oggi.` or `Niente da fare adesso`.
+- At 390px the page must not overflow horizontally. Dense tables collapse to mobile cards or keep overflow contained inside the data region; controls remain usable touch targets.
+- Use Lucide icons only. Icons reinforce labels and status; they do not replace the text contract.
+
+### URLs and shareable state
+
+Section identity is a stable slug from `ADMIN_SECTIONS`/`ADMIN_SECTION_SLUGS`. The canonical route is not locale-prefixed:
+
+```text
+/gestione-contenuti-xk9mp2q/
+/gestione-contenuti-xk9mp2q/crawler/
+/gestione-contenuti-xk9mp2q/registro/?azione=workflow_dispatch&dal=2026-10-01&al=2026-10-23
+```
+
+`adminSectionPath` always builds the Italian (`it`) admin path, and `canonicalAdminUrl` combines that path with the current query string and hash. Filters, selected records, focus targets, and command-palette destinations use the query string through `replaceAdminQuery`, so an admin state can be copied and reopened. Examples include `q`, `stato`, `azienda`, `ordine`, `azione`, `dal`, `al`, and `focus`.
+
+The build emits one static shell for every live admin slug under the canonical route. Each shell is marked `noindex, nofollow`; planned or unknown sections do not become indexable pages.
+
+### Release control
+
+`admin_shell_v2` is the Firebase Remote Config switch for the fused shell. Its local/default value is `false`, so the legacy shell remains the fallback. On the admin route only, `?shell=v2` or `?shell=v1` takes precedence over Remote Config and provides the emergency override. If Remote Config cannot be read, the resolver fails closed to `v1`.
+
+### Decisions Log
+
+| Date | Decision |
+| --- | --- |
+| 2026-10-23 | Owner approved the fused Operate shell, combining the Regia, Tabellone, and Tascabile proposals. |
+
 ## Do's and Don'ts
 
 ### Do:
