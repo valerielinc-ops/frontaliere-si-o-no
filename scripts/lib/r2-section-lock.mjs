@@ -235,10 +235,11 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
   if (typeof fetchImpl !== 'function') throw new Error('[r2-section-lock] fetch is unavailable');
 
   return async ({ method, key, body = '', headers = {}, deadline }) => {
+    const normalizedMethod = method.toUpperCase();
     // Cloudflare can rewrite a strong R2 ETag to a weak validator when the
     // response is compressed. Weak validators are not safe for the If-Match
     // CAS used by the lease protocol, so metadata reads must stay unencoded.
-    const requestHeaders = method === 'GET' || method === 'HEAD'
+    const requestHeaders = normalizedMethod === 'GET' || normalizedMethod === 'HEAD'
       ? {
         // The identity encoding is part of the CAS safety contract, not a
         // caller preference. Remove every spelling before adding one
@@ -250,7 +251,7 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
         'accept-encoding': 'identity',
       }
       : headers;
-    const signed = signRequest({ ...config, now: now(), method, key, body, headers: requestHeaders });
+    const signed = signRequest({ ...config, now: now(), method: normalizedMethod, key, body, headers: requestHeaders });
     const deadlineAt = deadline === undefined ? Date.now() + 30_000 : deadline;
     if (!Number.isFinite(deadlineAt)) throw new Error('[r2-section-lock] request deadline must be finite');
     const timeoutMs = deadlineAt - Date.now();
@@ -272,9 +273,9 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
       }, timeoutMs);
     });
     const responsePromise = Promise.resolve().then(() => fetchImpl(signed.url, {
-      method,
+      method: normalizedMethod,
       headers: signed.headers,
-      ...(method === 'GET' || method === 'HEAD' || method === 'DELETE' ? {} : { body: signed.body }),
+      ...(normalizedMethod === 'GET' || normalizedMethod === 'HEAD' || normalizedMethod === 'DELETE' ? {} : { body: signed.body }),
       signal: controller.signal,
     })).then((response) => {
       if (timedOut || Date.now() >= deadlineAt) {
@@ -289,7 +290,7 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
     try {
       const response = await Promise.race([responsePromise, timeout]);
       const responseNeedsBody = response?.body
-        && ((method === 'GET' || method === 'HEAD')
+        && ((normalizedMethod === 'GET' || normalizedMethod === 'HEAD')
           ? response.status !== 404
           : !(response.status >= 200 && response.status < 300)
             && response.status !== 409 && response.status !== 412);
