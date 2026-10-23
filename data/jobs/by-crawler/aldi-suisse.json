@@ -1,7 +1,7 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-10-22T21:48:34.402Z",
-  "runId": "39856124150",
+  "assembledAt": "2026-10-23T09:38:20.076Z",
+  "runId": "39930862305",
   "jobs": [
     {
       "id": "aldi-suisse-9a0a5c7f4ebe",
@@ -80,22 +80,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1449779933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:26.492Z",
-      "previousSlugs": [
-        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
-        ],
-        "en": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
-        ],
-        "fr": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T21:33:13.101Z",
+      "crawledAt": "2026-10-23T09:38:13.526Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -108,7 +93,22 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-29T21:33:13.101Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+      ]
     },
     {
       "id": "aldi-suisse-68a478184e0b",
@@ -188,7 +188,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1447091033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:26.490Z",
+      "crawledAt": "2026-10-23T09:38:13.525Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse",
         "stellvertretender-filialleiter-m-w-d-aldi-suisse-2"
@@ -307,7 +307,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1442163933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:25.670Z",
+      "crawledAt": "2026-10-23T09:38:11.971Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse"
       ],
@@ -418,7 +418,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1442143933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:25.663Z",
+      "crawledAt": "2026-10-23T09:38:11.967Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse-2",
         "stellvertretender-filialleiter-m-w-d-aldi-suisse",
@@ -536,7 +536,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1389180133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:25.657Z",
+      "crawledAt": "2026-10-23T09:38:11.962Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse"
       ],
@@ -636,11 +636,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1449769733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:22.488Z",
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich"
-      ],
+      "crawledAt": "2026-10-23T09:38:10.385Z",
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -653,7 +649,10 @@
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
-      "firstSeenAt": "2026-07-31T12:10:55.197Z",
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich"
+      ],
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -666,7 +665,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-31T12:10:55.197Z"
     },
     {
       "id": "aldi-suisse-e02667f15571",
@@ -744,7 +744,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1449756933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:22.470Z",
+      "crawledAt": "2026-10-23T09:38:10.380Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
@@ -852,7 +852,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1447090833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:22.461Z",
+      "crawledAt": "2026-10-23T09:38:10.378Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
@@ -962,7 +962,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1447091133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:20.155Z",
+      "crawledAt": "2026-10-23T09:38:08.754Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
@@ -1074,7 +1074,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1445978133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:20.148Z",
+      "crawledAt": "2026-10-23T09:38:08.748Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
@@ -1186,7 +1186,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1445889733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:20.144Z",
+      "crawledAt": "2026-10-23T09:38:08.745Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
@@ -1300,7 +1300,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1445042533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:17.111Z",
+      "crawledAt": "2026-10-23T09:38:07.295Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
@@ -1410,7 +1410,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1445029733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:17.104Z",
+      "crawledAt": "2026-10-23T09:38:07.292Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -1530,7 +1530,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1445025633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:17.099Z",
+      "crawledAt": "2026-10-23T09:38:07.287Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -1650,7 +1650,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1444365433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:14.283Z",
+      "crawledAt": "2026-10-23T09:38:05.236Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-7xg7k1"
@@ -1752,7 +1752,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1443637333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:14.278Z",
+      "crawledAt": "2026-10-23T09:38:05.233Z",
       "previousSlugs": [
         "vendeur-se-m-w-d-aldi-suisse-amriswil",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-langenthal",
@@ -1950,7 +1950,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1442157033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:14.272Z",
+      "crawledAt": "2026-10-23T09:38:05.229Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse"
       ],
@@ -2060,7 +2060,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1442150933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:11.966Z",
+      "crawledAt": "2026-10-23T09:38:03.857Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
@@ -2176,7 +2176,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1440794733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:11.963Z",
+      "crawledAt": "2026-10-23T09:38:03.855Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
@@ -2292,7 +2292,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1440325033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:11.954Z",
+      "crawledAt": "2026-10-23T09:38:03.849Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
@@ -2447,7 +2447,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1432775933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:09.948Z",
+      "crawledAt": "2026-10-23T09:38:02.128Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
@@ -2570,7 +2570,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1431008633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:09.946Z",
+      "crawledAt": "2026-10-23T09:38:02.124Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
@@ -2684,7 +2684,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1429640633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:09.944Z",
+      "crawledAt": "2026-10-23T09:38:02.123Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-7",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-8",
@@ -2796,7 +2796,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1400889033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:07.833Z",
+      "crawledAt": "2026-10-23T09:38:00.146Z",
       "previousSlugs": [
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
@@ -3007,7 +3007,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1427689233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:05.670Z",
+      "crawledAt": "2026-10-23T09:37:58.798Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-k37c6b",
         "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3118,7 +3118,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425979333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:02.930Z",
+      "crawledAt": "2026-10-23T09:37:57.010Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
         "lernender-detailhandel-m-w-d-aldi-suisse-3",
@@ -3231,7 +3231,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425967933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:02.925Z",
+      "crawledAt": "2026-10-23T09:37:57.007Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
         "lernender-detailhandel-m-w-d-aldi-suisse-3",
@@ -3346,7 +3346,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412308533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:02.920Z",
+      "crawledAt": "2026-10-23T09:37:57.003Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-3",
         "lernender-detailhandel-m-w-d-aldi-suisse-4",
@@ -3459,7 +3459,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412267233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:00.696Z",
+      "crawledAt": "2026-10-23T09:37:55.473Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
         "lernender-detailhandel-m-w-d-aldi-suisse-4",
@@ -3576,7 +3576,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412286433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:48:00.680Z",
+      "crawledAt": "2026-10-23T09:37:55.465Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-3",
         "lernender-detailhandel-m-w-d-aldi-suisse-5",
@@ -3693,7 +3693,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412286933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:58.204Z",
+      "crawledAt": "2026-10-23T09:37:53.974Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-5",
         "lernender-detailhandel-m-w-d-aldi-suisse-7",
@@ -3810,7 +3810,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412271933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:58.196Z",
+      "crawledAt": "2026-10-23T09:37:53.970Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-7",
         "lernender-detailhandel-m-w-d-aldi-suisse-9",
@@ -3929,7 +3929,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421214533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:55.798Z",
+      "crawledAt": "2026-10-23T09:37:52.240Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-9",
         "lernender-detailhandel-m-w-d-aldi-suisse-10",
@@ -4048,7 +4048,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421207733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:55.793Z",
+      "crawledAt": "2026-10-23T09:37:52.237Z",
       "previousSlugs": [
         "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-10",
@@ -4176,7 +4176,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421207033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:55.788Z",
+      "crawledAt": "2026-10-23T09:37:52.235Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-10",
         "lernender-detailhandel-m-w-d-aldi-suisse-9",
@@ -4301,7 +4301,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421281433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:53.002Z",
+      "crawledAt": "2026-10-23T09:37:50.635Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-11",
         "lernender-detailhandel-m-w-d-aldi-suisse-12",
@@ -4424,7 +4424,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421212133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:52.999Z",
+      "crawledAt": "2026-10-23T09:37:50.633Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-12",
         "lernender-detailhandel-m-w-d-aldi-suisse-13",
@@ -4545,7 +4545,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421211533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:52.997Z",
+      "crawledAt": "2026-10-23T09:37:50.631Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-13",
         "lernender-detailhandel-m-w-d-aldi-suisse-14",
@@ -4668,7 +4668,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421209133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:50.549Z",
+      "crawledAt": "2026-10-23T09:37:48.790Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-14",
         "lernender-detailhandel-m-w-d-aldi-suisse-15",
@@ -4790,7 +4790,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421211133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:50.543Z",
+      "crawledAt": "2026-10-23T09:37:48.789Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-16",
         "lernender-detailhandel-m-w-d-aldi-suisse-17",
@@ -4911,7 +4911,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410321233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:50.534Z",
+      "crawledAt": "2026-10-23T09:37:48.785Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-17",
         "lernender-detailhandel-m-w-d-aldi-suisse-18",
@@ -5033,7 +5033,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410325833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:47.973Z",
+      "crawledAt": "2026-10-23T09:37:46.978Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
         "lernender-detailhandel-m-w-d-aldi-suisse-18",
@@ -5157,7 +5157,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410322333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:47.967Z",
+      "crawledAt": "2026-10-23T09:37:46.976Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-19",
         "lernender-detailhandel-m-w-d-aldi-suisse-20",
@@ -5279,7 +5279,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410319933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:47.963Z",
+      "crawledAt": "2026-10-23T09:37:46.975Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-20",
         "lernender-detailhandel-m-w-d-aldi-suisse-21",
@@ -5402,7 +5402,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410313133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:45.235Z",
+      "crawledAt": "2026-10-23T09:37:45.219Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-20",
         "lernender-detailhandel-m-w-d-aldi-suisse-21",
@@ -5525,7 +5525,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410697333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:45.228Z",
+      "crawledAt": "2026-10-23T09:37:45.215Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-22",
         "lernender-detailhandel-m-w-d-aldi-suisse-23",
@@ -5646,7 +5646,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410315233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:45.224Z",
+      "crawledAt": "2026-10-23T09:37:45.213Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-23",
         "lernender-detailhandel-m-w-d-aldi-suisse-24",
@@ -5767,7 +5767,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410325133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:42.247Z",
+      "crawledAt": "2026-10-23T09:37:43.721Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-24",
         "lernender-detailhandel-m-w-d-aldi-suisse-25",
@@ -5890,7 +5890,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410323133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:42.241Z",
+      "crawledAt": "2026-10-23T09:37:43.719Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-29",
         "lernender-detailhandel-m-w-d-aldi-suisse-30",
@@ -6009,7 +6009,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410322733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:42.223Z",
+      "crawledAt": "2026-10-23T09:37:43.714Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-30",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -6123,7 +6123,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410309733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:38.788Z",
+      "crawledAt": "2026-10-23T09:37:42.326Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-32",
         "lernender-detailhandel-m-w-d-aldi-suisse-33",
@@ -6240,7 +6240,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410247033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:38.784Z",
+      "crawledAt": "2026-10-23T09:37:42.323Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-34",
         "lernender-detailhandel-m-w-d-aldi-suisse-35",
@@ -6347,7 +6347,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410312533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:36.378Z",
+      "crawledAt": "2026-10-23T09:37:40.556Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-33",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -6467,7 +6467,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1420613033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:36.364Z",
+      "crawledAt": "2026-10-23T09:37:40.554Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-37",
         "lernender-detailhandel-m-w-d-aldi-suisse-dietikon",
@@ -6586,7 +6586,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410320233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:36.354Z",
+      "crawledAt": "2026-10-23T09:37:40.552Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-38",
         "lernender-detailhandel-m-w-d-aldi-suisse-37",
@@ -6703,7 +6703,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410317233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:33.418Z",
+      "crawledAt": "2026-10-23T09:37:39.176Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-40",
         "lernender-detailhandel-m-w-d-aldi-suisse-39",
@@ -6821,7 +6821,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410315833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:33.388Z",
+      "crawledAt": "2026-10-23T09:37:39.169Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-42",
         "lernender-detailhandel-m-w-d-aldi-suisse-41",
@@ -6931,7 +6931,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410318733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:33.376Z",
+      "crawledAt": "2026-10-23T09:37:39.167Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-40",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -7051,7 +7051,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410316733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:31.092Z",
+      "crawledAt": "2026-10-23T09:37:37.754Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-45",
         "lernender-detailhandel-m-w-d-aldi-suisse-44",
@@ -7167,7 +7167,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1446079733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:31.086Z",
+      "crawledAt": "2026-10-23T09:37:37.752Z",
       "previousSlugs": [
         "filialleiter-m-w-d-region-biel-solothurn-aldi-suisse"
       ],
@@ -7245,7 +7245,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1428694033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:31.082Z",
+      "crawledAt": "2026-10-23T09:37:37.749Z",
       "previousSlugs": [
         "aushilfe-vendita-m-w-d-aldi-suisse-zweisimmen",
         "aushilfe-sales-m-w-d-aldi-suisse-zweisimmen",
@@ -7338,7 +7338,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425567733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:47:29.100Z",
+      "crawledAt": "2026-10-23T09:37:36.432Z",
       "previousSlugs": [
         "aushilfe-verkauf-m-w-d-aldi-suisse-2",
         "aushilfe-vendita-m-w-d-aldi-suisse-oberentfelden",
@@ -7462,7 +7462,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1426391533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:26.476Z",
+      "crawledAt": "2026-10-23T09:37:35.008Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
       ],
@@ -7569,7 +7569,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421214233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:26.466Z",
+      "crawledAt": "2026-10-23T09:37:35.002Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwitrt",
@@ -7682,7 +7682,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421215833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:26.459Z",
+      "crawledAt": "2026-10-23T09:37:34.999Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-3",
@@ -7800,7 +7800,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421219733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:24.306Z",
+      "crawledAt": "2026-10-23T09:37:33.569Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-3",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
@@ -7916,7 +7916,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421214033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:24.303Z",
+      "crawledAt": "2026-10-23T09:37:33.567Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-5",
@@ -8033,7 +8033,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421220833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:24.298Z",
+      "crawledAt": "2026-10-23T09:37:33.563Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-5",
         "lehrlingsausbildung-im-einzelhandel-cfc-oder-afp-aldi-suisse-bussigny",
@@ -8154,7 +8154,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421215133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:22.036Z",
+      "crawledAt": "2026-10-23T09:37:32.027Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-6",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7",
@@ -8269,7 +8269,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421213133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:22.033Z",
+      "crawledAt": "2026-10-23T09:37:32.025Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-8",
@@ -8433,7 +8433,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421220233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T21:47:22.028Z",
+      "crawledAt": "2026-10-23T09:37:32.022Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-8",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-9",
@@ -8536,7 +8536,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425498033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-22T21:47:19.606Z",
+      "crawledAt": "2026-10-23T09:37:30.470Z",
       "previousSlugs": [
         "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-2",
         "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
@@ -8581,9 +8581,9 @@
       "slug": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
       "slugByLocale": {
         "it": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
-        "en": "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio",
+        "en": "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
         "de": "lernende-im-einzelhandel-m-w-x-aldi-suisse-mendrisio",
-        "fr": "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
+        "fr": "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -8598,9 +8598,9 @@
       "description": "La nostra idea: insieme raggiungiamo più risultati, e questo si traduce in «di più per la vita».\n\nFianco a fianco raggiungiamo più risultati. Per questo puntiamo su collaboratori che non scappano di fronte alle sfide e si impegnano per raggiungere gli ambiziosi obiettivi di ALDI SUISSE. Insieme creiamo un clima aziendale che permette ai nostri collaboratori di creare un valore aggiunto p\n\nCompiti\n\n• Tutti i lavori necessari nel punto vendita\n\n• Gestione responsabile della cassa\n\n• Presentazione e preparazione dei prodotti\n\n• Raccolta di esperienza nella gestione a partire dal terzo anno di apprendistato\nProfilo\n\n• Gioia nel trattare articoli Food e Non-Food\n\n• Affidabilità\n\n• Disponibilità e spirito di squadra\n\n• Predisposizione ai contatti e atteggiamento amichevole\nLa nostra offerta\n\n• Formazione eccellente all’interno di un’azienda in crescita\n\n• Prospettive di carriera fino alla posizione di Gerente di filiale\n\n• Stipendio superiore alla media con abbonamento metà-prezzo\n\n• 6 settimane di ferie\n\n• E soprattutto nessun momento di noia, perché da noi nessuna giornata è uguale all’altra!\nLuogo di lavoro\n​​6850 Mendrisio, Via San Martino 16​\nInizio dell'impiego\n​01.08.2027​\nCandidatura online\nCandidati ora online e mandaci il tuo CV accompagnato da lettera di motivazione, foto e libretto scolastico.\nSaranno prese in considerazione unicamente le candidature di persone residenti o domiciliate in Ticino.\n\nI NOSTRI BENEFIT PER TE\n• Sempre più in alto con la carriera\n• Risparmia con noi\n• Essere bravi ha i suoi vantaggi\n• Pronti per il processo di selezione\n• Benefit per tutti\n• Ottime prospettive future\n• I tuoi orari\n• Lo stipendio più alto nel commercio al dettaglio svizzero\n• 6 settimane di vacanze\n• Lavorare senza mai annoiarsi\n• I migliori team\n\nA proposito di ALDI SUISSE AG\n\nALDI SUISSE AG è un’azienda svizzera con sede a Schwarzenbach (SG) e fa parte del gruppo aziendale ALDI SÜD, un’azienda operante a livello globale nel commercio al dettaglio. Semplicità, responsabilità e affidabilità sono i valori fondamentali che ne guidano l’attività imprenditoriale. Ciò significa che, oltre a offrire prodotti di qualità a un prezzo sempre conveniente, si impegna anche per mantenere una produzione sostenibile e rispettosa dell’ambiente e degli animali. Una parte cospicua del fatturato ottenuto dai circa 1800 prodotti dell’assortimento standard di ALDI SUISSE proviene da articoli di origine svizzera. Con oltre 4000 collaboratori e 247 filiali, ALDI SUISSE si posiziona dal 2005 come uno dei più grandi datori di lavoro nel settore del commercio al dettaglio svizzero.",
       "descriptionByLocale": {
         "it": "La nostra idea: insieme raggiungiamo più risultati, e questo si traduce in «di più per la vita».\n\nFianco a fianco raggiungiamo più risultati. Per questo puntiamo su collaboratori che non scappano di fronte alle sfide e si impegnano per raggiungere gli ambiziosi obiettivi di ALDI SUISSE. Insieme creiamo un clima aziendale che permette ai nostri collaboratori di creare un valore aggiunto p\n\nCompiti\n\n• Tutti i lavori necessari nel punto vendita\n\n• Gestione responsabile della cassa\n\n• Presentazione e preparazione dei prodotti\n\n• Raccolta di esperienza nella gestione a partire dal terzo anno di apprendistato\nProfilo\n\n• Gioia nel trattare articoli Food e Non-Food\n\n• Affidabilità\n\n• Disponibilità e spirito di squadra\n\n• Predisposizione ai contatti e atteggiamento amichevole\nLa nostra offerta\n\n• Formazione eccellente all’interno di un’azienda in crescita\n\n• Prospettive di carriera fino alla posizione di Gerente di filiale\n\n• Stipendio superiore alla media con abbonamento metà-prezzo\n\n• 6 settimane di ferie\n\n• E soprattutto nessun momento di noia, perché da noi nessuna giornata è uguale all’altra!\nLuogo di lavoro\n​​6850 Mendrisio, Via San Martino 16​\nInizio dell'impiego\n​01.08.2027​\nCandidatura online\nCandidati ora online e mandaci il tuo CV accompagnato da lettera di motivazione, foto e libretto scolastico.\nSaranno prese in considerazione unicamente le candidature di persone residenti o domiciliate in Ticino.\n\nI NOSTRI BENEFIT PER TE\n• Sempre più in alto con la carriera\n• Risparmia con noi\n• Essere bravi ha i suoi vantaggi\n• Pronti per il processo di selezione\n• Benefit per tutti\n• Ottime prospettive future\n• I tuoi orari\n• Lo stipendio più alto nel commercio al dettaglio svizzero\n• 6 settimane di vacanze\n• Lavorare senza mai annoiarsi\n• I migliori team\n\nA proposito di ALDI SUISSE AG\n\nALDI SUISSE AG è un’azienda svizzera con sede a Schwarzenbach (SG) e fa parte del gruppo aziendale ALDI SÜD, un’azienda operante a livello globale nel commercio al dettaglio. Semplicità, responsabilità e affidabilità sono i valori fondamentali che ne guidano l’attività imprenditoriale. Ciò significa che, oltre a offrire prodotti di qualità a un prezzo sempre conveniente, si impegna anche per mantenere una produzione sostenibile e rispettosa dell’ambiente e degli animali. Una parte cospicua del fatturato ottenuto dai circa 1800 prodotti dell’assortimento standard di ALDI SUISSE proviene da articoli di origine svizzera. Con oltre 4000 collaboratori e 247 filiali, ALDI SUISSE si posiziona dal 2005 come uno dei più grandi datori di lavoro nel settore del commercio al dettaglio svizzero.",
-        "en": "Our idea: together we achieve more results, and this results in \"more for life\".\n\nSide by side we reach more results. This is why we focus on collaborators who do not run away from the challenges and are committed to achieving the ambitious goals of ALDI SUISSE. Together we create a corporate climate that allows our employees to create an added value p\n\nTasks\n\n• All necessary jobs at the point of sale\n\n• Management responsible for cash\n\n• Presentation and preparation of products\n\n• Collection of experience in management from the third year of apprenticeship\nProfile\n\n• Joy in dealing with Food and Non-Food items\n\n• Reliability\n\n• Availability and team spirit\n\n• Prepared contacts and friendly attitude\nOur offer\n\n• Excellent training within a growing company\n\n• Career perspectives up to the position of Affiliate\n\n• Average higher wage with half-price subscription\n\n• 6 weeks of holidays\n\n• And above all no moment of boredom, because from us no day is equal to the other!\nPlace of work\n6850 Mendrisio, Via San Martino 16\nStart of use\n​01.08.2027​\nOnline application\nApply now online and send us your CV accompanied by motivation letter, photo and school booklet.\nOnly candidates for resident or domiciled persons in Ticino will be considered.\n\nOur BENEFITS FOR YOU\n• Higher and higher with career\n• Save with us\n• Being good has its advantages\n• Ready for selection process\n• Benefit for all\n• Very good future prospects\n• Your times\n• The highest salary in Swiss retail trade\n• 6 weeks of holidays\n• Working without ever getting bored\n• The best teams\n\nAbout ALDI SUISSE AG\n\nALDI SUISSE AG is a Swiss company based in Schwarzenbach (SG) and is part of the company ALDI SÜD, a company operating globally in retail trade. Simplicity, responsibility and reliability are the fundamental values that guide business. This means that, in addition to offering quality products at an always affordable price, it also strives to maintain sustainable and respectful production of the environment and animals. A substantial part of the turnover obtained from the approximately 1800 products of the standard SUISSE ALDI range comes from articles of Swiss origin. With more than 4000 employees and 247 subsidiaries, ALDI SUISSE has been one of the largest employers in the Swiss retail sector since 2005.",
-        "de": "Unsere Idee: Gemeinsam erzielen wir mehr Ergebnisse, und das führt zu „mehr fürs Leben.\n\nSeite an Seite erreichen wir mehr Ergebnisse. Deshalb setzen wir auf Mitarbeiter, die nicht vor den Herausforderungen davonlaufen und sich dafür einsetzen, die ambitionierten Ziele von ALDI SUISSE zu erreichen. Gemeinsam schaffen wir ein Unternehmensklima, das es unseren Mitarbeitern ermöglicht, einen Mehrwert zu schaffen.\n\nAufgaben\n\n• Alle notwendigen Jobs am Point of Sale\n\n• Management verantwortlich für Bargeld\n\n• Aufmachung und Zubereitung der Erzeugnisse\n\n• Sammlung von Erfahrungen im Management ab dem dritten Lehrjahr\nProfil\n\n• Freude im Umgang mit Lebensmitteln und Non-Food-Artikeln\n\n• Zuverlässigkeit\n\n• Verfügbarkeit und Teamgeist\n\n• Vorbereitete Kontakte und freundliche Haltung\nUnser Angebot\n\n• Ausgezeichnete Ausbildung in einem wachsenden Unternehmen\n\n• Karriereperspektiven bis hin zur Position des Affiliate\n\n• Durchschnittliche höhere Löhne mit Halbpreis-Abonnement\n\n• 6 Wochen Urlaub\n\n• Und vor allem kein Moment der Langeweile, denn von uns ist kein Tag dem anderen gleich!\nArbeitsort\n6850 Mendrisio, Via San Martino 16\nBeginn der Nutzung\n​01.08.2027​\nOnline-Bewerbung\nBewerben Sie sich jetzt online und senden Sie uns Ihren Lebenslauf mit Motivationsschreiben, Foto und Schulheft.\nBerücksichtigt werden nur Kandidaten für im Tessin ansässige oder ansässige Personen.\n\nUnsere Vorteile für Sie\n• Höher und höher mit Karriere\n• Sparen Sie mit uns\n• Gut sein hat seine Vorteile\n• Bereit für den Auswahlprozess\n• Nutzen für alle\n• Sehr gute Zukunftsaussichten\n• Deine Zeiten\n• Das höchste Gehalt im Schweizer Einzelhandel\n• 6 Wochen Urlaub\n• Arbeiten ohne sich jemals zu langweilen\n• Die besten Teams\n\nÜber die ALDI SUISSE AG\n\nDie ALDI SUISSE AG ist ein Schweizer Unternehmen mit Sitz in Schwarzenbach (SG) und Teil des weltweit im Einzelhandel tätigen Unternehmens ALDI SÜD. Einfachheit, Verantwortung und Zuverlässigkeit sind die Grundwerte, die das Geschäft leiten. Dies bedeutet, dass nicht nur qualitativ hochwertige Produkte zu einem immer erschwinglichen Preis angeboten werden, sondern auch eine nachhaltige und respektvolle Produktion von Umwelt und Tieren angestrebt wird. Ein wesentlicher Teil des Umsatzes aus den rund 1800 Produkten des SUISSE ALDI Standardsortiments stammt aus Artikeln Schweizer Herkunft. Mit mehr als 4000 Mitarbeitern und 247 Tochtergesellschaften ist ALDI SUISSE seit 2005 einer der größten Arbeitgeber im Schweizer Einzelhandel.",
-        "fr": "Notre idée : ensemble, nous obtenons plus de résultats, et cela se traduit par « plus pour la vie ».\n\ncôte à côte, nous obtenons plus de résultats. C'est pourquoi nous nous concentrons sur les collaborateurs qui ne fuient pas les défis et qui sont déterminés à atteindre les objectifs ambitieux d'ALDI SUISSE. Ensemble, nous créons un climat corporatif qui permet à nos employés de créer une valeur ajoutée p\n\nTâche\n\n• Tous les emplois nécessaires au point de vente\n\n• Gestion responsable de la trésorerie\n\n• Présentation et préparation des produits\n\n• Collecte d'expérience en gestion dès la troisième année d'apprentissage\nProfil\n\n• La joie dans le traitement des articles alimentaires et non alimentaires\n\n• Fiabilité\n\n• Disponibilité et esprit d'équipe\n\n• Contacts préparés et attitude amicale\nNotre offre\n\n• Excellente formation dans une entreprise en croissance\n\n• Perspectives de carrière jusqu'au poste d'affilié\n\n• Salaire moyen plus élevé avec abonnement à moitié prix\n\n• 6 semaines de vacances\n\n• Et surtout aucun moment d'ennui, parce que de nous aucun jour n'est égal à l'autre!\nLieu de travail\n6850 Mendrisio, Via San Martino 16\nDébut de l' utilisation\n​01.08.2027​\nDemande en ligne\nPostulez maintenant en ligne et envoyez-nous votre CV accompagné d'une lettre de motivation, d'une photo et d'un livret scolaire.\nSeuls les candidats pour les résidents ou les personnes domiciliées au Tessin seront considérés.\n\nNos avantages pour vous\n• Plus haut et plus haut avec la carrière\n• Sauvez avec nous\n• Être bon a ses avantages\n• Prêt pour le processus de sélection\n• Avantages pour tous\n• Très bonnes perspectives d'avenir\n• Votre temps\n• Le salaire le plus élevé du commerce de détail suisse\n• 6 semaines de vacances\n• Travailler sans jamais s'ennuyer\n• Les meilleures équipes\n\nA propos d'ALDI SUISSE AG\n\nALDI SUISSE AG est une société suisse basée à Schwarzenbach (SG) et fait partie de la société ALDI SÜD, une société opérant au niveau mondial dans le commerce de détail. La simplicité, la responsabilité et la fiabilité sont les valeurs fondamentales qui guident les entreprises. Cela signifie qu'en plus d'offrir des produits de qualité à un prix toujours abordable, il s'efforce également de maintenir une production durable et respectueuse de l'environnement et des animaux. Une partie importante du chiffre d'affaires obtenu à partir des quelque 1800 produits de la gamme SUISSE ALDI standard provient d'articles d'origine suisse. Avec plus de 4000 salariés et 247 filiales, ALDI SUISSE est depuis 2005 l'un des plus grands employeurs du secteur suisse du commerce de détail."
+        "en": "La nostra idea: insieme raggiungiamo più risultati, e questo si traduce in «di più per la vita».\n\nFianco a fianco raggiungiamo più risultati. Per questo puntiamo su collaboratori che non scappano di fronte alle sfide e si impegnano per raggiungere gli ambiziosi obiettivi di ALDI SUISSE. Insieme creiamo un clima aziendale che permette ai nostri collaboratori di creare un valore aggiunto p\n\nCompiti\n\n• Tutti i lavori necessari nel punto vendita\n\n• Gestione responsabile della cassa\n\n• Presentazione e preparazione dei prodotti\n\n• Raccolta di esperienza nella gestione a partire dal terzo anno di apprendistato\nProfilo\n\n• Gioia nel trattare articoli Food e Non-Food\n\n• Affidabilità\n\n• Disponibilità e spirito di squadra\n\n• Predisposizione ai contatti e atteggiamento amichevole\nLa nostra offerta\n\n• Formazione eccellente all’interno di un’azienda in crescita\n\n• Prospettive di carriera fino alla posizione di Gerente di filiale\n\n• Stipendio superiore alla media con abbonamento metà-prezzo\n\n• 6 settimane di ferie\n\n• E soprattutto nessun momento di noia, perché da noi nessuna giornata è uguale all’altra!\nLuogo di lavoro\n​​6850 Mendrisio, Via San Martino 16​\nInizio dell'impiego\n​01.08.2027​\nCandidatura online\nCandidati ora online e mandaci il tuo CV accompagnato da lettera di motivazione, foto e libretto scolastico.\nSaranno prese in considerazione unicamente le candidature di persone residenti o domiciliate in Ticino.\n\nI NOSTRI BENEFIT PER TE\n• Sempre più in alto con la carriera\n• Risparmia con noi\n• Essere bravi ha i suoi vantaggi\n• Pronti per il processo di selezione\n• Benefit per tutti\n• Ottime prospettive future\n• I tuoi orari\n• Lo stipendio più alto nel commercio al dettaglio svizzero\n• 6 settimane di vacanze\n• Lavorare senza mai annoiarsi\n• I migliori team\n\nA proposito di ALDI SUISSE AG\n\nALDI SUISSE AG è un’azienda svizzera con sede a Schwarzenbach (SG) e fa parte del gruppo aziendale ALDI SÜD, un’azienda operante a livello globale nel commercio al dettaglio. Semplicità, responsabilità e affidabilità sono i valori fondamentali che ne guidano l’attività imprenditoriale. Ciò significa che, oltre a offrire prodotti di qualità a un prezzo sempre conveniente, si impegna anche per mantenere una produzione sostenibile e rispettosa dell’ambiente e degli animali. Una parte cospicua del fatturato ottenuto dai circa 1800 prodotti dell’assortimento standard di ALDI SUISSE proviene da articoli di origine svizzera. Con oltre 4000 collaboratori e 247 filiali, ALDI SUISSE si posiziona dal 2005 come uno dei più grandi datori di lavoro nel settore del commercio al dettaglio svizzero.",
+        "de": "La nostra idea: insieme raggiungiamo più risultati, e questo si traduce in «di più per la vita».\n\nFianco a fianco raggiungiamo più risultati. Per questo puntiamo su collaboratori che non scappano di fronte alle sfide e si impegnano per raggiungere gli ambiziosi obiettivi di ALDI SUISSE. Insieme creiamo un clima aziendale che permette ai nostri collaboratori di creare un valore aggiunto p\n\nCompiti\n\n• Tutti i lavori necessari nel punto vendita\n\n• Gestione responsabile della cassa\n\n• Presentazione e preparazione dei prodotti\n\n• Raccolta di esperienza nella gestione a partire dal terzo anno di apprendistato\nProfilo\n\n• Gioia nel trattare articoli Food e Non-Food\n\n• Affidabilità\n\n• Disponibilità e spirito di squadra\n\n• Predisposizione ai contatti e atteggiamento amichevole\nLa nostra offerta\n\n• Formazione eccellente all’interno di un’azienda in crescita\n\n• Prospettive di carriera fino alla posizione di Gerente di filiale\n\n• Stipendio superiore alla media con abbonamento metà-prezzo\n\n• 6 settimane di ferie\n\n• E soprattutto nessun momento di noia, perché da noi nessuna giornata è uguale all’altra!\nLuogo di lavoro\n​​6850 Mendrisio, Via San Martino 16​\nInizio dell'impiego\n​01.08.2027​\nCandidatura online\nCandidati ora online e mandaci il tuo CV accompagnato da lettera di motivazione, foto e libretto scolastico.\nSaranno prese in considerazione unicamente le candidature di persone residenti o domiciliate in Ticino.\n\nI NOSTRI BENEFIT PER TE\n• Sempre più in alto con la carriera\n• Risparmia con noi\n• Essere bravi ha i suoi vantaggi\n• Pronti per il processo di selezione\n• Benefit per tutti\n• Ottime prospettive future\n• I tuoi orari\n• Lo stipendio più alto nel commercio al dettaglio svizzero\n• 6 settimane di vacanze\n• Lavorare senza mai annoiarsi\n• I migliori team\n\nA proposito di ALDI SUISSE AG\n\nALDI SUISSE AG è un’azienda svizzera con sede a Schwarzenbach (SG) e fa parte del gruppo aziendale ALDI SÜD, un’azienda operante a livello globale nel commercio al dettaglio. Semplicità, responsabilità e affidabilità sono i valori fondamentali che ne guidano l’attività imprenditoriale. Ciò significa che, oltre a offrire prodotti di qualità a un prezzo sempre conveniente, si impegna anche per mantenere una produzione sostenibile e rispettosa dell’ambiente e degli animali. Una parte cospicua del fatturato ottenuto dai circa 1800 prodotti dell’assortimento standard di ALDI SUISSE proviene da articoli di origine svizzera. Con oltre 4000 collaboratori e 247 filiali, ALDI SUISSE si posiziona dal 2005 come uno dei più grandi datori di lavoro nel settore del commercio al dettaglio svizzero.",
+        "fr": "La nostra idea: insieme raggiungiamo più risultati, e questo si traduce in «di più per la vita».\n\nFianco a fianco raggiungiamo più risultati. Per questo puntiamo su collaboratori che non scappano di fronte alle sfide e si impegnano per raggiungere gli ambiziosi obiettivi di ALDI SUISSE. Insieme creiamo un clima aziendale che permette ai nostri collaboratori di creare un valore aggiunto p\n\nCompiti\n\n• Tutti i lavori necessari nel punto vendita\n\n• Gestione responsabile della cassa\n\n• Presentazione e preparazione dei prodotti\n\n• Raccolta di esperienza nella gestione a partire dal terzo anno di apprendistato\nProfilo\n\n• Gioia nel trattare articoli Food e Non-Food\n\n• Affidabilità\n\n• Disponibilità e spirito di squadra\n\n• Predisposizione ai contatti e atteggiamento amichevole\nLa nostra offerta\n\n• Formazione eccellente all’interno di un’azienda in crescita\n\n• Prospettive di carriera fino alla posizione di Gerente di filiale\n\n• Stipendio superiore alla media con abbonamento metà-prezzo\n\n• 6 settimane di ferie\n\n• E soprattutto nessun momento di noia, perché da noi nessuna giornata è uguale all’altra!\nLuogo di lavoro\n​​6850 Mendrisio, Via San Martino 16​\nInizio dell'impiego\n​01.08.2027​\nCandidatura online\nCandidati ora online e mandaci il tuo CV accompagnato da lettera di motivazione, foto e libretto scolastico.\nSaranno prese in considerazione unicamente le candidature di persone residenti o domiciliate in Ticino.\n\nI NOSTRI BENEFIT PER TE\n• Sempre più in alto con la carriera\n• Risparmia con noi\n• Essere bravi ha i suoi vantaggi\n• Pronti per il processo di selezione\n• Benefit per tutti\n• Ottime prospettive future\n• I tuoi orari\n• Lo stipendio più alto nel commercio al dettaglio svizzero\n• 6 settimane di vacanze\n• Lavorare senza mai annoiarsi\n• I migliori team\n\nA proposito di ALDI SUISSE AG\n\nALDI SUISSE AG è un’azienda svizzera con sede a Schwarzenbach (SG) e fa parte del gruppo aziendale ALDI SÜD, un’azienda operante a livello globale nel commercio al dettaglio. Semplicità, responsabilità e affidabilità sono i valori fondamentali che ne guidano l’attività imprenditoriale. Ciò significa che, oltre a offrire prodotti di qualità a un prezzo sempre conveniente, si impegna anche per mantenere una produzione sostenibile e rispettosa dell’ambiente e degli animali. Una parte cospicua del fatturato ottenuto dai circa 1800 prodotti dell’assortimento standard di ALDI SUISSE proviene da articoli di origine svizzera. Con oltre 4000 collaboratori e 247 filiali, ALDI SUISSE si posiziona dal 2005 come uno dei più grandi datori di lavoro nel settore del commercio al dettaglio svizzero."
       },
       "requirements": [
         "Tutti i lavori necessari nel punto vendita",
@@ -8654,18 +8654,22 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425497833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-22T21:47:19.574Z",
+      "crawledAt": "2026-10-23T09:37:30.452Z",
       "previousSlugsByLocale": {
         "en": [
-          "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
+          "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
+          "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio"
         ],
         "fr": [
-          "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
+          "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
+          "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
         ]
       },
       "previousSlugs": [
         "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
-        "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
+        "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
+        "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio",
+        "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
       ],
       "salaryMin": 46500,
       "salaryMax": 71500,
@@ -8680,7 +8684,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T10:19:27.720Z"
+      "firstSeenAt": "2026-08-18T10:19:27.720Z",
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-f93179880f8b",
