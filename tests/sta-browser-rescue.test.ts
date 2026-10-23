@@ -14,6 +14,14 @@ vi.mock('../scripts/lib/prospector/spec-crawler.mjs', async (importOriginal) => 
   };
 });
 
+// This contract test only exercises the transport handoff. Keep it runnable
+// in the sparse fixer checkout, where crawler-template's generated data
+// inputs are intentionally not materialized.
+vi.mock('../scripts/lib/crawler-template.mjs', () => ({
+  slugify: (value: string) => String(value),
+  stripHtml: (value: string) => String(value),
+}));
+
 import { fetchJobListings } from '../scripts/lib/sta-job-parser.mjs';
 
 describe('STA transport rescue', () => {
