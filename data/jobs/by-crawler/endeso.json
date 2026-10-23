@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "endeso-7684fbb2268f",
-      "slug": "haushaltshilfe-raumpflege-teilzeit-region-zurich-stadt-zurich-stadt-endeso-ch",
+      "slug": "aiuto-domestico-manutenzione-in-camera-part-time-regione-zurigo-citta-endeso-gmbh-zurich-stadt",
       "slugByLocale": {
         "de": "haushaltshilfe-raumpflege-teilzeit-region-zurich-stadt-zurich-stadt-endeso-ch",
-        "it": "haushaltshilfe-raumpflege-teilzeit-region-zurich-stadt-zurich-stadt-endeso-ch",
-        "en": "haushaltshilfe-raumpflege-teilzeit-region-zurich-stadt-zurich-stadt-endeso-ch",
-        "fr": "haushaltshilfe-raumpflege-teilzeit-region-zurich-stadt-zurich-stadt-endeso-ch"
+        "it": "aiuto-domestico-manutenzione-in-camera-part-time-regione-zurigo-citta-endeso-gmbh-zurich-stadt",
+        "en": "household-help-room-maintenance-part-time-region-zurich-city-endeso-gmbh-zurich-stadt",
+        "fr": "aide-menagere-entretien-des-chambres-temps-partiel-region-zurich-ville-endeso-gmbh-zurich-stadt"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -69,16 +69,30 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-22T21:23:44.101Z"
+      "firstSeenAt": "2026-10-22T21:23:44.101Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "haushaltshilfe-raumpflege-teilzeit-region-zurich-stadt-zurich-stadt-endeso-ch"
+        ],
+        "en": [
+          "haushaltshilfe-raumpflege-teilzeit-region-zurich-stadt-zurich-stadt-endeso-ch"
+        ],
+        "fr": [
+          "haushaltshilfe-raumpflege-teilzeit-region-zurich-stadt-zurich-stadt-endeso-ch"
+        ]
+      },
+      "previousSlugs": [
+        "haushaltshilfe-raumpflege-teilzeit-region-zurich-stadt-zurich-stadt-endeso-ch"
+      ]
     },
     {
       "id": "endeso-8933cf765b98",
-      "slug": "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch",
+      "slug": "sviluppatore-sviluppatrice-web-backend-php-endeso-gmbh-thurgau-bodensee",
       "slugByLocale": {
         "de": "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch",
-        "it": "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch",
-        "en": "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch",
-        "fr": "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch"
+        "it": "sviluppatore-sviluppatrice-web-backend-php-endeso-gmbh-thurgau-bodensee",
+        "en": "backend-php-web-developer-endeso-gmbh-thurgau-bodensee",
+        "fr": "developpeur-euse-web-back-end-php-endeso-gmbh-thurgau-bodensee"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -137,17 +151,30 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-22T21:23:44.099Z"
+      "firstSeenAt": "2026-10-22T21:23:44.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch"
+        ],
+        "en": [
+          "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch"
+        ],
+        "fr": [
+          "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch"
+        ]
+      },
+      "previousSlugs": [
+        "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch"
+      ]
     },
     {
       "id": "endeso-e3c2710ddb50",
-      "slug": "regionalbetreiber-luzern-endeso-gmbh-luzern",
+      "slug": "operatore-regionale-lucerna-endeso-gmbh-luzern",
       "slugByLocale": {
         "de": "regionalbetreiber-luzern-luzern-endeso-ch",
-        "it": "regionalbetreiber-luzern-endeso-gmbh-luzern",
-        "en": "regionalbetreiber-luzern-endeso-gmbh-luzern",
-        "fr": "regionalbetreiber-luzern-endeso-gmbh-luzern"
+        "it": "operatore-regionale-lucerna-endeso-gmbh-luzern",
+        "en": "regional-operator-lucerne-endeso-gmbh-luzern",
+        "fr": "operateur-regional-lucerne-endeso-gmbh-luzern"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -208,22 +235,30 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
-          "regionalbetreiber-luzern-luzern-endeso-ch"
+          "regionalbetreiber-luzern-luzern-endeso-ch",
+          "regionalbetreiber-luzern-endeso-gmbh-luzern"
+        ],
+        "en": [
+          "regionalbetreiber-luzern-endeso-gmbh-luzern"
+        ],
+        "fr": [
+          "regionalbetreiber-luzern-endeso-gmbh-luzern"
         ]
       },
       "previousSlugs": [
-        "regionalbetreiber-luzern-luzern-endeso-ch"
+        "regionalbetreiber-luzern-luzern-endeso-ch",
+        "regionalbetreiber-luzern-endeso-gmbh-luzern"
       ],
       "firstSeenAt": "2026-10-22T21:23:44.098Z"
     },
     {
       "id": "endeso-8c8dd52323ac",
-      "slug": "personalberater-in-hr-funktionen-frauenfeld-endeso-ch",
+      "slug": "consulente-del-personale-per-funzioni-hr-endeso-gmbh-frauenfeld",
       "slugByLocale": {
         "de": "personalberater-in-hr-funktionen-frauenfeld-endeso-ch",
-        "it": "personalberater-in-hr-funktionen-frauenfeld-endeso-ch",
-        "en": "personalberater-in-hr-funktionen-frauenfeld-endeso-ch",
-        "fr": "personalberater-in-hr-funktionen-frauenfeld-endeso-ch"
+        "it": "consulente-del-personale-per-funzioni-hr-endeso-gmbh-frauenfeld",
+        "en": "recruitment-consultant-for-hr-functions-endeso-gmbh-frauenfeld",
+        "fr": "conseiller-ere-en-personnel-pour-les-fonctions-rh-endeso-gmbh-frauenfeld"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -282,8 +317,21 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-22T21:23:44.098Z"
+      "firstSeenAt": "2026-10-22T21:23:44.098Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalberater-in-hr-funktionen-frauenfeld-endeso-ch"
+        ],
+        "en": [
+          "personalberater-in-hr-funktionen-frauenfeld-endeso-ch"
+        ],
+        "fr": [
+          "personalberater-in-hr-funktionen-frauenfeld-endeso-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalberater-in-hr-funktionen-frauenfeld-endeso-ch"
+      ]
     },
     {
       "id": "endeso-c27e32a5cbd3",

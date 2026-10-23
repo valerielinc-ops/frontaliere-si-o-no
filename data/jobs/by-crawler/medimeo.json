@@ -241,12 +241,12 @@
     },
     {
       "id": "medimeo-0dc3285128a1",
-      "slug": "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-medimeo-ag-olten",
+      "slug": "medico-a-specialista-in-ginecologia-e-ostetricia-40-100-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch",
-        "it": "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-medimeo-ag-olten",
-        "en": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch",
-        "fr": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch"
+        "it": "medico-a-specialista-in-ginecologia-e-ostetricia-40-100-medimeo-ag-olten-aargau",
+        "en": "specialist-gynecology-and-obstetrics-40-100-medimeo-ag-olten-aargau",
+        "fr": "gynecologie-et-obstetrique-specialisees-40-100-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -290,14 +290,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch",
+          "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-medimeo-ag-olten"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch"
+        ],
+        "fr": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch"
+        "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch",
+        "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -317,12 +324,12 @@
     },
     {
       "id": "medimeo-5df1438bc7c7",
-      "slug": "facharztin-facharzt-psychiatrie-e-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen-medimeo-ag-winterthur",
+      "slug": "medico-a-specialista-in-psichiatria-e-psicoterapia-fino-al-50-a-tempo-parziale-nel-cantone-di-schaffhausen-medimeo-ag",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-und-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen",
-        "it": "facharztin-facharzt-psychiatrie-e-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen-medimeo-ag-winterthur",
-        "en": "facharztin-facharzt-psychiatrie-und-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen",
-        "fr": "facharztin-facharzt-psychiatrie-und-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen"
+        "it": "medico-a-specialista-in-psichiatria-e-psicoterapia-fino-al-50-a-tempo-parziale-nel-cantone-di-schaffhausen-medimeo-ag",
+        "en": "specialist-psychiatry-and-psychotherapy-up-to-50-part-time-in-the-canton-of-schaffhausen-medimeo-ag-winterthur",
+        "fr": "psychiatrie-specialisee-et-psychotherapie-jusqu-a-50-a-temps-partiel-dans-le-canton-de-schaffhausen-medimeo-ag"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -366,14 +373,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-psychiatrie-und-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen",
+          "facharztin-facharzt-psychiatrie-e-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen-medimeo-ag-winterthur"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-und-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen"
+        ],
+        "fr": [
           "facharztin-facharzt-psychiatrie-und-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-und-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen"
+        "facharztin-facharzt-psychiatrie-und-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen",
+        "facharztin-facharzt-psychiatrie-e-psychotherapie-bis-50-teilzeit-im-kanton-schaffhausen-medimeo-ag-winterthur"
       ],
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -393,12 +407,12 @@
     },
     {
       "id": "medimeo-af1249c4a1ce",
-      "slug": "facharztin-facharzt-geriatrische-medizin-im-pflegeheim-region-bern-berner-oberland",
+      "slug": "specialista-specialista-medicina-geriatrica-nella-casa-di-cura-medimeo-ag-region-bern-berner-oberland-emmental",
       "slugByLocale": {
         "de": "facharztin-facharzt-geriatrische-medizin-im-pflegeheim-region-bern-berner-oberland",
-        "it": "facharztin-facharzt-geriatrische-medizin-im-pflegeheim-region-bern-berner-oberland",
-        "en": "facharztin-facharzt-geriatrische-medizin-im-pflegeheim-region-bern-berner-oberland",
-        "fr": "facharztin-facharzt-geriatrische-medizin-im-pflegeheim-region-bern-berner-oberland"
+        "it": "specialista-specialista-medicina-geriatrica-nella-casa-di-cura-medimeo-ag-region-bern-berner-oberland-emmental",
+        "en": "specialist-specialist-geriatric-medicine-in-the-nursing-home-medimeo-ag-region-bern-berner-oberland-emmental",
+        "fr": "specialiste-specialiste-medecine-geriatrique-a-la-maison-de-retraite-medimeo-ag-region-bern-berner-oberland-emmental"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -456,16 +470,30 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-10-22T21:17:45.704Z"
+      "firstSeenAt": "2026-10-22T21:17:45.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-geriatrische-medizin-im-pflegeheim-region-bern-berner-oberland"
+        ],
+        "en": [
+          "facharztin-facharzt-geriatrische-medizin-im-pflegeheim-region-bern-berner-oberland"
+        ],
+        "fr": [
+          "facharztin-facharzt-geriatrische-medizin-im-pflegeheim-region-bern-berner-oberland"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-geriatrische-medizin-im-pflegeheim-region-bern-berner-oberland"
+      ]
     },
     {
       "id": "medimeo-a5d08e001437",
-      "slug": "facharztin-facharzt-kinder-e-jugendmedizin-50-100-con-medizinischer-leitung-medimeo-ag-olten",
+      "slug": "medico-a-specialista-in-pediatria-e-medicina-dell-adolescenza-50-100-con-direzione-medica-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau",
-        "it": "facharztin-facharzt-kinder-e-jugendmedizin-50-100-con-medizinischer-leitung-medimeo-ag-olten",
-        "en": "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau",
-        "fr": "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau"
+        "it": "medico-a-specialista-in-pediatria-e-medicina-dell-adolescenza-50-100-con-direzione-medica-medimeo-ag-olten-aargau",
+        "en": "specialist-pediatrician-and-adolescent-medicine-50-100-with-medical-direction-medimeo-ag-olten-aargau",
+        "fr": "medecin-pediatre-et-adolescent-specialise-50-100-avec-direction-medicale-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -509,14 +537,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau",
+          "facharztin-facharzt-kinder-e-jugendmedizin-50-100-con-medizinischer-leitung-medimeo-ag-olten"
+        ],
+        "en": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau"
+        ],
+        "fr": [
           "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau"
+        "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau",
+        "facharztin-facharzt-kinder-e-jugendmedizin-50-100-con-medizinischer-leitung-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

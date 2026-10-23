@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-235a73fd8e50",
-      "slug": "stage-en-actuariat-pour-etudiant-de-master-f-h-d-mobiliar-ch",
+      "slug": "stage-in-attuariato-per-studente-di-master-m-f-d-die-mobiliar-nyon",
       "slugByLocale": {
         "fr": "stage-en-actuariat-pour-etudiant-de-master-f-h-d-mobiliar-ch",
-        "it": "stage-en-actuariat-pour-etudiant-de-master-f-h-d-mobiliar-ch",
-        "en": "stage-en-actuariat-pour-etudiant-de-master-f-h-d-mobiliar-ch",
-        "de": "stage-en-actuariat-pour-etudiant-de-master-f-h-d-mobiliar-ch"
+        "it": "stage-in-attuariato-per-studente-di-master-m-f-d-die-mobiliar-nyon",
+        "en": "actuarial-internship-for-master-m-f-d-students-die-mobiliar-nyon",
+        "de": "versicherungsmathematisches-praktikum-fur-master-m-w-d-studenten-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -55,7 +55,6 @@
         "fr": []
       },
       "sfJobId": "1165665555",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -71,7 +70,21 @@
       },
       "postalCode": "1260",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-22T21:14:55.119Z"
+      "firstSeenAt": "2026-10-22T21:14:55.119Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-en-actuariat-pour-etudiant-de-master-f-h-d-mobiliar-ch"
+        ],
+        "en": [
+          "stage-en-actuariat-pour-etudiant-de-master-f-h-d-mobiliar-ch"
+        ],
+        "de": [
+          "stage-en-actuariat-pour-etudiant-de-master-f-h-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stage-en-actuariat-pour-etudiant-de-master-f-h-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-c81664769276",
@@ -174,12 +187,12 @@
     },
     {
       "id": "mobiliar-5579e1824c13",
-      "slug": "conseiller-ere-en-assurances-et-prevoyance-f-m-d-a-l-agence-generale-de-bulle-mobiliar-ch",
+      "slug": "assicurazione-e-provident-advisor-m-f-d-presso-l-agenzia-generale-bulle-die-mobiliar-bulle",
       "slugByLocale": {
         "fr": "conseiller-ere-en-assurances-et-prevoyance-f-m-d-a-l-agence-generale-de-bulle-mobiliar-ch",
-        "it": "conseiller-ere-en-assurances-et-prevoyance-f-m-d-a-l-agence-generale-de-bulle-mobiliar-ch",
-        "en": "conseiller-ere-en-assurances-et-prevoyance-f-m-d-a-l-agence-generale-de-bulle-mobiliar-ch",
-        "de": "conseiller-ere-en-assurances-et-prevoyance-f-m-d-a-l-agence-generale-de-bulle-mobiliar-ch"
+        "it": "assicurazione-e-provident-advisor-m-f-d-presso-l-agenzia-generale-bulle-die-mobiliar-bulle",
+        "en": "insurance-and-provident-advisor-m-f-d-at-the-bulle-general-agency-die-mobiliar-bulle",
+        "de": "versicherungs-und-versorgungsberater-m-w-d-bei-bulle-general-agency-die-mobiliar-bulle"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -239,16 +252,30 @@
       },
       "postalCode": "1630",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-22T21:14:53.592Z"
+      "firstSeenAt": "2026-10-22T21:14:53.592Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-assurances-et-prevoyance-f-m-d-a-l-agence-generale-de-bulle-mobiliar-ch"
+        ],
+        "en": [
+          "conseiller-ere-en-assurances-et-prevoyance-f-m-d-a-l-agence-generale-de-bulle-mobiliar-ch"
+        ],
+        "de": [
+          "conseiller-ere-en-assurances-et-prevoyance-f-m-d-a-l-agence-generale-de-bulle-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-assurances-et-prevoyance-f-m-d-a-l-agence-generale-de-bulle-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-4f1dc0f1d604",
-      "slug": "gestionnaire-specialise-du-support-vente-m-w-d-agence-generale-de-lausanne-nord-vaudois-die-mobiliar-lausanne",
+      "slug": "responsabile-specializzato-del-supporto-alle-vendite-m-f-d-agenzia-generale-di-lausanne-nord-vaudois-die-mobiliar",
       "slugByLocale": {
         "fr": "gestionnaire-specialise-du-support-vente-f-h-d-agence-generale-de-lausanne-nord-vaudois",
-        "it": "gestionnaire-specialise-du-support-vente-m-w-d-agence-generale-de-lausanne-nord-vaudois-die-mobiliar-lausanne",
-        "en": "gestionnaire-specialise-du-support-vente-f-h-d-agence-generale-de-lausanne-nord-vaudois",
-        "de": "gestionnaire-specialise-du-support-vente-f-h-d-agence-generale-de-lausanne-nord-vaudois"
+        "it": "responsabile-specializzato-del-supporto-alle-vendite-m-f-d-agenzia-generale-di-lausanne-nord-vaudois-die-mobiliar",
+        "en": "specialized-sales-support-manager-m-f-d-agence-generale-de-lausanne-nord-vaudois-die-mobiliar-lausanne",
+        "de": "spezialisierter-sales-support-manager-m-w-d-agence-generale-de-lausanne-nord-vaudois-die-mobiliar-lausanne"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -293,14 +320,21 @@
         "fr": []
       },
       "sfJobId": "1165664055",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-specialise-du-support-vente-f-h-d-agence-generale-de-lausanne-nord-vaudois",
+          "gestionnaire-specialise-du-support-vente-m-w-d-agence-generale-de-lausanne-nord-vaudois-die-mobiliar-lausanne"
+        ],
+        "en": [
+          "gestionnaire-specialise-du-support-vente-f-h-d-agence-generale-de-lausanne-nord-vaudois"
+        ],
+        "de": [
           "gestionnaire-specialise-du-support-vente-f-h-d-agence-generale-de-lausanne-nord-vaudois"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-specialise-du-support-vente-f-h-d-agence-generale-de-lausanne-nord-vaudois"
+        "gestionnaire-specialise-du-support-vente-f-h-d-agence-generale-de-lausanne-nord-vaudois",
+        "gestionnaire-specialise-du-support-vente-m-w-d-agence-generale-de-lausanne-nord-vaudois-die-mobiliar-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -321,12 +355,12 @@
     },
     {
       "id": "mobiliar-8593645b101b",
-      "slug": "schadenspezialist-m-w-d-agenzia-generale-baden-die-mobiliar-baden",
+      "slug": "specialista-sinistri-m-f-d-agenzia-generale-baden-die-mobiliar-baden",
       "slugByLocale": {
         "de": "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch",
-        "it": "schadenspezialist-m-w-d-agenzia-generale-baden-die-mobiliar-baden",
-        "en": "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch",
-        "fr": "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch"
+        "it": "specialista-sinistri-m-f-d-agenzia-generale-baden-die-mobiliar-baden",
+        "en": "damage-specialist-m-f-d-general-agency-baden-die-mobiliar-baden",
+        "fr": "specialiste-des-dommages-h-f-d-agence-generale-baden-die-mobiliar-baden"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -387,14 +421,21 @@
         ]
       },
       "sfJobId": "1165663955",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch",
+          "schadenspezialist-m-w-d-agenzia-generale-baden-die-mobiliar-baden"
+        ],
+        "en": [
+          "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch"
+        ],
+        "fr": [
           "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch"
+        "schadenspezialist-w-m-d-generalagentur-baden-mobiliar-ch",
+        "schadenspezialist-m-w-d-agenzia-generale-baden-die-mobiliar-baden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3996,8 +4037,7 @@
         }
       },
       "postalCode": "3004",
-      "addressRegion": "BE",
-      "needsRetranslation": true
+      "addressRegion": "BE"
     },
     {
       "id": "mobiliar-0cd73df633ad",
@@ -6198,7 +6238,6 @@
         ]
       },
       "firstSeenAt": "2026-10-22T09:17:01.856Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6817,9 +6856,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6883,17 +6922,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",
@@ -7189,9 +7229,9 @@
       "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
       "slugByLocale": {
         "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
-        "en": "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel",
+        "en": "m-d-generalagentur-biel-die-mobiliar-biel",
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
-        "fr": "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
+        "fr": "m-d-generalagentur-biel-die-mobiliar-biel"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -7236,17 +7276,18 @@
       "sfJobId": "1164039955",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
-        "m-d-generalagentur-biel-die-mobiliar-biel"
+        "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel",
+        "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch"
         ],
         "en": [
-          "m-d-generalagentur-biel-die-mobiliar-biel"
+          "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel"
         ],
         "fr": [
-          "m-d-generalagentur-biel-die-mobiliar-biel"
+          "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
         ]
       },
       "firstSeenAt": "2026-09-26T13:53:34.732Z",
@@ -7719,9 +7760,9 @@
       "slug": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
       "slugByLocale": {
         "it": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
-        "en": "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "en": "projektleiter-m-d-die-mobiliar-lenzburg",
         "de": "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "fr": "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
+        "fr": "projektleiter-m-d-die-mobiliar-lenzburg"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -7785,17 +7826,18 @@
       "sfJobId": "1164762355",
       "previousSlugs": [
         "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-lenzburg"
+        "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-lenzburg"
+          "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-lenzburg"
+          "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:35.788Z",

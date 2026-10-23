@@ -110,6 +110,38 @@ describe('r2-section-lock', () => {
     });
   });
 
+  it('normalizes request methods before deciding whether to retain a response body', async () => {
+    let seenMethod: string | undefined;
+    let bodyCancelled = false;
+    const request = createR2Request(
+      {
+        R2_S3_ENDPOINT: 'https://account.r2.cloudflarestorage.com',
+        R2_BUCKET: 'article-cdn',
+        R2_ACCESS_KEY_ID: 'access-key',
+        R2_SECRET_ACCESS_KEY: 'secret-key',
+      },
+      {
+        fetchImpl: async (_url, init) => {
+          seenMethod = String(init?.method);
+          return {
+            status: 200,
+            body: { cancel: () => { bodyCancelled = true; } },
+            text: async () => {
+              if (bodyCancelled) throw new Error('response body was cancelled');
+              return '{"owner":"lock"}';
+            },
+          };
+        },
+      },
+    );
+
+    const response = await request({ method: 'get', key: lockKey('frontaliere') });
+
+    expect(seenMethod).toBe('GET');
+    expect(bodyCancelled).toBe(false);
+    await expect(response.text()).resolves.toBe('{"owner":"lock"}');
+  });
+
   it('requests unencoded lock metadata so R2 keeps a strong ETag for CAS', async () => {
     let seen: { init: RequestInit } | undefined;
     const request = createR2Request(

@@ -11113,7 +11113,6 @@
         "assistenzarztin-assistenzarzt-a-notfallzentrum-80-100-ab-marz-2027-hirslanden-zurich"
       ],
       "firstSeenAt": "2026-06-10T12:25:49.000Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -25172,12 +25171,12 @@
     {
       "id": "hirslanden-0185506d871d",
       "externalId": "1449900933",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-come-dauernachtwache-a-80-100-hirslanden-klinik-hirslanden",
+      "slug": "infermiera-diplomata-infermiere-diplomato-con-specializzazione-in-cardiochirurgia-come-personale-per-il-turno-di-notte",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-als-dauernachtwache-a-80-100",
-        "it": "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-come-dauernachtwache-a-80-100-hirslanden-klinik-hirslanden",
-        "en": "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-als-dauernachtwache-a-80-100",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-als-dauernachtwache-a-80-100"
+        "it": "infermiera-diplomata-infermiere-diplomato-con-specializzazione-in-cardiochirurgia-come-personale-per-il-turno-di-notte",
+        "en": "dipl-nursing-specialist-nursing-specialist-focus-on-heart-surgery-as-a-permanent-night-watch-a-80-100-hirslanden-klinik",
+        "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-se-concentre-sur-la-chirurgie-cardiaque-en-tant"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25222,14 +25221,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-als-dauernachtwache-a-80-100",
+          "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-come-dauernachtwache-a-80-100-hirslanden-klinik-hirslanden"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-als-dauernachtwache-a-80-100"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-als-dauernachtwache-a-80-100"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-als-dauernachtwache-a-80-100"
+        "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-als-dauernachtwache-a-80-100",
+        "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-herzchirurgie-come-dauernachtwache-a-80-100-hirslanden-klinik-hirslanden"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -25249,12 +25255,12 @@
     {
       "id": "hirslanden-b7326254d8fe",
       "externalId": "1449888233",
-      "slug": "praktikantin-praktikant-a-business-development-100-per-1-jahr-befristet-hirslanden-klinik-hirslanden",
+      "slug": "stagista-a-business-development-100-a-tempo-determinato-per-1-anno-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "praktikantin-praktikant-a-business-development-100-fur-1-jahr-befristet-hirslanden",
-        "it": "praktikantin-praktikant-a-business-development-100-per-1-jahr-befristet-hirslanden-klinik-hirslanden",
-        "en": "praktikantin-praktikant-a-business-development-100-fur-1-jahr-befristet-hirslanden",
-        "fr": "praktikantin-praktikant-a-business-development-100-fur-1-jahr-befristet-hirslanden"
+        "it": "stagista-a-business-development-100-a-tempo-determinato-per-1-anno-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "en": "intern-intern-a-business-development-100-temporary-for-1-year-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "stagiaire-interne-a-developpement-des-entreprises-100-temporaire-pendant-1-an-hirslanden-klinik-hirslanden-klinik"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25302,11 +25308,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "praktikantin-praktikant-a-business-development-100-fur-1-jahr-befristet-hirslanden",
+          "praktikantin-praktikant-a-business-development-100-per-1-jahr-befristet-hirslanden-klinik-hirslanden"
+        ],
+        "en": [
+          "praktikantin-praktikant-a-business-development-100-fur-1-jahr-befristet-hirslanden"
+        ],
+        "fr": [
           "praktikantin-praktikant-a-business-development-100-fur-1-jahr-befristet-hirslanden"
         ]
       },
       "previousSlugs": [
-        "praktikantin-praktikant-a-business-development-100-fur-1-jahr-befristet-hirslanden"
+        "praktikantin-praktikant-a-business-development-100-fur-1-jahr-befristet-hirslanden",
+        "praktikantin-praktikant-a-business-development-100-per-1-jahr-befristet-hirslanden-klinik-hirslanden"
       ],
       "salaryMin": 71000,
       "salaryMax": 120500,
@@ -26534,12 +26548,12 @@
     {
       "id": "hirslanden-f8b08d2f28a6",
       "externalId": "1450410733",
-      "slug": "stellvertretende-leitung-operationssaal-a-100-hirslanden-hirslanden-klinik-im-park",
+      "slug": "capo-unita-aggiunto-a-100-hirslanden-klinik-hirslanden-klinik-im-park",
       "slugByLocale": {
         "de": "stellvertretende-leitung-operationssaal-a-100-hirslanden-hirslanden-klinik-im-park",
-        "it": "stellvertretende-leitung-operationssaal-a-100-hirslanden-hirslanden-klinik-im-park",
-        "en": "stellvertretende-leitung-operationssaal-a-100-hirslanden-hirslanden-klinik-im-park",
-        "fr": "stellvertretende-leitung-operationssaal-a-100-hirslanden-hirslanden-klinik-im-park"
+        "it": "capo-unita-aggiunto-a-100-hirslanden-klinik-hirslanden-klinik-im-park",
+        "en": "deputy-head-of-operations-room-a-100-hirslanden-klinik-hirslanden-klinik-im-park",
+        "fr": "chef-adjoint-des-operations-salle-a-100-hirslanden-klinik-hirslanden-klinik-im-park"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26597,17 +26611,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:26:13.328Z"
+      "firstSeenAt": "2026-10-22T21:26:13.328Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-leitung-operationssaal-a-100-hirslanden-hirslanden-klinik-im-park"
+        ],
+        "en": [
+          "stellvertretende-leitung-operationssaal-a-100-hirslanden-hirslanden-klinik-im-park"
+        ],
+        "fr": [
+          "stellvertretende-leitung-operationssaal-a-100-hirslanden-hirslanden-klinik-im-park"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-leitung-operationssaal-a-100-hirslanden-hirslanden-klinik-im-park"
+      ]
     },
     {
       "id": "hirslanden-842295db68ed",
       "externalId": "1450158633",
-      "slug": "pflegehelferin-pflegehelfer-srk-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden",
+      "slug": "assistente-infermieristico-srk-concentrarsi-sulla-chirurgia-viscerale-a-80-100-hirslanden-klinik-hirslanden-klinik",
       "slugByLocale": {
         "de": "pflegehelferin-pflegehelfer-srk-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden",
-        "it": "pflegehelferin-pflegehelfer-srk-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden",
-        "en": "pflegehelferin-pflegehelfer-srk-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden",
-        "fr": "pflegehelferin-pflegehelfer-srk-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden"
+        "it": "assistente-infermieristico-srk-concentrarsi-sulla-chirurgia-viscerale-a-80-100-hirslanden-klinik-hirslanden-klinik",
+        "en": "nursing-assistant-srk-focus-on-visceral-surgery-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "assistante-infirmiere-srk-focalisation-sur-la-chirurgie-viscerale-a-80-100-hirslanden-klinik-hirslanden-klinik"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26665,17 +26693,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:26:12.213Z"
+      "firstSeenAt": "2026-10-22T21:26:12.213Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelferin-pflegehelfer-srk-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden"
+        ],
+        "en": [
+          "pflegehelferin-pflegehelfer-srk-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden"
+        ],
+        "fr": [
+          "pflegehelferin-pflegehelfer-srk-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelferin-pflegehelfer-srk-schwerpunkt-viszeralchirurgie-a-80-100-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-bb426f3bfb9b",
       "externalId": "1450366633",
-      "slug": "agent-e-de-sterilisation-a-100-hirslanden-hirslanden-clinique-cecil",
+      "slug": "100-agente-di-sterilizzazione-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "fr": "agent-e-de-sterilisation-a-100-hirslanden-hirslanden-clinique-cecil",
-        "it": "agent-e-de-sterilisation-a-100-hirslanden-hirslanden-clinique-cecil",
+        "it": "100-agente-di-sterilizzazione-hirslanden-klinik-hirslanden-clinique-cecil",
         "en": "agent-e-de-sterilisation-a-100-hirslanden-hirslanden-clinique-cecil",
-        "de": "agent-e-de-sterilisation-a-100-hirslanden-hirslanden-clinique-cecil"
+        "de": "100-sterilisationsmittel-hirslanden-klinik-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26733,17 +26775,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:26:11.089Z"
+      "firstSeenAt": "2026-10-22T21:26:11.089Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-de-sterilisation-a-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "agent-e-de-sterilisation-a-100-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-de-sterilisation-a-100-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-9d99e475a00a",
       "externalId": "1450149933",
-      "slug": "infirmier-ere-en-soins-intensifs-a-100-hirslanden-hirslanden-clinique-cecil",
+      "slug": "100-infermiera-di-cura-intensiva-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "fr": "infirmier-ere-en-soins-intensifs-a-100-hirslanden-hirslanden-clinique-cecil",
-        "it": "infirmier-ere-en-soins-intensifs-a-100-hirslanden-hirslanden-clinique-cecil",
-        "en": "infirmier-ere-en-soins-intensifs-a-100-hirslanden-hirslanden-clinique-cecil",
-        "de": "infirmier-ere-en-soins-intensifs-a-100-hirslanden-hirslanden-clinique-cecil"
+        "it": "100-infermiera-di-cura-intensiva-hirslanden-klinik-hirslanden-clinique-cecil",
+        "en": "100-intensive-care-nurse-hirslanden-klinik-hirslanden-clinique-cecil",
+        "de": "100-intensivpflege-krankenschwester-hirslanden-klinik-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26801,7 +26854,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:26:09.974Z"
+      "firstSeenAt": "2026-10-22T21:26:09.974Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-soins-intensifs-a-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "en": [
+          "infirmier-ere-en-soins-intensifs-a-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "infirmier-ere-en-soins-intensifs-a-100-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-soins-intensifs-a-100-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-3f509406fcd0",
