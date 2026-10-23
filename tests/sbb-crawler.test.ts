@@ -330,6 +330,51 @@ describe('parseSbbDetailPage — body location override', () => {
     expect(result.location).toBe('Chur');
   });
 
+  it('extracts a city when the current metadata template splits it across sibling blocks', () => {
+    const fixture = `<!DOCTYPE html><html lang="de"><head>
+      <script type="application/ld+json">{"@type":"JobPosting","title":"Automatiker:in",
+        "jobLocation":{"address":{"addressLocality":"Bern"}}}</script>
+      </head><body><main><h1>Automatiker:in</h1>
+        <div>Olten</div>
+        <div>ab sofort oder nach Vereinbarung</div>
+        <div>60-100%</div>
+        <h2>Darauf kannst du dich freuen</h2>
+        <p>Eine ausführliche Beschreibung der Stelle und ihrer Aufgaben.</p>
+      </main></body></html>`;
+
+    expect(extractSbbBodyLocation(fixture)).toBe('Olten');
+    expect(parseSbbDetailPage(fixture).location).toBe('Olten');
+  });
+
+  it('does not join an employer city to a later vacancy marker', () => {
+    const fixture = `<!DOCTYPE html><html lang="de"><body><main>
+      <h1>Automatiker:in</h1>
+      <div>Bern</div>
+      <div>Swiss Federal Railways</div>
+      <div>ab sofort</div>
+      <div>Olten</div>
+      <div>60-100%</div>
+      <h2>Darauf kannst du dich freuen</h2>
+      <p>Eine ausführliche Beschreibung der Stelle und ihrer Aufgaben.</p>
+    </main></body></html>`;
+
+    expect(extractSbbBodyLocation(fixture)).toBe('Olten');
+  });
+
+  it('does not bind an employer city to a start marker across the vacancy city', () => {
+    const fixture = `<!DOCTYPE html><html lang="de"><body><main>
+      <h1>Automatiker:in</h1>
+      <div>Bern</div>
+      <div>ab sofort</div>
+      <div>Olten</div>
+      <div>60-100%</div>
+      <h2>Darauf kannst du dich freuen</h2>
+      <p>Eine ausführliche Beschreibung der Stelle und ihrer Aufgaben.</p>
+    </main></body></html>`;
+
+    expect(extractSbbBodyLocation(fixture)).toBe('Olten');
+  });
+
   it('shows why runner-side API city fallback is still needed for some SBB pages', () => {
     const fixture = `<!DOCTYPE html>
     <html lang="de">

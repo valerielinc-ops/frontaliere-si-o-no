@@ -25,6 +25,7 @@ import { readAttr, scanHtmlTags } from '../html-attr.mjs';
 import {
   evaluateSourceBackedSwissGeography,
   JOB_LOCATION_CLASS_TOKENS,
+  JOB_LOCATION_VALUE_CLASS_TOKENS,
   locationEvidenceCandidates,
   schemaJobLocationCandidates,
 } from './location-evidence.mjs';
@@ -1533,6 +1534,19 @@ export function renderedJobLocationValues(html = '', title = '') {
   ));
   const values = [];
   const seen = new Set();
+  const addValue = (opening) => {
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) return;
+    const value = bodyTextOf(source.slice(opening.end, bounds.contentEnd))
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (!value || value.length > MAX_WORKPLACE_LABEL_VALUE) return;
+    const key = value.toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    values.push(value);
+  };
+
   for (const opening of index.openings) {
     if (inChrome(opening) || VOID_HTML_TAGS.has(opening.name)) continue;
     const classTokens = [readAttr(opening.raw, 'class'), readAttr(opening.raw, 'id')]
@@ -1542,14 +1556,23 @@ export function renderedJobLocationValues(html = '', title = '') {
     if (!classTokens.some((token) => JOB_LOCATION_CLASS_TOKENS.has(token))) continue;
     const bounds = index.boundsByStart.get(opening.index);
     if (!bounds) continue;
-    const value = bodyTextOf(source.slice(opening.end, bounds.contentEnd))
-      .replace(/\s+/g, ' ')
-      .trim();
-    if (!value || value.length > MAX_WORKPLACE_LABEL_VALUE) continue;
-    const key = value.toLowerCase();
-    if (seen.has(key)) continue;
-    seen.add(key);
-    values.push(value);
+    const nestedValues = index.openings.filter((candidate) => {
+      if (candidate.index <= opening.index || candidate.index >= bounds.contentEnd) return false;
+      if (inChrome(candidate) || VOID_HTML_TAGS.has(candidate.name)) return false;
+      const candidateTokens = String(readAttr(candidate.raw, 'class') || '')
+        .split(/\s+/)
+        .filter(Boolean)
+        .map((token) => token.toLowerCase());
+      return candidateTokens.some((token) => JOB_LOCATION_VALUE_CLASS_TOKENS.has(token));
+    });
+    // Keep each source-declared workplace separately. Reading the wrapper as
+    // one concatenated string would turn an ambiguous multi-site field into a
+    // false single match and would hide the conflict from the audit.
+    if (nestedValues.length > 0) {
+      for (const nested of nestedValues) addValue(nested);
+    } else {
+      addValue(opening);
+    }
   }
   return values;
 }
