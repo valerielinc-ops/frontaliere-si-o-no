@@ -11,6 +11,7 @@ import {
   imageNamespaceLockKey,
   parseImageNamespaces,
   releaseImageNamespaceLeases,
+  releaseNotOwnedIsFatal,
   serializeImageLeaseContext,
   verifyImageNamespaceLease,
 } from '../../scripts/lib/r2-image-namespace-lock.mjs';
@@ -918,6 +919,12 @@ globalThis.fetch = async (url, options = {}) => {
 
     await expect(releaseImageNamespaceLeases(leases, { request })).resolves.toEqual([]);
     expect(objects.get(key)?.payload).toMatchObject({ owner: 'new-owner', leaseId: 'new-owner-lease' });
+  });
+
+  it('keeps candidate cleanup non-fatal when another owner holds the lease', () => {
+    expect(releaseNotOwnedIsFatal({ fenceMissingCandidate: true })).toBe(false);
+    expect(releaseNotOwnedIsFatal({ fenceMissingCandidate: false })).toBe(true);
+    expect(releaseNotOwnedIsFatal({ ignoreNotOwned: true })).toBe(false);
   });
 
   it('rejects malformed contexts before making an R2 request', async () => {
