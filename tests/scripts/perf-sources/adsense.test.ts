@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import * as adsenseMod from '../../../scripts/lib/perf-sources/adsense.mjs';
+import { AD_CLIENT } from '../../../services/adsenseSlots.ts';
 
 const { fetchAdsenseChannelRevenue } = adsenseMod as any;
 
@@ -20,12 +21,11 @@ function row(date: string, channel: string, earnings: number | string) {
 }
 
 const TOKEN_BODY = { access_token: 'fake-token-xyz' };
-const ACCOUNTS_BODY = { accounts: [{ name: 'accounts/pub-1234567890' }] };
+const ADSENSE_ACCOUNT = `accounts/${AD_CLIENT.replace(/^ca-/, '')}`;
 
 /**
  * Build a sequenced mock-fetch that returns:
  *   1. token endpoint
- *   2. accounts endpoint
  *   3..N. report pages (one per call, in the order supplied)
  * Anything beyond throws.
  */
@@ -35,9 +35,6 @@ function makeFetchSequence(reportPages: any[]) {
   const fetchImpl = vi.fn(async (url: string, init?: any) => {
     calls.push({ url, init });
     if (url.includes('oauth2.googleapis.com/token')) return jsonRes(TOKEN_BODY);
-    if (url.includes('/v2/accounts') && !url.includes('reports:generate')) {
-      return jsonRes(ACCOUNTS_BODY);
-    }
     if (url.includes('reports:generate')) {
       const page = reportPages[i++];
       if (!page) throw new Error(`unexpected extra report call (i=${i})`);
@@ -63,6 +60,15 @@ describe('fetchAdsenseChannelRevenue', () => {
   afterEach(() => {
     process.env = ORIG_ENV;
     vi.restoreAllMocks();
+  });
+
+  it('queries the AD_CLIENT publisher account directly instead of taking the first listed account', async () => {
+    const { fetchImpl, calls } = makeFetchSequence([{ rows: [] }]);
+
+    const result = await fetchAdsenseChannelRevenue({ windowDays: 30, fetchImpl, log: () => {} });
+
+    expect(new URL(calls[1].url).pathname).toBe(`/v2/${ADSENSE_ACCOUNT}/reports:generate`);
+    expect(calls.some((call) => call.url === 'https://adsense.googleapis.com/v2/accounts')).toBe(false);
   });
 
   it('aggregates a single-page response into per-channel totals', async () => {

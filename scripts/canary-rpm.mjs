@@ -58,6 +58,9 @@
  */
 
 import process from "node:process";
+import { realpathSync } from "node:fs";
+import { pathToFileURL } from "node:url";
+import { resolveAdSenseAccount } from "./lib/adsense-account.mjs";
 import {
   classifyRpm,
   classifyCoverage,
@@ -85,8 +88,8 @@ const log = (line) => {
   else console.log(line);
 };
 
-async function refreshAccessToken({ clientId, clientSecret, refreshToken }) {
-  const res = await fetch("https://oauth2.googleapis.com/token", {
+async function refreshAccessToken({ clientId, clientSecret, refreshToken, fetchImpl = fetch }) {
+  const res = await fetchImpl("https://oauth2.googleapis.com/token", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
@@ -104,23 +107,17 @@ function fmtDate(d) {
   return d.toISOString().slice(0, 10);
 }
 
-async function fetchDailyRpm() {
+export async function fetchDailyRpm({ fetchImpl = fetch, now = new Date() } = {}) {
   const refreshToken = process.env.ADSENSE_REFRESH_TOKEN;
   const clientId = process.env.ADSENSE_CLIENT_ID || process.env.GSC_CLIENT_ID;
   const clientSecret = process.env.ADSENSE_CLIENT_SECRET || process.env.GSC_CLIENT_SECRET;
   if (!refreshToken || !clientId || !clientSecret) {
     throw new Error("missing AdSense OAuth credentials (ADSENSE_REFRESH_TOKEN / *_CLIENT_ID / *_CLIENT_SECRET)");
   }
-  const token = await refreshAccessToken({ clientId, clientSecret, refreshToken });
-  const acctRes = await fetch("https://adsense.googleapis.com/v2/accounts", {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  if (!acctRes.ok) throw new Error(`adsense accounts ${acctRes.status}: ${await acctRes.text()}`);
-  const acctData = await acctRes.json();
-  const account = acctData.accounts?.[0]?.name;
-  if (!account) throw new Error("no AdSense account on this token");
+  const token = await refreshAccessToken({ clientId, clientSecret, refreshToken, fetchImpl });
+  const account = resolveAdSenseAccount();
 
-  const end = new Date();
+  const end = new Date(now);
   const start = new Date(end);
   start.setUTCDate(start.getUTCDate() - 14);
   const startStr = fmtDate(start);
@@ -144,7 +141,7 @@ async function fetchDailyRpm() {
   params.append("dimensions", "DATE");
 
   const url = `https://adsense.googleapis.com/v2/${account}/reports:generate?${params}`;
-  const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+  const res = await fetchImpl(url, { headers: { Authorization: `Bearer ${token}` } });
   if (!res.ok) throw new Error(`adsense daily ${res.status}: ${await res.text()}`);
   const data = await res.json();
   const rows = (data.rows || []).map((r) => ({
@@ -235,4 +232,9 @@ async function main() {
   process.exit(0);
 }
 
-main();
+if (process.argv[1] && (() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
+  catch { return false; }
+})()) {
+  main();
+}
