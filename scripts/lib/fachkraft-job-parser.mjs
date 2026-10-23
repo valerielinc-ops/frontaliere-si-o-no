@@ -354,7 +354,14 @@ function freshDetailListing(row, page) {
   };
 }
 
-async function fetchFachkraftPage(url, transport, urlPolicy, signal, label) {
+async function fetchFachkraftPage(
+  url,
+  transport,
+  urlPolicy,
+  signal,
+  label,
+  fetchJinaImpl = fetchHtmlViaJinaWithRetry,
+) {
   const startedAt = Date.now();
   const result = await politeFetch(url, {
     urlPolicy,
@@ -373,16 +380,28 @@ async function fetchFachkraftPage(url, transport, urlPolicy, signal, label) {
     retryBaseMs: transport.retryBaseMs,
     timeoutMs: transport.requestTimeoutMs,
   });
+  const jinaOptions = {
+    timeoutMs: transport.requestTimeoutMs,
+    retries: transport.retries,
+    retryBaseMs: transport.retryBaseMs,
+    fetchImpl: transport.fetchImpl,
+    sleepImpl: transport.sleepImpl,
+  };
+  if (result.status === 403 && !result.policyBlocked && !result.blockedByRobots) {
+    try {
+      console.warn(`⚠️ fachkraft ${label} returned HTTP 403 — trying Jina egress rescue`);
+      const rescued = await fetchJinaImpl(url, jinaOptions);
+      if (rescued != null && !looksLikeAntiBotChallenge(rescued)) {
+        return { ...result, body: rescued, status: 200, proxiedBy: 'jina' };
+      }
+    } catch (error) {
+      console.warn(`⚠️ fachkraft ${label} Jina rescue failed: ${error?.message || error}`);
+    }
+  }
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
   if (result.ok && !directChallenge) return result;
   if (directChallenge) {
-    const rescued = await fetchHtmlViaJinaWithRetry(url, {
-      timeoutMs: transport.requestTimeoutMs,
-      retries: transport.retries,
-      retryBaseMs: transport.retryBaseMs,
-      fetchImpl: transport.fetchImpl,
-      sleepImpl: transport.sleepImpl,
-    });
+    const rescued = await fetchJinaImpl(url, jinaOptions);
     if (rescued != null && !looksLikeAntiBotChallenge(rescued)) {
       return { ...result, body: rescued, status: 200, proxiedBy: 'jina' };
     }
@@ -405,7 +424,13 @@ async function fetchFachkraftPage(url, transport, urlPolicy, signal, label) {
   throw error;
 }
 
-async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, maxPages }) {
+async function fetchFachkraftListingSnapshot({
+  transport,
+  urlPolicy,
+  signal,
+  maxPages,
+  fetchJinaImpl,
+}) {
   const rows = [];
   const seenPages = new Set();
   const seenRows = new Set();
@@ -431,6 +456,7 @@ async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, max
       urlPolicy,
       signal,
       pages === 0 ? 'listing' : `listing page ${pages + 1}`,
+      fetchJinaImpl,
     );
     const pageRows = parseFachkraftListingPage(listingPage.body);
     const navigation = parseFachkraftListingNavigation(listingPage.body, pageUrl);
@@ -508,6 +534,7 @@ export async function fetchFachkraftSnapshot(options = {}) {
     'ERR_FACHKRAFT_RUN_TIMEOUT',
   )), runTimeoutMs);
   const transport = createBoundedRuntime(options, runController.signal);
+  const fetchJinaImpl = options.fetchJinaImpl || fetchHtmlViaJinaWithRetry;
   const spec = options.spec || loadSpec(FACHKRAFT_KEY);
   const urlPolicy = createSpecUrlPolicy(spec, { lookupImpl: transport.lookupImpl });
   try {
@@ -519,6 +546,7 @@ export async function fetchFachkraftSnapshot(options = {}) {
       urlPolicy,
       signal: runController.signal,
       maxPages: FACHKRAFT_MAX_LISTING_PAGES,
+      fetchJinaImpl,
     });
     const { rows } = listing;
     const declaredLabel = listing.listingCountDrift
@@ -559,6 +587,7 @@ export async function fetchFachkraftSnapshot(options = {}) {
             urlPolicy,
             detailSignal,
             `detail ${item.index + 1}/${rows.length}`,
+            fetchJinaImpl,
           );
           const fresh = freshDetailListing(item.row, page);
           if (fresh) enriched[item.index] = fresh;

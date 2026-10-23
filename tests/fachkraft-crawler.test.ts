@@ -660,6 +660,40 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
     });
 
+    it('rescues a 403 detail through Jina while remaining fail-closed if rescue is unavailable', async () => {
+      const title = 'Polymechaniker/in';
+      const detailUrl = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+      const cards = listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' }));
+      const fetchImpl = async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') return new Response(cards, { status: 200 });
+        if (target === detailUrl) return new Response('blocked by WAF', { status: 403 });
+        throw new Error(`unexpected fetch: ${target}`);
+      };
+      const fetchJinaImpl = vi.fn().mockResolvedValue(detailHtml({ title, description: words(55, 'rescued') }));
+
+      const snapshot = await fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        fetchJinaImpl,
+        existingJobs: [],
+      });
+
+      expect(fetchJinaImpl).toHaveBeenCalledWith(detailUrl, expect.objectContaining({
+        timeoutMs: runtimeOptions.requestTimeoutMs,
+      }));
+      expect(snapshot).toHaveLength(1);
+      expect(snapshot[0]?.description).toContain('rescued55');
+      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+
+      await expect(fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        fetchJinaImpl: vi.fn().mockResolvedValue(null),
+        existingJobs: [],
+      })).rejects.toThrow(/fachkraft detail .*failed.*HTTP 403/i);
+    });
+
     it('aborts a hung request and exhausts only the configured bounded retry count', async () => {
       let attempts = 0;
       const fetchImpl = () => {
