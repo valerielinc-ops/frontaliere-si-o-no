@@ -248,6 +248,25 @@ describe('USI listing transport rescue', () => {
     expect(browserFetchImpl).toHaveBeenCalledWith(listingUrl, 1000);
   });
 
+  it('tries the verified clean-egress rescue before Chromium', async () => {
+    const fetchHtmlImpl = vi.fn(async () => {
+      const error: any = new Error('HTTP 403');
+      error.status = 403;
+      throw error;
+    });
+    const translateFetchImpl = vi.fn(async () => listingHtml);
+    const browserFetchImpl = vi.fn(async () => listingHtml);
+
+    await expect(fetchPage(listingUrl, 1000, {
+      fetchHtmlImpl,
+      translateFetchImpl,
+      browserFetchImpl,
+    })).resolves.toBe(listingHtml);
+
+    expect(translateFetchImpl).toHaveBeenCalledWith(listingUrl, 1000);
+    expect(browserFetchImpl).not.toHaveBeenCalled();
+  });
+
   it('rescues a known 200 challenge but does not browser-fallback a real endpoint error', async () => {
     const browserFetchImpl = vi.fn(async () => listingHtml);
     const challenge = '<html><body>Just a moment... enable JavaScript and cookies to continue</body></html>';
