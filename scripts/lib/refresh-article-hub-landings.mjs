@@ -31,7 +31,7 @@ import {
   hasBlogImageLeak,
   rewriteBlogImageRefs,
 } from '../../packages/articles/engine/blogImageCdnFinalize.ts';
-import { buildTwitterCardMetaTags } from '../../packages/articles/engine/shared/twitterCardMeta';
+import { buildTwitterCardMetaTags } from '../../packages/articles/engine/shared/twitterCardMeta.ts';
 import { compareArticleSourceDates } from '../../services/articleSourceDates.ts';
 
 export const ARTICLE_HUB_LANDING_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
