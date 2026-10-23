@@ -1656,10 +1656,11 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
     expect(body).not.toContain("aggregate_crawler_member 'sta' 'sta'");
   });
 
-  it('keeps the aggregate green when the issue cannot be filed', () => {
+  it('fails closed when the watchdog issue cannot be filed', () => {
     const { stdout, argv, output } = runAggregate({ status: '124', marker: '91', nodeExit: 1 });
     expect(argv).toHaveLength(1);
-    expect(stdout).toContain('::warning::sbb: the watchdog-timeout issue could not be filed');
+    expect(stdout).toContain('::error::sbb: the watchdog-timeout issue could not be filed; failing the group verdict');
+    expect(output).toContain('failure_count=2');
     expect(output).toContain('wait_outcome=failure');
   });
 });
