@@ -149,7 +149,7 @@ describe('JobBoardFilterAlertCta', () => {
 
   it('keeps the route city beside its canton in the one-tap service payload', async () => {
     const filters = {
-      locations: ['Lugano'],
+      locations: ['lugano'],
       contractTypes: ['part-time'],
       sectors: ['healthcare'],
     };

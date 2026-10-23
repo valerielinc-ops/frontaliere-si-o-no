@@ -364,9 +364,12 @@ describe('#13204 — board one-tap preserves only criteria supported by JobAlert
     expect(board).toContain('keywordLabel={boardFilterAlertKeywordLabel}');
     expect(board).toContain(`const selectedBoardAlertLocation = selectedLocation === 'all'
   ? null
-  : uniqueLocalities.find((locality) => locality.value === selectedLocation)?.label || selectedLocation;`);
-    expect(board).toContain(`const boardFilterAlertLocations = boardRouteAlertLocation
-  ? [boardRouteAlertLocation]
+  : normalizeJobAlertLocationValue(selectedLocation);`);
+    expect(board).toContain(`const boardRouteAlertLocationValue = boardRouteAlertLocation
+  ? normalizeJobAlertLocationValue(boardRouteAlertLocation)
+  : null;`);
+    expect(board).toContain(`const boardFilterAlertLocations = boardRouteAlertLocationValue
+  ? [boardRouteAlertLocationValue]
   : selectedBoardAlertLocation
    ? [selectedBoardAlertLocation]
    : [];`);
@@ -383,10 +386,16 @@ describe('#13204 — board one-tap preserves only criteria supported by JobAlert
     expect(service).toContain('sectors: [...(filters?.sectors ?? [])]');
 
     const form = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(form).toContain('normalizeJobAlertLocationValues(initialLocations)');
+    expect(form).toContain('const value = normalizeJobAlertLocationValue(location)');
     expect(form).toContain('locations: selectedLocations');
     expect(form).toContain('contractTypes: selectedContracts');
     expect(form).toContain('sectors: selectedSectors');
     expect(form).toContain('cantonFilter: selectedCantons.length > 0 ? selectedCantons : null');
+
+    const locations = fs.readFileSync(path.join(ROOT, 'services/jobAlertLocations.ts'), 'utf-8');
+    expect(locations).toContain("{ value: 'lugano', label: 'Lugano' }");
+    expect(locations).toContain('export function normalizeJobAlertLocationValue');
   });
 });
 

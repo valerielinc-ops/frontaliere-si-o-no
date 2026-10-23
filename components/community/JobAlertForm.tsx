@@ -21,6 +21,12 @@ import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
+import {
+ getJobAlertLocationLabel,
+ JOB_ALERT_LOCATIONS,
+ normalizeJobAlertLocationValue,
+ normalizeJobAlertLocationValues,
+} from '@/services/jobAlertLocations';
 import { invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import {
   loadGatingState,
@@ -135,26 +141,7 @@ function JobAlertTriggerCard({
 
 // ── Constants ────────────────────────────────────────────────
 
-const LOCATIONS = [
- { value: 'Lugano', label: 'Lugano' },
- { value: 'Mendrisio', label: 'Mendrisio' },
- { value: 'Bellinzona', label: 'Bellinzona' },
- { value: 'Locarno', label: 'Locarno' },
- { value: 'Chiasso', label: 'Chiasso' },
- { value: 'Coira', label: 'Coira / Chur' },
-];
-
-function normalizeLocationSeeds(locations: string[]): string[] {
- const canonicalByKey = new Map(
-  LOCATIONS.map((location) => [location.value.toLocaleLowerCase('en'), location.value]),
- );
- return Array.from(new Set(
-  locations
-   .map((location) => location.trim())
-   .filter(Boolean)
-   .map((location) => canonicalByKey.get(location.toLocaleLowerCase('en')) ?? location),
- ));
-}
+const LOCATIONS = JOB_ALERT_LOCATIONS;
 
 const CONTRACT_TYPES = [
  { value: 'full-time', labelKey: 'jobBoard.contract.fullTime' },
@@ -218,8 +205,8 @@ export default function JobAlertForm({
  // preferences controller; the average user just types and submits.
  const [showAdvanced, setShowAdvanced] = useState(false);
  const [keyword, setKeyword] = useState(initialKeyword);
- const [selectedLocations, setSelectedLocations] = useState<string[]>(() => normalizeLocationSeeds(initialLocations));
- const initialLocationsSeedRef = useRef<string[]>(normalizeLocationSeeds(initialLocations));
+ const [selectedLocations, setSelectedLocations] = useState<string[]>(() => normalizeJobAlertLocationValues(initialLocations));
+ const initialLocationsSeedRef = useRef<string[]>(normalizeJobAlertLocationValues(initialLocations));
  const selectedLocationsEditedRef = useRef(false);
  const [selectedContracts, setSelectedContracts] = useState<string[]>([]);
  const [selectedSectors, setSelectedSectors] = useState<string[]>([]);
@@ -287,7 +274,7 @@ export default function JobAlertForm({
  // A city landing can resolve its canonical label after the first list load.
  // Refresh that seed while the visitor hasn't edited the location chips.
  useEffect(() => {
-  const next = normalizeLocationSeeds(initialLocations);
+  const next = normalizeJobAlertLocationValues(initialLocations);
   const previous = initialLocationsSeedRef.current;
   const locationsStillSeeded = selectedLocations.length === previous.length
    && previous.every((location) => selectedLocations.includes(location));
@@ -388,12 +375,12 @@ export default function JobAlertForm({
  const cantonOptions = useMemo(() => listCantonOptions(typedLocale), [typedLocale]);
  const locationOptions = useMemo(() => {
   const byKey = new Map<string, { value: string; label: string }>(
-   LOCATIONS.map((location) => [location.value.toLocaleLowerCase('en'), location]),
+   LOCATIONS.map((location) => [location.value, location]),
   );
   for (const location of [...initialLocations, ...selectedLocations]) {
-   const value = location.trim();
-   const key = value.toLocaleLowerCase('en');
-   if (value && !byKey.has(key)) byKey.set(key, { value, label: value });
+   const value = normalizeJobAlertLocationValue(location);
+   const label = location.trim();
+   if (value && !byKey.has(value)) byKey.set(value, { value, label });
   }
   return Array.from(byKey.values());
  }, [initialLocations, selectedLocations]);
@@ -1041,7 +1028,7 @@ export default function JobAlertForm({
  {alert.keywords.join(', ') || 'Tutte le offerte'}
  </span>
  {alert.locations.length > 0 && (
- <span> — {alert.locations.join(', ')}</span>
+ <span> — {alert.locations.map(getJobAlertLocationLabel).join(', ')}</span>
  )}
  {alert.sectors.length > 0 && (
  <span> · {alert.sectors.map(s => SECTORS.find(x => x.value === s)?.label || s).join(', ')}</span>

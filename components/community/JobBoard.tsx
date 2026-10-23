@@ -138,6 +138,7 @@ import {
  writeJobBoardSearchResume,
  type JobBoardSearchResume,
 } from '@/services/jobBoardSearchResume';
+import { normalizeJobAlertLocationValue } from '@/services/jobAlertLocations';
 import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
@@ -3835,14 +3836,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const selectedBoardAlertLocation = selectedLocation === 'all'
   ? null
-  : uniqueLocalities.find((locality) => locality.value === selectedLocation)?.label || selectedLocation;
+  : normalizeJobAlertLocationValue(selectedLocation);
+ const boardRouteAlertLocationValue = boardRouteAlertLocation
+  ? normalizeJobAlertLocationValue(boardRouteAlertLocation)
+  : null;
  const boardFilterAlertLocationConflict = Boolean(
   boardRouteAlertLocation
-  && selectedBoardAlertLocation
-  && normalizeLocalityKey(boardRouteAlertLocation) !== normalizeLocalityKey(selectedBoardAlertLocation),
+  && selectedLocation !== 'all'
+  && normalizeJobAlertLocationValue(boardRouteAlertLocation) !== selectedBoardAlertLocation,
  );
- const boardFilterAlertLocations = boardRouteAlertLocation
-  ? [boardRouteAlertLocation]
+ const boardFilterAlertLocations = boardRouteAlertLocationValue
+  ? [boardRouteAlertLocationValue]
   : selectedBoardAlertLocation
    ? [selectedBoardAlertLocation]
    : [];

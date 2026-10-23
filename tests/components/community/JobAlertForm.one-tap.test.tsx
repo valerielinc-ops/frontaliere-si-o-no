@@ -70,13 +70,16 @@ describe('JobAlertForm — contextual one-tap creation', () => {
     );
   });
 
-  it('keeps a city listing location in the one-tap alert payload', async () => {
+  it.each([
+    { city: 'Lugano', canton: 'TI', canonical: 'lugano' },
+    { city: 'Basel', canton: 'BS', canonical: 'basel' },
+  ])('stores the canonical location for the $city one-tap alert payload', async ({ city, canton, canonical }) => {
     render(
       <JobAlertForm
         authUser={{ uid: 'user-1', email: 'foo@example.com' }}
         initialKeyword="nurse"
-        initialCantonCode="BS"
-        initialLocations={['Basel']}
+        initialCantonCode={canton}
+        initialLocations={[city]}
       />,
     );
 
@@ -88,8 +91,8 @@ describe('JobAlertForm — contextual one-tap creation', () => {
       'foo@example.com',
       expect.objectContaining({
         keywords: ['nurse'],
-        locations: ['Basel'],
-        cantonFilter: ['BS'],
+        locations: [canonical],
+        cantonFilter: [canton],
       }),
     );
   });
