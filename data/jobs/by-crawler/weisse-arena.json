@@ -887,27 +887,6 @@
       "jobNumber": "WAG02568",
       "pensum": "60 - 80%",
       "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "addetta-addetto-polivalente-alla-ristorazione-weisse-arena-gruppe-laax",
-        "hospitality-all-rounder-weisse-arena-gruppe-laax",
-        "allrounder-in-restauration-weisse-arena-ch",
-        "all-rounder-in-catering-weisse-arena-gruppe-laax"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "addetta-addetto-polivalente-alla-ristorazione-weisse-arena-gruppe-laax",
-          "allrounder-in-restauration-weisse-arena-ch"
-        ],
-        "en": [
-          "hospitality-all-rounder-weisse-arena-gruppe-laax",
-          "allrounder-in-restauration-weisse-arena-ch",
-          "all-rounder-in-catering-weisse-arena-gruppe-laax"
-        ],
-        "fr": [
-          "allrounder-in-restauration-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T00:40:02.612Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -921,7 +900,36 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-27T00:40:02.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "addetta-addetto-polivalente-alla-ristorazione-weisse-arena-gruppe-laax",
+          "allrounder-in-restauration-weisse-arena-ch",
+          "restauro-integrale-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "hospitality-all-rounder-weisse-arena-gruppe-laax",
+          "allrounder-in-restauration-weisse-arena-ch",
+          "all-rounder-in-catering-weisse-arena-gruppe-laax",
+          "allrounder-in-restauration-weisse-arena-gruppe-laax",
+          "all-rounder-restoration-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "allrounder-in-restauration-weisse-arena-ch",
+          "restauration-complete-weisse-arena-gruppe-laax"
+        ]
+      },
+      "previousSlugs": [
+        "addetta-addetto-polivalente-alla-ristorazione-weisse-arena-gruppe-laax",
+        "hospitality-all-rounder-weisse-arena-gruppe-laax",
+        "allrounder-in-restauration-weisse-arena-ch",
+        "all-rounder-in-catering-weisse-arena-gruppe-laax",
+        "restauro-integrale-weisse-arena-gruppe-laax",
+        "allrounder-in-restauration-weisse-arena-gruppe-laax",
+        "all-rounder-restoration-weisse-arena-gruppe-laax",
+        "restauration-complete-weisse-arena-gruppe-laax"
+      ]
     },
     {
       "id": "weisse-arena-789882c3e5ce",

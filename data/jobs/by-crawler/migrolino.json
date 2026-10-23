@@ -541,7 +541,9 @@
           "maxValue": 150000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "migrolino-1885e3187a77",
@@ -916,7 +918,6 @@
         }
       },
       "firstSeenAt": "2026-10-23T09:20:51.147Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "conseiller-ere-en-lavage-automobile-migrolino-sursee"
