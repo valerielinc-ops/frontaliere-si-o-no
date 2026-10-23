@@ -205,7 +205,9 @@ translation pipeline may retry later, but it cannot wedge the production build.
 ### Stage 5 — Deploy (`deploy.yml`)
 
 **Trigger**: `schedule` (`*/10`) and `workflow_dispatch`, with a final
-self-rearm on `main`. The in-workflow schedule is a lightweight queue
+self-rearm on `main`. The first successful build also schedules exactly one
+bounded successor per SHA, closing the race with build-history/data commits
+written at the end of the run. The in-workflow schedule is a lightweight queue
 resolver, not a build. Because GitHub has not delivered this schedule
 reliably, `deploy-stalled-watchdog.yml` is the one bounded rescue: it observes
 completed/cancelled deploy runs, main pushes, and a staggered schedule, then

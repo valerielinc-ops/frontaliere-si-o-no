@@ -57,9 +57,13 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  * deploy.yml run is queued or in progress. In the saturated regime (99 of those
  * 100 runs) that check is what fires, and this script is a no-op.
  *
- * The result is deliberately asymmetric: it can only ever ADD a build when the
- * pipeline has stopped. It never cancels, never reorders, never touches the
- * concurrency group, and never runs while the pipeline is moving on its own.
+ * The result is deliberately asymmetric: it can only ever ADD a build after a
+ * terminal run, or when an observer finds an idle unbuilt tip. The first
+ * successful attempt gets one bounded successor too: build-history/data commits
+ * can advance `main` after the caller's queue snapshot, so treating that first
+ * success as the end of the chain leaves the new tip unbuilt. It never cancels,
+ * never reorders, never touches the concurrency group, and never runs while the
+ * pipeline is moving on its own.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -253,11 +257,11 @@ export function decideRearm({
     };
   }
 
-  // 2. HEAD already has a green build — the invariant holds, nothing to do.
-  if (forHead.some((r) => r.conclusion === 'success')
-      || (self
-        && selfBuiltSha === currentHead
-        && String(selfConclusion).toLowerCase() === 'success')) {
+  // 2. A prior successful attempt already completed this SHA's bounded chain.
+  // The caller itself is excluded here: a first successful caller still needs
+  // one successor so commits emitted at the end of the run cannot leave main's
+  // new tip without a build.
+  if (forHead.some((r) => String(r.id) !== self && r.conclusion === 'success')) {
     return { action: 'skip', reason: 'head-already-built', detail: `${headSha} already has a successful build` };
   }
 
@@ -271,6 +275,31 @@ export function decideRearm({
       reason: 'attempt-cap',
       detail: `${headSha} already has ${attempts} build attempt(s) (cap ${maxBuildsPerSha}) — not retrying a build that keeps failing`,
     };
+  }
+
+  // 4. The first successful caller is terminal from GitHub's perspective, but
+  // it is not terminal for this lifecycle: one successor closes the race with
+  // build-history/data commits created near the end of the run. The attempt
+  // cap and the prior-success guard above make this a single successor, not a
+  // success loop.
+  if (self
+      && selfBuiltSha === currentHead
+      && String(selfConclusion).toLowerCase() === 'success'
+      && attempts === 1) {
+    return {
+      action: 'dispatch',
+      reason: 'post-success-rearm',
+      detail: `first successful build of ${headSha} completed — dispatching one bounded successor to close the main-tip race`,
+    };
+  }
+
+  // 5. A successful caller that is not the first attempt is already covered by
+  // the bounded chain. This is defensive for callers whose run listing marks
+  // the current run successful before the prior-success row is visible.
+  if (self
+      && selfBuiltSha === currentHead
+      && String(selfConclusion).toLowerCase() === 'success') {
+    return { action: 'skip', reason: 'head-already-built', detail: `${headSha} already has a successful build` };
   }
 
   return {

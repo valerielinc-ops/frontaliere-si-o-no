@@ -2809,7 +2809,10 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      - name: Re-arm the build pipeline if it has stopped with work outstanding
+      - name: Re-arm the build pipeline after the terminal run
+        # A first green run also dispatches one bounded successor: build-history
+        # and other bot commits can advance main after this run's queue snapshot.
+        # The per-SHA cap in rearm-deploy-build.mjs prevents a success loop.
         # Never fail the deploy over this. A red job here would be a second
         # failure stacked on the one that stopped the pipeline, and
         # deploy-stalled-watchdog.yml remains the backstop either way.
