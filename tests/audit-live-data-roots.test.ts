@@ -111,6 +111,7 @@ describe('audit periodico delle radici dati automatiche', () => {
     ));
 
     expect(LIVE_DATA_ROOTS).toEqual(expect.arrayContaining(BOT_AUDIT_LIVE_DATA_ROOTS));
+    expect(BOT_AUDIT_LIVE_DATA_ROOTS).toContain('data/translation-deploy-handoff.json');
     expect(auditLiveDataRoots({ directPaths: paths }).uncovered).toEqual([]);
   });
 

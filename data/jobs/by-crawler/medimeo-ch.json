@@ -163,12 +163,12 @@
     },
     {
       "id": "medimeo-ch-d7ee5bf88116",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-50-100-medimeo-ag-biel",
+      "slug": "medica-dirigente-medico-dirigente-di-ginecologia-e-ostetricia-50-100-medimeo-ag-biel-solothurn-mittelland",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-biel-solothurn-mittelland-medimeo",
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-50-100-medimeo-ag-biel",
-        "en": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-biel-solothurn-mittelland-medimeo",
-        "fr": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-biel-solothurn-mittelland-medimeo"
+        "it": "medica-dirigente-medico-dirigente-di-ginecologia-e-ostetricia-50-100-medimeo-ag-biel-solothurn-mittelland",
+        "en": "senior-physician-senior-physician-gynecology-and-obstetrics-50-100-medimeo-ag-biel-solothurn-mittelland",
+        "fr": "medecin-principal-medecin-principal-gynecologie-et-obstetrique-50-100-medimeo-ag-biel-solothurn-mittelland"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo-ch",
@@ -214,11 +214,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-biel-solothurn-mittelland-medimeo",
+          "oberarztin-oberarzt-gynakologie-e-geburtshilfe-50-100-medimeo-ag-biel"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-biel-solothurn-mittelland-medimeo"
+        ],
+        "fr": [
           "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-biel-solothurn-mittelland-medimeo"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-biel-solothurn-mittelland-medimeo"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-50-100-biel-solothurn-mittelland-medimeo",
+        "oberarztin-oberarzt-gynakologie-e-geburtshilfe-50-100-medimeo-ag-biel"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
