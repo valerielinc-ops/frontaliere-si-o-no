@@ -350,7 +350,7 @@
       "id": "spital-emmental-ac167eeedff9",
       "slug": "professionista-della-salute-a-spital-emmental-burgdorf-f72d4f247b",
       "slugByLocale": {
-        "it": "professionista-della-salute-a-spital-emmental-burgdorf-f72d4f247b",
+        "it": "professionista-della-salute-a-spital-emmental-burgdorf",
         "en": "health-professional-a-spital-emmental-burgdorf",
         "de": "fachperson-gesundheit-a-spital-emmental-burgdorf",
         "fr": "professionnels-de-la-sante-a-spital-emmental-burgdorf"
@@ -405,13 +405,11 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "fachperson-gesundheit-a-spital-emmental-burgdorf-b5z085",
-        "professionista-della-salute-a-spital-emmental-burgdorf"
+        "fachperson-gesundheit-a-spital-emmental-burgdorf-b5z085"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-a-spital-emmental-burgdorf",
-          "professionista-della-salute-a-spital-emmental-burgdorf"
+          "fachperson-gesundheit-a-spital-emmental-burgdorf"
         ],
         "de": [
           "fachperson-gesundheit-a-spital-emmental-burgdorf-b5z085"
@@ -3121,7 +3119,7 @@
         "it": "applicazioni-amministrative-di-ict-application-manager-a-spital-emmental-burgdorf",
         "en": "ict-application-manager-administrative-applications-a-spital-emmental-burgdorf",
         "de": "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf",
-        "fr": "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf"
+        "fr": "applications-administratives-du-gestionnaire-d-applications-tic-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3171,8 +3169,7 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf",
-        "applications-administratives-du-gestionnaire-d-applications-tic-a-spital-emmental-burgdorf"
+        "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3182,7 +3179,7 @@
           "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "applications-administratives-du-gestionnaire-d-applications-tic-a-spital-emmental-burgdorf"
+          "ict-applikationsmanager-administrative-applikationen-a-spital-emmental-burgdorf"
         ]
       },
       "salaryMin": 113000,
@@ -3536,12 +3533,12 @@
     },
     {
       "id": "spital-emmental-38786c3632be",
-      "slug": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
+      "slug": "infermiera-infermiere-diplomata-o-con-opzione-responsabilita-specialistica-nell-assistenza-infermieristica-a-spital",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-        "it": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-        "en": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-        "fr": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf"
+        "it": "infermiera-infermiere-diplomata-o-con-opzione-responsabilita-specialistica-nell-assistenza-infermieristica-a-spital",
+        "en": "dipl-nurse-with-option-professional-responsibility-nursing-a-spital-emmental-burgdorf",
+        "fr": "oui-infirmiere-avec-option-responsabilite-professionnelle-infirmiere-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3608,34 +3605,33 @@
       "firstSeenAt": "2026-09-23T23:39:08.139Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-          "infermiere-a-diplomato-a-con-responsabilita-specialistica-nelle-cure-infermieristiche-a-spital-emmental-burgdorf"
+          "infermiere-a-diplomato-a-con-responsabilita-specialistica-nelle-cure-infermieristiche-a-spital-emmental-burgdorf",
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-          "dipl-nurse-with-option-professional-responsibility-nursing-a-spital-emmental-burgdorf"
+          "dipl-nurse-with-option-professional-responsibility-nursing-a-spital-emmental-burgdorf",
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-          "c-est-quoi-infirmiere-avec-option-responsabilite-professionnelle-infirmiere-a-spital-emmental-burgdorf"
+          "c-est-quoi-infirmiere-avec-option-responsabilite-professionnelle-infirmiere-a-spital-emmental-burgdorf",
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
         "infermiere-a-diplomato-a-con-responsabilita-specialistica-nelle-cure-infermieristiche-a-spital-emmental-burgdorf",
         "dipl-nurse-with-option-professional-responsibility-nursing-a-spital-emmental-burgdorf",
-        "c-est-quoi-infirmiere-avec-option-responsabilite-professionnelle-infirmiere-a-spital-emmental-burgdorf"
-      ],
-      "needsRetranslation": true
+        "c-est-quoi-infirmiere-avec-option-responsabilite-professionnelle-infirmiere-a-spital-emmental-burgdorf",
+        "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-b491f4dbf5fe",
-      "slug": "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau",
+      "slug": "infermiera-infermiere-diplomata-o-con-formazione-professionale-a-spital-emmental-langnau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau",
-        "it": "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau",
-        "en": "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau",
-        "fr": "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau"
+        "it": "infermiera-infermiere-diplomata-o-con-formazione-professionale-a-spital-emmental-langnau",
+        "en": "dipl-nurse-with-vocational-training-a-spital-emmental-langnau",
+        "fr": "oui-infirmiere-ayant-une-formation-professionnelle-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3702,34 +3698,33 @@
       "firstSeenAt": "2026-09-23T23:39:07.474Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau",
-          "infermiere-a-diplomato-a-con-formazione-professionale-a-spital-emmental-langnau"
+          "infermiere-a-diplomato-a-con-formazione-professionale-a-spital-emmental-langnau",
+          "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau"
         ],
         "en": [
-          "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau",
-          "dipl-nurse-with-vocational-training-a-spital-emmental-langnau"
+          "dipl-nurse-with-vocational-training-a-spital-emmental-langnau",
+          "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau"
         ],
         "fr": [
-          "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau",
-          "c-est-quoi-infirmiere-ayant-une-formation-professionnelle-a-spital-emmental-langnau"
+          "c-est-quoi-infirmiere-ayant-une-formation-professionnelle-a-spital-emmental-langnau",
+          "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau",
         "infermiere-a-diplomato-a-con-formazione-professionale-a-spital-emmental-langnau",
         "dipl-nurse-with-vocational-training-a-spital-emmental-langnau",
-        "c-est-quoi-infirmiere-ayant-une-formation-professionnelle-a-spital-emmental-langnau"
-      ],
-      "needsRetranslation": true
+        "c-est-quoi-infirmiere-ayant-une-formation-professionnelle-a-spital-emmental-langnau",
+        "dipl-pflegefachperson-mit-berufsbildung-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-aaac30e2dbfb",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-burgdorf-6",
+      "slug": "infermiera-a-spital-emmental-burgdorf-0238c4",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-6",
-        "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-6",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-6"
+        "it": "infermiera-a-spital-emmental-burgdorf-0238c4",
+        "en": "dipl-nurse-a-spital-emmental-burgdorf-0238c4",
+        "fr": "dipl-infirmiere-a-spital-emmental-burgdorf-0238c4"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3797,34 +3792,34 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-6",
-          "infermiera-a-spital-emmental-burgdorf-0238c4"
+          "infermiera-a-spital-emmental-burgdorf-0238c4",
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-6"
         ],
         "en": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-6",
-          "dipl-nurse-a-spital-emmental-burgdorf-0238c4"
+          "dipl-nurse-a-spital-emmental-burgdorf-0238c4",
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-6"
         ],
         "fr": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-6",
-          "infirmiere-a-spital-emmental-burgdorf-0238c4"
+          "infirmiere-a-spital-emmental-burgdorf-0238c4",
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-6"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf-6",
         "infermiera-a-spital-emmental-burgdorf-0238c4",
         "dipl-nurse-a-spital-emmental-burgdorf-0238c4",
-        "infirmiere-a-spital-emmental-burgdorf-0238c4"
+        "infirmiere-a-spital-emmental-burgdorf-0238c4",
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-6"
       ]
     },
     {
       "id": "spital-emmental-510284770336",
-      "slug": "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-burgdorf",
+      "slug": "esperta-esperto-diplomata-o-in-cure-infermieristiche-d-emergenza-oppure-infermiera-infermiere-diplomata-o-a-spital",
       "slugByLocale": {
         "de": "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "it": "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "en": "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "fr": "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf"
+        "it": "esperta-esperto-diplomata-o-in-cure-infermieristiche-d-emergenza-oppure-infermiera-infermiere-diplomata-o-a-spital",
+        "en": "dipl-expert-expert-emergency-care-or-dipl-nurse-a-spital-emmental-burgdorf-langnau",
+        "fr": "dipl-expert-expert-soins-d-urgence-ou-dipl-infirmiere-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3878,24 +3873,24 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "dipl-esperta-esperto-in-cure-d-emergenza-o-dipl-infermiera-infermiere-professionale-a-spital-emmental-burgdorf-langnau"
+          "dipl-esperta-esperto-in-cure-d-emergenza-o-dipl-infermiera-infermiere-professionale-a-spital-emmental-burgdorf-langnau",
+          "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "dipl-expert-expert-emergency-care-or-dipl-nurse-a-spital-emmental-burgdorf-langnau"
+          "dipl-expert-expert-emergency-care-or-dipl-nurse-a-spital-emmental-burgdorf-langnau",
+          "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-          "dipl-expert-expert-soins-d-urgence-ou-dipl-infirmiere-a-spital-emmental-burgdorf-langnau"
+          "dipl-expert-expert-soins-d-urgence-ou-dipl-infirmiere-a-spital-emmental-burgdorf-langnau",
+          "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
         "dipl-expertin-experten-notfallpflege-oder-dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-burgdorf",
         "dipl-esperta-esperto-in-cure-d-emergenza-o-dipl-infermiera-infermiere-professionale-a-spital-emmental-burgdorf-langnau",
         "dipl-expert-expert-emergency-care-or-dipl-nurse-a-spital-emmental-burgdorf-langnau",
-        "dipl-expert-expert-soins-d-urgence-ou-dipl-infirmiere-a-spital-emmental-burgdorf-langnau"
+        "dipl-expert-expert-soins-d-urgence-ou-dipl-infirmiere-a-spital-emmental-burgdorf-langnau",
+        "dipl-expertin-experten-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-burgdorf"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3910,17 +3905,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:39:05.461Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-23T23:39:05.461Z"
     },
     {
       "id": "spital-emmental-83c223bcad1c",
-      "slug": "stv-leitung-restaurant-a-spital-emmental-burgdorf",
+      "slug": "vice-responsabile-di-ristorante-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "stv-leitung-restaurant-a-spital-emmental-burgdorf",
-        "it": "stv-leitung-restaurant-a-spital-emmental-burgdorf",
-        "en": "stv-leitung-restaurant-a-spital-emmental-burgdorf",
-        "fr": "stv-leitung-restaurant-a-spital-emmental-burgdorf"
+        "it": "vice-responsabile-di-ristorante-a-spital-emmental-burgdorf-langnau",
+        "en": "deputy-restaurant-manager-a-spital-emmental-burgdorf-langnau",
+        "fr": "responsable-adjoint-e-de-restaurant-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3987,25 +3981,24 @@
       "firstSeenAt": "2026-09-23T23:39:04.112Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-leitung-restaurant-a-spital-emmental-burgdorf",
-          "vice-responsabile-del-ristorante-a-spital-emmental-burgdorf-langnau"
+          "vice-responsabile-del-ristorante-a-spital-emmental-burgdorf-langnau",
+          "stv-leitung-restaurant-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "stv-leitung-restaurant-a-spital-emmental-burgdorf",
-          "deputy-restaurant-manager-a-spital-emmental-burgdorf-langnau"
+          "deputy-restaurant-manager-a-spital-emmental-burgdorf-langnau",
+          "stv-leitung-restaurant-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "stv-leitung-restaurant-a-spital-emmental-burgdorf",
-          "responsable-adjoint-e-du-restaurant-a-spital-emmental-burgdorf-langnau"
+          "responsable-adjoint-e-du-restaurant-a-spital-emmental-burgdorf-langnau",
+          "stv-leitung-restaurant-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "stv-leitung-restaurant-a-spital-emmental-burgdorf",
         "vice-responsabile-del-ristorante-a-spital-emmental-burgdorf-langnau",
         "deputy-restaurant-manager-a-spital-emmental-burgdorf-langnau",
-        "responsable-adjoint-e-du-restaurant-a-spital-emmental-burgdorf-langnau"
-      ],
-      "needsRetranslation": true
+        "responsable-adjoint-e-du-restaurant-a-spital-emmental-burgdorf-langnau",
+        "stv-leitung-restaurant-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-31b737204307",
@@ -4180,12 +4173,12 @@
     },
     {
       "id": "spital-emmental-53c1c7204f79",
-      "slug": "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
+      "slug": "assistente-di-studio-medico-a-spital-emmental-langnau",
       "slugByLocale": {
         "de": "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
-        "it": "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
-        "en": "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
-        "fr": "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
+        "it": "assistente-di-studio-medico-a-spital-emmental-langnau",
+        "en": "medical-practice-assistant-a-spital-emmental-langnau",
+        "fr": "assistant-e-medical-e-de-cabinet-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4252,25 +4245,24 @@
       "firstSeenAt": "2026-09-23T23:39:01.452Z",
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
-          "assistente-di-studio-medico-a-spital-emmental-langnau"
+          "assistente-di-studio-medico-a-spital-emmental-langnau",
+          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
         ],
         "en": [
-          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
-          "medical-practice-assistant-a-spital-emmental-langnau"
+          "medical-practice-assistant-a-spital-emmental-langnau",
+          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
         ],
         "fr": [
-          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
-          "assistant-e-medical-e-a-spital-emmental-langnau"
+          "assistant-e-medical-e-a-spital-emmental-langnau",
+          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
         ]
       },
       "previousSlugs": [
-        "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
         "assistente-di-studio-medico-a-spital-emmental-langnau",
         "medical-practice-assistant-a-spital-emmental-langnau",
-        "assistant-e-medical-e-a-spital-emmental-langnau"
-      ],
-      "needsRetranslation": true
+        "assistant-e-medical-e-a-spital-emmental-langnau",
+        "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-5213f56ffea6",
@@ -5103,12 +5095,12 @@
     },
     {
       "id": "spital-emmental-d4d5ac6e6c88",
-      "slug": "arztsekretar-in-a-spital-emmental-langnau",
+      "slug": "segretario-a-di-studio-medico-a-spital-emmental-langnau",
       "slugByLocale": {
         "de": "arztsekretar-in-a-spital-emmental-langnau",
-        "it": "arztsekretar-in-a-spital-emmental-langnau",
-        "en": "arztsekretar-in-a-spital-emmental-langnau",
-        "fr": "arztsekretar-in-a-spital-emmental-langnau"
+        "it": "segretario-a-di-studio-medico-a-spital-emmental-langnau",
+        "en": "medical-secretary-a-spital-emmental-langnau",
+        "fr": "secretaire-medical-e-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -5127,7 +5119,6 @@
         "en": "For the fourteen-member secretariat of the orthopaedics at the Langnau location, the Orthopaedics Sonnenhof KLG is looking for a:n experienced:n\n\nContact details\nNathalie Ansorge-Rebora HRM\n\nAddress\nSpital Emmental AG HRM 3550 Langnau in the Emmental www.spital-emmental.ch We are modern – human – in the middle and look forward to everyone! For the fourteen-member secretariat of the orthopaedics at the Langnau location, the Orthopaedics Sonnenhof KLG is looking for a:n experienced:n medical secretary:in (a) 60–70 %\n• The published advertisement can be found under the following link: Job advertisement Arzsekretär:in (a) 60-70% address Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Apply\n\nArea: Orthopaedics\n\nEmployment: indefinite\n\nPensum: 60-70 %",
         "fr": "Pour le secrétariat de 14 membres de l'orthopédie de l'emplacement Langnau, l'orthopédie Sonnenhof KLG est à la recherche d'un:n expérimenté:n\n\nCoordonnées\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3550 Langnau dans l'Emmental www.spital-emmental.ch Nous sommes modernes – humains – au milieu et attendons avec impatience tout le monde! Pour le secrétariat de l'orthopédie à l'emplacement Langnau de quatorze membres, l'orthopédie Sonnenhof KLG est à la recherche d'un:n expérimenté:n secrétaire médical:en (a) 60-70 %\n• L'annonce publiée se trouve sous le lien suivant: Annonce emploi Arzsekretär:in (a) 60-70% adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Postuler\n\nRégion: Orthopédie\n\nEmploi indéfini\n\nPensum: 60-70 %"
       },
-      "needsRetranslation": true,
       "location": "Langnau",
       "canton": "BE",
       "url": "https://live.solique.ch/spital-emmental/job/details/4090829",
@@ -5172,7 +5163,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "arztsekretar-in-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "arztsekretar-in-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-a-spital-emmental-langnau"
+      ]
     }
   ]
 }

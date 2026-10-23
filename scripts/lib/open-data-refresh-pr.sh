@@ -204,13 +204,6 @@ FETCH_TIMEOUT_SECONDS=300
 API_TIMEOUT_SECONDS=60
 GH_PR_TIMEOUT_SECONDS=60
 
-# GitHub's PR-create GraphQL mutation can fail after the branch is safely
-# published (for example, the 502 observed in workflow run 39927344744). Keep
-# the recovery bounded and retry only responses that identify a transient
-# transport/service condition; validation, auth and unreadable failures remain
-# fatal.
-PR_CREATE_MAX_ATTEMPTS=3
-
 # This is the 180-second push ceiling introduced for issue 12262 / PR 12318.
 PUSH_TIMEOUT_SECONDS=180
 
@@ -816,64 +809,79 @@ if [ -n "$OPEN_PR" ]; then
   exit 0
 fi
 
-is_retryable_pr_create_failure() {
-  local output="$1"
-  [[ "$output" =~ HTTP[[:space:]]+(408|425|429|5[0-9]{2})([^0-9]|$) ]]
+# GitHub can create the PR and still return a transient GraphQL/API error to
+# the caller (run 39927344744 received HTTP 502 after pushing the stable
+# branch). Inspect the branch after every failed create before retrying: this
+# makes a lost response idempotent and avoids opening a duplicate PR. Retry
+# only failures that identify a transient service/network condition; auth,
+# validation, and permission errors stay fail-closed.
+is_transient_pr_create_failure() {
+  local detail_lc
+  detail_lc="$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]')"
+  case "$detail_lc" in
+    *'http 408'*|*'http 425'*|*'http 429'*|*'http 500'*|*'http 502'*|*'http 503'*|*'http 504'*|*'bad gateway'*|*'service unavailable'*|*'gateway timeout'*|*'something went wrong'*|*'timed out'*|*'timeout'*|*'etimedout'*|*'econnreset'*|*'eai_again'*|*'socket hang up'*)
+      return 0
+      ;;
+    *)
+      return 1
+      ;;
+  esac
 }
 
-create_refresh_pr() {
-  local attempt=1 output status existing_pr list_status
-  while [ "$attempt" -le "$PR_CREATE_MAX_ATTEMPTS" ]; do
-    if output="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr create stable refresh PR" \
-      gh pr create \
+MAX_TRANSIENT_PR_CREATE_ATTEMPTS=3
+PR_CREATE_RETRY_DELAYS_SECONDS=(1 2)
+pr_create_attempt=1
+while :; do
+  if pr_create_output="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr create stable refresh PR" \
+    gh pr create \
+    --repo "$REPOSITORY" \
+    --base main \
+    --head "$BRANCH" \
+    --title "$TITLE" \
+    --body-file "$BODY_FILE" 2>&1)"; then
+    printf '%s\n' "$pr_create_output"
+    exit 0
+  fi
+
+  pr_create_failure="$(printf '%s' "$pr_create_output" | tr '\n' ' ' | cut -c1-300)"
+  # Keep the machine-readable list on stdout. run-bounded emits its timing
+  # diagnostics on stderr; merging the streams here would make an empty list
+  # look non-empty and could treat a timing line as a PR number.
+  if ! PR_AFTER_CREATE_FAILURE="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr list stable refresh PR after create failure" \
+    gh pr list \
+    --repo "$REPOSITORY" \
+    --state open \
+    --base main \
+    --head "$BRANCH" \
+    --json number \
+    --jq '.[0].number // empty')"; then
+    echo "::error::Unable to verify the stable refresh PR after gh pr create failed: ${pr_create_failure}" >&2
+    exit 1
+  fi
+
+  if [ -n "$PR_AFTER_CREATE_FAILURE" ]; then
+    run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr edit stable refresh PR after create response" \
+      gh pr edit "$PR_AFTER_CREATE_FAILURE" \
       --repo "$REPOSITORY" \
-      --base main \
-      --head "$BRANCH" \
       --title "$TITLE" \
-      --body-file "$BODY_FILE" 2>&1)"; then
-      printf '%s\n' "$output"
-      return 0
-    else
-      status=$?
-    fi
-    printf '%s\n' "$output" >&2
+      --body-file "$BODY_FILE"
+    echo "Refresh PR #$PR_AFTER_CREATE_FAILURE was created despite the gh pr create response; updated it."
+    exit 0
+  fi
 
-    if ! is_retryable_pr_create_failure "$output"; then
-      return "$status"
-    fi
+  if ! is_transient_pr_create_failure "$pr_create_output"; then
+    echo "::error::gh pr create failed with a non-transient error and no open PR was found: ${pr_create_failure}" >&2
+    exit 1
+  fi
+  if [ "$pr_create_attempt" -ge "$MAX_TRANSIENT_PR_CREATE_ATTEMPTS" ]; then
+    echo "::error::gh pr create failed after ${MAX_TRANSIENT_PR_CREATE_ATTEMPTS} bounded transient attempts and no open PR was found: ${pr_create_failure}" >&2
+    exit 1
+  fi
 
-    # A mutation may have reached GitHub even when its response was a 5xx.
-    # Confirm the stable PR before retrying, otherwise a second mutation could
-    # turn an already-delivered refresh into a false failure or duplicate.
-    if existing_pr="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr list stable refresh PR after create failure" \
-      gh pr list \
-      --repo "$REPOSITORY" \
-      --state open \
-      --base main \
-      --head "$BRANCH" \
-      --json number \
-      --jq '.[0].number // empty')"; then
-      :
-    else
-      list_status=$?
-      printf '%s\n' "$existing_pr" >&2
-      echo "::error::Unable to verify the refresh PR after a transient create failure; refusing a duplicate retry" >&2
-      return "$list_status"
-    fi
-    if [ -n "$existing_pr" ]; then
-      echo "Refresh PR #$existing_pr was created despite the transient create failure; no duplicate create attempted."
-      return 0
-    fi
-
-    if [ "$attempt" -ge "$PR_CREATE_MAX_ATTEMPTS" ]; then
-      echo "::error::gh pr create stable refresh PR failed after ${PR_CREATE_MAX_ATTEMPTS} bounded attempts" >&2
-      return "$status"
-    fi
-
-    echo "::warning::gh pr create stable refresh PR returned a transient error on attempt ${attempt}/${PR_CREATE_MAX_ATTEMPTS}; retrying" >&2
-    sleep "$attempt"
-    attempt=$((attempt + 1))
-  done
-}
-
-create_refresh_pr
+  retry_index=$((pr_create_attempt - 1))
+  retry_delay="${PR_CREATE_RETRY_DELAYS_SECONDS[$retry_index]}"
+  next_pr_create_attempt=$((pr_create_attempt + 1))
+  echo "::warning::gh pr create transient failure (attempt ${pr_create_attempt}/${MAX_TRANSIENT_PR_CREATE_ATTEMPTS}); retrying attempt ${next_pr_create_attempt} in ${retry_delay}s: ${pr_create_failure}" >&2
+  sleep "$retry_delay"
+  pr_create_attempt="$next_pr_create_attempt"
+done

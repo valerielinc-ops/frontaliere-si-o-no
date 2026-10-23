@@ -40,9 +40,9 @@
       },
       "slugByLocale": {
         "it": "capo-officina-tpl-lugano",
-        "en": "capo-officina-tpl-trasporti-pubblici-luganesi-lugano",
-        "de": "capo-officina-tpl-trasporti-pubblici-luganesi-lugano",
-        "fr": "capo-officina-tpl-trasporti-pubblici-luganesi-lugano"
+        "en": "head-of-workshop-tpl-trasporti-pubblici-luganesi-lugano",
+        "de": "leiter-des-workshops-tpl-trasporti-pubblici-luganesi-lugano",
+        "fr": "chef-de-l-atelier-tpl-trasporti-pubblici-luganesi-lugano"
       },
       "_targetScope": {
         "canton": "TI",
@@ -52,6 +52,15 @@
       "id": "tpl-trasporti-pubblici-luganesi-fcae7d24720b",
       "previousSlugsByLocale": {
         "it": [
+          "capo-officina-tpl-trasporti-pubblici-luganesi-lugano"
+        ],
+        "en": [
+          "capo-officina-tpl-trasporti-pubblici-luganesi-lugano"
+        ],
+        "de": [
+          "capo-officina-tpl-trasporti-pubblici-luganesi-lugano"
+        ],
+        "fr": [
           "capo-officina-tpl-trasporti-pubblici-luganesi-lugano"
         ]
       },
@@ -111,9 +120,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-tecnico-amministrativo-tpl-lugano",
-        "en": "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano",
-        "de": "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano",
-        "fr": "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano"
+        "en": "employee-technician-amministrativo-tpl-trasporti-pubblici-luganesi-lugano",
+        "de": "angestellter-techniker-amministrativo-tpl-trasporti-pubblici-luganesi-lugano",
+        "fr": "employe-technicien-amministrativo-tpl-trasporti-pubblici-luganesi-lugano"
       },
       "_targetScope": {
         "canton": "TI",
@@ -123,6 +132,15 @@
       "id": "tpl-trasporti-pubblici-luganesi-78f01bda47e0",
       "previousSlugsByLocale": {
         "it": [
+          "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano"
+        ],
+        "en": [
+          "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano"
+        ],
+        "de": [
+          "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano"
+        ],
+        "fr": [
           "impiegato-tecnico-amministrativo-tpl-trasporti-pubblici-luganesi-lugano"
         ]
       },

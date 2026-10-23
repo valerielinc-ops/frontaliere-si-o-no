@@ -1919,7 +1919,7 @@
         "it": "professore-di-neurologia-universitat-zurich-zurich",
         "en": "professorship-of-neurology-uzh-zurich",
         "de": "professur-fur-neurologie-universitat-zurich-zurich",
-        "fr": "professorship-of-neurology-universitat-zurich"
+        "fr": "professeur-de-neurologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1966,7 +1966,7 @@
       "previousSlugs": [
         "professorship-of-neurology-universitat-zurich-zurich",
         "professorship-of-neurology-uzh-zurich",
-        "professeur-de-neurologie-universitat-zurich-zurich"
+        "professorship-of-neurology-universitat-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1974,7 +1974,7 @@
         ],
         "fr": [
           "professorship-of-neurology-universitat-zurich-zurich",
-          "professeur-de-neurologie-universitat-zurich-zurich"
+          "professorship-of-neurology-universitat-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.623Z",
@@ -7289,10 +7289,10 @@
       "id": "uzh-e0618949b867",
       "slug": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
+        "it": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "en": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "de": "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "fr": "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
+        "fr": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7338,15 +7338,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "liaison-librarian-ub-naturwissenschaften-uzh-zurich"
         ],
         "fr": [
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
         ]
       },
       "salaryMin": 91500,
@@ -8089,8 +8088,8 @@
       "slugByLocale": {
         "de": "fachspezialist-in-kommunikation-und-vernetzung-uzh-zurich",
         "it": "fachspezialist-in-kommunikation-e-vernetzung-universitat-zurich",
-        "en": "fachspezialist-in-kommunikation-und-vernetzung-uzh-zurich",
-        "fr": "fachspezialist-in-kommunikation-und-vernetzung-uzh-zurich"
+        "en": "communications-and-networking-specialist-universitat-zurich-zurich",
+        "fr": "specialiste-en-communication-et-en-reseautage-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8142,17 +8141,16 @@
           "fachspezialist-in-kommunikation-und-vernetzung-uzh-zurich"
         ],
         "en": [
-          "fachspezialist-in-kommunikation-und-vernetzung-uzh-zurich",
-          "communications-and-networking-specialist-universitat-zurich-zurich"
+          "communications-and-networking-specialist-universitat-zurich-zurich",
+          "fachspezialist-in-kommunikation-und-vernetzung-uzh-zurich"
         ],
         "fr": [
-          "fachspezialist-in-kommunikation-und-vernetzung-uzh-zurich",
-          "specialiste-de-la-communication-et-de-la-mise-en-reseau-universitat-zurich-zurich"
+          "specialiste-de-la-communication-et-de-la-mise-en-reseau-universitat-zurich-zurich",
+          "fachspezialist-in-kommunikation-und-vernetzung-uzh-zurich"
         ]
       },
       "previousSlugs": [
         "fachspezialist-in-kommunikation-und-vernetzung-uzh-zurich",
-        "communications-and-networking-specialist-universitat-zurich-zurich",
         "specialiste-de-la-communication-et-de-la-mise-en-reseau-universitat-zurich-zurich"
       ],
       "salaryMin": 91500,
@@ -8172,12 +8170,12 @@
     },
     {
       "id": "uzh-d71aab53fd01",
-      "slug": "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich",
+      "slug": "postdoc-posizione-nel-progetto-finanziato-dalla-snsf-mapping-mental-health-in-municipalities-universitat-zurich-zurich",
       "slugByLocale": {
         "en": "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich",
-        "it": "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich",
-        "de": "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich",
-        "fr": "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich"
+        "it": "postdoc-posizione-nel-progetto-finanziato-dalla-snsf-mapping-mental-health-in-municipalities-universitat-zurich-zurich",
+        "de": "postdoc-position-im-snf-geforderten-projekt-mapping-mental-health-in-municipalities-universitat-zurich-zurich",
+        "fr": "position-postdoc-dans-le-projet-finance-par-la-snsf-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8239,33 +8237,33 @@
       "firstSeenAt": "2026-10-23T09:25:02.560Z",
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich",
-          "postdoc-posizione-nel-progetto-finanziato-dalla-snsf-mapping-mental-health-in-municipalities-universitat-zurich-zurich"
+          "postdoc-posizione-nel-progetto-finanziato-dalla-snsf-mapping-mental-health-in-municipalities-universitat-zurich-zurich",
+          "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich"
         ],
         "de": [
-          "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich",
-          "postdoc-position-im-snf-geforderten-projekt-mapping-mental-health-in-municipalities-universitat-zurich-zurich"
+          "postdoc-position-im-snf-geforderten-projekt-mapping-mental-health-in-municipalities-universitat-zurich-zurich",
+          "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich"
         ],
         "fr": [
-          "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich",
-          "position-postdoc-dans-le-projet-finance-par-la-snsf-universitat-zurich-zurich"
+          "position-postdoc-dans-le-projet-finance-par-la-snsf-universitat-zurich-zurich",
+          "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich"
         ]
       },
       "previousSlugs": [
-        "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich",
         "postdoc-posizione-nel-progetto-finanziato-dalla-snsf-mapping-mental-health-in-municipalities-universitat-zurich-zurich",
         "postdoc-position-im-snf-geforderten-projekt-mapping-mental-health-in-municipalities-universitat-zurich-zurich",
-        "position-postdoc-dans-le-projet-finance-par-la-snsf-universitat-zurich-zurich"
+        "position-postdoc-dans-le-projet-finance-par-la-snsf-universitat-zurich-zurich",
+        "postdoc-position-in-snsf-funded-project-mapping-mental-health-in-municipalities-uzh-zurich"
       ]
     },
     {
       "id": "uzh-775e2d55a20d",
-      "slug": "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich",
+      "slug": "assistente-scientifico-assistente-senior-etica-biomedica-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich",
-        "it": "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich",
-        "en": "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich",
-        "fr": "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich"
+        "it": "assistente-scientifico-assistente-senior-etica-biomedica-universitat-zurich-zurich",
+        "en": "scientific-assistant-senior-assistant-biomedical-ethics-universitat-zurich-zurich",
+        "fr": "assistant-scientifique-assistant-principal-ethique-biomedicale-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8327,23 +8325,23 @@
       "firstSeenAt": "2026-10-23T09:25:02.558Z",
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich",
-          "assistente-scientifico-assistente-senior-etica-biomedica-universitat-zurich-zurich"
+          "assistente-scientifico-assistente-senior-etica-biomedica-universitat-zurich-zurich",
+          "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich"
         ],
         "en": [
-          "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich",
-          "scientific-assistant-senior-assistant-biomedical-ethics-universitat-zurich-zurich"
+          "scientific-assistant-senior-assistant-biomedical-ethics-universitat-zurich-zurich",
+          "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich"
         ],
         "fr": [
-          "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich",
-          "assistant-scientifique-assistant-principal-ethique-biomedicale-universitat-zurich-zurich"
+          "assistant-scientifique-assistant-principal-ethique-biomedicale-universitat-zurich-zurich",
+          "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich",
         "assistente-scientifico-assistente-senior-etica-biomedica-universitat-zurich-zurich",
         "scientific-assistant-senior-assistant-biomedical-ethics-universitat-zurich-zurich",
-        "assistant-scientifique-assistant-principal-ethique-biomedicale-universitat-zurich-zurich"
+        "assistant-scientifique-assistant-principal-ethique-biomedicale-universitat-zurich-zurich",
+        "wissenschaftliche-assistenz-oberassistenz-biomedizinische-ethik-uzh-zurich"
       ]
     },
     {
@@ -8353,7 +8351,7 @@
         "de": "hr-business-partner-in-uzh-zurich",
         "it": "hr-business-partner-in-uzh-zurich",
         "en": "hr-business-partner-in-uzh-zurich",
-        "fr": "hr-business-partner-in-uzh-zurich"
+        "fr": "partenaire-d-affaires-rh-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8372,7 +8370,6 @@
         "en": "Personnel department\n\n## Job opening immediately or by agreement, indefinitely\nWe look forward to expanding and supplementing our HR consulting team with you as an experienced:r HR Business Partner:in within the framework of post-occupation and succession planning.\nThe Department of Personnel at the University of Zurich (UZH) looks after around 10,000 employees. In cooperation with the decentralised personnel managers, it offers all consulting services, processes and systems of integrated personnel management for all faculties as well as for central services.\n\n## Tasks\nYou work in the HR Consulting department within the Human Resources department as an HR Business Partner. In this demanding role, you are responsible for the organizational units assigned to you and advise leaders at all levels on employment-related issues, in particular management and legal issues. They are responsible for the classification of posts as well as review and determination of salaries within the pay structure of the university. They advise managers on management measures and instruments and support them in the support and development of employees. Through your participation in professional projects as well as in the current implementation of HR digitization, you actively shape our professional personnel management. They also carry out the occasional placement of HR topics as part of training for HR employees and managers. You work in a team of very experienced HR Business Partners:innen. Her diverse work is carried out in close cooperation with the entire HR team as well as with the managers, employees and numerous other internal and external positions.\n\n## Profile\nFor this position, we presuppose you have several years of practical experience as an HR Business Partner, ideally you have your own management experience as well as experience from the public sector. An education or further education in Human Resources Management is presupposed, a university or university of applied sciences study is advantageous. Their working languages are German and English. They are very service-oriented, strong in communication and empathetic in their dealings, while at the same time being assertive.\nThey are well organized, work independently and efficiently, with their own high quality standards and are ready to work as an HR Business Partner.\n\n## We offer\nOur employees benefit from diverse and attractive offers. Find out more at: https://www.uzh.ch/en/explore/work.html\n\n## We offer\nWork-life compatibility\n• Flexible working models (e.g. part-time work, mobile work, job sharing)\n• Childcare at the kihz Foundation of UZH and ETH\nMore\nLearning and development\n• Various further education offers from UZH and the Canton of Zurich\n• Language Centre of UZH and ETH Zurich\nFood\n• Discounted meals in the canteens and cafeterias of UZH\n• Lunch check card with food contribution from UZH\nHealth\n• Special conditions at the Akademische Sportverband ASVZ\n• Free Seasonal Flu Vaccinations\n• Relaxation in the Relax Uniturm\nAdvantages\n• Mobility: car sharing, car rental, parking\n• Digitalization: devices, programs, mobile subscription\nConditions of employment\n• Principles of UZH\n• Public employment for most UZH employees\nInternational Services\n• Support offers for people from abroad\nLocations\n• Campus Zurich Center, Zurich Irchel, Oerlikon and Schlieren\n• Locations Zurich West, Old Botanical Garden, Botanical Garden and Lengg\nWork on UZH\nAs the largest university in Switzerland, the University of Zurich offers a large number of attractive positions in various subject areas and professional fields. With around 10,000 employees and currently 12 professional profiles for learners, the university offers an inspiring working environment in cutting-edge research and education. Use your talent and skills with us. Find out more about UZH as an employer!\nMore → https://www.uzh.ch/en/explore/work.html\nPlease apply via our job portal www.jobs.uzh.ch.\n\n## Work on UZH\nAs the largest university in Switzerland, the University of Zurich offers a large number of attractive positions in various subject areas and professional fields. With around 10,000 employees and currently 12 professional profiles for learners, the university offers an inspiring working environment in cutting-edge research and education. Use your talent and skills with us. Find out more about UZH as an employer! More",
         "fr": "Département du personnel\n\n## Ouverture immédiate ou par accord, indéfiniment\nNous sommes impatients d'élargir et de compléter notre équipe de conseil RH avec vous en tant que partenaire d'affaires RH expérimenté dans le cadre de la planification post-occupation et de la relève.\nLe Département du personnel de l'Université de Zurich (UZH) s'occupe d'environ 10 000 employés. En coopération avec les gestionnaires décentralisés du personnel, il offre tous les services de conseil, processus et systèmes de gestion intégrée du personnel pour toutes les facultés ainsi que pour les services centraux.\n\n## Tâches\nVous travaillez au sein du service de consultation en RH au sein du service des ressources humaines en tant que partenaire opérationnel en RH. Dans ce rôle exigeant, vous êtes responsable des unités organisationnelles qui vous sont assignées et conseillez les dirigeants à tous les niveaux sur les questions liées à l'emploi, en particulier les questions de gestion et de droit. Ils sont responsables du classement des postes ainsi que de l'examen et de la détermination des salaires dans la structure salariale de l'université. Ils conseillent les gestionnaires sur les mesures et instruments de gestion et les soutiennent dans le soutien et le perfectionnement des employés. Grâce à votre participation à des projets professionnels ainsi qu'à la mise en œuvre actuelle de la numérisation des RH, vous façonnez activement notre gestion du personnel professionnel. Ils effectuent également le placement occasionnel de sujets de RH dans le cadre de la formation des employés et des gestionnaires des RH. Vous travaillez dans une équipe de partenaires d'affaires RH très expérimentés:innen. Son travail diversifié est réalisé en étroite collaboration avec l'ensemble de l'équipe des RH ainsi qu'avec les gestionnaires, les employés et de nombreux autres postes internes et externes.\n\n## Profil\nPour ce poste, nous présupposons que vous avez plusieurs années d'expérience pratique en tant que partenaire d'affaires RH, idéalement vous avez votre propre expérience de gestion ainsi que l'expérience du secteur public. Une formation ou un enseignement complémentaire en gestion des ressources humaines est présupposé, une université ou une université des sciences appliquées est avantageuse. Leurs langues de travail sont l'allemand et l'anglais. Ils sont très orientés vers le service, forts dans la communication et empathiques dans leurs transactions, tout en étant en même temps affirmés.\nIls sont bien organisés, travaillent de manière indépendante et efficace, avec leurs propres normes de qualité élevées et sont prêts à travailler en tant que partenaires d'affaires RH.\n\n## Nous offrons\nNos employés bénéficient d'offres variées et attrayantes. Pour en savoir plus: https://www.uzh.ch/en/explore/work.html\n\n## Nous offrons\nCompatibilité travail-vie privée\n• Modèles de travail flexibles (p. ex. travail à temps partiel, travail mobile, partage d'emplois)\n• Garde d'enfants à la Fondation kihz de l'UZH et de l'ETH\nPlus\nApprentissage et développement\n• Diverses offres de formation complémentaire de l'UZH et du canton de Zurich\n• Centre linguistique de l'UZH et de l'ETH Zurich\nProduits alimentaires\n• Repas réduits dans les cantines et cafétérias de l'UZH\n• Carte de contrôle du déjeuner avec contribution alimentaire de l'UZH\nSanté\n• Conditions particulières à l'Akademische Sportverband ASVZ\n• Vaccination saisonnière gratuite de la grippe\n• Relaxation dans l'Unité de Relax\nAvantages\n• Mobilité: partage de voitures, location de voitures, parking\n• Digitalisation : appareils, programmes, abonnement mobile\nConditions d'emploi\n• Principes de l'UZH\n• Emploi public pour la plupart des employés de l'UZH\nServices internationaux\n• Offres de soutien pour les personnes de l'étranger\nEmplacements\n• Campus Zurich Center, Zurich Irchel, Oerlikon et Schlieren\n• Emplacements Zurich Ouest, Vieux Jardin botanique, Jardin botanique et Lengg\nTravaux sur l'UZH\nEn tant que plus grande université de Suisse, l'Université de Zurich offre un grand nombre de postes attrayants dans différents domaines et domaines professionnels. Avec environ 10 000 employés et actuellement 12 profils professionnels pour les apprenants, l'université offre un environnement de travail inspirant dans la recherche et l'éducation de pointe. Utilisez votre talent et vos compétences avec nous. En savoir plus sur l'UZH comme employeur!\nPlus → https://www.uzh.ch/fr/explore/work.html\nVeuillez postuler via notre portail d'emploi www.jobs.uzh.ch.\n\n## Travaux sur l'UZH\nEn tant que plus grande université de Suisse, l'Université de Zurich offre un grand nombre de postes attrayants dans différents domaines et domaines professionnels. Avec environ 10 000 employés et actuellement 12 profils professionnels pour les apprenants, l'université offre un environnement de travail inspirant dans la recherche et l'éducation de pointe. Utilisez votre talent et vos compétences avec nous. En savoir plus sur l'UZH comme employeur! Plus"
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.uzh.ch/offene-stellen/hr-business-partner-in/5a8f71ab-9c35-4160-858c-d167b58b5bdf",

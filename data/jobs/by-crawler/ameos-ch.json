@@ -1036,7 +1036,7 @@
         "it": "controller-m-f-d-ameos-schweiz-brunnen",
         "en": "controller-m-f-d-ameos-schweiz-brunnen",
         "de": "controller-m-w-d-ameos-brunnen",
-        "fr": "controller-m-w-d-ameos-schweiz-brunnen"
+        "fr": "controleur-h-f-d-ameos-schweiz-brunnen"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -1082,7 +1082,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "controller-m-w-d-ameos-brunnen",
-        "controleur-h-f-d-ameos-schweiz-brunnen"
+        "controller-m-w-d-ameos-schweiz-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1092,7 +1092,7 @@
           "controller-m-w-d-ameos-brunnen"
         ],
         "fr": [
-          "controleur-h-f-d-ameos-schweiz-brunnen"
+          "controller-m-w-d-ameos-schweiz-brunnen"
         ]
       },
       "firstSeenAt": "2026-10-08T09:13:34.247Z",
@@ -1489,12 +1489,12 @@
     },
     {
       "id": "ameos-ch-5d37af050b22",
-      "slug": "operativen-einkaufer-m-w-d-ameos-einsiedeln",
+      "slug": "acquirenti-operativi-m-f-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "operativen-einkaufer-m-w-d-ameos-einsiedeln",
-        "it": "operativen-einkaufer-m-w-d-ameos-einsiedeln",
-        "en": "operativen-einkaufer-m-w-d-ameos-einsiedeln",
-        "fr": "operativen-einkaufer-m-w-d-ameos-einsiedeln"
+        "it": "acquirenti-operativi-m-f-d-ameos-schweiz-einsiedeln",
+        "en": "operational-buyers-m-f-d-ameos-schweiz-einsiedeln",
+        "fr": "acquereurs-operationnels-h-f-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -1552,16 +1552,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:21.347Z"
+      "firstSeenAt": "2026-09-19T22:51:21.347Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operativen-einkaufer-m-w-d-ameos-einsiedeln"
+        ],
+        "en": [
+          "operativen-einkaufer-m-w-d-ameos-einsiedeln"
+        ],
+        "fr": [
+          "operativen-einkaufer-m-w-d-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "operativen-einkaufer-m-w-d-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-0c2dda6e6eec",
-      "slug": "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln",
+      "slug": "contabilita-finanziaria-del-personale-m-f-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln",
-        "it": "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln",
-        "en": "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln",
-        "fr": "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln"
+        "it": "contabilita-finanziaria-del-personale-m-f-d-ameos-schweiz-einsiedeln",
+        "en": "personnel-m-f-d-financial-accounting-ameos-schweiz-einsiedeln",
+        "fr": "personnel-h-f-d-comptabilite-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -1619,7 +1633,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:16:30.293Z"
+      "firstSeenAt": "2026-10-23T09:16:30.293Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln"
+        ],
+        "en": [
+          "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln"
+        ],
+        "fr": [
+          "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-m-w-d-finanzbuchhaltung-ameos-einsiedeln"
+      ]
     }
   ]
 }

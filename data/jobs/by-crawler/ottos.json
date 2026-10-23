@@ -3779,9 +3779,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3832,17 +3832,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -6094,12 +6095,12 @@
     },
     {
       "id": "ottos-16afeec075e0",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag",
+      "slug": "addetto-a-alle-vendite-occasionale-food-non-food-otto-s-ag-buchs-ag",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag",
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag"
+        "it": "addetto-a-alle-vendite-occasionale-food-non-food-otto-s-ag-buchs-ag",
+        "en": "temporary-sales-assistant-food-non-food-otto-s-ag-buchs-ag",
+        "fr": "auxiliaire-de-vente-alimentaire-non-alimentaire-otto-s-ag-buchs-ag"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6165,25 +6166,24 @@
       "firstSeenAt": "2026-07-04T11:28:20.456Z",
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag",
-          "commesso-a-di-supporto-food-non-food-otto-s-ag-buchs-ag"
+          "commesso-a-di-supporto-food-non-food-otto-s-ag-buchs-ag",
+          "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag"
         ],
         "en": [
-          "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag",
-          "temporary-sales-assistant-food-non-food-otto-s-ag-buchs-ag"
+          "temporary-sales-assistant-food-non-food-otto-s-ag-buchs-ag",
+          "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag"
         ],
         "fr": [
-          "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag",
-          "auxiliaire-vendeur-euse-food-non-food-otto-s-ag-buchs-ag"
+          "auxiliaire-vendeur-euse-food-non-food-otto-s-ag-buchs-ag",
+          "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag"
         ]
       },
       "previousSlugs": [
-        "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag",
         "commesso-a-di-supporto-food-non-food-otto-s-ag-buchs-ag",
         "temporary-sales-assistant-food-non-food-otto-s-ag-buchs-ag",
-        "auxiliaire-vendeur-euse-food-non-food-otto-s-ag-buchs-ag"
-      ],
-      "needsRetranslation": true
+        "auxiliaire-vendeur-euse-food-non-food-otto-s-ag-buchs-ag",
+        "aushilfe-verkaufer-in-food-non-food-ottos-buchs-ag"
+      ]
     },
     {
       "id": "ottos-0febc3bdc6e6",
@@ -10118,12 +10118,12 @@
     },
     {
       "id": "ottos-8205a83cc760",
-      "slug": "abteilungsleiter-in-mobel-otto-s-ag-uetendorf",
+      "slug": "responsabile-del-reparto-mobili-otto-s-ag-uetendorf",
       "slugByLocale": {
         "de": "abteilungsleiter-in-mobel-ottos-uetendorf",
-        "it": "abteilungsleiter-in-mobel-otto-s-ag-uetendorf",
-        "en": "abteilungsleiter-in-mobel-otto-s-ag-uetendorf",
-        "fr": "abteilungsleiter-in-mobel-otto-s-ag-uetendorf"
+        "it": "responsabile-del-reparto-mobili-otto-s-ag-uetendorf",
+        "en": "department-manager-furniture-otto-s-ag-uetendorf",
+        "fr": "responsable-de-departement-meubles-otto-s-ag-uetendorf"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -10176,24 +10176,24 @@
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-mobel-ottos-uetendorf",
-          "abteilungsleiter-in-mobel-otto-s-ag-uetendorf",
-          "responsabile-di-reparto-mobili-otto-s-ag-uetendorf"
+          "responsabile-di-reparto-mobili-otto-s-ag-uetendorf",
+          "abteilungsleiter-in-mobel-otto-s-ag-uetendorf"
         ],
         "en": [
-          "abteilungsleiter-in-mobel-otto-s-ag-uetendorf",
-          "furniture-department-manager-otto-s-ag-uetendorf"
+          "furniture-department-manager-otto-s-ag-uetendorf",
+          "abteilungsleiter-in-mobel-otto-s-ag-uetendorf"
         ],
         "fr": [
-          "abteilungsleiter-in-mobel-otto-s-ag-uetendorf",
-          "responsable-du-departement-meubles-otto-s-ag-uetendorf"
+          "responsable-du-departement-meubles-otto-s-ag-uetendorf",
+          "abteilungsleiter-in-mobel-otto-s-ag-uetendorf"
         ]
       },
       "previousSlugs": [
         "abteilungsleiter-in-mobel-ottos-uetendorf",
-        "abteilungsleiter-in-mobel-otto-s-ag-uetendorf",
         "responsabile-di-reparto-mobili-otto-s-ag-uetendorf",
         "furniture-department-manager-otto-s-ag-uetendorf",
-        "responsable-du-departement-meubles-otto-s-ag-uetendorf"
+        "responsable-du-departement-meubles-otto-s-ag-uetendorf",
+        "abteilungsleiter-in-mobel-otto-s-ag-uetendorf"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -10208,8 +10208,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:39:09.217Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-23T09:39:09.217Z"
     },
     {
       "id": "ottos-87b80bb4735f",
@@ -10729,12 +10728,12 @@
     },
     {
       "id": "ottos-61723539d407",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-brunnen",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-brunnen",
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen"
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-brunnen",
+        "en": "sales-associate-food-non-food-otto-s-ag-brunnen",
+        "fr": "collaborateur-rice-de-vente-food-non-food-otto-s-ag-brunnen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -10787,24 +10786,24 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-food-non-food-ottos-brunnen",
-          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen",
-          "addetto-a-alle-vendite-di-prodotti-alimentari-non-alimentari-otto-s-ag-brunnen"
+          "addetto-a-alle-vendite-di-prodotti-alimentari-non-alimentari-otto-s-ag-brunnen",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen"
         ],
         "en": [
-          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen",
-          "food-non-food-sales-associate-otto-s-ag-brunnen"
+          "food-non-food-sales-associate-otto-s-ag-brunnen",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen"
         ],
         "fr": [
-          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen",
-          "collaborateur-trice-de-vente-alimentaire-non-alimentaire-otto-s-ag-brunnen"
+          "collaborateur-trice-de-vente-alimentaire-non-alimentaire-otto-s-ag-brunnen",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen"
         ]
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-food-non-food-ottos-brunnen",
-        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen",
         "addetto-a-alle-vendite-di-prodotti-alimentari-non-alimentari-otto-s-ag-brunnen",
         "food-non-food-sales-associate-otto-s-ag-brunnen",
-        "collaborateur-trice-de-vente-alimentaire-non-alimentaire-otto-s-ag-brunnen"
+        "collaborateur-trice-de-vente-alimentaire-non-alimentaire-otto-s-ag-brunnen",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-brunnen"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -10819,8 +10818,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:39:05.063Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-23T09:39:05.063Z"
     },
     {
       "id": "ottos-0376234b74a3",
@@ -12434,8 +12432,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ottos-68241c9bbdb1",

@@ -2006,7 +2006,7 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": false
+      "needsRetranslation": true
     },
     {
       "id": "c-and-a-schweiz-310ad33b4f60",
@@ -2738,7 +2738,7 @@
       "id": "c-and-a-schweiz-725c0514ab7a",
       "slug": "collaborateur-de-vente-m-w-d-cdd-50-marin-1-c-a-schweiz-marin",
       "slugByLocale": {
-        "it": "collaborateur-de-vente-m-w-d-cdd-50-marin-1-c-a-schweiz-marin",
+        "it": "addetto-a-alle-vendite-m-f-d-contratto-a-tempo-determinato-50-marin-1-c-a-schweiz-marin-ch",
         "en": "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch",
         "de": "verkaufsmitarbeiter-m-w-d-befristeter-vertrag-50-marin-1-c-a-schweiz-marin-ch",
         "fr": "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch"
@@ -2784,13 +2784,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch",
-        "addetto-a-alle-vendite-m-f-d-contratto-a-tempo-determinato-50-marin-1-c-a-schweiz-marin-ch"
+        "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch",
-          "addetto-a-alle-vendite-m-f-d-contratto-a-tempo-determinato-50-marin-1-c-a-schweiz-marin-ch"
+          "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch"
         ],
         "de": [
           "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch"
@@ -3365,12 +3363,12 @@
     },
     {
       "id": "c-and-a-schweiz-0adfc6dc98a2",
-      "slug": "collaboratore-trice-im-vendita-m-w-d-30-per-wurenlingen-c-a-schweiz-wurenlingen",
+      "slug": "addetto-a-alle-vendite-m-f-d-30-per-wurenlingen-c-a-schweiz-wurenlingen-ch",
       "slugByLocale": {
         "de": "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch",
-        "it": "collaboratore-trice-im-vendita-m-w-d-30-per-wurenlingen-c-a-schweiz-wurenlingen",
-        "en": "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch",
-        "fr": "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch"
+        "it": "addetto-a-alle-vendite-m-f-d-30-per-wurenlingen-c-a-schweiz-wurenlingen-ch",
+        "en": "sales-associate-m-f-d-30-for-wurenlingen-c-a-schweiz-wurenlingen-ch",
+        "fr": "collaborateur-trice-de-vente-h-f-d-30-pour-wurenlingen-c-a-schweiz-wurenlingen-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3414,14 +3412,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-30-per-wurenlingen-c-a-schweiz-wurenlingen"
+        ],
+        "en": [
+          "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch"
+        ],
+        "fr": [
           "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-30-per-wurenlingen-c-a-schweiz-wurenlingen"
       ],
       "salaryMin": 22200,
       "salaryMax": 34100,

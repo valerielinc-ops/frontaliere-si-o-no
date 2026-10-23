@@ -3171,12 +3171,12 @@
     },
     {
       "id": "audemars-piguet-3063f1a9a115",
-      "slug": "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus",
+      "slug": "imparare-orologio-di-produzione-cfc-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "fr": "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus",
-        "en": "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus-vd-switzerland"
+        "it": "imparare-orologio-di-produzione-cfc-audemars-piguet-le-brassus-vd-switzerland",
+        "en": "learning-production-clock-cfc-audemars-piguet-le-brassus-vd-switzerland",
+        "de": "lernen-produktionsuhr-cfc-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -3226,24 +3226,24 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus-vd-switzerland",
-          "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus",
-          "imparare-orologio-di-produzione-cfc-audemars-piguet-le-brassus-vd-switzerland"
+          "imparare-orologio-di-produzione-cfc-audemars-piguet-le-brassus-vd-switzerland",
+          "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus"
         ],
         "en": [
-          "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus-vd-switzerland",
-          "learning-production-clock-cfc-audemars-piguet-le-brassus-vd-switzerland"
+          "learning-production-clock-cfc-audemars-piguet-le-brassus-vd-switzerland",
+          "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus-vd-switzerland"
         ],
         "de": [
-          "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus-vd-switzerland",
-          "lernen-produktionsuhr-cfc-audemars-piguet-le-brassus-vd-switzerland"
+          "lernen-produktionsuhr-cfc-audemars-piguet-le-brassus-vd-switzerland",
+          "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus-vd-switzerland"
         ]
       },
       "previousSlugs": [
         "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus-vd-switzerland",
-        "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus",
         "imparare-orologio-di-produzione-cfc-audemars-piguet-le-brassus-vd-switzerland",
         "learning-production-clock-cfc-audemars-piguet-le-brassus-vd-switzerland",
-        "lernen-produktionsuhr-cfc-audemars-piguet-le-brassus-vd-switzerland"
+        "lernen-produktionsuhr-cfc-audemars-piguet-le-brassus-vd-switzerland",
+        "apprentissage-horloger-de-production-cfc-audemars-piguet-le-brassus"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3340,10 +3340,10 @@
     },
     {
       "id": "audemars-piguet-b7a1180c3180",
-      "slug": "mom-manufacturing-operations-management-expert-audemars-piguet-le-brassus-vaud-switzerland",
+      "slug": "esperto-di-mom-gestione-delle-operazioni-di-produzione-audemars-piguet-le-brassus-vaud-switzerland",
       "slugByLocale": {
         "fr": "mom-manufacturing-operations-management-expert-audemars-piguet-le-brassus-vaud-switzerland",
-        "it": "mom-manufacturing-operations-management-expert-audemars-piguet-le-brassus-vaud-switzerland",
+        "it": "esperto-di-mom-gestione-delle-operazioni-di-produzione-audemars-piguet-le-brassus-vaud-switzerland",
         "en": "mom-manufacturing-operations-management-expert-audemars-piguet-le-brassus-vaud-switzerland",
         "de": "mom-manufacturing-operations-management-expert-audemars-piguet-le-brassus-vaud-switzerland"
       },
@@ -3405,7 +3405,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:45:45.591Z"
+      "firstSeenAt": "2026-10-23T09:45:45.591Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mom-manufacturing-operations-management-expert-audemars-piguet-le-brassus-vaud-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "mom-manufacturing-operations-management-expert-audemars-piguet-le-brassus-vaud-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-34a371e6b421",
@@ -3572,7 +3580,7 @@
       "slug": "retail-food-designer-audemars-piguet-le-brassus",
       "slugByLocale": {
         "it": "retail-food-designer-audemars-piguet-le-brassus",
-        "en": "retail-designer-audemars-piguet-le-brassus",
+        "en": "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
         "de": "einzelhandelsdesigner-audemars-piguet-le-brassus-vd-switzerland",
         "fr": "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
       },
@@ -3620,14 +3628,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "retail-designer-audemars-piguet-le-brassus-vd-switzerland",
-        "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+        "retail-designer-audemars-piguet-le-brassus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
         ],
         "en": [
-          "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+          "retail-designer-audemars-piguet-le-brassus"
         ]
       },
       "firstSeenAt": "2026-09-11T13:45:00.551Z",

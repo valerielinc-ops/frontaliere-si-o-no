@@ -1654,12 +1654,12 @@
     },
     {
       "id": "planzer-749a013b7e8d",
-      "slug": "collaboratore-trice-umschlag-m-w-d-planzer-dintikon",
+      "slug": "addetto-al-trasbordo-m-f-d-planzer-dintikon",
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
-        "it": "collaboratore-trice-umschlag-m-w-d-planzer-dintikon",
-        "en": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
-        "fr": "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+        "it": "addetto-al-trasbordo-m-f-d-planzer-dintikon",
+        "en": "employee-envelope-m-f-d-planzer-dintikon",
+        "fr": "l-enveloppe-des-employes-h-f-d-planzer-dintikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1678,7 +1678,6 @@
         "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• When loading and unloading trucks and loading train cars, you show your skills and work safely and efficiently\n• You complete storage and removals sovereignly and keep the overview at all times.\n• You carefully control goods and exchange equipment for completeness and condition\n• You accept incoming goods and process them routinely with the MDE device\n• Delivery notes and loading documents you process correctly and reliably\n• You consistently comply with ADR and storage regulations – Safety comes first for you\n• Forklift trucks, drawbar trucks and fast runners you serve safely, routinely and responsibly\n\nWhy do you succeed?\n• Your working hours are from 05:00 to 14:00 or 14:00 to about 23:00 (two-weekly change)\n• You already have experience in the goods outlet and know what matters when loading\n• You are the proud owner of a forklift pass (R2/S2) - R1 is an advantage\n• Oral and written you can safely express yourself in German\n• Teamwork is yours, and you stay flexible and relaxed even in stressful moments\n• Physically, you are fit, resilient and tackle your tasks with energy\n\nYour benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Further education and development opportunities: With us you can develop - we promote and challenge talents\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
         "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous valorisons les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Lorsque vous chargez et déchargez des camions et des wagons, vous montrez vos compétences et travaillez en toute sécurité et efficacement.\n• Vous complètez le stockage et les suppressions souverainement et conservez l'aperçu en tout temps.\n• Vous contrôlez soigneusement les marchandises et l'équipement d'échange pour l'exhaustivité et l'état\n• Vous acceptez les marchandises entrantes et les traitez régulièrement avec l'appareil MDE\n• Notes de livraison et documents de chargement que vous traitez correctement et de manière fiable\n• Vous respectez systématiquement les règlements ADR et de stockage – La sécurité vient en premier pour vous\n• Chariots élévateurs, chariots à timon et coureurs rapides que vous servez en toute sécurité, régulièrement et de façon responsable\n\nPourquoi tu réussis ?\n• Vos heures de travail sont de 05:00 à 14:00 ou 14:00 à environ 23:00 (changement de deux semaines)\n• Vous avez déjà de l'expérience dans la sortie des marchandises et savez ce qui compte lors du chargement\n• Vous êtes le fier propriétaire d'une passe de chariot élévateur (R2/S2) - R1 est un avantage\n• Oral et écrit vous pouvez vous exprimer en toute sécurité en allemand\n• Le travail d'équipe est à vous, et vous restez flexible et détendu même dans des moments stressants\n• Physiquement, vous êtes en forme, résilient et s'attaquez à vos tâches avec énergie\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Possibilités de formation continue et de développement: Avec nous vous pouvez développer - nous promouvons et défions les talents\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez vous garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
-      "needsRetranslation": true,
       "location": "Dintikon",
       "canton": "AG",
       "url": "https://live.solique.ch/planzer/job/details/4088386",
@@ -1709,11 +1708,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
+          "collaboratore-trice-umschlag-m-w-d-planzer-dintikon"
+        ],
+        "en": [
+          "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+        ],
+        "fr": [
           "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+        "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
+        "collaboratore-trice-umschlag-m-w-d-planzer-dintikon"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1732,12 +1739,12 @@
     },
     {
       "id": "planzer-a3565f0259ab",
-      "slug": "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach",
+      "slug": "meccatronico-con-competenze-a-tutto-tondo-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach",
-        "it": "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach",
-        "en": "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach",
-        "fr": "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach"
+        "it": "meccatronico-con-competenze-a-tutto-tondo-m-f-d-planzer-kallnach",
+        "en": "mechatronics-with-all-rounder-qualities-m-f-d-planzer-kallnach",
+        "fr": "mecatronique-aux-qualites-polyvalentes-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1756,7 +1763,6 @@
         "en": "As a firmly rooted company in the Seeland region, we offer comprehensive transport and storage solutions and ensure cleanliness in over 30 communities with our waste transports. Our success is based on motivated employees and modern infrastructure. Become part of our team and shape the future of logistics!\n\nWhat you move\n• You ensure the reliable operation of our automated, cube-based storage and order picking plant for small parts\n• You monitor the system, document important data and recognize early when action is required\n• With your technical know-how, you carry out maintenance and take care of the maintenance of our plants\n• In the event of disruptions, you are in demand: find causes, implement solutions and put the plant back into operation\n• Your skills are also required in the fleet – Support for repairs and maintenance work on vehicles up to 40 tonnes\n• Variety is part of this: help with warehouse conversions as well as various maintenance work around our infrastructure\n• You provide a well-kept environment with your commitment – from the outdoor facility to our indoor camps\n\nWhy do you succeed?\n• You have an education as a mechatronician or a comparable technical training\n• Enjoying versatile tasks where technical know-how, craftsmanship and practical handling are required\n• Desire for a varied everyday life with exciting challenges instead of a classic 08/15 job\n• Independent, reliable and solution-oriented working methods as well as a good feeling for technical connections round off your profile\n• Collegiality, sense of responsibility and joy in making a difference together in a team\n• Willingness to provide flexible assignments outside the usual working hours if necessary\n\nYour benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Modern work equipment: We keep up with the times - you have modern and safe work equipment at your disposal\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
         "fr": "En tant qu'entreprise solidement implantée dans la région de Seeland, nous proposons des solutions de transport et de stockage complètes et nous assurons la propreté dans plus de 30 communautés avec nos transports de déchets. Notre succès repose sur des employés motivés et une infrastructure moderne. Faites partie de notre équipe et façonnez l'avenir de la logistique!\n\nCe que tu bouges\n• Vous assurez le fonctionnement fiable de notre entrepôt automatisé à base de cubes et commandez les petites pièces\n• Vous surveillez le système, documentez des données importantes et reconnaissez rapidement quand une action est nécessaire\n• Avec votre savoir-faire technique, vous effectuez l'entretien et prenez soin de l'entretien de nos installations\n• En cas de perturbation, vous êtes en demande : trouver des causes, mettre en œuvre des solutions et remettre l'usine en service\n• Vos compétences sont également requises dans la flotte – Soutien pour les travaux de réparation et d'entretien sur les véhicules jusqu'à 40 tonnes\n• La variété en fait partie : aide à la conversion des entrepôts ainsi qu'à divers travaux d'entretien autour de notre infrastructure\n• Vous fournissez un environnement bien entretenu avec votre engagement – de l'installation extérieure à nos camps intérieurs\n\nPourquoi tu réussis ?\n• Vous avez une formation en mécatronicien ou une formation technique comparable\n• Profitez de tâches polyvalentes où le savoir-faire technique, l'artisanat et la manipulation pratique sont requis\n• Désir pour une vie quotidienne variée avec des défis passionnants au lieu d'un travail classique 08/15\n• Méthodes de travail indépendantes, fiables et orientées vers la solution ainsi qu'un bon sentiment pour les connexions techniques complètent votre profil\n• Collegialité, sens des responsabilités et joie de faire la différence ensemble dans une équipe\n• Volonté de fournir des affectations flexibles en dehors des heures de travail habituelles si nécessaire\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Culture familiale : Vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Équipement de travail moderne: Nous suivons les temps - vous avez des équipements de travail modernes et sûrs à votre disposition\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez vous garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
-      "needsRetranslation": true,
       "location": "Kallnach",
       "canton": "BE",
       "url": "https://live.solique.ch/planzer/job/details/4089739",
@@ -1798,7 +1804,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:36:41.306Z"
+      "firstSeenAt": "2026-09-23T23:36:41.306Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "mechatroniker-mit-allrounder-qualitaten-m-w-d-planzer-kallnach"
+      ]
     },
     {
       "id": "planzer-8348defc9562",
@@ -1806,8 +1826,8 @@
       "slugByLocale": {
         "de": "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken",
         "it": "apprendistato-specialista-in-trasporti-stradali-cfc-planzer-daniken",
-        "en": "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken",
-        "fr": "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken"
+        "en": "apprenticeship-as-a-road-transport-specialist-efz-planzer-daniken",
+        "fr": "place-d-apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-daniken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1858,6 +1878,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken"
+        ],
+        "en": [
+          "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken"
+        ],
+        "fr": [
+          "lehrstelle-strassentransportfachmann-frau-efz-planzer-daniken"
         ]
       },
       "previousSlugs": [
@@ -1884,8 +1910,8 @@
       "slugByLocale": {
         "de": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken",
         "it": "apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-planzer-daniken",
-        "en": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken",
-        "fr": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken"
+        "en": "apprenticeship-as-a-logistics-specialist-efz-warehouse-specialization-planzer-daniken",
+        "fr": "place-d-apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-daniken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1936,6 +1962,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken"
+        ],
+        "en": [
+          "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken"
+        ],
+        "fr": [
+          "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-daniken"
         ]
       },
       "previousSlugs": [
@@ -1958,12 +1990,12 @@
     },
     {
       "id": "planzer-cb77fd8a822d",
-      "slug": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-pratteln",
+      "slug": "posto-di-apprendistato-per-operatore-trice-di-manutenzione-afc-planzer-pratteln",
       "slugByLocale": {
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln",
-        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-pratteln",
-        "en": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln",
-        "fr": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln"
+        "it": "posto-di-apprendistato-per-operatore-trice-di-manutenzione-afc-planzer-pratteln",
+        "en": "apprenticeship-as-a-facility-maintenance-specialist-efz-planzer-pratteln",
+        "fr": "place-d-apprentissage-agent-e-d-exploitation-cfc-planzer-pratteln"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2013,11 +2045,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln",
+          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-pratteln"
+        ],
+        "en": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln"
+        ],
+        "fr": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-pratteln",
+        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-pratteln"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -2036,12 +2076,12 @@
     },
     {
       "id": "planzer-eb1c1ab82dab",
-      "slug": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+      "slug": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
-        "it": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+        "it": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
         "en": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
-        "fr": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        "fr": "gestionnaire-de-division-informatique-edi-integration-des-donnees-h-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2101,16 +2141,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:36:40.604Z"
+      "firstSeenAt": "2026-09-23T23:36:40.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-baeb62d2715b",
-      "slug": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
+      "slug": "chauffeur-cat-ce-ausiliario-m-f-d-planzer-bern",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
-        "it": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
-        "en": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
-        "fr": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+        "it": "chauffeur-cat-ce-ausiliario-m-f-d-planzer-bern",
+        "en": "chauffeur-cat-ce-auxiliary-m-f-d-planzer-bern",
+        "fr": "chauffeur-cat-ce-auxiliaire-h-f-d-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2170,16 +2221,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:20:55.839Z"
+      "firstSeenAt": "2026-10-23T09:20:55.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+        ],
+        "en": [
+          "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-0af3bbdfee7e",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-buchs",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-buchs",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-buchs",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-buchs",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-buchs",
         "en": "chauffeur-kat-ce-m-w-d-planzer-buchs",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-buchs"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-buchs"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2239,16 +2304,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:20:55.060Z"
+      "firstSeenAt": "2026-10-23T09:20:55.060Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-buchs"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-buchs"
+      ]
     },
     {
       "id": "planzer-d326c21ccbfa",
-      "slug": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
+      "slug": "chauffeur-cat-c-ce-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
-        "it": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
+        "it": "chauffeur-cat-c-ce-m-f-d-planzer-villmergen",
         "en": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
-        "fr": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+        "fr": "chauffeur-cat-c-ce-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2308,16 +2384,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:36:38.511Z"
+      "firstSeenAt": "2026-09-23T23:36:38.511Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+      ]
     },
     {
       "id": "planzer-2c5b6b917292",
-      "slug": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
+      "slug": "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
-        "it": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
+        "it": "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
         "en": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
-        "fr": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+        "fr": "chauffeur-entraineur-cat-be-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -2377,7 +2464,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:36:37.809Z"
+      "firstSeenAt": "2026-09-23T23:36:37.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+      ]
     }
   ]
 }

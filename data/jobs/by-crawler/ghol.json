@@ -8,8 +8,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -79,8 +79,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -88,10 +88,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -564,12 +564,12 @@
     },
     {
       "id": "ghol-328ae8b07693",
-      "slug": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest",
+      "slug": "coordinatore-delle-ammissioni-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest",
-        "it": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest",
-        "en": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest",
-        "de": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+        "it": "coordinatore-delle-ammissioni-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "emergency-admissions-coordinator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "notaufnahmekoordinator-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -623,16 +623,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:22:44.283Z"
+      "firstSeenAt": "2026-10-23T09:22:44.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+        ],
+        "en": [
+          "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+        ],
+        "de": [
+          "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+      ]
     },
     {
       "id": "ghol-ca7b74ad5b09",
-      "slug": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "manutenzione-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "manutenzione-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "maintenance-technician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "instandhaltungstechniker-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -686,7 +700,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:22:44.281Z"
+      "firstSeenAt": "2026-10-23T09:22:44.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ]
     }
   ]
 }

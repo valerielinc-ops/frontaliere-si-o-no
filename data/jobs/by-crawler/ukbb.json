@@ -1220,8 +1220,8 @@
       "slugByLocale": {
         "de": "padiatrische-r-arzt-in-in-unserem-ambulatorium-ukbb-basel",
         "it": "medico-pediatrico-nel-nostro-ambulatorio-universitats-kinderspital-beider-basel-basel",
-        "en": "padiatrische-r-arzt-in-unserem-ambulatorium-universitats-kinderspital-beider-basel",
-        "fr": "padiatrische-r-arzt-in-unserem-ambulatorium-universitats-kinderspital-beider-basel"
+        "en": "pediatric-doctor-in-our-ambulatory-universitats-kinderspital-beider-basel-basel",
+        "fr": "docteur-pediatrique-dans-notre-ambulatoire-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -1272,19 +1272,19 @@
           "padiatrische-r-arzt-in-in-unserem-ambulatorium-ukbb-basel"
         ],
         "en": [
-          "padiatrische-r-arzt-in-unserem-ambulatorium-universitats-kinderspital-beider-basel",
-          "pediatric-doctor-in-our-ambulatory-universitats-kinderspital-beider-basel-basel"
+          "pediatric-doctor-in-our-ambulatory-universitats-kinderspital-beider-basel-basel",
+          "padiatrische-r-arzt-in-unserem-ambulatorium-universitats-kinderspital-beider-basel"
         ],
         "fr": [
-          "padiatrische-r-arzt-in-unserem-ambulatorium-universitats-kinderspital-beider-basel",
-          "docteur-pediatrique-dans-notre-ambulatoire-universitats-kinderspital-beider-basel-basel"
+          "docteur-pediatrique-dans-notre-ambulatoire-universitats-kinderspital-beider-basel-basel",
+          "padiatrische-r-arzt-in-unserem-ambulatorium-universitats-kinderspital-beider-basel"
         ]
       },
       "previousSlugs": [
         "padiatrische-r-arzt-in-in-unserem-ambulatorium-ukbb-basel",
-        "padiatrische-r-arzt-in-unserem-ambulatorium-universitats-kinderspital-beider-basel",
         "pediatric-doctor-in-our-ambulatory-universitats-kinderspital-beider-basel-basel",
-        "docteur-pediatrique-dans-notre-ambulatoire-universitats-kinderspital-beider-basel-basel"
+        "docteur-pediatrique-dans-notre-ambulatoire-universitats-kinderspital-beider-basel-basel",
+        "padiatrische-r-arzt-in-unserem-ambulatorium-universitats-kinderspital-beider-basel"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1299,8 +1299,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T23:23:34.308Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-07T23:23:34.308Z"
     },
     {
       "id": "ukbb-5d8b0ac18ea9",

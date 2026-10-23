@@ -328,12 +328,12 @@
     },
     {
       "id": "ophtalmique-0d4dbc86c23b",
-      "slug": "auxiliaire-de-sante-ou-aide-soignant-e-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+      "slug": "assistente-sanitario-o-caregiver-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
       "slugByLocale": {
         "fr": "auxiliaire-de-sante-ou-aide-soignant-e-ophtalmique-lausanne",
-        "it": "auxiliaire-de-sante-ou-aide-soignant-e-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "en": "auxiliaire-de-sante-ou-aide-soignant-e-ophtalmique-lausanne",
-        "de": "auxiliaire-de-sante-ou-aide-soignant-e-ophtalmique-lausanne"
+        "it": "assistente-sanitario-o-caregiver-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "en": "health-assistant-or-caregiver-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "de": "gesundheitsassistent-oder-pfleger-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
       },
       "company": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
       "companyKey": "ophtalmique",
@@ -381,11 +381,19 @@
       "careerSiteUrl": "https://emploi.ophtalmique.ch/",
       "previousSlugsByLocale": {
         "it": [
+          "auxiliaire-de-sante-ou-aide-soignant-e-ophtalmique-lausanne",
+          "auxiliaire-de-sante-ou-aide-soignant-e-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+        ],
+        "en": [
+          "auxiliaire-de-sante-ou-aide-soignant-e-ophtalmique-lausanne"
+        ],
+        "de": [
           "auxiliaire-de-sante-ou-aide-soignant-e-ophtalmique-lausanne"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-de-sante-ou-aide-soignant-e-ophtalmique-lausanne"
+        "auxiliaire-de-sante-ou-aide-soignant-e-ophtalmique-lausanne",
+        "auxiliaire-de-sante-ou-aide-soignant-e-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
