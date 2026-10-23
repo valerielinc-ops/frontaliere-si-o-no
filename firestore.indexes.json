@@ -1,6 +1,14 @@
 {
   "indexes": [
     {
+      "collectionGroup": "admin_audit_log",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "action", "order": "ASCENDING" },
+        { "fieldPath": "at", "order": "DESCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "alerts",
       "queryScope": "COLLECTION_GROUP",
       "fields": [

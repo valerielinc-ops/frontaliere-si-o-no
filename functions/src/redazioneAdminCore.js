@@ -35,6 +35,7 @@
 
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { assertSiteAdmin } from './adminAuth.js';
+import { writeAdminAuditLog } from './adminAudit.js';
 
 const AUTHOR_PROFILES_COLLECTION = 'author_profiles';
 const ARTICLE_AUTHOR_OVERRIDES_COLLECTION = 'article_author_overrides';
@@ -89,7 +90,7 @@ function sanitizeProfilePatch(raw) {
   return Object.keys(patch).length ? patch : null;
 }
 
-async function handleUpdateProfile(db, raw, adminEmail) {
+async function handleUpdateProfile(db, raw, auth) {
   const slug = String(raw.slug || '').trim().toLowerCase();
   if (!slug || !SLUG_RE.test(slug)) {
     return { status: 400, body: { ok: false, error: 'invalid_input' } };
@@ -99,13 +100,14 @@ async function handleUpdateProfile(db, raw, adminEmail) {
     return { status: 400, body: { ok: false, error: 'invalid_input' } };
   }
   await db.collection(AUTHOR_PROFILES_COLLECTION).doc(slug).set(
-    { ...patch, updatedAt: new Date().toISOString(), updatedBy: adminEmail },
+    { ...patch, updatedAt: new Date().toISOString(), updatedBy: auth.email },
     { merge: true },
   );
+  await writeAdminAuditLog({ db, auth, action: 'editorial_profile_update', target: slug, status: 200, details: { changedFields: Object.keys(patch) } });
   return { status: 200, body: { ok: true } };
 }
 
-async function handleReassignArticle(db, raw, adminEmail) {
+async function handleReassignArticle(db, raw, auth) {
   const articleId = String(raw.articleId || '').trim();
   const authorSlug = String(raw.authorSlug || '').trim().toLowerCase();
   const authorName = String(raw.authorName || '').trim();
@@ -113,20 +115,21 @@ async function handleReassignArticle(db, raw, adminEmail) {
     return { status: 400, body: { ok: false, error: 'invalid_input' } };
   }
   await db.collection(ARTICLE_AUTHOR_OVERRIDES_COLLECTION).doc(articleId).set(
-    { authorSlug, authorName, updatedAt: new Date().toISOString(), updatedBy: adminEmail },
+    { authorSlug, authorName, updatedAt: new Date().toISOString(), updatedBy: auth.email },
     { merge: true },
   );
+  await writeAdminAuditLog({ db, auth, action: 'article_author_reassign', target: articleId, status: 200, details: { authorSlug } });
   return { status: 200, body: { ok: true } };
 }
 
-async function handleMutate(db, req, adminEmail) {
+async function handleMutate(db, req, auth) {
   const raw = req.body && typeof req.body === 'object' ? req.body : {};
   const action = String(raw.action || '').trim();
   if (!ACTIONS.has(action)) {
     return { status: 400, body: { ok: false, error: 'invalid_input' } };
   }
-  if (action === 'updateProfile') return handleUpdateProfile(db, raw, adminEmail);
-  return handleReassignArticle(db, raw, adminEmail);
+  if (action === 'updateProfile') return handleUpdateProfile(db, raw, auth);
+  return handleReassignArticle(db, raw, auth);
 }
 
 /**
@@ -148,7 +151,7 @@ export async function handleRedazioneAdmin(req) {
   const db = getAdminDb();
 
   if (method === 'POST') {
-    return handleMutate(db, req, auth.email);
+    return handleMutate(db, req, auth);
   }
 
   return handleList(db);

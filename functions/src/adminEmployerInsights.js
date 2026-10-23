@@ -34,6 +34,7 @@ import { generateInsightsToken } from './employerInsights.js';
 // the SPA also validates) — shared with journalistRoleCore.js,
 // newsletterSubscriberAuthSync.js and stripePublisherCore.js.
 import { EMAIL_RE } from './lib/emailValidation.js';
+import { writeAdminAuditLog } from './adminAudit.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const INSIGHTS_COLLECTION = 'employer_insights';
@@ -213,7 +214,7 @@ export async function handleList(db, newsletterSecret) {
 }
 
 /** POST → upsert the editable contact for one company. */
-async function handleUpsertContact(db, req, adminEmail) {
+async function handleUpsertContact(db, req, auth) {
   const raw = req.body && typeof req.body === 'object' ? req.body : {};
   const companyKey = String(raw.companyKey || '').trim();
   if (!companyKey) {
@@ -223,7 +224,7 @@ async function handleUpsertContact(db, req, adminEmail) {
   const update = {
     companyKey,
     updatedAt: FieldValue.serverTimestamp(),
-    updatedBy: adminEmail || 'admin',
+    updatedBy: auth.email || 'admin',
   };
 
   // Email handling. A blank input is NOT a clear by default — otherwise an admin
@@ -251,6 +252,14 @@ async function handleUpsertContact(db, req, adminEmail) {
   if (raw.topRole !== undefined) update.topRole = String(raw.topRole || '').trim().slice(0, 160);
 
   await db.collection(CONTACTS_COLLECTION).doc(companyKey).set(update, { merge: true });
+  await writeAdminAuditLog({
+    db,
+    auth,
+    action: 'employer_contact_update',
+    target: companyKey,
+    status: 200,
+    details: { changedFields: Object.keys(update).filter((field) => field !== 'updatedAt' && field !== 'updatedBy') },
+  });
   return {
     status: 200,
     body: {
@@ -283,7 +292,7 @@ export async function handleAdminEmployerInsights(req) {
   const db = getAdminDb();
 
   if (method === 'POST') {
-    return handleUpsertContact(db, req, auth.email);
+    return handleUpsertContact(db, req, auth);
   }
 
   const { newsletterSecret } = await getNewsletterSecrets();

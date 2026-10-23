@@ -64,6 +64,8 @@ import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleAdminGithub, handleCreateFeedbackIssue } from './src/githubProxy.js';
 import { handleAdminJobsCrawlerConfig } from './src/adminJobsCrawlerConfig.js';
 import { handleAdminEmployerInsights } from './src/adminEmployerInsights.js';
+import { handleAdminAuditLog } from './src/adminAuditLog.js';
+import { handleAdminRemoteConfig } from './src/adminRemoteConfig.js';
 import { assertSiteAdmin } from './src/adminAuth.js';
 import { handleAdminSendColdEmail } from './src/adminSendColdEmail.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './src/emailCascade.js';
@@ -440,11 +442,43 @@ export const adminSendColdEmail = onRequest(
         force: Boolean(body.force),
         secret: newsletterSecret,
         db: getAdminDb(),
+        auditAuth: auth,
+        auditDb: getAdminDb(),
         sendEmail,
       });
       res.status(status).json(out);
     } catch (error) {
       console.error('[adminSendColdEmail]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Admin-only, read-only audit feed. The function caps every page at 50 entries
+// and never returns CV/email bodies or Remote Config secrets.
+export const adminAuditLog = onRequest(
+  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleAdminAuditLog(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[adminAuditLog]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Admin-only, server-side Remote Config view. Secret-looking parameters are
+// reduced to their name and a fixed hidden-value label before serialization.
+export const adminRemoteConfig = onRequest(
+  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleAdminRemoteConfig(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[adminRemoteConfig]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
     }
   },

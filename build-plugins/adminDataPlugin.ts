@@ -19,6 +19,7 @@ import fs from 'fs';
 import path from 'path';
 import type { Plugin } from 'vite';
 import { ADMIN_SECTION_SLUGS } from '../components/admin/adminSections';
+import { buildAdminWorkflowSchedulePayload } from './adminWorkflowSchedules';
 
 /** Admin-only files to copy from data/ → dist/data/ (relative to project root). */
 const ADMIN_DATA_FILES = [
@@ -50,6 +51,7 @@ const RUNTIME_DATA_FILES = [
 
 /** Every file this plugin copies, in one list for the copy loop + dev middleware. */
 export const COPIED_DATA_FILES = [...ADMIN_DATA_FILES, ...RUNTIME_DATA_FILES];
+export const ADMIN_WORKFLOW_SCHEDULES_PATH = '/data/admin-workflow-schedules.json';
 
 export const ADMIN_ROUTE_SLUG = 'gestione-contenuti-xk9mp2q';
 export const ADMIN_STATIC_SECTION_SLUGS = ADMIN_SECTION_SLUGS;
@@ -89,12 +91,23 @@ export function adminDataPlugin(root: string): Plugin {
  const routeToSource = new Map(
  COPIED_DATA_FILES.map((relPath) => [`/${relPath.replace(/^data\//, 'data/')}`, path.resolve(root, relPath)])
  );
+ let distDir = path.resolve(root, 'dist');
 
  return {
  name: 'admin-data-plugin',
+ apply: 'build',
+ enforce: 'post',
+ configResolved(config) {
+ distDir = path.resolve(config.root, config.build.outDir);
+ },
  configureServer(server) {
  server.middlewares.use((req, res, next) => {
  const pathname = (req.url || '').split('?')[0];
+ if (pathname === ADMIN_WORKFLOW_SCHEDULES_PATH) {
+ res.setHeader('Content-Type', 'application/json');
+ res.end(JSON.stringify(buildAdminWorkflowSchedulePayload(root), null, 2));
+ return;
+ }
  const src = routeToSource.get(pathname);
  if (!src || !fs.existsSync(src)) {
  next();
@@ -106,7 +119,6 @@ export function adminDataPlugin(root: string): Plugin {
  });
  },
  closeBundle() {
- const distDir = path.resolve(root, 'dist');
  let copied = 0;
 
  for (const relPath of COPIED_DATA_FILES) {
@@ -125,6 +137,11 @@ export function adminDataPlugin(root: string): Plugin {
  }
 
  console.log(` 📋 Source data: copied ${copied} files to dist/data/ (${ADMIN_DATA_FILES.length} admin + ${RUNTIME_DATA_FILES.length} runtime)`);
+
+ const schedulesDest = path.resolve(distDir, ADMIN_WORKFLOW_SCHEDULES_PATH.slice(1));
+ fs.mkdirSync(path.dirname(schedulesDest), { recursive: true });
+ fs.writeFileSync(schedulesDest, JSON.stringify(buildAdminWorkflowSchedulePayload(root), null, 2), 'utf-8');
+ console.log(` 🗓️ Admin schedules: emitted ${schedulesDest}`);
 
  // Generate static HTML shells for every live admin section so GitHub Pages
  // serves direct deep links without the 404→redirect dance that causes stale

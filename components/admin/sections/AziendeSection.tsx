@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowDown, ArrowUp, Building2, Eye, ExternalLink, FileText, Loader2, Mail, MousePointerClick, Pencil, RefreshCw, Save, Search, Users, X, type LucideIcon } from 'lucide-react';
+import { ArrowDown, ArrowUp, Building2, Download, Eye, ExternalLink, FileText, Loader2, Mail, MousePointerClick, Pencil, RefreshCw, Save, Search, Users, X, type LucideIcon } from 'lucide-react';
 import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 import { useAuth } from '@/services/authService';
 import { fetchAdminEmployerInsights, sendColdEmail, updateEmployerContact, type EmployerInsightsRow } from '@/services/adminInsights';
@@ -11,7 +11,11 @@ import { AdminSectionHeader } from '@/components/admin/ui/AdminSectionHeader';
 import { AdminStatusPill } from '@/components/admin/ui/AdminStatusPill';
 import { relativeTime } from '@/components/admin/lib/formatters';
 import { replaceAdminQuery } from '@/components/admin/lib/adminNavigation';
+import { useAdminNavigation } from '@/components/admin/lib/AdminNavigationContext';
 import type { EmployerInsightsWindow, EmployerOutreachStatus, InsightsSortColumn } from '@/components/admin/lib/adminTypes';
+import { AdminPagination } from '@/components/admin/ui/AdminPagination';
+import { datedExportFilename, downloadCsv } from '@/components/admin/lib/csv';
+import { pageSlice } from '@/components/admin/lib/pagination';
 
 function compareNumbers(a: number | null, b: number | null): number { if (a === null && b === null) return 0; if (a === null) return 1; if (b === null) return -1; return a - b; }
 function metric(value: number | null): string { return value === null ? 'non disponibile' : value.toLocaleString('it-IT'); }
@@ -32,6 +36,7 @@ function OutreachStatusBadge({ outreach }: { outreach?: EmployerOutreachStatus }
 
 export default function AziendeSection() {
   const { user } = useAuth();
+  const { locationKey } = useAdminNavigation();
   const { requestConfirmation } = useAdminConfirm();
   const [rows, setRows] = useState<EmployerInsightsRow[]>([]);
   const [loading, setLoading] = useState(false);
@@ -47,12 +52,13 @@ export default function AziendeSection() {
   const [previewTouch, setPreviewTouch] = useState(1);
   const [sending, setSending] = useState(false);
   const [sendMessage, setSendMessage] = useState<AdminMessage | null>(null);
+  const [page, setPage] = useState(1);
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const dialogCloseRef = useRef<HTMLButtonElement | null>(null);
   const dialogTriggerRef = useRef<HTMLElement | null>(null);
 
   const loadInsights = async () => { setLoading(true); setError(null); try { setRows(await fetchAdminEmployerInsights(user)); } catch (err) { setError(err instanceof Error ? err.message : 'Errore sconosciuto'); } finally { setLoading(false); } };
-  useEffect(() => { void loadInsights(); }, []);
+  useEffect(() => { void loadInsights(); }, [user]);
 
   const modalRow = useMemo(() => rows.find((row) => row.companyKey === modalKey) || null, [modalKey, rows]);
   const openModal = (row: EmployerInsightsRow) => {
@@ -68,7 +74,17 @@ export default function AziendeSection() {
     window.setTimeout(() => dialogCloseRef.current?.focus(), 0);
   }, [modalRow]);
 
-  useEffect(() => { const key = new URLSearchParams(window.location.search).get('azienda'); if (key) { const row = rows.find((candidate) => candidate.companyKey === key); if (row && modalKey !== row.companyKey) openModal(row); } else if (modalKey) setModalKey(null); }, [rows, modalKey]);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('q') || '';
+    const key = params.get('azienda');
+    setFilter((current) => current === query ? current : query);
+    if (key) {
+      const row = rows.find((candidate) => candidate.companyKey === key);
+      if (row && modalKey !== row.companyKey) openModal(row);
+    } else if (modalKey) setModalKey(null);
+  // locationKey is the browser-history boundary; rows/modalKey are data dependencies.
+  }, [locationKey, rows, modalKey]);
 
   const draftsChanged = Boolean(modalRow && (emailDraft.trim().toLowerCase() !== String(modalRow.contactEmail || '').trim().toLowerCase() || nameDraft.trim() !== String(modalRow.contactName || '').trim() || roleDraft.trim() !== String(modalRow.topRole || '').trim()));
   const completeClose = () => {
@@ -134,10 +150,15 @@ export default function AziendeSection() {
     finally { setSending(false); }
   };
 
-  const filteredRows = useMemo(() => {
+  const allFilteredRows = useMemo(() => {
     const query = filter.trim().toLowerCase(); const filtered = query ? rows.filter((row) => row.companyName.toLowerCase().includes(query) || row.companyKey.toLowerCase().includes(query)) : rows; const direction = sort.direction === 'asc' ? 1 : -1;
     return [...filtered].sort((a, b) => { switch (sort.column) { case 'companyName': return a.companyName.localeCompare(b.companyName) * direction; case 'generatedAt': return String(a.generatedAt || '').localeCompare(String(b.generatedAt || '')) * direction; case 'window': return windowKey(a.window).localeCompare(windowKey(b.window)) * direction; case 'views': return compareNumbers(a.totals.views, b.totals.views) * direction; case 'applyClicks': return compareNumbers(a.totals.applyClicks, b.totals.applyClicks) * direction; case 'applyClickUsers': return compareNumbers(a.totals.applyClickUsers, b.totals.applyClickUsers) * direction; case 'applications': return compareNumbers(a.totals.applications, b.totals.applications) * direction; case 'profileViews': return compareNumbers(a.totals.profileViews, b.totals.profileViews) * direction; case 'adsObserved': return compareNumbers(a.totals.adsObserved, b.totals.adsObserved) * direction; default: return 0; } });
   }, [filter, rows, sort]);
+
+  useEffect(() => { setPage(1); }, [filter, sort]);
+  const pageRows = useMemo(() => pageSlice(allFilteredRows, page), [allFilteredRows, page]);
+  const filteredRows = pageRows;
+  const exportInsights = () => downloadCsv(datedExportFilename('insights-aziende'), ['Azienda', 'Visualizzazioni', 'Click candidatura', 'Utenti click', 'Candidature', 'Visite profilo', 'Annunci osservati', 'Aggiornato', 'Finestra'], allFilteredRows.map((row) => [row.companyName, row.totals.views, row.totals.applyClicks, row.totals.applyClickUsers, row.totals.applications, row.totals.profileViews, row.totals.adsObserved, row.generatedAt, windowLabel(row.window)]));
 
   const insightsTotals = useMemo(() => {
     const firstSource = rows[0]?.source || null;
@@ -163,9 +184,10 @@ export default function AziendeSection() {
       <AdminSectionHeader title="Aziende" summary={`${rows.length} aziende con dati di traffico · aggiornato ${relativeTime(latestInsightsUpdate) || (loading ? 'in corso' : 'adesso')}`} secondaryActions={<AdminButton icon={<RefreshCw size={16} aria-hidden="true" />} loading={loading} onClick={() => void loadInsights()}>Aggiorna</AdminButton>} />
       {error && <div className="bg-danger-subtle border border-danger-border rounded-stripe px-3 py-2 text-sm text-danger">{error}</div>}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{summaryCards.map(({ label, value, icon: Icon }) => { const cardMetric = metricCard(value, loading); return <div key={label} className="bg-surface rounded-stripe border border-edge p-4"><div className="mb-1 flex items-center gap-2 text-sm text-subtle"><Icon size={16} />{label}</div><div className={cardMetric.className}>{cardMetric.label}</div></div>; })}</div>
-      <div className="relative"><Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" /><input value={filter} onChange={(event) => { const value = event.target.value; setFilter(value); replaceAdminQuery({ q: value.trim() || null }); }} placeholder="Cerca azienda…" aria-label="Cerca azienda per nome" className="w-full pl-9 pr-3 py-2 rounded-stripe border border-edge bg-surface text-strong text-sm" /></div>
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center"><div className="relative min-w-0 flex-1"><Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" /><input value={filter} onChange={(event) => { const value = event.target.value; setFilter(value); replaceAdminQuery({ q: value.trim() || null }); }} placeholder="Cerca azienda…" aria-label="Cerca azienda per nome" className="w-full pl-9 pr-3 py-2 rounded-stripe border border-edge bg-surface text-strong text-sm" /></div><AdminButton icon={<Download size={16} aria-hidden="true" />} onClick={exportInsights} disabled={allFilteredRows.length === 0}>Esporta CSV</AdminButton></div>
       <div className="bg-surface rounded-stripe border border-edge px-4 py-3"><p className="text-sm text-muted">Traffico reale per azienda crawlata. Usa «Apri come azienda» per vedere la pagina prova-statistiche esattamente come la riceve l&apos;azienda (link tokenizzato privato).</p><p className="mt-1 text-xs text-muted">Sorgente/finestra aggregati: {rows.length === 0 ? 'Dati non disponibili' : insightsTotals.window && insightsTotals.source ? `${insightsTotals.source} · ${windowLabel(insightsTotals.window)}` : 'non aggregabile (fonti/finestre diverse o non disponibili)'}</p></div>
-      <p className="text-xs text-muted">{loading ? 'Caricamento…' : `${filteredRows.length} aziende${filter ? ` (di ${rows.length})` : ''}`}</p>
+      <p className="text-xs text-muted">{loading ? 'Caricamento…' : `${allFilteredRows.length} aziende${filter ? ` (di ${rows.length})` : ''}`}</p>
+      <AdminPagination page={page} total={allFilteredRows.length} onPageChange={setPage} />
       <div className="hidden md:block overflow-x-auto rounded-stripe border border-edge"><table className="w-full text-sm tabular-nums"><caption className="sr-only">Insights di traffico per azienda crawlata</caption><thead className="bg-surface-alt text-subtle"><tr>{headers.map((header) => <th key={header.column} scope="col" aria-sort={sort.column === header.column ? sort.direction === 'asc' ? 'ascending' : 'descending' : 'none'} className="px-3 py-2 font-semibold text-left"><button type="button" onClick={() => toggleSort(header.column)} className="inline-flex min-h-8 items-center gap-1 rounded-stripe px-1 hover:bg-surface-raised hover:text-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">{header.label}{sort.column === header.column && (sort.direction === 'asc' ? <ArrowUp size={12} /> : <ArrowDown size={12} />)}</button></th>)}<th className="px-3 py-2 text-left font-semibold">Outreach</th><th className="px-3 py-2 text-right font-semibold">Azione</th></tr></thead><tbody>{filteredRows.map((row) => <tr key={row.companyKey} className="border-t border-edge hover:bg-surface-alt/50"><td className="px-3 py-2"><div className="text-strong font-medium">{row.companyName}</div><div className="mt-0.5 flex items-center gap-1 text-xs"><Mail size={11} className={row.contactEmail ? 'text-success' : 'text-muted'} />{row.contactEmail ? <span className="text-muted truncate max-w-[220px]">{row.contactEmail}</span> : row.contactEmailInferred ? <span className="text-warning truncate max-w-[220px]" title="Email inferita (mai inviata in automatico)">{row.contactEmailInferred} (inferita)</span> : <span className="text-muted italic">contatto mancante</span>}</div></td><td className="px-3 py-2 text-right text-body">{metric(row.totals.views)}</td><td className="px-3 py-2 text-right text-body">{metric(row.totals.applyClicks)}</td><td className="px-3 py-2 text-right text-body">{metric(row.totals.applyClickUsers)}</td><td className="px-3 py-2 text-right text-body">{metric(row.totals.applications)}</td><td className="px-3 py-2 text-right text-body">{metric(row.totals.profileViews)}</td><td className="px-3 py-2 text-right text-body">{metric(row.totals.adsObserved)}</td><td className="px-3 py-2 text-right text-muted whitespace-nowrap">{dateLabel(row.generatedAt)}</td><td className="px-3 py-2 text-right text-muted whitespace-nowrap">{windowLabel(row.window)}</td><td className="px-3 py-2"><OutreachStatusBadge outreach={row.outreach} /></td><td className="px-3 py-2 text-right whitespace-nowrap"><button type="button" onClick={() => openModal(row)} className="inline-flex min-h-8 items-center gap-1 rounded-stripe border border-edge bg-surface-raised px-2 py-1 text-xs font-medium text-body hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" aria-label={`Contatto e anteprima email per ${row.companyName}`}><Mail size={12} />Email</button>{' '}<a href={row.insightsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-8 items-center gap-1 rounded-stripe border border-accent bg-accent-subtle px-2 py-1 text-xs font-medium text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" aria-label={`Apri la pagina statistiche di ${row.companyName} come azienda`}>Apri come azienda <ExternalLink size={12} /></a></td></tr>)}{!loading && filteredRows.length === 0 && <tr><td colSpan={11} className="px-3 py-6 text-center text-muted">Nessuna azienda trovata.</td></tr>}</tbody></table></div>
       <div className="md:hidden space-y-3">{filteredRows.map((row) => <div key={row.companyKey} className="bg-surface rounded-stripe border border-edge p-4 space-y-2"><div className="font-semibold text-strong">{row.companyName}</div><div className="flex items-center gap-1 text-xs"><Mail size={12} className={row.contactEmail ? 'text-success' : 'text-muted'} />{row.contactEmail ? <span className="text-muted truncate">{row.contactEmail}</span> : row.contactEmailInferred ? <span className="text-warning truncate">{row.contactEmailInferred} (inferita)</span> : <span className="text-muted italic">contatto mancante</span>}</div><div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs"><div><span className="block text-muted">Visualizzazioni</span><span className="text-body">{metric(row.totals.views)}</span></div><div><span className="block text-muted">Click candidatura</span><span className="text-body">{metric(row.totals.applyClicks)}</span></div><div><span className="block text-muted">Utenti click</span><span className="text-body">{metric(row.totals.applyClickUsers)}</span></div><div><span className="block text-muted">Candidature inviate</span><span className="text-body">{metric(row.totals.applications)}</span></div><div><span className="block text-muted">Visite profilo</span><span className="text-body">{metric(row.totals.profileViews)}</span></div><div><span className="block text-muted">Annunci osservati</span><span className="text-body">{metric(row.totals.adsObserved)}</span></div><div><span className="block text-muted">Data</span><span className="text-body">{dateLabel(row.generatedAt)}</span></div><div className="col-span-2 sm:col-span-3"><span className="block text-muted">Finestra</span><span className="text-body">{windowLabel(row.window)}</span></div></div><div className="flex items-center gap-1.5 text-xs"><span className="text-muted">Outreach:</span><OutreachStatusBadge outreach={row.outreach} /></div><div className="grid grid-cols-2 gap-2"><button type="button" onClick={() => openModal(row)} className="inline-flex min-h-10 items-center justify-center gap-1 rounded-stripe border border-edge bg-surface-raised px-3 py-2 text-sm font-medium text-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" aria-label={`Contatto e anteprima email per ${row.companyName}`}><Mail size={14} />Email</button><a href={row.insightsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center justify-center gap-1 rounded-stripe border border-accent bg-accent px-3 py-2 text-sm font-medium text-on-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" aria-label={`Apri la pagina statistiche di ${row.companyName} come azienda`}>Azienda <ExternalLink size={14} /></a></div></div>)}{!loading && filteredRows.length === 0 && <p className="text-center text-muted py-6">Nessuna azienda trovata.</p>}</div>
       {modalRow && <dialog ref={dialogRef} aria-labelledby="azienda-dialog-title" onCancel={(event) => { event.preventDefault(); void closeModal(); }} onClose={completeClose} className="m-auto max-h-[92vh] w-[min(100%-1rem,42rem)] overflow-y-auto rounded-stripe border border-edge bg-surface p-0 text-body shadow-stripe-lg backdrop:bg-heading/50"><div className="w-full"><div className="sticky top-0 bg-surface border-b border-edge px-4 py-3 flex items-center justify-between"><div><h3 id="azienda-dialog-title" className="text-base font-semibold text-strong flex items-center gap-2"><Building2 size={18} className="text-accent" />{modalRow.companyName}</h3><p className="text-xs text-muted">{metric(modalRow.totals.applyClicks)} click candidatura · {metric(modalRow.totals.applyClickUsers)} utenti click · {metric(modalRow.totals.views)} visualizzazioni</p><p className="text-sm text-muted">Finestra: {windowLabel(modalRow.window)} · Sorgente: {modalRow.source || 'non disponibile'}</p><div className="mt-1.5 flex items-center gap-1.5 text-xs"><span className="text-muted">Outreach:</span><OutreachStatusBadge outreach={modalRow.outreach} /></div></div><button ref={dialogCloseRef} type="button" onClick={() => void closeModal()} className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-stripe text-muted hover:bg-surface-alt hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" aria-label="Chiudi"><X size={18} /></button></div>

@@ -26,7 +26,7 @@ export default function GiornalistiSection() {
     catch (err) { setError(err instanceof Error ? err.message : 'Errore sconosciuto'); }
     finally { setLoading(false); }
   };
-  useEffect(() => { void loadGrants(); }, []);
+  useEffect(() => { void loadGrants(); }, [user]);
 
   const roleAction = async (action: 'grant' | 'revoke', value: string) => {
     const trimmedEmail = value.trim();

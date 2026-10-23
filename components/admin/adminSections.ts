@@ -80,19 +80,17 @@ export const ADMIN_SECTIONS: readonly AdminSection[] = [
     slug: 'flag',
     label: 'Flag',
     group: 'sistema',
-    description: 'Flag di sistema (in arrivo).',
-    planned: true,
+    description: 'Valori Remote Config non segreti e flag sperimentali.',
   },
   {
     slug: 'registro',
     label: 'Registro',
     group: 'sistema',
-    description: 'Registro operativo (in arrivo).',
-    planned: true,
+    description: 'Registro delle mutazioni eseguite dal pannello admin.',
   },
 ];
 
-/** Live section slugs. Planned Fase 3 sections are intentionally excluded. */
+/** Live section slugs used by the router and the noindex static-shell plugin. */
 export const ADMIN_SECTION_SLUGS = ADMIN_SECTIONS
   .filter((section) => !section.planned)
   .map((section) => section.slug) as readonly string[];

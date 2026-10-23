@@ -7,7 +7,6 @@
  *   dashboard. The PAT remains inside the function runtime.
  */
 
-import { FieldValue } from 'firebase-admin/firestore';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { createAssessment } from './recaptchaVerification.js';
 import {
@@ -16,9 +15,9 @@ import {
 } from './githubApiHeaders.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { assertSiteAdmin } from './adminAuth.js';
+import { updateAdminAuditStatus, writeAdminAuditLog } from './adminAudit.js';
 
 const FEEDBACK_RECAPTCHA_THRESHOLD = 0.5;
-const ADMIN_AUDIT_COLLECTION = 'admin_audit_log';
 const MAX_GITHUB_LOG_BYTES = 256 * 1024;
 
 // Exported: stripePublisherCore.js's dispatchPublisherSync reuses this same
@@ -131,6 +130,14 @@ function parseGithubPath(method, path) {
   const segments = url.pathname.split('/').filter(Boolean);
   const queryKeys = [...url.searchParams.keys()];
   const hasOnlyQueryKeys = (allowed) => queryKeys.every((key) => allowed.includes(key));
+  const singleQueryValue = (key) => {
+    const values = url.searchParams.getAll(key);
+    return values.length <= 1 ? values[0] : null;
+  };
+  const validPerPage = () => !url.searchParams.has('per_page') || /^(?:[1-9]\d?|100)$/u.test(singleQueryValue('per_page') || '');
+  const validCreated = () => !url.searchParams.has('created') || /^(?:[<>]=?)?\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z?)?$/u.test(singleQueryValue('created') || '');
+  const validStatus = () => !url.searchParams.has('status') || new Set(['queued', 'in_progress', 'completed', 'requested', 'waiting', 'pending']).has(singleQueryValue('status') || '');
+  const validBranch = () => !url.searchParams.has('branch') || /^[^\s#?&]{1,120}$/u.test(singleQueryValue('branch') || '');
   const workflowFile = segments[2];
   const workflowFileValid = typeof workflowFile === 'string' && /^[A-Za-z0-9._-]+\.ya?ml$/i.test(workflowFile);
   const numeric = (value) => typeof value === 'string' && /^\d+$/.test(value);
@@ -142,10 +149,31 @@ function parseGithubPath(method, path) {
     && segments[1] === 'workflows'
     && workflowFileValid
     && segments[3] === 'runs'
-    && hasOnlyQueryKeys(['per_page'])
-    && (!url.searchParams.has('per_page') || /^\d{1,3}$/.test(url.searchParams.get('per_page')))
+    && hasOnlyQueryKeys(['created', 'per_page', 'status', 'branch'])
+    && validPerPage()
+    && validCreated()
+    && validStatus()
+    && validBranch()
   ) {
     return { ok: true, kind: 'workflow_runs', workflowFile };
+  }
+
+  if (
+    method === 'GET'
+    && segments.length === 2
+    && segments[0] === 'actions'
+    && segments[1] === 'runs'
+    && hasOnlyQueryKeys(['created', 'per_page', 'status', 'branch'])
+    && validPerPage()
+    && validCreated()
+    && validStatus()
+    && validBranch()
+  ) {
+    return { ok: true, kind: 'all_runs' };
+  }
+
+  if (method === 'GET' && segments.length === 1 && segments[0] === 'rate_limit' && !url.search) {
+    return { ok: true, kind: 'rate_limit' };
   }
 
   if (
@@ -167,7 +195,7 @@ function parseGithubPath(method, path) {
     && numeric(segments[2])
     && segments[3] === 'jobs'
     && hasOnlyQueryKeys(['per_page'])
-    && (!url.searchParams.has('per_page') || /^\d{1,3}$/.test(url.searchParams.get('per_page')))
+    && validPerPage()
   ) {
     return { ok: true, kind: 'run_jobs', runId: segments[2] };
   }
@@ -274,7 +302,8 @@ async function readResponseBody(response) {
   }
 }
 
-function githubEndpoint(path, owner, repo) {
+function githubEndpoint(path, owner, repo, kind) {
+  if (kind === 'rate_limit') return `${GITHUB_API}${path}`;
   return `${GITHUB_API}/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}${path}`;
 }
 
@@ -296,42 +325,25 @@ export async function handleAdminGithub(req, dependencies = {}) {
   const auditDb = isDispatch ? (dependencies.db || getAdminDb()) : null;
   let dispatchAuditRef = null;
   const writeDispatchAuditIntent = async () => {
-    if (!isDispatch) return true;
-    try {
-      dispatchAuditRef = await auditDb.collection(ADMIN_AUDIT_COLLECTION).add({
-        at: FieldValue.serverTimestamp(),
-        uid: auth.uid,
-        email: auth.email,
-        action: 'workflow_dispatch',
-        target: parsed.workflowFile,
-        inputs: req.body?.body?.inputs || req.body?.body || {},
-        status: 'pending',
-      });
-      return true;
-    } catch (error) {
-      console.error('adminGithub audit intent write failed', error);
-      return false;
-    }
+    if (!isDispatch) return null;
+    const inputs = req.body?.body?.inputs || req.body?.body || {};
+    dispatchAuditRef = await writeAdminAuditLog({
+      db: auditDb,
+      auth,
+      action: 'workflow_dispatch',
+      target: parsed.workflowFile,
+      status: 'pending',
+      details: { inputs },
+      legacyFields: { inputs },
+    });
+    return dispatchAuditRef;
   };
   const updateDispatchAudit = async (status) => {
     if (!isDispatch) return;
-    try {
-      if (!dispatchAuditRef) throw new Error('audit intent reference missing');
-      if (typeof dispatchAuditRef.update === 'function') {
-        await dispatchAuditRef.update({ status });
-      } else if (typeof dispatchAuditRef.set === 'function') {
-        await dispatchAuditRef.set({ status }, { merge: true });
-      } else {
-        throw new Error('audit intent reference is not writable');
-      }
-    } catch (error) {
-      console.error('adminGithub audit status update failed', error);
-    }
+    await updateAdminAuditStatus(dispatchAuditRef, status);
   };
 
-  if (!(await writeDispatchAuditIntent())) {
-    return { status: 500, body: { ok: false, error: 'audit_write_failed' } };
-  }
+  await writeDispatchAuditIntent();
 
   const { pat, owner, repo } = dependencies.repoConfig || await getRepoConfig();
   if (!pat) {
@@ -340,7 +352,7 @@ export async function handleAdminGithub(req, dependencies = {}) {
   }
 
   const fetchImpl = dependencies.fetchImpl || fetch;
-  const githubUrl = githubEndpoint(path, owner, repo);
+  const githubUrl = githubEndpoint(path, owner, repo, parsed.kind);
   const requestOptions = {
     method,
     headers: githubApiHeaders(pat, {

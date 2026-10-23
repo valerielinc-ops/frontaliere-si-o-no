@@ -72,11 +72,8 @@ function getTemplatePromise() {
  return fetchPromise || startTemplateFetch();
 }
 
-/**
- * Fetch a Remote Config parameter value by key.
- * Returns empty string if the key doesn't exist.
- */
-export async function getRemoteConfigValue(key) {
+/** Return the cached server-side template without exposing it to the browser. */
+export async function getRemoteConfigTemplate() {
  const now = Date.now();
  const hasCachedTemplate = cachedTemplate !== null;
  if (!hasCachedTemplate) {
@@ -106,12 +103,19 @@ export async function getRemoteConfigValue(key) {
  await getTemplatePromise();
  } catch (error) {
  if (!isFetchTimeoutError(error)) throw error;
- console.warn(
- '[remoteConfigSecrets] Remote Config refresh timed out; serving cached template beyond max stale age',
- );
+ console.warn('[remoteConfigSecrets] Remote Config refresh timed out; serving cached template beyond max stale age');
  }
  }
  }
+ return cachedTemplate;
+}
+
+/**
+ * Fetch a Remote Config parameter value by key.
+ * Returns empty string if the key doesn't exist.
+ */
+export async function getRemoteConfigValue(key) {
+ await getRemoteConfigTemplate();
 
  const param = cachedTemplate.parameters?.[key];
  if (!param) return '';
