@@ -235,6 +235,13 @@
     { "collectionGroup": "campaign_deliveries", "fieldPath": "email", "indexes": [] },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "is_operator_verification", "indexes": [] },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "locale", "indexes": [] },
+    {
+      "collectionGroup": "campaign_deliveries",
+      "fieldPath": "subject_experiment",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "message_id", "indexes": [] },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "provider", "indexes": [] },
     { "collectionGroup": "campaign_deliveries", "fieldPath": "ranking_delivery_id", "indexes": [] },
@@ -247,7 +254,13 @@
     { "collectionGroup": "events", "fieldPath": "metadata", "indexes": [] },
     { "collectionGroup": "events", "fieldPath": "email", "indexes": [] },
     { "collectionGroup": "events", "fieldPath": "maileroo_event", "indexes": [] },
-    { "collectionGroup": "events", "fieldPath": "message_id", "indexes": [] },
+    {
+      "collectionGroup": "events",
+      "fieldPath": "message_id",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
     { "collectionGroup": "maileroo_refs", "fieldPath": "campaign_id", "indexes": [] },
     { "collectionGroup": "maileroo_refs", "fieldPath": "email", "indexes": [] },
     { "collectionGroup": "maileroo_refs", "fieldPath": "is_job_alert", "indexes": [] },
