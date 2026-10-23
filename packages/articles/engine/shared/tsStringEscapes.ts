@@ -102,6 +102,46 @@ export interface DecodeTsStringOptions {
 }
 
 /**
+ * Decode one TypeScript escape token without re-scanning its output.
+ *
+ * `undefined` means that the token is deliberately left untouched: unknown
+ * escapes can be part of the JSON text carried by the FAQ field and must
+ * reach that downstream parser with their backslash intact.
+ */
+export function decodeTsStringEscapeSequence(
+  escape: string,
+  options: DecodeTsStringOptions = {},
+): string | undefined {
+  const codePoint = decodeTypeScriptCodePointEscape(escape);
+  if (codePoint) return codePoint.value;
+
+  const newlineAs = options.newlineAs ?? '\n';
+  switch (escape[0]) {
+    case 'n': return newlineAs;
+    // Keep the historical corpus contract: CR escapes are removed rather
+    // than emitted into article text.
+    case 'r': return '';
+    case 't': return ' ';
+    case 'b': return '\b';
+    case 'f': return '\f';
+    case 'v': return '\v';
+    case '0': return '\0';
+    case '\\': return '\\';
+    case "'": return "'";
+    case '"': return '"';
+    case 'u': {
+      // The one-character branch also matches a bare `u` that is NOT followed by 4 hex digits
+      // (for example `\\u` at the end of a truncated value). Preserve the
+      // source spelling instead of producing NaN -> U+0000.
+      if (escape.length !== 5) return undefined;
+      const codeUnit = Number.parseInt(escape.slice(1), 16);
+      return Number.isNaN(codeUnit) ? undefined : String.fromCharCode(codeUnit);
+    }
+    default: return undefined;
+  }
+}
+
+/**
  * Turn the raw source text of a single-quoted TypeScript string literal into
  * the value `tsc` would produce.
  *
@@ -111,42 +151,8 @@ export function decodeTsStringEscapes(
   value: string,
   options: DecodeTsStringOptions = {},
 ): string {
-  const newlineAs = options.newlineAs ?? '\n';
   return value.replace(TS_ESCAPE_RX, (whole, escape: string) => {
-    const codePoint = decodeTypeScriptCodePointEscape(escape);
-    if (codePoint) return codePoint.value;
-
-    switch (escape[0]) {
-      case 'n':
-        return newlineAs;
-      // Dropped, not turned into a character: the corpus writes CRLF-free
-      // text and the previous decoder deleted `\r` too. Kept identical so no
-      // published byte moves for this escape.
-      case 'r':
-        return '';
-      case 't':
-        return ' ';
-      case '\\':
-        return '\\';
-      case '\'':
-        return '\'';
-      case '"':
-        return '"';
-      case 'u': {
-        // `[\s\S]` also matches a bare `u` that is NOT followed by 4 hex
-        // digits (e.g. `\u` at the very end of a truncated value). Passing it
-        // through keeps the byte rather than producing `NaN` -> U+0000.
-        if (escape.length !== 5) return whole;
-        const codeUnit = Number.parseInt(escape.slice(1), 16);
-        return Number.isNaN(codeUnit) ? whole : String.fromCharCode(codeUnit);
-      }
-      // `\b`, `\f`, `\/`, `\0`, … — not modelled, so handed on with the
-      // backslash intact. For the `faq` field that means a genuine JSON escape
-      // survives to `JSON.parse`, which is the component that actually knows
-      // how to read it.
-      default:
-        return whole;
-    }
+    return decodeTsStringEscapeSequence(escape, options) ?? whole;
   });
 }
 
