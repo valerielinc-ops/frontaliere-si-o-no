@@ -15,7 +15,9 @@ import {
   slugify,
   stripHtml,
   decodeHtmlEntities,
+  fetchLocarnoJobs,
 } from '@/scripts/lib/citta-di-locarno-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 // ── Fixtures ────────────────────────────────────────────────────
 
@@ -82,6 +84,16 @@ const LISTING_HTML_FIXTURE = `
     </p>
   </li>
 </ul>
+`;
+
+const EMPTY_BOARD_HTML_FIXTURE = `
+<div class="submenu submenu_albo">
+  <ul><li class="active"><a href="/it/albo-comunale/assunzioni-personale">Assunzioni personale (0)</a></li></ul>
+</div>
+<div class="content">
+  <h2>Assunzioni personale</h2>
+  <p>Nessun documento trovato.</p>
+</div>
 `;
 
 // ── Tests ────────────────────────────────────────────────────────
@@ -234,8 +246,37 @@ describe('Locarno crawler — listing HTML parsing', () => {
   });
 
   it('returns empty for empty input', () => {
-    expect(parseLocarnoListingHtml('')).toHaveLength(0);
-    expect(parseLocarnoListingHtml(null as any)).toHaveLength(0);
+    const empty = parseLocarnoListingHtml('');
+    const invalid = parseLocarnoListingHtml(null as any);
+    expect(empty).toHaveLength(0);
+    expect(invalid).toHaveLength(0);
+    expect(empty.fetchOutcome).toBe('selector_miss');
+    expect(invalid.fetchOutcome).toBe('selector_miss');
+  });
+
+  it('stamps the explicit empty board but keeps selector drift fail-closed', () => {
+    const empty = parseLocarnoListingHtml(EMPTY_BOARD_HTML_FIXTURE);
+    expect(empty).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(empty)).toBe(true);
+    expect(empty.fetchOutcome).toBe('ok');
+
+    const drifted = parseLocarnoListingHtml(`
+      <h2>Assunzioni personale</h2>
+      <div class="listing"><p>Nuova struttura non riconosciuta</p></div>
+    `);
+    expect(drifted).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(drifted)).toBe(false);
+    expect(drifted.fetchOutcome).toBe('selector_miss');
+  });
+
+  it('preserves the source-backed empty proof through the fetch boundary', async () => {
+    const jobs = await fetchLocarnoJobs(1000, async () => new Response(EMPTY_BOARD_HTML_FIXTURE, {
+      status: 200,
+      headers: { 'content-type': 'text/html' },
+    }));
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs.fetchOutcome).toBe('ok');
   });
 });
 
