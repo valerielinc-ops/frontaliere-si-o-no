@@ -7,6 +7,7 @@ import { fetchArticleOverlay, mergeOverlay, type OverlayArticle } from '@/servic
 import { articleCoverImageLd, creditedStaticImageObject, fetchImageCredit, fetchImageCredits } from '@/services/imageCredits';
 import type { ImageCreditRecord } from '@/packages/articles/engine/shared/imageCredits.mjs';
 import ImageCreditLine from '@/components/community/ImageCreditLine';
+import { fuelPriceVariantForArticle, shouldShowFuelTableAfterSingleSegment } from '@/components/blog/fuelArticleContext';
 import { runtimeArticleRecords, recoverArticleBodyParts, publishRuntimeArticleBody, publishedSlugsForIds } from '@/services/runtimeArticleResolution';
 import { needsArticleBodyRecovery } from '@/services/articleBodyRecovery';
 import type { Locale } from '@/services/i18n';
@@ -111,12 +112,6 @@ const InlineBorderWaitRanking = lazyRetry(() => import('@/components/blog/Inline
 // enough room for a useful center column and 160x600 creatives.
 const BLOG_ARTICLE_RAIL_GRID_CLASS_X = `ft-blog-rail-grid-x ${RAIL_GRID_CLASS_X} xlc:grid xlc:gap-4 xlc:grid-cols-[var(--ft-rail-w-c-l,160px)_minmax(0,1fr)_var(--ft-rail-w-c-r,160px)]`;
 const BLOG_ARTICLE_RAIL_ASIDE_CLASS_X = 'ft-rail-aside-x ft-blog-rail-aside-x hidden xlc:flex xlc:flex-col xlw:flex xlw:flex-col';
-
-/** Blog articles that should render the live Swiss fuel price table inline. */
-const FUEL_PRICE_ARTICLE_IDS: ReadonlySet<string> = new Set([
- 'diesel-aumento-prezzi-svizzera-2026',
- 'carburanti-ticino-aumento-prezzi',
-]);
 
 /** Blog articles that should render the live border-wait ranking chart inline. */
 const BORDER_WAIT_RANKING_ARTICLE_IDS: ReadonlySet<string> = new Set([
@@ -2833,15 +2828,16 @@ function BlogArticlesContent({
 
  <div className="space-y-4">
  {presentSegments.map((segment, idx) => {
+  const fuelPriceVariant = fuelPriceVariantForArticle(article.id);
   return (
  <Fragment key={idx}>
  {/* Interstitials after body1 (index 0) — all viewports */}
  {idx === 1 && (
  <>
  {/* Live fuel price table — only for fuel-price articles */}
- {FUEL_PRICE_ARTICLE_IDS.has(article.id) && (
+ {fuelPriceVariant && (
  <Suspense fallback={<div data-testid="inline-fuel-price-table-fallback" className="mt-6 h-24" />}>
- <InlineFuelPriceTable maxRows={10} />
+ <InlineFuelPriceTable variant={fuelPriceVariant} maxRows={10} />
  </Suspense>
  )}
 
@@ -2919,6 +2915,12 @@ function BlogArticlesContent({
  )}
 
  {renderFormattedContent(segment, navigators, makeInlineAd, adDensity.minWordGap, undefined, usedHeadingIds, usedLinkIds)}
+
+ {fuelPriceVariant && shouldShowFuelTableAfterSingleSegment(presentSegments.length, idx) && (
+ <Suspense fallback={<div data-testid="inline-fuel-price-table-fallback" className="mt-6 h-24" />}>
+ <InlineFuelPriceTable variant={fuelPriceVariant} maxRows={10} />
+ </Suspense>
+ )}
  </Fragment>
   );
  })}
