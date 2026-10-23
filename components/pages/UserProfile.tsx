@@ -465,6 +465,64 @@ const FamilyMemberRow: React.FC<{
  );
 };
 
+type ProfileMapCardProps = {
+ icon: React.ElementType;
+ title: string;
+ description: string;
+ status: string;
+ detail: React.ReactNode;
+ action: string;
+ tone: 'accent' | 'info' | 'success' | 'warning';
+ span?: string;
+ onClick: () => void;
+};
+
+const PROFILE_MAP_TONES = {
+ accent: 'border-accent-border bg-accent-subtle text-accent',
+ info: 'border-info-border bg-info-subtle text-info',
+ success: 'border-success-border bg-success-subtle text-success',
+ warning: 'border-warning-border bg-warning-subtle text-warning',
+} as const;
+
+const ProfileMapCard: React.FC<ProfileMapCardProps> = ({
+ icon,
+ title,
+ description,
+ status,
+ detail,
+ action,
+ tone,
+ span = '',
+ onClick,
+}) => {
+ const Icon = icon;
+ return (
+ <button
+  type="button"
+  onClick={onClick}
+  className={`group flex min-h-[184px] ${span} flex-col rounded-2xl border border-edge bg-surface p-4 text-left shadow-stripe-sm transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 hover:border-accent-border hover:shadow-stripe focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:p-5`}
+ >
+  <div className="flex items-start justify-between gap-3">
+   <span className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${PROFILE_MAP_TONES[tone]}`}>
+    <Icon size={19} aria-hidden="true" />
+   </span>
+   <span className="rounded-full bg-surface-raised px-2 py-1 text-xs font-semibold text-subtle">
+    {status}
+   </span>
+  </div>
+  <span className="mt-5 block font-display text-lg font-bold text-heading">{title}</span>
+  <span className="mt-1 block text-sm leading-5 text-subtle">{description}</span>
+  <span className="mt-auto flex items-end justify-between gap-3 pt-4">
+   <span className="min-w-0 text-sm font-semibold text-strong">{detail}</span>
+   <span className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-accent">
+    {action}
+    <ChevronRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
+   </span>
+  </span>
+ </button>
+ );
+};
+
 // ─── Component ───────────────────────────────────────────────
 
 const UserProfile: React.FC = () => {
@@ -1121,6 +1179,15 @@ const UserProfile: React.FC = () => {
  });
  };
 
+ const scrollToProfileForm = useCallback((field?: keyof UserProfileData) => {
+  const target = document.getElementById(field || 'profile-personal-info');
+  if (!target) return;
+  target.scrollIntoView?.({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+  if (field) {
+   window.setTimeout(() => document.getElementById(field)?.focus(), prefersReducedMotion ? 0 : 350);
+  }
+ }, [prefersReducedMotion]);
+
  // Family members management
  // Helper to sync counters from family members list
  const syncFamilyCounters = (members: FamilyMember[]): Partial<UserProfileData> => {
@@ -1277,9 +1344,18 @@ const UserProfile: React.FC = () => {
 
  const photoURL = getUserPhotoURL(user, user?.uid);
  const displayName = getUserDisplayName(user);
+ const missingProfileField = (['municipality', 'frontaliereType', 'workPosition', 'age', 'familySituation', 'gender'] as const)
+  .find((field) => !profile[field]) || null;
+ const nextProfileLabel = missingProfileField ? t(`profile.${missingProfileField}`) : null;
+ const preferredCrossingWait = preferredCrossing
+  ? effectiveWaitMinutes(borderWaitSnapshot?.perCrossing?.[slugifyCrossingName(preferredCrossing.name)])
+  : null;
+ const dispatchNavigation = (tab: string, subTab?: string) => {
+  window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab, ...(subTab ? { subTab } : {}) } }));
+ };
 
  return (
- <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
+ <div className="mx-auto max-w-6xl space-y-5 animate-fade-in">
  {/* Profile header card */}
  <div className="bg-surface rounded-3xl shadow-xl border border-edge overflow-hidden">
  <div className="bg-gradient-to-br from-accent-strong via-info-strong to-success-strong p-4 sm:p-6 text-on-accent">
@@ -1344,107 +1420,159 @@ const UserProfile: React.FC = () => {
  </div>
  </div>
 
- {/* Quick actions strip */}
- <div className="px-6 py-3 bg-surface-alt/50 border-b border-edge">
- <div className="flex items-center gap-2 overflow-x-auto">
- <span className="text-xs font-bold text-muted uppercase whitespace-nowrap">{t('profile.quickActions')}</span>
- {[
- { icon: Calculator, label: t('profile.action.simulate'), tab: 'calculator' },
- { icon: Sparkles, label: t('profile.action.whatif'), tab: 'calculator', subTab: 'whatif' },
- { icon: ArrowRightLeft, label: t('profile.action.exchange'), tab: 'confronti', subTab: 'exchange' },
- { icon: BookOpen, label: t('profile.action.guide'), tab: 'guida' },
- ].map(a => (
- <button
- key={a.label}
- onClick={() => {
- window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: a.tab, ...(a.subTab ? { subTab: a.subTab } : {}) } }));
- }}
- className="flex items-center gap-1.5 px-3 py-1.5 bg-surface border border-edge rounded-lg text-xs font-medium text-subtle hover:border-info-border hover:text-info transition-[color,border-color] whitespace-nowrap"
- >
- <a.icon size={13} />
- {a.label}
- </button>
- ))}
- {hasPublisherAds && (
- <a
- href={buildPath({ activeTab: 'publisher-dashboard' }, locale)}
- className="flex items-center gap-1.5 px-3 py-1.5 bg-surface border border-edge rounded-lg text-xs font-medium text-subtle hover:border-info-border hover:text-info transition-[color,border-color] whitespace-nowrap"
- >
- <Briefcase size={13} />
- {t('profile.action.myListings')}
- </a>
- )}
- {isJournalist && (
- <a
- href={buildPath({ activeTab: 'journalist-dashboard' }, locale)}
- className="flex items-center gap-1.5 px-3 py-1.5 bg-surface border border-edge rounded-lg text-xs font-medium text-subtle hover:border-info-border hover:text-info transition-[color,border-color] whitespace-nowrap"
- >
- <Newspaper size={13} />
- {t('profile.action.journalistDashboard')}
- </a>
- )}
- </div>
- </div>
+ {/* ─── Today panel: one clear next step ─────────────────── */}
+ <section className="rounded-3xl border border-edge bg-surface-inverted p-4 text-on-accent shadow-stripe-md sm:p-6 lg:p-8" aria-labelledby="profile-today-title">
+  <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+   <div>
+    <p className="text-xs font-bold uppercase tracking-[0.16em] text-on-accent/70">{t('profile.dashboard.today')}</p>
+    <h2 id="profile-today-title" className="mt-1 font-display text-2xl font-bold tracking-tight">{t('profile.dashboard.todayTitle')}</h2>
+    <p className="mt-1 max-w-2xl text-sm leading-6 text-on-accent/75">{t('profile.dashboard.todayDescription')}</p>
+   </div>
+   <span className="inline-flex w-fit items-center rounded-full border border-on-accent/20 bg-on-accent/10 px-3 py-1 text-xs font-semibold text-on-accent/80">
+    {completeness}% {t('profile.dashboard.progress')}
+   </span>
+  </div>
 
- {/* ─── Sidebar Widget: key metrics ─── */}
- {(quickSimResult || fxRate) && (
- <div className="px-6 py-4 bg-gradient-to-r from-info-subtle to-success-subtle border-b border-edge">
- <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
- {/* Net salary (CH) */}
- {quickSimResult && (
- <button
- onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }))}
- aria-label={t('profile.widget.netSalary')}
- className="flex flex-col items-center gap-1 p-3 bg-surface rounded-xl border border-edge hover:border-info-border transition-[border-color] cursor-pointer"
- >
- <span className="text-xs font-bold text-muted uppercase">{t('profile.widget.netCH')}</span>
- <span className="text-lg font-bold text-success tabular-nums">
- {Math.round(quickSimResult.chResident.netIncomeMonthly).toLocaleString('de-CH')}
- </span>
- <span className="text-sm text-muted">CHF/{t('profile.widget.month')}</span>
- </button>
- )}
- {/* Net salary (IT) */}
- {quickSimResult && (
- <button
- onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }))}
- aria-label={t('profile.widget.netSalary')}
- className="flex flex-col items-center gap-1 p-3 bg-surface rounded-xl border border-edge hover:border-info-border transition-[border-color] cursor-pointer"
- >
- <span className="text-xs font-bold text-muted uppercase">{t('profile.widget.netIT')}</span>
- <span className="text-lg font-bold text-link tabular-nums">
- {Math.round(quickSimResult.itResident.netIncomeMonthly).toLocaleString('de-CH')}
- </span>
- <span className="text-sm text-muted">EUR/{t('profile.widget.month')}</span>
- </button>
- )}
- {/* EUR/CHF rate */}
- <button
- onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'confronti', subTab: 'exchange' } }))}
- aria-label={t('profile.widget.fxRate')}
- className="flex flex-col items-center gap-1 p-3 bg-surface rounded-xl border border-edge hover:border-info-border transition-[border-color] cursor-pointer"
- >
- <span className="text-xs font-bold text-muted uppercase">EUR/CHF</span>
- <span className="text-lg font-bold text-warning tabular-nums">
- {fxRate.toFixed(4)}
- </span>
- <span className="text-sm text-muted">{t('profile.widget.live')}</span>
- </button>
- {/* Preferred dogana / morning dashboard */}
- <button
- onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'morning' } }))}
- aria-label={t('profile.widget.morning')}
- className="flex flex-col items-center gap-1 p-3 bg-surface rounded-xl border border-edge hover:border-warning transition-[border-color] cursor-pointer"
- >
- <span className="text-xs font-bold text-muted uppercase">
- {preferredCrossing ? preferredCrossing.name : t('profile.widget.morning')}
- </span>
- <span className="text-lg">☀️</span>
- <span className="text-xs text-warning font-medium">{t('profile.widget.openDashboard')}</span>
- </button>
- </div>
- </div>
- )}
+  <div className="mt-5 grid gap-4 lg:grid-cols-[minmax(0,1.45fr)_minmax(16rem,0.75fr)]">
+   <div className="rounded-2xl bg-surface p-4 text-heading sm:p-5">
+    <div className="flex items-start gap-3">
+     <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-subtle text-accent">
+      <Sparkles size={19} aria-hidden="true" />
+     </span>
+     <div className="min-w-0 flex-1">
+      <p className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{t('profile.dashboard.nextStep')}</p>
+      <h3 className="mt-1 font-display text-lg font-bold text-heading">
+       {nextProfileLabel ? `${t('profile.dashboard.completeField')}: ${nextProfileLabel}` : t('profile.dashboard.profileReady')}
+      </h3>
+      <p className="mt-1 text-sm leading-5 text-subtle">
+       {nextProfileLabel ? t('profile.dashboard.completeFieldDescription') : t('profile.dashboard.profileReadyDescription')}
+      </p>
+      <button
+       type="button"
+       onClick={() => missingProfileField ? scrollToProfileForm(missingProfileField) : dispatchNavigation('calculator')}
+       className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-accent-strong px-4 py-2.5 text-sm font-bold text-on-accent transition-colors hover:bg-accent-strong-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+      >
+       {nextProfileLabel ? t('profile.dashboard.completeProfile') : t('profile.dashboard.openSimulation')}
+       <ChevronRight size={16} aria-hidden="true" />
+      </button>
+     </div>
+    </div>
+   </div>
+
+   <div className="rounded-2xl border border-on-accent/20 bg-on-accent/10 p-4 sm:p-5">
+    <div className="flex items-center justify-between gap-3">
+     <p className="text-xs font-bold uppercase tracking-[0.12em] text-on-accent/70">{t('profile.completeness')}</p>
+     <CheckCircle2 size={18} className={completeness === 100 ? 'text-success' : 'text-on-accent/60'} aria-hidden="true" />
+    </div>
+    <p className="mt-2 font-display text-4xl font-bold tabular-nums">{completeness}%</p>
+    <div className="mt-3 h-2 overflow-hidden rounded-full bg-on-accent/20" role="progressbar" aria-valuenow={completeness} aria-valuemin={0} aria-valuemax={100} aria-label={t('profile.completeness')}>
+     <div className="h-full origin-left rounded-full bg-on-accent transition-transform duration-500 [transform:var(--bar-sx)]" style={{ ['--bar-sx']: `scaleX(${completeness / 100})` } as React.CSSProperties} />
+    </div>
+    <p className="mt-3 text-sm leading-5 text-on-accent/75">
+     {completeness === 100 ? t('profile.dashboard.profileReady') : t('profile.completeForBetter')}
+    </p>
+   </div>
+  </div>
+
+  <div className="mt-5 flex items-center gap-2 overflow-x-auto pb-1" aria-label={t('profile.quickActions')}>
+   <span className="shrink-0 text-xs font-bold uppercase tracking-[0.12em] text-on-accent/60">{t('profile.quickActions')}</span>
+   {[
+    { icon: Calculator, label: t('profile.action.simulate'), tab: 'calculator' },
+    { icon: Sparkles, label: t('profile.action.whatif'), tab: 'calculator', subTab: 'whatif' },
+    { icon: ArrowRightLeft, label: t('profile.action.exchange'), tab: 'confronti', subTab: 'exchange' },
+    { icon: BookOpen, label: t('profile.action.guide'), tab: 'guida' },
+   ].map((action) => (
+    <button
+     type="button"
+     key={action.label}
+     onClick={() => dispatchNavigation(action.tab, action.subTab)}
+     className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl border border-on-accent/20 bg-on-accent/10 px-3 py-2 text-xs font-semibold text-on-accent transition-colors hover:border-on-accent/40 hover:bg-on-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    >
+     <action.icon size={14} aria-hidden="true" />
+     {action.label}
+    </button>
+   ))}
+   {hasPublisherAds && (
+    <a href={buildPath({ activeTab: 'publisher-dashboard' }, locale)} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl border border-on-accent/20 bg-on-accent/10 px-3 py-2 text-xs font-semibold text-on-accent transition-colors hover:border-on-accent/40 hover:bg-on-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+     <Briefcase size={14} aria-hidden="true" />
+     {t('profile.action.myListings')}
+    </a>
+   )}
+   {isJournalist && (
+    <a href={buildPath({ activeTab: 'journalist-dashboard' }, locale)} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl border border-on-accent/20 bg-on-accent/10 px-3 py-2 text-xs font-semibold text-on-accent transition-colors hover:border-on-accent/40 hover:bg-on-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+     <Newspaper size={14} aria-hidden="true" />
+     {t('profile.action.journalistDashboard')}
+    </a>
+   )}
+  </div>
+ </section>
+
+ {/* ─── Profile map: four areas, one tap away ─────────────── */}
+ <section className="space-y-4" aria-labelledby="profile-map-title">
+  <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+   <div>
+    <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{t('profile.dashboard.mapEyebrow')}</p>
+    <h2 id="profile-map-title" className="mt-1 font-display text-2xl font-bold tracking-tight text-heading">{t('profile.dashboard.mapTitle')}</h2>
+    <p className="mt-1 max-w-2xl text-sm leading-6 text-subtle">{t('profile.dashboard.mapDescription')}</p>
+   </div>
+  </div>
+  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
+   <ProfileMapCard
+    icon={Calculator}
+    title={t('profile.dashboard.financeTitle')}
+    description={t('profile.dashboard.financeDescription')}
+    status={quickSimResult ? t('profile.dashboard.statusReady') : t('profile.dashboard.statusStart')}
+    detail={quickSimResult ? (
+     <span className="block tabular-nums">
+      <span className="block">{Math.round(quickSimResult.chResident.netIncomeMonthly).toLocaleString('de-CH')} CHF · {Math.round(quickSimResult.itResident.netIncomeMonthly).toLocaleString('de-CH')} EUR</span>
+      <span className="mt-1 block text-xs font-medium text-warning">EUR/CHF {fxRate.toFixed(4)} · {t('profile.widget.live')}</span>
+     </span>
+    ) : t('profile.dashboard.financeEmpty')}
+    action={t('profile.dashboard.financeAction')}
+    tone="success"
+    span="sm:col-span-2 xl:col-span-2"
+    onClick={() => dispatchNavigation('calculator')}
+   />
+   <ProfileMapCard
+    icon={Navigation}
+    title={t('profile.dashboard.mobilityTitle')}
+    description={t('profile.dashboard.mobilityDescription')}
+    status={preferredCrossing ? t('profile.dashboard.statusReady') : t('profile.dashboard.statusStart')}
+    detail={preferredCrossing ? (
+     <span className="block min-w-0">
+      <span className="block truncate">{preferredCrossing.name}</span>
+      {preferredCrossingWait !== null && <span className="mt-1 block text-xs font-medium text-success">{t('guide.municipalities.detail.currentWait')}: {fmtMinutes(preferredCrossingWait)}</span>}
+     </span>
+    ) : t('profile.dashboard.mobilityEmpty')}
+    action={t('profile.dashboard.mobilityAction')}
+    tone="warning"
+    onClick={() => preferredCrossing ? dispatchNavigation('morning') : scrollToProfileForm('preferredDogana')}
+   />
+   <ProfileMapCard
+    icon={Building2}
+    title={t('profile.dashboard.homeTitle')}
+    description={t('profile.dashboard.homeDescription')}
+    status={profile.municipality && profile.familySituation ? t('profile.dashboard.statusReady') : t('profile.dashboard.statusStart')}
+    detail={selectedMuni ? (
+     <span className="block truncate">{selectedMuni.name}{profile.familyMembers ? ` · ${profile.familyMembers} ${t('profile.familyMembers').toLocaleLowerCase()}` : ''}</span>
+    ) : t('profile.dashboard.homeEmpty')}
+    action={t('profile.dashboard.homeAction')}
+    tone="info"
+    onClick={() => scrollToProfileForm(selectedMuni ? 'familySituation' : 'municipality')}
+   />
+   <ProfileMapCard
+    icon={Briefcase}
+    title={t('profile.dashboard.workTitle')}
+    description={t('profile.dashboard.workDescription')}
+    status={profile.workPosition || profile.workplace || myApplications.length > 0 ? t('profile.dashboard.statusReady') : t('profile.dashboard.statusStart')}
+    detail={profile.workPosition || profile.workplace || (myApplications.length > 0 ? t('profile.applications.title') : t('profile.dashboard.workEmpty'))}
+    action={profile.workPosition || profile.workplace ? t('profile.dashboard.workAction') : t('profile.dashboard.workSetupAction')}
+    tone="accent"
+    span="sm:col-span-2 xl:col-span-2"
+    onClick={() => profile.workPosition || profile.workplace ? dispatchNavigation('job-board') : scrollToProfileForm('workPosition')}
+   />
+  </div>
+ </section>
 
  {/* ─── Permit Deadline Tracker Card ─────────────────── */}
  {profile.permitExpiry && (() => {
@@ -1690,7 +1818,7 @@ const UserProfile: React.FC = () => {
  )}
 
  {/* Profile data form */}
- <div className="p-6 space-y-5">
+ <div id="profile-personal-info" className="scroll-mt-24 p-4 space-y-5 sm:p-6">
  <div className="flex items-center justify-between">
  <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Edit3 size={18} className="text-accent" />
