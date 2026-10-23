@@ -4517,8 +4517,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emmi-ac6202585742",
@@ -8346,21 +8345,17 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-emmi-ch",
-          "verkaufer-in-emmi-kappelen",
           "venditore-venditrice-emmi-kappelen-bern"
         ],
         "en": [
-          "verkaufer-in-emmi-kappelen",
           "salesperson-emmi-kappelen-bern"
         ],
         "fr": [
-          "verkaufer-in-emmi-kappelen",
           "vendeur-euse-emmi-kappelen-bern"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-emmi-ch",
-        "verkaufer-in-emmi-kappelen",
         "venditore-venditrice-emmi-kappelen-bern",
         "salesperson-emmi-kappelen-bern",
         "vendeur-euse-emmi-kappelen-bern"
@@ -8378,8 +8373,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:12.775Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-19T22:55:12.775Z"
     },
     {
       "id": "emmi-8ef2e25cea69",
@@ -9446,7 +9440,6 @@
           "• Gute Deutschkenntnisse in Wort und Schrift und Office Programme kannst du gut bedienen."
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "betriebsmechaniker-in-emmi-ch",

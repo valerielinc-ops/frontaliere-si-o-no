@@ -2333,8 +2333,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "zfv-unternehmungen-4f619d70341d",
@@ -3134,7 +3133,7 @@
       "slugByLocale": {
         "it": "cucina-capo-de-partie-zfv-unternehmungen-luzern",
         "en": "cook-chief-de-partie-zfv-unternehmungen-luzern",
-        "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
+        "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040",
         "fr": "cuisinier-chef-de-partie-zfv-unternehmungen-luzern"
       },
       "company": "ZFV-Unternehmungen",
@@ -3179,15 +3178,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
-        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040"
+        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
         ],
         "de": [
-          "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040"
+          "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:58.994Z",
@@ -4465,7 +4463,6 @@
         "head-of-service-zfv-unternehmungen-zurich",
         "chef-in-zfv-unternehmungen-zurich",
         "chef-zfv-unternehmungen-zurich",
-        "kuchenchef-in-zfv-unternehmungen-zurich",
         "chef-di-cucina-zfv-unternehmungen-zurich",
         "head-chef-zfv-unternehmungen-zurich",
         "chef-fe-de-cuisine-zfv-unternehmungen-zurich"
@@ -4478,19 +4475,16 @@
           "chef-di-sala-zfv-unternehmungen-zurich",
           "head-of-service-zfv-unternehmungen-zurich",
           "chef-in-zfv-unternehmungen-zurich",
-          "kuchenchef-in-zfv-unternehmungen-zurich",
           "chef-di-cucina-zfv-unternehmungen-zurich"
         ],
         "en": [
           "chief-de-service-zfv-unternehmungen-zurich",
           "chef-in-zfv-unternehmungen-zurich",
-          "kuchenchef-in-zfv-unternehmungen-zurich",
           "head-chef-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "chef-de-service-zfv-unternehmungen-zurich",
           "chef-zfv-unternehmungen-zurich",
-          "kuchenchef-in-zfv-unternehmungen-zurich",
           "chef-fe-de-cuisine-zfv-unternehmungen-zurich"
         ]
       },
@@ -4507,8 +4501,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:34:33.188Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-21T21:34:33.188Z"
     },
     {
       "id": "zfv-unternehmungen-9a3a933c95e7",
@@ -4567,12 +4560,6 @@
           "leiter-in-gastronomie-zfv-unternehmungen-zurich",
           "head-of-gastronomy-zfv-unternehmungen-zurich",
           "responsable-de-la-restauration-zfv-unternehmungen-zurich"
-        ],
-        "en": [
-          "leiter-in-gastronomie-zfv-unternehmungen-zurich"
-        ],
-        "fr": [
-          "leiter-in-gastronomie-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
@@ -6121,21 +6108,17 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-leiter-in-gastronomie-zfv-unternehmungen-zurich",
-          "stv-responsabile-gastronomie-zfv-unternehmungen-zurich",
           "vice-responsabile-della-ristorazione-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "stv-leiter-in-gastronomie-zfv-unternehmungen-zurich",
           "deputy-head-of-catering-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "stv-leiter-in-gastronomie-zfv-unternehmungen-zurich",
           "responsable-adjoint-e-de-la-restauration-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
         "stv-leiter-in-gastronomie-zfv-unternehmungen-zurich",
-        "stv-responsabile-gastronomie-zfv-unternehmungen-zurich",
         "vice-responsabile-della-ristorazione-zfv-unternehmungen-zurich",
         "deputy-head-of-catering-zfv-unternehmungen-zurich",
         "responsable-adjoint-e-de-la-restauration-zfv-unternehmungen-zurich"
@@ -6153,8 +6136,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:19:51.858Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-23T09:19:51.858Z"
     },
     {
       "id": "zfv-unternehmungen-e7364a6b9e91",

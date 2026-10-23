@@ -83,21 +83,17 @@
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
-          "automatiker-in-elektroniker-in-per-la-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
           "automatista-elettronico-a-per-il-ricondizionamento-dei-componenti-nel-settore-dell-elettrotecnica-ffs-officine-ferrovie"
         ],
         "en": [
-          "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
           "automation-technician-electronics-technician-for-component-refurbishment-in-the-field-of-electrical-engineering-ffs"
         ],
         "fr": [
-          "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
           "automaticien-ne-electronicien-ne-pour-la-refection-des-composants-dans-le-domaine-de-l-electrotechnique-ffs-officine"
         ]
       },
       "previousSlugs": [
         "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
-        "automatiker-in-elektroniker-in-per-la-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-solothurn",
         "automatista-elettronico-a-per-il-ricondizionamento-dei-componenti-nel-settore-dell-elettrotecnica-ffs-officine-ferrovie",
         "automation-technician-electronics-technician-for-component-refurbishment-in-the-field-of-electrical-engineering-ffs",
         "automaticien-ne-electronicien-ne-pour-la-refection-des-composants-dans-le-domaine-de-l-electrotechnique-ffs-officine"
@@ -119,8 +115,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/automatiker-in-elektroniker-in-fuer-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik/25403ef7-839b-4dff-bc49-545620ffb2e8",
-      "firstSeenAt": "2026-10-23T09:33:28.275Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-23T09:33:28.275Z"
     },
     {
       "id": "sbb-9c40b250ef56",
@@ -10834,7 +10829,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke-12-2026/ccd01a0f-250a-477d-a0c6-32ccf0164df3",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-61287b0752b6",
@@ -13024,7 +13020,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/aaa2e4ee-90c0-4b6d-8f80-a4e95175911d",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-23T09:33:52.798Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau"

@@ -2006,7 +2006,7 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": false
+      "needsRetranslation": true
     },
     {
       "id": "c-and-a-schweiz-310ad33b4f60",
@@ -3414,7 +3414,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-im-verkauf-w-m-d-30-fur-wurenlingen-c-and-a-schweiz-ch"

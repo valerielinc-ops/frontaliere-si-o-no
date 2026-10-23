@@ -986,7 +986,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1032,9 +1032,7 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
-        "nursing-specialist-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1044,7 +1042,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -2318,8 +2316,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-91d6257c78c8",
@@ -6086,7 +6083,6 @@
         "dipl-ergotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
         "dipl-ergotherapeut-in-ksa-ch",
         "qualified-occupational-therapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
-        "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "dipl-occupational-therapist-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
@@ -6098,7 +6094,6 @@
           "dipl-ergotherapeut-in-handrehabilitation-ksa-ch",
           "dipl-ergotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
           "qualified-occupational-therapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
-          "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
           "dipl-occupational-therapist-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
@@ -6121,8 +6116,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-d344a57a145d",
@@ -6180,7 +6174,6 @@
         "dipl-physiotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
         "dipl-physiotherapeut-in-ksa-ch",
         "qualified-physiotherapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
-        "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "dipl-physiotherapist-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
@@ -6192,7 +6185,6 @@
           "dipl-physiotherapeut-in-handrehabilitation-ksa-ch",
           "dipl-physiotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
           "qualified-physiotherapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
-          "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
           "dipl-physiotherapist-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
@@ -6214,8 +6206,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-a900cf57a2ad",
@@ -6273,7 +6264,6 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-intensivmedizin-kantonsspital-aarau-ksa-aarau",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-ksa-ch",
         "infermiere-a-diplomato-a-hf-fh-clinica-di-medicina-intensiva-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-kantonsspital-aarau-ksa-aarau",
         "dipl-infermiera-infermiera-specialista-hf-fh-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
@@ -6282,7 +6272,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-intensivmedizin-kantonsspital-aarau-ksa-aarau",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-ksa-ch",
           "infermiere-a-diplomato-a-hf-fh-clinica-di-medicina-intensiva-kantonsspital-aarau-ksa-aarau",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-kantonsspital-aarau-ksa-aarau",
           "dipl-infermiera-infermiera-specialista-hf-fh-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
@@ -7324,13 +7313,11 @@
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
         "fachfrau-fachmann-gesundheit-ksa-ch",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
           "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
@@ -7356,8 +7343,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-803625157377",
@@ -8750,7 +8736,6 @@
         "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau-656d6a",
         "salute-professionale-kantonsspital-aarau-ksa-aarau-917953",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
         "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
@@ -9564,21 +9549,17 @@
       "previousSlugsByLocale": {
         "it": [
           "studienkoordinator-in-oder-study-nurse-ksa-ch",
-          "studienkoordinator-in-o-study-nurse-kantonsspital-aarau-ksa-aarau",
           "coordinatore-coordinatrice-di-studi-o-study-nurse-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
-          "studienkoordinator-in-oder-study-nurse-ksa-ch",
           "study-coordinator-or-study-nurse-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "studienkoordinator-in-oder-study-nurse-ksa-ch",
           "coordinateur-trice-d-etudes-ou-study-nurse-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
         "studienkoordinator-in-oder-study-nurse-ksa-ch",
-        "studienkoordinator-in-o-study-nurse-kantonsspital-aarau-ksa-aarau",
         "coordinatore-coordinatrice-di-studi-o-study-nurse-kantonsspital-aarau-ksa-aarau",
         "study-coordinator-or-study-nurse-kantonsspital-aarau-ksa-aarau",
         "coordinateur-trice-d-etudes-ou-study-nurse-kantonsspital-aarau-ksa-aarau"
@@ -9596,8 +9577,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:28:53.251Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-23T09:28:53.251Z"
     }
   ]
 }

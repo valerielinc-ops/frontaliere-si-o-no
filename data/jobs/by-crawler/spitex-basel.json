@@ -85,8 +85,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitex-basel-40218b5e6d58",
@@ -415,8 +414,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitex-basel-8759c6795410",
@@ -503,8 +501,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitex-basel-b0a12f31bc4c",
@@ -673,8 +670,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitex-basel-34e8be9686a7",
@@ -813,13 +809,11 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a-spitex-basel-basel",
-          "infermiere-di-laurea-hf-fh-part-time-e-full-time-a-spitex-basel-basel",
           "infermiere-di-laurea-hf-fh-part-time-e-full-time-a-spitex-basel-basel-3f76174744"
         ]
       },
       "previousSlugs": [
         "diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a-spitex-basel-basel",
-        "infermiere-di-laurea-hf-fh-part-time-e-full-time-a-spitex-basel-basel",
         "infermiere-di-laurea-hf-fh-part-time-e-full-time-a-spitex-basel-basel-3f76174744"
       ],
       "salaryMin": 88000,
@@ -835,8 +829,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:39:58.192Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-23T23:39:58.192Z"
     }
   ]
 }

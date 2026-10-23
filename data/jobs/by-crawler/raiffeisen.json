@@ -1421,7 +1421,6 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach",
           "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
         ]
       },
@@ -1429,7 +1428,6 @@
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach",
         "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       ],
       "salaryMin": 110500,
@@ -1530,7 +1528,7 @@
       "slugByLocale": {
         "it": "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich",
         "en": "avaloq-application-developer-m-f-d-raiffeisen-zurich",
-        "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+        "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-taciw5",
         "fr": "developpeur-d-applications-avaloq-h-f-d-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
@@ -1588,7 +1586,7 @@
           "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich-taciw5"
         ],
         "de": [
-          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-taciw5"
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-21T11:48:13.547Z",
@@ -4596,7 +4594,7 @@
       "slugByLocale": {
         "it": "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich-6cd5e8",
         "en": "avaloq-application-developer-m-f-d-raiffeisen-zurich-6cd5e8",
-        "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+        "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-qf2tad",
         "fr": "developpeur-d-applications-avaloq-h-f-d-raiffeisen-zurich-6cd5e8"
       },
       "company": "Raiffeisen",
@@ -4643,15 +4641,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
-        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-qf2tad"
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
         ],
         "de": [
-          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-qf2tad"
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-21T11:48:13.547Z",
@@ -12213,25 +12210,20 @@
       "firstSeenAt": "2026-10-23T09:22:09.085Z",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-kundenberatung-raiffeisen-muri-ag",
           "responsabile-del-team-di-consulenza-alla-clientela-raiffeisen-muri-ag"
         ],
         "en": [
-          "teamleiter-in-kundenberatung-raiffeisen-muri-ag",
           "team-leader-customer-advisory-raiffeisen-muri-ag"
         ],
         "fr": [
-          "teamleiter-in-kundenberatung-raiffeisen-muri-ag",
           "responsable-d-equipe-du-conseil-a-la-clientele-raiffeisen-muri-ag"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-kundenberatung-raiffeisen-muri-ag",
         "responsabile-del-team-di-consulenza-alla-clientela-raiffeisen-muri-ag",
         "team-leader-customer-advisory-raiffeisen-muri-ag",
         "responsable-d-equipe-du-conseil-a-la-clientele-raiffeisen-muri-ag"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "raiffeisen-abda9c015614",
