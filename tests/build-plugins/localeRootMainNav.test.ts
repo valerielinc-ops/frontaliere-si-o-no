@@ -214,6 +214,23 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(template.match(/<a[^>]+style="display:flex;[^\"]*min-height:44px/g) ?? []).toHaveLength(6);
   });
 
+  it('gives static shell navigation links crawlable anchor text', () => {
+    const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
+    const nav = template.match(/<div class="sh-nav-links"[\s\S]*?<\/div>/i)?.[0] ?? '';
+
+    expect(nav).not.toMatch(/<a\b[^>]+aria-label="[^"]+">\s*<\/a>/i);
+    for (const label of [
+      'Calcolatore stipendio',
+      'Confronti servizi',
+      'Fisco e pensione',
+      'Guida frontaliere',
+      'Vivere in Ticino',
+      'Statistiche',
+    ]) {
+      expect(nav).toContain(`<span class="sr-only">${label}</span>`);
+    }
+  });
+
   it.each(NON_IT_LOCALES)('localizes the server-rendered homepage h1 for /%s/', (locale) => {
     const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
     const html = renderLocaleRootShell(template, locale);
