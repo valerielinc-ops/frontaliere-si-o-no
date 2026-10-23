@@ -115,5 +115,16 @@ for (const p of base) {
 }
 
 const filtered = filterCompatPaths([...final]);
+if (filtered.dropped.length > 0) {
+  const removedByReason = filtered.dropped.reduce((counts, { reason }) => {
+    counts[reason] = (counts[reason] || 0) + 1;
+    return counts;
+  }, {});
+  process.stderr.write(
+    `[merge-compat-shard] removed ${filtered.dropped.length} unsafe path(s) during sanitized merge ` +
+      `(filesystem-limit=${removedByReason['filesystem-limit'] || 0}, ` +
+      `attack-payload=${removedByReason['attack-payload'] || 0})\n`,
+  );
+}
 writeFileSync(oursPath, JSON.stringify({ paths: filtered.paths.sort() }, null, 2) + '\n');
 process.exit(0);

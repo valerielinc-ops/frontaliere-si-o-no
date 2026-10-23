@@ -78,6 +78,12 @@ describe('404 compatibility path safety', () => {
     expect(classifyCompatPath(logPayload)).toBe('attack-payload');
   });
 
+  it('checks every SELECT occurrence and treats plus as a decoded space', () => {
+    const laterSelect = '/de/aziende/select-ag/SELECT%2BFROM%2Busers/';
+    expect(hasCompatAttackPayload(laterSelect)).toBe(true);
+    expect(classifyCompatPath(laterSelect)).toBe('attack-payload');
+  });
+
   it('keeps ordinary encoded URL paths', () => {
     const pathname = '/de/aziende/css-versicherung/versicherung-2026/';
     expect(hasCompatAttackPayload(pathname)).toBe(false);

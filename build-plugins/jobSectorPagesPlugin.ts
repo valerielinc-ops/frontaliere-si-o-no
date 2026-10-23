@@ -71,6 +71,7 @@ import {
   type SectorHubKey,
 } from './jobSectorLanding';
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
+import { getSafeDistPageTargets } from './shared/distPathSafety';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { resolveSectorPagesFlushed } from './shared/buildSignals';
 import { SECTOR_HUB_SIBLINGS } from './shared/sectorHubClusters';
@@ -934,16 +935,15 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           }
 
           // Write both /path/index.html and /path.html
-          const outDir = np.join(distDir, canonicalPath.slice(1));
-          ensureDir(outDir);
-          const indexFile = np.join(outDir, 'index.html');
-          fs.writeFileSync(indexFile, html, 'utf-8');
-          const flatPath = canonicalPath.replace(/\/+$/, '');
-          if (flatPath) {
-            const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-            ensureDir(np.dirname(flatFile));
-            fs.writeFileSync(flatFile, html, 'utf-8');
+          const safeTargets = getSafeDistPageTargets(distDir, canonicalPath);
+          if (!safeTargets?.flatPath) {
+            console.warn(`[job-sector-pages] skipped unsafe path ${canonicalPath}`);
+            continue;
           }
+          ensureDir(safeTargets.directoryPath);
+          fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
+          ensureDir(np.dirname(safeTargets.flatPath));
+          fs.writeFileSync(safeTargets.flatPath, html, 'utf-8');
 
           // Every locale gets its own reciprocal <loc> entry (all 4 carry the
           // same alternate set) — an IT-only push here would leave en/de/fr

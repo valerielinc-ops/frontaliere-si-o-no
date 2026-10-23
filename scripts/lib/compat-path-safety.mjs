@@ -31,24 +31,27 @@ const COMPAT_ATTACK_PATTERNS = [
   /\bunion(?:%20|\+|\s)+select\b/i,
 ];
 
-const SQL_SELECT_RE = /\bselect\b/i;
 const SQL_SELECT_DELIMITER_RE = /(?:%28|%29|%27|%2f%2a|\/\*\*\/|\(|\)|')/i;
 const SQL_SELECT_FOLLOWING_KEYWORD_RE =
   /^(?:(?:\s|%20|%09|%0a|%0d))*(?:from|upper|xmltype|chr|concat|sleep|case|null)\b/i;
 
 function hasSqlSelectContext(value) {
-  const match = SQL_SELECT_RE.exec(value);
-  if (!match) return false;
+  // URL decoding leaves `+` untouched, although query-style SQL probes use it
+  // as a space (`SELECT+FROM`). Normalize it only for this context check so
+  // legitimate path handling elsewhere keeps the original representation.
+  const normalized = value.replace(/\+/g, ' ');
+  for (const match of normalized.matchAll(/\bselect\b/gi)) {
+    const selectEnd = match.index + match[0].length;
+    const beforeSelect = normalized.slice(Math.max(0, match.index - 8), match.index);
+    const afterSelect = normalized.slice(selectEnd, selectEnd + 8);
 
-  const selectEnd = match.index + match[0].length;
-  const beforeSelect = value.slice(Math.max(0, match.index - 8), match.index);
-  const afterSelect = value.slice(selectEnd, selectEnd + 8);
-
-  return (
-    SQL_SELECT_DELIMITER_RE.test(beforeSelect) ||
-    SQL_SELECT_DELIMITER_RE.test(afterSelect) ||
-    SQL_SELECT_FOLLOWING_KEYWORD_RE.test(value.slice(selectEnd))
-  );
+    if (
+      SQL_SELECT_DELIMITER_RE.test(beforeSelect) ||
+      SQL_SELECT_DELIMITER_RE.test(afterSelect) ||
+      SQL_SELECT_FOLLOWING_KEYWORD_RE.test(normalized.slice(selectEnd))
+    ) return true;
+  }
+  return false;
 }
 
 function decodedVariants(value) {

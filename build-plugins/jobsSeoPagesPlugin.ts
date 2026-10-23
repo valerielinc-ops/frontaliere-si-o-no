@@ -47,7 +47,7 @@ import { buildSlimSeed } from './shared/slimJobIndex';
 import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventory } from '../services/jobBoardInventory';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
-import { isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
+import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
 import { keywordPageMatcher } from '../scripts/lib/keyword-page-match.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -13461,16 +13461,20 @@ ${staticAnalyticsHtml}
   skippedUnsafeDistPaths++;
   return false;
  }
+ const safeTargets = getSafeDistPageTargets(distDir, distPath);
+ if (!safeTargets) {
+  skippedFilesystemLimitPaths++;
+  return false;
+ }
  // Never overwrite ANY page already written by an earlier phase
  // (active jobs, company pages, search pages, editorial pages)
- const targetFile = np.join(distDir, normPath, 'index.html');
+ const targetFile = safeTargets.indexPath;
  if (pathWasClaimed(targetFile)) return false;
  if (activeJobDirs.has(normPath)) return false;
 
- const outDir = np.join(distDir, normPath);
- _qw(np.join(outDir, 'index.html'), html);
- const flatFile = np.join(distDir, normPath + '.html');
- _qwFlat(flatFile, html);
+ const outDir = safeTargets.directoryPath;
+ _qw(safeTargets.indexPath, html);
+ _qwFlat(safeTargets.flatPath!, html);
  return true;
  };
 
@@ -14551,11 +14555,16 @@ ${staticAnalyticsHtml}
   skippedUnsafeDistPaths++;
   continue;
  }
+ const safeTargets = getSafeDistPageTargets(distDir, relPath, { includeFlat: false });
+ if (!safeTargets) {
+  skippedFilesystemLimitPaths++;
+  continue;
+ }
  const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  // Active job wins if a live page already occupies this path.
  if (activeJobDirs.has(relPathKey)) continue;
- const outDir = np.join(distDir, relPath.replace(/^\//, ''));
- const indexFile = np.join(outDir, 'index.html');
+ const outDir = safeTargets.directoryPath;
+ const indexFile = safeTargets.indexPath;
  // Skip if any earlier phase (active, bridge, soft-landing) already wrote here.
  if (pathWasClaimed(indexFile)) continue;
  const __tCrossLocaleExpired = startTimer();
@@ -15293,6 +15302,11 @@ ${staticAnalyticsHtml}
   skippedUnsafeDistPaths++;
   continue;
  }
+ const safeTargets = getSafeDistPageTargets(distDir, relPath, { includeFlat: false });
+ if (!safeTargets) {
+  skippedFilesystemLimitPaths++;
+  continue;
+ }
  const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  // Skip if an active job page already occupies this path (another
  // job's slug happens to collide across locales — active wins).
@@ -15305,8 +15319,8 @@ ${staticAnalyticsHtml}
  // `buildCantonAwareSection(locale, 'TI')` early-returns — hence the
  // 'TI' canton in the key.
  if (emittedActiveJobPaths.has(`TI:${baseLocale}:${foreignSlug}`)) continue;
- const outDir = np.join(distDir, relPath.replace(/^\//, ''));
- const indexFile = np.join(outDir, 'index.html');
+ const outDir = safeTargets.directoryPath;
+ const indexFile = safeTargets.indexPath;
  // Skip if a previousSlugs bridge already covered this path for
  // this job (same content would be written again).
  if (pathWasClaimed(indexFile)) continue;

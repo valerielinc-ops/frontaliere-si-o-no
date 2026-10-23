@@ -223,6 +223,30 @@ function createCompatDeletionScenario() {
 }
 
 describe('compatibility data refresh reconciliation', () => {
+  it('reports the aggregated removals when the merge driver sanitizes a shard', () => {
+    const repository = fs.mkdtempSync(path.join(os.tmpdir(), 'compat-driver-sanitized-'));
+    temporaryRepositories.push(repository);
+    const basePath = path.join(repository, 'base.json');
+    const oursPath = path.join(repository, 'ours.json');
+    const theirsPath = path.join(repository, 'theirs.json');
+    const oversized = `/${'x'.repeat(256)}/`;
+    const attack = '/de/aziende/SELECT%2BFROM%2Busers/';
+    writeJson(repository, 'base.json', { paths: [] });
+    writeJson(repository, 'ours.json', { paths: ['/valid/', oversized, attack] });
+    writeJson(repository, 'theirs.json', { paths: ['/valid/', oversized, attack] });
+
+    const result = spawnSync(process.execPath, [COMPAT_DRIVER, basePath, oursPath, theirsPath], {
+      cwd: repository,
+      encoding: 'utf8',
+    });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stderr).toContain(
+      'removed 2 unsafe path(s) during sanitized merge (filesystem-limit=1, attack-payload=1)',
+    );
+    expect(JSON.parse(fs.readFileSync(oursPath, 'utf8')).paths).toEqual(['/valid/']);
+  });
+
   it('merges Cloudflare data and recomputes the compat manifest after main moves', () => {
     const scenario = createScenario();
     const result = spawnSync(process.execPath, [

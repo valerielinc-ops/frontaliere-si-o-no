@@ -31,6 +31,7 @@ import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippa
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './shared/borderWaitLegacyRedirects';
 import {
+ getSafeDistPageTargets,
  isDistPathOverFilesystemLimits,
  isSafeDistPath,
  writeDistPageSafely,
@@ -724,6 +725,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // `dist/foo/.env.bak.html` flat twin (and a hidden directory beside it).
  if (isDistPathOverFilesystemLimits(from)) { skippedFilesystemLimitPaths++; continue; }
  if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
+ const safeTargets = getSafeDistPageTargets(distDir, from);
+ if (!safeTargets) { skippedFilesystemLimitPaths++; continue; }
 
  // A foreign locale's missing HTML is expected on a shard, not a vacancy.
  // Do not create a noindex bridge that the shared sitemap would mistake for
@@ -736,7 +739,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // empty directory behind for a dist-walking audit to trip over.
  if (isUnshippablePath(from, unshippablePrefixes)) { skippedUnshippable++; continue; }
 
- const outDir = path.join(distDir, from.slice(1));
+ const outDir = safeTargets.directoryPath;
  // Normal redirects preserve already emitted pages. These four historical
  // directory headings were never vacancies and must replace their stale detail HTML.
  if (fs.existsSync(path.join(outDir, 'index.html')) && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from] && !BORDER_WAIT_LEGACY_REDIRECTS.has(from)) continue;
@@ -772,10 +775,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // meta-refresh is intentionally kept for bridges that still need the static
  // fallback; edge-owned aliases are already real 301s before this HTML runs.
  const flatPath = from.replace(/\/+$/, '');
- const flatFile = flatPath ? path.join(distDir, flatPath.slice(1) + '.html') : undefined;
+ const flatFile = flatPath ? safeTargets.flatPath : undefined;
  const flatHtml = html.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
  if (!writeDistPageSafely({
-   indexPath: path.join(outDir, 'index.html'),
+   distDir,
+   indexPath: safeTargets.indexPath,
    html,
    flatPath: flatFile,
    flatHtml,
@@ -827,6 +831,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  const from = normalize(String(compatPathRaw || ''));
  if (isDistPathOverFilesystemLimits(from)) { skippedFilesystemLimitPaths++; continue; }
  if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
+ const safeTargets = getSafeDistPageTargets(distDir, from);
+ if (!safeTargets) { skippedFilesystemLimitPaths++; continue; }
  // Apply the same ownership guard before any target-existence/fallback probe.
  if (!shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) continue;
  const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
@@ -875,15 +881,16 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // is fed by Search Console, which reports the article URLs too, so this
  // loop can land on the article sections exactly like the static map can.
  if (isUnshippablePath(from, unshippablePrefixes)) { skippedUnshippable++; continue; }
- const outDir = path.join(distDir, from.slice(1));
+ const outDir = safeTargets.directoryPath;
  // Skip if a higher-priority plugin (e.g. soft-landing pages) already generated this page
  if (fs.existsSync(path.join(outDir, 'index.html'))) continue;
  const html = buildCompatHtml(from, to, resolution.kind);
  const flatPath = from.replace(/\/+$/, '');
- const flatFile = flatPath ? path.join(distDir, flatPath.slice(1) + '.html') : undefined;
+ const flatFile = flatPath ? safeTargets.flatPath : undefined;
  const flatHtml = html.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
  if (!writeDistPageSafely({
-   indexPath: path.join(outDir, 'index.html'),
+   distDir,
+   indexPath: safeTargets.indexPath,
    html,
    flatPath: flatFile,
    flatHtml,

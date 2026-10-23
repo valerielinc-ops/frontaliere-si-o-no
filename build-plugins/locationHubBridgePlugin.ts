@@ -49,7 +49,7 @@ import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { composePlaceTitle } from './shared/titleSuffix';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
-import { isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
+import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -401,8 +401,12 @@ export function locationHubBridgePlugin(rootDir: string): Plugin {
           skippedUnsafeDistPaths++;
           continue;
         }
-        const indexTarget = path.join(distDir, hubPath, 'index.html');
-        const flatTarget = path.join(distDir, hubPath.replace(/\/+$/, '') + '.html');
+        const safeTargets = getSafeDistPageTargets(distDir, hubPath);
+        if (!safeTargets) {
+          skippedFilesystemLimitPaths++;
+          continue;
+        }
+        const { indexPath: indexTarget, flatPath: flatTarget } = safeTargets;
 
         if (fs.existsSync(indexTarget)) { skipped++; continue; }
 
@@ -413,7 +417,7 @@ export function locationHubBridgePlugin(rootDir: string): Plugin {
         try {
           fs.mkdirSync(path.dirname(indexTarget), { recursive: true });
           fs.writeFileSync(indexTarget, html, 'utf-8');
-          fs.writeFileSync(flatTarget, html, 'utf-8');
+          fs.writeFileSync(flatTarget!, html, 'utf-8');
           emitted += 2;
         } catch (err) {
           console.warn(`\x1b[33m[location-hub-bridge]\x1b[0m failed to write ${indexTarget}:`, err);

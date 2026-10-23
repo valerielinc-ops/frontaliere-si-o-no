@@ -31,6 +31,7 @@ import {
  preservePostWalkDerivedOutput,
  type PostWalkDerivedKind,
 } from './shared/postWalkDerivedDigest';
+import { getSafeDistPageTargets, isSafeDistTargetPath } from './shared/distPathSafety';
 
 export interface PendingWrite {
  filePath: string;
@@ -283,6 +284,24 @@ export class WriteCollector {
  this._autoFlushScheduled = false;
  }
 
+ private isSafeDistWrite(filePath: string): boolean {
+  if (!isSafeDistTargetPath(filePath)) return false;
+  if (!this._distDir) return true;
+
+  const distRoot = path.resolve(this._distDir);
+  const absoluteFilePath = path.resolve(filePath);
+  const relative = path.relative(distRoot, absoluteFilePath).replace(/\\/g, '/');
+  if (relative === '..' || relative.startsWith('../') || path.isAbsolute(relative)) return true;
+  if (!relative.endsWith('/index.html') && relative !== 'index.html') return true;
+
+  const pageRelative = relative === 'index.html'
+    ? ''
+    : relative.slice(0, -'/index.html'.length);
+  const pagePath = pageRelative ? `/${pageRelative}/` : '/';
+  const safeTargets = getSafeDistPageTargets(this._distDir, pagePath);
+  return safeTargets !== null && path.resolve(safeTargets.indexPath) === absoluteFilePath;
+ }
+
  /** Queue a file write. Skips files unchanged since last build (via content hash manifest). */
  add(filePath: string, content: string) {
  // Per-locale shard build (BUILD_LOCALE): drop writes that belong to a
@@ -296,6 +315,10 @@ export class WriteCollector {
  if (!EMIT_ALL_LOCALES && !shouldEmitPath(filePath, this._distDir)) {
  this._skippedByLocale++;
  return;
+ }
+ if (!this.isSafeDistWrite(filePath)) {
+  console.warn(`[${this._pluginName}] skipped unsafe dist target ${filePath}`);
+  return;
  }
  // Cross-plugin/intra-plugin write collision check runs BEFORE any
  // physical-write short-circuit below (skipExisting, content-hash manifest).

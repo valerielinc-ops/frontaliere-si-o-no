@@ -52,7 +52,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderBridgePageProse, type BridgePageKind } from './shared/bridgePageProse';
 import type { Locale } from '../services/i18n';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
-import { isDistPathOverFilesystemLimits } from './shared/distPathSafety';
+import { getSafeDistPageTargets, isDistPathOverFilesystemLimits } from './shared/distPathSafety';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -351,6 +351,11 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
           skippedFilesystemLimitPaths++;
           continue;
         }
+        const safeTargets = getSafeDistPageTargets(distDir, entry.orphanPath);
+        if (!safeTargets) {
+          skippedFilesystemLimitPaths++;
+          continue;
+        }
         const targets = resolveAliasTargets(distDir, entry.orphanPath);
         if (!targets || !isSafeInternalPath(entry.canonicalPath)) { skippedUnsafePath++; continue; }
 
@@ -358,7 +363,7 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
         // the flags on, the real article page is never emitted either, so the
         // guard always passes and the alias always writes.
         if (isUnshippablePath(entry.orphanPath, unshippablePrefixes)) { skippedUnshippable++; continue; }
-        const { indexTarget, flatTarget } = targets;
+        const { indexPath: indexTarget, flatPath: flatTarget } = safeTargets;
         if (fs.existsSync(indexTarget)) { skipped++; continue; }
 
         const html = renderPage(entry, distDir);
