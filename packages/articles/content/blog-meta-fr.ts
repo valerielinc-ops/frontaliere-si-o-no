@@ -13577,6 +13577,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bellinzona-nuova-strada-ciclabile.title': 'Bellinzona inaugure sa première voie cyclable',
     'blog.article.bellinzona-nuova-strada-ciclabile.excerpt': 'Bellinzona inaugure sa première voie cyclable Le tracé mesure trois kilomètres Le parcours va de Giubiasco à Bellinzona Vélos et trafic motorisé',
     'blog.article.bellinzona-nuova-strada-ciclabile.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.voto-iva-2028-pensione.title': '13e AVS : vote sur la TVA, hypothèse à 8,5% dès 2028',
+    'blog.article.voto-iva-2028-pensione.excerpt': 'Le taux normal de TVA passerait de 8,1 à 8,5%.',
+    'blog.article.voto-iva-2028-pensione.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

@@ -647,9 +647,9 @@
     },
     {
       "id": "unibe-8d3e9e6a7b54",
-      "slug": "it-systemadministrator-in-universitat-bern-bern",
+      "slug": "amministratore-trice-di-sistema-it-universitat-bern-bern",
       "slugByLocale": {
-        "it": "it-systemadministrator-in-universitat-bern-bern",
+        "it": "amministratore-trice-di-sistema-it-universitat-bern-bern",
         "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
         "fr": "administrateur-systeme-informatique-universitat-bern-bern"
@@ -699,13 +699,13 @@
       "previousSlugs": [
         "it-systemadministrator-in-unibe-bern",
         "it-systemadministrator-in-universitat-bern",
-        "amministratore-trice-di-sistema-it-universitat-bern-bern"
+        "it-systemadministrator-in-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern",
           "it-systemadministrator-in-universitat-bern",
-          "amministratore-trice-di-sistema-it-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-25T14:57:34.448Z",
@@ -2861,7 +2861,7 @@
       "slug": "dottorato-studente-dottorando-protect-sh-universitat-bern-bern",
       "slugByLocale": {
         "it": "dottorato-studente-dottorando-protect-sh-universitat-bern-bern",
-        "en": "doktorandin-doktorand-protect-sh-universitat-bern-bern",
+        "en": "doctoral-student-doctoral-student-protect-sh-universitat-bern-bern",
         "de": "doktorandin-doktorand-protect-sh-unibe-bern",
         "fr": "doctorat-doctorant-protect-sh-universitat-bern-bern"
       },
@@ -2909,14 +2909,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doktorandin-doktorand-protect-sh-unibe-bern",
-        "doctoral-student-doctoral-student-protect-sh-universitat-bern-bern"
+        "doktorandin-doktorand-protect-sh-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "doktorandin-doktorand-protect-sh-unibe-bern"
         ],
         "en": [
-          "doctoral-student-doctoral-student-protect-sh-universitat-bern-bern"
+          "doktorandin-doktorand-protect-sh-universitat-bern-bern"
         ],
         "fr": [
           "doktorandin-doktorand-protect-sh-unibe-bern"
@@ -2944,7 +2944,7 @@
         "it": "genisis-ch-assistente-di-ricerca-senior-universitat-bern-bern",
         "en": "genesis-ch-senior-reseach-assistant-unibe-bern",
         "de": "genesis-ch-senior-reseach-assistant-unibe-bern",
-        "fr": "genesis-ch-senior-reseach-assistant-universitat-bern-bern"
+        "fr": "genesis-ch-assistant-principal-de-recherche-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2990,7 +2990,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "genesis-ch-senior-reseach-assistant-unibe-bern",
-        "genesis-ch-assistant-principal-de-recherche-universitat-bern-bern"
+        "genesis-ch-senior-reseach-assistant-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2998,7 +2998,7 @@
         ],
         "fr": [
           "genesis-ch-senior-reseach-assistant-unibe-bern",
-          "genesis-ch-assistant-principal-de-recherche-universitat-bern-bern"
+          "genesis-ch-senior-reseach-assistant-universitat-bern-bern"
         ]
       },
       "salaryMin": 115000,
@@ -3022,7 +3022,7 @@
         "it": "cattedra-di-medicina-d-urgenza-livello-aperto-direttore-e-primario-del-dipartimento-di-medicina-d-urgenza-universitat",
         "en": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
         "de": "professur-fur-notfallmedizin-alle-besoldungsgruppen-direktor-und-chefarzt-der-abteilung-fur-notfallmedizin-universitat",
-        "fr": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine"
+        "fr": "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3069,7 +3069,7 @@
       "previousSlugs": [
         "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
         "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern",
-        "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+        "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3081,7 +3081,7 @@
         "fr": [
           "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
           "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern",
-          "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine"
         ]
       },
       "firstSeenAt": "2026-10-20T09:31:08.059Z",
@@ -3436,7 +3436,7 @@
         "it": "assistente-di-direzione-universitat-bern-bern",
         "en": "executive-assistant-universitat-bern-bern",
         "de": "direktionsassistent-in-unibe-bern",
-        "fr": "direktionsassistent-in-universitat-bern-bern"
+        "fr": "assistant-e-de-direction-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3483,8 +3483,7 @@
       "previousSlugs": [
         "direktionsassistent-in-unibe-bern",
         "direktionsassistent-in-universitat-bern-bern",
-        "direktionsassistent-in-universitat-bern",
-        "assistant-e-de-direction-universitat-bern-bern"
+        "direktionsassistent-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3496,7 +3495,7 @@
         ],
         "fr": [
           "direktionsassistent-in-universitat-bern",
-          "assistant-e-de-direction-universitat-bern-bern"
+          "direktionsassistent-in-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-10-21T09:52:54.503Z",
@@ -4020,12 +4019,12 @@
     },
     {
       "id": "unibe-505a70d9abed",
-      "slug": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
+      "slug": "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
-        "it": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
-        "de": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern",
-        "fr": "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
+        "it": "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern",
+        "de": "postdoktorandin-im-projekt-bit-philology-universitat-bern-bern",
+        "fr": "chercheur-postdoctoral-dans-le-projet-bit-philology-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4088,19 +4087,23 @@
       "firstSeenAt": "2026-10-23T09:30:41.172Z",
       "previousSlugsByLocale": {
         "it": [
-          "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern"
+          "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern",
+          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
         ],
         "de": [
-          "postdoktorandin-im-projekt-bit-philology-universitat-bern-bern"
+          "postdoktorandin-im-projekt-bit-philology-universitat-bern-bern",
+          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
         ],
         "fr": [
-          "chercheur-postdoctoral-dans-le-projet-bit-philology-universitat-bern-bern"
+          "chercheur-postdoctoral-dans-le-projet-bit-philology-universitat-bern-bern",
+          "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
         ]
       },
       "previousSlugs": [
         "ricercatore-post-dottorato-nel-progetto-bit-philology-universitat-bern-bern",
         "postdoktorandin-im-projekt-bit-philology-universitat-bern-bern",
-        "chercheur-postdoctoral-dans-le-projet-bit-philology-universitat-bern-bern"
+        "chercheur-postdoctoral-dans-le-projet-bit-philology-universitat-bern-bern",
+        "postdoctoral-researcher-in-the-bit-philology-project-unibe-bern"
       ]
     },
     {
@@ -4181,12 +4184,12 @@
     },
     {
       "id": "unibe-12d39a0c8ed0",
-      "slug": "collaboratore-trice-empfang-universitat-bern",
+      "slug": "addetto-a-alla-reception-universitat-bern-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-universitat-bern-bern",
-        "it": "collaboratore-trice-empfang-universitat-bern",
-        "en": "mitarbeiter-in-empfang-universitat-bern-bern",
-        "fr": "mitarbeiter-in-empfang-universitat-bern-bern"
+        "it": "addetto-a-alla-reception-universitat-bern-bern",
+        "en": "receptionist-universitat-bern-bern",
+        "fr": "employe-e-a-l-accueil-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4235,13 +4238,16 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-unibe-bern",
-          "addetto-a-alla-reception-universitat-bern-bern"
+          "addetto-a-alla-reception-universitat-bern-bern",
+          "collaboratore-trice-empfang-universitat-bern"
         ],
         "en": [
-          "reception-staff-member-universitat-bern-bern"
+          "reception-staff-member-universitat-bern-bern",
+          "mitarbeiter-in-empfang-universitat-bern-bern"
         ],
         "fr": [
-          "collaborateur-rice-a-la-reception-universitat-bern-bern"
+          "collaborateur-rice-a-la-reception-universitat-bern-bern",
+          "mitarbeiter-in-empfang-universitat-bern-bern"
         ],
         "de": [
           "mitarbeiter-in-empfang-unibe-bern"
@@ -4251,7 +4257,9 @@
         "mitarbeiter-in-empfang-unibe-bern",
         "addetto-a-alla-reception-universitat-bern-bern",
         "reception-staff-member-universitat-bern-bern",
-        "collaborateur-rice-a-la-reception-universitat-bern-bern"
+        "collaborateur-rice-a-la-reception-universitat-bern-bern",
+        "collaboratore-trice-empfang-universitat-bern",
+        "mitarbeiter-in-empfang-universitat-bern-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4270,12 +4278,12 @@
     },
     {
       "id": "unibe-e5623684eb7c",
-      "slug": "phd-position-in-experimental-low-energy-particle-physics-unibe-bern",
+      "slug": "posizione-del-dottorato-in-fisica-sperimentale-a-bassa-energia-universitat-bern-bern",
       "slugByLocale": {
         "en": "phd-position-in-experimental-low-energy-particle-physics-unibe-bern",
-        "it": "phd-position-in-experimental-low-energy-particle-physics-unibe-bern",
-        "de": "phd-position-in-experimental-low-energy-particle-physics-unibe-bern",
-        "fr": "phd-position-in-experimental-low-energy-particle-physics-unibe-bern"
+        "it": "posizione-del-dottorato-in-fisica-sperimentale-a-bassa-energia-universitat-bern-bern",
+        "de": "phd-position-in-der-experimentellen-niedrigenergieteilchenphysik-universitat-bern-bern",
+        "fr": "doctorat-en-physique-experimentale-des-particules-de-faible-energie-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4334,7 +4342,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:30:41.165Z"
+      "firstSeenAt": "2026-10-23T09:30:41.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-experimental-low-energy-particle-physics-unibe-bern"
+        ],
+        "de": [
+          "phd-position-in-experimental-low-energy-particle-physics-unibe-bern"
+        ],
+        "fr": [
+          "phd-position-in-experimental-low-energy-particle-physics-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-experimental-low-energy-particle-physics-unibe-bern"
+      ]
     }
   ]
 }
