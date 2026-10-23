@@ -1,9 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import {
+  canOpenJobBoardAlertOnRoute,
+  createJobBoardNewJobsImpressionGate,
   filterJobsNewSinceVisit,
   getJobBoardNewnessTimestampMs,
   hasJobBoardAlertOpenRequest,
   isJobBoardNewSinceVisit,
+  JOB_BOARD_NEW_JOBS_IMPRESSION_VISIT_KEY,
 } from '@/services/jobBoardNewJobs';
 
 const LAST_VISIT = Date.parse('2026-10-19T10:00:00.000Z');
@@ -58,11 +61,51 @@ describe('job board return-visit newness', () => {
   });
 });
 
+describe('job board new-jobs impression gate', () => {
+  it('dedupes a visit across remounts and reloads, then allows the next visit', () => {
+    let stored: string | null = null;
+    const storage = {
+      getItem: (key: string) => key === JOB_BOARD_NEW_JOBS_IMPRESSION_VISIT_KEY ? stored : null,
+      setItem: (key: string, value: string) => { if (key === JOB_BOARD_NEW_JOBS_IMPRESSION_VISIT_KEY) stored = value; },
+    };
+    const firstPage = createJobBoardNewJobsImpressionGate();
+
+    expect(firstPage('visit-1', storage)).toBe(true);
+    expect(firstPage('visit-1', storage)).toBe(false);
+    expect(createJobBoardNewJobsImpressionGate()('visit-1', storage)).toBe(false);
+    expect(createJobBoardNewJobsImpressionGate()('visit-2', storage)).toBe(true);
+    expect(firstPage('', storage)).toBe(false);
+  });
+});
+
 describe('job-board alert open query', () => {
   it('uses alert=1 in the query even when the URL hash is absent', () => {
     expect(hasJobBoardAlertOpenRequest('?q=infermiere&alert=1')).toBe(true);
     expect(hasJobBoardAlertOpenRequest('q=infermiere&alert=1')).toBe(true);
     expect(hasJobBoardAlertOpenRequest('?q=infermiere&alert=0')).toBe(false);
     expect(hasJobBoardAlertOpenRequest('?q=infermiere#job-alert-form')).toBe(false);
+  });
+
+  it('opens on city listings while keeping detail, auth and duplicate-open gates', () => {
+    expect(canOpenJobBoardAlertOnRoute({
+      requestHandled: false,
+      alertsEnabled: true,
+      initialJobSlug: 'localita-basel',
+      locationSlugFilter: 'basel',
+      hasSelectedJob: false,
+    })).toBe(true);
+    expect(canOpenJobBoardAlertOnRoute({
+      requestHandled: false,
+      alertsEnabled: true,
+      initialJobSlug: 'nurse-job-at-clinic',
+      locationSlugFilter: null,
+      hasSelectedJob: true,
+    })).toBe(false);
+    expect(canOpenJobBoardAlertOnRoute({
+      requestHandled: true,
+      alertsEnabled: true,
+      locationSlugFilter: 'basel',
+      hasSelectedJob: false,
+    })).toBe(false);
   });
 });

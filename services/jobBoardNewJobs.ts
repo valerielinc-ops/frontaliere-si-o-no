@@ -4,6 +4,45 @@ export interface JobBoardNewnessFields {
   postedDate?: unknown;
 }
 
+export const JOB_BOARD_NEW_JOBS_IMPRESSION_VISIT_KEY = 'frontaliere_job_board_new_jobs_impression_visit_v1';
+
+export interface JobBoardNewJobsImpressionStorage {
+  getItem(key: string): string | null;
+  setItem(key: string, value: string): void;
+}
+
+/**
+ * Create a per-visit impression gate. sessionStorage carries the last visit
+ * across reloads; the closure covers remounts when storage is unavailable.
+ */
+export function createJobBoardNewJobsImpressionGate() {
+  const seenVisits = new Set<string>();
+
+  return (visitKey: string, storage: JobBoardNewJobsImpressionStorage | null): boolean => {
+    const key = String(visitKey || '').trim();
+    if (!key || seenVisits.has(key)) return false;
+
+    try {
+      if (storage?.getItem(JOB_BOARD_NEW_JOBS_IMPRESSION_VISIT_KEY) === key) {
+        seenVisits.add(key);
+        return false;
+      }
+    } catch {
+      // A blocked sessionStorage must not break the user's interaction.
+    }
+
+    seenVisits.add(key);
+    if (seenVisits.size > 32) seenVisits.delete(seenVisits.values().next().value as string);
+
+    try {
+      storage?.setItem(JOB_BOARD_NEW_JOBS_IMPRESSION_VISIT_KEY, key);
+    } catch {
+      // The in-memory set still dedupes remounts in this page lifetime.
+    }
+    return true;
+  };
+}
+
 /**
  * Read the timestamp used by the existing return-visit counter. Keep the
  * source precedence stable, but fail closed when that source is malformed.
@@ -53,4 +92,19 @@ export function hasJobBoardAlertOpenRequest(search: string): boolean {
   } catch {
     return false;
   }
+}
+
+/** Alert deep links may open on a known city listing, but never on job detail. */
+export function canOpenJobBoardAlertOnRoute(options: {
+  requestHandled: boolean;
+  alertsEnabled: boolean;
+  initialJobSlug?: string;
+  locationSlugFilter?: string | null;
+  hasSelectedJob: boolean;
+}): boolean {
+  const { requestHandled, alertsEnabled, initialJobSlug, locationSlugFilter, hasSelectedJob } = options;
+  return !requestHandled
+    && alertsEnabled
+    && (!initialJobSlug || Boolean(locationSlugFilter))
+    && !hasSelectedJob;
 }

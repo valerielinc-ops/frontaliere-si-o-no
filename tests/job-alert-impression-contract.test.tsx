@@ -359,10 +359,22 @@ describe('#13202 — anonymous job-detail origin survives the form and auth repl
 });
 
 describe('#13204 — board one-tap preserves only criteria supported by JobAlertConfig', () => {
-  it('passes active location, contract, sector, and canton values beside the category keyword', () => {
+  it('preserves a route city or explicit location and leaves unscoped searches empty', () => {
     const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
     expect(board).toContain('keywordLabel={boardFilterAlertKeywordLabel}');
-    expect(board).toContain("locations: selectedLocation === 'all' ? [] : [selectedLocation]");
+    expect(board).toContain(`const selectedBoardAlertLocation = selectedLocation === 'all'
+  ? null
+  : normalizeJobAlertLocationValue(selectedLocation);`);
+    expect(board).toContain(`const boardRouteAlertLocationValue = boardRouteAlertLocation
+  ? normalizeJobAlertLocationValue(boardRouteAlertLocation)
+  : null;`);
+    expect(board).toContain(`const boardFilterAlertLocations = boardRouteAlertLocationValue
+  ? [boardRouteAlertLocationValue]
+  : selectedBoardAlertLocation
+   ? [selectedBoardAlertLocation]
+   : [];`);
+    expect(board).toContain('locations: boardFilterAlertLocations');
+    expect(board).toContain('initialLocations={locationSlugFilter && boardRouteAlertLocation ? [boardRouteAlertLocation] : []}');
     expect(board).toContain("contractTypes: selectedContract === 'all' ? [] : [selectedContract]");
     expect(board).toContain("sectors: selectedSector === 'all' ? [] : [selectedSector]");
     expect(board).toContain('cantonCode={boardFilterAlertCantonCode}');
@@ -374,10 +386,16 @@ describe('#13204 — board one-tap preserves only criteria supported by JobAlert
     expect(service).toContain('sectors: [...(filters?.sectors ?? [])]');
 
     const form = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(form).toContain('normalizeJobAlertLocationValues(initialLocations)');
+    expect(form).toContain('const value = normalizeJobAlertLocationValue(location)');
     expect(form).toContain('locations: selectedLocations');
     expect(form).toContain('contractTypes: selectedContracts');
     expect(form).toContain('sectors: selectedSectors');
     expect(form).toContain('cantonFilter: selectedCantons.length > 0 ? selectedCantons : null');
+
+    const locations = fs.readFileSync(path.join(ROOT, 'services/jobAlertLocations.ts'), 'utf-8');
+    expect(locations).toContain("{ value: 'lugano', label: 'Lugano' }");
+    expect(locations).toContain('export function normalizeJobAlertLocationValue');
   });
 });
 

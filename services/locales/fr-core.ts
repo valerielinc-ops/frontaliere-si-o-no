@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3997.title': 'Reprendre votre recherche à votre retour',
+ 'whatsNew.v3997.resumeSearch.title': 'Votre recherche vous attend',
+ 'whatsNew.v3997.resumeSearch.desc': 'Enregistrez dans ce navigateur votre dernière recherche, avec son mot-clé, son canton et ses filtres, puis reprenez-la à votre retour.',
  'whatsNew.v3996.title': 'Des alertes plus discrètes sur les offres',
  'whatsNew.v3996.jobViewers.title': 'Un bref signal pendant la lecture d’une offre',
  'whatsNew.v3996.jobViewers.desc': 'Un discret avis d’activité peut apparaître sur la page d’une offre. Il est refermable, disparaît automatiquement et ne s’affiche qu’une fois par session.',
@@ -811,6 +814,11 @@ const frCore: Record<string, string> = {
  'jobBoard.returnVisit.show': 'Voir les nouveautés',
  'jobBoard.returnVisit.showAll': 'Voir tous les résultats',
  'jobBoard.returnVisit.dismiss': 'Masquer l’avis sur les nouvelles offres',
+ 'jobBoard.resumeSearch.title': 'Votre dernière recherche',
+ 'jobBoard.resumeSearch.keywordSummary': '« {query} » · {canton}{location}',
+ 'jobBoard.resumeSearch.filterSummary': 'Recherche filtrée ({count}) · {canton}{location}',
+ 'jobBoard.resumeSearch.resume': 'Reprendre',
+ 'jobBoard.resumeSearch.clear': 'Effacer la recherche enregistrée',
  'jobBoard.filter.saved': 'Enregistrées',
  'jobBoard.save.add': "Enregistrer l'offre",
  'jobBoard.save.remove': 'Retirer des offres enregistrées',

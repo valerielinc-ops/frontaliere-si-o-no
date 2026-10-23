@@ -70,6 +70,33 @@ describe('JobAlertForm — contextual one-tap creation', () => {
     );
   });
 
+  it.each([
+    { city: 'Lugano', canton: 'TI', canonical: 'lugano' },
+    { city: 'Basel', canton: 'BS', canonical: 'basel' },
+  ])('stores the canonical location for the $city one-tap alert payload', async ({ city, canton, canonical }) => {
+    render(
+      <JobAlertForm
+        authUser={{ uid: 'user-1', email: 'foo@example.com' }}
+        initialKeyword="nurse"
+        initialCantonCode={canton}
+        initialLocations={[city]}
+      />,
+    );
+
+    fireEvent.click(await screen.findByTestId('job-alert-one-tap'));
+
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1), { timeout: 3000 });
+    expect(createAlertMock).toHaveBeenCalledWith(
+      'user-1',
+      'foo@example.com',
+      expect.objectContaining({
+        keywords: ['nurse'],
+        locations: [canonical],
+        cantonFilter: [canton],
+      }),
+    );
+  });
+
   // Issue 9577 — the one-tap create is an inline_card attempt like the form
   // submit, so it reports the same accept→success/error chain.
   it('reports accept→success on the inline_card surface', async () => {

@@ -147,13 +147,13 @@ describe('JobBoardFilterAlertCta', () => {
     expect(onErrored).not.toHaveBeenCalled();
   });
 
-  it('passes active board filters through to the one-tap service', async () => {
+  it('keeps the route city beside its canton in the one-tap service payload', async () => {
     const filters = {
       locations: ['lugano'],
       contractTypes: ['part-time'],
       sectors: ['healthcare'],
     };
-    const { subscribe } = renderCta({ filters });
+    const { subscribe } = renderCta({ cantonCode: 'TI', filters });
 
     await act(async () => {
       fireEvent.click(screen.getByText(/Avvisami per questa ricerca/));
