@@ -51,6 +51,8 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // Config (the key is allowlisted in functions/src/publicConfigKeys.js).
  ASSISTED_APPLICATION_OFFERWALL_FALLBACK: 'false',
  AUTHGATE_HEADLINE_VARIANT: 'control',
+ // Admin shell v2 stays off unless Remote Config explicitly activates it.
+ admin_shell_v2: 'false',
  // Legacy v4 keys remain available for cached clients, which Remote Config
  // pins to the promoted Spotlight treatment while they age out.
  JOBGATE_EXPERIMENT_ENABLED: 'false',

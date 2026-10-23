@@ -17,6 +17,7 @@ import {
   workflowDispatchErrorIdentity,
   WorkflowDispatchError,
 } from '../../scripts/lib/githubWorkflowDispatch.mjs';
+import { useAdminConfirm } from './ui/AdminConfirmDialog';
 
 export type AdminWorkflowContext = WorkflowContext;
 export type AdminWorkflowImpact = 'lettura' | 'modifica dati' | 'pubblicazione';
@@ -118,6 +119,16 @@ export const WORKFLOW_CONTEXT_META: Record<WorkflowContext, { label: string; des
   analytics: { label: 'Analytics & Dati', description: 'Aggiornamento dataset e report per capire traffico e comportamento utenti.' },
 };
 
+export function getWorkflowConfirmationCopy(workflowId: string, workflow: Pick<WorkflowActionDefinition, 'title'>): { title: string; confirmLabel: string } {
+  if (workflowId === 'orchestrate-crawlers.yml') {
+    return { title: 'Lancia l’orchestratore dei crawler', confirmLabel: 'Lancia orchestratore' };
+  }
+  if (workflowId === 'generate-article.yml') {
+    return { title: 'Genera nuovo articolo', confirmLabel: 'Genera articolo' };
+  }
+  return { title: workflow.title, confirmLabel: `Avvia ${workflow.title}` };
+}
+
 function emptyState(): WorkflowRunState {
   return {
     loading: false, runId: null, runNumber: null, status: 'idle', conclusion: null, htmlUrl: null,
@@ -145,6 +156,7 @@ const AdminWorkflowContextObject = createContext<AdminWorkflowContextValue | nul
 
 export function AdminWorkflowProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
+  const { requestConfirmation } = useAdminConfirm();
   const client = useMemo(() => createAdminGithubClient(user), [user]);
   const [workflowStates, setWorkflowStates] = useState<Record<string, WorkflowRunState>>({});
   const [crawlerWorkflows, setCrawlerWorkflowsState] = useState<WorkflowActionDefinition[]>([]);
@@ -211,7 +223,7 @@ export function AdminWorkflowProvider({ children }: { children: ReactNode }) {
     const failedSteps = failedJobs.flatMap((job) => job.failedSteps.map((step) => `${job.name}: ${step}`));
     return [
       `Sto eseguendo il workflow GitHub"${workflow.title}" (${workflow.id}) del repo Frontaliere Ticino.`,
-      `Run URL: ${state.htmlUrl || 'n/d'}`, `Run ID: ${state.runId || 'n/d'} | Run number: ${state.runNumber || 'n/d'}`,
+      `URL esecuzione: ${state.htmlUrl || 'n/d'}`, `ID esecuzione: ${state.runId || 'n/d'} | Numero esecuzione: ${state.runNumber || 'n/d'}`,
       `Status: ${state.status} | Conclusion: ${state.conclusion || 'n/d'}`, `Messaggio errore: ${state.error || 'n/d'}`,
       `Durata: ${formatDuration(state.durationSeconds)}`, failedSteps.length ? `Step falliti: ${failedSteps.join(' | ')}` : 'Step falliti: n/d',
       state.logExcerpt ? `Estratto log:\n${state.logExcerpt}` : 'Estratto log: non disponibile', '', 'Mi proponi una fix concreta con patch minima e test di verifica?',
@@ -287,7 +299,7 @@ export function AdminWorkflowProvider({ children }: { children: ReactNode }) {
         }
         await sleep(Math.min(30_000, 6_000 + attempt * 2_000), controller.signal);
       }
-      const timeoutState = { loading: false, status: 'unknown', error: 'Run avviato, ma monitoraggio scaduto: esito da verificare in GitHub Actions.' };
+      const timeoutState = { loading: false, status: 'unknown', error: 'Esecuzione avviata, ma monitoraggio scaduto: esito da verificare in GitHub Actions.' };
       setWorkflowState(workflowId, timeoutState);
       return { ...latestState, ...timeoutState };
     } catch (error) {
@@ -309,7 +321,7 @@ export function AdminWorkflowProvider({ children }: { children: ReactNode }) {
       const result = await dispatchWorkflow(workflowId, inputs);
       knownRunId = Number(result.runId) || null;
       knownRunHtmlUrl = String(result.run?.html_url || '') || null;
-      const next = { ...initial, loading: false, runId: knownRunId, runNumber: Number(result.run?.run_number || 0) || null, status: String(result.run?.status || 'queued'), htmlUrl: knownRunHtmlUrl, updatedAt: String(result.run?.updated_at || '') || null, message: 'Run avviato. Monitoraggio disponibile in GitHub Actions.' };
+      const next = { ...initial, loading: false, runId: knownRunId, runNumber: Number(result.run?.run_number || 0) || null, status: String(result.run?.status || 'queued'), htmlUrl: knownRunHtmlUrl, updatedAt: String(result.run?.updated_at || '') || null, message: 'Esecuzione avviata. Monitoraggio disponibile in GitHub Actions.' };
       setWorkflowState(workflowId, next);
       if (options.deferMonitoring || !knownRunId) return next;
       const controller = new AbortController();
@@ -337,23 +349,34 @@ export function AdminWorkflowProvider({ children }: { children: ReactNode }) {
   const runWorkflowWithConfirmation = useCallback(async (workflowId: string, inputs: Record<string, string> = {}) => {
     const workflow = getWorkflowDef(workflowId);
     if (isWorkflowRunDispatchLocked(getWorkflowState(workflowId))) return null;
-    const needsConfirmation = workflowId === 'orchestrate-crawlers.yml'
-      || workflowId === 'generate-article.yml'
-      || (workflowId === 'seo-serp-autopilot.yml' && inputs.dry_run === 'false')
-      || workflow.context === 'jobs';
-    if (needsConfirmation && typeof window !== 'undefined') {
-      const inputSummary = Object.entries({ ...(workflow.defaultInputs || {}), ...inputs }).map(([key, value]) => `${key}=${value}`).join(', ') || 'nessuno';
-      const impact = workflowId === 'orchestrate-crawlers.yml'
-        ? 'Avvierà il gruppo orchestratore e potrà modificare i dati dei crawler.'
-        : workflowId === 'generate-article.yml'
-          ? 'Genererà e pubblicherà contenuti multi-lingua.'
-          : workflowId === 'seo-serp-autopilot.yml' && inputs.dry_run === 'false'
-            ? 'Applicherà le azioni SEO previste dal workflow.'
+    const confirmationCopy = getWorkflowConfirmationCopy(workflowId, workflow);
+    const inputSummary = Object.entries({ ...(workflow.defaultInputs || {}), ...inputs }).map(([key, value]) => `${key}=${value}`).join(', ') || 'nessuno';
+    const impact = workflowId === 'orchestrate-crawlers.yml'
+      ? 'Avvierà il gruppo orchestratore e potrà modificare i dati dei crawler.'
+      : workflowId === 'generate-article.yml'
+        ? 'Genererà e pubblicherà contenuti multi-lingua.'
+        : workflow.impact === 'lettura'
+          ? 'Eseguirà un controllo o report in sola lettura, senza modificare i dati.'
+          : workflow.impact === 'modifica dati'
+            ? 'Potrà modificare dati del sito o dei dataset.'
             : 'Avvierà un run GitHub Actions con effetti sui dati del sito.';
-      if (!window.confirm(`${workflow.title}\n\nImpatto: ${impact}\nInput: ${inputSummary}\nDurata attesa: ${workflow.expectedDuration}\n\nProcedere?`)) return null;
-    }
+    const confirmed = await requestConfirmation({
+      title: confirmationCopy.title,
+      what: workflowId === 'orchestrate-crawlers.yml'
+        ? 'Stai per lanciare l’orchestratore dei crawler.'
+        : workflowId === 'generate-article.yml'
+          ? 'Stai per generare un nuovo articolo.'
+          : `Stai per avviare ${workflow.title}.`,
+      workflowFile: workflow.id,
+      impact,
+      input: inputSummary,
+      expectedDuration: workflow.expectedDuration,
+      confirmLabel: confirmationCopy.confirmLabel,
+      confirmVariant: workflow.impact === 'pubblicazione' ? 'danger' : 'primary',
+    });
+    if (!confirmed) return null;
     return runWorkflowAction(workflowId, inputs);
-  }, [getWorkflowDef, getWorkflowState, runWorkflowAction]);
+  }, [getWorkflowDef, getWorkflowState, requestConfirmation, runWorkflowAction]);
 
   const refresh = useCallback(async (context?: WorkflowContext) => {
     if (refreshFlightRef.current) return refreshFlightRef.current;

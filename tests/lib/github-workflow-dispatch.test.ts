@@ -417,6 +417,7 @@ describe('github workflow dispatch contract', () => {
     expect(newsletter).toContain("if (outcome === 'unknown')");
     expect(newsletter).toContain("outcome === 'success' && state.conclusion === 'success'");
     expect(crawler).toContain('isWorkflowRunDispatchLocked(wfState)');
-    expect(crawler).toContain('window.confirm');
+    expect(crawler).toContain('runWorkflowWithConfirmation');
+    expect(crawler).not.toContain('window.confirm');
   });
 });
