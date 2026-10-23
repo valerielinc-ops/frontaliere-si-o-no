@@ -86,7 +86,10 @@ import {
   decideCorpusOverlayMode,
   prepareCorpusContentOverlay,
 } from './lib/article-corpus-overlay.mjs';
-import { filterEntriesByImagePostcondition } from './lib/article-image-postcondition.mjs';
+import {
+  filterEntriesByImagePostcondition,
+  restoreDeclaredImageRefs,
+} from './lib/article-image-postcondition.mjs';
 import { CDN_ASSET_ORIGIN } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
 
 const SELF_PATH = fileURLToPath(import.meta.url);
@@ -206,6 +209,28 @@ function readEntryHtml(distDir, entries) {
     }
   }
   return htmlByPath;
+}
+
+function restoreDeclaredImagesInEntries(distDir, entries, declaredImages) {
+  let rewrittenFiles = 0;
+  for (const entry of entries) {
+    const declaredImage = declaredImages[entry.articleId] ?? null;
+    if (!declaredImage) continue;
+    const paths = [
+      ...Object.values(entry.paths || {}),
+      ...Object.values(entry.flatPaths || {}),
+    ].filter(Boolean);
+    for (const rel of paths) {
+      const abs = path.join(distDir, rel);
+      if (!fs.existsSync(abs)) continue;
+      const before = fs.readFileSync(abs, 'utf-8');
+      const after = restoreDeclaredImageRefs(before, declaredImage);
+      if (after === before) continue;
+      fs.writeFileSync(abs, after, 'utf-8');
+      rewrittenFiles += 1;
+    }
+  }
+  return rewrittenFiles;
 }
 
 // Id enumeration is imported from build-plugins/shared/articleSectionDescriptors.ts
@@ -376,6 +401,18 @@ async function runOrchestrator(args) {
 
     if (sectionFailed) continue;
 
+    // The renderer deliberately runs from a sparse checkout without
+    // `public/images/`. Restore the registry-declared hero path before the
+    // offload and image postcondition passes so a metadata-only rerender does
+    // not turn a live editorial image into the generic fallback.
+    const declaredImages = await readSiteDeclaredImages(section.name, ids);
+    const restoredImageFiles = restoreDeclaredImagesInEntries(distDir, allEntries, declaredImages);
+    if (restoredImageFiles > 0) {
+      console.log(
+        `[rerender-article-corpus] section=${section.name} restored declared hero refs in ${restoredImageFiles} page file(s)`,
+      );
+    }
+
     // Step 6 (offload-generated-images-cdn.mjs), ONCE for this section's
     // whole accumulated scratch dist — see renderBatchWorker's comment above.
     const offloadTmp = fs.mkdtempSync(path.join(os.tmpdir(), 'rerender-corpus-offload-'));
@@ -396,7 +433,6 @@ async function runOrchestrator(args) {
       fs.rmSync(offloadTmp, { recursive: true, force: true });
     }
 
-    const declaredImages = await readSiteDeclaredImages(section.name, ids);
     const imagePostcondition = filterEntriesByImagePostcondition({
       entries: allEntries,
       declaredImages,

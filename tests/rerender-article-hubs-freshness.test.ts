@@ -7,6 +7,7 @@ import {
   checkCorpusFreshness,
   decideCorpusRegistryDrift,
 } from '../scripts/rerender-article-hubs.mjs';
+import { ensureTwitterCardMeta } from '../scripts/lib/refresh-article-hub-landings.mjs';
 
 const registryFor = (ids: string[]) => Object.fromEntries(
   ids.map((id) => [id, { it: id, en: id, de: id, fr: id }]),
@@ -101,6 +102,30 @@ describe('hub corpus-main registry drift decisions', () => {
     expect(result.action).toBe('defer');
     expect(result.note).toContain('retired-article');
     expect(result.note).toContain('new-article');
+  });
+});
+
+describe('preserved hub shells receive the shared X-card head', () => {
+  it('injects all four tags without touching an existing card', () => {
+    const html = [
+      '<!doctype html><html><head>',
+      '<title>Articoli frontalieri</title>',
+      '<meta name="description" content="Guide per frontalieri">',
+      '<meta property="og:image" content="https://frontaliereticino.ch/og-image.png">',
+      '</head><body></body></html>',
+    ].join('');
+
+    const patched = ensureTwitterCardMeta(html, {
+      locale: 'it',
+      siteBase: 'https://frontaliereticino.ch',
+    });
+
+    expect((patched.match(/name="twitter:/g) ?? []).length).toBe(4);
+    expect(patched).toContain('twitter:card');
+    expect(patched).toContain('twitter:title');
+    expect(patched).toContain('twitter:description');
+    expect(patched).toContain('twitter:image');
+    expect(ensureTwitterCardMeta(patched, { locale: 'it', siteBase: 'https://frontaliereticino.ch' })).toBe(patched);
   });
 });
 

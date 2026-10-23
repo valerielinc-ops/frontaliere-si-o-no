@@ -148,6 +148,10 @@ describe('rerender-article-corpus.yml push filter covers the real article render
       .map(({ glob }) => glob);
     expect(stale).toEqual([]);
     for (const source of HUB_OVERLAY_SOURCES) expect(isHubCovered(source)).toBe(true);
+    for (const source of [
+      BOOTSTRAP,
+      'packages/articles/engine/shared/twitterCardMeta.ts',
+    ]) expect(isHubCovered(source)).toBe(true);
   });
 
   it('rerenders articles and hubs when their shared ad-slot markup changes', () => {
