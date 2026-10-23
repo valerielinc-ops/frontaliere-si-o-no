@@ -4322,45 +4322,171 @@ function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
   return error instanceof Error && 'code' in error && typeof error.code === 'string';
 }
 
-type ForeignDirEntry = {
-  isDirectory(): boolean;
-  isFile(): boolean;
-  isSymbolicLink(): boolean;
-};
-
 /**
  * A locale-shard sitemap contains the other three locales by design. When a
- * caller opts into checking a foreign file, index the parent directory once
- * instead of opening both `<path>/index.html` and `<path>.html` for every
- * missing cross-shard URL. The map is scoped to one reconciliation pass so a
- * later build pass cannot observe a stale filesystem snapshot.
+ * caller opts into checking a foreign file, build one streaming inventory of
+ * the completed dist tree instead of opening/readdir-ing a parent directory
+ * for every cross-shard URL. Job-detail URLs usually have unique parent
+ * directories, so a per-parent cache still performs one directory syscall per
+ * URL. The map is scoped to one reconciliation pass so a later build pass
+ * cannot observe a stale filesystem snapshot. `opendir` keeps the transient
+ * directory-entry buffer bounded. When the caller supplies the paths it can
+ * probe, the index uses a bounded `lstat` pool over those candidates only;
+ * unrelated production assets are never retained or opened. Non-HTML
+ * regular-file candidates are checked with a targeted `stat` instead of
+ * retaining every asset path in memory.
  */
-function createForeignDirectoryIndex(): {
-  entriesFor(directory: string): Promise<ReadonlyMap<string, ForeignDirEntry>>;
-} {
-  const entriesByDirectory = new Map<
-    string,
-    Promise<ReadonlyMap<string, ForeignDirEntry>>
-  >();
+export interface ForeignDirectoryIndex {
+  hasFile(filePath: string): Promise<boolean>;
+  hasRegularFile(filePath: string): Promise<boolean>;
+  hasSymlink(filePath: string): Promise<boolean>;
+}
+
+export function createForeignDirectoryIndex(
+  distDir: string,
+  candidatePaths?: Iterable<string>,
+): ForeignDirectoryIndex {
+  let retainedCandidates: Iterator<string> | null = candidatePaths
+    ? candidatePaths[Symbol.iterator]()
+    : null;
+  let inventory: Promise<{
+    htmlFiles: ReadonlySet<string>;
+    symlinks: ReadonlySet<string>;
+  }> | null = null;
+
+  const loadInventory = (): Promise<{
+    htmlFiles: ReadonlySet<string>;
+    symlinks: ReadonlySet<string>;
+  }> => {
+    if (inventory) return inventory;
+
+    inventory = (async () => {
+      const htmlFiles = new Set<string>();
+      const symlinks = new Set<string>();
+
+      if (retainedCandidates) {
+        const candidateIterator = retainedCandidates;
+        const inspectCandidate = async (): Promise<void> => {
+          while (true) {
+            const next = candidateIterator.next();
+            if (next.done) return;
+            const routePath = path.resolve(next.value);
+            const candidateFiles = [
+              routePath,
+              path.join(routePath, 'index.html'),
+              `${routePath}.html`,
+            ];
+            for (const filePath of candidateFiles) {
+              try {
+                const entry = await fs.promises.lstat(filePath);
+                if (entry.isSymbolicLink()) symlinks.add(filePath);
+                else if (entry.isFile() && path.extname(filePath).toLowerCase() === '.html') {
+                  htmlFiles.add(filePath);
+                }
+              } catch (error: unknown) {
+                if (!isNodeErrnoException(error) || (error.code !== 'ENOENT' && error.code !== 'ENOTDIR')) {
+                  throw error;
+                }
+              }
+            }
+          }
+        };
+        await Promise.all(
+          Array.from({ length: 16 }, () => inspectCandidate()),
+        );
+        retainedCandidates = null;
+        return { htmlFiles, symlinks };
+      }
+
+      const pendingDirectories = [path.resolve(distDir)];
+      let nextDirectory = 0;
+      let activeDirectories = 0;
+      const scanDirectory = async (directory: string): Promise<void> => {
+        let handle: fs.Dir;
+        try {
+          handle = await fs.promises.opendir(directory);
+        } catch (error: unknown) {
+          // A generated directory can disappear between the parent walk and
+          // this opendir. Keep entries already discovered and skip only the
+          // vanished subtree instead of invalidating the whole inventory.
+          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) return;
+          throw error;
+        }
+
+        try {
+          for await (const entry of handle) {
+            const filePath = path.resolve(directory, entry.name);
+            if (entry.isSymbolicLink()) symlinks.add(filePath);
+            else if (entry.isFile() && path.extname(entry.name).toLowerCase() === '.html') {
+              htmlFiles.add(filePath);
+            } else if (entry.isDirectory()) {
+              pendingDirectories.push(filePath);
+            }
+          }
+        } catch (error: unknown) {
+          // The directory may disappear while its handle is being consumed.
+          // The entries yielded before the race remain valid for this pass.
+          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) return;
+          throw error;
+        }
+      };
+
+      // Keep at most a small, fixed number of directory handles in flight so
+      // a large dist tree stays bounded while independent locale directories
+      // can be scanned concurrently. The scheduler only declares completion
+      // after every worker has observed the current queue length, so children
+      // discovered after the root scan cannot be skipped.
+      const workerCount = 16;
+      await new Promise<void>((resolve, reject) => {
+        let failed = false;
+        const schedule = (): void => {
+          if (failed) return;
+          while (activeDirectories < workerCount && nextDirectory < pendingDirectories.length) {
+            const directory = pendingDirectories[nextDirectory++];
+            activeDirectories += 1;
+            void scanDirectory(directory)
+              .catch((error: unknown) => {
+                failed = true;
+                reject(error);
+              })
+              .finally(() => {
+                activeDirectories -= 1;
+                if (failed) return;
+                if (activeDirectories === 0 && nextDirectory >= pendingDirectories.length) {
+                  resolve();
+                } else {
+                  schedule();
+                }
+              });
+          }
+          if (!failed && activeDirectories === 0 && nextDirectory >= pendingDirectories.length) resolve();
+        };
+        schedule();
+      });
+
+      return { htmlFiles, symlinks };
+    })();
+
+    return inventory;
+  };
 
   return {
-    entriesFor(directory: string): Promise<ReadonlyMap<string, ForeignDirEntry>> {
-      const existing = entriesByDirectory.get(directory);
-      if (existing) return existing;
-
-      const pending = fs.promises
-        .readdir(directory, { withFileTypes: true })
-        .then((entries) => new Map(
-          entries.map((entry) => [entry.name, entry] as const),
-        ))
-        .catch((error: unknown) => {
-          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
-            return new Map<string, ForeignDirEntry>();
-          }
-          throw error;
-        });
-      entriesByDirectory.set(directory, pending);
-      return pending;
+    hasFile(filePath: string): Promise<boolean> {
+      return loadInventory().then(({ htmlFiles }) => htmlFiles.has(path.resolve(filePath)));
+    },
+    hasRegularFile(filePath: string): Promise<boolean> {
+      // This method is used only for the route-path candidate. A targeted
+      // stat preserves non-HTML file detection without retaining every PDF,
+      // image, font, and other static asset in the walk's path set.
+      return fs.promises.stat(path.resolve(filePath)).then((stat) => stat.isFile()).catch((error: unknown) => {
+        if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
+          return false;
+        }
+        throw error;
+      });
+    },
+    hasSymlink(filePath: string): Promise<boolean> {
+      return loadInventory().then(({ symlinks }) => symlinks.has(path.resolve(filePath)));
     },
   };
 }
@@ -4375,30 +4501,23 @@ type ForeignProbe =
  * `null` asks the caller to use the legacy probes for symlink edge cases.
  */
 async function probeForeignPresentPage(
-  index: ReturnType<typeof createForeignDirectoryIndex>,
+  index: ForeignDirectoryIndex,
   urlPath: string,
   routePath: string,
   indexPath: string,
   flatPath: string,
 ): Promise<ForeignProbe | null> {
-  const routeName = path.basename(routePath);
-  const entries = await index.entriesFor(path.dirname(routePath));
-  const routeEntry = entries.get(routeName);
-  const flatEntry = entries.get(`${routeName}.html`);
-
   // Symlinked route directories need stat-following to distinguish the
   // directory-index and flat-file representations. They are not emitted by
   // the build, so preserve the old probe path rather than guessing.
-  if (routeEntry?.isSymbolicLink()) return null;
+  if (await index.hasSymlink(routePath)) return null;
 
   const candidates: string[] = [];
-  if (routeEntry?.isDirectory()) {
-    candidates.push(indexPath);
-  } else if (routeEntry?.isFile()) {
-    if (path.extname(urlPath).toLowerCase() === '.html') candidates.push(routePath);
-    else return { kind: 'non-html' };
-  }
-  if (flatEntry?.isFile() || flatEntry?.isSymbolicLink()) candidates.push(flatPath);
+  const routeFile = await index.hasFile(routePath);
+  if (await index.hasRegularFile(routePath) && !routeFile) return { kind: 'non-html' };
+  if (routeFile && path.extname(urlPath).toLowerCase() === '.html') candidates.push(routePath);
+  if (await index.hasFile(indexPath) || await index.hasSymlink(indexPath)) candidates.push(indexPath);
+  if (await index.hasFile(flatPath) || await index.hasSymlink(flatPath)) candidates.push(flatPath);
   if (candidates.length === 0) return { kind: 'missing' };
 
   for (const candidate of candidates) {
@@ -4454,6 +4573,7 @@ export async function dropOverwrittenLocs(
     inspectForeignPresent?: boolean;
     keepMissing?: boolean;
     preserveCanonicalExemptions?: boolean;
+    foreignDirectoryIndex?: ForeignDirectoryIndex;
   } = {},
 ): Promise<string[]> {
   const KEEP = 1;
@@ -4474,7 +4594,27 @@ export async function dropOverwrittenLocs(
   // Aggregate fd ceiling: 64 simultaneous open files, three orders of
   // magnitude under the ulimit 65535 default.
   const IN_FLIGHT = 64;
-  const foreignDirectoryIndex = createForeignDirectoryIndex();
+  // The foreign probe only asks about paths advertised by this sitemap pass.
+  // Give the streaming inventory that candidate set so a production dist's
+  // unrelated HTML tree is traversed but never retained in the index. A caller
+  // that supplies a shared index owns its retention scope and is left intact.
+  let foreignCandidatePaths: Iterable<string> | undefined;
+  if (options.inspectForeignPresent && !options.foreignDirectoryIndex) {
+    if (!EMIT_ALL_LOCALES) {
+      foreignCandidatePaths = (function* (): Iterable<string> {
+        for (const loc of locs) {
+          const urlPath = new URL(loc).pathname.replace(/\/+$/, '');
+          if (shouldEmitLocale(localeOfDistPath(urlPath, ''))) continue;
+          yield path.join(distDir, urlPath);
+        }
+      })();
+    }
+  }
+  const foreignDirectoryIndex = options.foreignDirectoryIndex ?? createForeignDirectoryIndex(
+    distDir,
+    foreignCandidatePaths,
+  );
+  foreignCandidatePaths = undefined;
   let cursor = 0;
 
   const lane = async (): Promise<void> => {
@@ -4848,6 +4988,11 @@ export async function reconcileSitemapSearchClustersWithDist(distDir: string): P
 export async function reconcileSitemapJobsWithDist(
   distDir: string,
   mirrorLocs: ReadonlyArray<string>,
+  options: {
+    /** Skip the expensive final-HTML predicate; the sitemap-alias hook owns it. */
+    checkDistTruth?: boolean;
+    foreignDirectoryIndex?: ForeignDirectoryIndex;
+  } = {},
 ): Promise<void> {
   if (!fs.existsSync(distDir)) return;
   const files = fs
@@ -4889,14 +5034,24 @@ export async function reconcileSitemapJobsWithDist(
   // build and deliberately contains URLs owned by the other locale shards.
   // `inspectForeignPresent` checks those URLs when a bridge file is present,
   // while preserving a missing foreign file as cross-shard output.
-  const kept = new Set(
-    (await dropOverwrittenLocs(distDir, locs, {
-      inspectForeignPresent: true,
-      preserveCanonicalExemptions: true,
-    }))
-      .map(normalizeLocForCanonicalCmp),
-  );
-  const unserved = locs.filter((l) => !kept.has(normalizeLocForCanonicalCmp(l)));
+  // The related-search hook runs before the final sitemap-alias hook. Its
+  // early job patch only needs to remove known mirrors and source-stale shard
+  // entries; the alias hook below performs the sole complete dist-truth pass
+  // after every page emitter has finished.
+  const checkDistTruth = options.checkDistTruth !== false;
+  const kept = checkDistTruth
+    ? new Set(
+        (await dropOverwrittenLocs(distDir, locs, {
+          inspectForeignPresent: true,
+          preserveCanonicalExemptions: true,
+          foreignDirectoryIndex: options.foreignDirectoryIndex,
+        }))
+          .map(normalizeLocForCanonicalCmp),
+      )
+    : null;
+  const unserved = kept
+    ? locs.filter((l) => !kept.has(normalizeLocForCanonicalCmp(l)))
+    : [];
   // A cache HIT can reach this reconciler after the jobs producer's normal
   // allowlist population was skipped. Recover the current decision before
   // filtering historical shards; a null registry must never disable this
@@ -5204,7 +5359,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           );
           finalSitemapMirrorLocs = [...(restored.crossSectionMirrorLocs ?? [])];
           await jobsSeoPagesFlushed;
-          await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
+          await reconcileSitemapJobsWithDist(
+            distDir,
+            restored.crossSectionMirrorLocs ?? [],
+            { checkDistTruth: false },
+          );
           profileRecord('cache-hit-patches', __tCacheHitPatch);
           console.log(
             `\x1b[36m[related-search-clusters]\x1b[0m cache HIT (key=${cacheKey}): ${restored.emittedCount} files restored in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
@@ -6023,7 +6182,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // already awaited jobsSeoPagesFlushed, so the file is final.
       const __tDropJobsMirrors = profileStart();
       finalSitemapMirrorLocs = crossSectionMirrorLocs.slice();
-      await reconcileSitemapJobsWithDist(distDir, crossSectionMirrorLocs);
+      await reconcileSitemapJobsWithDist(
+        distDir,
+        crossSectionMirrorLocs,
+        { checkDistTruth: false },
+      );
       profileRecord('drop-jobs-mirrors', __tDropJobsMirrors);
 
       // Jobs and related pages share the per-locale manifest instance. The

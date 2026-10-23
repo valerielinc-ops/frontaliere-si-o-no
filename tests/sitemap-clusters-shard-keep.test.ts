@@ -40,6 +40,7 @@ const EN = `${BASE}/en/find-jobs-ticino/search-data-center-technician/`;
 const DE = `${BASE}/de/jobs-im-tessin/suche-data-center-technician/`;
 const FR = `${BASE}/fr/trouver-emploi-tessin/recherche-data-center-technician/`;
 const PDF = `${BASE}/guides/guida-completa-frontaliere-2026.pdf`;
+const ROOT_PDF = `${BASE}/document.pdf`;
 
 // Self-canonical, indexable HTML — the KEEP case for a present file.
 const okHtml = (loc: string) =>
@@ -115,5 +116,19 @@ describe('dropOverwrittenLocs — en shard still real-checks its own locale', ()
     const kept = await dropOverwrittenLocs(dist, [IT, EN, DE, FR]);
     expect(kept).toEqual([IT, DE, FR]); // EN dropped (owned + missing)
     expect(kept).not.toContain(EN);
+  });
+
+  it('keeps a foreign regular non-HTML file before its flat HTML sibling', async () => {
+    const pdfPath = path.join(dist, 'document.pdf');
+    fs.writeFileSync(pdfPath, '%PDF-fixture');
+    fs.writeFileSync(
+      `${pdfPath}.html`,
+      '<!doctype html><html><head><meta name="robots" content="noindex"></head></html>',
+    );
+
+    const { dropOverwrittenLocs } = await loadPlugin('en');
+    await expect(
+      dropOverwrittenLocs(dist, [ROOT_PDF], { inspectForeignPresent: true }),
+    ).resolves.toEqual([ROOT_PDF]);
   });
 });

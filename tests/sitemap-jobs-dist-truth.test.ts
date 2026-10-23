@@ -25,6 +25,7 @@ import os from 'node:os';
 import path from 'node:path';
 
 import {
+  createForeignDirectoryIndex,
   reconcileSitemapJobsWithDist,
   extractSitemapLocs,
 } from '../build-plugins/relatedSearchClustersPlugin';
@@ -45,6 +46,7 @@ const SHARD_HEALTHY = `${BASE}/de/jobs-im-aargau/bridge-healthy/`;
 const META_REFRESH = `${BASE}/de/jobs-im-tessin/legacy-refresh/`;
 const MISSING_CANONICAL = `${BASE}/de/jobs-im-tessin/missing-canonical/`;
 const UNQUOTED_CANONICAL = `${BASE}/de/jobs-im-tessin/unquoted-canonical/`;
+const FOREIGN_PDF = `${BASE}/de/jobs-im-aargau/document.pdf`;
 
 const selfCanonical = (loc: string) =>
   `<!doctype html><html><head><link rel="canonical" href="${loc}"></head><body>ok</body></html>`;
@@ -71,6 +73,21 @@ const wrapJobUrls = (locs: string[]) =>
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${locs
     .map(jobUrlBlock)
     .join('\n')}\n</urlset>\n`;
+
+async function legacyForeignDirectoryInventory(root: string): Promise<number> {
+  const regularFiles = new Set<string>();
+  const entries = await fs.promises.readdir(root, { recursive: true, withFileTypes: true });
+
+  for (const entry of entries) {
+    const parentPath = 'parentPath' in entry
+      ? String(entry.parentPath)
+      : String((entry as fs.Dirent & { path: string }).path);
+    const filePath = path.resolve(parentPath, entry.name);
+    if (entry.isFile()) regularFiles.add(filePath);
+  }
+
+  return regularFiles.size;
+}
 
 let dist: string;
 
@@ -223,6 +240,21 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
   it('still drops a known cross-section mirror passed in explicitly (#911)', async () => {
     await reconcileSitemapJobsWithDist(dist, [KNOWN_MIRROR]);
     expect(readSitemap()).not.toContain('ricerca-projektleiter-m-w-d');
+  });
+
+  it('leaves the full dist-truth decision to the final pass when doing the early mirror patch', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([MISSING, KNOWN_MIRROR, HEALTHY]), 'utf-8');
+    writePage(KNOWN_MIRROR, selfCanonical(KNOWN_MIRROR));
+
+    await reconcileSitemapJobsWithDist(dist, [KNOWN_MIRROR], { checkDistTruth: false });
+
+    expect(readSitemap()).not.toContain('ricerca-projektleiter-m-w-d');
+    expect(readSitemap()).toContain('ricerca-groupe-mutuel-emploi');
+
+    await reconcileFinalSitemapsWithDist(dist, []);
+
+    expect(readSitemap()).not.toContain('ricerca-groupe-mutuel-emploi');
+    expect(readSitemap()).toContain('sviluppatore-acme-lugano');
   });
 
   it('never drops a healthy self-canonical job URL', async () => {
@@ -408,5 +440,148 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
       if (prev === undefined) delete process.env.BUILD_LOCALE;
       else process.env.BUILD_LOCALE = prev;
     }
+  });
+
+  it('keeps a foreign non-HTML file even when its flat HTML sibling exists', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), wrap([FOREIGN_PDF]), 'utf-8');
+    const pdfPath = path.join(dist, new URL(FOREIGN_PDF).pathname.replace(/^\/+/, ''));
+    fs.mkdirSync(path.dirname(pdfPath), { recursive: true });
+    fs.writeFileSync(pdfPath, '%PDF-1.7', 'utf8');
+    fs.writeFileSync(`${pdfPath}.html`, noindexBridge(`${BASE}/de/jobs-im-aargau/`), 'utf8');
+
+    vi.resetModules();
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      expect(shard.extractSitemapLocs(fs.readFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), 'utf8')))
+        .toEqual([FOREIGN_PDF]);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+    }
+  });
+
+  it('uses a candidate-scoped inventory for foreign-locale probes', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([EN, DE, FR]), 'utf-8');
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    const opendirSpy = vi.spyOn(fs.promises, 'opendir');
+    const lstatSpy = vi.spyOn(fs.promises, 'lstat');
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      vi.resetModules();
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+
+      const inventoryRootCalls = opendirSpy.mock.calls.filter(([directory]) =>
+        path.resolve(String(directory)) === path.resolve(dist),
+      );
+      expect(inventoryRootCalls).toHaveLength(0);
+
+      const expectedProbePaths = new Set(
+        [EN, DE, FR].flatMap((loc) => {
+          const routePath = path.join(dist, new URL(loc).pathname.replace(/\/+$/, ''));
+          return [routePath, path.join(routePath, 'index.html'), `${routePath}.html`];
+        }).map((filePath) => path.resolve(filePath)),
+      );
+      const actualProbePaths = new Set(
+        lstatSpy.mock.calls.map(([filePath]) => path.resolve(String(filePath))),
+      );
+      expect(actualProbePaths).toEqual(expectedProbePaths);
+      expect(shard.extractSitemapLocs(readSitemap())).toEqual([EN, DE, FR]);
+    } finally {
+      lstatSpy.mockRestore();
+      opendirSpy.mockRestore();
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+    }
+  });
+
+  it('keeps entries discovered before a nested directory disappears', async () => {
+    const raceRoot = path.join(dist, 'race-dist');
+    const vanished = path.join(raceRoot, 'vanished');
+    fs.mkdirSync(vanished, { recursive: true });
+    const stable = path.join(raceRoot, 'stable.html');
+    fs.writeFileSync(stable, '<html></html>', 'utf8');
+
+    const realOpendir = fs.promises.opendir;
+    const opendirSpy = vi.spyOn(fs.promises, 'opendir').mockImplementation((directory, options) => {
+      if (path.resolve(String(directory)) === path.resolve(vanished)) {
+        const error = Object.assign(new Error('directory disappeared'), { code: 'ENOENT' });
+        return Promise.reject(error);
+      }
+      return realOpendir.call(fs.promises, directory, options);
+    });
+    try {
+      const index = createForeignDirectoryIndex(raceRoot);
+      expect(await index.hasFile(stable)).toBe(true);
+      expect(await index.hasFile(path.join(vanished, 'gone.html'))).toBe(false);
+    } finally {
+      opendirSpy.mockRestore();
+    }
+  });
+
+  it('retains only requested HTML and symlink candidates in the inventory', async () => {
+    const candidateRoot = path.join(dist, 'candidate-dist');
+    const retained = path.join(candidateRoot, 'retained.html');
+    const ignored = path.join(candidateRoot, 'ignored.html');
+    fs.mkdirSync(candidateRoot, { recursive: true });
+    fs.writeFileSync(retained, '<html></html>', 'utf8');
+    fs.writeFileSync(ignored, '<html></html>', 'utf8');
+
+    const index = createForeignDirectoryIndex(candidateRoot, new Set([retained]));
+    expect(await index.hasFile(retained)).toBe(true);
+    expect(await index.hasFile(ignored)).toBe(false);
+  });
+
+  it('benchmarks streaming inventory against the pre-change recursive walk', async () => {
+    const benchmarkRoot = path.join(dist, 'benchmark-dist');
+    const directoryCount = 128;
+    const filesPerDirectory = 32;
+
+    for (let directoryIndex = 0; directoryIndex < directoryCount; directoryIndex += 1) {
+      const directory = path.join(benchmarkRoot, `locale-${directoryIndex}`);
+      fs.mkdirSync(directory, { recursive: true });
+      for (let fileIndex = 0; fileIndex < filesPerDirectory; fileIndex += 1) {
+        fs.writeFileSync(path.join(directory, `page-${fileIndex}.html`), '<html></html>', 'utf8');
+      }
+    }
+
+    const measure = async (run: () => Promise<number>): Promise<{ files: number; ms: number; maxRssKb: number }> => {
+      const startedAt = process.hrtime.bigint();
+      const files = await run();
+      const ms = Number(process.hrtime.bigint() - startedAt) / 1_000_000;
+      return { files, ms, maxRssKb: process.resourceUsage().maxRSS };
+    };
+
+    const baseline = await measure(() => legacyForeignDirectoryInventory(benchmarkRoot));
+    const streaming = await measure(async () => {
+      const candidatePaths = new Set<string>();
+      for (let directoryIndex = 0; directoryIndex < directoryCount; directoryIndex += 1) {
+        for (let fileIndex = 0; fileIndex < filesPerDirectory; fileIndex += 1) {
+          candidatePaths.add(path.join(benchmarkRoot, `locale-${directoryIndex}`, `page-${fileIndex}`));
+        }
+      }
+      const index = createForeignDirectoryIndex(benchmarkRoot, candidatePaths);
+      const firstFile = path.join(benchmarkRoot, 'locale-0', 'page-0.html');
+      expect(await index.hasFile(firstFile)).toBe(true);
+      expect(await index.hasRegularFile(firstFile)).toBe(true);
+      const knownFiles = [
+        path.join(benchmarkRoot, 'locale-0', 'page-0.html'),
+        path.join(benchmarkRoot, `locale-${directoryCount - 1}`, `page-${filesPerDirectory - 1}.html`),
+      ];
+      for (const filePath of knownFiles) expect(await index.hasRegularFile(filePath)).toBe(true);
+      expect(await index.hasRegularFile(path.join(benchmarkRoot, 'missing.html'))).toBe(false);
+      return directoryCount * filesPerDirectory;
+    });
+
+    expect(streaming.files).toEqual(baseline.files);
+    console.info(
+      `[foreign-directory-benchmark] files=${baseline.files} ` +
+      `baseline_ms=${baseline.ms.toFixed(2)} streaming_ms=${streaming.ms.toFixed(2)} ` +
+      `baseline_max_rss_kb=${baseline.maxRssKb} streaming_max_rss_kb=${streaming.maxRssKb}`,
+    );
   });
 });
