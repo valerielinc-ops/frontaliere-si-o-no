@@ -1433,9 +1433,26 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // smallest shard-sized burst; the generic collector threshold remains
  // unchanged for the other emitters.
  const HUB_PAGE_WRITE_FLUSH_THRESHOLD = 128;
+ const JOBS_SEO_HTML_GC_INTERVAL_MB = 1024;
+ const JOBS_SEO_HTML_GC_INTERVAL_BYTES = JOBS_SEO_HTML_GC_INTERVAL_MB * 1024 * 1024;
+ let jobsSeoHtmlHeapAtLastGc = process.memoryUsage().heapUsed;
+ let jobsSeoHtmlGcAvailable: boolean | null = null;
+ let jobsSeoHtmlGcRuns = 0;
+ const maybeForceJobsSeoHtmlGc = (): void => {
+  const heapUsed = process.memoryUsage().heapUsed;
+  if (
+   jobsSeoHtmlGcAvailable !== false
+   && heapUsed - jobsSeoHtmlHeapAtLastGc >= JOBS_SEO_HTML_GC_INTERVAL_BYTES
+  ) {
+   jobsSeoHtmlGcAvailable = forceGc();
+   if (jobsSeoHtmlGcAvailable) jobsSeoHtmlGcRuns++;
+   jobsSeoHtmlHeapAtLastGc = process.memoryUsage().heapUsed;
+  }
+ };
  const flushHubPageWritesIfNeeded = async (): Promise<void> => {
   if (collector.count < HUB_PAGE_WRITE_FLUSH_THRESHOLD) return;
   await collector.flush();
+  maybeForceJobsSeoHtmlGc();
  };
  logBuildMem('jobsSeoPages: collector created', collector);
  const _ensuredDirs = new Set<string>();
@@ -3486,6 +3503,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // chunk boundary as the expired soft-landing loop: flush, then drop the
  // entries this collector wrote, so the cache holds one chunk at a time.
  const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512;
+ // A full re-render creates short-lived HTML/parser strings faster than V8
+ // returns their pages to the OS. The cache itself is chunked, and the same
+ // bounded collector is used by company hubs below; the shared one-GiB
+ // last-resort interval prevents either phase from retaining garbage for the
+ // whole corpus. `forceGc()` is a no-op outside CI's `--expose-gc` process,
+ // and its return value keeps that path from retrying.
  let releasedActiveHtmlEntries = 0;
  let activeHtmlCachePeakEntries = 0;
  let activeHtmlCacheChunks = 0;
@@ -3498,6 +3521,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   );
   collector.forgetWrittenPaths();
   activeHtmlCacheChunks++;
+  maybeForceJobsSeoHtmlGc();
  };
 
  for (let activeJobIndex = 0; activeJobIndex < validJobs.length; activeJobIndex++) {
@@ -4771,6 +4795,8 @@ ${staticAnalyticsHtml}
   releasedRelatedLocationBuckets,
   releasedCanonicalCacheEntries,
   canonicalCachePeakEntries: _canonicalCleanedCachePeakEntries,
+  jobsSeoHtmlGcRuns,
+  jobsSeoHtmlGcIntervalMb: JOBS_SEO_HTML_GC_INTERVAL_MB,
  });
  logJobsSeoMem('after-canonical-clear');
 
@@ -5683,9 +5709,13 @@ ${companyFollowHtml}
  // unconditional boundary flush, BUILD_LOCALE can carry the last company-hub
  // batch into the next SSG family and make the memory checkpoint misleading.
  await collector.flush();
+ maybeForceJobsSeoHtmlGc();
  if (companyPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyPagesCount} company landing pages for ${companyMap.size} companies`);
- logBuildMem('jobsSeoPages: after company-landing', collector);
+ logBuildMem('jobsSeoPages: after company-landing', collector, {
+  jobsSeoHtmlGcRuns,
+  jobsSeoHtmlGcIntervalMb: JOBS_SEO_HTML_GC_INTERVAL_MB,
+ });
  const aliasCount = listAllBrandAliases().length * localeList.length;
  if (aliasCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Emitted ${aliasCount} brand-alias bridge pages from BRAND_CANONICAL_MAP`);
@@ -14888,7 +14918,6 @@ ${staticAnalyticsHtml}
    oldSlug,
    currentSlug,
    winnerId,
-   previousSlugsByLocale: pslByLocale,
    action: __brAction,
   }
   : null;
@@ -14972,7 +15001,6 @@ ${staticAnalyticsHtml}
    oldSlug,
    currentSlug,
    winnerId,
-   previousSlugsByLocale: pslByLocale,
    bridgeType: 'legacy-ti',
    action: __brAction,
   }
@@ -15222,8 +15250,6 @@ ${staticAnalyticsHtml}
    baseLocale,
    foreignSlug,
    canton: jobCantonForCrossLocale,
-   slugPerLocale,
-   previousSlugsByLocale: prevSlugsByLocale,
   }
   : null;
  const crossLocaleActiveReuse = jobsSeoReuse?.lookup(

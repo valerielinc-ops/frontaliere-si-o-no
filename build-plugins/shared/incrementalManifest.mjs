@@ -36,7 +36,14 @@ export const SOURCE_VERSION = 'input@1';
 // article. Deploy 35507082715 reused 12'818 active pages and every one of the
 // 244 verified pages mismatched on that block alone. The rendered block now
 // enters the input as a digest (`relatedArticlesDigest`).
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@7';
+// job-digest@8: alias history (`previousSlugs` and `previousSlugsByLocale`)
+// is consumed by bridge enumeration, never by the current-page renderer or a
+// single bridge's bytes. It must not invalidate active HTML (or its canonical
+// source hash) when the crawler only reorders or appends old routes. `crawledAt`
+// remains in the publish digest because it changes JobPosting/visible date
+// bytes, but the active-page reuse key carries a second digest without that
+// heartbeat: the cache-hit path rewrites those date fragments before publishing.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@8';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 // The full active-page input remains the publish key: every input field that
@@ -50,6 +57,15 @@ export const ACTIVE_PAGE_VOLATILE_INPUT_KEYS = Object.freeze([
   'renderDateBucket',
 ]);
 const ACTIVE_PAGE_VOLATILE_INPUT_KEY_SET = new Set(ACTIVE_PAGE_VOLATILE_INPUT_KEYS);
+
+// `crawledAt` is a liveness heartbeat. It is part of the full publish key for
+// the canonical active page, while rewriteActiveJobHtml() refreshes every
+// active-page fragment that reads it before a stable-key cache hit is emitted.
+// The related-job cards do not render that field, so the same explicit profile
+// is also used for their projections. Keep the list explicit: adding a field
+// here without a corresponding rewrite or output audit would serve stale HTML.
+export const ACTIVE_PAGE_REUSE_IGNORED_JOB_KEYS = Object.freeze(['crawledAt']);
+const ACTIVE_PAGE_REUSE_IGNORED_JOB_KEY_SET = new Set(ACTIVE_PAGE_REUSE_IGNORED_JOB_KEYS);
 
 export const PAGE_KINDS = Object.freeze([
   'active-job',
@@ -90,6 +106,13 @@ const NON_RENDERED_JOB_KEYS = new Set([
   'needsRetranslation',
   'qualityScore',
   'retranslationAttempts',
+  // Alias history is used to enumerate previous-slug/cross-locale bridge
+  // paths, but is not read when rendering any individual page. The active,
+  // expired and card renderers do not read these arrays, so putting them in
+  // the generic job digest would invalidate unrelated HTML whenever the
+  // journal is reordered.
+  'previousSlugs',
+  'previousSlugsByLocale',
 ]);
 
 const RUNTIME_INPUT_KEYS = new Set([
@@ -264,9 +287,13 @@ function markCanonicalJson(value, canonicalJson) {
  * location, salary, description, and every other value that can affect the
  * JobPosting or page content must invalidate reuse.
  */
-function jobRecordForDigest(job) {
+function jobRecordForDigest(job, ignoredJobKeys = null) {
   const allKeys = Object.keys(job);
-  const keys = allKeys.filter((key) => !isRuntimeInputKey(key) && !isNonRenderedJobKey(key));
+  const keys = allKeys.filter((key) => (
+    !isRuntimeInputKey(key)
+    && !isNonRenderedJobKey(key)
+    && !ignoredJobKeys?.has(key)
+  ));
   if (keys.length === allKeys.length) return job;
   const record = {};
   for (const key of keys) {
@@ -299,6 +326,11 @@ export function createIncrementalManifestInputCache() {
 
 const jobRecordDigestCache = new WeakMap();
 const relatedJobProjectionCache = new WeakMap();
+
+function digestProfileKey(ignoredJobKeys) {
+  if (!ignoredJobKeys || ignoredJobKeys.size === 0) return '';
+  return [...ignoredJobKeys].map(String).sort().join('\u0000');
+}
 
 function estimateStringBytes(value) {
   return typeof value === 'string' ? Buffer.byteLength(value, 'utf8') + 16 : 0;
@@ -342,10 +374,10 @@ function setInputCacheEntry(inputCache, mapName, key, value) {
  * not detected: the assembler does not do that, and a deep walk would cost
  * as much as the digest itself on the related-jobs hot path.
  */
-function shallowJobRecordSignature(job) {
+function shallowJobRecordSignature(job, ignoredJobKeys = null) {
   const signature = [];
   for (const key of Object.keys(job)) {
-    if (isNonRenderedJobKey(key)) continue;
+    if (isNonRenderedJobKey(key) || ignoredJobKeys?.has(key)) continue;
     const value = job[key];
     signature.push(key, value);
     if (Array.isArray(value)) {
@@ -364,19 +396,21 @@ function shallowSignatureMatches(left, right) {
   return true;
 }
 
-function digestJobRecord(job, inputCache = null) {
+function digestJobRecord(job, inputCache = null, ignoredJobKeys = null) {
   if (!job || typeof job !== 'object') return sha256('{}');
   const stableId = stableJobId(job);
-  const signature = shallowJobRecordSignature(job);
-  const cached = jobRecordDigestCache.get(job);
+  const profile = digestProfileKey(ignoredJobKeys);
+  const signature = shallowJobRecordSignature(job, ignoredJobKeys);
+  const cachedByProfile = jobRecordDigestCache.get(job);
+  const cached = cachedByProfile?.get(profile);
   if (cached && shallowSignatureMatches(cached.signature, signature)) {
-    rememberDigestById(inputCache, stableId, cached.entry);
+    if (!ignoredJobKeys) rememberDigestById(inputCache, stableId, cached.entry);
     return cached.entry.digest;
   }
 
   // The assembler preserves source JSON key order. A shallow filter keeps the
   // full record covered without recursively canonicalizing its large fields.
-  const record = jobRecordForDigest(job);
+  const record = jobRecordForDigest(job, ignoredJobKeys);
   if (inputCache?._metrics) inputCache._metrics.jobDigestComputations += 1;
   const digest = sha256(JSON.stringify(record));
   // Do NOT freeze the record to make the identity cache sound: downstream
@@ -387,8 +421,10 @@ function digestJobRecord(job, inputCache = null) {
   // tiny `{ digest }` so the input cache does not retain nested objects.
   const cachedById = inputCache && stableId ? inputCache.jobDigestsById.get(stableId) : null;
   const entry = cachedById?.digest === digest ? cachedById : { digest };
-  jobRecordDigestCache.set(job, { signature, entry });
-  rememberDigestById(inputCache, stableId, entry);
+  const nextByProfile = cachedByProfile || new Map();
+  nextByProfile.set(profile, { signature, entry });
+  if (!cachedByProfile) jobRecordDigestCache.set(job, nextByProfile);
+  if (!ignoredJobKeys) rememberDigestById(inputCache, stableId, entry);
   return digest;
 }
 
@@ -400,13 +436,13 @@ function rememberDigestById(inputCache, stableId, entry) {
   setInputCacheEntry(inputCache, 'jobDigestsById', stableId, entry);
 }
 
-function projectRelatedJob(relatedJob, locale, inputCache = null) {
+function projectRelatedJob(relatedJob, locale, inputCache = null, ignoredJobKeys = null) {
   const isRecord = relatedJob && typeof relatedJob === 'object';
   const id = isRecord ? stableJobId(relatedJob) : String(relatedJob ?? '');
   if (!id) return null;
   if (!isRecord) return { id, slug: '', digest: null };
   const cacheKey = inputCache ? `${String(locale)}\u0000${id}` : null;
-  const digest = digestJobRecord(relatedJob, inputCache);
+  const digest = digestJobRecord(relatedJob, inputCache, ignoredJobKeys);
   if (cacheKey) {
     const cachedById = inputCache.relatedJobProjectionsByKey.get(cacheKey);
     if (cachedById?.digest === digest) return cachedById.projection;
@@ -479,6 +515,7 @@ export function buildMinimalJobInput(
   relatedJobs = [],
   inputCache = null,
   canonicalJob = null,
+  relatedJobIgnoredKeys = null,
 ) {
   // Bridge page records may carry a page-local id/slug or other route fields.
   // Keep those fields in the page input below, but always derive the job
@@ -486,7 +523,7 @@ export function buildMinimalJobInput(
   const sourceJob = canonicalJob && typeof canonicalJob === 'object' ? canonicalJob : job;
   const relatedJobList = Array.isArray(relatedJobs) ? relatedJobs : [];
   const relatedJobProjections = relatedJobList
-    .map((relatedJob) => projectRelatedJob(relatedJob, locale, inputCache))
+    .map((relatedJob) => projectRelatedJob(relatedJob, locale, inputCache, relatedJobIgnoredKeys))
     .filter(Boolean);
   canonicalRelatedJobProjectionLists.add(relatedJobProjections);
   markCanonicalJson(relatedJobProjections, JSON.stringify(relatedJobProjections));
@@ -548,8 +585,26 @@ export function buildActiveJobPageInput({
   employerHubPath = '',
   renderDateBucket,
 }) {
+  const minimalInput = buildMinimalJobInput(
+    job,
+    locale,
+    slug,
+    relatedJobs,
+    inputCache,
+    canonicalJob,
+    ACTIVE_PAGE_REUSE_IGNORED_JOB_KEY_SET,
+  );
+  const sourceJob = canonicalJob && typeof canonicalJob === 'object' ? canonicalJob : job;
   return {
-    ...buildMinimalJobInput(job, locale, slug, relatedJobs, inputCache, canonicalJob),
+    ...minimalInput,
+    // Keep the publish hash complete while giving the cache-hit path a key
+    // that ignores only the crawler heartbeat. The caller rewrites all HTML
+    // fragments derived from `crawledAt` before it writes the reused page.
+    jobRecordReuseDigest: digestJobRecord(
+      sourceJob,
+      null,
+      ACTIVE_PAGE_REUSE_IGNORED_JOB_KEY_SET,
+    ),
     canton,
     canonicalUrl,
     relatedArticlesDigest: relatedArticlesFeedDigest(relatedArticlesHtml),
@@ -568,9 +623,17 @@ export function buildActiveJobPageInput({
  */
 export function buildActiveJobPageReuseInput(input) {
   if (!input || typeof input !== 'object' || Array.isArray(input)) return input;
-  return Object.fromEntries(
+  const reuseInput = Object.fromEntries(
     Object.entries(input).filter(([key]) => !ACTIVE_PAGE_VOLATILE_INPUT_KEY_SET.has(key)),
   );
+  // This property exists only on active-page inputs. Keeping the public field
+  // name `jobRecordDigest` in the reuse shape avoids changing the manifest
+  // reader/writer contract or the cache filename schema.
+  if (typeof reuseInput.jobRecordReuseDigest === 'string') {
+    reuseInput.jobRecordDigest = reuseInput.jobRecordReuseDigest;
+    delete reuseInput.jobRecordReuseDigest;
+  }
+  return reuseInput;
 }
 
 /**

@@ -543,7 +543,6 @@ export function jobsSeoProbeShapeHints(job) {
     multiLocation: /[,;/|]|\s(?:e|and|und|et)\s/i.test(location),
     requirements: hasText(job.requirements) || hasText(job.requirementsByLocale),
     street: hasText(job.streetAddress),
-    previousSlugs: hasText(job.previousSlugs),
     description: hasText(job.description),
     // Values, not presence: these pick WHICH branch the emitter renders.
     contract: short(job.contract || job.employmentType),
