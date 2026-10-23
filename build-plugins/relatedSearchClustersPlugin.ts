@@ -143,6 +143,7 @@ import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.
 import { isJobSitemapShardFilename, isJobSitemapFilename } from '../scripts/lib/sitemap-shard.mjs';
 import { classifyCanonicalMismatch } from '../scripts/lib/canonicalExemptions.mjs';
 import { readAttr, scanMarkupStartTags } from '../scripts/lib/html-attr.mjs';
+import { readHeadOrAll } from '../scripts/lib/readHead.mjs';
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import {
   normalizeRelatedSearchClusterPath,
@@ -4409,7 +4410,7 @@ export async function dropOverwrittenLocs(
           const routeStat = await fs.promises.stat(routePath);
           if (routeStat.isFile()) {
             if (path.extname(urlPath).toLowerCase() === '.html') {
-              html = await fs.promises.readFile(routePath, 'utf-8');
+              html = await readHeadOrAll(routePath, { throwOnError: true });
             } else {
               flags[i] = foreignLocale || options.keepMissing ? KEEP : DROP_MISSING;
               continue;
@@ -4426,7 +4427,7 @@ export async function dropOverwrittenLocs(
       }
       if (html === null) {
         try {
-          html = await fs.promises.readFile(indexPath, 'utf-8');
+          html = await readHeadOrAll(indexPath, { throwOnError: true });
         } catch (error: any) {
           // A sitemap loc can name a file (for example a PDF), so probing
           // `<loc>/index.html` may hit ENOTDIR instead of ENOENT. In either case
@@ -4434,7 +4435,7 @@ export async function dropOverwrittenLocs(
           // policy below.
           if (error?.code !== 'ENOENT' && error?.code !== 'ENOTDIR') throw error;
           try {
-            html = await fs.promises.readFile(flatPath, 'utf-8');
+            html = await readHeadOrAll(flatPath, { throwOnError: true });
           } catch (flatError: any) {
             if (flatError?.code !== 'ENOENT' && flatError?.code !== 'ENOTDIR') throw flatError;
             // A foreign-locale URL is normally absent from this shard by
