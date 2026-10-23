@@ -4000,8 +4000,21 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
           }
         }
         if (!finalKey) {
-          finalKey = eventDetailTitleProbe(record.event, locale, record.comune, chosen)
-            .replace(/\s+/g, ' ').trim().toLocaleLowerCase();
+          // Both the factual token and the first route token can already be
+          // claimed by unrelated singleton pages. Keep probing deterministic
+          // ordinal variants until the complete title key is free; accepting
+          // the last rejected candidate here would reintroduce the collision
+          // this pass is meant to remove.
+          const token = stableTitleToken(record.event.id);
+          for (let ordinal = 2; ; ordinal += 1) {
+            const candidate = `rif. ${token}-${ordinal}`;
+            const candidateTitle = eventDetailTitleProbe(record.event, locale, record.comune, candidate);
+            const candidateKey = candidateTitle.replace(/\s+/g, ' ').trim().toLocaleLowerCase();
+            if (claimed.has(candidateKey)) continue;
+            chosen = candidate;
+            finalKey = candidateKey;
+            break;
+          }
         }
         out.set(`${locale}|${record.event.id}`, chosen);
         claimed.add(finalKey);
