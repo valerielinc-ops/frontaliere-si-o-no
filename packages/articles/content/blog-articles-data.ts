@@ -45826,6 +45826,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sanitari-italiani-fuga-svizzera',
+ category: 'novita',
+ date: '2026-10-23T15:23:51.432Z',
+ image: '/images/blog/article-confusione-tassa-salute-frontalieri.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

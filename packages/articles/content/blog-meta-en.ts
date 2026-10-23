@@ -13581,6 +13581,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.title': 'Cross-border commuters questionnaire: salary okay but too much commuting',
     'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.excerpt': '1.542 online responses collected in May 2026 73% satisfied with their salary 31,7% spend more than an hour and a half traveling every day 76,9% would not relocate',
     'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.sanitari-italiani-fuga-svizzera.title': 'Cross-border healthcare workers: Como is gasping for air',
+    'blog.article.sanitari-italiani-fuga-svizzera.excerpt': 'Approximately 5,000 Italian border workers in Ticino health Up to 12% in public hospitals Up to 30% in the private sector Health tax from 3% to 6%',
+    'blog.article.sanitari-italiani-fuga-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;
