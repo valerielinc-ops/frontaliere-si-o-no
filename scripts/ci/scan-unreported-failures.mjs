@@ -394,20 +394,45 @@ function repoFlag() {
   return REPO ? ['--repo', REPO] : [];
 }
 
-function gh(args, { allowFailure = false } = {}) {
-  try {
-    return execFileSync('gh', args, {
-      encoding: 'utf8',
-      maxBuffer: 32 * 1024 * 1024,
-      stdio: ['ignore', 'pipe', 'pipe'],
-    }).trim();
-  } catch (e) {
-    const msg = String(e?.message || '').slice(0, 200);
-    if (allowFailure) {
-      console.warn(`[scan-unreported-failures] gh ${args.slice(0, 3).join(' ')} fallito: ${msg}`);
-      return null;
+/**
+ * GitHub Actions' jobs endpoint occasionally returns a transient gateway error.
+ * Treating that single read as an empty/incomplete payload makes the global
+ * scanner fail closed with an undelivered alarm, even though the next read is
+ * enough to classify the run. Permanent auth/permission failures must still
+ * stop immediately rather than being hidden behind retries.
+ */
+export function isTransientGhFailure(error) {
+  const text = [error?.stderr, error?.stdout, error?.message, error]
+    .filter((part) => part !== undefined && part !== null)
+    .map(String)
+    .join(' ');
+  return /(?:HTTP\s+(?:408|425|429|500|502|503|504)\b|\b(?:Bad Gateway|Gateway Timeout|Server Error|timed out|ECONNRESET|ETIMEDOUT)\b)/iu.test(text);
+}
+
+function gh(args, { allowFailure = false, retries = 0 } = {}) {
+  let attempt = 0;
+  while (true) {
+    try {
+      return execFileSync('gh', args, {
+        encoding: 'utf8',
+        maxBuffer: 32 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'pipe'],
+      }).trim();
+    } catch (e) {
+      const msg = String(e?.stderr || e?.message || '').slice(0, 200);
+      if (attempt < retries && isTransientGhFailure(e)) {
+        attempt += 1;
+        console.warn(
+          `[scan-unreported-failures] gh ${args.slice(0, 3).join(' ')} transient failure; retrying ${attempt}/${retries}`,
+        );
+        continue;
+      }
+      if (allowFailure) {
+        console.warn(`[scan-unreported-failures] gh ${args.slice(0, 3).join(' ')} fallito: ${msg}`);
+        return null;
+      }
+      throw e;
     }
-    throw e;
   }
 }
 
@@ -1362,7 +1387,7 @@ const runJobsMemo = new Map();
  * dal budget dichiarato in testa al file («per ogni workflow candidato 1
  * lettura dell'ultima run e 1 lettura dei job, entrambe ≤ MAX_ISSUES»).
  */
-function readRunJobs(runId) {
+export function readRunJobs(runId) {
   // Memo per passata: la run di un workflow nel registro degli step-verdetto viene letta
   // una volta per decidere se è di solo verdetto, e la stessa lettura serve poi al corpo
   // della issue o alla firma. Il processo è monouso per passata: niente cache stantia.
@@ -1370,7 +1395,9 @@ function readRunJobs(runId) {
   if (runJobsMemo.has(key)) return runJobsMemo.get(key);
   const raw = gh(
     ['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${runId}/jobs?per_page=100`],
-    { allowFailure: true },
+    // One logical read, with two immediate retries for transient gateway/API
+    // failures. A permanent 403/404 remains fail-closed on the first attempt.
+    { allowFailure: true, retries: 2 },
   );
   let result;
   if (raw === null) {
