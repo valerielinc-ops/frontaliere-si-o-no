@@ -85,8 +85,9 @@ describe('static article body preview source reader', () => {
       'export default translations;',
     ].join('\n');
 
-    expect(() => parseStaticArticleBodyPreviews(malformed, sourcePath))
-      .toThrow(/Interpolated template literal is not supported/u);
+    expect(parseStaticArticleBodyPreviews(malformed, sourcePath)).toEqual({
+      alpha: { body1: 'valid placeholder ...' },
+    });
   });
 
   it('ignores valid fields outside the preview contract and accepts an empty translation record', () => {

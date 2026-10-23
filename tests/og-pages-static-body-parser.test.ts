@@ -48,7 +48,7 @@ describe('og article static body parser', () => {
 
     for (const source of [dynamicBefore, dynamicAfter]) {
       expect(() => parseStaticBlogBodySource(source, SOURCE_PATH))
-        .toThrow(/Interpolated template literal is not supported in static article data/);
+        .toThrow(/translation module must contain exactly a const record/u);
     }
   });
 
@@ -75,7 +75,7 @@ describe('og article static body parser', () => {
     ].join(' ');
 
     expect(() => parseStaticBlogBodySource(source, 'packages/articles/content/blog-body/fr/article-id.ts'))
-      .toThrow(/Interpolated template literal is not supported in static article data/);
+        .toThrow(/translation record must have a Record<string, string> type/u);
   });
 
   it('fails before nested regex templates can expose fake article keys', () => {
@@ -85,7 +85,7 @@ describe('og article static body parser', () => {
     ].join(' ');
 
     expect(() => parseStaticBlogBodySource(source, SOURCE_PATH))
-      .toThrow(/Interpolated template literal is not supported in static article data/);
+      .toThrow(/translation record must have a Record<string, string> type/u);
   });
 
   it('rejects a dynamic article key instead of extracting a partial body', () => {
@@ -96,7 +96,7 @@ describe('og article static body parser', () => {
     ].join('\n');
 
     expect(() => parseStaticBlogBodySource(source, SOURCE_PATH))
-      .toThrow(/Interpolated template literal is not supported in static article data/);
+      .toThrow(/translation module must contain exactly a const record/u);
   });
 
   it('still rejects an interpolated template used as article data', () => {
@@ -108,7 +108,7 @@ describe('og article static body parser', () => {
     ].join('\n');
 
     expect(() => parseStaticBlogBodySource(source, SOURCE_PATH))
-      .toThrow(/Interpolated template literal is not supported in static article data/);
+      .toThrow(/must have a static string literal value/u);
   });
 });
 
@@ -158,6 +158,6 @@ describe('article source entry projection', () => {
     ].join('\n');
 
     expect(() => parseStaticArticleTranslationEntries(source, SOURCE_PATH))
-      .toThrow(/Interpolated template literal is not supported in static article data/);
+      .toThrow(/must have a static string literal value/u);
   });
 });
