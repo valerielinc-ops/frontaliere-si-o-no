@@ -231,7 +231,12 @@ describe('Ti.CH redundant discovery', () => {
 
   it('fails only when both redundant sources are unavailable', async () => {
     const unavailable = async () => new Response('down', { status: 503 });
-    await expect(fetchTichJobDetailUrls({ fetchImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/both/);
+    await expect(fetchTichJobDetailUrls({
+      fetchImpl: unavailable,
+      timeoutMs: 1000,
+      retries: 0,
+      retryBaseMs: 0,
+    })).rejects.toThrow(/both/);
   });
 
   it('accepts a verified source-zero and rejects two unrelated HTTP-200 bodies', async () => {
@@ -242,7 +247,12 @@ describe('Ti.CH redundant discovery', () => {
     await expect(fetchTichJobDetailUrls({ fetchImpl: zero, timeoutMs: 1000 }))
       .resolves.toMatchObject({ urls: [], sourceZero: true, listingSucceeded: true, rssSucceeded: true });
     const unrelated = async () => new Response('<html>challenge</html>', { status: 200 });
-    await expect(fetchTichJobDetailUrls({ fetchImpl: unrelated, timeoutMs: 1000 })).rejects.toThrow(/both/);
+    await expect(fetchTichJobDetailUrls({
+      fetchImpl: unrelated,
+      timeoutMs: 1000,
+      retries: 0,
+      retryBaseMs: 0,
+    })).rejects.toThrow(/both/);
   });
 });
 
