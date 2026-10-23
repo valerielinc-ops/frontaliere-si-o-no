@@ -50,6 +50,8 @@ import {
   workflowSourceForRun,
   recoveryVerdict,
   RECOVERY_LISTING_SIZE,
+  isTransientGithubApiError,
+  withTransientGithubApiRetry,
 } from '../scripts/ci/scan-unreported-failures.mjs';
 import { TITLE_RE } from '../scripts/ci/close-recovered-failure-issues.mjs';
 
@@ -58,6 +60,49 @@ const TEST_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..
 const NOW = Date.now();
 const since = new Date(NOW - 75 * 60_000).toISOString();
 const fresh = new Date(NOW - 5 * 60_000).toISOString();
+
+describe('letture GitHub API transitorie', () => {
+  it.each([408, 425, 429, 500, 502, 503, 504])('classifica HTTP %i come transitorio', (status) => {
+    const error = Object.assign(new Error(`gh: Server Error (HTTP ${status})`), { status });
+    expect(isTransientGithubApiError(error)).toBe(true);
+  });
+
+  it('legge il 502 dalla stderr di gh', () => {
+    expect(isTransientGithubApiError({ message: 'Command failed: gh api …', stderr: 'gh: Server Error (HTTP 502)' })).toBe(true);
+  });
+
+  it.each([400, 401, 403, 404, 422])('non ritenta HTTP %i', (status) => {
+    expect(isTransientGithubApiError(new Error(`gh: HTTP ${status}`))).toBe(false);
+  });
+
+  it('ritenta un 502 e restituisce il payload quando il tentativo successivo riesce', () => {
+    let calls = 0;
+    const sleeps: number[] = [];
+    const result = withTransientGithubApiRetry(() => {
+      calls += 1;
+      if (calls < 2) throw new Error('gh: Server Error (HTTP 502)');
+      return '{"jobs":[]}';
+    }, { baseDelayMs: 10, sleep: (ms) => sleeps.push(ms) });
+
+    expect(result).toBe('{"jobs":[]}');
+    expect(calls).toBe(2);
+    expect(sleeps).toEqual([10]);
+  });
+
+  it('dopo il budget esaurito rilancia il 502 e mantiene il fail-closed', () => {
+    let calls = 0;
+    const operation = () => {
+      calls += 1;
+      throw new Error('gh: Server Error (HTTP 502)');
+    };
+
+    expect(() => withTransientGithubApiRetry(operation, {
+      retries: 2,
+      sleep: () => {},
+    })).toThrow('HTTP 502');
+    expect(calls).toBe(3);
+  });
+});
 
 function run(over: Record<string, unknown> = {}) {
   return {
