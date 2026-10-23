@@ -39,10 +39,12 @@ import {
   dropOverwrittenLocs,
   dropUrlBlocksByLoc,
   extractSitemapLocs,
+  createForeignDirectoryIndex,
   getFinalSitemapMirrorLocs,
   isClusterSitemapFilename,
   reconcileSitemapJobsWithDist,
   reconcileSitemapSearchClustersWithDist,
+  type ForeignDirectoryIndex,
 } from './relatedSearchClustersPlugin';
 import { isJobSitemapFilename } from '../scripts/lib/sitemap-shard.mjs';
 
@@ -121,6 +123,7 @@ async function reconcileSitemapFamilyWithDist(
   distDir: string,
   filePredicate: (file: string) => boolean,
   familyLabel: string,
+  options: { foreignDirectoryIndex?: ForeignDirectoryIndex } = {},
 ): Promise<number> {
   if (!fs.existsSync(distDir)) return 0;
 
@@ -137,6 +140,7 @@ async function reconcileSitemapFamilyWithDist(
     inspectForeignPresent: true,
     keepMissing: true,
     preserveCanonicalExemptions: true,
+    foreignDirectoryIndex: options.foreignDirectoryIndex,
   }));
   const dropLocs = [...new Set(locs.filter((loc) => !kept.has(loc)))];
   if (dropLocs.length === 0) return 0;
@@ -164,11 +168,15 @@ async function reconcileSitemapFamilyWithDist(
 }
 
 /** Remove noindex/non-self-canonical article URLs while retaining shard-missing URLs. */
-export async function reconcileArticleSitemapsWithDist(distDir: string): Promise<number> {
+export async function reconcileArticleSitemapsWithDist(
+  distDir: string,
+  options: { foreignDirectoryIndex?: ForeignDirectoryIndex } = {},
+): Promise<number> {
   return reconcileSitemapFamilyWithDist(
     distDir,
     (file) => ARTICLE_SITEMAP_FILE_PATTERN.test(file),
     'article sitemap',
+    options,
   );
 }
 
@@ -178,7 +186,10 @@ export async function reconcileArticleSitemapsWithDist(distDir: string): Promise
  * from the emitted filenames prevents a new sitemap producer from silently
  * bypassing the noindex/canonical contract.
  */
-async function reconcileRemainingSitemapsWithDist(distDir: string): Promise<number> {
+async function reconcileRemainingSitemapsWithDist(
+  distDir: string,
+  options: { foreignDirectoryIndex?: ForeignDirectoryIndex } = {},
+): Promise<number> {
   return reconcileSitemapFamilyWithDist(
     distDir,
     (file) =>
@@ -189,6 +200,7 @@ async function reconcileRemainingSitemapsWithDist(distDir: string): Promise<numb
       !isJobSitemapFilename(file) &&
       !isFuelSitemapFile(file),
     'static sitemap',
+    options,
   );
 }
 
@@ -478,11 +490,12 @@ export async function reconcileFinalSitemapsWithDist(
   distDir: string,
   mirrorLocs: ReadonlyArray<string> = getFinalSitemapMirrorLocs(),
 ): Promise<void> {
+  const foreignDirectoryIndex = createForeignDirectoryIndex(distDir);
   await reconcileSitemapSearchClustersWithDist(distDir);
-  await reconcileSitemapJobsWithDist(distDir, mirrorLocs);
+  await reconcileSitemapJobsWithDist(distDir, mirrorLocs, { foreignDirectoryIndex });
   await reconcileSitemapFuelWithDist(distDir);
-  await reconcileArticleSitemapsWithDist(distDir);
-  await reconcileRemainingSitemapsWithDist(distDir);
+  await reconcileArticleSitemapsWithDist(distDir, { foreignDirectoryIndex });
+  await reconcileRemainingSitemapsWithDist(distDir, { foreignDirectoryIndex });
 }
 
 export function sitemapAliasPlugin(rootDir: string): Plugin {

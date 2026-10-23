@@ -4322,7 +4322,7 @@ function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
   return error instanceof Error && 'code' in error && typeof error.code === 'string';
 }
 
-type ForeignDirEntry = {
+export type ForeignDirEntry = {
   isDirectory(): boolean;
   isFile(): boolean;
   isSymbolicLink(): boolean;
@@ -4330,37 +4330,52 @@ type ForeignDirEntry = {
 
 /**
  * A locale-shard sitemap contains the other three locales by design. When a
- * caller opts into checking a foreign file, index the parent directory once
- * instead of opening both `<path>/index.html` and `<path>.html` for every
- * missing cross-shard URL. The map is scoped to one reconciliation pass so a
- * later build pass cannot observe a stale filesystem snapshot.
+ * caller opts into checking a foreign file, build one recursive inventory of
+ * the completed dist tree instead of opening/readdir-ing a parent directory
+ * for every cross-shard URL. Job-detail URLs usually have unique parent
+ * directories, so a per-parent cache still performs one directory syscall per
+ * URL. The map is scoped to one reconciliation pass so a later build pass
+ * cannot observe a stale filesystem snapshot.
  */
-function createForeignDirectoryIndex(): {
+export interface ForeignDirectoryIndex {
   entriesFor(directory: string): Promise<ReadonlyMap<string, ForeignDirEntry>>;
-} {
-  const entriesByDirectory = new Map<
-    string,
-    Promise<ReadonlyMap<string, ForeignDirEntry>>
-  >();
+}
+
+export function createForeignDirectoryIndex(distDir: string): ForeignDirectoryIndex {
+  let inventory: Promise<ReadonlyMap<string, ReadonlyMap<string, ForeignDirEntry>>> | null = null;
+  const empty = new Map<string, ForeignDirEntry>();
+
+  const loadInventory = (): Promise<ReadonlyMap<string, ReadonlyMap<string, ForeignDirEntry>>> => {
+    if (inventory) return inventory;
+
+    inventory = fs.promises
+      .readdir(distDir, { recursive: true, withFileTypes: true })
+      .then((entries) => {
+        const byDirectory = new Map<string, Map<string, ForeignDirEntry>>();
+        for (const entry of entries) {
+          const directory = path.resolve(entry.parentPath);
+          let children = byDirectory.get(directory);
+          if (!children) {
+            children = new Map<string, ForeignDirEntry>();
+            byDirectory.set(directory, children);
+          }
+          children.set(entry.name, entry);
+        }
+        return byDirectory;
+      })
+      .catch((error: unknown) => {
+        if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
+          return new Map<string, Map<string, ForeignDirEntry>>();
+        }
+        throw error;
+      });
+
+    return inventory;
+  };
 
   return {
     entriesFor(directory: string): Promise<ReadonlyMap<string, ForeignDirEntry>> {
-      const existing = entriesByDirectory.get(directory);
-      if (existing) return existing;
-
-      const pending = fs.promises
-        .readdir(directory, { withFileTypes: true })
-        .then((entries) => new Map(
-          entries.map((entry) => [entry.name, entry] as const),
-        ))
-        .catch((error: unknown) => {
-          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
-            return new Map<string, ForeignDirEntry>();
-          }
-          throw error;
-        });
-      entriesByDirectory.set(directory, pending);
-      return pending;
+      return loadInventory().then((byDirectory) => byDirectory.get(path.resolve(directory)) ?? empty);
     },
   };
 }
@@ -4375,7 +4390,7 @@ type ForeignProbe =
  * `null` asks the caller to use the legacy probes for symlink edge cases.
  */
 async function probeForeignPresentPage(
-  index: ReturnType<typeof createForeignDirectoryIndex>,
+  index: ForeignDirectoryIndex,
   urlPath: string,
   routePath: string,
   indexPath: string,
@@ -4454,6 +4469,7 @@ export async function dropOverwrittenLocs(
     inspectForeignPresent?: boolean;
     keepMissing?: boolean;
     preserveCanonicalExemptions?: boolean;
+    foreignDirectoryIndex?: ForeignDirectoryIndex;
   } = {},
 ): Promise<string[]> {
   const KEEP = 1;
@@ -4474,7 +4490,7 @@ export async function dropOverwrittenLocs(
   // Aggregate fd ceiling: 64 simultaneous open files, three orders of
   // magnitude under the ulimit 65535 default.
   const IN_FLIGHT = 64;
-  const foreignDirectoryIndex = createForeignDirectoryIndex();
+  const foreignDirectoryIndex = options.foreignDirectoryIndex ?? createForeignDirectoryIndex(distDir);
   let cursor = 0;
 
   const lane = async (): Promise<void> => {
@@ -4848,6 +4864,11 @@ export async function reconcileSitemapSearchClustersWithDist(distDir: string): P
 export async function reconcileSitemapJobsWithDist(
   distDir: string,
   mirrorLocs: ReadonlyArray<string>,
+  options: {
+    /** Skip the expensive final-HTML predicate; the sitemap-alias hook owns it. */
+    checkDistTruth?: boolean;
+    foreignDirectoryIndex?: ForeignDirectoryIndex;
+  } = {},
 ): Promise<void> {
   if (!fs.existsSync(distDir)) return;
   const files = fs
@@ -4889,14 +4910,24 @@ export async function reconcileSitemapJobsWithDist(
   // build and deliberately contains URLs owned by the other locale shards.
   // `inspectForeignPresent` checks those URLs when a bridge file is present,
   // while preserving a missing foreign file as cross-shard output.
-  const kept = new Set(
-    (await dropOverwrittenLocs(distDir, locs, {
-      inspectForeignPresent: true,
-      preserveCanonicalExemptions: true,
-    }))
-      .map(normalizeLocForCanonicalCmp),
-  );
-  const unserved = locs.filter((l) => !kept.has(normalizeLocForCanonicalCmp(l)));
+  // The related-search hook runs before the final sitemap-alias hook. Its
+  // early job patch only needs to remove known mirrors and source-stale shard
+  // entries; the alias hook below performs the sole complete dist-truth pass
+  // after every page emitter has finished.
+  const checkDistTruth = options.checkDistTruth !== false;
+  const kept = checkDistTruth
+    ? new Set(
+        (await dropOverwrittenLocs(distDir, locs, {
+          inspectForeignPresent: true,
+          preserveCanonicalExemptions: true,
+          foreignDirectoryIndex: options.foreignDirectoryIndex,
+        }))
+          .map(normalizeLocForCanonicalCmp),
+      )
+    : null;
+  const unserved = kept
+    ? locs.filter((l) => !kept.has(normalizeLocForCanonicalCmp(l)))
+    : [];
   // A cache HIT can reach this reconciler after the jobs producer's normal
   // allowlist population was skipped. Recover the current decision before
   // filtering historical shards; a null registry must never disable this
@@ -5204,7 +5235,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           );
           finalSitemapMirrorLocs = [...(restored.crossSectionMirrorLocs ?? [])];
           await jobsSeoPagesFlushed;
-          await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
+          await reconcileSitemapJobsWithDist(
+            distDir,
+            restored.crossSectionMirrorLocs ?? [],
+            { checkDistTruth: false },
+          );
           profileRecord('cache-hit-patches', __tCacheHitPatch);
           console.log(
             `\x1b[36m[related-search-clusters]\x1b[0m cache HIT (key=${cacheKey}): ${restored.emittedCount} files restored in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
@@ -6023,7 +6058,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // already awaited jobsSeoPagesFlushed, so the file is final.
       const __tDropJobsMirrors = profileStart();
       finalSitemapMirrorLocs = crossSectionMirrorLocs.slice();
-      await reconcileSitemapJobsWithDist(distDir, crossSectionMirrorLocs);
+      await reconcileSitemapJobsWithDist(
+        distDir,
+        crossSectionMirrorLocs,
+        { checkDistTruth: false },
+      );
       profileRecord('drop-jobs-mirrors', __tDropJobsMirrors);
 
       // Jobs and related pages share the per-locale manifest instance. The
