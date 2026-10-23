@@ -203,6 +203,17 @@ export function extractSbbIntroText(html = '') {
   return stripHtml(beforeFirstHeading).trim();
 }
 
+const SBB_DATE_OR_WORKLOAD_RX = /\b\d{1,2}\.\d{1,2}\.\d{4}\b|\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/u;
+const SBB_START_MARKER_RX = /^(?:ab sofort(?:\s+oder\s+nach\s+vereinbarung)?|per sofort|nach vereinbarung|d[eè]s maintenant|[àa] partir(?: de maintenant)?|da subito|su richiesta)[\s.!?]*$/iu;
+
+function isSbbDateOrWorkloadLine(line = '') {
+  return String(line || '').length <= 80 && SBB_DATE_OR_WORKLOAD_RX.test(line);
+}
+
+function isSbbStartMarkerLine(line = '') {
+  return SBB_START_MARKER_RX.test(String(line || '').trim());
+}
+
 /**
  * Extract a concrete workplace city from the rendered vacancy body.
  *
@@ -232,15 +243,19 @@ export function extractSbbBodyLocation(html = '') {
 
     // The current v2 template renders the vacancy metadata as adjacent
     // siblings: `Olten`, `ab sofort oder nach Vereinbarung`, `60-100%`.
-    // Bind the city to the immediately following metadata line. Looking
-    // through an arbitrary three-line window can attach a vacancy marker to
-    // an employer city in the preceding intro block.
+    // A city followed by a start marker is accepted only when the very next
+    // line completes that same bounded metadata tuple with a date/workload.
+    // This prevents an employer city followed by an unrelated `ab sofort`
+    // line from borrowing the later vacancy's workload signal.
     const standalone = canonicalSbbLocality(line);
     if (standalone) {
       const nextLine = lines[lineIndex + 1] || '';
+      if (isSbbDateOrWorkloadLine(nextLine)) return standalone;
+      const followingLine = lines[lineIndex + 2] || '';
       if (
-        /\b\d{1,2}\.\d{1,2}\.\d{4}\b|\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/u.test(nextLine)
-        || /\b(?:ab sofort|per sofort|nach vereinbarung|d[eè]s maintenant|[àa] partir|da subito|su richiesta)\b/iu.test(nextLine)
+        isSbbStartMarkerLine(nextLine)
+        && isSbbDateOrWorkloadLine(followingLine)
+        && !canonicalSbbLocality(followingLine)
       ) return standalone;
     }
   }

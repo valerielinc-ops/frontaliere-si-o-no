@@ -2355,6 +2355,10 @@ describe('source-detail location measurement (issue 5253)', () => {
     // Una prosa indipendente subito dopo un H1 non diventa metadata solo
     // perché nomina una città.
     expect(vacancyHeadingSublineFields('<h1>Chef de Rang</h1><div>Work in Zürich.</div>', 'Chef de Rang')).toEqual([]);
+    expect(vacancyHeadingSublineFields(
+      '<h1>Role</h1><div>Work in Zürich</div><div>Join our team</div>',
+      'Role',
+    )).toEqual([]);
   });
 
   // Fixture anonimizzate dal markup reale delle due pagine che il 2026-10-04

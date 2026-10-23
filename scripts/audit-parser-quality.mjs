@@ -1216,7 +1216,19 @@ function looksLikeHeadingSublineField(field) {
 }
 
 function hasHeadingSublineSignal(field) {
-  return /\b\d{1,2}[./]\d{1,2}[./]\d{2,4}\b|\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/u.test(field);
+  return /\b\d{1,2}[./]\d{1,2}[./]\d{2,4}\b|\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/u.test(field)
+    || /\b(?:ab sofort|per sofort|nach vereinbarung|d[eè]s maintenant|[àa] partir|da subito|su richiesta)\b/iu.test(field);
+}
+
+function hasHeadingSublineEmploymentSignal(field) {
+  // Medimeo's unmarked metadata sequence has no date or workload field, but
+  // starts with an explicit contract type (`Festanstellung`). Keep that
+  // vacancy-specific evidence while rejecting arbitrary short prose runs.
+  return /\b(?:festanstellung|unbefristet|befristet|vollzeit|teilzeit|full[- ]?time|part[- ]?time|permanent|temporary|temps plein|temps partiel|tempo pieno|tempo parziale)\b/iu.test(field);
+}
+
+function hasHeadingSublineVacancySignal(field) {
+  return hasHeadingSublineSignal(field) || hasHeadingSublineEmploymentSignal(field);
 }
 
 export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
@@ -1253,10 +1265,11 @@ export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
       block.push(...siblingFields);
     }
 
-    // A lone generic prose element is not vacancy metadata. Unmarked fields
-    // are accepted only as a contiguous short run (the Medimeo shape) or when
-    // the field itself carries an unambiguous date/workload signal.
-    if (!firstIsMarked && block.length < 2 && !firstFields.some(hasHeadingSublineSignal)) continue;
+    // A lone generic prose element is not vacancy metadata. An unmarked run
+    // must carry vacancy-specific evidence (date, workload, start marker or
+    // explicit contract type); its length alone cannot establish ownership.
+    const blockHasVacancySignal = block.some(hasHeadingSublineVacancySignal);
+    if (!firstIsMarked && !blockHasVacancySignal) continue;
     fields.push(...block);
   }
   return fields;

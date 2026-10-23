@@ -361,6 +361,20 @@ describe('parseSbbDetailPage — body location override', () => {
     expect(extractSbbBodyLocation(fixture)).toBe('Olten');
   });
 
+  it('does not bind an employer city to a start marker across the vacancy city', () => {
+    const fixture = `<!DOCTYPE html><html lang="de"><body><main>
+      <h1>Automatiker:in</h1>
+      <div>Bern</div>
+      <div>ab sofort</div>
+      <div>Olten</div>
+      <div>60-100%</div>
+      <h2>Darauf kannst du dich freuen</h2>
+      <p>Eine ausführliche Beschreibung der Stelle und ihrer Aufgaben.</p>
+    </main></body></html>`;
+
+    expect(extractSbbBodyLocation(fixture)).toBe('Olten');
+  });
+
   it('shows why runner-side API city fallback is still needed for some SBB pages', () => {
     const fixture = `<!DOCTYPE html>
     <html lang="de">
