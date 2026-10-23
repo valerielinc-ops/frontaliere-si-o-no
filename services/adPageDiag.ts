@@ -42,7 +42,7 @@ import { classifyAdPageTemplate, documentHasJobPosting, type AdPageTemplate } fr
 import { AD_BANNER_STATE_ATTR } from './adsenseSlots';
 import { isManualSlot } from './adSlotKinds';
 import { isLikelyBot } from './botPatterns';
-import { READER_NOADS_ACTIVE_KEY } from './readerEntitlement';
+import { READER_NOADS_ACTIVE_KEY } from './readerEntitlementKey';
 
 export const AD_PAGE_DIAG_EVENT = 'ad_page_diag';
 export const AD_PAGE_DIAG_DELAY_MS = 25_000;

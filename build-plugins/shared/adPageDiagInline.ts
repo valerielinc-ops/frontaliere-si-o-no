@@ -30,7 +30,7 @@ import {
 } from '../../services/adPageDiag';
 import { AD_BANNER_STATE_ATTR } from '../../services/adsenseSlots';
 import { AD_PAGE_TEMPLATE_INLINE_FN } from '../../services/adPageTemplate';
-import { READER_NOADS_ACTIVE_KEY } from '../../services/readerEntitlement';
+import { READER_NOADS_ACTIVE_KEY } from '../../services/readerEntitlementKey';
 
 const COLLECT_JS =
   `function collect(hidden){var ls=function(k){try{return w.localStorage.getItem(k);}catch(e){return null;}};` +

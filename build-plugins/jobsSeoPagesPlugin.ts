@@ -1125,6 +1125,28 @@ export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFrag
  );
 }
 
+/**
+ * Refresh the volatile fragments of a cached active-page bridge from the
+ * canonical page emitted in this build. Bridge inputs use the canonical's
+ * stable reuse hash, so this rewrite is the proof that `crawledAt`, the
+ * article feed and the other explicitly volatile fragments cannot remain
+ * stale on a bridge cache hit.
+ */
+export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: string): string {
+ let rewritten = bridgeHtml;
+ for (const name of Object.values(ACTIVE_JOB_REUSE_MARKERS)) {
+  const startMarker = `<!-- jobs-seo-reuse:${name}:start -->`;
+  const endMarker = `<!-- jobs-seo-reuse:${name}:end -->`;
+  const start = canonicalHtml.indexOf(startMarker);
+  const contentStart = start < 0 ? -1 : start + startMarker.length;
+  const end = contentStart < 0 ? -1 : canonicalHtml.indexOf(endMarker, contentStart);
+  if (contentStart < 0 || end < 0) throw new Error(`missing active-page source marker: ${name}`);
+  const replacement = canonicalHtml.slice(contentStart, end);
+  rewritten = replaceActiveJobReuseFragment(rewritten, name, replacement);
+ }
+ return rewritten;
+}
+
 function formatActiveJobSalaryText(
  locale: 'it' | 'en' | 'de' | 'fr',
  salaryMin: number,
@@ -1419,20 +1441,21 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
 
  /* ── Buffered write system via shared WriteCollector ── */
+ // Every jobs-SEO page family goes through `_qw`, so this threshold applies
+ // to active, legacy, expired, previous-slug and cross-locale emits alike.
+ // Keeping it below the generic 5,000-entry collector threshold is the
+ // memory bound for the phases that cannot release a page cache chunk.
+ const HUB_PAGE_WRITE_FLUSH_THRESHOLD = 128;
  const collector = new WriteCollector({
   distDir,
   pluginName: 'jobsSeoPagesPlugin',
   postWalkDerivedKind: 'bridge',
+  autoFlushThreshold: HUB_PAGE_WRITE_FLUSH_THRESHOLD,
  });
- // `awaitDrainSlot()` bounds only completed background batches. It does not
- // bound the collector's active Map, whose 5,000-entry default is too large
- // for the repeated company-hub HTML payloads on the 16 GB build runner. A
- // locale-shard build emits one locale, so the company phase can finish below
- // 1,024 writes (the current corpus is about 256 writes for that shard) and
- // otherwise retain the whole phase. Keep the phase-local bound below that
- // smallest shard-sized burst; the generic collector threshold remains
- // unchanged for the other emitters.
- const HUB_PAGE_WRITE_FLUSH_THRESHOLD = 128;
+ // `awaitDrainSlot()` still bounds completed background batches. The
+ // collector's active Map is now also bounded at the jobs-SEO threshold for
+ // every page family, including phases that do not release a page cache
+ // chunk. The generic collector default remains unchanged for other plugins.
  const JOBS_SEO_HTML_GC_INTERVAL_MB = 1024;
  const JOBS_SEO_HTML_GC_INTERVAL_BYTES = JOBS_SEO_HTML_GC_INTERVAL_MB * 1024 * 1024;
  let jobsSeoHtmlHeapAtLastGc = process.memoryUsage().heapUsed;
@@ -1588,6 +1611,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    previousSlugWinners: jobsSeoMemContext.winnerByPrevSlugKey?.size ?? 0,
    crossLocaleCacheReads: jobsSeoMemContext.crossLocaleCacheReads?.size ?? 0,
    collectorWrittenPaths: collector.writtenPathCount,
+   jobsSeoPageWriteFlushThreshold: HUB_PAGE_WRITE_FLUSH_THRESHOLD,
    activeJobDirs: jobsSeoMemContext.activeJobDirs?.size ?? 0,
    emittedActiveJobPaths: jobsSeoMemContext.emittedActiveJobPaths?.size ?? 0,
    legacyTiBridgeDirs: jobsSeoMemContext.legacyTiBridgeDirs?.size ?? 0,
@@ -4605,7 +4629,7 @@ ${staticAnalyticsHtml}
  if (incrementalManifests) {
   registerIncrementalPage(locale, canonicalPath, 'active-job', activeJobManifestInput, activeJobReuseInput);
  }
- const activeJobInputHash = incrementalManifests?.get(locale)?.getHash(
+ const activeJobReuseHash = incrementalManifests?.get(locale)?.getReuseHash(
   canonicalPath,
   'active-job',
  ) ?? null;
@@ -4657,7 +4681,7 @@ ${staticAnalyticsHtml}
   ? {
    bridgeType: 'locale-slug',
    source: 'active-job',
-   sourceInputHash: activeJobInputHash,
+   sourceInputHash: activeJobReuseHash,
    jobId: stableJobId(job),
    sourcePath: canonicalPath,
    targetPath: legacyRel,
@@ -4671,6 +4695,9 @@ ${staticAnalyticsHtml}
   legacyReuseInput,
   'previous-slug-legacy',
   jobsSeoProbeShapeHints(job),
+  {
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, html),
+  },
  );
  let legacyIndexHtml: string;
  if (legacyReuse?.hit && !jobsSeoReuse?.shouldRender(legacyReuse)) {
@@ -4717,7 +4744,7 @@ ${staticAnalyticsHtml}
   ? {
    bridgeType: 'legacy-ti',
    source: 'active-job',
-   sourceInputHash: activeJobInputHash,
+   sourceInputHash: activeJobReuseHash,
    jobId: stableJobId(job),
    sourcePath: canonicalPath,
    targetPath: legacyTIRel,
@@ -4731,6 +4758,9 @@ ${staticAnalyticsHtml}
   legacyTIReuseInput,
   'previous-slug-legacy',
   jobsSeoProbeShapeHints(job),
+  {
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, html),
+  },
  );
  let legacyTIIndexHtml: string;
  if (legacyTIReuse?.hit && !jobsSeoReuse?.shouldRender(legacyTIReuse)) {
@@ -5113,8 +5143,8 @@ ${staticAnalyticsHtml}
  // loop — each company emits several large (~50 KB) HTML files and the page
  // rate outruns libuv, so _pendingFlushes (each batch closes over its content)
  // climbed to ~16 batches (~GBs live) by the end of this phase → OOM (#1290).
- // `flushHubPageWritesIfNeeded()` also drains the active map at 1,024 entries;
- // `awaitDrainSlot(2)` remains the guard for a batch inherited from the prior
+ // `flushHubPageWritesIfNeeded()` also drains the active map at 128 entries;
+ // `awaitDrainSlot(2)` remains the guard for batches inherited from the prior
  // phase, but is not used as the company-page retention bound.
  await collector.awaitDrainSlot(2);
  // Brand aliases (e.g. migros-ticino → migros umbrella) must NOT self-emit an
@@ -14247,7 +14277,7 @@ ${staticAnalyticsHtml}
    registerIncrementalPage(locale, relPath, 'expired-soft-landing', softLandingManifestInput);
   }
  }
- const softLandingInputHash = incrementalManifests?.get(locale)?.getHash(
+ const softLandingReuseHash = incrementalManifests?.get(locale)?.getReuseHash(
   relPath,
   'expired-soft-landing',
  ) ?? null;
@@ -14277,7 +14307,7 @@ ${staticAnalyticsHtml}
   ? {
    bridgeType: 'expired-soft-landing-legacy-locale',
    source: 'expired-soft-landing',
-   sourceInputHash: softLandingInputHash,
+   sourceInputHash: softLandingReuseHash,
    jobId: stableJobId(ejData || { slug }),
    sourcePath: relPath,
    targetPath: legacyRel,
@@ -14483,7 +14513,7 @@ ${staticAnalyticsHtml}
   expiredHtmlCachePaths.get(baseCacheKey) || baseRelativePath,
  );
  if (!baseHtml) continue;
- const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(
+ const baseReuseHash = incrementalManifests?.get(baseLocale)?.getReuseHash(
   tracking[baseSlug]?.[baseLocale],
   'expired-soft-landing',
  ) ?? null;
@@ -14512,7 +14542,7 @@ ${staticAnalyticsHtml}
  const crossLocaleExpiredReuseInput = incrementalManifests
   ? {
    source: 'expired-soft-landing',
-   sourceInputHash: baseInputHash,
+   sourceInputHash: baseReuseHash,
    jobId: stableJobId(ej),
    path: relPath,
    baseLocale,
@@ -14772,7 +14802,7 @@ ${staticAnalyticsHtml}
   canonicalPathForReuse,
  );
  if (!cachedHtml) continue;
- const canonicalInputHash = incrementalManifests?.get(locale)?.getHash(
+ const canonicalReuseHash = incrementalManifests?.get(locale)?.getReuseHash(
   canonicalPathForReuse,
   'active-job',
  ) ?? null;
@@ -14919,7 +14949,7 @@ ${staticAnalyticsHtml}
    source: 'active-job',
    jobId: stableJobId(job),
    path: oldPath,
-   sourceInputHash: canonicalInputHash,
+   sourceInputHash: canonicalReuseHash,
    canton: jobCantonForBridge,
    oldSlug,
    currentSlug,
@@ -14933,6 +14963,9 @@ ${staticAnalyticsHtml}
   'previous-slugs-full-content',
   previousSlugReuseInput,
   'previous-slug-legacy',
+  {
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, cachedHtml),
+  },
  );
  let indexHtml: string;
  if (previousSlugReuse?.hit && !jobsSeoReuse?.shouldRender(previousSlugReuse)) {
@@ -15002,7 +15035,7 @@ ${staticAnalyticsHtml}
    source: 'active-job',
    jobId: stableJobId(job),
    path: legacyTIRelPath,
-   sourceInputHash: canonicalInputHash,
+   sourceInputHash: canonicalReuseHash,
    canton: jobCantonForBridge,
    oldSlug,
    currentSlug,
@@ -15017,6 +15050,9 @@ ${staticAnalyticsHtml}
   'previous-slugs-full-content',
   legacyTIReuseInput,
   'previous-slug-legacy',
+  {
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, cachedHtml),
+  },
  );
  const legacyTIHtml = legacyTIReuse?.hit && !jobsSeoReuse?.shouldRender(legacyTIReuse)
   ? jobsSeoReuse.reusedHtml(legacyTIReuse, STATIC_PAGE_BUILD_ID) || legacyTIReuse.html
@@ -15165,7 +15201,7 @@ ${staticAnalyticsHtml}
   `${localePrefix[baseLocale]}/${buildCantonAwareSection(baseLocale, jobCantonForCrossLocale)}/${baseSlug}`
    .replace(/\/+/g, '/'),
  );
- const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(
+ const baseReuseHash = incrementalManifests?.get(baseLocale)?.getReuseHash(
   baseCanonicalPath,
   'active-job',
  ) ?? null;
@@ -15250,7 +15286,7 @@ ${staticAnalyticsHtml}
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
    source: 'active-job',
-   sourceInputHash: baseInputHash,
+   sourceInputHash: baseReuseHash,
    jobId: stableJobId(job),
    path: relPath,
    baseLocale,
@@ -15264,6 +15300,9 @@ ${staticAnalyticsHtml}
   'cross-locale-reconciliation',
   crossLocaleActiveReuseInput,
   'cross-locale-reconciliation',
+  {
+   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtml(bridgeHtml, cachedHtml),
+  },
  );
  const crossLocaleActiveHtml = crossLocaleActiveReuse?.hit && !jobsSeoReuse?.shouldRender(crossLocaleActiveReuse)
   ? jobsSeoReuse.reusedHtml(crossLocaleActiveReuse, STATIC_PAGE_BUILD_ID) || crossLocaleActiveReuse.html

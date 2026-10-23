@@ -178,6 +178,10 @@ describe('incremental manifest input contract', () => {
     expect(source.slice(legacyStart, legacyEnd)).not.toContain('previousSlugsByLocale');
     expect(source.slice(crossStart, crossEnd)).not.toContain('previousSlugsByLocale');
     expect(source.slice(crossStart, crossEnd)).not.toContain('slugPerLocale');
+    expect(source.slice(previousStart, previousEnd)).toContain('sourceInputHash: canonicalReuseHash');
+    expect(source).toContain('sourceInputHash: activeJobReuseHash');
+    expect(source.slice(crossStart, crossEnd)).toContain('sourceInputHash: baseReuseHash');
+    expect(source).toContain('rewriteActiveBridgeHtml(bridgeHtml, cachedHtml)');
   });
 
   it('keeps active reuse stable for crawledAt while the publish hash changes', () => {

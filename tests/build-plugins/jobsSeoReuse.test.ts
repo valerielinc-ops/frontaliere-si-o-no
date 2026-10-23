@@ -26,6 +26,7 @@ import {
 import {
   hasActiveJobPostingJsonLd,
   replaceActiveJobPostingDates,
+  rewriteActiveBridgeHtml,
   rewriteActiveJobHtml,
   shouldInvalidateActiveJobReuseForSafeDefault,
 } from '../../build-plugins/jobsSeoPagesPlugin';
@@ -254,6 +255,33 @@ describe('jobs SEO disk HTML reuse', () => {
       currentDatePosted,
       currentValidThrough,
     )).toBe(fragment);
+  });
+
+  it('refreshes a cached active bridge from the current canonical bytes', () => {
+    const marker = (name: string, value: string) =>
+      `<!-- jobs-seo-reuse:${name}:start -->${value}<!-- jobs-seo-reuse:${name}:end -->`;
+    const previousCanonical = '<html><head></head><body>'
+      + marker('job-posting', 'old-date')
+      + marker('hero-badges', 'old-badges')
+      + marker('mobile-action', 'old-action')
+      + marker('recent-articles', 'old-feed')
+      + '</body></html>';
+    const currentCanonical = '<html><head></head><body>'
+      + marker('job-posting', 'current-date')
+      + marker('hero-badges', 'current-badges')
+      + marker('mobile-action', 'current-action')
+      + marker('recent-articles', 'current-feed')
+      + '</body></html>';
+    const cachedBridge = previousCanonical.replace(
+      '</head>',
+      ' <script>window.__BRIDGE_TARGET_SLUG__="current";</script></head>',
+    );
+    const expectedBridge = currentCanonical.replace(
+      '</head>',
+      ' <script>window.__BRIDGE_TARGET_SLUG__="current";</script></head>',
+    );
+
+    expect(rewriteActiveBridgeHtml(cachedBridge, currentCanonical)).toBe(expectedBridge);
   });
 
   it('is disabled unless JOBS_SEO_REUSE=1', async () => {
@@ -1224,6 +1252,29 @@ describe('jobs SEO disk HTML reuse', () => {
       'build-plugins/shared/stableJobId.mjs',
     ]) {
       expect(graph).toContain(renderModule);
+    }
+  });
+
+  it('keeps runtime-only reader entitlement dependencies out of the SEO render graph', () => {
+    const repoRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
+    const graph = collectSourceModuleFiles(
+      repoRoot,
+      ['build-plugins/jobsSeoPagesPlugin.ts'],
+      JOBS_SEO_FINGERPRINT_INERT_MODULES,
+    );
+
+    expect(graph).toContain('build-plugins/shared/adPageDiagInline.ts');
+    expect(graph).toContain('services/adPageDiag.ts');
+    expect(graph).toContain('services/readerEntitlementKey.ts');
+    for (const runtimeOnly of [
+      'services/readerEntitlement.ts',
+      'services/firebase.ts',
+      'services/errorReporter.ts',
+      'services/analytics.ts',
+      'services/jobGateExperiment.ts',
+      'services/jobGateExperimentCore.mjs',
+    ]) {
+      expect(graph).not.toContain(runtimeOnly);
     }
   });
 

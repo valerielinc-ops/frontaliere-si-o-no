@@ -29,13 +29,15 @@ describe('jobsSeoPages company-landing backpressure', () => {
     expect(threshold).toBe(5_000);
     expect(inFlightLimit).toBe(2);
     // A single-locale shard can finish the whole company phase below 1,024
-    // writes; 128 forces at least one intermediate drain on that path.
+    // writes; the shared jobs collector keeps that phase at the 128-entry
+    // bound rather than waiting for the generic collector threshold.
     expect(hubFlushThreshold).toBe(128);
     expect(hubFlushThreshold).toBeLessThan(threshold);
+    expect(pluginSource).toContain('autoFlushThreshold: HUB_PAGE_WRITE_FLUSH_THRESHOLD,');
     expect(companyPhase).toContain('await flushHubPageWritesIfNeeded();');
     expect(companyPhase).toContain('await collector.flush();');
-    // The active map is drained before the generic 5,000-entry auto-flush can
-    // create another large batch; this is the memory bound the old
-    // awaitDrainSlot-only guard did not provide.
+    // The active map is drained at the same bound used by every jobs-SEO
+    // phase; this is the memory bound the old awaitDrainSlot-only guard did
+    // not provide.
   });
 });
