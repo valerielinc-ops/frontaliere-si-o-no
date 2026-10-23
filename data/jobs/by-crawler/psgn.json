@@ -1,7 +1,7 @@
 {
   "crawlerKey": "psgn",
-  "assembledAt": "2026-10-23T09:27:47.239Z",
-  "runId": "39929574258",
+  "assembledAt": "2026-10-23T21:16:30.444Z",
+  "runId": "40024426129",
   "jobs": [
     {
       "id": "psgn-7edcf715a3a5",
@@ -35,7 +35,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-berufsbildnerin-berufsbildner-hf-fh/8bf2652a-63b2-47ab-90c1-17a6e7890993",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:27:31.607Z",
+      "crawledAt": "2026-10-23T21:16:25.625Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/pflegeexpertin-pflegeexperte-apn-forensik/3b2c7dc0-7f4e-4eb5-8edf-88bd5e426818",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:27:31.093Z",
+      "crawledAt": "2026-10-23T21:16:25.053Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt-ambulatorium/4e9bf35b-8f06-4fc7-90e4-32663e2a885b",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:27:30.588Z",
+      "crawledAt": "2026-10-23T21:16:24.496Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -278,7 +278,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/praktikantin-praktikant/1ec650fb-22ba-49ff-ba79-c4967e02b0b4",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:27:30.029Z",
+      "crawledAt": "2026-10-23T21:16:23.915Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -358,7 +358,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/fachpsychologin-fachpsychologe/6e913c19-09a5-4978-855c-295bc41ffe2d",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:27:29.579Z",
+      "crawledAt": "2026-10-23T21:16:23.445Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -439,7 +439,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/f207340c-0b88-49db-b55e-0b1f5f08feaf",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:27:28.975Z",
+      "crawledAt": "2026-10-23T21:16:22.873Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -520,7 +520,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-mbf/64fc8403-58fc-4608-866d-99a8c2143cfe",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:27:28.466Z",
+      "crawledAt": "2026-10-23T21:16:22.310Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -573,7 +573,7 @@
       "slug": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
-        "en": "occupational-therapist-psychiatrie-st-gallen-pfafers",
+        "en": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
         "de": "ergotherapeutin-ergotherapeut-psgn-pfafers",
         "fr": "ergotherapeute-psychiatrie-st-gallen-pfafers"
       },
@@ -599,7 +599,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/1f8f2673-ca9c-4f25-ae2b-b9f658d4f8e2",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:27:27.951Z",
+      "crawledAt": "2026-10-23T21:16:21.734Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -620,7 +620,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-psgn-pfafers",
-        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+        "occupational-therapist-psychiatrie-st-gallen-pfafers"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -628,7 +629,7 @@
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ],
         "en": [
-          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+          "occupational-therapist-psychiatrie-st-gallen-pfafers"
         ],
         "fr": [
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
@@ -654,7 +655,7 @@
       "slug": "terapeuta-dello-sport-terapeuta-dello-sport-psychiatrie-st-gallen-wil",
       "slugByLocale": {
         "it": "terapeuta-dello-sport-terapeuta-dello-sport-psychiatrie-st-gallen-wil",
-        "en": "sports-therapist-sport-therapist-psychiatrie-st-gallen-wil",
+        "en": "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil",
         "de": "sporttherapeutin-sporttherapeut-psgn-wil",
         "fr": "therapeute-sportotherapeute-psychiatrie-st-gallen-wil"
       },
@@ -680,7 +681,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/sporttherapeutin-sporttherapeut/2970d489-c7e4-436e-8c00-fd94dde0b07e",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:27:27.384Z",
+      "crawledAt": "2026-10-23T21:16:21.151Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -701,7 +702,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sporttherapeutin-sporttherapeut-psgn-wil",
-        "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
+        "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil",
+        "sports-therapist-sport-therapist-psychiatrie-st-gallen-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -709,7 +711,7 @@
           "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
         ],
         "en": [
-          "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
+          "sports-therapist-sport-therapist-psychiatrie-st-gallen-wil"
         ],
         "fr": [
           "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
@@ -761,7 +763,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/4c3c51ab-c9a0-47ec-aabc-2fddf79c8a64",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:27:26.837Z",
+      "crawledAt": "2026-10-23T21:16:20.589Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -780,6 +782,10 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/4c3c51ab-c9a0-47ec-aabc-2fddf79c8a64",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-psgn-wil",
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-psgn-wil",
@@ -792,10 +798,7 @@
           "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil"
         ]
       },
-      "previousSlugs": [
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-psgn-wil",
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil"
-      ],
+      "firstSeenAt": "2026-10-22T09:15:35.628Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -808,88 +811,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-22T09:15:35.628Z"
-    },
-    {
-      "id": "psgn-684f2e036073",
-      "slug": "operatore-trice-sociosanitario-a-afc-psychiatrie-st-gallen-wil",
-      "slugByLocale": {
-        "it": "operatore-trice-sociosanitario-a-afc-psychiatrie-st-gallen-wil",
-        "en": "health-professional-efz-psychiatrie-st-gallen-wil",
-        "de": "fachperson-gesundheit-efz-psgn-wil",
-        "fr": "professionnels-de-la-sante-efz-psychiatrie-st-gallen-wil"
-      },
-      "company": "Psychiatrie St.Gallen",
-      "companyKey": "psgn",
-      "companyDomain": "psychiatrie-sg.ch",
-      "title": "Fachperson Gesundheit EFZ",
-      "titleByLocale": {
-        "it": "Operatore/trice sociosanitario/a AFC",
-        "en": "Health professional EFZ",
-        "de": "Fachperson Gesundheit EFZ",
-        "fr": "Professionnels de la santé EFZ"
-      },
-      "description": "Deine Aufgaben\n• Du übernimmst die bedürfnis- und ressourcenorientierte, individuelle Behandlung und Pflege unserer Patientinnen und Patienten im stationären Setting im Rahmen deiner Kompetenzen.\n• Du bist verantwortlich für eine fachkompetente Pflege, die Umsetzung von Pflegestandards sowie die Dokumentation relevanter Ereignisse und erbrachter Leistungen.\n• Als Teil eines interdisziplinären Teams bringst du deine beruflichen Kompetenzen ein und arbeitest eng mit den verschiedenen Fachbereichen zusammen.\n• Im Tagesschichtbetrieb pflegst und behandelst du die Patientinnen und Patienten und führst medizinische Verordnungen durch. Dein Profil\n• Du verfügst über eine abgeschlossene Ausbildung als Fachperson Gesundheit EFZ. Bei ausländischem Diplom ist eine SRK-Anerkennung oder ein positiver SRK-PreCheck erforderlich.\n• Idealerweise verfügst du bereits über Berufserfahrung in der Psychiatrie.\n• Du überzeugst durch hohe Sozialkompetenz, Kommunikationsfähigkeit und Einfühlungsvermögen im Umgang mit Patientinnen und Patienten.\n• Deine Flexibilität und deine Belastbarkeit zeichnen dich ebenso aus.\n• Dein Interesse gilt der Arbeit in einem multiprofessionellen Team im Fachgebiet Psychiatrie. Deine Vorteile Über uns Mit rund 1'400 Mitarbeitenden stellen wir an unseren neun Unternehmensstandorten gut zugängliche, persönliche und wirkungsvolle psychiatrische Behandlungen und die Betreuung von erwachsenen Menschen in den Kantonen St.Gallen und Appenzell Ausserrhoden sowie im Fürstentum Liechtenstein sicher. Online bewerben Wir sind digital unterwegs und setzen uns für Nachhaltigkeit ein, daher freuen wir uns auf deine Online-Bewerbung über unsere Homepage. Bestätigung per E-Mail Sobald deine Bewerbung online bei uns eingegangen ist, bekommst du eine Empfangsbestätigung per E-Mail zugestellt. Wir freuen uns, dich anhand deines Dossiers kennenzulernen und prüfen, ob deine Qualifikationen, Fähigkeiten und du als Person zur ausgeschriebenen Stelle und zur Psychiatrie St.Gallen passen. Danach melden wir uns bei dir. Vorstellungsgespräch mit HR und Fachbereich Bei einem persönlichen Gespräch lernen wir uns kennen und du erfährst mehr über die Psychiatrie St.Gallen, die ausgeschriebene Stelle und die Herausforderungen. Einladung zum zweiten Gespräch In der zweiten Runde möchten wir uns gerne ein noch besseres Bild von Ihnen machen und gemeinsam mit Ihnen herausfinden, ob wir zusammenpassen. Zudem erhalten Sie die Möglichkeit, Ihr künftiges Team kennenzulernen. Mündliche Zusage Sie erhalten von uns eine telefonische Zusage, wenn wir uns nach dem zweiten Gespräch für Sie entscheiden und fragen bei Ihnen nach, ob auch Sie weiterhin von uns überzeugt sind. Wenn wir uns einig sind, erstellen wir Ihren Vertrag. Der Vetrag In den darauffolgenden Tagen senden wir Ihnen per Post den Vertrag im Doppel zu. Mit dem Vertrag erhalten Sie auch relevante Informationen zu Ihrer Anstellung. Preboarding Zwischen der Annahme der Stelle und dem ersten Arbeitstag können Sie als neue Mitarbeiterin oder neuer Mitarbeiter bereits auf relevante interne Informationen zugreifen. So können Sie sich ein differenziertes Bild des Unternehmens machen und sich bereits auf den Job vorbereiten. Erster Arbeitstag Am ersten Tag erwartet Sie ein Onboarding in Ihrem neuen Team und mit weiteren Kolleginnen und Kollegen. Sie richten sich am neuen Arbeitsplatz ein und schaffen sich einen Überblick über Ihre nächsten Aufgaben. Zudem erhalten Sie Ihren individuellen Einführungsplan, der Ihnen dabei hilft, sich schnell zurechtzufinden.\n\nAufgaben:\n• Du übernimmst die bedürfnis- und ressourcenorientierte, individuelle Behandlung und Pflege unserer Patientinnen und Patienten im stationären Setting im Rahmen deiner Kompetenzen.\n• Du bist verantwortlich für eine fachkompetente Pflege, die Umsetzung von Pflegestandards sowie die Dokumentation relevanter Ereignisse und erbrachter Leistungen.\n• Als Teil eines interdisziplinären Teams bringst du deine beruflichen Kompetenzen ein und arbeitest eng mit den verschiedenen Fachbereichen zusammen.\n• Im Tagesschichtbetrieb pflegst und behandelst du die Patientinnen und Patienten und führst medizinische Verordnungen durch.\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Fachperson Gesundheit EFZ. Bei ausländischem Diplom ist eine SRK-Anerkennung oder ein positiver SRK-PreCheck erforderlich.\n• Idealerweise verfügst du bereits über Berufserfahrung in der Psychiatrie.\n• Du überzeugst durch hohe Sozialkompetenz, Kommunikationsfähigkeit und Einfühlungsvermögen im Umgang mit Patientinnen und Patienten.\n• Deine Flexibilität und deine Belastbarkeit zeichnen dich ebenso aus.\n• Dein Interesse gilt der Arbeit in einem multiprofessionellen Team im Fachgebiet Psychiatrie.",
-      "descriptionByLocale": {
-        "it": "I tuoi compiti\n• Voi assumete le esigenze e le risorse, il trattamento individuale e la cura dei nostri pazienti nell'impostazione stazionaria nel quadro delle vostre competenze.\n• Sei responsabile per l'assistenza professionale, l'implementazione di standard di assistenza e la documentazione di eventi e servizi pertinenti forniti.\n• Come parte di un team interdisciplinare, contribuirai alle tue competenze professionali e lavorerai a stretto contatto con le varie aree specialistiche.\n• Nelle operazioni di turno di giorno, si cura e trattare i pazienti e effettuare le prescrizioni mediche. Il tuo profilo\n• Hai completato la formazione come professionista sanitario EFZ. Nel caso di un diploma straniero, è richiesto il riconoscimento SRK o un SRK PreCheck positivo.\n• Idealmente, hai già esperienza professionale in psichiatria.\n• Convinci attraverso alte capacità sociali, capacità di comunicazione e empatia nel trattare con i pazienti.\n• Anche la vostra flessibilità e resilienza vi distinguono.\n• Il vostro interesse sta lavorando in un team multi-professionale nel campo della psichiatria. Con circa 1.400 dipendenti, forniamo un trattamento psichiatrico accessibile, personale ed efficace e la cura per gli adulti nei cantoni di St.Gallen e Appenzell Ausserrhoden così come nel Principato del Liechtenstein nelle nostre nove sedi aziendali. Siamo sulla strada digitalmente e siamo impegnati alla sostenibilità, quindi non vediamo l'ora della vostra applicazione online tramite la nostra homepage. Non appena la vostra domanda è stata ricevuta da noi online, riceverete una conferma della ricevuta via e-mail. Siamo lieti di conoscervi sulla base del vostro dossier e verificare se le vostre qualifiche, competenze e voi come persona si adattano alla posizione pubblicizzata e la psichiatria St.Gallen. Allora ti contatteremo. Durante un'intervista personale ci conosceremo e imparerete di più sulla psichiatria St.Gallen, la posizione pubblicizzata e le sfide. Nel secondo round vorremmo ottenere un'immagine ancora migliore di voi e scoprire insieme a voi se ci adattiamo insieme. Hai anche l'opportunità di conoscere la tua squadra futura. Riceverete una conferma telefonica da noi se decidiamo per voi dopo la seconda intervista e vi chiediamo se siete ancora convinti di noi. Se siamo d'accordo, prepareremo il tuo contratto. Nei giorni seguenti ti invieremo il contratto per posta in doppio. Il contratto ti fornisce anche informazioni rilevanti sul tuo lavoro. Tra l'accettazione del lavoro e il primo giorno lavorativo, l'utente come nuovo dipendente può già accedere a informazioni interne rilevanti. Così si può ottenere un quadro differenziato della società e già prepararsi per il lavoro. Il primo giorno ci si può aspettare un onboarding nella vostra nuova squadra e con altri colleghi. È impostato sul nuovo posto di lavoro e ottenere una panoramica delle vostre prossime attività. Si ottiene anche il vostro piano di introduzione individuale, che vi aiuta a trovare il vostro senso intorno rapidamente.\n\nCompiti:\n• Voi assumete le esigenze e le risorse, il trattamento individuale e la cura dei nostri pazienti nell'impostazione stazionaria nel quadro delle vostre competenze.\n• Sei responsabile per l'assistenza professionale, l'implementazione di standard di assistenza e la documentazione di eventi e servizi pertinenti forniti.\n• Come parte di un team interdisciplinare, contribuirai alle tue competenze professionali e lavorerai a stretto contatto con le varie aree specialistiche.\n• Nelle operazioni di turno di giorno, si cura e trattare i pazienti e effettuare le prescrizioni mediche.\n\nRequisiti\n• Hai completato la formazione come professionista sanitario EFZ. Nel caso di un diploma straniero, è richiesto il riconoscimento SRK o un SRK PreCheck positivo.\n• Idealmente, hai già esperienza professionale in psichiatria.\n• Convinci attraverso alte capacità sociali, capacità di comunicazione e empatia nel trattare con i pazienti.\n• Anche la vostra flessibilità e resilienza vi distinguono.\n• Il vostro interesse sta lavorando in un team multi-professionale nel campo della psichiatria.",
-        "en": "Your tasks\n• You take over the needs- and resource-oriented, individual treatment and care of our patients in the stationary setting within the framework of your competences.\n• You are responsible for professional care, the implementation of care standards and the documentation of relevant events and services provided.\n• As part of an interdisciplinary team, you will contribute your professional skills and work closely with the various specialist areas.\n• In day shift operations, you care for and treat patients and carry out medical prescriptions. Your profile\n• You have completed training as a health professional EFZ. In the case of a foreign diploma, SRK recognition or a positive SRK PreCheck is required.\n• Ideally, you already have professional experience in psychiatry.\n• You convince through high social skills, communication skills and empathy in dealing with patients.\n• Your flexibility and resilience also distinguish you.\n• Your interest is working in a multi-professional team in the field of psychiatry. With around 1,400 employees, we provide accessible, personal and effective psychiatric treatment and care for adults in the cantons of St.Gallen and Appenzell Ausserrhoden as well as in the Principality of Liechtenstein at our nine company locations. We are on the road digitally and are committed to sustainability, so we look forward to your online application via our homepage. As soon as your application has been received by us online, you will receive a confirmation of receipt by e-mail. We are happy to get to know you based on your dossier and check whether your qualifications, skills and you as a person fit the advertised position and the psychiatry St.Gallen. Then we will contact you. During a personal interview we get to know each other and you will learn more about the psychiatry St.Gallen, the advertised position and the challenges. In the second round we would like to get an even better picture of you and find out together with you whether we fit together. You also get the opportunity to get to know your future team. You will receive a telephone confirmation from us if we decide for you after the second interview and ask you if you are still convinced of us. If we agree, we will draw up your contract. In the following days we will send you the contract by post in double. The contract also provides you with relevant information about your employment. Between the acceptance of the job and the first working day, you as a new employee can already access relevant internal information. So you can get a differentiated picture of the company and already prepare for the job. On the first day you can expect an onboarding in your new team and with other colleagues. You set up at the new workplace and get an overview of your next tasks. You also get your individual introduction plan, which helps you to find your way around quickly.\n\nTasks:\n• You take over the needs- and resource-oriented, individual treatment and care of our patients in the stationary setting within the framework of your competences.\n• You are responsible for professional care, the implementation of care standards and the documentation of relevant events and services provided.\n• As part of an interdisciplinary team, you will contribute your professional skills and work closely with the various specialist areas.\n• In day shift operations, you care for and treat patients and carry out medical prescriptions.\n\nRequirements\n• You have completed training as a health professional EFZ. In the case of a foreign diploma, SRK recognition or a positive SRK PreCheck is required.\n• Ideally, you already have professional experience in psychiatry.\n• You convince through high social skills, communication skills and empathy in dealing with patients.\n• Your flexibility and resilience also distinguish you.\n• Your interest is working in a multi-professional team in the field of psychiatry.",
-        "de": "Deine Aufgaben\n• Du übernimmst die bedürfnis- und ressourcenorientierte, individuelle Behandlung und Pflege unserer Patientinnen und Patienten im stationären Setting im Rahmen deiner Kompetenzen.\n• Du bist verantwortlich für eine fachkompetente Pflege, die Umsetzung von Pflegestandards sowie die Dokumentation relevanter Ereignisse und erbrachter Leistungen.\n• Als Teil eines interdisziplinären Teams bringst du deine beruflichen Kompetenzen ein und arbeitest eng mit den verschiedenen Fachbereichen zusammen.\n• Im Tagesschichtbetrieb pflegst und behandelst du die Patientinnen und Patienten und führst medizinische Verordnungen durch. Dein Profil\n• Du verfügst über eine abgeschlossene Ausbildung als Fachperson Gesundheit EFZ. Bei ausländischem Diplom ist eine SRK-Anerkennung oder ein positiver SRK-PreCheck erforderlich.\n• Idealerweise verfügst du bereits über Berufserfahrung in der Psychiatrie.\n• Du überzeugst durch hohe Sozialkompetenz, Kommunikationsfähigkeit und Einfühlungsvermögen im Umgang mit Patientinnen und Patienten.\n• Deine Flexibilität und deine Belastbarkeit zeichnen dich ebenso aus.\n• Dein Interesse gilt der Arbeit in einem multiprofessionellen Team im Fachgebiet Psychiatrie. Deine Vorteile Über uns Mit rund 1'400 Mitarbeitenden stellen wir an unseren neun Unternehmensstandorten gut zugängliche, persönliche und wirkungsvolle psychiatrische Behandlungen und die Betreuung von erwachsenen Menschen in den Kantonen St.Gallen und Appenzell Ausserrhoden sowie im Fürstentum Liechtenstein sicher. Online bewerben Wir sind digital unterwegs und setzen uns für Nachhaltigkeit ein, daher freuen wir uns auf deine Online-Bewerbung über unsere Homepage. Bestätigung per E-Mail Sobald deine Bewerbung online bei uns eingegangen ist, bekommst du eine Empfangsbestätigung per E-Mail zugestellt. Wir freuen uns, dich anhand deines Dossiers kennenzulernen und prüfen, ob deine Qualifikationen, Fähigkeiten und du als Person zur ausgeschriebenen Stelle und zur Psychiatrie St.Gallen passen. Danach melden wir uns bei dir. Vorstellungsgespräch mit HR und Fachbereich Bei einem persönlichen Gespräch lernen wir uns kennen und du erfährst mehr über die Psychiatrie St.Gallen, die ausgeschriebene Stelle und die Herausforderungen. Einladung zum zweiten Gespräch In der zweiten Runde möchten wir uns gerne ein noch besseres Bild von Ihnen machen und gemeinsam mit Ihnen herausfinden, ob wir zusammenpassen. Zudem erhalten Sie die Möglichkeit, Ihr künftiges Team kennenzulernen. Mündliche Zusage Sie erhalten von uns eine telefonische Zusage, wenn wir uns nach dem zweiten Gespräch für Sie entscheiden und fragen bei Ihnen nach, ob auch Sie weiterhin von uns überzeugt sind. Wenn wir uns einig sind, erstellen wir Ihren Vertrag. Der Vetrag In den darauffolgenden Tagen senden wir Ihnen per Post den Vertrag im Doppel zu. Mit dem Vertrag erhalten Sie auch relevante Informationen zu Ihrer Anstellung. Preboarding Zwischen der Annahme der Stelle und dem ersten Arbeitstag können Sie als neue Mitarbeiterin oder neuer Mitarbeiter bereits auf relevante interne Informationen zugreifen. So können Sie sich ein differenziertes Bild des Unternehmens machen und sich bereits auf den Job vorbereiten. Erster Arbeitstag Am ersten Tag erwartet Sie ein Onboarding in Ihrem neuen Team und mit weiteren Kolleginnen und Kollegen. Sie richten sich am neuen Arbeitsplatz ein und schaffen sich einen Überblick über Ihre nächsten Aufgaben. Zudem erhalten Sie Ihren individuellen Einführungsplan, der Ihnen dabei hilft, sich schnell zurechtzufinden.\n\nAufgaben:\n• Du übernimmst die bedürfnis- und ressourcenorientierte, individuelle Behandlung und Pflege unserer Patientinnen und Patienten im stationären Setting im Rahmen deiner Kompetenzen.\n• Du bist verantwortlich für eine fachkompetente Pflege, die Umsetzung von Pflegestandards sowie die Dokumentation relevanter Ereignisse und erbrachter Leistungen.\n• Als Teil eines interdisziplinären Teams bringst du deine beruflichen Kompetenzen ein und arbeitest eng mit den verschiedenen Fachbereichen zusammen.\n• Im Tagesschichtbetrieb pflegst und behandelst du die Patientinnen und Patienten und führst medizinische Verordnungen durch.\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Fachperson Gesundheit EFZ. Bei ausländischem Diplom ist eine SRK-Anerkennung oder ein positiver SRK-PreCheck erforderlich.\n• Idealerweise verfügst du bereits über Berufserfahrung in der Psychiatrie.\n• Du überzeugst durch hohe Sozialkompetenz, Kommunikationsfähigkeit und Einfühlungsvermögen im Umgang mit Patientinnen und Patienten.\n• Deine Flexibilität und deine Belastbarkeit zeichnen dich ebenso aus.\n• Dein Interesse gilt der Arbeit in einem multiprofessionellen Team im Fachgebiet Psychiatrie.",
-        "fr": "Vos tâches\n• Vous prenez en charge les besoins et les ressources, le traitement individuel et les soins de nos patients dans le cadre stationnaire dans le cadre de vos compétences.\n• Vous êtes responsable des soins professionnels, de la mise en œuvre des normes de soins et de la documentation des événements et services pertinents fournis.\n• Dans le cadre d'une équipe interdisciplinaire, vous apporterez vos compétences professionnelles et travaillerez en étroite collaboration avec les différents domaines spécialisés.\n• Dans les opérations de jour, vous soignez et traitez les patients et effectuez des ordonnances médicales. Votre profil\n• Vous avez suivi une formation de professionnel de la santé EFZ. Dans le cas d'un diplôme étranger, la reconnaissance SRK ou une prévérification SRK positive est requise.\n• Idéalement, vous avez déjà une expérience professionnelle en psychiatrie.\n• Vous convainquez par des compétences sociales élevées, des compétences en communication et de l'empathie dans le traitement des patients.\n• Votre flexibilité et votre résilience vous distinguent également.\n• Votre intérêt est de travailler dans une équipe multiprofessionnelle dans le domaine de la psychiatrie. Avec environ 1 400 employés, nous offrons un traitement psychiatrique accessible, personnel et efficace aux adultes dans les cantons de Saint-Gall et Appenzell Ausserrhoden ainsi qu'en Principauté du Liechtenstein dans nos neuf établissements. Nous sommes sur la route numériquement et nous nous engageons pour la durabilité, donc nous attendons avec impatience votre application en ligne via notre page d'accueil. Dès que votre demande a été reçue par nous en ligne, vous recevrez une confirmation de réception par courriel. Nous sommes heureux de vous connaître sur la base de votre dossier et de vérifier si vos qualifications, compétences et vous en tant que personne correspondent au poste annoncé et à la psychiatrie St.Gallen. Alors nous vous contacterons. Lors d'une entrevue personnelle, nous apprenons à nous connaître et vous en apprendrez plus sur la psychiatrie St.Gallen, le poste annoncé et les défis. Au deuxième tour, nous aimerions avoir une meilleure image de vous et découvrir avec vous si nous nous marions. Vous avez également l'occasion de connaître votre future équipe. Vous recevrez une confirmation téléphonique de notre part si nous décidons pour vous après la deuxième entrevue et vous demandons si vous êtes toujours convaincu de nous. Si nous sommes d'accord, nous établirons votre contrat. Dans les jours suivants, nous vous enverrons le contrat par la poste en double. Le contrat vous fournit également des informations pertinentes sur votre emploi. Entre l'acceptation de l'emploi et le premier jour ouvrable, vous en tant que nouvel employé pouvez déjà accéder aux informations internes pertinentes. Ainsi, vous pouvez obtenir une image différenciée de l'entreprise et déjà préparer pour le travail. Le premier jour, vous pouvez vous attendre à être embarqué dans votre nouvelle équipe et avec d'autres collègues. Vous vous installez sur le nouveau lieu de travail et obtenez un aperçu de vos prochaines tâches. Vous obtenez également votre plan d'introduction individuel, ce qui vous aide à trouver votre chemin rapidement.\n\nTâches :\n• Vous prenez en charge les besoins et les ressources, le traitement individuel et les soins de nos patients dans le cadre stationnaire dans le cadre de vos compétences.\n• Vous êtes responsable des soins professionnels, de la mise en œuvre des normes de soins et de la documentation des événements et services pertinents fournis.\n• Dans le cadre d'une équipe interdisciplinaire, vous apporterez vos compétences professionnelles et travaillerez en étroite collaboration avec les différents domaines spécialisés.\n• Dans les opérations de jour, vous soignez et traitez les patients et effectuez des ordonnances médicales.\n\nExigences\n• Vous avez suivi une formation de professionnel de la santé EFZ. Dans le cas d'un diplôme étranger, la reconnaissance SRK ou une prévérification SRK positive est requise.\n• Idéalement, vous avez déjà une expérience professionnelle en psychiatrie.\n• Vous convainquez par des compétences sociales élevées, des compétences en communication et de l'empathie dans le traitement des patients.\n• Votre flexibilité et votre résilience vous distinguent également.\n• Votre intérêt est de travailler dans une équipe multiprofessionnelle dans le domaine de la psychiatrie."
-      },
-      "location": "Wil",
-      "canton": "SG",
-      "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/fachperson-gesundheit-efz/d1426ba7-0e99-48cf-b77c-3de501524677",
-      "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:18:51.359Z",
-      "addressLocality": "Wil",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9500",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/fachperson-gesundheit-efz/d1426ba7-0e99-48cf-b77c-3de501524677",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachperson-gesundheit-efz-psgn-wil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-efz-psgn-wil"
-        ],
-        "en": [
-          "fachperson-gesundheit-efz-psgn-wil"
-        ],
-        "fr": [
-          "fachperson-gesundheit-efz-psgn-wil"
-        ]
-      },
-      "firstSeenAt": "2026-10-13T09:19:17.742Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }
