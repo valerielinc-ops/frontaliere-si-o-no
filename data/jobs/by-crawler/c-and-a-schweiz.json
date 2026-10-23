@@ -3363,12 +3363,12 @@
     },
     {
       "id": "c-and-a-schweiz-509728f0338c",
-      "slug": "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch",
+      "slug": "operaio-di-vendita-50-cdd-m-f-d-c-a-schweiz-avry-sur-matran-ch",
       "slugByLocale": {
         "fr": "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch",
-        "it": "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch",
-        "en": "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch",
-        "de": "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch"
+        "it": "operaio-di-vendita-50-cdd-m-f-d-c-a-schweiz-avry-sur-matran-ch",
+        "en": "sales-worker-50-cdd-m-f-d-c-a-schweiz-avry-sur-matran-ch",
+        "de": "verkaufsmitarbeiter-50-cdd-m-w-d-c-a-schweiz-avry-sur-matran-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3426,7 +3426,21 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-23T21:12:34.571Z"
+      "firstSeenAt": "2026-10-23T21:12:34.571Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-de-vente-50-cdd-m-f-d-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-0adfc6dc98a2",

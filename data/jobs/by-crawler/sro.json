@@ -2926,8 +2926,8 @@
       "slugByLocale": {
         "de": "compliance-und-riskmanager-50-sro-langenthal",
         "it": "compliance-e-riskmanager-50-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "compliance-und-riskmanager-50-sro-langenthal",
-        "fr": "compliance-und-riskmanager-50-sro-langenthal"
+        "en": "compliance-and-risk-manager-50-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "gestionnaire-de-la-conformite-et-des-risques-50-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2979,6 +2979,12 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "it": [
+          "compliance-und-riskmanager-50-sro-langenthal"
+        ],
+        "en": [
+          "compliance-und-riskmanager-50-sro-langenthal"
+        ],
+        "fr": [
           "compliance-und-riskmanager-50-sro-langenthal"
         ]
       },

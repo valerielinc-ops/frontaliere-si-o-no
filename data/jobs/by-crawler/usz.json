@@ -12668,7 +12668,7 @@
       "slug": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
-        "en": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich",
+        "en": "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich",
         "de": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
         "fr": "pre-internat-en-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       },
@@ -12715,7 +12715,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-        "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+        "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12723,7 +12723,7 @@
         ],
         "en": [
           "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-          "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -16609,12 +16609,12 @@
     },
     {
       "id": "usz-05d35814bc4e",
-      "slug": "spezialpflege-pflegefachperson-per-la-kardiologische-herzchirurgische-imc-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "cure-specialistiche-infermiere-a-per-l-imc-cardiologica-cardiochirurgica-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "spezialpflege-pflegefachperson-fur-die-kardiologische-herzchirurgische-imc-80-100-usz-ch",
-        "it": "spezialpflege-pflegefachperson-per-la-kardiologische-herzchirurgische-imc-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "spezialpflege-pflegefachperson-fur-die-kardiologische-herzchirurgische-imc-80-100-usz-ch",
-        "fr": "spezialpflege-pflegefachperson-fur-die-kardiologische-herzchirurgische-imc-80-100-usz-ch"
+        "it": "cure-specialistiche-infermiere-a-per-l-imc-cardiologica-cardiochirurgica-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "special-care-nurse-for-cardiology-heart-surgery-imc-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "soins-speciaux-infirmiere-en-cardiologie-chirurgie-cardiaque-imc-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16661,11 +16661,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "spezialpflege-pflegefachperson-fur-die-kardiologische-herzchirurgische-imc-80-100-usz-ch",
+          "spezialpflege-pflegefachperson-per-la-kardiologische-herzchirurgische-imc-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "spezialpflege-pflegefachperson-fur-die-kardiologische-herzchirurgische-imc-80-100-usz-ch"
+        ],
+        "fr": [
           "spezialpflege-pflegefachperson-fur-die-kardiologische-herzchirurgische-imc-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "spezialpflege-pflegefachperson-fur-die-kardiologische-herzchirurgische-imc-80-100-usz-ch"
+        "spezialpflege-pflegefachperson-fur-die-kardiologische-herzchirurgische-imc-80-100-usz-ch",
+        "spezialpflege-pflegefachperson-per-la-kardiologische-herzchirurgische-imc-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

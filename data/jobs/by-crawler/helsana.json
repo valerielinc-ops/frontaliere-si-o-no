@@ -262,7 +262,7 @@
       "slug": "medico-a-nel-mandato-helsana-dubendorf-stettbach",
       "slugByLocale": {
         "it": "medico-a-nel-mandato-helsana-dubendorf-stettbach",
-        "en": "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach",
+        "en": "confidential-physician-a-in-the-mandate-helsana-dubendorf-stettbach",
         "de": "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach",
         "fr": "medecin-a-du-mandat-helsana-dubendorf-stettbach"
       },
@@ -309,8 +309,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physician-a-in-the-mandate-helsana-dubendorf-stettbach",
-        "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach",
-        "confidential-physician-a-in-the-mandate-helsana-dubendorf-stettbach"
+        "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -318,7 +317,7 @@
         ],
         "en": [
           "physician-a-in-the-mandate-helsana-dubendorf-stettbach",
-          "confidential-physician-a-in-the-mandate-helsana-dubendorf-stettbach"
+          "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach"
         ]
       },
       "firstSeenAt": "2026-10-03T09:22:06.129Z",
@@ -3499,8 +3498,8 @@
       "slugByLocale": {
         "de": "temporare-mitarbeiterin-leistungen-ambulant-a-80-100-befristet-1-januar-bis-31-marz-2027",
         "it": "temporare-mitarbeiterin-leistungen-ambulant-a-80-100-befristet-1-januar-bis-31-marz-2027-helsana-worblaufen",
-        "en": "temporare-mitarbeiterin-leistungen-ambulant-a-80-100-befristet-1-januar-bis-31-marz-2027",
-        "fr": "temporare-mitarbeiterin-leistungen-ambulant-a-80-100-befristet-1-januar-bis-31-marz-2027"
+        "en": "temporary-employee-services-ambulant-a-80-100-temporary-january-1-to-31-march-2027-helsana-worblaufen",
+        "fr": "services-aux-employes-temporaires-ambulant-a-80-100-temporaire-du-1er-au-31-janvier-mars-2027-helsana-worblaufen"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -3547,6 +3546,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "temporare-mitarbeiterin-leistungen-ambulant-a-80-100-befristet-1-januar-bis-31-marz-2027"
+        ],
+        "en": [
+          "temporare-mitarbeiterin-leistungen-ambulant-a-80-100-befristet-1-januar-bis-31-marz-2027"
+        ],
+        "fr": [
           "temporare-mitarbeiterin-leistungen-ambulant-a-80-100-befristet-1-januar-bis-31-marz-2027"
         ]
       },

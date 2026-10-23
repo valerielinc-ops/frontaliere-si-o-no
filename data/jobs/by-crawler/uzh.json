@@ -8409,8 +8409,8 @@
       "slugByLocale": {
         "de": "verwaltungsassistent-in-lehre-vorerst-befristet-mit-aussicht-auf-eine-unbefristete",
         "it": "verwaltungsassistent-in-lehre-vorerst-befristet-con-aussicht-auf-eine-unbefristete-anstellung-universitat-zurich",
-        "en": "verwaltungsassistent-in-lehre-vorerst-befristet-mit-aussicht-auf-eine-unbefristete",
-        "fr": "verwaltungsassistent-in-lehre-vorerst-befristet-mit-aussicht-auf-eine-unbefristete"
+        "en": "administrative-assistant-apprenticeship-initially-fixed-term-with-the-prospect-of-permanent-employment-universitat",
+        "fr": "assistant-e-administratif-ve-en-apprentissage-dans-un-premier-temps-a-duree-determinee-avec-possibilite-d-un-engagement"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8459,6 +8459,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verwaltungsassistent-in-lehre-vorerst-befristet-mit-aussicht-auf-eine-unbefristete"
+        ],
+        "en": [
+          "verwaltungsassistent-in-lehre-vorerst-befristet-mit-aussicht-auf-eine-unbefristete"
+        ],
+        "fr": [
+          "verwaltungsassistent-in-lehre-vorerst-befristet-mit-aussicht-auf-eine-unbefristete"
         ]
       },
       "previousSlugs": [
@@ -8486,7 +8492,7 @@
         "de": "quality-assurance-qa-engineer-m-w-d-mit-schwerpunkt-testautomation-und-ki-systeme-uzh",
         "it": "quality-assurance-qa-ingegnere-m-w-d-con-schwerpunkt-testautomation-e-ki-systeme-universitat-zurich",
         "en": "quality-assurance-qa-engineer-m-w-d-mit-schwerpunkt-testautomation-und-ki-systeme-universitat-zurich-zurich",
-        "fr": "quality-assurance-qa-engineer-m-w-d-mit-schwerpunkt-testautomation-und-ki-systeme-uzh"
+        "fr": "ingenieur-e-en-assurance-qualite-qa-h-f-d-specialise-e-dans-l-automatisation-des-tests-et-les-systemes-d-ia-universitat"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8534,6 +8540,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "quality-assurance-qa-engineer-m-w-d-mit-schwerpunkt-testautomation-und-ki-systeme-uzh"
+        ],
+        "fr": [
           "quality-assurance-qa-engineer-m-w-d-mit-schwerpunkt-testautomation-und-ki-systeme-uzh"
         ]
       },

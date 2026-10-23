@@ -287,12 +287,12 @@
     },
     {
       "id": "rieter-8e0d285ac5af",
-      "slug": "collaboratore-trice-produktionsplanung-m-w-d-rieter-pfaffikon",
+      "slug": "addetto-a-alla-pianificazione-della-produzione-m-f-d-rieter-pfaffikon-zh",
       "slugByLocale": {
         "de": "mitarbeiter-produktionsplanung-m-w-d-rieter-pfaffikon-zh",
-        "it": "collaboratore-trice-produktionsplanung-m-w-d-rieter-pfaffikon",
-        "en": "mitarbeiter-produktionsplanung-m-w-d-rieter-pfaffikon-zh",
-        "fr": "mitarbeiter-produktionsplanung-m-w-d-rieter-pfaffikon-zh"
+        "it": "addetto-a-alla-pianificazione-della-produzione-m-f-d-rieter-pfaffikon-zh",
+        "en": "employee-production-planning-m-f-d-rieter-pfaffikon-zh",
+        "fr": "planification-de-la-production-des-employes-h-f-d-rieter-pfaffikon-zh"
       },
       "company": "Rieter",
       "companyKey": "rieter",
@@ -341,11 +341,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-produktionsplanung-m-w-d-rieter-pfaffikon-zh",
+          "collaboratore-trice-produktionsplanung-m-w-d-rieter-pfaffikon"
+        ],
+        "en": [
+          "mitarbeiter-produktionsplanung-m-w-d-rieter-pfaffikon-zh"
+        ],
+        "fr": [
           "mitarbeiter-produktionsplanung-m-w-d-rieter-pfaffikon-zh"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-produktionsplanung-m-w-d-rieter-pfaffikon-zh"
+        "mitarbeiter-produktionsplanung-m-w-d-rieter-pfaffikon-zh",
+        "collaboratore-trice-produktionsplanung-m-w-d-rieter-pfaffikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

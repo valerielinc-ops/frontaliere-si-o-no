@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "leiter-reinigung-nachtschicht-100-hilcona-dallikon",
         "it": "leiter-reinigung-nachtschicht-100-eisberg-ag-dallikon",
-        "en": "leiter-reinigung-nachtschicht-100-hilcona-dallikon",
-        "fr": "leiter-reinigung-nachtschicht-100-hilcona-dallikon"
+        "en": "head-of-cleaning-night-shift-100-eisberg-ag-dallikon",
+        "fr": "chef-du-service-de-nettoyage-de-nuit-100-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -52,6 +52,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-reinigung-nachtschicht-100-hilcona-dallikon"
+        ],
+        "en": [
+          "leiter-reinigung-nachtschicht-100-hilcona-dallikon"
+        ],
+        "fr": [
           "leiter-reinigung-nachtschicht-100-hilcona-dallikon"
         ]
       },

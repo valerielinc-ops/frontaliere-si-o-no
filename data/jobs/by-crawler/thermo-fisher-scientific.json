@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "thermo-fisher-scientific-039a13fa24ce",
-      "slug": "collaboratore-trice-qualitatskontrolle-thermo-fisher-scientific-schweiz-ag-allschwil",
+      "slug": "addetto-al-controllo-qualita-thermo-fisher-scientific-schweiz-ag-allschwil",
       "slugByLocale": {
         "de": "mitarbeiter-qualitatskontrolle-thermo-fisher-scientific-ch",
-        "it": "collaboratore-trice-qualitatskontrolle-thermo-fisher-scientific-schweiz-ag-allschwil",
-        "en": "mitarbeiter-qualitatskontrolle-thermo-fisher-scientific-ch",
-        "fr": "mitarbeiter-qualitatskontrolle-thermo-fisher-scientific-ch"
+        "it": "addetto-al-controllo-qualita-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "en": "staff-quality-control-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "fr": "controle-de-la-qualite-du-personnel-thermo-fisher-scientific-schweiz-ag-allschwil"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
       "companyKey": "thermo-fisher-scientific",
@@ -58,11 +58,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-qualitatskontrolle-thermo-fisher-scientific-ch",
+          "collaboratore-trice-qualitatskontrolle-thermo-fisher-scientific-schweiz-ag-allschwil"
+        ],
+        "en": [
+          "mitarbeiter-qualitatskontrolle-thermo-fisher-scientific-ch"
+        ],
+        "fr": [
           "mitarbeiter-qualitatskontrolle-thermo-fisher-scientific-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-qualitatskontrolle-thermo-fisher-scientific-ch"
+        "mitarbeiter-qualitatskontrolle-thermo-fisher-scientific-ch",
+        "collaboratore-trice-qualitatskontrolle-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -700,7 +708,7 @@
       "slugByLocale": {
         "it": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "en": "demand-and-supply-manager-thermo-fisher-scientific-ch",
-        "de": "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "de": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "fr": "gestionnaire-de-la-demande-et-de-l-offre-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
@@ -751,7 +759,8 @@
         "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch",
         "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil",
         "demand-and-supply-management-coordinateur-thermo-fisher-scientific-schweiz-ag-allschwil",
-        "demand-and-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
+        "demand-and-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -766,7 +775,8 @@
           "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch"
         ],
         "de": [
-          "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil"
+          "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil",
+          "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "fr": [
           "demand-and-supply-management-coordinateur-thermo-fisher-scientific-schweiz-ag-allschwil"

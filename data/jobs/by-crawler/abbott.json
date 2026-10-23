@@ -1844,12 +1844,12 @@
     },
     {
       "id": "abbott-120ac25324a8",
-      "slug": "senior-product-owner-advanced-analytics-abbott-ch",
+      "slug": "analisi-avanzata-del-proprietario-di-prodotto-senior-abbott-allschwil",
       "slugByLocale": {
         "en": "senior-product-owner-advanced-analytics-abbott-ch",
-        "it": "senior-product-owner-advanced-analytics-abbott-ch",
+        "it": "analisi-avanzata-del-proprietario-di-prodotto-senior-abbott-allschwil",
         "de": "senior-product-owner-advanced-analytics-abbott-ch",
-        "fr": "senior-product-owner-advanced-analytics-abbott-ch"
+        "fr": "proprietaire-principal-de-produit-advanced-analytics-abbott-allschwil"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1909,7 +1909,18 @@
         }
       },
       "postalCode": "4123",
-      "firstSeenAt": "2026-10-23T21:28:58.770Z"
+      "firstSeenAt": "2026-10-23T21:28:58.770Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-owner-advanced-analytics-abbott-ch"
+        ],
+        "fr": [
+          "senior-product-owner-advanced-analytics-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-product-owner-advanced-analytics-abbott-ch"
+      ]
     },
     {
       "id": "abbott-8635fddd41ed",

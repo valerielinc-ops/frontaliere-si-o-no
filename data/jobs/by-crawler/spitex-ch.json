@@ -1115,12 +1115,12 @@
     },
     {
       "id": "spitex-ch-9ae2a8694c0c",
-      "slug": "diplomierte-pflegefachperson-psychiatrie-hf-fh-50-80-spitex-ch-muhen",
+      "slug": "infermiere-diplomatiche-psichiatria-hf-fh-50-80-spitex-suhrental-plus-muhen",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-psychiatrie-hf-fh-50-80-spitex-ch-muhen",
-        "it": "diplomierte-pflegefachperson-psychiatrie-hf-fh-50-80-spitex-ch-muhen",
-        "en": "diplomierte-pflegefachperson-psychiatrie-hf-fh-50-80-spitex-ch-muhen",
-        "fr": "diplomierte-pflegefachperson-psychiatrie-hf-fh-50-80-spitex-ch-muhen"
+        "it": "infermiere-diplomatiche-psichiatria-hf-fh-50-80-spitex-suhrental-plus-muhen",
+        "en": "diplomatic-nurse-psychiatry-hf-fh-50-80-spitex-suhrental-plus-muhen",
+        "fr": "infirmiere-diplomatique-psychiatrie-hf-fh-50-80-spitex-suhrental-plus-muhen"
       },
       "company": "Spitex Suhrental Plus",
       "companyKey": "spitex-ch",
@@ -1179,16 +1179,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:19:46.979Z"
+      "firstSeenAt": "2026-10-23T21:19:46.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-psychiatrie-hf-fh-50-80-spitex-ch-muhen"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-psychiatrie-hf-fh-50-80-spitex-ch-muhen"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-psychiatrie-hf-fh-50-80-spitex-ch-muhen"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-psychiatrie-hf-fh-50-80-spitex-ch-muhen"
+      ]
     },
     {
       "id": "spitex-ch-5bc34b20aa3d",
-      "slug": "stv-teamleitung-pflegewohnung-spitex-ch-baretswil",
+      "slug": "vice-responsabile-del-team-dell-appartamento-di-cura-spitex-baretswil-baretswil",
       "slugByLocale": {
         "de": "stv-teamleitung-pflegewohnung-spitex-ch-baretswil",
-        "it": "stv-teamleitung-pflegewohnung-spitex-ch-baretswil",
-        "en": "stv-teamleitung-pflegewohnung-spitex-ch-baretswil",
-        "fr": "stv-teamleitung-pflegewohnung-spitex-ch-baretswil"
+        "it": "vice-responsabile-del-team-dell-appartamento-di-cura-spitex-baretswil-baretswil",
+        "en": "deputy-team-leader-care-apartment-spitex-baretswil-baretswil",
+        "fr": "adjoint-e-a-la-direction-de-l-equipe-appartement-de-soins-spitex-baretswil-baretswil"
       },
       "company": "Spitex Bäretswil",
       "companyKey": "spitex-ch",
@@ -1246,7 +1260,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleitung-pflegewohnung-spitex-ch-baretswil"
+        ],
+        "en": [
+          "stv-teamleitung-pflegewohnung-spitex-ch-baretswil"
+        ],
+        "fr": [
+          "stv-teamleitung-pflegewohnung-spitex-ch-baretswil"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleitung-pflegewohnung-spitex-ch-baretswil"
+      ]
     },
     {
       "id": "spitex-ch-6843935c295a",
