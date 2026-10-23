@@ -8588,6 +8588,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.title': 'Adjustment of LPP survivors’ and disability pensions from 1 January 2027',
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.excerpt': 'From January 1, 2027, annuities will be adjusted to prices.',
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.bns-cambi-energia.title': 'BNS: policy rate unchanged and moderate inflation',
+    'blog.article.bns-cambi-energia.excerpt': 'The SNB keeps its policy rate at 0 percent In September, the SNB abandons the exchange-rate formula Inflationary pressure is increasing only slightly AI can',
+    'blog.article.bns-cambi-energia.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.sostenibilita-abitativa-svizzera.title': 'Living in Switzerland: one in 6 spends more than a third of their income',
+    'blog.article.sostenibilita-abitativa-svizzera.excerpt': 'The 16% exceeds one third of gross household income The 22% of tenants exceeds the housing threshold The 7% of homeowners exceeds the same limit The 36%',
+    'blog.article.sostenibilita-abitativa-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.title': 'Short-time work: the Federal Council envisages a gradual return to normality',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.excerpt': 'The Federal Council intends to gradually normalize the ILR Maximum duration: 24 months until January 31, 2027 Expected growth: 1,7% in 2026 and 1,6% in 2027',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.title': 'November 29 vote: AVS and military materiel uncertain',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.excerpt': 'The November 29 vote on AVS and military materiel remains uncertain VAT for the 13th pension payment: 46% yes, 49% no Military materiel: 49% opposed, 41% in favor',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
