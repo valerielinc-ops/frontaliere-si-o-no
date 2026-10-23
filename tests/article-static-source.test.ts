@@ -95,7 +95,7 @@ describe('static article TypeScript source reader', () => {
     expect(() => parseStaticBlogBodySource(empty, BODY_PATH)).toThrow(/no static body fields/u);
   });
 
-  it('ignores strings/comments while rejecting real interpolation anywhere in the module', () => {
+  it('ignores strings/comments and interpolated non-article properties', () => {
     const staticSource = [
       '// `comment ${notCode}`',
       '/* `comment ${notCode}` */',
@@ -114,8 +114,7 @@ describe('static article TypeScript source reader', () => {
       '};',
       'export default translations;',
     ].join('\n');
-    expect(() => parseStaticBlogBodySource(dynamicSource, BODY_PATH))
-      .toThrow(/Interpolated template literal is not supported/u);
+    expect(parseStaticBlogBodySource(dynamicSource, BODY_PATH).alpha.body1).toBe('real body');
   });
 
   it('normalizes static template keys without losing newlines or escaped backticks', () => {
@@ -244,9 +243,9 @@ describe('static article TypeScript source reader', () => {
     } as unknown as typeof fs;
 
     expect(() => readArticleSlugs(presentFs, path, '/virtual', 'it', 'blog-meta', 'meta'))
-      .toThrow(/Interpolated template literal/u);
+      .toThrow(/exactly a const record/u);
     expect(() => readArticleExcerpts(presentFs, path, '/virtual', 'it', 'blog-meta', 'meta'))
-      .toThrow(/Interpolated template literal/u);
+      .toThrow(/exactly a const record/u);
   });
 
   it('reads title and excerpt projections from one metadata source pass', () => {

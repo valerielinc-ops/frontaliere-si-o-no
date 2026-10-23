@@ -388,7 +388,7 @@ export default body;
         rootDir: root,
         registries: { frontaliere: REGISTRY },
         layout: LAYOUT,
-      })).toThrow(/Interpolated template literal is not supported/u);
+      })).toThrow(/translation (?:record must have a Record<string, string> type|module must begin with a const record)/u);
     }
   });
 
@@ -401,7 +401,7 @@ export default body;
           '};',
           'export default translations;',
         ].join('\n'),
-        error: /Interpolated template literal is not supported/u,
+        error: /computed article translation keys are not supported/u,
       },
       {
         source: [
