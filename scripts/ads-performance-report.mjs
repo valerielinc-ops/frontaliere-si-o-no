@@ -370,7 +370,7 @@ export async function fetchGa4Data({
   };
 }
 
-async function fetchAggregateSection({
+export async function fetchAggregateSection({
   property,
   window,
   headers,
@@ -450,7 +450,7 @@ async function fetchAggregateSection({
       ...(renderedCustomDimensions.length ? {} : { sourceAvailable: true }),
     });
     const status = quality.complete && metadataStatus === 'available' && compatibilityStatus === 'available'
-      && missingMetrics.length === 0 && unqueriedMetrics.length === 0
+      && missingDimensions.length === 0 && missingMetrics.length === 0 && unqueriedMetrics.length === 0
       ? 'ok' : 'partial';
     return {
       status,
