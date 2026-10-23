@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 650,
+  "crawlerCount": 652,
   "groups": {
     "10": [
       "atec-personal",
@@ -89,6 +89,7 @@
       "privatklinik-obach",
       "raiffeisen",
       "sanatorium-kilchberg",
+      "servicekuhn-ch",
       "sika",
       "stadt-luzern",
       "suchthilfe-region-basel",
@@ -105,6 +106,7 @@
       "buehler",
       "careers",
       "cern",
+      "company",
       "csvp-poschiavo",
       "edmond-de-rothschild",
       "groupe-e",
@@ -834,6 +836,7 @@
     "clinique-le-noirmont": "data/jobs/by-crawler/clinique-le-noirmont.json",
     "cnp": "data/jobs/by-crawler/cnp.json",
     "colin-cie": "data/jobs/by-crawler/colin-cie.json",
+    "company": "data/jobs/by-crawler/company.json",
     "concara": "data/jobs/by-crawler/concara.json",
     "concordia": "data/jobs/by-crawler/concordia.json",
     "confederazione-ticino": "data/jobs/by-crawler/confederazione-ticino.json",
@@ -1210,6 +1213,7 @@
     "selecta": "data/jobs/by-crawler/selecta.json",
     "senevita": "data/jobs/by-crawler/senevita.json",
     "seniorenzentrum-engelhof": "data/jobs/by-crawler/seniorenzentrum-engelhof.json",
+    "servicekuhn-ch": "data/jobs/by-crawler/servicekuhn-ch.json",
     "sfs-group": "data/jobs/by-crawler/sfs-group.json",
     "sicpa": "data/jobs/by-crawler/sicpa.json",
     "siegfried": "data/jobs/by-crawler/siegfried.json",
@@ -1354,5 +1358,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:bcef9b1dd02b444e16c75560d1d61ed39f6911f33d2112b32849b47f1fc67183"
+  "digest": "sha256:0b185eda62f75daddfa82baa4ba398ba7735410bee9d1f5703231938d8e0de4a"
 }
