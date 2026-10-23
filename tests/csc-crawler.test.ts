@@ -88,6 +88,7 @@ describe('CSC authoritative Drupal discovery', () => {
   });
 
   it('follows the official careers link when CSC migrates from Drupal to NCore', async () => {
+    const detailPageCache = new Map();
     const responses = new Map([
       [careersUrl, htmlResponse(careersUrl, ncoreMigratedCareersPage)],
       [ncoreBoardUrl, htmlResponse(ncoreBoardUrl, ncoreListingPage)],
@@ -99,13 +100,17 @@ describe('CSC authoritative Drupal discovery', () => {
       return response;
     });
 
-    await expect(fetchCscJobUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toEqual({
+    await expect(fetchCscJobUrls({ fetchImpl, detailPageCache, timeoutMs: 1000 })).resolves.toEqual({
       urls: [ncoreDetailUrl],
       authoritativeEmpty: false,
     });
     expect(parseCscNcoreBoardPage(ncoreListingPage)).toEqual({
       urls: [ncoreDetailUrl],
       authoritativeEmpty: false,
+    });
+    expect(detailPageCache.get(ncoreDetailUrl)).toEqual({
+      html: ncoreDetailPage,
+      responseUrl: ncoreDetailUrl,
     });
     expect(fetchImpl).toHaveBeenCalledTimes(3);
   });
@@ -156,6 +161,7 @@ describe('CSC authoritative Drupal discovery', () => {
 
   it('renders a client-rendered NCore detail shell before applying the trust contract', async () => {
     const detailShell = '<!doctype html><html><body><div id="app">Loading position…</div></body></html>';
+    const detailPageCache = new Map();
     const renderDetailPage = vi.fn(async () => ({
       html: ncoreDetailPage,
       responseUrl: ncoreDetailUrl,
@@ -164,9 +170,14 @@ describe('CSC authoritative Drupal discovery', () => {
     await expect(verifyCscDetailUrls([ncoreDetailUrl], {
       fetchImpl: vi.fn(async () => htmlResponse(ncoreDetailUrl, detailShell)),
       renderDetailPage,
+      detailPageCache,
       timeoutMs: 1000,
     })).resolves.toEqual([ncoreDetailUrl]);
     expect(renderDetailPage).toHaveBeenCalledWith(ncoreDetailUrl, { timeoutMs: 1000 });
+    expect(detailPageCache.get(ncoreDetailUrl)).toEqual({
+      html: ncoreDetailPage,
+      responseUrl: ncoreDetailUrl,
+    });
   });
 
   it('rejects a rendered NCore detail that leaves the exact route contract', async () => {

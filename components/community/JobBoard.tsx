@@ -239,7 +239,7 @@ import {
  type Block as JobDescBlock,
  type Inline as JobDescInline,
 } from '@/build-plugins/shared/jobDescription/parser';
-import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
+import { AUTHGATE_HEADLINE_EXPERIMENT_ID, useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import { currentJobGateAssignment, recordJobGateExposure, useJobGateExperiment } from '@/hooks/useJobGateExperiment';
 import {
  JOBGATE_EXPERIMENT_ID,
@@ -2380,8 +2380,6 @@ function isExternalApplicationJob(job: JobListing): boolean {
  return mode !== 'in_house' && mode !== 'forward_email';
 }
 
-const JOB_AUTH_GATE_EXPERIMENT_ID = 'authgate-headline-v3';
-
 interface InterruptibleDerivation<T> {
  value: T;
  pending: boolean;
@@ -2500,7 +2498,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // otherwise the tags stay exactly the headline experiment's.
  const jobGate = useJobGateExperiment(shouldBypassAssistedApplicationExperiment);
  const gateVariant: string = jobGate.enrolled ? jobGate.arm : headlineVariant;
- const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : JOB_AUTH_GATE_EXPERIMENT_ID;
+ const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : AUTHGATE_HEADLINE_EXPERIMENT_ID;
  const jobGateFailTags = jobGate.enrolled ? { variant: gateVariant, experimentId: gateExperimentId } : {};
  const alwaysRewardedApplicationSurface = isAlwaysRewardedApplicationSurface();
  const {
@@ -6897,7 +6895,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [authGateOpen, gateVariant, pendingJob, selectedJob]);
 
  useEffect(() => {
- if (!authResolved || !selectedJob || hasAccess) return;
+ if (!authResolved || !selectedJob || hasAccess || !jobGate.ready) return;
  const gate = document.getElementById('job-auth-gate');
  if (!gate) return;
  const onVisible = () => {
@@ -6944,7 +6942,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, { threshold: 0.1 });
  observer.observe(gate);
  return () => { observer.disconnect(); };
- }, [authResolved, selectedJob?.id, hasAccess, gateVariant, gateExperimentId, newsletterAutologinInFlight]);
+ }, [authResolved, selectedJob?.id, hasAccess, jobGate.ready, gateVariant, gateExperimentId, newsletterAutologinInFlight]);
 
  useEffect(() => {
  // Wait for auth to resolve before rendering GIS buttons.

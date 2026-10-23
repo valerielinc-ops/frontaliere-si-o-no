@@ -210,10 +210,12 @@ describe('telemetry and subscriber tags', () => {
     expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v5', variant: 'spotlight_quiet' });
     expect(getJobGateSubscriberVariant()).toBe('jobgate-v5:spotlight_quiet');
     expect(jobGateNewsletterTags('job_board_email_unlock')).toEqual({ experiment_id: 'jobgate-v5', variant: 'spotlight_quiet' });
-    // Other job_gate-channel surfaces do not render the experiment UI.
-    for (const cta of ['job_expired_email_unlock', 'job_orphan_email_unlock', 'job_bridge_email_unlock', 'saved_jobs_alert_nudge']) {
-      expect(jobGateNewsletterTags(cta)).toEqual({});
+    // Every auth-gate surface shares the experiment; non-gate job_gate
+    // emitters such as the saved-jobs nudge remain excluded.
+    for (const cta of ['job_expired_email_unlock', 'job_orphan_email_unlock', 'job_bridge_email_unlock']) {
+      expect(jobGateNewsletterTags(cta)).toEqual({ experiment_id: 'jobgate-v5', variant: 'spotlight_quiet' });
     }
+    expect(jobGateNewsletterTags('saved_jobs_alert_nudge')).toEqual({});
   });
 
   it('matches every newsletter subscribe CTA the JobBoard gate emits', () => {
@@ -253,6 +255,27 @@ describe('telemetry and subscriber tags', () => {
     for (const call of calls) {
       const tagged = /experimentId: gateExperimentId/.test(call) && /variant: gateVariant/.test(call);
       expect(tagged || /\.\.\.jobGateFailTags/.test(call), call.slice(0, 120)).toBe(true);
+    }
+  });
+
+  it('wires every rendered auth gate into the same assignment and conversion readout', () => {
+    const surfaces = [
+      { file: 'components/community/JobBoard.tsx', surface: 'inline', cta: 'job_gate_email_unlock' },
+      { file: 'components/community/JobExpiredView.tsx', surface: 'expired', cta: 'job_expired_email_unlock' },
+      { file: 'components/community/JobOrphanView.tsx', surface: 'orphan', cta: 'job_orphan_email_unlock' },
+      { file: 'components/community/JobBridgeView.tsx', surface: 'bridge', cta: 'job_bridge_email_unlock' },
+    ];
+
+    for (const { file, surface, cta } of surfaces) {
+      const src = read(file);
+      expect(src, file).toContain('useJobGateExperiment(');
+      expect(src, file).toContain('recordJobGateExposure(jobGate)');
+      expect(src, file).toContain('jobGateSkin(jobGate.arm)');
+      expect(src, file).toContain('experimentId: gateExperimentId');
+      expect(src, file).toContain('variant: gateVariant');
+      expect(src, file).toContain(`surface: '${surface}'`);
+      expect(src, file).toContain(`sourceCta: '${cta}'`);
+      expect(src, file).toContain("Analytics.trackNewsletter('subscribe'");
     }
   });
 

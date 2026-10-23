@@ -33,6 +33,7 @@ jobs:
             /.github/corpus-workflows/
             /scripts/ci/prepare-crawler-workflow-corpus-sync.mjs
             /scripts/ci/translate-watchdog-pin.mjs
+            /scripts/lib/canonical-json-digest.mjs
             /scripts/lib/crawler-generation-group-ids.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/false-positive-declaration.mjs

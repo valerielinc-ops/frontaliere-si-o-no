@@ -25,6 +25,8 @@ import { useEffect, useState } from 'react';
 import { Analytics } from '@/services/analytics';
 import { getAssistedApplicationDistinctId } from '@/services/assistedApplicationExperiment';
 import { getConfigValue } from '@/services/firebase';
+import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
+import { isLikelyBot } from '@/services/botPatterns';
 import {
   JOBGATE_EXPERIMENT_ID,
   JOBGATE_NOT_ENROLLED,
@@ -44,6 +46,12 @@ export const JOBGATE_LOAD_TIMEOUT_MS = 3000;
  * the new v5 baseline exposure.
  */
 export const JOBGATE_ASSIGNED_STORAGE_KEY = 'frontaliere_jobgate_v5_assigned';
+
+/** Keep automated page loads out of every auth-gate surface. */
+export function shouldBypassJobGateExperiment(): boolean {
+ if (typeof navigator === 'undefined') return true;
+ return isCrawlerVisitorAgent(navigator.userAgent || '') || isLikelyBot();
+}
 
 let assignmentPromise: Promise<JobGateAssignment> | null = null;
 /** The settled assignment, readable synchronously so a gate rendered after it never starts as pending. */

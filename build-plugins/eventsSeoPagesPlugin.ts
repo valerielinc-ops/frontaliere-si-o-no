@@ -3966,6 +3966,7 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
   const out = new Map<string, string>();
 
   for (const locale of LOCALES) {
+    if (!shouldEmitLocale(locale)) continue;
     const records = events.map((event) => ({
       event,
       comune: event.comune || OTHER_EVENTS_COMUNE_KEY,
