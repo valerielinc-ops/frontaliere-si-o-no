@@ -439,13 +439,15 @@ if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
   for path_item in "${STANDARD_FILES[@]}"; do
     ALL_FILES+=("$path_item")
   done
-  for path_item in "${EXTRA_PATHS[@]}"; do
-    normalized_path="${path_item%/}"
-    if [[ "$path_item" == */ ]] || [[ -d "$normalized_path" ]]; then
-      continue
-    fi
-    ALL_FILES+=("$path_item")
-  done
+  if [ "${#EXTRA_PATHS[@]}" -gt 0 ]; then
+    for path_item in "${EXTRA_PATHS[@]}"; do
+      normalized_path="${path_item%/}"
+      if [[ "$path_item" == */ ]] || [[ -d "$normalized_path" ]]; then
+        continue
+      fi
+      ALL_FILES+=("$path_item")
+    done
+  fi
 fi
 
 # Resolve input paths to concrete files for snapshot/rebase-merge logic.

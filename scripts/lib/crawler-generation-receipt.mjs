@@ -671,7 +671,11 @@ export function runCrawlerGroupCommitBatchReceiptsCli() {
         const published = readCommitSnapshotBase(cwd, commit, file.path);
         const publishedState = published.blobOid === null ? 'absent' : 'present';
         if (publishedState !== file.state || published.blobOid !== file.blobOid || published.mode !== file.mode) {
-          throw new TypeError(`Crawler receipt repair snapshot mismatch: ${descriptor.crawlerId}:${file.path}`);
+          throw new TypeError(
+            `Crawler receipt repair snapshot mismatch: ${descriptor.crawlerId}:${file.path}`
+              + ` expected=${file.state}/${file.mode ?? '-'}:${file.blobOid ?? '-'}`
+              + ` published=${publishedState}/${published.mode ?? '-'}:${published.blobOid ?? '-'}`,
+          );
         }
       }
     }
