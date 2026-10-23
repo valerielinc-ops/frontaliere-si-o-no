@@ -183,6 +183,18 @@ const IST_ROLE_TENANT_SIGNAL_RE = /(?:\b(?:the\s+)?international\s+school\s+of\s
 const IST_GENERIC_SWISS_LOCATION_RE = /^(?:lugano|cadempino),\s*ch$/i;
 const IST_GENERIC_GROUP_ROLE_RE = /\binspired\s+education\s+group\s+school\b/i;
 const IST_GENERIC_IB_SCHOOL_RE = /\bib\s+world\s+school\b/i;
+const IST_CAMPUS_IDENTITY_FIELDS = [
+  'tenant',
+  'tenantName',
+  'facility',
+  'facilityName',
+  'school',
+  'schoolName',
+  'employer',
+  'organization',
+  'site',
+  'siteName',
+];
 const TRAILING_COUNTRY_CODE_RE = /,\s*([A-Za-z]{2})\s*$/;
 const IST_DETAIL_REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
 const IST_NATIVE_FIELD_ALIASES = {
@@ -212,6 +224,16 @@ function hasVerifiedIstRoleTenantSignal(detail = {}) {
   return IST_ROLE_TENANT_SIGNAL_RE.test(normalizeSpace(detail.description));
 }
 
+function hasConflictingCampusIdentity(detail = {}) {
+  return IST_CAMPUS_IDENTITY_FIELDS
+    .map((field) => normalize(detail[field]))
+    .filter(Boolean)
+    .some((value) => (
+      !IST_SHARED_PORTAL_COMPANIES.has(value)
+      && !IST_DETAIL_TENANT_RE.test(value)
+    ));
+}
+
 /**
  * The current portal has one Swiss vacancy whose native detail omits both
  * `facility` and `tenant`: it exposes only the shared organization, the
@@ -221,6 +243,7 @@ function hasVerifiedIstRoleTenantSignal(detail = {}) {
  * incomplete and cannot certify an empty IST source.
  */
 function hasVerifiedGenericSwissIstSignal(detail = {}, sourceUrl = detail.sourceUrl) {
+  if (hasConflictingCampusIdentity(detail)) return false;
   if (!IST_GENERIC_SWISS_LOCATION_RE.test(normalizeSpace(detail.location))) return false;
   if (!IST_GENERIC_GROUP_ROLE_RE.test(normalizeSpace(detail.description))) return false;
   if (!IST_GENERIC_IB_SCHOOL_RE.test(normalizeSpace(detail.description))) return false;
