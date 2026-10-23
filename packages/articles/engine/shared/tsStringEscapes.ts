@@ -66,7 +66,7 @@
  */
 
 /** `\uXXXX`, `\xNN`, `\u{...}`, or any single character following a backslash. */
-const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|[\s\S])/g;
+const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|0[0-9]|[\s\S])/g;
 
 const TS_CODE_POINT_ESCAPE_RX = /^(x[0-9a-fA-F]{2}|u\{[0-9a-fA-F]+\})/u;
 
@@ -125,7 +125,10 @@ export function decodeTsStringEscapeSequence(
     case 'b': return '\b';
     case 'f': return '\f';
     case 'v': return '\v';
-    case '0': return '\0';
+    // `\\01`..`\\07` are legacy octal spellings, not NUL followed by a
+    // digit. Preserve the source token so every reader fails closed instead
+    // of publishing a different value for the same literal.
+    case '0': return escape.length === 1 ? '\0' : undefined;
     case '\\': return '\\';
     case "'": return "'";
     case '"': return '"';
