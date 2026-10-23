@@ -135,6 +135,7 @@ function parseGithubPath(method, path) {
     return values.length <= 1 ? values[0] : null;
   };
   const validPerPage = () => !url.searchParams.has('per_page') || /^(?:[1-9]\d?|100)$/u.test(singleQueryValue('per_page') || '');
+  const validPage = () => !url.searchParams.has('page') || /^(?:[1-9]|10)$/u.test(singleQueryValue('page') || '');
   const validCreated = () => !url.searchParams.has('created') || /^(?:[<>]=?)?\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z?)?$/u.test(singleQueryValue('created') || '');
   const validStatus = () => !url.searchParams.has('status') || new Set(['queued', 'in_progress', 'completed', 'requested', 'waiting', 'pending']).has(singleQueryValue('status') || '');
   const validBranch = () => !url.searchParams.has('branch') || /^[^\s#?&]{1,120}$/u.test(singleQueryValue('branch') || '');
@@ -149,8 +150,9 @@ function parseGithubPath(method, path) {
     && segments[1] === 'workflows'
     && workflowFileValid
     && segments[3] === 'runs'
-    && hasOnlyQueryKeys(['created', 'per_page', 'status', 'branch'])
+    && hasOnlyQueryKeys(['created', 'per_page', 'page', 'status', 'branch'])
     && validPerPage()
+    && validPage()
     && validCreated()
     && validStatus()
     && validBranch()
@@ -163,8 +165,9 @@ function parseGithubPath(method, path) {
     && segments.length === 2
     && segments[0] === 'actions'
     && segments[1] === 'runs'
-    && hasOnlyQueryKeys(['created', 'per_page', 'status', 'branch'])
+    && hasOnlyQueryKeys(['created', 'per_page', 'page', 'status', 'branch'])
     && validPerPage()
+    && validPage()
     && validCreated()
     && validStatus()
     && validBranch()

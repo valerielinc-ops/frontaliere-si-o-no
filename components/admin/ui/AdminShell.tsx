@@ -3,6 +3,10 @@ import { Building2, Check, Command, Copy, LayoutDashboard, Newspaper, Search, Se
 import { useAdminWorkflow } from '@/components/admin/AdminWorkflowProvider';
 import { getAdminSection, type AdminSection, type AdminSectionGroup } from '@/components/admin/adminSections';
 import { adminSectionPath, navigateAdminSection, replaceAdminQuery } from '@/components/admin/lib/adminNavigation';
+import { buildAdminPaletteIndex, filterAdminPaletteIndex } from '@/components/admin/lib/adminPalette';
+import type { AdminPaletteItem, AdminPaletteItemKind } from '@/components/admin/lib/adminPalette';
+
+export type { AdminPaletteItem, AdminPaletteItemKind } from '@/components/admin/lib/adminPalette';
 
 const GROUPS: readonly AdminSectionGroup[] = ['oggi', 'lavoro', 'aziende', 'redazione', 'sistema'];
 
@@ -14,6 +18,8 @@ const GROUP_LABELS: Record<AdminSectionGroup, string> = {
   sistema: 'Sistema',
 };
 
+const EMPTY_PALETTE_ITEMS: readonly AdminPaletteItem[] = [];
+
 const GROUP_ICONS = {
   oggi: LayoutDashboard,
   lavoro: Workflow,
@@ -21,18 +27,6 @@ const GROUP_ICONS = {
   redazione: Newspaper,
   sistema: Settings2,
 } satisfies Record<AdminSectionGroup, typeof LayoutDashboard>;
-
-export type AdminPaletteItemKind = 'section' | 'action' | 'crawler' | 'company';
-
-export interface AdminPaletteItem {
-  id: string;
-  label: string;
-  kind: AdminPaletteItemKind;
-  group?: AdminSectionGroup;
-  description?: string;
-  section?: AdminSection;
-  onSelect?: () => void;
-}
 
 export interface AdminShellProps {
   sections: readonly AdminSection[];
@@ -127,9 +121,12 @@ function PaletteInput({
   );
 }
 
-export function AdminShell({ sections, activeSection, onNavigate, onCopyLink, copyFeedback, children, getGroupBadge, getSectionBadge, paletteItems = [] }: AdminShellProps) {
+export function AdminShell({ sections, activeSection, onNavigate, onCopyLink, copyFeedback, children, getGroupBadge, getSectionBadge, paletteItems = EMPTY_PALETTE_ITEMS }: AdminShellProps) {
   const workflow = useAdminWorkflow();
+  const workflowRef = useRef(workflow);
+  workflowRef.current = workflow;
   const [search, setSearch] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const searchRef = useRef<HTMLInputElement | null>(null);
@@ -153,18 +150,28 @@ export function AdminShell({ sections, activeSection, onNavigate, onCopyLink, co
       { id: 'action-newsletter-preview', label: 'Genera anteprima newsletter', kind: 'action', group: 'redazione', description: 'Apri Newsletter sulla sezione di anteprima.', onSelect: () => { navigateAdminSection('newsletter'); replaceAdminQuery({ azione: 'anteprima' }); } },
     ];
     const orchestrator = defaults.find((item) => item.id === 'action-orchestrator');
-    if (orchestrator) orchestrator.onSelect = () => { if (typeof workflow.runWorkflowWithConfirmation === 'function') void workflow.runWorkflowWithConfirmation('orchestrate-crawlers.yml'); else navigateAdminSection('automazioni'); };
+    if (orchestrator) orchestrator.onSelect = () => {
+      const currentWorkflow = workflowRef.current;
+      if (typeof currentWorkflow.runWorkflowWithConfirmation === 'function') void currentWorkflow.runWorkflowWithConfirmation('orchestrate-crawlers.yml');
+      else navigateAdminSection('automazioni');
+    };
     const all = [...sectionItems, ...defaults, ...paletteItems];
     const seen = new Set<string>();
     return all.filter((item) => { if (seen.has(item.id)) return false; seen.add(item.id); return true; });
-  }, [paletteItems, sections, workflow]);
+  }, [paletteItems, sections]);
 
-  const filteredItems = useMemo(() => {
-    const query = search.trim().toLocaleLowerCase('it-CH');
-    return items.filter((item) => !query || `${item.label} ${item.description || ''} ${item.group ? GROUP_LABELS[item.group] : ''}`.toLocaleLowerCase('it-CH').includes(query));
-  }, [items, search]);
+  const paletteIndex = useMemo(() => buildAdminPaletteIndex(items), [items]);
+  const largeSearch = search === debouncedSearch ? debouncedSearch : '';
+  const filteredItems = useMemo(
+    () => filterAdminPaletteIndex(paletteIndex, search, largeSearch),
+    [largeSearch, paletteIndex, search],
+  );
 
   useEffect(() => { setActiveIndex(0); }, [search]);
+  useEffect(() => {
+    const timeout = window.setTimeout(() => setDebouncedSearch(search), 100);
+    return () => window.clearTimeout(timeout);
+  }, [search]);
   useEffect(() => {
     const handleShortcut = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {

@@ -58,7 +58,7 @@ import { buildMemoryGuardPlugin } from './build-plugins/shared/buildMemoryGuard'
 // then flatHtmlRedirectPlugin (post-processor) converts each flat .html with a sibling /index.html into a
 // 301-style redirect bridge to close ~3.2k Semrush hreflang↔canonical conflicts.
 import { llmsTxtPlugin } from './build-plugins/llmsTxtPlugin';
-import { adminDataPlugin } from './build-plugins/adminDataPlugin';
+import { adminDataDevPlugin, adminDataPlugin } from './build-plugins/adminDataPlugin';
 import { crawlerRegistryPlugin } from './build-plugins/crawlerRegistryPlugin';
 import { localeJobsSplitPlugin } from './build-plugins/localeJobsSplitPlugin';
 import { expiredJobsSplitPlugin } from './build-plugins/expiredJobsSplitPlugin';
@@ -190,6 +190,7 @@ export default defineConfig(({ mode }) => {
  // served in place of data/news-ticker-data.ts — dev + FAST_BUILD + full builds.
  newsTickerDataPlugin(__dirname),
  preloadLocalePlugin(__dirname),
+ adminDataDevPlugin(__dirname),
  adminDataPlugin(__dirname),
  crawlerRegistryPlugin(__dirname),
  localeJobsSplitPlugin(__dirname), // SPA reads per-locale job JSONs at runtime

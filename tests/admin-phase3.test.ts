@@ -3,7 +3,9 @@ import { buildTodaySummary, formatTodayDate } from '@/components/admin/lib/admin
 import { csvText, datedExportFilename } from '@/components/admin/lib/csv';
 import { pageCount, pageSlice } from '@/components/admin/lib/pagination';
 import { describeCronForLocalDay, scheduledOccurrencesForLocalDay } from '@/services/adminCron';
-import { adminTodayRunsPath, failedCrawlerRunCount, type AdminTodayRun } from '@/services/adminTodayRuns';
+import { adminTodayRunsPath, adminTodayRunsTruncationNotice, failedCrawlerRunCount, loadAdminTodayRuns, type AdminTodayRun } from '@/services/adminTodayRuns';
+import { buildAdminPaletteIndex, filterAdminPaletteIndex, type AdminPaletteItem } from '@/components/admin/lib/adminPalette';
+import { adminDataDevPlugin, adminDataPlugin } from '../build-plugins/adminDataPlugin';
 import { buildAdminWorkflowSchedulePayload } from '../build-plugins/adminWorkflowSchedules';
 import { handleAdminAuditLog } from '../functions/src/adminAuditLog.js';
 import { sanitizeAdminAuditDetails } from '../functions/src/adminAudit.js';
@@ -25,6 +27,124 @@ describe('admin fase 3 pure contracts', () => {
     expect(describeCronForLocalDay('*/30 * * * *', '2026-03-29')).toHaveLength(46);
     expect(scheduledOccurrencesForLocalDay('0 0 1 * 1', '2026-06-01')).toHaveLength(1);
     expect(adminTodayRunsPath(new Date('2026-10-23T08:00:00.000Z'))).toMatch(/^\/actions\/runs\?created=%3E%3D.*&per_page=100&branch=main$/u);
+  });
+
+  it('pagina le run fino a coprire la finestra e segnala il tetto di sicurezza', async () => {
+    const calls: string[] = [];
+    const now = new Date('2026-10-23T08:00:00.000Z');
+    const fetchImpl = vi.fn(async (_url: string, options: RequestInit) => {
+      const requestBody = JSON.parse(String(options.body)) as { path: string };
+      const page = Number(new URL(requestBody.path, 'https://admin.invalid').searchParams.get('page') || '1');
+      calls.push(requestBody.path);
+      const count = page < 3 ? 100 : 50;
+      const runs = Array.from({ length: count }, (_, index) => ({
+        id: page * 1000 + index + 1,
+        path: '.github/workflows/crawler-group-1.yml',
+        status: 'completed',
+        conclusion: 'success',
+        created_at: '2026-10-23T07:00:00.000Z',
+        run_started_at: '2026-10-23T07:01:00.000Z',
+        updated_at: '2026-10-23T07:02:00.000Z',
+      }));
+      return new Response(JSON.stringify({ ok: true, data: { total_count: 250, workflow_runs: runs } }), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchImpl);
+    try {
+      const result = await loadAdminTodayRuns({ getIdToken: async () => 'token' }, now);
+      expect(result).toMatchObject({ truncated: false, totalFetched: 250 });
+      expect(calls).toHaveLength(3);
+      expect(calls[0]).not.toContain('&page=');
+      expect(calls[1]).toContain('&page=2');
+      expect(adminTodayRunsTruncationNotice(result)).toBeNull();
+
+      fetchImpl.mockImplementation(async (_url: string, options: RequestInit) => {
+        const requestBody = JSON.parse(String(options.body)) as { path: string };
+        const page = Number(new URL(requestBody.path, 'https://admin.invalid').searchParams.get('page') || '1');
+        calls.push(requestBody.path);
+        const runs = Array.from({ length: 100 }, (_, index) => ({
+          id: page * 1000 + index + 1,
+          path: '.github/workflows/crawler-group-1.yml',
+          status: 'completed',
+          conclusion: 'success',
+          created_at: '2026-10-23T07:00:00.000Z',
+          run_started_at: '2026-10-23T07:01:00.000Z',
+          updated_at: '2026-10-23T07:02:00.000Z',
+        }));
+        return new Response(JSON.stringify({ ok: true, data: { total_count: 1201, workflow_runs: runs } }), { status: 200 });
+      });
+      calls.length = 0;
+      const capped = await loadAdminTodayRuns({ getIdToken: async () => 'token' }, now);
+      expect(capped).toMatchObject({ truncated: true, totalFetched: 1000 });
+      expect(calls).toHaveLength(10);
+      expect(adminTodayRunsTruncationNotice(capped)).toBe('Esecuzioni troncate: mostrate le più recenti 1000.');
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('indicizza una volta le categorie grandi e limita aziende e crawler a 8 risultati', () => {
+    const companies: AdminPaletteItem[] = Array.from({ length: 5_000 }, (_, index) => ({
+      id: `company-${index}`,
+      label: `Azienda sintetica ${index}`,
+      kind: 'company',
+      group: 'aziende',
+    }));
+    const index = buildAdminPaletteIndex(companies);
+    const firstQuery = filterAdminPaletteIndex(index, 'azienda');
+    const secondQuery = filterAdminPaletteIndex(index, 'sintetica 49');
+    const shortQuery = filterAdminPaletteIndex(index, 'a');
+    expect(index.large).toHaveLength(5_000);
+    expect(firstQuery).toHaveLength(8);
+    expect(secondQuery).toHaveLength(8);
+    expect(shortQuery).toHaveLength(0);
+    expect(firstQuery.every((item) => item.kind === 'company')).toBe(true);
+  });
+
+  it('mantiene il plugin dei dati admin attivo anche in dev per registrare il middleware JSON', () => {
+    const buildPlugin = adminDataPlugin(process.cwd());
+    expect(buildPlugin.apply).toBe('build');
+    expect(buildPlugin.enforce).toBe('post');
+    expect(buildPlugin.configureServer).toBeUndefined();
+    expect(typeof buildPlugin.closeBundle).toBe('function');
+
+    const devPlugin = adminDataDevPlugin(process.cwd());
+    expect(devPlugin.apply).toBe('serve');
+    expect(devPlugin.enforce).toBeUndefined();
+    expect(devPlugin.closeBundle).toBeUndefined();
+    expect(typeof devPlugin.configureServer).toBe('function');
+    if (typeof devPlugin.configureServer === 'function') {
+      type DevRequest = { url?: string };
+      type DevResponse = { setHeader: (name: string, value: string) => void; end: (chunk?: string) => void };
+      type DevMiddleware = (request: DevRequest, response: DevResponse, next: () => void) => void;
+      type DevServerContract = { middlewares: { use: (middleware: DevMiddleware) => void } };
+      const registered: DevMiddleware[] = [];
+      const configureServer = devPlugin.configureServer as (server: DevServerContract) => void;
+      configureServer({
+        middlewares: {
+          use(middleware: DevMiddleware) {
+            registered.push(middleware);
+          },
+        },
+      });
+      expect(registered).toHaveLength(1);
+
+      const headers: Record<string, string> = {};
+      let body = '';
+      const request: DevRequest = { url: '/data/admin-workflow-schedules.json' };
+      const response = {
+        setHeader(name: string, value: string) {
+          headers[name] = value;
+        },
+        end(chunk?: string) {
+          body = chunk || '';
+        },
+      };
+      const next = vi.fn();
+      registered[0](request, response, next);
+      expect(next).not.toHaveBeenCalled();
+      expect(headers['Content-Type']).toBe('application/json');
+      expect(JSON.parse(body)).toEqual(expect.objectContaining({ timezone: 'Europe/Zurich', workflows: expect.any(Array) }));
+    }
   });
 
   it('conta solo i gruppi crawler falliti nella giornata locale', () => {

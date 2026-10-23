@@ -6,7 +6,7 @@ import { adminSectionPath } from '@/components/admin/lib/adminNavigation';
 import { buildTodaySummary, formatTodayDate } from '@/components/admin/lib/adminToday';
 import { describeCronForLocalDay, localDateKey } from '@/services/adminCron';
 import { loadAdminHealth, type AdminHealthSnapshot } from '@/services/adminHealth';
-import { failedCrawlerRunCount, isCrawlerWorkflowId, loadAdminTodayRuns, runIsOnLocalDay, type AdminTodayRun } from '@/services/adminTodayRuns';
+import { adminTodayRunsTruncationNotice, failedCrawlerRunCount, isCrawlerWorkflowId, loadAdminTodayRuns, runIsOnLocalDay, type AdminTodayRun } from '@/services/adminTodayRuns';
 import { fetchAdminEmployerInsights, type EmployerInsightsRow } from '@/services/adminInsights';
 import { fetchAssistedApplicationOrders, type AssistedApplicationAdminOrder, type AssistedApplicationAdminStatus } from '@/services/assistedApplicationAdminService';
 import { loadNewsletterStats, type NewsletterStats } from '@/components/admin/lib/newsletterStats';
@@ -50,6 +50,7 @@ interface TriageItem {
 interface TodaySourceErrors {
   schedule: string | null;
   runs: string | null;
+  runsTruncated: string | null;
 }
 
 async function loadSchedules(): Promise<SchedulePayload> {
@@ -192,11 +193,11 @@ export default function OggiSection() {
   const [newsletterStats, setNewsletterStats] = useState<NewsletterStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [sourceErrors, setSourceErrors] = useState<TodaySourceErrors>({ schedule: null, runs: null });
+  const [sourceErrors, setSourceErrors] = useState<TodaySourceErrors>({ schedule: null, runs: null, runsTruncated: null });
   const now = new Date();
 
   const refresh = useCallback(async () => {
-    setRefreshing(true); setSourceErrors({ schedule: null, runs: null });
+    setRefreshing(true); setSourceErrors({ schedule: null, runs: null, runsTruncated: null });
     const results = await Promise.allSettled([
       loadSchedules(),
       user ? loadAdminTodayRuns(user) : Promise.reject(new Error('github_auth_required')),
@@ -211,10 +212,13 @@ export default function OggiSection() {
       setSchedulePayload(null);
       setSourceErrors((current) => ({ ...current, schedule: 'Calendario dei workflow non disponibile: il file non è stato pubblicato.' }));
     }
-    if (runsResult.status === 'fulfilled') setActualRuns(runsResult.value);
+    if (runsResult.status === 'fulfilled') {
+      setActualRuns(runsResult.value.runs);
+      setSourceErrors((current) => ({ ...current, runsTruncated: adminTodayRunsTruncationNotice(runsResult.value) }));
+    }
     else {
       setActualRuns([]);
-      setSourceErrors((current) => ({ ...current, runs: 'Esecuzioni GitHub non disponibili: il tabellone mostra solo la pianificazione.' }));
+      setSourceErrors((current) => ({ ...current, runs: 'Esecuzioni GitHub non disponibili: il tabellone mostra solo la pianificazione.', runsTruncated: null }));
     }
     if (healthResult.status === 'fulfilled') setHealth(healthResult.value);
     if (insightResult.status === 'fulfilled') setInsights(insightResult.value);
@@ -276,7 +280,7 @@ export default function OggiSection() {
 
       <div className="grid grid-cols-3 gap-2 lg:hidden" aria-label="Riepilogo rapido"><span className="rounded-full border border-warning-border bg-warning-subtle px-2 py-2 text-center text-xs font-medium text-warning">Tocca a te · {user ? triage.reduce((total, item) => total + item.count, 0) : '—'}</span><span className="rounded-full border border-accent-border bg-accent-subtle px-2 py-2 text-center text-xs font-medium text-accent">In corso · {schedulePayload ? boardStats.running : '—'}</span><span className="rounded-full border border-success-border bg-success-subtle px-2 py-2 text-center text-xs font-medium text-success">Tutto ok · {schedulePayload ? boardStats.completed : '—'}</span></div>
 
-      {(sourceErrors.schedule || sourceErrors.runs) && <div role="status" className="space-y-2 rounded-stripe border border-warning-border bg-warning-subtle px-4 py-3 text-sm text-warning">{sourceErrors.schedule && <p>{sourceErrors.schedule}</p>}{sourceErrors.runs && <p>{sourceErrors.runs}</p>}</div>}
+      {(sourceErrors.schedule || sourceErrors.runs || sourceErrors.runsTruncated) && <div role="status" className="space-y-2 rounded-stripe border border-warning-border bg-warning-subtle px-4 py-3 text-sm text-warning">{sourceErrors.schedule && <p>{sourceErrors.schedule}</p>}{sourceErrors.runs && <p>{sourceErrors.runs}</p>}{sourceErrors.runsTruncated && <p>{sourceErrors.runsTruncated}</p>}</div>}
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,2fr)_minmax(20rem,1fr)] xl:items-start xl:gap-5">
         <section aria-labelledby="oggi-board-title" className="order-2 min-w-0 space-y-3 xl:order-1"><div className="flex items-center gap-2"><CalendarClock size={18} className="text-accent" aria-hidden="true" /><h2 id="oggi-board-title" className="font-display text-xl font-light text-heading">Tabellone delle esecuzioni</h2><span className="text-sm text-subtle">Europe/Zurich</span></div><div className="hidden min-w-0 max-w-full overflow-x-auto rounded-stripe border border-edge bg-surface lg:block"><table className="w-full table-fixed text-left text-sm"><caption className="sr-only">Run workflow previste oggi e stato reale</caption><colgroup><col className="w-[9%]" /><col className="w-[25%]" /><col className="w-[14%]" /><col className="w-[16%]" /><col className="w-[11%]" /><col className="w-[10%]" /><col className="w-[15%]" /></colgroup><thead className="bg-surface-alt text-xs font-semibold text-muted"><tr><th scope="col" className="whitespace-normal break-words px-2 py-3 leading-4">Ora</th><th scope="col" className="whitespace-normal break-words px-2 py-3 leading-4">Workflow</th><th scope="col" className="whitespace-normal break-words px-2 py-3 leading-4">Impatto</th><th scope="col" className="whitespace-normal break-words px-2 py-3 leading-4">Stato</th><th scope="col" className="whitespace-normal break-words px-2 py-3 leading-4">Durata</th><th scope="col" className="whitespace-normal break-words px-2 py-3 leading-4">Δ annunci</th><th scope="col" className="whitespace-normal break-words px-2 py-3 text-right leading-4">Azione</th></tr></thead><tbody>{rows.map((row) => <BoardTableRow key={row.id} row={row} onRetry={retryBoardRow} />)}{rows.length === 0 && <tr><td colSpan={7} className="whitespace-normal break-words px-4 py-8 text-center text-subtle">{boardEmptyMessage}</td></tr>}</tbody></table></div><div className="space-y-3 lg:hidden">{rows.map((row) => <BoardCard key={row.id} row={row} onRetry={retryBoardRow} />)}{rows.length === 0 && <p className="rounded-stripe border border-edge bg-surface px-4 py-8 text-center text-sm text-subtle">{boardEmptyMessage}</p>}</div></section>

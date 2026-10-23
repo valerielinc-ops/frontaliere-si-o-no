@@ -2,8 +2,13 @@ import { cleanup, render, screen, waitFor, within } from '@testing-library/react
 import type { ReactNode } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
+const renderMocks = vi.hoisted(() => ({
+  user: null as { getIdToken: () => Promise<string> } | null,
+  loadAdminTodayRuns: vi.fn(async () => ({ runs: [], truncated: false, totalFetched: 0 })),
+}));
+
 vi.mock('@/services/authService', () => ({
-  useAuth: () => ({ user: null, loading: false }),
+  useAuth: () => ({ user: renderMocks.user, loading: false }),
 }));
 
 vi.mock('@/components/admin/AdminWorkflowProvider', () => ({
@@ -30,9 +35,10 @@ vi.mock('@/services/adminHealth', () => ({
 }));
 
 vi.mock('@/services/adminTodayRuns', () => ({
+  adminTodayRunsTruncationNotice: (result: { truncated: boolean; totalFetched: number }) => result.truncated ? `Esecuzioni troncate: mostrate le più recenti ${result.totalFetched}.` : null,
   failedCrawlerRunCount: () => 0,
   isCrawlerWorkflowId: () => false,
-  loadAdminTodayRuns: vi.fn(async () => []),
+  loadAdminTodayRuns: renderMocks.loadAdminTodayRuns,
   runIsOnLocalDay: () => false,
 }));
 
@@ -77,6 +83,9 @@ describe('Oggi board layout', () => {
 
   afterEach(() => {
     cleanup();
+    renderMocks.user = null;
+    renderMocks.loadAdminTodayRuns.mockReset();
+    renderMocks.loadAdminTodayRuns.mockResolvedValue({ runs: [], truncated: false, totalFetched: 0 });
     vi.unstubAllGlobals();
   });
 
@@ -91,5 +100,18 @@ describe('Oggi board layout', () => {
     expect(within(table).getByRole('columnheader', { name: 'Azione' })).toBeInTheDocument();
     expect(emptyMessage).toHaveAttribute('colspan', '7');
     expect(emptyMessage).toHaveClass('whitespace-normal', 'break-words');
+  });
+
+  it('rende visibile il limite delle esecuzioni quando la paginazione è troncata', async () => {
+    renderMocks.user = { getIdToken: async () => 'token' };
+    renderMocks.loadAdminTodayRuns.mockResolvedValue({ runs: [], truncated: true, totalFetched: 1000 });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ generatedAt: '2026-10-23T08:00:00.000Z', timezone: 'Europe/Zurich', workflows: [] }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    })));
+
+    render(<OggiSection />);
+
+    expect(await screen.findByText('Esecuzioni troncate: mostrate le più recenti 1000.')).toBeInTheDocument();
   });
 });

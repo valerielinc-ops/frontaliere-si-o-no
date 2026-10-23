@@ -189,7 +189,7 @@ function AdminAppContent({ requestedSection, shellVariant }: { requestedSection?
       if (!mounted) return;
       const insights = insightsResult.status === 'fulfilled' ? insightsResult.value : [];
       const applications = applicationsResult.status === 'fulfilled' ? applicationsResult.value.flat() : [];
-      const runs = runsResult.status === 'fulfilled' ? runsResult.value : [];
+      const runs = runsResult.status === 'fulfilled' ? runsResult.value.runs : [];
       const newsletterAvailable = newsletterResult.status === 'fulfilled';
       const crawlerFailures = runsResult.status === 'fulfilled' ? failedCrawlerRunCount(runs, localDateKey(new Date())) : undefined;
       setNavigationBadges({
@@ -247,7 +247,7 @@ function AdminAppContent({ requestedSection, shellVariant }: { requestedSection?
   }), [activeSection, copyCanonicalLink, locationKey]);
 
   const selectedSection = getAdminSection(activeSection);
-  const visibleSections = getVisibleAdminSections();
+  const visibleSections = useMemo(() => getVisibleAdminSections(), []);
   const SectionComponent = SECTION_COMPONENTS[selectedSection.slug] || OggiSection;
   const crawlerBadge = navigationBadges.crawler ?? workflow.getSummary('jobs').error;
   const ownerTriageCount = crawlerBadge + (navigationBadges.aziende || 0) + (navigationBadges.candidature || 0) + (navigationBadges.newsletter || 0);
