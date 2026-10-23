@@ -366,16 +366,7 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-10-23T21:31:47.261Z",
-      "previousSlugs": [
-        "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -388,6 +379,25 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
+      },
+      "firstSeenAt": "2026-09-25T15:00:06.553Z",
+      "previousSlugs": [
+        "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen",
+        "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen-5f09966478",
+        "technical-r-operational-employee-hydropower-plant-gosgen-alpiq-niedergosgen",
+        "technique-r-employes-operationnels-centrale-hydroelectrique-gosgen-alpiq-niedergosgen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen",
+          "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen-5f09966478"
+        ],
+        "en": [
+          "technical-r-operational-employee-hydropower-plant-gosgen-alpiq-niedergosgen"
+        ],
+        "fr": [
+          "technique-r-employes-operationnels-centrale-hydroelectrique-gosgen-alpiq-niedergosgen"
+        ]
       }
     },
     {

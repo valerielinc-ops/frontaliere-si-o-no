@@ -4063,12 +4063,12 @@
     },
     {
       "id": "amstein-walthert-703fe5ad2145",
-      "slug": "responsabile-di-progetto-sanitar-80-100-amstein-walthert-ag-frauenfeld",
+      "slug": "responsabile-di-progetto-per-gli-impianti-sanitari-80-100-amstein-walthert-ag-frauenfeld-pige78950",
       "slugByLocale": {
         "de": "projektleiter-in-sanitar-80-100-amstein-walthert-frauenfeld-pige78950",
-        "it": "responsabile-di-progetto-sanitar-80-100-amstein-walthert-ag-frauenfeld",
-        "en": "projektleiter-in-sanitar-80-100-amstein-walthert-frauenfeld-pige78950",
-        "fr": "projektleiter-in-sanitar-80-100-amstein-walthert-frauenfeld-pige78950"
+        "it": "responsabile-di-progetto-per-gli-impianti-sanitari-80-100-amstein-walthert-ag-frauenfeld-pige78950",
+        "en": "plumbing-project-manager-80-100-amstein-walthert-ag-frauenfeld-pige78950",
+        "fr": "responsable-de-projet-en-installations-sanitaires-80-100-amstein-walthert-ag-frauenfeld-pige78950"
       },
       "company": "Amstein + Walthert AG",
       "companyKey": "amstein-walthert",
@@ -4116,14 +4116,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-sanitar-80-100-amstein-walthert-frauenfeld-pige78950",
+          "responsabile-di-progetto-sanitar-80-100-amstein-walthert-ag-frauenfeld"
+        ],
+        "en": [
+          "projektleiter-in-sanitar-80-100-amstein-walthert-frauenfeld-pige78950"
+        ],
+        "fr": [
           "projektleiter-in-sanitar-80-100-amstein-walthert-frauenfeld-pige78950"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-sanitar-80-100-amstein-walthert-frauenfeld-pige78950"
+        "projektleiter-in-sanitar-80-100-amstein-walthert-frauenfeld-pige78950",
+        "responsabile-di-progetto-sanitar-80-100-amstein-walthert-ag-frauenfeld"
       ],
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -4142,12 +4149,12 @@
     },
     {
       "id": "amstein-walthert-b587478ef3ba",
-      "slug": "teamleiter-in-luftungs-e-klimatechnik-80-100-amstein-walthert-ag-frauenfeld",
+      "slug": "responsabile-del-team-di-ventilazione-e-climatizzazione-80-100-amstein-walthert-ag-frauenfeld-pige342613",
       "slugByLocale": {
         "de": "teamleiter-in-luftungs-und-klimatechnik-80-100-amstein-walthert-frauenfeld-pige342613",
-        "it": "teamleiter-in-luftungs-e-klimatechnik-80-100-amstein-walthert-ag-frauenfeld",
-        "en": "teamleiter-in-luftungs-und-klimatechnik-80-100-amstein-walthert-frauenfeld-pige342613",
-        "fr": "teamleiter-in-luftungs-und-klimatechnik-80-100-amstein-walthert-frauenfeld-pige342613"
+        "it": "responsabile-del-team-di-ventilazione-e-climatizzazione-80-100-amstein-walthert-ag-frauenfeld-pige342613",
+        "en": "team-leader-ventilation-and-air-conditioning-technology-80-100-amstein-walthert-ag-frauenfeld-pige342613",
+        "fr": "responsable-d-equipe-en-technique-de-ventilation-et-de-climatisation-80-100-amstein-walthert-ag-frauenfeld-pige342613"
       },
       "company": "Amstein + Walthert AG",
       "companyKey": "amstein-walthert",
@@ -4195,14 +4202,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "teamleiter-in-luftungs-und-klimatechnik-80-100-amstein-walthert-frauenfeld-pige342613",
+          "teamleiter-in-luftungs-e-klimatechnik-80-100-amstein-walthert-ag-frauenfeld"
+        ],
+        "en": [
+          "teamleiter-in-luftungs-und-klimatechnik-80-100-amstein-walthert-frauenfeld-pige342613"
+        ],
+        "fr": [
           "teamleiter-in-luftungs-und-klimatechnik-80-100-amstein-walthert-frauenfeld-pige342613"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-luftungs-und-klimatechnik-80-100-amstein-walthert-frauenfeld-pige342613"
+        "teamleiter-in-luftungs-und-klimatechnik-80-100-amstein-walthert-frauenfeld-pige342613",
+        "teamleiter-in-luftungs-e-klimatechnik-80-100-amstein-walthert-ag-frauenfeld"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -4225,8 +4239,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-luftung-80-100-amstein-walthert-frauenfeld-pige77421",
         "it": "responsabile-di-progetto-luftung-80-100-amstein-walthert-ag-frauenfeld",
-        "en": "projektleiter-in-luftung-80-100-amstein-walthert-frauenfeld-pige77421",
-        "fr": "projektleiter-in-luftung-80-100-amstein-walthert-frauenfeld-pige77421"
+        "en": "ventilation-project-manager-80-100-amstein-walthert-ag-frauenfeld-pige77421",
+        "fr": "responsable-de-projet-en-ventilation-80-100-amstein-walthert-ag-frauenfeld-pige77421"
       },
       "company": "Amstein + Walthert AG",
       "companyKey": "amstein-walthert",
@@ -4274,9 +4288,14 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-luftung-80-100-amstein-walthert-frauenfeld-pige77421"
+        ],
+        "en": [
+          "projektleiter-in-luftung-80-100-amstein-walthert-frauenfeld-pige77421"
+        ],
+        "fr": [
           "projektleiter-in-luftung-80-100-amstein-walthert-frauenfeld-pige77421"
         ]
       },

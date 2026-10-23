@@ -3327,12 +3327,12 @@
     },
     {
       "id": "ubs-a1d01d2a91ce",
-      "slug": "2027-graduate-talent-program-information-security-office-tech-risk-ubs-zurich",
+      "slug": "2027-graduate-talent-program-ufficio-di-sicurezza-delle-informazioni-rischio-tecnico-ubs-zurich",
       "slugByLocale": {
         "en": "2027-graduate-talent-program-information-security-office-tech-risk-ubs-zurich",
-        "it": "2027-graduate-talent-program-information-security-office-tech-risk-ubs-zurich",
+        "it": "2027-graduate-talent-program-ufficio-di-sicurezza-delle-informazioni-rischio-tecnico-ubs-zurich",
         "de": "2027-graduate-talent-program-information-security-office-tech-risk-ubs-zurich",
-        "fr": "2027-graduate-talent-program-information-security-office-tech-risk-ubs-zurich"
+        "fr": "2027-programme-des-talents-diplomes-bureau-de-la-securite-de-l-information-risque-technologique-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3399,7 +3399,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-23T21:19:23.131Z"
+      "firstSeenAt": "2026-10-23T21:19:23.131Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-information-security-office-tech-risk-ubs-zurich"
+        ],
+        "fr": [
+          "2027-graduate-talent-program-information-security-office-tech-risk-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-information-security-office-tech-risk-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-389feb342bd3",
@@ -3478,12 +3489,12 @@
     },
     {
       "id": "ubs-cef186bb1280",
-      "slug": "2027-graduate-talent-program-obtaining-pension-solutions-zurich-ubs-zurich",
+      "slug": "2027-graduate-talent-program-ottenere-soluzioni-pensione-zurigo-ubs-zurich",
       "slugByLocale": {
         "en": "2027-graduate-talent-program-obtaining-pension-solutions-zurich-ubs-zurich",
-        "it": "2027-graduate-talent-program-obtaining-pension-solutions-zurich-ubs-zurich",
-        "de": "2027-graduate-talent-program-obtaining-pension-solutions-zurich-ubs-zurich",
-        "fr": "2027-graduate-talent-program-obtaining-pension-solutions-zurich-ubs-zurich"
+        "it": "2027-graduate-talent-program-ottenere-soluzioni-pensione-zurigo-ubs-zurich",
+        "de": "2027-graduiertentalentprogramm-rentenlosungen-erhalten-zurich-ubs-zurich",
+        "fr": "2027-programme-des-talents-diplomes-obtenir-des-solutions-de-retraite-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3550,16 +3561,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-23T21:19:22.090Z"
+      "firstSeenAt": "2026-10-23T21:19:22.090Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-obtaining-pension-solutions-zurich-ubs-zurich"
+        ],
+        "de": [
+          "2027-graduate-talent-program-obtaining-pension-solutions-zurich-ubs-zurich"
+        ],
+        "fr": [
+          "2027-graduate-talent-program-obtaining-pension-solutions-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-obtaining-pension-solutions-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-0cd2dbcb3172",
-      "slug": "2027-graduate-talent-program-p-c-chief-operations-office-zurich-ubs-zurich",
+      "slug": "2027-graduate-talent-program-ufficio-operazioni-capo-p-c-zurigo-ubs-zurich",
       "slugByLocale": {
         "en": "2027-graduate-talent-program-p-c-chief-operations-office-zurich-ubs-zurich",
-        "it": "2027-graduate-talent-program-p-c-chief-operations-office-zurich-ubs-zurich",
+        "it": "2027-graduate-talent-program-ufficio-operazioni-capo-p-c-zurigo-ubs-zurich",
         "de": "2027-graduate-talent-program-p-c-chief-operations-office-zurich-ubs-zurich",
-        "fr": "2027-graduate-talent-program-p-c-chief-operations-office-zurich-ubs-zurich"
+        "fr": "2027-programme-des-talents-diplomes-bureau-des-operations-en-chef-de-p-c-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3626,7 +3651,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-23T21:19:21.580Z"
+      "firstSeenAt": "2026-10-23T21:19:21.580Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-p-c-chief-operations-office-zurich-ubs-zurich"
+        ],
+        "fr": [
+          "2027-graduate-talent-program-p-c-chief-operations-office-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-p-c-chief-operations-office-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-65779832985d",
@@ -3635,7 +3671,7 @@
         "en": "2027-graduate-talent-program-business-risk-management-f2b-zurich-ubs-zurich",
         "it": "2027-graduate-talent-program-business-risk-management-f2b-zurich-ubs-zurich",
         "de": "2027-graduate-talent-program-business-risk-management-f2b-zurich-ubs-zurich",
-        "fr": "2027-graduate-talent-program-business-risk-management-f2b-zurich-ubs-zurich"
+        "fr": "2027-programme-des-talents-diplomes-gestion-des-risques-d-entreprise-f2b-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -9745,7 +9781,7 @@
         "it": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -9799,8 +9835,7 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "event-attendant-hourly-paid-ubs-geneve-2",
-        "participant-a-l-evenement-paye-en-heures-ubs-geneve"
+        "event-attendant-hourly-paid-ubs-geneve-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9812,7 +9847,7 @@
         ],
         "fr": [
           "event-attendant-hourly-paid-ubs-geneve-2",
-          "participant-a-l-evenement-paye-en-heures-ubs-geneve"
+          "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
@@ -10407,7 +10442,7 @@
       "slug": "client-advisor-retail-acacias-ubs-suisse-romande",
       "slugByLocale": {
         "it": "client-advisor-retail-acacias-ubs-suisse-romande",
-        "en": "client-advisor-retail-acacias-ubs-suisse-romande",
+        "en": "clients-of-the-market-ubs-suisse-romande",
         "de": "client-advisor-retail-acacias-ubs-suisse-romande",
         "fr": "client-advisor-retail-acacias-ubs-suisse-romande"
       },
@@ -10461,14 +10496,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-10-14T15:29:53.147Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "clients-of-the-market-ubs-suisse-romande"
-        ]
-      },
-      "previousSlugs": [
-        "clients-of-the-market-ubs-suisse-romande"
-      ],
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -11704,7 +11731,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -11760,10 +11787,14 @@
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "salaryMin": 117000,
       "salaryMax": 180000,

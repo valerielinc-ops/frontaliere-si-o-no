@@ -412,11 +412,11 @@
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-a6e1502aa7d7",
-      "slug": "medecin-chef-fe-de-service-a-100-rhne-reseau-hospitalier-neuchatelois-la-chaux-de-fonds",
+      "slug": "ufficiale-medico-al-100-reseau-hospitalier-neuchatelois-rhne-la-chaux-de-fonds",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-service-a-100-rhne-reseau-hospitalier-neuchatelois-la-chaux-de-fonds",
-        "it": "medecin-chef-fe-de-service-a-100-rhne-reseau-hospitalier-neuchatelois-la-chaux-de-fonds",
-        "en": "medecin-chef-fe-de-service-a-100-rhne-reseau-hospitalier-neuchatelois-la-chaux-de-fonds",
+        "it": "ufficiale-medico-al-100-reseau-hospitalier-neuchatelois-rhne-la-chaux-de-fonds",
+        "en": "100-chief-medical-officer-reseau-hospitalier-neuchatelois-rhne-la-chaux-de-fonds",
         "de": "medecin-chef-fe-de-service-a-100-rhne-reseau-hospitalier-neuchatelois-la-chaux-de-fonds"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -476,7 +476,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:27:36.690Z"
+      "firstSeenAt": "2026-10-23T21:27:36.690Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-de-service-a-100-rhne-reseau-hospitalier-neuchatelois-la-chaux-de-fonds"
+        ],
+        "en": [
+          "medecin-chef-fe-de-service-a-100-rhne-reseau-hospitalier-neuchatelois-la-chaux-de-fonds"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-de-service-a-100-rhne-reseau-hospitalier-neuchatelois-la-chaux-de-fonds"
+      ]
     }
   ]
 }

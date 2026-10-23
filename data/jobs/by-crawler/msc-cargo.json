@@ -89,8 +89,8 @@
       "slugByLocale": {
         "en": "product-storytelling-and-creative-design-manager-msc-geneva",
         "it": "product-storytelling-and-creative-design-manager-msc-geneva",
-        "de": "product-storytelling-and-creative-design-manager-msc-geneva",
-        "fr": "product-storytelling-and-creative-design-manager-msc-geneva"
+        "de": "manager-fur-produkt-storytelling-und-kreatives-design-msc-group-geneva",
+        "fr": "recit-de-produit-et-responsable-du-design-creatif-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -151,19 +151,11 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-10-20T09:22:40.433Z",
       "previousSlugsByLocale": {
-        "de": [
-          "manager-fur-produkt-storytelling-und-kreatives-design-msc-group-geneva"
-        ],
-        "fr": [
-          "recit-de-produit-et-responsable-du-design-creatif-msc-group-geneva"
-        ],
         "it": [
           "storytelling-del-prodotto-e-creative-design-manager-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "manager-fur-produkt-storytelling-und-kreatives-design-msc-group-geneva",
-        "recit-de-produit-et-responsable-du-design-creatif-msc-group-geneva",
         "storytelling-del-prodotto-e-creative-design-manager-msc-group-geneva"
       ]
     },
@@ -947,12 +939,12 @@
     },
     {
       "id": "msc-cargo-b06079cfe661",
-      "slug": "jewellery-product-development-senior-manager-msc-geneva",
+      "slug": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
       "slugByLocale": {
         "en": "jewellery-product-development-senior-manager-msc-geneva",
-        "it": "jewellery-product-development-senior-manager-msc-geneva",
-        "de": "jewellery-product-development-senior-manager-msc-geneva",
-        "fr": "jewellery-product-development-senior-manager-msc-geneva"
+        "it": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
+        "de": "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
+        "fr": "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1014,28 +1006,27 @@
       "firstSeenAt": "2026-10-04T09:20:24.512Z",
       "previousSlugsByLocale": {
         "it": [
-          "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
           "senior-manager-dello-sviluppo-dei-prodotti-di-gioielleria-msc-group-geneva",
           "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
           "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
-          "schmuckproduktentwicklung-senior-manager-msc-group-geneva"
+          "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
+          "jewellery-product-development-senior-manager-msc-geneva"
         ],
         "de": [
-          "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-          "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva"
+          "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
+          "jewellery-product-development-senior-manager-msc-geneva"
         ],
         "fr": [
-          "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva",
-          "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva"
+          "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
+          "jewellery-product-development-senior-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
         "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-        "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva",
         "senior-manager-dello-sviluppo-dei-prodotti-di-gioielleria-msc-group-geneva",
         "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
-        "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva"
+        "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
+        "jewellery-product-development-senior-manager-msc-geneva"
       ]
     },
     {
@@ -1045,7 +1036,7 @@
         "en": "visual-merchandising-manager-msc-geneva",
         "it": "visual-merchandising-manager-msc-geneva",
         "de": "visual-merchandising-manager-msc-geneva",
-        "fr": "visual-merchandising-manager-msc-geneva"
+        "fr": "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1107,7 +1098,6 @@
       "firstSeenAt": "2026-10-04T09:20:23.745Z",
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
           "responsable-merchandising-visuel-msc-group-geneva"
         ],
         "it": [
@@ -1559,7 +1549,7 @@
         "it": "risorse-umane-direttore-msc-group-geneva",
         "en": "hr-director-msc-geneva",
         "de": "personalwesen-direktor-msc-group-geneva",
-        "fr": "hr-director-msc-group-geneva"
+        "fr": "directeur-des-ressources-humaines-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1605,7 +1595,7 @@
       "previousSlugs": [
         "directeur-rh-msc-group-geneva",
         "hr-director-msc-geneva",
-        "directeur-des-ressources-humaines-msc-group-geneva"
+        "hr-director-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1617,7 +1607,7 @@
         ],
         "fr": [
           "directeur-rh-msc-group-geneva",
-          "directeur-des-ressources-humaines-msc-group-geneva"
+          "hr-director-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-10-03T09:25:31.059Z",

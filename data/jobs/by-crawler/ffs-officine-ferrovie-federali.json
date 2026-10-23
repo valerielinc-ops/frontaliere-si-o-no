@@ -1,7 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
   "assembledAt": "2026-10-23T21:32:11.786Z",
-  "runId": "40025478305",
   "jobs": [
     {
       "id": "sbb-3b00c4c42be3",
@@ -10888,7 +10887,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-cb132e80c76e",
@@ -13179,5 +13180,6 @@
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-innen-elektroinstallateur-in-automatiker-in/615a1b67-f79b-4e0a-98de-7ffffd309378",
       "crawlerMissStreak": 2
     }
-  ]
+  ],
+  "runId": "40025478305"
 }

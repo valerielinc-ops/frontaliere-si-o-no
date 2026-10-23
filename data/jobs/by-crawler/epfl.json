@@ -2052,7 +2052,9 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "epfl-d3fbf1d979eb",

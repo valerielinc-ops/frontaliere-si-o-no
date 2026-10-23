@@ -8,9 +8,9 @@
       "slug": "pflegedienstleiter-medipersonal-visp-wallis",
       "slugByLocale": {
         "de": "pflegedienstleiter-medipersonal-visp-wallis",
-        "it": "pflegedienstleiter-medipersonal-visp-wallis",
-        "en": "pflegedienstleiter-medipersonal-visp-wallis",
-        "fr": "pflegedienstleiter-medipersonal-visp-wallis"
+        "it": "servizi-di-assistenza-medipersonal-visp-wallis",
+        "en": "care-services-manager-medipersonal-visp-wallis",
+        "fr": "gestionnaire-des-services-de-soins-medipersonal-visp-wallis"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -79,9 +79,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-medipersonal-rumlang-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-medipersonal-rumlang-zurich",
-        "it": "dipl-pflegefachfrau-mann-hf-medipersonal-rumlang-zurich",
-        "en": "dipl-pflegefachfrau-mann-hf-medipersonal-rumlang-zurich",
-        "fr": "dipl-pflegefachfrau-mann-hf-medipersonal-rumlang-zurich"
+        "it": "infermiere-a-diplomato-a-hf-medipersonal-rumlang-zurich",
+        "en": "qualified-nurse-hf-medipersonal-rumlang-zurich",
+        "fr": "infirmier-ere-diplome-e-es-medipersonal-rumlang-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -122,7 +122,6 @@
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-80-100-gesucht-ruemlang-gestalte-die-zukunft-der-pflege/",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -148,12 +147,12 @@
     },
     {
       "id": "ipersonal-71eb908e7163",
-      "slug": "jobs-fachpersonen-langzeitpflege-betreuung-in-dietlikon-jetzt-durchstarten-medipersonal-deutschschweiz-zurich",
+      "slug": "jobs-professionisti-a-lungo-termine-care-care-in-dietlikon-inizia-subito-medipersonal-deutschschweiz-zurich",
       "slugByLocale": {
         "de": "jobs-fachpersonen-langzeitpflege-betreuung-in-dietlikon-jetzt-durchstarten-medipersonal-deutschschweiz-zurich",
-        "it": "jobs-fachpersonen-langzeitpflege-betreuung-in-dietlikon-jetzt-durchstarten-medipersonal-deutschschweiz-zurich",
-        "en": "jobs-fachpersonen-langzeitpflege-betreuung-in-dietlikon-jetzt-durchstarten-medipersonal-deutschschweiz-zurich",
-        "fr": "jobs-fachpersonen-langzeitpflege-betreuung-in-dietlikon-jetzt-durchstarten-medipersonal-deutschschweiz-zurich"
+        "it": "jobs-professionisti-a-lungo-termine-care-care-in-dietlikon-inizia-subito-medipersonal-deutschschweiz-zurich",
+        "en": "jobs-professionals-long-term-care-care-in-dietlikon-start-now-medipersonal-deutschschweiz-zurich",
+        "fr": "emplois-soins-et-soins-de-longue-duree-a-dietlikon-commencez-maintenant-medipersonal-deutschschweiz-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -207,16 +206,30 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-23T21:11:33.098Z"
+      "firstSeenAt": "2026-10-23T21:11:33.098Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-dietlikon-jetzt-durchstarten-medipersonal-deutschschweiz-zurich"
+        ],
+        "en": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-dietlikon-jetzt-durchstarten-medipersonal-deutschschweiz-zurich"
+        ],
+        "fr": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-dietlikon-jetzt-durchstarten-medipersonal-deutschschweiz-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "jobs-fachpersonen-langzeitpflege-betreuung-in-dietlikon-jetzt-durchstarten-medipersonal-deutschschweiz-zurich"
+      ]
     },
     {
       "id": "ipersonal-72197160d852",
       "slug": "assistent-in-gesundheit-e-soziales-afp-medipersonal-eschlikon-thurgau",
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-eba-medipersonal-eschlikon-thurgau",
-        "it": "assistent-in-gesundheit-e-soziales-afp-medipersonal-eschlikon-thurgau",
-        "en": "assistent-in-gesundheit-und-soziales-eba-medipersonal-eschlikon-thurgau",
-        "fr": "assistent-in-gesundheit-und-soziales-eba-medipersonal-eschlikon-thurgau"
+        "it": "assistente-sanitario-a-e-sociale-eba-medipersonal-eschlikon-thurgau",
+        "en": "health-and-social-care-assistant-eba-medipersonal-eschlikon-thurgau",
+        "fr": "assistant-e-en-soins-et-accompagnement-afp-medipersonal-eschlikon-thurgau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -257,11 +270,16 @@
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/assistent-in-gesundheit-und-soziales-eba-80-100-fuer-eschlikon-gesucht-dein-einstieg-in-die-pflegebranche/",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-eba-medipersonal-eschlikon-thurgau",
           "assistent-in-gesundheit-e-soziales-afp-medipersonal-eschlikon"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-eba-medipersonal-eschlikon-thurgau"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-eba-medipersonal-eschlikon-thurgau"
         ]
       },
       "previousSlugs": [
@@ -288,9 +306,9 @@
       "slug": "medizinische-praxisassistentin-praxisassistent-mpa-medipersonal-teufen-appenzell-ausserrhoden",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-praxisassistent-mpa-medipersonal-teufen-appenzell-ausserrhoden",
-        "it": "medizinische-praxisassistentin-praxisassistent-mpa-medipersonal-teufen-appenzell-ausserrhoden",
-        "en": "medizinische-praxisassistentin-praxisassistent-mpa-medipersonal-teufen-appenzell-ausserrhoden",
-        "fr": "medizinische-praxisassistentin-praxisassistent-mpa-medipersonal-teufen-appenzell-ausserrhoden"
+        "it": "assistente-medico-mpa-medipersonal-teufen-appenzell-ausserrhoden",
+        "en": "medical-practice-assistant-mpa-medipersonal-teufen-appenzell-ausserrhoden",
+        "fr": "assistant-de-medecine-mpa-medipersonal-teufen-appenzell-ausserrhoden"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -351,9 +369,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-langnau-im-emmental-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-langnau-im-emmental-bern",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-langnau-im-emmental-bern",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-langnau-im-emmental-bern",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-langnau-im-emmental-bern"
+        "it": "dipl-infermiere-infermiere-specialista-hf-dn1-medipersonal-langnau-im-emmental-bern",
+        "en": "dipl-nurse-nurse-specialist-hf-dn1-medipersonal-langnau-im-emmental-bern",
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-dn1-medipersonal-langnau-im-emmental-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -414,9 +432,9 @@
       "slug": "pflegedienstleiter-pflegedienstleiterin-medipersonal-kriens-luzern",
       "slugByLocale": {
         "de": "pflegedienstleiter-pflegedienstleiterin-medipersonal-kriens-luzern",
-        "it": "pflegedienstleiter-pflegedienstleiterin-medipersonal-kriens-luzern",
-        "en": "pflegedienstleiter-pflegedienstleiterin-medipersonal-kriens-luzern",
-        "fr": "pflegedienstleiter-pflegedienstleiterin-medipersonal-kriens-luzern"
+        "it": "infermieristica-service-manager-infermiera-service-manager-medipersonal-kriens-luzern",
+        "en": "nursing-service-manager-nursing-service-manager-medipersonal-kriens-luzern",
+        "fr": "gestionnaire-des-services-infirmiers-gestionnaire-des-services-infirmiers-medipersonal-kriens-luzern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -477,9 +495,9 @@
       "slug": "dipl-expertin-experte-intensivpflege-nds-medipersonal-neuhausen-am-rheinfall-schaffhausen",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-medipersonal-neuhausen-am-rheinfall-schaffhausen",
-        "it": "dipl-expertin-experte-intensivpflege-nds-medipersonal-neuhausen-am-rheinfall-schaffhausen",
-        "en": "dipl-expertin-experte-intensivpflege-nds-medipersonal-neuhausen-am-rheinfall-schaffhausen",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-medipersonal-neuhausen-am-rheinfall-schaffhausen"
+        "it": "dipl-expert-expert-intensive-care-nds-medipersonal-neuhausen-am-rheinfall-schaffhausen",
+        "en": "dipl-expert-expert-intensive-care-nds-medipersonal-neuhausen-am-rheinfall-schaffhausen",
+        "fr": "dipl-expert-expert-soins-intensifs-nds-medipersonal-neuhausen-am-rheinfall-schaffhausen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -540,9 +558,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-80-100-interlaken-gesucht-jetzt-bewerben-medipersonal-8304-wallisellen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-80-100-interlaken-gesucht-jetzt-bewerben-medipersonal-8304-wallisellen",
-        "it": "dipl-pflegefachfrau-mann-hf-80-100-interlaken-gesucht-jetzt-bewerben-medipersonal-8304-wallisellen",
-        "en": "dipl-pflegefachfrau-mann-hf-80-100-interlaken-gesucht-jetzt-bewerben-medipersonal-8304-wallisellen",
-        "fr": "dipl-pflegefachfrau-mann-hf-80-100-interlaken-gesucht-jetzt-bewerben-medipersonal-8304-wallisellen"
+        "it": "cercasi-infermiere-a-diplomato-a-hf-80-100-interlaken-candidati-ora-medipersonal-8304-wallisellen",
+        "en": "qualified-nurse-hf-80-100-wanted-in-interlaken-apply-now-medipersonal-8304-wallisellen",
+        "fr": "infirmiere-infirmier-diplome-e-es-80-100-recherche-e-a-interlaken-postulez-des-maintenant-medipersonal-8304-wallisellen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -583,7 +601,6 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-80-100-interlaken-gesucht-jetzt-bewerben/",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -612,9 +629,9 @@
       "slug": "allgemeinarzt-arztin-medipersonal-iffwil-bern",
       "slugByLocale": {
         "de": "allgemeinarzt-arztin-medipersonal-iffwil-bern",
-        "it": "allgemeinarzt-arztin-medipersonal-iffwil-bern",
-        "en": "allgemeinarzt-arztin-medipersonal-iffwil-bern",
-        "fr": "allgemeinarzt-arztin-medipersonal-iffwil-bern"
+        "it": "professionista-generale-medipersonal-iffwil-bern",
+        "en": "general-practitioner-medipersonal-iffwil-bern",
+        "fr": "specialiste-general-medipersonal-iffwil-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -675,9 +692,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-unterageri-deine-pflegekompetenz-ist-gefragt-medipersonal-unterageri-zug",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-unterageri-deine-pflegekompetenz-ist-gefragt-medipersonal-unterageri-zug",
-        "it": "dipl-pflegefachfrau-mann-hf-unterageri-deine-pflegekompetenz-ist-gefragt-medipersonal-unterageri-zug",
-        "en": "dipl-pflegefachfrau-mann-hf-unterageri-deine-pflegekompetenz-ist-gefragt-medipersonal-unterageri-zug",
-        "fr": "dipl-pflegefachfrau-mann-hf-unterageri-deine-pflegekompetenz-ist-gefragt-medipersonal-unterageri-zug"
+        "it": "infermiere-a-diplomato-a-hf-unterageri-la-tua-competenza-infermieristica-e-richiesta-medipersonal-unterageri-zug",
+        "en": "dipl-registered-nurse-hf-unterageri-your-nursing-expertise-is-in-demand-medipersonal-unterageri-zug",
+        "fr": "infirmiere-infirmier-diplome-e-es-a-unterageri-votre-expertise-en-soins-est-recherchee-medipersonal-unterageri-zug"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -718,7 +735,6 @@
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-80-100-unteraegeri-deine-pflegekompetenz-ist-gefragt/",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -747,9 +763,9 @@
       "slug": "allgemeinarzt-medipersonal-kreuzlingen-thurgau",
       "slugByLocale": {
         "de": "allgemeinarzt-medipersonal-kreuzlingen-thurgau",
-        "it": "allgemeinarzt-medipersonal-kreuzlingen-thurgau",
-        "en": "allgemeinarzt-medipersonal-kreuzlingen-thurgau",
-        "fr": "allgemeinarzt-medipersonal-kreuzlingen-thurgau"
+        "it": "professionista-generale-medipersonal-kreuzlingen-thurgau",
+        "en": "general-practitioner-medipersonal-kreuzlingen-thurgau",
+        "fr": "specialiste-general-medipersonal-kreuzlingen-thurgau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -811,9 +827,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-fh-langzeitpflege-medipersonal-worb-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-langzeitpflege-medipersonal-worb-bern",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-langzeitpflege-medipersonal-worb-bern",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-langzeitpflege-medipersonal-worb-bern",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-langzeitpflege-medipersonal-worb-bern"
+        "it": "infermiere-a-diplomato-a-hf-fh-assistenza-a-lungo-termine-medipersonal-worb-bern",
+        "en": "dipl-registered-nurse-hf-fh-long-term-care-medipersonal-worb-bern",
+        "fr": "infirmiere-infirmier-diplome-e-es-hes-en-soins-de-longue-duree-medipersonal-worb-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -854,7 +870,6 @@
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-fh-langzeitpflege-80-100-fuer-die-region-worb-gesucht/",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -883,9 +898,9 @@
       "slug": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-hindelbank-deine-erfahrung-zahlt-medipersonal-hindelbank-bern",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-hindelbank-deine-erfahrung-zahlt-medipersonal-hindelbank-bern",
-        "it": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-hindelbank-deine-erfahrung-zahlt-medipersonal-hindelbank-bern",
-        "en": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-hindelbank-deine-erfahrung-zahlt-medipersonal-hindelbank-bern",
-        "fr": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-hindelbank-deine-erfahrung-zahlt-medipersonal-hindelbank-bern"
+        "it": "hf-dn1-jobs-hindelbank-la-tua-esperienza-conta-medipersonal-hindelbank-bern",
+        "en": "nursing-specialist-hf-dn1-jobs-hindelbank-your-experience-counts-medipersonal-hindelbank-bern",
+        "fr": "specialiste-des-soins-infirmiers-hf-dn1-jobs-hindelbank-votre-experience-compte-medipersonal-hindelbank-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -946,9 +961,9 @@
       "slug": "pflegefachfrau-mann-advance-practice-nurse-master-of-science-in-pflege-medipersonal-leukerbad-wallis-valais",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-advance-practice-nurse-master-of-science-in-pflege-medipersonal-leukerbad-wallis-valais",
-        "it": "pflegefachfrau-mann-advance-practice-nurse-master-of-science-in-pflege-medipersonal-leukerbad-wallis-valais",
-        "en": "pflegefachfrau-mann-advance-practice-nurse-master-of-science-in-pflege-medipersonal-leukerbad-wallis-valais",
-        "fr": "pflegefachfrau-mann-advance-practice-nurse-master-of-science-in-pflege-medipersonal-leukerbad-wallis-valais"
+        "it": "infermiere-a-advance-practice-nurse-master-of-science-in-infermieristica-medipersonal-leukerbad-wallis-valais",
+        "en": "nurse-advance-practice-nurse-master-of-science-in-nursing-medipersonal-leukerbad-wallis-valais",
+        "fr": "infirmiere-infirmier-en-pratique-avancee-master-of-science-en-soins-infirmiers-medipersonal-leukerbad-wallis-valais"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -988,7 +1003,6 @@
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/pflegefachfrau-mann-advance-practice-nurse-master-of-science-in-pflege-80-100-fuer-leukerbad-gesucht-pflege-auf-hoechstem-niveau/",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

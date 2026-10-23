@@ -2214,12 +2214,12 @@
     },
     {
       "id": "bls-d96a78777ea0",
-      "slug": "quereinstieg-gleisbau-bls-ch",
+      "slug": "ingresso-nel-settore-della-costruzione-di-binari-bls-ag-bern",
       "slugByLocale": {
         "de": "quereinstieg-gleisbau-bls-ch",
-        "it": "quereinstieg-gleisbau-bls-ch",
-        "en": "quereinstieg-gleisbau-bls-ch",
-        "fr": "quereinstieg-gleisbau-bls-ch"
+        "it": "ingresso-nel-settore-della-costruzione-di-binari-bls-ag-bern",
+        "en": "cross-entry-track-construction-bls-ag-bern",
+        "fr": "construction-de-voies-transversales-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -2295,7 +2295,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-23T21:21:03.878Z"
+      "firstSeenAt": "2026-10-23T21:21:03.878Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-gleisbau-bls-ch"
+        ],
+        "en": [
+          "quereinstieg-gleisbau-bls-ch"
+        ],
+        "fr": [
+          "quereinstieg-gleisbau-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-gleisbau-bls-ch"
+      ]
     }
   ]
 }

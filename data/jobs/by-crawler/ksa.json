@@ -8,9 +8,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
-        "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -56,6 +56,8 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
+        "nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       ],
       "previousSlugsByLocale": {
@@ -66,7 +68,10 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        ],
+        "en": [
+          "nursing-specialist-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -407,7 +412,7 @@
       "slug": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
       "slugByLocale": {
         "it": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
-        "en": "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau",
+        "en": "care-expert-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "pflegeexpertin-pflegeexperte-ksa-ch",
         "fr": "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau-4b8fef"
       },
@@ -459,7 +464,7 @@
         "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau",
         "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau",
         "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci",
-        "care-expert-care-expert-kantonsspital-aarau-ksa-aarau"
+        "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -470,7 +475,7 @@
           "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci"
         ],
         "en": [
-          "care-expert-care-expert-kantonsspital-aarau-ksa-aarau"
+          "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
           "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo"
@@ -761,7 +766,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau-2a8ca7",
         "en": "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "soins-d-experts-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -809,8 +814,7 @@
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "fachexpertin-fachexperte-pflege-ksa-ch-9zu87s",
         "expert-care-kantonsspital-aarau-ksa-aarau",
-        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -823,7 +827,7 @@
         ],
         "fr": [
           "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-          "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -1321,7 +1325,7 @@
         "it": "paramedico-fa-kantonsspital-aarau-ksa-aarau",
         "en": "paramedic-fa-kantonsspital-aarau-ksa-aarau",
         "de": "transportsanitater-in-fa-ksa-ch",
-        "fr": "paramedic-fa-kantonsspital-aarau-ksa-aarau"
+        "fr": "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1367,7 +1371,8 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau",
-        "transportsanitater-in-fa-ksa-ch"
+        "transportsanitater-in-fa-ksa-ch",
+        "paramedic-fa-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1378,7 +1383,7 @@
           "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
+          "paramedic-fa-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:33.541Z",
@@ -1401,7 +1406,7 @@
       "slug": "still-e-laktationsberater-in-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "still-e-laktationsberater-in-kantonsspital-aarau-ksa-aarau",
-        "en": "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau",
+        "en": "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in",
         "de": "still-und-laktationsberater-in-ksa-ch",
         "fr": "still-und-laktationsberater-in-kantonsspital-aarau-ksa-aarau"
       },
@@ -1449,14 +1454,14 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "still-und-laktationsberater-in-ksa-ch",
-        "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in"
+        "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "still-und-laktationsberater-in-ksa-ch"
         ],
         "en": [
-          "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in"
+          "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -1560,7 +1565,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau",
         "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1607,7 +1612,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
         "fachexpertin-fachexperte-pflege-ksa-ch",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+        "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1615,7 +1620,7 @@
           "fachexpertin-fachexperte-pflege-ksa-ch"
         ],
         "fr": [
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -2141,7 +2146,7 @@
       "id": "ksa-89883f785c0b",
       "slug": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
+        "it": "valutatore-immobiliare-graubundner-kantonalbank-chur",
         "en": "nursing-professional-in-training-additional-module-b-or-c-kantonsspital-aarau-ksa-aarau",
         "de": "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
         "fr": "professionnel-infirmier-en-formation-module-supplementaire-b-ou-c-kantonsspital-aarau-ksa-aarau"
@@ -2191,14 +2196,12 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau",
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-        "valutatore-immobiliare-graubundner-kantonalbank-chur"
+        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-          "valutatore-immobiliare-graubundner-kantonalbank-chur"
+          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau"
@@ -3325,7 +3328,7 @@
         "it": "controller-di-cura-kantonsspital-aarau-ksa-aarau",
         "en": "care-controller-in-kantonsspital-aarau-ksa-aarau",
         "de": "pflegecontroller-in-ksa-ch",
-        "fr": "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "controleur-in-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3371,14 +3374,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "pflegecontroller-in-ksa-ch",
-        "controleur-in-kantonsspital-aarau-ksa-aarau"
+        "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegecontroller-in-ksa-ch"
         ],
         "fr": [
-          "controleur-in-kantonsspital-aarau-ksa-aarau"
+          "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-29T09:11:24.714Z",
@@ -4312,7 +4315,7 @@
         "it": "risorse-umane-business-partner-kantonsspital-aarau-ksa-aarau",
         "en": "hr-business-partner-ksa-ch",
         "de": "hr-business-partner-ksa-ch",
-        "fr": "hr-business-partner-kantonsspital-aarau-ksa-aarau"
+        "fr": "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4358,14 +4361,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "hr-business-partner-ksa-ch",
-        "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
+        "hr-business-partner-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-ksa-ch"
         ],
         "fr": [
-          "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
+          "hr-business-partner-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-10-06T09:16:55.314Z",
@@ -4621,7 +4624,7 @@
       "id": "ksa-0b6c3dd0024c",
       "slug": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
+        "it": "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau",
         "en": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "de": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "fr": "ergotherapeut-in-ksa-ch"
@@ -4674,14 +4677,12 @@
         ],
         "it": [
           "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-          "ergotherapeut-in-ksa-ch",
-          "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+          "ergotherapeut-in-ksa-ch"
         ]
       },
       "previousSlugs": [
         "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-        "ergotherapeut-in-ksa-ch",
-        "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+        "ergotherapeut-in-ksa-ch"
       ],
       "firstSeenAt": "2026-09-03T23:15:12.099Z",
       "salaryMin": 88000,
@@ -5379,7 +5380,7 @@
         "it": "collaboratore-trice-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
         "en": "employee-patient-hospitality-kantonsspital-aarau-ksa-aarau",
         "de": "mitarbeiter-in-patientenhotellerie-ksa-ch",
-        "fr": "collaborateur-trice-en-hotellerie-hospitaliere-kantonsspital-aarau-ksa-aarau"
+        "fr": "depenses-de-representation-des-employes-et-des-patients-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5426,7 +5427,7 @@
       "previousSlugs": [
         "mitarbeiter-in-patientenhotellerie-ksa-ch",
         "mitarbeiter-in-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
-        "depenses-de-representation-des-employes-et-des-patients-kantonsspital-aarau-ksa-aarau"
+        "collaborateur-trice-en-hotellerie-hospitaliere-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5437,7 +5438,7 @@
         ],
         "fr": [
           "mitarbeiter-in-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
-          "depenses-de-representation-des-employes-et-des-patients-kantonsspital-aarau-ksa-aarau"
+          "collaborateur-trice-en-hotellerie-hospitaliere-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-02T23:07:29.745Z",
@@ -7366,7 +7367,7 @@
       "slug": "ergoterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
-        "en": "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
+        "en": "qualified-occupational-therapist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-ergotherapeut-in-ksa-ch",
         "fr": "ergotherapeute-diplome-e-readaptation-de-la-main-kantonsspital-aarau-ksa-aarau"
       },
@@ -7418,7 +7419,7 @@
         "dipl-ergotherapeut-in-ksa-ch",
         "qualified-occupational-therapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
         "dipl-occupational-therapist-kantonsspital-aarau-ksa-aarau",
-        "qualified-occupational-therapist-kantonsspital-aarau-ksa-aarau"
+        "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7430,7 +7431,7 @@
           "dipl-ergotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
           "qualified-occupational-therapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
           "dipl-occupational-therapist-kantonsspital-aarau-ksa-aarau",
-          "qualified-occupational-therapist-kantonsspital-aarau-ksa-aarau"
+          "dipl-ergotherapeut-in-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
           "dipl-ergotherapeut-in-handrehabilitation-ksa-ch"
@@ -7459,7 +7460,7 @@
       "slug": "fisioterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
-        "en": "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau",
+        "en": "qualified-physiotherapist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-physiotherapeut-in-ksa-ch",
         "fr": "physiotherapeute-diplome-e-readaptation-de-la-main-kantonsspital-aarau-ksa-aarau"
       },
@@ -7511,7 +7512,7 @@
         "dipl-physiotherapeut-in-ksa-ch",
         "qualified-physiotherapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
         "dipl-physiotherapist-kantonsspital-aarau-ksa-aarau",
-        "qualified-physiotherapist-kantonsspital-aarau-ksa-aarau"
+        "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7523,7 +7524,7 @@
           "dipl-physiotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
           "qualified-physiotherapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
           "dipl-physiotherapist-kantonsspital-aarau-ksa-aarau",
-          "qualified-physiotherapist-kantonsspital-aarau-ksa-aarau"
+          "dipl-physiotherapeut-in-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
           "dipl-physiotherapeut-in-handrehabilitation-ksa-ch"
@@ -7798,7 +7799,7 @@
       "id": "ksa-55d25c285595",
       "slug": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
       "slugByLocale": {
-        "it": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
+        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau"
@@ -7849,13 +7850,11 @@
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
         "fachfrau-fachmann-gesundheit-ksa-ch",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
           "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
@@ -7963,7 +7962,7 @@
       "id": "ksa-6cf6025271ef",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
       "slugByLocale": {
-        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
+        "it": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "en": "healthcare-professional-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "specialiste-de-la-sante-kantonsspital-aarau-ksa-aarau"
@@ -8034,14 +8033,12 @@
         "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau-656d6a",
         "salute-professionale-kantonsspital-aarau-ksa-aarau-917953",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
         "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
           "professional-health-kantonsspital-aarau-ksa-aarau-917953",
           "sante-professionnelle-kantonsspital-aarau-ksa-aarau-917953",
           "salute-professionale-kantonsspital-aarau-ksa-aarau-b22c58",
@@ -8405,7 +8402,7 @@
         "it": "materiale-professionale-specializzato-kantonsspital-aarau-ksa-aarau",
         "en": "professional-specialist-material-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau"
+        "fr": "materiel-professionnel-specialise-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -8452,7 +8449,7 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
-        "materiel-professionnel-specialise-kantonsspital-aarau-ksa-aarau"
+        "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8466,7 +8463,7 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
-          "materiel-professionnel-specialise-kantonsspital-aarau-ksa-aarau"
+          "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-10-12T09:13:55.329Z",
@@ -8791,7 +8788,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
-        "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-7"
       },
@@ -8838,7 +8835,8 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8846,6 +8844,9 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ],
+        "en": [
+          "nursing-specialist-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -9259,12 +9260,12 @@
     },
     {
       "id": "ksa-2c4f31600cc9",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-07-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-7-luglio-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-07-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-07-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-07-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-07-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-7-luglio-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-july-7-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-7-juillet-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9310,7 +9311,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -9324,16 +9324,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-07-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-07-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-07-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-07-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-7676d3ec4444",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-07-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-8-luglio-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-07-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-07-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-07-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-07-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-8-luglio-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-july-8-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-8-juillet-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9379,7 +9393,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -9393,16 +9406,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-07-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-07-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-07-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-07-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-68738d53c2dc",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-08-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-4-agosto-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-08-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-08-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-08-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-08-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-4-agosto-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-august-4-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-4-aout-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9448,7 +9475,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -9462,16 +9488,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-08-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-08-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-08-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-08-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-c67a41cb1e28",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-08-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-5-agosto-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-08-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-08-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-08-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-08-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-5-agosto-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-august-5-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-5-aout-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9517,7 +9557,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -9531,16 +9570,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-08-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-08-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-08-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-08-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-2333037810c8",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-09-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-1-settembre-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-09-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-09-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-09-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-09-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-1-settembre-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-september-1-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-1er-septembre-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9586,7 +9639,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -9600,16 +9652,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-09-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-09-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-09-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-09-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-dc341a304d7a",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-09-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-2-settembre-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-09-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-09-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-09-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-09-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-2-settembre-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-september-2-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-2-septembre-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9655,7 +9721,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -9669,16 +9734,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-09-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-09-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-09-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-09-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-04c48331301e",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-13-10-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-13-ottobre-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-13-10-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-13-10-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-13-10-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-13-10-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-13-ottobre-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-october-13-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-13-octobre-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9724,7 +9803,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -9738,16 +9816,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-13-10-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-13-10-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-13-10-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-13-10-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-4900182cc17e",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2027-ksa-ch",
+      "slug": "stage-di-orientamento-professionale-assistente-di-studio-medico-14-ottobre-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2027-ksa-ch"
+        "it": "stage-di-orientamento-professionale-assistente-di-studio-medico-14-ottobre-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-october-14-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-14-octobre-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9793,7 +9885,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -9807,16 +9898,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-14-10-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-e7317a493966",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-11-2027-ksa-ch",
+      "slug": "stage-di-orientamento-professionale-assistente-di-studio-medico-3-novembre-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-11-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-11-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-11-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-11-2027-ksa-ch"
+        "it": "stage-di-orientamento-professionale-assistente-di-studio-medico-3-novembre-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-november-3-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-3-novembre-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9862,7 +9967,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -9876,16 +9980,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-11-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-11-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-11-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-11-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-ccf7c1a93675",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-11-2027-ksa-ch",
+      "slug": "stage-di-orientamento-professionale-assistente-di-studio-medico-4-novembre-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-11-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-11-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-11-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-11-2027-ksa-ch"
+        "it": "stage-di-orientamento-professionale-assistente-di-studio-medico-4-novembre-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-november-4-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-4-novembre-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -9931,7 +10049,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -9945,16 +10062,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-11-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-11-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-11-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-04-11-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-90ea6b79b0af",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-12-2027-ksa-ch",
+      "slug": "stage-di-orientamento-professionale-assistente-di-studio-medico-1-dicembre-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-12-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-12-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-12-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-12-2027-ksa-ch"
+        "it": "stage-di-orientamento-professionale-assistente-di-studio-medico-1-dicembre-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-december-1-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-1er-decembre-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -10000,7 +10131,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -10014,16 +10144,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-12-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-12-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-12-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-01-12-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-d1b6e29062c1",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-12-2027-ksa-ch",
+      "slug": "stage-di-orientamento-professionale-assistente-di-studio-medico-2-dicembre-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-12-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-12-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-12-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-12-2027-ksa-ch"
+        "it": "stage-di-orientamento-professionale-assistente-di-studio-medico-2-dicembre-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-december-2-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-2-decembre-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -10069,7 +10213,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -10083,16 +10226,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.417Z"
+      "firstSeenAt": "2026-10-23T21:14:07.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-12-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-12-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-12-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-12-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-624627dd11f6",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-04-2027-ksa-ch",
+      "slug": "stage-di-orientamento-professionale-assistente-di-studio-medico-7-aprile-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-04-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-04-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-04-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-04-2027-ksa-ch"
+        "it": "stage-di-orientamento-professionale-assistente-di-studio-medico-7-aprile-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-for-medical-practice-assistant-april-7-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-7-avril-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -10138,7 +10295,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -10152,16 +10308,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.416Z"
+      "firstSeenAt": "2026-10-23T21:14:07.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-04-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-04-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-04-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-07-04-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-3062dbe11d37",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-04-2027-ksa-ch",
+      "slug": "stage-di-orientamento-professionale-assistente-di-studio-medico-8-aprile-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-04-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-04-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-04-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-04-2027-ksa-ch"
+        "it": "stage-di-orientamento-professionale-assistente-di-studio-medico-8-aprile-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-for-medical-practice-assistant-april-8-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-8-avril-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -10207,7 +10377,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -10221,16 +10390,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.416Z"
+      "firstSeenAt": "2026-10-23T21:14:07.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-04-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-04-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-04-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-08-04-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-180bbc5ef132",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-05-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-5-maggio-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-05-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-05-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-05-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-05-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-5-maggio-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-for-medical-practice-assistant-may-5-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-5-mai-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -10276,7 +10459,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -10290,16 +10472,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.416Z"
+      "firstSeenAt": "2026-10-23T21:14:07.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-05-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-05-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-05-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-05-05-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-adbd9476d59d",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-05-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-6-maggio-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-05-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-05-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-05-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-05-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-6-maggio-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-for-medical-practice-assistant-may-6-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-6-mai-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -10345,7 +10541,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -10359,16 +10554,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.416Z"
+      "firstSeenAt": "2026-10-23T21:14:07.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-05-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-05-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-05-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-05-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-49ace20f3ac9",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-06-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-2-giugno-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-06-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-06-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-06-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-06-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-2-giugno-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-june-2-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-2-juin-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -10414,7 +10623,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -10428,16 +10636,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.416Z"
+      "firstSeenAt": "2026-10-23T21:14:07.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-06-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-06-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-06-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-02-06-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-d9e69ef92c30",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-06-2027-ksa-ch",
+      "slug": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-3-giugno-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-06-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-06-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-06-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-06-2027-ksa-ch"
+        "it": "tirocinio-di-orientamento-professionale-assistente-di-studio-medico-3-giugno-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-medical-practice-assistant-june-3-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-3-juin-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -10483,7 +10705,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -10497,16 +10718,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.416Z"
+      "firstSeenAt": "2026-10-23T21:14:07.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-06-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-06-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-06-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-06-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-7da58967c407",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-01-2027-ksa-ch",
+      "slug": "stage-di-orientamento-professionale-assistente-di-studio-medico-6-gennaio-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-01-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-01-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-01-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-01-2027-ksa-ch"
+        "it": "stage-di-orientamento-professionale-assistente-di-studio-medico-6-gennaio-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-for-medical-practice-assistant-january-6-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-6-janvier-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -10552,7 +10787,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -10566,16 +10800,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.415Z"
+      "firstSeenAt": "2026-10-23T21:14:07.415Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-01-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-01-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-01-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-06-01-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-c9311e023664",
-      "slug": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-03-2027-ksa-ch",
+      "slug": "stage-di-orientamento-professionale-assistente-di-studio-medico-3-marzo-2027-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-03-2027-ksa-ch",
-        "it": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-03-2027-ksa-ch",
-        "en": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-03-2027-ksa-ch",
-        "fr": "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-03-2027-ksa-ch"
+        "it": "stage-di-orientamento-professionale-assistente-di-studio-medico-3-marzo-2027-kantonsspital-aarau-ksa-aarau",
+        "en": "career-choice-internship-for-medical-practice-assistant-march-3-2027-kantonsspital-aarau-ksa-aarau",
+        "fr": "stage-d-orientation-professionnelle-assistant-e-medical-e-3-mars-2027-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -10621,7 +10869,6 @@
         "de": []
       },
       "department": "Praktikum FA Berufsbildung",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -10635,7 +10882,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:14:07.415Z"
+      "firstSeenAt": "2026-10-23T21:14:07.415Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-03-2027-ksa-ch"
+        ],
+        "en": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-03-2027-ksa-ch"
+        ],
+        "fr": [
+          "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-03-2027-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufswahlpraktikum-medizinische-r-praxisassistent-in-03-03-2027-ksa-ch"
+      ]
     },
     {
       "id": "ksa-e852978d46db",

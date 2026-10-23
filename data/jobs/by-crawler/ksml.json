@@ -1,7 +1,6 @@
 {
   "crawlerKey": "ksml",
   "assembledAt": "2026-10-23T21:32:25.116Z",
-  "runId": "40025867726",
   "jobs": [
     {
       "id": "ksml-a971077ae691",
@@ -2353,7 +2352,9 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "ksml-91029c4bc9dc",
@@ -17882,15 +17883,31 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40549",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40549"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40549"
+          "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40549",
+          "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441",
+          "19-lezioni-promozione-integrata-di-cui-13-lezioni-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40441"
+        ],
+        "en": [
+          "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441",
+          "19-lessons-integrative-promotion-of-which-13-lessons-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40441"
+        ],
+        "de": [
+          "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441"
+        ],
+        "fr": [
+          "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441",
+          "19-lecons-promotion-integrative-dont-13-lecons-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40441"
         ]
       },
-      "firstSeenAt": "2026-09-29T21:29:33.438Z",
+      "previousSlugs": [
+        "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40549",
+        "19-lektionen-integrative-forderung-davon-13-lektionen-bvsa-int-schulzentrum-pestalozzi-40441",
+        "19-lezioni-promozione-integrata-di-cui-13-lezioni-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40441",
+        "19-lessons-integrative-promotion-of-which-13-lessons-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40441",
+        "19-lecons-promotion-integrative-dont-13-lecons-bvsa-int-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40441"
+      ],
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -17903,7 +17920,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-29T21:29:33.438Z"
     },
     {
       "id": "ksml-866b24794c81",
@@ -19544,5 +19562,6 @@
       },
       "crawlerMissStreak": 2
     }
-  ]
+  ],
+  "runId": "40025867726"
 }
