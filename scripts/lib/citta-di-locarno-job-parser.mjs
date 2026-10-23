@@ -23,6 +23,7 @@ import { decode as decodeHTML } from 'html-entities';
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 const HQ = getCompanyDefaults('citta-di-locarno');
 
@@ -211,17 +212,40 @@ export function parseLocarnoListingHtml(html) {
     });
   }
 
+  // Locarno publishes an explicit, source-backed zero while the board is
+  // empty.  A bare [] is ambiguous to the health monitor: it can mean the
+  // board was empty, the selector drifted, or the fetch never reached the
+  // source.  Carry the proof only when both the tab's zero badge and its
+  // empty-state sentence are present; a parser miss must remain fail-closed.
+  if (
+    jobs.length === 0
+    && /Assunzioni\s+personale\s*\(\s*0\s*\)/i.test(html)
+    && /<h2[^>]*>\s*Assunzioni\s+personale\s*<\/h2>/i.test(html)
+    && /<p[^>]*>\s*Nessun\s+documento\s+trovato\.?\s*<\/p>/i.test(html)
+  ) {
+    const empty = markAuthoritativeEmptySnapshot(
+      jobs,
+      'Locarno page reports Assunzioni personale (0) and Nessun documento trovato.',
+    );
+    Object.defineProperty(empty, 'fetchOutcome', { value: 'ok', enumerable: false });
+    return empty;
+  }
+
+  Object.defineProperty(jobs, 'fetchOutcome', {
+    value: jobs.length > 0 ? 'ok' : 'selector_miss',
+    enumerable: false,
+  });
   return jobs;
 }
 
 /**
  * Fetch and parse the Locarno careers page.
  */
-export async function fetchLocarnoJobs(timeoutMs = 15000) {
+export async function fetchLocarnoJobs(timeoutMs = 15000, fetchImpl = fetch) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(CAREERS_URL, {
+    const res = await fetchImpl(CAREERS_URL, {
       signal: controller.signal,
       headers: { Accept: 'text/html', 'User-Agent': UA },
       redirect: 'follow',
