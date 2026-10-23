@@ -20557,3 +20557,6 @@
 {"eventType":"candidate_transition","key":"glomar.ch","from":"synthesized","to":"validated","at":"2026-10-23T11:22:45.717Z","runId":"39925946474","runAttempt":1,"phase":"validate","eventId":"e37a663dd4fda1e37ae74b00"}
 {"eventType":"candidate_transition","key":"gmbau.ch","from":"synthesized","to":"validated","at":"2026-10-23T11:22:51.735Z","runId":"39925946474","runAttempt":1,"phase":"validate","eventId":"2abb404f01c7e2c8bd0337b6"}
 {"eventType":"phase_finished","at":"2026-10-23T11:22:52.158Z","outcome":"complete","durationMs":997229,"inputCount":65,"successCount":30,"retryCount":35,"runId":"39925946474","runAttempt":1,"phase":"validate","eventId":"b8008871551f3226ddfac012"}
+{"eventType":"phase_started","at":"2026-10-23T11:24:20.554Z","runId":"39925946474","runAttempt":1,"phase":"promote","eventId":"bc4a742e07d160069a96102f"}
+{"eventType":"candidate_transition","key":"seiro@baar","from":"promoting","to":"awaiting_first_crawl","at":"2026-10-23T11:24:23.165Z","runId":"39925946474","runAttempt":1,"phase":"promote","eventId":"370272a5ff925a9b89fa7d86"}
+{"eventType":"candidate_transition","key":"seiro@baar","from":"awaiting_first_crawl","to":"production","at":"2026-10-23T11:24:23.193Z","runId":"39925946474","runAttempt":1,"phase":"promote","eventId":"6e5758162cfd6fef823052ce"}
