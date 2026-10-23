@@ -1,22 +1,45 @@
 import { useEffect, useState } from 'react';
-import { Fuel, MapPin, Clock, AlertTriangle } from 'lucide-react';
-import { useTranslation, useLocale } from '@/services/i18n';
-import { fetchFuelPrices, type FuelPricesDataset, type FuelStationSwitzerland } from '@/services/fuelPricesService';
+import { AlertTriangle, Clock, Fuel, MapPin } from 'lucide-react';
+import { useLocale, useTranslation } from '@/services/i18n';
+import { fetchFuelPrices, type FuelPricesDataset } from '@/services/fuelPricesService';
+import {
+  buildFuelPriceComparisonHref,
+  prepareInlineFuelPriceSections,
+  type InlineFuelPriceRow,
+  type InlineFuelPriceSourceClass,
+} from '@/components/blog/inlineFuelPriceTableData';
+import type { InlineFuelPriceVariant } from '@/components/blog/fuelArticleContext';
 
 interface InlineFuelPriceTableProps {
-  variant?: 'diesel' | 'fuel';
+  variant?: InlineFuelPriceVariant;
   maxRows?: number;
 }
 
 interface LocalizedLabels {
-  heading: string;
-  subtitle: string;
-  note: string;
-  updated: string;
+  fuelHeading: string;
+  dieselHeading: string;
+  fuelSubtitle: string;
+  dieselSubtitle: string;
+  fuelNote: string;
+  dieselNote: string;
+  datasetUpdated: string;
+  fuelUpdated: string;
+  dieselUpdated: string;
   station: string;
   brand: string;
   address: string;
-  price: string;
+  fuelPrice: string;
+  dieselPrice: string;
+  source: string;
+  observedGroup: string;
+  derivedGroup: string;
+  unknownGroup: string;
+  derived: string;
+  feedSource: string;
+  scrapedSource: string;
+  monthlyAverageSource: string;
+  unknownSource: string;
+  empty: string;
   errorTitle: string;
   errorBody: string;
   loading: string;
@@ -25,68 +48,124 @@ interface LocalizedLabels {
 
 const LABELS: Record<'it' | 'en' | 'de' | 'fr', LocalizedLabels> = {
   it: {
-    heading: 'Prezzi carburante live — distributori svizzeri (SP95)',
-    subtitle:
-      'Top stazioni di servizio in Svizzera per prezzo (dati aggregati TCS). Il diesel mantiene storicamente un differenziale di circa +CHF 0,20/litro rispetto alla benzina.',
-    note:
-      'I prezzi ufficiali del diesel non sono pubblicati per stazione in Svizzera; questa tabella mostra i prezzi SP95 disponibili come indicatore di mercato.',
-    updated: 'Aggiornato',
+    fuelHeading: 'Prezzi live benzina — stazioni svizzere (SP95)',
+    dieselHeading: 'Prezzi live diesel — stazioni svizzere',
+    fuelSubtitle: 'Prezzi SP95 ordinati dal più basso. Fonte: {source}.',
+    dieselSubtitle: 'Classifica diesel per prezzo, con dati rilevati, stime e origini non verificate separati.',
+    fuelNote: 'La data per ogni stazione è quella associata al prezzo SP95.',
+    dieselNote: 'La data di rilevazione del diesel è mostrata se disponibile; altrimenti compare —.',
+    datasetUpdated: 'Dati aggiornati al',
+    fuelUpdated: 'Data del prezzo SP95',
+    dieselUpdated: 'Data di rilevazione del diesel',
     station: 'Stazione',
     brand: 'Marchio',
     address: 'Indirizzo',
-    price: 'SP95 CHF/L',
+    fuelPrice: 'SP95 CHF/L',
+    dieselPrice: 'Diesel CHF/L',
+    source: 'Fonte e tipo di dato',
+    observedGroup: 'Prezzi rilevati',
+    derivedGroup: 'Stime e medie',
+    unknownGroup: 'Origine non verificata',
+    derived: 'Derivato',
+    feedSource: 'dato dal feed prezzi',
+    scrapedSource: 'fonte acquisita',
+    monthlyAverageSource: 'media mensile',
+    unknownSource: 'Origine non verificata',
+    empty: 'Nessun prezzo valido disponibile per questo carburante.',
     errorTitle: 'Dati live non disponibili',
-    errorBody: 'Riprova tra qualche minuto — nel frattempo puoi consultare la pagina Statistiche carburanti.',
+    errorBody: 'Riprova tra qualche minuto. Nel frattempo puoi consultare il confronto carburanti.',
     loading: 'Caricamento prezzi live…',
-    link: 'Vedi confronto completo',
+    link: 'Apri confronto carburanti',
   },
   en: {
-    heading: 'Live fuel prices — Swiss stations (SP95)',
-    subtitle:
-      'Top fueling stations in Switzerland by price (TCS aggregated data). Diesel historically trades at about +CHF 0.20/liter over petrol.',
-    note:
-      'Official per-station diesel prices are not published in Switzerland; this table shows SP95 data as a market indicator.',
-    updated: 'Updated',
+    fuelHeading: 'Live petrol prices — Swiss stations (SP95)',
+    dieselHeading: 'Live diesel prices — Swiss stations',
+    fuelSubtitle: 'SP95 prices, from lowest to highest. Source: {source}.',
+    dieselSubtitle: 'Diesel prices are ranked with observed data, estimates and unverified sources kept separate.',
+    fuelNote: 'Each station shows the date associated with its SP95 price.',
+    dieselNote: 'The diesel collection date is shown when available; otherwise, — is displayed.',
+    datasetUpdated: 'Data updated as of',
+    fuelUpdated: 'SP95 price date',
+    dieselUpdated: 'Diesel collection date',
     station: 'Station',
     brand: 'Brand',
     address: 'Address',
-    price: 'SP95 CHF/L',
-    errorTitle: 'Live data not available',
-    errorBody: 'Please retry later — in the meantime, visit the Fuel statistics page.',
+    fuelPrice: 'SP95 CHF/L',
+    dieselPrice: 'Diesel CHF/L',
+    source: 'Source and data type',
+    observedGroup: 'Observed prices',
+    derivedGroup: 'Estimates and averages',
+    unknownGroup: 'Unverified source',
+    derived: 'Derived',
+    feedSource: 'price-feed data',
+    scrapedSource: 'collected source',
+    monthlyAverageSource: 'monthly average',
+    unknownSource: 'Unverified source',
+    empty: 'No valid price is available for this fuel.',
+    errorTitle: 'Live data is unavailable',
+    errorBody: 'Please try again in a few minutes. Meanwhile, you can open the fuel comparison.',
     loading: 'Loading live prices…',
-    link: 'See full comparison',
+    link: 'Open fuel comparison',
   },
   de: {
-    heading: 'Live-Kraftstoffpreise — Schweizer Tankstellen (SP95)',
-    subtitle:
-      'Top-Tankstellen in der Schweiz nach Preis (TCS-Aggregatdaten). Diesel liegt historisch rund +CHF 0,20/Liter über Benzin.',
-    note:
-      'Offizielle Dieselpreise werden pro Station in der Schweiz nicht veröffentlicht; diese Tabelle zeigt SP95-Daten als Marktindikator.',
-    updated: 'Aktualisiert',
+    fuelHeading: 'Aktuelle Benzinpreise — Schweizer Tankstellen (SP95)',
+    dieselHeading: 'Aktuelle Dieselpreise — Schweizer Tankstellen',
+    fuelSubtitle: 'SP95-Preise, vom niedrigsten zum höchsten. Quelle: {source}.',
+    dieselSubtitle: 'Dieselpreise sind sortiert; Messwerte, Schätzungen und nicht bestätigte Quellen bleiben getrennt.',
+    fuelNote: 'Für jede Tankstelle wird das zum SP95-Preis gehörende Datum angezeigt.',
+    dieselNote: 'Das Erfassungsdatum des Diesels wird angezeigt, wenn es verfügbar ist; sonst erscheint —.',
+    datasetUpdated: 'Daten aktualisiert am',
+    fuelUpdated: 'Datum des SP95-Preises',
+    dieselUpdated: 'Erfassungsdatum des Diesels',
     station: 'Tankstelle',
     brand: 'Marke',
     address: 'Adresse',
-    price: 'SP95 CHF/L',
+    fuelPrice: 'SP95 CHF/L',
+    dieselPrice: 'Diesel CHF/L',
+    source: 'Quelle und Datentyp',
+    observedGroup: 'Erfasste Preise',
+    derivedGroup: 'Schätzungen und Durchschnitte',
+    unknownGroup: 'Quelle nicht verifiziert',
+    derived: 'Abgeleitet',
+    feedSource: 'Preisdaten aus dem Anbieter-Feed',
+    scrapedSource: 'erfasste Quelle',
+    monthlyAverageSource: 'Monatsdurchschnitt',
+    unknownSource: 'Quelle nicht verifiziert',
+    empty: 'Für diesen Kraftstoff ist kein gültiger Preis verfügbar.',
     errorTitle: 'Live-Daten nicht verfügbar',
-    errorBody: 'Bitte später erneut versuchen — besuchen Sie inzwischen die Kraftstoff-Statistikseite.',
-    loading: 'Live-Preise laden…',
-    link: 'Vollständigen Vergleich ansehen',
+    errorBody: 'Bitte versuchen Sie es in einigen Minuten erneut. Inzwischen können Sie den Kraftstoffvergleich öffnen.',
+    loading: 'Live-Preise werden geladen…',
+    link: 'Kraftstoffvergleich öffnen',
   },
   fr: {
-    heading: 'Prix carburant en direct — stations-service suisses (SP95)',
-    subtitle:
-      'Top des stations-service en Suisse par prix (données TCS agrégées). Le diesel est historiquement d\'environ +CHF 0,20/litre par rapport à l\'essence.',
-    note:
-      'Les prix officiels du diesel ne sont pas publiés par station en Suisse ; ce tableau présente les prix SP95 comme indicateur de marché.',
-    updated: 'Mis à jour',
+    fuelHeading: 'Prix en direct de l’essence — stations suisses (SP95)',
+    dieselHeading: 'Prix en direct du diesel — stations suisses',
+    fuelSubtitle: 'Prix SP95, du plus bas au plus élevé. Source : {source}.',
+    dieselSubtitle: 'Les prix du diesel sont classés en séparant mesures, estimations et sources non vérifiées.',
+    fuelNote: 'Chaque station affiche la date associée à son prix SP95.',
+    dieselNote: 'La date de collecte du diesel est affichée si elle est disponible ; sinon, — apparaît.',
+    datasetUpdated: 'Données mises à jour le',
+    fuelUpdated: 'Date du prix SP95',
+    dieselUpdated: 'Date de collecte du diesel',
     station: 'Station',
     brand: 'Marque',
     address: 'Adresse',
-    price: 'SP95 CHF/L',
+    fuelPrice: 'SP95 CHF/L',
+    dieselPrice: 'Diesel CHF/L',
+    source: 'Source et type de donnée',
+    observedGroup: 'Prix relevés',
+    derivedGroup: 'Estimations et moyennes',
+    unknownGroup: 'Source non vérifiée',
+    derived: 'Dérivé',
+    feedSource: 'donnée du flux de prix',
+    scrapedSource: 'source collectée',
+    monthlyAverageSource: 'moyenne mensuelle',
+    unknownSource: 'Source non vérifiée',
+    empty: 'Aucun prix valide n’est disponible pour ce carburant.',
     errorTitle: 'Données en direct indisponibles',
-    errorBody: 'Réessayez plus tard — entre-temps, consultez la page Statistiques carburants.',
+    errorBody: 'Réessayez dans quelques minutes. En attendant, consultez le comparatif des carburants.',
     loading: 'Chargement des prix en direct…',
-    link: 'Voir la comparaison complète',
+    link: 'Ouvrir le comparatif carburants',
   },
 };
 
@@ -112,33 +191,37 @@ function formatUpdatedAt(value: string | null, locale: string): string {
   }).format(date);
 }
 
-function pickCheapestStations(dataset: FuelPricesDataset, maxRows: number): FuelStationSwitzerland[] {
-  const ranked = dataset.rankings?.cheapestSwissStations ?? [];
-  if (ranked.length > 0) return ranked.slice(0, maxRows);
-
-  // Fallback: dedupe by id across all municipalities' nearbyStations.
-  const seen = new Map<string, FuelStationSwitzerland>();
-  for (const row of dataset.municipalities ?? []) {
-    for (const station of row.swiss?.nearbyStations ?? []) {
-      if (!seen.has(station.id)) {
-        seen.set(station.id, station);
-      }
-    }
+function sourceLabel(row: InlineFuelPriceRow, provider: string, labels: LocalizedLabels, variant: InlineFuelPriceVariant): string {
+  if (variant === 'fuel') return provider;
+  if (row.sourceClass === 'derived') {
+    return row.dieselSource === 'monthly_average' ? labels.monthlyAverageSource : labels.derived;
   }
-  return Array.from(seen.values())
-    .sort((a, b) => a.sp95PriceChf - b.sp95PriceChf)
-    .slice(0, maxRows);
+  if (row.sourceClass === 'unknown') return labels.unknownSource;
+  if (row.dieselSource === 'scraped') return `${provider} · ${labels.scrapedSource}`;
+  return `${provider} · ${labels.feedSource}`;
 }
 
-export default function InlineFuelPriceTable({ maxRows = 10 }: InlineFuelPriceTableProps) {
+function groupLabel(sourceClass: InlineFuelPriceSourceClass, labels: LocalizedLabels): string {
+  if (sourceClass === 'observed') return labels.observedGroup;
+  if (sourceClass === 'derived') return labels.derivedGroup;
+  return labels.unknownGroup;
+}
+
+export default function InlineFuelPriceTable({ variant = 'fuel', maxRows = 10 }: InlineFuelPriceTableProps) {
   const { t: _t } = useTranslation();
-  // _t is intentionally pulled to keep the component wired into the i18n bootstrap.
+  // Keep the widget attached to the i18n bootstrap used by the article surface.
   void _t;
   const [locale] = useLocale();
   const labels = LABELS[resolveLocale(locale)];
+  const comparisonHref = buildFuelPriceComparisonHref(variant, locale);
+  const comparisonLink = (
+    <a href={comparisonHref} className="font-semibold text-link underline underline-offset-2">
+      {labels.link} →
+    </a>
+  );
 
   const [dataset, setDataset] = useState<FuelPricesDataset | null>(null);
-  const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('loading');
 
   useEffect(() => {
     let cancelled = false;
@@ -158,14 +241,17 @@ export default function InlineFuelPriceTable({ maxRows = 10 }: InlineFuelPriceTa
     };
   }, []);
 
-  if (status === 'loading' && !dataset) {
+  if ((status === 'loading' || status === 'idle') && !dataset) {
     return (
       <div
         data-testid="inline-fuel-price-table-loading"
         className="mt-6 rounded-xl border border-edge bg-surface-alt/60 p-4 text-sm text-subtle"
       >
-        <Fuel className="inline-block mr-2 align-text-bottom" size={16} aria-hidden="true" />
-        {labels.loading}
+        <p>
+          <Fuel className="mr-2 inline-block align-text-bottom" size={16} aria-hidden="true" />
+          {labels.loading}
+        </p>
+        <p className="mt-2">{comparisonLink}</p>
       </div>
     );
   }
@@ -177,80 +263,107 @@ export default function InlineFuelPriceTable({ maxRows = 10 }: InlineFuelPriceTa
         className="mt-6 rounded-xl border border-warning-border/60 bg-warning-subtle/40 p-4 text-sm text-warning"
       >
         <div className="flex items-start gap-2">
-          <AlertTriangle size={16} className="shrink-0 mt-0.5" aria-hidden="true" />
+          <AlertTriangle size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
           <div>
             <p className="font-semibold">{labels.errorTitle}</p>
-            <p className="text-subtle mt-1">{labels.errorBody}</p>
+            <p className="mt-1 text-subtle">{labels.errorBody}</p>
+            <p className="mt-2">{comparisonLink}</p>
           </div>
         </div>
       </div>
     );
   }
 
-  const stations = pickCheapestStations(dataset, maxRows);
-  if (stations.length === 0) {
-    return null;
-  }
+  const sections = prepareInlineFuelPriceSections(dataset, variant, maxRows);
+  const groups = [
+    { sourceClass: 'observed' as const, rows: sections.observed },
+    { sourceClass: 'derived' as const, rows: sections.derived },
+    { sourceClass: 'unknown' as const, rows: sections.unknown },
+  ].filter((group) => group.rows.length > 0);
+  const provider = dataset.sources.switzerland.provider.trim() || labels.unknownSource;
+  const heading = variant === 'diesel' ? labels.dieselHeading : labels.fuelHeading;
+  const subtitle = variant === 'diesel'
+    ? labels.dieselSubtitle
+    : labels.fuelSubtitle.replace('{source}', provider);
+  const note = variant === 'diesel' ? labels.dieselNote : labels.fuelNote;
+  const priceLabel = variant === 'diesel' ? labels.dieselPrice : labels.fuelPrice;
+  const updatedLabel = variant === 'diesel' ? labels.dieselUpdated : labels.fuelUpdated;
 
   return (
     <section
       data-testid="inline-fuel-price-table"
+      data-fuel-variant={variant}
       aria-labelledby="inline-fuel-price-table-heading"
-      className="mt-6 rounded-xl border border-edge bg-surface-alt/60 overflow-hidden"
+      className="mt-6 overflow-hidden rounded-xl border border-edge bg-surface-alt/60"
     >
-      <header className="p-4 sm:p-5 border-b border-edge">
+      <header className="border-b border-edge p-4 sm:p-5">
         <h3
           id="inline-fuel-price-table-heading"
-          className="text-lg font-bold font-display text-heading flex items-center gap-2"
+          className="flex items-center gap-2 text-lg font-bold font-display text-heading"
         >
           <Fuel size={20} className="text-accent" aria-hidden="true" />
-          {labels.heading}
+          {heading}
         </h3>
-        <p className="mt-2 text-sm text-subtle">{labels.subtitle}</p>
-        <p className="mt-1 text-xs text-muted italic">{labels.note}</p>
-        <p className="mt-2 text-xs text-muted inline-flex items-center gap-1">
+        <p className="mt-2 text-sm text-subtle">{subtitle}</p>
+        <p className="mt-1 text-xs italic text-muted">{note}</p>
+        <p className="mt-2 inline-flex items-center gap-1 text-xs text-muted">
           <Clock size={12} aria-hidden="true" />
-          {labels.updated}: {formatUpdatedAt(dataset.generatedAt, locale)}
+          {labels.datasetUpdated}: {formatUpdatedAt(dataset.generatedAt, locale)}
         </p>
       </header>
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm" data-testid="inline-fuel-price-table-body">
-          <thead className="bg-surface/80 text-left text-xs uppercase tracking-wide text-muted">
-            <tr>
-              <th scope="col" className="px-3 py-2">#</th>
-              <th scope="col" className="px-3 py-2">{labels.station}</th>
-              <th scope="col" className="px-3 py-2 hidden sm:table-cell">{labels.brand}</th>
-              <th scope="col" className="px-3 py-2 hidden md:table-cell">{labels.address}</th>
-              <th scope="col" className="px-3 py-2 text-right">{labels.price}</th>
-              <th scope="col" className="px-3 py-2 hidden lg:table-cell">{labels.updated}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {stations.map((station, idx) => (
-              <tr key={station.id} className="border-t border-edge/60">
-                <td className="px-3 py-2 text-muted font-mono">{idx + 1}</td>
-                <td className="px-3 py-2 font-semibold text-body">
-                  {station.name}
-                  {station.nearestMunicipality && (
-                    <span className="ml-1 text-xs text-muted inline-flex items-center gap-0.5">
-                      <MapPin size={10} aria-hidden="true" />
-                      {station.nearestMunicipality}
-                    </span>
-                  )}
-                </td>
-                <td className="px-3 py-2 text-subtle hidden sm:table-cell">{station.brand || '—'}</td>
-                <td className="px-3 py-2 text-subtle hidden md:table-cell">{station.address}</td>
-                <td className="px-3 py-2 text-right font-semibold tabular-nums text-strong">
-                  {formatPriceChf(station.sp95PriceChf, locale)}
-                </td>
-                <td className="px-3 py-2 text-muted hidden lg:table-cell">
-                  {formatUpdatedAt(station.updatedAt, locale)}
-                </td>
+
+      {groups.length > 0 ? (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm" data-testid="inline-fuel-price-table-body">
+            <thead className="bg-surface/80 text-left text-xs uppercase tracking-wide text-muted">
+              <tr>
+                <th scope="col" className="px-3 py-2">#</th>
+                <th scope="col" className="px-3 py-2">{labels.station}</th>
+                <th scope="col" className="px-3 py-2 hidden sm:table-cell">{labels.brand}</th>
+                <th scope="col" className="px-3 py-2 hidden md:table-cell">{labels.address}</th>
+                <th scope="col" className="px-3 py-2">{labels.source}</th>
+                <th scope="col" className="px-3 py-2 text-right">{priceLabel}</th>
+                <th scope="col" className="px-3 py-2 hidden lg:table-cell">{updatedLabel}</th>
               </tr>
+            </thead>
+            {groups.map((group) => (
+              <tbody key={group.sourceClass} data-source-class={group.sourceClass}>
+                <tr className="border-t border-edge bg-surface/50">
+                  <th colSpan={7} scope="rowgroup" className="px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-muted">
+                    {groupLabel(group.sourceClass, labels)}
+                  </th>
+                </tr>
+                {group.rows.map((row, idx) => (
+                  <tr key={`${row.station.id}-${group.sourceClass}`} className="border-t border-edge/60">
+                    <td className="px-3 py-2 font-mono text-muted">{idx + 1}</td>
+                    <td className="px-3 py-2 font-semibold text-body">
+                      {row.station.name}
+                      {row.station.nearestMunicipality && (
+                        <span className="ml-1 inline-flex items-center gap-0.5 text-xs text-muted">
+                          <MapPin size={10} aria-hidden="true" />
+                          {row.station.nearestMunicipality}
+                        </span>
+                      )}
+                      <span className="mt-1 block text-xs font-normal text-muted lg:hidden">
+                        {updatedLabel}: {formatUpdatedAt(row.updatedAt, locale)}
+                      </span>
+                    </td>
+                    <td className="hidden px-3 py-2 text-subtle sm:table-cell">{row.station.brand || '—'}</td>
+                    <td className="hidden px-3 py-2 text-subtle md:table-cell">{row.station.address || '—'}</td>
+                    <td className="px-3 py-2 text-subtle">{sourceLabel(row, provider, labels, variant)}</td>
+                    <td className="px-3 py-2 text-right font-semibold tabular-nums text-strong">{formatPriceChf(row.priceChf, locale)}</td>
+                    <td className="hidden px-3 py-2 text-muted lg:table-cell">{formatUpdatedAt(row.updatedAt, locale)}</td>
+                  </tr>
+                ))}
+              </tbody>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </table>
+        </div>
+      ) : (
+        <p className="p-4 text-sm text-subtle" data-testid="inline-fuel-price-table-empty">{labels.empty}</p>
+      )}
+
+      <footer className="border-t border-edge p-4 text-sm">{comparisonLink}</footer>
     </section>
   );
 }
