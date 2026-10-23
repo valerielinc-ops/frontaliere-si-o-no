@@ -1,7 +1,7 @@
 {
   "key": "my",
   "label": "Teo Jakob AG",
-  "generatedAt": "2026-10-23T09:48:44.225Z",
+  "generatedAt": "2026-10-23T21:37:25.284Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,60 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3498,
-  "avgDurationMs": 3498,
+  "durationMs": 4107,
+  "avgDurationMs": 4107,
   "durationHistory": [
-    3498
+    4107
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "my-d79151f26e85",
-      "slug": "apprendista-commercio-al-dettaglio-afc-mobili-m-f-100-teo-jakob-ag-bern",
-      "company": "Teo Jakob AG",
-      "companyKey": "my",
-      "companyDomain": "my.jobalino.ch",
-      "title": "Lernende Detailhandel EFZ Möbel (m/w) / 100%",
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://my.jobalino.ch/job/6627a44879cd0/teo-jakob-ag/lernende-detailhandel-efz-moebel-m-w",
-      "source": "Teo Jakob AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:40:16.236Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Gerechtigkeitsgasse 25",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-04-23",
-      "postedDate": "2024-04-23",
-      "postingDateSource": "reported",
-      "applyUrl": "https://my.jobalino.ch/job/6627a44879cd0/teo-jakob-ag/lernende-detailhandel-efz-moebel-m-w",
-      "firstSeenAt": "2026-10-12T21:40:17.558Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "my-504c86923bce",
@@ -81,7 +37,7 @@
       "url": "https://my.jobalino.ch/de/jobpreview/18678",
       "source": "Teo Jakob AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:48:33.244Z",
+      "crawledAt": "2026-10-23T21:37:10.967Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -112,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }

@@ -1,7 +1,7 @@
 {
   "key": "artificialy",
   "label": "Artificialy",
-  "generatedAt": "2026-10-23T09:44:46.322Z",
+  "generatedAt": "2026-10-23T21:30:47.272Z",
   "total": 3,
   "discovered": 4,
   "parsed": 3,
@@ -9,16 +9,18 @@
   "lastFetchOutcome": "ok",
   "abortKind": null,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5025,
-  "avgDurationMs": 5025,
+  "unchangedCount": 3,
+  "durationMs": 5158,
+  "avgDurationMs": 5158,
   "durationHistory": [
-    5025
+    5158
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "AI Engineer",
       "slug": "ai-ingegnere-artificialy-switzerland",
@@ -56,10 +58,7 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "AI Scientist - LLM Systems",
       "slug": "ai-scientist-sistemi-llm-artificialy-switzerland",
@@ -138,5 +137,5 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }
