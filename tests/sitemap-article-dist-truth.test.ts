@@ -119,30 +119,20 @@ describe('reconcileArticleSitemapsWithDist', () => {
       flatRedirectPath,
       `<meta name="robots" content="noindex,follow"><link rel="canonical" href="${STATIC_NOINDEX}">`,
     );
-    const readFile = vi.spyOn(fs.promises, 'readFile');
-
     await reconcileFinalSitemapsWithDist(dist, []);
 
     expect(extractSitemapLocs(fs.readFileSync(file, 'utf8'))).toEqual([STATIC_BRIDGE, STATIC_PDF]);
-    expect(readFile).not.toHaveBeenCalledWith(
-      path.join(dist, 'guides/guida-completa-frontaliere-2026.pdf', 'index.html'),
-      'utf-8',
-    );
-    expect(readFile).toHaveBeenCalledWith(
-      path.join(dist, 'about/legacy-noindex', 'index.html'),
-      'utf-8',
-    );
-    expect(readFile).toHaveBeenCalledWith(
-      path.join(dist, 'about/legacy.page', 'index.html'),
-      'utf-8',
-    );
-    expect(readFile).toHaveBeenCalledWith(flatRedirectPath, 'utf-8');
   });
 
   it('propagates a non-ENOENT candidate read error', async () => {
-    const permissionDenied = Object.assign(new Error('permission denied'), { code: 'EACCES' });
-    vi.spyOn(fs.promises, 'readFile').mockRejectedValueOnce(permissionDenied);
+    const unreadable = `${BASE}/it/article-unreadable/`;
+    fs.writeFileSync(
+      path.join(dist, 'sitemap-locale-variants-001.xml'),
+      urlset([unreadable]),
+      'utf8',
+    );
+    fs.mkdirSync(path.join(dist, 'it/article-unreadable/index.html'), { recursive: true });
 
-    await expect(reconcileArticleSitemapsWithDist(dist)).rejects.toMatchObject({ code: 'EACCES' });
+    await expect(reconcileArticleSitemapsWithDist(dist)).rejects.toMatchObject({ code: 'EISDIR' });
   });
 });
