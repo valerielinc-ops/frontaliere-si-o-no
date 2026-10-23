@@ -8,7 +8,7 @@ export function AdminMessageBanner({ message }: { message: AdminMessage | null }
       ? 'bg-warning-subtle border-warning-border text-warning'
       : 'bg-danger-subtle border-danger-border text-danger';
   return (
-    <div role={message.kind === 'error' ? 'alert' : 'status'} className={`rounded-lg border px-3 py-2 text-xs ${styles}`}>
+    <div role={message.kind === 'error' ? 'alert' : 'status'} className={`rounded-stripe border px-3 py-2 text-sm ${styles}`}>
       {message.text}
     </div>
   );

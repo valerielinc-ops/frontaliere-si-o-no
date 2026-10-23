@@ -1,11 +1,12 @@
 import { Fragment, type Dispatch, type ReactNode, type SetStateAction } from 'react';
 import {
-  AlertTriangle, ArrowDown, ArrowUp, CheckCircle2, ChevronDown, ChevronRight,
-  Clock3, ExternalLink, ListChecks, Loader2, Play, RefreshCw, RotateCcw,
-  Search, Zap,
+  AlertTriangle, ArrowDown, ArrowUp, ChevronDown, ChevronRight,
+  Clock3, ExternalLink, Loader2, Play, Search,
 } from 'lucide-react';
 import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { CopyButton } from '@/components/admin/ui/CopyButton';
+import { AdminButton } from '@/components/admin/ui/AdminButton';
+import { AdminStatusPill } from '@/components/admin/ui/AdminStatusPill';
 import { relativeTime } from '@/components/admin/lib/formatters';
 import { replaceAdminQuery } from '@/components/admin/lib/adminNavigation';
 import { WORKFLOW_CONTEXT_META } from '@/components/admin/AdminWorkflowProvider';
@@ -47,14 +48,10 @@ export interface CrawlerTableProps {
   setCrawlerChangeFilter: Dispatch<SetStateAction<CrawlerChangeFilter>>;
   setExpandedCrawlerDetail: Dispatch<SetStateAction<Record<string, 'new' | 'updated' | 'removed' | 'unchanged' | 'active' | null>>>;
   setCrawlerSort: Dispatch<SetStateAction<{ column: CrawlerSortColumn; direction: CrawlerSortDirection }>>;
-  setRetryFailedProgress: Dispatch<SetStateAction<{ running: boolean; current: number; total: number; currentLabel: string } | null>>;
+  failedWorkflowCount: number;
   getWorkflowState: (workflowId: string) => WorkflowRunState;
   isWorkflowRunDispatchLocked: (state: WorkflowRunState | null | undefined) => boolean;
-  runWorkflowAction: (workflowId: string, inputs?: Record<string, string>, options?: { deferMonitoring?: boolean }) => Promise<WorkflowRunState>;
-  monitorWorkflowRun: (workflowId: string, runId: number, initialHtmlUrl: string | null, initialState: WorkflowRunState) => Promise<WorkflowRunState>;
   runWorkflowWithConfirmation: (workflowId: string, inputs?: Record<string, string>) => Promise<WorkflowRunState | null>;
-  refreshWorkflowSnapshots: (context: WorkflowContext) => Promise<void>;
-  loadCrawlerData: (options?: { force?: boolean }) => Promise<void>;
   renderWorkflowCard?: (workflow: WorkflowActionDefinition) => ReactNode;
 }
 
@@ -70,14 +67,10 @@ export function CrawlerTable({
   setCrawlerChangeFilter,
   setExpandedCrawlerDetail,
   setCrawlerSort,
-  setRetryFailedProgress,
+  failedWorkflowCount,
   getWorkflowState,
   isWorkflowRunDispatchLocked,
-  runWorkflowAction,
-  monitorWorkflowRun,
   runWorkflowWithConfirmation,
-  refreshWorkflowSnapshots,
-  loadCrawlerData,
   renderWorkflowCard = () => null,
 }: CrawlerTableProps) {
 
@@ -122,39 +115,7 @@ export function CrawlerTable({
 
  return (
  <div className="space-y-4">
- <div className="flex items-center justify-between">
- <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
- <ListChecks size={20} className="text-accent" />
- {meta.label}
- </h2>
- <div className="flex items-center gap-2">
- <button
- onClick={() => void refreshWorkflowSnapshots('jobs')}
- className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium transition-colors"
- >
- <ListChecks size={14} />
- Aggiorna stati workflow
- </button>
- <button
- onClick={() => void loadCrawlerData({ force: true })}
- className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-raised text-body text-sm font-medium hover:bg-surface-raised transition-colors"
- >
- <RefreshCw size={14} />
- Ricarica
- </button>
- </div>
- </div>
-
- <div className="bg-surface rounded-xl border border-edge p-4 space-y-4">
- <div className="rounded-lg border border-edge bg-surface-alt/40 p-3">
- <div className="text-xs font-semibold text-body mb-2">
- Azioni automatiche: avvio workflow e monitoraggio completo
- </div>
- <p className="text-sm text-muted">
- Ogni bottone avvia un workflow GitHub, ne mostra lo stato in tempo reale e riassume output/errori direttamente qui.
- </p>
- </div>
-
+ <div className="bg-surface rounded-stripe border border-edge p-4 space-y-4">
  {isJobsContext ? (
  <div className="space-y-3">
  {(() => {
@@ -305,7 +266,7 @@ export function CrawlerTable({
  };
 
  const renderExpandedJobs = (jobs: CrawlerSummaryLinkRow[], type: 'new' | 'updated' | 'removed' | 'unchanged' | 'active') => {
- if (jobs.length === 0) return <div className="text-[11px] text-muted py-1">Nessun elemento.</div>;
+ if (jobs.length === 0) return <div className="text-sm text-muted py-1">Nessun elemento.</div>;
  const styleMap = {
  new: 'border-success-border bg-success-subtle/50',
  updated: 'border-accent-border bg-accent-subtle/50',
@@ -318,9 +279,6 @@ export function CrawlerTable({
  <div className="space-y-1">
  {(jobs as (CrawlerSummaryLinkRow & { _status?: 'new' | 'updated' | 'unchanged' })[]).map((job, idx) => {
  const rowStyle = type === 'active' && job._status ? styleMap[job._status] : styleMap[type];
- const borderColor = type === 'active' && job._status
- ? (job._status === 'new' ? 'border-l-emerald-500' : job._status === 'updated' ? 'border-l-stripe-500' : 'border-l-amber-400')
- : '';
  const siteUrl = jobSiteUrl(job.slug);
  const qs = job._qualityScore;
  const qsBadge = qs != null ? (() => {
@@ -334,26 +292,26 @@ export function CrawlerTable({
  ? `Pulizia: ${bd.cleanliness}/25\nRicchezza: ${bd.richness}/25\nTraduzione: ${bd.translation}/25\nCompletezza: ${bd.completeness}/25`
  : `Quality: ${qs}/100`;
  return (
- <span className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-bold ${color} cursor-help`} title={tip}>
+ <span className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-sm font-semibold ${color} cursor-help`} title={tip}>
  {qs}
  </span>
  );
  })() : null;
  return (
- <div key={`${job.slug || idx}`} className={`rounded-md border px-2 py-1.5 ${rowStyle} ${borderColor ? `border-l-2 ${borderColor}` : ''}`}>
+ <div key={`${job.slug || idx}`} className={`rounded-stripe border px-2 py-1.5 ${rowStyle}`}>
  <div className="flex items-center gap-1.5">
- <span className="text-xs font-medium text-strong">{job.title || 'Job senza titolo'}</span>
+ <span className="text-sm font-medium text-strong">{job.title || 'Job senza titolo'}</span>
  {qsBadge}
  </div>
- <div className="text-[11px] text-muted">
+ <div className="text-sm text-muted">
  {job.company || 'Azienda n/d'}{job.location ? ` \u00B7 ${job.location}` : ''}
  </div>
  <div className="flex gap-3 mt-0.5">
- {job.url && <a href={normalizeExternalJobDetailUrl(job.url)} target="_blank" rel="noreferrer" className="text-[10px] text-link hover:underline">🔗 Sorgente</a>}
+ {job.url && <a href={normalizeExternalJobDetailUrl(job.url)} target="_blank" rel="noreferrer" className="inline-flex min-h-10 items-center gap-1 text-sm text-link hover:underline"><ExternalLink size={13} aria-hidden="true" />Sorgente</a>}
  {siteUrl && (type === 'removed' ? (
- <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-muted hover:underline">🏚 Sito (archiviato)</a>
+ <a href={siteUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-10 items-center gap-1 text-sm text-muted hover:underline"><Clock3 size={13} aria-hidden="true" />Sito (archiviato)</a>
  ) : (
- <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-accent hover:underline">🏠 Sito</a>
+ <a href={siteUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-10 items-center gap-1 text-sm text-accent hover:underline"><ExternalLink size={13} aria-hidden="true" />Sito</a>
  ))}
  </div>
  </div>
@@ -382,6 +340,7 @@ export function CrawlerTable({
  replaceAdminQuery({ ordina: next.column, dir: next.direction });
  }}
  className={`inline-flex w-full items-center gap-1 ${justifyClass} ${options?.className || ''} hover:text-heading `}
+ aria-sort={isActive ? (crawlerSort.direction === 'asc' ? 'ascending' : 'descending') : 'none'}
  >
  <span>{label}</span>
  <Icon size={11} className={isActive ? 'opacity-100' : 'opacity-25'} />
@@ -389,121 +348,43 @@ export function CrawlerTable({
  );
  };
 
- const failedCrawlers = rows.filter(r => {
- if (!r.wf) return false;
- const st = getWorkflowState(r.wf.id);
- return st.status === 'completed' && st.conclusion != null && st.conclusion !== 'success';
- });
-
- const retryAllFailed = async () => {
- if (failedCrawlers.length === 0 || retryFailedProgress?.running) return;
- // Post-consolidation (2026-07), many crawler rows share the SAME `wf.id`
- // (their containing crawler-group-*.yml — see the comment on `key: wf.slug
- // || wf.id` above). Without dedup, "Rilancia N falliti" would dispatch the
- // same group workflow once per failed crawler row inside it (e.g. 3 failed
- // groups x ~25 members each = 75 dispatch calls instead of 3) — each
- // distinct failed workflow should only be re-run ONCE regardless of how
- // many crawler rows point at it.
- const seenIds = new Set<string>();
- const toRetry = failedCrawlers.filter((row) => {
- const id = row.wf!.id;
- if (isWorkflowRunDispatchLocked(getWorkflowState(id))) return false;
- if (seenIds.has(id)) return false;
- seenIds.add(id);
- return true;
- });
- if (toRetry.length === 0) return;
- const retrySummary = toRetry.map((row) => `${row.wf!.id} (${row.wf!.expectedDuration})`).join(', ');
- if (typeof window !== 'undefined' && !window.confirm(
- `Rilanciare ${toRetry.length} gruppi crawler falliti?\n\nImpatto: ogni gruppo verrà avviato una volta con ref=main; il monitoraggio partirà in parallelo dopo i dispatch.\nInput: ref=main\nDurata attesa: ${retrySummary}\n\nProcedere?`,
- )) return;
- setRetryFailedProgress({ running: true, current: 0, total: toRetry.length, currentLabel: '' });
- const monitoring: Array<Promise<WorkflowRunState>> = [];
- try {
- for (let i = 0; i < toRetry.length; i++) {
- const row = toRetry[i];
- setRetryFailedProgress({ running: true, current: i + 1, total: toRetry.length, currentLabel: row.title });
- const state = await runWorkflowAction(row.wf!.id, {}, { deferMonitoring: true });
- if (state.runId !== null) {
- monitoring.push(monitorWorkflowRun(row.wf!.id, state.runId, state.htmlUrl, state));
- }
- }
- await Promise.all(monitoring);
- } finally {
- setRetryFailedProgress(null);
- }
- };
-
  return (
  <>
  {/* Summary bar + filters */}
  <div className="flex flex-col gap-2">
- <div className="flex flex-wrap items-center gap-3 px-3 py-2 rounded-lg bg-surface-alt/40 border border-edge text-xs">
+ <div className="flex flex-wrap items-center gap-3 px-3 py-2 rounded-stripe bg-surface-alt/40 border border-edge text-sm">
  <span className="font-semibold text-body">{filtered.length}/{rows.length} crawler</span>
  {/* Source badge: makes clear these numbers are per-crawler last-run diffs,
  NOT the daily job-board delta from jobs-stats.json (todayAdded/todayUpdated/todayRemoved). */}
  <span
- className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-warning-subtle text-warning font-semibold text-[10px] uppercase tracking-wide"
+ className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-stripe bg-warning-subtle text-warning font-semibold text-sm"
  title="Aggiunti / Aggiornati / Rimossi / Invariati mostrano il diff dell'ultima singola esecuzione di ogni crawler. Sono metriche distinte dal delta giornaliero del job board (jobs-stats.json) che confronta l'intero board con il commit HEAD della giornata."
  >
  Δ ultima run
  </span>
  {latestSummaryAt && (
  <span
- className="text-muted text-[10px] font-mono whitespace-nowrap"
+ className="text-muted text-sm font-mono whitespace-nowrap"
  title={`Dati aggiornati: ${latestSummaryAt}`}
  >
  {relativeTime(latestSummaryAt, true)}
  </span>
  )}
- <span className="text-muted">|</span>
+ <span className="text-muted" aria-hidden="true">·</span>
  <span className="font-semibold text-subtle">{totals.active} annunci attivi</span>
- {totals.newCount > 0 && <span className="text-success font-bold" title="Totale aggiunti nelle ultime run (Δ run, ≠ delta giornaliero)">+{totals.newCount} nuove</span>}
- {totals.updated > 0 && <span className="text-accent font-bold" title="Totale aggiornati nelle ultime run (Δ run, ≠ delta giornaliero)">~{totals.updated} agg.</span>}
- {totals.removed > 0 && <span className="text-danger font-bold" title="Totale rimossi nelle ultime run (Δ run, ≠ delta giornaliero)">-{totals.removed} rim.</span>}
+ {totals.newCount > 0 && <span className="text-success font-semibold" title="Totale aggiunti nelle ultime run (Δ run, ≠ delta giornaliero)">+{totals.newCount} nuove</span>}
+ {totals.updated > 0 && <span className="text-accent font-semibold" title="Totale aggiornati nelle ultime run (Δ run, ≠ delta giornaliero)">~{totals.updated} agg.</span>}
+ {totals.removed > 0 && <span className="text-danger font-semibold" title="Totale rimossi nelle ultime run (Δ run, ≠ delta giornaliero)">-{totals.removed} rim.</span>}
  {totals.unchanged > 0 && <span className="text-muted" title="Totale invariati nelle ultime run (Δ run, ≠ delta giornaliero)">={totals.unchanged} inv.</span>}
- {failedCrawlers.length > 0 && (
+ {failedWorkflowCount > 0 && (
  <>
- <span className="text-muted">|</span>
- <span className="text-danger font-bold">{failedCrawlers.length} falliti</span>
+ <span className="text-muted" aria-hidden="true">·</span>
+ <span className="text-danger font-semibold">{failedWorkflowCount} falliti</span>
  </>
  )}
- {failedCrawlers.length > 0 && (
- <button
- onClick={() => void retryAllFailed()}
- disabled={!!retryFailedProgress?.running}
- className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-danger-strong hover:bg-danger-strong-hover disabled:opacity-60 text-on-accent text-[11px] font-semibold transition-colors"
- aria-label={`Rilancia ${failedCrawlers.length} crawler falliti`}
- >
- {retryFailedProgress?.running ? (
- <><Loader2 size={12} className="animate-spin" /> {retryFailedProgress.current}/{retryFailedProgress.total}</>
- ) : (
- <><RotateCcw size={12} /> Rilancia {failedCrawlers.length} falliti</>
- )}
- </button>
- )}
- {/* Orchestrator dispatch button */}
- {(() => {
- const orchState = getWorkflowState('orchestrate-crawlers.yml');
- const orchRunning = isWorkflowRunDispatchLocked(orchState);
- return (
- <button
- onClick={() => void runWorkflowWithConfirmation('orchestrate-crawlers.yml', { group: 'all', delay_seconds: '60', dry_run: 'false' })}
- disabled={orchRunning}
- className={`inline-flex items-center gap-1.5 ${failedCrawlers.length === 0 ? 'ml-auto' : ''} px-3 py-1.5 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-[11px] font-semibold transition-colors`}
- aria-label="Avvia orchestratore crawler"
- >
- {orchRunning ? (
- <><Loader2 size={12} className="animate-spin" /> Orchestratore in corso…</>
- ) : (
- <><Zap size={12} /> Lancia tutti i crawler</>
- )}
- </button>
- );
- })()}
  </div>
  {retryFailedProgress?.running && (
- <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-warning-subtle border border-warning-border text-xs text-warning">
+ <div className="flex items-center gap-2 px-3 py-1.5 rounded-stripe bg-warning-subtle border border-warning-border text-sm text-warning">
  <Loader2 size={12} className="animate-spin" />
  <span>Rilancio {retryFailedProgress.current}/{retryFailedProgress.total}: <strong>{retryFailedProgress.currentLabel}</strong></span>
  </div>
@@ -521,7 +402,7 @@ export function CrawlerTable({
  replaceAdminQuery({ q: value.trim() || null });
  }}
  placeholder="Filtra crawler…"
- className="pl-7 pr-2 py-1.5 rounded-md border border-edge bg-surface text-xs text-strong w-44 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+ className="pl-7 pr-2 py-1.5 rounded-stripe border border-edge bg-surface text-sm text-strong w-44 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent"
  aria-label="Filtra per nome crawler"
  />
  </div>
@@ -532,7 +413,7 @@ export function CrawlerTable({
  setCrawlerChangeFilter(value);
  replaceAdminQuery({ stato: crawlerChangeFilterToQuery(value) });
  }}
- className="px-2 py-1.5 rounded-md border border-edge bg-surface text-xs text-strong focus:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+ className="px-2 py-1.5 rounded-stripe border border-edge bg-surface text-sm text-strong focus:outline-none focus-visible:ring-1 focus-visible:ring-accent"
  aria-label="Filtra per tipo variazione"
  >
  <option value="all">Tutte le variazioni</option>
@@ -553,7 +434,7 @@ export function CrawlerTable({
  setCrawlerSort({ column: 'schedule', direction: 'asc' });
  replaceAdminQuery({ q: null, stato: null, ordina: null, dir: null });
  }}
- className="text-[10px] text-link hover:underline"
+ className="min-h-10 px-2 text-sm text-link hover:underline"
  >
  Rimuovi filtri
  </button>
@@ -562,20 +443,20 @@ export function CrawlerTable({
  </div>
 
  {/* Table */}
- <div className="w-full overflow-x-auto rounded-lg border border-edge">
- <table className="min-w-[800px] w-full text-xs">
+ <div className="w-full overflow-x-auto rounded-stripe border border-edge">
+ <table className="min-w-[800px] w-full text-sm tabular-nums">
  <thead>
  <tr className="bg-surface-alt/40 text-subtle border-b border-edge">
  <th className="text-left py-2 px-3 font-semibold">{renderCrawlerSortHeader('title', 'Crawler')}</th>
- <th className="text-center py-2 px-2 font-semibold whitespace-nowrap">{renderCrawlerSortHeader('schedule', '⏰ Pianif.', { align: 'center' })}</th>
+ <th className="text-center py-2 px-2 font-semibold whitespace-nowrap">{renderCrawlerSortHeader('schedule', 'Pianificazione', { align: 'center' })}</th>
  <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('lastRun', 'Ultimo', { align: 'center' })}</th>
- <th className="text-center py-2 px-1.5 font-semibold text-success whitespace-nowrap" title="Nuove offerte aggiunte nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('newCount', 'Aggiunti', { align: 'center', className: 'text-success' })}</th>
- <th className="text-center py-2 px-1.5 font-semibold text-accent whitespace-nowrap" title="Offerte aggiornate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('updatedCount', 'Aggiornati', { align: 'center', className: 'text-accent' })}</th>
- <th className="text-center py-2 px-1.5 font-semibold text-danger whitespace-nowrap" title="Offerte rimosse nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('removedCount', 'Rimossi', { align: 'center', className: 'text-danger' })}</th>
- <th className="text-center py-2 px-1.5 font-semibold text-muted whitespace-nowrap" title="Offerte non cambiate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('unchangedCount', 'Invariati', { align: 'center', className: 'text-muted' })}</th>
- <th className="text-center py-2 px-1.5 font-semibold text-accent whitespace-nowrap" title="Totale offerte attive nella slice del crawler (dal job slice, non dal delta dell'ultima run)">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center', className: 'text-accent' })}</th>
- <th className="text-center py-2 px-1.5 font-semibold text-muted whitespace-nowrap">{renderCrawlerSortHeader('duration', '⏱️ Durata', { align: 'center', className: 'text-muted' })}</th>
- <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Quality score: media ponderata su pulizia testo, ricchezza contenuto, qualità traduzione, completezza dati (0–100)">{renderCrawlerSortHeader('quality', '📊 Qualità', { align: 'center' })}</th>
+ <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Nuove offerte aggiunte nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('newCount', 'Aggiunti', { align: 'center' })}</th>
+ <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Offerte aggiornate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('updatedCount', 'Aggiornati', { align: 'center' })}</th>
+ <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Offerte rimosse nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('removedCount', 'Rimossi', { align: 'center' })}</th>
+ <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Offerte non cambiate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('unchangedCount', 'Invariati', { align: 'center' })}</th>
+ <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Totale offerte attive nella slice del crawler (dal job slice, non dal delta dell'ultima run)">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center' })}</th>
+ <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap">{renderCrawlerSortHeader('duration', 'Durata', { align: 'center' })}</th>
+ <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Quality score: media ponderata su pulizia testo, ricchezza contenuto, qualità traduzione, completezza dati (0–100)">{renderCrawlerSortHeader('quality', 'Qualità', { align: 'center' })}</th>
  <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('status', 'Stato', { align: 'center' })}</th>
  <th className="text-center py-2 px-2 font-semibold">Azioni</th>
  </tr>
@@ -604,7 +485,7 @@ export function CrawlerTable({
 
  return (
  <Fragment key={row.key}>
- <tr className={`border-b border-edge hover:bg-surface-alt/70 /40 ${
+ <tr className={`border-b border-edge hover:bg-surface-alt/70 ${
  row.wf?.id === 'orchestrate-crawlers.yml' ? 'bg-accent-subtle/50'
  : isFailure ? 'bg-danger-subtle/50' : ''
  }`}>
@@ -613,80 +494,80 @@ export function CrawlerTable({
  <span className={`font-semibold ${row.wf?.id === 'orchestrate-crawlers.yml' ? 'text-accent' : 'text-strong'}`}>{row.title}</span>
  </td>
  {/* Schedule */}
- <td className="text-center py-2 px-2 font-mono text-[11px] text-subtle whitespace-nowrap">
+ <td className="text-center py-2 px-2 font-mono text-sm text-subtle whitespace-nowrap">
  {row.schedule ? <span title={`UTC ${row.schedule}`}>{row.schedule}</span> : '—'}
  </td>
  {/* Last run */}
- <td className="text-center py-2 px-2 text-[11px] text-muted whitespace-nowrap">
+ <td className="text-center py-2 px-2 text-sm text-muted whitespace-nowrap">
  {lastRunAgo || '—'}
  </td>
  {/* Aggiunti */}
  <td className="text-center py-2 px-1.5">
  {s && s.newCount > 0 ? (
  <button onClick={() => toggleExpand(row.key, 'new')}
- className={`inline-flex items-center gap-0.5 text-success font-bold hover:underline cursor-pointer ${expanded === 'new' ? 'underline' : ''}`}>
+ className={`inline-flex items-center gap-0.5 text-success font-semibold hover:underline cursor-pointer ${expanded === 'new' ? 'underline' : ''}`}>
  {expanded === 'new' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
  +{s.newCount}
  </button>
  ) : s ? (
- <span className="text-muted text-[10px]">0</span>
+ <span className="text-muted text-sm">0</span>
  ) : '—'}
  </td>
  {/* Aggiornati */}
  <td className="text-center py-2 px-1.5">
  {s && s.updatedCount > 0 ? (
  <button onClick={() => toggleExpand(row.key, 'updated')}
- className={`inline-flex items-center gap-0.5 text-accent font-bold hover:underline cursor-pointer ${expanded === 'updated' ? 'underline' : ''}`}>
+ className={`inline-flex items-center gap-0.5 text-accent font-semibold hover:underline cursor-pointer ${expanded === 'updated' ? 'underline' : ''}`}>
  {expanded === 'updated' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
  ~{s.updatedCount}
  </button>
  ) : s ? (
- <span className="text-muted text-[10px]">0</span>
+ <span className="text-muted text-sm">0</span>
  ) : '—'}
  </td>
  {/* Rimossi */}
  <td className="text-center py-2 px-1.5">
  {s && s.removedCount > 0 ? (
  <button onClick={() => toggleExpand(row.key, 'removed')}
- className={`inline-flex items-center gap-0.5 text-danger font-bold hover:underline cursor-pointer ${expanded === 'removed' ? 'underline' : ''}`}>
+ className={`inline-flex items-center gap-0.5 text-danger font-semibold hover:underline cursor-pointer ${expanded === 'removed' ? 'underline' : ''}`}>
  {expanded === 'removed' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
  -{s.removedCount}
  </button>
  ) : s ? (
- <span className="text-muted text-[10px]">0</span>
+ <span className="text-muted text-sm">0</span>
  ) : '—'}
  </td>
  {/* Invariati */}
  <td className="text-center py-2 px-1.5">
  {s && s.unchangedCount > 0 ? (
  <button onClick={() => toggleExpand(row.key, 'unchanged')}
- className={`inline-flex items-center gap-0.5 text-warning font-bold hover:underline cursor-pointer ${expanded === 'unchanged' ? 'underline' : ''}`}>
+ className={`inline-flex items-center gap-0.5 text-warning font-semibold hover:underline cursor-pointer ${expanded === 'unchanged' ? 'underline' : ''}`}>
  {expanded === 'unchanged' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
  {s.unchangedCount}
  </button>
  ) : s ? (
- <span className="text-muted text-[10px]">0</span>
+ <span className="text-muted text-sm">0</span>
  ) : '—'}
  </td>
  {/* Annunci (attivi) — from actual job slice, not crawl-run delta */}
  <td className="text-center py-2 px-1.5">
  {s && s.activeJobCount > 0 ? (
  <button onClick={() => toggleExpand(row.key, 'active')}
- className={`inline-flex items-center gap-0.5 text-accent font-bold hover:underline cursor-pointer ${expanded === 'active' ? 'underline' : ''}`}>
+ className={`inline-flex items-center gap-0.5 text-accent font-semibold hover:underline cursor-pointer ${expanded === 'active' ? 'underline' : ''}`}>
  {expanded === 'active' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
  {s.activeJobCount}
  </button>
  ) : s ? (
- <span className="text-muted text-[10px]">0</span>
+ <span className="text-muted text-sm">0</span>
  ) : '—'}
  </td>
  {/* Durata */}
  <td className="text-center py-2 px-1.5">
  {s?.durationMs != null ? (
- <span className="text-[10px] font-mono text-subtle" title={s.avgDurationMs != null ? `Media: ${formatDurationMs(s.avgDurationMs)}` : undefined}>
+ <span className="text-sm font-mono text-subtle" title={s.avgDurationMs != null ? `Media: ${formatDurationMs(s.avgDurationMs)}` : undefined}>
  {formatDurationMs(s.durationMs)}
  {s.avgDurationMs != null && (
- <span className="block text-[9px] text-muted">ø {formatDurationMs(s.avgDurationMs)}</span>
+ <span className="block text-sm text-muted">ø {formatDurationMs(s.avgDurationMs)}</span>
  )}
  </span>
  ) : '—'}
@@ -712,51 +593,40 @@ export function CrawlerTable({
  ].join('\n');
  return (
  <span
- className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold ${badgeColor} cursor-help`}
+ className={`inline-flex items-center px-2 py-0.5 rounded-full text-sm font-semibold ${badgeColor} cursor-help`}
  title={tooltipLines}
  >
  {avg}
  </span>
  );
  })() : (
- <span className="text-muted text-[10px]">—</span>
+ <span className="text-muted text-sm">—</span>
  )}
  </td>
  {/* Status */}
  <td className="text-center py-2 px-2">
  {wfState ? (
- <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${
- isSuccess ? 'bg-success-subtle text-success'
- : isFailure ? 'bg-danger-subtle text-danger'
- : isRunning ? 'bg-accent-subtle text-accent'
- : 'bg-surface-raised text-subtle'
- }`}>
- {isRunning ? (<><Loader2 size={10} className="animate-spin" /> Run</>)
- : isSuccess ? (<><CheckCircle2 size={10} /> OK</>)
- : isFailure ? (<><AlertTriangle size={10} /> Err</>)
- : (<><Clock3 size={10} /> —</>)}
- </span>
+ <AdminStatusPill tone={isSuccess ? 'success' : isFailure ? 'danger' : isRunning ? 'accent' : 'neutral'}>{isRunning ? 'In corso' : isSuccess ? 'OK' : isFailure ? 'Errore' : 'In attesa'}</AdminStatusPill>
  ) : (
- <span className="text-muted text-[10px]">—</span>
+ <span className="text-muted text-sm">—</span>
  )}
  </td>
  {/* Actions */}
  <td className="text-center py-2 px-2">
  {row.wf ? (
  <div className="inline-flex items-center gap-1.5">
- <button
+ <AdminButton
+ variant="primary"
+ icon={<Play size={14} aria-hidden="true" />}
+ loading={!!isRunning}
+ loadingLabel="Avvio…"
  onClick={() => void runWorkflowWithConfirmation(row.wf!.id)}
- disabled={!!isRunning}
- className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-[10px] font-semibold transition-colors"
  aria-label={`Avvia il gruppo ${row.wf?.groupId || row.wf?.id || row.title} con ${row.wf?.groupMemberCount || 1} crawler`}
  title={`Avvia il gruppo ${row.wf?.groupId || row.wf?.id || row.title} con ${row.wf?.groupMemberCount || 1} crawler`}
- >
- <Play size={10} />
- {isRunning ? '…' : `Avvia gruppo ${row.wf?.groupId || row.wf?.id || row.title} · ${row.wf?.groupMemberCount || 1} crawler`}
- </button>
+ >Avvia gruppo {row.wf?.groupId || row.wf?.id || row.title} · {row.wf?.groupMemberCount || 1} crawler</AdminButton>
  {wfState?.htmlUrl && (
  <a href={wfState.htmlUrl} target="_blank" rel="noreferrer"
- className="inline-flex items-center px-1.5 py-1 rounded-md border border-edge text-muted text-[10px] hover:bg-surface-raised transition-colors"
+ className="inline-flex min-h-10 items-center px-2 py-2 rounded-stripe border border-edge text-muted text-sm hover:bg-surface-raised transition-colors"
  aria-label={`GitHub ${row.title}`}>
  <ExternalLink size={10} />
  </a>
@@ -766,7 +636,7 @@ export function CrawlerTable({
  )}
  </div>
  ) : (
- <span className="text-muted text-[10px]">—</span>
+ <span className="text-muted text-sm">—</span>
  )}
  </td>
  </tr>
@@ -780,7 +650,7 @@ export function CrawlerTable({
  : expanded === 'active' ? 'bg-accent-subtle/50'
  : 'bg-danger-subtle/50'
  }`}>
- <div className="text-[11px] font-semibold text-body mb-1.5">
+ <div className="text-sm font-semibold text-body mb-1.5">
  {expanded === 'new' ? `Aggiunti (${s.newCount})`
  : expanded === 'updated' ? `Aggiornati (${s.updatedCount})`
  : expanded === 'unchanged' ? `Invariati (${s.unchangedCount}${s.unchangedCount > s.unchangedJobs.length ? ` — mostrati ${s.unchangedJobs.length}` : ''})`
@@ -808,19 +678,19 @@ export function CrawlerTable({
  <td colSpan={12} className="px-3 py-2 bg-danger-subtle/50 border-b border-danger-border">
  <div className="space-y-1">
  {wfState.error && (
- <div className="flex items-start gap-2 text-xs text-danger">
+ <div className="flex items-start gap-2 text-sm text-danger">
  <AlertTriangle size={12} className="mt-0.5 shrink-0" />
  <span className="font-semibold">{wfState.error}</span>
  </div>
  )}
  {failedSteps.length > 0 && (
- <div className="text-[11px] text-danger pl-5">
+ <div className="text-sm text-danger pl-5">
  Step falliti: {failedSteps.slice(0, 4).join(' · ')}
  {failedSteps.length > 4 && <span className="text-danger"> (+{failedSteps.length - 4})</span>}
  </div>
  )}
  {wfState.logExcerpt && (
- <pre className="max-h-20 overflow-auto rounded-md bg-surface-inverted text-danger p-2 text-[10px] font-mono whitespace-pre-wrap break-words leading-relaxed border border-danger-border">
+ <pre className="max-h-20 overflow-auto rounded-stripe bg-surface-inverted text-danger p-2 text-sm font-mono whitespace-pre-wrap break-words leading-relaxed border border-danger-border">
  {wfState.logExcerpt}
  </pre>
  )}
@@ -840,9 +710,9 @@ export function CrawlerTable({
  </div>
  ) : (
  <div className="space-y-4">
- <div className="rounded-lg border border-edge bg-surface-alt/40 px-3 py-2">
- <div className="text-xs font-bold text-body">{meta.label}</div>
- <div className="text-[11px] text-muted mt-0.5">{meta.description}</div>
+ <div className="rounded-stripe border border-edge bg-surface-alt/40 px-3 py-2">
+ <div className="text-sm font-semibold text-body">{meta.label}</div>
+ <div className="text-sm text-muted mt-0.5">{meta.description}</div>
  </div>
  <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
  {grouped.map(renderWorkflowCard)}
