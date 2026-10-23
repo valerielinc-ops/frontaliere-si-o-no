@@ -47,6 +47,12 @@ function manifestWithTransportedTwins() {
         baseline: { site: 'eeee', corpus: 'ffff', alignedAt: '2026-10-16' },
       },
       {
+        path: 'host/shell-contract-fingerprint.json',
+        sitePath: 'tests/articles-shell-contract-fingerprint.json',
+        mode: 'identical',
+        baseline: { site: 'gggg', corpus: 'hhhh', alignedAt: '2026-10-16' },
+      },
+      {
         path: 'generator/scripts/lib/article-factuality-gates.mjs',
         sitePath: 'scripts/lib/article-factuality-gates.mjs',
         mode: 'identical',

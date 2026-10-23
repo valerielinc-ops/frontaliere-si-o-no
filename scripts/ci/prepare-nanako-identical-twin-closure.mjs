@@ -27,6 +27,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 export const LOOP_SYNC_MANIFEST_PATH = 'scripts/ci/loop-sync-manifest.json';
 const ADAPTATION_ISSUE = 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/issues/2880';
 const MINT_APP_TOKEN_ADAPTATION_ISSUE = 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/issues/3041';
+const SHELL_CONTRACT_ADAPTATION_ISSUE = 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/issues/3078';
 
 /**
  * Dependencies that are delivered byte-for-byte under `generator/` and must
@@ -44,10 +45,10 @@ export const IDENTICAL_TWIN_DEPENDENCIES = Object.freeze([
 ]);
 
 /**
- * The generator rewire gives these files corpus-specific implementations; the
- * CI harvester and App-token mint import adapted contracts on the two
- * repositories. They must remain explicit `adapted` entries rather than being
- * copied by the identical twin puller.
+ * The generator rewire gives one file a corpus-specific implementation; the CI
+ * harvester, App-token mint, and shell-contract fingerprint import or record
+ * adapted contracts on the two repositories. They must remain explicit
+ * `adapted` entries rather than being copied by the identical twin puller.
  */
 export const ADAPTED_TWIN_DISPOSITIONS = Object.freeze([
   {
@@ -70,6 +71,13 @@ export const ADAPTED_TWIN_DISPOSITIONS = Object.freeze([
     adaptationIssue: MINT_APP_TOKEN_ADAPTATION_ISSUE,
     reason:
       'adapted: the site mint imports the repository-specific githubApiHeaders adapter; pull-side copying this caller without its adapted header contract would mix incompatible graphs.',
+  },
+  {
+    sitePath: 'tests/articles-shell-contract-fingerprint.json',
+    corpusPath: 'host/shell-contract-fingerprint.json',
+    adaptationIssue: SHELL_CONTRACT_ADAPTATION_ISSUE,
+    reason:
+      'adapted: the site and corpus SiteShellContract scalar values are repository-specific; each fingerprint must be re-recorded from its adapted host constants rather than copied by pull-side identical-twin transport.',
   },
 ]);
 
