@@ -1089,7 +1089,7 @@ async function sendViaMailtrap(email, _scheduledAt, signal) {
 }
 
 // ── Maileroo API (v2) ────────────────────────────────────────
-// Docs: https://maileroo.com/docs/email-api/send-basic-email/
+// Docs: https://maileroo.com/docs/api-reference/emails/send-email
 // Auth: X-Api-Key header. Free tier 3000/mo with custom DKIM domain.
 
 async function sendViaMaileroo(email, scheduledAt, signal) {
@@ -1109,6 +1109,10 @@ async function sendViaMaileroo(email, scheduledAt, signal) {
     tracking: email.tracking !== false && email.openTracking !== false,
   };
   if (email.text) body.plain = email.text;
+  if (email.replyTo) {
+    const replyTo = parseEmailAddress(email.replyTo);
+    body.reply_to = { address: replyTo.email, display_name: replyTo.name || undefined };
+  }
   // Maileroo tags are an object map; cascade tags are [{name, value}].
   if (email.tags?.length) {
     body.tags = {};
@@ -1118,6 +1122,14 @@ async function sendViaMaileroo(email, scheduledAt, signal) {
   }
   // Forward custom email headers (List-Unsubscribe, Feedback-ID, etc.).
   if (email.headers && typeof email.headers === 'object') body.headers = email.headers;
+  if (Array.isArray(email.attachments) && email.attachments.length) {
+    body.attachments = email.attachments.map((attachment) => ({
+      file_name: String(attachment?.filename || attachment?.file_name || 'attachment').slice(0, 255),
+      content_type: attachment?.contentType || attachment?.content_type || undefined,
+      content: attachment?.content,
+      inline: attachment?.inline === true,
+    }));
+  }
   // Per-message scheduled send (feature #3798), RFC 3339 (ISO 8601 is valid
   // RFC 3339). Omitted entirely when resolveScheduledAt found no usable
   // scheduledAt, so an unscheduled send's body is byte-identical to before.
@@ -1159,11 +1171,7 @@ async function sendViaResend(email, scheduledAt, signal) {
     headers: email.headers || undefined,
     tags: email.tags || undefined,
     reply_to: email.replyTo || undefined,
-    // Base64-encoded attachment content, Resend's native shape — cascade-wide
-    // attachment support isn't built (only Resend needs it today), so callers
-    // sending `email.attachments` MUST pass `opts.forceProvider: 'resend'` to
-    // sendEmailCascade — every other sendVia* fn silently ignores this field,
-    // which would ship an attachment-less email on fallback.
+    // Base64-encoded attachment content, Resend's native shape.
     attachments: email.attachments || undefined,
     // Opens (pixel) stay on for engagement scoring. Click tracking rewrites
     // links through Resend's tracking domain; callers may opt out per-message

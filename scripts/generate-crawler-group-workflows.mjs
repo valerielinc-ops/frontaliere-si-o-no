@@ -1622,7 +1622,8 @@ function buildWatchdogKillIssueLines(slug, crawlerId = slug) {
       + '"**Branch:** ${GITHUB_REF_NAME:-}" '
       + '"**Trigger:** ${GITHUB_EVENT_NAME:-}")"',
     `  if ! node scripts/lib/github-issue-creator.mjs --title ${quoteArg(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --log-excerpt-file "$state_dir/${slug}.log" --priority 2 --label Bug --workflow ${quoteArg(`Run ${slug}`)}; then`,
-    `    echo "::warning::${slug}: the watchdog-timeout issue could not be filed; the group verdict is unchanged"`,
+    `    echo "::error::${slug}: the watchdog-timeout issue could not be filed; failing the group verdict"`,
+    '    failure_count=$((failure_count + 1))',
     '  fi',
     'fi',
   ];

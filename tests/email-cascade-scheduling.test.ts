@@ -301,6 +301,47 @@ describe('sendEmailCascade — maileroo scheduled send', () => {
     expect(sentBody.scheduled_at).toBe(scheduledAt);
     expect(sent[0].scheduledFor).toBe(scheduledAt);
   });
+
+  it('sends Reply-To and attachments in Maileroo API shape', async () => {
+    let sentBody: any = null;
+    globalThis.fetch = (async (url: string, opts?: any) => {
+      if (String(url).includes('smtp.maileroo.com') && opts?.method === 'POST') {
+        sentBody = JSON.parse(opts.body);
+        return {
+          ok: true, status: 200,
+          json: async () => ({ success: true, data: { reference_id: 'maileroo-ref-attachment' } }),
+          text: async () => '{}',
+        } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const { sent, failed } = await sendEmailCascade(
+      [{
+        payload: {
+          from: 'Frontaliere <noreply@example.com>',
+          to: ['candidate@example.com'],
+          replyTo: 'HR <hr@example.com>',
+          subject: 'Interview invitation',
+          html: '<p>See attached.</p>',
+          attachments: [{ filename: 'Invitation.pdf', contentType: 'application/pdf', content: 'JVBERi0x', inline: false }],
+        },
+        recipient: { email: 'candidate@example.com' },
+        meta: {},
+      }],
+      { forceProvider: 'maileroo', delayMs: 0 },
+    );
+
+    expect(failed).toHaveLength(0);
+    expect(sent).toHaveLength(1);
+    expect(sentBody.reply_to).toEqual({ address: 'hr@example.com', display_name: 'HR' });
+    expect(sentBody.attachments).toEqual([{
+      file_name: 'Invitation.pdf',
+      content_type: 'application/pdf',
+      content: 'JVBERi0x',
+      inline: false,
+    }]);
+  });
 });
 
 /* ------------------------------------------------------------------ */
