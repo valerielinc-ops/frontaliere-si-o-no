@@ -245,6 +245,13 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
     experimentId: gateExperimentId,
     jobSlug: targetSlug,
    });
+   saveAuthJobContext({
+    ...newsletterJobContext,
+    title: localizedTitle,
+    surface: 'bridge',
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+   });
   },
  })
  .then(() => {
