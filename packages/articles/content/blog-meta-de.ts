@@ -13577,6 +13577,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.voto-iva-2028-pensione.title': '13. AHV-Rente: MWST-Abstimmung, 8,5% ab 2028 im Gespräch',
     'blog.article.voto-iva-2028-pensione.excerpt': 'Der normale Mehrwertsteuersatz würde von 8,1 auf 8,5 % steigen.',
     'blog.article.voto-iva-2028-pensione.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.title': 'Fragebogen für Grenzgänger: Gehalt in Ordnung, aber zu viele Pendelfahrten',
+    'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.excerpt': '1.542 online im Mai 2026 gesammelte Antworten 73% mit dem Gehalt zufrieden 31,7% täglich mehr als eineinhalb Stunden unterwegs 76,9% würden nicht umziehen',
+    'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;
