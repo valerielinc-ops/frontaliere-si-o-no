@@ -49,8 +49,13 @@ export function isGenericOgImage(html) {
  * degrading its hero image.
  */
 export function restoreDeclaredImageRefs(html, declaredImage) {
+  const raw = String(declaredImage ?? '').trim();
+  // The corpus registry stores site-relative `/images/...` paths. Do not turn
+  // an arbitrary external URL into a same-origin replacement merely because
+  // URL normalization happens to leave its pathname under `/images/`.
+  if (/^https?:\/\//i.test(raw)) return html;
   const image = normalizeImagePath(declaredImage);
-  if (!image || !declaredImageIsOwn(image)) return html;
+  if (!image || !image.startsWith('/images/') || !declaredImageIsOwn(image)) return html;
   return String(html ?? '').replace(
     /(?:https?:\/\/[^"'<>\s]+)?\/og-image\.png(?:[?#][^"'<>\s]*)?/gi,
     image,
