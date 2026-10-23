@@ -861,7 +861,7 @@ create_refresh_pr() {
     else
       list_status=$?
       printf '%s\n' "$existing_pr" >&2
-      echo "::error::Unable to verify the refresh PR after a transient create failure; refusing a duplicate retry" >&2
+      echo "::error::Unable to verify the stable refresh PR after gh pr create failed; refusing a duplicate retry" >&2
       return "$list_status"
     fi
     if [ -n "$existing_pr" ]; then
@@ -883,9 +883,10 @@ create_refresh_pr() {
       return "$status"
     fi
 
-    echo "::warning::gh pr create stable refresh PR returned a transient error on attempt ${attempt}/${PR_CREATE_MAX_ATTEMPTS}; retrying" >&2
+    next_attempt=$((attempt + 1))
+    echo "::warning::gh pr create stable refresh PR returned a transient error on attempt ${attempt}/${PR_CREATE_MAX_ATTEMPTS}; retrying attempt ${next_attempt} in ${attempt}s" >&2
     sleep "$attempt"
-    attempt=$((attempt + 1))
+    attempt="$next_attempt"
   done
 }
 
