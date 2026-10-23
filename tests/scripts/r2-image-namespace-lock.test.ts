@@ -921,10 +921,13 @@ globalThis.fetch = async (url, options = {}) => {
     expect(objects.get(key)?.payload).toMatchObject({ owner: 'new-owner', leaseId: 'new-owner-lease' });
   });
 
-  it('keeps candidate cleanup non-fatal when another owner holds the lease', () => {
-    expect(releaseNotOwnedIsFatal({ fenceMissingCandidate: true })).toBe(false);
-    expect(releaseNotOwnedIsFatal({ fenceMissingCandidate: false })).toBe(true);
-    expect(releaseNotOwnedIsFatal({ ignoreNotOwned: true })).toBe(false);
+  it.each([
+    [{ fenceMissingCandidate: true, ignoreNotOwned: false }, false],
+    [{ fenceMissingCandidate: true, ignoreNotOwned: true }, false],
+    [{ fenceMissingCandidate: false, ignoreNotOwned: false }, true],
+    [{ fenceMissingCandidate: false, ignoreNotOwned: true }, false],
+  ] as const)('classifies image lease cleanup options without conflating candidate fencing', (options, expected) => {
+    expect(releaseNotOwnedIsFatal(options)).toBe(expected);
   });
 
   it('rejects malformed contexts before making an R2 request', async () => {
