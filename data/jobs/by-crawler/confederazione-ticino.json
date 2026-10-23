@@ -17988,8 +17988,8 @@
       "slugByLocale": {
         "de": "logistiker-in-swiss-armed-forces-vtg-kloten-ez8ksa",
         "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-kloten",
-        "en": "logistics-specialist-confederazione-svizzera-kloten",
-        "fr": "logistiker-in-swiss-armed-forces-vtg-kloten-ez8ksa"
+        "en": "logistics-specialist-swiss-armed-forces-vtg-kloten",
+        "fr": "logisticien-ne-swiss-armed-forces-vtg-kloten"
       },
       "id": "confederazione-ticino-ded52d3de56f",
       "previousSlugsByLocale": {
@@ -18004,7 +18004,8 @@
         "en": [
           "logistiker-in-confederazione-svizzera-kloten",
           "logistician-confederazione-svizzera-kloten",
-          "logistiker-in-swiss-armed-forces-vtg-kloten-ez8ksa"
+          "logistiker-in-swiss-armed-forces-vtg-kloten-ez8ksa",
+          "logistics-specialist-confederazione-svizzera-kloten"
         ],
         "fr": [
           "logistiker-in-confederazione-svizzera-kloten",
@@ -18016,7 +18017,8 @@
         "logistiker-in-confederazione-svizzera-kloten",
         "logistician-confederazione-svizzera-kloten",
         "logisticien-ne-confederazione-svizzera-kloten",
-        "logistiker-in-swiss-armed-forces-vtg-kloten-ez8ksa"
+        "logistiker-in-swiss-armed-forces-vtg-kloten-ez8ksa",
+        "logistics-specialist-confederazione-svizzera-kloten"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -18295,9 +18297,9 @@
       },
       "slugByLocale": {
         "de": "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-swiss-armed-forces-vtg-hinwil-5aqdpc",
-        "it": "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-swiss-armed-forces-vtg-hinwil-5aqdpc",
-        "en": "administrative-officer-work-preparation-personal-equipment-reconditioning-confederazione-svizzera-hinwil",
-        "fr": "collaborateur-trice-administratif-ve-en-preparation-du-travail-equipement-personnel-et-remise-en-etat-confederazione"
+        "it": "impiegato-a-avor-equipaggiamento-personale-ricondizionamento-swiss-armed-forces-vtg-hinwil",
+        "en": "administrative-officer-work-preparation-personal-equipment-reconditioning-swiss-armed-forces-vtg-hinwil",
+        "fr": "collaborateur-trice-administratif-ve-en-preparation-du-travail-equipement-personnel-et-remise-en-etat-swiss-armed-forces"
       },
       "id": "confederazione-ticino-07aa0ad7a957",
       "salaryMin": 73500,
@@ -18323,12 +18325,14 @@
         "en": [
           "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-confederazione-hinwil",
           "administrative-officer-work-preparation-for-personal-equipment-refurbishment-confederazione-svizzera-hinwil",
-          "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-swiss-armed-forces-vtg-hinwil-5aqdpc"
+          "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-swiss-armed-forces-vtg-hinwil-5aqdpc",
+          "administrative-officer-work-preparation-personal-equipment-reconditioning-confederazione-svizzera-hinwil"
         ],
         "fr": [
           "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-confederazione-hinwil",
           "collaborateur-trice-specialise-e-avor-equipement-personnel-remise-en-etat-confederazione-svizzera-hinwil",
-          "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-swiss-armed-forces-vtg-hinwil-5aqdpc"
+          "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-swiss-armed-forces-vtg-hinwil-5aqdpc",
+          "collaborateur-trice-administratif-ve-en-preparation-du-travail-equipement-personnel-et-remise-en-etat-confederazione"
         ],
         "de": [
           "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-confederazione-hinwil"
@@ -18338,7 +18342,9 @@
         "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-confederazione-hinwil",
         "administrative-officer-work-preparation-for-personal-equipment-refurbishment-confederazione-svizzera-hinwil",
         "collaborateur-trice-specialise-e-avor-equipement-personnel-remise-en-etat-confederazione-svizzera-hinwil",
-        "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-swiss-armed-forces-vtg-hinwil-5aqdpc"
+        "sachbearbeiter-in-avor-personliche-ausrustung-retablierung-swiss-armed-forces-vtg-hinwil-5aqdpc",
+        "administrative-officer-work-preparation-personal-equipment-reconditioning-confederazione-svizzera-hinwil",
+        "collaborateur-trice-administratif-ve-en-preparation-du-travail-equipement-personnel-et-remise-en-etat-confederazione"
       ]
     },
     {
@@ -18382,7 +18388,7 @@
         "de": "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef",
         "it": "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef",
         "en": "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef",
-        "fr": "stagiaire-universitaire-osint-analyse-des-donnees-et-renseignement-dai-confederazione-svizzera-bern"
+        "fr": "stagiaire-universitaire-osint-analyse-des-donnees-et-renseignement-dai-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-7b98863b7eb9",
       "salaryMin": 68500,
@@ -18403,12 +18409,21 @@
       "firstSeenAt": "2026-10-23T09:52:01.182Z",
       "previousSlugs": [
         "stagiaire-universitaire-osint-analyse-de-donnees-et-renseignement-dai-confederazione-svizzera-bern",
-        "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef"
+        "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef",
+        "stagiaire-universitaire-osint-analyse-des-donnees-et-renseignement-dai-confederazione-svizzera-bern",
+        "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef-wm6aef"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "stagiaire-universitaire-osint-analyse-de-donnees-et-renseignement-dai-confederazione-svizzera-bern",
-          "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef"
+          "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef",
+          "stagiaire-universitaire-osint-analyse-des-donnees-et-renseignement-dai-confederazione-svizzera-bern"
+        ],
+        "en": [
+          "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef-wm6aef"
+        ],
+        "de": [
+          "hochschulpraktikant-in-osint-data-analysis-intelligence-dai-swiss-armed-forces-vtg-bern-wm6aef-wm6aef"
         ]
       }
     },
@@ -18530,7 +18545,7 @@
         "de": "ict-architekt-in-iii-senior-ict-systems-architect-swiss-armed-forces-vtg-bern-nbnqjr",
         "it": "ict-architekt-in-iii-senior-ict-systems-architetto-swiss-armed-forces-vtg-bern-nbnqjr",
         "en": "ict-architekt-in-iii-senior-ict-systems-architect-swiss-armed-forces-vtg-bern-nbnqjr",
-        "fr": "architecte-ict-iii-architecte-senior-des-systemes-ict-confederazione-svizzera-bern"
+        "fr": "ict-architekt-in-iii-senior-ict-systems-architecte-swiss-armed-forces-vtg-bern-nbnqjr"
       },
       "id": "confederazione-ticino-406fe8abf0af",
       "salaryMin": 113000,
@@ -18551,12 +18566,12 @@
       "firstSeenAt": "2026-10-23T09:52:01.182Z",
       "previousSlugs": [
         "architecte-ict-iii-architecte-senior-de-systemes-ict-confederazione-svizzera-bern",
-        "ict-architekt-in-iii-senior-ict-systems-architecte-swiss-armed-forces-vtg-bern-nbnqjr"
+        "architecte-ict-iii-architecte-senior-des-systemes-ict-confederazione-svizzera-bern"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "architecte-ict-iii-architecte-senior-de-systemes-ict-confederazione-svizzera-bern",
-          "ict-architekt-in-iii-senior-ict-systems-architecte-swiss-armed-forces-vtg-bern-nbnqjr"
+          "architecte-ict-iii-architecte-senior-des-systemes-ict-confederazione-svizzera-bern"
         ]
       }
     },
