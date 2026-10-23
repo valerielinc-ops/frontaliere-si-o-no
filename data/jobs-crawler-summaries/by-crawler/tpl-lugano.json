@@ -1,20 +1,23 @@
 {
   "key": "tpl-lugano",
   "label": "TPL Lugano",
-  "generatedAt": "2026-10-23T09:21:40.780Z",
+  "generatedAt": "2026-10-23T21:24:00.329Z",
   "total": 2,
   "discovered": 2,
   "written": 2,
-  "newCount": 2,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6082,
-  "avgDurationMs": 6082,
+  "unchangedCount": 2,
+  "durationMs": 5983,
+  "avgDurationMs": 5983,
   "durationHistory": [
-    6082
+    5983
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Capo officina",
       "company": "TPL - Trasporti Pubblici Luganesi",
@@ -32,7 +35,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-23T09:21:26.983Z",
+      "crawledAt": "2026-10-23T21:23:50.951Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -43,17 +46,16 @@
       },
       "slug": "capo-officina-tpl-lugano",
       "id": "tpl-trasporti-pubblici-luganesi-fcae7d24720b",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "firstSeenAt": "2026-10-23T09:21:26.983Z",
-      "_qualityScore": 83,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -74,7 +76,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-23T09:21:26.981Z",
+      "crawledAt": "2026-10-23T21:23:50.947Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -85,23 +87,19 @@
       },
       "slug": "impiegato-tecnico-amministrativo-tpl-lugano",
       "id": "tpl-trasporti-pubblici-luganesi-78f01bda47e0",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-23T09:21:26.981Z",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }

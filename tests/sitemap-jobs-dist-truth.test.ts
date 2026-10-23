@@ -387,6 +387,43 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(fs.existsSync(pageFile(NOINDEX))).toBe(true);
     expect(fs.existsSync(pageFile(cluster))).toBe(true);
   });
+
+  it('uses sitemap-scoped candidates instead of walking the whole shard dist', async () => {
+    const foreign = `${BASE}/de/jobs-im-aargau/final-alias-bridge/`;
+    fs.writeFileSync(path.join(dist, 'sitemap-pages.xml'), wrap([foreign]), 'utf8');
+    writePage(foreign, noindexBridge(`${BASE}/de/jobs-im-aargau/`));
+    const unrelated = path.join(dist, 'unrelated', 'nested', 'asset.html');
+    fs.mkdirSync(path.dirname(unrelated), { recursive: true });
+    fs.writeFileSync(unrelated, '<html>not a sitemap candidate</html>', 'utf8');
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    const opendirSpy = vi.spyOn(fs.promises, 'opendir');
+    const lstatSpy = vi.spyOn(fs.promises, 'lstat');
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      vi.resetModules();
+      const { reconcileFinalSitemapsWithDist: reconcileFinal } =
+        await import('../build-plugins/sitemapAliasPlugin');
+      await reconcileFinal(dist, []);
+
+      expect(opendirSpy).not.toHaveBeenCalled();
+      const routePath = path.join(dist, 'de/jobs-im-aargau/final-alias-bridge');
+      const expectedProbePaths = new Set([
+        routePath,
+        path.join(routePath, 'index.html'),
+        `${routePath}.html`,
+      ].map((filePath) => path.resolve(filePath)));
+      expect(new Set(lstatSpy.mock.calls.map(([filePath]) => path.resolve(String(filePath)))))
+        .toEqual(expectedProbePaths);
+      expect(fs.existsSync(path.join(dist, 'sitemap-pages.xml'))).toBe(false);
+    } finally {
+      lstatSpy.mockRestore();
+      opendirSpy.mockRestore();
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      vi.resetModules();
+    }
+  });
 });
 
 /**

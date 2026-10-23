@@ -13,61 +13,41 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-09-01T10:29:35.457Z",
+  "updatedAt": "2026-10-23T21:28:00.839Z",
   "seedDetailUrls": [
-    "https://www.supsi.ch/bando26_5037",
-    "https://www.supsi.ch/bando26_2012",
-    "https://www.supsi.ch/bando26_5038",
-    "https://www.supsi.ch/bando26_2009",
-    "https://www.supsi.ch/bando26_2011",
+    "https://www.supsi.ch/bando-26_3003",
+    "https://www.supsi.ch/bando26_3002",
+    "https://www.supsi.ch/bando26_5045",
     "https://www.supsi.ch/bando26_4001",
-    "https://www.supsi.ch/bando26_4013"
+    "https://www.supsi.ch/stagista-52-settimane-supsi-26_9001-"
   ],
   "seedMetaByUrl": {
-    "https://www.supsi.ch/bando26_5037": {
+    "https://www.supsi.ch/bando-26_3003": {
+      "location": "Locarno",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-10-26"
+    },
+    "https://www.supsi.ch/bando26_3002": {
+      "location": "Locarno",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-10-26"
+    },
+    "https://www.supsi.ch/bando26_5045": {
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
       "company": "SUPSI / DTI",
       "companyDomain": "supsi.ch",
       "contract": "Full-time",
-      "expiresAt": "2026-09-06"
-    },
-    "https://www.supsi.ch/bando26_2012": {
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-09-10"
-    },
-    "https://www.supsi.ch/bando26_5038": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-09-13"
-    },
-    "https://www.supsi.ch/bando26_2009": {
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-09-15"
-    },
-    "https://www.supsi.ch/bando26_2011": {
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-09-27"
+      "expiresAt": "2026-11-03"
     },
     "https://www.supsi.ch/bando26_4001": {
       "location": "Ticino",
@@ -77,12 +57,14 @@
       "companyDomain": "supsi.ch",
       "expiresAt": "2026-12-31"
     },
-    "https://www.supsi.ch/bando26_4013": {
+    "https://www.supsi.ch/stagista-52-settimane-supsi-26_9001-": {
       "location": "Manno",
       "canton": "TI",
       "country": "CH",
       "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch"
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2027-01-10"
     }
   }
 }

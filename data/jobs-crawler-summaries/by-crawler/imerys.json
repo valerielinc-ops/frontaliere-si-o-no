@@ -1,7 +1,7 @@
 {
   "key": "imerys",
   "label": "Imerys",
-  "generatedAt": "2026-10-23T09:39:44.336Z",
+  "generatedAt": "2026-10-23T21:22:29.222Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8454,
-  "avgDurationMs": 8454,
+  "durationMs": 7004,
+  "avgDurationMs": 7004,
   "durationHistory": [
-    8454
+    7004
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/HR-Director-IGC-H-F_REQ-11508-1",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:39:28.900Z",
+      "crawledAt": "2026-10-23T21:22:14.847Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/MECHANICAL-MAINTENANCE-SUPERVISOR_REQ-11824",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-23T09:39:29.754Z",
+      "crawledAt": "2026-10-23T21:22:15.537Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/Communication-Manager_REQ-11963",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:39:28.135Z",
+      "crawledAt": "2026-10-23T21:22:14.167Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/Manutentore-trice-Elettrico_REQ-11020",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-23T09:39:27.341Z",
+      "crawledAt": "2026-10-23T21:22:13.382Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -211,7 +211,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/Manutentore-trice-Meccanico_REQ-12156",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-23T09:39:26.511Z",
+      "crawledAt": "2026-10-23T21:22:12.614Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -242,5 +242,5 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }

@@ -1,7 +1,7 @@
 {
   "key": "cham-swiss-properties",
   "label": "Cham Swiss Properties",
-  "generatedAt": "2026-10-23T09:47:43.447Z",
+  "generatedAt": "2026-10-23T21:29:34.115Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3692,
-  "avgDurationMs": 3692,
+  "unchangedCount": 2,
+  "durationMs": 4477,
+  "avgDurationMs": 4477,
   "durationHistory": [
-    3692
+    4477
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "cham-swiss-properties-2cb3d7705d07",
       "slug": "servizi-di-costruzione-specializzati-di-acquisto-strategico-e-gestione-dei-contratti-80-100-cham-swiss-properties-cham",
@@ -36,7 +38,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/88897b95-a537-4f28-a65b-89ea72d64752/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:47:31.826Z",
+      "crawledAt": "2026-10-23T21:29:15.882Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -66,10 +68,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "cham-swiss-properties-d88b4f4e5756",
       "slug": "specialista-in-finanza-e-contabilita-cham-swiss-properties-cham",
@@ -83,7 +82,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/cb080274-0231-4bf2-abc2-934feddea06d/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:47:31.297Z",
+      "crawledAt": "2026-10-23T21:29:15.379Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -115,5 +114,5 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "georg-fischer",
-  "assembledAt": "2026-10-23T09:41:23.296Z",
-  "runId": "39931246185",
+  "assembledAt": "2026-10-23T21:30:09.450Z",
+  "runId": "40026122940",
   "jobs": [
     {
       "id": "georg-fischer-a0edd76948d9",
@@ -35,7 +35,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/SachbearbeiterIn-Kundeninnendienst--m-w-d-_JR11120",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:41:16.253Z",
+      "crawledAt": "2026-10-23T21:30:03.783Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Formenmonteur-100----m-w-d-_JR11198",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:41:15.615Z",
+      "crawledAt": "2026-10-23T21:30:03.168Z",
       "addressLocality": "Seewis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Anlagenfhrer-im-4-Schichtbetrieb-100---m-w-d-_JR11096",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:41:14.946Z",
+      "crawledAt": "2026-10-23T21:30:02.532Z",
       "addressLocality": "Seewis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "slugByLocale": {
         "it": "stagista-qm-georg-fischer-sissach",
         "en": "qm-intern-georg-fischer-sissach",
-        "de": "praktikant-in-qm-georg-fischer-sissach",
+        "de": "praktikant-in-qm-georg-fischer-ch",
         "fr": "stagiaire-qm-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
@@ -281,7 +281,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/Praktikant-in-QM_JR10915",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:41:14.240Z",
+      "crawledAt": "2026-10-23T21:30:01.891Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -300,17 +300,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR10915",
-      "previousSlugs": [
-        "praktikant-in-qm-georg-fischer-ch"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-qm-georg-fischer-ch"
-        ],
         "de": [
+          "praktikant-in-qm-georg-fischer-sissach"
+        ],
+        "it": [
           "praktikant-in-qm-georg-fischer-ch"
         ]
       },
+      "previousSlugs": [
+        "praktikant-in-qm-georg-fischer-ch",
+        "praktikant-in-qm-georg-fischer-sissach"
+      ],
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -358,7 +359,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/EinrichterIn-Gussputzerei--m-w-d-_JR11347",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:41:13.382Z",
+      "crawledAt": "2026-10-23T21:30:01.259Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -431,7 +432,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Application-Consultant-Product-Labeling--m-w-d-_JR11187",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:41:12.675Z",
+      "crawledAt": "2026-10-23T21:30:00.623Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -508,7 +509,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/SAP-Consultant--m-f-d-_JR11485",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:41:12.049Z",
+      "crawledAt": "2026-10-23T21:29:59.994Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -561,7 +562,7 @@
         "it": "pianificatore-di-produzione-in-m-f-d-80-georg-fischer-schaffhausen",
         "en": "production-planner-in-m-f-d-80-georg-fischer-schaffhausen",
         "de": "produktionsplanerin-m-w-d-80-georg-fischer-ch",
-        "fr": "planificateur-de-production-en-h-f-d-80-georg-fischer-schaffhausen"
+        "fr": "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -585,7 +586,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/ProduktionsplanerIn--m-w-d---80-_JR11554",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:41:11.286Z",
+      "crawledAt": "2026-10-23T21:29:59.381Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -606,7 +607,8 @@
       "jobReqId": "JR11554",
       "previousSlugs": [
         "produktionsplanerin-m-w-d-80-georg-fischer-ch",
-        "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
+        "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen",
+        "planificateur-de-production-en-h-f-d-80-georg-fischer-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -617,7 +619,7 @@
           "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
         ],
         "fr": [
-          "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
+          "planificateur-de-production-en-h-f-d-80-georg-fischer-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-10-16T09:32:14.777Z",
@@ -642,7 +644,7 @@
       "slugByLocale": {
         "it": "automatico-m-f-d-georg-fischer-sissach",
         "en": "automatician-m-f-d-georg-fischer-sissach",
-        "de": "automatikerin-m-w-d-georg-fischer-sissach",
+        "de": "automatikerin-m-w-d-georg-fischer-ch",
         "fr": "automatique-h-f-d-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
@@ -668,7 +670,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/AutomatikerIn--m-w-d-_JR11484-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:41:10.530Z",
+      "crawledAt": "2026-10-23T21:29:58.727Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -687,10 +689,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR11484",
-      "previousSlugs": [
-        "automatikerin-m-w-d-georg-fischer-ch"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "automatikerin-m-w-d-georg-fischer-sissach"
+        ],
         "it": [
           "automatikerin-m-w-d-georg-fischer-ch"
         ],
@@ -699,11 +701,12 @@
         ],
         "fr": [
           "automatikerin-m-w-d-georg-fischer-ch"
-        ],
-        "de": [
-          "automatikerin-m-w-d-georg-fischer-ch"
         ]
       },
+      "previousSlugs": [
+        "automatikerin-m-w-d-georg-fischer-ch",
+        "automatikerin-m-w-d-georg-fischer-sissach"
+      ],
       "firstSeenAt": "2026-10-16T09:32:14.038Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -752,7 +755,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Internship-in-Global-Product-Management---Industrial-Systems--m-f-d--6-9-months-100-_JR11476-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:41:09.890Z",
+      "crawledAt": "2026-10-23T21:29:58.097Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -807,9 +810,9 @@
       "id": "georg-fischer-4d01562365be",
       "slug": "esperto-di-microscopio-e-analisi-m-f-d-georg-fischer-schaffhausen",
       "slugByLocale": {
-        "de": "microscopy-analytics-expert-m-f-d-georg-fischer-ch",
         "it": "esperto-di-microscopio-e-analisi-m-f-d-georg-fischer-schaffhausen",
         "en": "microscopy-analytics-expert-m-f-d-georg-fischer-ch",
+        "de": "microscopy-analytics-expert-m-f-d-georg-fischer-ch",
         "fr": "expert-en-microscope-et-analytique-h-f-d-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
@@ -817,16 +820,16 @@
       "companyDomain": "georgfischer.com",
       "title": "Microscopy & Analytics Expert (m/f/d)",
       "titleByLocale": {
-        "de": "Microscopy & Analytics Expert (m/f/d)",
-        "en": "Microscope and Analytics Expert (m/f/d)",
         "it": "Esperto di microscopio e analisi (m/f/d)",
+        "en": "Microscope and Analytics Expert (m/f/d)",
+        "de": "Microscopy & Analytics Expert (m/f/d)",
         "fr": "Expert en Microscope et Analytique (h/f/d)"
       },
       "description": "Sie möchten mit analytischem Know-how komplexen technischen Fragestellungen auf den Grund gehen und mit Ihren Erkenntnissen einen direkten Beitrag zur Produktqualität und zur Entwicklung neuer Lösungen leisten?\n\nUnser Mikroskopie- und Analyselabor ist eine wichtige globale Kompetenz innerhalb der Georg Fischer Gruppe. Mit modernen optischen und spektroskopischen Analysemethoden untersuchen und bewerten wir Materialien und Kunststoffbauteile. Unsere Expertise ist insbesondere bei der Klärung technischer Schadens- und ursachenfälle gefragt und liefert gleichzeitig wertvolle Erkenntnisse für die Weiterentwicklung bestehender sowie die Entwicklung neuer Produkte und Lösungen.\n\nAls Microscopy & Analytics Expert verbinden Sie wissenschaftlich-analytisches Arbeiten mit konkreten Fragestellungen aus der industriellen Praxis. Sie analysieren nicht nur, sondern interpretieren Ergebnisse, erkennen Zusammenhänge und leiten daraus fundierte Erkenntnisse ab.\n\nDabei arbeiten Sie eng mit Produktion, Forschung & Entwicklung und weiteren Fachbereichen zusammen, sowohl lokal als auch international. Eine vielseitige Spezialistenposition für Menschen, die gerne Dingen auf den Grund gehen, komplexe Zusammenhänge verstehen und aus Analyseergebnissen konkrete Lösungen ableiten.\n\nIhre Hauptaufgaben\n\n• Analyse und Beurteilung von Materialien und Kunststoffbauteilen mittels optischer Untersuchungsmethoden\n\n• Durchführung von IR-Messungen sowie fachgerechte Interpretation und Bewertung der Spektren\n\n• Bewertung, Dokumentation und verständliche Aufbereitung von Untersuchungsergebnissen in technischen Berichten\n\n• Aufbau und Pflege von Basis- und Referenzdaten für Kunststoffe\n\n• Evaluierung, Entwicklung und Einführung neuer Analyse- und Untersuchungsmethoden\n\n• Aktive Mitarbeit in interdisziplinären Projekten mit Produktion, F&E und weiteren Fachbereichen\n\n• Aufbau und Pflege eines Netzwerks zu externen Prüflaboren sowie Koordination und Beauftragung externer Untersuchungen\n\n• Fachliche Unterstützung und Stellvertretung in angrenzenden Laborbereichen, insbesondere im Chemie- und Werkstoffprüflabor\n\nIhr Profil\n\n• Höherer Abschluss in Materialwissenschaften, Kunststofftechnologie, Chemie oder einer vergleichbaren Fachrichtung oder eine qualifizierte Ausbildung als Chemie- bzw. Physiklaborant/in\n\n• Mindestens zwei Jahre Berufserfahrung in einem analytisch geprägten Labor- oder Industrieumfeld\n\n• Begeisterung für praktische Laborarbeit und Freude daran, komplexen technischen Fragestellungen systematisch auf den Grund zu gehen\n\n• Strukturierte, sorgfältige und lösungsorientierte Arbeitsweise mit einem guten Blick für das Wesentliche\n\n• Ausgeprägte analytische Fähigkeiten sowie die Fähigkeit, Zusammenhänge zu erkennen und fundierte Schlussfolgerungen abzuleiten\n\n• Fähigkeit, komplexe technische Sachverhalte verständlich und auf den Punkt zu kommunizieren\n\n• Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen sowie in einem internationalen Umfeld\n\n• Gute Deutsch- und Englischkenntnisse\n\nDossiers von Agenturen werden nicht berücksichtigt, Interessierte sind gebeten, sich direkt zu bewerben, danke!\n\n#LI-DNI\n\nContact person:\n\nMoritz Nauer\nTalent Acquisition Manager\nmoritz.nauer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
       "descriptionByLocale": {
-        "de": "Sie möchten mit analytischem Know-how komplexen technischen Fragestellungen auf den Grund gehen und mit Ihren Erkenntnissen einen direkten Beitrag zur Produktqualität und zur Entwicklung neuer Lösungen leisten?\n\nUnser Mikroskopie- und Analyselabor ist eine wichtige globale Kompetenz innerhalb der Georg Fischer Gruppe. Mit modernen optischen und spektroskopischen Analysemethoden untersuchen und bewerten wir Materialien und Kunststoffbauteile. Unsere Expertise ist insbesondere bei der Klärung technischer Schadens- und ursachenfälle gefragt und liefert gleichzeitig wertvolle Erkenntnisse für die Weiterentwicklung bestehender sowie die Entwicklung neuer Produkte und Lösungen.\n\nAls Microscopy & Analytics Expert verbinden Sie wissenschaftlich-analytisches Arbeiten mit konkreten Fragestellungen aus der industriellen Praxis. Sie analysieren nicht nur, sondern interpretieren Ergebnisse, erkennen Zusammenhänge und leiten daraus fundierte Erkenntnisse ab.\n\nDabei arbeiten Sie eng mit Produktion, Forschung & Entwicklung und weiteren Fachbereichen zusammen, sowohl lokal als auch international. Eine vielseitige Spezialistenposition für Menschen, die gerne Dingen auf den Grund gehen, komplexe Zusammenhänge verstehen und aus Analyseergebnissen konkrete Lösungen ableiten.\n\nIhre Hauptaufgaben\n\n• Analyse und Beurteilung von Materialien und Kunststoffbauteilen mittels optischer Untersuchungsmethoden\n\n• Durchführung von IR-Messungen sowie fachgerechte Interpretation und Bewertung der Spektren\n\n• Bewertung, Dokumentation und verständliche Aufbereitung von Untersuchungsergebnissen in technischen Berichten\n\n• Aufbau und Pflege von Basis- und Referenzdaten für Kunststoffe\n\n• Evaluierung, Entwicklung und Einführung neuer Analyse- und Untersuchungsmethoden\n\n• Aktive Mitarbeit in interdisziplinären Projekten mit Produktion, F&E und weiteren Fachbereichen\n\n• Aufbau und Pflege eines Netzwerks zu externen Prüflaboren sowie Koordination und Beauftragung externer Untersuchungen\n\n• Fachliche Unterstützung und Stellvertretung in angrenzenden Laborbereichen, insbesondere im Chemie- und Werkstoffprüflabor\n\nIhr Profil\n\n• Höherer Abschluss in Materialwissenschaften, Kunststofftechnologie, Chemie oder einer vergleichbaren Fachrichtung oder eine qualifizierte Ausbildung als Chemie- bzw. Physiklaborant/in\n\n• Mindestens zwei Jahre Berufserfahrung in einem analytisch geprägten Labor- oder Industrieumfeld\n\n• Begeisterung für praktische Laborarbeit und Freude daran, komplexen technischen Fragestellungen systematisch auf den Grund zu gehen\n\n• Strukturierte, sorgfältige und lösungsorientierte Arbeitsweise mit einem guten Blick für das Wesentliche\n\n• Ausgeprägte analytische Fähigkeiten sowie die Fähigkeit, Zusammenhänge zu erkennen und fundierte Schlussfolgerungen abzuleiten\n\n• Fähigkeit, komplexe technische Sachverhalte verständlich und auf den Punkt zu kommunizieren\n\n• Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen sowie in einem internationalen Umfeld\n\n• Gute Deutsch- und Englischkenntnisse\n\nDossiers von Agenturen werden nicht berücksichtigt, Interessierte sind gebeten, sich direkt zu bewerben, danke!\n\n#LI-DNI\n\nContact person:\n\nMoritz Nauer\nTalent Acquisition Manager\nmoritz.nauer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
         "it": "Vuoi utilizzare il know-how analitico per arrivare al fondo di complessi problemi tecnici e dare un contributo diretto alla qualità del prodotto e allo sviluppo di nuove soluzioni?\n\nIl nostro laboratorio di microscopia e analisi è un'importante competenza globale nel Gruppo Georg Fischer. Utilizzando moderni metodi di analisi ottiche e spettroscopiche, studiamo e valutiamo materiali e componenti plastici. La nostra esperienza è particolarmente richiesta nella chiarificazione dei danni tecnici e dei casi di causa e allo stesso tempo fornisce preziose informazioni per l'ulteriore sviluppo dell'esistente e lo sviluppo di nuovi prodotti e soluzioni.\n\nCome esperto di microscopia e analisi, combinate il lavoro scientifico-analitico con domande concrete dalla pratica industriale. Essi non solo analizzano, ma interpretano anche i risultati, riconoscono connessioni e ricavano intuizioni sonore da loro.\n\nLavori a stretto contatto con la produzione, la ricerca e lo sviluppo e altre aree specializzate, sia a livello locale che internazionale. Una posizione specialistica versatile per le persone che amano arrivare al fondo delle cose, comprendere relazioni complesse e ricavare soluzioni concrete dai risultati di analisi.\n\nI loro compiti principali\n\n• Analisi e valutazione dei materiali e dei componenti plastici utilizzando metodi di esame ottico\n\n• Esecuzione delle misurazioni IR e interpretazione professionale e valutazione degli spettri\n\n• Valutazione, documentazione e preparazione comprensibile dei risultati dei test nelle relazioni tecniche\n\n• Sviluppo e manutenzione dei dati di base e di riferimento per la plastica\n\n• Valutazione, sviluppo e introduzione di nuovi metodi di analisi e test\n\n• Partecipazione attiva a progetti interdisciplinari con produzione, R&D e altre aree specializzate\n\n• Stabilimento e manutenzione di una rete di laboratori di prova esterni, nonché coordinamento e messa in servizio di indagini esterne\n\n• Supporto tecnico e rappresentazione nelle aree di laboratorio adiacenti, in particolare nel laboratorio di test chimici e materiali\n\nIl tuo profilo\n\n• Laurea in scienze dei materiali, tecnologia della plastica, chimica o una disciplina simile o formazione qualificata come laboratorio di chimica o fisica\n\n• Almeno due anni di esperienza professionale in laboratorio analitico o in ambiente industriale\n\n• Entusiasmo per il lavoro pratico di laboratorio e il piacere di arrivare sistematicamente al fondo di complesse questioni tecniche\n\n• Metodo di lavoro strutturato, attento e orientato alla soluzione con un buon occhio per gli essenziali\n\n• Forte capacità analitiche e la capacità di identificare le connessioni e trarre conclusioni sonore\n\n• Capacità di comprendere e comunicare questioni tecniche complesse al punto\n\n• Godetevi il lavoro con diverse discipline e in un ambiente internazionale\n\n• Buona conoscenza della lingua tedesca e inglese\n\nI dossier delle agenzie non sono considerati, le parti interessate sono chiesto di applicare direttamente, grazie!\n\n#LI-DNI\n\nContatto:\n\nMoritz Nauer\nTalent Acquisizione Manager\nmoritz.nauer@georgfischer.com\nSi prega di inviare la domanda tramite il pulsante ‘Applica’. L'email del reclutatore è solo per le richieste.",
         "en": "Do you want to use analytical know-how to get to the bottom of complex technical issues and make a direct contribution to product quality and the development of new solutions?\n\nOur microscopy and analysis laboratory is an important global competence within the Georg Fischer Group. Using modern optical and spectroscopic analysis methods, we investigate and evaluate materials and plastic components. Our expertise is particularly in demand in the clarification of technical damage and cause cases and at the same time provides valuable insights for the further development of existing and the development of new products and solutions.\n\nAs a Microscopy & Analytics Expert, you combine scientific-analytical work with concrete questions from industrial practice. They not only analyze, but also interpret results, recognize connections and derive sound insights from them.\n\nYou work closely with production, research & development and other specialist areas, both locally and internationally. A versatile specialist position for people who like to get to the bottom of things, understand complex relationships and derive concrete solutions from analysis results.\n\nTheir main tasks\n\n• Analysis and assessment of materials and plastic components using optical examination methods\n\n• Performing IR measurements as well as professional interpretation and evaluation of spectra\n\n• Evaluation, documentation and comprehensible preparation of test results in technical reports\n\n• Development and maintenance of basic and reference data for plastics\n\n• Evaluation, development and introduction of new analysis and testing methods\n\n• Active participation in interdisciplinary projects with production, R&D and other specialist areas\n\n• Establishment and maintenance of a network of external testing laboratories as well as coordination and commissioning of external investigations\n\n• Technical support and representation in adjacent laboratory areas, in particular in the chemical and materials testing laboratory\n\nYour profile\n\n• Higher degree in materials science, plastics technology, chemistry or a similar discipline or qualified training as a chemistry or Physics laboratory\n\n• At least two years of professional experience in an analytical laboratory or industrial environment\n\n• Enthusiasm for practical laboratory work and pleasure in systematically getting to the bottom of complex technical issues\n\n• Structured, careful and solution-oriented working method with a good eye for the essentials\n\n• Strong analytical skills as well as the ability to identify connections and derive sound conclusions\n\n• Ability to understand and communicate complex technical issues to the point\n\n• Enjoy working with different disciplines and in an international environment\n\n• Good knowledge of German and English\n\nDossiers of agencies are not considered, interested parties are asked to apply directly, thank you!\n\n#LI-DNI\n\nContact person:\n\nMoritz Nauer\nTalent Acquisition Manager\nmoritz.nauer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
+        "de": "Sie möchten mit analytischem Know-how komplexen technischen Fragestellungen auf den Grund gehen und mit Ihren Erkenntnissen einen direkten Beitrag zur Produktqualität und zur Entwicklung neuer Lösungen leisten?\n\nUnser Mikroskopie- und Analyselabor ist eine wichtige globale Kompetenz innerhalb der Georg Fischer Gruppe. Mit modernen optischen und spektroskopischen Analysemethoden untersuchen und bewerten wir Materialien und Kunststoffbauteile. Unsere Expertise ist insbesondere bei der Klärung technischer Schadens- und ursachenfälle gefragt und liefert gleichzeitig wertvolle Erkenntnisse für die Weiterentwicklung bestehender sowie die Entwicklung neuer Produkte und Lösungen.\n\nAls Microscopy & Analytics Expert verbinden Sie wissenschaftlich-analytisches Arbeiten mit konkreten Fragestellungen aus der industriellen Praxis. Sie analysieren nicht nur, sondern interpretieren Ergebnisse, erkennen Zusammenhänge und leiten daraus fundierte Erkenntnisse ab.\n\nDabei arbeiten Sie eng mit Produktion, Forschung & Entwicklung und weiteren Fachbereichen zusammen, sowohl lokal als auch international. Eine vielseitige Spezialistenposition für Menschen, die gerne Dingen auf den Grund gehen, komplexe Zusammenhänge verstehen und aus Analyseergebnissen konkrete Lösungen ableiten.\n\nIhre Hauptaufgaben\n\n• Analyse und Beurteilung von Materialien und Kunststoffbauteilen mittels optischer Untersuchungsmethoden\n\n• Durchführung von IR-Messungen sowie fachgerechte Interpretation und Bewertung der Spektren\n\n• Bewertung, Dokumentation und verständliche Aufbereitung von Untersuchungsergebnissen in technischen Berichten\n\n• Aufbau und Pflege von Basis- und Referenzdaten für Kunststoffe\n\n• Evaluierung, Entwicklung und Einführung neuer Analyse- und Untersuchungsmethoden\n\n• Aktive Mitarbeit in interdisziplinären Projekten mit Produktion, F&E und weiteren Fachbereichen\n\n• Aufbau und Pflege eines Netzwerks zu externen Prüflaboren sowie Koordination und Beauftragung externer Untersuchungen\n\n• Fachliche Unterstützung und Stellvertretung in angrenzenden Laborbereichen, insbesondere im Chemie- und Werkstoffprüflabor\n\nIhr Profil\n\n• Höherer Abschluss in Materialwissenschaften, Kunststofftechnologie, Chemie oder einer vergleichbaren Fachrichtung oder eine qualifizierte Ausbildung als Chemie- bzw. Physiklaborant/in\n\n• Mindestens zwei Jahre Berufserfahrung in einem analytisch geprägten Labor- oder Industrieumfeld\n\n• Begeisterung für praktische Laborarbeit und Freude daran, komplexen technischen Fragestellungen systematisch auf den Grund zu gehen\n\n• Strukturierte, sorgfältige und lösungsorientierte Arbeitsweise mit einem guten Blick für das Wesentliche\n\n• Ausgeprägte analytische Fähigkeiten sowie die Fähigkeit, Zusammenhänge zu erkennen und fundierte Schlussfolgerungen abzuleiten\n\n• Fähigkeit, komplexe technische Sachverhalte verständlich und auf den Punkt zu kommunizieren\n\n• Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen sowie in einem internationalen Umfeld\n\n• Gute Deutsch- und Englischkenntnisse\n\nDossiers von Agenturen werden nicht berücksichtigt, Interessierte sind gebeten, sich direkt zu bewerben, danke!\n\n#LI-DNI\n\nContact person:\n\nMoritz Nauer\nTalent Acquisition Manager\nmoritz.nauer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
         "fr": "Voulez-vous utiliser le savoir-faire analytique pour arriver au fond de questions techniques complexes et apporter une contribution directe à la qualité des produits et au développement de nouvelles solutions ?\n\nNotre laboratoire de microscopie et d'analyse est une compétence mondiale importante au sein du Groupe Georg Fischer. En utilisant des méthodes modernes d'analyse optique et spectroscopique, nous étudions et évaluons les matériaux et les composants plastiques. Notre expertise est particulièrement sollicitée pour la clarification des dommages techniques et des causes, tout en fournissant des informations précieuses pour le développement futur des produits et solutions existants et le développement de nouveaux produits et solutions.\n\nEn tant qu'expert en microscopie et analyse, vous combinez des travaux d'analyse scientifique et des questions concrètes de la pratique industrielle. Non seulement ils analysent, mais ils interprètent les résultats, reconnaissent les connexions et en tirent de bonnes idées.\n\nVous travaillez en étroite collaboration avec la production, la recherche et le développement et d'autres domaines spécialisés, tant au niveau local qu'international. Une position de spécialiste polyvalente pour les personnes qui aiment aller au fond des choses, comprendre les relations complexes et tirer des solutions concrètes des résultats d'analyse.\n\nLeurs principales tâches\n\n• Analyse et évaluation des matériaux et des composants plastiques à l'aide de méthodes d'examen optique\n\n• Effectuer des mesures IR ainsi que l'interprétation et l'évaluation professionnelles des spectres\n\n• Évaluation, documentation et préparation compréhensible des résultats des essais dans les rapports techniques\n\n• Mise au point et mise à jour de données de base et de référence pour les plastiques\n\n• Évaluation, élaboration et introduction de nouvelles méthodes d'analyse et d'essai\n\n• Participation active à des projets interdisciplinaires avec production, R-D et autres domaines spécialisés\n\n• Création et maintenance d'un réseau de laboratoires d'essais externes ainsi que coordination et mise en service d'enquêtes externes\n\n• Appui technique et représentation dans les zones de laboratoire adjacentes, en particulier dans le laboratoire d ' essais de produits chimiques et de matériaux\n\nVotre profil\n\n• Diplôme supérieur en science des matériaux, technologie des plastiques, chimie ou une discipline similaire ou une formation qualifiée comme laboratoire de chimie ou de physique\n\n• Au moins deux ans d'expérience professionnelle dans un laboratoire d'analyse ou un environnement industriel\n\n• Enthousiasme pour le travail pratique en laboratoire et plaisir à se rendre systématiquement au fond de questions techniques complexes\n\n• Méthode de travail structurée, soignée et orientée vers la solution avec un bon oeil pour l'essentiel\n\n• De solides compétences analytiques ainsi que la capacité d'identifier les connexions et de tirer des conclusions solides\n\n• Capacité de comprendre et de communiquer des questions techniques complexes au point\n\n• Profitez de travailler avec différentes disciplines et dans un environnement international\n\n• Bonne connaissance de l'allemand et de l'anglais\n\nLes dossiers des agences ne sont pas pris en considération, les parties intéressées sont invitées à présenter une demande directement, merci!\n\n#LI-DNI\n\nPersonne à contacter:\n\nMoritz Nauer\nGestionnaire d'acquisition de talents\nMoritz.nauer@georgfischer.com\nVeuillez soumettre votre candidature via le bouton « Appliquer ». L'email du recruteur est réservé aux demandes de renseignements."
       },
       "location": "Schaffhausen",
@@ -834,7 +837,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Microscopy---Analytics-Expert--m-f-d-_JR11455-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:41:09.246Z",
+      "crawledAt": "2026-10-23T21:29:57.460Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -851,10 +854,24 @@
       "postingDateSource": "reported",
       "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Microscopy---Analytics-Expert--m-f-d-_JR11455-1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "JR11455",
+      "previousSlugs": [
+        "esperto-di-microscopia-e-analisi-m-f-d-georg-fischer-schaffhausen",
+        "expert-en-microscopie-et-analyse-h-f-d-georg-fischer-schaffhausen",
+        "microscopy-analytics-expert-m-f-d-georg-fischer-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "esperto-di-microscopia-e-analisi-m-f-d-georg-fischer-schaffhausen",
+          "microscopy-analytics-expert-m-f-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "expert-en-microscopie-et-analyse-h-f-d-georg-fischer-schaffhausen",
+          "microscopy-analytics-expert-m-f-d-georg-fischer-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T09:41:09.246Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -868,102 +885,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200",
-      "firstSeenAt": "2026-10-23T09:41:09.246Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "esperto-di-microscopia-e-analisi-m-f-d-georg-fischer-schaffhausen",
-          "microscopy-analytics-expert-m-f-d-georg-fischer-ch"
-        ],
-        "fr": [
-          "expert-en-microscopie-et-analyse-h-f-d-georg-fischer-schaffhausen",
-          "microscopy-analytics-expert-m-f-d-georg-fischer-ch"
-        ]
-      },
-      "previousSlugs": [
-        "esperto-di-microscopia-e-analisi-m-f-d-georg-fischer-schaffhausen",
-        "expert-en-microscopie-et-analyse-h-f-d-georg-fischer-schaffhausen",
-        "microscopy-analytics-expert-m-f-d-georg-fischer-ch"
-      ]
-    },
-    {
-      "id": "georg-fischer-e846334db11f",
-      "slug": "inverter-m-f-d-georg-fischer-subingen",
-      "slugByLocale": {
-        "it": "inverter-m-f-d-georg-fischer-subingen",
-        "en": "inverters-m-f-d-georg-fischer-subingen",
-        "de": "einrichter-m-w-d-georg-fischer-ch",
-        "fr": "onduleurs-h-f-d-georg-fischer-subingen"
-      },
-      "company": "Georg Fischer",
-      "companyKey": "georg-fischer",
-      "companyDomain": "georgfischer.com",
-      "title": "Einrichter (m/w/d)",
-      "titleByLocale": {
-        "it": "Inverter (m/f/d)",
-        "en": "Inverters (m/f/d)",
-        "de": "Einrichter (m/w/d)",
-        "fr": "Onduleurs (h/f/d)"
-      },
-      "description": "Gestalten Sie die Produktion aktiv mit und übernehmen Sie Verantwortung für moderne, automatisierte Anlagen. In dieser vielseitigen Funktion sorgen Sie für einen reibungslosen Produktionsablauf, richten Anlagen selbstständig ein und beheben kleinere Störungen. Werden Sie Teil eines engagierten Teams, das auf Qualität, Präzision und kontinuierliche Verbesserung setzt. Dabei erwarten Sie abwechslungsreiche Aufgaben an automatisierten sowie manuellen Arbeitsplätzen.\n\nEinrichter/in (m/w/d)\n\nIhre Aufgaben:\n\n• Komplexe Anlagen inklusive mehrerer Spritzgussmaschinen und Roboter selbstständig einrichten und einfahren\n\n• Beheben von Störungen (Maschinen, Vorrichtungen, Spritzgusswerkzeugen)\n\n• Sicherstellen der geforderten Qualität\n\n• Teachen von Robotern und Handling Systeme\n\n• Kontinuierliche Verbesserung der Prozesse\n\n• Mitverantwortung in Lean Projekten hinsichtlich Effizienzsteigerung\n\nIhr Profil:\n\n• Technische Grundausbildung (Kunststofftechnologe, Polymechaniker, Kunststoffverarbeiter o.ä.)\n\n• Mehrjährige Berufserfahrung in der Kunststoffverarbeitung\n\n• Gutes technisches Verständnis\n\n• Hohe Planungs- und Organisationskompetenz\n\n• Exakte und zuverlässige Arbeitsweise\n\nIhr Kontakt:\nDaniela Philipp\nHead HR Subingen\n\nBewerbungen von Personalvermittlungen werden nicht berücksichtigt!\n\nContact person:\n\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-      "descriptionByLocale": {
-        "it": "Formare attivamente la produzione e assumersi la responsabilità di sistemi moderni e automatizzati. In questa funzione versatile, si garantisce un processo di produzione regolare, impostare impianti in modo indipendente e correggere errori minori. Diventa parte di un team dedicato focalizzato sulla qualità, precisione e miglioramento continuo. Puoi aspettarti varie attività nelle postazioni di lavoro automatizzate e manuali.\n\nSetters/(m/f/d)\n\nI loro compiti:\n\n• Sistemi complessi, tra cui diverse macchine per stampaggio ad iniezione e robot, configurati e retratti in modo indipendente\n\n• Fissaggio di malfunzionamenti (macchine, dispositivi, utensili per stampaggio ad iniezione)\n\n• Garantire la qualità richiesta\n\n• Robot didattici e sistemi di gestione\n\n• Miglioramento continuo dei processi\n\n• Co-responsabilità nei progetti snelle per l'aumento dell'efficienza\n\nIl tuo profilo:\n\n• Formazione tecnica di base (tecnologo plastico, polimeccanico, processore di plastica, ecc.)\n\n• Diversi anni di esperienza professionale nella lavorazione della plastica\n\n• Buona comprensione tecnica\n\n• Alto livello di pianificazione e competenza organizzativa\n\n• Funzionamento preciso e affidabile\n\nIl tuo contatto:\nDaniela Philippa\nCapo HR Subing\n\nLe domande delle agenzie di reclutamento non sono considerate!\n\nContatto:\n\nSi prega di inviare la domanda tramite il pulsante 'Applica'. L'email del reclutatore è solo per le richieste.",
-        "en": "Actively shape production and take responsibility for modern, automated systems. In this versatile function, you ensure a smooth production process, set up plants independently and correct minor faults. Become part of a dedicated team focused on quality, precision and continuous improvement. You can expect varied tasks at automated and manual workstations.\n\nSetters/(m/f/d)\n\nTheir tasks:\n\n• Complex systems including several injection molding machines and robots set up and retract independently\n\n• Fixing malfunctions (machines, devices, injection moulding tools)\n\n• Ensuring the required quality\n\n• Teaching robots and handling systems\n\n• Continuous improvement of processes\n\n• Co-responsibility in lean projects with regard to increasing efficiency\n\nYour profile:\n\n• Basic technical training (plastic technologist, polymechanic, plastics processor, etc.)\n\n• Several years of professional experience in plastics processing\n\n• Good technical understanding\n\n• High level of planning and organisational competence\n\n• Precise and reliable operation\n\nYour contact:\nDaniela Philippa\nHead HR Subingen\n\nApplications from recruitment agencies are not considered!\n\nContact person:\n\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-        "de": "Gestalten Sie die Produktion aktiv mit und übernehmen Sie Verantwortung für moderne, automatisierte Anlagen. In dieser vielseitigen Funktion sorgen Sie für einen reibungslosen Produktionsablauf, richten Anlagen selbstständig ein und beheben kleinere Störungen. Werden Sie Teil eines engagierten Teams, das auf Qualität, Präzision und kontinuierliche Verbesserung setzt. Dabei erwarten Sie abwechslungsreiche Aufgaben an automatisierten sowie manuellen Arbeitsplätzen.\n\nEinrichter/in (m/w/d)\n\nIhre Aufgaben:\n\n• Komplexe Anlagen inklusive mehrerer Spritzgussmaschinen und Roboter selbstständig einrichten und einfahren\n\n• Beheben von Störungen (Maschinen, Vorrichtungen, Spritzgusswerkzeugen)\n\n• Sicherstellen der geforderten Qualität\n\n• Teachen von Robotern und Handling Systeme\n\n• Kontinuierliche Verbesserung der Prozesse\n\n• Mitverantwortung in Lean Projekten hinsichtlich Effizienzsteigerung\n\nIhr Profil:\n\n• Technische Grundausbildung (Kunststofftechnologe, Polymechaniker, Kunststoffverarbeiter o.ä.)\n\n• Mehrjährige Berufserfahrung in der Kunststoffverarbeitung\n\n• Gutes technisches Verständnis\n\n• Hohe Planungs- und Organisationskompetenz\n\n• Exakte und zuverlässige Arbeitsweise\n\nIhr Kontakt:\nDaniela Philipp\nHead HR Subingen\n\nBewerbungen von Personalvermittlungen werden nicht berücksichtigt!\n\nContact person:\n\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-        "fr": "Former activement la production et prendre en charge les systèmes modernes et automatisés. Dans cette fonction polyvalente, vous assurez un processus de production en douceur, la configuration des usines indépendamment et corriger les défauts mineurs. Faites partie d'une équipe dédiée à la qualité, la précision et l'amélioration continue. Vous pouvez vous attendre à des tâches variées aux postes de travail automatisés et manuels.\n\nParamètres/(h/f/d)\n\nLeurs tâches:\n\n• Systèmes complexes comprenant plusieurs machines de moulage par injection et robots installés et rétractés indépendamment\n\n• Correction des défauts de fonctionnement (machines, dispositifs, outils de moulage par injection)\n\n• Assurer la qualité requise\n\n• Enseignement des robots et des systèmes de manutention\n\n• Amélioration continue des processus\n\n• Coresponsabilité des projets maigres en ce qui concerne l'amélioration de l'efficacité\n\nVotre profil:\n\n• Formation technique de base (technologue en plastique, polymécanique, processeur en plastique, etc.)\n\n• Plusieurs années d'expérience professionnelle dans le traitement des plastiques\n\n• Bonne compréhension technique\n\n• Haut niveau de planification et de compétence organisationnelle\n\n• Fonctionnement précis et fiable\n\nVotre contact:\nDaniela Philippa\nDirecteur RH Subingen\n\nLes candidatures des agences de recrutement ne sont pas prises en considération!\n\nPersonne à contacter:\n\nVeuillez soumettre votre candidature via le bouton « Appliquer ». L'email du recruteur est réservé aux demandes de renseignements."
-      },
-      "location": "Subingen",
-      "canton": "SO",
-      "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Subingen-Solothurn/Einrichter--m-w-d-_JR10356",
-      "source": "Georg Fischer Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:51:24.396Z",
-      "addressLocality": "Subingen",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20",
-      "postedDate": "2026-08-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Subingen-Solothurn/Einrichter--m-w-d-_JR10356",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "JR10356",
-      "previousSlugs": [
-        "einrichter-m-w-d-georg-fischer-subingen",
-        "einrichter-m-w-d-georg-fischer-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "einrichter-m-w-d-georg-fischer-ch"
-        ],
-        "de": [
-          "einrichter-m-w-d-georg-fischer-subingen"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T21:39:19.019Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4553",
-      "crawlerMissStreak": 2
+      "postalCode": "8200"
     }
   ]
 }

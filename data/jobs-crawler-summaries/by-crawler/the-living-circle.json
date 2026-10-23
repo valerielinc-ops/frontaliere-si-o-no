@@ -1,16 +1,16 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-10-23T09:37:32.977Z",
+  "generatedAt": "2026-10-23T21:23:32.750Z",
   "total": 30,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 21,
-  "durationMs": 1314,
-  "avgDurationMs": 1314,
+  "durationMs": 1683,
+  "avgDurationMs": 1683,
   "durationHistory": [
-    1314
+    1683
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -611,45 +611,6 @@
       }
     },
     {
-      "title": "Servicepraktikant Widder Restaurant 100% (all genders) 4 Tage-Woche",
-      "slug": "service-intern-aries-restaurant-100-tutti-i-sessi-4-giorni-settimana-the-living-circle-zurich",
-      "url": "https://jobs.thelivingcircle.ch/jobs/67557492/Servicepraktikant-Widder-Restaurant-100%25-all-genders-4-Tage-Woche/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67557492/Servicepraktikant-Widder-Restaurant-100%25-all-genders-4-Tage-Woche/",
-      "company": "The Living Circle",
-      "companyKey": "the-living-circle",
-      "companyDomain": "thelivingcircle.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hotellerie & Ospitalità",
-      "source": "living-circle-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-09-21T18:10:19.920+02:00",
-      "postedDate": "2026-09-21T18:10:19.920+02:00",
-      "postingDateSource": "reported",
-      "employmentType": "other",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "the-living-circle-0f08646d986e",
-      "firstSeenAt": "2026-09-23T23:41:28.403Z",
-      "salaryMin": 58000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Guest Experience Agent 80-100% (all genders)",
       "slug": "guest-experience-agent-80-100-tutti-i-generi-the-living-circle-zurich",
       "url": "https://jobs.thelivingcircle.ch/jobs/67610227/Guest-Experience-Agent-80-100%25-all-genders-/",
@@ -1200,7 +1161,47 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "title": "Servicepraktikant Widder Restaurant 100% (all genders) 4 Tage-Woche",
+      "slug": "service-intern-aries-restaurant-100-tutti-i-sessi-4-giorni-settimana-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/67557492/Servicepraktikant-Widder-Restaurant-100%25-all-genders-4-Tage-Woche/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67557492/Servicepraktikant-Widder-Restaurant-100%25-all-genders-4-Tage-Woche/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-09-21T18:10:19.920+02:00",
+      "postedDate": "2026-09-21T18:10:19.920+02:00",
+      "postingDateSource": "reported",
+      "employmentType": "other",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "the-living-circle-0f08646d986e",
+      "firstSeenAt": "2026-09-23T23:41:28.403Z",
+      "salaryMin": 58000,
+      "salaryMax": 73000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }

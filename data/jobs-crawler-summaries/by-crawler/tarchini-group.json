@@ -1,62 +1,20 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-10-23T09:18:23.485Z",
+  "generatedAt": "2026-10-23T21:21:26.062Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2564,
-  "avgDurationMs": 2564,
+  "durationMs": 2857,
+  "avgDurationMs": 2857,
   "durationHistory": [
-    2564
+    2857
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Analista investimenti e strategia",
-      "slug": "analista-investimenti-e-strategia-tarchini-group-mendrisio",
-      "url": "https://www.tarchinigroup.com/it/work/1552/analista-investimenti-e-strategia",
-      "applyUrl": "https://www.tarchinigroup.com/it/work/1552/analista-investimenti-e-strategia",
-      "applicationEmail": "info@tarchinigroup.com",
-      "company": "Tarchini Group",
-      "companyKey": "tarchini-group",
-      "companyDomain": "tarchinigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Immobiliare",
-      "source": "tarchini-group-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "tarchini-group-7f87bacd9060",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-01T09:14:30.664Z",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-21T09:15:44.199Z",
-      "postalCode": "6850",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Sales Manager",
@@ -91,7 +49,7 @@
       "applicationEmail": "info@tarchinigroup.com",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:18:11.336Z",
+      "crawledAt": "2026-10-23T21:21:13.064Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -131,7 +89,7 @@
       "firstSeenAt": "2026-09-29T21:13:20.401Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-23T09:18:11.352Z",
+      "crawledAt": "2026-10-23T21:21:13.081Z",
       "postalCode": "6850",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -142,5 +100,5 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }

@@ -1,21 +1,20 @@
 {
   "key": "oscam",
   "label": "OSCAM",
-  "generatedAt": "2026-10-23T09:15:26.866Z",
-  "total": 1,
+  "generatedAt": "2026-10-23T21:20:45.814Z",
+  "total": 0,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5055,
-  "avgDurationMs": 5055,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7921,
+  "avgDurationMs": 7921,
   "durationHistory": [
-    5055
+    7921
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Concorso generale 2026",
       "slug": "concorso-generale-2026-oscam",
@@ -60,5 +59,6 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "unchangedJobs": [],
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }

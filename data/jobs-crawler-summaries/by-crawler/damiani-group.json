@@ -1,20 +1,62 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-23T09:29:53.794Z",
-  "total": 10,
+  "generatedAt": "2026-10-23T21:11:55.329Z",
+  "total": 11,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 9818,
-  "avgDurationMs": 9818,
+  "durationMs": 9590,
+  "avgDurationMs": 9590,
   "durationHistory": [
-    9818
+    9590
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Social Media Manager",
+      "slug": "social-media-manager-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Social-Media-Manager/1374169255/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1374169255/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "damiani-group-ef01cc390b3e",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-10-23T21:11:46.597Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "IT Support & Junior System Administrator",
@@ -429,5 +471,5 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }

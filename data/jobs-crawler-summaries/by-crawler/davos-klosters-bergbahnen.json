@@ -1,16 +1,16 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-10-23T09:23:55.345Z",
+  "generatedAt": "2026-10-23T21:25:32.040Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 3463,
-  "avgDurationMs": 3463,
+  "durationMs": 4278,
+  "avgDurationMs": 4278,
   "durationHistory": [
-    3463
+    4278
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Seilbahn-Mechatroniker-in_j_3953336",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:23:42.885Z",
+      "crawledAt": "2026-10-23T21:25:14.185Z",
       "firstSeenAt": "2026-10-21T09:26:35.239Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -76,7 +76,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:23:42.711Z",
+      "crawledAt": "2026-10-23T21:25:14.015Z",
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -114,7 +114,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:23:42.539Z",
+      "crawledAt": "2026-10-23T21:25:13.846Z",
       "firstSeenAt": "2026-06-09T11:17:26.005Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -152,7 +152,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebs-Mechaniker-in_j_3953349",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:23:42.361Z",
+      "crawledAt": "2026-10-23T21:25:13.677Z",
       "firstSeenAt": "2026-10-21T09:26:34.626Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -169,5 +169,5 @@
       }
     }
   ],
-  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
+  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
 }
