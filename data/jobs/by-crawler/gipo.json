@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gipo",
-  "assembledAt": "2026-10-22T21:22:17.505Z",
-  "runId": "39855834706",
+  "assembledAt": "2026-10-23T09:32:40.525Z",
+  "runId": "39930614376",
   "jobs": [
     {
       "id": "gipo-d61ceb9f0a2f",
@@ -35,7 +35,7 @@
       "url": "https://gipo.ch/de/offene_stellen/projektleiter-elektro-5b377502/",
       "source": "GIPO GISLER POWER AG Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:22:11.860Z",
+      "crawledAt": "2026-10-23T09:32:37.036Z",
       "addressLocality": "Seedorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -82,10 +82,10 @@
         ]
       },
       "firstSeenAt": "2026-10-15T21:23:40.684Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 162500,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     }
   ]
 }

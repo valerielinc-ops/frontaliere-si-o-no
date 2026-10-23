@@ -1,25 +1,25 @@
 {
   "key": "avaloq",
   "label": "Avaloq",
-  "generatedAt": "2026-10-22T21:22:07.254Z",
+  "generatedAt": "2026-10-23T09:34:18.371Z",
   "total": 30,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
-  "newCount": 3,
+  "newCount": 4,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 25,
-  "durationMs": 15250,
-  "avgDurationMs": 15250,
+  "removedCount": 1,
+  "unchangedCount": 24,
+  "durationMs": 16563,
+  "avgDurationMs": 16563,
   "durationHistory": [
-    15250
+    16563
   ],
   "newJobs": [
     {
-      "title": "Trade Processing and Settlement Trainee (12-month fixed-term contract)",
-      "slug": "trade-processing-and-settlement-trainee-12-month-fixed-term-contract-avaloq-bioggio",
-      "url": "https://jobs.smartrecruiters.com/Avaloq1/744000157150440-trade-processing-and-settlement-trainee-12-month-fixed-term-contract-",
-      "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000157150440-trade-processing-and-settlement-trainee-12-month-fixed-term-contract-?oga=true",
+      "title": "Avaloq Test Manager",
+      "slug": "avaloq-test-manager-avaloq-bioggio",
+      "url": "https://jobs.smartrecruiters.com/Avaloq1/744000157389939-avaloq-test-manager",
+      "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000157389939-avaloq-test-manager?oga=true",
       "company": "Avaloq",
       "companyKey": "avaloq",
       "companyDomain": "avaloq.com",
@@ -34,25 +34,25 @@
       "sector": "Tecnologia & IT",
       "source": "avaloq-dedicated-crawler",
       "sourceLang": "en",
-      "datePosted": "2026-10-22T14:30:05.140Z",
-      "postedDate": "2026-10-22T14:30:05.140Z",
+      "datePosted": "2026-10-23T06:23:13.405Z",
+      "postedDate": "2026-10-23T06:23:13.405Z",
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "avaloq-d633610e3196",
+      "id": "avaloq-0c8b1a3642f0",
       "needsRetranslation": true,
-      "salaryMin": 46000,
-      "salaryMax": 78500,
+      "salaryMin": 79500,
+      "salaryMax": 135000,
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-10-22T21:21:55.727Z",
-      "_qualityScore": 93,
+      "firstSeenAt": "2026-10-23T09:34:09.854Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
+        "richness": 24,
+        "translation": 16,
         "completeness": 25
       }
     },
@@ -88,11 +88,52 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-10-22T21:21:55.727Z",
+      "firstSeenAt": "2026-10-23T09:34:09.854Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Trade Processing and Settlement Trainee (12-month fixed-term contract)",
+      "slug": "trade-processing-and-settlement-trainee-12-month-fixed-term-contract-avaloq-bioggio",
+      "url": "https://jobs.smartrecruiters.com/Avaloq1/744000157150440-trade-processing-and-settlement-trainee-12-month-fixed-term-contract-",
+      "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000157150440-trade-processing-and-settlement-trainee-12-month-fixed-term-contract-?oga=true",
+      "company": "Avaloq",
+      "companyKey": "avaloq",
+      "companyDomain": "avaloq.com",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6934",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "avaloq-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-22T14:30:05.140Z",
+      "postedDate": "2026-10-22T14:30:05.140Z",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "avaloq-d633610e3196",
+      "needsRetranslation": true,
+      "salaryMin": 46000,
+      "salaryMax": 78500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Industria 1",
+      "firstSeenAt": "2026-10-23T09:34:09.854Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 21,
         "completeness": 25
       }
@@ -224,8 +265,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Avaloq Test Manager",
       "slug": "gestore-test-avaloq-avaloq-zurich",
@@ -264,7 +304,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Banking Specialist - OTC Derivatives processing",
       "slug": "banking-specialist-otc-derivatives-processing-avaloq-bioggio",
@@ -306,6 +348,45 @@
       }
     },
     {
+      "title": "Solution Manager - Architect (with Avaloq Experience)",
+      "slug": "solution-manager-architect-with-avaloq-experience-avaloq-zurich",
+      "url": "https://jobs.smartrecruiters.com/Avaloq1/744000155027759-solution-manager-architect-with-avaloq-experience-",
+      "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000155027759-solution-manager-architect-with-avaloq-experience-?oga=true",
+      "company": "Avaloq",
+      "companyKey": "avaloq",
+      "companyDomain": "avaloq.com",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8001",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "avaloq-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-12T13:44:05.876Z",
+      "postedDate": "2026-10-12T13:44:05.876Z",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "avaloq-d44ef6f56178",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-28T21:27:38.060Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Service Delivery Manager",
       "slug": "responsabile-della-consegna-dei-servizi-avaloq-bioggio",
       "url": "https://jobs.smartrecruiters.com/Avaloq1/744000155017280-service-delivery-manager",
@@ -343,45 +424,6 @@
         "richness": 24,
         "translation": 25,
         "completeness": 25
-      }
-    },
-    {
-      "title": "Solution Manager - Architect (with Avaloq Experience)",
-      "slug": "solution-manager-architect-with-avaloq-experience-avaloq-zurich",
-      "url": "https://jobs.smartrecruiters.com/Avaloq1/744000155027759-solution-manager-architect-with-avaloq-experience-",
-      "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000155027759-solution-manager-architect-with-avaloq-experience-?oga=true",
-      "company": "Avaloq",
-      "companyKey": "avaloq",
-      "companyDomain": "avaloq.com",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "8001",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "avaloq-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "2026-10-12T13:44:05.876Z",
-      "postedDate": "2026-10-12T13:44:05.876Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "avaloq-d44ef6f56178",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-28T21:27:38.060Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
       }
     },
     {
@@ -1236,5 +1278,5 @@
       }
     }
   ],
-  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
+  "codeCommit": "4bc56368710b9dde420d4b6245f2a1c258f45573"
 }
