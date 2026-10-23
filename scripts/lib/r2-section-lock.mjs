@@ -224,6 +224,13 @@ function cancelR2ResponseBody(response) {
   }
 }
 
+function normalizeRequestHeaders(headers) {
+  if (headers && typeof headers.entries === 'function') {
+    return Object.fromEntries(headers.entries());
+  }
+  return headers && typeof headers === 'object' ? headers : {};
+}
+
 /**
  * Build the signed R2 transport. Keeping the transport injectable makes the
  * lease race testable without ever contacting the production bucket. A
@@ -235,7 +242,8 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
   if (typeof fetchImpl !== 'function') throw new Error('[r2-section-lock] fetch is unavailable');
 
   return async ({ method, key, body = '', headers = {}, deadline }) => {
-    const normalizedMethod = method.toUpperCase();
+    const normalizedMethod = asString(method, 'method').toUpperCase();
+    const normalizedHeaders = normalizeRequestHeaders(headers);
     // Cloudflare can rewrite a strong R2 ETag to a weak validator when the
     // response is compressed. Weak validators are not safe for the If-Match
     // CAS used by the lease protocol, so metadata reads must stay unencoded.
@@ -246,11 +254,11 @@ export function createR2Request(env = process.env, { fetchImpl = globalThis.fetc
         // canonical header so a mixed-case override cannot produce a weak
         // ETag or duplicate signed headers.
         ...Object.fromEntries(
-          Object.entries(headers).filter(([name]) => name.toLowerCase() !== 'accept-encoding'),
+          Object.entries(normalizedHeaders).filter(([name]) => name.toLowerCase() !== 'accept-encoding'),
         ),
         'accept-encoding': 'identity',
       }
-      : headers;
+      : normalizedHeaders;
     const signed = signRequest({ ...config, now: now(), method: normalizedMethod, key, body, headers: requestHeaders });
     const deadlineAt = deadline === undefined ? Date.now() + 30_000 : deadline;
     if (!Number.isFinite(deadlineAt)) throw new Error('[r2-section-lock] request deadline must be finite');
