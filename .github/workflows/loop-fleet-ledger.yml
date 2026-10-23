@@ -190,7 +190,26 @@ jobs:
             echo "::error::expected exactly one unexpired source artifact named $SOURCE_ARTIFACT, found $artifact_count"
             exit 1
           fi
-          gh run download "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "$SOURCE_ARTIFACT" --dir "$INPUT_DIR"
+          set +e
+          download_output="$(gh run download "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "$SOURCE_ARTIFACT" --dir "$INPUT_DIR" 2>&1)"
+          download_status=$?
+          set -e
+          if [ "$download_status" -ne 0 ]; then
+            download_is_confirmed_missing_artifact() {
+              [ "$EVENT_NAME" = 'workflow_run' ] &&
+                [ "$SOURCE_CONCLUSION" = 'success' ] &&
+                grep -Fqi -- 'no valid artifacts found' <<<"$download_output"
+            }
+            if download_is_confirmed_missing_artifact; then
+              echo "$download_output"
+              echo "::notice::source artifact $SOURCE_ARTIFACT was listed but was not downloadable after the successful source run; treating it as absent"
+              echo "- Durable ledger: source run $SOURCE_RUN_ID had no downloadable immutable evidence artifact; nothing to persist." >> "$GITHUB_STEP_SUMMARY"
+              echo 'available=false' >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "$download_output"
+            exit "$download_status"
+          fi
           echo 'available=true' >> "$GITHUB_OUTPUT"
 
       - name: Initialize trusted ledger benchmark

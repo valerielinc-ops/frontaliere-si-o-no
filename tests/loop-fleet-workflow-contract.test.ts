@@ -225,6 +225,39 @@ function runDurableLedgerOverlayScenarios() {
   };
 }
 
+function runDownloadFailureClassifier({
+  eventName = 'workflow_run',
+  sourceConclusion = 'success',
+  output,
+}: {
+  eventName?: string;
+  sourceConclusion?: string;
+  output: string;
+}): boolean {
+  const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+  const classifier = source.match(
+    /^[ \t]{12}download_is_confirmed_missing_artifact\(\) \{\n(?:^[ \t]{14,}.*\n)+^[ \t]{12}\}/mu,
+  )?.[0];
+  expect(classifier, 'download failure classifier').toBeDefined();
+  try {
+    execFileSync('bash', ['--noprofile', '--norc', '-euo', 'pipefail', '-c', [
+      classifier?.replace(/^ {12}/gmu, '') ?? 'false',
+      'if download_is_confirmed_missing_artifact; then exit 0; else exit 1; fi',
+    ].join('\n')], {
+      stdio: 'pipe',
+      env: {
+        ...process.env,
+        EVENT_NAME: eventName,
+        SOURCE_CONCLUSION: sourceConclusion,
+        download_output: output,
+      },
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 describe('loop fleet workflow contract', () => {
   it('records canonical evidence for every loop with a read-only contents token', () => {
     for (const name of loopWorkflows) {
@@ -687,6 +720,32 @@ describe('loop fleet workflow contract', () => {
       expect(step?.if, `${name} must wait for an available source artifact`).toContain(
         'steps.source_artifact.outputs.available == \'true\'',
       );
+    }
+  });
+
+  it('treats a source artifact that disappears before download as a successful no-op', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('download_output="$(gh run download');
+    expect(source).toContain('download_status=$?');
+    expect(source).toContain("grep -Fqi -- 'no valid artifacts found' <<<\"$download_output\"");
+    expect(source).toContain("source artifact $SOURCE_ARTIFACT was listed but was not downloadable after the successful source run");
+    expect(source).toContain("[ \"$EVENT_NAME\" = 'workflow_run' ] &&");
+    expect(source).toContain("[ \"$SOURCE_CONCLUSION\" = 'success' ] &&");
+    expect(source).toContain("echo 'available=false' >> \"$GITHUB_OUTPUT\"");
+    expect(source).toContain('exit "$download_status"');
+  });
+
+  it('suppresses only the confirmed missing-artifact download error', () => {
+    const cases = [
+      { output: 'no valid artifacts found to download', expected: true },
+      { output: 'HTTP 500: Internal Server Error', expected: false },
+      { output: 'HTTP 401: Bad credentials', expected: false },
+      { output: 'API rate limit exceeded', expected: false },
+      { output: 'failed to extract archive: unexpected EOF', expected: false },
+      { eventName: 'workflow_dispatch', output: 'no valid artifacts found to download', expected: false },
+    ];
+    for (const testCase of cases) {
+      expect(runDownloadFailureClassifier(testCase), testCase.output).toBe(testCase.expected);
     }
   });
 
