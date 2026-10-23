@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-10-22T21:14:47.062Z",
-  "runId": "39854213635",
+  "assembledAt": "2026-10-23T09:18:46.016Z",
+  "runId": "39929184100",
   "jobs": [
     {
       "id": "gkb-f712e7fcb987",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:38.557Z",
+      "crawledAt": "2026-10-23T09:18:39.264Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:37.708Z",
+      "crawledAt": "2026-10-23T09:18:38.336Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:36.865Z",
+      "crawledAt": "2026-10-23T09:18:37.414Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -287,7 +287,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:36.026Z",
+      "crawledAt": "2026-10-23T09:18:36.485Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -374,7 +374,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:35.205Z",
+      "crawledAt": "2026-10-23T09:18:35.563Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -459,7 +459,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:34.363Z",
+      "crawledAt": "2026-10-23T09:18:34.640Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -548,7 +548,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:33.519Z",
+      "crawledAt": "2026-10-23T09:18:33.711Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -633,7 +633,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:32.672Z",
+      "crawledAt": "2026-10-23T09:18:32.788Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -724,7 +724,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:31.846Z",
+      "crawledAt": "2026-10-23T09:18:31.866Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -856,7 +856,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "gkb-d829938f33ae",
@@ -889,7 +890,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:30.175Z",
+      "crawledAt": "2026-10-23T09:18:30.916Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -977,7 +978,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:29.325Z",
+      "crawledAt": "2026-10-23T09:18:29.986Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1069,7 +1070,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:28.483Z",
+      "crawledAt": "2026-10-23T09:18:29.060Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1130,7 +1131,7 @@
       "slug": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
       "slugByLocale": {
         "it": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
-        "en": "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european",
+        "en": "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
         "de": "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
         "fr": "stagist-asb-banking-roveredo-a-partir-d-aout-2027-graubundner-kantonalbank-thusis"
       },
@@ -1156,7 +1157,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1908/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:27.642Z",
+      "crawledAt": "2026-10-23T09:18:28.121Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1177,14 +1178,14 @@
       "previousSlugs": [
         "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis",
         "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
-        "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis"
+        "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch"
         ],
         "en": [
-          "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis"
+          "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european"
         ],
         "de": [
           "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis"
@@ -1237,7 +1238,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1976/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:26.804Z",
+      "crawledAt": "2026-10-23T09:18:27.215Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -1319,7 +1320,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1975/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:25.957Z",
+      "crawledAt": "2026-10-23T09:18:26.277Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1398,7 +1399,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1980/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:25.136Z",
+      "crawledAt": "2026-10-23T09:18:25.350Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1475,7 +1476,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1977/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:24.311Z",
+      "crawledAt": "2026-10-23T09:18:24.420Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1561,7 +1562,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1979/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:23.465Z",
+      "crawledAt": "2026-10-23T09:18:23.490Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressCountry": "CH",
@@ -1582,12 +1583,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch",
-        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
-        "nnh-holding-ag-collaboratore-trice-qualitats-e-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
-        "nnh-holding-ag-mitarbeiter-in-test-und-vertragsmanagement-80-100-zurich-gkb-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch",
@@ -1604,6 +1599,12 @@
           "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich"
         ]
       },
+      "previousSlugs": [
+        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch",
+        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
+        "nnh-holding-ag-collaboratore-trice-qualitats-e-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
+        "nnh-holding-ag-mitarbeiter-in-test-und-vertragsmanagement-80-100-zurich-gkb-ch"
+      ],
       "firstSeenAt": "2026-10-05T09:12:03.189Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -1651,7 +1652,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1984/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:22.623Z",
+      "crawledAt": "2026-10-23T09:18:22.570Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1732,7 +1733,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1985/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:21.803Z",
+      "crawledAt": "2026-10-23T09:18:21.639Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1814,7 +1815,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1987/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:20.951Z",
+      "crawledAt": "2026-10-23T09:18:20.705Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1895,7 +1896,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1988/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:20.088Z",
+      "crawledAt": "2026-10-23T09:18:19.773Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1975,7 +1976,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1989/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:19.247Z",
+      "crawledAt": "2026-10-23T09:18:18.833Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2022,12 +2023,12 @@
     },
     {
       "id": "gkb-02c377b287dc",
-      "slug": "consulente-finanziario-a-e-d-investimento-regione-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide",
+      "slug": "finanz-e-anlageberater-in-region-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide",
       "slugByLocale": {
         "de": "finanz-und-anlageberater-in-region-lenzerheide-80-100-gkb-ch",
-        "it": "consulente-finanziario-a-e-d-investimento-regione-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide",
-        "en": "financial-and-investment-advisor-lenzerheide-region-80-100-graubundner-kantonalbank-lenzerheide",
-        "fr": "conseiller-ere-financier-ere-et-en-placement-region-de-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide"
+        "it": "finanz-e-anlageberater-in-region-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide",
+        "en": "finanz-und-anlageberater-in-region-lenzerheide-80-100-gkb-ch",
+        "fr": "finanz-und-anlageberater-in-region-lenzerheide-80-100-gkb-ch"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -2035,23 +2036,23 @@
       "title": "Finanz- und Anlageberater:in Region Lenzerheide (80 -100%)",
       "titleByLocale": {
         "de": "Finanz- und Anlageberater:in Region Lenzerheide (80 -100%)",
-        "it": "Consulente finanziario/a e d'investimento Regione Lenzerheide (80 -100%)",
-        "en": "Financial and Investment Advisor, Lenzerheide region (80 -100%)",
-        "fr": "Conseiller·ère financier·ère et en placement, région de Lenzerheide (80 -100%)"
+        "it": "Finanz- e Anlageberater:in Region Lenzerheide (80 -100%)",
+        "en": "Finanz- und Anlageberater:in Region Lenzerheide (80 -100%)",
+        "fr": "Finanz- und Anlageberater:in Region Lenzerheide (80 -100%)"
       },
       "description": "Graubündner Kantonalbank | online seit: 22.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft.“ Als kundenorientierte Persönlichkeit mit Beratungserfahrung bist du ein erstklassiger Ansprechpartner, welcher sich für die Bedürfnisse unserer Kunden einsetzt und die Graubündner Kantonalbank mitgestalten will. | ab sofort oder nach Vereinbarung |\n• Ganzheitliche, bedarfsorientierte Beratung von Private Banking Kunden (hauptsächlich in Savognin)\n• Aktive und ergebnisorientierte Bewirtschaftung eines bestehenden Kundenportefeuilles\n• Potentialausschöpfung unter Anwendung diverser Beratungsdienstleistungen\n• Durchführung von Akquisitions-, Entwicklungs- und Bindungsmassnahmen\n• Gewinnung von Neukunden |\n• Kaufmännische Grundausbildung (Banklehre oder Praktikum)\n• Weiterführende Weiterbildungen von Vorteil (z.B. eidg. Finanzplaner, HFBF, Bachelor in Banking und Finance)\n• Mehrjährige Erfahrung in der Kundenbetreuung oder Assistenz im Private Banking\n• Gewinnende und sympathische Persönlichkeit mit sicherem und professionellem Auftreten\n• Ausgeprägte Kunden- und Dienstleistungsorientierung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
         "de": "Graubündner Kantonalbank | online seit: 22.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft.“ Als kundenorientierte Persönlichkeit mit Beratungserfahrung bist du ein erstklassiger Ansprechpartner, welcher sich für die Bedürfnisse unserer Kunden einsetzt und die Graubündner Kantonalbank mitgestalten will. | ab sofort oder nach Vereinbarung |\n• Ganzheitliche, bedarfsorientierte Beratung von Private Banking Kunden (hauptsächlich in Savognin)\n• Aktive und ergebnisorientierte Bewirtschaftung eines bestehenden Kundenportefeuilles\n• Potentialausschöpfung unter Anwendung diverser Beratungsdienstleistungen\n• Durchführung von Akquisitions-, Entwicklungs- und Bindungsmassnahmen\n• Gewinnung von Neukunden |\n• Kaufmännische Grundausbildung (Banklehre oder Praktikum)\n• Weiterführende Weiterbildungen von Vorteil (z.B. eidg. Finanzplaner, HFBF, Bachelor in Banking und Finance)\n• Mehrjährige Erfahrung in der Kundenbetreuung oder Assistenz im Private Banking\n• Gewinnende und sympathische Persönlichkeit mit sicherem und professionellem Auftreten\n• Ausgeprägte Kunden- und Dienstleistungsorientierung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
-        "it": "Graubündner Kantonalbank | online da: 22.10.2026 | \"Qualunque sia il tuo futuro sarà simile\". A Graubündner Kantonalbank, ci assicuriamo che non sia solo un futuro, ma il miglior futuro. Come personalità orientata al cliente con esperienza di consulenza, sei un contatto di prima classe che si impegna per le esigenze dei nostri clienti e vuole modellare il Grigio Kantonalbank. | da ora in poi o per accordo |\n• Consulenza olistica e orientata alle esigenze per clienti bancari privati (principalmente a Savognin)\n• Gestione attiva e orientata ai risultati di un portafoglio clienti esistente\n• Sfruttamento del potenziale utilizzando vari servizi di consulenza\n• Attuazione delle misure di acquisizione, sviluppo e conservazione\n• Acquisizione di nuovi clienti |\n• Formazione commerciale di base (banca o stage)\n• Ulteriori sviluppi di vantaggio (ad es. Financial Planner, HFBF, Bachelor in Banking and Finance\n• Diversi anni di esperienza nel supporto clienti o assistenza nel private banking\n• Vincere e personalità simpatica con un aspetto sicuro e professionale\n• Sei pronto per il tuo futuro migliore? Quindi applicare ora. Non siamo alla ricerca di CV perfetti, ma talenti con curiosità, guida e un senso di responsabilità. Anche se non porti tutto: Se vuoi crescere, hai ragione con noi – sia all'inizio della tua carriera che già con molta esperienza nei tuoi bagagli. | Sono interessato e vorrei candidarmi",
-        "en": "Graubündner Kantonalbank | online since: 22.10.2026 | \"Whatever your future will look like\". At Graubündner Kantonalbank, we ensure that it is not just any future, but the best future. As a customer-oriented personality with consulting experience, you are a first-class contact who is committed to the needs of our customers and wants to shape the Graubündner Kantonalbank. | from now on or by agreement |\n• Holistic, needs-oriented advice for private banking clients (mainly in Savognin)\n• Active and results-oriented management of an existing customer portfolio\n• Exploitation of potential using various consulting services\n• Implementation of acquisition, development and retention measures\n• Acquisition of new customers |\n• Basic commercial training (banking or internship)\n• Further developments of advantage (e.g. Financial Planner, HFBF, Bachelor in Banking and Finance\n• Several years of experience in customer support or assistance in private banking\n• Winning and sympathetic personality with a safe and professional appearance\n• Strong customer and service orientation | Are you ready for your best future? Then apply now. We are not looking for perfect CVs, but talents with curiosity, drive and a sense of responsibility. Even if you do not bring everything: If you want to grow, you are right with us – whether at the beginning of your career or already with a lot of experience in your luggage. | I am interested and would like to apply",
-        "fr": "Graubündner Kantonalbank en ligne depuis: 22.10.2026. Chez Graubündner Kantonalbank, nous nous assurons que ce n'est pas n'importe quel avenir, mais le meilleur avenir. En tant que personnalité orientée client avec une expérience de conseil, vous êtes un contact de première classe qui s'engage aux besoins de nos clients et veut façonner la Banque Kantonal Graubündner. Désormais ou par accord\n• Conseils holistiques et axés sur les besoins pour les clients des banques privées (principalement en Savognin)\n• Gestion active et axée sur les résultats d'un portefeuille client existant\n• Exploitation du potentiel grâce à divers services de conseil\n• Mise en œuvre des mesures d ' acquisition, de développement et de rétention\n• Acquisition de nouveaux clients\n• Formation commerciale de base (banque ou stage)\n• Autres développements de l'avantage (p. ex. planificateur financier, HFBF, baccalauréat en banque et finance)\n• Plusieurs années d'expérience dans le soutien à la clientèle ou l'assistance dans le secteur bancaire privé\n• Personnalité gagnante et sympathique avec une apparence sûre et professionnelle\n• Forte orientation client et service..... Êtes-vous prêt pour votre meilleur avenir ? Alors appliquez maintenant. Nous ne cherchons pas des CV parfaits, mais des talents avec curiosité, dynamisme et sens des responsabilités. Même si vous n'apportez pas tout: Si vous voulez grandir, vous avez raison avec nous, que ce soit au début de votre carrière ou déjà avec beaucoup d'expérience dans vos bagages. Je suis intéressé et je voudrais postuler"
+        "it": "Graubündner Kantonalbank | online seit: 22.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft.“ Als kundenorientierte Persönlichkeit mit Beratungserfahrung bist du ein erstklassiger Ansprechpartner, welcher sich für die Bedürfnisse unserer Kunden einsetzt und die Graubündner Kantonalbank mitgestalten will. | ab sofort oder nach Vereinbarung |\n• Ganzheitliche, bedarfsorientierte Beratung von Private Banking Kunden (hauptsächlich in Savognin)\n• Aktive und ergebnisorientierte Bewirtschaftung eines bestehenden Kundenportefeuilles\n• Potentialausschöpfung unter Anwendung diverser Beratungsdienstleistungen\n• Durchführung von Akquisitions-, Entwicklungs- und Bindungsmassnahmen\n• Gewinnung von Neukunden |\n• Kaufmännische Grundausbildung (Banklehre oder Praktikum)\n• Weiterführende Weiterbildungen von Vorteil (z.B. eidg. Finanzplaner, HFBF, Bachelor in Banking und Finance)\n• Mehrjährige Erfahrung in der Kundenbetreuung oder Assistenz im Private Banking\n• Gewinnende und sympathische Persönlichkeit mit sicherem und professionellem Auftreten\n• Ausgeprägte Kunden- und Dienstleistungsorientierung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
+        "en": "Graubündner Kantonalbank | online seit: 22.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft.“ Als kundenorientierte Persönlichkeit mit Beratungserfahrung bist du ein erstklassiger Ansprechpartner, welcher sich für die Bedürfnisse unserer Kunden einsetzt und die Graubündner Kantonalbank mitgestalten will. | ab sofort oder nach Vereinbarung |\n• Ganzheitliche, bedarfsorientierte Beratung von Private Banking Kunden (hauptsächlich in Savognin)\n• Aktive und ergebnisorientierte Bewirtschaftung eines bestehenden Kundenportefeuilles\n• Potentialausschöpfung unter Anwendung diverser Beratungsdienstleistungen\n• Durchführung von Akquisitions-, Entwicklungs- und Bindungsmassnahmen\n• Gewinnung von Neukunden |\n• Kaufmännische Grundausbildung (Banklehre oder Praktikum)\n• Weiterführende Weiterbildungen von Vorteil (z.B. eidg. Finanzplaner, HFBF, Bachelor in Banking und Finance)\n• Mehrjährige Erfahrung in der Kundenbetreuung oder Assistenz im Private Banking\n• Gewinnende und sympathische Persönlichkeit mit sicherem und professionellem Auftreten\n• Ausgeprägte Kunden- und Dienstleistungsorientierung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
+        "fr": "Graubündner Kantonalbank | online seit: 22.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft.“ Als kundenorientierte Persönlichkeit mit Beratungserfahrung bist du ein erstklassiger Ansprechpartner, welcher sich für die Bedürfnisse unserer Kunden einsetzt und die Graubündner Kantonalbank mitgestalten will. | ab sofort oder nach Vereinbarung |\n• Ganzheitliche, bedarfsorientierte Beratung von Private Banking Kunden (hauptsächlich in Savognin)\n• Aktive und ergebnisorientierte Bewirtschaftung eines bestehenden Kundenportefeuilles\n• Potentialausschöpfung unter Anwendung diverser Beratungsdienstleistungen\n• Durchführung von Akquisitions-, Entwicklungs- und Bindungsmassnahmen\n• Gewinnung von Neukunden |\n• Kaufmännische Grundausbildung (Banklehre oder Praktikum)\n• Weiterführende Weiterbildungen von Vorteil (z.B. eidg. Finanzplaner, HFBF, Bachelor in Banking und Finance)\n• Mehrjährige Erfahrung in der Kundenbetreuung oder Assistenz im Private Banking\n• Gewinnende und sympathische Persönlichkeit mit sicherem und professionellem Auftreten\n• Ausgeprägte Kunden- und Dienstleistungsorientierung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben"
       },
       "location": "Lenzerheide",
       "canton": "GR",
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1990/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:14:18.389Z",
+      "crawledAt": "2026-10-23T09:18:17.874Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2077,18 +2078,24 @@
       "previousSlugsByLocale": {
         "it": [
           "finanz-und-anlageberater-in-region-lenzerheide-80-100-gkb-ch",
-          "finanz-e-anlageberater-in-region-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide"
+          "finanz-e-anlageberater-in-region-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide",
+          "consulente-finanziario-a-e-d-investimento-regione-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide"
         ],
         "en": [
-          "finanz-und-anlageberater-in-region-lenzerheide-80-100-gkb-ch"
+          "finanz-und-anlageberater-in-region-lenzerheide-80-100-gkb-ch",
+          "financial-and-investment-advisor-lenzerheide-region-80-100-graubundner-kantonalbank-lenzerheide"
         ],
         "fr": [
-          "finanz-und-anlageberater-in-region-lenzerheide-80-100-gkb-ch"
+          "finanz-und-anlageberater-in-region-lenzerheide-80-100-gkb-ch",
+          "conseiller-ere-financier-ere-et-en-placement-region-de-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide"
         ]
       },
       "previousSlugs": [
         "finanz-und-anlageberater-in-region-lenzerheide-80-100-gkb-ch",
-        "finanz-e-anlageberater-in-region-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide"
+        "finanz-e-anlageberater-in-region-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide",
+        "consulente-finanziario-a-e-d-investimento-regione-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide",
+        "financial-and-investment-advisor-lenzerheide-region-80-100-graubundner-kantonalbank-lenzerheide",
+        "conseiller-ere-financier-ere-et-en-placement-region-de-lenzerheide-80-100-graubundner-kantonalbank-lenzerheide"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -2104,7 +2111,8 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-22T21:14:18.389Z"
+      "firstSeenAt": "2026-10-23T09:18:17.874Z",
+      "needsRetranslation": true
     },
     {
       "id": "gkb-10125680ca47",
