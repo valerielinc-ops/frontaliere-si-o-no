@@ -28,6 +28,10 @@ describe('servicekuhn crawler parser', () => {
       expect(isServicekuhnChJob({ url: 'https://servicekuhn.ch/jobs/123' })).toBe(true);
     });
 
+    it('rejects a URL that only mentions the domain in its query string', () => {
+      expect(isServicekuhnChJob({ url: 'https://evil.example/?next=servicekuhn.ch' })).toBe(false);
+    });
+
     it('rejects unrelated jobs', () => {
       expect(isServicekuhnChJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
     });

@@ -28,6 +28,10 @@ describe('elvetino crawler parser', () => {
       expect(isCompanyJob({ url: 'https://company.sbb.ch/jobs/123' })).toBe(true);
     });
 
+    it('rejects a URL that only mentions the domain in its query string', () => {
+      expect(isCompanyJob({ url: 'https://evil.example/?next=company.sbb.ch' })).toBe(false);
+    });
+
     it('rejects unrelated jobs', () => {
       expect(isCompanyJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
     });

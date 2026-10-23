@@ -52,13 +52,11 @@ export function isCompanyJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
-
   return (
     key === COMPANY_KEY ||
     key.startsWith('company-') ||
     company.includes('elvetino') ||
-    url.includes('company.sbb.ch')
+    isTrustedDomain(job?.url || '')
   );
 }
 

@@ -52,13 +52,11 @@ export function isServicekuhnChJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
-
   return (
     key === SERVICEKUHN_CH_KEY ||
     key.startsWith('servicekuhn-ch-') ||
     company.includes('servicekuhn') ||
-    url.includes('servicekuhn.ch')
+    isTrustedDomain(job?.url || '')
   );
 }
 
