@@ -889,16 +889,7 @@ function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLine
     `  echo "❌ ${label} failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"`,
   ];
   const receiptRepairLines = receiptRepairCommand === undefined ? [] : [
-    `  if [ "$git_commit_exit" -eq ${RECEIPT_FAILURE_EXIT} ]; then`,
-    `    echo "::notice::${label}: attempting receipt-only repair after the data tree was published"`,
-    `    ${receiptRepairCommand}`,
-    '    receipt_repair_exit=$?',
-    '    if [ "$receipt_repair_exit" -eq 0 ]; then',
-    `      echo "✅ ${label}: receipt-only repair completed without another data push"`,
-    '      exit 0',
-    '    fi',
-    '    echo "::warning::receipt-only repair failed (exit $receipt_repair_exit); continuing with the full same-generation retry"',
-    '  fi',
+    `  if [ "$git_commit_exit" -eq ${RECEIPT_FAILURE_EXIT} ] && ${receiptRepairCommand}; then exit 0; fi`,
   ];
   return [
     'set +e',

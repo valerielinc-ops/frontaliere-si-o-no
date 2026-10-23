@@ -269,7 +269,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         'bash scripts/lib/git-commit-data.sh --group-receipt-repair',
       );
       expect(crawlerGroupBatchCommitRun(Number(group))).toContain(
-        'receipt-only repair completed without another data push',
+        '&& bash scripts/lib/git-commit-data.sh --group-receipt-repair',
       );
       const jobWithFutureTail = structuredClone(job);
       jobWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
