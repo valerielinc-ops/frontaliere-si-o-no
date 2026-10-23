@@ -215,11 +215,29 @@ describe('employer messages on the alias', () => {
     const envelope = JSON.parse(bucket.files.get(inbox[0].rawKey)!);
     expect(Buffer.from(decryptJson(envelope, Buffer.from(RUN_KEY, 'base64')).raw, 'base64').toString('latin1')).toContain('Einladung zum Vorstellungsgespr');
     const [[items, options]] = sendCascade.mock.calls as any;
-    expect(options).toEqual({ delayMs: 0, forceProvider: 'maileroo' });
+    expect(options).toEqual({ delayMs: 0, forceProvider: 'resend' });
     expect(items[0].payload).toMatchObject({ to: ['maria@example.com'], replyTo: 'hr@arbeitgeber.ch', subject: '[Vorstellungsgespräch] Einladung zum Vorstellungsgespräch' });
     expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual(['Einladung.pdf']);
     expect(items[0].payload.text).toContain('Einladung zum Gespräch am 12. Oktober');
     expect(store.read(`assisted_applications/${ORDER}`)).toMatchObject({ lastEmployerReplyCategory: 'interview_invite' });
+  });
+
+  it('uses Maileroo for employer replies without attachments', async () => {
+    const { store, alias } = await setupInbound();
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
+    const classify = vi.fn(async () => ({
+      category: 'question',
+      summaryIt: 'Domanda del datore di lavoro.',
+      summaryCandidate: 'Frage des Arbeitgebers.',
+      interviewWhen: '',
+      requestedDocuments: [],
+      verificationCode: '',
+      verificationUrl: '',
+      needsReply: true,
+    }));
+    await deliver({ store, alias, raw: htmlEmployerMail({ subject: 'Domanda' }), classify, sendCascade });
+    const [[, options]] = sendCascade.mock.calls as any;
+    expect(options).toEqual({ delayMs: 0, forceProvider: 'maileroo' });
   });
 
   it('keeps a real verification code and falls back to rules when Codex is unavailable', async () => {
