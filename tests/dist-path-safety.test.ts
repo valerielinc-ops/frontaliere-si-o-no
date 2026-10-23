@@ -15,6 +15,7 @@ import {
 const read = (relativePath: string): string =>
   fs.readFileSync(path.resolve(__dirname, relativePath), 'utf8');
 
+const BATCH_WRITE_SOURCE = read('../build-plugins/batchWrite.ts');
 const LEGACY_SOURCE = read('../build-plugins/legacyRedirectsPlugin.ts');
 const CF_SOURCE = read('../build-plugins/cfHot404BridgePlugin.ts');
 const JOBS_SOURCE = read('../build-plugins/jobsSeoPagesPlugin.ts');
@@ -108,6 +109,12 @@ describe('filesystem target preflight', () => {
 });
 
 describe('raw URL-to-dist writers apply the guard before filesystem joins', () => {
+  it('keeps the full filesystem preflight in the 404/GSC emitters, not batchWrite', () => {
+    expect(BATCH_WRITE_SOURCE).not.toContain('distPathSafety');
+    expect(BATCH_WRITE_SOURCE).not.toContain('getSafeDistPageTargets');
+    expect(BATCH_WRITE_SOURCE).not.toContain('isSafeDistTargetPath');
+  });
+
   it('guards both legacy redirect emission loops', () => {
     expect(LEGACY_SOURCE.match(/getSafeDistPageTargets\(distDir, from\)/g) ?? []).toHaveLength(2);
     expect(LEGACY_SOURCE.match(/isSafeDistPath\(from\)/g) ?? []).toHaveLength(2);
@@ -119,17 +126,17 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
   });
 
   it('guards the Cloudflare/GSC compatibility writer', () => {
-    expect(CF_SOURCE).toContain('getSafeDistPageTargets(distDir, from, { includeFlat: false })');
+    expect(CF_SOURCE).toContain('getSafeDistPageTargets(distDir, from)');
     expect(CF_SOURCE).toContain('if (isDistPathOverFilesystemLimits(from)');
     expect(CF_SOURCE).toContain('if (!isSafeDistPath(from)');
-    expect(CF_SOURCE.indexOf('getSafeDistPageTargets(distDir, from, { includeFlat: false })')).toBeLessThan(
+    expect(CF_SOURCE.indexOf('getSafeDistPageTargets(distDir, from)')).toBeLessThan(
       CF_SOURCE.indexOf('const outDir = safeTargets.directoryPath;'),
     );
   });
 
   it('guards job soft-landing and cross-locale writes before filesystem joins', () => {
     expect(JOBS_SOURCE).toContain('getSafeDistPageTargets(distDir, distPath)');
-    expect(JOBS_SOURCE.match(/getSafeDistPageTargets\(distDir, relPath, \{ includeFlat: false \}\)/g) ?? []).toHaveLength(2);
+    expect(JOBS_SOURCE.match(/getSafeDistPageTargets\(distDir, relPath\)/g) ?? []).toHaveLength(2);
     expect(JOBS_SOURCE).toContain('isDistPathOverFilesystemLimits(distPath)');
     expect(JOBS_SOURCE.match(/isDistPathOverFilesystemLimits\(relPath\)/g) ?? []).toHaveLength(2);
     expect(JOBS_SOURCE.indexOf('getSafeDistPageTargets(distDir, distPath)')).toBeLessThan(

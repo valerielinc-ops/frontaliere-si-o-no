@@ -14555,7 +14555,7 @@ ${staticAnalyticsHtml}
   skippedUnsafeDistPaths++;
   continue;
  }
- const safeTargets = getSafeDistPageTargets(distDir, relPath, { includeFlat: false });
+ const safeTargets = getSafeDistPageTargets(distDir, relPath);
  if (!safeTargets) {
   skippedFilesystemLimitPaths++;
   continue;
@@ -15302,7 +15302,7 @@ ${staticAnalyticsHtml}
   skippedUnsafeDistPaths++;
   continue;
  }
- const safeTargets = getSafeDistPageTargets(distDir, relPath, { includeFlat: false });
+ const safeTargets = getSafeDistPageTargets(distDir, relPath);
  if (!safeTargets) {
   skippedFilesystemLimitPaths++;
   continue;

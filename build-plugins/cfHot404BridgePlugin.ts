@@ -288,7 +288,7 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
           skippedUnsafeDistPaths++;
           continue;
         }
-        const safeTargets = getSafeDistPageTargets(distDir, from, { includeFlat: false });
+        const safeTargets = getSafeDistPageTargets(distDir, from);
         if (!safeTargets) {
           skippedFilesystemLimitPaths++;
           continue;
