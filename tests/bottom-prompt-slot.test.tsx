@@ -54,19 +54,21 @@ function walk(dir: string, acc: string[] = []): string[] {
 }
 
 /**
- * The one surface allowed to sit at the shared bottom offset without a slot,
+ * Status surfaces allowed to sit at the shared bottom offset without a slot,
  * declared rather than filtered out.
  *
  * `JobAlertForm`'s toast is a 2-second confirmation of an action the visitor
  * just took, not an offer competing for their attention — and a confirmation
  * that waits in a queue is a confirmation that never arrives. It is centred at
  * `z-50`, above anything the shell renders, so it overlays rather than hides.
- * If a second exemption ever shows up here, the question to ask is whether it
- * is really a status message or just another ask that did not want to queue.
+ * Each exemption must remain a status message rather than an ask that did not
+ * want to queue.
  */
 const POSITION_EXEMPT: Record<string, string> = {
   'components/community/JobAlertForm.tsx':
     'transient success toast, z-50, must never be deferred behind an offer',
+  'components/community/JobViewersActivityPrompt.tsx':
+    'passive viewer status toast, shown independently of action prompts',
 };
 
 describe('bottom-anchored prompts share one slot, by construction', () => {

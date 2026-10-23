@@ -1,12 +1,16 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
+import { createPortal } from 'react-dom';
 import { Users, X } from 'lucide-react';
 
-import BottomPromptShell from '@/components/shared/BottomPromptShell';
-import { POPUP_PRIORITY } from '@/services/popupQueue';
+import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
+import {
+  getAutoAdOverlayClearance,
+  subscribeToAutoAdOverlay,
+} from '@/services/autoAdOverlay';
 import { useTranslation } from '@/services/i18n';
 
-const DISPLAY_DELAY_MS = 8_000;
-const AUTO_DISMISS_MS = 7_000;
+const DISPLAY_DELAY_MS = 1_500;
+const AUTO_DISMISS_MS = 3_500;
 const SESSION_SEEN_KEY = 'ft_job_viewers_prompt_seen';
 let runtimePromptShown = false;
 const runtimeViewerCounts = new Map<string, number>();
@@ -39,7 +43,13 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
   const { t } = useTranslation();
   const [count, setCount] = useState<number | null>(null);
   const [visible, setVisible] = useState(false);
+  const [autoAdClearance, setAutoAdClearance] = useState(getAutoAdOverlayClearance);
   const dismissTimer = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!visible) return undefined;
+    return subscribeToAutoAdOverlay(setAutoAdClearance);
+  }, [visible]);
 
   useEffect(() => {
     if (runtimePromptShown) return;
@@ -65,49 +75,58 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
     setVisible(false);
   }, []);
 
-  const handleShown = useCallback(() => {
+  useEffect(() => {
+    if (!visible) return;
     runtimePromptShown = true;
     try {
       window.sessionStorage.setItem(SESSION_SEEN_KEY, '1');
     } catch {
-      // Session storage is optional; the popup queue still limits overlap.
+      // Session storage is optional; the runtime guard still limits repetition.
     }
 
     dismissTimer.current = window.setTimeout(close, AUTO_DISMISS_MS);
-  }, [close]);
+    return () => {
+      if (dismissTimer.current !== null) {
+        window.clearTimeout(dismissTimer.current);
+        dismissTimer.current = null;
+      }
+    };
+  }, [close, visible]);
 
   useEffect(() => () => {
     if (dismissTimer.current !== null) window.clearTimeout(dismissTimer.current);
   }, []);
 
-  if (!visible || count === null) return null;
+  if (!visible || count === null || typeof document === 'undefined') return null;
 
   const message = t('jobBoard.viewers.message', { count });
 
-  return (
-    <BottomPromptShell
-      slotId="job-viewers-activity-prompt"
-      priority={POPUP_PRIORITY.JOB_VIEWERS_ACTIVITY}
+  return createPortal(
+    <div
+      data-testid="job-viewers-activity-toast"
       role="status"
-      ariaLabel={message}
-      onShown={handleShown}
+      aria-label={message}
+      aria-live="polite"
+      className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} right-4 sm:right-6 z-[60] animate-toast-in pointer-events-auto`}
+      style={{ '--bottom-prompt-ad-clearance': `${autoAdClearance}px` } as CSSProperties}
     >
-      <div className="relative flex items-start gap-3 rounded-xl border border-accent-border bg-surface p-3.5 pr-12 text-heading shadow-stripe-md">
-        <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent-subtle text-accent" aria-hidden="true">
+      <div className="bg-warning-strong text-on-accent rounded-xl shadow-lg px-4 py-2.5 flex items-center gap-2.5 max-w-xs">
+        <span className="text-xl flex-shrink-0" aria-hidden="true">
           <Users className="h-4 w-4" />
         </span>
-        <p className="min-w-0 pt-1 text-sm font-medium leading-snug">
-          {message}
-        </p>
+        <div className="min-w-0">
+          <div className="font-bold text-xs">{message}</div>
+        </div>
         <button
           type="button"
           onClick={close}
           aria-label={t('common.close')}
-          className="absolute right-1 top-1 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-raised hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          className="ml-1 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-on-accent/20 rounded-full transition-colors flex-shrink-0 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-amber-500"
         >
-          <X className="h-4 w-4" aria-hidden="true" />
+          <X size={12} />
         </button>
       </div>
-    </BottomPromptShell>
+    </div>,
+    document.body,
   );
 }
