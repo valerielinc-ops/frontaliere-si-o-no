@@ -47,6 +47,11 @@ import {
   type ForeignDirectoryIndex,
 } from './relatedSearchClustersPlugin';
 import { isJobSitemapFilename } from '../scripts/lib/sitemap-shard.mjs';
+import {
+  EMIT_ALL_LOCALES,
+  localeOfDistPath,
+  shouldEmitLocale,
+} from './shared/localeEmitFilter';
 
 /**
  * Filenames that must NEVER appear in the sitemap index itself:
@@ -224,6 +229,34 @@ export function buildSitemapIndexXml(
 ${entries}
 </sitemapindex>
 `;
+}
+
+/**
+ * Return only the route directories that a locale shard may need to inspect.
+ *
+ * The final reconciliation receives a shared foreign-directory index for all
+ * sitemap families. Building it without candidates makes the index recursively
+ * walk all of dist/, even though every lookup is already driven by a sitemap
+ * <loc>. On a shard, keep the same present-foreign-page semantics while
+ * probing only those route paths; on an all-locale build no foreign probe can
+ * run, so an empty candidate set deliberately disables the inventory walk.
+ */
+function collectForeignDirectoryCandidates(distDir: string): Set<string> {
+  const candidates = new Set<string>();
+  if (EMIT_ALL_LOCALES) return candidates;
+
+  const sitemapFiles = fs
+    .readdirSync(distDir)
+    .filter((file) => SITEMAP_FILE_PATTERN.test(file) && !EXCLUDED_SITEMAP_FILES.has(file));
+  for (const file of sitemapFiles) {
+    const xml = fs.readFileSync(path.join(distDir, file), 'utf-8');
+    for (const loc of extractSitemapLocs(xml)) {
+      const urlPath = new URL(loc).pathname.replace(/\/+$/u, '');
+      if (shouldEmitLocale(localeOfDistPath(urlPath, ''))) continue;
+      candidates.add(path.join(distDir, urlPath));
+    }
+  }
+  return candidates;
 }
 
 /** One sitemap file's name + raw XML content, as read from dist/. */
@@ -490,7 +523,10 @@ export async function reconcileFinalSitemapsWithDist(
   distDir: string,
   mirrorLocs: ReadonlyArray<string> = getFinalSitemapMirrorLocs(),
 ): Promise<void> {
-  const foreignDirectoryIndex = createForeignDirectoryIndex(distDir);
+  const foreignDirectoryIndex = createForeignDirectoryIndex(
+    distDir,
+    collectForeignDirectoryCandidates(distDir),
+  );
   await reconcileSitemapSearchClustersWithDist(distDir);
   await reconcileSitemapJobsWithDist(distDir, mirrorLocs, { foreignDirectoryIndex });
   await reconcileSitemapFuelWithDist(distDir);
