@@ -37,6 +37,11 @@ import {
  Play, Loader2, Clock3, ListChecks, FileText, ArrowUp, ArrowDown, Search, ChevronDown, ChevronRight, RotateCcw, Zap,
  Building2, UserCheck, Pencil, Save, X, Newspaper, ClipboardCheck
 } from 'lucide-react';
+import {
+ DEFAULT_WORKFLOW_EXPECTED_DURATION,
+ expectedWorkflowTimeoutMs,
+ isExpectedWorkflowDuration,
+} from '@/services/adminWorkflowTimeout';
 
 type EmployerSequenceInput = {
  company: string;
@@ -1110,7 +1115,9 @@ export default function AdminPanel() {
  context: 'jobs' as WorkflowContext,
  description: String(w.description || ''),
  details: String(w.details || ''),
- expectedDuration: String(w.expectedDuration || '5-20 min'),
+ expectedDuration: isExpectedWorkflowDuration(String(w.expectedDuration || ''))
+ ? String(w.expectedDuration).trim()
+ : DEFAULT_WORKFLOW_EXPECTED_DURATION,
  schedule: w.schedule || undefined,
  summaryKey: w.summaryKey || null,
  defaultInputs: w.defaultInputs || undefined,
@@ -2574,7 +2581,7 @@ export default function AdminPanel() {
  context: 'jobs',
  description: 'Workflow manuale',
  details: 'Workflow custom avviato dal pannello Admin.',
- expectedDuration: 'variabile',
+ expectedDuration: DEFAULT_WORKFLOW_EXPECTED_DURATION,
  };
  };
 
@@ -2766,17 +2773,6 @@ export default function AdminPanel() {
  } catch {
  return null;
  }
- };
-
- const expectedWorkflowTimeoutMs = (expectedDuration: string): number => {
- const values = [...expectedDuration.matchAll(/(\d+(?:\.\d+)?)\s*(?:-|–)\s*(\d+(?:\.\d+)?)\s*min/gi)]
- .flatMap((match) => [Number(match[1]), Number(match[2])])
- .filter((value) => Number.isFinite(value));
- const fallback = [...expectedDuration.matchAll(/(\d+(?:\.\d+)?)\s*min/gi)]
- .map((match) => Number(match[1]))
- .filter((value) => Number.isFinite(value));
- const expectedMinutes = Math.max(...(values.length ? values : fallback), 30);
- return Math.min(120 * 60_000, Math.max(15 * 60_000, Math.ceil(expectedMinutes * 1.5 * 60_000)));
  };
 
  const monitorWorkflowRun = async (
@@ -3200,6 +3196,7 @@ export default function AdminPanel() {
  ? `Step critici: ${failedJobDetails.flatMap((job) => job.failedSteps).slice(0, 6).join(' | ') || 'vedi log run'}`
  : `Conclusione workflow: ${String(run?.conclusion || 'failure')}`;
  }
+ if (!mountedRef.current) return;
  setWorkflowSnapshotState(workflow.id, {
  runId: runId || null,
  runNumber: Number(run?.run_number || 0) || null,
