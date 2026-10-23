@@ -9,11 +9,14 @@
  * which misses zero-impression 404s. The only programmatic workaround is to
  * ask `urlInspection` about URLs we suspect.
  *
- * Strategy: rotate through our universe of known URLs (tracking + previous
- * slugs + compat paths), inspecting a daily batch. For each URL where Google
- * reports NOT_FOUND / SOFT_404 / "Not found" coverage state, append the path
- * to `data/seo-404-compat-paths.json` so the build pipeline generates a
- * reconciled soft-landing or bridge page at that URL.
+ * Strategy: rotate through the source-backed URL cohort produced by the GSC
+ * Coverage ingest (`data/gsc-coverage-404s.json`) plus existing compatibility
+ * paths that need a recovery check, inspecting a daily batch. For each URL
+ * where Google reports NOT_FOUND / SOFT_404 / "Not found" coverage state,
+ * append the path to the sharded compatibility store so the build pipeline can
+ * generate a reconciled soft-landing or bridge page. The job-orphan URL
+ * Inspection ledger is deliberately not a candidate source for this audit; it
+ * is owned by `sync-gsc-orphans.mjs`.
  *
  * State is persisted in `data/inspection-state.json` (lastInspected per URL)
  * so successive runs rotate through the full universe without redoing URLs.
@@ -33,30 +36,15 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
-import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
-import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+import { gscCoveragePopulationSummary, readCanonicalGscCoverage } from './lib/gsc-coverage-population.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://frontaliereticino.ch';
-
-const cantonSlugFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
-const municipalitiesFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8'));
-const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
-
-/** Per-canton `{it,en,de,fr}` job-board section prefixes, e.g. `/cerca-lavoro-zurigo/`. */
-function buildCantonLocalePrefixes(cantonCode) {
-  const prefixes = {};
-  for (const locale of ['it', 'en', 'de', 'fr']) {
-    const section = resolveCantonSection(locale, cantonCode);
-    prefixes[locale] = `${locale === 'it' ? '' : `/${locale}`}/${section}/`;
-  }
-  return prefixes;
-}
 
 const DRY_RUN = process.argv.includes('--dry-run');
 // `intFromEnv` due volte, annidato: l'argomento di riga di comando ha
@@ -117,70 +105,16 @@ async function detectSiteProperty(accessToken) {
 }
 
 /**
- * Build the candidate URL universe: paths that exist in our known tracking,
- * per-locale previous slugs, and the GSC-404 compat file. These are the URLs
- * we could conceivably receive 404 hits on — perfect candidates for status
- * verification via URL Inspection.
+ * Candidate sources for this audit are the source-backed GSC Coverage snapshot
+ * and the existing compatibility accumulator, so recovered compat-only paths
+ * can be cleaned up. In particular, do not expand job registries or public
+ * assembled datasets here: those are a different orphan-job cohort.
  */
-function collectCandidatePaths() {
-  const paths = new Set();
-
-  // 1. Active job tracking — paths for every (slug, locale) pair
-  const tracking = readAllKnownJobSlugs(ROOT);
-  for (const [, localePaths] of Object.entries(tracking)) {
-    if (localePaths && typeof localePaths === 'object') {
-      for (const p of Object.values(localePaths)) {
-        if (typeof p === 'string' && p.startsWith('/')) paths.add(p.replace(/\/+$/, ''));
-      }
-    }
-  }
-
-  // 2. Active jobs: expand previousSlugsByLocale under every locale base URL
-  // (covers cross-locale 404s where a historical slug was indexed under a
-  // different locale prefix than it was generated for). Section prefixes are
-  // resolved per-job's own canton — a hardcoded TI-only prefix set here meant
-  // every non-TI canton job's previous slugs were checked against the wrong
-  // (Ticino) section instead of their real one, so real 404s on e.g.
-  // `/cerca-lavoro-zurigo/<old-slug>/` were never inspected.
-  const activeJobs = readJsonSafe(path.resolve(ROOT, 'public/data/jobs.json'), []);
-  if (Array.isArray(activeJobs)) {
-    for (const job of activeJobs) {
-      const cantonCode = resolveJobCanton({ canton: job?.canton, location: job?.location });
-      const localePrefixes = buildCantonLocalePrefixes(cantonCode);
-      const psBL = job && job.previousSlugsByLocale;
-      if (psBL && typeof psBL === 'object') {
-        for (const arr of Object.values(psBL)) {
-          if (!Array.isArray(arr)) continue;
-          for (const oldSlug of arr) {
-            if (typeof oldSlug !== 'string' || !oldSlug) continue;
-            for (const prefix of Object.values(localePrefixes)) {
-              paths.add(`${prefix}${oldSlug}`.replace(/\/+$/, ''));
-            }
-          }
-        }
-      }
-      if (Array.isArray(job.previousSlugs)) {
-        for (const oldSlug of job.previousSlugs) {
-          if (typeof oldSlug !== 'string' || !oldSlug) continue;
-          for (const prefix of Object.values(localePrefixes)) {
-            paths.add(`${prefix}${oldSlug}`.replace(/\/+$/, ''));
-          }
-        }
-      }
-    }
-  }
-
-  // 3. Existing compat paths — they're already flagged, but re-inspecting
-  // confirms Google still sees them as 404 (vs. recovered / redirected) and
-  // captures any state changes.
-  const compat = readCompatPathsStrict(ROOT); // sharded accumulator (issue #2988)
-  if (Array.isArray(compat.paths)) {
-    for (const p of compat.paths) {
-      if (typeof p === 'string' && p.startsWith('/')) paths.add(p.replace(/\/+$/, ''));
-    }
-  }
-
-  return [...paths];
+export function collectCandidatePaths(
+  population = readCanonicalGscCoverage(ROOT),
+  compatPaths = [],
+) {
+  return [...new Set([...population.paths, ...compatPaths])];
 }
 
 /**
@@ -194,6 +128,22 @@ function isNotFoundResult(result) {
   const cs = String(result?.coverageState || '').toLowerCase();
   if (cs.includes('not found') || cs.includes('404') || cs.includes('soft 404')) return true;
   return false;
+}
+
+export function applyInspectionResult(compatSet, p, result) {
+  const is404 = isNotFoundResult(result);
+  if (is404 && !compatSet.has(p)) {
+    compatSet.add(p);
+    return { newlyFound404: 1, clearedFromCompat: 0 };
+  }
+  if (!is404 && compatSet.has(p)) {
+    // URL recovered (redirect, indexed, etc.) — safe to drop from compat.
+    // The build pipeline will no longer generate a soft-landing for it,
+    // which is correct because the path now resolves on its own.
+    compatSet.delete(p);
+    return { newlyFound404: 0, clearedFromCompat: 1 };
+  }
+  return { newlyFound404: 0, clearedFromCompat: 0 };
 }
 
 async function main() {
@@ -210,9 +160,24 @@ async function main() {
   const state = readJsonSafe(statePath, { inspected: {} });
   if (!state.inspected || typeof state.inspected !== 'object') state.inspected = {};
 
+  const population = readCanonicalGscCoverage(ROOT);
+  const populationSummary = gscCoveragePopulationSummary(population);
+  console.log(`📚 Source-backed GSC Coverage cohort: ${populationSummary.sourceBacked} paths`);
+  console.log(`🧭 Excluded unknown/ambiguous residue: ${populationSummary.unresolved}`);
+  if (populationSummary.observedRows !== null) {
+    console.log(`📐 GSC Coverage observed rows: ${populationSummary.observedRows}`);
+  }
+
+  // Existing compat paths are cleanup candidates too: a path can recover after
+  // it was added to the accumulator and no longer appear in the current GSC
+  // Coverage export. Keep the job-orphan ledger separate; it is owned by the
+  // dedicated synchronizer.
+  const compatPath = dataPath('seo-404-compat'); // sharded dir (issue #2988)
+  const compat = readCompatPathsStrict(ROOT);
+
   // Collect candidate URLs and rank by "most in need of inspection"
-  const candidates = collectCandidatePaths();
-  console.log(`📦 Candidate URLs: ${candidates.length}`);
+  const candidates = collectCandidatePaths(population, compat.paths);
+  console.log(`📦 Candidate URLs: ${candidates.length} (GSC cohort + compat cleanup)`);
 
   const now = Date.now();
   const ranked = candidates
@@ -233,8 +198,6 @@ async function main() {
     return;
   }
 
-  const compatPath = dataPath('seo-404-compat'); // sharded dir (issue #2988)
-  const compat = readCompatPathsStrict(ROOT);
   if (!compat.source) compat.source = 'gsc-export';
   if (!Array.isArray(compat.paths)) compat.paths = [];
   const compatSet = new Set(compat.paths);
@@ -281,6 +244,7 @@ async function main() {
       const is404 = isNotFoundResult(result);
 
       state.inspected[p] = {
+        source: 'gsc-coverage',
         lastInspected: new Date().toISOString(),
         verdict: result.verdict || '',
         coverageState: result.coverageState || '',
@@ -288,16 +252,9 @@ async function main() {
         is404,
       };
 
-      if (is404 && !compatSet.has(p)) {
-        compatSet.add(p);
-        newlyFound404++;
-      } else if (!is404 && compatSet.has(p)) {
-        // URL recovered (redirect, indexed, etc.) — safe to drop from compat.
-        // The build pipeline will no longer generate a soft-landing for it,
-        // which is correct because the path now resolves on its own.
-        compatSet.delete(p);
-        clearedFromCompat++;
-      }
+      const compatChanges = applyInspectionResult(compatSet, p, result);
+      newlyFound404 += compatChanges.newlyFound404;
+      clearedFromCompat += compatChanges.clearedFromCompat;
 
       inspected++;
       if (inspected % 100 === 0) {
@@ -360,7 +317,15 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error('❌ Fatal:', err.message);
-  process.exit(1);
-});
+if (process.argv[1] && (() => {
+  try {
+    return import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})()) {
+  main().catch((err) => {
+    console.error('❌ Fatal:', err.message);
+    process.exit(1);
+  });
+}
