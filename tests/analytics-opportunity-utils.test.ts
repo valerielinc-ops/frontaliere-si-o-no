@@ -5,6 +5,7 @@ import {
   buildAnalyticsSnapshot,
   buildNearWinQueries,
   classifyAnalyticsPath,
+  classifyAnalyticsRecoveryPath,
   clusterTopQueries,
 } from '../scripts/lib/analytics-opportunity-utils.mjs';
 
@@ -26,6 +27,36 @@ describe('analytics opportunity utils', () => {
       pageTemplate: 'job_detail',
       routeFamily: 'job_detail',
     });
+  });
+
+  it('uses the canonical article-section registry for all four locales and both sections', () => {
+    const cases = [
+      ['/articoli-frontaliere/permesso-g/', 'it'],
+      ['/en/cross-border-articles/permit-g/', 'en'],
+      ['/de/grenzgaenger-artikel/permit-g/', 'de'],
+      ['/fr/articles-frontalier/permis-g/', 'fr'],
+      ['/it-articolo/unknown/', 'it'],
+      ['/en/swiss-articles/work-in-switzerland/', 'en'],
+      ['/de/schweiz-artikel/arbeit/', 'de'],
+      ['/fr/articles-suisse/travail/', 'fr'],
+    ];
+
+    for (const [path, locale] of cases) {
+      const context = classifyAnalyticsPath(path);
+      if (path.includes('unknown')) {
+        expect(context).toMatchObject({ contentGroup: 'other', contentLocale: locale });
+      } else {
+        expect(context).toMatchObject({ contentGroup: 'articles', pageTemplate: 'article_detail', contentLocale: locale });
+      }
+    }
+  });
+
+  it('resolves canton from the locale-specific canonical job-board section registry', () => {
+    expect(classifyAnalyticsRecoveryPath('/cerca-lavoro-ticino/ricerca-infermieri/')).toMatchObject({ contentLocale: 'it', canton: 'TI' });
+    expect(classifyAnalyticsRecoveryPath('/en/find-jobs-geneva/search-nurse/')).toMatchObject({ contentLocale: 'en', canton: 'GE' });
+    expect(classifyAnalyticsRecoveryPath('/de/jobs-in-der-waadt/suche-pflege/')).toMatchObject({ contentLocale: 'de', canton: 'VD' });
+    expect(classifyAnalyticsRecoveryPath('/fr/trouver-emploi-vaud/recherche-soins/')).toMatchObject({ contentLocale: 'fr', canton: 'VD' });
+    expect(classifyAnalyticsRecoveryPath('/de/jobs-im-tessin/')).toMatchObject({ contentLocale: 'de', canton: 'TI' });
   });
 
   it('aggregates rows by template', () => {

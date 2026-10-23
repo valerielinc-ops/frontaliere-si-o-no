@@ -1,6 +1,10 @@
 import { JOB_BOARD_SEGMENT_RX } from './jobBoardSections.mjs';
 import { isJobBoardSectorHubPath } from '../../build-plugins/shared/jobSectorSlugs.mjs';
 import { classifyEventsPage } from './eventsSections.mjs';
+import { isBlogSectionPath } from './articleSections.mjs';
+import { loadCantonUrlSlugs, parseCantonUrlSlug, resolveCantonGroup } from './canton-url-slugs.mjs';
+
+const SUPPORTED_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 
 function normalizePath(input = '') {
   let path = String(input || '').trim();
@@ -54,13 +58,46 @@ function isJobBoardPath(path) {
   return JOB_BOARD_SEGMENT_RX.test(firstSegment);
 }
 
+function canonicalJobBoardSegmentForCanton(cantonCode, canton, locale) {
+  if (locale === 'de') {
+    const prefix = canton.dePrefix || (cantonCode === 'TI' ? 'jobs-im-' : 'jobs-in-');
+    return `${prefix}${canton.de}`;
+  }
+  const prefixByLocale = {
+    it: 'cerca-lavoro-',
+    en: 'find-jobs-',
+    fr: 'trouver-emploi-',
+  };
+  return `${prefixByLocale[locale]}${canton[locale]}`;
+}
+
+/** Resolve a job-board section against the canonical canton URL registry. */
+function getJobBoardCanton(localPath, locale) {
+  const section = localPath.split('/').filter(Boolean)[0] || '';
+  const registry = loadCantonUrlSlugs();
+  for (const [code, canton] of Object.entries(registry.cantons)) {
+    if (canonicalJobBoardSegmentForCanton(code, canton, locale) === section) {
+      return resolveCantonGroup(code);
+    }
+  }
+  const aggregatePrefix = locale === 'de'
+    ? 'jobs-in-'
+    : { it: 'cerca-lavoro-', en: 'find-jobs-', fr: 'trouver-emploi-' }[locale];
+  return section === `${aggregatePrefix}${registry.aggregate[locale]}` ? '_AGGREGATE_' : null;
+}
+
+function getEventsCanton(localPath, locale) {
+  const segments = localPath.split('/').filter(Boolean);
+  const code = parseCantonUrlSlug(segments[1], locale);
+  return code ? resolveCantonGroup(code) : null;
+}
+
 export function classifyAnalyticsPath(inputPath = '') {
   const normalizedPath = normalizePath(inputPath);
-  const localeMatch = normalizedPath.match(/^\/(en|de|fr)(?=\/|$)/i);
-  const contentLocale = (localeMatch?.[1]?.toLowerCase() || 'it');
-  const localPath = normalizedPath.replace(/^\/(en|de|fr)(?=\/|$)/i, '') || '/';
+  const localeMatch = normalizedPath.match(new RegExp(`^/(${SUPPORTED_LOCALES.join('|')})(?=/|$)`, 'i'));
+  const contentLocale = localeMatch?.[1]?.toLowerCase() || 'it';
+  const localPath = normalizedPath.replace(new RegExp(`^/(${SUPPORTED_LOCALES.join('|')})(?=/|$)`, 'i'), '') || '/';
 
-  const articleRoots = ['/articoli-frontaliere', '/cross-border-articles', '/artikel-grenzgaenger', '/articles-frontaliers'];
   const statsRoots = ['/statistiche', '/statistics', '/statistiken', '/statistiques'];
   const fuelRoots = ['/prezzi-benzina', '/prezzi-diesel', '/fuel-prices', '/diesel-price-switzerland', '/benzinpreise', '/dieselpreise', '/prix-essence', '/prix-diesel'];
   const healthRoots = ['/premi-cassa-malati', '/health-insurance-premiums', '/krankenkassenpraemien', '/primes-assurance-maladie'];
@@ -83,12 +120,24 @@ export function classifyAnalyticsPath(inputPath = '') {
     const isSearch = /^(ricerca|search|suche|recherche)-/i.test(firstTail);
     const isSectorHub = isJobBoardSectorHubPath(normalizedPath);
     const pageTemplate = !tail ? 'jobs_index' : isCompany ? 'jobs_company' : isSearch ? 'jobs_search' : isSectorHub ? 'jobs_sector' : 'job_detail';
-    return { contentGroup: 'jobs', pageTemplate, siteSection: 'jobs', contentLocale, routeFamily: pageTemplate };
+    return {
+      contentGroup: 'jobs',
+      pageTemplate,
+      siteSection: 'jobs',
+      contentLocale,
+      routeFamily: pageTemplate,
+    };
   }
 
   const eventsPageTemplate = classifyEventsPage(localPath);
   if (eventsPageTemplate) {
-    return { contentGroup: 'events', pageTemplate: eventsPageTemplate, siteSection: 'events', contentLocale, routeFamily: eventsPageTemplate };
+    return {
+      contentGroup: 'events',
+      pageTemplate: eventsPageTemplate,
+      siteSection: 'events',
+      contentLocale,
+      routeFamily: eventsPageTemplate,
+    };
   }
 
   if (startsWithAny(localPath, fuelRoots)) {
@@ -101,7 +150,8 @@ export function classifyAnalyticsPath(inputPath = '') {
     return { contentGroup: 'guides', pageTemplate: 'border_wait', siteSection: 'guide', contentLocale, routeFamily: 'border_wait' };
   }
 
-  if (startsWithAny(localPath, articleRoots)) {
+  const firstLocalSegment = localPath.split('/').filter(Boolean)[0] || '';
+  if (firstLocalSegment && isBlogSectionPath(`/${firstLocalSegment}/`)) {
     const hasChild = localPath.split('/').filter(Boolean).length > 1;
     return { contentGroup: 'articles', pageTemplate: hasChild ? 'article_detail' : 'article_index', siteSection: 'articles', contentLocale, routeFamily: hasChild ? 'article_detail' : 'article_index' };
   }
@@ -141,6 +191,18 @@ export function classifyAnalyticsPath(inputPath = '') {
 
   const firstSegment = localPath.split('/').filter(Boolean)[0] || 'other';
   return { contentGroup: 'other', pageTemplate: 'generic_page', siteSection: firstSegment, contentLocale, routeFamily: firstSegment };
+}
+
+/** Add canonical canton context for recovery reports without widening the shared analytics taxonomy. */
+export function classifyAnalyticsRecoveryPath(inputPath = '') {
+  const context = classifyAnalyticsPath(inputPath);
+  if (context.contentGroup !== 'jobs' && context.contentGroup !== 'events') return context;
+  const normalizedPath = normalizePath(inputPath);
+  const localPath = normalizedPath.replace(new RegExp(`^/(${SUPPORTED_LOCALES.join('|')})(?=/|$)`, 'i'), '') || '/';
+  const canton = context.contentGroup === 'jobs'
+    ? getJobBoardCanton(localPath, context.contentLocale)
+    : getEventsCanton(localPath, context.contentLocale);
+  return canton ? { ...context, canton } : context;
 }
 
 export function aggregateRowsByTemplate(rows = [], metricShape = 'gsc') {

@@ -7,6 +7,7 @@
 // (organic-only).
 
 import { windowDates } from './safe.mjs';
+import { GSC_SEARCH_ANALYTICS_ROW_LIMIT } from '../gsc-query-limits.mjs';
 
 const SCOPES = ['https://www.googleapis.com/auth/webmasters.readonly'];
 const SITE_DOMAIN = 'frontaliereticino.ch';
@@ -88,7 +89,7 @@ async function gscQuery(token, body, fetchImpl = fetch) {
  * used by the family-discovery pass in scripts/monitor-seo-ctr-by-template.mjs
  * to find high-volume families that aren't in the registry yet.
  */
-const ROW_LIMIT = 25000;
+const ROW_LIMIT = GSC_SEARCH_ANALYTICS_ROW_LIMIT;
 const MAX_PAGES = 10;
 
 export async function fetchGscByPage({

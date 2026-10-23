@@ -23,15 +23,23 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  *      has GSC permissions (see memory `reference_firebase_sa_doubles_as_gsc`)
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { getServiceAccountToken } from './lib/ga4-service-account.mjs';
 import { classifyAnalyticsPath } from './lib/analytics-opportunity-utils.mjs';
 import { rankPageOpportunities } from './lib/gsc-opportunity-scoring.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
-
-const SITE = 'sc-domain:frontaliereticino.ch';
-const SITE_URL = 'https://frontaliereticino.ch';
-const GSC_READONLY_SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
+import { GSC_READONLY_SCOPE, GSC_SITE_URL } from './lib/gsc-property.mjs';
+import {
+  fetchGscRecoveryInputs,
+  fetchGscSearchAnalyticsRows,
+  GSC_QUERY_MAX_PAGES,
+} from './lib/gsc-recovery-source.mjs';
+import {
+  buildGscRecoveryReport,
+  createGscRecoverySnapshot,
+  renderGscRecoveryMarkdown,
+} from './lib/gsc-recovery-report.mjs';
+import { selectLatestGscFinalWindow } from './lib/gsc-final-window.mjs';
 
 // Editorial content groups only — jobs/account/community/marketing pages are
 // auto-generated or user-generated, not candidates for editorial content
@@ -101,42 +109,127 @@ function loadWeights(path) {
 // che serve al content-gap, che cerca pagine ad alta impression/basso click:
 // quelle finiscono in coda ai risultati e sarebbero le prime tagliate da un
 // rowLimit fisso. Paginiamo con `startRow` fino a esaurire i risultati
-// (rowLimit massimo consentito dall'API = 25000) invece di troncare a 5000.
-const GSC_QUERY_ROW_LIMIT = 25000;
-const GSC_QUERY_MAX_PAGES = 8; // safety cap: 8 * 25000 = 200000 righe
+// invece di troncare a 5000; il limite e il safety cap sono condivisi con il
+// recupero SEO in `gsc-recovery-source.mjs`.
 
 export async function fetchPagePerformance(token, days) {
   const today = new Date();
   const end = utcDaysBefore(today, 2); // GSC ha un ritardo di 2 giorni
   const start = utcDaysBefore(end, days - 1);
 
-  const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;
-  const rows = [];
-  let exhausted = false;
-  for (let page = 0; page < GSC_QUERY_MAX_PAGES; page += 1) {
-    const startRow = page * GSC_QUERY_ROW_LIMIT;
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        startDate: fmt(start),
-        endDate: fmt(end),
-        dimensions: ['page'],
-        rowLimit: GSC_QUERY_ROW_LIMIT,
-        startRow,
-      }),
-    });
-    if (!res.ok) throw new Error(`GSC API request failed (${res.status}): ${await res.text()}`);
-    const data = await res.json();
-    const batch = data.rows || [];
-    rows.push(...batch);
-    if (batch.length < GSC_QUERY_ROW_LIMIT) { exhausted = true; break; }
-  }
-  if (!exhausted) throw new Error(`GSC response incomplete: safety cap reached at ${rows.length} rows; no opportunity ranking published`);
+  const { rows } = await fetchGscSearchAnalyticsRows(token, {
+    startDate: fmt(start),
+    endDate: fmt(end),
+    dimensions: ['page'],
+    dataState: 'final',
+  }, { maxPages: GSC_QUERY_MAX_PAGES });
   return { rows, window: { start: fmt(start), end: fmt(end) } };
 }
 
+function readJson(path, label) {
+  if (!existsSync(path)) throw new Error(`${label} not found: ${path}`);
+  return JSON.parse(readFileSync(path, 'utf-8'));
+}
+
+function loadIndexabilityEvidence(path, fallback = []) {
+  if (!path) return fallback;
+  const value = readJson(path, '--indexability file');
+  return Array.isArray(value) ? value : value.evidence || [];
+}
+
+async function runRecoveryMode() {
+  const fixturePath = argFlag('fixture', null);
+  const baselineSnapshotPath = argFlag('baseline-snapshot', null);
+  const captureBaselinePath = argFlag('capture-baseline', null);
+  const outputDir = argFlag('out', 'data/gsc-seo-recovery');
+  const top = Number(argFlag('top', '50'));
+  let current;
+  let baseline;
+  let baselineSource;
+  let selection = null;
+  let indexabilityEvidence = [];
+
+  if (fixturePath) {
+    const fixture = readJson(fixturePath, '--fixture file');
+    selection = fixture.selection || (fixture.today
+      ? selectLatestGscFinalWindow({
+          today: fixture.today,
+          availableDates: fixture.availableDates || [],
+          firstIncompleteDate: fixture.firstIncompleteDate || null,
+        })
+      : null);
+    current = fixture.current || (selection && Array.isArray(fixture.currentPageRows)
+      ? createGscRecoverySnapshot({
+          assessment: selection,
+          pageRows: fixture.currentPageRows,
+          queryRows: fixture.currentQueryRows || [],
+          pageRowsComplete: true,
+          queryRowsComplete: true,
+          source: 'offline-fixture',
+        })
+      : null);
+    baseline = fixture.baseline || (selection?.previous && Array.isArray(fixture.previousPageRows)
+      ? createGscRecoverySnapshot({
+          assessment: selection.previous,
+          pageRows: fixture.previousPageRows,
+          queryRows: fixture.previousQueryRows || [],
+          pageRowsComplete: true,
+          queryRowsComplete: true,
+          source: 'offline-fixture',
+        })
+      : null);
+    baselineSource = fixture.baselineSource || (fixture.baseline ? 'fixture-baseline' : 'previous-final-window');
+    indexabilityEvidence = fixture.indexabilityEvidence || [];
+  } else {
+    const token = await getToken();
+    const fixedBaseline = baselineSnapshotPath ? readJson(baselineSnapshotPath, '--baseline-snapshot file') : null;
+    const inputs = await fetchGscRecoveryInputs(token, {
+      days: Number(argFlag('days', '7')),
+      baselineSnapshot: fixedBaseline,
+    });
+    ({ current, baseline, baselineSource, selection } = inputs);
+  }
+
+  if (baselineSnapshotPath && fixturePath) {
+    baseline = readJson(baselineSnapshotPath, '--baseline-snapshot file');
+    baselineSource = 'immutable-snapshot';
+  }
+  indexabilityEvidence = loadIndexabilityEvidence(argFlag('indexability', null), indexabilityEvidence);
+
+  if (captureBaselinePath) {
+    if (!current?.assessment || current.assessment.status !== 'measurable' || current.pageRowsComplete !== true || current.queryRowsComplete !== true) {
+      throw new Error('--capture-baseline requires a complete page and query snapshot');
+    }
+    const directory = dirname(captureBaselinePath);
+    if (directory !== '.') mkdirSync(directory, { recursive: true });
+    writeFileSync(captureBaselinePath, `${JSON.stringify(current, null, 2)}\n`, { flag: 'wx' });
+    console.log(`Immutable GSC recovery baseline captured: ${captureBaselinePath}`);
+  }
+
+  const generatedAt = new Date().toISOString();
+  const report = buildGscRecoveryReport({
+    current,
+    baseline,
+    baselineSource,
+    indexabilityEvidence,
+    generatedAt,
+  });
+  mkdirSync(outputDir, { recursive: true });
+  const jsonOut = join(outputDir, 'recovery-report.json');
+  const mdOut = join(outputDir, 'recovery-report.md');
+  writeFileSync(jsonOut, `${JSON.stringify(report, null, 2)}\n`);
+  writeFileSync(mdOut, renderGscRecoveryMarkdown(report, { limit: top }));
+  console.log(`GSC recovery report: ${report.status}; indexability ${report.summary.indexability}, visibility ${report.summary.visibilityLoss}, CTR/content ${report.summary.ctrContent}, unknown ${report.summary.unknown} -> ${mdOut}`);
+  if (selection?.selection?.fellBack) {
+    console.log(`GSC final-window selection fell back: selected ${selection.window.start} → ${selection.window.end}`);
+  }
+}
+
 async function main() {
+  const mode = argFlag('mode', 'content');
+  if (mode === 'recovery') return runRecoveryMode();
+  if (mode !== 'content') throw new Error(`unsupported --mode=${mode}; expected content or recovery`);
+
   const days = Number(argFlag('days', '90'));
   const top = Number(argFlag('top', '15'));
   const outDir = argFlag('out', 'data/gsc-content-refresh');
@@ -147,7 +240,7 @@ async function main() {
 
   const pages = rows
     .map((r) => ({
-      page: r.keys[0].replace(SITE_URL, ''),
+    page: r.keys[0].replace(GSC_SITE_URL, ''),
       clicks: r.clicks,
       impressions: r.impressions,
       ctr: Number((r.ctr * 100).toFixed(2)),
