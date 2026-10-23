@@ -13575,6 +13575,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzona-nuova-strada-ciclabile.title': 'Bellinzona inaugurates the first cycle path',
     'blog.article.bellinzona-nuova-strada-ciclabile.excerpt': 'Bellinzona inaugurates its first cycle path The route is three kilometers long The route runs from Giubiasco to Bellinzona Bicycles and motorized traffic',
     'blog.article.bellinzona-nuova-strada-ciclabile.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.voto-iva-2028-pensione.title': '13th AVS payment: vote on VAT, possible rate of 8,5% from 2028',
+    'blog.article.voto-iva-2028-pensione.excerpt': 'The standard VAT rate would increase from 8,1 to 8,5%.',
+    'blog.article.voto-iva-2028-pensione.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

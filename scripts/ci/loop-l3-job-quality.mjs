@@ -270,11 +270,13 @@ export function validateJobSummaries(summaries, {
   const identities = new Map();
   let freshSummaries = 0;
   let staleSummaries = 0;
+  let staleSummaryIssueCount = 0;
   let malformedSummaries = 0;
   let jobsInspected = 0;
   let validJobs = 0;
   let invalidJobs = 0;
   let duplicateIdentities = 0;
+  const staleSummaryDetails = [];
   const retiredKeys = new Set(retiredSummaryKeys);
   const ignoredRetiredSummaries = [];
   const activeSummaries = summaries.filter((entry, summaryIndex) => {
@@ -310,7 +312,17 @@ export function validateJobSummaries(summaries, {
     else {
       const ageHours = hoursBetween(now, generatedAt);
       if (ageHours < -0.0834) issues.push(`${prefix}: generatedAt is in the future`);
-      if (ageHours > maxAgeHours) staleSummaries += 1;
+      if (ageHours > maxAgeHours) {
+        staleSummaries += 1;
+        staleSummaryIssueCount += 1;
+        staleSummaryDetails.push({
+          file: prefix,
+          generatedAt: generatedAt.toISOString(),
+          ageHours: Number(ageHours.toFixed(3)),
+          maxAgeHours,
+        });
+        issues.push(`${prefix}: summary is stale (${ageHours.toFixed(1)}h old; max ${maxAgeHours}h)`);
+      }
       else if (ageHours >= -0.0834) freshSummaries += 1;
     }
     if (!integer(summary.total)) issues.push(`${prefix}: total is missing or not a non-negative integer`);
@@ -391,6 +403,8 @@ export function validateJobSummaries(summaries, {
     retiredSummaryKeys: ignoredRetiredSummaries.sort(),
     freshSummaries,
     staleSummaries,
+    staleSummaryIssueCount,
+    staleSummaryDetails: staleSummaryDetails.sort((a, b) => a.file.localeCompare(b.file)),
     malformedSummaries,
     jobsInspected,
     validJobs,
@@ -401,10 +415,11 @@ export function validateJobSummaries(summaries, {
   };
 
   const hasActionableIssues = issues.length > 0;
+  const hasNonFreshnessIssues = issues.length > staleSummaryIssueCount;
   let quality = 'observed';
   if (summaryCount === 0 || malformedSummaries === summaryCount) quality = 'unmeasurable';
   else if (staleSummaries === summaryCount) quality = 'stale';
-  else if (hasActionableIssues) quality = outcomeVerdict.quality === 'stale' && freshSummaries === 0 ? 'stale' : 'partial';
+  else if (hasNonFreshnessIssues) quality = outcomeVerdict.quality === 'stale' && freshSummaries === 0 ? 'stale' : 'partial';
   else if (outcomeVerdict.quality === 'zero') quality = 'zero';
   else if (staleSummaries > 0 || invalidJobs > 0 || outcomeVerdict.quality !== 'observed') quality = outcomeVerdict.quality === 'stale' && freshSummaries === 0 ? 'stale' : 'partial';
   // A measured observation requires both an observed quality and a clean
@@ -501,7 +516,7 @@ function buildJobQualityOutcome({ verdict, policy, now }) {
       && Array.isArray(evidence.sourceRefs)
       && evidence.sourceRefs.length > 0,
   );
-  const summaryContractValid = verdict.issues.length === 0
+  const summaryContractValid = verdict.issues.length === (verdict.snapshot?.staleSummaryIssueCount ?? 0)
     && verdict.snapshot?.summaryCount > 0
     && verdict.snapshot?.freshSummaries > 0
     && verdict.snapshot?.malformedSummaries === 0

@@ -831,7 +831,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
       writeFileSync(join(repoDir, 'data/jobs-crawler-adapters/adapters/failed.json'), '{"status":"partial"}\n');
 
       expect(deferGroupCommit(repoDir, runnerTemp, 'a', ['data/jobs-crawler-adapters/']).status).toBe(0);
-      expect(deferGroupCommit(repoDir, runnerTemp, 'b', ['data/jobs-crawler-adapters/adapters/b.json']).status).toBe(0);
+      expect(deferGroupCommit(repoDir, runnerTemp, 'b', ['data/jobs-crawler-adapters/']).status).toBe(0);
       expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], { cwd: repoDir, encoding: 'utf8' }).split(/\s+/)[0]).toBe(base);
 
       const firstBatch = commitGroup(repoDir, runnerTemp);

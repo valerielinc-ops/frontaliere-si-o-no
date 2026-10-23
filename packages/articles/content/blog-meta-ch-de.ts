@@ -8588,6 +8588,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.title': 'Anpassung der Hinterlassenen- und Invalidenrenten nach BVG ab 1. Januar 2027',
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.excerpt': 'Ab 1. Januar 2027 werden die Renten an die Preisentwicklung angepasst.',
     'blog.article.adeguamento-rendite-superstiti-invalidita-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bns-cambi-energia.title': 'BNS: Leitzins unverändert und moderate Inflation',
+    'blog.article.bns-cambi-energia.excerpt': 'Die BNS hält den Leitzins bei 0 Prozent Im September verzichtet die BNS auf die Formulierung zu den Wechselkursen Der Inflationsdruck nimmt nur leicht zu Die KI kann',
+    'blog.article.bns-cambi-energia.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.sostenibilita-abitativa-svizzera.title': 'Wohnen in der Schweiz: 1 von 6 gibt über ein Drittel aus',
+    'blog.article.sostenibilita-abitativa-svizzera.excerpt': '16% überschreiten ein Drittel des Bruttoeinkommens des Haushalts 22% der Mieter überschreiten die Wohnkostenschwelle 7% der Eigentümer überschreiten dieselbe Grenze 36%',
+    'blog.article.sostenibilita-abitativa-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.title': 'Kurzarbeit: Der Bundesrat sieht eine schrittweise Rückkehr zur Normalität vor',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.excerpt': 'Der Bundesrat beabsichtigt, die KAE schrittweise zu normalisieren Maximale Dauer: 24 Monate bis zum 31.',
+    'blog.article.lavoro-ridotto-normalizzazione-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.title': 'Abstimmung vom 29. November: AVS und Kriegsmaterial ungewiss',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.excerpt': 'Die Abstimmung vom 29.',
+    'blog.article.sondaggio-votazioni-novembre-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

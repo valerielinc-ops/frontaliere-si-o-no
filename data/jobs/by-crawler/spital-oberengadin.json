@@ -486,12 +486,12 @@
     },
     {
       "id": "spital-oberengadin-75930e4a5723",
-      "slug": "oberarztin-oberarzt-innere-medizin-o-oberarztin-oberarzt-innere-medizin-i-v-spital-oberengadin-samedan",
+      "slug": "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-funzione",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
-        "it": "oberarztin-oberarzt-innere-medizin-o-oberarztin-oberarzt-innere-medizin-i-v-spital-oberengadin-samedan",
-        "en": "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
-        "fr": "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital"
+        "it": "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-funzione",
+        "en": "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital",
+        "fr": "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -543,20 +543,24 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
-          "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-medicina"
+          "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-medicina",
+          "oberarztin-oberarzt-innere-medizin-o-oberarztin-oberarzt-innere-medizin-i-v-spital-oberengadin-samedan"
         ],
         "en": [
-          "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital"
+          "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital",
+          "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital"
         ],
         "fr": [
-          "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital"
+          "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital",
+          "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
         "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-medicina",
         "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital",
-        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital"
+        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital",
+        "oberarztin-oberarzt-innere-medizin-o-oberarztin-oberarzt-innere-medizin-i-v-spital-oberengadin-samedan"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -575,12 +579,12 @@
     },
     {
       "id": "spital-oberengadin-1f7b20ab2266",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
+      "slug": "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
+        "it": "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan",
+        "en": "dipl-nursing-professional-hf-fh-season-possible-spital-oberengadin-samedan",
+        "fr": "dipl-professionnels-des-soins-infirmiers-hf-fh-saison-possible-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -645,19 +649,23 @@
       "firstSeenAt": "2026-08-23T09:35:41.919Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan"
+          "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan",
+          "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
         ],
         "en": [
-          "dipl-nursing-professional-hf-fh-season-possible-spital-oberengadin-samedan"
+          "dipl-nursing-professional-hf-fh-season-possible-spital-oberengadin-samedan",
+          "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
         ],
         "fr": [
-          "dipl-professionnels-des-soins-infirmiers-hf-fh-saison-possible-spital-oberengadin-samedan"
+          "dipl-professionnels-des-soins-infirmiers-hf-fh-saison-possible-spital-oberengadin-samedan",
+          "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
         ]
       },
       "previousSlugs": [
         "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan",
         "dipl-nursing-professional-hf-fh-season-possible-spital-oberengadin-samedan",
-        "dipl-professionnels-des-soins-infirmiers-hf-fh-saison-possible-spital-oberengadin-samedan"
+        "dipl-professionnels-des-soins-infirmiers-hf-fh-saison-possible-spital-oberengadin-samedan",
+        "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
       ]
     },
     {
