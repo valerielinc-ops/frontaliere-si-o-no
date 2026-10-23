@@ -10,12 +10,13 @@
  * ask `urlInspection` about URLs we suspect.
  *
  * Strategy: rotate through the source-backed URL cohort produced by the GSC
- * Coverage ingest (`data/gsc-coverage-404s.json`), inspecting a daily batch.
- * For each URL where Google reports NOT_FOUND / SOFT_404 / "Not found"
- * coverage state, append the path to the sharded compatibility store so the
- * build pipeline can generate a reconciled soft-landing or bridge page. The
- * job-orphan URL Inspection ledger is deliberately not a candidate source for
- * this audit; it is owned by `sync-gsc-orphans.mjs`.
+ * Coverage ingest (`data/gsc-coverage-404s.json`) plus existing compatibility
+ * paths that need a recovery check, inspecting a daily batch. For each URL
+ * where Google reports NOT_FOUND / SOFT_404 / "Not found" coverage state,
+ * append the path to the sharded compatibility store so the build pipeline can
+ * generate a reconciled soft-landing or bridge page. The job-orphan URL
+ * Inspection ledger is deliberately not a candidate source for this audit; it
+ * is owned by `sync-gsc-orphans.mjs`.
  *
  * State is persisted in `data/inspection-state.json` (lastInspected per URL)
  * so successive runs rotate through the full universe without redoing URLs.
@@ -104,12 +105,16 @@ async function detectSiteProperty(accessToken) {
 }
 
 /**
- * The only candidate source for this audit is the source-backed GSC Coverage
- * snapshot. In particular, do not expand job registries or public assembled
- * datasets here: those are a different orphan-job cohort.
+ * Candidate sources for this audit are the source-backed GSC Coverage snapshot
+ * and the existing compatibility accumulator, so recovered compat-only paths
+ * can be cleaned up. In particular, do not expand job registries or public
+ * assembled datasets here: those are a different orphan-job cohort.
  */
-export function collectCandidatePaths(population = readCanonicalGscCoverage(ROOT)) {
-  return [...new Set(population.paths)];
+export function collectCandidatePaths(
+  population = readCanonicalGscCoverage(ROOT),
+  compatPaths = [],
+) {
+  return [...new Set([...population.paths, ...compatPaths])];
 }
 
 /**
@@ -123,6 +128,22 @@ function isNotFoundResult(result) {
   const cs = String(result?.coverageState || '').toLowerCase();
   if (cs.includes('not found') || cs.includes('404') || cs.includes('soft 404')) return true;
   return false;
+}
+
+export function applyInspectionResult(compatSet, p, result) {
+  const is404 = isNotFoundResult(result);
+  if (is404 && !compatSet.has(p)) {
+    compatSet.add(p);
+    return { newlyFound404: 1, clearedFromCompat: 0 };
+  }
+  if (!is404 && compatSet.has(p)) {
+    // URL recovered (redirect, indexed, etc.) — safe to drop from compat.
+    // The build pipeline will no longer generate a soft-landing for it,
+    // which is correct because the path now resolves on its own.
+    compatSet.delete(p);
+    return { newlyFound404: 0, clearedFromCompat: 1 };
+  }
+  return { newlyFound404: 0, clearedFromCompat: 0 };
 }
 
 async function main() {
@@ -147,9 +168,16 @@ async function main() {
     console.log(`📐 GSC Coverage observed rows: ${populationSummary.observedRows}`);
   }
 
+  // Existing compat paths are cleanup candidates too: a path can recover after
+  // it was added to the accumulator and no longer appear in the current GSC
+  // Coverage export. Keep the job-orphan ledger separate; it is owned by the
+  // dedicated synchronizer.
+  const compatPath = dataPath('seo-404-compat'); // sharded dir (issue #2988)
+  const compat = readCompatPathsStrict(ROOT);
+
   // Collect candidate URLs and rank by "most in need of inspection"
-  const candidates = collectCandidatePaths(population);
-  console.log(`📦 Candidate URLs: ${candidates.length} (canonical GSC cohort)`);
+  const candidates = collectCandidatePaths(population, compat.paths);
+  console.log(`📦 Candidate URLs: ${candidates.length} (GSC cohort + compat cleanup)`);
 
   const now = Date.now();
   const ranked = candidates
@@ -170,8 +198,6 @@ async function main() {
     return;
   }
 
-  const compatPath = dataPath('seo-404-compat'); // sharded dir (issue #2988)
-  const compat = readCompatPathsStrict(ROOT);
   if (!compat.source) compat.source = 'gsc-export';
   if (!Array.isArray(compat.paths)) compat.paths = [];
   const compatSet = new Set(compat.paths);
@@ -226,16 +252,9 @@ async function main() {
         is404,
       };
 
-      if (is404 && !compatSet.has(p)) {
-        compatSet.add(p);
-        newlyFound404++;
-      } else if (!is404 && compatSet.has(p)) {
-        // URL recovered (redirect, indexed, etc.) — safe to drop from compat.
-        // The build pipeline will no longer generate a soft-landing for it,
-        // which is correct because the path now resolves on its own.
-        compatSet.delete(p);
-        clearedFromCompat++;
-      }
+      const compatChanges = applyInspectionResult(compatSet, p, result);
+      newlyFound404 += compatChanges.newlyFound404;
+      clearedFromCompat += compatChanges.clearedFromCompat;
 
       inspected++;
       if (inspected % 100 === 0) {

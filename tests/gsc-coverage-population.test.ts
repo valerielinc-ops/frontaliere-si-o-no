@@ -2,7 +2,10 @@ import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { collectCandidatePaths } from '../scripts/discover-404s-via-inspection.mjs';
+import {
+  applyInspectionResult,
+  collectCandidatePaths,
+} from '../scripts/discover-404s-via-inspection.mjs';
 import {
   gscCoveragePopulationSummary,
   readCanonicalGscCoverage,
@@ -27,6 +30,21 @@ describe('canonical GSC Coverage population', () => {
   it('uses only the supplied source-backed cohort, never an expanded job population', () => {
     expect(collectCandidatePaths({ paths: ['/coverage-backed', '/coverage-backed'], unresolved: [] }))
       .toEqual(['/coverage-backed']);
+  });
+
+  it('keeps existing compat paths as cleanup candidates without importing another ledger', () => {
+    const candidates = collectCandidatePaths(
+      { paths: ['/coverage-backed'], unresolved: [] },
+      ['/recovered', '/coverage-backed'],
+    );
+
+    expect(candidates).toEqual(['/coverage-backed', '/recovered']);
+    const compatSet = new Set(['/recovered']);
+    expect(applyInspectionResult(compatSet, '/recovered', {
+      pageFetchState: 'INDEXED',
+      coverageState: 'URL is indexed',
+    })).toEqual({ newlyFound404: 0, clearedFromCompat: 1 });
+    expect(compatSet).toEqual(new Set());
   });
 
   it('deduplicates source-backed paths and keeps the unresolved residue out of candidates', () => {
