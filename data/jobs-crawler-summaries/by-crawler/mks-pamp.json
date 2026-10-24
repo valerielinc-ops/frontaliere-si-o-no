@@ -1,16 +1,16 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-10-24T09:52:32.063Z",
+  "generatedAt": "2026-10-24T21:41:52.289Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8519,
-  "avgDurationMs": 8519,
+  "durationMs": 8621,
+  "avgDurationMs": 8621,
   "durationHistory": [
-    8519
+    8621
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "datePosted": "2026-10-08T11:03:47+02:00",
       "postedDate": "2026-10-08T11:03:47+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-24T09:52:20.751Z",
+      "crawledAt": "2026-10-24T21:41:40.711Z",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -84,7 +84,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-19T12:39:04+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-24T09:52:20.755Z",
+      "crawledAt": "2026-10-24T21:41:40.718Z",
       "postalCode": "6874",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "retranslationAttempts": 0,
       "datePosted": "2026-01-28T12:40:44+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-24T09:52:20.756Z",
+      "crawledAt": "2026-10-24T21:41:40.719Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -169,7 +169,7 @@
       "firstSeenAt": "2026-09-29T21:39:07.108Z",
       "datePosted": "2026-09-29T16:44:49+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-24T09:52:20.752Z",
+      "crawledAt": "2026-10-24T21:41:40.713Z",
       "postalCode": "6874",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -211,7 +211,7 @@
       "salarySource": "reported",
       "datePosted": "2026-01-28T11:17:43+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-24T09:52:20.758Z",
+      "crawledAt": "2026-10-24T21:41:40.721Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -221,5 +221,5 @@
       }
     }
   ],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
