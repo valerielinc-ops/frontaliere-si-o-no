@@ -373,14 +373,25 @@ function enrichShortMetaDescription(
 ): string {
   if (description.length >= minimum) return description;
   let enriched = description;
+  // The first clause boundary (`,` `;` `.`) reached at or past the minimum.
+  // Stopping on the first non-stopword instead ended snippets on a bare verb —
+  // "…budget mensile reale 2026. Scopri" — which reads as a broken result.
+  let clauseEnd: string | null = null;
+  let wordLevel: string | null = null;
   for (const word of META_DESCRIPTION_CONTEXT[locale].split(/\s+/)) {
     const candidate = `${enriched} ${word}`;
     if (candidate.length > max) break;
     enriched = candidate;
     const lastWord = /(\S+)$/.exec(enriched)?.[1]?.toLowerCase() ?? '';
-    if (enriched.length >= minimum && !TRAILING_STOPWORDS.has(lastWord)) break;
+    if (wordLevel === null && enriched.length >= minimum && !TRAILING_STOPWORDS.has(lastWord.replace(/[,;.]$/, ''))) {
+      wordLevel = enriched;
+    }
+    if (enriched.length >= minimum && /[,;.]$/.test(word)) {
+      clauseEnd = enriched.replace(/[,;]$/, '.');
+      break;
+    }
   }
-  return enriched;
+  return clauseEnd ?? wordLevel ?? enriched;
 }
 
 /**
