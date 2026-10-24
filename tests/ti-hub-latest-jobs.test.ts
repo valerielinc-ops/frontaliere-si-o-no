@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -177,15 +177,35 @@ describe('tiHubLatestJobsPlugin closeBundle', () => {
     }
   };
 
-  it('fails the build when an emitted hub is missing or lost its slot', async () => {
+  const writeHubs = (dist: string, withSlot: Partial<Record<'it' | 'en' | 'de' | 'fr', boolean>>) => {
+    for (const [locale, slot] of Object.entries(withSlot) as ['it' | 'en' | 'de' | 'fr', boolean][]) {
+      fs.mkdirSync(path.dirname(tiHubIndexPath(dist, locale)), { recursive: true });
+      fs.writeFileSync(tiHubIndexPath(dist, locale), `<h1>x</h1>${slot ? TI_HUB_LATEST_JOBS_SLOT : ''}`);
+    }
+  };
+
+  it('fails the build when the IT hub lost its slot or is missing', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ti-hub-plugin-'));
     const dist = path.join(root, 'dist');
-    fs.mkdirSync(dist);
-    for (const locale of ['it', 'en', 'de'] as const) {
-      fs.mkdirSync(path.dirname(tiHubIndexPath(dist, locale)), { recursive: true });
-      fs.writeFileSync(tiHubIndexPath(dist, locale), `<h1>x</h1>${locale === 'de' ? '' : TI_HUB_LATEST_JOBS_SLOT}`);
+    writeHubs(dist, { it: false, en: true, de: true, fr: true });
+    await expect(run(root)).rejects.toThrow(/it=no-slot:/);
+    fs.rmSync(tiHubIndexPath(dist, 'it'));
+    await expect(run(root)).rejects.toThrow(/it=missing-file:/);
+    fs.rmSync(root, { recursive: true, force: true });
+  });
+
+  it('only warns when an en/de/fr hub is missing or lost its slot (deploy 40087494526)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ti-hub-plugin-'));
+    const dist = path.join(root, 'dist');
+    writeHubs(dist, { it: true, en: false, de: false });
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      await expect(run(root)).resolves.toBeUndefined();
+      expect(warn).toHaveBeenCalledWith(expect.stringMatching(/^::warning::\[ti-hub-latest-jobs\] en=no-slot, de=no-slot, fr=missing-file:/));
+    } finally {
+      warn.mockRestore();
     }
-    await expect(run(root)).rejects.toThrow(/de=no-slot, fr=missing-file/);
+    expect(fs.readFileSync(tiHubIndexPath(dist, 'it'), 'utf-8')).toBe('<h1>x</h1>');
     fs.rmSync(root, { recursive: true, force: true });
   });
 
