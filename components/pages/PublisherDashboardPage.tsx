@@ -34,7 +34,8 @@ import {
   CalendarDays,
   X,
 } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, loadNamespaceTranslations } from '@/services/i18n';
+import { TranslationNamespaceGate } from '@/components/shared/TranslationNamespaceGate';
 import { useAuth } from '@/services/authService';
 import { buildPath } from '@/services/router';
 import { CV_URL_ENDPOINT } from '@/services/publisherCvEndpoint';
@@ -1488,4 +1489,13 @@ const PublisherDashboardPage: React.FC = () => {
   );
 };
 
-export default PublisherDashboardPage;
+// Its copy is the on-demand "publisher" namespace (services/locales/<locale>-ns-publisher.ts).
+// The request starts as soon as this lazy module is evaluated.
+void loadNamespaceTranslations('publisher');
+const PublisherDashboardPageWithStrings: React.FC = () => (
+ <TranslationNamespaceGate namespace="publisher">
+ <PublisherDashboardPage />
+ </TranslationNamespaceGate>
+);
+
+export default PublisherDashboardPageWithStrings;

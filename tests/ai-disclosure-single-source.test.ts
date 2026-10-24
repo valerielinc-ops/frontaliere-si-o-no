@@ -75,7 +75,9 @@ describe('AI disclosure: single source', () => {
 
   it('static and hydrated article both render the shared disclosure and the trust links', () => {
     const og = read('packages/articles/engine/ogPagesPlugin.ts');
-    expect(og).toMatch(/\$\{buildArticleTransparencyAside\(locale, resolvedAuthor\)\}/);
+    // The provenance-aware renderer adds display-name/provenance arguments;
+    // retain compatibility with older stacked branch snapshots.
+    expect(og).toMatch(/\$\{buildArticleTransparencyAside\(locale, (?:resolvedAuthor|en\.authorName \|\| resolvedAuthor\?\.name)/);
     expect(og).toMatch(/links\.about\} \| \$\{methodology\} \| \$\{corrections\}/);
     const spa = read('components/community/BlogArticles.tsx');
     expect(spa).toContain('ARTICLE_TRANSPARENCY[transparencyLocale]');
