@@ -2641,7 +2641,7 @@ function recoverLegacyPagination(url) {
 }
 
 // Whether `slug` is a job the registry has ever tracked: the /job-canon shard is
-// built from data/all-known-job-slugs (an accumulator that keeps every slug,
+// built from the all-known-job-slugs registry (an accumulator keeping every slug,
 // including pruned/expired vacancies). Same URL and cache options as
 // recoverCantonDriftOrphan, so on the 404 chain this is an edge-cache hit.
 // 'unknown' = the shard is absent or has no row for the slug; 'unavailable' =
