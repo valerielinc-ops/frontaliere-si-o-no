@@ -2519,7 +2519,7 @@
       "slug": "check-per-industrializzazione-nuovi-prodotti-m-f-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
         "it": "check-per-industrializzazione-nuovi-prodotti-m-f-jaeger-lecoultre-le-sentier",
-        "en": "chef-de-projets-industrialisation-nouveaux-produits-m-w-d-jaeger-lecoultre-le-sentier",
+        "en": "check-for-industrialization-new-products-m-f-jaeger-lecoultre-le-sentier",
         "de": "kontrolle-der-industrie-neue-erzeugnisse-m-w-jaeger-lecoultre-le-sentier",
         "fr": "chef-de-projets-industrialisation-nouveaux-produits-h-f-richemont-le-sentier"
       },
@@ -2567,7 +2567,7 @@
       "previousSlugs": [
         "chef-de-projets-industrialisation-nouveaux-produits-h-f-richemont-le-sentier",
         "chef-de-projets-industrialisation-nouveaux-produits-h-f-jaeger-lecoultre-le-sentier",
-        "check-for-industrialization-new-products-m-f-jaeger-lecoultre-le-sentier"
+        "chef-de-projets-industrialisation-nouveaux-produits-m-w-d-jaeger-lecoultre-le-sentier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2576,7 +2576,7 @@
         ],
         "en": [
           "chef-de-projets-industrialisation-nouveaux-produits-h-f-jaeger-lecoultre-le-sentier",
-          "check-for-industrialization-new-products-m-f-jaeger-lecoultre-le-sentier"
+          "chef-de-projets-industrialisation-nouveaux-produits-m-w-d-jaeger-lecoultre-le-sentier"
         ],
         "de": [
           "chef-de-projets-industrialisation-nouveaux-produits-h-f-richemont-le-sentier"
@@ -4349,9 +4349,9 @@
     },
     {
       "id": "richemont-c63b44d13a6e",
-      "slug": "prototypiste-cartier-manufacture-le-cret-du-locle",
+      "slug": "prototipismo-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "prototypiste-cartier-manufacture-le-cret-du-locle",
+        "it": "prototipismo-cartier-manufacture-le-cret-du-locle",
         "en": "prototypist-cartier-manufacture-le-cret-du-locle",
         "de": "prototyp-cartier-manufacture-le-cret-du-locle",
         "fr": "prototypiste-richemont-le-cret-du-locle"
@@ -4399,12 +4399,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "prototypiste-richemont-le-cret-du-locle",
-        "prototipismo-cartier-manufacture-le-cret-du-locle"
+        "prototypiste-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "prototypiste-richemont-le-cret-du-locle",
-          "prototipismo-cartier-manufacture-le-cret-du-locle"
+          "prototypiste-cartier-manufacture-le-cret-du-locle"
         ],
         "en": [
           "prototypiste-richemont-le-cret-du-locle"
@@ -4901,9 +4901,9 @@
     },
     {
       "id": "richemont-3c40bce03d73",
-      "slug": "hospitality-trainee-richemont-villars-sur-glane",
+      "slug": "ospitalita-richemont-villars-sur-glane",
       "slugByLocale": {
-        "it": "hospitality-trainee-richemont-villars-sur-glane",
+        "it": "ospitalita-richemont-villars-sur-glane",
         "en": "hospitality-trainee-richemont-villars-sur-glane",
         "de": "hospitality-auszubildender-richemont-villars-sur-glane",
         "fr": "hospitality-apprenti-richemont-villars-sur-glane"
@@ -4950,11 +4950,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ospitalita-richemont-villars-sur-glane"
+        "hospitality-trainee-richemont-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ospitalita-richemont-villars-sur-glane"
+          "hospitality-trainee-richemont-villars-sur-glane"
         ]
       },
       "salaryMin": 57500,
