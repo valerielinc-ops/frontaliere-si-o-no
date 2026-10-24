@@ -4,10 +4,18 @@ import { AUTHORS, getAuthorBySlug, isEditorialProfile, isRealAuthor } from '../.
 import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor, type AuthorLocale } from '../../data/authorLocales';
 import { AUTHOR_PAGE_COPY } from '../../services/authorPageCopy';
 import { buildAuthorSeo } from '../../services/seo/seo-authors';
-import { buildPath } from '../../services/router';
+import { SLUG_TABLES } from '../../services/routeSlugs.data';
 import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT } from '../../packages/articles/engine/shared/aiDisclosure';
 
 const escape = (text: string) => text.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
+
+// Keep this build-plugin dependency-free from services/router.ts: the router
+// loads browser-only i18n modules and is also imported while Vite bundles its
+// Node configuration.
+function buildAuthorNavPath(slug: 'chiSiamo' | 'correzioni', locale: AuthorLocale): string {
+  const prefix = locale === 'it' ? '' : `/${locale}`;
+  return `${prefix}/${SLUG_TABLES[locale][slug]}/`;
+}
 
 /** Registered author pages bypass the generic translated section fallback. */
 export function renderAuthorEditorial(sourcePath: string, locale: AuthorLocale): string[] | null {
@@ -41,7 +49,7 @@ export function renderAuthorEditorial(sourcePath: string, locale: AuthorLocale):
     organizationProfile,
     `<h2>${escape(editorialProfile ? copy.editorialOtherAuthors : copy.otherAuthors)}</h2><ul>${peers}</ul>`,
     // The disclosure points at the methodology (AI-prepared texts): link it.
-    `<p><a href="${buildPath({ activeTab: 'chi-siamo' }, locale)}">${escape(copy.about)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[locale].methodology}">${escape(ARTICLE_TRANSPARENCY[locale].navMethodology)}</a> · <a href="${buildPath({ activeTab: 'correzioni' }, locale)}">${escape(copy.corrections)}</a></p>`,
+    `<p><a href="${buildAuthorNavPath('chiSiamo', locale)}">${escape(copy.about)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[locale].methodology}">${escape(ARTICLE_TRANSPARENCY[locale].navMethodology)}</a> · <a href="${buildAuthorNavPath('correzioni', locale)}">${escape(copy.corrections)}</a></p>`,
   ];
 }
 
