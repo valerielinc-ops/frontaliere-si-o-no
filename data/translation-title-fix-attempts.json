@@ -6135,13 +6135,13 @@
       "lastAttemptAt": "2026-10-13T01:25:18.474Z"
     },
     "stadt-zuerich-9aac51e1a148|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-22T17:43:13.858Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-10-24T22:08:24.124Z",
       "source": "47d1f35dba40"
     },
     "stadt-zuerich-9aac51e1a148|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-22T17:43:14.991Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-10-24T22:08:31.662Z",
       "source": "47d1f35dba40"
     },
     "stadt-zuerich-5233d430dc9a|de|en": {
@@ -131120,7 +131120,8 @@
     },
     "ikea-9ec31f2d85b2|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-08T04:32:01.986Z"
+      "lastAttemptAt": "2026-10-24T22:08:29.918Z",
+      "source": "c6625bd9b22a"
     },
     "siemens-5ece8fe76ac3|de|en": {
       "attempts": 1,
@@ -131157,7 +131158,8 @@
     },
     "ikea-9ec31f2d85b2|de|fr": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-08T04:32:06.031Z"
+      "lastAttemptAt": "2026-10-24T22:08:24.124Z",
+      "source": "c6625bd9b22a"
     },
     "siemens-5ece8fe76ac3|de|fr": {
       "attempts": 1,
@@ -131177,7 +131179,8 @@
     },
     "ikea-9ec31f2d85b2|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-08T04:32:06.222Z"
+      "lastAttemptAt": "2026-10-24T22:08:33.974Z",
+      "source": "c6625bd9b22a"
     },
     "siemens-a230897968fa|de|it": {
       "attempts": 1,
@@ -183936,8 +183939,8 @@
       "source": "3759e1a41053"
     },
     "pwc-01e81b7aa4b7|en|de": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-19T11:06:28.317Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-10-24T22:08:28.069Z",
       "source": "131a2935023a"
     },
     "epfl-d3fbf1d979eb|en|de": {
@@ -183961,8 +183964,8 @@
       "source": "2382d53c2470"
     },
     "pwc-01e81b7aa4b7|en|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-19T11:06:31.731Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-10-24T22:08:32.532Z",
       "source": "131a2935023a"
     },
     "epfl-d3fbf1d979eb|en|fr": {
@@ -222441,8 +222444,8 @@
       "source": "933fb0b5ad12"
     },
     "ikea-1311866a5854|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-22T10:38:17.501Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-10-24T22:08:24.125Z",
       "source": "61eea99a5a6a"
     },
     "cordenpharma-bdd536bdce38|de|fr": {
@@ -222461,8 +222464,8 @@
       "source": "c96b88f13e8b"
     },
     "ikea-1311866a5854|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-22T10:38:22.430Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-10-24T22:08:33.974Z",
       "source": "61eea99a5a6a"
     },
     "cordenpharma-bdd536bdce38|de|it": {
@@ -222521,8 +222524,8 @@
       "source": "933fb0b5ad12"
     },
     "ikea-1311866a5854|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-22T10:38:27.826Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-10-24T22:08:29.919Z",
       "source": "61eea99a5a6a"
     },
     "cordenpharma-bdd536bdce38|de|en": {
@@ -232811,8 +232814,8 @@
       "source": "3c5674e487ed"
     },
     "company-7uc33f|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-24T10:24:05.028Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-10-24T22:08:37.311Z",
       "source": "7e2a59d877f8"
     },
     "volg-fenaco-ead9dd94ace2|de|it": {
@@ -233714,6 +233717,26 @@
       "attempts": 2,
       "lastAttemptAt": "2026-10-24T13:28:13.544Z",
       "source": "7d979e8df597"
+    },
+    "spitex-ch-2aa7f8d12a14|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-24T22:08:24.123Z",
+      "source": "74a71e81853c"
+    },
+    "spitex-ch-2aa7f8d12a14|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-24T22:08:29.917Z",
+      "source": "74a71e81853c"
+    },
+    "spitex-ch-2aa7f8d12a14|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-24T22:08:31.661Z",
+      "source": "74a71e81853c"
+    },
+    "ch-9e72d8e76c62|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-24T22:08:31.661Z",
+      "source": "636c236b683b"
     }
   }
 }
