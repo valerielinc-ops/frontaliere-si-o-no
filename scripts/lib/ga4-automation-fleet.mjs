@@ -6,11 +6,13 @@
  * engagement rate of 6% and ZERO key events; 33 more sessions with the same
  * signature came from other countries and none from Italy or Switzerland. It
  * is 80% of the Direct channel (133k sessions) and half of the property.
- * The client already recognises the fleet (`matchesAutomationScreenSignature`
- * in services/botPatterns.ts) and, from this change on, no longer sends it to
- * GA4 — but every report window that reaches back before the deploy still
- * contains it, and an unknown fleet that bypasses the client gate would land
- * here too. Reports therefore exclude the signature on the GA4 side.
+ * The client recognises the fleet (`matchesAutomationScreenSignature` in
+ * services/botPatterns.ts) for AdSense and PostHog, but GA4 still received it,
+ * and every report window that reaches back to the burst contains it. A report
+ * whose denominators are sessions therefore excludes the signature on the GA4
+ * side. Used today by scripts/landing-value-report.mjs; any GA4 report can
+ * import `withAutomationFleetExclusion` (body) or
+ * `withAutomationFleetExclusionForFetch` (raw fetch options).
  *
  * The signature mirrors the client rule minus the time zone, which GA4 does
  * not expose: `screenResolution` exact 1280x1200 AND `operatingSystem`

@@ -1,4 +1,4 @@
-# Misura affidabile: key event GA4, traffico automatico, valore delle landing
+# Misura affidabile: key event GA4 e valore delle landing
 
 Stato al 2026-10-24. Proprietà GA4 `properties/524485296` (stream web
 `G-LGJ9LE360F`). Tutte le cifre sono della GA4 Data API, finestra 28 giorni
@@ -26,7 +26,7 @@ segnalato come `counting_mismatch`).
 | `job_apply_handoff` | una volta per evento | candidatura: redirect al sito/ATS del datore (`trackJobApplyHandoff`) | 1.794 | creato 2026-10-24 |
 | `simulation_complete` | una volta per sessione | uso del calcolatore (`trackCalculation`); si ripete a ogni ricalcolo, quindi conta la sessione | 37.942 | creato 2026-10-24 |
 | `job_alert_created` | una volta per evento | iscrizione agli avvisi di lavoro (`trackJobAlertCreated`) | 277 | creato 2026-10-24 |
-| `newsletter_subscribe` | una volta per evento | iscrizione newsletter (solo `action=subscribe`) | 0 | in attesa: evento nuovo, emesso dalla PR client; lo script lo crea quando compare nei dati |
+| `newsletter_subscribe` | una volta per evento | iscrizione newsletter (solo `action=subscribe`) | 0 | in attesa: l'evento non esiste ancora; lo script crea il key event quando compare nei dati |
 | `login` | una volta per sessione | login riuscito (evento GA4 raccomandato, su `auth_success` del gate annunci) | 0 | in attesa, come sopra |
 | `purchase` | una volta per evento | preesistente, mai emesso | 0 | lasciato com'è |
 
@@ -61,55 +61,14 @@ senza escluderlo, sessioni, engagement e ogni tasso per sessione sono per metà
 bot. Comando di verifica: il report `screenResolution × country × browser ×
 language` con filtro `sessionDefaultChannelGroup = Direct`.
 
-### Lato client (PR concatenata)
-
-Il client riconosce già la flotta 1280x1200 (`matchesAutomationScreenSignature`
-in `services/botPatterns.ts`) e la tiene fuori da AdSense e PostHog, ma GA4 non
-era sotto lo stesso gate: né `gtag-init.js` delle pagine statiche né
-l'inizializzazione di Firebase Analytics nella SPA consultavano
-`isLikelyBot()`/`BOT_GATE_FN`. La PR client mette entrambi sotto il gate
-condiviso (stesso verdetto di AdSense e PostHog, e di `isCrawlerVisitorAgent`
-per i crawler dichiarati).
-
-### Lato edge (valutato, non applicato)
-
-Una regola Cloudflare per IP/ASN non è stata applicata, per scelta:
-
-- la zona è sul piano che non espone `clientAsn` nelle analytics GraphQL
-  (`does not have access to the field 'clientasn'`), quindi l'ASN della flotta
-  non è misurabile e una regola per ASN sarebbe cieca;
-- l'alternativa disponibile, la nazione, bloccherebbe o sfiderebbe anche le
-  persone reali da Singapore e Cina, e la flotta esegue JavaScript (manda
-  `page_view`, `ui_interaction`, `web_vitals`): un `managed_challenge` non è una
-  barriera certa per un Chrome headless;
-- il ruleset custom è al tetto di cinque regole (`MAX_CUSTOM_FIREWALL_RULES` in
-  `scripts/cf-locale-failover-setup.mjs`), con la regola che lascia passare
-  Googlebot, Bingbot e i crawler AI ammessi in `robots.txt`: aggiungerne una
-  significa toccare quell'equilibrio per un segmento che non costa ricavi (la
-  flotta non riceve annunci, è già sotto il bot gate di AdSense).
-
-Il filtro più sicuro è quindi quello lato client (non manda la misura) più
-quello lato report (toglie lo storico e qualunque flotta che passi il client).
-
-### Lato report
+### Esclusione nei report
 
 `scripts/lib/ga4-automation-fleet.mjs` definisce le due firme e aggiunge
-l'esclusione, in AND col filtro esistente, a ogni chiamata della GA4 Data API di:
-
-- `scripts/analytics-report.mjs` (tutte le chiamate `:runReport` e
-  `:batchRunReport`; Search Console, PageSpeed e Bing passano invariati), con
-  la nota `excludedSegment` nel JSON;
-- `scripts/conversion-funnel-report.mjs`;
-- `scripts/user-value-report.mjs`;
-- `scripts/landing-value-report.mjs` (sotto).
-
-Effetto misurato su `analytics-report.mjs --ga4 --days 28` del 2026-10-24:
-sessioni 208.088 → 92.242, utenti 183.095 → 71.777, bounce rate 65,3% → 28,8%. I monitor dei ricavi (`monitor-revenue-signals`,
-`canary-user-value`, `monitor-deploy-skew`) filtrano già Italia+Svizzera
-(`ga4-target-market.mjs`) e non ne hanno bisogno. La firma 1600x1600 è solo
-lato report: per il client non c'è una regola, perché il fuso orario e la
-versione di Chrome di quella flotta non sono misurati e una regola sul solo
-schermo+lingua sarebbe più larga dell'evidenza.
+l'esclusione, in AND col filtro esistente, al body di una chiamata della GA4
+Data API (`withAutomationFleetExclusion`) o alle opzioni di un `fetch`
+(`withAutomationFleetExclusionForFetch`, che riscrive solo `:runReport` e
+`:batchRunReport`). Oggi la usa `scripts/landing-value-report.mjs`. Il gate lato
+client e l'esclusione negli altri report hanno un proprietario separato.
 
 ## 3. Valore delle landing per template
 
@@ -147,17 +106,3 @@ Prima lettura (2026-09-25 → 2026-10-22, valuta EUR, valore candidatura 0,118):
 `generic_page` raccoglie landing che il classificatore non riconosce
 (`/lavoro-ticino-*`, `/concorsi-pubblici-*`, articoli della sezione svizzera):
 il JSON riporta per ogni template le cinque landing principali (`topLandings`).
-
-## 4. PostHog: pageview
-
-Le pageview PostHog si sono fermate il 2026-09-15/16 (14.063 il 14/09, 34 il
-16/09) per una scelta esplicita, non per un guasto di init/consenso/router:
-`POSTHOG_EVENT_SAMPLE_RATE = 0` in `services/posthogQuota.ts` (PR 8752,
-«stop PostHog events after free quota exhaustion») scartava in `before_send`
-ogni evento non esente, `$pageview` compreso, «finché il periodo non si
-azzera». Il periodo si è azzerato, la costante no. Volumi misurati con HogQL:
-prima dello stop ~200k eventi/giorno (6M/mese contro 1M di quota), di cui
-`$pageview` ~10.5k/giorno; oggi ~2k eventi/giorno. La PR client esenta
-`$pageview` dal campionamento a zero (≈ 315k/mese, sotto la quota insieme ai
-~60k attuali) lasciando a zero il resto degli eventi di prodotto; PostHog resta
-solo telemetria, nessun esperimento.

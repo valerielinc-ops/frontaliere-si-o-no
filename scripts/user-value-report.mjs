@@ -54,7 +54,6 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID, ga4DateRange } from './lib/ga4-service-account.mjs';
-import { withAutomationFleetExclusion } from './lib/ga4-automation-fleet.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = resolve(__dirname, '..', 'data', 'user-value-report.json');
@@ -113,9 +112,7 @@ async function runReport(propertyId, headers, body) {
   const res = await fetchRetry(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
     method: 'POST',
     headers,
-    // Fleet excluded (scripts/lib/ga4-automation-fleet.mjs): 1280x1200
-    // headless Chrome would otherwise be half of every user population here.
-    body: JSON.stringify(withAutomationFleetExclusion(body)),
+    body: JSON.stringify(body),
   });
   const data = await res.json().catch(() => ({}));
   return { ok: res.ok, status: res.status, data };

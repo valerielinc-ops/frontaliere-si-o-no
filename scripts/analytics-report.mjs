@@ -43,8 +43,7 @@ import {
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { buildTrafficFilter, fetchTrafficQuality } from './lib/ga4-traffic-quality.mjs';
 import { fetchRuntimeIncidentHistory } from './lib/runtime-incident-history.mjs';
-import { sleep, fetchRetry as fetchRetryRaw, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
-import { AUTOMATION_FLEET_EXCLUSION_NOTE, withAutomationFleetExclusionForFetch } from './lib/ga4-automation-fleet.mjs';
+import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import {
   EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
   ensureGa4CustomDimensions,
@@ -71,11 +70,6 @@ import {
 } from './lib/analytics-settled-window.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-// Every GA4 Data API call of this report excludes the measured headless fleet
-// (1280x1200 · Windows · Chrome · English, ~106k sessions/28 days, 0 key
-// events): without it Direct, sessions, engagement and every per-session rate
-// below are half bot. Search Console / PageSpeed / Bing calls pass unchanged.
-const fetchRetry = (url, options, ...rest) => fetchRetryRaw(url, withAutomationFleetExclusionForFetch(url, options), ...rest);
 const SITE_URL = 'https://frontaliereticino.ch';
 const JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session';
 const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
@@ -831,7 +825,7 @@ async function reportGA4(token) {
     settledWindowDays,
   );
 
-  const result = { period: `${fmtDate(startDate)} → ${fmtDate(endDate)}`, excludedSegment: AUTOMATION_FLEET_EXCLUSION_NOTE };
+  const result = { period: `${fmtDate(startDate)} → ${fmtDate(endDate)}` };
   // #7509: il verdetto d'affidabilità viaggia CON la cifra. Le tabelle bounce
   // per-device/per-landing-page e la diagnostica per sorgente leggono la STESSA
   // finestra del riepilogo, quindi ereditano lo stesso verdetto — ma finivano
