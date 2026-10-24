@@ -3983,6 +3983,20 @@
       "legalEntity": "Media Markt Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 47400,
+      "salaryMax": 72900,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 47400,
+          "maxValue": 72900,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-05T21:57:57.163Z",
       "previousSlugs": [
         "black-friday-helper-60-2-months-mediamarkt-sursee",
         "aide-du-vendredi-noir-60-2-mois-mediamarkt-sursee",
@@ -4000,20 +4014,6 @@
         "fr": [
           "black-friday-aushilfe-60-2-monate-mediamarkt-sursee-ch"
         ]
-      },
-      "firstSeenAt": "2026-10-05T21:57:57.163Z",
-      "salaryMin": 47400,
-      "salaryMax": 72900,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 47400,
-          "maxValue": 72900,
-          "unitText": "YEAR"
-        }
       }
     }
   ]
