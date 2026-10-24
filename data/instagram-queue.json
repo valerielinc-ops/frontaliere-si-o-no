@@ -1,4 +1,115 @@
 {
   "schemaVersion": 1,
-  "pending": []
+  "pending": [
+    {
+      "id": "article-2026-10-23",
+      "channel": "instagram",
+      "kind": "article",
+      "day": "2026-10-23",
+      "caption": "Le regole cambiano: salva questa selezione e torna qui quando ti serve una risposta.\n\n1. Bar di quartiere a Lugano: tra chiusure e nuove sfide — 15 visualizzazioni\n2. Grenzgänger schweiz steuern 2026: regole e obblighi — 13 visualizzazioni\n3. Pensione frontaliere 2026: AVS, LPP e terzo pilastro spiegati — 11 visualizzazioni\n4. Prezzi pellet in Ticino: rincari e acquisti invernali — 10 visualizzazioni\n5. Imposte alla fonte in Ticino: calcolatore, aliquote e scaglioni 2026 — 8 visualizzazioni\n\n💾 Salvalo per ritrovarlo quando ne avrai bisogno.\n\n👉 Approfondisci dal link in bio (23/10/2026).\n\n#frontalieri #ticino #svizzera #italia #lavoro",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/instagram/article-2026-10-23-0.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/article-2026-10-23-1.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/article-2026-10-23-2.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/article-2026-10-23-3.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/article-2026-10-23-4.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/article-2026-10-23-5.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/article-2026-10-23-6.jpg"
+      ],
+      "ledgerEntries": [
+        {
+          "id": "sfida-bar-quartiere-lugano",
+          "kind": "article",
+          "url": "https://frontaliereticino.ch/articoli-frontaliere/sfida-bar-quartiere-lugano/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_daily_article&utm_content=save-sfida-bar-quartiere-lugano",
+          "day": "2026-10-23",
+          "views": 15,
+          "creativeId": "save",
+          "creativeBaseId": "save",
+          "creativeVariant": "baseline",
+          "creativeLabel": "Guida da salvare",
+          "creativeObjective": "save",
+          "primaryMetric": "saves",
+          "engagementMechanic": "save-reminder",
+          "hookType": "utility-promise",
+          "attentionMechanic": "reference-utility",
+          "engagementLoop": "save-for-later",
+          "followUpFormat": "story-checklist"
+        },
+        {
+          "id": "grenzgaenger-schweiz-steuern-2026",
+          "kind": "article",
+          "url": "https://frontaliereticino.ch/articoli-frontaliere/grenzgaenger-schweiz-steuern-2026/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_daily_article&utm_content=save-grenzgaenger-schweiz-steuern-2026",
+          "day": "2026-10-23",
+          "views": 13,
+          "creativeId": "save",
+          "creativeBaseId": "save",
+          "creativeVariant": "baseline",
+          "creativeLabel": "Guida da salvare",
+          "creativeObjective": "save",
+          "primaryMetric": "saves",
+          "engagementMechanic": "save-reminder",
+          "hookType": "utility-promise",
+          "attentionMechanic": "reference-utility",
+          "engagementLoop": "save-for-later",
+          "followUpFormat": "story-checklist"
+        },
+        {
+          "id": "guida-pensione-frontaliere-avs-lpp",
+          "kind": "article",
+          "url": "https://frontaliereticino.ch/articoli-frontaliere/guida-pensione-frontaliere-avs-lpp/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_daily_article&utm_content=save-guida-pensione-frontaliere-avs-lpp",
+          "day": "2026-10-23",
+          "views": 11,
+          "creativeId": "save",
+          "creativeBaseId": "save",
+          "creativeVariant": "baseline",
+          "creativeLabel": "Guida da salvare",
+          "creativeObjective": "save",
+          "primaryMetric": "saves",
+          "engagementMechanic": "save-reminder",
+          "hookType": "utility-promise",
+          "attentionMechanic": "reference-utility",
+          "engagementLoop": "save-for-later",
+          "followUpFormat": "story-checklist"
+        },
+        {
+          "id": "prezzi-pellet-ticino-aumenti",
+          "kind": "article",
+          "url": "https://frontaliereticino.ch/articoli-svizzera/prezzi-pellet-ticino-aumenti/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_daily_article&utm_content=save-prezzi-pellet-ticino-aumenti",
+          "day": "2026-10-23",
+          "views": 10,
+          "creativeId": "save",
+          "creativeBaseId": "save",
+          "creativeVariant": "baseline",
+          "creativeLabel": "Guida da salvare",
+          "creativeObjective": "save",
+          "primaryMetric": "saves",
+          "engagementMechanic": "save-reminder",
+          "hookType": "utility-promise",
+          "attentionMechanic": "reference-utility",
+          "engagementLoop": "save-for-later",
+          "followUpFormat": "story-checklist"
+        },
+        {
+          "id": "imposte-alla-fonte-ticino-calcolatore",
+          "kind": "article",
+          "url": "https://frontaliereticino.ch/articoli-svizzera/imposte-alla-fonte-ticino-calcolatore/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_daily_article&utm_content=save-imposte-alla-fonte-ticino-calcolatore",
+          "day": "2026-10-23",
+          "views": 8,
+          "creativeId": "save",
+          "creativeBaseId": "save",
+          "creativeVariant": "baseline",
+          "creativeLabel": "Guida da salvare",
+          "creativeObjective": "save",
+          "primaryMetric": "saves",
+          "engagementMechanic": "save-reminder",
+          "hookType": "utility-promise",
+          "attentionMechanic": "reference-utility",
+          "engagementLoop": "save-for-later",
+          "followUpFormat": "story-checklist"
+        }
+      ],
+      "createdAt": "2026-10-24T12:49:41.744Z",
+      "expiresAt": "2026-10-26T00:49:41.744Z"
+    }
+  ]
 }
