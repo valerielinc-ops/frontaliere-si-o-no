@@ -325,6 +325,18 @@ export interface RenderArticlePagesOptions {
  * error, so callers may safely pass ids belonging to other sections.
  */
  onlyArticleIds?: string[];
+ /**
+ * Heroes that are NOT on local disk but are known to be served, keyed by the
+ * site-relative path (`/images/blog/<file>.webp`) with the size measured from
+ * the served bytes. The corpus re-render runs from a sparse checkout without
+ * `public/images/`; without this map every hero failed `resolveImagePath`'s
+ * existence check and the page fell back to `/og-image.png` with a guessed
+ * 1200x675 size. An entry here counts as "the file exists" for resolution and
+ * supplies the measured size, so the page is rendered exactly as the full
+ * build renders it (absolute og:image, CDN rewrite, credits, real MIME and
+ * dimensions) instead of being patched afterwards. A local file always wins.
+ */
+ remoteHeroSizes?: Record<string, { width: number; height: number }>;
 }
 
 export interface RenderArticlePagesResult {
@@ -399,6 +411,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   postWalkDerivedKind: 'blog',
  });
  const DEFAULT_IMG = '/og-image.png';
+ const remoteHeroSizes: Record<string, { width: number; height: number }> = opts.remoteHeroSizes ?? {};
  const blogImageById: Record<string, string> = {};
  // Single-article and batch narrowing collapse to the same Set<string> so
  // both the body-file read (parseBlogBodyLocale) and the write-loop filter
@@ -621,11 +634,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const rel = publicPath.replace(/^\/+/, '');
  if (!rel) return false;
  try {
- return fs.statSync(np.join(distDir, rel)).isFile();
+ if (fs.statSync(np.join(distDir, rel)).isFile()) return true;
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
- return false;
  }
+ // Served but not on this disk (sparse re-render): see `remoteHeroSizes`.
+ return Object.prototype.hasOwnProperty.call(remoteHeroSizes, publicPath);
  };
  const fromSameBase = (p: string): string | null => {
  const ext = np.extname(p);
@@ -666,7 +680,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const resolveHeroSize = (imgPath: string): { width: number; height: number } => {
  const cached = heroSizeCache.get(imgPath);
  if (cached) return cached;
- const measured = readImageIntrinsicSize(np.join(distDir, imgPath.replace(/^\/+/, '')));
+ const measured = readImageIntrinsicSize(np.join(distDir, imgPath.replace(/^\/+/, '')))
+ ?? (Object.prototype.hasOwnProperty.call(remoteHeroSizes, imgPath) ? remoteHeroSizes[imgPath] : null);
  const size = measured ?? { width: HERO_FALLBACK_WIDTH, height: HERO_FALLBACK_HEIGHT };
  if (measured && measured.width < DISCOVER_MIN_IMAGE_WIDTH) {
  // Once per file (the cache guarantees it), so a shared hero used by
