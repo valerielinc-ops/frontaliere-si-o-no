@@ -152,10 +152,51 @@ function parseArgs(argv) {
  * @param {(msg: string) => void}    [opts.log]
  * @returns {Promise<{ snapshotted: number, skipped: number, total: number, results: Array }>}
  */
-export async function snapshotWebcamsForOg({ crossings, outDir, fetchFn, log }) {
+/**
+ * Bench-only replay (deploy-matrix-experiment.yml `compare_variants`): copy the
+ * snapshots a previous run of this script wrote into `replayDir` instead of
+ * fetching the live webcams. The bench builds its variants hours apart and
+ * compares their dist byte for byte; a live frame is different by construction
+ * (bench run 40105860066: og/border-wait/*.jpg + .meta.json were the only
+ * non-article differences with the clock frozen). Production never sets
+ * OG_WEBCAM_REPLAY_DIR, so it keeps fetching.
+ */
+async function replayWebcamSnapshots({ crossings, outDir, replayDir, logger }) {
+  const seen = new Set();
+  let snapshotted = 0;
+  let skipped = 0;
+  const results = [];
+  const withWebcams = crossings.filter((c) =>
+    Array.isArray(c.webcams) && c.webcams.some((webcam) => webcam?.embedAllowed !== false),
+  );
+  for (const c of withWebcams) {
+    const slug = slugifyName(c.name);
+    if (seen.has(slug)) continue;
+    seen.add(slug);
+    const src = path.join(replayDir, `${slug}.jpg`);
+    try {
+      await fs.copyFile(src, path.join(outDir, `${slug}.jpg`));
+      await fs.copyFile(`${src}.meta.json`, path.join(outDir, `${slug}.jpg.meta.json`));
+      snapshotted++;
+      results.push({ slug, ok: true });
+    } catch (err) {
+      // Same outcome as a failed live fetch: no file, default og image.
+      skipped++;
+      results.push({ slug, ok: false, error: err?.code ?? String(err) });
+    }
+  }
+  logger(
+    `\x1b[36m[og-webcam]\x1b[0m replayed ${snapshotted} of ${withWebcams.length} crossings from ${replayDir} (${skipped} skipped).`,
+  );
+  return { snapshotted, skipped, total: withWebcams.length, results };
+}
+
+export async function snapshotWebcamsForOg({ crossings, outDir, fetchFn, log, replayDir }) {
   const logger = log ?? ((m) => console.log(m));
   const fn = fetchFn ?? globalThis.fetch;
   await fs.mkdir(outDir, { recursive: true });
+  const replayFrom = replayDir ?? (fetchFn ? '' : process.env.OG_WEBCAM_REPLAY_DIR || '');
+  if (replayFrom) return replayWebcamSnapshots({ crossings, outDir, replayDir: replayFrom, logger });
 
   const withWebcams = crossings.filter((c) =>
     Array.isArray(c.webcams) && c.webcams.some((webcam) => webcam?.embedAllowed !== false),

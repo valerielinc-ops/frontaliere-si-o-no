@@ -89,6 +89,12 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(String(build?.run)).toContain('--import=${GITHUB_WORKSPACE}/scripts/ci/bench-frozen-clock.mjs');
     expect(WORKFLOW.jobs['build-locale'].env.BENCH_FROZEN_CLOCK_MS)
       .toBe("${{ (inputs.freeze_clock == true || inputs.compare_variants == true) && needs.prep.outputs.build_id || '' }}");
+    // Live webcam frames are captured once in prep and replayed by every leg.
+    expect(WORKFLOW.jobs['build-locale'].env.OG_WEBCAM_REPLAY_DIR)
+      .toBe("${{ inputs.compare_variants == true && format('{0}/data/.bench-inputs/og-border-wait', github.workspace) || '' }}");
+    const capture = (WORKFLOW.jobs.prep.steps as Array<Record<string, any>>)
+      .find((step) => String(step.name).startsWith('Capture live build inputs once'));
+    expect(String(capture?.run)).toContain('--out-dir=data/.bench-inputs/og-border-wait');
     // A run with nothing to compare must not read as a pass.
     expect(run).toMatch(/compared" -eq 0[\s\S]*exit 1/u);
   });
