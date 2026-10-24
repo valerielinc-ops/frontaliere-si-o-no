@@ -148,16 +148,17 @@ describe('SEO localization', () => {
 
 describe('editorial methodology SEO follows the requested locale', () => {
   it.each(['en', 'de', 'fr'] as const)('localizes methodology metadata and AboutPage in %s', async locale => {
-    const { METHODOLOGY_COPY, METHODOLOGY_PATHS } = await import('../services/editorialMethodology');
+    const { METHODOLOGY_COPY } = await import('../services/editorialMethodology');
+    const { DISCLOSURE_ROUTE_CONTRACT } = await import('../packages/articles/engine/shared/aiDisclosure');
     await loadAllLocaleChunks(locale);
     setLocale(locale);
-    window.history.replaceState({}, '', METHODOLOGY_PATHS[locale]);
+    window.history.replaceState({}, '', DISCLOSURE_ROUTE_CONTRACT[locale].methodology);
     await updateMetaTags('metodologia');
     expect(document.title).toContain(METHODOLOGY_COPY[locale].title);
     expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toBe(clampMetaDescription(METHODOLOGY_COPY[locale].description, undefined, locale));
     const structured = document.querySelector('#dynamic-structured-data')?.textContent || '';
     expect(structured).toContain(METHODOLOGY_COPY[locale].description);
-    expect(structured).toContain(`https://frontaliereticino.ch${METHODOLOGY_PATHS[locale]}`);
+    expect(structured).toContain(`https://frontaliereticino.ch${DISCLOSURE_ROUTE_CONTRACT[locale].methodology}`);
     expect(structured).not.toContain('Come utilizziamo');
   });
 });
