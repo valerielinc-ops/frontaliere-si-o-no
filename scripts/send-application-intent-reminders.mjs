@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { jobDisplayTitle } from '../services/jobs/jobTitleIdentity.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -246,7 +247,7 @@ export async function markApplicationIntentReminderSkipped(db, { intentId, inten
 function recommendationEntry(job, locale) {
   return {
     id: job.id,
-    title: job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || '',
+    title: jobDisplayTitle(job),
     company: job.company || '',
     canton: job.canton || null,
     location: job.location || job.addressLocality || null,

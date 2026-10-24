@@ -1,3 +1,4 @@
+import { jobDisplayTitle } from '../services/jobs/jobTitleIdentity.mjs';
 import { CALC_HREF } from './shared/calcHref';
 import { buildSalaryAnswer, searchSalaryMedian, hasSalaryIntent } from './shared/searchSalaryAnswer';
 import {
@@ -3715,7 +3716,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     ? ctx.matchingJobs.flatMap((job) => {
         const href = jobLocalizedUrl(job, locale, activeJobSitemapLocs);
         if (!href) return [];
-        const jobTitle = sanitizeJobTitleForDisplay(String(job.titleByLocale?.[locale] ?? job.title ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
+        const jobTitle = sanitizeJobTitleForDisplay(jobDisplayTitle(job).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
         const company = String(job.company || '').trim();
         const loc = String(job.location || '').trim();
         const meta = [company, loc].filter(Boolean).join(' · ');

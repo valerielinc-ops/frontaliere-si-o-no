@@ -42,8 +42,12 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
   describe('shared slimJobIndex.buildSlimSeed', () => {
     it('flattens *ByLocale into the requested locale', () => {
       const seed = buildSlimSeed(sampleJob, 'de');
-      expect(seed.title).toBe('Assistant DE');
       expect(seed.slug).toBe('assistant-front-office-de');
+    });
+
+    it("keeps the employer's original title in every locale (only the UI is translated)", () => {
+      expect(buildSlimSeed(sampleJob, 'de').title).toBe('Assistant base');
+      expect(buildSlimSeed(sampleJob, 'it').title).toBe('Assistant base');
     });
 
     it('falls back to base fields when the locale is missing', () => {

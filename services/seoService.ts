@@ -1,4 +1,5 @@
 import { resolveAuthorProfileMetadata } from './seo/authorProfileMetadata';
+import { jobDisplayTitle } from './jobs/jobTitleIdentity.mjs';
 import { buildCorrezioniSeo } from './seo/seo-correzioni';
 import { METHODOLOGY_COPY } from './editorialMethodology';
 import { localizeArticlePageIdentity } from './seo/article-page-identity';
@@ -456,7 +457,7 @@ async function resolveJobSeoBySlug(
  // JobPosting builder still gets all 9 mandatory fields (CLAUDE.md rule #3).
  const detail = await loadJobDetail(slim?.id);
  const job = detail ? { ...slim, ...detail } : slim;
- const localizedTitle = normalizeSeoText(String(job?.titleByLocale?.[locale] || job?.title || ''));
+ const localizedTitle = normalizeSeoText(jobDisplayTitle(job));
  const localizedDescription = compactSeoDescription(String(job?.descriptionByLocale?.[locale] || job?.description || ''), 360);
  if (!localizedTitle || !localizedDescription) return null;
  const logoUrl = companyLogoFromJob(job);

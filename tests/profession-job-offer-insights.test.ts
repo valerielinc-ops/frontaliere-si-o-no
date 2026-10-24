@@ -85,7 +85,9 @@ describe('dettaglio offerte professionali', () => {
     for (const locale of locales) {
       const html = renderProfessionJobOfferInsights(locale, [job('Nord', 1, 1)], 1);
       expect(html).toContain(expected[locale]);
-      expect(html).toContain(locale === 'it' ? 'Specialista Nord 1' : locale === 'en' ? 'Nord specialist 1' : locale === 'de' ? 'Nord-Spezialist 1' : 'Spécialiste Nord 1');
+      // The employer's original title in every locale; only the heading is translated.
+      expect(html).toContain('Specialista Nord 1');
+      if (locale !== 'it') expect(html).not.toContain(locale === 'en' ? 'Nord specialist 1' : locale === 'de' ? 'Nord-Spezialist 1' : 'Spécialiste Nord 1');
     }
   });
 });

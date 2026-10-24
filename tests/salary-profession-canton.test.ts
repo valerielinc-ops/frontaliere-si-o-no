@@ -147,10 +147,9 @@ describe('salaryProfessionCanton — render', () => {
       ...SNAP,
       featured: [{
         ...FEATURED,
-        titleByLocale: {
-          ...FEATURED.titleByLocale,
-          it: 'I need to see the current job data and verify the employer details before I can provide a complete Italian translation: **Assistente vendite 80%** However, the translation breaks down because the source context does not include enough information about the employer or location.',
-        },
+        // The card shows the employer's original title (`title`), so that is
+        // the field whose AI narrative must be recovered.
+        title: 'I need to see the current job data and verify the employer details before I can provide a complete Italian translation: **Assistente vendite 80%** However, the translation breaks down because the source context does not include enough information about the employer or location.',
       }],
     };
     const { html } = renderSalaryProfessionCantonPage({

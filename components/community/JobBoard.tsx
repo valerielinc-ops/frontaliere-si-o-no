@@ -1,4 +1,5 @@
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { jobDisplayTitle } from '../../services/jobs/jobTitleIdentity.mjs';
 import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
@@ -1460,7 +1461,7 @@ export function isLikelyPhone(value: string): boolean {
 
 function buildContactMailto(email: string, job: JobListing, locale: Locale, jobUrl: string): string {
  const copy = getMailtoCopy(locale);
- const jobTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const jobTitle = sanitizeJobTitle(jobDisplayTitle(job));
  const subject = copy.subject(jobTitle, job.company);
  const body = [
  copy.intro(jobTitle, job.company),
@@ -2157,7 +2158,7 @@ function queryMatchesJob(job: JobListing, query: string, locale: Locale): boolea
  const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean);
  if (queryTokens.length === 0) return true;
  const description = job.descriptionByLocale?.[locale] ?? job.description;
- const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
  // Profession-taxonomy synonyms (it/de/fr/en) so a query in one language
  // matches a job title written in another (e.g. "nurse" ↔ "Infermiera").
  const synonyms = professionSynonymText(localizedTitle);
@@ -2270,7 +2271,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  </div>
  <div className="min-w-0 flex-1 pr-9">
  <h2 className="text-sm sm:text-base font-bold font-display text-heading leading-tight">
- {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
+ {sanitizeJobTitle(jobDisplayTitle(job))}
  {job.featured && <Star className="inline-block w-3.5 h-3.5 ml-1.5 text-warning fill-warning" />}
  {job.featured && (
  <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-accent-subtle text-link align-middle">
@@ -4827,7 +4828,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  while (i < sortedJobs.length) {
  const job = sortedJobs[i];
  const description = job.descriptionByLocale?.[locale] ?? job.description;
- const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
  // Stemmed + space-padded haystack so query matching tolerates Italian
  // plural/feminine variants (pulizie ↔ pulizia, infermieri ↔ infermiera)
  // while still requiring word-boundary alignment (cas ≠ cassa).
@@ -6374,7 +6375,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return normalizeParagraphs(detailDescription);
  }, [detailDescription]);
 
- const selectedJobTitle = selectedJob ? sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title) : '';
+ const selectedJobTitle = selectedJob ? sanitizeJobTitle(jobDisplayTitle(selectedJob)) : '';
 
  useEffect(() => {
  // Archived job slugs can share a search/location prefix. Preserve their
@@ -6421,7 +6422,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  job.description ||
  ''
  ).trim();
- const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
  const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
  `${localizedTitle} ${description || ''} ${job.location || ''}`
  );
@@ -6577,7 +6578,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!slug) return null;
  const href = buildPath({ activeTab: 'job-board' as any, jobSlug: slug }, locale);
  const url = `${origin}${href}`;
- const localizedTitle = job.titleByLocale?.[locale] || job.title || '';
+ const localizedTitle = jobDisplayTitle(job);
  const cleanTitle = sanitizeJobTitle(localizedTitle);
  const name = job.company
  ? `${cleanTitle} — ${job.company}`
@@ -6740,7 +6741,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // points to the current slug via bridge page mechanism).
  // Still update title/description for user experience.
  const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
- const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(selectedJob));
  // Prefer the offer LOCATION over the brand suffix: the city rides in the
  // headline and " | Frontaliere Ticino" is dropped first when over the cap.
  const prevSlugCity = isMultiLocation(selectedJob.location) ? '' : String(selectedJob.location || '').trim();
@@ -6770,7 +6771,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (selectedJob) {
  const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
- const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(selectedJob));
  // Prefer the offer LOCATION over the brand suffix: the city rides inside the
  // headline ("{role} — {company} a {city}") and " | Frontaliere Ticino" is the
  // first thing dropped when the title exceeds the SERP cap. Mirrors the static
@@ -6870,7 +6871,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  saveAuthJobContext({
  slug: focusedJob.slug || null,
  company: focusedJob.company || null,
- title: sanitizeJobTitle(focusedJob.titleByLocale?.[locale] ?? focusedJob.title),
+ title: sanitizeJobTitle(jobDisplayTitle(focusedJob)),
  location: focusedJob.location || focusedJob.addressLocality || null,
   category: focusedJob.category || null,
   searchQuery: searchQuery.trim() || null,
@@ -7430,7 +7431,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  /** Build tracking context for a job to enrich analytics events */
  const buildJobTrackingContext = (job: JobListing) => {
- const title = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const title = sanitizeJobTitle(jobDisplayTitle(job));
  const category = normalizeJobCategory(job);
  const location = job.location || '';
  // Extract up to 5 short keywords from title + category
@@ -7483,7 +7484,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ? {
  slug: focusedJob.slug || null,
  company: focusedJob.company || null,
- title: sanitizeJobTitle(focusedJob.titleByLocale?.[locale] ?? focusedJob.title) || null,
+ title: sanitizeJobTitle(jobDisplayTitle(focusedJob)) || null,
  location: focusedJob.location || null,
  category: normalizeJobCategory(focusedJob.category, focusedJob.title) || null,
  searchQuery: searchQuery.trim() || null,
@@ -7628,7 +7629,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     slug: job.slug,
     slugByLocale: job.slugByLocale,
     companyKey: job.companyKey,
-    title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+    title: sanitizeJobTitle(jobDisplayTitle(job)),
    },
    applicationMode,
    origin: typeof window !== 'undefined' ? window.location.pathname : '/',
@@ -7893,7 +7894,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyId: String(job.companyKey || job.company || 'unknown'),
     jobUrl: String(job.url || job.applyUrl || ''),
     companyName: String(job.company || ''),
-    jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+    jobTitle: sanitizeJobTitle(jobDisplayTitle(job)),
     companyLogo: assistedApplicationCompanyLogo(job),
     companyKey: String(job.companyKey || '').trim() || null,
     location: String(job.location || job.addressLocality || '').trim() || null,
@@ -8155,7 +8156,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleShare = async (job: JobListing) => {
  const url = `${window.location.origin}${buildJobPath(job)}`;
- const title = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const title = sanitizeJobTitle(jobDisplayTitle(job));
  try {
  if (navigator.share) {
  await navigator.share({ title, text: `${title} — ${job.company}`, url });
@@ -8550,7 +8551,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobId={String(assistedApplicationJob.id)}
     companyId={String(assistedApplicationJob.companyKey || assistedApplicationJob.company || 'unknown')}
     companyName={assistedApplicationJob.company}
-    jobTitle={sanitizeJobTitle(assistedApplicationJob.titleByLocale?.[locale] ?? assistedApplicationJob.title)}
+    jobTitle={sanitizeJobTitle(jobDisplayTitle(assistedApplicationJob))}
     variant={assistedApplicationVariant}
     copyVariant={assistedApplicationCopyVariant}
     onChooseExternal={handleAssistedExternal}
@@ -8573,7 +8574,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobId={String(rewardedApplicationJob.id)}
     companyId={String(rewardedApplicationJob.companyKey || rewardedApplicationJob.company || 'unknown')}
     companyName={rewardedApplicationJob.company}
-    jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
+    jobTitle={sanitizeJobTitle(jobDisplayTitle(rewardedApplicationJob))}
     copyVariant={assistedApplicationCopyVariant}
     onContinue={handleRewardedApplicationContinue}
     onUnavailable={handleRewardedApplicationUnavailable}
@@ -8623,7 +8624,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center gap-3 p-3 rounded-stripe bg-surface-alt border border-edge">
  <Briefcase size={16} className="text-accent flex-shrink-0" />
  <div className="min-w-0">
- <p className="text-sm font-semibold text-heading line-clamp-2">{sanitizeJobTitle(pendingJob.titleByLocale?.[locale] ?? pendingJob.title)}</p>
+ <p className="text-sm font-semibold text-heading line-clamp-2">{sanitizeJobTitle(jobDisplayTitle(pendingJob))}</p>
  <p className="text-sm text-muted line-clamp-2">{pendingJob.company}{pendingJob.location ? ` — ${pendingJob.location}` : ''}</p>
  </div>
  </div>
@@ -8724,7 +8725,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  saveAuthJobContext({
   slug: job.slug,
   company: job.company,
-  title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+  title: sanitizeJobTitle(jobDisplayTitle(job)),
   location: job.location,
   category: job.category,
   searchQuery: searchQuery.trim() || null,
@@ -9875,7 +9876,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return <SkeletonJobDetail />;
  }
  if (!hasAccess) {
- const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(selectedJob));
  const companyName = selectedJob.company;
  const jobLocation = selectedJob.location || '';
  const jobCategory = selectedJob.category || '';
@@ -10231,7 +10232,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  saveAuthJobContext({
   slug: job.slug,
   company: job.company,
-  title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+  title: sanitizeJobTitle(jobDisplayTitle(job)),
   location: job.location,
   category: job.category,
   searchQuery: searchQuery.trim() || null,
@@ -10414,7 +10415,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  <div className="min-w-0 flex-1">
  <h3 className="text-sm sm:text-base font-bold text-heading leading-tight">
- {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
+ {sanitizeJobTitle(jobDisplayTitle(job))}
  </h3>
  <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
  {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : formatJobLocation(job.location, job.canton)}
@@ -11316,7 +11317,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  <div className="min-w-0">
  <div className="text-sm font-bold text-heading line-clamp-2">
- {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
+ {sanitizeJobTitle(jobDisplayTitle(job))}
  </div>
  <div className="text-sm text-subtle mt-0.5">
  {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : job.location}
