@@ -48,9 +48,9 @@ const ledgerBody = `## Implementato
 - Appended the validated ledger batch.
 
 ## Non implementato (ancora)
-- Nothing else in questa PR — per scelta.
+- Nessuno
 `;
-const canonicalLedgerBody = ledgerBody.replace(/- Nothing else in this PR[^\n]*/u, '- Nessuno');
+const canonicalLedgerBody = ledgerBody;
 const ledgerReviewRevisionMarker = reviewInputMarker(reviewInputRevisionFromBody(canonicalLedgerBody));
 const ledgerHead = 'c'.repeat(40);
 const ledgerBase = 'd'.repeat(40);
@@ -298,6 +298,8 @@ describe('owner policy excluding test files from review', () => {
       '## Summary\n- done\n\n## Non implementato (ancora)\nNessuno',
       '## Implementato\n- done\n\n## Non implementato\nNessuno',
       '## Implementato\n- \n\n## Non implementato (ancora)\n- ',
+      '## Implementato\n- done\n\n## Non implementato (ancora)\n- Residuo senza stato',
+      '## Implementato\n- done\n\n## Non implementato (ancora)\n- Residuo — per scelta',
       '## Implementato\n- done\n\n## Non implementato (ancora)\nNessuno\nCloses #1 #2',
     ]) expect(isReviewBodyComplete(body)).toBe(false);
   });

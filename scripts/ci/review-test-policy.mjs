@@ -233,7 +233,9 @@ export function isReviewBodyComplete(body) {
     strictDecisionDeferrals: true,
     strictClaims: true,
   });
-  if (!sections.ok || sections.warnings.some((warning) => warning.type === 'bullet-without-state')) return false;
+  const completeWithoutResiduals = /^[-*+][ \t]+nessun[oa]?\.?$/iu.test(nonContent.trim());
+  if (!sections.ok || (sections.warnings.some((warning) => warning.type === 'bullet-without-state')
+    && !completeWithoutResiduals)) return false;
   const closes = checkClosesLines(body);
   return closes.ok && !MULTI_CLOSE_RE.test(stripBodyNonContent(body));
 }
