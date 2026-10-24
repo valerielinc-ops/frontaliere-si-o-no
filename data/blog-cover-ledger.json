@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 821,
+      "5": 822,
       "6": 5054
     },
-    "publishedCovers": 7558,
+    "publishedCovers": 7559,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207800,6 +207800,39 @@
         "provider": "openai-codex",
         "assetId": "article-grand-conseil-27-ottobre",
         "imageUrl": "/images/blog/article-grand-conseil-27-ottobre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-prezzi-pompa-non-calano-svizzera": {
+      "cover": "/images/blog/article-prezzi-pompa-non-calano-svizzera.webp",
+      "hash": "b3f7808cf7f1d525fd0b6f0adad459fb43236c1fe5cb1dab8889c01c36b494be",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "prezzi-pompa-non-calano-svizzera",
+          "category": "pratico",
+          "date": "2026-10-24T04:24:26.071Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-prezzi-pompa-non-calano-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-prezzi-pompa-non-calano-svizzera",
+        "imageUrl": "/images/blog/article-prezzi-pompa-non-calano-svizzera.webp",
         "evidence": "generated-engine-record"
       }
     }

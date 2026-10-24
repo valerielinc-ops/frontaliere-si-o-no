@@ -8606,6 +8606,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iva-aumento-pensione-sondaggio.title': 'VAT increase for additional pensions: 49% opposed in the first poll',
     'blog.article.iva-aumento-pensione-sondaggio.excerpt': '49% against, 46% in favour and 5% undecided.',
     'blog.article.iva-aumento-pensione-sondaggio.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.prezzi-pompa-non-calano-svizzera.title': 'Pump prices are not falling in Switzerland: refining constraints and the Rhine',
+    'blog.article.prezzi-pompa-non-calano-svizzera.excerpt': 'Flows from Hormuz remain 30-40% lower.',
+    'blog.article.prezzi-pompa-non-calano-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

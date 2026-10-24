@@ -8606,6 +8606,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iva-aumento-pensione-sondaggio.title': 'Aumento IVA per extra pensione: 49% contrari nel primo sondaggio',
     'blog.article.iva-aumento-pensione-sondaggio.excerpt': '49% contrari, 46% favorevoli e 5% indecisi.',
     'blog.article.iva-aumento-pensione-sondaggio.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.prezzi-pompa-non-calano-svizzera.title': 'Prezzi pompa non calano in Svizzera: vincoli raffinazione e Reno',
+    'blog.article.prezzi-pompa-non-calano-svizzera.excerpt': 'I flussi da Hormuz restano inferiori del 30-40%.',
+    'blog.article.prezzi-pompa-non-calano-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

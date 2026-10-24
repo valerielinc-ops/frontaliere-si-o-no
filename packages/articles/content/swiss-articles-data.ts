@@ -28791,6 +28791,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'prezzi-pompa-non-calano-svizzera',
+    category: 'pratico',
+    date: '2026-10-24T04:24:26.071Z',
+    image: '/images/blog/article-prezzi-pompa-non-calano-svizzera.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
