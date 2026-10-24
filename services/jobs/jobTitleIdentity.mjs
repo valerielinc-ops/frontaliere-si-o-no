@@ -152,3 +152,32 @@ export function localeTitleDropsSourceWords(localeTitle, sourceTitle) {
   }
   return false;
 }
+
+/**
+ * The title a locale slug is derived from: the localized title, unless it is a
+ * truncation of the source (`localeTitleDropsSourceWords`), in which case the
+ * source title — a slug must never lose the trade the employer wrote.
+ *
+ * Every title→slug writer uses this one function (regenerate-slugs-by-locale,
+ * hardenJobLocaleFields, ensureLocaleFields) so they derive the same slug and
+ * cannot undo each other's repair.
+ *
+ * @param {string} localeTitle
+ * @param {string} sourceTitle
+ * @returns {string}
+ */
+export function losslessSlugTitle(localeTitle, sourceTitle) {
+  return localeTitleDropsSourceWords(localeTitle, sourceTitle) ? clean(sourceTitle) : String(localeTitle || '');
+}
+
+/**
+ * True when a locale slug (company/location tokens removed by the caller) is
+ * a truncation of the source title — `m1-m2` for "Macchinista M1, M2,M3".
+ *
+ * @param {string} slugTitlePart  slug title tokens, any separator
+ * @param {string} sourceTitle
+ * @returns {boolean}
+ */
+export function slugDropsSourceWords(slugTitlePart, sourceTitle) {
+  return localeTitleDropsSourceWords(String(slugTitlePart || '').replace(/-/g, ' '), sourceTitle);
+}

@@ -1,6 +1,7 @@
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { PART_TIME_MAX_WORKLOAD, workloadPercent } from './employment-workload.mjs';
 import { repairJobTranslationSemanticsInPlace } from './job-title-semantic-repair.mjs';
+import { losslessSlugTitle, slugDropsSourceWords } from '../../services/jobs/jobTitleIdentity.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
@@ -1832,8 +1833,13 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
       // locales (slug still matches untranslated base or contains foreign words).
       {
         const existingSlug = String(job.slugByLocale[locale] || '').trim();
-        const localizedTitle = String(job.titleByLocale[locale] || '').trim();
         const isSourceLocale = locale === titleSourceLang;
+        // A truncated translation ("M1, M2" for "Macchinista M1, M2,M3") never
+        // feeds a slug: derive from the employer's title instead, the same
+        // rule regenerate-slugs-by-locale.mjs applies, so the writers converge.
+        const localizedTitle = isSourceLocale
+          ? String(job.titleByLocale[locale] || '').trim()
+          : losslessSlugTitle(String(job.titleByLocale[locale] || '').trim(), baseTitle).trim();
         // ── Registry pin (root-cause fix for AI-translation slug drift) ──────
         // Evaluated for EVERY registered locale, independent of the stale-slug
         // heuristic below. AI title translation is non-deterministic, so a
@@ -2007,7 +2013,11 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
         }
         continue;
       }
-      const localizedTitle = String(job.titleByLocale[locale] || '').trim();
+      // Lossless slug title (see the stale-slug pass above): a truncated
+      // translation is replaced by the employer's title before deriving.
+      const localizedTitle = locale === titleSourceLang
+        ? String(job.titleByLocale[locale] || '').trim()
+        : losslessSlugTitle(String(job.titleByLocale[locale] || '').trim(), baseTitle).trim();
       const localizedSlug = String(job.slugByLocale[locale] || '').trim();
       if (!localizedTitle) continue;
 
@@ -6412,6 +6422,9 @@ export function sourceSlugPinContext(job, srcLang) { // eslint-disable-line no-u
     company: String(job?.company || '').trim(),
     location: String(job?.addressLocality || job?.location || '').trim(),
     disambiguator: String(job?.slugDisambiguator || '').trim(),
+    // The employer's title: lets the truncation guard below see a pin that
+    // dropped the trade (`m1-m2-pemsa-lugano` for "Macchinista M1, M2,M3").
+    sourceTitle: String(job?.title || '').trim(),
   };
 }
 
@@ -6459,6 +6472,25 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang, opts = 
     for (const [otherLocale, otherValue] of Object.entries(registered.slugByLocale)) {
       if (otherLocale === locale) continue;
       if (normalizeSpace(String(otherValue || '')) === regLoc) return null;
+    }
+  }
+
+  // Truncation guard: a non-source pin whose title part only DROPS words of
+  // the employer's title (the trade) is not a translation — it is the slug of
+  // a truncated machine translation ("M1, M2" for "Macchinista M1, M2,M3" →
+  // `m1-m2-pemsa-lugano`). Pinning it would freeze the lost trade into the URL
+  // forever; refusing it lets the title→slug writers re-derive from the
+  // lossless title (services/jobs/jobTitleIdentity.mjs#losslessSlugTitle), the
+  // old slug bridged via previousSlugs. A real translation always introduces
+  // a word of its own and is never refused here.
+  {
+    const srcTitle = String(opts?.sourceTitle || (src && opts?.titleByLocale?.[src]) || '').trim();
+    if (src && locale !== src && srcTitle) {
+      const pinNoise = new Set(slugify(
+        `${opts.company || ''} ${opts.location || ''} ${opts.disambiguator || ''}`,
+      ).split('-').filter(Boolean));
+      const pinTitlePart = regLoc.split('-').filter((t) => t && !pinNoise.has(t)).join(' ');
+      if (slugDropsSourceWords(pinTitlePart, srcTitle)) return null;
     }
   }
 

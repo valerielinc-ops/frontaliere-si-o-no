@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { localeTitleDropsSourceWords } from '../../services/jobs/jobTitleIdentity.mjs';
 import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 /**
@@ -2485,7 +2486,13 @@ export function ensureLocaleFields(job) {
     // Heuristic may only partially translate (e.g. "Ingegnere" → "Engineer" but
     // leaves "edile" untranslated), producing worse slugs than AI titles.
     // Only use heuristic when there's no AI-translated title available.
-    const slugSourceTitle = localeHasTranslatedTitle ? rawLocaleTitle : localizedTitle;
+    // A truncated translation ("M1, M2" for "Macchinista M1, M2,M3") is
+    // replaced by the employer's title: the slug never loses the trade
+    // (services/jobs/jobTitleIdentity.mjs, shared with the other slug writers).
+    const localeTitleIsTruncation = localeTitleDropsSourceWords(rawLocaleTitle, sourceTitle);
+    const slugSourceTitle = localeTitleIsTruncation
+      ? sourceTitle
+      : (localeHasTranslatedTitle ? rawLocaleTitle : localizedTitle);
     const hashSuffix = stableSlugHash(out);
     const derivedSlug =
       slugify(`${slugSourceTitle}-${out.company || ''}-${out.location || ''}`) ||
@@ -2502,6 +2509,8 @@ export function ensureLocaleFields(job) {
     })();
     const shouldRegenerateLocalizedSlug =
       locale !== 'it' &&
+      // A copy of the IT slug is the INTENDED state of a truncated slot.
+      !localeTitleIsTruncation &&
       currentSlug &&
       baseItSlug &&
       (
