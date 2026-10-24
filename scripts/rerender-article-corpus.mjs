@@ -73,6 +73,7 @@
 //
 // Internal (worker mode — spawned by this same file, never invoke directly):
 //   --worker-section <name> --worker-ids-file <path> --worker-out <dir> --worker-result <path>
+//   [--worker-hero-sizes <path>]  (JSON map hero path -> served size, see remote-hero-sizes.mjs)
 
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
@@ -86,10 +87,8 @@ import {
   decideCorpusOverlayMode,
   prepareCorpusContentOverlay,
 } from './lib/article-corpus-overlay.mjs';
-import {
-  filterEntriesByImagePostcondition,
-  restoreDeclaredImageRefs,
-} from './lib/article-image-postcondition.mjs';
+import { filterEntriesByImagePostcondition } from './lib/article-image-postcondition.mjs';
+import { probeRemoteHeroSizes } from './lib/remote-hero-sizes.mjs';
 import { CDN_ASSET_ORIGIN } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
 
 const SELF_PATH = fileURLToPath(import.meta.url);
@@ -122,6 +121,7 @@ function parseArgs(argv) {
     workerIdsFile: undefined,
     workerOut: undefined,
     workerResult: undefined,
+    workerHeroSizes: undefined,
   };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -139,6 +139,7 @@ function parseArgs(argv) {
     else if (a === '--worker-ids-file') out.workerIdsFile = argv[++i];
     else if (a === '--worker-out') out.workerOut = argv[++i];
     else if (a === '--worker-result') out.workerResult = argv[++i];
+    else if (a === '--worker-hero-sizes') out.workerHeroSizes = argv[++i];
   }
   if (!['frontaliere', 'svizzera', 'all'].includes(out.section)) {
     console.error(`[rerender-article-corpus] --section must be frontaliere|svizzera|all, got "${out.section}"`);
@@ -211,28 +212,6 @@ function readEntryHtml(distDir, entries) {
   return htmlByPath;
 }
 
-function restoreDeclaredImagesInEntries(distDir, entries, declaredImages) {
-  let rewrittenFiles = 0;
-  for (const entry of entries) {
-    const declaredImage = declaredImages[entry.articleId] ?? null;
-    if (!declaredImage) continue;
-    const paths = [
-      ...Object.values(entry.paths || {}),
-      ...Object.values(entry.flatPaths || {}),
-    ].filter(Boolean);
-    for (const rel of paths) {
-      const abs = path.join(distDir, rel);
-      if (!fs.existsSync(abs)) continue;
-      const before = fs.readFileSync(abs, 'utf-8');
-      const after = restoreDeclaredImageRefs(before, declaredImage);
-      if (after === before) continue;
-      fs.writeFileSync(abs, after, 'utf-8');
-      rewrittenFiles += 1;
-    }
-  }
-  return rewrittenFiles;
-}
-
 // Id enumeration is imported from build-plugins/shared/articleSectionDescriptors.ts
 // (`enumerateSectionArticleIds`). The drift audit uses that module's narrower
 // `enumerateRenderableSectionArticleIds` population because body-only chunks
@@ -245,7 +224,7 @@ function restoreDeclaredImagesInEntries(distDir, entries, declaredImages) {
 // mode below, after all of a section's batches are on disk — it is a
 // stateless whole-dist walker (see its own header comment), so running it
 // once at the end is equivalent to, and cheaper than, running it per batch.
-async function renderBatchWorker(sectionName, idsFile, distDir, resultFile) {
+async function renderBatchWorker(sectionName, idsFile, distDir, resultFile, heroSizesFile) {
   // See publish-article-fast.mjs for why both env vars must be set before the
   // first import of ogPagesPlugin.ts/constants.ts below (module-load-time
   // evaluation, required for byte-identity with the real deploy build).
@@ -253,6 +232,7 @@ async function renderBatchWorker(sectionName, idsFile, distDir, resultFile) {
   process.env.TZ = 'UTC';
 
   const ids = JSON.parse(fs.readFileSync(idsFile, 'utf-8'));
+  const remoteHeroSizes = heroSizesFile ? JSON.parse(fs.readFileSync(heroSizesFile, 'utf-8')) : {};
   fs.mkdirSync(distDir, { recursive: true });
 
   // Step 0: make public/images visible to resolveImagePath's existence
@@ -273,6 +253,7 @@ async function renderBatchWorker(sectionName, idsFile, distDir, resultFile) {
     distDir,
     section: sectionName,
     onlyArticleIds: ids,
+    remoteHeroSizes,
   });
 
   fs.rmSync(scratchImagesLink, { force: true });
@@ -360,6 +341,27 @@ async function runOrchestrator(args) {
     const allEntries = [];
     const workDir = fs.mkdtempSync(path.join(os.tmpdir(), `rerender-corpus-work-${section.name}-`));
     let sectionFailed = false;
+
+    // The renderer deliberately runs from a sparse checkout without
+    // `public/images/`. Measure the registry-declared heroes from the bytes
+    // the site serves and hand the sizes to the renderer, so a hero absent
+    // from disk resolves like it does in the full build (absolute CDN
+    // og:image, real MIME and size, credits) instead of falling back to
+    // `/og-image.png`. An unmeasurable hero stays out of the map and its page
+    // is withheld by the image postcondition below: the live copy stays.
+    const declaredImages = await readSiteDeclaredImages(section.name, ids);
+    const heroProbe = await probeRemoteHeroSizes(Object.values(declaredImages), {
+      publicDir: path.join(ROOT_DIR, 'public'),
+    });
+    const heroSizesFile = path.join(workDir, 'remote-hero-sizes.json');
+    fs.writeFileSync(heroSizesFile, JSON.stringify(heroProbe.sizes), 'utf-8');
+    console.log(
+      `[rerender-article-corpus] section=${section.name} heroes: ${heroProbe.local} on disk, ` +
+        `${Object.keys(heroProbe.sizes).length}/${heroProbe.probed} measured from the served bytes`,
+    );
+    for (const miss of heroProbe.failed.slice(0, 10)) {
+      console.error(`[rerender-article-corpus] section=${section.name} hero not measurable: ${miss.url} (${miss.reason})`);
+    }
     try {
       for (let i = 0; i < batches.length; i++) {
         const batchIds = batches[i];
@@ -375,6 +377,7 @@ async function runOrchestrator(args) {
             '--worker-ids-file', idsFile,
             '--worker-out', distDir,
             '--worker-result', resultFile,
+            '--worker-hero-sizes', heroSizesFile,
           ],
           { stdio: 'inherit', env: process.env },
         );
@@ -400,18 +403,6 @@ async function runOrchestrator(args) {
     }
 
     if (sectionFailed) continue;
-
-    // The renderer deliberately runs from a sparse checkout without
-    // `public/images/`. Restore the registry-declared hero path before the
-    // offload and image postcondition passes so a metadata-only rerender does
-    // not turn a live editorial image into the generic fallback.
-    const declaredImages = await readSiteDeclaredImages(section.name, ids);
-    const restoredImageFiles = restoreDeclaredImagesInEntries(distDir, allEntries, declaredImages);
-    if (restoredImageFiles > 0) {
-      console.log(
-        `[rerender-article-corpus] section=${section.name} restored declared hero refs in ${restoredImageFiles} page file(s)`,
-      );
-    }
 
     // Step 6 (offload-generated-images-cdn.mjs), ONCE for this section's
     // whole accumulated scratch dist — see renderBatchWorker's comment above.
@@ -558,7 +549,7 @@ async function main() {
       console.error('[rerender-article-corpus] worker mode requires --worker-section, --worker-ids-file, --worker-out and --worker-result');
       process.exit(1);
     }
-    await renderBatchWorker(args.workerSection, args.workerIdsFile, args.workerOut, args.workerResult);
+    await renderBatchWorker(args.workerSection, args.workerIdsFile, args.workerOut, args.workerResult, args.workerHeroSizes);
     return;
   }
 

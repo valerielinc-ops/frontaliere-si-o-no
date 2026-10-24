@@ -1,7 +1,7 @@
 {
   "key": "asile-des-aveugles",
   "label": "Fondation Asile des aveugles",
-  "generatedAt": "2026-10-23T21:23:31.116Z",
+  "generatedAt": "2026-10-24T09:54:57.406Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5625,
-  "avgDurationMs": 5625,
+  "durationMs": 5978,
+  "avgDurationMs": 5978,
   "durationHistory": [
-    5625
+    5978
   ],
   "newJobs": [
     {
@@ -37,7 +37,7 @@
       "applyUrl": "https://emploi.ophtalmique.ch/?page=personal_information&rrid=1919",
       "source": "Fondation Asile des aveugles official careers platform (emploi.ophtalmique.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:23:18.080Z",
+      "crawledAt": "2026-10-24T09:54:41.234Z",
       "streetAddress": "Avenue de France 15",
       "postalCode": "1003",
       "addressLocality": "Lausanne",
@@ -58,7 +58,7 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-23T21:23:18.080Z",
+      "firstSeenAt": "2026-10-24T09:54:41.234Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -71,5 +71,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

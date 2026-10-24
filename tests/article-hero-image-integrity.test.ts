@@ -35,6 +35,7 @@ import zlib from 'node:zlib';
 
 import { renderArticlePages } from '../build-plugins/ogPagesPlugin';
 import { readImageIntrinsicSize } from '../packages/articles/engine/shared/imageIntrinsicSize';
+import { hasBlogImageLeak, rewriteBlogImageRefs } from '../packages/articles/engine/blogImageCdnFinalize';
 import { coverKey } from '../packages/articles/engine/shared/imageCredits.mjs';
 import {
   ARTICLE_SECTION_DESCRIPTORS,
@@ -214,6 +215,61 @@ describe('article hero <img> always points at a real image file (#5001)', () => 
         }
       }
 
+      expect(offenders.slice(0, 10).join('\n'), `${offenders.length}/${pages.length} pages`).toBe('');
+    } finally {
+      fs.rmSync(distDir, { recursive: true, force: true });
+    }
+  }, 300_000);
+});
+
+describe('a sparse re-render resolves served heroes like the full build (2026-10-24)', () => {
+  // rerender-article-corpus.mjs renders from a checkout WITHOUT public/images.
+  // Before `remoteHeroSizes` every hero fell back to /og-image.png and #14902
+  // string-patched the registry path back in AFTER the CDN rewrite: live on
+  // 2026-10-24, 51/80 sampled article pages (all frontaliere) shipped a
+  // site-relative /images/blog/<file> in og:image, twitter:image, JSON-LD and
+  // the hero <img> — a URL the origin answers with 404 — plus image/jpeg for a
+  // .webp and a guessed 1200x675. Here NO hero file is on disk; the renderer
+  // only gets the served sizes, and must emit what the full build emits.
+  it('emits an absolute og:image on the real hero, with its MIME and size', async () => {
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hero-remote-'));
+    try {
+      writeFixture(distDir, '/og-image.png', pngBytes(1200, 630));
+      const remoteHeroSizes: Record<string, { width: number; height: number }> = {};
+      for (const rel of heroCandidatePaths()) remoteHeroSizes[rel] = { width: FIXTURE_WIDTH, height: FIXTURE_HEIGHT };
+
+      const { entries } = await renderArticlePages({ rootDir, distDir, section: 'svizzera', remoteHeroSizes });
+      const pages = readEmitted(distDir, entries);
+      expect(pages.length).toBeGreaterThan(0);
+
+      const mimeOf = (p: string): string => (/\.webp$/i.test(p) ? 'image/webp' : 'image/jpeg');
+      const offenders: string[] = [];
+      let resolvedRemotely = 0;
+      for (const { rel, html: raw } of pages) {
+        const html = rewriteBlogImageRefs(raw);
+        const og = metaContent(html, 'og:image') ?? '';
+        if (pathOf(og) === '/og-image.png') continue; // no declared hero for this article: not this case
+        resolvedRemotely += 1;
+        if (!/^https:\/\//.test(og)) offenders.push(`${rel}: og:image is not absolute (${og})`);
+        if (hasBlogImageLeak(html)) offenders.push(`${rel}: a same-origin blog hero survived the CDN rewrite`);
+        const type = metaContent(html, 'og:image:type');
+        if (type !== mimeOf(pathOf(og))) offenders.push(`${rel}: og:image:type ${type} for ${pathOf(og)}`);
+        const ogW = Number(metaContent(html, 'og:image:width'));
+        const ogH = Number(metaContent(html, 'og:image:height'));
+        if (ogW !== FIXTURE_WIDTH || ogH !== FIXTURE_HEIGHT) offenders.push(`${rel}: og:image says ${ogW}x${ogH}`);
+        const tag = html.match(HERO_IMG_RX)?.[0];
+        if (!tag) { offenders.push(`${rel}: no hero <img>`); continue; }
+        const a = attrs(tag);
+        if (pathOf(a.src ?? '') !== pathOf(og)) offenders.push(`${rel}: <img> ${a.src} != og:image ${og}`);
+        if (Number(a.width) !== FIXTURE_WIDTH || Number(a.height) !== FIXTURE_HEIGHT) offenders.push(`${rel}: <img> says ${a.width}x${a.height}`);
+        for (const ld of jsonLdImages(html)) {
+          if (!ld.url || pathOf(ld.url) !== pathOf(og)) continue; // logo / other ImageObjects
+          if (!/^https:\/\//.test(ld.url)) offenders.push(`${rel}: JSON-LD image not absolute (${ld.url})`);
+          if (ld.width !== FIXTURE_WIDTH || ld.height !== FIXTURE_HEIGHT) offenders.push(`${rel}: JSON-LD says ${ld.width}x${ld.height}`);
+        }
+      }
+      // The case under test must actually occur, or the loop above proves nothing.
+      expect(resolvedRemotely, 'no page resolved its hero from remoteHeroSizes').toBeGreaterThan(pages.length / 2);
       expect(offenders.slice(0, 10).join('\n'), `${offenders.length}/${pages.length} pages`).toBe('');
     } finally {
       fs.rmSync(distDir, { recursive: true, force: true });

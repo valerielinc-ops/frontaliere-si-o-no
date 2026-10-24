@@ -198,15 +198,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Come si calcola la pensione AVS per un frontaliere?": {
  en: {
  q: "How is the AVS pension calculated for a cross-border worker?",
- a: "The AVS pension is based on contribution years and average career income. A full pension (44 years of contributions) ranges from CHF 1,260 to CHF 2,520/month (2026). Missing years reduce the pension by 1/44 per gap year. Swiss and Italian contribution periods can be totalized under the bilateral agreement. According to Andrea Fiorini, pension planning consultant: 'Even a few years of AVS contributions generate pension rights thanks to totalization with INPS periods'."
+ a: "The AVS pension is based on contribution years and average career income. A full pension (44 years of contributions) ranges from CHF 1,260 to CHF 2,520/month (2026). Missing years reduce the pension by 1/44 per gap year. Swiss and Italian contribution periods can be totalized under the bilateral agreement. Even a few years of AVS contributions generate pension rights thanks to totalization with INPS periods."
  },
  de: {
  q: "Wie wird die AHV-Rente für einen Grenzgänger berechnet?",
- a: "Die AHV-Rente basiert auf Beitragsjahren und dem durchschnittlichen Karriereeinkommen. Eine Vollrente (44 Beitragsjahre) liegt zwischen CHF 1.260 und CHF 2.520/Monat (2026). Fehlende Jahre reduzieren die Rente um 1/44 pro Lückenjahr. Schweizerische und italienische Beitragszeiten können gemäss dem bilateralen Abkommen zusammengerechnet werden. Wie Andrea Fiorini, Vorsorgeberater, erklärt: «Selbst wenige Jahre AHV-Beiträge begründen dank der Zusammenrechnung mit INPS-Zeiten einen Rentenanspruch»."
+ a: "Die AHV-Rente basiert auf Beitragsjahren und dem durchschnittlichen Karriereeinkommen. Eine Vollrente (44 Beitragsjahre) liegt zwischen CHF 1.260 und CHF 2.520/Monat (2026). Fehlende Jahre reduzieren die Rente um 1/44 pro Lückenjahr. Schweizerische und italienische Beitragszeiten können gemäss dem bilateralen Abkommen zusammengerechnet werden. Selbst wenige Jahre AHV-Beiträge begründen dank der Zusammenrechnung mit INPS-Zeiten einen Rentenanspruch."
  },
  fr: {
  q: "Comment la rente AVS est-elle calculée pour un frontalier ?",
- a: "La rente AVS est basée sur les années de cotisation et le revenu moyen de carrière. Une rente complète (44 ans de cotisations) varie de CHF 1 260 à CHF 2 520/mois (2026). Les années manquantes réduisent la rente de 1/44 par année lacunaire. Les périodes de cotisation suisses et italiennes peuvent être totalisées en vertu de l'accord bilatéral. Comme l'explique Andrea Fiorini, conseiller en prévoyance: «Même quelques années de cotisations AVS génèrent un droit à la retraite grâce à la totalisation avec les périodes INPS»."
+ a: "La rente AVS est basée sur les années de cotisation et le revenu moyen de carrière. Une rente complète (44 ans de cotisations) varie de CHF 1 260 à CHF 2 520/mois (2026). Les années manquantes réduisent la rente de 1/44 par année lacunaire. Les périodes de cotisation suisses et italiennes peuvent être totalisées en vertu de l'accord bilatéral. Même quelques années de cotisations AVS génèrent un droit à la retraite grâce à la totalisation avec les périodes INPS."
  }
  },
 
@@ -214,15 +214,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Posso riscuotere il secondo pilastro LPP quando lascio la Svizzera?": {
  en: {
  q: "Can I withdraw my 2nd pillar (LPP) when I leave Switzerland?",
- a: "If you permanently leave Switzerland for an EU country, you can withdraw the extra-mandatory portion of the 2nd pillar. The mandatory portion is frozen in a vested benefits account (conto di libero passaggio) until the legal retirement age. If you leave for a non-EU country, the entire capital can be withdrawn. According to Andrea Fiorini, pension planning consultant: 'Before withdrawal, it is essential to evaluate the taxation in the canton where the pension fund is domiciled, as rates vary significantly'."
+ a: "If you permanently leave Switzerland for an EU country, you can withdraw the extra-mandatory portion of the 2nd pillar. The mandatory portion is frozen in a vested benefits account (conto di libero passaggio) until the legal retirement age. If you leave for a non-EU country, the entire capital can be withdrawn. Before withdrawal, it is essential to evaluate the taxation in the canton where the pension fund is domiciled, as rates vary significantly."
  },
  de: {
  q: "Kann ich die 2. Säule (BVG) abheben, wenn ich die Schweiz verlasse?",
- a: "Bei dauerhaftem Wegzug in ein EU-Land können Sie den überobligatorischen Teil der 2. Säule beziehen. Der obligatorische Teil wird auf einem Freizügigkeitskonto eingefroren, bis das gesetzliche Rentenalter erreicht ist. Bei Wegzug in ein Nicht-EU-Land kann das gesamte Kapital bezogen werden. Wie Andrea Fiorini, Vorsorgeberater, erklärt: «Vor dem Bezug ist es wichtig, die Besteuerung im Sitzkanton der Pensionskasse zu prüfen, da die Sätze erheblich variieren»."
+ a: "Bei dauerhaftem Wegzug in ein EU-Land können Sie den überobligatorischen Teil der 2. Säule beziehen. Der obligatorische Teil wird auf einem Freizügigkeitskonto eingefroren, bis das gesetzliche Rentenalter erreicht ist. Bei Wegzug in ein Nicht-EU-Land kann das gesamte Kapital bezogen werden. Vor dem Bezug ist es wichtig, die Besteuerung im Sitzkanton der Pensionskasse zu prüfen, da die Sätze erheblich variieren."
  },
  fr: {
  q: "Puis-je retirer mon 2e pilier (LPP) en quittant la Suisse ?",
- a: "Si vous quittez définitivement la Suisse pour un pays de l'UE, vous pouvez retirer la part surobligatoire du 2e pilier. La part obligatoire est gelée sur un compte de libre passage jusqu'à l'âge légal de la retraite. En cas de départ vers un pays hors UE, la totalité du capital peut être retirée. Comme l'explique Andrea Fiorini, conseiller en prévoyance: «Avant le retrait, il est essentiel d'évaluer la fiscalité dans le canton de domicile de la caisse de pension, car les taux varient considérablement»."
+ a: "Si vous quittez définitivement la Suisse pour un pays de l'UE, vous pouvez retirer la part surobligatoire du 2e pilier. La part obligatoire est gelée sur un compte de libre passage jusqu'à l'âge légal de la retraite. En cas de départ vers un pays hors UE, la totalité du capital peut être retirée. Avant le retrait, il est essentiel d'évaluer la fiscalité dans le canton de domicile de la caisse de pension, car les taux varient considérablement."
  }
  },
 
@@ -598,15 +598,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Un frontaliere licenziato in Svizzera prende la disoccupazione in Italia o in Svizzera?": {
  en: {
  q: "Does a cross-border worker laid off in Switzerland receive unemployment in Italy or Switzerland?",
- a: "A G-permit cross-border worker who loses their job in Switzerland receives unemployment benefits in Italy (NASpI), not in Switzerland. EU Regulation 883/2004 provides that cross-border workers in total unemployment are the responsibility of the country of residence. According to Prof. Roberto Bentivoglio, Professor of Labor Law at USI: 'The cross-border worker must immediately request the PD U1 form in Switzerland to avoid losing the right to NASpI'."
+ a: "A G-permit cross-border worker who loses their job in Switzerland receives unemployment benefits in Italy (NASpI), not in Switzerland. EU Regulation 883/2004 provides that cross-border workers in total unemployment are the responsibility of the country of residence. The cross-border worker must immediately request the PD U1 form in Switzerland to avoid losing the right to NASpI."
  },
  de: {
  q: "Erhält ein in der Schweiz entlassener Grenzgänger Arbeitslosengeld in Italien oder der Schweiz?",
- a: "Ein Grenzgänger mit G-Bewilligung, der in der Schweiz seine Arbeit verliert, erhält Arbeitslosengeld in Italien (NASpI), nicht in der Schweiz. Die EU-Verordnung 883/2004 sieht vor, dass Grenzgänger bei Vollarbeitslosigkeit vom Wohnsitzstaat betreut werden. Wie Prof. Roberto Bentivoglio, Professor für Arbeitsrecht an der USI, erklärt: «Der Grenzgänger muss das Formular PD U1 sofort in der Schweiz beantragen, um den NASpI-Anspruch nicht zu verlieren»."
+ a: "Ein Grenzgänger mit G-Bewilligung, der in der Schweiz seine Arbeit verliert, erhält Arbeitslosengeld in Italien (NASpI), nicht in der Schweiz. Die EU-Verordnung 883/2004 sieht vor, dass Grenzgänger bei Vollarbeitslosigkeit vom Wohnsitzstaat betreut werden. Der Grenzgänger muss das Formular PD U1 sofort in der Schweiz beantragen, um den NASpI-Anspruch nicht zu verlieren."
  },
  fr: {
  q: "Un frontalier licencié en Suisse perçoit-il le chômage en Italie ou en Suisse ?",
- a: "Un frontalier titulaire d'un permis G qui perd son emploi en Suisse perçoit les allocations chômage en Italie (NASpI), et non en Suisse. Le règlement UE 883/2004 prévoit que les travailleurs frontaliers en chômage complet relèvent du pays de résidence. Comme l'explique le Prof. Roberto Bentivoglio, professeur de droit du travail à l'USI: «Le frontalier doit immédiatement demander le formulaire PD U1 en Suisse pour ne pas perdre son droit à la NASpI»."
+ a: "Un frontalier titulaire d'un permis G qui perd son emploi en Suisse perçoit les allocations chômage en Italie (NASpI), et non en Suisse. Le règlement UE 883/2004 prévoit que les travailleurs frontaliers en chômage complet relèvent du pays de résidence. Le frontalier doit immédiatement demander le formulaire PD U1 en Suisse pour ne pas perdre son droit à la NASpI."
  }
  },
 
@@ -918,15 +918,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Come funziona il credito d'imposta per frontalieri?": {
  en: {
  q: "How does the tax credit for cross-border workers work?",
- a: "The tax credit avoids double taxation: taxes paid in Switzerland (withholding tax) are deducted from Italian IRPEF in Section CE of the tax return. The credit is limited to the Italian tax share corresponding to the foreign income. According to Elena Colombo, international tax accountant: 'It is essential to keep the Swiss salary certificate (Lohnausweis) as proof of the withholding tax paid'."
+ a: "The tax credit avoids double taxation: taxes paid in Switzerland (withholding tax) are deducted from Italian IRPEF in Section CE of the tax return. The credit is limited to the Italian tax share corresponding to the foreign income. It is essential to keep the Swiss salary certificate (Lohnausweis) as proof of the withholding tax paid."
  },
  de: {
  q: "Wie funktioniert die Steuergutschrift für Grenzgänger?",
- a: "Die Steuergutschrift vermeidet Doppelbesteuerung: In der Schweiz gezahlte Steuern (Quellensteuer) werden im Abschnitt CE der Steuererklärung von der italienischen IRPEF abgezogen. Die Gutschrift ist auf den italienischen Steueranteil begrenzt, der dem ausländischen Einkommen entspricht. Wie Elena Colombo, auf internationale Steuern spezialisierte Steuerberaterin, erklärt: «Es ist unerlässlich, den Schweizer Lohnausweis als Nachweis der bezahlten Quellensteuer aufzubewahren»."
+ a: "Die Steuergutschrift vermeidet Doppelbesteuerung: In der Schweiz gezahlte Steuern (Quellensteuer) werden im Abschnitt CE der Steuererklärung von der italienischen IRPEF abgezogen. Die Gutschrift ist auf den italienischen Steueranteil begrenzt, der dem ausländischen Einkommen entspricht. Es ist unerlässlich, den Schweizer Lohnausweis als Nachweis der bezahlten Quellensteuer aufzubewahren."
  },
  fr: {
  q: "Comment fonctionne le crédit d'impôt pour les frontaliers ?",
- a: "Le crédit d'impôt évite la double imposition : les impôts payés en Suisse (impôt à la source) sont déduits de l'IRPEF italienne dans la section CE de la déclaration fiscale. Le crédit est limité à la part d'impôt italien correspondant au revenu étranger. Comme l'explique Elena Colombo, comptable spécialisée en fiscalité internationale: «Il est essentiel de conserver le certificat de salaire suisse (Lohnausweis) comme preuve de l'impôt à la source payé»."
+ a: "Le crédit d'impôt évite la double imposition : les impôts payés en Suisse (impôt à la source) sont déduits de l'IRPEF italienne dans la section CE de la déclaration fiscale. Le crédit est limité à la part d'impôt italien correspondant au revenu étranger. Il est essentiel de conserver le certificat de salaire suisse (Lohnausweis) comme preuve de l'impôt à la source payé."
  }
  },
 
@@ -1286,15 +1286,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Come funziona il credito d'imposta nel quadro CE?": {
  en: {
  q: "How does the tax credit work in Section CE?",
- a: "In Section CE, you declare the Swiss withholding tax paid, converted to EUR at the annual average exchange rate. The tax credit reduces the IRPEF due, up to the limit: it can never exceed the Italian IRPEF calculated on the foreign income. According to Elena Colombo, international tax accountant: 'Any excess credit can be carried forward to the next eight tax returns'."
+ a: "In Section CE, you declare the Swiss withholding tax paid, converted to EUR at the annual average exchange rate. The tax credit reduces the IRPEF due, up to the limit: it can never exceed the Italian IRPEF calculated on the foreign income. Any excess credit can be carried forward to the next eight tax returns."
  },
  de: {
  q: "Wie funktioniert die Steuergutschrift im Abschnitt CE?",
- a: "Im Abschnitt CE wird die gezahlte Schweizer Quellensteuer angegeben, zum Jahresdurchschnittskurs in EUR umgerechnet. Die Steuergutschrift reduziert die geschuldete IRPEF bis zur Obergrenze: Sie kann nie die auf das ausländische Einkommen berechnete italienische IRPEF übersteigen. Wie Elena Colombo, auf internationale Steuern spezialisierte Steuerberaterin, erklärt: «Ein allfälliger Überschuss der Steuergutschrift kann in die nächsten acht Steuererklärungen vorgetragen werden»."
+ a: "Im Abschnitt CE wird die gezahlte Schweizer Quellensteuer angegeben, zum Jahresdurchschnittskurs in EUR umgerechnet. Die Steuergutschrift reduziert die geschuldete IRPEF bis zur Obergrenze: Sie kann nie die auf das ausländische Einkommen berechnete italienische IRPEF übersteigen. Ein allfälliger Überschuss der Steuergutschrift kann in die nächsten acht Steuererklärungen vorgetragen werden."
  },
  fr: {
  q: "Comment fonctionne le crédit d'impôt dans la section CE ?",
- a: "Dans la section CE, on déclare l'impôt à la source suisse payé, converti en EUR au taux de change moyen annuel. Le crédit d'impôt réduit l'IRPEF due, dans la limite : il ne peut jamais dépasser l'IRPEF italienne calculée sur le revenu étranger. Comme l'explique Elena Colombo, comptable spécialisée en fiscalité internationale: «L'éventuel excédent du crédit peut être reporté sur les huit déclarations suivantes»."
+ a: "Dans la section CE, on déclare l'impôt à la source suisse payé, converti en EUR au taux de change moyen annuel. Le crédit d'impôt réduit l'IRPEF due, dans la limite : il ne peut jamais dépasser l'IRPEF italienne calculée sur le revenu étranger. L'éventuel excédent du crédit peut être reporté sur les huit déclarations suivantes."
  }
  },
 
@@ -2224,15 +2224,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanti giorni festivi ci sono in Canton Ticino nel 2026?": {
  en: {
  q: "How many public holidays are there in Canton Ticino in 2026?",
- a: "Canton Ticino has 15 official public holidays in 2026, including federal holidays (New Year, 1st August) and cantonal ones (St Joseph, Corpus Christi, Saints Peter and Paul, Assumption, All Saints, Immaculate Conception)."
+ a: "Canton Ticino has 15 official public holidays in 2026, including Swiss National Day (1 August), New Year, Easter Monday and Christmas plus Catholic feast days (St Joseph, Corpus Christi, Saints Peter and Paul, Assumption, All Saints, Immaculate Conception)."
  },
  de: {
  q: "Wie viele Feiertage gibt es im Kanton Tessin im Jahr 2026?",
- a: "Der Kanton Tessin hat 2026 15 offizielle Feiertage, darunter Bundesfeiertage (Neujahr, 1. August) und kantonale Feiertage (Josefstag, Fronleichnam, Peter und Paul, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis)."
+ a: "Der Kanton Tessin hat 2026 15 offizielle Feiertage, darunter die Bundesfeier (1. August), Neujahr, Ostermontag und Weihnachten sowie typisch katholische Feiertage (Josefstag, Fronleichnam, Peter und Paul, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis)."
  },
  fr: {
  q: "Combien de jours fériés y a-t-il au Tessin en 2026 ?",
- a: "Le Tessin compte 15 jours fériés officiels en 2026, incluant les fêtes fédérales (Nouvel An, 1er août) et cantonales (Saint-Joseph, Fête-Dieu, Saints Pierre et Paul, Assomption, Toussaint, Immaculée Conception)."
+ a: "Le Tessin compte 15 jours fériés officiels en 2026, dont la Fête nationale (1er août), le Nouvel An, le lundi de Pâques et Noël ainsi que des fêtes catholiques (Saint-Joseph, Fête-Dieu, Saints Pierre et Paul, Assomption, Toussaint, Immaculée Conception)."
  }
  },
  "Le festività italiane valgono anche per chi lavora in Svizzera?": {
@@ -2267,15 +2267,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Cosa succede se un festivo cade di sabato o domenica in Svizzera?": {
  en: {
  q: "What happens if a public holiday falls on a Saturday or Sunday in Switzerland?",
- a: "In Switzerland, unlike Italy, if a public holiday falls on a Saturday or Sunday it is NOT recovered: the worker simply loses the benefit of the free day. In 2026 this applies to two important Ticino holidays: August 1st (Saturday) and August 15th — Assumption (Saturday). Only some sector CCLs provide a recovery day."
+ a: "In Switzerland, unlike Italy, if a public holiday falls on a Saturday or Sunday it is NOT recovered: the worker simply loses the benefit of the free day. In 2026 this applies to four Ticino holidays: August 1st and August 15th — Assumption (both Saturday), All Saints' Day (Sunday 1 November) and St Stephen's Day (Saturday 26 December). Only some sector CCLs provide a recovery day."
  },
  de: {
  q: "Was passiert, wenn ein Feiertag in der Schweiz auf einen Samstag oder Sonntag fällt?",
- a: "Anders als in Italien werden Feiertage in der Schweiz NICHT nachgeholt, wenn sie auf einen Samstag oder Sonntag fallen: Der freie Tag geht schlicht verloren. 2026 betrifft das zwei wichtige Tessiner Feiertage: den 1. August (Samstag) und den 15. August — Mariä Himmelfahrt (Samstag). Nur einige Branchen-GAV sehen einen Nachholtag vor."
+ a: "Anders als in Italien werden Feiertage in der Schweiz NICHT nachgeholt, wenn sie auf einen Samstag oder Sonntag fallen: Der freie Tag geht schlicht verloren. 2026 betrifft das vier Tessiner Feiertage: den 1. August und den 15. August — Mariä Himmelfahrt (beide Samstag), Allerheiligen (Sonntag, 1. November) und den Stephanstag (Samstag, 26. Dezember). Nur einige Branchen-GAV sehen einen Nachholtag vor."
  },
  fr: {
  q: "Que se passe-t-il si un jour férié tombe un samedi ou un dimanche en Suisse ?",
- a: "Contrairement à l'Italie, en Suisse un jour férié qui tombe un samedi ou un dimanche n'est PAS récupéré : le travailleur perd simplement le bénéfice du jour de congé. En 2026 cela concerne deux jours fériés tessinois importants : le 1er août (samedi) et le 15 août — Assomption (samedi). Seules certaines CCT sectorielles prévoient un jour de récupération."
+ a: "Contrairement à l'Italie, en Suisse un jour férié qui tombe un samedi ou un dimanche n'est PAS récupéré : le travailleur perd simplement le bénéfice du jour de congé. En 2026 cela concerne quatre jours fériés tessinois : le 1er août et le 15 août — Assomption (tous deux un samedi), la Toussaint (dimanche 1er novembre) et la Saint-Étienne (samedi 26 décembre). Seules certaines CCT sectorielles prévoient un jour de récupération."
  }
  },
  "Quali festività sono riconosciute in Ticino ma NON nel resto della Svizzera?": {
@@ -2295,15 +2295,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Le festività italiane (25 aprile, 2 giugno) valgono per il frontaliere?": {
  en: {
  q: "Do Italian public holidays (April 25th, June 2nd) apply to cross-border workers?",
- a: "No. Cross-border workers follow the Swiss/Ticino holiday calendar because the employment relationship is governed by Swiss labour law (lex loci laboris). Italian holidays (April 25th Liberation, June 2nd Republic Day, local patron saint, December 8th, etc.) are not recognised as non-working days by the Swiss employer: to stay home, the cross-border worker must use ordinary annual leave."
+ a: "No. Cross-border workers follow the Swiss/Ticino holiday calendar because the employment relationship is governed by Swiss labour law (lex loci laboris). Italian holidays (April 25th Liberation, June 2nd Republic Day, local patron saint, etc.) are not recognised as non-working days by the Swiss employer: to stay home, the cross-border worker must use ordinary annual leave."
  },
  de: {
  q: "Gelten italienische Feiertage (25. April, 2. Juni) für Grenzgänger?",
- a: "Nein. Grenzgänger richten sich nach dem Schweizer bzw. Tessiner Feiertagskalender, weil das Arbeitsverhältnis dem Schweizer Arbeitsrecht unterliegt (lex loci laboris). Italienische Feiertage (25. April Befreiungstag, 2. Juni Tag der Republik, Patronatsfest, 8. Dezember etc.) gelten beim Schweizer Arbeitgeber nicht als arbeitsfreie Tage: Wer zu Hause bleiben möchte, muss reguläre Ferien nehmen."
+ a: "Nein. Grenzgänger richten sich nach dem Schweizer bzw. Tessiner Feiertagskalender, weil das Arbeitsverhältnis dem Schweizer Arbeitsrecht unterliegt (lex loci laboris). Italienische Feiertage (25. April Befreiungstag, 2. Juni Tag der Republik, Patronatsfest etc.) gelten beim Schweizer Arbeitgeber nicht als arbeitsfreie Tage: Wer zu Hause bleiben möchte, muss reguläre Ferien nehmen."
  },
  fr: {
  q: "Les jours fériés italiens (25 avril, 2 juin) s'appliquent-ils au frontalier ?",
- a: "Non. Le frontalier suit le calendrier des jours fériés suisse/tessinois car la relation de travail est régie par le droit suisse (lex loci laboris). Les jours fériés italiens (25 avril Libération, 2 juin Fête de la République, saint patron, 8 décembre, etc.) ne sont pas reconnus comme jours non ouvrés par l'employeur suisse : pour rester à la maison, le frontalier doit prendre un jour de congé ordinaire."
+ a: "Non. Le frontalier suit le calendrier des jours fériés suisse/tessinois car la relation de travail est régie par le droit suisse (lex loci laboris). Les jours fériés italiens (25 avril Libération, 2 juin Fête de la République, saint patron, etc.) ne sont pas reconnus comme jours non ouvrés par l'employeur suisse : pour rester à la maison, le frontalier doit prendre un jour de congé ordinaire."
  }
  },
  "Come viene pagato il frontaliere nei giorni festivi in Ticino?": {
@@ -2337,15 +2337,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quali sono i ponti migliori per frontalieri nel 2026?": {
  en: {
  q: "What are the best long weekends for cross-border workers in 2026?",
- a: "The most convenient long weekends in 2026 are Easter (Good Friday + Easter Monday), Ascension (Thursday, one bridge day needed), and Corpus Christi (Thursday, one bridge day needed). Check our interactive calendar."
+ a: "The most convenient long weekends in 2026 are St Joseph's Day (Thursday 19 March, one bridge day needed), Easter (Saturday to Easter Monday; Good Friday is a working day in Ticino), Ascension (Thursday, one bridge day needed), and Corpus Christi (Thursday, one bridge day needed). Check our interactive calendar."
  },
  de: {
  q: "Welche Brückentage sind 2026 für Grenzgänger am günstigsten?",
- a: "Die günstigsten Brückentage 2026 sind Ostern (Karfreitag + Ostermontag), Auffahrt (Donnerstag, ein Brückentag nötig) und Fronleichnam (Donnerstag, ein Brückentag nötig). Schauen Sie in unseren interaktiven Kalender."
+ a: "Die günstigsten Brückentage 2026 sind der Josefstag (Donnerstag 19. März, ein Brückentag nötig), Ostern (Samstag bis Ostermontag; der Karfreitag ist im Tessin ein Arbeitstag), Auffahrt (Donnerstag, ein Brückentag nötig) und Fronleichnam (Donnerstag, ein Brückentag nötig). Schauen Sie in unseren interaktiven Kalender."
  },
  fr: {
  q: "Quels sont les meilleurs ponts pour les frontaliers en 2026 ?",
- a: "Les ponts les plus avantageux en 2026 sont Pâques (Vendredi saint + lundi de Pâques), l'Ascension (jeudi, un jour de pont nécessaire) et la Fête-Dieu (jeudi, un jour de pont nécessaire). Consultez notre calendrier interactif."
+ a: "Les ponts les plus avantageux en 2026 sont la Saint-Joseph (jeudi 19 mars, un jour de pont nécessaire), Pâques (du samedi au lundi de Pâques ; le Vendredi saint est ouvré au Tessin), l'Ascension (jeudi, un jour de pont nécessaire) et la Fête-Dieu (jeudi, un jour de pont nécessaire). Consultez notre calendrier interactif."
  }
  },
 
@@ -4507,9 +4507,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  },
 
  "Quali sono i prossimi festivi in Ticino 2026?": {
- en: { q: "Which are the upcoming public holidays in Ticino 2026?", a: "The upcoming public holidays in Ticino in 2026 — from mid-year onwards — are: Saints Peter and Paul (Monday 29 June), Swiss National Day (Saturday 1 August), Assumption (Saturday 15 August), All Saints' Day (Sunday 1 November), Immaculate Conception (Tuesday 8 December), Christmas (Friday 25 December) and Saint Stephen (Saturday 26 December). Three of these fall on the weekend and do not generate a recovery day at Ticino companies without an improved collective agreement (CCL)." },
- de: { q: "Welche Feiertage stehen im Tessin 2026 noch an?", a: "Die kommenden Feiertage im Tessin 2026 — ab Jahresmitte — sind: Peter und Paul (Montag, 29. Juni), Bundesfeier (Samstag, 1. August), Maria Himmelfahrt (Samstag, 15. August), Allerheiligen (Sonntag, 1. November), Maria Empfaengnis (Dienstag, 8. Dezember), Weihnachten (Freitag, 25. Dezember) und Stephanstag (Samstag, 26. Dezember). Drei davon fallen auf das Wochenende und ergeben ohne verbesserten GAV keinen Ersatzruhetag in Tessiner Unternehmen." },
- fr: { q: "Quels sont les prochains jours feries au Tessin en 2026 ?", a: "Les prochains jours feries au Tessin en 2026 — a partir de la mi-annee — sont : Saints Pierre et Paul (lundi 29 juin), Fete nationale suisse (samedi 1er aout), Assomption (samedi 15 aout), Toussaint (dimanche 1er novembre), Immaculee Conception (mardi 8 decembre), Noel (vendredi 25 decembre) et Saint-Etienne (samedi 26 decembre). Trois de ces jours tombent le week-end et ne donnent droit a aucune journee de recuperation dans les entreprises tessinoises sans CCT ameliore." }
+ en: { q: "Which are the upcoming public holidays in Ticino 2026?", a: "The upcoming public holidays in Ticino in 2026 — from mid-year onwards — are: Saints Peter and Paul (Monday 29 June), Swiss National Day (Saturday 1 August), Assumption (Saturday 15 August), All Saints' Day (Sunday 1 November), Immaculate Conception (Tuesday 8 December), Christmas (Friday 25 December) and Saint Stephen (Saturday 26 December). Four of these fall on the weekend and do not generate a recovery day at Ticino companies without an improved collective agreement (CCL)." },
+ de: { q: "Welche Feiertage stehen im Tessin 2026 noch an?", a: "Die kommenden Feiertage im Tessin 2026 — ab Jahresmitte — sind: Peter und Paul (Montag, 29. Juni), Bundesfeier (Samstag, 1. August), Maria Himmelfahrt (Samstag, 15. August), Allerheiligen (Sonntag, 1. November), Maria Empfaengnis (Dienstag, 8. Dezember), Weihnachten (Freitag, 25. Dezember) und Stephanstag (Samstag, 26. Dezember). Vier davon fallen auf das Wochenende und ergeben ohne verbesserten GAV keinen Ersatzruhetag in Tessiner Unternehmen." },
+ fr: { q: "Quels sont les prochains jours feries au Tessin en 2026 ?", a: "Les prochains jours feries au Tessin en 2026 — a partir de la mi-annee — sont : Saints Pierre et Paul (lundi 29 juin), Fete nationale suisse (samedi 1er aout), Assomption (samedi 15 aout), Toussaint (dimanche 1er novembre), Immaculee Conception (mardi 8 decembre), Noel (vendredi 25 decembre) et Saint-Etienne (samedi 26 decembre). Quatre de ces jours tombent le week-end et ne donnent droit a aucune journee de recuperation dans les entreprises tessinoises sans CCT ameliore." }
  },
 
  "I festivi in Ticino sono uguali a quelli della Svizzera italiana?": {
@@ -4525,9 +4525,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  // DE strings need FAQ_TRANSLATIONS entries too. We alias each DE question
  // to the same {en, de, fr} translations as its Italian counterpart above.
  "Wie viele Feiertage gibt es im Kanton Tessin im Jahr 2026?": {
- en: { q: "How many public holidays are there in Canton Ticino in 2026?", a: "Canton Ticino has 15 official public holidays in 2026, including federal holidays (New Year, 1st August) and cantonal ones (St Joseph, Corpus Christi, Saints Peter and Paul, Assumption, All Saints, Immaculate Conception)." },
- de: { q: "Wie viele Feiertage gibt es im Kanton Tessin im Jahr 2026?", a: "Der Kanton Tessin hat 2026 15 offizielle Feiertage, darunter Bundesfeiertage (Neujahr, 1. August) und kantonale Feiertage (Josefstag, Fronleichnam, Peter und Paul, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis)." },
- fr: { q: "Combien de jours fériés y a-t-il au Tessin en 2026 ?", a: "Le Tessin compte 15 jours fériés officiels en 2026, incluant les fêtes fédérales (Nouvel An, 1er août) et cantonales (Saint-Joseph, Fête-Dieu, Saints Pierre et Paul, Assomption, Toussaint, Immaculée Conception)." }
+ en: { q: "How many public holidays are there in Canton Ticino in 2026?", a: "Canton Ticino has 15 official public holidays in 2026, including Swiss National Day (1 August), New Year, Easter Monday and Christmas plus Catholic feast days (St Joseph, Corpus Christi, Saints Peter and Paul, Assumption, All Saints, Immaculate Conception)." },
+ de: { q: "Wie viele Feiertage gibt es im Kanton Tessin im Jahr 2026?", a: "Der Kanton Tessin hat 2026 15 offizielle Feiertage, darunter die Bundesfeier (1. August), Neujahr, Ostermontag und Weihnachten sowie typisch katholische Feiertage (Josefstag, Fronleichnam, Peter und Paul, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis)." },
+ fr: { q: "Combien de jours fériés y a-t-il au Tessin en 2026 ?", a: "Le Tessin compte 15 jours fériés officiels en 2026, dont la Fête nationale (1er août), le Nouvel An, le lundi de Pâques et Noël ainsi que des fêtes catholiques (Saint-Joseph, Fête-Dieu, Saints Pierre et Paul, Assomption, Toussaint, Immaculée Conception)." }
  },
  "Ist der 1. August 2026 ein Feiertag im Tessin?": {
  en: { q: "Is August 1st 2026 a public holiday in Ticino?", a: "Yes, August 1st 2026 is the Swiss National Day, a federal public holiday nationwide including Ticino. In 2026 it falls on a Saturday, so workers who do not work on Saturdays do not receive a compensatory day off under the Swiss Code of Obligations: most Ticino collective labour agreements (CCL) do not provide compensation." },
@@ -4535,9 +4535,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Le 1er août 2026 est-il férié au Tessin ?", a: "Oui, le 1er août 2026 est la Fête nationale suisse, un jour férié fédéral dans tout le pays, Tessin inclus. En 2026 il tombe un samedi : les travailleurs qui ne travaillent pas le samedi ne bénéficient pas d'un jour de récupération selon le Code des obligations suisse ; la plupart des CCT tessinoises ne prévoient pas de compensation." }
  },
  "Was passiert, wenn ein Feiertag in der Schweiz auf einen Samstag oder Sonntag fällt?": {
- en: { q: "What happens if a public holiday falls on a Saturday or Sunday in Switzerland?", a: "In Switzerland, unlike Italy, if a public holiday falls on a Saturday or Sunday it is NOT recovered: the worker simply loses the benefit of the free day. In 2026 this applies to two important Ticino holidays: August 1st (Saturday) and August 15th — Assumption (Saturday). Only some sector CCLs provide a recovery day." },
- de: { q: "Was passiert, wenn ein Feiertag in der Schweiz auf einen Samstag oder Sonntag fällt?", a: "Anders als in Italien werden Feiertage in der Schweiz NICHT nachgeholt, wenn sie auf einen Samstag oder Sonntag fallen: Der freie Tag geht schlicht verloren. 2026 betrifft das zwei wichtige Tessiner Feiertage: den 1. August (Samstag) und den 15. August — Mariä Himmelfahrt (Samstag). Nur einige Branchen-GAV sehen einen Nachholtag vor." },
- fr: { q: "Que se passe-t-il si un jour férié tombe un samedi ou un dimanche en Suisse ?", a: "Contrairement à l'Italie, en Suisse un jour férié qui tombe un samedi ou un dimanche n'est PAS récupéré : le travailleur perd simplement le bénéfice du jour de congé. En 2026 cela concerne deux jours fériés tessinois importants : le 1er août (samedi) et le 15 août — Assomption (samedi). Seules certaines CCT sectorielles prévoient un jour de récupération." }
+ en: { q: "What happens if a public holiday falls on a Saturday or Sunday in Switzerland?", a: "In Switzerland, unlike Italy, if a public holiday falls on a Saturday or Sunday it is NOT recovered: the worker simply loses the benefit of the free day. In 2026 this applies to four Ticino holidays: August 1st and August 15th — Assumption (both Saturday), All Saints' Day (Sunday 1 November) and St Stephen's Day (Saturday 26 December). Only some sector CCLs provide a recovery day." },
+ de: { q: "Was passiert, wenn ein Feiertag in der Schweiz auf einen Samstag oder Sonntag fällt?", a: "Anders als in Italien werden Feiertage in der Schweiz NICHT nachgeholt, wenn sie auf einen Samstag oder Sonntag fallen: Der freie Tag geht schlicht verloren. 2026 betrifft das vier Tessiner Feiertage: den 1. August und den 15. August — Mariä Himmelfahrt (beide Samstag), Allerheiligen (Sonntag, 1. November) und den Stephanstag (Samstag, 26. Dezember). Nur einige Branchen-GAV sehen einen Nachholtag vor." },
+ fr: { q: "Que se passe-t-il si un jour férié tombe un samedi ou un dimanche en Suisse ?", a: "Contrairement à l'Italie, en Suisse un jour férié qui tombe un samedi ou un dimanche n'est PAS récupéré : le travailleur perd simplement le bénéfice du jour de congé. En 2026 cela concerne quatre jours fériés tessinois : le 1er août et le 15 août — Assomption (tous deux un samedi), la Toussaint (dimanche 1er novembre) et la Saint-Étienne (samedi 26 décembre). Seules certaines CCT sectorielles prévoient un jour de récupération." }
  },
  "Welche Feiertage werden im Tessin anerkannt, im Rest der Schweiz aber NICHT?": {
  en: { q: "Which public holidays are recognised in Ticino but NOT in the rest of Switzerland?", a: "Ticino, being a historically Catholic canton, recognises 7 additional cantonal holidays compared to Protestant cantons: Epiphany (Jan 6), St Joseph (Mar 19), Corpus Christi, Saints Peter and Paul (Jun 29), Assumption (Aug 15), All Saints (Nov 1), and Immaculate Conception (Dec 8). This means a cross-border worker in Ticino has on average 3 to 5 more paid holidays than someone working in Zurich or Basel." },
@@ -4545,9 +4545,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Quels jours fériés sont reconnus au Tessin mais PAS dans le reste de la Suisse ?", a: "Le Tessin, canton historiquement catholique, reconnaît 7 jours fériés cantonaux supplémentaires par rapport aux cantons protestants : Épiphanie (6/1), Saint-Joseph (19/3), Fête-Dieu, Saints Pierre et Paul (29/6), Assomption (15/8), Toussaint (1/11) et Immaculée Conception (8/12). Un frontalier au Tessin bénéficie en moyenne de 3 à 5 jours fériés payés de plus qu'à Zurich ou Bâle." }
  },
  "Gelten italienische Feiertage (25. April, 2. Juni) auch für Grenzgänger?": {
- en: { q: "Do Italian public holidays (April 25th, June 2nd) apply to cross-border workers?", a: "No. Cross-border workers follow the Swiss/Ticino holiday calendar because the employment relationship is governed by Swiss labour law (lex loci laboris). Italian holidays (April 25th Liberation, June 2nd Republic Day, local patron saint, December 8th, etc.) are not recognised as non-working days by the Swiss employer: to stay home, the cross-border worker must use ordinary annual leave." },
- de: { q: "Gelten italienische Feiertage (25. April, 2. Juni) für Grenzgänger?", a: "Nein. Grenzgänger richten sich nach dem Schweizer bzw. Tessiner Feiertagskalender, weil das Arbeitsverhältnis dem Schweizer Arbeitsrecht unterliegt (lex loci laboris). Italienische Feiertage (25. April Befreiungstag, 2. Juni Tag der Republik, Patronatsfest, 8. Dezember etc.) gelten beim Schweizer Arbeitgeber nicht als arbeitsfreie Tage: Wer zu Hause bleiben möchte, muss reguläre Ferien nehmen." },
- fr: { q: "Les jours fériés italiens (25 avril, 2 juin) s'appliquent-ils au frontalier ?", a: "Non. Le frontalier suit le calendrier des jours fériés suisse/tessinois car la relation de travail est régie par le droit suisse (lex loci laboris). Les jours fériés italiens (25 avril Libération, 2 juin Fête de la République, saint patron, 8 décembre, etc.) ne sont pas reconnus comme jours non ouvrés par l'employeur suisse : pour rester à la maison, le frontalier doit prendre un jour de congé ordinaire." }
+ en: { q: "Do Italian public holidays (April 25th, June 2nd) apply to cross-border workers?", a: "No. Cross-border workers follow the Swiss/Ticino holiday calendar because the employment relationship is governed by Swiss labour law (lex loci laboris). Italian holidays (April 25th Liberation, June 2nd Republic Day, local patron saint, etc.) are not recognised as non-working days by the Swiss employer: to stay home, the cross-border worker must use ordinary annual leave." },
+ de: { q: "Gelten italienische Feiertage (25. April, 2. Juni) für Grenzgänger?", a: "Nein. Grenzgänger richten sich nach dem Schweizer bzw. Tessiner Feiertagskalender, weil das Arbeitsverhältnis dem Schweizer Arbeitsrecht unterliegt (lex loci laboris). Italienische Feiertage (25. April Befreiungstag, 2. Juni Tag der Republik, Patronatsfest etc.) gelten beim Schweizer Arbeitgeber nicht als arbeitsfreie Tage: Wer zu Hause bleiben möchte, muss reguläre Ferien nehmen." },
+ fr: { q: "Les jours fériés italiens (25 avril, 2 juin) s'appliquent-ils au frontalier ?", a: "Non. Le frontalier suit le calendrier des jours fériés suisse/tessinois car la relation de travail est régie par le droit suisse (lex loci laboris). Les jours fériés italiens (25 avril Libération, 2 juin Fête de la République, saint patron, etc.) ne sont pas reconnus comme jours non ouvrés par l'employeur suisse : pour rester à la maison, le frontalier doit prendre un jour de congé ordinaire." }
  },
  "Wie wird ein Grenzgänger im Tessin an Feiertagen bezahlt?": {
  en: { q: "How is a cross-border worker paid on public holidays in Ticino?", a: "The Swiss Code of Obligations and the Labour Act require the Swiss employer to pay for public holidays falling on a working day even if the employee is absent. Hourly-paid workers (Stundenlohn) receive their regular pay and monthly-paid workers receive their full salary. If the cross-border worker works on a public holiday, most Ticino CCLs provide a 50% surcharge or a compensatory day off; some sectors (healthcare, hospitality, transport) go up to 100%." },
@@ -4555,9 +4555,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Comment le frontalier est-il payé les jours fériés au Tessin ?", a: "Le Code des obligations et la Loi sur le travail imposent à l'employeur suisse de payer les jours fériés tombant sur un jour ouvrable même en cas d'absence du salarié. Les salariés payés à l'heure (Stundenlohn) reçoivent leur paie habituelle, ceux au mois leur salaire complet. Si le frontalier travaille un jour férié, la plupart des CCT tessinoises prévoient une majoration de 50 % ou un jour de récupération ; certains secteurs (santé, hôtellerie, transports) vont jusqu'à 100 %." }
  },
  "Was sind die besten Brückentage für Grenzgänger 2026?": {
- en: { q: "What are the best long weekends for cross-border workers in 2026?", a: "The most convenient long weekends in 2026 are Easter (Good Friday + Easter Monday), Ascension (Thursday, one bridge day needed), and Corpus Christi (Thursday, one bridge day needed). Check our interactive calendar." },
- de: { q: "Welche Brückentage sind 2026 für Grenzgänger am günstigsten?", a: "Die günstigsten Brückentage 2026 sind Ostern (Karfreitag + Ostermontag), Auffahrt (Donnerstag, ein Brückentag nötig) und Fronleichnam (Donnerstag, ein Brückentag nötig). Schauen Sie in unseren interaktiven Kalender." },
- fr: { q: "Quels sont les meilleurs ponts pour les frontaliers en 2026 ?", a: "Les ponts les plus avantageux en 2026 sont Pâques (Vendredi saint + lundi de Pâques), l'Ascension (jeudi, un jour de pont nécessaire) et la Fête-Dieu (jeudi, un jour de pont nécessaire). Consultez notre calendrier interactif." }
+ en: { q: "What are the best long weekends for cross-border workers in 2026?", a: "The most convenient long weekends in 2026 are St Joseph's Day (Thursday 19 March, one bridge day needed), Easter (Saturday to Easter Monday; Good Friday is a working day in Ticino), Ascension (Thursday, one bridge day needed), and Corpus Christi (Thursday, one bridge day needed). Check our interactive calendar." },
+ de: { q: "Welche Brückentage sind 2026 für Grenzgänger am günstigsten?", a: "Die günstigsten Brückentage 2026 sind der Josefstag (Donnerstag 19. März, ein Brückentag nötig), Ostern (Samstag bis Ostermontag; der Karfreitag ist im Tessin ein Arbeitstag), Auffahrt (Donnerstag, ein Brückentag nötig) und Fronleichnam (Donnerstag, ein Brückentag nötig). Schauen Sie in unseren interaktiven Kalender." },
+ fr: { q: "Quels sont les meilleurs ponts pour les frontaliers en 2026 ?", a: "Les ponts les plus avantageux en 2026 sont la Saint-Joseph (jeudi 19 mars, un jour de pont nécessaire), Pâques (du samedi au lundi de Pâques ; le Vendredi saint est ouvré au Tessin), l'Ascension (jeudi, un jour de pont nécessaire) et la Fête-Dieu (jeudi, un jour de pont nécessaire). Consultez notre calendrier interactif." }
  },
  "Wie viele Ferientage hat ein Grenzgänger in der Schweiz?": {
  en: { q: "How many vacation days does a cross-border worker have in Switzerland?", a: "By Swiss law, the minimum is 4 weeks (20 working days) per year for adults and 5 weeks for workers under 20. Many collective labour agreements (CCL) provide 5 weeks after a certain seniority." },
@@ -4570,9 +4570,9 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Quelle est la fete la plus celebree au Canton du Tessin ?", a: "La fete la plus celebree au Canton du Tessin est le 1er aout (Fete nationale suisse) avec feux de joie sur les hauteurs de Lugano, Mendrisio, Chiasso et Bellinzone, suivie du Ferragosto (Assomption, 15 aout) avec processions dans les villages catholiques du Mendrisiotto et du Malcantone. Historiquement la Saint-Joseph (19 mars) est fete patronale dans plusieurs communes tessinoises. Le Tessin n'a pas de fete 'cantonale' unique comme le Jura : son identite festive combine calendrier federal suisse et traditions catholiques italophones." }
  },
  "Welche sind die nächsten Feiertage im Tessin 2026?": {
- en: { q: "Which are the upcoming public holidays in Ticino 2026?", a: "The upcoming public holidays in Ticino in 2026 — from mid-year onwards — are: Saints Peter and Paul (Monday 29 June), Swiss National Day (Saturday 1 August), Assumption (Saturday 15 August), All Saints' Day (Sunday 1 November), Immaculate Conception (Tuesday 8 December), Christmas (Friday 25 December) and Saint Stephen (Saturday 26 December). Three of these fall on the weekend and do not generate a recovery day at Ticino companies without an improved collective agreement (CCL)." },
- de: { q: "Welche Feiertage stehen im Tessin 2026 noch an?", a: "Die kommenden Feiertage im Tessin 2026 — ab Jahresmitte — sind: Peter und Paul (Montag, 29. Juni), Bundesfeier (Samstag, 1. August), Maria Himmelfahrt (Samstag, 15. August), Allerheiligen (Sonntag, 1. November), Maria Empfaengnis (Dienstag, 8. Dezember), Weihnachten (Freitag, 25. Dezember) und Stephanstag (Samstag, 26. Dezember). Drei davon fallen auf das Wochenende und ergeben ohne verbesserten GAV keinen Ersatzruhetag in Tessiner Unternehmen." },
- fr: { q: "Quels sont les prochains jours feries au Tessin en 2026 ?", a: "Les prochains jours feries au Tessin en 2026 — a partir de la mi-annee — sont : Saints Pierre et Paul (lundi 29 juin), Fete nationale suisse (samedi 1er aout), Assomption (samedi 15 aout), Toussaint (dimanche 1er novembre), Immaculee Conception (mardi 8 decembre), Noel (vendredi 25 decembre) et Saint-Etienne (samedi 26 decembre). Trois de ces jours tombent le week-end et ne donnent droit a aucune journee de recuperation dans les entreprises tessinoises sans CCT ameliore." }
+ en: { q: "Which are the upcoming public holidays in Ticino 2026?", a: "The upcoming public holidays in Ticino in 2026 — from mid-year onwards — are: Saints Peter and Paul (Monday 29 June), Swiss National Day (Saturday 1 August), Assumption (Saturday 15 August), All Saints' Day (Sunday 1 November), Immaculate Conception (Tuesday 8 December), Christmas (Friday 25 December) and Saint Stephen (Saturday 26 December). Four of these fall on the weekend and do not generate a recovery day at Ticino companies without an improved collective agreement (CCL)." },
+ de: { q: "Welche Feiertage stehen im Tessin 2026 noch an?", a: "Die kommenden Feiertage im Tessin 2026 — ab Jahresmitte — sind: Peter und Paul (Montag, 29. Juni), Bundesfeier (Samstag, 1. August), Maria Himmelfahrt (Samstag, 15. August), Allerheiligen (Sonntag, 1. November), Maria Empfaengnis (Dienstag, 8. Dezember), Weihnachten (Freitag, 25. Dezember) und Stephanstag (Samstag, 26. Dezember). Vier davon fallen auf das Wochenende und ergeben ohne verbesserten GAV keinen Ersatzruhetag in Tessiner Unternehmen." },
+ fr: { q: "Quels sont les prochains jours feries au Tessin en 2026 ?", a: "Les prochains jours feries au Tessin en 2026 — a partir de la mi-annee — sont : Saints Pierre et Paul (lundi 29 juin), Fete nationale suisse (samedi 1er aout), Assomption (samedi 15 aout), Toussaint (dimanche 1er novembre), Immaculee Conception (mardi 8 decembre), Noel (vendredi 25 decembre) et Saint-Etienne (samedi 26 decembre). Quatre de ces jours tombent le week-end et ne donnent droit a aucune journee de recuperation dans les entreprises tessinoises sans CCT ameliore." }
  },
  "Sind die Feiertage im Tessin gleich wie in der italienischen Schweiz?": {
  en: { q: "Are public holidays in Ticino the same as in Italian-speaking Switzerland?", a: "Yes: Canton Ticino and the Italian-speaking valleys of Canton Graubuenden (Mesolcina, Calanca, Bregaglia, Poschiavo) share the same Catholic holiday calendar, including Epiphany, Saint Joseph, Corpus Christi, Assumption, All Saints' Day and Immaculate Conception. The difference appears compared with Protestant cantons (Zurich, Bern, Basel-City) where these feasts are not official public holidays. A cross-border worker moving from Lugano to Zurich loses on average 5-7 public holidays per year." },

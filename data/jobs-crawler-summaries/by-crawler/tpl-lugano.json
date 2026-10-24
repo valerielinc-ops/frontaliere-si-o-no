@@ -1,7 +1,7 @@
 {
   "key": "tpl-lugano",
   "label": "TPL Lugano",
-  "generatedAt": "2026-10-23T21:24:00.329Z",
+  "generatedAt": "2026-10-24T09:32:48.021Z",
   "total": 2,
   "discovered": 2,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5983,
-  "avgDurationMs": 5983,
+  "durationMs": 6576,
+  "avgDurationMs": 6576,
   "durationHistory": [
-    5983
+    6576
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,7 +35,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-23T21:23:50.951Z",
+      "crawledAt": "2026-10-24T09:32:34.071Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -76,7 +76,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-23T21:23:50.947Z",
+      "crawledAt": "2026-10-24T09:32:34.061Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -101,5 +101,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }
