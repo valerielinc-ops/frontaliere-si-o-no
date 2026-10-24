@@ -153,23 +153,6 @@ jobs:
       - name: Install minimal deps (no build)
         run: npm ci --no-audit --no-fund --ignore-scripts
 
-      # Resolve + download are the composite action's job, not this workflow's.
-      # Every inline copy of them in the repo drifted apart (#7392-#7397); this
-      # one still had the `.expired==false` filter but no 410 retry, no
-      # created_at in the log and its own error strings.
-      # Fail in seconds, not after an hour of rehydrate, when this replay
-      # cannot reproduce the build: the en/de/fr shard tars live on the
-      # deploy-publish run (not the build), and every shard/jobs artifact has
-      # a 1-day retention. See the script header for the run-selection rule.
-      - name: Resolve the runs holding this build's shard artifacts
-        if: ${{ inputs.shard_artifact_run_id == '' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
-          ALLOW_MIXED: ${{ inputs.allow_mixed_shards }}
-        run: bash scripts/ci/resolve-replay-shard-runs.sh
-
       - name: Fetch the deployed dist (github-pages artifact)
         id: pages
         uses: ./.github/actions/fetch-pages-artifact
@@ -195,9 +178,10 @@ jobs:
       # rehydrate can reach its git-clone resilience path; an expired artifact
       # is an inconclusive replay, never permission to read today's shard-main.
       - name: Resolve replay shard artifacts and provenance (fail closed)
+        if: ${{ inputs.shard_artifact_run_id == '' }}
         env:
           GH_TOKEN: ${{ github.token }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_REPO: ${{ github.repository }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
           SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
           REPO_VARS_JSON: ${{ toJSON(vars) }}
@@ -230,9 +214,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
           SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
+          AUDIT_REPLAY_FAIL_CLOSED: true
           # Where every subtree's bytes came from (trunk / artifact / clone),
           # read by the coherence step below and uploaded with the reports.
-          REHYDRATE_PROVENANCE_FILE: /tmp/rehydrate-provenance.tsv
+          REHYDRATE_PROVENANCE_FILE: ${{ runner.temp }}/replay-shard-provenance.tsv
           # A strict replay may not fall back to a clone because a ~10 GB IT
           # batch zip took longer than the publish run's 150 s.
           REHYDRATE_ZIP_TIMEOUT: ${{ inputs.allow_mixed_shards == 'true' && '150' || '900' }}
@@ -282,9 +267,10 @@ jobs:
         env:
           ALLOW_MIXED: ${{ inputs.allow_mixed_shards }}
           REPO_VARS_JSON: ${{ toJSON(vars) }}
+          REHYDRATE_PROVENANCE_FILE: ${{ runner.temp }}/replay-shard-provenance.tsv
         run: |
           set -euo pipefail
-          prov=/tmp/rehydrate-provenance.tsv
+          prov="$REHYDRATE_PROVENANCE_FILE"
           # Every subtree the rehydrate owns must have a recorded origin: an
           # unrecorded one (a provenance write that failed in a fail-soft
           # worker) would otherwise pass as coherent by omission.
