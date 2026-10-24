@@ -928,7 +928,18 @@ export async function loadLocalePageChunk(locale: Locale, page: string): Promise
 export type TranslationNamespace = 'whatsnew' | (string & {});
 
 type NamespaceModuleLoader = () => Promise<{ default: Translations }>;
-const splitNamespaceModules = import.meta.glob<{ default: Translations }>('./locales/*-ns-*.ts');
+// This module is imported both by the browser bundle and by Node-side Vite
+// build plugins. Vite expands `import.meta.glob` in the browser graph, but the
+// Node config bundle does not provide that transform. Keep the call itself so
+// Vite can still expand it, and handle the untransformed Node import locally.
+const splitNamespaceModules = (() => {
+ try {
+  return import.meta.glob<{ default: Translations }>('./locales/*-ns-*.ts');
+ } catch (error) {
+  if (error instanceof TypeError) return {};
+  throw error;
+ }
+})();
 
 const namespaceLoaders: Record<string, Partial<Record<Locale, NamespaceModuleLoader>>> = {
  whatsnew: {
