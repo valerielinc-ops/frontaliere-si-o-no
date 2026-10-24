@@ -288,7 +288,7 @@ async function tryDirectFavicon(domain) {
   return lastFailure;
 }
 
-function extractIconLinks(html, baseUrl, { allowGenericFavicon = false } = {}) {
+export function extractIconLinks(html, baseUrl, { allowGenericFavicon = false } = {}) {
   const links = [];
   const seen = new Set();
   for (const tag of html.match(/<link\b[^>]*>/gi) || []) {
@@ -298,7 +298,8 @@ function extractIconLinks(html, baseUrl, { allowGenericFavicon = false } = {}) {
     const href = tag.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1];
     if (!href) continue;
     try {
-      const absolute = new URL(href, baseUrl).href;
+      // Attribute values are HTML-escaped: `?w=16&amp;v=2` is the URL `?w=16&v=2`.
+      const absolute = new URL(href.replaceAll('&amp;', '&'), baseUrl).href;
       if (!/^https?:$/i.test(new URL(absolute).protocol) || seen.has(absolute)) continue;
       seen.add(absolute);
       links.push(absolute);
