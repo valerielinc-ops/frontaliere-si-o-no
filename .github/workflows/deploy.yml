@@ -1107,13 +1107,30 @@ jobs:
       # locale subtree, before section stripping/offload/push work begins;
       # keeping this handoff here releases the six-hour build budget instead
       # of making every non-IT leg carry its own transfer tail.
+      # LOCALE_SOURCE_TAR_PARTS > 1 cuts the same file list into N contiguous
+      # slices packed by N concurrent tar processes (scripts/lib/parallel-tar.sh):
+      # one `tar -cf` over ~1M one-directory-per-page files is latency-bound
+      # (fr 23.3 min, de 13.2, en 10.7 on deploy 39917633944, plus a full
+      # `tar -tf` read-back). With PTAR_ZSTD=1 every part is zstd-compressed on
+      # its own core and the upload stores it as-is (compression-level 0)
+      # instead of deflating the whole archive on one thread. The parts hold
+      # exactly the entries of the single tar; the tail extracts them all.
+      # LOCALE_SOURCE_TAR_PARTS=1 → the historical single tar, byte for byte.
       - name: Pack non-IT locale shard source artifact
         if: matrix.locale != 'it'
         id: pack-locale-source
         continue-on-error: true
+        env:
+          # Bench run 40074671144 on a 3.8 GB / 270'838-file subtree: pack
+          # 152.3 s → 76.6 s, archive 4.67 GB tar (833 MB once deflated by the
+          # upload) → 363 MB zstd, upload 37 s → 5 s, download 22 s → 6 s,
+          # extract 49.5 s → 32.9 s; extracted tree sha identical.
+          LOCALE_SOURCE_TAR_PARTS: '4'
+          PTAR_ZSTD: '1'
         run: |
           set -euo pipefail
           trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
+          source scripts/lib/parallel-tar.sh
           printf '%s\n' "${DEPLOY_BUILD_ID}" > dist/build-id.txt
           members=("${{ matrix.locale }}" build-id.txt)
           if [ -f "dist/${{ matrix.locale }}.html" ]; then
@@ -1122,10 +1139,18 @@ jobs:
           if [ -f dist/404.html ]; then
             members+=(404.html)
           fi
-          tar -C dist -cf "$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}.tar" "${members[@]}"
-          tar -tf "$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}.tar" > "$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}.members"
-          test -s "$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}.tar"
-          grep -qx "${{ matrix.locale }}/" "$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}.members"
+          out="$RUNNER_TEMP/locale-shard-source-${{ matrix.locale }}"
+          rm -rf "$out"
+          ptar_create dist "$out" "locale-shard-source-${{ matrix.locale }}" "${LOCALE_SOURCE_TAR_PARTS:-1}" "${members[@]}"
+          find "$out" -maxdepth 1 -type f \( -name '*.tar' -o -name '*.tar.zst' \) -size +0 | grep -q .
+          grep -qx "${{ matrix.locale }}/" "$out/locale-shard-source-${{ matrix.locale }}.members"
+          rm -f "$out/locale-shard-source-${{ matrix.locale }}.members"
+          if [ "${PTAR_ZSTD:-}" = 1 ] && [ "${LOCALE_SOURCE_TAR_PARTS:-1}" -gt 1 ]; then
+            echo "compression_level=0" >> "$GITHUB_OUTPUT"
+          else
+            echo "compression_level=1" >> "$GITHUB_OUTPUT"
+          fi
+          ls -l "$out"
 
       - name: Upload non-IT locale shard source artifact
         if: matrix.locale != 'it'
@@ -1134,8 +1159,8 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: locale-shard-source-${{ matrix.locale }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/locale-shard-source-${{ matrix.locale }}.tar
-          compression-level: 1
+          path: ${{ runner.temp }}/locale-shard-source-${{ matrix.locale }}/
+          compression-level: ${{ steps.pack-locale-source.outputs.compression_level || '1' }}
           retention-days: 2
           if-no-files-found: error
 
@@ -1406,6 +1431,13 @@ jobs:
           # scripts/lib/shard-cdn-rewrite.sh. Off = byte-identical to before.
           SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
+          # Bench run 40074671144 (ticino-it staged copy, 270'838 files): the
+          # CDN rewrite 377.8 s single-thread → 162.5 s on 4 worker threads,
+          # tree sha identical; the stage `rm -rf` (165 s) leaves the slot.
+          # See scripts/offload-generated-images-cdn.mjs (OFFLOAD_CDN_WORKERS)
+          # and scripts/lib/push-section-shard.sh (SHARD_STAGE_RM_ASYNC).
+          OFFLOAD_CDN_WORKERS: '4'
+          SHARD_STAGE_RM_ASYNC: '1'
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           # Consumed by scripts/ci/report-shard-push-failure.mjs (gh CLI) when a
@@ -1897,6 +1929,9 @@ jobs:
           # Flip by setting the repo variable CDN_TARGET=r2 (no code change). R2_*
           # creds are hydrated from Remote Config by the earlier load-rc-env step.
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
+          # The prep's offload pass over the IT dist on 4 worker threads (bench
+          # run 40074671144: 2.3x, byte-identical tree).
+          OFFLOAD_CDN_WORKERS: '4'
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
       # Refresh the R2 copies the Worker serves for EDGE_PUSHED_FILES.
@@ -2091,84 +2126,23 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
-      - name: Commit dist-size-history row + url-first-seen updates
+      # The two accumulators go to the build-history-commit job as an
+      # artifact; its commit + push to main (5 attempts with rebase, ~6 min on
+      # deploy 39917633944, mostly a fetch + autostash of this big dirty
+      # checkout) no longer sits between the IT build and `rearm`, i.e. on the
+      # critical path to the publish. The commit itself is unchanged: same two
+      # paths, same accumulator assertions, same merge drivers, same helper.
+      - name: Upload dist-size-history + url-first-seen for the history commit
         if: matrix.locale == 'it'
         continue-on-error: true
-        run: |
-          if git diff --quiet -- data/dist-size-history.jsonl data/url-first-seen.json; then
-            echo "[dist-history] no diff to commit"
-            exit 0
-          fi
-          git config user.name "dist-history-bot"
-          git config user.email "dist-history-bot@frontaliereticino.ch"
-          # Wire up the custom merge driver declared in .gitattributes for
-          # data/url-first-seen.json (`merge=json-first-seen`). Without this
-          # config the attribute is inert and git falls back to a 3-way text
-          # merge → the very CONFLICT that wedged this loop. The driver unions
-          # the two URL→date maps keeping the earliest first-seen, so the
-          # rebase below auto-resolves instead of aborting.
-          git config merge.json-first-seen.driver \
-            'node scripts/ci/merge-json-first-seen.mjs %O %A %B'
-          for accumulator in data/dist-size-history.jsonl data/url-first-seen.json; do
-            node scripts/ci/assert-accumulator-write.mjs "$accumulator"
-          done
-          git add -- data/dist-size-history.jsonl data/url-first-seen.json
-          unexpected_paths="$(git diff --cached --name-only | while IFS= read -r path; do
-            case "$path" in
-              data/dist-size-history.jsonl|data/url-first-seen.json) ;;
-              *) printf '%s\n' "$path" ;;
-            esac
-          done)"
-          if [ -n "$unexpected_paths" ]; then
-            echo "::error::dist-history refusing to commit staged paths outside its accumulator allowlist"
-            printf '%s\n' "$unexpected_paths" | sed 's/^/  unexpected: /'
-            exit 1
-          fi
-          # The build snapshot remains dirty in this checkout. Commit only the
-          # two history paths so those generated bytes cannot hitchhike here.
-          git commit --only \
-            -m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})" \
-            -- data/dist-size-history.jsonl data/url-first-seen.json
-          bash scripts/lib/configure-main-push-auth.sh
-          # The build job leaves dist/ and other generated files dirty
-          # in the working tree. `git pull --rebase` refuses to run
-          # while unstaged changes exist (`cannot pull with rebase: You
-          # have unstaged changes`), so we ran the retry loop three
-          # times for nothing on every deploy and the url-first-seen
-          # update never landed on origin. `rebase.autoStash=true`
-          # stashes those untracked/unstaged files before rebase and
-          # pops them back after — purely scoped to this command, no
-          # leftover stash state.
-          # Bumped 3 → 5 attempts + geometric-ish backoff
-          # (5/10/15/25/40 s) after annotation on run 26604491084 (and
-          # every prior deploy): `[dist-history] push failed after 3
-          # attempts`. Concurrent producers on main (crawlers +
-          # thin-promotions + fuel + weather + post-merge auto-commits)
-          # regularly out-race a 3×5 s window. The extended budget hits
-          # a ~95 s total wait before giving up, which empirically
-          # covers every observed conflict cluster on the main branch.
-          # Both committed files now auto-resolve during the rebase via
-          # .gitattributes merge drivers: `merge=union` for the JSONL append
-          # log, and `merge=json-first-seen` (configured above) for the
-          # url-first-seen.json map. Historically url-first-seen.json had NO
-          # driver, so a concurrent producer touching nearby lines left the
-          # tree mid-rebase; without aborting, every later attempt died on
-          # "Pulling is not possible because you have unmerged files" and the
-          # loop wedged until the job was canceled (run 27976954013, and again
-          # run 28142157430 where all 5 attempts CONFLICTed). The `--abort`
-          # below stays as a belt-and-braces recovery for any unexpected
-          # mid-rebase state; it is a safe no-op when no rebase is in progress
-          # (e.g. a plain push-rejected race).
-          # `rebase.backend=merge` is forced explicitly (git >=2.26 default,
-          # but not guaranteed on every runner image): the `apply` backend
-          # replays patches instead of doing a real merge and SILENTLY
-          # SKIPS merge drivers, so the json-first-seen driver above would
-          # never fire and the CONFLICT wedge (see above) could reappear
-          # with no signal (#2921, follow-up of #2920).
-          # The shared helper forces the merge backend and preserves the dirty
-          # dist tree while it rebases; a failed push is fatal so the history
-          # cannot disappear behind a green deploy.
-          bash scripts/lib/git-push-with-retry.sh --max-attempts 5 --stash-dirty
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist-history-${{ github.run_id }}
+          path: |
+            data/dist-size-history.jsonl
+            data/url-first-seen.json
+          retention-days: 2
+          if-no-files-found: ignore
 
       # Non-IT shard transfer, packing, and publication run in
       # deploy-publish.yml after this build releases its six-hour budget.
@@ -2638,8 +2612,11 @@ jobs:
           sparse-checkout: |
             /.gitattributes
             /data/build-history/
+            /data/dist-size-history.jsonl
+            /data/url-first-seen.json
             /scripts/lib/
             /scripts/ci/assert-accumulator-write.mjs
+            /scripts/ci/merge-json-first-seen.mjs
             /scripts/ci/phase-timing-observer.mjs
             /scripts/load-rc-env.mjs
           sparse-checkout-cone-mode: false
@@ -2665,6 +2642,107 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: Download dist-size-history + url-first-seen (IT leg)
+        id: dist-history-download
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: dist-history-${{ github.run_id }}
+          path: ${{ runner.temp }}/dist-history
+
+      # Moved here from the IT leg of build-locale (it was the leg's last
+      # 6 min before `rearm`). Body unchanged except the copy-in above. It runs
+      # BEFORE the build-history commit on purpose: HEAD is still the build SHA,
+      # the base the leg used to commit on, so the rebase onto origin/main and
+      # its merge drivers (union / json-first-seen) see the same three-way
+      # merge as before.
+      - name: Commit dist-size-history row + url-first-seen updates
+        if: always() && steps.dist-history-download.outcome == 'success'
+        continue-on-error: true
+        env:
+          DIST_HISTORY_DIR: ${{ runner.temp }}/dist-history
+        run: |
+          # The IT leg's accumulators (artifact dist-history-<run>), copied over
+          # this checkout of the SAME build SHA: the diff below is exactly the
+          # one the leg used to commit in place.
+          for f in dist-size-history.jsonl url-first-seen.json; do
+            if [ -f "$DIST_HISTORY_DIR/$f" ]; then cp "$DIST_HISTORY_DIR/$f" "data/$f"; fi
+          done
+          if git diff --quiet -- data/dist-size-history.jsonl data/url-first-seen.json; then
+            echo "[dist-history] no diff to commit"
+            exit 0
+          fi
+          git config user.name "dist-history-bot"
+          git config user.email "dist-history-bot@frontaliereticino.ch"
+          # Wire up the custom merge driver declared in .gitattributes for
+          # data/url-first-seen.json (`merge=json-first-seen`). Without this
+          # config the attribute is inert and git falls back to a 3-way text
+          # merge → the very CONFLICT that wedged this loop. The driver unions
+          # the two URL→date maps keeping the earliest first-seen, so the
+          # rebase below auto-resolves instead of aborting.
+          git config merge.json-first-seen.driver \
+            'node scripts/ci/merge-json-first-seen.mjs %O %A %B'
+          for accumulator in data/dist-size-history.jsonl data/url-first-seen.json; do
+            node scripts/ci/assert-accumulator-write.mjs "$accumulator"
+          done
+          git add -- data/dist-size-history.jsonl data/url-first-seen.json
+          unexpected_paths="$(git diff --cached --name-only | while IFS= read -r path; do
+            case "$path" in
+              data/dist-size-history.jsonl|data/url-first-seen.json) ;;
+              *) printf '%s\n' "$path" ;;
+            esac
+          done)"
+          if [ -n "$unexpected_paths" ]; then
+            echo "::error::dist-history refusing to commit staged paths outside its accumulator allowlist"
+            printf '%s\n' "$unexpected_paths" | sed 's/^/  unexpected: /'
+            exit 1
+          fi
+          # The build snapshot remains dirty in this checkout. Commit only the
+          # two history paths so those generated bytes cannot hitchhike here.
+          git commit --only \
+            -m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})" \
+            -- data/dist-size-history.jsonl data/url-first-seen.json
+          bash scripts/lib/configure-main-push-auth.sh
+          # The build job leaves dist/ and other generated files dirty
+          # in the working tree. `git pull --rebase` refuses to run
+          # while unstaged changes exist (`cannot pull with rebase: You
+          # have unstaged changes`), so we ran the retry loop three
+          # times for nothing on every deploy and the url-first-seen
+          # update never landed on origin. `rebase.autoStash=true`
+          # stashes those untracked/unstaged files before rebase and
+          # pops them back after — purely scoped to this command, no
+          # leftover stash state.
+          # Bumped 3 → 5 attempts + geometric-ish backoff
+          # (5/10/15/25/40 s) after annotation on run 26604491084 (and
+          # every prior deploy): `[dist-history] push failed after 3
+          # attempts`. Concurrent producers on main (crawlers +
+          # thin-promotions + fuel + weather + post-merge auto-commits)
+          # regularly out-race a 3×5 s window. The extended budget hits
+          # a ~95 s total wait before giving up, which empirically
+          # covers every observed conflict cluster on the main branch.
+          # Both committed files now auto-resolve during the rebase via
+          # .gitattributes merge drivers: `merge=union` for the JSONL append
+          # log, and `merge=json-first-seen` (configured above) for the
+          # url-first-seen.json map. Historically url-first-seen.json had NO
+          # driver, so a concurrent producer touching nearby lines left the
+          # tree mid-rebase; without aborting, every later attempt died on
+          # "Pulling is not possible because you have unmerged files" and the
+          # loop wedged until the job was canceled (run 27976954013, and again
+          # run 28142157430 where all 5 attempts CONFLICTed). The `--abort`
+          # below stays as a belt-and-braces recovery for any unexpected
+          # mid-rebase state; it is a safe no-op when no rebase is in progress
+          # (e.g. a plain push-rejected race).
+          # `rebase.backend=merge` is forced explicitly (git >=2.26 default,
+          # but not guaranteed on every runner image): the `apply` backend
+          # replays patches instead of doing a real merge and SILENTLY
+          # SKIPS merge drivers, so the json-first-seen driver above would
+          # never fire and the CONFLICT wedge (see above) could reappear
+          # with no signal (#2921, follow-up of #2920).
+          # The shared helper forces the merge backend and preserves the dirty
+          # dist tree while it rebases; a failed push is fatal so the history
+          # cannot disappear behind a green deploy.
+          bash scripts/lib/git-push-with-retry.sh --max-attempts 5 --stash-dirty
+
       # Senza merge-multiple: ogni artifact nella sua sottocartella, cosi' i
       # file omonimi di due tentativi della stessa gamba non si sovrascrivono.
       # continue-on-error: se nessuna gamba ha caricato righe (prep rossa, run
@@ -2681,6 +2759,8 @@ jobs:
           HISTORY_ROWS_DIR: ${{ runner.temp }}/build-history-rows
           HISTORY_COMMIT_MSG: 'chore(build-history): append rows run ${{ github.run_id }}'
         run: bash scripts/lib/commit-build-history-rows.sh
+
+
 
       # The matrix legs may observe independently; resolve only after every
       # locale is green AND three consecutive deploy runs have complete phase
