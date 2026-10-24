@@ -13,7 +13,7 @@ import { describe, expect, it } from 'vitest';
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const read = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
-const POLICY_IMPORT = /from '\./shared/paginationIndexPolicy'/;
+const POLICY_IMPORT = /from '\.\/shared\/paginationIndexPolicy'/;
 
 describe('pagination policy adoption (P1)', () => {
   it.each([
