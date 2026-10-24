@@ -137,8 +137,10 @@ import {
 } from './relatedSearchClustersData';
 import {
   getActiveJobSitemapLocs,
+  getJobSitemapAllowlist,
   jobsSeoPagesFlushed,
   setActiveJobSitemapLocs,
+  setJobSitemapAllowlist,
 } from './shared/buildSignals';
 import { parseAnnotatedSitemapUrls } from './shared/localeVariantSitemap';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
@@ -4978,13 +4980,17 @@ function deriveActiveJobSitemapLocs(
   return active;
 }
 
-function ensureActiveJobSitemapLocs(
+function ensureJobSitemapAllowlist(
   files: ReadonlyArray<{ file: string; xml: string }>,
 ): ReadonlySet<string> {
-  const active = getActiveJobSitemapLocs();
-  if (active !== null) return active;
+  // The all-locale sitemap allowlist, not the link registry: on a
+  // BUILD_LOCALE=it build the latter holds IT URLs only (#14380), and the
+  // EN/DE/FR variants in the shards would all look stale.
+  const allowlist = getJobSitemapAllowlist() ?? getActiveJobSitemapLocs();
+  if (allowlist !== null) return allowlist;
   const recovered = deriveActiveJobSitemapLocs(files);
   setActiveJobSitemapLocs(recovered);
+  setJobSitemapAllowlist(recovered);
   return recovered;
 }
 
@@ -5022,6 +5028,27 @@ function staleJobShardLocs(
     }
   }
   return stale;
+}
+
+/**
+ * Shard `<loc>`s that sitemap-jobs.xml already lists. Google should see each
+ * URL in one sitemap only; the shard copy is the redundant one. Without the
+ * legacy file there is nothing to compare against (shard-only locale leg).
+ */
+function shardLocsListedInLegacyJobSitemap(
+  files: ReadonlyArray<{ file: string; xml: string }>,
+): string[] {
+  const legacy = files.find(({ file }) => file === 'sitemap-jobs.xml')?.xml;
+  if (!legacy) return [];
+  const legacyLocs = new Set(extractSitemapLocs(legacy).map(normalizeLocForCanonicalCmp));
+  const duplicates = new Set<string>();
+  for (const { file, xml } of files) {
+    if (!isJobSitemapShardFilename(file)) continue;
+    for (const loc of extractSitemapLocs(xml)) {
+      if (legacyLocs.has(normalizeLocForCanonicalCmp(loc))) duplicates.add(loc);
+    }
+  }
+  return [...duplicates];
 }
 
 /**
@@ -5180,15 +5207,26 @@ export async function reconcileSitemapJobsWithDist(
   // A cache HIT can reach this reconciler after the jobs producer's normal
   // allowlist population was skipped. Recover the current decision before
   // filtering historical shards; a null registry must never disable this
-  // stale-detail guard.
-  const sourceStale = staleJobShardLocs(sitemapFiles, ensureActiveJobSitemapLocs(sitemapFiles));
+  // stale-detail guard. The allowlist is the all-locale one
+  // (getJobSitemapAllowlist), so EN/DE/FR shard URLs are never mistaken for
+  // stale on the IT build.
+  const sourceStale = staleJobShardLocs(sitemapFiles, ensureJobSitemapAllowlist(sitemapFiles));
   const dropLocs = [...new Set([...unserved, ...mirrorLocs, ...sourceStale])];
-  if (dropLocs.length === 0) return;
+  // One sitemap per URL. A shard restored from an earlier artifact (or written
+  // by a pre-dedupe producer) can still repeat sitemap-jobs.xml entries; the
+  // copy in the shard is the one removed, never the legacy one — the cache-hit
+  // allowlist above is rebuilt from sitemap-jobs.xml, so emptying the legacy
+  // file instead would let staleJobShardLocs wipe every shard detail URL.
+  const legacyDuplicates = shardLocsListedInLegacyJobSitemap(sitemapFiles);
+  if (dropLocs.length === 0 && legacyDuplicates.length === 0) return;
 
   let dropped = 0;
   const changedFiles: string[] = [];
   for (const { file, xml } of sitemapFiles) {
-    const result = dropUrlBlocksByLoc(xml, dropLocs);
+    const fileDropLocs = isJobSitemapShardFilename(file) && legacyDuplicates.length > 0
+      ? [...dropLocs, ...legacyDuplicates]
+      : dropLocs;
+    const result = dropUrlBlocksByLoc(xml, fileDropLocs);
     if (result.xml === xml || result.dropped === 0) continue;
     if (isJobSitemapShardFilename(file) && extractSitemapLocs(result.xml).length === 0) {
       try {
@@ -5207,6 +5245,7 @@ export async function reconcileSitemapJobsWithDist(
     console.log(
       `\x1b[33m[related-search-clusters]\x1b[0m sitemap-jobs*.xml: dropped ${dropped} URL(s) not served self-canonical by dist/ ` +
       `(${unserved.length} failed the dist-truth check, ${sourceStale.length} stale source URL(s), ${mirrorLocs.length} known cross-section mirror(s), ` +
+      `${legacyDuplicates.length} shard duplicate(s) of sitemap-jobs.xml, ` +
       `files=${changedFiles.join(', ')}, issue #911)`,
     );
   }
