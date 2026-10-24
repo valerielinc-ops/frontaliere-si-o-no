@@ -44,6 +44,7 @@ export const FLOW_DOC_ID = 'flow';
 export const AUTOMATION_EVENTS_SUBCOLLECTION = 'automation_events';
 export const AI_DRAFTS_SUBCOLLECTION = 'ai_drafts';
 export const AI_DRAFT_DOC_ID = 'current';
+export const ASSISTED_APPLICATION_ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
 
 /**
  * A dispatched run that reported nothing for this long is presumed lost.
@@ -279,6 +280,39 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
   }
   return outcome || { ok: false, ignored: 'unknown' };
+}
+
+/**
+ * Run one explicitly authorised owner-takeover relaunch.
+ *
+ * The command path must name the same order twice: once as the target and
+ * once as the owner-approved order. There is deliberately no list or
+ * first-match fallback here. The state machine then performs the authoritative
+ * checks for the current flow, draft round and candidate-approved submit
+ * dispatch, and commits at most this one owner_retry_submit transition.
+ */
+export async function relaunchAuthorizedOwnerTakeover({
+  db,
+  orderId,
+  authorizedOrderId,
+  runEffect,
+  nowMs = Date.now(),
+} = {}) {
+  const target = String(orderId || '').trim();
+  const authorized = String(authorizedOrderId || '').trim();
+  if (!ASSISTED_APPLICATION_ORDER_ID_RE.test(target) || target !== authorized) {
+    return { ok: false, ignored: 'order_not_authorized' };
+  }
+  if (typeof runEffect !== 'function') return { ok: false, ignored: 'run_effect_missing' };
+
+  return applyAutomationEvent({
+    db,
+    orderId: target,
+    event: { type: 'owner_retry_submit' },
+    actor: 'owner-takeover-relaunch',
+    runEffect,
+    nowMs,
+  });
 }
 
 // ── Start ──────────────────────────────────────────────────────────────────
