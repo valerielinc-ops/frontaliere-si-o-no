@@ -123,6 +123,10 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
 
     let timer: number | null = null;
     let gateObserver: MutationObserver | null = null;
+    const showPrompt = () => {
+      setCount(getSessionViewerCount(jobId));
+      setVisible(true);
+    };
     const schedule = () => {
       if (timer !== null) return;
       const gate = document.getElementById('job-auth-gate');
@@ -132,10 +136,11 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
       const elapsedSinceGate = Number.isFinite(gateVisibleAt)
         ? Math.max(0, Date.now() - gateVisibleAt)
         : 0;
-      timer = window.setTimeout(() => {
-        setCount(getSessionViewerCount(jobId));
-        setVisible(true);
-      }, Math.max(0, DISPLAY_DELAY_MS - elapsedSinceGate));
+      timer = window.setTimeout(showPrompt, Math.max(0, DISPLAY_DELAY_MS - elapsedSinceGate));
+    };
+    const scheduleFallback = () => {
+      if (timer !== null) return;
+      timer = window.setTimeout(showPrompt, DISPLAY_DELAY_MS);
     };
     const gate = document.getElementById('job-auth-gate');
     if (
@@ -161,7 +166,7 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
         ],
       });
     } else {
-      schedule();
+      scheduleFallback();
     }
 
     return () => {

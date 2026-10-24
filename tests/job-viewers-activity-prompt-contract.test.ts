@@ -11,6 +11,7 @@ describe('job viewers activity prompt contract', () => {
     expect(SOURCE).toMatch(/AUTO_DISMISS_MS\s*=\s*3_500/u);
     expect(SOURCE).toMatch(/viewerPromptVisibleAt/u);
     expect(SOURCE).toMatch(/viewerPromptJobId/u);
+    expect(SOURCE).toMatch(/scheduleFallback/u);
     expect(JOB_BOARD_SOURCE).toMatch(
       /gate\.dataset\.viewerPromptJobId\s*=\s*String\(selectedJob\.id\)/u,
     );
