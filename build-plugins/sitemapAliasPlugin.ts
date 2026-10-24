@@ -25,6 +25,7 @@
 import fs from 'node:fs';
 import path from 'path';
 import type { Plugin } from 'vite';
+import { withPhaseInstrument } from './shared/phaseInstrument';
 import { BASE_URL } from './constants';
 import {
   jobsSeoPagesFlushed,
@@ -146,6 +147,7 @@ async function reconcileSitemapFamilyWithDist(
     keepMissing: true,
     preserveCanonicalExemptions: true,
     foreignDirectoryIndex: options.foreignDirectoryIndex,
+    label: familyLabel,
   }));
   const dropLocs = [...new Set(locs.filter((loc) => !kept.has(loc)))];
   if (dropLocs.length === 0) return 0;
@@ -319,7 +321,7 @@ export async function reconcileSitemapFuelWithDist(distDir: string): Promise<num
   // path is present on disk (for example, a direct-fs bridge), inspect it so
   // noindex/non-self-canonical HTML cannot leak through.
   const kept = new Set(
-    await dropOverwrittenLocs(distDir, locs, { inspectForeignPresent: true }),
+    await dropOverwrittenLocs(distDir, locs, { inspectForeignPresent: true, label: 'fuel' }),
   );
   const dropLocs = [...new Set(locs.filter((loc) => !kept.has(loc)))];
   if (dropLocs.length === 0) return 0;
@@ -523,18 +525,32 @@ export async function reconcileFinalSitemapsWithDist(
   distDir: string,
   mirrorLocs: ReadonlyArray<string> = getFinalSitemapMirrorLocs(),
 ): Promise<void> {
-  const foreignDirectoryIndex = createForeignDirectoryIndex(
+  // Tempi per famiglia (`[sitemap-alias-detail]`): sono la sola attribuzione
+  // possibile dei ~9-11 minuti del plugin senza un secondo run profilato.
+  const __detail = async <T>(step: string, run: () => Promise<T> | T): Promise<T> => {
+    const startedAt = performance.now();
+    try {
+      return await run();
+    } finally {
+      console.log(`[sitemap-alias-detail] ${step} wall_s=${((performance.now() - startedAt) / 1000).toFixed(1)}`);
+    }
+  };
+  const foreignDirectoryIndex = await __detail('foreign-candidates', () => createForeignDirectoryIndex(
     distDir,
     collectForeignDirectoryCandidates(distDir),
-  );
-  await reconcileSitemapSearchClustersWithDist(distDir);
-  await reconcileSitemapJobsWithDist(distDir, mirrorLocs, { foreignDirectoryIndex });
-  await reconcileSitemapFuelWithDist(distDir);
-  await reconcileArticleSitemapsWithDist(distDir, { foreignDirectoryIndex });
-  await reconcileRemainingSitemapsWithDist(distDir, { foreignDirectoryIndex });
+  ));
+  await __detail('search-clusters', () => reconcileSitemapSearchClustersWithDist(distDir));
+  await __detail('jobs', () => reconcileSitemapJobsWithDist(distDir, mirrorLocs, { foreignDirectoryIndex }));
+  await __detail('fuel', () => reconcileSitemapFuelWithDist(distDir));
+  await __detail('articles', () => reconcileArticleSitemapsWithDist(distDir, { foreignDirectoryIndex }));
+  await __detail('remaining-static', () => reconcileRemainingSitemapsWithDist(distDir, { foreignDirectoryIndex }));
 }
 
 export function sitemapAliasPlugin(rootDir: string): Plugin {
+  return withPhaseInstrument('sitemap-alias', buildSitemapAliasPlugin(rootDir));
+}
+
+function buildSitemapAliasPlugin(rootDir: string): Plugin {
   return {
     name: 'sitemap-alias',
     apply: 'build',
@@ -600,7 +616,9 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
           );
         }
 
+        const __tSanitize = performance.now();
         const sanitized = sanitizeSitemapHreflangReciprocity(sitemapFiles);
+        console.log(`[sitemap-alias-detail] hreflang-sanitize wall_s=${((performance.now() - __tSanitize) / 1000).toFixed(1)} files=${sitemapFiles.length}`);
         for (const [file, xml] of sanitized) {
           fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
         }

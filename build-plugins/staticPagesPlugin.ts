@@ -11,6 +11,7 @@ import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from '.
  */
 
 import type { Plugin } from 'vite';
+import { withPhaseInstrument } from './shared/phaseInstrument';
 import { renderAuthorEditorial, renderAuthorRosterItems, resolveAuthorStaticSeo } from './shared/authorEditorial';
 import { localizeStaticPageStructuredData } from './shared/localeStaticStructuredData';
 import { editorialModifiedDate, synchronizeSitemapLastmods } from './shared/editorialDates';
@@ -192,7 +193,12 @@ import {
  isJobBoardLandingPath,
  type JobBoardLocale,
 } from './jobBoardSeo';
-import { countEmittedJobArchivePagesByLocale, emitSeoHubs } from './seoHubsPlugin';
+import {
+  beginJobDetailExistenceMemo,
+  countEmittedJobArchivePagesByLocale,
+  emitSeoHubs,
+  endJobDetailExistenceMemo,
+} from './seoHubsPlugin';
 import { JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, svizzeraArticlesArchiveBasePaths, type HubLocale as ArchiveHubLocale } from './seoHubsData';
 import {
   countSvizzeraArticleArchivePages,
@@ -1804,6 +1810,22 @@ const STATIC_ONLY_PATHS = new Set([
 ]);
 
 export function staticPagesPlugin(rootDir: string): Plugin {
+  const plugin = buildStaticPagesPlugin(rootDir);
+  const inner = plugin.closeBundle as (this: unknown, ...args: unknown[]) => unknown;
+  return withPhaseInstrument('static-pages', {
+    ...plugin,
+    closeBundle: async function (this: unknown, ...args: unknown[]) {
+      beginJobDetailExistenceMemo();
+      try {
+        return await inner.apply(this, args);
+      } finally {
+        endJobDetailExistenceMemo();
+      }
+    } as Plugin['closeBundle'],
+  });
+}
+
+function buildStaticPagesPlugin(rootDir: string): Plugin {
  return {
  name: 'static-pages',
  apply: 'build',

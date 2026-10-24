@@ -24,12 +24,14 @@
 // the <img> error fallback).
 
 import type { Plugin } from 'vite';
+import { withPhaseInstrument } from './shared/phaseInstrument';
 import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 
 import { CDN_BLOG_BASE } from './shared/blogImageCdn';
 import { shouldEmitPath } from './shared/localeEmitFilter';
+import { blogImageFoldEnabled, takePostWalkBlogScan } from './shared/blogImageFold';
 
 // Single producer (issue #4974 item 3, migration §10.4 step 2): these live in
 // the colocated articles package so nanako's fast-publish path and this repo's
@@ -193,6 +195,28 @@ export async function sweepDistBlogImageRefs(
   distDir: string,
   concurrency: number = resolveSweepConcurrency(),
 ): Promise<BlogImageSweepResult> {
+  return sweepPaths(distDir, walk(distDir), concurrency);
+}
+
+/**
+ * Stesso rewrite+guard di `sweepDistBlogImageRefs`, ma su un elenco esplicito
+ * di file (la scansione condivisa con il post-walk coordinator, vedi
+ * shared/blogImageFold.ts). Il risultato per file e' identico: la trasformata
+ * di un file dipende solo dai suoi byte.
+ */
+export async function sweepBlogImageRefsOfFiles(
+  distDir: string,
+  files: Iterable<string>,
+  concurrency: number = resolveSweepConcurrency(),
+): Promise<BlogImageSweepResult> {
+  return sweepPaths(distDir, new Set(files).values(), concurrency);
+}
+
+async function sweepPaths(
+  distDir: string,
+  it: Iterator<string>,
+  concurrency: number,
+): Promise<BlogImageSweepResult> {
   const tSweep = Date.now();
   let scanned = 0;
   let rewritten = 0;
@@ -215,7 +239,6 @@ export async function sweepDistBlogImageRefs(
   // own read, so at most `lanes` files are resident at any instant. `it.next()`
   // is synchronous and JS is single-threaded, so the pull is atomic — two lanes
   // can never receive the same path.
-  const it = walk(distDir);
   const lanes = Math.max(1, concurrency);
   await Promise.all(
     Array.from({ length: lanes }, async () => {
@@ -235,11 +258,16 @@ export async function sweepDistBlogImageRefs(
 }
 
 export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
-  return {
-    name: 'blog-image-cdn-finalize',
-    apply: 'build',
-    enforce: 'post',
-    async closeBundle() {
+  return withPhaseInstrument('blog-image-cdn-finalize', buildBlogImageCdnFinalizePlugin(rootDir));
+}
+
+function buildBlogImageCdnFinalizePlugin(rootDir: string): Plugin {
+  // Con la scansione condivisa il finalize deve girare DOPO il post-walk
+  // coordinator (che gli consegna l'elenco dei file da rileggere): hook
+  // `order: 'post'` + `sequential`, registrato dopo di lui in vite.config.ts.
+  // Spento (default), la forma dell'hook e' quella storica.
+  const fold = blogImageFoldEnabled();
+  const run = async (): Promise<void> => {
       const distDir = path.resolve(rootDir, 'dist');
       const blogDir = path.join(distDir, 'images', 'blog');
       if (!fs.existsSync(blogDir)) {
@@ -253,7 +281,18 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
       // in dist) rather than throw: a missed reference must never break the
       // deploy. Worst case the artifact ships the blog images as before (no
       // reduction) — never a 404 or a failed build.
-      const { scanned, rewritten, leaks } = await sweepDistBlogImageRefs(distDir);
+      const shared = fold ? takePostWalkBlogScan(distDir) : null;
+      const { scanned, rewritten, leaks } = shared
+        ? await sweepBlogImageRefsOfFiles(distDir, [...shared.markerPaths, ...shared.extraPaths])
+        : await sweepDistBlogImageRefs(distDir);
+      if (fold) {
+        console.log(
+          shared
+            ? `[blog-image-cdn] shared post-walk scan: re-read ${scanned} file(s) ` +
+                `(marker=${shared.markerPaths.length} extra=${shared.extraPaths.length})`
+            : '[blog-image-cdn] no shared post-walk scan — full sweep',
+        );
+      }
       if (leaks.length > 0) {
         console.warn(
           `[blog-image-cdn] ${leaks.length} file(s) still reference full /images/blog images after CDN ` +
@@ -280,6 +319,11 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
           `deleted ${deleted} full blog images (${(freed / 1048576).toFixed(0)} MB freed; thumbnails kept local) ` +
           `[sweep=${(lastSweepTimings.sweepMs / 1000).toFixed(1)}s lanes=${lastSweepTimings.lanes}]`,
       );
-    },
+  };
+  return {
+    name: 'blog-image-cdn-finalize',
+    apply: 'build',
+    enforce: 'post',
+    closeBundle: fold ? { order: 'post', sequential: true, handler: run } : run,
   };
 }

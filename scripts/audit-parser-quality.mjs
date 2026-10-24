@@ -100,6 +100,7 @@ export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/prospector/entities.mjs',
   'scripts/lib/decode-html-entities.mjs',
   'scripts/lib/html-attr.mjs',
+  'scripts/lib/mid-plugins-flag.mjs',
   'scripts/lib/prospector/location-evidence.mjs',
   'scripts/lib/target-swiss-locations.mjs',
   'scripts/lib/crawler-location-config.mjs',

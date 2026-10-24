@@ -26,6 +26,7 @@ import { clampMetaDescription, finalizeJobBoardTitle } from './shared/titleSuffi
 import { railGutters } from './shared/railGutters';
 import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
 import type npT from 'node:path';
+import { MID_PLUGINS_FAST } from '../scripts/lib/mid-plugins-flag.mjs';
 import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT, FAVICON_LINKS, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
@@ -835,12 +836,59 @@ function readJobSlugsMap(
  * cross-shard links and let the owning shard validate its own output; an
  * all-locale build validates every destination here.
  */
-function hasEmittedJobDetailPage(
+// Verdetti di esistenza memoizzati per la durata di UN closeBundle di
+// static-pages (beginJobDetailExistenceMemo/endJobDetailExistenceMemo): il
+// conteggio delle pagine d'archivio (per paginare i nav) e l'emissione degli
+// hub interrogano gli stessi ~600k href storici, e nessuno scrive una pagina di
+// dettaglio fra le due passate. Fuori da quella finestra, o con
+// MID_PLUGINS_FAST spento, ogni chiamata va sul disco come prima.
+let jobDetailExistenceMemo: Map<string, boolean> | null = null;
+
+export function beginJobDetailExistenceMemo(): void {
+  jobDetailExistenceMemo = MID_PLUGINS_FAST ? new Map() : null;
+}
+
+export function endJobDetailExistenceMemo(): void {
+  jobDetailExistenceMemo = null;
+}
+
+// href same-origin fatti solo di caratteri non riservati e senza segmenti
+// punto: `new URL()` e `decodeURIComponent` sono per questi l'identita' (nessun
+// percent-escape, nessuna normalizzazione dei dot-segment).
+const PLAIN_JOB_HREF = /^\/[A-Za-z0-9._~-]+(?:\/[A-Za-z0-9._~-]+)*\/?$/;
+
+function plainJobHrefRelativePath(href: string): string | null {
+  if (!PLAIN_JOB_HREF.test(href)) return null;
+  const relativePath = href.replace(/^\/+|\/+$/g, '');
+  for (const segment of relativePath.split('/')) {
+    if (segment === '.' || segment === '..') return null;
+  }
+  return relativePath;
+}
+
+export function hasEmittedJobDetailPage(
   fs: typeof fsT,
   np: typeof npT,
   distDir: string,
   href: string,
 ): boolean {
+  if (MID_PLUGINS_FAST) {
+    const plain = plainJobHrefRelativePath(href);
+    if (plain !== null) {
+      const distRoot = np.resolve(distDir);
+      const pageFile = `${distRoot}${np.sep}${plain.split('/').join(np.sep)}${np.sep}index.html`;
+      if (!shouldEmitLocale(localeOfDistPath(pageFile, distRoot))) return true;
+      const memo = jobDetailExistenceMemo;
+      if (memo) {
+        const known = memo.get(pageFile);
+        if (known !== undefined) return known;
+        const exists = fs.existsSync(pageFile);
+        memo.set(pageFile, exists);
+        return exists;
+      }
+      return fs.existsSync(pageFile);
+    }
+  }
   try {
     const target = new URL(href, `${BASE_URL}/`);
     if (target.origin !== new URL(BASE_URL).origin || target.search || target.hash) return false;

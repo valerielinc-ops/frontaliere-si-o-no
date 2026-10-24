@@ -978,7 +978,7 @@ jobs:
           if-no-files-found: error
 
       - name: Upload CPU profile
-        if: always() && (inputs.cpu_profile == true || contains(matrix.env_json, '"CPU_PROFILE":"1"'))
+        if: always() && (inputs.cpu_profile == true || contains(matrix.env_json, '"CPU_PROFILE":"1"') || contains(matrix.env_json, '"PHASE_CPU_PROFILE"'))
         uses: actions/upload-artifact@v7
         with:
           name: cpu-profile-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}
