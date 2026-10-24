@@ -26,9 +26,10 @@
  * without a build. CI builds `dist/` first and sets the env var.
  */
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, resolve } from 'node:path';
-import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { SCAN_TEST_TIMEOUT_MS, assertScanCompleted, scanDistHtml } from '../helpers/distHtmlScan';
+import { describeAuditAllVerdict, readAuditAllVerdict } from '../helpers/auditAllMirror';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
 
@@ -51,16 +52,6 @@ interface Offender {
   keys: string[];
 }
 
-function walkHtml(dir: string, out: string[] = []): string[] {
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir)) {
-    const full = join(dir, entry);
-    const st = statSync(full);
-    if (st.isDirectory()) walkHtml(full, out);
-    else if (entry.endsWith('.html')) out.push(full);
-  }
-  return out;
-}
 
 function extractLdJsonBlocks(html: string): string[] {
   const blocks: string[] = [];
@@ -136,18 +127,24 @@ describe('dist HTML — ImageObject license-fields gate (GSC licensable-image)',
     'every ImageObject in dist JSON-LD has the required fields and valid license URLs',
     { timeout: SCAN_TEST_TIMEOUT_MS },
     () => {
-      const files = walkHtml(DIST_DIR);
+      // audit:all already judged this dist in the shared walk: assert ITS
+      // verdict instead of re-walking the corpus (tests/helpers/auditAllMirror.ts).
+      const verdict = readAuditAllVerdict(DIST_DIR, 'image-object-license');
+      if (verdict) {
+        console.log(describeAuditAllVerdict(verdict));
+        expect(verdict.passed, `ImageObject license-field defects (audit:all): ${JSON.stringify(verdict.topOffenders.slice(0, 10))}`).toBe(true);
+        return;
+      }
       const allOffenders: Offender[] = [];
       const fileSet = new Set<string>();
 
-      for (const file of files) {
-        const html = readFileSync(file, 'utf-8');
-        const offs = findOffenders(html, file);
-        for (const o of offs) {
+      const scan = scanDistHtml(DIST_DIR, (relPath, html) => {
+        for (const o of findOffenders(html, `${DIST_DIR}${relPath}`)) {
           allOffenders.push(o);
           fileSet.add(o.file);
         }
-      }
+      });
+      assertScanCompleted(scan, 'ImageObject license-fields', allOffenders.map((o) => o.file));
 
       if (allOffenders.length === 0) {
         expect(allOffenders.length).toBe(0);
