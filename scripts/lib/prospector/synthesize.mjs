@@ -361,7 +361,14 @@ export function findMiskeyedCandidates(candidates, { productionKeys = new Set(),
     const to = crawlerKeyFor(candidate);
     if (to === from) continue;
     if (productionKeys.has(from)) {
-      const spec = specFor(from);
+      let spec;
+      try {
+        spec = specFor(from);
+      } catch {
+        // A production spec that cannot be read is not evidence that the key
+        // is free. Fail closed and leave the candidate attached to its key.
+        continue;
+      }
       if (spec && compactIdentity(spec.companyName) === compactIdentity(candidate.name)) continue;
     }
     out.push({ candidate, from, to });

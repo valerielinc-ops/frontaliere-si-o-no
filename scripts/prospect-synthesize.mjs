@@ -89,7 +89,15 @@ for (const candidate of Object.values(store.candidates)) {
   if (candidate?.crawlerKey && !TERMINAL.has(candidate.status)) addKeyOwner(candidate.crawlerKey, candidate.key);
 }
 const readSpec = (key) => {
-  try { return JSON.parse(fs.readFileSync(path.join(SPEC_DIR, `${key}.json`), 'utf8')); } catch { return null; }
+  try {
+    return JSON.parse(fs.readFileSync(path.join(SPEC_DIR, `${key}.json`), 'utf8'));
+  } catch (error) {
+    // A missing production spec is the only case that proves the key is free.
+    // Malformed or unreadable specs must stop rekeying: treating them as absent
+    // could emit a second crawler while the live key still owns the employer.
+    if (error?.code === 'ENOENT') return null;
+    throw error;
+  }
 };
 
 // Candidati la cui chiave e' un'etichetta del vendor (`my`, `jobportal`,

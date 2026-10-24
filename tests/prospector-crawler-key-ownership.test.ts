@@ -84,6 +84,16 @@ describe('findMiskeyedCandidates', () => {
     ], { productionKeys, specFor });
     expect(hits).toEqual([]);
   });
+
+  it('fails closed when the production spec cannot be read', () => {
+    const hits = findMiskeyedCandidates([
+      { key: 'ibbrugg.ch', status: 'promoted', crawlerKey: 'my', tenantHost: 'my.jobalino.ch', name: 'IBB Energie AG', domain: 'ibbrugg.ch' },
+    ], {
+      productionKeys,
+      specFor: () => { throw new SyntaxError('malformed production spec'); },
+    });
+    expect(hits).toEqual([]);
+  });
 });
 
 describe('requeueMiskeyedCandidate', () => {

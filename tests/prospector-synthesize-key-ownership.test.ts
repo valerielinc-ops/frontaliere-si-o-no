@@ -6,6 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const state = vi.hoisted(() => ({
   root: '',
   prospectorDir: '',
+  productionKeys: new Set<string>(),
   store: { version: 1, candidates: {}, rejectedTombstones: {} } as any,
 }));
 
@@ -15,7 +16,7 @@ vi.mock('../scripts/lib/prospector/config.mjs', () => ({
 }));
 
 vi.mock('../scripts/lib/prospector/coverage.mjs', () => ({
-  loadCoverage: () => ({ keys: new Set() }),
+  loadCoverage: () => ({ keys: state.productionKeys }),
 }));
 
 vi.mock('../scripts/lib/prospector/candidate-store.mjs', () => ({
@@ -56,6 +57,7 @@ describe('prospect-synthesize crawler-key ownership', () => {
     vi.resetModules();
     state.root = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-key-ownership-root-'));
     state.prospectorDir = path.join(state.root, 'data', 'prospector');
+    state.productionKeys = new Set();
     fs.mkdirSync(path.join(state.prospectorDir, 'crawlers'), { recursive: true });
     fs.writeFileSync(
       path.join(state.prospectorDir, 'crawlers', 'my.json'),
@@ -100,5 +102,16 @@ describe('prospect-synthesize crawler-key ownership', () => {
     expect(fs.existsSync(path.join(state.prospectorDir, 'crawlers', 'my.json'))).toBe(true);
     expect(state.store.candidates.deferred.crawlerKey).toBe('my');
     expect(state.store.candidates.selected.crawlerKey).toBeUndefined();
+  });
+
+  it('does not rekey a live candidate when its production spec is malformed', async () => {
+    state.productionKeys = new Set(['my']);
+    fs.writeFileSync(path.join(state.prospectorDir, 'crawlers', 'my.json'), '{');
+
+    await import('../scripts/prospect-synthesize.mjs');
+
+    expect(state.store.candidates.deferred.crawlerKey).toBe('my');
+    expect(state.store.candidates.selected.crawlerKey).toBe('my');
+    expect(fs.readFileSync(path.join(state.prospectorDir, 'crawlers', 'my.json'), 'utf8')).toBe('{');
   });
 });
