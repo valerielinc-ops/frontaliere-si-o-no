@@ -15,17 +15,17 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 831,
-      "6": 5054
+      "5": 832,
+      "6": 5055
     },
-    "publishedCovers": 7568,
+    "publishedCovers": 7570,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 133,
     "fallbackRepointed": 0,
-    "inferredRecords": 4968
+    "inferredRecords": 4969
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -208132,6 +208132,66 @@
         "imageUrl": "/images/blog/article-telecom-358-licenziamenti.webp",
         "evidence": "generated-engine-record"
       }
+    },
+    "article-abstimmung-bahnhof-wil-allee": {
+      "cover": "/images/blog/article-abstimmung-bahnhof-wil-allee.webp",
+      "hash": "0e1708e2bcb6205f1adbeec1f05febf65dca7d3e9553503d92cee83795dbd73a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "abstimmung-bahnhof-wil-allee",
+          "category": "pratico",
+          "date": "2026-10-24T13:43:09.251Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-abstimmung-bahnhof-wil-allee.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-abstimmung-bahnhof-wil-allee",
+        "imageUrl": "/images/blog/article-abstimmung-bahnhof-wil-allee.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cambio-ora-rischio-wildunfalli": {
+      "cover": "/images/blog/article-cambio-ora-rischio-wildunfalli.webp",
+      "hash": "bc20f2579ee22410e5c9f3724ee8aaad6879ac4a365b91674baf2d5b319142dc",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "cambio-ora-rischio-wildunfalli",
+          "category": "pratico",
+          "date": "2026-10-24T14:03:16.134Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
     }
   },
   "repair": {
