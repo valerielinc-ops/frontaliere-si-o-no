@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 819,
+      "5": 820,
       "6": 5054
     },
-    "publishedCovers": 7556,
+    "publishedCovers": 7557,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207734,6 +207734,39 @@
         "provider": "openai-codex",
         "assetId": "article-iva-aumento-pensione-sondaggio",
         "imageUrl": "/images/blog/article-iva-aumento-pensione-sondaggio.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zenith-soppressione-locle": {
+      "cover": "/images/blog/article-zenith-soppressione-locle.webp",
+      "hash": "a97c3e3e9e9224fc1d3cb318bdb1467a161835709e0ede18a21097bccca60cd6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "zenith-soppressione-locle",
+          "category": "novita",
+          "date": "2026-10-23T23:50:03.671Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zenith-soppressione-locle.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zenith-soppressione-locle",
+        "imageUrl": "/images/blog/article-zenith-soppressione-locle.webp",
         "evidence": "generated-engine-record"
       }
     }
