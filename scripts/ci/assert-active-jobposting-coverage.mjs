@@ -69,7 +69,7 @@ export function runActiveJobPostingCoverageGate({ distDir, sidecarPath, log = co
 }
 
 if ((() => {
-  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1] || '')).href; }
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
   catch { return false; }
 })()) {
   const distDir = path.resolve(process.argv[2] || 'dist');
