@@ -209,7 +209,7 @@ function readApiObservationTimestamp(station) {
 
 function normalizeMimitApiObservationDate(value) {
   const normalized = normalizeItalyObservationDate(value);
-  if (normalized) return normalized;
+  if (normalized) return normalized.slice(0, 10);
   // The legacy Osservaprezzi response documents `dIns` as a date-time but
   // emits it without a timezone. Preserve its verified calendar day instead
   // of inventing a timezone, which is all the downstream freshness contract
@@ -355,11 +355,12 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
 
       for (const fuelRow of fuelRows) {
         const key = `${id.value}:${fuelRow.descCarburante}:${fuelRow.isSelf}`;
+        const normalizedPriceRow = { idImpianto: String(id.value), ...fuelRow };
         const existingPrice = pricesByKey.get(key);
-        if (existingPrice && JSON.stringify(existingPrice) !== JSON.stringify(fuelRow)) {
+        if (existingPrice && JSON.stringify(existingPrice) !== JSON.stringify(normalizedPriceRow)) {
           throw new Error(`MIMIT API returned conflicting price rows for ${key}`);
         }
-        pricesByKey.set(key, { idImpianto: String(id.value), ...fuelRow });
+        pricesByKey.set(key, normalizedPriceRow);
       }
       if (!latestObservedAt || Date.parse(observationTimestamp) > Date.parse(latestObservedAt)) latestObservedAt = observationTimestamp;
     }

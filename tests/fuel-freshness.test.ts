@@ -140,6 +140,36 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(stations.get('Como:CO')?.[0]).toEqual(expect.objectContaining({ priceEur: 1.7, dieselPriceEur: 1.65, benzinaUpdatedAt: day(observedAt) }));
   });
 
+  it('accepts equivalent ISO and legacy observation aliases', () => {
+    const observedAt = daysAgo(0.5);
+    const observedDay = day(observedAt);
+    const apiRows = buildItalyRowsFromMimitApi({
+      municipalities: [COMO],
+      responses: [{
+        province: 'CO',
+        results: [{
+          ...apiStation(observedAt),
+          insertDate: `${observedDay}T08:00:00Z`,
+          dIns: `${observedDay} 08:00:00`,
+        }],
+      }],
+    });
+    expect(apiRows.stationsRows).toHaveLength(1);
+    expect(apiRows.extractedAt).toBe(observedDay);
+  });
+
+  it('deduplicates an identical station returned twice by the API', () => {
+    const station = {
+      ...apiStation(daysAgo(0.5)),
+      carburanti: [{ carb: 'Benzina', prezzo: '1.700', isSelf: 1 }],
+    };
+    const apiRows = buildItalyRowsFromMimitApi({
+      municipalities: [COMO],
+      responses: [{ province: 'CO', results: [station, station] }],
+    });
+    expect(apiRows.pricesRows).toHaveLength(1);
+  });
+
   it('rejects rows whose municipality or observation date cannot be proven', () => {
     expect(() => buildItalyRowsFromMimitApi({
       municipalities: [COMO],
