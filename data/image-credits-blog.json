@@ -71610,6 +71610,80 @@
           "notes": "Generic synthetic Swiss-style corporate office illustration; no readable text, logos, identifiable faces, or foreground people."
         }
       }
+    },
+    "generated:article-abstimmung-bahnhof-wil-allee": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-24T13:42:55.617Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-24",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-abstimmung-bahnhof-wil-allee",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "ba5b2dbd9876d088aa68ad5221eb289ea52dbca25d24df06c3ec632d8479f117",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "0e1708e2bcb6205f1adbeec1f05febf65dca7d3e9553503d92cee83795dbd73a",
+        "bytes": 196506,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-24T13:42:55.617Z",
+        "verifiedAt": "2026-10-24T13:43:09.204Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-abstimmung-bahnhof-wil-allee.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic, photorealistic transit illustration with no readable text, logos, or people."
+        }
+      }
     }
   },
   "covers": {
@@ -111810,6 +111884,16 @@
     "article-telecom-358-licenziamenti": {
       "file": "generated:article-telecom-358-licenziamenti",
       "modified": "resized"
+    },
+    "article-abstimmung-bahnhof-wil-allee": {
+      "file": "generated:article-abstimmung-bahnhof-wil-allee",
+      "modified": "resized"
+    },
+    "article-cambio-ora-rischio-wildunfalli": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-24",
+      "status": "no-credit"
     }
   }
 }
