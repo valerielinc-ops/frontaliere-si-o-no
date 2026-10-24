@@ -1,21 +1,22 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-10-24T09:23:34.969Z",
+  "generatedAt": "2026-10-24T21:19:33.160Z",
   "total": 78,
-  "newCount": 1,
-  "updatedCount": 11,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 12,
+  "removedCount": 0,
   "unchangedCount": 66,
-  "durationMs": 290540,
-  "avgDurationMs": 290540,
+  "durationMs": 287499,
+  "avgDurationMs": 287499,
   "durationHistory": [
-    290540
+    287499
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "System Engineer (SCADA/RTU) for Substation Automation 80 – 100% (f/m/d)",
-      "slug": "system-engineer-scada-rtu-for-substation-automation-80-100-f-m-d-hitachi-energy-baden-switzerland",
+      "slug": "system-ingegnere-scada-rtu-for-substation-automation-80-100-f-m-d-hitachi-energy-baden",
       "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-222811",
       "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Baden-Aargau-Switzerland/System-Engineer--SCADA-RTU--for-Substation-Automation-80---100---f-m-d-_R0145175/apply",
       "company": "Hitachi Energy",
@@ -38,23 +39,20 @@
       "contractType": "regular",
       "validThrough": "",
       "id": "hitachi-energy-ca3f6b5fba40",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-23T09:25:53.795Z",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Qualitätsprüfer/in 80 - 100% (w/m/d)",
       "slug": "addetto-a-al-controllo-qualita-80-100-m-f-d-hitachi-energy-embrach-switzerland-ae146e",
@@ -491,47 +489,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "System Engineer (SCADA/RTU) for Substation Automation 80 – 100% (f/m/d)",
-      "slug": "system-ingegnere-scada-rtu-for-substation-automation-80-100-f-m-d-hitachi-energy-baden",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-222410",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Baden-Aargau-Switzerland/System-Engineer--SCADA-RTU--for-Substation-Automation-80---100---f-m-d-_R0145175/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Baden, Switzerland",
-      "addressLocality": "Baden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria Energetica",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "2026-10-21T00:00:00Z",
-      "postedDate": "2026-10-21T00:00:00Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "regular",
-      "validThrough": "",
-      "id": "hitachi-energy-eade938182b9",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "5400",
-      "firstSeenAt": "2026-10-23T09:25:53.795Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Project Manager Primary Engineering 80 - 100% (f/m/d)",
@@ -1704,5 +1662,5 @@
       }
     }
   ],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
