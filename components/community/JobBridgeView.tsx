@@ -1,3 +1,4 @@
+import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
  * JobBridgeView — view for job pages where the URL has changed (bridge pages).
@@ -194,7 +195,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  const sectionSlug = SECTION_BY_LOCALE[locale] ?? SECTION_BY_LOCALE.it;
  const targetPath = `${prefix}/${sectionSlug}/${targetSlug}/`.replace(/\/+/g, '/');
  const listingPath = `${prefix}/${sectionSlug}/`.replace(/\/+/g, '/');
- const localizedTitle = jobData?.titleByLocale?.[locale] ?? jobData?.title;
+ const localizedTitle = jobDisplayTitle(jobData) || undefined;
  const newsletterJobContext = {
  slug: targetSlug || null,
  company: jobData?.company || null,
@@ -673,7 +674,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  <div className="space-y-2">
  {relatedJobs.slice(0, 6).map((rj) => {
  const rjSlug = rj.slug;
- const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug;
+ const rjTitle = jobDisplayTitle(rj) || rjSlug;
  const rjLocation = formatJobLocation(rj.location, rj.canton);
  const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
  const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));

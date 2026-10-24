@@ -20,6 +20,7 @@
  * prima; il browser resta senza reader e ricade sui fallback gia' previsti.
  */
 
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import { readNewsletterDataset } from './newsletter-datasets.mjs';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
 import { locationTokenVariants, normalizeLocToken } from './locToken.mjs';
@@ -907,7 +908,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
       ? context.resolvers.resolveCantonSection(locale, resolvedCanton)
       : fallbackBoardPath;
     return {
-      title: job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title,
+      title: jobDisplayTitle(job),
       url: `/${boardPath}/${slug}/`,
       slug: job.slug || slug,
       company: job.company,

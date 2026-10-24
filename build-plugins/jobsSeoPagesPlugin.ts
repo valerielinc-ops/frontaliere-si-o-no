@@ -162,6 +162,7 @@ import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { resolveJobApplicationUrl } from '../services/jobApplicationDestination';
 import { buildFallbackCanonicalContent, canonicalizeFallbackCleaned, localizeFallbackCanonical, type CleanedFallbackContent } from '../services/jobs/canonicalFallback';
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import {
  loadWinners,
  saveWinners,
@@ -2879,7 +2880,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   i: number,
   locale: 'it' | 'en' | 'de' | 'fr',
  ): Record<string, unknown> | null => {
-  const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+  const jobTitle = jobDisplayTitle(job);
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
   const canonicalHref = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, localizedSlug(job, locale), jobCanton)}`;
   const abs = activeCanonicalJobHref(job, locale);
@@ -3211,7 +3212,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const locale of localeList) {
- const lt = String(job?.titleByLocale?.[locale] || job.title || '');
+ const lt = jobDisplayTitle(job);
  const loc = String(job.location || '').trim();
  const baseTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, undefined, undefined, (s) => esc(s).length);
  const bucket = titleCollisionByLocale[locale];
@@ -3900,7 +3901,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  );
  let html: string;
  if (!activeReuse?.hit || jobsSeoReuse?.shouldRender(activeReuse)) {
- const localizedTitle = stripLiteralMarkdownFromTitle(String(job?.titleByLocale?.[locale] || job.title || ''));
+ const localizedTitle = stripLiteralMarkdownFromTitle(jobDisplayTitle(job));
  const jobLocation = perJob_jobLocation;
  const dc = getCantonDisplayLabel(perJob_cantonCode, locale);
  // City-aware title: always includes location when available, then truncates
@@ -4072,7 +4073,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .map(({ job: r, paths: rPaths }, i: number) => {
  // Relative href — internal navigation resolves against canonical (absolute).
  const href = rPaths[locale];
- const relatedTitle = stripLiteralMarkdownFromTitle(String(r?.titleByLocale?.[locale] || r.title || ''));
+ const relatedTitle = stripLiteralMarkdownFromTitle(jobDisplayTitle(r));
  const rLogo = companyLogo(r);
  const rSalary = (() => {
  const rSalaryMin = Number(r.salaryMin) || Number(r.baseSalary?.value?.minValue);
@@ -5415,7 +5416,7 @@ ${staticAnalyticsHtml}
  const itemListItems = listedCompanyJobs.flatMap((job) => {
  const jHref = activeCanonicalJobHref(job, locale);
  if (!jHref) return [];
- const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+ const jTitle = jobDisplayTitle(job);
  return [{ url: jHref, name: jTitle }];
  }).map((item, idx) => ({ '@type': 'ListItem', position: idx + 1, ...item }));
  const itemListLd = inlineScriptJson({
@@ -8498,7 +8499,7 @@ ${staticAnalyticsHtml}
  // suppressed or canonicalized elsewhere.
  const url = activeCanonicalJobHref(job, locale);
  if (!url) return [];
- return [{ name: String(job?.titleByLocale?.[locale] || job.title || ''), url }];
+ return [{ name: jobDisplayTitle(job), url }];
  }).map((item, i) => ({ '@type': 'ListItem', position: i + 1, ...item }));
  const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgItemListItems.length, itemListElement: pgItemListItems });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
@@ -8636,7 +8637,7 @@ ${staticAnalyticsHtml}
  const pgItemListItems = pgJobs.slice(0, 10).flatMap((job: any) => {
  const url = activeCanonicalJobHref(job, locale);
  if (!url) return [];
- return [{ name: String(job?.titleByLocale?.[locale] || job.title || ''), url }];
+ return [{ name: jobDisplayTitle(job), url }];
  }).map((item, i) => ({ '@type': 'ListItem', position: i + 1, ...item }));
  const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgItemListItems.length, itemListElement: pgItemListItems });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
@@ -9380,7 +9381,7 @@ ${staticAnalyticsHtml}
  locale: 'it' | 'en' | 'de' | 'fr',
  ): CompanyHubFaqItem[] => {
  const items: CompanyHubFaqItem[] = [];
- const roleTitles = [...new Set(jobs.map((j: any) => stripLiteralMarkdownFromTitle(String(j?.titleByLocale?.[locale] || j?.title || '').trim())).filter(Boolean))].slice(0, 5);
+ const roleTitles = [...new Set(jobs.map((j: any) => stripLiteralMarkdownFromTitle(jobDisplayTitle(j).trim())).filter(Boolean))].slice(0, 5);
  const count = jobs.length;
  if (roleTitles.length > 0) {
  const q = locale === 'it' ? `Quali posizioni offre ${companyName} in questo momento?`
@@ -12396,7 +12397,7 @@ ${staticAnalyticsHtml}
                  '@type': 'ListItem',
                  position: i + 1,
                  url: jHref,
-                 name: jt.titleByLocale?.[entry.locale] || jt.title || display,
+                 name: jobDisplayTitle(jt) || display,
                };
              }),
            },
@@ -13820,7 +13821,7 @@ ${staticAnalyticsHtml}
   );
   historicalArchiveFallbacks.set(relPath, {
    recordedIdentity: hasRealTitle,
-   title: String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || ''),
+   title: String(jobDisplayTitle(ejData) || jobDisplayTitle(gscInfo) || slugInfo?.title || ''),
    company: jobCompany,
    location: jobLocation,
    canton: jobCanton,
@@ -13868,7 +13869,7 @@ ${staticAnalyticsHtml}
  // jobCompany/jobLocation/jobCanton/etc. are hoisted above the for-locale
  // loop (per-slug invariants); displayCanton/escDisplayCanton
  // are NOT (they vary by locale — see note above the loop).
- const jobTitle = stripLiteralMarkdownFromTitle(String(hasRealTitle ? ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || copy.title : slugInfo?.title || copy.title));
+ const jobTitle = stripLiteralMarkdownFromTitle(String(hasRealTitle ? jobDisplayTitle(ejData) || jobDisplayTitle(gscInfo) || copy.title : slugInfo?.title || copy.title));
  const jobDescription = hasRealTitle ? stripLeadingSectionLabel(String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || '')) : '';
  // SERP title via the shared role>city>company>brand cascade — same
  // composer as ACTIVE job pages, so an expired listing reads like a job
@@ -13959,7 +13960,7 @@ ${staticAnalyticsHtml}
  // the same as empty ones (already `?? default` everywhere), so this
  // is a no-op for runtime behaviour — only the wire-form shrinks.
  const expiredTitle = hasRealTitle
-  ? ejData?.title || ejData?.titleByLocale?.[locale] || gscInfo?.title || gscInfo?.titleByLocale?.[locale] || ''
+  ? jobDisplayTitle(ejData) || jobDisplayTitle(gscInfo) || ''
   : '';
  const expiredCompany = jobCompany;
  const expiredCompanyKey = hasRealTitle ? ejData?.companyKey || gscInfo?.companyKey || slugInfo?.companyKey || '' : slugInfo?.companyKey || '';
@@ -14137,7 +14138,7 @@ ${staticAnalyticsHtml}
  const companyJobsList = sameCompanyActiveJobs.flatMap((j: any) => {
  const jHref = activeCanonicalJobHref(j, locale);
  if (!jHref) return [];
- const jTitle = stripLiteralMarkdownFromTitle(String(j?.titleByLocale?.[locale] || j.title || ''));
+ const jTitle = stripLiteralMarkdownFromTitle(jobDisplayTitle(j));
  return [`<li><a href="${jHref}">${esc(jTitle)}</a> — ${esc(j.location)}</li>`];
  }).join('');
  if (companyJobsList) staticBodyParts.push(`<section><h2>${companyJobsHeading}</h2><ul>${companyJobsList}</ul></section>`);
@@ -14203,7 +14204,7 @@ ${staticAnalyticsHtml}
  const recentList = recentJobs.flatMap((j: any) => {
  const jHref = activeCanonicalJobHref(j, locale);
  if (!jHref) return [];
- const jTitle = stripLiteralMarkdownFromTitle(String(j?.titleByLocale?.[locale] || j.title || ''));
+ const jTitle = stripLiteralMarkdownFromTitle(jobDisplayTitle(j));
  const jCompany = String(j.company || '');
  const jLoc = String(j.location || '');
  return [`<li><a href="${jHref}">${esc(jTitle)}</a>${jCompany ? ` \u2014 ${esc(jCompany)}` : ''}${jLoc ? `, ${esc(jLoc)}` : ''}</li>`];
@@ -14309,8 +14310,8 @@ ${staticAnalyticsHtml}
  // Keep the complete historical identity, but never advertise an archive as
  // open: only real past timestamps may supply its explicit validThrough.
  if (!hasRealTitle) return '';
- const realTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title
- || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || '').trim();
+ const realTitle = String(jobDisplayTitle(ejData)
+ || jobDisplayTitle(gscInfo) || '').trim();
  const realCompany = String(ejData?.company || gscInfo?.company || '').trim();
  const archiveNowMs = Date.now();
  const realValidThrough = [ejData?.expiredAt, ejData?.crawledAt, ejData?.datePosted, ejData?.postedDate]

@@ -1,3 +1,4 @@
+import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
  * JobExpiredView — view for jobs found in /data/expired-jobs.json.
@@ -195,7 +196,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const prefix = PREFIX_BY_LOCALE[locale] ?? '';
  const listingPath = `${prefix}/${sectionSlug}/`.replace(/\/+/g, '/');
 
- const localizedTitle = job.titleByLocale?.[locale] ?? job.title;
+ const localizedTitle = jobDisplayTitle(job) || job.title;
  const description = job.descriptionByLocale?.[locale] ?? '';
  const descriptionPlain = jobDescriptionPlainText(description);
  const descriptionPreview = jobDescriptionPreview(description);
@@ -633,7 +634,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="space-y-2">
  {relatedJobs.slice(0, 6).flatMap((rj, rjIdx, rjArr) => {
  const rjSlug = rj.slug;
- const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug;
+ const rjTitle = jobDisplayTitle(rj) || rjSlug;
  const rjLocation = formatJobLocation(rj.location, rj.canton);
  const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
  const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));

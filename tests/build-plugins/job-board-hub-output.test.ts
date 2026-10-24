@@ -329,7 +329,8 @@ describe('job-board emitted output', () => {
       const entries = structured(document);
       expect(entries.find((entry) => entry['@type'] === 'JobPosting')?.datePosted).toBe(jobs[0].crawledAt);
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['FAQPage', 'BreadcrumbList']));
-      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].titleByLocale[locale]);
+      // The employer's title in every locale (scripts/lib/job-title-identity.mjs).
+      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].title);
       expect(document.body.textContent).toContain('La posizione prevede');
       const applicationHref = document.querySelector('a.mab-cta')?.getAttribute('href');
       expect(applicationHref).toBeTruthy();
@@ -366,7 +367,8 @@ describe('job-board emitted output', () => {
       expect(postings).toHaveLength(1);
       const posting = postings[0];
       for (const field of ['title', 'description', 'datePosted', 'employmentType', 'baseSalary', 'jobLocation']) expect(posting[field]).toBeTruthy();
-      expect(posting.title).toBe(jobs[7].titleByLocale[locale]);
+      // The archived page names the employer's title in every locale (scripts/lib/job-title-identity.mjs).
+      expect(posting.title).toBe(jobs[7].title);
       if (['archived-short-description', 'archived-markup-short'].includes(slug)) expect(posting.description).toContain('Reparto dati.');
       if (slug === 'archived-medium-description') expect(posting.description).toContain('Esperienza in analisi dati e report.');
       if (['archived-sparse', 'archived-short-description', 'archived-medium-description', 'archived-markup-short'].includes(slug)) {
