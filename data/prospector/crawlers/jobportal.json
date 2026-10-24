@@ -1,20 +1,19 @@
 {
   "companyKey": "jobportal",
-  "companyName": "Thurgauer Kantonalbank",
+  "companyName": "sihlcity",
   "companyHost": "app.jobportal.abaservices.ch",
   "platform": "abaservices.ch",
   "mode": "jsonld",
   "seedUrls": [
-    "https://app.jobportal.abaservices.ch/application-process/83d08d00-3da6-455f-b8e1-4d9c241621a1/f5a01ca6-b5e7-b218-5c15-6a74d3b71a6b"
+    "https://app.jobportal.abaservices.ch/job-advertisement/84e7dd27-c6e0-4293-b1cd-aa1392413f7c/c007f298-a0bf-3c45-e625-a4facf0274ad"
   ],
-  "detailTemplate": "/application-process/83d08d00-3da6-455f-b8e1-4d9c241621a1/f5a01ca6-b5e7-b218-5c15-6a74d3b71a6b",
-  "detailEnrichment": false,
+  "detailTemplate": "/job-advertisement/84e7dd27-c6e0-4293-b1cd-aa1392413f7c/c007f298-a0bf-3c45-e625-a4facf0274ad",
+  "detailEnrichment": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [
-    "Spontanbewerbung (nur für Rekrutierung)"
+    "Verkäuferin TZ ML, ZSC82"
   ],
-  "canton": "TG",
   "sourceLang": "it",
-  "learnedAt": "2026-10-23T10:58:49.499Z"
+  "learnedAt": "2026-10-24T10:47:13.532Z"
 }
