@@ -450,8 +450,9 @@ function readFaqFromLocaleFile(
  for (const localeFile of localeFiles) {
  try {
  content += fs.readFileSync(localeFile, 'utf-8') + '\n';
- } catch {
- // a missing file contributes no pairs; the count below stays honest
+ } catch (error) {
+ const reason = error instanceof Error ? `: ${error.message}` : '';
+ throw new Error(`Unable to read FAQ locale source ${localeFile}${reason}`);
  }
  }
  if (!content) return [];
