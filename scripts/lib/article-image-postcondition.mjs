@@ -1,4 +1,5 @@
 export const GENERIC_IMAGE_PATH = '/og-image.png';
+const SITE_ORIGIN = 'https://frontaliereticino.ch';
 
 function attrsFromTag(tag) {
   const attrs = {};
@@ -11,7 +12,8 @@ export function normalizeImagePath(value) {
   const raw = String(value ?? '').trim();
   if (!raw) return null;
   try {
-    const url = /^https?:\/\//i.test(raw) ? new URL(raw) : new URL(raw, 'https://frontaliereticino.ch');
+    const url = new URL(raw, SITE_ORIGIN);
+    if (url.origin !== SITE_ORIGIN) return null;
     return `${url.pathname}${url.search}`;
   } catch {
     return null;
