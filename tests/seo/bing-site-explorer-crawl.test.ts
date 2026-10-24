@@ -866,7 +866,7 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(registryPrepassStart).toBeGreaterThanOrEqual(0);
     expect(registryPrepassEnd).toBeGreaterThan(registryPrepassStart);
     expect(jobsSeoSource.slice(registryPrepassStart, registryPrepassEnd)).toMatch(
-      /if \(!isSitemapEligibleJob\(job\)\) continue;\s+if \(!shouldEmitLocale\(locale\)\) continue;\s+const localeUrl =/,
+      /if \(!isSitemapEligibleJob\(job\)\) continue;[\s\S]*?const localeUrl = [\s\S]*?if \(!shouldEmitLocale\(locale\)\) continue;/,
     );
     expect(relatedClustersSource).toContain('await jobsSeoPagesFlushed;');
     expect(relatedClustersSource).toContain('jobLocalizedUrl(job, locale, activeJobSitemapLocs)');
