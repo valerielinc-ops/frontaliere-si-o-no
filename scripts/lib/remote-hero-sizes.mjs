@@ -163,9 +163,13 @@ export async function probeRemoteHeroSizes(declaredImages, opts) {
       const heroPath = missing[next++];
       const url = publicHeroUrl(heroPath);
       let result = { ok: false, reason: 'not probed' };
-      for (const candidate of heroMeasureUrls(heroPath)) {
-        result = await measureOne(candidate, { fetchImpl, timeoutMs });
-        if (result.ok) break;
+      const [primary, mirror] = heroMeasureUrls(heroPath);
+      result = await measureOne(primary, { fetchImpl, timeoutMs });
+      // Only the documented refusal (403 to the runner) falls back to the
+      // mirror. A 404, a timeout or an unparsable header stays terminal: a
+      // leftover CDN copy must never vouch for a hero the page cannot serve.
+      if (!result.ok && mirror && result.reason === 'HTTP 403') {
+        result = await measureOne(mirror, { fetchImpl, timeoutMs });
       }
       if (result.ok) sizes[heroPath] = result.size;
       else failed.push({ path: heroPath, url, reason: result.reason });

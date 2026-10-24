@@ -67,6 +67,21 @@ describe('remote hero sizes for sparse article re-renders', () => {
     }
   });
 
+  it('does not ask the mirror when the origin answers anything but 403', async () => {
+    const publicDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hero-probe-no-mirror-'));
+    try {
+      const { impl, seen } = fakeFetch({
+        'https://cdn.frontaliereticino.ch/images/places/missing.webp': { status: 200, body: webpHeader(1200, 800) },
+      });
+      const result = await probeRemoteHeroSizes(['/images/places/missing.webp'], { publicDir, fetchImpl: impl });
+      expect(result.sizes).toEqual({});
+      expect(result.failed[0].reason).toBe('HTTP 404');
+      expect(seen.map((s) => s.url)).toEqual(['https://frontaliereticino.ch/images/places/missing.webp']);
+    } finally {
+      fs.rmSync(publicDir, { recursive: true, force: true });
+    }
+  });
+
   it('only measures same-site /images/ declarations', () => {
     expect(heroPathOf('/images/blog/a.webp')).toBe('/images/blog/a.webp');
     expect(heroPathOf('images/blog/a.webp?v=2')).toBe('/images/blog/a.webp');
