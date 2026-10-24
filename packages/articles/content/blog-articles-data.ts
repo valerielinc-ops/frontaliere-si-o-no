@@ -65,7 +65,7 @@ export interface Article {
  authorSlug?: string;
  /** A2 — full display name for the byline. Mirrors `data/authors.ts`. */
  authorName?: string;
- /** Per-article editorial provenance; omitted legacy entries use the author default. */
+ /** Optional per-article editorial provenance consumed by runtime overlays; omitted legacy entries use the author default. */
  aiAssisted?: boolean;
 }
 
@@ -45847,6 +45847,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  articleType: 'news',
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
+ },
+ {
+ id: 'cisl-ricerca-lavoratori-ritiene',
+ category: 'fiscale',
+ date: '2026-10-24T19:06:53.140Z',
+ image: '/images/blog/article-ricerca-cisl-frontalieri-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
 ];
 

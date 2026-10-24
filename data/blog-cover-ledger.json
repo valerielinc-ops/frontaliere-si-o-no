@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 832,
+      "5": 833,
       "6": 5055
     },
-    "publishedCovers": 7570,
+    "publishedCovers": 7571,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -208192,6 +208192,39 @@
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"
+    },
+    "article-giura-aumento-sussidi-famiglie": {
+      "cover": "/images/blog/article-giura-aumento-sussidi-famiglie.webp",
+      "hash": "418e26c6895bd366bd08a3c854d640034b4eb15e9a532098498ae4d86912eb48",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "giura-aumento-sussidi-famiglie",
+          "category": "novita",
+          "date": "2026-10-24T18:24:32.255Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-giura-aumento-sussidi-famiglie.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-giura-aumento-sussidi-famiglie",
+        "imageUrl": "/images/blog/article-giura-aumento-sussidi-famiglie.webp",
+        "evidence": "generated-engine-record"
+      }
     }
   },
   "repair": {

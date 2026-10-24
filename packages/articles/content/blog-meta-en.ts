@@ -13589,6 +13589,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-24.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.bollettino-frontaliere-2026-10-24.seoDescription': 'Cross-border daily brief for workers, October 24, 2026: latest waits, fuel prices, CHF/EUR rate and active jobs in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-10-24.ogDescription': 'Daily figures for cross-border commuters, October 24, 2026: measured waits at each crossing, where fuel costs least, the latest franc-euro rate and active Swiss job listings on our board, with links to live pages.',
+    'blog.article.cisl-ricerca-lavoratori-ritiene.title': '55.6% of cross-border workers believe Swiss residents earn more',
+    'blog.article.cisl-ricerca-lavoratori-ritiene.excerpt': '55,6% consider their salary to be lower 48,4% report a decrease in purchasing power 73% say they are satisfied with their compensation 1.542 workers',
+    'blog.article.cisl-ricerca-lavoratori-ritiene.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;
