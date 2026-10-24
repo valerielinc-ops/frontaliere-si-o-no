@@ -456,6 +456,32 @@ if (!promotable.length) {
   process.exit(0);
 }
 
+/** @param {unknown} value */
+function compactName(value) {
+  return String(value || '').toLowerCase().normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+}
+
+/**
+ * The name the crawler publishes. A candidate found in the web index is named
+ * after its domain label (`servicekuhn`, `mueller-frauenfeld`), and that label
+ * became the company of every vacancy; the name the employer's homepage
+ * declares, recorded by VALIDATE and corroborated by the domain there, replaces
+ * it. Any other name (SECO, OSM, a tenant page) is kept as it is.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {Record<string, any>} spec
+ * @returns {string}
+ */
+function promotionCompanyName(candidate, spec) {
+  const domain = String(candidate.domain || spec.companyHost || '').replace(/^www\./i, '');
+  const label = compactName(domain.split('.')[0]);
+  if (!label || compactName(spec.companyName) !== label) return spec.companyName;
+  const siteName = [...(candidate.validationHistory || [])].reverse()
+    .find((entry) => typeof entry?.employerSiteName === 'string' && entry.employerSiteName.trim())?.employerSiteName;
+  return siteName ? siteName.trim() : spec.companyName;
+}
+
 console.log('\n── in promozione ──');
 const shipped = [];
 for (const c of promotable) {
@@ -473,7 +499,7 @@ for (const c of promotable) {
   }
   const args = [
     'scripts/scaffold-crawler.mjs', spec.companyKey,
-    '--name', spec.companyName,
+    '--name', promotionCompanyName(c, spec),
     '--domain', spec.companyHost,
     '--lang', spec.sourceLang || 'it',
     '--ats', 'prospected',

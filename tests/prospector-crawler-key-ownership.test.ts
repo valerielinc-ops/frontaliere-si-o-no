@@ -7,6 +7,7 @@ import {
 import { requeueMiskeyedCandidate } from '../scripts/lib/prospector/candidate-store.mjs';
 import { evaluatePromotion } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { KNOWN_AGGREGATOR_DOMAINS } from '../scripts/lib/known-aggregator-domains.mjs';
+import { isGenericVacancyTitle, selectPublishableTitle } from '../scripts/lib/prospector/production-title.mjs';
 
 const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
 
@@ -144,6 +145,21 @@ describe('rekey batch ownership', () => {
       productionKeys: new Set(['my']),
       specFor: () => ({ companyName: 'Vendor label' }),
     })).toHaveLength(1);
+  });
+});
+
+describe('publishable title', () => {
+  it('rejects skip links and spontaneous applications, keeps real roles', () => {
+    // `company` (elvetino) titled five corporate pages "Navigieren auf sbb.ch";
+    // `my` and `fisba` published spontaneous applications.
+    for (const title of ['Navigieren auf sbb.ch', 'Skip to main content', 'Zum Inhalt springen',
+      'Spontanbewerbung / 5%', 'Spontaneous / unsolicited application']) {
+      expect(isGenericVacancyTitle(title), title).toBe(true);
+    }
+    for (const title of ['Navigation Engineer 100%', 'Pflegefachperson HF 80%']) {
+      expect(isGenericVacancyTitle(title), title).toBe(false);
+    }
+    expect(selectPublishableTitle('Navigieren auf sbb.ch', 'Spontanbewerbung')).toBe('');
   });
 });
 

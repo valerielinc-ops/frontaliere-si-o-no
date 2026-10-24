@@ -109,15 +109,25 @@ function normalizedTitle(value) {
 }
 
 /**
+ * Accessibility skip links, the first heading many CMS templates render. The
+ * SBB template made `company` (elvetino) read "Navigieren auf sbb.ch" as the
+ * title of five corporate pages, and the validation graded it as matching.
+ */
+const SKIP_LINK_TITLE_RX = /^(?:navigieren auf|skip to|skip navigation|zum (?:haupt)?inhalt|direkt zum inhalt|aller au contenu|passer au contenu|vai al contenuto|salta al contenuto)\b/;
+
+/**
  * A title that names no opening: page chrome ("Header", "Jobs") or a standing
- * spontaneous-application container. Measured 2026-10-24 in production:
+ * spontaneous-application container, or a skip link. Measured 2026-10-24 in production:
  * `my` published "Spontanbewerbung / 5%" and `fisba` "Spontaneous /
  * unsolicited application" as vacancies, with JobPosting markup.
  *
  * @param {unknown} value
  */
 export function isGenericVacancyTitle(value) {
-  return GENERIC_VACANCY_TITLES.has(normalizedTitle(value)) || isSpontaneousApplicationTitle(value);
+  const title = normalizedTitle(value);
+  return GENERIC_VACANCY_TITLES.has(title)
+    || SKIP_LINK_TITLE_RX.test(title)
+    || isSpontaneousApplicationTitle(value);
 }
 
 /**

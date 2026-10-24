@@ -491,6 +491,9 @@ for (const spec of specs) {
   // L'asset verificato, non solo il si'/no: PROMOTE lo registra cosi' com'e',
   // invece di ricostruire un URL dal dominio.
   report.logoSourceUrl = logo?.found ? logo.source || null : null;
+  // Il nome che la homepage del datore dichiara: PROMOTE lo preferisce a un
+  // nome che e' soltanto l'etichetta del dominio (`servicekuhn`).
+  report.employerSiteName = logo?.siteName || null;
 
   reports.push(report);
   tally[report.verdict]++;
@@ -589,7 +592,11 @@ for (const spec of specs) {
       employerIdentityMismatchCount: report.employerIdentityMismatchCount ?? 0,
       employerIdentityUnknownCount: report.employerIdentityUnknownCount ?? 0,
       validationAnomalyCount: candidate.validationAnomalyIds.length,
-      ...(logo ? { logoFound: report.logoFound, logoSourceUrl: report.logoSourceUrl } : {}),
+      ...(logo ? {
+        logoFound: report.logoFound,
+        logoSourceUrl: report.logoSourceUrl,
+        employerSiteName: report.employerSiteName,
+      } : {}),
       ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
     });
     if (rejectedRevalidation) {
