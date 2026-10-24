@@ -1,19 +1,15 @@
 /**
  * Interruttori della campagna «durata del deploy» per i plugin medi del build.
  * Ogni ottimizzazione e' una pura riduzione di lavoro (stesso output byte per
- * byte, provato sul banco con DIST_HASH_MANIFEST) e ha un interruttore con cui
- * tornare al percorso storico senza toccare il codice.
- *
- *  - `MID_PLUGINS_EARLY_REJECT`: legacy-redirects e cf-hot-404-bridge scartano
- *    PRIMA di ogni controllo di sicurezza del path i candidati che un'altra
- *    gamba possiede o che appartengono al job board (nessuna scrittura, in
- *    nessun caso, per quei candidati).
+ * byte, provato da test di equivalenza e, sul banco, da DIST_HASH_MANIFEST) e
+ * ha un interruttore con cui tornare al percorso storico senza toccare il
+ * codice: `MID_PLUGINS_FAST=1` le accende, ogni altro valore le spegne.
+ * (Le ottimizzazioni che vivono in scripts/lib leggono lo stesso valore da
+ * scripts/lib/mid-plugins-flag.mjs.)
  */
-export function midPluginFlag(name: string): boolean {
-  return process.env[name] === '1';
-}
+export { MID_PLUGINS_FAST } from '../../scripts/lib/mid-plugins-flag.mjs';
 
-export const EARLY_REJECT_ENV = 'MID_PLUGINS_EARLY_REJECT';
+export const EARLY_REJECT_ENV = 'MID_PLUGINS_FAST';
 export function earlyRejectEnabled(): boolean {
-  return midPluginFlag(EARLY_REJECT_ENV);
+  return process.env.MID_PLUGINS_FAST === '1';
 }

@@ -44,10 +44,16 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   'DIST_HASH_MANIFEST',
   // Scansione blog-image condivisa col post-walk coordinator (blogImageFold.ts).
   'BLOG_IMAGE_CDN_FOLD',
-  // Scarto anticipato in legacy-redirects/cf-hot-404-bridge (midPluginFlags.ts).
-  'MID_PLUGINS_EARLY_REJECT',
+  // Riduzioni di lavoro dei plugin medi, output identico (midPluginFlags.ts).
+  'MID_PLUGINS_FAST',
   // Pool di thread libuv per le I/O asincrone del build (default Node: 4).
   'UV_THREADPOOL_SIZE',
+  // Opzioni V8 aggiuntive per `npm run build:ci` (es. --max-semi-space-size=64).
+  'BUILD_EXTRA_NODE_OPTIONS',
+  // Readdir paralleli nell'enumerazione del post-walk (richiede BLOG_IMAGE_CDN_FOLD=1).
+  'POST_WALK_WALK_LANES',
+  // Operazioni asincrone in volo per worker del post-walk (default 4).
+  'POST_WALK_IN_FLIGHT',
 ]);
 
 const ALLOWED_ENV_KEY_SET = new Set(ALLOWED_ENV_KEYS);

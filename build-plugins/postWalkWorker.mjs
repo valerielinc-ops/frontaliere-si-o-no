@@ -141,7 +141,13 @@ const writeFailures = [];
  * ≤ 32 here, well under the 65535 ulimit on ubuntu-latest and the 1024
  * conservative ulimit honoured elsewhere in the repo, see batchWrite.ts).
  */
-const IN_FLIGHT = 4;
+// POST_WALK_IN_FLIGHT (banco): operazioni asincrone in volo per worker. Il
+// default resta 4; ha senso alzarlo solo insieme a UV_THREADPOOL_SIZE, perche'
+// le readFile/writeFile asincrone passano dal pool libuv condiviso (default 4
+// thread), che e' il vero tetto di parallelismo di questo lavoro.
+const IN_FLIGHT = Number.parseInt(process.env.POST_WALK_IN_FLIGHT ?? '', 10) > 0
+  ? Number.parseInt(process.env.POST_WALK_IN_FLIGHT, 10)
+  : 4;
 
 /**
  * Detect a flat .html that's already a redirect bridge — emitted that way

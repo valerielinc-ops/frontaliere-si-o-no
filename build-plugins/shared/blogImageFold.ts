@@ -82,6 +82,55 @@ export interface BlogScopedWalk {
   readonly extras: string[];
 }
 
+const isSkippedName = (name: string): boolean => name === 'assets' || name === 'data' || name === 'images';
+
+/**
+ * Classifica le voci di UNA directory. Unica definizione delle regole di
+ * visita, condivisa dalla versione sincrona e da quella parallela, cosi' non
+ * possono divergere. `onDir` riceve le sottodirectory da visitare (con i flag
+ * da ereditare) nell'ordine di readdir; `onHtml` e `onExtra` i file.
+ */
+function classifyEntries(
+  dir: string,
+  entries: fs.Dirent[],
+  atRoot: boolean,
+  owned: boolean,
+  inSkipped: boolean,
+  root: string,
+  onDir: (child: string, childOwned: boolean, childInSkipped: boolean) => void,
+  onHtml: (file: string) => void,
+  onExtra: (file: string) => void,
+): void {
+  for (const entry of entries) {
+    const name = entry.name;
+    const fp = dir + path.sep + name;
+    if (entry.isDirectory()) {
+      if (atRoot) {
+        // Primo livello: assets|data|images non vengono visitati da nessuno dei
+        // due walker; le altre directory fissano il flag di proprieta'.
+        if (isSkippedName(name)) continue;
+        onDir(fp, shouldEmitPath(fp, root), false);
+      } else if (isSkippedName(name)) {
+        // collectHtml non scende mai qui; il finalize si' (solo se NON e' una
+        // directory di primo livello, gia' esclusa sopra).
+        onDir(fp, owned, true);
+      } else {
+        onDir(fp, owned, inSkipped);
+      }
+      continue;
+    }
+    if (!inSkipped && entry.isFile() && name.endsWith('.html')) {
+      onHtml(fp);
+      continue;
+    }
+    if (atRoot) {
+      if (SCAN_EXT.has(path.extname(name)) && shouldEmitPath(fp, root)) onExtra(fp);
+    } else if (owned && SCAN_EXT.has(path.extname(name))) {
+      onExtra(fp);
+    }
+  }
+}
+
 /**
  * Stessa visita DFS di `collectHtml` (stesso ordine, stessi salti) piu' la
  * raccolta degli `extras`. Una sola passata di readdir al posto di due.
@@ -90,45 +139,104 @@ export function collectHtmlWithBlogScope(root: string): BlogScopedWalk {
   const html: string[] = [];
   const extras: string[] = [];
 
-  const visit = (dir: string, owned: boolean, inSkipped: boolean): void => {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const name = entry.name;
-      if (entry.isDirectory()) {
-        const skipName = name === 'assets' || name === 'data' || name === 'images';
-        const child = dir + path.sep + name;
-        if (skipName) {
-          // collectHtml non scende mai qui; il finalize scende solo se NON e'
-          // la directory di primo livello (gestita dal chiamante).
-          visit(child, owned, true);
-        } else {
-          visit(child, owned, inSkipped);
-        }
+  const visit = (dir: string, atRoot: boolean, owned: boolean, inSkipped: boolean): void => {
+    classifyEntries(
+      dir,
+      fs.readdirSync(dir, { withFileTypes: true }),
+      atRoot,
+      owned,
+      inSkipped,
+      root,
+      (child, childOwned, childInSkipped) => visit(child, false, childOwned, childInSkipped),
+      (file) => html.push(file),
+      (file) => extras.push(file),
+    );
+  };
+  visit(root, true, true, false);
+  return { html, extras };
+}
+
+interface DirNode {
+  items: Array<string | DirNode>;
+}
+
+/**
+ * Come `collectHtmlWithBlogScope`, ma con `lanes` readdir asincroni in volo: su
+ * un albero freddo da ~1,3 M directory il walker sincrono paga una latenza di
+ * disco alla volta (~230 s a gamba). L'ORDINE dell'elenco `html` e' lo stesso
+ * del DFS sincrono: ogni directory conserva le proprie voci in ordine di
+ * readdir, con un segnaposto al posto di ciascuna sottodirectory, e l'elenco
+ * si ricompone alla fine visitando i segnaposto in ordine. Gli `extras` non
+ * hanno un ordine di consumo (il finalize li passa da un Set).
+ */
+export async function collectHtmlWithBlogScopeParallel(
+  root: string,
+  lanes: number,
+): Promise<BlogScopedWalk> {
+  const extras: string[] = [];
+  const rootNode: DirNode = { items: [] };
+  type Task = { dir: string; node: DirNode; atRoot: boolean; owned: boolean; inSkipped: boolean };
+  const stack: Task[] = [{ dir: root, node: rootNode, atRoot: true, owned: true, inSkipped: false }];
+  let inFlight = 0;
+  let failure: unknown = null;
+  let wake: Array<() => void> = [];
+  const notify = (): void => {
+    const waiting = wake;
+    wake = [];
+    for (const resolve of waiting) resolve();
+  };
+
+  const worker = async (): Promise<void> => {
+    for (;;) {
+      if (failure) return;
+      const task = stack.pop();
+      if (!task) {
+        if (inFlight === 0) return;
+        await new Promise<void>((resolve) => wake.push(resolve));
         continue;
       }
-      const fp = dir + path.sep + name;
-      if (!inSkipped && entry.isFile() && name.endsWith('.html')) {
-        html.push(fp);
-        continue;
+      inFlight++;
+      try {
+        const entries = await fs.promises.readdir(task.dir, { withFileTypes: true });
+        classifyEntries(
+          task.dir,
+          entries,
+          task.atRoot,
+          task.owned,
+          task.inSkipped,
+          root,
+          (child, childOwned, childInSkipped) => {
+            const node: DirNode = { items: [] };
+            task.node.items.push(node);
+            stack.push({ dir: child, node, atRoot: false, owned: childOwned, inSkipped: childInSkipped });
+          },
+          (file) => task.node.items.push(file),
+          (file) => extras.push(file),
+        );
+      } catch (error) {
+        failure = failure ?? error;
+      } finally {
+        inFlight--;
+        notify();
       }
-      if (owned && SCAN_EXT.has(path.extname(name))) extras.push(fp);
     }
   };
 
-  for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
-    const name = entry.name;
-    const fp = root + path.sep + name;
-    if (entry.isDirectory()) {
-      // Primo livello: assets|data|images non vengono visitati da nessuno dei
-      // due walker.
-      if (name === 'assets' || name === 'data' || name === 'images') continue;
-      visit(fp, shouldEmitPath(fp, root), false);
+  await Promise.all(Array.from({ length: Math.max(1, lanes) }, () => worker()));
+  if (failure) throw failure;
+
+  const html: string[] = [];
+  // Appiattimento iterativo (nessuna ricorsione profonda): pila di cursori.
+  const frames: Array<{ items: Array<string | DirNode>; i: number }> = [{ items: rootNode.items, i: 0 }];
+  while (frames.length > 0) {
+    const frame = frames[frames.length - 1];
+    if (frame.i >= frame.items.length) {
+      frames.pop();
       continue;
     }
-    if (entry.isFile() && name.endsWith('.html')) {
-      html.push(fp);
-      continue;
-    }
-    if (SCAN_EXT.has(path.extname(name)) && shouldEmitPath(fp, root)) extras.push(fp);
+    const item = frame.items[frame.i++];
+    if (typeof item === 'string') html.push(item);
+    else frames.push({ items: item.items, i: 0 });
   }
   return { html, extras };
 }

@@ -1,3 +1,5 @@
+import { MID_PLUGINS_FAST } from './mid-plugins-flag.mjs';
+
 /*
  * Quote-balanced HTML attribute reader.
  *
@@ -201,6 +203,81 @@ function findTagEnd(source, start) {
  * @returns {string}
  */
 function scrubMarkupForTagScan(source) {
+  return MID_PLUGINS_FAST ? scrubMarkupForTagScanFast(source) : scrubMarkupForTagScanLegacy(source);
+}
+
+const RAW_TEXT_OPEN = /<(script|style)(?=[\s/>])/iy;
+const RAW_TEXT_CLOSE = {
+  script: /<\/script\s*>/ig,
+  style: /<\/style\s*>/ig,
+};
+
+/**
+ * Stesso risultato di `scrubMarkupForTagScanLegacy` (stessa stringa, stessa
+ * lunghezza) senza `split('')`/`join('')`: la versione storica allocava un array
+ * di un elemento per carattere (512 KB per una testa da 64 KB) per ogni
+ * chiamata, ed era il 25% del tempo CPU e la maggior parte del GC del
+ * controllo dist-truth delle sitemap (~330 s di GC su 670 s a gamba). Qui si
+ * accumulano le fette intatte e `' '.repeat(n)` per i tratti oscurati.
+ *
+ * @param {string} source
+ * @returns {string}
+ */
+function scrubMarkupForTagScanFast(source) {
+  const length = source.length;
+  const parts = [];
+  let emitted = 0;
+  const blank = (start, end) => {
+    if (end <= start) return;
+    if (start > emitted) parts.push(source.slice(emitted, start));
+    parts.push(' '.repeat(end - start));
+    emitted = end;
+  };
+
+  let cursor = 0;
+  while (cursor < length) {
+    if (source.startsWith('<!--', cursor)) {
+      const close = source.indexOf('-->', cursor + 4);
+      const end = close === -1 ? length : close + 3;
+      blank(cursor, end);
+      cursor = end;
+      continue;
+    }
+
+    if (source[cursor] === '<') {
+      RAW_TEXT_OPEN.lastIndex = cursor;
+      const rawOpen = RAW_TEXT_OPEN.exec(source);
+      if (rawOpen) {
+        const openEnd = findTagEnd(source, cursor);
+        if (openEnd === -1) {
+          blank(cursor, length);
+          break;
+        }
+        const closePattern = RAW_TEXT_CLOSE[rawOpen[1].toLowerCase()];
+        closePattern.lastIndex = openEnd;
+        const close = closePattern.exec(source);
+        const end = close ? close.index + close[0].length : length;
+        blank(cursor, end);
+        cursor = end;
+        continue;
+      }
+
+      const tagEnd = findTagEnd(source, cursor);
+      if (tagEnd !== -1) {
+        cursor = tagEnd;
+        continue;
+      }
+    }
+
+    cursor += 1;
+  }
+
+  if (parts.length === 0) return source;
+  if (emitted < length) parts.push(source.slice(emitted));
+  return parts.join('');
+}
+
+function scrubMarkupForTagScanLegacy(source) {
   const chars = source.split('');
   const blank = (start, end) => {
     for (let index = start; index < end; index += 1) chars[index] = ' ';
@@ -262,6 +339,26 @@ function scrubMarkupForTagScan(source) {
  */
 export function scanMarkupStartTags(html = '', tagName = '') {
   return scanStartTags(scrubMarkupForTagScan(String(html || '')), tagName);
+}
+
+/**
+ * Le start tag di piu' nomi con UNA sola scrub e UNA sola tokenizzazione:
+ * `scanMarkupStartTagGroups(html, ['meta','link'])` equivale, nome per nome, a
+ * `scanMarkupStartTags(html, nome)`. I lettori della testa (`robots`, refresh,
+ * canonical) chiamavano la funzione singola tre volte sullo stesso documento.
+ *
+ * @param {string} html
+ * @param {string[]} tagNames
+ * @returns {Record<string, ReturnType<typeof scanStartTags>>}
+ */
+export function scanMarkupStartTagGroups(html = '', tagNames = []) {
+  const all = scanHtmlTags(scrubMarkupForTagScan(String(html || '')));
+  const groups = {};
+  for (const name of tagNames) {
+    const target = String(name || '').toLowerCase();
+    groups[name] = all.filter((tag) => !tag.closing && (!target || tag.name === target));
+  }
+  return groups;
 }
 
 /**

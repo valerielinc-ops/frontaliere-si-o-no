@@ -134,6 +134,24 @@ describe.each([undefined, 'de', 'it'])('blog-image shared scan — BUILD_LOCALE=
     expect(mods.fold.collectHtmlWithBlogScope(dist).html).toEqual(mods.walkMod.collectHtml(dist, []));
   });
 
+  it.each([1, 2, 7, 32])('parallel walk (lanes=%i) returns the same html order and extras', async (lanes) => {
+    const mods = await load(locale);
+    const dist = makeFixture();
+    for (let d = 0; d < 40; d++) {
+      for (let k = 0; k < 4; k++) {
+        const dir = path.join(dist, `sec-${d % 7}`, `p-${d}`, `q-${k}`);
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, 'index.html'), `<p>${d}-${k}</p>`);
+        if (k === 2) fs.writeFileSync(path.join(dir, 'feed.xml'), '<x/>');
+        if (k === 3) { fs.mkdirSync(path.join(dir, 'data'), { recursive: true }); fs.writeFileSync(path.join(dir, 'data', 'n.html'), '<n/>'); }
+      }
+    }
+    const sync = mods.fold.collectHtmlWithBlogScope(dist);
+    const par = await mods.fold.collectHtmlWithBlogScopeParallel(dist, lanes);
+    expect(par.html).toEqual(sync.html);
+    expect([...par.extras].sort()).toEqual([...sync.extras].sort());
+  });
+
   it('shared scan == full sweep: same tree, same rewritten, same leaks', async () => {
     const mods = await load(locale);
     const refDist = makeFixture();

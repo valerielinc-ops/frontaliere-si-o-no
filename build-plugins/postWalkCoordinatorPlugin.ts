@@ -104,6 +104,7 @@ import {
   BLOG_IMAGE_REF_MARKER,
   blogImageFoldEnabled,
   collectHtmlWithBlogScope,
+  collectHtmlWithBlogScopeParallel,
   isInBlogSweepScope,
   publishPostWalkBlogScan,
   resetPostWalkBlogScan,
@@ -828,7 +829,12 @@ function buildPostWalkCoordinatorPlugin(
         const blogFallbackPaths: string[] = [];
         let foldedWalk: ReturnType<typeof collectHtmlWithBlogScope> | null = null;
         if (blogFold) {
-          foldedWalk = collectHtmlWithBlogScope(distDir);
+          // POST_WALK_WALK_LANES>1: enumerazione con readdir asincroni in
+          // parallelo (stesso elenco, stesso ordine). Default: walk sincrono.
+          const walkLanes = Number.parseInt(process.env.POST_WALK_WALK_LANES ?? '', 10);
+          foldedWalk = walkLanes > 1
+            ? await collectHtmlWithBlogScopeParallel(distDir, walkLanes)
+            : collectHtmlWithBlogScope(distDir);
           blogWalkExtras = foldedWalk.extras;
         }
         const walkResult = canUseTargetedWalk

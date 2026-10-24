@@ -150,7 +150,8 @@ import { parseAnnotatedSitemapUrls } from './shared/localeVariantSitemap';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { isJobSitemapShardFilename, isJobSitemapFilename } from '../scripts/lib/sitemap-shard.mjs';
 import { classifyCanonicalMismatch } from '../scripts/lib/canonicalExemptions.mjs';
-import { readAttr, scanMarkupStartTags } from '../scripts/lib/html-attr.mjs';
+import { readAttr, scanMarkupStartTagGroups, scanMarkupStartTags } from '../scripts/lib/html-attr.mjs';
+import { MID_PLUGINS_FAST } from '../scripts/lib/mid-plugins-flag.mjs';
 import { readHeadOrAll } from '../scripts/lib/readHead.mjs';
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import {
@@ -4405,6 +4406,43 @@ function extractCanonicalHref(html: string): string | null {
   return null;
 }
 
+interface HeadVerdictFacts {
+  noindex: boolean;
+  metaRefresh: boolean;
+  canonicalHref: string | null;
+}
+
+/**
+ * `hasNoindex` + `hasMetaRefresh` + `extractCanonicalHref` in un solo passaggio:
+ * le tre funzioni storiche ripetevano ciascuna la scrub del documento e la
+ * tokenizzazione dei tag (3x il costo, e il grosso del GC di questa fase).
+ * Stessi predicati, applicati agli stessi tag nello stesso ordine.
+ */
+function inspectHeadFacts(html: string): HeadVerdictFacts {
+  const { meta, link } = scanMarkupStartTagGroups(html, ['meta', 'link']);
+  const noindex = meta.some(({ raw }) => {
+    if (readAttr(raw, 'name').trim().toLowerCase() !== 'robots') return false;
+    return readAttr(raw, 'content')
+      .split(/[\s,]+/)
+      .some((token) => token.toLowerCase() === 'noindex');
+  });
+  const metaRefresh = meta.some(({ raw }) =>
+    readAttr(raw, 'http-equiv').trim().toLowerCase() === 'refresh' &&
+    readAttr(raw, 'content').trim().length > 0,
+  );
+  let canonicalHref: string | null = null;
+  for (const { raw } of link) {
+    const rel = readAttr(raw, 'rel');
+    if (!rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
+    const href = readAttr(raw, 'href').trim();
+    if (href) {
+      canonicalHref = href;
+      break;
+    }
+  }
+  return { noindex, metaRefresh, canonicalHref };
+}
+
 function normalizeLocForCanonicalCmp(u: string): string {
   try {
     const parsed = new URL(u, BASE_URL);
@@ -4847,15 +4885,16 @@ export async function dropOverwrittenLocs(
         }
       }
       __truthPassedToHtml++;
-      if (hasNoindex(html)) {
+      const facts = MID_PLUGINS_FAST ? inspectHeadFacts(html) : null;
+      if (facts ? facts.noindex : hasNoindex(html)) {
         flags[i] = DROP_NOINDEX;
         continue;
       }
-      if (hasMetaRefresh(html)) {
+      if (facts ? facts.metaRefresh : hasMetaRefresh(html)) {
         flags[i] = DROP_REDIRECT;
         continue;
       }
-      const canonHref = extractCanonicalHref(html);
+      const canonHref = facts ? facts.canonicalHref : extractCanonicalHref(html);
       if (!canonHref) {
         flags[i] = DROP_MISSING_CANONICAL;
         continue;

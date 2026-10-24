@@ -6,6 +6,8 @@
  * writers and dist emitters cannot drift apart.
  */
 
+import { MID_PLUGINS_FAST } from './mid-plugins-flag.mjs';
+
 export const MAX_FILESYSTEM_SEGMENT_BYTES = 255;
 export const MAX_DIST_PATH_BYTES = 4096;
 
@@ -16,6 +18,9 @@ export const MAX_DIST_PATH_BYTES = 4096;
  */
 export function isDistPathOverFilesystemLimits(pathname) {
   if (typeof pathname !== 'string') return true;
+  // Un'unita' UTF-16 vale al massimo 3 byte in UTF-8: sotto 86 unita' nessun
+  // segmento puo' superare 255 byte e il totale resta ben sotto 4096.
+  if (MID_PLUGINS_FAST && pathname.length * 3 <= MAX_FILESYSTEM_SEGMENT_BYTES) return false;
   if (Buffer.byteLength(pathname, 'utf8') > MAX_DIST_PATH_BYTES) return true;
   return pathname
     .split('/')
@@ -73,8 +78,14 @@ function decodedVariants(value) {
   return variants;
 }
 
+// Ogni pattern d'attacco richiede almeno uno di questi indizi: '%' (anche per
+// la doppia decodifica, che senza '%' non cambia la stringa), '<', '/**/',
+// 'union' o 'select'. Senza nessuno dei cinque il verdetto e' `false`.
+const COMPAT_ATTACK_CANDIDATE = /[%<]|\/\*\*\/|union|select/i;
+
 export function hasCompatAttackPayload(pathname) {
   if (typeof pathname !== 'string') return true;
+  if (MID_PLUGINS_FAST && !COMPAT_ATTACK_CANDIDATE.test(pathname)) return false;
   return decodedVariants(pathname).some((variant) =>
     COMPAT_ATTACK_PATTERNS.some((pattern) => pattern.test(variant)) || hasSqlSelectContext(variant),
   );
@@ -113,6 +124,11 @@ export function filterCompatPaths(paths) {
  */
 export const MAX_SAFE_URL_SEGMENT_BYTES = 200;
 
+// Segmento di soli caratteri ASCII non riservati, che non inizia per '.': per
+// costruzione non contiene '%', separatori, virgolette ne' controlli, quindi
+// restano da valutare solo i PROBE_MARKERS (decodeURIComponent e' l'identita').
+const PLAIN_SAFE_SEGMENT = /^[A-Za-z0-9_~-][A-Za-z0-9._~-]*$/;
+
 const INVALID_SEGMENT_CHARACTERS = /[\u0000-\u001f\u007f"'<>[\]{}\\]/;
 const MALFORMED_PERCENT_ESCAPE = /%(?![0-9a-f]{2})/i;
 const ENCODED_INVALID_CHARACTERS = /%(?:22|27|2f|3c|3e|5b|5d|7b|7d|5c)/i;
@@ -127,6 +143,9 @@ function isSafeSegment(segment, maxSegmentBytes = MAX_SAFE_URL_SEGMENT_BYTES) {
   // callers still get the same segment-level safety checks for root-relative
   // URL paths and dist-relative stems.
   if (segment.length === 0) return true;
+  if (MID_PLUGINS_FAST && segment.length <= maxSegmentBytes && PLAIN_SAFE_SEGMENT.test(segment)) {
+    return !PROBE_MARKERS.test(`${segment} ${segment}`);
+  }
   if (segment.startsWith('.')) return false;
   if (Buffer.byteLength(segment, 'utf8') > maxSegmentBytes) return false;
   if (INVALID_SEGMENT_CHARACTERS.test(segment)) return false;
