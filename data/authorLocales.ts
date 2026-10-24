@@ -2,12 +2,20 @@ import { getAuthorBySlug, type Author } from './authors';
 
 export type AuthorLocale = 'it' | 'en' | 'de' | 'fr';
 
-/** Disclosure shown on every editorial-profile page and card. */
+/**
+ * Disclosure shown on every editorial-profile page and card, and emitted as
+ * `disambiguatingDescription` of the profile's JSON-LD.
+ *
+ * "Marco Ferrari" and "Laura Bianchi" read as people but are newsroom
+ * signatures (E-E-A-T P0): the disclosure must say so in plain words — not a
+ * real person, the names are pseudonyms, the texts are AI-prepared as the
+ * methodology states — instead of the bare "editorial profile" label.
+ */
 export const EDITORIAL_PROFILE_DISCLOSURE: Record<AuthorLocale, string> = {
-  it: 'Profilo editoriale della redazione di frontaliereticino.ch',
-  en: 'Editorial profile of the frontaliereticino.ch newsroom',
-  de: 'Redaktionelles Profil der Redaktion von frontaliereticino.ch',
-  fr: 'Profil éditorial de la rédaction de frontaliereticino.ch',
+  it: 'Firma editoriale della redazione di frontaliereticino.ch, non una persona reale: i nomi di questi profili sono pseudonimi. I testi firmati così sono preparati con strumenti di IA generativa, come descritto nella Metodologia.',
+  en: 'Editorial byline of the frontaliereticino.ch newsroom, not a real person: the names of these profiles are pseudonyms. Texts signed this way are prepared with generative AI tools, as described in our methodology.',
+  de: 'Redaktionelle Signatur der Redaktion von frontaliereticino.ch, keine reale Person: Die Namen dieser Profile sind Pseudonyme. So gezeichnete Texte werden mit generativer KI erstellt, wie in unserer Methodik beschrieben.',
+  fr: 'Signature éditoriale de la rédaction de frontaliereticino.ch, pas une personne réelle : les noms de ces profils sont des pseudonymes. Les textes ainsi signés sont préparés avec des outils d’IA générative, comme décrit dans notre méthodologie.',
 };
 
 type LocalizedFields = Pick<Author, 'role' | 'bio' | 'expertise'>;
