@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback, Suspense } from 'react';
 import { useExchangeRate } from '@/services/exchangeRateService';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, loadNamespaceTranslations } from '@/services/i18n';
+import { TranslationNamespaceGate } from '@/components/shared/TranslationNamespaceGate';
 import { buildPath } from '@/services/router';
 import { lazyRetry } from '@/services/lazyRetry';
 import { LPP_COORDINATION_DEDUCTION_CHF, LPP_MAX_INSURED_SALARY_CHF, LPP_MIN_CONVERSION_RATE, LPP_MIN_INTEREST_RATE } from '@/services/pensionParameters';
@@ -645,4 +646,14 @@ const TfrCalculator: React.FC = () => {
  );
 };
 
-export default TfrCalculator;
+// Its copy is the on-demand "tfr" namespace (services/locales/<locale>-ns-tfr.ts).
+// The request starts as soon as this lazy module is evaluated.
+void loadNamespaceTranslations('tfr');
+
+const TfrCalculatorWithStrings: React.FC = () => (
+ <TranslationNamespaceGate namespace="tfr">
+ <TfrCalculator />
+ </TranslationNamespaceGate>
+);
+
+export default TfrCalculatorWithStrings;
