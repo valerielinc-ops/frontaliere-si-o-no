@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "company-6a86588328ba",
-      "slug": "navigieren-auf-sbb-ch-bern-65-company-ch",
+      "slug": "navigare-a-sbb-ch-elvetino-bern-65",
       "slugByLocale": {
         "de": "navigieren-auf-sbb-ch-bern-65-company-ch",
-        "it": "navigieren-auf-sbb-ch-bern-65-company-ch",
-        "en": "navigieren-auf-sbb-ch-bern-65-company-ch",
-        "fr": "navigieren-auf-sbb-ch-bern-65-company-ch"
+        "it": "navigare-a-sbb-ch-elvetino-bern-65",
+        "en": "navigate-to-sbb-ch-elvetino-bern-65",
+        "fr": "naviguez-sur-cff-ch-elvetino-bern-65"
       },
       "company": "elvetino",
       "companyKey": "company",
@@ -68,7 +68,21 @@
         }
       },
       "postalCode": "3004",
-      "firstSeenAt": "2026-10-24T09:28:13.763Z"
+      "firstSeenAt": "2026-10-24T09:28:13.763Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "navigieren-auf-sbb-ch-bern-65-company-ch"
+        ],
+        "en": [
+          "navigieren-auf-sbb-ch-bern-65-company-ch"
+        ],
+        "fr": [
+          "navigieren-auf-sbb-ch-bern-65-company-ch"
+        ]
+      },
+      "previousSlugs": [
+        "navigieren-auf-sbb-ch-bern-65-company-ch"
+      ]
     }
   ]
 }
