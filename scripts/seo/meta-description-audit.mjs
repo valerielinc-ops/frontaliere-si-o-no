@@ -41,11 +41,12 @@ import { realpathSync } from 'node:fs';
  * kept as a bounded sample per kind. Same pages, same flags, same totals.
  */
 
-import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync, openSync, writeSync, closeSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, openSync, writeSync, closeSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractMetaDescription } from '../lib/meta-description-extract.mjs';
+import { walkHtml } from './lib/walk-html.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = resolve(__dirname, '..', '..');
@@ -77,36 +78,6 @@ function parseArgs(argv) {
   return args;
 }
 
-/**
- * Yields every `.html` path under `dir`, one at a time. The stack holds one
- * frame per OPEN directory (its path plus the names of its subdirectories still
- * to visit), never the full list of paths: a section with 1M job slugs costs
- * 1M short names, not 1M joined absolute paths.
- */
-function* walkHtml(dir) {
-  if (!existsSync(dir)) return;
-  const stack = [{ path: dir, subdirs: null }];
-  while (stack.length) {
-    const top = stack[stack.length - 1];
-    if (top.subdirs === null) {
-      let entries;
-      try { entries = readdirSync(top.path, { withFileTypes: true }); } catch { entries = []; }
-      top.subdirs = [];
-      for (const e of entries) {
-        if (e.isDirectory()) {
-          if (e.name === 'assets' || e.name === 'node_modules') continue;
-          top.subdirs.push(e.name);
-        } else if (e.isFile() && e.name.endsWith('.html')) {
-          yield `${top.path}/${e.name}`;
-        }
-      }
-      top.subdirs.reverse();
-    }
-    const next = top.subdirs.pop();
-    if (next === undefined) stack.pop();
-    else stack.push({ path: `${top.path}/${next}`, subdirs: null });
-  }
-}
 
 /** 72-bit digest of a description: the Map key instead of the text itself. */
 function descKey(desc) {
