@@ -206,6 +206,17 @@ describe('prospector location and identity contract', () => {
         addressRegion: 'SO',
       });
     });
+
+    it('does not publish an unverified locality when no multi-area part matches the canton', () => {
+      const fields = sourceBackedSwissGeographyFields(
+        {
+          location: 'Winterthur / Mittelland',
+          addressLocality: 'Winterthur',
+        },
+        { location: 'Winterthur / Mittelland', canton: 'SO' },
+      );
+      expect(fields).toMatchObject({ addressLocality: '', addressRegion: 'SO' });
+    });
   });
 
   it('closes the spec dispatcher when collection fails after an earlier seed', async () => {
