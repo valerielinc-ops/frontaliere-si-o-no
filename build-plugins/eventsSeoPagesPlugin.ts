@@ -64,6 +64,7 @@ import {
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
+import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
 // Shared with the crawler + assembler + tests (AGENTS.md §6 — one source of truth).
@@ -4138,6 +4139,13 @@ export function renderEventDetailPage(params: {
    * supports a past `validThrough`).
    */
   isPast?: boolean;
+  /**
+   * P1 noindex plan (2026-10-24): false when Search Console never showed this
+   * event and it is not an upcoming border-canton event (see
+   * eventDetailDemandGate()). Only the robots directive changes: the page
+   * stays 200, linked, and keeps its ad slots, which follow content quality.
+   */
+  demandIndexable?: boolean;
 }): { urlPath: string; html: string; wordCount: number } {
   const {
     locale,
@@ -4150,6 +4158,7 @@ export function renderEventDetailPage(params: {
     detailHref,
     metaTitleDisambiguator = '',
     isPast = false,
+    demandIndexable = true,
   } = params;
   // #3739: an unresolved canton must route to the canton-neutral bucket, not
   // silently mislabel the event as Ticino.
@@ -4316,7 +4325,7 @@ export function renderEventDetailPage(params: {
     description: dc.metaDesc(title, displayComune, when),
     canonicalUrl,
     hreflangHtml: buildEventAlternates(canton, comune, eventSlug),
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    robots: indexable && demandIndexable ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     ...(hasPublishedEventImage(event) && event.imageUrl
       ? {
@@ -4980,6 +4989,32 @@ export function reserveLiveSiblingSlugs(
   return new Set(liveSameComune.map((ev) => detailSlugs.get(ev.id)!.slug));
 }
 
+/**
+ * Cantons whose upcoming events stay indexable without Search Console demand
+ * (P1 noindex plan, 2026-10-24): the border region the site is about. An
+ * event elsewhere, or one that already took place, stays indexable only
+ * while Search Console has shown one of its four locale URLs.
+ */
+const DEMAND_EXEMPT_EVENT_CANTONS: ReadonlySet<string> = new Set(['TI', 'GR', 'VS']);
+
+/**
+ * The indexability of an event detail, decided ONCE for its four hreflang
+ * URLs so the alternates of an indexable page are indexable too.
+ *
+ * Fail-safe: with the demand gate dormant (evidence missing, truncated or not
+ * a 90-day window) every detail keeps its pre-P1 behaviour.
+ *
+ * Measured on the live sitemap-eventi.xml of 2026-10-23: 14 908 detail URLs,
+ * 2 076 kept, 12 832 noindex — none of the 12 832 had an impression in 90 days.
+ */
+function eventDetailDemandGate(rootDir: string): (entry: { canton: string; comune: string; slug: string }, isPast: boolean) => boolean {
+  const demand = getTrafficEvidenceFilter(rootDir).gscDemand();
+  if (!demand.active) return () => true;
+  return ({ canton, comune, slug }, isPast) =>
+    (!isPast && DEMAND_EXEMPT_EVENT_CANTONS.has(canton.toUpperCase()))
+    || demand.hasImpressions(LOCALES.map((locale) => pathForEventDetail(locale, comune, slug, canton)));
+}
+
 export function eventsSeoPagesPlugin(rootDir: string): Plugin {
   return {
     name: 'events-seo-pages',
@@ -5083,6 +5118,8 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // bucket. Built once (locale-independent), then resolved per locale into
       // a full href for the event cards.
       const detailSlugs = new Map<string, { canton: string; comune: string; slug: string; imageUrl?: string }>();
+      // P1 noindex plan: which detail pages Search Console demand keeps indexable.
+      const demandIndexable = eventDetailDemandGate(rootDir);
       const liveSlugMigrations: EventSlugMigration[] = [];
       const byCantonComune = new Map<string, Map<string, SiteEvent[]>>();
       // `groupByComune()` drops events with `comune == null` (intentional,
@@ -5298,6 +5335,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
                   distDir,
                   detailHref,
                   metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
+                  demandIndexable: demandIndexable({ canton, comune, slug: eventSlug }, false),
                 }),
               );
             }
@@ -5335,6 +5373,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
                   distDir,
                   detailHref,
                   metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
+                  demandIndexable: demandIndexable({ canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: eventSlug }, false),
                 }),
               );
             }
@@ -5433,6 +5472,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
                   detailHref,
                   metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
                   isPast: true,
+                  demandIndexable: demandIndexable({ canton, comune, slug: pastSlugFor.get(ev.id)! }, true),
                 }),
               );
             }
@@ -5469,7 +5509,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         }
       }
 
-      const detailEntries = [...detailSlugs.values(), ...historicalDetailEntries];
+      // A demand-gated (noindex) detail stays 200 and linked from its listing
+      // and the archive, but a sitemap must only list indexable URLs.
+      const detailEntries = [
+        ...[...detailSlugs.values()].filter((entry) => demandIndexable(entry, false)),
+        ...historicalDetailEntries.filter((entry) => demandIndexable(entry, true)),
+      ];
+      console.log(`[events-seo] detail pages indexable by demand: ${detailEntries.length}/${detailSlugs.size + historicalDetailEntries.length}`);
       const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries, historicalArchivePageCount);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');

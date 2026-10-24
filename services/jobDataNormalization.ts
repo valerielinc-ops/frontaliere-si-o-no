@@ -168,7 +168,6 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'clinique-le-noirmont': cLogo('cliniquelenoirmont.ch'),
  'cnp': cLogo('cnp.ch'),
  'colin-cie': '/images/brands/colin-cie.png',
- 'company': 'https://cdn.app.sbb.ch/favicons/elvetino/v2/apple-touch-icon-114x114.png',
  'concara': cLogo('concara.ch'),
  'confederazione-ticino': '/images/brands/confederazione-ticino.png',
  'convit-holding': 'https://convit.ch/images/convit-logo.png',

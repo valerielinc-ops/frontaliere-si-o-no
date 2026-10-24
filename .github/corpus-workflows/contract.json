@@ -4,20 +4,20 @@
   "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "fa2e99dcabffe8f6d629314ba7263db168965913",
+  "sourceCommit": "44bb85fc2f609e986acc4bb811741d912e3c8474",
   "artifactObservation": {
     "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
     "sourceRef": "main",
-    "sourceCommit": "fa2e99dcabffe8f6d629314ba7263db168965913"
+    "sourceCommit": "44bb85fc2f609e986acc4bb811741d912e3c8474"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 653,
+  "crawlerCount": 652,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:8054fd0f76cd48472f50937239a57be7d72ac8024a8320d41201aa50ec75d109",
+    "rosterDigest": "sha256:71f4ec3385fedc40fc796f55c027beeee3562d7da6de789621683aacc54c856e",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -174,7 +174,6 @@
     "scripts/update-clinique-la-source-jobs.mjs",
     "scripts/update-clinique-le-noirmont-jobs.mjs",
     "scripts/update-cnp-jobs.mjs",
-    "scripts/update-company-jobs.mjs",
     "scripts/update-concara-jobs.mjs",
     "scripts/update-concordia-jobs.mjs",
     "scripts/update-constellium-jobs.mjs",
@@ -1108,8 +1107,8 @@
     {
       "file": "crawler-group-13.yml",
       "sourceLogic": "crawler-group-13-logic.yml",
-      "sourceSha256": "1d0dc74cacdf15b7f677f6f12947d6cc9aff6b58d84edf96e28e7650facef170",
-      "artifactSha256": "800c347c8a1268f1720e71e10a452d534626473d7f5dbfcfed705b480bfbb07d",
+      "sourceSha256": "fe38c1e7b16e7cdbf90ea2cf81907c69cd4527e88b284d44da76f5ef6bc0776e",
+      "artifactSha256": "230b6c57ec053d96b1f5ed528f6737e674a5d313b413b3cbe69a23c3ae61be13",
       "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
       "members": [
         "pwc",
@@ -1140,8 +1139,7 @@
         "1a-hunkeler",
         "abraxas",
         "afry",
-        "buehler",
-        "company"
+        "buehler"
       ]
     },
     {

@@ -48,6 +48,54 @@ export function employerLogoDomain(candidate, spec = {}) {
   return hosted ? '' : host;
 }
 
+function compactIdentity(value) {
+  return String(value || '').toLowerCase().normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+}
+
+function decodeEntities(value) {
+  return String(value || '')
+    .replace(/&amp;/gi, '&').replace(/&#0?39;|&apos;/gi, "'").replace(/&quot;/gi, '"')
+    .replace(/&nbsp;/gi, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * The employer's own display name, as its homepage declares it: `og:site_name`,
+ * a JSON-LD `Organization` name, or the leading segment of `<title>`. Only a
+ * name that names the domain is accepted, so a CMS default ("Home", "WordPress")
+ * or a parent brand cannot replace the employer.
+ *
+ * Candidates discovered from the web index carry the domain label as their
+ * name (`servicekuhn`, `mueller-frauenfeld`): 65 of 375 live candidates on
+ * 2026-10-24, published as the company name of their vacancies.
+ *
+ * @param {string} html
+ * @param {string} domain
+ * @returns {string}
+ */
+export function employerSiteName(html, domain) {
+  const label = compactIdentity(registrableDomain(normalizeHost(domain)).split('.')[0]);
+  if (label.length < 3) return '';
+  const source = String(html || '');
+  const names = [];
+  for (const tag of source.match(/<meta\b[^>]*>/gi) || []) {
+    if (!/\b(?:property|name)\s*=\s*["']og:site_name["']/i.test(tag)) continue;
+    names.push(tag.match(/\bcontent\s*=\s*["']([^"']{2,120})["']/i)?.[1]);
+  }
+  for (const match of source.matchAll(/"@type"\s*:\s*"(?:Organization|Corporation|LocalBusiness)"[^{}]{0,400}?"name"\s*:\s*"([^"]{2,120})"/g)) {
+    names.push(match[1]);
+  }
+  names.push(...(source.match(/<title[^>]*>([^<]{2,200})<\/title>/i)?.[1]?.split(/\s+[|–—-]\s+/) || []));
+  for (const raw of names) {
+    const name = decodeEntities(raw);
+    if (name.length < 2 || name.length > 80) continue;
+    // Domains spell umlauts out (`mueller-frauenfeld.ch` for Müller).
+    const spellings = [compactIdentity(name), compactIdentity(name.replace(/ä/gi, 'ae').replace(/ö/gi, 'oe').replace(/ü/gi, 'ue'))];
+    if (spellings.some((compact) => compact.length >= 3 && (compact.includes(label) || label.includes(compact)))) return name;
+  }
+  return '';
+}
+
 function homepageUrls(domain) {
   const urls = [`https://${domain}/`];
   if (!/^www\./i.test(domain)) urls.push(`https://www.${domain}/`);
@@ -61,7 +109,7 @@ function officialFaviconUrls(domain) {
 /**
  * @param {string} host bare hostname, e.g. `'lonza.com'`
  * @param {{ fetchPage?: typeof politeFetch, fetchImage?: typeof fetchVerifiedLogo }} [runtime]
- * @returns {Promise<{ found: boolean, domain?: string, size?: number, source?: string, qualityStatus?: string, reason?: string }>}
+ * @returns {Promise<{ found: boolean, domain?: string, size?: number, source?: string, qualityStatus?: string, siteName?: string, reason?: string }>}
  */
 export async function probeCompanyLogo(host, runtime = {}) {
   const domain = normalizeHost(String(host || '').trim());
@@ -70,6 +118,7 @@ export async function probeCompanyLogo(host, runtime = {}) {
   const fetchImage = runtime.fetchImage || ((url) => fetchVerifiedLogo(url, { timeoutMs: FETCH_TIMEOUT_MS }));
 
   let fallback = null;
+  let siteName = '';
   let lastReason = 'logo non verificato';
   const tried = new Set();
   const tryImage = async (url) => {
@@ -93,24 +142,25 @@ export async function probeCompanyLogo(host, runtime = {}) {
     const page = await fetchPage(pageUrl).catch(() => null);
     if (!page?.ok || !page.body) continue;
     const baseUrl = page.url || pageUrl;
+    siteName = employerSiteName(page.body, domain);
     const declared = [
       ...extractIconLinks(page.body, baseUrl, { allowGenericFavicon: true }),
       ...extractOfficialLogoImages(page.body, baseUrl, registrableDomain(domain) || domain),
     ].slice(0, MAX_DECLARED_ASSETS);
     for (const url of declared) {
       const hit = await tryImage(url);
-      if (hit?.qualityStatus === 'good') return hit;
+      if (hit?.qualityStatus === 'good') return { ...hit, siteName };
       fallback ||= hit;
     }
     // One homepage that answered is the employer's statement of its assets;
     // the `www.` variant is only a fallback for a bare domain that does not.
     break;
   }
-  if (fallback) return fallback;
+  if (fallback) return { ...fallback, siteName };
 
   for (const url of officialFaviconUrls(domain)) {
     const hit = await tryImage(url);
-    if (hit) return hit;
+    if (hit) return { ...hit, siteName };
   }
-  return { found: false, domain, reason: lastReason };
+  return { found: false, domain, siteName, reason: lastReason };
 }

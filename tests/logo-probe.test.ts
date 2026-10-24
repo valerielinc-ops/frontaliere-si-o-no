@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { employerLogoDomain, probeCompanyLogo } from '../scripts/lib/prospector/logo-probe.mjs';
+import { employerLogoDomain, employerSiteName, probeCompanyLogo } from '../scripts/lib/prospector/logo-probe.mjs';
 
 function pngBytes(width = 128, height = 128) {
   const bytes = Buffer.alloc(24);
@@ -114,5 +114,22 @@ describe('employerLogoDomain', () => {
   it('keeps the crawler host for a self-hosted careers page', () => {
     expect(employerLogoDomain({ platform: '' }, { companyHost: 'karriere.acme.ch' })).toBe('karriere.acme.ch');
     expect(employerLogoDomain(null, { companyHost: 'acme.ch' })).toBe('acme.ch');
+  });
+});
+
+describe('employerSiteName', () => {
+  it('reads the name the homepage declares when it names the domain', () => {
+    expect(employerSiteName('<meta property="og:site_name" content="Garage Service Kuhn AG">', 'servicekuhn.ch'))
+      .toBe('Garage Service Kuhn AG');
+    expect(employerSiteName('<script type="application/ld+json">{"@type":"Organization","name":"BENU Apotheken"}</script>', 'benu.ch'))
+      .toBe('BENU Apotheken');
+    // Umlauts are spelled out in domains; the brand may sit after "Home".
+    expect(employerSiteName('<title>Home - Müller Frauenfeld AG</title>', 'mueller-frauenfeld.ch'))
+      .toBe('Müller Frauenfeld AG');
+  });
+
+  it('refuses CMS defaults and names that do not name the domain', () => {
+    expect(employerSiteName('<title>Willkommen | WordPress</title>', 'benu.ch')).toBe('');
+    expect(employerSiteName('<meta property="og:site_name" content="SBB CFF FFS">', 'elvetino.ch')).toBe('');
   });
 });

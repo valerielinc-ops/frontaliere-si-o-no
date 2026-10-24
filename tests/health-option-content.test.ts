@@ -4,10 +4,11 @@ import itComparator from '../services/locales/it-comparatori';
 import enComparator from '../services/locales/en-comparatori';
 import deComparator from '../services/locales/de-comparatori';
 import frComparator from '../services/locales/fr-comparatori';
-import itCore from '../services/locales/it-core';
-import enCore from '../services/locales/en-core';
-import deCore from '../services/locales/de-core';
-import frCore from '../services/locales/fr-core';
+// FAQ copy lives in the on-demand "faq" namespace (services/locales/<locale>-ns-faq.ts).
+import itCore from '../services/locales/it-ns-faq';
+import enCore from '../services/locales/en-ns-faq';
+import deCore from '../services/locales/de-ns-faq';
+import frCore from '../services/locales/fr-ns-faq';
 import { SECTION_EDITORIAL } from '../build-plugins/editorialContent';
 import { FAQ_TRANSLATIONS } from '../services/seo/faq-translations';
 

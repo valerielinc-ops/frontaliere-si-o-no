@@ -5,6 +5,7 @@ import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
 import { readAllAttr, readAttr, readMetaContent, scanStartTags } from './lib/html-attr.mjs';
 import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
+import { PHARMACY_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { pathToFileURL } from 'node:url';
 
 /**
@@ -19,7 +20,7 @@ import { pathToFileURL } from 'node:url';
  *  5. Title tag: must be present and non-empty
  *  6. Meta description: must be present and non-empty
  *  7. Meta robots: must NOT contain "noindex" (except 404.html, search pages,
- *     and explicitly marked intentional job-board targets)
+ *     and explicitly marked intentional job-board and pharmacy targets)
  *  8. Meta refresh: must NOT exist (indicates redirect shell, not real content)
  *  9. Best-practice advisory checks: self-canonical, Open Graph, partial
  *     Twitter cards, meta description length, and image alt attributes
@@ -33,7 +34,7 @@ import { pathToFileURL } from 'node:url';
  * Exit code 0 if only warnings or all pass.
  */
 
-import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
+import { readFileSync, existsSync, readdirSync, statSync, mkdirSync, writeFileSync } from 'fs';
 import { join, relative } from 'path';
 
 const DIST = 'dist';
@@ -377,6 +378,35 @@ function isIntentionalJobBoardNoindexPage(html) {
     && hasNoindex(html);
 }
 
+const PHARMACY_ROUTE_PREFIXES = [
+  'farmacie',
+  'farmacie-di-turno',
+  'en/pharmacies',
+  'en/on-duty-pharmacies',
+  'de/apotheken',
+  'de/notdienst-apotheken',
+  'fr/pharmacies',
+  'fr/pharmacies-de-garde',
+];
+
+function isPharmacyRoutePage(pagePath) {
+  const normalizedPath = String(pagePath || '').replace(/^\/+/, '');
+  return PHARMACY_ROUTE_PREFIXES.some((prefix) => (
+    normalizedPath === prefix || normalizedPath.startsWith(`${prefix}/`)
+  ));
+}
+
+// pharmacyDirectoryPagesPlugin declares its deliberate noindex families
+// (duty-city aliases, closed weeks, unreleased duty data); marker AND noindex
+// are both required, so a copied marker on an unrelated page never hides an
+// indexable page's defect. The path check is intentionally based on the
+// generated dist-relative route, not on page markup that could be copied.
+function isIntentionalPharmacyNoindexPage(pagePath, html) {
+  return isPharmacyRoutePage(pagePath)
+    && String(html || '').includes(PHARMACY_NOINDEX_TARGET_MARKER)
+    && hasNoindex(html);
+}
+
 // Check for <meta http-equiv="refresh"> (not inside <noscript>)
 function hasMetaRefresh(html) {
   const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
@@ -581,6 +611,8 @@ function main() {
   };
   let warningCount = 0;
   let errorCount = 0;
+  // Noindex pages whose producer declared the noindex (printed, never silent).
+  const declaredNoindex = { jobBoard: 0, pharmacy: 0 };
 
   for (const page of pagesToCheck) {
     const html = readFileSync(page.filePath, 'utf-8');
@@ -646,9 +678,12 @@ function main() {
     // 7. Meta robots noindex (skip 404.html and search/combo landing pages which are intentionally noindex)
     const isSearchPage = /\/(ricerca-|suche-|search-|recherche-)/.test('/' + page.pagePath);
     const isIntentionalJobBoardNoindex = isIntentionalJobBoardNoindexPage(html);
-    if (page.pagePath !== '404.html' && !isSearchPage && !isIntentionalJobBoardNoindex && hasNoindex(html)) {
+    const isIntentionalPharmacyNoindex = isIntentionalPharmacyNoindexPage(page.pagePath, html);
+    if (page.pagePath !== '404.html' && !isSearchPage && !isIntentionalJobBoardNoindex && !isIntentionalPharmacyNoindex && hasNoindex(html)) {
       errors.hasNoindex.push(page.pagePath || '/');
       errorCount++;
+    } else if (isIntentionalJobBoardNoindex || isIntentionalPharmacyNoindex) {
+      declaredNoindex[isIntentionalPharmacyNoindex ? 'pharmacy' : 'jobBoard']++;
     }
 
     // 8. Meta refresh (outside noscript)
@@ -688,6 +723,7 @@ function main() {
   console.log(`  WITH ERRORS: ${pagesToCheck.length - passedCount}`);
   console.log(`  TOTAL ISSUES: ${errorCount}`);
   console.log(`  ADVISORY WARNINGS: ${warningCount}`);
+  console.log(`  DECLARED NOINDEX (producer marker, not errors): job-board ${declaredNoindex.jobBoard}, pharmacy ${declaredNoindex.pharmacy}`);
   console.log('='.repeat(60));
   console.log();
 
@@ -771,6 +807,8 @@ function main() {
     if (entries.length > 0) printWarningGroup(warningLabels[type], entries, 20);
   }
 
+  writeFamilyBreakdown(errors, warnings);
+
   if (errorCount > 0) {
     console.log(`\n\u274C DEPLOY BLOCKED: ${errorCount} SEO issue(s) found across ${pagesToCheck.length - passedCount} page(s).`);
     process.exit(1);
@@ -783,8 +821,59 @@ function main() {
   }
 }
 
+/**
+ * URL family of a dist-relative page path: the first two path segments plus
+ * the depth, e.g. `fr/pharmacies/…(5)`. The groups below print only 20 paths
+ * each, which on the reassembled corpus (858 noindex, 911k canonical
+ * mismatches) named one family and hid the rest — so every group also gets a
+ * per-family count, printed and written to dist/audit-reports.
+ */
+function pageFamily(p) {
+  const segs = String(p).replace(/\/index\.html$/, '').replace(/\.html$/, '').split('/').filter(Boolean);
+  if (segs.length <= 1) return segs.join('/') || '/';
+  return `${segs.slice(0, 2).join('/')}/…(${segs.length})`;
+}
+
+function familyCounts(items, examplesPerFamily = 5) {
+  const byFamily = new Map();
+  for (const item of items) {
+    const p = typeof item === 'string' ? item : item.path;
+    const fam = pageFamily(p);
+    const entry = byFamily.get(fam) ?? { count: 0, examples: [] };
+    entry.count++;
+    if (entry.examples.length < examplesPerFamily) entry.examples.push(typeof item === "string" || !item.detail ? p : `${p} — ${item.detail}`);
+    byFamily.set(fam, entry);
+  }
+  return Object.fromEntries([...byFamily.entries()].sort((a, b) => b[1].count - a[1].count));
+}
+
+function printFamilies(families, limit = 40) {
+  const rows = Object.entries(families);
+  if (rows.length <= 1) return;
+  console.log(`   by URL family (${rows.length}):`);
+  for (const [fam, { count }] of rows.slice(0, limit)) console.log(`     ${String(count).padStart(8)}  ${fam}`);
+  if (rows.length > limit) console.log(`     ... and ${rows.length - limit} more families`);
+}
+
+function writeFamilyBreakdown(errors, warnings) {
+  const out = { generatedAt: new Date().toISOString(), errors: {}, warnings: {} };
+  for (const [type, items] of Object.entries(errors)) {
+    if (items.length > 0) out.errors[type] = { total: items.length, families: familyCounts(items) };
+  }
+  for (const [type, items] of Object.entries(warnings)) {
+    if (items.length > 0) out.warnings[type] = { total: items.length, families: familyCounts(items) };
+  }
+  try {
+    mkdirSync(join(DIST, 'audit-reports'), { recursive: true });
+    writeFileSync(join(DIST, 'audit-reports', 'validate-page-seo-families.json'), JSON.stringify(out, null, 2));
+  } catch (err) {
+    console.log(`[validate-page-seo] could not write family breakdown: ${err.message}`);
+  }
+}
+
 function printErrorGroup(label, paths, limit) {
   console.log(`\u274C ${paths.length} page(s) with ${label} (BLOCKING):`);
+  printFamilies(familyCounts(paths, 0));
   for (const p of paths.slice(0, limit)) {
     console.log(`   /${p}`);
   }
@@ -794,6 +883,7 @@ function printErrorGroup(label, paths, limit) {
 
 function printWarningGroup(label, entries, limit) {
   console.log(`\u26a0\ufe0f ${entries.length} page-level advisory finding(s): ${label}`);
+  printFamilies(familyCounts(entries, 0));
   for (const { path, detail } of entries.slice(0, limit)) {
     console.log(`   ${path === '/' ? '/' : `/${path}`}: ${detail}`);
   }
@@ -810,6 +900,8 @@ export {
   hasMetaRefresh,
   isIntentionalRedirectPage,
   isIntentionalJobBoardNoindexPage,
+  isPharmacyRoutePage,
+  isIntentionalPharmacyNoindexPage,
 };
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();
