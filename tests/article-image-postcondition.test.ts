@@ -9,7 +9,7 @@ import {
   isGenericOgImage,
   normalizeImagePath,
 } from '../scripts/lib/article-image-postcondition.mjs';
-import { heroPathOf, probeRemoteHeroSizes, publicHeroUrl } from '../scripts/lib/remote-hero-sizes.mjs';
+import { heroMeasureUrls, heroPathOf, probeRemoteHeroSizes, publicHeroUrl } from '../scripts/lib/remote-hero-sizes.mjs';
 
 /** Minimal VP8X WebP header: enough for intrinsicSizeFromBuffer. */
 function webpHeader(width: number, height: number): Buffer {
@@ -45,6 +45,26 @@ describe('remote hero sizes for sparse article re-renders', () => {
     expect(publicHeroUrl('/images/places/lugano-view.webp')).toBe('https://frontaliereticino.ch/images/places/lugano-view.webp');
     // thumbnails are not full heroes and are not on the blog CDN path
     expect(publicHeroUrl('/images/blog/thumbnails/a.webp')).toBe('https://frontaliereticino.ch/images/blog/thumbnails/a.webp');
+  });
+
+  it('falls back to the CDN mirror when the origin refuses a non-blog hero', async () => {
+    expect(heroMeasureUrls('/images/blog/a.webp')).toEqual(['https://cdn.frontaliereticino.ch/images/blog/a.webp']);
+    expect(heroMeasureUrls('/images/places/castelgrande.webp')).toEqual([
+      'https://frontaliereticino.ch/images/places/castelgrande.webp',
+      'https://cdn.frontaliereticino.ch/images/places/castelgrande.webp',
+    ]);
+    const publicDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hero-probe-mirror-'));
+    try {
+      const { impl } = fakeFetch({
+        'https://frontaliereticino.ch/images/places/castelgrande.webp': { status: 403, type: 'text/html' },
+        'https://cdn.frontaliereticino.ch/images/places/castelgrande.webp': { status: 206, body: webpHeader(1200, 800) },
+      });
+      const result = await probeRemoteHeroSizes(['/images/places/castelgrande.webp'], { publicDir, fetchImpl: impl });
+      expect(result.sizes).toEqual({ '/images/places/castelgrande.webp': { width: 1200, height: 800 } });
+      expect(result.failed).toEqual([]);
+    } finally {
+      fs.rmSync(publicDir, { recursive: true, force: true });
+    }
   });
 
   it('only measures same-site /images/ declarations', () => {

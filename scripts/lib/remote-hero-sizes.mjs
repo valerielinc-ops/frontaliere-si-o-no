@@ -53,6 +53,21 @@ export function publicHeroUrl(heroPath) {
   return m ? `${CDN_BLOG_BASE}/${m[1]}` : `${SITE_ORIGIN}${heroPath}`;
 }
 
+/**
+ * Every URL the hero size may be read from, in order: where the site serves
+ * it, then — for a non-blog hero served by the origin — the same path on the
+ * CDN. The origin answers 403 to GitHub-hosted runners for `/images/places/*`
+ * (Cloudflare bot rule; rerender run 40082618932: 11 heroes, 10 svizzera
+ * articles withheld), while the CDN mirror serves the same bytes to them.
+ * Only the size is read from the mirror; the page keeps the origin URL.
+ */
+export function heroMeasureUrls(heroPath) {
+  const primary = publicHeroUrl(heroPath);
+  const cdnOrigin = CDN_BLOG_BASE.replace(/\/images\/blog$/, '');
+  const mirror = `${cdnOrigin}${heroPath}`;
+  return primary === mirror ? [primary] : [primary, mirror];
+}
+
 /** Read only the prefix needed by the intrinsic-size parser. */
 async function readResponsePrefix(res, maxBytes) {
   const body = res.body;
@@ -147,7 +162,11 @@ export async function probeRemoteHeroSizes(declaredImages, opts) {
     while (next < missing.length) {
       const heroPath = missing[next++];
       const url = publicHeroUrl(heroPath);
-      const result = await measureOne(url, { fetchImpl, timeoutMs });
+      let result = { ok: false, reason: 'not probed' };
+      for (const candidate of heroMeasureUrls(heroPath)) {
+        result = await measureOne(candidate, { fetchImpl, timeoutMs });
+        if (result.ok) break;
+      }
       if (result.ok) sizes[heroPath] = result.size;
       else failed.push({ path: heroPath, url, reason: result.reason });
     }
