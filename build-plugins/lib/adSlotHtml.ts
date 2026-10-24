@@ -114,7 +114,7 @@ export function pruneStaticInfeedAdsToContentRatio(contentHtml = ''): string {
     'gi',
   );
 
-  while (!hasEnoughContentForStaticAd(output)) {
+  while (!hasEnoughContentForStaticAd(output, 0)) {
     const placements = [...output.matchAll(placementRe)];
     const last = placements.at(-1);
     if (!last || last.index === undefined) break;

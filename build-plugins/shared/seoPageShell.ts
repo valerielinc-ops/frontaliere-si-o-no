@@ -355,16 +355,16 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
   // Split hub chrome: sub-nav is hoisted OUT of <main> via `preMainHtml` so it
   // renders as a sibling (same DOM shape as the SPA), while hero + inner
   // content stay INSIDE <main class="seo-static-content">.
-  const ratioSafeBodyHtml = pruneStaticInfeedAdsToContentRatio(bodyHtml);
-  const { subnavHtml, bodyHtml: wrappedBody } = hubChrome
+  const { subnavHtml, bodyHtml: bodyWithChrome } = hubChrome
     ? renderHubChromeSplit({
         hubKey: hubChrome.hubKey,
         activeSubTab: hubChrome.activeSubTab,
         locale: locale as HubLocale,
         hero: hubChrome.hero,
-        innerHtml: ratioSafeBodyHtml,
+        innerHtml: bodyHtml,
       })
-    : { subnavHtml: '', bodyHtml: ratioSafeBodyHtml };
+    : { subnavHtml: '', bodyHtml };
+  const wrappedBody = pruneStaticInfeedAdsToContentRatio(bodyWithChrome);
 
   const heroPreload = buildSeoHeroPreload(wrappedBody, extraHeadHtml ?? '');
   const twitterCardHead = opts.includeTwitterCard !== false
