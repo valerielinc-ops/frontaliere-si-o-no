@@ -164,7 +164,9 @@ function validateFieldProvenance(jobPosting, job) {
     errors.push('baseSalary:reported_salary_dropped');
   }
 
-  const expectedTypes = resolveJobEmploymentTypes(job);
+  // Same inputs as the builder: contract fields, else the workload the
+  // emitted (localized) title states (#15009).
+  const expectedTypes = resolveJobEmploymentTypes(job, jobPosting?.title);
   const actualTypes = jobPosting?.employmentType === undefined
     ? []
     : (Array.isArray(jobPosting.employmentType) ? jobPosting.employmentType : [jobPosting.employmentType]);

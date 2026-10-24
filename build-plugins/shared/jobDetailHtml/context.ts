@@ -25,6 +25,7 @@ export interface JobDetailJob {
   readonly id?: string;
   readonly companyKey?: string;
   readonly title?: string;
+  readonly titleByLocale?: Readonly<Partial<Record<string, string>>>;
   readonly company?: string;
   readonly location?: string;
   readonly canton?: string;

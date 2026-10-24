@@ -79,7 +79,10 @@ export function renderMobileActionBlock(ctx: MobileActionBlockRenderContext): st
   })();
   // Same resolution as the JobPosting employmentType and the hero "Contratto"
   // label (scripts/lib/job-employment-type.mjs): never the raw "other".
-  const contractText = formatJobEmploymentTypes(resolveJobEmploymentTypes(job), locale);
+  const contractText = formatJobEmploymentTypes(
+    resolveJobEmploymentTypes(job, job.titleByLocale?.[locale] || job.title),
+    locale,
+  );
   // Salary line — only when we actually have a number; the "non indicato"
   // fallback is meaningless as a money signal so we suppress it instead of
   // rendering a tile that adds zero information.

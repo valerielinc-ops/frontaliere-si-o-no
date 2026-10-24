@@ -21,7 +21,8 @@ describe('resolveJobEmploymentTypes', () => {
     [{ contractType: 'intern (fixed term) (trainee)' }, ['TEMPORARY', 'INTERN']],
     [{ contractType: 'fixed term contract (fixed term)' }, ['TEMPORARY']],
     [{ contract: 'contract' }, ['CONTRACTOR']],
-    [{ contract: 'other' }, ['OTHER']],
+    [{ contract: 'other' }, []],
+    [{ employmentType: 'OTHER' }, []],
     [{ contract: 'other', employmentType: 'PART_TIME' }, ['PART_TIME']],
     [{ contract: 'indeterminato' }, []],
     [{ contract: 'permanent' }, []],
@@ -29,6 +30,13 @@ describe('resolveJobEmploymentTypes', () => {
     [{}, []],
   ])('%o -> %o', (job, expected) => {
     expect(resolveJobEmploymentTypes(job)).toEqual(expected);
+  });
+
+  it('falls back to the workload the title states (#15009)', () => {
+    expect(resolveJobEmploymentTypes({ employmentType: 'OTHER' }, 'Verkäufer/in 60%')).toEqual(['PART_TIME']);
+    expect(resolveJobEmploymentTypes({ employmentType: 'OTHER' }, 'Projektleiter 80-100%')).toEqual(['FULL_TIME']);
+    expect(resolveJobEmploymentTypes({ employmentType: 'FULL_TIME' }, 'Assistent 50%')).toEqual(['FULL_TIME']);
+    expect(resolveJobEmploymentTypes({}, 'Sales Manager 50% travel')).toEqual([]);
   });
 
   it('shapes the JSON-LD value as absent, one token or an array', () => {

@@ -13,7 +13,9 @@ const job = (patch: Record<string, unknown>) => ({
   ...patch,
 });
 
-const typeOf = (patch: Record<string, unknown>) => buildJobPostingFacts(job(patch) as any, 'de').employmentType;
+// One stated type -> its token; nothing stated -> undefined (owner decision
+// 2026-10-24: no FULL_TIME default).
+const typeOf = (patch: Record<string, unknown>) => buildJobPostingFacts(job(patch) as any, 'de').employmentTypes[0];
 
 describe('JobPosting employmentType', () => {
   it('reads a part-time workload from the title when the crawler wrote OTHER', () => {
@@ -22,10 +24,10 @@ describe('JobPosting employmentType', () => {
     expect(typeOf({ title: 'Verkäufer/in 60%', employmentType: 'OTHER' })).toBe('PART_TIME');
   });
 
-  it('keeps FULL_TIME for a full workload or no workload at all', () => {
+  it('reads FULL_TIME from a full workload and states nothing without one', () => {
     expect(typeOf({ title: 'Projektleiter 80-100%', employmentType: 'OTHER' })).toBe('FULL_TIME');
-    expect(typeOf({ title: 'Projektleiter', employmentType: 'OTHER' })).toBe('FULL_TIME');
-    expect(typeOf({ title: 'Projektleiter' })).toBe('FULL_TIME');
+    expect(typeOf({ title: 'Projektleiter', employmentType: 'OTHER' })).toBeUndefined();
+    expect(typeOf({ title: 'Projektleiter' })).toBeUndefined();
   });
 
   it('lets a known contract field win over the title and over an unknown field', () => {

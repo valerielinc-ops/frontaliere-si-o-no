@@ -2550,7 +2550,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const loc = localeArg in contractLabelByLocale ? localeArg : 'it';
  // Same contract resolution as the JobPosting employmentType: a type the
  // listing does not state is not written into the synthesized description.
- const contractTypes = resolveJobEmploymentTypes(jobArg);
+ const contractTypes = resolveJobEmploymentTypes(jobArg, titleText);
  const contractLabel = contractTypes.length > 0
   ? formatJobEmploymentTypes(contractTypes, loc)
   : ({ it: 'Contratto da verificare', en: 'Contract to be confirmed', de: 'Vertrag zu klären', fr: 'Contrat à confirmer' } as Record<string, string>)[loc];
@@ -3581,8 +3581,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_co = String(job.company || '');
  const perJob_cat = String(job.category || '').toLowerCase();
  // Contract types the listing states: one resolution for the JSON-LD
- // employmentType, the visible "Contratto" labels and the prose below.
- const perJob_employmentTypes = resolveJobEmploymentTypes(job);
+ // employmentType, the visible "Contratto" labels and the prose below. The
+ // workload fallback (#15009) reads the same localized title as the builder.
+ const perJob_employmentTypesFor = (loc: string): string[] => resolveJobEmploymentTypes(
+  job,
+  stripLiteralMarkdownFromTitle(String(job?.titleByLocale?.[loc] || job.title || '')),
+ );
  const perJob_matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
  const perJob_logoUrl = companyLogo(job);
  const perJob_relatedPool = getRelatedPool(job);
@@ -4295,7 +4299,7 @@ ${staticAnalyticsHtml}
  <div class="hero-sub">${esc(job.company)} · ${esc(formatJobLocation(job.location, job.canton || DEFAULT_CANTON))}</div>
  <div class="hero-meta">
  <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
- <span>${esc(`Contratto: ${formatJobEmploymentTypes(perJob_employmentTypes, locale)}`)}</span>
+ <span>${esc(`Contratto: ${formatJobEmploymentTypes(perJob_employmentTypesFor(locale), locale)}`)}</span>
  <span>${esc(`Salario: ${salaryText}`)}</span>
  </div>
  </section>
@@ -4387,8 +4391,8 @@ ${staticAnalyticsHtml}
  };
  const sectorName = sectorLabel[locale]?.[cat] || sectorLabel[locale]?.['administration'] || '';
  // Contract label localized (reuse top-level map).
- const contractLabelLocal = perJob_employmentTypes.length > 0
-  ? formatJobEmploymentTypes(perJob_employmentTypes, locale)
+ const contractLabelLocal = perJob_employmentTypesFor(locale).length > 0
+  ? formatJobEmploymentTypes(perJob_employmentTypesFor(locale), locale)
   : '';
  const safeTitle = esc(String(localizedTitle || job.title || ''));
  // Deterministic variant picker — stable across rebuilds, varies across slugs.
