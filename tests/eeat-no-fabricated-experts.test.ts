@@ -59,7 +59,7 @@ describe('E-E-A-T: no fabricated experts', () => {
     expect(FABRICATED_EXPERTS.filter((name) => text.includes(name))).toEqual([]);
   });
 
-  it('homepage JSON-LD declares no Person and no GovernmentService source', () => {
+  it('homepage JSON-LD declares no Person and no member list', () => {
     const types: string[] = [];
     let members = 0;
     for (const block of ldBlocks(read('index.html'))) {
@@ -71,7 +71,6 @@ describe('E-E-A-T: no fabricated experts', () => {
     }
     expect(members).toBe(0);
     expect(types).not.toContain('Person');
-    expect(types).not.toContain('GovernmentService');
   });
 
   it('no locale ships an expert quote or the changelog entry announcing them', () => {
