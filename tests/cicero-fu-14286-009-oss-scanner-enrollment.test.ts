@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -8,13 +9,20 @@ import {
 
 const ROOT = process.cwd();
 const DOCKERFILE_PATH = `${ROOT}/.oss-scanner/Dockerfile`;
-const DOCKERFILE = readFileSync(DOCKERFILE_PATH, 'utf8');
+// The PR test job uses a sparse checkout that intentionally omits hidden
+// build-context directories. Read the tracked blob directly when the path is
+// absent so the contract still validates the PR head instead of the checkout
+// profile.
+const DOCKERFILE = existsSync(DOCKERFILE_PATH)
+  ? readFileSync(DOCKERFILE_PATH, 'utf8')
+  : execFileSync('git', ['show', 'HEAD:.oss-scanner/Dockerfile'], { cwd: ROOT, encoding: 'utf8' });
 
 describe('FU-2026-10-21-009 — OSS Scanner recurring enrollment', () => {
   it('accepts the repository-owned written proof and exact checked-out commit', () => {
     const result = checkOssScannerEnrollment({
       repoRoot: ROOT,
       dockerfilePath: DOCKERFILE_PATH,
+      dockerfileSource: DOCKERFILE,
     });
 
     expect(result.ok, result.errors.join('\n')).toBe(true);
@@ -53,11 +61,13 @@ describe('FU-2026-10-21-009 — OSS Scanner recurring enrollment', () => {
     const imageMismatch = checkOssScannerEnrollment({
       repoRoot: ROOT,
       dockerfilePath: DOCKERFILE_PATH,
+      dockerfileSource: DOCKERFILE,
       imageContract: `sha256:${'0'.repeat(64)}`,
     });
     const commitMismatch = checkOssScannerEnrollment({
       repoRoot: ROOT,
       dockerfilePath: DOCKERFILE_PATH,
+      dockerfileSource: DOCKERFILE,
       expectedCommit: differentCommit,
     });
 
