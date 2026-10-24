@@ -1,0 +1,23 @@
+{
+  "companyKey": "rosa-experts-ch",
+  "companyName": "rosa-experts",
+  "companyHost": "rosa-ag.de",
+  "platform": "rosa-ag.de",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.rosa-ag.de/jobs/*/"
+  ],
+  "detailTemplate": "/job/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 176,
+  "sampleTitles": [
+    "Teamleiter (m/w/d) Sekundärtechnik",
+    "Lead Ingenieur Verfahrenstechnik (m/w/d)",
+    "(Senior) Vertriebsingenieur (m/w/d) - Rohrleitungsbau & Energietechnik",
+    "Projektleiter (m/w/d) Rohrleitungsbau",
+    "(Senior) Sales Project Manager (m/w/d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-24T10:46:43.817Z"
+}

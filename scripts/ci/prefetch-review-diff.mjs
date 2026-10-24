@@ -1,10 +1,21 @@
 import { realpathSync } from 'node:fs';
 /** Build the review patch on the host, before the network-isolated reviewer starts. */
-import { TEST_DIFF_EXCLUSIONS } from './review-test-policy.mjs';
 import { execFileSync } from 'node:child_process';
 import { openSync, closeSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
+
+// This helper is transported as an `identical` twin. Keep the review-test
+// data here so the copied helper can run without importing the site's adapted
+// review policy; the policy re-exports these constants on this side.
+export const TEST_EXTENSIONS = Object.freeze([
+  'js', 'jsx', 'ts', 'tsx', 'mjs', 'cjs', 'mts', 'cts', 'd.ts', 'd.mts', 'd.cts',
+]);
+export const TEST_DIFF_EXCLUSIONS = Object.freeze([
+  ':(glob,exclude)**/tests/**', ':(glob,exclude)**/__tests__/**',
+  ...TEST_EXTENSIONS.flatMap(ext =>
+    ['test', 'spec'].map(kind => `:(glob,exclude)**/*.${kind}.${ext}`)),
+]);
 
 const sha = value => {
   if (!/^[a-f0-9]{40}$/.test(value ?? '')) throw new Error('Expected a pinned commit SHA');

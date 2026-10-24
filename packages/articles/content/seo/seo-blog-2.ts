@@ -4700,11 +4700,11 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  },
 
  'blog-vivere-svizzera-vs-italia-frontaliere': {
- title: 'Vivere in Svizzera o Italia: Confronto | Frontaliere Ticino',
- description: 'Permesso B o Permesso G? Confronto dettagliato costi, tasse, sanità, qualità della vita con esempi pratici e cifre 2026 per decidere dove vivere.',
+ title: 'Conviene fare il frontaliere? Svizzera o Italia, il confronto 2026',
+ description: 'Conviene fare il frontaliere o trasferirsi in Svizzera? Affitti, tasse, LAMal e trasporti a confronto: con il Permesso G 12.100 euro l\'anno in più.',
  keywords: 'vivere svizzera vs italia, permesso b vs permesso g, trasferirsi svizzera frontaliere, costo vita ticino, vivere lugano costi, confronto vivere svizzera italia',
- ogTitle: 'Vivere in Svizzera o Italia: Confronto Reale per Frontalieri',
- ogDescription: 'Permesso B o Permesso G? Confronto costi, tasse, sanità e qualità della vita con esempi pratici 2026.',
+ ogTitle: 'Conviene fare il frontaliere? Svizzera o Italia, il confronto 2026',
+ ogDescription: 'Conviene fare il frontaliere o trasferirsi in Svizzera? Affitti, tasse, LAMal e trasporti a confronto: con il Permesso G 12.100 euro l\'anno in più.',
  canonicalPath: '/articoli-frontaliere/vivere-svizzera-vs-italia-frontaliere/',
  structuredData: {
  "@context": "https://schema.org",
@@ -4750,16 +4750,16 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  },
 
  'blog-malattia-frontaliere-guida-assicurazione': {
- title: 'Malattia e Infortunio Frontaliere | Frontaliere Ticino',
+ title: 'Malattia del frontaliere in Svizzera: LAMal, indennità e diritti',
  description: 'Tutto sulla copertura sanitaria del frontaliere: LAMal vs CMI, indennità giornaliere malattia, protezione licenziamento, malattie rare e congedo parentale 2026.',
  keywords: 'malattia frontaliere svizzera, assicurazione lamal frontaliere, indennità giornaliera malattia, infortunio lavoro frontaliere, malattie rare ticino, congedo maternità frontaliere',
- ogTitle: 'Malattia e Infortunio Frontaliere: Guida LAMal, IJM e Diritti',
+ ogTitle: 'Malattia del frontaliere in Svizzera: LAMal, indennità e diritti',
  ogDescription: 'Tutto sulla copertura sanitaria: LAMal vs CMI, indennità giornaliere, protezione dal licenziamento e congedo parentale.',
  canonicalPath: '/articoli-frontaliere/malattia-frontaliere-guida-assicurazione/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Malattia e infortunio frontaliere: guida LAMal, IJM e diritti",
+ "headline": "Malattia del frontaliere in Svizzera: LAMal, indennità e diritti",
  "description": "Tutto sulla copertura sanitaria del frontaliere: LAMal vs CMI, indennità giornaliere, protezione dal licenziamento e malattie rare.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/castelgrande.webp`, "width": 1344, "height": 756, "caption": "Medico in camice bianco in un ospedale svizzero che consulta documenti con un paziente" },
  "datePublished": "2026-03-15T20:04:00+01:00",

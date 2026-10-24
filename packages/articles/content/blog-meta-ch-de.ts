@@ -6539,7 +6539,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.crescita-assicurazioni-cyber-2025.title': 'Wachsende Cyber-Versicherungen im Jahr 2025 in der Schweiz',
     'blog.article.crescita-assicurazioni-cyber-2025.excerpt': 'Im Jahr 2025 verzeichnen die Cyber-Versicherungen in der Schweiz ein starkes Wachstum: 72\'000 versicherte Unternehmen und 480\'000 Privatpersonen, so die Daten des SVV.',
     'blog.article.crescita-assicurazioni-cyber-2025.imageAlt': 'Wachstum von Cyberversicherungen in der Schweiz im Jahr 2025',
-    'blog.article.votazioni-federali-neutralita-sondaggio.title': 'Abstimmung am 27. September: Schwere Niederlage für Neutralität',
+    'blog.article.votazioni-federali-neutralita-sondaggio.title': 'Neutralitätsinitiative: Umfrage sieht 63 % Nein vor der Abstimmung',
     'blog.article.votazioni-federali-neutralita-sondaggio.excerpt': 'Gemäss der Umfrage gfs.bern für die SRG planen 63 Prozent der Stimmberechtigten, die Neutralitätsinitiative vom 27. September 2026 abzulehnen.',
     'blog.article.votazioni-federali-neutralita-sondaggio.imageAlt': 'Urnen und Abstimmungsunterlagen für eidgenössische Wahlen in der Schweiz',
     'blog.article.crescita-pil-seco-esportazioni.title': 'Schweizer BIP-Wachstum auf 1,7%: SECO Schätzungen und Auswirkungen',
@@ -8612,6 +8612,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.successione-parmelin-otto-nomi.title': 'Bundesrat: Für Parmelins Nachfolge sind acht Namen im Rennen',
     'blog.article.successione-parmelin-otto-nomi.excerpt': 'Das Rennen um Parmelins Nachfolge umfasst acht Namen Graber und Ruppen stellen sich in Bern vor Die kantonalen Kandidaturen laufen am Freitagmittag ab Die Abstimmung ist',
     'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.telecom-358-licenziamenti.title': '358 bestätigte Entlassungen: erste Annahme 450 Stellen',
+    'blog.article.telecom-358-licenziamenti.excerpt': 'Sunrise kündigt 358 Entlassungen an Die erste Hypothese deutete auf 450 Arbeitsplätze hin Die Konsultation mit Syndicom wurde beendet Sozialplan und freiwilliger Austritt für einige',
+    'blog.article.telecom-358-licenziamenti.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

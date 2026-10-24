@@ -77,7 +77,9 @@ case "$loc" in
   *) echo "::error::unsupported locale '$loc' (expected it|de|en|fr)" >&2; exit 1 ;;
 esac
 
-repo_root="$(pwd)"
+# Resolve repository-owned inputs from this script, not from the caller's cwd.
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd -- "$script_dir/../.." && pwd)"
 owners_json="$repo_root/scripts/lib/section-shard-owners.json"
 SECTION_UPPER="$(echo "$section" | tr a-z A-Z)"
 LOC_UPPER="$(echo "$loc" | tr a-z A-Z)"
@@ -89,8 +91,20 @@ if [ -z "$key_val" ]; then
   exit 0
 fi
 
-SHARD_OWNER="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' "$owners_json" 2>/dev/null || echo valerielinc-ops)"
-if [ -z "$SHARD_OWNER" ] || [ "$SHARD_OWNER" = "null" ]; then SHARD_OWNER="valerielinc-ops"; fi
+if [ ! -r "$owners_json" ]; then
+  echo "::error::cannot resolve article shard owner: missing or unreadable $owners_json" >&2
+  exit 1
+fi
+if ! SHARD_OWNER="$(jq -er --arg s "$section" '
+  if has($s) then
+    .[$s] | select(type == "string" and length > 0)
+  else
+    "valerielinc-ops"
+  end
+' "$owners_json" 2>/dev/null)"; then
+  echo "::error::cannot resolve article shard owner for '$section' from $owners_json" >&2
+  exit 1
+fi
 SHARD_REPO="git@github.com:$SHARD_OWNER/frontaliere-$section-$loc.git"
 if [ -n "${SHARD_REPO_OVERRIDE:-}" ]; then
   SHARD_REPO="$SHARD_REPO_OVERRIDE"

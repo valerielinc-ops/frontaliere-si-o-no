@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-genolier",
   "label": "Clinique de Genolier",
-  "generatedAt": "2026-10-23T21:28:13.114Z",
+  "generatedAt": "2026-10-24T09:32:19.422Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,59 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3021,
-  "avgDurationMs": 3021,
+  "durationMs": 3452,
+  "avgDurationMs": 3452,
   "durationHistory": [
-    3021
+    3452
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "clinique-de-genolier-f545dd808eaa",
-      "slug": "50-segretario-medico-clinique-de-genolier-genolier-c8f2fd27ba",
-      "company": "Clinique de Genolier",
-      "companyKey": "clinique-de-genolier",
-      "companyDomain": "swissmedical.net",
-      "title": "Secrétaire médical(e) à 50%",
-      "location": "Genolier",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000156009319-secretaire-medical-e-a-50-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000156009319-secretaire-medical-e-a-50-",
-      "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:24:10.111Z",
-      "addressLocality": "Genolier",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1272",
-      "streetAddress": "Route du Muids 3, 1272 Genolier",
-      "category": "Sanità / Ospedali",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-16T14:05:45.016Z",
-      "postedDate": "2026-10-16T14:05:45.016Z",
-      "postingDateSource": "reported",
-      "firstSeenAt": "2026-10-16T21:24:40.559Z",
-      "salaryMin": 43300,
-      "salaryMax": 60300,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "clinique-de-genolier-44d9c6b77b72",
@@ -82,7 +39,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151035234-infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:27:57.327Z",
+      "crawledAt": "2026-10-24T09:32:03.359Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -123,7 +80,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000156798784-secretaire-medical-e-a-50-",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:27:57.326Z",
+      "crawledAt": "2026-10-24T09:32:03.358Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -152,5 +109,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

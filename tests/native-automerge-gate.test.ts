@@ -241,10 +241,10 @@ describe('native auto-merge gate (#8512)', () => {
 
   it('accepts the bounded ledger App review through the existing reviewer path', () => {
     const ledgerReview = review(
-      `${LOOP_FLEET_LEDGER_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n- Ledger JSONL structure verified.\n\n## LGTM`,
+      `${LOOP_FLEET_LEDGER_REVIEW_MARKER}\n${REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n- Ledger JSONL structure verified.\n\n## LGTM`,
       HEAD,
       '2026-09-13T12:00:00Z',
-      { user: { type: 'Bot', login: 'frontaliere-automation[bot]' } },
+      { user: { type: 'Bot', login: 'frontaliere-automation[bot]' }, omitInputRevisionMarker: true },
     );
     const result = evaluateNativeAutoMerge({
       pr: pr({ changedFiles: ['data/loop-fleet/ledger/loop-observations.jsonl'] }),
@@ -255,6 +255,20 @@ describe('native auto-merge gate (#8512)', () => {
     expect(reviewIsApproved(ledgerReview)).toBe(true);
     expect(result).toMatchObject({ allow: true, reviewId: ledgerReview.id });
     expect(result.reason).toMatch(/review exact-head/);
+  });
+
+  it('rejects a ledger-shaped automatic review without the body revision marker', () => {
+    const ledgerReview = review(
+      `${LOOP_FLEET_LEDGER_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n- Ledger JSONL structure verified.\n\n## LGTM`,
+      HEAD,
+      '2026-09-13T12:00:00Z',
+      { user: { type: 'Bot', login: 'frontaliere-automation[bot]' }, omitInputRevisionMarker: true },
+    );
+    expect(evaluateNativeAutoMerge({
+      pr: pr({ changedFiles: ['data/loop-fleet/ledger/loop-observations.jsonl'] }),
+      reviews: [ledgerReview],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: false, reason: 'nessuna review verificabile' });
   });
 
   it.each([

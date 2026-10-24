@@ -5,6 +5,7 @@ import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor, type AuthorLocale } from 
 import { AUTHOR_PAGE_COPY } from '../../services/authorPageCopy';
 import { buildAuthorSeo } from '../../services/seo/seo-authors';
 import { buildPath } from '../../services/router';
+import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT } from '../../packages/articles/engine/shared/aiDisclosure';
 
 const escape = (text: string) => text.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
 
@@ -39,7 +40,8 @@ export function renderAuthorEditorial(sourcePath: string, locale: AuthorLocale):
     publicProfile,
     organizationProfile,
     `<h2>${escape(editorialProfile ? copy.editorialOtherAuthors : copy.otherAuthors)}</h2><ul>${peers}</ul>`,
-    `<p><a href="${buildPath({ activeTab: 'chi-siamo' }, locale)}">${escape(copy.about)}</a> · <a href="${buildPath({ activeTab: 'correzioni' }, locale)}">${escape(copy.corrections)}</a></p>`,
+    // The disclosure points at the methodology (AI-prepared texts): link it.
+    `<p><a href="${buildPath({ activeTab: 'chi-siamo' }, locale)}">${escape(copy.about)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[locale].methodology}">${escape(ARTICLE_TRANSPARENCY[locale].navMethodology)}</a> · <a href="${buildPath({ activeTab: 'correzioni' }, locale)}">${escape(copy.corrections)}</a></p>`,
   ];
 }
 

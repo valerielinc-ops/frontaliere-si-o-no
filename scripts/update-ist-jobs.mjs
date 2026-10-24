@@ -94,7 +94,7 @@ import { readAttr, scanStartTags } from './lib/html-attr.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
-import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
+import { keepStoredSourceBodies, sourceBodyForJob } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1235,6 +1235,21 @@ export function buildIstDescriptionFields(title, descriptionText, location, cant
   return sourceLocaleDescription(meetsSourceBodyFloor(descriptionText) ? descriptionText : '');
 }
 
+/**
+ * Only source-backed stored records may enter the grace-period merge. A
+ * metadata-only row cannot be kept as a live vacancy: it has no source body
+ * for the shared quality floor, and without an identity it cannot preserve a
+ * route safely. The old IST slice contained exactly such a row after a thin
+ * detail was quarantined.
+ */
+export function filterPublishableIstStoredJobs(jobs) {
+  return (Array.isArray(jobs) ? jobs : []).filter((job) => (
+    String(job?.url || '').trim()
+    && String(job?.title || '').trim()
+    && meetsSourceBodyFloor(sourceBodyForJob(job))
+  ));
+}
+
 // Fossils of the removed builders in stored jobs (see source-locale-description.mjs).
 const IST_IT_BLURB_RE = /^Posizione aperta presso la International School of Ticino\b[\s\S]*Inspired Education Group/;
 const IST_APPENDED_BLURB_RE = /The International School of Ticino \(IST\) is part of the Inspired Education Group/;
@@ -1401,6 +1416,14 @@ async function mergeIstJobs(discoveredJobs) {
   const existingIstJobs = allJobs.filter(isLegacyIstJob);
   const fossils = existingIstJobs.filter((job) => dropIstFabricatedText(job)).length;
   if (fossils > 0) console.log(`  🧹 Dropped fabricated IST text from ${fossils} stored job(s); they will be retranslated`);
+  const publishableExistingIstJobs = filterPublishableIstStoredJobs(existingIstJobs);
+  const preMergeIstJobs = existingIstJobs.filter(isIstJob);
+  if (publishableExistingIstJobs.length < existingIstJobs.length) {
+    console.log(
+      `  ⏭️  Excluded ${existingIstJobs.length - publishableExistingIstJobs.length} `
+      + 'metadata-only or thin IST stored job(s) from grace retention',
+    );
+  }
   // Under the shared word floor the builder emits no body: keep the stored
   // source body (fossils already dropped above), or omit the job this run.
   const withBody = keepStoredSourceBodies(discoveredJobs, existingIstJobs, (url) => extractStableJobId(url) || url);
@@ -1424,7 +1447,7 @@ async function mergeIstJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingIstJobs, discoveredJobs).map((job) => ({
+  const merged = mergePreserveLocaleData(publishableExistingIstJobs, discoveredJobs).map((job) => ({
     ...withLegacyPostingDay(job),
     company: IST_COMPANY_NAME,
     companyKey: IST_KEY,
@@ -1447,7 +1470,14 @@ async function mergeIstJobs(discoveredJobs) {
   console.log(`  🗑️  Removed (stale): ${removed}`);
   console.log(`  📊 Total jobs in file: ${final.length}`);
 
-  return { added, updated, removed, total: final.length };
+  return {
+    added,
+    updated,
+    removed,
+    total: final.length,
+    publishedIstJobs: merged.length,
+    preMergeIstJobs,
+  };
 }
 
 /* ── Adapter management ────────────────────────────────────── */
@@ -1734,7 +1764,48 @@ async function main() {
   updateAdapterConfig();
 
   // Phase 3: Merge into data/jobs.json
-  await mergeIstJobs(discoveredJobs);
+  const mergeResult = await mergeIstJobs(discoveredJobs);
+
+  // A discovered detail can still be quarantined by the shared source-body
+  // floor. In that case the merged scratch dataset has no IST rows, but the
+  // localize-only runner would otherwise fall back to the previous crawler
+  // slice and then return before its final slice write. That leaves a stale
+  // metadata-only row indexed indefinitely (the recurring #5253 failure).
+  // Reuse the normal soft-exit writer so the stale row is removed with
+  // housekeeping proof instead of weakening the source-body gate.
+  if (mergeResult.publishedIstJobs === 0) {
+    await rewriteStoredJobsWithoutThinSource(
+      mergeResult.preMergeIstJobs,
+    );
+    updateAdapterConfig();
+    const _cdResult = logStats(beforeSnapshot);
+    crawlDiff = _cdResult.crawlDiff || crawlDiff;
+    const _durationMs = getCrawlerElapsedMs();
+    writeSummaryCrawlerSlice({
+      key: IST_KEY,
+      label: 'International School of Ticino',
+      generatedAt: new Date().toISOString(),
+      total: _cdResult.total,
+      discovered: SUMMARY_COUNTS.discovered,
+      parsed: SUMMARY_COUNTS.parsed,
+      lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+      written: _cdResult.total,
+      newCount: crawlDiff.newJobs.length,
+      updatedCount: crawlDiff.updatedJobs.length,
+      removedCount: crawlDiff.removedJobs.length,
+      unchangedCount: crawlDiff.unchangedCount,
+      durationMs: _durationMs,
+      avgDurationMs: _durationMs,
+      durationHistory: [_durationMs],
+      newJobs: crawlDiff.newJobs.slice(0, 30),
+      updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
+      removedJobs: crawlDiff.removedJobs.slice(0, 30),
+      unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+    });
+    return;
+  }
 
   // Phase 4: Run base crawler for AI localization
   console.log('\n🌐 Running base crawler for AI localization of IST jobs...');

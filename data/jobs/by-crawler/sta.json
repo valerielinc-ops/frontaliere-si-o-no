@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sta",
-  "assembledAt": "2026-10-23T22:08:28.163Z",
+  "assembledAt": "2026-10-24T09:34:45.802Z",
   "runId": "40025478305",
   "jobs": [
     {
@@ -93108,8 +93108,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-neu-und-umbauten-zurich-zurich-sta-ch",
         "it": "installatore-trice-elettrico-a-in-per-neu-e-umbauten-sta-personal-ag-zurich",
-        "en": "electrical-installer-fur-neu-und-umbauten-sta-personal-ag-zurich-zurich",
-        "fr": "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-zurich-zurich"
+        "en": "electrical-installer-for-new-builds-and-renovations-sta-personal-ag-zurich-zurich",
+        "fr": "installateur-trice-electricien-ne-pour-constructions-neuves-et-transformations-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -93118,8 +93118,8 @@
       "titleByLocale": {
         "de": "Elektroinstallateur/in für Neu- und Umbauten",
         "it": "Installatore/trice elettrico/a/in per Neu- e Umbauten",
-        "en": "Electrical Installer für Neu- und Umbauten",
-        "fr": "Installateur/trice électricien/ne für Neu- und Umbauten"
+        "en": "Electrical installer for new builds and renovations",
+        "fr": "Installateur/trice-électricien/ne pour constructions neuves et transformations"
       },
       "description": "Du bringst deine Fachkenntnisse bei der selbständigen Installation von Stark- und Schwachstrom ein. Der Betrieb ermöglicht flexible Arbeitszeiten und fördert gezielte Weiterbildung. Zur Verstärkung unseres Kunden suchen wir eine/n\nTätigkeiten\n- Selbstständige Installationen im Stark- und Schwachstrom umsetzen\n- Elektrische Störungen systematisch lokalisieren und beheben\n- Kleinere Baustellen von der Planung bis zum Abschluss führen\n- Erstprüfungen, Sichtkontrollen und Qualitätssicherungen ausführen\n- Rapporte und Ausmassunterlagen nachvollziehbar erstellen\nAnforderungen\n- Abgeschlossene Lehre als Elektroinstallateurin oder Elektroinstallateur EFZ\n- Praxis in Neu- und Umbauten wird vorausgesetzt\n- Erfahrung im Bereich erneuerbare Energien ist idealerweise vorhanden\n- Gültiger Führerausweis Kategorie B ist erforderlich\n- Selbstständige und verlässliche Arbeitsweise mit hohem Qualitätsanspruch\nAngebot\n- Raum für berufliche Weiterbildung\n- Flexible Gestaltung der Arbeitszeiten\n- Gute Perspektiven für die weitere Entwicklung",
       "descriptionByLocale": {
@@ -93153,7 +93153,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "electrical-installer-for-new-construction-and-renovation-projects-sta-personal-ag-zurich-zurich",
         "installateur-trice-electricien-ne-pour-constructions-neuves-et-renovations-sta-personal-ag-zurich-zurich",
@@ -93163,9 +93162,10 @@
         "electricien-ne-pour-constructions-neuves-et-renovations-sta-personal-ag-zurich-zurich",
         "electrical-installer-for-new-construction-and-renovations-sta-personal-ag-zurich-zurich",
         "electricien-ne-pour-constructions-neuves-et-transformations-sta-personal-ag-zurich-zurich",
-        "electrical-installer-for-new-builds-and-renovations-sta-personal-ag-zurich-zurich",
         "installateur-rice-electricien-ne-pour-des-constructions-neuves-et-des-transformations-sta-personal-ag-zurich-zurich",
-        "elektroinstallateur-in-fur-neu-und-umbauten-zurich-zurich-sta-ch"
+        "elektroinstallateur-in-fur-neu-und-umbauten-zurich-zurich-sta-ch",
+        "electrical-installer-fur-neu-und-umbauten-sta-personal-ag-zurich-zurich",
+        "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -93175,8 +93175,8 @@
           "electrical-installer-for-new-construction-and-renovation-projects-sta-personal-ag-zurich-zurich",
           "electrical-installer-for-new-constructions-and-conversions-sta-personal-ag-zurich-zurich",
           "electrical-installer-for-new-construction-and-renovations-sta-personal-ag-zurich-zurich",
-          "electrical-installer-for-new-builds-and-renovations-sta-personal-ag-zurich-zurich",
-          "elektroinstallateur-in-fur-neu-und-umbauten-zurich-zurich-sta-ch"
+          "elektroinstallateur-in-fur-neu-und-umbauten-zurich-zurich-sta-ch",
+          "electrical-installer-fur-neu-und-umbauten-sta-personal-ag-zurich-zurich"
         ],
         "fr": [
           "installateur-trice-electricien-ne-pour-constructions-neuves-et-renovations-sta-personal-ag-zurich-zurich",
@@ -93185,7 +93185,8 @@
           "electricien-ne-pour-constructions-neuves-et-renovations-sta-personal-ag-zurich-zurich",
           "electricien-ne-pour-constructions-neuves-et-transformations-sta-personal-ag-zurich-zurich",
           "installateur-rice-electricien-ne-pour-des-constructions-neuves-et-des-transformations-sta-personal-ag-zurich-zurich",
-          "elektroinstallateur-in-fur-neu-und-umbauten-zurich-zurich-sta-ch"
+          "elektroinstallateur-in-fur-neu-und-umbauten-zurich-zurich-sta-ch",
+          "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-zurich-zurich"
         ]
       },
       "salaryMin": 83000,
@@ -138523,86 +138524,6 @@
       "crawlerMissStreak": 1
     },
     {
-      "id": "sta-3a92e8fd0529",
-      "slug": "gartner-in-garten-e-landschaftsbau-per-try-hire-sta-personal-ag-olten",
-      "slugByLocale": {
-        "it": "gartner-in-garten-e-landschaftsbau-per-try-hire-sta-personal-ag-olten",
-        "en": "gardener-gardening-and-landscaping-for-try-hire-sta-personal-ag-olten-solothurn",
-        "de": "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-olten-solothurn-sta-ch",
-        "fr": "jardinier-jardinage-et-amenagement-paysager-a-la-demande-d-essai-et-d-embauche-sta-personal-ag-olten-solothurn"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Gärtner/in - Garten- und Landschaftsbau für Try & Hire",
-      "titleByLocale": {
-        "it": "Giardiniere - Giardinaggio e Paesaggistica per Prova e Noleggio",
-        "en": "Gardener - Gardening and Landscaping for Try & Hire",
-        "de": "Gärtner/in - Garten- und Landschaftsbau für Try & Hire",
-        "fr": "Jardinier - Jardinage et aménagement paysager à la demande d'essai et d'embauche"
-      },
-      "description": "Vielfältige Aufgaben bei der Gestaltung von Gartenanlagen erwarten dich. Der Betrieb arbeitet mit modernem Gerät und bietet abwechslungsreiche Einsatzgebiete. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\n- Gartenneuanlagen ausführen\n- Änderungen an bestehenden Anlagen umsetzen\n- Kleinere Aufträge auf der Baustelle führen\n- Wege, Plätze, Mauern, Treppen und Teiche erstellen\n- Winterdiensteinsätze übernehmen\nAnforderungen\n- Lehrabschluss als Landschaftsgärtnerin oder Landschaftsgärtner EFZ oder EBA\n- Gartenbaupraxis möglich\n- Bereitschaft zur Verantwortung bei kleineren Baustellen\n- Praxis im Umgang mit Kleingeräten und Maschinen\n- Führerausweis Kategorie B\nAngebot\n- Vielseitige Einsätze im Garten- und Landschaftsbau\n- Gut ausgerüsteter Maschinen- und Gerätepark",
-      "descriptionByLocale": {
-        "it": "Vi aspettano vari compiti nella progettazione dei giardini. L'azienda lavora con attrezzature moderne e offre svariate applicazioni. Per il nostro cliente stiamo cercando un\nAttività\n- Nuovo giardino\n- Esecuzione delle modifiche alle strutture esistenti\n- Effettuare ordini più piccoli sul sito\n- Creare sentieri, piazze, pareti, scale e stagni\n- Assumere missioni di servizio invernale\nRequisiti\n- Titolo del corso come giardiniere EFZ o EBA\n- Orticoltura praticabile\n- Volontà di assumersi la responsabilità di piccoli cantieri\n- Pratica di manipolazione di piccole attrezzature e macchinari\n- Titolo di guida della categoria B\nOfferta\n- Applicazioni versatili in giardinaggio e paesaggistica\n- Macchine e attrezzature ben attrezzate",
-        "en": "Various tasks in the design of gardens await you. The company works with modern equipment and offers varied applications. For our client we are looking for a\nActivities\n- New gardening\n- Implement changes to existing facilities\n- Carrying out smaller orders on site\n- Create paths, squares, walls, stairs and ponds\n- Taking over winter service missions\nRequirements\n- Course qualification as landscape gardener EFZ or EBA\n- Horticulture practicable\n- Willingness to take responsibility for smaller construction sites\n- Practice of handling small equipment and machinery\n- Category B driving licence\nOffer\n- Versatile applications in gardening and landscaping\n- Well-equipped machinery and equipment",
-        "de": "Vielfältige Aufgaben bei der Gestaltung von Gartenanlagen erwarten dich. Der Betrieb arbeitet mit modernem Gerät und bietet abwechslungsreiche Einsatzgebiete. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\n- Gartenneuanlagen ausführen\n- Änderungen an bestehenden Anlagen umsetzen\n- Kleinere Aufträge auf der Baustelle führen\n- Wege, Plätze, Mauern, Treppen und Teiche erstellen\n- Winterdiensteinsätze übernehmen\nAnforderungen\n- Lehrabschluss als Landschaftsgärtnerin oder Landschaftsgärtner EFZ oder EBA\n- Gartenbaupraxis möglich\n- Bereitschaft zur Verantwortung bei kleineren Baustellen\n- Praxis im Umgang mit Kleingeräten und Maschinen\n- Führerausweis Kategorie B\nAngebot\n- Vielseitige Einsätze im Garten- und Landschaftsbau\n- Gut ausgerüsteter Maschinen- und Gerätepark",
-        "fr": "Diverses tâches dans la conception des jardins vous attendent. La société travaille avec des équipements modernes et offre des applications variées. Pour notre client, nous cherchons\nActivités\n- Nouveau jardinage\n- Mettre en œuvre des modifications aux installations existantes\n- Exécution de petites commandes sur place\n- Créer des sentiers, des places, des murs, des escaliers et des étangs\n- Prise en charge des missions de service d'hiver\nExigences\n- Diplôme de jardinier paysagiste EFZ ou EBA\n- horticulture praticable\n- Volonté d ' assumer la responsabilité des petits chantiers\n- Pratique de manutention des petits équipements et machines\n- Permis de conduire de catégorie B\nOffre\n- Applications polyvalentes en jardinage et aménagement paysager\n- Machines et équipements bien équipés"
-      },
-      "location": "Olten, Solothurn",
-      "canton": "SO",
-      "url": "https://www.sta.jobs/stellen/gaertner-in-garten-und-landschaftsbau-olten-dauerstelle-111139/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:59:12.738Z",
-      "addressLocality": "Olten",
-      "addressRegion": "Solothurn",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23T00:00:00+02:00",
-      "postedDate": "2026-09-23T00:00:00+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.sta.jobs/stellen/gaertner-in-garten-und-landschaftsbau-olten-dauerstelle-111139/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-olten-solothurn-sta-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-olten-solothurn-sta-ch"
-        ],
-        "en": [
-          "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-olten-solothurn-sta-ch"
-        ],
-        "fr": [
-          "gartner-in-garten-und-landschaftsbau-fur-try-amp-hire-olten-solothurn-sta-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:57:18.686Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4600",
-      "crawlerMissStreak": 1
-    },
-    {
       "id": "sta-c7bf5156138f",
       "slug": "anlagen-e-apparatebauer-in-con-schweisskenntnissen-sta-personal-ag-zurich",
       "slugByLocale": {
@@ -142481,86 +142402,6 @@
       "crawlerMissStreak": 2
     },
     {
-      "id": "sta-d1e92008f041",
-      "slug": "maler-in-per-innenraume-sta-personal-ag-hinwil",
-      "slugByLocale": {
-        "it": "maler-in-per-innenraume-sta-personal-ag-hinwil",
-        "en": "painter-for-interiors-sta-personal-ag-hinwil-zurich",
-        "de": "maler-in-fur-innenraume-hinwil-zurich-sta-ch",
-        "fr": "peintre-pour-interieurs-sta-personal-ag-hinwil-zurich"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Maler/in für Innenräume",
-      "titleByLocale": {
-        "it": "Pittore per interni",
-        "en": "Painter for interiors",
-        "de": "Maler/in für Innenräume",
-        "fr": "Peintre pour intérieurs"
-      },
-      "description": "Vorbereitungen und fachgerechtes Streichen gehören zu deinen täglichen Aufgaben. Der Betrieb bietet abwechslungsreiche Malereieinsätze in einem gepflegten Arbeitsumfeld. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\n- Innenräume fachgerecht streichen und beschichten\n- Untergründe vorbereiten und sauber instand stellen\n- Abdeckarbeiten auf Baustellen zuverlässig ausführen\nAnforderungen\n- Abgeschlossene Lehre als Malerin oder Maler EFZ\n- Selbständiges Arbeiten mit hoher Sorgfalt\n- Zuverlässige und kooperative Arbeitsweise\nAngebot\n- Abwechslungsreiche Einsätze im Malerhandwerk\n- Unterstützung bei der fachlichen Weiterentwicklung",
-      "descriptionByLocale": {
-        "it": "I preparativi e il successo professionale fanno parte dei vostri compiti quotidiani. L'azienda offre diversi incarichi di pittura in un ambiente di lavoro ben curato. Per il nostro cliente stiamo cercando un\nAttività\n- Indoor professionalmente dipingere e cappotto\n- Preparare i substrati e mantenerli puliti\n- Affidabile eseguire lavori di copertura sui cantieri\nRequisiti\n- Apprendistato completo come pittore EFZ\n- Lavorare indipendentemente con grande cura\n- Metodi di lavoro affidabili e cooperativi\nOfferta\n- Usi vari nella pittura\n- Supporto per lo sviluppo professionale",
-        "en": "Preparations and professional striking are part of your daily tasks. The company offers varied painting assignments in a well-kept working environment. For our client we are looking for a\nActivities\n- Indoors professionally paint and coat\n- Prepare substrates and maintain them cleanly\n- Reliably perform cover work on construction sites\nRequirements\n- Completed apprenticeship as a painter EFZ\n- Working independently with great care\n- Reliable and cooperative working methods\nOffer\n- Varied uses in painting\n- Support for professional development",
-        "de": "Vorbereitungen und fachgerechtes Streichen gehören zu deinen täglichen Aufgaben. Der Betrieb bietet abwechslungsreiche Malereieinsätze in einem gepflegten Arbeitsumfeld. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\n- Innenräume fachgerecht streichen und beschichten\n- Untergründe vorbereiten und sauber instand stellen\n- Abdeckarbeiten auf Baustellen zuverlässig ausführen\nAnforderungen\n- Abgeschlossene Lehre als Malerin oder Maler EFZ\n- Selbständiges Arbeiten mit hoher Sorgfalt\n- Zuverlässige und kooperative Arbeitsweise\nAngebot\n- Abwechslungsreiche Einsätze im Malerhandwerk\n- Unterstützung bei der fachlichen Weiterentwicklung",
-        "fr": "Les préparations et les frappes professionnelles font partie de vos tâches quotidiennes. L'entreprise propose des travaux de peinture variés dans un environnement de travail bien entretenu. Pour notre client, nous cherchons\nActivités\n- En intérieur peinture professionnelle et la couche\n- Préparer les substrats et les maintenir propres\n- Effectuer des travaux de couverture fiables sur les chantiers\nExigences\n- Apprentissage terminé en tant que peintre EFZ\n- Travailler de manière indépendante avec grand soin\n- Méthodes de travail fiables et coopératives\nOffre\n- Utilisations variées dans la peinture\n- Appui au perfectionnement professionnel"
-      },
-      "location": "Hinwil, Zürich",
-      "canton": "ZH",
-      "url": "https://www.sta.jobs/stellen/maler-in-hinwil-dauerstelle-109606/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:56:08.323Z",
-      "addressLocality": "Hinwil",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-18T00:00:00+02:00",
-      "postedDate": "2026-09-18T00:00:00+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.sta.jobs/stellen/maler-in-hinwil-dauerstelle-109606/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-innenraume-hinwil-zurich-sta-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-innenraume-hinwil-zurich-sta-ch"
-        ],
-        "en": [
-          "maler-in-fur-innenraume-hinwil-zurich-sta-ch"
-        ],
-        "fr": [
-          "maler-in-fur-innenraume-hinwil-zurich-sta-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:57:18.779Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8340",
-      "crawlerMissStreak": 2
-    },
-    {
       "id": "sta-37dae51b3f90",
       "slug": "logistico-a-con-responsabilita-dirigenziali-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
@@ -142873,89 +142714,6 @@
         }
       },
       "postalCode": "8330",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "sta-424eb609f83f",
-      "slug": "installatore-trice-di-impianti-di-riscaldamento-per-montaggio-e-servizio-nell-industria-alimentare-sta-personal-ag",
-      "slugByLocale": {
-        "it": "installatore-trice-di-impianti-di-riscaldamento-per-montaggio-e-servizio-nell-industria-alimentare-sta-personal-ag",
-        "en": "heating-installer-for-installation-and-service-in-the-food-industry-sta-personal-ag-zofingen-aargau",
-        "de": "heizungsinstallateur-in-fur-montage-und-service-in-der-lebensmittelindustrie-zofingen",
-        "fr": "installateur-trice-en-chauffage-pour-montage-et-service-dans-l-industrie-alimentaire-sta-personal-ag-zofingen-aargau"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Heizungsinstallateur/in für Montage und Service in der Lebensmittelindustrie",
-      "titleByLocale": {
-        "it": "Installatore/trice di impianti di riscaldamento per montaggio e servizio nell'industria alimentare",
-        "en": "Heating installer for installation and service in the food industry",
-        "de": "Heizungsinstallateur/in für Montage und Service in der Lebensmittelindustrie",
-        "fr": "Installateur/trice en chauffage pour montage et service dans l’industrie alimentaire"
-      },
-      "description": "Du erledigst selbstständig Montage- und Servicearbeiten auf verschiedenen Baustellen. Der Betrieb agiert vorwiegend in der Lebensmittelindustrie und bietet eine abwechslungsreiche Tätigkeit. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\nSie sind für die Erledigung von Arbeiten im Neu- und Umbaubereich zuständig, sowie Lebensmittelindustrie. Sie führen an Kleinen- und Mittelgrossen Baustellen Montage-, Renovations- sowie Servicearbeiten aus\nAnforderungen\n- Lehre als Heizungsinstallateur EFZ abgeschlossen\n- Fundierte Branchenerfahrung\n- Exakte und speditive Arbeitsweise\n- Kundenfreundliches Auftreten\n- Freude und Interesse am Beruf\nAngebot\nHier finden Sie eine vielseitige und interessante Tätigkeit in welcher Sie gefordert werden. Bei Eignung besteht die Chance auf eine Festanstellung.",
-      "descriptionByLocale": {
-        "it": "Realizzi in modo indipendente lavori di assemblaggio e servizio su vari cantieri. L'azienda opera principalmente nell'industria alimentare e offre una variegata attività. Per il nostro cliente stiamo cercando un\nAttività\nEssi sono responsabili per il completamento del lavoro nel nuovo e nel settore della conversione, così come l'industria alimentare. Essi svolgono lavori di assemblaggio, ristrutturazione e servizio su piccoli e medi cantieri\nRequisiti\n- Apprendistato completato come installatore di riscaldamento EFZ\n- Esperienza nel settore audio\n- Metodi di lavoro precisi e avanzati\n- Aspetto amichevole per i clienti\n- Gioia e interesse per la professione\nOfferta\nQui troverete un'attività versatile e interessante in cui siete sfidati. Se adatto, c'è una possibilità di occupazione permanente.",
-        "en": "You independently carry out assembly and service work on various construction sites. The company operates mainly in the food industry and offers a varied activity. For our client we are looking for a\nActivities\nThey are responsible for the completion of work in the new and conversion sector, as well as the food industry. They carry out assembly, renovation and service work on small and medium-sized construction sites\nRequirements\n- Apprenticeship completed as heating installer EFZ\n- Sound industry experience\n- Precise and forward working methods\n- Customer-friendly appearance\n- Joy and interest in the profession\nOffer\nHere you will find a versatile and interesting activity in which you are challenged. If suitable, there is a chance of permanent employment.",
-        "de": "Du erledigst selbstständig Montage- und Servicearbeiten auf verschiedenen Baustellen. Der Betrieb agiert vorwiegend in der Lebensmittelindustrie und bietet eine abwechslungsreiche Tätigkeit. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\nSie sind für die Erledigung von Arbeiten im Neu- und Umbaubereich zuständig, sowie Lebensmittelindustrie. Sie führen an Kleinen- und Mittelgrossen Baustellen Montage-, Renovations- sowie Servicearbeiten aus\nAnforderungen\n- Lehre als Heizungsinstallateur EFZ abgeschlossen\n- Fundierte Branchenerfahrung\n- Exakte und speditive Arbeitsweise\n- Kundenfreundliches Auftreten\n- Freude und Interesse am Beruf\nAngebot\nHier finden Sie eine vielseitige und interessante Tätigkeit in welcher Sie gefordert werden. Bei Eignung besteht die Chance auf eine Festanstellung.",
-        "fr": "Vous effectuez indépendamment des travaux d'assemblage et de service sur différents chantiers de construction. L'entreprise opère principalement dans l'industrie alimentaire et offre une activité variée. Pour notre client, nous cherchons\nActivités\nIls sont responsables de l'achèvement des travaux dans le secteur du nouveau secteur et de la transformation, ainsi que dans l'industrie alimentaire. Ils effectuent des travaux de montage, de rénovation et de service sur des chantiers de petite et moyenne dimension\nExigences\n- Apprentissage complété comme installateur de chauffage EFZ\n- Bonne expérience de l'industrie\n- Méthodes de travail précises et avancées\n- Aspect convivial pour le client\n- La joie et l'intérêt pour la profession\nOffre\nIci, vous trouverez une activité polyvalente et intéressante dans laquelle vous êtes défié. Le cas échéant, il y a une possibilité d'emploi permanent."
-      },
-      "location": "Zofingen, Aargau",
-      "canton": "AG",
-      "url": "https://www.sta.jobs/stellen/heizungsinstallateur-in-zofingen-dauerstelle-112367/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:56:08.285Z",
-      "addressLocality": "Zofingen",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-08T00:00:00+02:00",
-      "postedDate": "2026-10-08T00:00:00+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.sta.jobs/stellen/heizungsinstallateur-in-zofingen-dauerstelle-112367/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "heizungsinstallateur-in-fur-montage-und-service-in-der-lebensmittelindustrie-zofingen",
-        "heizungsinstallateur-in-per-montage-e-service-in-der-lebensmittelindustrie-sta-personal-ag-zofingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "heizungsinstallateur-in-fur-montage-und-service-in-der-lebensmittelindustrie-zofingen",
-          "heizungsinstallateur-in-per-montage-e-service-in-der-lebensmittelindustrie-sta-personal-ag-zofingen"
-        ],
-        "en": [
-          "heizungsinstallateur-in-fur-montage-und-service-in-der-lebensmittelindustrie-zofingen"
-        ],
-        "fr": [
-          "heizungsinstallateur-in-fur-montage-und-service-in-der-lebensmittelindustrie-zofingen"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T23:12:38.865Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4800",
-      "translationHoldReleasedAt": "2026-10-09T04:11:06.940Z",
       "crawlerMissStreak": 2
     },
     {
@@ -143638,79 +143396,6 @@
         }
       },
       "postalCode": "8330",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "sta-b38c7ed7603a",
-      "slug": "produttori-di-impianti-e-apparecchi-con-funzionamento-cnc-sta-personal-ag-aarau-aargau",
-      "slugByLocale": {
-        "it": "produttori-di-impianti-e-apparecchi-con-funzionamento-cnc-sta-personal-ag-aarau-aargau",
-        "en": "plant-and-apparatus-manufacturers-with-cnc-operation-sta-personal-ag-aarau-aargau",
-        "de": "anlagen-und-apparatebauer-in-mit-cnc-bedienung-aarau-aargau-sta-ch",
-        "fr": "fabricants-d-installations-et-d-appareils-avec-fonctionnement-cnc-sta-personal-ag-aarau-aargau"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Anlagen- und Apparatebauer/in mit CNC-Bedienung",
-      "titleByLocale": {
-        "it": "Costruttore/trice di impianti e apparecchiature con utilizzo CNC",
-        "en": "Plant and apparatus fabricator with CNC operation",
-        "de": "Anlagen- und Apparatebauer/in mit CNC-Bedienung",
-        "fr": "Constructeur/trice d’installations et d’appareils avec commande CNC"
-      },
-      "description": "Die Produktion von präzisen Bauteilen nach Zeichnungen gehört zu deinem täglichen Einflussbereich. Für den reibungslosen Betrieb sorgst du durch regelmässigen Unterhalt der Maschinen. Du profitierst von einem familiären Umfeld und attraktiven Anstellungsbedingungen. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\n- Herstellung von Bauteilen bzw. Halbfabrikaten gemäss Zeichnungen und Vorgaben\n- Bedienen verschiedenster CNC-Maschinen wie Laser, Abkantpresse, Schere, etc.\n- Anwendung von TIG- und MAG-Schweissverfahren\n- Unterhalt Maschinenpark\nAnforderungen\n- Abgeschlossene Lehre als Anlagen- und Apparatebauer EFZ\n- Fundierte Berufspraxis\n- Exakte und speditive Arbeitsweise\nAngebot\nEine vielseitiges Aufgabenspektrum in einem familiär geführten Betrieb sowie gute Anstellungsbedingungen sind nur zwei der Gründe, sich für diese Unternehmung zu entscheiden.",
-      "descriptionByLocale": {
-        "it": "La produzione di componenti precisi secondo i disegni fa parte della vostra influenza quotidiana. Per un funzionamento regolare, assicura la manutenzione regolare delle macchine. Si beneficia di un ambiente familiare e condizioni di lavoro attraenti. Per il nostro cliente stiamo cercando un\nAttività\n- Produzione di componenti o semilavorati secondo disegni e specifiche\n- Funzionamento di varie macchine CNC come laser, presse pieghevoli, forbici, ecc.\n- Applicazione dei metodi di saldatura TIG e MAG\n- Manutenzione del parco macchine\nRequisiti\n- Apprendistato completo come produttore di impianti e apparecchi EFZ\n- Pratica professionale del suono\n- Metodi di lavoro precisi e avanzati\nOfferta\nUna gamma versatile di compiti in un'azienda a conduzione familiare e buone condizioni di lavoro sono solo due dei motivi per scegliere questa azienda.",
-        "en": "The production of precise components according to drawings is part of your daily influence. For smooth operation, you ensure regular maintenance of the machines. You benefit from a family environment and attractive employment conditions. For our client we are looking for a\nActivities\n- Production of components or Semi-finished products according to drawings and specifications\n- Operating various CNC machines such as lasers, folding presses, scissors, etc.\n- Application of TIG and MAG welding methods\n- Maintenance of machinery park\nRequirements\n- Completed apprenticeship as plant and apparatus manufacturer EFZ\n- Sound professional practice\n- Precise and forward working methods\nOffer\nA versatile range of tasks in a family-run company and good employment conditions are only two of the reasons to choose this company.",
-        "de": "Die Produktion von präzisen Bauteilen nach Zeichnungen gehört zu deinem täglichen Einflussbereich. Für den reibungslosen Betrieb sorgst du durch regelmässigen Unterhalt der Maschinen. Du profitierst von einem familiären Umfeld und attraktiven Anstellungsbedingungen. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\n- Herstellung von Bauteilen bzw. Halbfabrikaten gemäss Zeichnungen und Vorgaben\n- Bedienen verschiedenster CNC-Maschinen wie Laser, Abkantpresse, Schere, etc.\n- Anwendung von TIG- und MAG-Schweissverfahren\n- Unterhalt Maschinenpark\nAnforderungen\n- Abgeschlossene Lehre als Anlagen- und Apparatebauer EFZ\n- Fundierte Berufspraxis\n- Exakte und speditive Arbeitsweise\nAngebot\nEine vielseitiges Aufgabenspektrum in einem familiär geführten Betrieb sowie gute Anstellungsbedingungen sind nur zwei der Gründe, sich für diese Unternehmung zu entscheiden.",
-        "fr": "La production de composants précis selon les dessins fait partie de votre influence quotidienne. Pour un bon fonctionnement, vous assurez un entretien régulier des machines. Vous bénéficiez d'un environnement familial et de conditions d'emploi attrayantes. Pour notre client, nous cherchons\nActivités\n- Production de composants ou de produits semi-finis selon dessins et spécifications\n- Utilisation de diverses machines CNC telles que lasers, presses pliantes, ciseaux, etc.\n- Application des méthodes de soudage TIG et MAG\n- Entretien du parc de machines\nExigences\n- Apprentissage terminé en tant que fabricant d'installations et d'appareils EFZ\n- Bonne pratique professionnelle\n- Méthodes de travail précises et avancées\nOffre\nUne gamme polyvalente de tâches dans une entreprise familiale et de bonnes conditions d'emploi ne sont que deux des raisons de choisir cette entreprise."
-      },
-      "location": "Aarau, Aargau",
-      "canton": "AG",
-      "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-aarau-dauerstelle-107132/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:56:08.122Z",
-      "addressLocality": "Aarau",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-24T00:00:00+02:00",
-      "postedDate": "2026-08-24T00:00:00+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-aarau-dauerstelle-107132/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-mit-cnc-bedienung-aarau-aargau-sta-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagen-und-apparatebauer-in-mit-cnc-bedienung-aarau-aargau-sta-ch"
-        ]
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "5000",
       "crawlerMissStreak": 2
     },
     {

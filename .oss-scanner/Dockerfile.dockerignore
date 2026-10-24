@@ -1,6 +1,10 @@
-# The Dockerfile consumes the scanner's already checked out working tree.
-# Exclude Git history and local dependency directories from the build context.
-.git
-**/.git
-node_modules
-**/node_modules
+# Keep only the scanner clone's HEAD and refs; the Dockerfile fetches that exact
+# commit with depth 1 instead of transferring the 71 GiB Git object store.
+**
+!.git/
+# Re-ignore its contents, then whitelist only the metadata needed by the Dockerfile.
+.git/*
+!.git/HEAD
+!.git/packed-refs
+!.git/refs/
+!.git/refs/**

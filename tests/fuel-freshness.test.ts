@@ -14,7 +14,10 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
+  buildItalyRowsFromMimitApi,
   buildDataset,
+  buildItalyStations,
+  fetchMimitApiSource,
   italyByMunicipalityFromDataset,
   resolveItalySource,
 } from '../scripts/generate-fuel-prices-dataset.mjs';
@@ -100,6 +103,125 @@ describe('generator: MIMIT outage keeps the Swiss refresh', () => {
     const live = buildDataset({ municipalities: [COMO], italyExtractedAt: day(NOW), swissStations: [], italyByMunicipality: new Map(), exchangeRate: { chfPerEur: 1, eurPerChf: 1 } });
     expect(live.sources.italy.status).toBe('live');
     expect(live.sources.italy).not.toHaveProperty('unavailableReason');
+  });
+});
+
+describe('generator: MIMIT Osservaprezzi API fallback', () => {
+  const apiStation = (observedAt: Date) => ({
+    id: 42,
+    lat: String(COMO.lat),
+    lon: String(COMO.lng),
+    dIns: `${day(observedAt)} 08:00:00`,
+    addr: 'VIA ROMA 1 22100 COMO CO',
+    bnd: 'Eni',
+    name: 'ENI COMO',
+    carburanti: [
+      { carb: 'Benzina', prezzo: '1.700', isSelf: 1 },
+      { carb: 'Gasolio', prezzo: '1.650', isSelf: 1 },
+    ],
+  });
+
+  it('normalizes the documented legacy response and preserves its observation day', () => {
+    const observedAt = daysAgo(0.5);
+    const apiRows = buildItalyRowsFromMimitApi({
+      municipalities: [COMO],
+      responses: [{ province: 'CO', results: [apiStation(observedAt)] }],
+    });
+    expect(apiRows.extractedAt).toBe(day(observedAt));
+    expect(apiRows.stationsRows).toEqual(expect.arrayContaining([
+      expect.objectContaining({ idImpianto: '42', Comune: 'Como', Provincia: 'CO', Latitudine: '45.81', Longitudine: '9.08' }),
+    ]));
+    expect(apiRows.pricesRows).toEqual(expect.arrayContaining([
+      expect.objectContaining({ idImpianto: '42', descCarburante: 'Benzina', isSelf: '1', dtComu: day(observedAt) }),
+      expect.objectContaining({ idImpianto: '42', descCarburante: 'Gasolio', isSelf: '1', dtComu: day(observedAt) }),
+    ]));
+
+    const stations = buildItalyStations([COMO], apiRows.stationsRows, apiRows.pricesRows);
+    expect(stations.get('Como:CO')?.[0]).toEqual(expect.objectContaining({ priceEur: 1.7, dieselPriceEur: 1.65, benzinaUpdatedAt: day(observedAt) }));
+  });
+
+  it('accepts equivalent ISO and legacy observation aliases', () => {
+    const observedAt = daysAgo(0.5);
+    const observedDay = day(observedAt);
+    const apiRows = buildItalyRowsFromMimitApi({
+      municipalities: [COMO],
+      responses: [{
+        province: 'CO',
+        results: [{
+          ...apiStation(observedAt),
+          insertDate: `${observedDay}T08:00:00Z`,
+          dIns: `${observedDay} 08:00:00`,
+        }],
+      }],
+    });
+    expect(apiRows.stationsRows).toHaveLength(1);
+    expect(apiRows.extractedAt).toBe(observedDay);
+  });
+
+  it('deduplicates an identical station returned twice by the API', () => {
+    const station = {
+      ...apiStation(daysAgo(0.5)),
+      carburanti: [{ carb: 'Benzina', prezzo: '1.700', isSelf: 1 }],
+    };
+    const apiRows = buildItalyRowsFromMimitApi({
+      municipalities: [COMO],
+      responses: [{ province: 'CO', results: [station, station] }],
+    });
+    expect(apiRows.pricesRows).toHaveLength(1);
+  });
+
+  it('rejects rows whose municipality or observation date cannot be proven', () => {
+    expect(() => buildItalyRowsFromMimitApi({
+      municipalities: [COMO],
+      responses: [{
+        province: 'CO',
+        results: [{
+          ...apiStation(daysAgo(0.5)),
+          addr: 'VIA ROMA 1 22100 CO',
+          dIns: 'not-a-date',
+        }],
+      }],
+    })).toThrow('no valid Benzina rows');
+  });
+
+  it('queries the official API by target province and accepts its array response', async () => {
+    const observedAt = daysAgo(0.5);
+    const requests: Array<{ url: string; init: RequestInit }> = [];
+    const result = await fetchMimitApiSource([COMO], {
+      retries: 1,
+      fetchImpl: async (url: string, init: RequestInit) => {
+        requests.push({ url, init });
+        return { ok: true, json: async () => ({ success: true, array: [apiStation(observedAt)] }) } as Response;
+      },
+    });
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].url).toContain('/ospzApi/search/area');
+    expect(JSON.parse(String(requests[0].init.body))).toEqual({
+      region: 3,
+      province: 'CO',
+      town: null,
+      priceOrder: 'asc',
+      fuelType: '1-x',
+    });
+    expect(result.source).toBe('mimit-api');
+    expect(result.extractedAt).toBe(day(observedAt));
+    expect(result.pricesRows).toHaveLength(2);
+  });
+
+  it('routes a live API result through the same source resolver as the CSV', () => {
+    const apiRows = buildItalyRowsFromMimitApi({
+      municipalities: [COMO],
+      responses: [{ province: 'CO', results: [apiStation(daysAgo(0.5))] }],
+    });
+    const result = resolveItalySource({
+      italyResult: { ok: true, source: 'mimit-api', ...apiRows },
+      municipalities: [COMO],
+      previousDataset: previousDataset(day(daysAgo(7))),
+    });
+    expect(result.status).toBe('live');
+    expect(result.extractedAt).toBe(day(daysAgo(0.5)));
+    expect(result.italyByMunicipality.get('Como:CO')?.[0]?.priceEur).toBe(1.7);
   });
 });
 

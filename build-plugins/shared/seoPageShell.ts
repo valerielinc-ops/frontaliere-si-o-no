@@ -57,6 +57,7 @@
 import np from 'node:path';
 import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
 import { jobBoardHeadTags } from '../jobBoardGpt';
+import { pruneStaticInfeedAdsToContentRatio } from '../lib/adSlotHtml';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 import { normalizeShellTitle } from './titleSuffix';
 import { buildTwitterCardMetaTags } from './twitterCardMeta';
@@ -354,7 +355,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
   // Split hub chrome: sub-nav is hoisted OUT of <main> via `preMainHtml` so it
   // renders as a sibling (same DOM shape as the SPA), while hero + inner
   // content stay INSIDE <main class="seo-static-content">.
-  const { subnavHtml, bodyHtml: wrappedBody } = hubChrome
+  const { subnavHtml, bodyHtml: bodyWithChrome } = hubChrome
     ? renderHubChromeSplit({
         hubKey: hubChrome.hubKey,
         activeSubTab: hubChrome.activeSubTab,
@@ -363,6 +364,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
         innerHtml: bodyHtml,
       })
     : { subnavHtml: '', bodyHtml };
+  const wrappedBody = pruneStaticInfeedAdsToContentRatio(bodyWithChrome);
 
   const heroPreload = buildSeoHeroPreload(wrappedBody, extraHeadHtml ?? '');
   const twitterCardHead = opts.includeTwitterCard !== false

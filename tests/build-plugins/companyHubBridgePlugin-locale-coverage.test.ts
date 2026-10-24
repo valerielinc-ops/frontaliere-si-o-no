@@ -113,6 +113,49 @@ describe('companyHubBridgePlugin — autoDiscoverCompanyHubs locale coverage (#3
     );
     expect(hubs.length).toBe(4); // still exactly one per locale, no duplicates
   });
+
+  it('seeds every company identity in a crawler slice, not only its first record (#8108)', () => {
+    const rootDir = makeCrawlerFixture('La Posta Svizzera', 'posta-svizzera-centro-regionale');
+    const crawlerPath = path.join(rootDir, 'data', 'jobs', 'by-crawler', 'fixture-crawler.json');
+    fs.writeFileSync(
+      crawlerPath,
+      JSON.stringify({
+        crawlerKey: 'fixture-crawler',
+        assembledAt: new Date().toISOString(),
+        jobs: [
+          {
+            id: 'post-1',
+            company: 'La Posta Svizzera',
+            companyKey: 'posta-svizzera-centro-regionale',
+            canton: 'TI',
+          },
+          {
+            id: 'post-2',
+            company: 'Die Schweizerische Post',
+            companyKey: 'posta-svizzera-centro-regionale',
+            canton: 'TI',
+          },
+          {
+            id: 'tpl-1',
+            company: 'TPL - Trasporti Pubblici Luganesi',
+            companyKey: 'tpl-lugano',
+            canton: 'TI',
+          },
+        ],
+      }),
+      'utf-8',
+    );
+
+    const hubs = autoDiscoverCompanyHubs(rootDir);
+    for (const [slug, displayName] of [
+      ['die-schweizerische-post', 'Die Schweizerische Post'],
+      ['tpl-trasporti-pubblici-luganesi', 'TPL - Trasporti Pubblici Luganesi'],
+    ] as const) {
+      const matches = hubs.filter((hub) => hub.companySlug === slug);
+      expect(matches).toHaveLength(4);
+      expect(new Set(matches.map((hub) => hub.displayName))).toEqual(new Set([displayName]));
+    }
+  });
 });
 
 /**

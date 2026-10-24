@@ -1,4 +1,5 @@
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { PART_TIME_MAX_WORKLOAD, workloadPercent } from './employment-workload.mjs';
 import { repairJobTranslationSemanticsInPlace } from './job-title-semantic-repair.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
@@ -5470,13 +5471,7 @@ export function guessCategory(title = '', description = '') {
  * genuinely part-time when even its maximum workload stays below the
  * full-time threshold (#3482) \u2014 otherwise the FIRST single percent wins.
  */
-export function workloadPercent(text) {
-  // Both range spellings occur in the wild: "70-100%" and "70% - 100%".
-  const range = String(text).match(/\b(\d{1,3})\s*%?\s*[-\u2013\u2014]\s*(\d{1,3})\s*%/);
-  if (range) return Math.max(Number(range[1]), Number(range[2]));
-  const single = String(text).match(/\b(\d{1,3})\s*%/);
-  return single ? Number(single[1]) : NaN;
-}
+export { workloadPercent };
 
 export function normalizeContract(raw = '', title = '', description = '') {
   const s = String(`${raw} ${title} ${description}`).replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
@@ -5492,7 +5487,7 @@ export function normalizeContract(raw = '', title = '', description = '') {
     percent = workloadPercent(source);
     if (Number.isFinite(percent)) break;
   }
-  if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'part-time';
+  if (Number.isFinite(percent) && percent > 0 && percent < PART_TIME_MAX_WORKLOAD) return 'part-time';
   for (const [k, v] of Object.entries(CONTRACT_MAP)) {
     if (s.replace(/[\s-]/g, '_').includes(k)) return v;
   }

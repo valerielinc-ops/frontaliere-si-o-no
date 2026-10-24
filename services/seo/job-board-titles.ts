@@ -138,7 +138,7 @@ function germanCantonTitlePlace(display: string): string {
   return `in ${display}`;
 }
 
-function frenchCantonTitlePlace(display: string): string {
+export function frenchCantonTitlePlace(display: string): string {
   if (display === 'Suisse') return 'en Suisse';
   if (display === 'Tessin' || display === 'Jura') return `au ${display}`;
   if (display === 'Grisons') return `aux ${display}`;
@@ -260,7 +260,9 @@ export function buildListingHubTitle({ locale, count, year }: ListingHubArgs): s
       break;
     case 'de':
       base = n > 0
-        ? `Jobs im Tessin Schweiz ${year} — ${n} Stellen heute`
+        // "offene Stellen" keeps the live-count variant above the 50-char
+        // floor, so padToMin no longer appends a stray "kostenlos".
+        ? `Jobs im Tessin Schweiz ${year} — ${n} offene Stellen heute`
         : `Jobs im Tessin Schweiz ${year} — Täglich aktualisiert`;
       break;
     case 'fr':
@@ -274,6 +276,74 @@ export function buildListingHubTitle({ locale, count, year }: ListingHubArgs): s
     base = padToMin(base, locale === 'it' ? 'in Svizzera' : locale === 'en' ? 'free' : locale === 'de' ? 'kostenlos' : 'gratuit');
   }
   return base;
+}
+
+// ────────────────────────────────────────────────────────────────
+// Listing / canton hub H1
+// ────────────────────────────────────────────────────────────────
+
+/** Swiss thousands grouping, same as the hub stat tiles (`8'205`). */
+function formatHubCount(n: number): string {
+  return n.toLocaleString('de-CH');
+}
+
+/**
+ * On-page H1 for the Ticino listing hub (`/cerca-lavoro-ticino/` + locale
+ * twins). It states the head query in natural word order ("offerte di lavoro
+ * in Ticino", "Jobs in Ticino", "Stellenangebote im Tessin", "Offres
+ * d'emploi au Tessin") plus the live active count, instead of the old
+ * SERP-style "943 Offerte di Lavoro Ticino 2026 — Aggiornate Oggi" derived
+ * from the Open Graph title. It differs from `buildListingHubTitle` by
+ * construction (no year, different wording).
+ */
+export function buildListingHubH1({ locale, count }: { locale: JobPageLocale; count: number }): string {
+  const n = safeCount(count);
+  const c = formatHubCount(n);
+  switch (locale) {
+    case 'it':
+      return n > 0 ? `Offerte di lavoro in Ticino: ${c} annunci attivi` : 'Offerte di lavoro in Ticino';
+    case 'en':
+      return n > 0 ? `Jobs in Ticino: ${c} open vacancies` : 'Jobs in Ticino';
+    case 'de':
+      return n > 0 ? `Stellenangebote im Tessin: ${c} offene Stellen` : 'Stellenangebote im Tessin';
+    case 'fr':
+    default:
+      return n > 0 ? `Offres d’emploi au Tessin : ${c} annonces actives` : 'Offres d’emploi au Tessin';
+  }
+}
+
+/**
+ * On-page H1 for a per-canton job hub (`/cerca-lavoro-zurigo/`, the
+ * aggregate `/cerca-lavoro-svizzera/`, and their locale twins). The H1 used
+ * to be the bare canton name ("Zurigo"); it now leads with the query shape
+ * people search ("lavoro zurigo", "jobs in Zurich", "emploi Genève") and the
+ * live count, mirroring {@link buildListingHubH1}.
+ */
+export function buildCantonHubH1({
+  locale,
+  cantonDisplay,
+  count,
+}: {
+  locale: JobPageLocale;
+  cantonDisplay: string;
+  count: number;
+}): string {
+  const n = safeCount(count);
+  const c = formatHubCount(n);
+  const place = String(cantonDisplay || '').trim();
+  switch (locale) {
+    case 'it': {
+      const head = place === 'Svizzera' ? 'Lavoro in Svizzera' : `Lavoro ${place}`;
+      return n > 0 ? `${head}: ${c} offerte di lavoro attive` : `${head}: offerte di lavoro`;
+    }
+    case 'en':
+      return n > 0 ? `Jobs in ${place}: ${c} open vacancies` : `Jobs in ${place}`;
+    case 'de':
+      return n > 0 ? `Jobs ${germanCantonTitlePlace(place)}: ${c} offene Stellen` : `Jobs ${germanCantonTitlePlace(place)}`;
+    case 'fr':
+    default:
+      return n > 0 ? `Emploi ${frenchCantonTitlePlace(place)} : ${c} offres actives` : `Emploi ${frenchCantonTitlePlace(place)}`;
+  }
 }
 
 // ────────────────────────────────────────────────────────────────

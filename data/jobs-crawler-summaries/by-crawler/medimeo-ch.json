@@ -1,7 +1,7 @@
 {
   "key": "medimeo-ch",
   "label": "Medimeo AG",
-  "generatedAt": "2026-10-23T21:31:08.397Z",
+  "generatedAt": "2026-10-24T09:33:10.125Z",
   "total": 10,
   "discovered": null,
   "parsed": 8,
@@ -13,18 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 7,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 18317,
-  "avgDurationMs": 18317,
+  "unchangedCount": 3,
+  "durationMs": 15754,
+  "avgDurationMs": 15754,
   "durationHistory": [
-    18317
+    15754
   ],
   "newJobs": [
     {
       "id": "medimeo-ch-a3d3e4533106",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-con-einem-erfahrenen-team-medimeo-ag-region-basel",
+      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-con-einem-erfahrenen-team-medimeo-ag-basel",
       "company": "Medimeo AG",
       "companyKey": "medimeo-ch",
       "companyDomain": "medimeo.ch",
@@ -34,8 +34,8 @@
       "url": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit-einem-erfahrenen-team-3646/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:30:52.559Z",
-      "addressLocality": "Region Basel",
+      "crawledAt": "2026-10-24T09:32:56.036Z",
+      "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
       "country": "CH",
@@ -55,7 +55,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-23T21:30:52.559Z",
+      "firstSeenAt": "2026-10-24T09:32:56.036Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -76,8 +76,8 @@
       "url": "https://medimeo.ch/job/mehr-verantwortung-mehr-gestaltungsspielraum-leitende-aerztin-leitender-arzt-geburtshilfe-und-praenataldiagnostik-80-100-3647/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:30:52.557Z",
-      "addressLocality": "Region Zürich",
+      "crawledAt": "2026-10-24T09:32:56.035Z",
+      "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -97,7 +97,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-23T21:30:52.557Z",
+      "firstSeenAt": "2026-10-24T09:32:56.035Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -118,7 +118,7 @@
       "url": "https://medimeo.ch/job/hausarztpraxis-zur-uebernahme-ihr-eigener-chef-sein-und-ueber-chf-200000-erwirtschaften-3649/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:30:52.555Z",
+      "crawledAt": "2026-10-24T09:32:56.034Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -139,7 +139,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "4600",
-      "firstSeenAt": "2026-10-23T21:30:52.555Z",
+      "firstSeenAt": "2026-10-24T09:32:56.034Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -160,7 +160,7 @@
       "url": "https://medimeo.ch/job/oberaerztin-oberarzt-notfallpraxis-50-100-geregelte-arbeitszeit-ohne-nachtdienste-3648/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:30:52.555Z",
+      "crawledAt": "2026-10-24T09:32:56.034Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -181,7 +181,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "4600",
-      "firstSeenAt": "2026-10-23T21:30:52.555Z",
+      "firstSeenAt": "2026-10-24T09:32:56.034Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -202,7 +202,7 @@
       "url": "https://medimeo.ch/job/oberarzt-oberaerztin-psychiatrie-3650/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:30:52.551Z",
+      "crawledAt": "2026-10-24T09:32:56.031Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -223,7 +223,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "4600",
-      "firstSeenAt": "2026-10-23T21:30:52.551Z",
+      "firstSeenAt": "2026-10-24T09:32:56.031Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -244,7 +244,7 @@
       "url": "https://medimeo.ch/job/hausaerztin-hausarzt-allgemeine-innere-medizin-moderne-gruppenpraxis-mit-umsatzbeteiligung-in-der-region-schaffhausen-3651/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:30:52.550Z",
+      "crawledAt": "2026-10-24T09:32:56.029Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -265,7 +265,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8400",
-      "firstSeenAt": "2026-10-23T21:30:52.550Z",
+      "firstSeenAt": "2026-10-24T09:32:56.029Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -286,7 +286,7 @@
       "url": "https://medimeo.ch/job/hausarzt-fachaerztin-allgemeine-innere-medizin-wiedereinstieg-mit-flexiblem-pensum-nahe-schaffhausen-3652/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:30:52.548Z",
+      "crawledAt": "2026-10-24T09:32:56.027Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -307,7 +307,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8400",
-      "firstSeenAt": "2026-10-23T21:30:52.548Z",
+      "firstSeenAt": "2026-10-24T09:32:56.027Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -317,7 +317,9 @@
       }
     }
   ],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "medimeo-ch-d7ee5bf88116",
       "slug": "medica-dirigente-medico-dirigente-di-ginecologia-e-ostetricia-50-100-medimeo-ag-biel-solothurn-mittelland",
@@ -330,8 +332,8 @@
       "url": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-und-geburtshilfe-50-100-3645/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:30:52.561Z",
-      "addressLocality": "Soletta",
+      "crawledAt": "2026-10-24T09:32:56.037Z",
+      "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
       "country": "CH",
@@ -350,17 +352,15 @@
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "4500",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "medimeo-ch-ca3ac562d27e",
       "slug": "medico-senior-radiologia-medico-senior-80-100-radiologia-versatile-incontra-la-qualita-di-vita-di-zurigo-medimeo-ag",
@@ -394,7 +394,7 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-22T09:54:03.111Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -436,7 +436,7 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-22T09:54:03.109Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -446,5 +446,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

@@ -29,6 +29,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { AUTHORS, getAuthorBySlug, isEditorialProfile, isRealAuthor } from '../data/authors';
+import { ARTICLE_TRANSPARENCY } from '../packages/articles/engine/shared/aiDisclosure';
 import { resolveArticleProvenance } from '../services/articleProvenance';
 
 const ROOT = join(__dirname, '..');
@@ -134,12 +135,13 @@ describe('editorial transparency disclosure matches how the article was produced
     const src = readFileSync(join(ROOT, 'components/community/BlogArticles.tsx'), 'utf-8');
 
     // The claim still exists — this gate is about when it is shown, not about
-    // dropping the Google News disclosure.
-    expect(src).toContain('bozza assistita da intelligenza artificiale');
+    // dropping the Google News disclosure. Its wording now lives in the shared
+    // disclosure copy (packages/articles/engine/shared/aiDisclosure.ts).
+    expect(ARTICLE_TRANSPARENCY.it.aiAssisted).toContain('IA generativa');
 
     // ...and it sits in the false branch of the human-contributor check.
     expect(src).toMatch(
-      /isHumanContributor\s*\?[^:]+:\s*['`]bozza assistita da intelligenza artificiale/,
+      /isHumanContributor\s*\?[^:]+:\s*transparencyCopy\.aiAssisted/,
     );
     // ...and the gate reads the article's provenance, not the author's `uid`
     // directly. A bare `Boolean(bylineAuthor?.uid)` here is the assumption

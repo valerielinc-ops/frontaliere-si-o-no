@@ -152,6 +152,47 @@ describe('SEO builder noindex guards', () => {
       expect(block).toContain('activeJobDirs.has');
     });
 
+    // en/de/fr legacy TI URLs of non-TI jobs (and localized-slug aliases) are
+    // left to the shard origin's 404 → locale-router Worker 301 via /job-canon.
+    // The expired copy was index,follow with a canonical to another URL (911k
+    // canonicalMismatch advisories on the full-corpus replay); it must not come
+    // back, and noindex is not the fix: any 200 there blocks the 301.
+    it('expired soft-landings write no legacy-TI copy in non-IT locales', () => {
+      const start = source.indexOf('// 3. Generate soft-landing pages for expired slugs');
+      const end = source.indexOf('if (expiredCount > 0)', start);
+      const block = source.slice(start, end);
+      expect(start).toBeGreaterThan(-1);
+      expect(end).toBeGreaterThan(start);
+      expect(block).not.toContain("'expired-soft-landing-legacy-locale'");
+      expect(block).not.toContain('writeSoftLandingPage(legacyRel');
+      expect(block).not.toContain("registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge'");
+      // Exactly one soft-landing write per (slug, locale): the canonical relPath.
+      expect(block.match(/writeSoftLandingPage\(/g)).toHaveLength(1);
+    });
+
+    it('active cross-canton legacy-TI copies are IT-only; en/de/fr only claim the path', () => {
+      const start = source.indexOf("if (jobCanton !== 'TI' && !isCompanyHubNamespaceSlug(job.slug, locale)) {");
+      const end = source.indexOf("recordEmit('active-job-cross-canton-legacy'", start);
+      const block = source.slice(start, end);
+      expect(start).toBeGreaterThan(-1);
+      expect(end).toBeGreaterThan(start);
+      const nonItBranch = block.slice(
+        block.indexOf("if (locale !== 'it' && !activeJobDirs.has(legacyTIKey)) {"),
+        block.indexOf('} else if (!activeJobDirs.has(legacyTIKey)) {'),
+      );
+      expect(nonItBranch).toContain('legacyTiBridgeDirs.add(legacyTIKey);');
+      expect(nonItBranch).not.toContain('_qw(');
+      expect(nonItBranch).not.toContain('_qwFlatFull(');
+    });
+
+    it('cross-locale and previousSlug-TI mirrors skip legacy-TI paths the Worker recovers', () => {
+      const helper = source.slice(source.indexOf('const legacyTiPathRecoveredByWorker'), source.indexOf('let crossLocaleExpiredCount = 0;'));
+      expect(helper).toContain("if (locale === 'it') return false;");
+      expect(helper).toContain('tracking[slug]?.[locale]');
+      expect(source.match(/legacyTiPathRecoveredByWorker\(baseLocale, foreignSlug, relPath\)/g)).toHaveLength(2);
+      expect(source).toContain('!legacyTiPathRecoveredByWorker(locale, oldSlug, legacyTIRelPath)');
+    });
+
     it('previous-slug bridges force noindex after fresh render or cache reuse', () => {
       const start = source.indexOf('/* ── Full-content pages for previousSlugs of active jobs');
       const end = source.indexOf('if (bridgeCount > 0)', start);

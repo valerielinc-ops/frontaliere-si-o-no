@@ -138,6 +138,8 @@ interface ApprovedConfig {
 }
 
 interface EvidenceIndex {
+  /** Lookback of every source in the file (scripts/build-evidence-index.mjs). */
+  windowDays?: number;
   gsc?: {
     error?: string;
     queries?: Record<string, { topLandingPage?: string }>;
@@ -204,6 +206,59 @@ function tryRead<T>(filePath: string): T | null {
   }
 }
 
+/**
+ * Search Console demand evidence: "did Google show this page at least once in
+ * the last 90 days?" (P1 noindex plan, 2026-10-24).
+ *
+ * Deliberately NOT the `trafficSet` above. That set is the union of GSC, GA4,
+ * PostHog, the job/orphan ledgers and the thin-page promotions, and it answers
+ * "may this page be served thin?". The P1 families (search clusters, single
+ * plates, events, deep pagination) are indexable only on positive SEARCH
+ * demand: a GA4 session from a newsletter or an internal link says nothing
+ * about whether Google wants the URL in its index. So this reads one source
+ * only, `data/evidence-index.json` → `gsc.pages` (Pass 3 of
+ * scripts/lib/evidence/gscFetcher.mjs: page dimension, ≥1 impression, every
+ * impressed URL — 109 177 paths on 2026-10-23, the same set a fresh read-only
+ * Search Console pull returned for 2026-07-24…2026-10-21).
+ *
+ * Fail-safe direction: when the evidence cannot be trusted the gate is
+ * DORMANT (`active === false`) and callers must keep their pre-P1 behaviour
+ * (indexable). A missing file, a window other than exactly 90 days, a Pass-3 error
+ * or an implausibly small page set would otherwise read as "no page has
+ * impressions" and de-index every family at once.
+ */
+export interface GscDemandEvidence {
+  /** False → the evidence is unusable; callers must not noindex on it. */
+  readonly active: boolean;
+  /** Why the gate is dormant (build log), empty when active. */
+  readonly dormantReason: string;
+  /** Lookback the evidence covers, in days. */
+  readonly windowDays: number;
+  /** Number of distinct impressed paths the gate knows about. */
+  readonly impressedPaths: number;
+  /** True when ANY of `paths` had ≥1 Search Console impression in the window. */
+  hasImpressions(paths: readonly string[]): boolean;
+}
+
+/** The plan's window: "impressioni in Search Console negli ultimi 90 giorni". */
+export const GSC_DEMAND_WINDOW_DAYS = 90;
+/**
+ * Below this many impressed paths the Pass-3 set is treated as truncated, not
+ * as a statement about the site. 109 177 measured on 2026-10-23; the smallest
+ * set any evidence-index build has carried since Pass 3 shipped is ~52 k. A
+ * tenth of today's value is far below any real dip and far above a broken
+ * pull that returned one page of rows.
+ */
+export const GSC_DEMAND_MIN_IMPRESSED_PATHS = 10_000;
+
+const DORMANT_GSC_DEMAND = (reason: string): GscDemandEvidence => ({
+  active: false,
+  dormantReason: reason,
+  windowDays: 0,
+  impressedPaths: 0,
+  hasImpressions: () => false,
+});
+
 export class TrafficEvidenceFilter {
   private readonly trafficSet: Set<string>;
   private readonly patternsByClass: Map<UrlClass, ApprovedPattern[]>;
@@ -215,6 +270,7 @@ export class TrafficEvidenceFilter {
   private decisionsNoindex = 0;
 
   private readonly firstSeen: Map<string, number>;
+  private readonly gscDemandEvidence: GscDemandEvidence;
 
   constructor(rootDir: string) {
     const evidencePath = path.join(rootDir, 'data', 'evidence-index.json');
@@ -310,6 +366,12 @@ export class TrafficEvidenceFilter {
       for (const u of promo.urls) addToSet(u, () => evPromo++);
     }
     this.trafficSet = trafficSet;
+    this.gscDemandEvidence = buildGscDemandEvidence(ev);
+    console.log(
+      this.gscDemandEvidence.active
+        ? `[traffic-evidence-filter] gsc-demand gate active: ${this.gscDemandEvidence.impressedPaths} impressed paths in ${this.gscDemandEvidence.windowDays}d`
+        : `[traffic-evidence-filter] gsc-demand gate DORMANT (${this.gscDemandEvidence.dormantReason}) — P1 families keep their pre-gate indexability`,
+    );
 
     // Reviewer HIGH #3: minAgeDays grace window for freshly-emitted
     // URLs. `data/url-first-seen.json` is a flat `{ path: ISO-date }`
@@ -464,6 +526,16 @@ export class TrafficEvidenceFilter {
   }
 
   /**
+   * Search Console demand evidence (P1 noindex plan). Independent of
+   * {@link decideMulti}'s `active` flag: that one also goes dormant on a
+   * Pass-2 (query+page) truncation, which says nothing about the Pass-3 page
+   * set this gate reads.
+   */
+  gscDemand(): GscDemandEvidence {
+    return this.gscDemandEvidence;
+  }
+
+  /**
    * Direct traffic-set lookup. Returns true iff the URL appears in the
    * merged GSC topLandingPage / GA4 sessions / PostHog pages / hourly
    * thin-page-promotions set. Use only for diagnostic/audit code —
@@ -490,6 +562,45 @@ export class TrafficEvidenceFilter {
       `noindex=${this.decisionsNoindex}`
     );
   }
+}
+
+/**
+ * Build the demand gate from a parsed evidence index. Exported for tests: the
+ * dormant branches are the ones that protect production from a bad pull.
+ */
+export function buildGscDemandEvidence(ev: EvidenceIndex | null | undefined): GscDemandEvidence {
+  if (!ev) return DORMANT_GSC_DEMAND('evidence-index.json missing or unreadable');
+  // Exactly 90 days, in both directions: `gsc.pages` carries no per-path
+  // date, so a shorter window would read recent silence as no demand, and a
+  // longer one would let impressions from day 91+ keep a page indexable.
+  const windowDays = Number(ev.windowDays);
+  if (windowDays !== GSC_DEMAND_WINDOW_DAYS) {
+    return DORMANT_GSC_DEMAND(`window ${ev.windowDays ?? 'absent'}d is not the required ${GSC_DEMAND_WINDOW_DAYS}d`);
+  }
+  // Only a Pass-3 failure truncates `gsc.pages`; Pass 2 (query+page) hits its
+  // row cap routinely and leaves the page set complete.
+  if (/\bpass3\b/.test(String(ev.gsc?.error ?? ''))) {
+    return DORMANT_GSC_DEMAND(`gsc pass3 incomplete: ${ev.gsc?.error}`);
+  }
+  const impressed = new Set<string>();
+  for (const [p, imp] of Object.entries(ev.gsc?.pages ?? {})) {
+    if (!(Number(imp) >= 1)) continue;
+    const norm = normalizePath(p);
+    if (norm) impressed.add(norm);
+  }
+  if (impressed.size < GSC_DEMAND_MIN_IMPRESSED_PATHS) {
+    return DORMANT_GSC_DEMAND(`only ${impressed.size} impressed paths (< ${GSC_DEMAND_MIN_IMPRESSED_PATHS})`);
+  }
+  return {
+    active: true,
+    dormantReason: '',
+    windowDays,
+    impressedPaths: impressed.size,
+    hasImpressions(paths: readonly string[]): boolean {
+      for (const p of paths) if (impressed.has(normalizePath(p))) return true;
+      return false;
+    },
+  };
 }
 
 let _singleton: TrafficEvidenceFilter | null = null;

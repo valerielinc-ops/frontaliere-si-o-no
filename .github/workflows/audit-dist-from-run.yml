@@ -20,11 +20,12 @@ on:
           failure that reads like a red gate. To replay #5875 pass
           `gate:dist-quality` (the npm script; `dist:quality-tests` is only the
           CHECK-RUN LABEL post-deploy-validate-dist.yml gives its report — there
-          is no npm script by that name). For #5874 pass `gate:seo-source` —
-          but read its verdict knowing that gate validates the SOURCE, not the
-          rehydrated dist, and self-skips without RUN_DIST_GATES=1 plus a jobs
-          dataset: it speaks about today's main, not about the run under
-          investigation.
+          is no npm script by that name). For #5874 pass `gate:seo-source`:
+          it runs with RUN_DIST_GATES=1 against the rehydrated dist and the
+          jobs dataset of the same run; its three audit-all mirrors
+          (breadcrumb, FAQPage, ImageObject) assert the verdict audit:all
+          writes for this dist, and the step runs those auditors first when
+          nothing requested before it has.
           Examples: `all` / `all,page-weight,max-bfs-depth` /
           `gate:dist-quality,gate:seo-source`.
         required: false
@@ -51,9 +52,23 @@ on:
         default: ''
         type: string
       shard_artifact_run_id:
-        description: 'Run ID containing the locale/section shard artifacts to rehydrate.'
+        description: >-
+          Run ID containing the en/de/fr shard artifacts (locale-dist-*,
+          shard-batch-*-dist-{en,de,fr}): a deploy-publish run, NOT the build.
+          Empty = resolved from the deploy-publish runs titled "Publish Pages
+          build <deploy_run_id> @ …" (any conclusion: the run that really
+          published is often `cancelled` by its own report job).
         required: false
         default: ''
+        type: string
+      allow_mixed_shards:
+        description: >-
+          'true' audits a dist whose shards partly came from a git clone of
+          the shard repos' CURRENT main (artifacts expired). Default 'false':
+          such a replay is incoherent — trunk, sitemaps and jobs dataset of
+          the build under shards of today — and fails before any verdict.
+        required: false
+        default: 'false'
         type: string
 
   workflow_call:
@@ -90,6 +105,13 @@ on:
         description: 'Run ID containing the locale/section shard artifacts to rehydrate.'
         required: false
         default: ''
+        type: string
+      allow_mixed_shards:
+        description: >-
+          The publish run passes its own run id; a clone fallback there reads
+          the shard it pushed minutes earlier, so the default stays lenient.
+        required: false
+        default: 'true'
         type: string
 
 permissions:
@@ -135,6 +157,19 @@ jobs:
       # Every inline copy of them in the repo drifted apart (#7392-#7397); this
       # one still had the `.expired==false` filter but no 410 retry, no
       # created_at in the log and its own error strings.
+      # Fail in seconds, not after an hour of rehydrate, when this replay
+      # cannot reproduce the build: the en/de/fr shard tars live on the
+      # deploy-publish run (not the build), and every shard/jobs artifact has
+      # a 1-day retention. See the script header for the run-selection rule.
+      - name: Resolve the runs holding this build's shard artifacts
+        if: ${{ inputs.shard_artifact_run_id == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          ALLOW_MIXED: ${{ inputs.allow_mixed_shards }}
+        run: bash scripts/ci/resolve-replay-shard-runs.sh
+
       - name: Fetch the deployed dist (github-pages artifact)
         id: pages
         uses: ./.github/actions/fetch-pages-artifact
@@ -171,14 +206,21 @@ jobs:
       #
       # NOTE on replaying an OLD run: the rehydrate scripts prefer that run's
       # shard artifacts and fall back to a `git clone` of the shard repo (whose
-      # main branch holds the LATEST push) when they have expired. They log the
-      # fallback — a replay of an expired run therefore mixes trunk-of-then with
-      # shards-of-now.
+      # main branch holds the LATEST push) when they have expired. Such a dist
+      # mixes trunk-of-then with shards-of-now; every subtree's source is
+      # recorded in REHYDRATE_PROVENANCE_FILE and the coherence step below
+      # refuses the mix unless allow_mixed_shards is 'true'.
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
           SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
+          # Where every subtree's bytes came from (trunk / artifact / clone),
+          # read by the coherence step below and uploaded with the reports.
+          REHYDRATE_PROVENANCE_FILE: /tmp/rehydrate-provenance.tsv
+          # A strict replay may not fall back to a clone because a ~10 GB IT
+          # batch zip took longer than the publish run's 150 s.
+          REHYDRATE_ZIP_TIMEOUT: ${{ inputs.allow_mixed_shards == 'true' && '150' || '900' }}
           # Every `*_SHARD_LIVE` / `LOCALE_SHARDS_LIVE` repo variable at once,
           # exported below, instead of the hand-listed 27-line `env:` block
           # post-deploy-validate-dist.yml carries. Sections keep being added
@@ -209,6 +251,65 @@ jobs:
       # a fabricated structural verdict about the site.
       - name: Assert dist/ is the complete logical site
         run: node scripts/ci/assert-dist-complete.mjs
+
+      # Complete is not the same as coherent: a subtree cloned from a shard
+      # repo's main holds TODAY's pages under the trunk, sitemaps and jobs
+      # dataset of the build — replay 39952023039 read expired jobs as
+      # "sitemap URL without HTML". The article shards are never packed into
+      # artifacts (no push ok-marker), so they come from a clone by
+      # construction, in validate-dist too.
+      - name: Assert the rehydrated shards are coherent with the build
+        env:
+          ALLOW_MIXED: ${{ inputs.allow_mixed_shards }}
+          REPO_VARS_JSON: ${{ toJSON(vars) }}
+        run: |
+          set -euo pipefail
+          prov=/tmp/rehydrate-provenance.tsv
+          # Every subtree the rehydrate owns must have a recorded origin: an
+          # unrecorded one (a provenance write that failed in a fail-soft
+          # worker) would otherwise pass as coherent by omission.
+          eval "$(jq -r 'to_entries[] | select(.key | test("_SHARDS?_LIVE$")) | "export \(.key)=\(.value | @sh)"' <<< "$REPO_VARS_JSON")"
+          expected="$(
+            if [ "${LOCALE_SHARDS_LIVE:-}" = "true" ]; then printf '%s\n' en de fr; fi
+            jq -r 'to_entries[] | select(.key | startswith("_") | not) | "\(.key)\t\(.value.it)\t\(.value.en)\t\(.value.de)\t\(.value.fr)"' scripts/lib/section-shard-slugs.json \
+              | while IFS=$'\t' read -r section it en de fr; do
+                  live_var="$(printf '%s' "$section" | tr '[:lower:]' '[:upper:]')_SHARD_LIVE"
+                  [ "${!live_var:-}" = "true" ] || continue
+                  printf '%s\n' "$it" "en/$en" "de/$de" "fr/$fr"
+                done
+          )"
+          unrecorded="$(comm -23 <(printf '%s\n' "$expected" | grep . | sort -u) <(cut -f1 "$prov" 2>/dev/null | sort -u))"
+          if [ -n "$unrecorded" ]; then
+            echo "::error::$(printf '%s\n' "$unrecorded" | grep -c .) sottoalberi senza provenienza registrata: la coerenza non è dimostrabile"
+            printf '%s\n' "$unrecorded" | head -20 | sed 's/^/  /'
+            exit 1
+          fi
+          echo "Provenienza dei sottoalberi reidratati:"
+          cut -f2 "$prov" | sort | uniq -c | sed 's/^/  /'
+          if [ ! -s "$prov" ]; then
+            # Sharding is live on every run this workflow replays: an empty
+            # provenance means the rehydrate could not record where its bytes
+            # came from, so coherence cannot be shown — never read as "clean".
+            echo "::error::provenienza del rehydrate assente o vuota ($prov): la coerenza del dist non è dimostrabile"
+            exit 1
+          fi
+          # Article shard repos are frontaliere-articolifrontaliere-<loc> and
+          # frontaliere-articolisvizzera-<loc> (hyphen-free section names, see
+          # scripts/lib/section-shard-slugs.json); accept a hyphenated spelling
+          # too, bounded by the locale suffix, `@<sha>` or the end.
+          mixed="$(awk -F'\t' '$2 ~ /^clone/ && $3 !~ /^frontaliere-articoli-?(frontaliere|svizzera)(-[a-z][a-z])?@/ && $3 !~ /^frontaliere-articoli-?(frontaliere|svizzera)(-[a-z][a-z])?$/' "$prov")"
+          if [ -z "$mixed" ]; then
+            echo "✅ ogni sottoalbero viene dal trunk o dagli artifact del build/publish (articoli: clone per costruzione)"
+            exit 0
+          fi
+          echo "Sottoalberi da clone del main attuale degli shard:"
+          printf '%s\n' "$mixed" | sed 's/^/  /'
+          if [ "$ALLOW_MIXED" = "true" ]; then
+            echo "::warning::$(printf '%s\n' "$mixed" | grep -c .) sottoalberi da clone: il dist è misto, i verdetti non descrivono solo questo build"
+            exit 0
+          fi
+          echo "::error::replay incoerente: $(printf '%s\n' "$mixed" | grep -c .) sottoalberi reidratati da clone invece che dagli artifact del build. Nessun verdetto: rilancia su un build con artifact vivi o con allow_mixed_shards=true."
+          exit 1
 
       - name: Download master jobs data for data-backed reports
         uses: actions/download-artifact@v8
@@ -349,6 +450,29 @@ jobs:
           }
           # ── replay-resolution:end ───────────────────────────────────────────
 
+          # gate:seo-source runs with RUN_DIST_GATES=1, which also arms the
+          # vitest mirrors of three audit-all auditors. On the reassembled
+          # corpus (6.2M HTML files) each mirror used to re-walk the tree
+          # (breadcrumb ABORTED on its 240s budget, FAQPage/ImageObject "timed
+          # out" at 300s — replay 39952023039); they now assert the report
+          # audit:all writes for this same dist (tests/helpers/auditAllMirror.ts).
+          # When nothing requested before gate:seo-source produced those
+          # reports, produce them here: ONE shared walk, same heap, same
+          # sampling as audit:all, its log kept outside the per-request logs
+          # the reconciliation below counts.
+          ensure_seo_source_mirror_reports() {
+            local missing="" a
+            for a in breadcrumb-coverage faqpage-validity image-object-license; do
+              [ -s "dist/audit-reports/$a.json" ] || missing="${missing:+$missing,}$a"
+            done
+            [ -z "$missing" ] && return 0
+            mkdir -p /tmp/audit-prereq-logs
+            echo "──── prerequisito di gate:seo-source: npm run audit:all -- --audits=$missing (heap 8192 MB) ────" | tee -a /tmp/summary.txt
+            (NODE_OPTIONS="--max-old-space-size=8192" npm run audit:all -- --audits="$missing" 2>&1) > /tmp/audit-prereq-logs/seo-source-mirrors.log
+            echo "   rc=$? — il verdetto lo porta gate:seo-source (i report restano in dist/audit-reports)" | tee -a /tmp/summary.txt
+            grep -E '^(✅|❌) ' /tmp/audit-prereq-logs/seo-source-mirrors.log | tee -a /tmp/summary.txt || true
+          }
+
           REQUESTED=$(parse_names "$INPUT_AUDITS")
           if [ -z "$REQUESTED" ]; then
             echo "::error::L'input 'audits' non contiene nessun nome dopo il parsing (ricevuto: '$INPUT_AUDITS')."
@@ -390,6 +514,10 @@ jobs:
                 ;;
               validate:og-images)
                 (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" -- --require-published-blog-image-evidence 2>&1) > "$log"
+                ;;
+              gate:seo-source)
+                ensure_seo_source_mirror_reports
+                (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" 2>&1) > "$log"
                 ;;
               *)
                 (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" 2>&1) > "$log"
@@ -445,6 +573,8 @@ jobs:
             /tmp/summary.txt
             /tmp/job-title-locale-audit.json
             /tmp/meta-description-reports/
+            /tmp/rehydrate-provenance.tsv
+            /tmp/audit-prereq-logs/
             dist/audit-reports/
           retention-days: 7
           if-no-files-found: warn

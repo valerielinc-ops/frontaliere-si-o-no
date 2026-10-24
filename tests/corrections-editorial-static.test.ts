@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { renderCorrectionsEditorial } from '../build-plugins/shared/correctionsEditorial';
 import { buildCorrezioniSeo } from '../services/seo/seo-correzioni';
-import { CORRECTIONS_PATHS } from '../services/editorialCorrections';
+import { DISCLOSURE_ROUTE_CONTRACT } from '../packages/articles/engine/shared/aiDisclosure';
 
 describe('static corrections policy locale contract', () => {
   it.each([
@@ -17,7 +17,7 @@ describe('static corrections policy locale contract', () => {
     expect(html.replace(/<[^>]*>/g, ' ').split(/\s+/).length).toBeGreaterThan(50);
     expect(html).not.toMatch(/SLA|48 ore|48.hour|48 Stunden|48 heures|non riceviamo compensi|buona notizia/);
     const metadata = buildCorrezioniSeo(locale);
-    expect(metadata.canonical).toBe(`https://frontaliereticino.ch${CORRECTIONS_PATHS[locale]}`);
+    expect(metadata.canonical).toBe(`https://frontaliereticino.ch${DISCLOSURE_ROUTE_CONTRACT[locale].corrections}`);
     expect(metadata.jsonLd).toMatchObject({ inLanguage: locale, url: metadata.canonical });
     expect(metadata.jsonLd.about).toMatchObject({ name: policyName, inLanguage: locale });
     expect(metadata.jsonLd).not.toHaveProperty('lastReviewed');

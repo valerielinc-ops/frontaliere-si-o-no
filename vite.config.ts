@@ -113,6 +113,7 @@ import { professionCantonLandingsLinksPlugin } from './build-plugins/professionC
 import { salaryProfessionCantonLinksPlugin } from './build-plugins/salaryProfessionCantonLinksPlugin';
 import { salaryHubIndexLinkPlugin } from './build-plugins/salaryHubIndexLinkPlugin';
 import { sectorHubLinksPlugin } from './build-plugins/sectorHubLinksPlugin';
+import { tiHubLatestJobsPlugin } from './build-plugins/tiHubLatestJobsPlugin';
 import { autoSectorHubPagesPlugin } from './build-plugins/autoSectorHubPagesPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
@@ -133,6 +134,7 @@ import { bfsSalaryLandingsPlugin } from './build-plugins/bfsSalaryLandingsPlugin
 import { bfsSalaryLinksPlugin } from './build-plugins/bfsSalaryLinksPlugin';
 import { minimumWageLandingsPlugin } from './build-plugins/minimumWageLandingsPlugin';
 import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
+import { sectionPagesEnabled } from './build-plugins/shared/sectionPageOwnership';
 import { plateAuctionsPagesPlugin } from './build-plugins/plateAuctionsPagesPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
 import { localeTableCompletenessPlugin } from './build-plugins/localeTableCompletenessPlugin';
@@ -320,7 +322,9 @@ export default defineConfig(({ mode }) => {
  // C3 — Google News compliance section pages: 7 topic areas × 4 locales = 28
  // static HTML aggregator pages listing the latest 20 matching blog
  // articles per section. Static-only (no SPA route, no nav-tab impact).
- ...(process.env.SKIP_SECTION_PAGES !== '1' ? [sectionPagesPlugin()] : []),
+ // Same predicate staticPagesPlugin reads to leave these 28 paths alone
+ // (shared/sectionPageOwnership.ts): registered here ⇔ owned there.
+ ...(sectionPagesEnabled() ? [sectionPagesPlugin()] : []),
  plateAuctionsPagesPlugin(__dirname),
  orphanQueryLandingPlugin(__dirname),
  // staticPagesPlugin emits the section-landing index.html files
@@ -553,6 +557,12 @@ export default defineConfig(({ mode }) => {
  // sector landings) to avoid the parallel-flush race. Idempotent via the
  // `data-sector-hub-links` marker — coexists with the AE-3 profession block.
  sectorHubLinksPlugin(__dirname),
+ // Ticino hub data area — swap the empty slot staticPagesPlugin leaves under
+ // the /cerca-lavoro-ticino/ H1 (+ 3 locale twins) for live stat tiles and the
+ // 12 latest active job cards rendered by jobsSeoPagesPlugin. Awaits
+ // staticPagesFlushed + jobsSeoPagesFlushed; registered before the sequential
+ // postWalkCoordinator so the patch lands before the shared HTML walk.
+ tiHubLatestJobsPlugin(__dirname),
  llmsTxtPlugin(__dirname),
  webpPlugin(__dirname),
  pdfWhitepapersPlugin(__dirname),

@@ -43,6 +43,7 @@ const PUBLISHER_RUNTIME_FILES = [
   'scripts/lib/git-add-resolved.mjs',
   'scripts/lib/resolve-git-add-path.mjs',
   'scripts/lib/read-git-blob.mjs',
+  'scripts/lib/compat-path-safety.mjs',
   'scripts/ci/merge-open-data-refresh.mjs',
   'scripts/ci/open-data-refresh-merge.mjs',
   'scripts/ci/reconcile-data-refresh-main.mjs',

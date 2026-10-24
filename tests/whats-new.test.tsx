@@ -3,7 +3,8 @@ import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import WhatsNewModal, { WhatsNewBell, RELEASES, STORAGE_KEY, releaseLinkToRoute } from '@/components/community/WhatsNewModal';
 import { buildPath } from '@/services/router';
 import itCore from '@/services/locales/it-core';
-import { ensureLocaleLoaded, setLocale } from '@/services/i18n';
+import itWhatsnew from '@/services/locales/it-whatsnew';
+import { ensureLocaleLoaded, loadNamespaceTranslations, setLocale } from '@/services/i18n';
 
 const findReleaseItem = (version: string, titleKey: string) => {
   const release = RELEASES.find((item) => item.version === version);
@@ -48,9 +49,12 @@ describe('WhatsNewBell', () => {
 // ─── WhatsNewModal ────────────────────────────────────────────────────────
 
 describe('WhatsNewModal', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     localStorage.clear();
     setLocale('it');
+    // Release notes are an on-demand namespace (services/locales/<l>-whatsnew.ts);
+    // the loading state itself is covered by tests/whats-new-namespace.test.tsx.
+    await loadNamespaceTranslations('whatsnew');
   });
 
   afterEach(() => {
@@ -62,7 +66,7 @@ describe('WhatsNewModal', () => {
     const item = findReleaseItem(version, titleKey);
     expect(item?.link).toBeTruthy();
 
-    const label = `${itCore[titleKey]} — ${itCore['whatsNew.goTo']}`;
+    const label = `${itWhatsnew[titleKey]} — ${itCore['whatsNew.goTo']}`;
     return screen.getByRole('link', { name: label });
   };
 
@@ -74,6 +78,7 @@ describe('WhatsNewModal', () => {
   ] as const)('keeps the dated pharmacy archive link in the selected locale (%s)', async (locale, href) => {
     await ensureLocaleLoaded(locale);
     setLocale(locale);
+    await loadNamespaceTranslations('whatsnew');
     const { container } = render(<WhatsNewModal open={true} onClose={vi.fn()} />);
     expect(container.querySelector('a[href*="/2026-09-14/"]')).toHaveAttribute('href', href);
   });
@@ -148,7 +153,7 @@ describe('WhatsNewModal', () => {
     expect(item?.link).toBeUndefined();
 
     render(<WhatsNewModal open={true} onClose={vi.fn()} />);
-    const label = `${itCore['whatsNew.v3830.selfCertForms.title']} — ${itCore['whatsNew.goTo']}`;
+    const label = `${itWhatsnew['whatsNew.v3830.selfCertForms.title']} — ${itCore['whatsNew.goTo']}`;
     const link = screen.getByRole('link', { name: label });
 
     expect(link.getAttribute('href')).toBe('/moduli/autocertificazione-candidatura/');

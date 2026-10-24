@@ -207,6 +207,24 @@ const RULES_IT: readonly BlogContextualLinkRule[] = [
     targetUrl: '/cambio-franco-euro/',
     priority: 9,
   },
+  // Search Console cannibalization (28 days to 2026-10-21): "dogana chiasso"
+  // split across an article, the live wait-time page and a guide, none above
+  // position 9. The intent is the current wait, so articles point there.
+  {
+    id: 'it.border.chiasso-wait',
+    keywordPattern: /\b(?:tempi?\s+di\s+attesa\s+(?:alla|in)\s+dogana\s+(?:di|a)\s+chiasso|dogana\s+di\s+chiasso)\b/i,
+    targetUrl: '/traffico-dogane/chiasso-strada/oggi/',
+    priority: 9,
+  },
+  // Quick win: "concorsi ticino" (1.393 impressions, position 6.2) and its
+  // variants rank /concorsi-pubblici-lugano/; articles that mention public
+  // competitions link to it instead of leaving it to the job clusters.
+  {
+    id: 'it.jobs.concorsi-pubblici',
+    keywordPattern: /\bconcorsi\s+pubblici(?:\s+(?:in\s+)?(?:ticino|lugano))?\b/i,
+    targetUrl: '/concorsi-pubblici-lugano/',
+    priority: 8,
+  },
 ];
 
 /**
