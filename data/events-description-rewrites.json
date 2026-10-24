@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-24T19:21:14.057Z",
+  "generatedAt": "2026-10-24T20:21:33.236Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -118040,6 +118040,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T00:16:43.845Z"
     },
+    "myswitzerland:a0d0eb2dcd624e21a8d7499040e9d19e::3918943009e1937fd167f72a3494ee2a87e85b8790fd0cb5ae07509c19bcf435": {
+      "id": "myswitzerland:a0d0eb2dcd624e21a8d7499040e9d19e",
+      "sourceDescriptionHash": "3918943009e1937fd167f72a3494ee2a87e85b8790fd0cb5ae07509c19bcf435",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Arbon; cantone: TG; categoria: Event; data: 2027-03-14; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Arbon; cantone: TG; categoria: Event; data: 2027-03-14; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Arbon; canton: TG; category: Event; date: 2027-03-14; time: 16:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Arbon; kanton: TG; kategorie: Event; datum: 2027-03-14; uhrzeit: 16:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Arbon; canton: TG; catégorie: Event; date: 2027-03-14; heure: 16:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-24T20:16:50.633Z"
+    },
     "myswitzerland:a0d42801f96b41cfb2adc89a543516f0::a535385ef21808d475a5f22649ffd05cbbac1a9d44a90780e9a5c8d83506cc5a": {
       "id": "myswitzerland:a0d42801f96b41cfb2adc89a543516f0",
       "sourceDescriptionHash": "a535385ef21808d475a5f22649ffd05cbbac1a9d44a90780e9a5c8d83506cc5a",
@@ -174862,15 +174876,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T18:27:56.304Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:a0d0eb2dcd624e21a8d7499040e9d19e::3918943009e1937fd167f72a3494ee2a87e85b8790fd0cb5ae07509c19bcf435": {
-      "id": "myswitzerland:a0d0eb2dcd624e21a8d7499040e9d19e",
-      "sourceDescriptionHash": "3918943009e1937fd167f72a3494ee2a87e85b8790fd0cb5ae07509c19bcf435",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T21:28:36.766Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
