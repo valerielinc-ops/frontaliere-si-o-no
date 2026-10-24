@@ -398,7 +398,10 @@ describe('getWebcamOgImageUrl', () => {
 // ── end-to-end: page generation uses per-page og:image ────────────
 
 describe('generateBorderWaitPages — per-page og:image from webcam snapshot', () => {
-  it('uses the snapshot URL + 1200×675 when resolver returns one', () => {
+  // The generator intentionally renders every locale, region, and crossing;
+  // this pure-generator regression therefore needs more than Vitest's 15 s
+  // default on the full production registry.
+  it('uses the snapshot URL + 1200×675 when resolver returns one', { timeout: 60_000 }, () => {
     const pages = generateBorderWaitPages({
       current: CURRENT_STUB,
       today: new Date('2026-04-21T06:00:00.000Z'),
@@ -417,7 +420,7 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
     expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:alt', content: 'Webcam live — Chiasso Brogeda' }));
   });
 
-  it('falls back to site default og-image.png (1200×630) when resolver returns undefined', () => {
+  it('falls back to site default og-image.png (1200×630) when resolver returns undefined', { timeout: 60_000 }, () => {
     const pages = generateBorderWaitPages({
       current: CURRENT_STUB,
       today: new Date('2026-04-21T06:00:00.000Z'),
@@ -429,7 +432,7 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
     expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:height', content: '630' }));
   });
 
-  it('localises og:image:alt for EN / DE / FR when a snapshot is present', () => {
+  it('localises og:image:alt for EN / DE / FR when a snapshot is present', { timeout: 60_000 }, () => {
     const resolver = () =>
       'https://frontaliereticino.ch/og/border-wait/chiasso-brogeda.jpg';
     const pages = generateBorderWaitPages({
@@ -448,7 +451,7 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
     );
   });
 
-  it('does not emit duplicate og:image tags (exactly one per page)', () => {
+  it('does not emit duplicate og:image tags (exactly one per page)', { timeout: 60_000 }, () => {
     const pages = generateBorderWaitPages({
       current: CURRENT_STUB,
       today: new Date('2026-04-21T06:00:00.000Z'),
@@ -462,7 +465,7 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
     expect(count).toBe(1);
   });
 
-  it('crossings without a snapshot keep falling back even when others have one', () => {
+  it('crossings without a snapshot keep falling back even when others have one', { timeout: 60_000 }, () => {
     const pages = generateBorderWaitPages({
       current: CURRENT_STUB,
       today: new Date('2026-04-21T06:00:00.000Z'),
