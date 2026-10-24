@@ -171,16 +171,19 @@ describe('incremental manifest input contract', () => {
     const previousEnd = source.indexOf('const previousSlugReuse =', previousStart);
     const legacyStart = source.indexOf('const legacyTIReuseInput');
     const legacyEnd = source.indexOf('const legacyTIReuse =', legacyStart);
-    const crossStart = source.indexOf('const crossLocaleActiveReuseInput');
-    const crossEnd = source.indexOf('const crossLocaleActiveReuse =', crossStart);
+    const crossInputStart = source.indexOf('const crossLocaleActiveReuseInput');
+    const crossHashStart = source.lastIndexOf('const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(', crossInputStart);
+    const crossEnd = source.indexOf('const crossLocaleActiveReuse =', crossInputStart);
 
     expect(source.slice(previousStart, previousEnd)).not.toContain('previousSlugsByLocale');
     expect(source.slice(legacyStart, legacyEnd)).not.toContain('previousSlugsByLocale');
-    expect(source.slice(crossStart, crossEnd)).not.toContain('previousSlugsByLocale');
-    expect(source.slice(crossStart, crossEnd)).not.toContain('slugPerLocale');
+    expect(source.slice(crossInputStart, crossEnd)).not.toContain('previousSlugsByLocale');
+    expect(source.slice(crossInputStart, crossEnd)).not.toContain('slugPerLocale');
     expect(source.slice(previousStart, previousEnd)).toContain('sourceInputHash: canonicalReuseHash');
     expect(source).toContain('sourceInputHash: activeJobReuseHash');
-    expect(source.slice(crossStart, crossEnd)).toContain('sourceInputHash: baseReuseHash');
+    expect(source.slice(crossHashStart, crossInputStart)).toContain('const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(');
+    expect(source.slice(crossInputStart, crossEnd)).toContain('sourceInputHash: baseInputHash');
+    expect(source.slice(crossHashStart, crossInputStart)).not.toContain('getReuseHash(');
     expect(source).toContain('rewriteActiveBridgeHtml(bridgeHtml, cachedHtml)');
   });
 
@@ -305,7 +308,7 @@ describe('incremental manifest input contract', () => {
   });
 
   it('bumps the digest contract when the reuse input shape changes', () => {
-    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@8');
+    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@9');
   });
 
   it('changes the cross-locale hash when the rendered datePosted changes', () => {

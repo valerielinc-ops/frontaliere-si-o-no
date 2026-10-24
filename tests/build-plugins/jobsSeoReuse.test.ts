@@ -5,6 +5,8 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+  buildActiveJobPageInput,
+  buildActiveJobPageReuseInput,
   computeInputHash,
   IncrementalManifest,
 } from '../../build-plugins/shared/incrementalManifest.mjs';
@@ -24,6 +26,7 @@ import {
   refreshHtmlBuildId,
 } from '../../build-plugins/shared/incrementalHtmlReuse.mjs';
 import {
+  compareActiveJobsByStableOrder,
   hasActiveJobPostingJsonLd,
   replaceActiveJobPostingDates,
   rewriteActiveBridgeHtml,
@@ -200,6 +203,7 @@ describe('jobs SEO disk HTML reuse', () => {
       jobPostingDatePosted: resolved?.value ?? null,
       jobPostingDateProvenance: resolved?.provenance ?? null,
       jobPostingValidThrough: new Date(Date.now() + 86_400_000).toISOString(),
+      jobPostingCrawledAt: '2026-10-24T08:00:00.000Z',
       heroBadges: 'fresh badges',
       mobileAction: 'fresh action',
       recentArticles: 'fresh articles',
@@ -255,6 +259,124 @@ describe('jobs SEO disk HTML reuse', () => {
       currentDatePosted,
       currentValidThrough,
     )).toBe(fragment);
+  });
+
+  it('refreshes crawledAt and keeps active reuse byte-identical to a fresh render', () => {
+    const marker = (name: string, value: string) =>
+      `<!-- jobs-seo-reuse:${name}:start -->${value}<!-- jobs-seo-reuse:${name}:end -->`;
+    const oldPosting = '<script type="application/ld+json">'
+      + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
+      + '"validThrough":"2026-12-20T08:00:00.000Z",'
+      + '"crawledAt":"2026-10-23T08:00:00.000Z"}'
+      + '</script>';
+    const currentPosting = '<script type="application/ld+json">'
+      + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
+      + '"validThrough":"2026-12-21T08:00:00.000Z",'
+      + '"crawledAt":"2026-10-24T08:00:00.000Z"}'
+      + '</script>';
+    const cached = [
+      marker('job-posting', oldPosting),
+      marker('hero-badges', 'old badges'),
+      marker('mobile-action', 'old action'),
+      marker('recent-articles', 'old feed'),
+    ].join('');
+    const expected = [
+      marker('job-posting', currentPosting),
+      marker('hero-badges', 'new badges'),
+      marker('mobile-action', 'new action'),
+      marker('recent-articles', 'new feed'),
+    ].join('');
+
+    expect(rewriteActiveJobHtml(cached, {
+      jobPostingDatePosted: '2026-10-20T08:00:00.000Z',
+      jobPostingDateProvenance: 'reported',
+      jobPostingValidThrough: '2026-12-21T08:00:00.000Z',
+      jobPostingCrawledAt: '2026-10-24T08:00:00.000Z',
+      heroBadges: 'new badges',
+      mobileAction: 'new action',
+      recentArticles: 'new feed',
+    })).toBe(expected);
+  });
+
+  it('fails closed when a cached JobPosting has no crawledAt field to refresh', () => {
+    const fragment = '<script type="application/ld+json">'
+      + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
+      + '"validThrough":"2026-12-20T08:00:00.000Z"}'
+      + '</script>';
+    expect(() => replaceActiveJobPostingDates(
+      fragment,
+      '2026-10-20T08:00:00.000Z',
+      '2026-12-21T08:00:00.000Z',
+      '2026-10-24T08:00:00.000Z',
+    )).toThrow('missing JobPosting JSON-LD field: crawledAt');
+  });
+
+  it('fails closed when the current job has no crawledAt to publish', () => {
+    const fragment = '<script type="application/ld+json">'
+      + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
+      + '"validThrough":"2026-12-20T08:00:00.000Z",'
+      + '"crawledAt":"2026-10-23T08:00:00.000Z"}'
+      + '</script>';
+    expect(() => replaceActiveJobPostingDates(
+      fragment,
+      '2026-10-20T08:00:00.000Z',
+      '2026-12-21T08:00:00.000Z',
+      null,
+    )).toThrow('current JobPosting crawledAt unavailable');
+  });
+
+  it('keeps related-job order and the reuse digest stable across crawl heartbeats', () => {
+    const beforeJobs = [
+      {
+        id: 'related-a',
+        slug: 'related-a',
+        title: 'A',
+        category: 'healthcare-medical',
+        location: 'Susch',
+        firstSeenAt: '2026-05-20T05:16:31.365Z',
+        crawledAt: '2026-10-23T09:57:35.437Z',
+      },
+      {
+        id: 'related-b',
+        slug: 'related-b',
+        title: 'B',
+        category: 'healthcare-medical',
+        location: 'Susch',
+        firstSeenAt: '2026-05-20T05:16:26.552Z',
+        crawledAt: '2026-10-23T09:57:32.829Z',
+      },
+    ];
+    const afterJobs = beforeJobs.map((job, index) => ({
+      ...job,
+      crawledAt: `2026-10-23T21:36:${index === 0 ? '15.771' : '18.757'}Z`,
+    }));
+    const beforeOrder = [...beforeJobs].sort(compareActiveJobsByStableOrder).map((job) => job.id);
+    const afterOrder = [...afterJobs].sort(compareActiveJobsByStableOrder).map((job) => job.id);
+    expect(afterOrder).toEqual(beforeOrder);
+
+    const makeReuseHash = (relatedJobs: typeof beforeJobs) => {
+      const input = buildActiveJobPageInput({
+        job: {
+          id: 'primary-job',
+          slug: 'primary-job',
+          title: 'Primary',
+          firstSeenAt: '2026-05-20T05:00:00.000Z',
+          crawledAt: '2026-10-23T09:57:40.000Z',
+        },
+        locale: 'it',
+        slug: 'primary-job',
+        relatedJobs,
+        canton: 'GR',
+        canonicalUrl: 'https://frontaliereticino.ch/cerca-lavoro-grigioni/primary-job/',
+        relatedArticlesHtml: '<section>feed</section>',
+        hreflangHtml: '<link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/cerca-lavoro-grigioni/primary-job/">',
+        employerHubPath: '',
+        renderDateBucket: '2026-10-24',
+      });
+      return computeInputHash(buildActiveJobPageReuseInput(input), 'active-job');
+    };
+    expect(makeReuseHash([...beforeJobs].sort(compareActiveJobsByStableOrder)))
+      .toBe(makeReuseHash([...afterJobs].sort(compareActiveJobsByStableOrder)));
   });
 
   it('refreshes a cached active bridge from the current canonical bytes', () => {

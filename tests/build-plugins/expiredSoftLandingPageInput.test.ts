@@ -93,6 +93,13 @@ describe('expired soft-landing input carries the ledger-derived payload', () => 
     expect(softLandingHash()).not.toBe(softLandingHash({ postalCode: '6600' }));
   });
 
+  it('hashes differently when the emitted hreflang block changes', () => {
+    const oldHreflang = '<link rel="alternate" hreflang="it" href="/old/">';
+    const newHreflang = '<link rel="alternate" hreflang="it" href="/new/">';
+    expect(softLandingHash({ hreflangHtml: oldHreflang }))
+      .not.toBe(softLandingHash({ hreflangHtml: newHreflang }));
+  });
+
   it('keeps the hash stable when neither ledger moved', () => {
     expect(softLandingHash()).toBe(softLandingHash());
     // A payload rebuilt byte for byte must hash identically: the digest is over
@@ -164,6 +171,7 @@ describe('jobsSeoPagesPlugin wires the payload the renderer actually emits', () 
   it('feeds the soft-landing input with the emitted inline payload', () => {
     expect(source).toContain('buildExpiredSoftLandingPageInput({');
     expect(source).toContain('expiredPayloadJson: expiredWindowData,');
+    expect(source).toContain('hreflangHtml: hreflangLinks,');
     expect(source).toContain('derivedFromUnhashedSource: Boolean(gscInfo) || Boolean(slugInfo),');
   });
 
