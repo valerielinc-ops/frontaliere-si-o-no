@@ -21,6 +21,7 @@ import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared
 import { normalizeArticleExcerptPlain, stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
+import { composeArticleMetaDescription } from './shared/articleMetaDescription';
 import { ARTICLE_SECTION_DESCRIPTORS, SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId, type OgSection as OgSectionDescriptor } from './shared/articleSectionDescriptors';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { hasArticleBodyPromptPlaceholder } from './shared/articleBodyQuality';
@@ -1354,15 +1355,23 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // alt="" would tell Discover this image is not about the article.
  const socialTitle = articleLocale === 'it' ? normalizeArticleTitle(en.ogT) : localizedTitle;
  const heroAlt = localizedMeta?.imageAlt || socialTitle;
- // Pad short descriptions to the active shell budget for Bing (locale variant excerpts are often shorter).
- const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
- en: ' Practical guide and free tools for cross-border workers (frontalieri) between Switzerland and Italy. Frontaliere Ticino.',
- de: ' Praxisratgeber und kostenlose Tools für Grenzgänger zwischen der Schweiz und Italien. Frontaliere Ticino.',
- fr: " Guide pratique et outils gratuits pour travailleurs frontaliers entre la Suisse et l'Italie. Frontaliere Ticino.",
- };
- const metaDescPadded = (localeForMeta && localizedDesc.length < shell.metaDescriptionMaxChars)
- ? localizedDesc + (LOCALE_DESC_CONTEXT[localeForMeta] ?? '')
- : localizedDesc;
+ // Complete a short lede from THIS article's own body, in the page language,
+ // and end an over-long one on a whole sentence (see articleMetaDescription.ts).
+ // This replaced a fixed EN/DE/FR boilerplate ("Practical guide and free tools
+ // for cross-border workers…") that was appended to every short excerpt and
+ // then word-cut at the budget, so hundreds of articles ended on the same
+ // truncated, page-agnostic tail. Only a body in the page's own locale is
+ // read: the IT fallback body would put Italian sentences on an EN snippet.
+ const metaBodySource = blogBodyByLocale[articleLocale]?.[en.articleId];
+ const metaBodyTexts = metaBodySource
+ ? Object.keys(metaBodySource)
+ .filter((k) => /^body\d+$/.test(k))
+ .sort((a, b) => parseInt(a.slice(4), 10) - parseInt(b.slice(4), 10))
+ .map((k) => String(metaBodySource[k] ?? ''))
+ : [];
+ const metaDescPadded = composeArticleMetaDescription(localizedDesc, metaBodyTexts, {
+ max: shell.metaDescriptionMaxChars,
+ });
  // SERP-CTR lever (issue #4300 plan item 2): title/h1/headline are locked by
  // the Google News verbatim-match rule above, so the description is the only
  // safe place to add a freshness/year signal for articles. Additive-only —
@@ -1725,8 +1734,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  }
  }
 
- // keywords from article metadata
- if (en.keywords) {
+ // keywords from article metadata. The corpus keeps them in Italian only, so
+ // they are emitted on the Italian page alone: on EN/DE/FR pages they put
+ // Italian search terms ("NASpI frontalieri", "frontalieri Ticino") into the
+ // structured data of a page written in another language.
+ if (en.keywords && articleLocale === 'it') {
  const kw = typeof en.keywords === 'string'
  ? en.keywords.split(',').map((k: string) => k.trim()).filter(Boolean)
  : Array.isArray(en.keywords) ? en.keywords : [];
