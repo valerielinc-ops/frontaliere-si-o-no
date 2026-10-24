@@ -771,7 +771,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -1805,7 +1806,7 @@
       "sourceLang": "de",
       "slug": "junior-projektleiter-operations-w-m-d-galenica-ag-galenica-oensingen",
       "slugByLocale": {
-        "it": "junior-project-manager-operazioni-m-f-d-galenica-ag-galenica-oensingen",
+        "it": "junior-projektleiter-operations-w-m-d-galenica-ag-galenica-oensingen",
         "en": "junior-project-manager-operations-m-f-d-galenica-ag-galenica-oensingen",
         "de": "galenica-galenica-ag-junior-projektleiter-operations-w-m-d-oensingen",
         "fr": "gestionnaire-de-projet-junior-operations-h-f-d-galenica-ag-galenica-oensingen"
@@ -1821,12 +1822,14 @@
       "id": "galenica-729b9cdf57b6",
       "previousSlugs": [
         "galenica-galenica-ag-junior-projektleiter-operations-w-m-d-oensingen",
-        "junior-projektleiter-operations-m-w-d-galenica-ag-galenica-oensingen"
+        "junior-projektleiter-operations-m-w-d-galenica-ag-galenica-oensingen",
+        "junior-project-manager-operazioni-m-f-d-galenica-ag-galenica-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-junior-projektleiter-operations-w-m-d-oensingen",
-          "junior-projektleiter-operations-m-w-d-galenica-ag-galenica-oensingen"
+          "junior-projektleiter-operations-m-w-d-galenica-ag-galenica-oensingen",
+          "junior-project-manager-operazioni-m-f-d-galenica-ag-galenica-oensingen"
         ],
         "en": [
           "galenica-galenica-ag-junior-projektleiter-operations-w-m-d-oensingen"
@@ -5009,7 +5012,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",

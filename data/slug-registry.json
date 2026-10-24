@@ -885859,7 +885859,8 @@
     "slugByLocale": {
       "it": "supporto-it-80-100-yellowshark-ag-birmensdorf-zh",
       "de": "it-supporter-in-80-100-birmensdorf-zh-zh-yellowshark-ch",
-      "fr": "support-informatique-dans-80-100-yellowshark-ag-birmensdorf-zh"
+      "fr": "support-informatique-dans-80-100-yellowshark-ag-birmensdorf-zh",
+      "en": "it-support-specialist-80-100-yellowshark-ag-birmensdorf-zh-zh"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -885912,7 +885913,8 @@
     "slugByLocale": {
       "it": "supporto-it-yellowshark-ag-zofingen-ag",
       "de": "it-supporter-zofingen-ag-yellowshark-ch",
-      "fr": "support-informatique-yellowshark-ag-zofingen-ag"
+      "fr": "support-informatique-yellowshark-ag-zofingen-ag",
+      "en": "it-support-specialist-yellowshark-ag-zofingen-ag"
     },
     "createdAt": "2026-10-06",
     "canton": "AG"
@@ -947180,7 +947182,8 @@
     "canonicalSlug": "ai-portfolio-e-process-manager-marketing-ffs-officine-ferrovie-federali-zurich",
     "slugByLocale": {
       "de": "ai-portfolio-e-process-manager-marketing-ffs-officine-ferrovie-federali-zurich",
-      "fr": "portfolio-ai-gestionnaire-de-processus-marketing-ffs-officine-ferrovie-federali-zurich"
+      "fr": "portfolio-ai-gestionnaire-de-processus-marketing-ffs-officine-ferrovie-federali-zurich",
+      "it": "responsabile-del-portafoglio-e-dei-processi-di-ia-nel-marketing-ffs-officine-ferrovie-federali-zurich"
     },
     "createdAt": "2026-10-23",
     "canton": "ZH"
@@ -949625,7 +949628,8 @@
     "slugByLocale": {
       "en": "unit-facility-manager-100-ikea-ch",
       "it": "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino",
-      "fr": "chef-d-unite-des-installations-100-ikea-grancia-ticino"
+      "fr": "chef-d-unite-des-installations-100-ikea-grancia-ticino",
+      "de": "responsabile-delle-strutture-dell-unita-100-ikea-grancia-ticino"
     },
     "createdAt": "2026-10-23",
     "canton": "TI"
@@ -951708,7 +951712,10 @@
   "id|hitachienergy.com|jid3-222811": {
     "canonicalSlug": "system-engineer-scada-rtu-for-substation-automation-80-100-f-m-d-hitachi-energy-baden-switzerland",
     "slugByLocale": {
-      "en": "system-engineer-scada-rtu-for-substation-automation-80-100-f-m-d-hitachi-energy-baden-switzerland"
+      "en": "system-engineer-scada-rtu-for-substation-automation-80-100-f-m-d-hitachi-energy-baden-switzerland",
+      "it": "system-ingegnere-scada-rtu-for-substation-automation-80-100-f-m-d-hitachi-energy-baden",
+      "de": "system-ingenieur-scada-rtu-for-substation-automation-80-100-f-m-d-hitachi-energy-baden",
+      "fr": "system-ingenieur-scada-rtu-for-substation-automation-80-100-f-m-d-hitachi-energy-baden"
     },
     "createdAt": "2026-10-24",
     "canton": "AG"
