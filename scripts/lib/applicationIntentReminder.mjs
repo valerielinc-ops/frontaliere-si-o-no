@@ -7,7 +7,7 @@
  * verified uid; no email-to-anonymous join belongs here.
  */
 
-import { jobDisplayTitle } from '../../services/jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from './job-title-identity.mjs';
 import { extractKeywords } from '../../services/newsletter-content.mjs';
 import { locationTokenVariants, normalizeLocToken } from '../../services/locToken.mjs';
 import {

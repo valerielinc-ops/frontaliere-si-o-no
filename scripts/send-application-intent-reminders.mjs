@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { jobDisplayTitle } from '../services/jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from './lib/job-title-identity.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**

@@ -158,7 +158,7 @@ import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { resolveJobApplicationUrl } from '../services/jobApplicationDestination';
 import { buildFallbackCanonicalContent, canonicalizeFallbackCleaned, localizeFallbackCanonical, type CleanedFallbackContent } from '../services/jobs/canonicalFallback';
-import { jobDisplayTitle } from '../services/jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import {
  loadWinners,
  saveWinners,

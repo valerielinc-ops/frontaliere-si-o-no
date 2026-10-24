@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { localeTitleDropsSourceWords } from '../../services/jobs/jobTitleIdentity.mjs';
+import { localeTitleDropsSourceWords } from './job-title-identity.mjs';
 import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 /**
@@ -2488,7 +2488,7 @@ export function ensureLocaleFields(job) {
     // Only use heuristic when there's no AI-translated title available.
     // A truncated translation ("M1, M2" for "Macchinista M1, M2,M3") is
     // replaced by the employer's title: the slug never loses the trade
-    // (services/jobs/jobTitleIdentity.mjs, shared with the other slug writers).
+    // (scripts/lib/job-title-identity.mjs, shared with the other slug writers).
     const localeTitleIsTruncation = localeTitleDropsSourceWords(rawLocaleTitle, sourceTitle);
     const slugSourceTitle = localeTitleIsTruncation
       ? sourceTitle

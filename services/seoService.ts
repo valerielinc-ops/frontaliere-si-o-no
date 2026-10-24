@@ -1,5 +1,5 @@
 import { resolveAuthorProfileMetadata } from './seo/authorProfileMetadata';
-import { jobDisplayTitle } from './jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import { buildCorrezioniSeo } from './seo/seo-correzioni';
 import { METHODOLOGY_COPY } from './editorialMethodology';
 import { localizeArticlePageIdentity } from './seo/article-page-identity';

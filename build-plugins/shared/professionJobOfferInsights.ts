@@ -8,7 +8,7 @@
  * useful offer summary and gives each profession page a real payload of its
  * own.
  */
-import { jobDisplayTitle } from '../../services/jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import type { FeaturedJob } from '../professionJobsAggregate';
 import type { ProfessionLocale } from '../professionLandingsData';
 import { escHtml } from './htmlEscape';

@@ -1,7 +1,7 @@
 /** A listing links to a job detail; only that detail may declare JobPosting. */
 import type { JobInput } from './jobPostingSchema';
 import { sanitizeJobTitleForDisplay } from './stripLiteralMarkdown';
-import { jobDisplayTitle } from '../../services/jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 
 export interface JobListEntryOptions {
   readonly locale: string;
@@ -13,7 +13,7 @@ export function buildJobListEntry(
   input: JobInput,
   opts: JobListEntryOptions,
 ): Record<string, unknown> | null {
-  // The employer's title in every locale (services/jobs/jobTitleIdentity.mjs):
+  // The employer's title in every locale (scripts/lib/job-title-identity.mjs):
   // the list entry names the same title its detail page shows.
   const name = sanitizeJobTitleForDisplay(jobDisplayTitle(input)).trim();
   if (!name || !opts.url) return null;

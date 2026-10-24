@@ -6,7 +6,7 @@ import {
   jobDisplayTitle,
   localeTitleDropsSourceWords,
   originalJobTitle,
-} from '../services/jobs/jobTitleIdentity.mjs';
+} from '../scripts/lib/job-title-identity.mjs';
 import { buildSlimSeed } from '../build-plugins/shared/slimJobIndex';
 import { buildJobListEntry } from '../build-plugins/shared/jobListEntry';
 

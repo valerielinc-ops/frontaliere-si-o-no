@@ -20,7 +20,7 @@
  * prima; il browser resta senza reader e ricade sui fallback gia' previsti.
  */
 
-import { jobDisplayTitle } from './jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import { readNewsletterDataset } from './newsletter-datasets.mjs';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
 import { locationTokenVariants, normalizeLocToken } from './locToken.mjs';

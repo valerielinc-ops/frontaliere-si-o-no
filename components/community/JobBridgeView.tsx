@@ -1,4 +1,4 @@
-import { jobDisplayTitle } from '../../services/jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
  * JobBridgeView — view for job pages where the URL has changed (bridge pages).

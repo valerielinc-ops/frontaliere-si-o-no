@@ -54,7 +54,7 @@ import { applyDeclaredBrandRelabel, declaredBrandLabels } from './lib/crawler-br
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
-import { localeTitleDropsSourceWords } from '../services/jobs/jobTitleIdentity.mjs';
+import { localeTitleDropsSourceWords } from './lib/job-title-identity.mjs';
 
 /**
  * True when `slug`, company/location/disambiguator tokens removed, only drops
@@ -226,7 +226,7 @@ async function main() {
 
         // A truncated translation ("M1, M2" for "Macchinista M1, M2,M3") must
         // not feed the slug: the slug would lose the trade. Derive from the
-        // employer's title instead (services/jobs/jobTitleIdentity.mjs — the
+        // employer's title instead (scripts/lib/job-title-identity.mjs — the
         // same rule hardenJobLocaleFields and ensureLocaleFields apply, so the
         // writers converge on one slug).
         const employerTitle = String(job.title || tbl[sourceLang] || '').trim();

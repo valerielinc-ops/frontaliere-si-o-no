@@ -1,4 +1,4 @@
-import { jobDisplayTitle } from '../services/jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import { CALC_HREF } from './shared/calcHref';
 import { buildSalaryAnswer, searchSalaryMedian, hasSalaryIntent } from './shared/searchSalaryAnswer';
 import {

@@ -16,7 +16,7 @@
  * exported for testability.
  */
 
-import { jobDisplayTitle } from './jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import { buildPath } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { cdnDataUrl } from '@/services/cdnDataBase';

@@ -325,7 +325,8 @@ describe('job-board emitted output', () => {
       const entries = structured(document);
       expect(entries.find((entry) => entry['@type'] === 'JobPosting')?.datePosted).toBe(jobs[0].crawledAt);
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['FAQPage', 'BreadcrumbList']));
-      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].titleByLocale[locale]);
+      // The employer's title in every locale (scripts/lib/job-title-identity.mjs).
+      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].title);
       expect(document.body.textContent).toContain('La posizione prevede');
       const applicationHref = document.querySelector('a.mab-cta')?.getAttribute('href');
       expect(applicationHref).toBeTruthy();

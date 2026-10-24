@@ -5,7 +5,7 @@
  * EN/DE/FR title "M1, M2" from machine translation, so the variants were served
  * at `/de/jobs-im-tessin/m1-m2-pemsa-lugano/` — the trade gone from the URL.
  * The registry then pinned that slug as a "real translation". These tests fix
- * the shared rule (services/jobs/jobTitleIdentity.mjs) and prove the writers
+ * the shared rule (scripts/lib/job-title-identity.mjs) and prove the writers
  * converge instead of undoing each other's repair.
  */
 import fs from 'node:fs';
@@ -15,7 +15,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { hardenJobLocaleFields, registryPinnedLocaleSlug } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { slugDropsTitleWords } from '../scripts/regenerate-slugs-by-locale.mjs';
 import { buildSlug } from '../scripts/lib/regenerate-slugs-helpers.mjs';
-import { losslessSlugTitle, slugDropsSourceWords } from '../services/jobs/jobTitleIdentity.mjs';
+import { losslessSlugTitle, slugDropsSourceWords } from '../scripts/lib/job-title-identity.mjs';
 
 const SOURCE_TITLE = 'Macchinista M1, M2,M3';
 const SOURCE_SLUG = 'macchinista-m1-m2-m3-pemsa-lugano';

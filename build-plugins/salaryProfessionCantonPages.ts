@@ -22,7 +22,7 @@
  * Plugin contract: apply 'build', enforce 'post', emit in closeBundle(),
  * distDir passed through. Pure/deterministic so output is stable.
  */
-import { jobDisplayTitle } from '../services/jobs/jobTitleIdentity.mjs';
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';

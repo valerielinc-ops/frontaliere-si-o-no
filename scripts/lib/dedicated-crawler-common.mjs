@@ -1,7 +1,7 @@
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { PART_TIME_MAX_WORKLOAD, workloadPercent } from './employment-workload.mjs';
 import { repairJobTranslationSemanticsInPlace } from './job-title-semantic-repair.mjs';
-import { losslessSlugTitle, slugDropsSourceWords } from '../../services/jobs/jobTitleIdentity.mjs';
+import { losslessSlugTitle, slugDropsSourceWords } from './job-title-identity.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
@@ -6480,7 +6480,7 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang, opts = 
   // a truncated machine translation ("M1, M2" for "Macchinista M1, M2,M3" →
   // `m1-m2-pemsa-lugano`). Pinning it would freeze the lost trade into the URL
   // forever; refusing it lets the title→slug writers re-derive from the
-  // lossless title (services/jobs/jobTitleIdentity.mjs#losslessSlugTitle), the
+  // lossless title (scripts/lib/job-title-identity.mjs#losslessSlugTitle), the
   // old slug bridged via previousSlugs. A real translation always introduces
   // a word of its own and is never refused here.
   {
