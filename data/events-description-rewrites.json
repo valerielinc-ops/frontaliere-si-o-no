@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-24T14:20:52.506Z",
+  "generatedAt": "2026-10-24T18:12:21.457Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -144892,6 +144892,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T23:14:56.619Z"
     },
+    "myswitzerland:d8b48c44a2704e6a9ca6dc3ada28e184::d203d4ec90fdaa3d62b877b13be9b9caeb30de994f5c65ebaff604d35a6e70fb": {
+      "id": "myswitzerland:d8b48c44a2704e6a9ca6dc3ada28e184",
+      "sourceDescriptionHash": "d203d4ec90fdaa3d62b877b13be9b9caeb30de994f5c65ebaff604d35a6e70fb",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Opernhaus; comune: Zürich; cantone: ZH; categoria: Music; data: 2027-03-13; ora: 19:00; prezzo: http://schema.org/InStock. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Opernhaus; comune: Zürich; cantone: ZH; categoria: Music; data: 2027-03-13; ora: 19:00; prezzo: http://schema.org/InStock. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Opernhaus; municipality: Zürich; canton: ZH; category: Music; date: 2027-03-13; time: 19:00; price: http://schema.org/InStock. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Opernhaus; gemeinde: Zürich; kanton: ZH; kategorie: Music; datum: 2027-03-13; uhrzeit: 19:00; preis: http://schema.org/InStock. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Opernhaus; commune: Zürich; canton: ZH; catégorie: Music; date: 2027-03-13; heure: 19:00; prix: http://schema.org/InStock. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-24T18:07:15.099Z"
+    },
     "myswitzerland:d8b9224f38154d699ff08cf9e69a586e::2dd287f7edaa301a100a266f97d5acd88b22b625b7d112156fa4d0dfdd6fc006": {
       "id": "myswitzerland:d8b9224f38154d699ff08cf9e69a586e",
       "sourceDescriptionHash": "2dd287f7edaa301a100a266f97d5acd88b22b625b7d112156fa4d0dfdd6fc006",
@@ -176094,15 +176108,6 @@
       "code": "sentence-count",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T04:26:36.447Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:d8b48c44a2704e6a9ca6dc3ada28e184::d203d4ec90fdaa3d62b877b13be9b9caeb30de994f5c65ebaff604d35a6e70fb": {
-      "id": "myswitzerland:d8b48c44a2704e6a9ca6dc3ada28e184",
-      "sourceDescriptionHash": "d203d4ec90fdaa3d62b877b13be9b9caeb30de994f5c65ebaff604d35a6e70fb",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T21:24:04.283Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
