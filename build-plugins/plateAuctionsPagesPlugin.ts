@@ -20,6 +20,7 @@ import { cleanNamespaces } from './shared/distNamespaceCleanup';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { buildPlateAuctionPath, allPlateAuctionCantonCodes, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
+import { paginationRobots } from './shared/paginationIndexPolicy';
 import { readPlateAuctionArchive, publicArchivedPlateAuction } from '../scripts/lib/plate-auction-archive.mjs';
 import { isRecoveredPlateObservation, recoveredPlateObservationNotice, PLATE_AUCTION_DETAIL_SEED_ID } from '../scripts/lib/plateAuctionSections.mjs';
 import { validatePlateAuctionSourcesRegistry } from '../services/plateAuctions/types';
@@ -495,7 +496,13 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   // with its locale siblings and with every other plate of the canton. The
   // hub, rankings, canton and directory pages stay indexable; a detail page
   // only while Search Console has shown it (see plateDetailIndexability()).
-  const robots = view === 'detail' && !detailIndexable ? 'noindex,follow' : 'index,follow';
+  // P1 noindex plan: deep pages of a canton listing (page 11+) stay 200 and
+  // crawlable but leave the index; see shared/paginationIndexPolicy.ts.
+  const robots = view === 'detail'
+    ? (detailIndexable ? 'index,follow' : 'noindex,follow')
+    : view === 'canton' && pageNumber
+      ? paginationRobots(pageNumber)
+      : 'index,follow';
   return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType, pageNumber), bodyHtml: staticBody, jsonLdScripts: [jsonLd, breadcrumbJsonLd], robots, distDir, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content plate-auction-static' }) };
 }
 
@@ -577,8 +584,9 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     }
     const sitemapUrls = LOCALES.flatMap((locale) => {
       const cantonPaths = allPlateAuctionCantonCodes().flatMap((code) => {
-        const pageCount = Math.ceil(publishedRowsFor(code, locale).length / PLATE_AUCTION_INDEX_PAGE_SIZE);
-        return [pathFor(locale, 'canton', code), ...(directoryCantons.has(code) ? [pathFor(locale, 'directory', code)] : []), ...Array.from({ length: Math.max(0, pageCount - 1) }, (_, index) => pathFor(locale, 'canton', code, undefined, undefined, index + 2))];
+        // Page 2+ of a canton listing is never advertised (paginationIndexPolicy):
+        // it stays reachable through the canton page's own pager.
+        return [pathFor(locale, 'canton', code), ...(directoryCantons.has(code) ? [pathFor(locale, 'directory', code)] : [])];
       });
       // A noindex detail stays 200 and linked from its directory page, but is
       // not advertised: a sitemap must only list indexable URLs.

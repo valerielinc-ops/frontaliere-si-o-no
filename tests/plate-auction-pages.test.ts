@@ -337,6 +337,17 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('noindex');
   });
 
+  it('keeps canton pages 2-10 indexable and ships page 11+ as noindex,follow (P1 pagination policy)', () => {
+    const rootDir = fixtureRoot();
+    const robotsOf = (page?: number) => renderPlateAuctionPage({ locale: 'it', view: 'canton', canton: 'GR', page, rootDir })
+      .html.match(/<meta[^>]*\bname=["']?robots["']?[^>]*\bcontent=["']?([^"'>]+)/i)?.[1]?.replace(/\s+/g, '');
+    expect(robotsOf()).not.toMatch(/noindex/);
+    expect(robotsOf(2)).not.toMatch(/noindex/);
+    expect(robotsOf(10)).not.toMatch(/noindex/);
+    expect(robotsOf(11)).toBe('noindex,follow');
+    expect(robotsOf(40)).toBe('noindex,follow');
+  });
+
   it('keeps a live row with an unparseable deadline consistent with the dynamic feed', () => {
     const rootDir = fixtureRoot();
     const snapshotPath = join(rootDir, 'public', 'data', 'plate-auctions.json');

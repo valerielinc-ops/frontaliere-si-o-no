@@ -53,6 +53,22 @@ export function publicHeroUrl(heroPath) {
   return m ? `${CDN_BLOG_BASE}/${m[1]}` : `${SITE_ORIGIN}${heroPath}`;
 }
 
+/**
+ * Every URL the hero size may be read from, in order: where the site serves
+ * it, then — for a non-blog hero served by the origin — the same path on the
+ * CDN. The origin answers 403 to GitHub-hosted runners for `/images/places/*`
+ * (Cloudflare bot rule; rerender run 40082618932: 11 heroes, 10 svizzera
+ * articles withheld), while the CDN mirror serves the same bytes to them.
+ * Only the size is read from the mirror; the page keeps the origin URL.
+ */
+export function heroMeasureUrls(heroPath) {
+  const primary = publicHeroUrl(heroPath);
+  // A full blog hero is already served FROM the CDN: it has no mirror.
+  if (FULL_BLOG_HERO_RX.test(String(heroPath))) return [primary];
+  const cdnOrigin = CDN_BLOG_BASE.replace(/\/images\/blog$/, '');
+  return [primary, `${cdnOrigin}${heroPath}`];
+}
+
 /** Read only the prefix needed by the intrinsic-size parser. */
 async function readResponsePrefix(res, maxBytes) {
   const body = res.body;
@@ -147,7 +163,15 @@ export async function probeRemoteHeroSizes(declaredImages, opts) {
     while (next < missing.length) {
       const heroPath = missing[next++];
       const url = publicHeroUrl(heroPath);
-      const result = await measureOne(url, { fetchImpl, timeoutMs });
+      let result = { ok: false, reason: 'not probed' };
+      const [primary, mirror] = heroMeasureUrls(heroPath);
+      result = await measureOne(primary, { fetchImpl, timeoutMs });
+      // Only the documented refusal (403 to the runner) falls back to the
+      // mirror. A 404, a timeout or an unparsable header stays terminal: a
+      // leftover CDN copy must never vouch for a hero the page cannot serve.
+      if (!result.ok && mirror && result.reason === 'HTTP 403') {
+        result = await measureOne(mirror, { fetchImpl, timeoutMs });
+      }
       if (result.ok) sizes[heroPath] = result.size;
       else failed.push({ path: heroPath, url, reason: result.reason });
     }

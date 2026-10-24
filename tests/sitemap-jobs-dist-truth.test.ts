@@ -372,6 +372,90 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     }
   });
 
+  it('removes shard copies of sitemap-jobs.xml entries on a cache-hit path, keeping the legacy file and the allowlist intact', async () => {
+    // Reproduces the cache-hit reconciliation with a shard restored from a
+    // pre-dedupe artifact: the IT detail is listed BOTH in sitemap-jobs.xml and
+    // in the canton shard (22,384 such URLs live on 2026-10-24). The shard copy
+    // goes; the legacy entry and the locale variant it annotates stay.
+    const itDetail = `${BASE}/cerca-lavoro-zurigo/cache-hit-detail/`;
+    const deDetail = `${BASE}/de/jobs-in-zurich/cache-hit-detail/`;
+    const cantonRoot = `${BASE}/cerca-lavoro-zurigo/`;
+    const legacyPath = path.join(dist, 'sitemap-jobs.xml');
+    const shardPath = path.join(dist, 'sitemap-jobs-zurigo.xml');
+    fs.writeFileSync(
+      legacyPath,
+      `<?xml version="1.0" encoding="UTF-8"?>\n` +
+        `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
+        `  <url><loc>${itDetail}</loc><xhtml:link rel="alternate" hreflang="de" href="${deDetail}" /><lastmod>2026-10-20</lastmod><priority>0.6</priority></url>\n` +
+        `</urlset>\n`,
+      'utf-8',
+    );
+    fs.writeFileSync(
+      shardPath,
+      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+        `${jobUrlBlock(itDetail)}\n${jobUrlBlock(deDetail)}\n  <url>\n    <loc>${cantonRoot}</loc>\n    <priority>0.7</priority>\n  </url>\n</urlset>\n`,
+      'utf-8',
+    );
+    for (const loc of [itDetail, deDetail, cantonRoot]) writePage(loc, selfCanonical(loc));
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      vi.resetModules();
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      const signals = await import('../build-plugins/shared/buildSignals');
+      signals.setActiveJobSitemapLocs(null); // cache hit: producer skipped
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      expect(shard.extractSitemapLocs(fs.readFileSync(legacyPath, 'utf-8'))).toEqual([itDetail]);
+      expect(fs.readFileSync(legacyPath, 'utf-8')).toContain('<lastmod>2026-10-20</lastmod>');
+      expect(shard.extractSitemapLocs(fs.readFileSync(shardPath, 'utf-8'))).toEqual([deDetail, cantonRoot]);
+      // The recovered allowlist still knows the job, so the de variant is not
+      // mistaken for a stale detail on the next pass either.
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      expect(shard.extractSitemapLocs(fs.readFileSync(shardPath, 'utf-8'))).toEqual([deDetail, cantonRoot]);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      const signals = await import('../build-plugins/shared/buildSignals');
+      signals.setActiveJobSitemapLocs(null);
+    }
+  });
+
+  it('keeps EN/DE/FR variants that the IT-only link registry does not know (BUILD_LOCALE=it)', async () => {
+    const itDetail = `${BASE}/cerca-lavoro-zurigo/variant-detail/`;
+    const deDetail = `${BASE}/de/jobs-in-zurich/variant-detail/`;
+    const shardPath = path.join(dist, 'sitemap-jobs-zurigo-de.xml');
+    fs.writeFileSync(shardPath, wrapJobUrls([deDetail]), 'utf-8');
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      vi.resetModules();
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      const signals = await import('../build-plugins/shared/buildSignals');
+      // What jobsSeoPagesPlugin publishes on the IT leg since #14380: links
+      // limited to IT, sitemap allowlist for every locale.
+      signals.setActiveJobSitemapLocs(new Set([itDetail]));
+      signals.setJobSitemapAllowlist(new Set([itDetail, deDetail]));
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      expect(shard.extractSitemapLocs(fs.readFileSync(shardPath, 'utf-8'))).toEqual([deDetail]);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      const signals = await import('../build-plugins/shared/buildSignals');
+      signals.setActiveJobSitemapLocs(null);
+      signals.setJobSitemapAllowlist(null);
+    }
+  });
+
+  it('removes a shard that only repeated sitemap-jobs.xml entries', async () => {
+    const shardPath = path.join(dist, 'sitemap-jobs-ticino.xml');
+    fs.writeFileSync(shardPath, wrapJobUrls([HEALTHY]), 'utf-8');
+    await reconcileSitemapJobsWithDist(dist, []);
+    expect(fs.existsSync(shardPath)).toBe(false);
+    expect(readSitemap()).toContain(HEALTHY);
+  });
+
   it('runs the final dist-truth gate for both dynamic sitemap families', async () => {
     const cluster = `${BASE}/fr/trouver-emploi-suisse/recherche-stale/`;
     const clusterPath = path.join(dist, 'sitemap-search-clusters-001.xml');

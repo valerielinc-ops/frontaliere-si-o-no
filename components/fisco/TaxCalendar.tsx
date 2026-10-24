@@ -3,7 +3,8 @@ import { Calendar, AlertTriangle, CheckCircle2, Bell, ChevronDown, ChevronLeft, 
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { useTranslation } from '@/services/i18n';
-import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
+import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness, signInWithLinkedIn } from '@/services/authService';
+import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { SegmentControl } from '@/components/shared/SegmentControl';
 import Callout from '@/components/shared/Callout';
@@ -342,13 +343,12 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  const [reminderSignupEmail, setReminderSignupEmail] = useState<string>('');
  const [reminderSignupError, setReminderSignupError] = useState<string>('');
  const [reminderGoogleButtonReady, setReminderGoogleButtonReady] = useState<boolean>(false);
- const [linkedInAvailable, setLinkedInAvailable] = useState(false);
+ const linkedInAvailable = useLinkedInSignInAvailable();
  const googleReminderButtonRef = useRef<HTMLDivElement>(null);
  const reminderGoogleBridgeInFlightRef = useRef(false);
  const [completedIds, setCompletedIds] = useState<string[]>([]);
  const [checklistNotice, setChecklistNotice] = useState<string | null>(null);
 
- useEffect(() => { isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {}); }, []);
 
  const today = new Date();
  const todayStr = today.toISOString().split('T')[0];
@@ -900,7 +900,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div className="text-xs font-semibold text-warning">
  Attiva i reminder iscrivendoti: salviamo la preferenza e misuriamo questo funnel.
  </div>
- <div className={`grid grid-cols-1 gap-2 ${linkedInAvailable ? 'sm:grid-cols-2' : ''}`}>
+ <div className={`grid grid-cols-1 gap-2 ${linkedInAvailable !== false ? 'sm:grid-cols-2' : ''}`}>
  <div className="space-y-2">
  <div
    ref={googleReminderButtonRef}
@@ -925,8 +925,8 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  )}
  </div>
  {/* LinkedIn Sign-In Button (conditional on Remote Config) */}
- {linkedInAvailable && (
- <div className="space-y-2">
+ {linkedInAvailable !== false && (
+ <div className={`space-y-2${linkedInPendingClass(linkedInAvailable)}`}>
  <button
  type="button"
  onClick={() => { void signInWithLinkedIn(); }}

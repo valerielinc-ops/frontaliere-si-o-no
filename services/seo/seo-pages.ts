@@ -7013,11 +7013,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'vacanze-scolastiche-ticino-2026': {
- title: 'Calendario Scolastico Ticino 2026-2027: Vacanze e Date DECS',
+ title: 'Calendario scolastico Ticino 2026/27: vacanze 2027 DECS',
  h1: 'Vacanze scolastiche Ticino 2026-2027 — calendario ufficiale DECS, ferie, carnevale, estate',
- description: 'Calendario scolastico Ticino 2026-2027: date ufficiali DECS, inizio e fine scuola, vacanze di Carnevale, Pasqua, estate, autunno e Natale.',
+ description: 'Vacanze scolastiche Ticino 2026/27 (DECS): Natale 24.12–6.1, Carnevale 6–14 febbraio 2027, Pasqua 26.3–4.4.2027, fine scuola mercoledì 16 giugno 2027.',
  keywords: 'calendario scolastico ticino 2026, calendario scolastico ticino 2026/27, calendario scolastico ticino 2027, vacanze scolastiche ticino 2026, vacanze scolastiche ticino 2027, fine scuola ticino 2026, DECS ticino, carnevale ticino 2027, estate scuole ticino, vacanze pasqua ticino',
- ogTitle: 'Calendario Scolastico Ticino 2026-2027: Vacanze e Date DECS',
+ ogTitle: 'Calendario scolastico Ticino 2026/27: vacanze 2027 DECS',
  ogDescription: 'Date ufficiali DECS: inizio e fine scuola, vacanze di Carnevale, Pasqua, estate, autunno e Natale per famiglie frontaliere.',
  canonicalPath: '/vita-in-ticino/vacanze-scolastiche-ticino-2026/',
  structuredData: [
@@ -7049,6 +7049,108 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ]
  },
 
+ schoolHolidays2026En: {
+ title: 'Ticino school calendar 2026/27: holidays and DECS dates',
+ h1: 'Ticino school holidays 2026/27 — official DECS calendar',
+ description: 'Ticino school holidays 2026/27 (DECS): Christmas 24.12–6.1, Carnival 6–14 February 2027, Easter 26.3–4.4.2027, last day of school Wednesday 16 June 2027.',
+ keywords: 'ticino school calendar 2026/27, ticino school holidays 2026, ticino school holidays 2027, DECS school calendar, carnival holidays ticino 2027, easter holidays ticino 2027, cross-border families ticino',
+ ogTitle: 'Ticino school calendar 2026/27: holidays and DECS dates',
+ ogDescription: 'Official DECS dates for Canton Ticino schools: first and last day, autumn, Christmas, Carnival and Easter holidays for cross-border families.',
+ canonicalPath: '/en/living-in-ticino/school-holidays-ticino-2026/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": 'Ticino school holidays 2026/27: official DECS calendar',
+ "description": 'Official 2026/27 school holiday calendar for Canton Ticino published by the DECS: autumn, Christmas, Carnival, Easter and summer.',
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "dateModified": "2026-10-24",
+ "inLanguage": "en",
+ "isBasedOn": "https://www4.ti.ch/fileadmin/DECS/calendario_scolastico/Calendario_scolastico_2026_2027.pdf",
+ "mainEntityOfPage": `${BASE_URL}/en/living-in-ticino/school-holidays-ticino-2026/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+ { "@type": "Question", "name": 'When does school start in Ticino in 2026?', "acceptedAnswer": { "@type": "Answer", "text": 'In the 2026/27 school year lessons in all Canton Ticino schools start on Monday 31 August 2026, according to the official DECS calendar.' } },
+ { "@type": "Question", "name": 'When does school end in Ticino in 2027?', "acceptedAnswer": { "@type": "Answer", "text": 'The 2026/27 school year ends on Wednesday 16 June 2027; summer holidays start on Thursday 17 June 2027.' } },
+ { "@type": "Question", "name": 'When are the 2027 Carnival holidays in Ticino?', "acceptedAnswer": { "@type": "Answer", "text": 'Carnival holidays run from Saturday 6 to Sunday 14 February 2027; Easter holidays from Friday 26 March to Sunday 4 April 2027.' } }
+ ]
+ }
+ ]
+ },
+ schoolHolidays2026De: {
+ title: 'Schulkalender Tessin 2026/27: Schulferien und DECS-Daten',
+ h1: 'Schulferien Tessin 2026/27 — offizieller DECS-Kalender',
+ description: 'Schulferien Tessin 2026/27 (DECS): Weihnachten 24.12.–6.1., Fasnacht 6.–14. Februar 2027, Ostern 26.3.–4.4.2027, letzter Schultag Mittwoch, 16. Juni 2027.',
+ keywords: 'Schulkalender Tessin 2026/27, Schulferien Tessin 2026, Schulferien Tessin 2027, DECS Schulkalender, Fasnachtsferien Tessin 2027, Osterferien Tessin 2027, Grenzgänger Familien Tessin',
+ ogTitle: 'Schulkalender Tessin 2026/27: Schulferien und DECS-Daten',
+ ogDescription: 'Offizielle DECS-Daten für die Schulen im Kanton Tessin: Schulbeginn, Schulende, Herbst-, Weihnachts-, Fasnachts- und Osterferien für Grenzgängerfamilien.',
+ canonicalPath: '/de/leben-im-tessin/schulferien-tessin-2026/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": 'Schulferien Tessin 2026/27: offizieller DECS-Kalender',
+ "description": 'Offizieller Schulferienkalender 2026/27 des Kantons Tessin, veröffentlicht vom DECS: Herbst, Weihnachten, Fasnacht, Ostern und Sommer.',
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "dateModified": "2026-10-24",
+ "inLanguage": "de",
+ "isBasedOn": "https://www4.ti.ch/fileadmin/DECS/calendario_scolastico/Calendario_scolastico_2026_2027.pdf",
+ "mainEntityOfPage": `${BASE_URL}/de/leben-im-tessin/schulferien-tessin-2026/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "de",
+ "mainEntity": [
+ { "@type": "Question", "name": 'Wann beginnt die Schule im Tessin 2026?', "acceptedAnswer": { "@type": "Answer", "text": 'Im Schuljahr 2026/27 beginnt der Unterricht an allen Schulen des Kantons Tessin am Montag, 31. August 2026, gemäss offiziellem DECS-Kalender.' } },
+ { "@type": "Question", "name": 'Wann endet die Schule im Tessin 2027?', "acceptedAnswer": { "@type": "Answer", "text": 'Das Schuljahr 2026/27 endet am Mittwoch, 16. Juni 2027; die Sommerferien beginnen am Donnerstag, 17. Juni 2027.' } },
+ { "@type": "Question", "name": 'Wann sind die Fasnachtsferien 2027 im Tessin?', "acceptedAnswer": { "@type": "Answer", "text": 'Die Fasnachtsferien dauern von Samstag, 6. bis Sonntag, 14. Februar 2027; die Osterferien von Freitag, 26. März bis Sonntag, 4. April 2027.' } }
+ ]
+ }
+ ]
+ },
+ schoolHolidays2026Fr: {
+ title: 'Calendrier scolaire Tessin 2026/27 : vacances et dates DECS',
+ h1: 'Vacances scolaires Tessin 2026/27 — calendrier officiel du DECS',
+ description: 'Vacances scolaires Tessin 2026/27 (DECS) : Noël 24.12–6.1, Carnaval 6–14 février 2027, Pâques 26.3–4.4.2027, dernier jour d’école mercredi 16 juin 2027.',
+ keywords: 'calendrier scolaire Tessin 2026/27, vacances scolaires Tessin 2026, vacances scolaires Tessin 2027, calendrier scolaire DECS, vacances de Carnaval Tessin 2027, vacances de Pâques Tessin 2027, familles frontalières Tessin',
+ ogTitle: 'Calendrier scolaire Tessin 2026/27 : vacances et dates DECS',
+ ogDescription: 'Dates officielles du DECS pour les écoles du Canton du Tessin : rentrée, fin d’année, vacances d’automne, de Noël, de Carnaval et de Pâques pour les familles frontalières.',
+ canonicalPath: '/fr/vivre-au-tessin/vacances-scolaires-tessin-2026/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": 'Vacances scolaires Tessin 2026/27 : calendrier officiel du DECS',
+ "description": 'Calendrier officiel des vacances scolaires 2026/27 du Canton du Tessin publié par le DECS : automne, Noël, Carnaval, Pâques et été.',
+ "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "dateModified": "2026-10-24",
+ "inLanguage": "fr",
+ "isBasedOn": "https://www4.ti.ch/fileadmin/DECS/calendario_scolastico/Calendario_scolastico_2026_2027.pdf",
+ "mainEntityOfPage": `${BASE_URL}/fr/vivre-au-tessin/vacances-scolaires-tessin-2026/`,
+ "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "fr",
+ "mainEntity": [
+ { "@type": "Question", "name": 'Quand commence l’école au Tessin en 2026 ?', "acceptedAnswer": { "@type": "Answer", "text": 'Pour l’année scolaire 2026/27, les cours commencent le lundi 31 août 2026 dans toutes les écoles du Canton du Tessin, selon le calendrier officiel du DECS.' } },
+ { "@type": "Question", "name": 'Quand finit l’école au Tessin en 2027 ?', "acceptedAnswer": { "@type": "Answer", "text": 'L’année scolaire 2026/27 se termine le mercredi 16 juin 2027 ; les vacances d’été commencent le jeudi 17 juin 2027.' } },
+ { "@type": "Question", "name": 'Quand sont les vacances de Carnaval 2027 au Tessin ?', "acceptedAnswer": { "@type": "Answer", "text": 'Les vacances de Carnaval vont du samedi 6 au dimanche 14 février 2027 ; celles de Pâques du vendredi 26 mars au dimanche 4 avril 2027.' } }
+ ]
+ }
+ ]
+ },
  // ── Sprint 2 pillar pages ─────────────────────────────────────
  pillarTasseSvizzere: {
  title: 'Tasse svizzere frontalieri 2026: aliquote e credito',

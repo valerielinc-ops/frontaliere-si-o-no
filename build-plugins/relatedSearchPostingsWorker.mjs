@@ -1,9 +1,11 @@
 /**
  * Worker for relatedSearchClustersPlugin's postings pre-pass.
  *
- * Each instance owns ONE locale. It receives the full jobs array + the set
- * of tokens that will be queried during `build-contexts`. For that locale
- * it:
+ * Each instance owns ONE locale. It receives the jobs projected for that
+ * locale (projectJobsForLocaleHaystack: the resolved title/description plus
+ * company/location/cantonSearch, same order as the plugin's `jobs`, never the
+ * by-locale maps of the other locales — issue #12763) + the set of tokens that
+ * will be queried during `build-contexts`. For that locale it:
  *   1. builds the per-locale haystack array (mirror of TokenIndex.getHaystacks),
  *   2. builds the 2/3-gram inverted index (mirror of getGramPostings),
  *   3. for each requested token, resolves the posting list via the same
