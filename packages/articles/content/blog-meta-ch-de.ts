@@ -8609,6 +8609,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prezzi-pompa-non-calano-svizzera.title': 'Schweizer Benzinpreise sinken nicht: Raffinerie und Rhein',
     'blog.article.prezzi-pompa-non-calano-svizzera.excerpt': 'Die Zuflüsse aus Hormus liegen weiterhin 30-40% niedriger.',
     'blog.article.prezzi-pompa-non-calano-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.successione-parmelin-otto-nomi.title': 'Bundesrat: Für Parmelins Nachfolge sind acht Namen im Rennen',
+    'blog.article.successione-parmelin-otto-nomi.excerpt': 'Das Rennen um Parmelins Nachfolge umfasst acht Namen Graber und Ruppen stellen sich in Bern vor Die kantonalen Kandidaturen laufen am Freitagmittag ab Die Abstimmung ist',
+    'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

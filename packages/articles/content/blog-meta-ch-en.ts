@@ -8609,6 +8609,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzi-pompa-non-calano-svizzera.title': 'Pump prices are not falling in Switzerland: refining constraints and the Rhine',
     'blog.article.prezzi-pompa-non-calano-svizzera.excerpt': 'Flows from Hormuz remain 30-40% lower.',
     'blog.article.prezzi-pompa-non-calano-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.successione-parmelin-otto-nomi.title': 'Federal Council: Parmelin among eight names in the running',
+    'blog.article.successione-parmelin-otto-nomi.excerpt': 'The race to succeed Parmelin has reached eight names Graber and Ruppen put themselves forward in Bern Cantonal candidacies close on Friday at noon The vote is',
+    'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
