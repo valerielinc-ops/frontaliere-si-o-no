@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 826,
+      "5": 828,
       "6": 5054
     },
-    "publishedCovers": 7563,
+    "publishedCovers": 7565,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207965,6 +207965,72 @@
         "provider": "openai-codex",
         "assetId": "article-stadtfonds-steuerfuss-wil",
         "imageUrl": "/images/blog/article-stadtfonds-steuerfuss-wil.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bollettino-frontaliere-2026-10-24": {
+      "cover": "/images/blog/article-bollettino-frontaliere-2026-10-24.webp",
+      "hash": "7d211b3a62540f26858af92f4c8f73cf60d3e3b38d566646675d96b573438cda",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-10-24",
+          "category": "novita",
+          "date": "2026-10-24T09:37:11.642Z",
+          "updatedAt": null,
+          "authorSlug": "samuele-valente"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-10-24.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bollettino-frontaliere-2026-10-24",
+        "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-10-24.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lotteriefonds-89-progetti-cantone": {
+      "cover": "/images/blog/article-lotteriefonds-89-progetti-cantone.webp",
+      "hash": "f0f93e3e62ec6a9a700d3798bc66cd34fa07cffce4b7d3d9ce1f68907214a4cf",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "lotteriefonds-89-progetti-cantone",
+          "category": "novita",
+          "date": "2026-10-24T10:01:50.012Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lotteriefonds-89-progetti-cantone.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lotteriefonds-89-progetti-cantone",
+        "imageUrl": "/images/blog/article-lotteriefonds-89-progetti-cantone.webp",
         "evidence": "generated-engine-record"
       }
     }

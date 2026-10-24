@@ -580,12 +580,12 @@
     },
     {
       "id": "planzer-0d8c4af378aa",
-      "slug": "collaboratore-trice-sortierung-m-w-d-planzer-villmergen",
+      "slug": "addetto-a-alla-cernita-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "mitarbeiter-sortierung-m-w-d-planzer-villmergen",
-        "it": "collaboratore-trice-sortierung-m-w-d-planzer-villmergen",
-        "en": "mitarbeiter-sortierung-m-w-d-planzer-villmergen",
-        "fr": "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
+        "it": "addetto-a-alla-cernita-m-f-d-planzer-villmergen",
+        "en": "employee-sorting-m-f-d-planzer-villmergen",
+        "fr": "tri-de-l-employe-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -634,11 +634,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-sortierung-m-w-d-planzer-villmergen",
+          "collaboratore-trice-sortierung-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
           "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
+        "mitarbeiter-sortierung-m-w-d-planzer-villmergen",
+        "collaboratore-trice-sortierung-m-w-d-planzer-villmergen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -661,8 +669,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-lager-m-w-d-planzer-zurich",
         "it": "collaboratore-trice-magazzino-m-w-d-planzer-zurich",
-        "en": "mitarbeiter-lager-m-w-d-planzer-zurich",
-        "fr": "mitarbeiter-lager-m-w-d-planzer-zurich"
+        "en": "employee-camp-m-f-d-planzer-zurich",
+        "fr": "camp-des-employes-h-f-d-planzer-zurich"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -712,6 +720,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-lager-m-w-d-planzer-zurich"
+        ],
+        "en": [
+          "mitarbeiter-lager-m-w-d-planzer-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-lager-m-w-d-planzer-zurich"
         ]
       },
       "previousSlugs": [
@@ -733,12 +747,12 @@
     },
     {
       "id": "planzer-e2e0d47d2f64",
-      "slug": "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach",
+      "slug": "trasporto-medico-del-pil-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach",
-        "it": "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach",
-        "en": "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach",
-        "fr": "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
+        "it": "trasporto-medico-del-pil-m-f-d-planzer-kallnach",
+        "en": "disponent-gdp-medical-transport-m-f-d-planzer-kallnach",
+        "fr": "detenteur-du-pib-transport-medical-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -797,7 +811,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
+      ]
     },
     {
       "id": "planzer-749a013b7e8d",

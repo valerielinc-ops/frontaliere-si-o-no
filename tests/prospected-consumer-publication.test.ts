@@ -19,6 +19,13 @@ vi.mock('../scripts/lib/prospector/spec-crawler.mjs', async (importOriginal) => 
       platform: 'custom', mode: 'jsonld', sourceLang: 'de',
       seedUrls: ['https://jobs.example.test/jobs'], detailEnrichment: true,
       detailFetchWorkers: 1,
+      ...(companyKey === 'brefispersonal' ? {
+        pagination: {
+          maxPages: 10,
+          declaredTotalPattern: "Offene\\s+Stellen(?:\\s|&nbsp;|<[^>]+>)*([\\d'’.,]+)",
+          minCoverage: 0.95,
+        },
+      } : {}),
     }),
     runSpecInProduction: async (spec: Parameters<typeof actual.runSpecInProduction>[0]) => {
       const rows = await actual.runSpecInProduction(spec, {
@@ -42,7 +49,8 @@ vi.mock('../scripts/lib/prospector/spec-crawler.mjs', async (importOriginal) => 
             } },
             ...(fixture.datePosted === undefined ? {} : { datePosted: fixture.datePosted }),
           };
-          return new Response(`<html><body><script type="application/ld+json">${JSON.stringify(posting)}</script><h1>${posting.title}</h1><p>${fixture.body}</p></body></html>`, {
+          const declaredTotal = spec.companyKey === 'brefispersonal' ? '<p>Offene Stellen 1</p>' : '';
+          return new Response(`<html><body>${declaredTotal}<script type="application/ld+json">${JSON.stringify(posting)}</script><h1>${posting.title}</h1><p>${fixture.body}</p></body></html>`, {
             headers: { 'content-type': 'text/html' },
           });
         },

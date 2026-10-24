@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+/**
+ * @manual-tool — recovery one-shot con autorizzazione esplicita del proprietario;
+ * non è un gate da eseguire automaticamente in CI.
+ */
+
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 const USAGE = 'node scripts/assisted-application/owner-takeover-relaunch-check.mjs --order <id> --authorized-order <same-id>';
