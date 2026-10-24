@@ -1099,6 +1099,73 @@ function hreflang(descriptor: PageDescriptor): string {
   return [...LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}" href="${esc(`${BASE_URL}${buildPharmacyPath(descriptorPath(descriptor, locale), locale)}`)}" />`), `<link rel="alternate" hreflang="x-default" href="${esc(`${BASE_URL}${buildPharmacyPath(descriptorPath(descriptor, 'it'), 'it')}`)}" />`].join('\n');
 }
 
+type PageEligibility = {
+  wordCount: number;
+  releaseReady: boolean;
+  indexable: boolean;
+};
+
+function pageEligibility(
+  descriptor: PageDescriptor,
+  locale: Locale,
+  body: string,
+  dataset: PharmacyDutiesDataset,
+  now: Date,
+): PageEligibility {
+  const wordCount = countHtmlBodyWords(body);
+  // City duty URLs are useful navigation aliases, but their body repeats the
+  // regional OFCT schedule. Keep them crawlable for users without creating
+  // duplicate indexable pages or an ItemList with a different visible scope.
+  const dutyWeek = descriptor.kind === 'duty-week' && descriptor.country !== 'IT' ? dutyWeekModel(descriptor, dataset, now) : null;
+  const italyDutyWeek = descriptor.kind === 'duty-hub' && descriptor.country === 'IT'
+    ? italyDutyWeekModel(undefined, now)
+    : descriptor.kind === 'duty-week' && descriptor.country === 'IT'
+      ? italyDutyWeekModel(descriptor.weekStart, now)
+      : descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week'
+    ? italyDutyWeekModel(descriptor.weekStart, now)
+    : null;
+  const dutyCoverage = descriptor.kind === 'duty-hub' && descriptor.country !== 'IT'
+    ? buildDutyCoverageMatrix({ locale, duties: dataset, catalogue: completeTicinoSnapshot, now })
+    : null;
+  const italyDutyDescriptor = (descriptor.kind === 'duty-hub' && descriptor.country === 'IT')
+    || (descriptor.kind === 'duty-week' && descriptor.country === 'IT')
+    || descriptor.kind === 'italy-duty-hub'
+    || descriptor.kind === 'italy-duty-week';
+  const historicalWeek = descriptor.kind === 'duty-week' && descriptor.country !== 'IT' && isClosedDutyWeek(descriptor.weekStart || '', now);
+  const releaseReady = historicalWeek ? false : descriptor.kind === 'duty-week' && descriptor.country !== 'IT'
+    ? Boolean(dutyWeek?.indexable)
+    : italyDutyDescriptor
+      ? Boolean(italyDutyWeek?.indexable)
+      : descriptor.kind === 'duty-hub'
+        ? Boolean(dutyCoverage?.releaseReady)
+        : true;
+  const indexable = releaseReady && descriptor.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;
+  return { wordCount, releaseReady, indexable };
+}
+
+function renderPageBody(
+  descriptor: PageDescriptor,
+  locale: Locale,
+  dataset: PharmacyDutiesDataset,
+  now: Date,
+  emittedPaths: ReadonlySet<string>,
+): string {
+  const title = pageTitle(descriptor.kind, locale, descriptor);
+  const emittedTitle = shellTitle(descriptor, locale);
+  const detailH1 = descriptor.kind === 'pharmacy' && descriptor.pharmacy ? descriptor.pharmacy.name : title;
+  return renderBody(descriptor, locale, differentiateH1FromTitle(detailH1, emittedTitle, locale), dataset, now, emittedPaths);
+}
+
+function buildPageEligibility(
+  descriptor: PageDescriptor,
+  locale: Locale,
+  dataset: PharmacyDutiesDataset,
+  now: Date,
+  emittedPaths: ReadonlySet<string>,
+): PageEligibility {
+  return pageEligibility(descriptor, locale, renderPageBody(descriptor, locale, dataset, now, emittedPaths), dataset, now);
+}
+
 function descriptors(now: Date = pharmacyBuildNow()): PageDescriptor[] {
   return [
     { kind: 'hub' },
@@ -1133,33 +1200,8 @@ function buildPage(
   const emittedTitle = shellTitle(descriptor, locale);
   const detailH1 = descriptor.kind === 'pharmacy' && descriptor.pharmacy ? descriptor.pharmacy.name : title;
   const body = renderBody(descriptor, locale, differentiateH1FromTitle(detailH1, emittedTitle, locale), dataset, now, emittedPaths);
-  const wordCount = countHtmlBodyWords(body);
-  // City duty URLs are useful navigation aliases, but their body repeats the
-  // regional OFCT schedule. Keep them crawlable for users without creating
-  // duplicate indexable pages or an ItemList with a different visible scope.
-  const dutyWeek = descriptor.kind === 'duty-week' && descriptor.country !== 'IT' ? dutyWeekModel(descriptor, dataset, now) : null;
-  const italyDutyWeek = descriptor.kind === 'duty-hub' && descriptor.country === 'IT'
-    ? italyDutyWeekModel(undefined, now)
-    : descriptor.kind === 'duty-week' && descriptor.country === 'IT'
-      ? italyDutyWeekModel(descriptor.weekStart, now)
-      : descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week'
-    ? italyDutyWeekModel(descriptor.weekStart, now)
-    : null;
-  const dutyCoverage = descriptor.kind === 'duty-hub' && descriptor.country !== 'IT'
-    ? buildDutyCoverageMatrix({ locale, duties: dataset, catalogue: completeTicinoSnapshot, now })
-    : null;
-  const italyDutyDescriptor = (descriptor.kind === 'duty-hub' && descriptor.country === 'IT')
-    || (descriptor.kind === 'duty-week' && descriptor.country === 'IT')
-    || descriptor.kind === 'italy-duty-hub'
-    || descriptor.kind === 'italy-duty-week';
-  const historicalWeek = descriptor.kind === 'duty-week' && descriptor.country !== 'IT' && isClosedDutyWeek(descriptor.weekStart || '', now);
-  const indexable = historicalWeek ? false : descriptor.kind === 'duty-week' && descriptor.country !== 'IT'
-    ? Boolean(dutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
-    : italyDutyDescriptor
-      ? Boolean(italyDutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
-      : descriptor.kind === 'duty-hub'
-        ? Boolean(dutyCoverage?.releaseReady && wordCount >= MIN_INDEXABLE_WORDS)
-    : descriptor.kind !== 'duty-city' && wordCount >= MIN_INDEXABLE_WORDS;
+  const eligibility = pageEligibility(descriptor, locale, body, dataset, now);
+  const { wordCount, indexable } = eligibility;
   const pathValue = descriptorPath(descriptor, locale);
   const description = pageDescription(descriptor, locale);
   const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable, contentHtml: body })}`;
@@ -1192,7 +1234,41 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         emittedPathsByLocale.set(locale, emittedPaths);
       }
       let excludedNoindexRoutes = 0;
+      // The Italian shard owns the shared sitemap, but indexability is a
+      // per-locale decision: translated body word counts and locale-specific
+      // release models can differ. Build the small eligibility map before the
+      // render loop so skipped locales are not admitted using Italian's result.
+      const sitemapEligibilityByLocale = new Map<Locale, ReadonlyMap<PageDescriptor, PageEligibility>>();
+      if (shouldEmitLocale('it')) {
+        for (const locale of LOCALES) {
+          if (shouldEmitLocale(locale)) continue;
+          const eligibility = new Map<PageDescriptor, PageEligibility>();
+          for (const descriptor of allDescriptors) {
+            eligibility.set(descriptor, buildPageEligibility(
+              descriptor,
+              locale,
+              dutiesDataset,
+              buildNow,
+              emittedPathsByLocale.get(locale)!,
+            ));
+          }
+          sitemapEligibilityByLocale.set(locale, eligibility);
+        }
+      }
       for (const locale of LOCALES) {
+        if (!shouldEmitLocale(locale)) {
+          const eligibility = sitemapEligibilityByLocale.get(locale);
+          if (eligibility) {
+            for (const descriptor of allDescriptors) {
+              if (eligibility.get(descriptor)?.indexable) {
+                urls.push(buildPharmacyPath(descriptorPath(descriptor, locale), locale));
+              } else {
+                excludedNoindexRoutes += 1;
+              }
+            }
+          }
+          continue;
+        }
         for (const descriptor of allDescriptors) {
           const built = buildPage(descriptor, locale, distDir, dutiesDataset, buildNow, emittedPathsByLocale.get(locale)!);
           collector.add(path.join(distDir, `${built.path.replace(/^\/+/, '').replace(/\/+$/, '')}/index.html`), built.html);
