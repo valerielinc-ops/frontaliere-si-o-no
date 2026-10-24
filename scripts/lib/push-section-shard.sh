@@ -91,7 +91,11 @@ if [ -z "$section" ] || [ -z "$loc" ] || [ -z "$dist_dir" ]; then
   exit 1
 fi
 
-repo_root="$(pwd)"  # captured before any cd — used to locate the offload script + slugs json
+# Resolve repository-owned inputs from this script, not from the caller's cwd.
+# The caller normally starts in the checkout, but recovery/maintenance paths
+# can invoke this publisher from elsewhere.
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd -- "$script_dir/../.." && pwd)"
 slugs_json="$repo_root/scripts/lib/section-shard-slugs.json"
 SHARD_PUSH_MODE="${SHARD_PUSH_MODE:-full}"
 case "$SHARD_PUSH_MODE" in
@@ -144,8 +148,20 @@ fi
 SECTION_UPPER="$(echo "$section" | tr a-z A-Z)"
 ORIGIN_HOST="origin-$section-$loc.frontaliereticino.ch"
 owners_json="$repo_root/scripts/lib/section-shard-owners.json"
-SHARD_OWNER="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' "$owners_json" 2>/dev/null || echo valerielinc-ops)"
-if [ -z "$SHARD_OWNER" ] || [ "$SHARD_OWNER" = "null" ]; then SHARD_OWNER="valerielinc-ops"; fi
+if [ ! -r "$owners_json" ]; then
+  echo "::error::cannot resolve section shard owner: missing or unreadable $owners_json" >&2
+  exit 1
+fi
+if ! SHARD_OWNER="$(jq -er --arg s "$section" '
+  if has($s) then
+    .[$s] | select(type == "string" and length > 0)
+  else
+    "valerielinc-ops"
+  end
+' "$owners_json" 2>/dev/null)"; then
+  echo "::error::cannot resolve section shard owner for '$section' from $owners_json" >&2
+  exit 1
+fi
 SHARD_REPO="${SHARD_REPO_OVERRIDE:-git@github.com:$SHARD_OWNER/frontaliere-$section-$loc.git}"
 CDN_BASE_FIXED="https://cdn.frontaliereticino.ch"
 

@@ -26,7 +26,7 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
-import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
@@ -279,6 +279,39 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
   }
   return outcome || { ok: false, ignored: 'unknown' };
+}
+
+/**
+ * Run one explicitly authorised owner-takeover relaunch.
+ *
+ * The command path must name the same order twice: once as the target and
+ * once as the owner-approved order. There is deliberately no list or
+ * first-match fallback here. The state machine then performs the authoritative
+ * checks for the current flow, draft round and candidate-approved submit
+ * dispatch, and commits at most this one owner_retry_submit transition.
+ */
+export async function relaunchAuthorizedOwnerTakeover({
+  db,
+  orderId,
+  authorizedOrderId,
+  runEffect,
+  nowMs = Date.now(),
+} = {}) {
+  const target = String(orderId || '').trim();
+  const authorized = String(authorizedOrderId || '').trim();
+  if (!ASSISTED_APPLICATION_ORDER_ID_RE.test(target) || target !== authorized) {
+    return { ok: false, ignored: 'order_not_authorized' };
+  }
+  if (typeof runEffect !== 'function') return { ok: false, ignored: 'run_effect_missing' };
+
+  return applyAutomationEvent({
+    db,
+    orderId: target,
+    event: { type: 'owner_retry_submit' },
+    actor: 'owner-takeover-relaunch',
+    runEffect,
+    nowMs,
+  });
 }
 
 // ── Start ──────────────────────────────────────────────────────────────────

@@ -31,7 +31,7 @@ describe('pr-autorebase — conflitto dopo LGTM affidato a issue-fix (#9260)', (
     expect(conflictHandoffMarker('b'.repeat(40))).not.toBe(conflictHandoffMarker(HEAD));
   });
 
-  it('la issue porta PR, branch, HEAD e file, con un titolo stabile e senza keyword di chiusura sulla PR', () => {
+  it('la issue porta PR, branch, HEAD e file, con un titolo stabile e senza keyword di chiusura nel handoff', () => {
     const { title, body } = buildConflictHandoffIssue({
       num: 9260,
       branch: 'fix/issue-8931-bfs-depth-20260919',
@@ -43,9 +43,9 @@ describe('pr-autorebase — conflitto dopo LGTM affidato a issue-fix (#9260)', (
     expect(body).toContain('`685bcb730000`');
     expect(body).toContain('- `services/router.ts`');
     expect(body).toContain('Supersedes #9260');
-    // Una keyword di chiusura adiacente a #9260 chiuderebbe la PR vecchia al
-    // merge della nuova PR prima che qualcuno verifichi la sostituzione.
-    expect(body).not.toMatch(/\b(close[sd]?|fix(e[sd])?|resolve[sd]?)\s+#9260\b/i);
+    // Il testo dell'handoff non deve contenere keyword di chiusura: la nuova
+    // PR le ricava dal contesto verificato dal bridge, dopo la sostituzione.
+    expect(body).not.toMatch(/\b(?:closes?|fixes?|resolves?)\b/i);
   });
 
   it('rende visibile solo il fallimento di una rigenerazione effettivamente tentata', () => {
@@ -397,7 +397,7 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     expect(body).toContain('non avvia review');
     expect(body).toContain('Supersedes #10095');
     expect(body).not.toContain('aveva un `## LGTM`');
-    expect(body).not.toMatch(/\b(close[sd]?|fix(e[sd])?|resolve[sd]?)\s+#10095\b/i);
+    expect(body).not.toMatch(/\b(?:closes?|fixes?|resolves?)\b/i);
     // Il titolo con LGTM resta quello di prima: le issue già aperte si riusano.
     expect(buildConflictHandoffIssue({ num: 1, branch: 'b', head: HEAD, files: [] }).title)
       .toBe('Conflitto con main dopo LGTM: riapplicare la PR #1 su main');

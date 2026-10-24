@@ -5,6 +5,7 @@
  */
 
 export const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
+export const ASSISTED_APPLICATION_ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
 /** Server-only state and engagement records for pending-payment recovery digests. */
 export const ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION = 'assisted_application_payment_recovery';
 /** Portal accounts the runner creates on an order's alias: `{order}/automation/accounts` (scripts/assisted-application/lib/portal/account.mjs). */

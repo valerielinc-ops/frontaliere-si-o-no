@@ -15,6 +15,7 @@ const {
   isAutomationEnabled,
   isAutomationEnabledFor,
   maybeStartAutomation,
+  relaunchAuthorizedOwnerTakeover,
   parseAutomationFlag,
   runAutomationSweep,
   startAutomation,
@@ -151,6 +152,66 @@ describe('applying events', () => {
     expect(await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 })).toMatchObject({ ignored: 'already_applied' });
     expect(store.read(ref.path)).toMatchObject({ result: 'applied' });
     expect(effects.filter((effect) => effect.kind === 'candidate_review')).toHaveLength(1);
+  });
+
+  it('relaunches exactly one explicitly authorised approved owner-takeover round', async () => {
+    const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
+    await flowRef.set({
+      state: 'owner_takeover',
+      round: 1,
+      heldBy: ['portal:account'],
+      dispatch: { mode: 'submit', round: 1, attempts: 1 },
+    });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft(1));
+
+    const result = await relaunchAuthorizedOwnerTakeover({
+      db: store.db,
+      orderId: ORDER,
+      authorizedOrderId: ORDER,
+      runEffect,
+      nowMs: T0,
+    });
+    expect(result).toMatchObject({ ok: true, flow: { state: 'submitting', round: 1 } });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
+
+    const second = await relaunchAuthorizedOwnerTakeover({
+      db: store.db,
+      orderId: ORDER,
+      authorizedOrderId: ORDER,
+      runEffect,
+      nowMs: T0 + 1,
+    });
+    expect(second).toMatchObject({ ok: false, ignored: 'not_retryable' });
+    expect(effects).toHaveLength(1);
+  });
+
+  it('fails closed for an unauthorised order and for a draft-only round', async () => {
+    const unauthorised = await relaunchAuthorizedOwnerTakeover({
+      db: store.db,
+      orderId: ORDER,
+      authorizedOrderId: 'order_OTHER',
+      runEffect,
+      nowMs: T0,
+    });
+    expect(unauthorised).toEqual({ ok: false, ignored: 'order_not_authorized' });
+    expect(effects).toEqual([]);
+
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({
+      state: 'owner_takeover',
+      round: 1,
+      heldBy: ['owner'],
+      dispatch: { mode: 'draft', round: 1, attempts: 1 },
+    });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft(1));
+    const draftOnly = await relaunchAuthorizedOwnerTakeover({
+      db: store.db,
+      orderId: ORDER,
+      authorizedOrderId: ORDER,
+      runEffect,
+      nowMs: T0,
+    });
+    expect(draftOnly).toMatchObject({ ok: false, ignored: 'not_approved' });
+    expect(effects).toEqual([]);
   });
 
   it('never leaves an event marked applied when its transition failed: the redelivery applies it', async () => {
