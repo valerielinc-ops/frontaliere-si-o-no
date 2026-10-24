@@ -2,6 +2,12 @@ import fs from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
+
+const { launchChromiumMock } = vi.hoisted(() => ({ launchChromiumMock: vi.fn() }));
+vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({
+  launchChromium: launchChromiumMock,
+}));
+
 import {
   buildCscAdapterConfig,
   buildCscAuthoritativeEmptySummary,
@@ -10,6 +16,7 @@ import {
   parseCscPrimaryJobDetail,
   parseCscCareersPage,
   parseCscNcoreBoardPage,
+  renderCscNcoreBoardPage,
   verifyCscDetailUrls,
 } from '../scripts/update-csc-costruzioni-jobs.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
@@ -122,6 +129,14 @@ describe('CSC authoritative Drupal discovery', () => {
     });
   });
 
+  it('recovers percent-encoded CSC detail URLs from the filter-board state', () => {
+    const html = '<script type="application/json">{"url":"https%3A%2F%2Fapp.ncoreplat.com%2Fjobposition%2F813007%2Ftecnico-opere-in-sotterraneo-ch%2Fcsc-costruzioni-sa"}</script>';
+    expect(parseCscNcoreBoardPage(html)).toEqual({
+      urls: [ncoreEmbeddedDetailUrl],
+      authoritativeEmpty: false,
+    });
+  });
+
   it('renders the NCore filter board when the initial response is only the SPA shell', async () => {
     const responses = new Map([
       [careersUrl, htmlResponse(careersUrl, ncoreMigratedCareersPage)],
@@ -144,6 +159,147 @@ describe('CSC authoritative Drupal discovery', () => {
     });
     expect(renderBoardPage).toHaveBeenCalledWith(ncoreBoardUrl, { timeoutMs: 1000 });
     expect(fetchImpl).toHaveBeenCalledTimes(3);
+  });
+
+  it('collects a same-vendor response when the rendered board frame stays a shell', async () => {
+    let responseListener: ((response: unknown) => void) | undefined;
+    const responseBody = JSON.stringify({
+      url: 'https%3A%2F%2Fapp.ncoreplat.com%2Fjobposition%2F815605%2Faccountant-di-cantiere-it%2Fcsc-costruzioni-sa',
+    });
+    const response = {
+      url: () => 'https://api.ncoreplat.com/jobboard/filters/4321/results',
+      headers: () => ({ 'content-type': 'application/json; charset=utf-8' }),
+      text: vi.fn(async () => responseBody),
+    };
+    const page = {
+      on: vi.fn((event: string, listener: (value: unknown) => void) => {
+        if (event === 'response') responseListener = listener;
+      }),
+      goto: vi.fn(async () => {
+        responseListener?.(response);
+        return { ok: () => true, status: () => 200 };
+      }),
+      frames: vi.fn(() => [{ content: vi.fn(async () => ncoreBoardShellPage) }]),
+      waitForTimeout: vi.fn(async () => undefined),
+      url: vi.fn(() => ncoreBoardUrl),
+    };
+    launchChromiumMock.mockResolvedValueOnce({
+      newContext: vi.fn().mockResolvedValue({ newPage: vi.fn().mockResolvedValue(page) }),
+      close: vi.fn().mockResolvedValue(undefined),
+    });
+
+    await expect(renderCscNcoreBoardPage(ncoreBoardUrl, { timeoutMs: 1000 })).resolves.toMatchObject({
+      html: expect.stringContaining('815605'),
+      responseUrl: ncoreBoardUrl,
+    });
+    expect(response.text).toHaveBeenCalledOnce();
+  });
+
+  it('does not let a response empty marker hide a later CSC listing response', async () => {
+    let responseListener: ((response: unknown) => void) | undefined;
+    const responseBodies = [
+      {
+        url: () => 'https://api.ncoreplat.com/jobboard/filters/4321/status',
+        headers: () => ({ 'content-type': 'text/javascript; charset=utf-8' }),
+        text: vi.fn(async () => 'There are no open jobs'),
+      },
+      {
+        url: () => 'https://api.ncoreplat.com/jobboard/filters/4321/results',
+        headers: () => ({ 'content-type': 'application/json; charset=utf-8' }),
+        text: vi.fn(async () => {
+          await new Promise((resolve) => setTimeout(resolve, 5));
+          return JSON.stringify({
+            url: 'https%3A%2F%2Fapp.ncoreplat.com%2Fjobposition%2F815606%2Fcapo-cantiere-it%2Fcsc-costruzioni-sa',
+          });
+        }),
+      },
+    ];
+    const page = {
+      on: vi.fn((event: string, listener: (value: unknown) => void) => {
+        if (event === 'response') responseListener = listener;
+      }),
+      goto: vi.fn(async () => {
+        for (const response of responseBodies) responseListener?.(response);
+        return { ok: () => true, status: () => 200 };
+      }),
+      frames: vi.fn(() => [{ content: vi.fn(async () => ncoreBoardShellPage) }]),
+      waitForTimeout: vi.fn(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 1));
+      }),
+      url: vi.fn(() => ncoreBoardUrl),
+    };
+    launchChromiumMock.mockResolvedValueOnce({
+      newContext: vi.fn().mockResolvedValue({ newPage: vi.fn().mockResolvedValue(page) }),
+      close: vi.fn().mockResolvedValue(undefined),
+    });
+
+    const rendered = await renderCscNcoreBoardPage(ncoreBoardUrl, { timeoutMs: 1000 });
+
+    expect(rendered.html).toContain('815606');
+    expect(page.waitForTimeout).toHaveBeenCalled();
+  });
+
+  it('retains only bounded URL markup from a very large response body', async () => {
+    let responseListener: ((response: unknown) => void) | undefined;
+    const responseBody = `${JSON.stringify({
+      url: 'https://app.ncoreplat.com/jobposition/815607/tecnico-cantiere-it/csc-costruzioni-sa',
+    })}${'x'.repeat(10_000_000)}`;
+    const response = {
+      url: () => 'https://api.ncoreplat.com/jobboard/filters/4321/results',
+      headers: () => ({ 'content-type': 'application/json; charset=utf-8' }),
+      text: vi.fn(async () => responseBody),
+    };
+    const page = {
+      on: vi.fn((event: string, listener: (value: unknown) => void) => {
+        if (event === 'response') responseListener = listener;
+      }),
+      goto: vi.fn(async () => {
+        responseListener?.(response);
+        return { ok: () => true, status: () => 200 };
+      }),
+      frames: vi.fn(() => [{ content: vi.fn(async () => ncoreBoardShellPage) }]),
+      waitForTimeout: vi.fn(async () => undefined),
+      url: vi.fn(() => ncoreBoardUrl),
+    };
+    launchChromiumMock.mockResolvedValueOnce({
+      newContext: vi.fn().mockResolvedValue({ newPage: vi.fn().mockResolvedValue(page) }),
+      close: vi.fn().mockResolvedValue(undefined),
+    });
+
+    const rendered = await renderCscNcoreBoardPage(ncoreBoardUrl, { timeoutMs: 1000 });
+
+    expect(rendered.html).toContain('815607');
+    expect(rendered.html.length).toBeLessThan(1000);
+    expect(response.text).toHaveBeenCalledOnce();
+  });
+
+  it('rejects a same-vendor response body that misses the render deadline', async () => {
+    let responseListener: ((response: unknown) => void) | undefined;
+    const response = {
+      url: () => 'https://api.ncoreplat.com/jobboard/filters/4321/results',
+      headers: () => ({ 'content-type': 'application/json; charset=utf-8' }),
+      text: vi.fn(() => new Promise(() => {})),
+    };
+    const page = {
+      on: vi.fn((event: string, listener: (value: unknown) => void) => {
+        if (event === 'response') responseListener = listener;
+      }),
+      goto: vi.fn(async () => {
+        responseListener?.(response);
+        return { ok: () => true, status: () => 200 };
+      }),
+      frames: vi.fn(() => [{ content: vi.fn(async () => ncoreBoardShellPage) }]),
+      waitForTimeout: vi.fn((delay: number) => new Promise((resolve) => setTimeout(resolve, delay))),
+      url: vi.fn(() => ncoreBoardUrl),
+    };
+    launchChromiumMock.mockResolvedValueOnce({
+      newContext: vi.fn().mockResolvedValue({ newPage: vi.fn().mockResolvedValue(page) }),
+      close: vi.fn().mockResolvedValue(undefined),
+    });
+
+    const startedAt = Date.now();
+    await expect(renderCscNcoreBoardPage(ncoreBoardUrl, { timeoutMs: 100 })).rejects.toThrow(/timed out/);
+    expect(Date.now() - startedAt).toBeLessThan(1000);
   });
 
   it('rejects a canonical NCore detail whose body is below the rich-description floor', async () => {

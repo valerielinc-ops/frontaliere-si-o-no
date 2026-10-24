@@ -87,8 +87,10 @@ const CSC_NCORE_BOARD_URL = 'https://app.ncoreplat.com/jobboard/filters/4321/csc
 // UA for direct responses and use the same UA for the bounded DOM-rendering
 // fallback below when the initial shell exposes no positions.
 const CSC_NCORE_BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
-const CSC_NCORE_DETAIL_ROUTE_RE = /\/jobposition\/[1-9]\d*\//i;
 const CSC_NCORE_EMPTY_BOARD_RE = /\b(?:non ci sono|nessun[ao]?|non sono presenti)\b.{0,100}\b(?:offert[ae]|posizion[ei]|lavor[oi])\b|\b(?:there are no|no)\b.{0,100}\b(?:open )?(?:jobs?|positions?|vacancies)\b/i;
+const CSC_NCORE_CAPTURE_HOST_RE = /(?:^|\.)ncoreplat\.com$/i;
+const CSC_NCORE_CAPTURE_CONTENT_TYPE_RE = /(?:application|text)\/(?:json|xhtml\+xml|html|javascript|x-javascript|plain)/i;
+const CSC_NCORE_CAPTURE_MAX_CHARS = 4_000_000;
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -290,6 +292,107 @@ export function parseCscNcoreBoardPage(html) {
   return { urls, authoritativeEmpty };
 }
 
+function appendCscNcoreMarkup(parts, value, state) {
+  const text = String(value || '');
+  if (!text || state.remaining <= 0) return;
+  const chunk = text.slice(0, state.remaining);
+  parts.push(chunk);
+  state.remaining -= chunk.length;
+}
+
+/**
+ * The filter board can keep its data in a child frame or in a same-vendor
+ * JSON response without copying the detail anchors into the top document.
+ * Collect frame markup plus tenant-validated URL markup from responses, bounded,
+ * and let the existing NCore parser decide what is trusted.
+ */
+async function collectCscNcoreBoardMarkup(page, responseUrlMarkups = []) {
+  const frameParts = [];
+  const responseParts = [];
+  const state = { remaining: CSC_NCORE_CAPTURE_MAX_CHARS };
+  for (const frame of page.frames()) {
+    try {
+      appendCscNcoreMarkup(frameParts, await frame.content(), state);
+    } catch {
+      // A frame may disappear while the SPA is replacing its document. The
+      // remaining frames/responses are still valid candidates for parsing.
+    }
+  }
+  for (const urlMarkup of responseUrlMarkups) appendCscNcoreMarkup(responseParts, urlMarkup, state);
+  const frameMarkup = frameParts.join('\n');
+  const responseMarkup = responseParts.join('\n');
+  return {
+    frameMarkup,
+    markup: [frameMarkup, responseMarkup].filter(Boolean).join('\n'),
+  };
+}
+
+function cscNcoreBoardMarkupReady({ frameMarkup, markup }) {
+  try {
+    const parsed = parseCscNcoreBoardPage(markup);
+    // Response bodies are URL candidates only. Their text must never be able
+    // to turn an unrelated diagnostic/localisation into an authoritative empty
+    // board before a later response containing the actual listing arrives.
+    if (parsed.urls.length > 0) return true;
+  } catch {
+    // The response may be a partial JSON/HTML payload while the SPA is still
+    // hydrating, or may contain another NCore tenant. Keep polling until the
+    // CSC trust contract sees a complete payload or empty marker.
+  }
+  try {
+    return parseCscNcoreBoardPage(frameMarkup).authoritativeEmpty;
+  } catch {
+    return false;
+  }
+}
+
+function readCscNcoreResponseText(response, deadline) {
+  const remaining = deadline - Date.now();
+  if (remaining <= 0) return Promise.resolve(null);
+
+  return new Promise((resolve) => {
+    let settled = false;
+    let timer;
+    const finish = (value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve(value);
+    };
+    timer = setTimeout(() => finish(null), remaining);
+    Promise.resolve()
+      .then(() => response.text())
+      .then(finish, () => finish(null));
+  });
+}
+
+function extractCscNcoreResponseUrlMarkup(body) {
+  // Do not retain the complete response body. Parse only the shared capture
+  // budget and keep the tenant-validated URLs, never response diagnostics or
+  // empty-state text, in the renderer's aggregate.
+  const boundedBody = String(body || '').slice(0, CSC_NCORE_CAPTURE_MAX_CHARS);
+  if (!boundedBody) return '';
+  try {
+    return parseCscNcoreBoardPage(boundedBody).urls.join('\n');
+  } catch {
+    return '';
+  }
+}
+
+async function waitForCscNcoreBoardMarkup(page, responseUrlMarkups, timeoutMs) {
+  const deadline = Date.now() + timeoutMs;
+  let capture = { frameMarkup: '', markup: '' };
+  while (true) {
+    capture = await collectCscNcoreBoardMarkup(page, responseUrlMarkups);
+    if (cscNcoreBoardMarkupReady(capture)) return capture;
+    const remaining = deadline - Date.now();
+    if (remaining <= 0) return capture;
+    const delay = Math.min(250, remaining);
+    if (typeof page.waitForTimeout === 'function') await page.waitForTimeout(delay);
+    else await new Promise((resolve) => setTimeout(resolve, delay));
+  }
+}
+
 /**
  * Render the NCore filter board when its initial response is only the SPA
  * shell. The browser path is deliberately kept behind the no-URL failure:
@@ -305,6 +408,27 @@ export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = 
       viewport: { width: 1280, height: 720 },
     });
     const page = await context.newPage();
+    const responseUrlMarkups = [];
+    const responseCaptureState = { remaining: CSC_NCORE_CAPTURE_MAX_CHARS };
+    const pendingResponseBodies = [];
+    const deadline = Date.now() + timeoutMs;
+    page.on('response', (response) => {
+      let responseUrl;
+      try {
+        responseUrl = new URL(response.url());
+      } catch {
+        return;
+      }
+      if (!CSC_NCORE_CAPTURE_HOST_RE.test(responseUrl.hostname)) return;
+      const contentType = response.headers()?.['content-type'] || '';
+      if (!CSC_NCORE_CAPTURE_CONTENT_TYPE_RE.test(contentType)) return;
+      const pending = readCscNcoreResponseText(response, deadline)
+        .then((body) => {
+          const urlMarkup = extractCscNcoreResponseUrlMarkup(body);
+          appendCscNcoreMarkup(responseUrlMarkups, urlMarkup, responseCaptureState);
+        });
+      pendingResponseBodies.push(pending);
+    });
     const response = await page.goto(boardUrl, {
       waitUntil: 'domcontentloaded',
       timeout: timeoutMs,
@@ -313,32 +437,19 @@ export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = 
       throw new Error(`${boardUrl} returned HTTP ${response?.status() ?? 'unknown'}`);
     }
 
-    // Wait for the data-backed portion of the filter view, not an arbitrary
-    // delay. If the board is genuinely empty, the authoritative marker lets
-    // the parser finish immediately; an unknown shell remains fail-closed.
-    try {
-      await page.waitForFunction(
-        ({ detailPattern, emptyPattern }) => {
-          const source = document.documentElement?.outerHTML || '';
-          const text = document.body?.innerText || '';
-          return new RegExp(detailPattern, 'i').test(source)
-            || new RegExp(emptyPattern, 'i').test(text);
-        },
-        {
-          detailPattern: CSC_NCORE_DETAIL_ROUTE_RE.source,
-          emptyPattern: CSC_NCORE_EMPTY_BOARD_RE.source,
-        },
-        { timeout: timeoutMs },
-      );
-    } catch (error) {
-      // A timeout is handled by parseCscNcoreBoardPage below so the final
-      // failure still names the missing verified source. Navigation/runtime
-      // errors must remain failures.
-      if (error?.name !== 'TimeoutError') throw error;
+    // Wait for the data-backed portion of the filter view across all frames
+    // and same-vendor responses, not an arbitrary delay. If the board is
+    // genuinely empty, the authoritative marker lets the parser finish; an
+    // unknown shell remains fail-closed.
+    await waitForCscNcoreBoardMarkup(page, responseUrlMarkups, timeoutMs);
+    await Promise.allSettled(pendingResponseBodies);
+    const capture = await collectCscNcoreBoardMarkup(page, responseUrlMarkups);
+    if (!cscNcoreBoardMarkupReady(capture)) {
+      throw new Error('CSC discovery degraded: NCore board rendering timed out before a verified payload was available.');
     }
 
     return {
-      html: await page.content(),
+      html: capture.markup,
       responseUrl: page.url().trim(),
     };
   } finally {
