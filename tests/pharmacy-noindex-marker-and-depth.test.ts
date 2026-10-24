@@ -58,6 +58,8 @@ describe.each(['it', 'fr'] as const)('pharmacy directory (%s)', (locale) => {
     const markedNoindex = `${PHARMACY_NOINDEX_TARGET_MARKER}\n<meta name="robots" content="noindex">`;
     expect(isIntentionalPharmacyNoindexPage('jobs/example.html', markedNoindex)).toBe(false);
     expect(isIntentionalPharmacyNoindexPage('farmacie/example/index.html', markedNoindex)).toBe(true);
+    expect(isIntentionalPharmacyNoindexPage('farmacie-di-turno/settimana/2026-09-14/index.html', markedNoindex)).toBe(true);
+    expect(isIntentionalPharmacyNoindexPage('fr/pharmacies-de-garde/semaine/2026-09-14/index.html', markedNoindex)).toBe(true);
   });
 
   it('reaches every indexable page within the crawl-depth budget of audit:max-bfs-depth', { timeout: 120_000 }, () => {

@@ -380,9 +380,13 @@ function isIntentionalJobBoardNoindexPage(html) {
 
 const PHARMACY_ROUTE_PREFIXES = [
   'farmacie',
+  'farmacie-di-turno',
   'en/pharmacies',
+  'en/on-duty-pharmacies',
   'de/apotheken',
+  'de/notdienst-apotheken',
   'fr/pharmacies',
+  'fr/pharmacies-de-garde',
 ];
 
 function isPharmacyRoutePage(pagePath) {
