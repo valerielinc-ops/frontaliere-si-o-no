@@ -26,7 +26,7 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
-import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
@@ -44,7 +44,6 @@ export const FLOW_DOC_ID = 'flow';
 export const AUTOMATION_EVENTS_SUBCOLLECTION = 'automation_events';
 export const AI_DRAFTS_SUBCOLLECTION = 'ai_drafts';
 export const AI_DRAFT_DOC_ID = 'current';
-export const ASSISTED_APPLICATION_ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
 
 /**
  * A dispatched run that reported nothing for this long is presumed lost.

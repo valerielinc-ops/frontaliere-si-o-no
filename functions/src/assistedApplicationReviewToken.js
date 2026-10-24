@@ -21,6 +21,7 @@
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
 
 export const REVIEW_TOKEN_SECRET_KEY = 'ASSISTED_APPLICATION_REVIEW_SECRET';
 export const REVIEW_TOKEN_TTL_MS = 30 * 24 * 60 * 60 * 1000;
@@ -33,7 +34,6 @@ export const REVIEW_TOKEN_TTL_MS = 30 * 24 * 60 * 60 * 1000;
  */
 export const CONSENT_BOUND_EXPIRES_AT = Date.UTC(9999, 11, 31, 23, 59, 59);
 
-const ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
 const TOKEN_RE = /^(ar1|af1)\.([A-Za-z0-9_-]{6,128})\.(\d{1,2})\.([0-9a-z]{1,12})\.([0-9a-f]{32})$/;
 const PREFIX = { review: 'ar1', followup: 'af1' };
 const KIND_OF = { ar1: 'review', af1: 'followup' };
@@ -56,7 +56,7 @@ function signature(secret, orderId, round, exp36, kind) {
  */
 export function mintReviewToken({ secret, orderId, round, nowMs = Date.now(), ttlMs = REVIEW_TOKEN_TTL_MS, kind = 'review', untilConsentEnds = false }) {
   if (!secret || secret.length < 32) throw new Error('review_secret_missing');
-  if (!ORDER_ID_RE.test(String(orderId))) throw new Error('invalid_order_id');
+  if (!ASSISTED_APPLICATION_ORDER_ID_RE.test(String(orderId))) throw new Error('invalid_order_id');
   if (!PREFIX[kind] || (untilConsentEnds && kind !== 'review')) throw new Error('invalid_token_kind');
   const safeRound = Number(round);
   if (!Number.isInteger(safeRound) || safeRound < 1 || safeRound > 99) throw new Error('invalid_round');
