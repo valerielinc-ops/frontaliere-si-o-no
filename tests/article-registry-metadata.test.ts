@@ -28,4 +28,16 @@ describe('article registry metadata boundaries', () => {
       "const A=[{id: runtimeId, category:'pratico', date:'2026-10-01'}];",
     )).toThrow(/static string/i);
   });
+
+  it('preserves explicit article provenance and rejects dynamic booleans', () => {
+    expect(readArticleRegistryMetadata(
+      "const A=[{id:'with-ai', aiAssisted:true},{id:'without-ai', aiAssisted:false}];",
+    )).toEqual([
+      { id: 'with-ai', aiAssisted: true },
+      { id: 'without-ai', aiAssisted: false },
+    ]);
+    expect(() => readArticleRegistryMetadata(
+      "const A=[{id:'dynamic', aiAssisted: runtimeValue}];",
+    )).toThrow(/static boolean/i);
+  });
 });

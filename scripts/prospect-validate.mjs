@@ -47,7 +47,7 @@ import {
   sourceAdapterRuntimeObservationFor,
 } from './lib/prospector/source-adapters.mjs';
 import { matchExistingCrawlerForCompleteSnapshot } from './lib/prospector/runtime-duplicate.mjs';
-import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
+import { employerLogoDomain, probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
 import { DATA_ROOT, PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
 import {
   createValidationSnapshot,
@@ -486,8 +486,14 @@ for (const spec of specs) {
   // gate: nessuna misura non fatta vale come "passata").
   const logo = runtimeFailure
     ? null
-    : await probeCompanyLogo(spec.companyHost).catch(() => ({ found: false, reason: 'errore probe' }));
+    : await probeCompanyLogo(employerLogoDomain(candidate, spec)).catch(() => ({ found: false, reason: 'errore probe' }));
   report.logoFound = logo?.found ?? null;
+  // L'asset verificato, non solo il si'/no: PROMOTE lo registra cosi' com'e',
+  // invece di ricostruire un URL dal dominio.
+  report.logoSourceUrl = logo?.found ? logo.source || null : null;
+  // Il nome che la homepage del datore dichiara: PROMOTE lo preferisce a un
+  // nome che e' soltanto l'etichetta del dominio (`servicekuhn`).
+  report.employerSiteName = logo?.siteName || null;
 
   reports.push(report);
   tally[report.verdict]++;
@@ -586,7 +592,11 @@ for (const spec of specs) {
       employerIdentityMismatchCount: report.employerIdentityMismatchCount ?? 0,
       employerIdentityUnknownCount: report.employerIdentityUnknownCount ?? 0,
       validationAnomalyCount: candidate.validationAnomalyIds.length,
-      ...(logo ? { logoFound: report.logoFound } : {}),
+      ...(logo ? {
+        logoFound: report.logoFound,
+        logoSourceUrl: report.logoSourceUrl,
+        employerSiteName: report.employerSiteName,
+      } : {}),
       ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
     });
     if (rejectedRevalidation) {

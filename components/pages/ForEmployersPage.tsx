@@ -35,7 +35,8 @@ import {
   Image,
   Headset,
 } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, loadNamespaceTranslations } from '@/services/i18n';
+import { TranslationNamespaceGate } from '@/components/shared/TranslationNamespaceGate';
 import { buildPath } from '@/services/router';
 import { Analytics } from '@/services/analytics';
 import { useCountUp } from '@/hooks/useCountUp';
@@ -395,4 +396,13 @@ const ForEmployersPage: React.FC = () => {
   );
 };
 
-export default ForEmployersPage;
+// Its copy is the on-demand "publisher" namespace (services/locales/<locale>-ns-publisher.ts).
+// The request starts as soon as this lazy module is evaluated.
+void loadNamespaceTranslations('publisher');
+const ForEmployersPageWithStrings: React.FC = () => (
+ <TranslationNamespaceGate namespace="publisher">
+ <ForEmployersPage />
+ </TranslationNamespaceGate>
+);
+
+export default ForEmployersPageWithStrings;

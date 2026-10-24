@@ -8,9 +8,10 @@
  *   (a) recoverPrunedCompanyHub — a company-hub 404 whose locale prefix is
  *       ALREADY correct (nothing for recoverCrossLocaleCompanyPrefix to swap)
  *       but the hub itself is gone (pruned from the build).
- *   (b) recoverExpiredJobToCantonRoot — a job-detail 404 whose slug is not a
- *       canton-drift (absent from /job-canon entirely, not just under this
- *       locale) and does not match any more specific recovery.
+ *   (b) recoverExpiredJobToCantonRoot — a job-detail 404 whose slug the
+ *       registry KNOWS (/job-canon row, e.g. an expired vacancy whose page is
+ *       gone) but that has no other canonical. A slug absent from /job-canon
+ *       is unknown and stays a real 404 (no soft-404 redirect to a listing).
  *
  * Both are gated by redirectTargetIsLive: the canton section is free-form
  * (no allowlist), so the Worker verifies the target actually resolves to 200
@@ -136,7 +137,9 @@ describe('locale-router canton-root-validity guard — pruned company hub (#3015
   });
 
   it('does not fire for a non-company-hub orphan slug (no false match)', async () => {
-    mockFetch('/fr/trouver-emploi-tessin/', 200);
+    mockFetch('/fr/trouver-emploi-tessin/', 200, {
+      'developpeur-acme-lugano': { fr: '/fr/trouver-emploi-tessin' },
+    });
 
     const res = await worker.fetch(
       new Request(`${APEX}/fr/trouver-emploi-tessin/developpeur-acme-lugano/`),
@@ -144,7 +147,8 @@ describe('locale-router canton-root-validity guard — pruned company hub (#3015
       ctx,
     );
 
-    // Falls to recoverExpiredJobToCantonRoot instead (also guarded, also 200 here) —
+    // Falls to recoverExpiredJobToCantonRoot instead (registry-known slug,
+    // guarded, also 200 here) —
     // this asserts the ORDER: a non-company slug never gets pinned to
     // recoverPrunedCompanyHub's company-only branch, it flows to the generic
     // job-detail fallback further down the chain.
@@ -153,9 +157,11 @@ describe('locale-router canton-root-validity guard — pruned company hub (#3015
   });
 });
 
+const EXPIRED = (prefix: string, locale: string) => ({ 'expired-old-job-slug': { [locale]: prefix } });
+
 describe('locale-router canton-root-validity guard — expired job-detail slug (#3015b)', () => {
-  it('301s a DE job-detail orphan (slug absent from job-canon) to a live section root', async () => {
-    mockFetch('/de/jobs-im-tessin/', 200, null);
+  it('301s a DE registry-known expired job (page gone) to a live section root', async () => {
+    mockFetch('/de/jobs-im-tessin/', 200, EXPIRED('/de/jobs-im-tessin', 'de'));
 
     const res = await worker.fetch(
       new Request(`${APEX}/de/jobs-im-tessin/expired-old-job-slug/`),
@@ -167,8 +173,8 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
     expect(res.headers.get('Location')).toBe('/de/jobs-im-tessin/');
   });
 
-  it('301s an FR job-detail orphan (slug absent from job-canon) to a live section root', async () => {
-    mockFetch('/fr/trouver-emploi-tessin/', 200, null);
+  it('301s an FR registry-known expired job (page gone) to a live section root', async () => {
+    mockFetch('/fr/trouver-emploi-tessin/', 200, EXPIRED('/fr/trouver-emploi-tessin', 'fr'));
 
     const res = await worker.fetch(
       new Request(`${APEX}/fr/trouver-emploi-tessin/expired-old-job-slug/`),
@@ -180,8 +186,8 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
     expect(res.headers.get('Location')).toBe('/fr/trouver-emploi-tessin/');
   });
 
-  it('301s an EN job-detail orphan (slug absent from job-canon) to a live section root', async () => {
-    mockFetch('/en/find-jobs-zurich/', 200, null);
+  it('301s an EN registry-known expired job (page gone) to a live section root', async () => {
+    mockFetch('/en/find-jobs-zurich/', 200, EXPIRED('/en/find-jobs-zurich', 'en'));
 
     const res = await worker.fetch(
       new Request(`${APEX}/en/find-jobs-zurich/expired-old-job-slug/`),
@@ -194,7 +200,7 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
   });
 
   it('falls through to soft 404 when the section root does NOT resolve (guard refuses — no dead end)', async () => {
-    mockFetch('/de/jobs-im-fakecanton/', 404, null);
+    mockFetch('/de/jobs-im-fakecanton/', 404, EXPIRED('/de/jobs-im-fakecanton', 'de'));
 
     const res = await worker.fetch(
       new Request(`${APEX}/de/jobs-im-fakecanton/expired-old-job-slug/`),
@@ -206,7 +212,7 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
   });
 
   it('preserves query string and hash on the 301', async () => {
-    mockFetch('/de/jobs-im-tessin/', 200, null);
+    mockFetch('/de/jobs-im-tessin/', 200, EXPIRED('/de/jobs-im-tessin', 'de'));
 
     const res = await worker.fetch(
       new Request(`${APEX}/de/jobs-im-tessin/expired-old-job-slug/?ref=email#section`),

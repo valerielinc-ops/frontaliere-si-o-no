@@ -11,6 +11,7 @@
 // that tests/cwv-attribution-report.test.ts compares with the client module.
 // Changing either side without the other turns that test red on purpose.
 import { runGa4ReportPaged, weightedQuantile } from './ga4-service-account.mjs';
+import { withAutomationFleetExclusion } from './ga4-automation-fleet.mjs';
 
 export const ATTRIBUTION_PAGE = 'web_vitals';
 export const ATTRIBUTION_SECTIONS = ['cls', 'inp'];
@@ -257,7 +258,9 @@ export function invalidDimension(message) {
 export async function fetchAttribution({ token, startDate, endDate, fetchImpl = fetch, propertyId } = {}) {
   // Tutte e tre sono popolazioni intere: paginate fino a rowCount, altrimenti
   // un limit fisso senza offset le dichiara troncate (issue 11423).
-  const runAll = (body) => runGa4ReportPaged({ token, body, propertyId, fetchImpl });
+  // The measured automation fleets emit web_vitals/ui_interaction too (8% and
+  // 15% of those events over 28 days): excluded from all three populations.
+  const runAll = (body) => runGa4ReportPaged({ token, body: withAutomationFleetExclusion(body), propertyId, fetchImpl });
   const range = { startDate, endDate };
   const attributionData = await runAll(attributionRequest(range));
   const selectorData = await runAll(selectorRequest(range));

@@ -57,6 +57,10 @@ export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
   'infra/cloudflare-worker/locale-router.js',
   'scripts/lib/pharmacySections.mjs',
   'infra/cloudflare-worker/ticino-tree-bucket.js',
+  // The Worker's legacy-stub 301 table (generated from legacyRedirectsPlugin)
+  // and the stub marker it detects: both decide what the edge answers.
+  'infra/cloudflare-worker/legacy-stub-redirects.generated.mjs',
+  'build-plugins/shared/redirectStubMarker.mjs',
   'scripts/lib/weather-border-links.mjs',
   'scripts/lib/borderWaitSections.mjs',
   // Not a writer: the CDN origin of the URLs the chunk publisher evicts after

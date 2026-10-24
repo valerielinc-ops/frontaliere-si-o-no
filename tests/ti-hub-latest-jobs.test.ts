@@ -12,6 +12,7 @@ import {
 } from '../build-plugins/shared/tiHubLatestJobs';
 import { patchTiHubFile, tiHubIndexPath, tiHubLatestJobsPlugin } from '../build-plugins/tiHubLatestJobsPlugin';
 import { resolveStaticPagesFlushed } from '../build-plugins/shared/buildSignals';
+import { SECTION_LEGACY_TI_ROOT } from '../build-plugins/shared/cantonSection';
 import {
   buildCantonHubH1,
   buildListingHubH1,
@@ -201,5 +202,34 @@ describe('tiHubLatestJobsPlugin closeBundle', () => {
       expect(fs.readFileSync(tiHubIndexPath(dist, locale), 'utf-8')).toBe('<h1>x</h1>');
     }
     fs.rmSync(root, { recursive: true, force: true });
+  });
+});
+
+/**
+ * `buildPage()` in staticPagesPlugin.ts is not callable on its own (see
+ * tests/spa-tab-static-content.test.ts), so the slot contract is pinned on the
+ * source: deploy 40087494526 failed with de/fr/en=no-slot because the slot was
+ * pushed only inside the `isJobsIndex` branch, which the en/de/fr hubs never
+ * reach (SECTION_EDITORIAL / LOCALE_EDITORIAL branches come first).
+ */
+describe('staticPagesPlugin emits the slot on every locale hub', () => {
+  const src = fs.readFileSync(path.join(__dirname, '../build-plugins/staticPagesPlugin.ts'), 'utf-8');
+
+  it('inserts the slot after the editorial branch chain, before editorialHtml is rendered', () => {
+    const guard = src.indexOf('if (isJobsIndex && !editorialBlocks.includes(TI_HUB_LATEST_JOBS_SLOT)) editorialBlocks.unshift(TI_HUB_LATEST_JOBS_SLOT);');
+    const render = src.indexOf('const editorialHtml = localizeOfficialSourceRootLinks(');
+    const lastBranchPush = src.lastIndexOf('editorialBlocks.push(', render);
+    expect(guard).toBeGreaterThan(-1);
+    expect(guard).toBeGreaterThan(lastBranchPush);
+    expect(guard).toBeLessThan(render);
+  });
+
+  it('isJobsIndex matches all four Ticino hub roots', () => {
+    const m = src.match(/const isJobsIndex = (\/.+\/)\.test\(canonicalPath\);/);
+    expect(m).not.toBeNull();
+    const rx = new Function(`return ${m![1]};`)() as RegExp;
+    for (const root of Object.values(SECTION_LEGACY_TI_ROOT)) {
+      expect(rx.test(`${root}/`)).toBe(true);
+    }
   });
 });

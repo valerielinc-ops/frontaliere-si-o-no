@@ -1,5 +1,6 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import { buildJobPostingSchema } from '../build-plugins/shared/jobPostingSchema';
 import { resolveJobPostingPostalCode } from '../services/jobLocationSnapshot';
 import { readFileSync } from 'node:fs';
@@ -34,7 +35,7 @@ if (!callback) throw new Error('JobPosting production effect not found');
 const effectCode = ts.transpileModule(`const effect = ${callback.getText(source)}; effect();`, {
   compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
 }).outputText;
-const executeEffect = new Function('document', 'isSeededExpiredDetail', 'selectedJob', 'initialJobSlug', 'searchSlugFilter', 'companySlugFilter', 'locationSlugFilter', 'editorialLandingDescriptor', 'window', 'hasSeededExpiredData', 'bridgeTargetSlug', 'buildJobPath', 'locale', 'sanitizeJobTitle', 'companyLogoUrl', 'resolveJobPostingPostalCode', 'buildJobPostingSchema', 'resolveReportedPostingDate', 'resolveRolloutPostingDate', effectCode);
+const executeEffect = new Function('document', 'isSeededExpiredDetail', 'selectedJob', 'initialJobSlug', 'searchSlugFilter', 'companySlugFilter', 'locationSlugFilter', 'editorialLandingDescriptor', 'window', 'hasSeededExpiredData', 'bridgeTargetSlug', 'buildJobPath', 'locale', 'sanitizeJobTitle', 'companyLogoUrl', 'resolveJobPostingPostalCode', 'buildJobPostingSchema', 'resolveReportedPostingDate', 'resolveRolloutPostingDate', 'jobDisplayTitle', effectCode);
 if (!locationParser || filterInitializers.size !== 2) throw new Error('Production slug filter declarations not found');
 const filterCode = ts.transpileModule(`${locationParser}
   const useMemo = (read: () => unknown) => read();
@@ -66,7 +67,7 @@ describe('archived JobPosting hydration and list navigation', () => {
     const selected = { id: 'active', slug: 'active', title: 'Infermiere', company: 'Example SA', location: 'Lugano', canton: 'TI', addressLocality: 'Lugano', postingDateSource, datePosted: date, postedDate: date, crawledAt: date, description: 'Assistenza infermieristica ai pazienti nel reparto clinico e collaborazione con il gruppo sanitario.' };
     document.head.insertAdjacentHTML('beforeend', '<script id="faq" type="application/ld+json">{"@type":"FAQPage","mainEntity":[]}</script>');
     document.body.innerHTML = '<h1>Infermiere</h1><a href="https://employer.test/apply/">Candidati</a>';
-    const run = (job: typeof selected) => executeEffect(document, false, job, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate);
+    const run = (job: typeof selected) => executeEffect(document, false, job, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle);
     run(selected);
     expect(document.getElementById('archived-posting')).toBeNull();
     const fallback = document.getElementById('jobposting-structured-data');
@@ -77,7 +78,7 @@ describe('archived JobPosting hydration and list navigation', () => {
     expect(document.querySelector('h1')?.textContent).toBe('Infermiere');
     expect(document.querySelector('a')?.getAttribute('href')).toBe('https://employer.test/apply/');
     // A subsequent genuine source date restores eligible schema without remounting.
-    executeEffect(document, false, { ...selected, postingDateSource: 'reported' }, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate);
+    executeEffect(document, false, { ...selected, postingDateSource: 'reported' }, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle);
     expect(JSON.parse(document.getElementById('jobposting-structured-data')!.textContent!)['@graph'][0].datePosted).toBe(date);
     run(selected);
     // An active detail always retains JobPosting, even when the source date

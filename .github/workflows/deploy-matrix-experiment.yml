@@ -117,6 +117,21 @@ on:
         type: boolean
         required: false
         default: false
+      compare_variants:
+        description: 'Hash every leg dist and compare each variant against base, raw sha256 (implies freeze_clock: per-plugin timings read 0)'
+        type: boolean
+        required: false
+        default: false
+      freeze_clock:
+        description: 'Freeze the build wall clock at the run build id in every leg (identity runs for compare_variants; per-plugin timings read 0)'
+        type: boolean
+        required: false
+        default: false
+      prep_compare:
+        description: 'In prep, also run the previous related-search summary and gzip pack, and compare bytes and wall time'
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: read
@@ -220,7 +235,16 @@ jobs:
     # accende MAI il runner di prep, che da solo vale ~11 job-minuti a dispatch.
     needs: [matrix-setup]
     runs-on: ubuntu-latest
+    outputs:
+      build_id: ${{ steps.build_id.outputs.build_id }}
     steps:
+      # One DEPLOY_BUILD_ID for every leg of the run, as deploy.yml's
+      # matrix-setup does: without it each leg stamps its own Date.now() into
+      # the build id and the dates derived from it, and two variants of the
+      # same commit could never be byte-compared (`compare_variants`).
+      - name: Compute shared build id
+        id: build_id
+        run: echo "build_id=$(date +%s%3N)" >> "$GITHUB_OUTPUT"
       - name: Checkout
         uses: actions/checkout@v7
       - name: Setup Node.js
@@ -236,6 +260,10 @@ jobs:
       - name: Install dependencies
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
+      # Lockstep con deploy.yml prep: l'encoder delle thumbnail legge solo
+      # public/images e gira in background mentre i passi del dataset vanno.
+      - name: Start responsive image thumbnails (background)
+        run: bash scripts/ci/background-step.sh start thumbnails -- node scripts/generate-image-thumbnails.mjs
       - name: Audit no merge conflict markers
         run: npm run audit:no-merge-markers
       - name: Prepare Firebase credentials
@@ -285,8 +313,8 @@ jobs:
         run: node scripts/mine-all-job-slugs.mjs
       - name: Canton-aware migration of slug registry
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
-      - name: Generate responsive image thumbnails
-        run: node scripts/generate-image-thumbnails.mjs
+      - name: Join responsive image thumbnails
+        run: bash scripts/ci/background-step.sh wait thumbnails
       - name: Cleanup stale news sitemap entries
         run: node scripts/cleanup-news-sitemap.mjs
       - name: Generate shared related-search matching summary
@@ -294,24 +322,79 @@ jobs:
           BUILD_PROFILE: '1'
           SEQUENTIAL_PROFILE: '1'
           RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
-          RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
+          # Lockstep con deploy.yml prep (vedi il commento li').
+          RELATED_SEARCH_PREPASS_CONCURRENCY: '4'
+          RELATED_SEARCH_POSTINGS_SPARSE: ${{ vars.RELATED_SEARCH_POSTINGS_SPARSE == '1' && '1' || '' }}
           RELATED_SEARCH_CLUSTERS_SUMMARY_OUT: data/related-search-clusters-summary.json
           NODE_OPTIONS: '--max-old-space-size=14336 --expose-gc'
-        run: ./node_modules/.bin/tsx scripts/generate-related-search-clusters-summary.ts
+          BUILD_BENCH: '1'
+        run: |
+          start=$(date +%s)
+          ./node_modules/.bin/tsx scripts/generate-related-search-clusters-summary.ts
+          echo "[prep-compare] summary variant=new wall_s=$(( $(date +%s) - start ))"
+      # prep_compare: the previous settings (one postings worker at a time,
+      # dense postings) on the SAME dataset, after the thumbnails have joined
+      # so the two timings see the same idle runner. The summary must be
+      # byte-identical; the per-locale postings digests (BUILD_BENCH) too.
+      - name: Previous related-search summary (prep_compare)
+        if: inputs.prep_compare == true
+        env:
+          BUILD_PROFILE: '1'
+          SEQUENTIAL_PROFILE: '1'
+          RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+          RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
+          RELATED_SEARCH_POSTINGS_SPARSE: ''
+          RELATED_SEARCH_CLUSTERS_SUMMARY_OUT: /tmp/related-search-clusters-summary.base.json
+          NODE_OPTIONS: '--max-old-space-size=14336 --expose-gc'
+          BUILD_BENCH: '1'
+        run: |
+          set -euo pipefail
+          start=$(date +%s)
+          ./node_modules/.bin/tsx scripts/generate-related-search-clusters-summary.ts
+          echo "[prep-compare] summary variant=base wall_s=$(( $(date +%s) - start ))"
+          sha256sum data/related-search-clusters-summary.json /tmp/related-search-clusters-summary.base.json
+          if cmp data/related-search-clusters-summary.json /tmp/related-search-clusters-summary.base.json; then
+            echo "[prep-compare] related-search summary byte-identical"
+          else
+            echo "::error::[prep-compare] related-search summary differs between the previous and the new prep settings"
+            exit 1
+          fi
       - name: Pack prepared snapshot (generated data + thumbnails)
+        env:
+          PREP_COMPARE: ${{ inputs.prep_compare }}
         run: |
           set -eo pipefail
-          tar -czf /tmp/prepared-snapshot.tgz \
+          # Lockstep con deploy.yml prep: pigz, stesso formato gzip.
+          GZ="$(command -v pigz || command -v gzip)"
+          echo "[prepared-snapshot] compressor=$GZ"
+          start=$(date +%s)
+          tar -I "$GZ" -cf /tmp/prepared-snapshot.tgz \
             data \
             public/images/blog/thumbnails public/images/places/thumbnails 2>/dev/null || \
-            tar -czf /tmp/prepared-snapshot.tgz data
+            tar -I "$GZ" -cf /tmp/prepared-snapshot.tgz data
+          echo "[prep-compare] pack compressor=$(basename "$GZ") wall_s=$(( $(date +%s) - start ))"
           ls -lh /tmp/prepared-snapshot.tgz
+          if [ "$PREP_COMPARE" = 'true' ]; then
+            start=$(date +%s)
+            tar -czf /tmp/prepared-snapshot.gzip.tgz \
+              data \
+              public/images/blog/thumbnails public/images/places/thumbnails 2>/dev/null || \
+              tar -czf /tmp/prepared-snapshot.gzip.tgz data
+            echo "[prep-compare] pack compressor=gzip wall_s=$(( $(date +%s) - start ))"
+            ls -lh /tmp/prepared-snapshot.gzip.tgz
+            new_sha="$("$GZ" -dc /tmp/prepared-snapshot.tgz | sha256sum | cut -d' ' -f1)"
+            base_sha="$(gzip -dc /tmp/prepared-snapshot.gzip.tgz | sha256sum | cut -d' ' -f1)"
+            echo "[prep-compare] tar stream sha256 new=$new_sha base=$base_sha"
+            [ "$new_sha" = "$base_sha" ] || { echo "::error::[prep-compare] the two packs do not carry the same tar stream"; exit 1; }
+            rm -f /tmp/prepared-snapshot.gzip.tgz
+          fi
       - name: Upload prepared snapshot
         uses: actions/upload-artifact@v7
         with:
           name: prepared-snapshot
           path: /tmp/prepared-snapshot.tgz
           retention-days: 1
+          compression-level: 0
 
   build-locale:
     needs: [matrix-setup, prep]
@@ -345,27 +428,38 @@ jobs:
       RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
       JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}
       BUILD_BENCH: '1'
+      DEPLOY_BUILD_ID: ${{ needs.prep.outputs.build_id }}
       BUILD_STOP_AFTER: ${{ inputs.stop_after_jobs_seo == true && 'jobsSeoPages' || '' }}
       CPU_PROFILE: ${{ inputs.cpu_profile == true && '1' || '' }}
+      # Same preload and variable as the jobs-seo bench work (agent A, commit
+      # 0595e0979f0): scripts/ci/bench-frozen-clock.mjs freezes Date.now()
+      # and argument-less new Date() at the run's build id.
+      # compare_variants implies it: without a frozen clock the raw hashes of
+      # legs built hours apart differ by wall-clock instants alone.
+      BENCH_FROZEN_CLOCK_MS: ${{ (inputs.freeze_clock == true || inputs.compare_variants == true) && needs.prep.outputs.build_id || '' }}
     steps:
       # Copied minimally from deploy.yml's build-locale job, whose source of
       # truth is the production cleanup step in this same repository.
-      - name: Free disk space (remove unused toolchains)
+      # Lockstep con deploy.yml build-locale: rimozione in background,
+      # join prima della build.
+      - name: Free disk space (remove unused toolchains, background)
         shell: bash
         run: |
           echo "::group::Disk usage BEFORE cleanup"
           df -h /
           echo "::endgroup::"
-          sudo rm -rf /usr/local/lib/android &
-          sudo rm -rf /usr/share/dotnet &
-          sudo rm -rf /opt/ghc &
-          sudo rm -rf /usr/local/share/boost &
-          sudo rm -rf /opt/hostedtoolcache/CodeQL &
-          sudo rm -rf /usr/share/swift &
-          wait
-          echo "::group::Disk usage AFTER cleanup"
-          df -h /
-          echo "::endgroup::"
+          rm -f /tmp/free-disk.done
+          nohup bash -c '
+            pids=()
+            for d in /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/share/boost /opt/hostedtoolcache/CodeQL /usr/share/swift; do
+              sudo rm -rf "$d" & pids+=("$!")
+            done
+            rc=0
+            for p in "${pids[@]}"; do wait "$p" || rc=1; done
+            echo "rm_rc=$rc"
+            date +%s > /tmp/free-disk.done
+          ' < /dev/null > /tmp/free-disk.log 2>&1 &
+          date +%s > /tmp/free-disk.started
 
       - name: Checkout
         uses: actions/checkout@v7
@@ -426,7 +520,10 @@ jobs:
       - name: Restore prepared snapshot (data + thumbnails)
         run: |
           set -eo pipefail
-          tar -xzf /tmp/snapshot/prepared-snapshot.tgz -C .
+          GZ="$(command -v pigz || command -v gzip)"
+          start=$(date +%s)
+          tar -I "$GZ" -xf /tmp/snapshot/prepared-snapshot.tgz -C .
+          echo "[prepared-snapshot] restore compressor=$(basename "$GZ") wall_s=$(( $(date +%s) - start ))"
           if [ -f data/jobs.json ]; then
             echo "✓ data/jobs.json restored ($(wc -c < data/jobs.json) bytes)"
           else
@@ -551,6 +648,30 @@ jobs:
             echo "[incremental-manifest] no previous ${MANIFEST_LOCALE} manifest (first run or cache miss)"
           fi
 
+      - name: Join disk cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          for _ in $(seq 1 900); do
+            [ -f /tmp/free-disk.done ] && break
+            sleep 1
+          done
+          cat /tmp/free-disk.log 2>/dev/null || true
+          if [ ! -f /tmp/free-disk.done ]; then
+            echo "::error::disk cleanup did not finish within 900 s"
+            exit 1
+          fi
+          # Best-effort like the foreground step it replaces (whose bare `wait`
+          # never failed it), but a failed removal is now visible here instead
+          # of only as a later ENOSPC.
+          if ! grep -q '^rm_rc=0$' /tmp/free-disk.log 2>/dev/null; then
+            echo "::warning::disk cleanup: at least one toolchain removal failed (see the log above)"
+          fi
+          echo "[free-disk] cleanup wall_s=$(( $(cat /tmp/free-disk.done) - $(cat /tmp/free-disk.started) )) waited_after_start_s=$(( $(date +%s) - $(cat /tmp/free-disk.started) ))"
+          echo "::group::Disk usage AFTER cleanup"
+          df -h /
+          echo "::endgroup::"
+
       - name: Record disk/dist usage before build
         shell: bash
         run: |
@@ -600,6 +721,14 @@ jobs:
           BUILD_LOCALE_FOR_LOG="${BUILD_LOCALE:-all}"
           BUILD_LOG="/tmp/build-${BUILD_LOCALE_FOR_LOG}.log"
           BUILD_NODE_OPTIONS='--max-old-space-size=14336 --expose-gc'
+          # freeze_clock: every variant sees the same "now" (the run build id),
+          # so wall-clock instants printed into pages cannot differ between
+          # variants built hours apart and compare_variants stays a RAW
+          # sha256 comparison, with nothing masked.
+          if [ -n "${BENCH_FROZEN_CLOCK_MS:-}" ]; then
+            BUILD_NODE_OPTIONS="$BUILD_NODE_OPTIONS --import=${GITHUB_WORKSPACE}/scripts/ci/bench-frozen-clock.mjs"
+            echo "[frozen-clock] Date.now()=${BENCH_FROZEN_CLOCK_MS} ($(date -u -d "@$((BENCH_FROZEN_CLOCK_MS / 1000))" +%FT%TZ))"
+          fi
           if [ "${CPU_PROFILE:-}" = '1' ]; then
             mkdir -p /tmp/cpuprof
             rm -f /tmp/cpuprof/*.cpuprofile
@@ -611,8 +740,8 @@ jobs:
             export NODE_OPTIONS="$BUILD_NODE_OPTIONS"
             ./node_modules/.bin/vite build --minify esbuild 2>&1 | tee "$BUILD_LOG"
             build_exit="${PIPESTATUS[0]}"
-          elif [ "${CPU_PROFILE:-}" = '1' ]; then
-            echo '[cpu-profile] using direct Vite invocation so NODE_OPTIONS is not overwritten by build:ci'
+          elif [ "${CPU_PROFILE:-}" = '1' ] || [ -n "${BENCH_FROZEN_CLOCK_MS:-}" ]; then
+            echo '[cpu-profile/freeze-clock] using direct Vite invocation so NODE_OPTIONS is not overwritten by build:ci'
             export NODE_OPTIONS="$BUILD_NODE_OPTIONS"
             set +e
             ./node_modules/.bin/vite build --minify esbuild 2>&1 | tee "$BUILD_LOG"
@@ -801,9 +930,9 @@ jobs:
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
       - name: Hash-manifest the dist (equivalence check)
-        # Only the monolith compare job consumes this manifest; on plain
-        # variant benches it cost ~5.5 min of sha256 over 1.5M files per run.
-        if: inputs.compare_monolith == true
+        # Only the monolith / variant compare jobs consume this manifest; on
+        # plain variant benches it cost ~5.5 min of sha256 over 1.5M files.
+        if: inputs.compare_monolith == true || inputs.compare_variants == true
         run: node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${{ matrix.locale }}.txt"
       - name: Upload build manifest
         if: inputs.compare_monolith == true
@@ -812,6 +941,13 @@ jobs:
           name: manifest-${{ matrix.locale }}
           path: /tmp/manifest-${{ matrix.locale }}.txt
           retention-days: 1
+      - name: Upload variant manifest
+        if: inputs.compare_variants == true
+        uses: actions/upload-artifact@v7
+        with:
+          name: variant-manifest-${{ matrix.locale }}-${{ matrix.variant }}
+          path: /tmp/manifest-${{ matrix.locale }}.txt
+          retention-days: 7
 
       - name: Extract build markers
         if: always()
@@ -1074,3 +1210,73 @@ jobs:
           done
           echo "monolith: $MONO"; echo "shards:${shards[*]}"
           node scripts/ci/compare-dist-manifests.mjs "$MONO" "${shards[@]}"
+
+  # ── Byte-identity between variants: every variant of a locale === `base` ──
+  # The legs share the prep snapshot and DEPLOY_BUILD_ID, so a flag that only
+  # changes HOW the build runs (timing, GC, worker counts) must leave every
+  # dist file sha256-identical. The legs run in series, hours apart, so the
+  # comparison means something only with `freeze_clock` (bench run
+  # 40080692388, clock not frozen: 174,631 of 1,554,241 files differed by
+  # wall-clock instants alone). The reference is the variant named `base`.
+  compare-variants:
+    needs: [matrix-setup, prep, build-locale]
+    if: >-
+      !cancelled()
+      && inputs.compare_variants == true && inputs.stop_after_jobs_seo != true
+      && needs.matrix-setup.outputs.variant_count != '1'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (compare script)
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: scripts/ci/compare-dist-manifests.mjs
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Download variant manifests
+        uses: actions/download-artifact@v8
+        with:
+          path: /tmp/variant-manifests
+          pattern: variant-manifest-*
+          merge-multiple: false
+      - name: Compare every variant against base
+        env:
+          FROZEN_CLOCK: ${{ needs.prep.outputs.build_id }}
+        run: |
+          set -euo pipefail
+          root=/tmp/variant-manifests
+          status=0
+          compared=0
+          for base_dir in "$root"/variant-manifest-*-base; do
+            [ -d "$base_dir" ] || continue
+            prefix="${base_dir%-base}"
+            locale="${prefix##*/variant-manifest-}"
+            for other_dir in "$prefix"-*; do
+              [ "$other_dir" = "$base_dir" ] && continue
+              variant="${other_dir##"$prefix"-}"
+              base_file="$(find "$base_dir" -type f -name '*.txt' | head -1)"
+              other_file="$(find "$other_dir" -type f -name '*.txt' | head -1)"
+              if [ -z "$base_file" ] || [ -z "$other_file" ]; then
+                echo "::error::${locale}/${variant}: missing manifest"
+                status=1
+                continue
+              fi
+              echo "::group::${locale}: base vs ${variant}"
+              if node scripts/ci/compare-dist-manifests.mjs "$base_file" "$other_file"; then
+                identical=true
+              else
+                identical=false
+                status=1
+              fi
+              echo "::endgroup::"
+              echo "[compare-variants] locale=${locale} variant=${variant} frozen_clock_ms=${FROZEN_CLOCK} identical=${identical} files=$(wc -l < "$base_file")"
+              compared=$((compared + 1))
+            done
+          done
+          if [ "$compared" -eq 0 ]; then
+            echo "::error::no variant manifest to compare against a 'base' variant"
+            exit 1
+          fi
+          exit "$status"

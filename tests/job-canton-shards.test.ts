@@ -294,13 +294,15 @@ describe('end-to-end: the real plugin actually writes the files to dist/data/', 
     expect(files_(shardDir)).not.toContain('AI-it.json');
   });
 
-  it('carries the LOCALE-CORRECT slug and title in each locale shard', () => {
+  it("carries the LOCALE-CORRECT slug and the employer's title in each locale shard", () => {
     // The regression this prevents: a German SERP linking to Italian URLs.
     const it = JSON.parse(fs.readFileSync(path.join(shardDir, 'BASILEA-it.json'), 'utf-8'));
     const de = JSON.parse(fs.readFileSync(path.join(shardDir, 'BASILEA-de.json'), 'utf-8'));
     expect(it[0].slug).toBe('infermiere-basel-klinik');
     expect(de[0].slug).toBe('pfleger-basel-klinik');
-    expect(it[0].title).toBe('Infermiere');
+    // Only the interface is translated: the title stays the employer's own
+    // (scripts/lib/job-title-identity.mjs).
+    expect(it[0].title).toBe('Pfleger');
     expect(de[0].title).toBe('Pfleger');
   });
 

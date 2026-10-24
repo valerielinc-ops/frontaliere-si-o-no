@@ -54,6 +54,21 @@ import { applyDeclaredBrandRelabel, declaredBrandLabels } from './lib/crawler-br
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
+import { localeTitleDropsSourceWords } from './lib/job-title-identity.mjs';
+
+/**
+ * True when `slug`, company/location/disambiguator tokens removed, only drops
+ * words of the employer's title — the slug of a truncated translation.
+ */
+export function slugDropsTitleWords(slug, employerTitle, company, location, disambiguator = '') {
+  const noise = new Set(
+    `${company || ''} ${location || ''} ${disambiguator || ''}`
+      .toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .split(/[^a-z0-9]+/).filter(Boolean),
+  );
+  const titlePart = String(slug || '').split('-').filter((t) => t && !noise.has(t)).join(' ');
+  return localeTitleDropsSourceWords(titlePart, employerTitle);
+}
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -167,9 +182,17 @@ async function main() {
         // (possibly re-translated) title below. Restore it when the current
         // slice drifted, preserving the drifted slug as a previousSlug bridge,
         // then skip title-based regeneration for this locale entirely.
+        // Only the truncation-guard context (no titleByLocale): a registered
+        // slug that dropped the employer's trade (`m1-m2-pemsa-lugano`) is not
+        // pinned, while the #4071 garbage guard keeps its prior opt-out here.
         const pinnedSlug = brandRefresh
           ? null
-          : registryPinnedLocaleSlug(getRegisteredSlug(job, slugRegistry), locale, sourceLang);
+          : registryPinnedLocaleSlug(getRegisteredSlug(job, slugRegistry), locale, sourceLang, {
+            sourceTitle: String(job.title || '').trim(),
+            company,
+            location,
+            disambiguator,
+          });
         if (pinnedSlug) {
           // Defense-in-depth: the registry pin bypasses the cross-job
           // disambiguator the title-derivation path applies below, so surface a
@@ -201,6 +224,15 @@ async function main() {
         // No title → can't generate slug
         if (!title || title.length < 3) continue;
 
+        // A truncated translation ("M1, M2" for "Macchinista M1, M2,M3") must
+        // not feed the slug: the slug would lose the trade. Derive from the
+        // employer's title instead (scripts/lib/job-title-identity.mjs — the
+        // same rule hardenJobLocaleFields and ensureLocaleFields apply, so the
+        // writers converge on one slug).
+        const employerTitle = String(job.title || tbl[sourceLang] || '').trim();
+        const truncatedTitle = Boolean(employerTitle) && localeTitleDropsSourceWords(title, employerTitle);
+        const slugTitle = truncatedTitle ? employerTitle : title;
+
         // If title is a source copy or partial heuristic translation, skip slug
         // regeneration. Uses Jaccard similarity (>0.5) on slugified tokens to catch
         // both exact copies and partial translations that changed only 1-2 words.
@@ -208,17 +240,22 @@ async function main() {
         // translated English slug with an Italian-derived one.
         const sourceTitle = (tbl[sourceLang] || '').trim();
         const slugEncodesTitle = Boolean(currentSlug)
-          && slugMatchesTitle(currentSlug, title, company, location, disambiguator);
+          && slugMatchesTitle(currentSlug, slugTitle, company, location, disambiguator)
+          // slugMatchesTitle ignores tokens under 3 chars, so `m1-m2-…` would
+          // "match" an empty title-token set: a truncated slot is judged by
+          // whether the slug still carries the employer's words.
+          && !(truncatedTitle && slugDropsTitleWords(currentSlug, employerTitle, company, location, disambiguator));
         // A declared brand refresh must update every locale, even when a
-        // translated title currently looks like a source-language copy.
-        const skipUntranslatedGuard = brandRefresh;
+        // translated title currently looks like a source-language copy. A
+        // truncation repair derives from the source title on purpose.
+        const skipUntranslatedGuard = brandRefresh || truncatedTitle;
         if (!skipUntranslatedGuard && sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
 
         // If slug already matches title+company+location (+ disambiguator), skip
         if (!brandRefresh && slugEncodesTitle) continue;
 
         // Generate new slug from locale title, re-appending disambiguator
-        let newSlug = buildSlug(title, company, location, disambiguator);
+        let newSlug = buildSlug(slugTitle, company, location, disambiguator);
         if (!newSlug || newSlug === currentSlug) continue;
 
         // Don't replace if slug is the same as another locale's slug (avoid collisions)
@@ -229,7 +266,9 @@ async function main() {
         // translation currently has the same candidate. Locale prefixes keep
         // those routes distinct, and skipping one locale leaves a stale
         // source-brand slug active (#7722).
-        if (!brandRefresh && otherSlugs.has(newSlug)) continue;
+        // A truncation repair may legitimately equal the source-locale slug:
+        // locale prefixes keep the routes distinct (same as a brand refresh).
+        if (!brandRefresh && !truncatedTitle && otherSlugs.has(newSlug)) continue;
 
         // Cross-job uniqueness check (Phase 4 case 5).
         // If another active job already owns `newSlug` for this locale,

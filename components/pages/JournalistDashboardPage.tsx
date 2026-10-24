@@ -42,7 +42,8 @@ import {
   LayoutGrid,
   Upload,
 } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, loadNamespaceTranslations } from '@/services/i18n';
+import { TranslationNamespaceGate } from '@/components/shared/TranslationNamespaceGate';
 import { useAuth } from '@/services/authService';
 import { buildPath } from '@/services/router';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
@@ -154,7 +155,18 @@ function StatusPill({ article }: { article: JournalistArticle }): React.ReactEle
   );
 }
 
-export default function JournalistDashboardPage(): React.ReactElement {
+// Its copy is the on-demand "publisher" namespace (services/locales/<locale>-ns-publisher.ts).
+// The request starts as soon as this lazy module is evaluated.
+void loadNamespaceTranslations('publisher');
+export default function JournalistDashboardPageWithStrings(): React.ReactElement {
+ return (
+ <TranslationNamespaceGate namespace="publisher">
+ <JournalistDashboardPage />
+ </TranslationNamespaceGate>
+ );
+}
+
+function JournalistDashboardPage(): React.ReactElement {
   const { t, locale } = useTranslation();
   const { user, loading: authLoading } = useAuth();
   const { isJournalist, loading: roleLoading } = useJournalistRole(user);

@@ -112,8 +112,10 @@ function main() {
   const byTitle = new Map(); // title → [urls]
   const issues = [];
   let withTitle = 0;
+  let pagesScanned = 0;
 
-  for (const f of files) {
+  for (const f of walkHtml(args.dist)) {
+    pagesScanned += 1;
     const url = fileToUrlPath(f, args.dist);
     let html;
     try { html = readFileSync(f, 'utf-8'); } catch { continue; }
@@ -144,6 +146,8 @@ function main() {
     }
   }
 
+  if (pagesScanned === 0) { writeStubReport(args, 'dist-empty'); return; }
+
   const duplicates = {};
   for (const [title, urls] of byTitle) {
     if (urls.length > 1) duplicates[title] = urls;
@@ -162,7 +166,7 @@ function main() {
     distRoot: args.dist,
     config: { minLength: MIN_LENGTH, maxLength: MAX_LENGTH },
     totals: {
-      pages: files.length,
+      pages: pagesScanned,
       withTitle,
       duplicates: Object.keys(duplicates).length,
       tooShort,
@@ -177,7 +181,7 @@ function main() {
   const md = [];
   md.push(`# Title Audit — ${today}`);
   md.push('');
-  md.push(`- Pages scanned: **${files.length}**`);
+  md.push(`- Pages scanned: **${pagesScanned}**`);
   md.push(`- Pages with <title>: **${withTitle}**`);
   md.push(`- Duplicate titles (same title on >1 URL): **${Object.keys(duplicates).length}**`);
   md.push(`- Too short (<${MIN_LENGTH}): **${tooShort}**`);
@@ -195,7 +199,7 @@ function main() {
   }
   writeFileSync(join(args.out, `title-audit-${today}.md`), md.join('\n'));
 
-  console.log(`[title-audit] ${files.length} pages → duplicates=${Object.keys(duplicates).length} tooShort=${tooShort} tooLong=${tooLong} missingKw=${missingKeyword}`);
+  console.log(`[title-audit] ${pagesScanned} pages → duplicates=${Object.keys(duplicates).length} tooShort=${tooShort} tooLong=${tooLong} missingKw=${missingKeyword}`);
 }
 
 const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
@@ -205,7 +209,7 @@ if (invokedDirectly) {
   } catch (err) {
     console.error('[title-audit] fatal:', err);
     try { writeStubReport(parseArgs(process.argv.slice(2)), `fatal: ${err instanceof Error ? err.message : String(err)}`); } catch { /* noop */ }
-    process.exit(0);
+    process.exit(1);
   }
 }
 
