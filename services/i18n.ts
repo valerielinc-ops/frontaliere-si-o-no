@@ -1016,24 +1016,24 @@ export function useTranslationNamespace(namespace: TranslationNamespace, enabled
  }
  setReady(false);
  let cancelled = false;
-  let retryTimer: ReturnType<typeof setTimeout> | undefined;
-  const scheduleRetry = () => {
-   retryTimer = setTimeout(() => {
-    if (!cancelled) setRetryToken(token => token + 1);
-   }, namespaceRetryDelayMs);
-  };
+ let retryTimer: ReturnType<typeof setTimeout> | undefined;
+ const scheduleRetry = () => {
+  retryTimer = setTimeout(() => {
+   if (!cancelled) setRetryToken(token => token + 1);
+  }, namespaceRetryDelayMs);
+ };
  loadNamespaceTranslations(namespace).then(() => {
-  if (cancelled) return;
-  const loaded = isNamespaceLoaded(namespace);
-  setReady(loaded);
-  if (!loaded) scheduleRetry();
-  }).catch(() => {
-   if (!cancelled) scheduleRetry();
-  });
-  return () => {
-   cancelled = true;
-   if (retryTimer) clearTimeout(retryTimer);
-  };
+ if (cancelled) return;
+ const loaded = isNamespaceLoaded(namespace);
+ setReady(loaded);
+ if (!loaded) scheduleRetry();
+ }).catch(() => {
+ if (!cancelled) scheduleRetry();
+ });
+ return () => {
+ cancelled = true;
+ if (retryTimer) clearTimeout(retryTimer);
+ };
  }, [namespace, enabled, locale, retryToken]);
  return ready;
 }

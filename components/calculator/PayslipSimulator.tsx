@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect, Suspense } from 'react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, loadNamespaceTranslations } from '@/services/i18n';
+import { TranslationNamespaceGate } from '@/components/shared/TranslationNamespaceGate';
 import { FileText, Download, Info, ChevronDown, ChevronUp, Shield, Coins, User, Heart, Baby, Plus, Minus, AlertTriangle } from 'lucide-react';
 import { lazyRetry } from '@/services/lazyRetry';
 
@@ -565,4 +566,14 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  );
 };
 
-export default PayslipSimulator;
+// Its copy is the on-demand "payslip" namespace (services/locales/<locale>-ns-payslip.ts).
+// The request starts as soon as this lazy module is evaluated.
+void loadNamespaceTranslations('payslip');
+
+const PayslipSimulatorWithStrings: React.FC<PayslipProps> = (props) => (
+ <TranslationNamespaceGate namespace="payslip">
+ <PayslipSimulator {...props} />
+ </TranslationNamespaceGate>
+);
+
+export default PayslipSimulatorWithStrings;
