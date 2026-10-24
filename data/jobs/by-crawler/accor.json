@@ -2415,7 +2415,6 @@
           "front-office-agent-zurich-west-m-w-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:07:10.829Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2430,7 +2429,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "id": "accor-c1e920a6400a",
