@@ -51,6 +51,18 @@ describe('orderMopupRequestsTitleFirst()', () => {
     expect(ordered.map((r: { id: string }) => r.id)).toEqual(['r0', 'r2', 'r5', 'r1', 'r3', 'r4']);
   });
 
+  it('puts source-copy descriptions before titles so the free repair lane reaches them first', () => {
+    const { requests, fieldOf } = buildBatch(SLOTS);
+    const ordered = orderMopupRequestsTitleFirst(
+      requests,
+      fieldOf,
+      undefined,
+      (r: { id: string }) => r.id === 'r1',
+    );
+
+    expect(ordered.map((r: { id: string }) => r.id)).toEqual(['r1', 'r0', 'r2', 'r5', 'r3', 'r4']);
+  });
+
   it('neither drops nor duplicates a request and returns the same objects', () => {
     const { requests, fieldOf } = buildBatch(SLOTS);
     const ordered = orderMopupRequestsTitleFirst(requests, fieldOf);
@@ -75,7 +87,7 @@ describe('orderMopupRequestsTitleFirst()', () => {
     // same source-level check the CLI-flag guard in
     // tests/translation-protected-tokens.test.ts uses.
     const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'local-mt-mopup.mjs'), 'utf8');
-    expect(source).toMatch(/const orderedRequests = orderMopupRequestsTitleFirst\(\s*requests,\s*\(r\) => targets\.get\(r\.id\)\?\.field,\s*\(r\) => targets\.get\(r\.id\)\?\.overwrite === true,\s*\);/);
+    expect(source).toMatch(/const orderedRequests = orderMopupRequestsTitleFirst\(\s*requests,\s*\(r\) => targets\.get\(r\.id\)\?\.field,\s*\(r\) => targets\.get\(r\.id\)\?\.overwrite === true,\s*\(r\) => targets\.get\(r\.id\)\?\.sourceCopyDescription === true,\s*\);/);
     expect(source).toMatch(/const jsonl = orderedRequests\.map\(\(r\) => JSON\.stringify\(r\)\)/);
   });
 });

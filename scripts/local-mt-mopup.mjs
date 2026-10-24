@@ -313,6 +313,19 @@ export function needsWork(job) {
 }
 
 /**
+ * The free mopup's starvation-priority class: a non-source locale description
+ * that still serves one of the job's canonical source representations. Keep
+ * this predicate beside missingSlots() so the queue lane and the request lane
+ * cannot disagree about which slot is a source-copy repair.
+ */
+function isSourceCopyDescriptionSlot(job, { locale, field }) {
+  if (field !== 'description') return false;
+  const existing = String((job.descriptionByLocale || {})[locale] || '').trim();
+  return sourceLocaleTextCandidates(job, 'description').some((source) =>
+    source.length >= MIN_DESC_CHARS && isDescriptionSourceCopy(existing, source));
+}
+
+/**
  * For a job in scope, return the list of { locale, field } slots that are
  * actually missing/inadequate and should be (re)translated from the source
  * locale. Mirrors the per-locale "missing or too short" / "source copy" checks
@@ -559,14 +572,16 @@ export const MOPUP_TRAFFIC_LANE = 'local-mt-mopup';
  * coorte fresca supera il cap e senza quel numero si prenderebbe ogni slot del
  * passaggio, lasciando zero slot alla riserva oldest-first.
  */
-export function orderMopupJobsByTraffic(jobs, popularity, cap) {
-  return buildTrafficPriority(jobs, popularity, { cap, lane: MOPUP_TRAFFIC_LANE });
+export function orderMopupJobsByTraffic(jobs, popularity, cap, { priorityOf } = {}) {
+  const options = { cap, lane: MOPUP_TRAFFIC_LANE };
+  if (typeof priorityOf === 'function') options.priorityOf = priorityOf;
+  return buildTrafficPriority(jobs, popularity, options);
 }
 
 /**
- * L'ordine in cui il batch arriva al worker Argos: prima TUTTI i titoli, poi le
- * descrizioni, ciascun gruppo nell'ordine di traffico deciso da
- * `orderMopupJobsByTraffic`.
+ * L'ordine in cui il batch arriva al worker Argos: prima le descrizioni source-copy
+ * selezionate, poi i titoli, poi le altre descrizioni, ciascun gruppo nell'ordine
+ * di traffico deciso da `orderMopupJobsByTraffic`.
  *
  * PERCHE'. `scripts/local-mt-translate.py` traduce le unita' nell'ordine in cui
  * le legge (dedup in un dict, poi una coda FIFO del thread pool) e quando il
@@ -579,9 +594,10 @@ export function orderMopupJobsByTraffic(jobs, popularity, cap) {
  * (tests/job-locale-consistency.test.ts, titoli non tradotti) e' salito dal
  * 31,54% al 34,46% in un giorno con ~3.200 slot titolo nuovi in coda.
  *
- * Un titolo costa una sola unita': messi in testa, quelli dei job selezionati
- * finiscono nei primi minuti e le descrizioni usano il tempo che resta. Nessun
- * job entra o esce dalla selezione: cambia solo l'ordine dentro il batch.
+ * Un titolo costa una sola unita': dopo la corsia source-copy, quelli dei job
+ * selezionati finiscono nei primi minuti e le descrizioni normali usano il tempo
+ * che resta. Nessun job entra o esce dalla selezione: cambia solo l'ordine dentro
+ * il batch.
  *
  * @param {Array<{ id: string }>} requests nell'ordine dei job selezionati
  * @param {(request: { id: string }) => string | undefined} fieldOf il campo
@@ -590,17 +606,27 @@ export function orderMopupJobsByTraffic(jobs, popularity, cap) {
  *   titolo che sostituirebbe un valore ben formato (vedi isOverwriteSlot): va
  *   dopo i titoli vuoti o rotti, perche' la sua scrittura e' limitata dal tetto
  *   del rollout e spenta dal rollback della run, quella di un riempimento no
- * @returns {Array<{ id: string }>} stessi oggetti, titoli prima
+ * @param {(request: { id: string }) => boolean} [isSourceCopyDescription] vero
+ *   per una descrizione ancora identica al testo sorgente: questi slot sono la
+ *   riparazione gratuita piu' vecchia e non devono restare dietro alla coda titoli
+ * @returns {Array<{ id: string }>} stessi oggetti, source-copy descriptions first
  */
-export function orderMopupRequestsTitleFirst(requests, fieldOf, isOverwrite = () => false) {
+export function orderMopupRequestsTitleFirst(
+  requests,
+  fieldOf,
+  isOverwrite = () => false,
+  isSourceCopyDescription = () => false,
+) {
+  const sourceCopyDescriptions = [];
   const titles = [];
   const overwriteTitles = [];
   const others = [];
   for (const request of requests) {
-    if (fieldOf(request) !== 'title') others.push(request);
+    if (fieldOf(request) === 'description' && isSourceCopyDescription(request)) sourceCopyDescriptions.push(request);
+    else if (fieldOf(request) !== 'title') others.push(request);
     else (isOverwrite(request) ? overwriteTitles : titles).push(request);
   }
-  return [...titles, ...overwriteTitles, ...others];
+  return [...sourceCopyDescriptions, ...titles, ...overwriteTitles, ...others];
 }
 
 /**
@@ -745,6 +771,43 @@ export function shouldQueueArgosSlot(job, { locale, field }) {
   if (!isOverwriteSlot(job, { locale, field })) return true;
   const existing = String(job.titleByLocale?.[locale] || '').trim();
   return !isTitleRepairQueueSlot({ job, locale, title: existing });
+}
+
+/**
+ * Apply the request-level admission filters before assigning a job to the
+ * source-copy priority lane. A cached or title-lane handoff slot is still a
+ * `missingSlot()`, but it cannot produce an Argos request and must not make
+ * its job consume the bounded selection cap.
+ */
+export function queueableMopupSlots(job, slots, negativeCache, now = Date.now()) {
+  if (!Array.isArray(slots)) return [];
+  const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
+  const tbl = job.titleByLocale || {};
+  const dbl = job.descriptionByLocale || {};
+  const sourceTitle = sourceLocaleTextForTranslation(job, 'title', MIN_TITLE_CHARS);
+  const sourceDesc = sourceLocaleTextForTranslation(job, 'description', MIN_DESC_CHARS);
+  const cache = negativeCache && typeof negativeCache === 'object' && negativeCache.entries
+    && typeof negativeCache.entries === 'object'
+    ? negativeCache
+    : { entries: {} };
+
+  return slots.filter(({ locale, field }) => {
+    const text = field === 'title' ? sourceTitle : sourceDesc;
+    if (!text) return false;
+    const normalizedText = normalizeArgosText(text, srcLang, field);
+    const existing = field === 'title'
+      ? String(tbl[locale] || '').trim()
+      : String(dbl[locale] || '').trim();
+    const negativeCacheKey = negativeMopupCacheKey({
+      text: normalizedText,
+      from: srcLang,
+      to: locale,
+      field,
+      existing,
+    });
+    if (negativeCacheHas(cache, negativeCacheKey, now)) return false;
+    return shouldQueueArgosSlot(job, { locale, field });
+  });
 }
 
 /**
@@ -1460,7 +1523,10 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
       freshMeter.observe(job, { inScope: true, slotCount: slots.length });
       if (slots.length === 0) continue;
 
-      candidates.push({ file, jobIdx, job, slots });
+      const queueableSlots = queueableMopupSlots(job, slots, negativeCache);
+      if (queueableSlots.length === 0) continue;
+      const sourceCopyDescription = queueableSlots.some((slot) => isSourceCopyDescriptionSlot(job, slot));
+      candidates.push({ file, jobIdx, job, slots, sourceCopyDescription });
     }
   }
 
@@ -1469,8 +1535,19 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
     console.warn(`⚠️  [local-mt] ${TRAFFIC_SOURCE_PATH} missing/unreadable — ordering this pass oldest-first instead (still fair, just not traffic-weighted).`);
     popularity = {};
   }
-  const { selected: selectedJobs, stats } = orderMopupJobsByTraffic(candidates.map((c) => c.job), popularity, maxJobs);
+  const sourceCopyCandidateCount = candidates.filter((candidate) => candidate.sourceCopyDescription).length;
+  const sourceCopyJobs = new WeakSet(
+    candidates.filter((candidate) => candidate.sourceCopyDescription).map((candidate) => candidate.job),
+  );
+  const { selected: selectedJobs, stats } = orderMopupJobsByTraffic(
+    candidates.map((c) => c.job),
+    popularity,
+    maxJobs,
+    { priorityOf: (job) => sourceCopyJobs.has(job) },
+  );
   for (const line of formatPriorityReport(stats, { freshCoverage: freshMeter.stats() })) console.log(line);
+  const selectedSourceCopyJobs = selectedJobs.filter((job) => sourceCopyJobs.has(job)).length;
+  console.log(`   Source-copy description lane: ${selectedSourceCopyJobs}/${sourceCopyCandidateCount} candidate job(s) selected after the freshness head and before the general remainder.`);
 
   const byJob = new Map(candidates.map((c) => [c.job, c]));
   const selected = selectedJobs.map((job) => byJob.get(job)).filter(Boolean);
@@ -1521,6 +1598,7 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
         negativeCacheHits++;
         continue;
       }
+      const sourceCopyDescription = isSourceCopyDescriptionSlot(job, { locale, field });
       const overwrite = isOverwriteSlot(job, { locale, field });
       if (!shouldQueueArgosSlot(job, { locale, field })) {
         overwriteTitleHandoff++;
@@ -1539,7 +1617,18 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
       // restored — in the target locale's display form — by the write loop.
       const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale, field });
       requests.push(request);
-      targets.set(id, { file, jobIdx, job, locale, field, request, protectedTokens, negativeCacheKey, overwrite });
+      targets.set(id, {
+        file,
+        jobIdx,
+        job,
+        locale,
+        field,
+        request,
+        protectedTokens,
+        negativeCacheKey,
+        overwrite,
+        sourceCopyDescription,
+      });
       queued++;
     }
     if (queued > 0) {
@@ -1568,16 +1657,19 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
     return;
   }
 
-  // Titles first, then descriptions (see orderMopupRequestsTitleFirst): the
-  // worker is FIFO and a timeout kill keeps only completed requests. Overwrite
-  // titles go after the fills and repairs of empty or broken slots.
+  // Source-copy descriptions first, then titles, then the remaining descriptions
+  // (see orderMopupRequestsTitleFirst): the worker is FIFO and a timeout kill
+  // keeps only completed requests. Overwrite titles go after the fills and
+  // repairs of empty or broken slots.
   const orderedRequests = orderMopupRequestsTitleFirst(
     requests,
     (r) => targets.get(r.id)?.field,
     (r) => targets.get(r.id)?.overwrite === true,
+    (r) => targets.get(r.id)?.sourceCopyDescription === true,
   );
+  const sourceCopyDescriptionRequestCount = orderedRequests.filter((r) => targets.get(r.id)?.sourceCopyDescription === true).length;
   const titleRequestCount = orderedRequests.filter((r) => targets.get(r.id)?.field === 'title').length;
-  console.log(`   Order: ${titleRequestCount} title request(s) first, then ${orderedRequests.length - titleRequestCount} description request(s).`);
+  console.log(`   Order: ${sourceCopyDescriptionRequestCount} source-copy description request(s) first, then ${titleRequestCount} title request(s), then ${orderedRequests.length - sourceCopyDescriptionRequestCount - titleRequestCount} other description request(s).`);
 
   if (dryRun) {
     console.log('🏁 [local-mt] Dry run — not invoking Python, not writing slices.');

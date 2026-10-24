@@ -401,7 +401,7 @@ export const TRAFFIC_PRIORITY_LANES = Object.freeze({
  *
  * @param {object[]} pending
  * @param {Record<string, number>} popularity
- * @param {{ reserveForOldest?: number, now?: number, freshFirst?: boolean, lane?: string, cap?: number }} [opts]
+ * @param {{ reserveForOldest?: number, now?: number, freshFirst?: boolean, lane?: string, cap?: number, priorityOf?: (job: object) => boolean }} [opts]
  * @returns {{ order: object[], selected: object[], stats: object }}
  */
 export function buildTrafficPriority(pending, popularity, opts = {}) {
@@ -527,51 +527,75 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
     ? scored.filter((s) => (!isFresh(s) || deferred.has(s.index)) && !nearMissIdx.has(s.index))
     : scored;
 
-  // Highest traffic first; ties broken OLDEST first (not by array order) so the
-  // 33% of the queue with zero recorded traffic still drains front-to-back
-  // instead of in whatever order the slices happened to be read.
-  const byTraffic = [...rest].sort((a, b) =>
-    b.views - a.views || a.queuedAt - b.queuedAt || a.index - b.index);
-  const byAge = [...rest].sort((a, b) =>
-    a.queuedAt - b.queuedAt || b.views - a.views || a.index - b.index);
-
-  const order = freshHead.map((s) => s.job);
-  const taken = new Set();
-  const stride = strideForReserve(reserveForOldest);
-  let ti = 0;
-  let ai = 0;
-  const nextFrom = (list, cursor) => {
-    let i = cursor;
-    while (i < list.length && taken.has(list[i].index)) i++;
-    return i;
+  /**
+   * Highest traffic first; ties broken OLDEST first (not by array order) so
+   * the 33% of the queue with zero recorded traffic still drains front-to-back
+   * instead of in whatever order the slices happened to be read.
+   *
+   * A consumer may provide a bounded repair class (for example, old
+   * source-copy descriptions in the free mopup). It is ordered with the same
+   * traffic/age stride, but ahead of the general remainder. The freshness head
+   * and near-miss bridge have already been removed, so this cannot displace the
+   * 24-hour delivery promise or the near-miss bridge.
+   */
+  const orderRest = (entries) => {
+    const byTraffic = [...entries].sort((a, b) =>
+      b.views - a.views || a.queuedAt - b.queuedAt || a.index - b.index);
+    const byAge = [...entries].sort((a, b) =>
+      a.queuedAt - b.queuedAt || b.views - a.views || a.index - b.index);
+    const ordered = [];
+    const taken = new Set();
+    const stride = strideForReserve(reserveForOldest);
+    let ti = 0;
+    let ai = 0;
+    const nextFrom = (list, cursor) => {
+      let i = cursor;
+      while (i < list.length && taken.has(list[i].index)) i++;
+      return i;
+    };
+    // The stride counts slots of this remainder, not the fresh head. When a
+    // repair class is present it gets its own stride, keeping age fairness
+    // inside the class instead of letting high-traffic general jobs consume
+    // every slot before the class can be reached.
+    for (let slot = 0; slot < entries.length; slot++) {
+      const wantsAge = stride > 0 && (slot + 1) % stride === 0;
+      let pickedFromAge = false;
+      let entry = null;
+      if (wantsAge) {
+        ai = nextFrom(byAge, ai);
+        if (ai < byAge.length) { entry = byAge[ai]; pickedFromAge = true; }
+      }
+      if (!entry) {
+        ti = nextFrom(byTraffic, ti);
+        if (ti < byTraffic.length) entry = byTraffic[ti];
+      }
+      if (!entry) {
+        // Traffic list exhausted on a non-reserve slot — fall back to the age list.
+        ai = nextFrom(byAge, ai);
+        if (ai >= byAge.length) break;
+        entry = byAge[ai];
+        pickedFromAge = true;
+      }
+      taken.add(entry.index);
+      ordered.push(entry);
+      if (pickedFromAge) ai++; else ti++;
+    }
+    return ordered;
   };
-  // `rest.length`, not `scored.length`: the fresh head is already in `order`,
-  // and the stride must count slots of the REMAINDER — counting them over the
-  // whole queue would shift every oldest-first reserve slot by the size of the
-  // head, silently changing the ordering the head was supposed to leave alone.
-  for (let slot = 0; slot < rest.length; slot++) {
-    const wantsAge = stride > 0 && (slot + 1) % stride === 0;
-    let pickedFromAge = false;
-    let entry = null;
-    if (wantsAge) {
-      ai = nextFrom(byAge, ai);
-      if (ai < byAge.length) { entry = byAge[ai]; pickedFromAge = true; }
-    }
-    if (!entry) {
-      ti = nextFrom(byTraffic, ti);
-      if (ti < byTraffic.length) entry = byTraffic[ti];
-    }
-    if (!entry) {
-      // Traffic list exhausted on a non-reserve slot — fall back to the age list.
-      ai = nextFrom(byAge, ai);
-      if (ai >= byAge.length) break;
-      entry = byAge[ai];
-      pickedFromAge = true;
-    }
-    taken.add(entry.index);
-    order.push(entry.job);
-    if (pickedFromAge) ai++; else ti++;
-  }
+
+  const priorityOf = typeof opts.priorityOf === 'function' ? opts.priorityOf : null;
+  // Deferred fresh jobs are back in `rest` only because the head ceiling had
+  // to preserve the oldest reserve. Keep them in that reserve path rather than
+  // allowing a consumer-specific class to pull them ahead again.
+  const priorityRest = priorityOf
+    ? rest.filter((entry) => !deferred.has(entry.index) && priorityOf(entry.job))
+    : [];
+  const regularRest = priorityOf
+    ? rest.filter((entry) => deferred.has(entry.index) || !priorityOf(entry.job))
+    : rest;
+  const order = freshHead.map((s) => s.job);
+  order.push(...orderRest(priorityRest).map((s) => s.job));
+  order.push(...orderRest(regularRest).map((s) => s.job));
 
   const totalViews = scored.reduce((s, x) => s + x.views, 0);
   return {
