@@ -74,8 +74,16 @@ export function observeManualAd(
     const rect = box.getBoundingClientRect();
     return rect.bottom > 0 && rect.right > 0 && rect.top < window.innerHeight && rect.left < window.innerWidth;
   };
+  // Collapsing is only layout-safe BELOW the viewport. A box above it that
+  // drops to 0 pulls everything on screen up by its full height: measured live
+  // 2026-10-24 on `/` (Pixel 5), an unfilled multiplex the reader had scrolled
+  // past collapsed from 1790px at scrollY 4500 and scored a single 1.0 layout
+  // shift. So an above-the-fold-of-the-reader box keeps its reserve until it is
+  // below the viewport again (the reader scrolled back up past it), and only
+  // then gives the space back, where nothing visible moves.
+  const belowViewport = () => box.getBoundingClientRect().top >= window.innerHeight;
   const collapse = () => {
-    if (stopped || filled || !terminal || visible()) return;
+    if (stopped || filled || !terminal || visible() || !belowViewport()) return;
     offscreen?.disconnect();
     window.removeEventListener('scroll', collapse);
     window.removeEventListener('resize', collapse);
@@ -89,7 +97,7 @@ export function observeManualAd(
     clearTimeout(responseTimer);
     terminal = reason;
     onState(reason === 'unfilled' ? 'unfilled' : 'unavailable', reason);
-    if (!visible()) { collapse(); return; }
+    if (belowViewport()) { collapse(); return; }
     if (typeof IntersectionObserver !== 'undefined') {
       offscreen?.disconnect();
       offscreen = new IntersectionObserver(() => collapse());
