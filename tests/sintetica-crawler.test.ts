@@ -146,6 +146,16 @@ describe('parseListingPage', () => {
     }]);
   });
 
+  it('decodes percent-encoded detail URLs in a filtered-board payload', () => {
+    const html = '<script type="application/json">{"url":"https%3A%2F%2Fapp.ncoreplat.com%2Fjobposition%2F815605%2Faccountant-di-cantiere-it%2Fcsc-costruzioni-sa"}</script>';
+    expect(parseListingPage(html)).toEqual([{
+      id: '815605',
+      title: 'accountant di cantiere it',
+      url: 'https://app.ncoreplat.com/jobposition/815605/accountant-di-cantiere-it/csc-costruzioni-sa',
+      snippet: '',
+    }]);
+  });
+
   it('does not recover a route suffix from an external URL', () => {
     expect(parseListingPage('<script>https://evil.example/jobposition/42/x/sintetica</script>')).toEqual([]);
   });

@@ -25,13 +25,29 @@ function normalizeSpace(value = '') {
 }
 
 function decodeNcoreMarkup(value = '') {
-  return String(value || '')
+  let source = String(value || '')
     .replace(/\\u002f/gi, '/')
     .replace(/\\\//g, '/')
     .replace(/\\u0026/gi, '&')
     .replace(/&amp;/gi, '&')
     .replace(/&quot;|&#34;|&#x22;/gi, '"')
     .replace(/&#x2f;|&#47;/gi, '/');
+
+  // Filter-board payloads may pass through a URL encoder after JSON/HTML
+  // serialization. Decode only URL delimiters here (rather than applying
+  // decodeURIComponent to the whole document), so surrounding markup and
+  // non-URL text keep their original representation.
+  for (let pass = 0; pass < 2; pass += 1) {
+    const decoded = source
+      .replace(/%3a/gi, ':')
+      .replace(/%2f/gi, '/')
+      .replace(/%5c/gi, '\\')
+      .replace(/%22/gi, '"')
+      .replace(/%26/gi, '&');
+    if (decoded === source) break;
+    source = decoded;
+  }
+  return source;
 }
 
 function canonicalNcoreDetailUrl(value = '') {

@@ -89,6 +89,9 @@ const CSC_NCORE_BOARD_URL = 'https://app.ncoreplat.com/jobboard/filters/4321/csc
 const CSC_NCORE_BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 const CSC_NCORE_DETAIL_ROUTE_RE = /\/jobposition\/[1-9]\d*\//i;
 const CSC_NCORE_EMPTY_BOARD_RE = /\b(?:non ci sono|nessun[ao]?|non sono presenti)\b.{0,100}\b(?:offert[ae]|posizion[ei]|lavor[oi])\b|\b(?:there are no|no)\b.{0,100}\b(?:open )?(?:jobs?|positions?|vacancies)\b/i;
+const CSC_NCORE_CAPTURE_HOST_RE = /(?:^|\.)ncoreplat\.com$/i;
+const CSC_NCORE_CAPTURE_CONTENT_TYPE_RE = /(?:application|text)\/(?:json|xhtml\+xml|html|javascript|x-javascript|plain)/i;
+const CSC_NCORE_CAPTURE_MAX_CHARS = 4_000_000;
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -290,6 +293,64 @@ export function parseCscNcoreBoardPage(html) {
   return { urls, authoritativeEmpty };
 }
 
+function appendCscNcoreMarkup(parts, value, state) {
+  const text = String(value || '');
+  if (!text || state.remaining <= 0) return;
+  const chunk = text.slice(0, state.remaining);
+  parts.push(chunk);
+  state.remaining -= chunk.length;
+}
+
+/**
+ * The filter board can keep its data in a child frame or in a same-vendor
+ * JSON response without copying the detail anchors into the top document.
+ * Collect both representations, bounded, and let the existing NCore parser
+ * plus the CSC tenant allowlist decide what is trusted.
+ */
+async function collectCscNcoreBoardMarkup(page, responseBodies = []) {
+  const parts = [];
+  const state = { remaining: CSC_NCORE_CAPTURE_MAX_CHARS };
+  for (const frame of page.frames()) {
+    try {
+      appendCscNcoreMarkup(parts, await frame.content(), state);
+    } catch {
+      // A frame may disappear while the SPA is replacing its document. The
+      // remaining frames/responses are still valid candidates for parsing.
+    }
+  }
+  for (const body of responseBodies) appendCscNcoreMarkup(parts, body, state);
+  return parts.join('\n');
+}
+
+function cscNcoreBoardMarkupReady(markup) {
+  const probeMarkup = String(markup || '')
+    .replace(/\\u002f/gi, '/')
+    .replace(/\\\//g, '/')
+    .replace(/%2f/gi, '/');
+  if (CSC_NCORE_DETAIL_ROUTE_RE.test(probeMarkup)) return true;
+  try {
+    if (parseNcoreListingPage(markup).length > 0) return true;
+  } catch {
+    // The response may be a partial JSON/HTML payload while the SPA is still
+    // hydrating; keep polling until a complete payload or empty marker exists.
+  }
+  return CSC_NCORE_EMPTY_BOARD_RE.test(cscPlainText(markup));
+}
+
+async function waitForCscNcoreBoardMarkup(page, responseBodies, timeoutMs) {
+  const deadline = Date.now() + timeoutMs;
+  let markup = '';
+  while (true) {
+    markup = await collectCscNcoreBoardMarkup(page, responseBodies);
+    if (cscNcoreBoardMarkupReady(markup)) return markup;
+    const remaining = deadline - Date.now();
+    if (remaining <= 0) return markup;
+    const delay = Math.min(250, remaining);
+    if (typeof page.waitForTimeout === 'function') await page.waitForTimeout(delay);
+    else await new Promise((resolve) => setTimeout(resolve, delay));
+  }
+}
+
 /**
  * Render the NCore filter board when its initial response is only the SPA
  * shell. The browser path is deliberately kept behind the no-URL failure:
@@ -305,6 +366,23 @@ export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = 
       viewport: { width: 1280, height: 720 },
     });
     const page = await context.newPage();
+    const responseBodies = [];
+    const pendingResponseBodies = [];
+    page.on('response', (response) => {
+      let responseUrl;
+      try {
+        responseUrl = new URL(response.url());
+      } catch {
+        return;
+      }
+      if (!CSC_NCORE_CAPTURE_HOST_RE.test(responseUrl.hostname)) return;
+      const contentType = response.headers()?.['content-type'] || '';
+      if (!CSC_NCORE_CAPTURE_CONTENT_TYPE_RE.test(contentType)) return;
+      const pending = response.text()
+        .then((body) => { if (body) responseBodies.push(body); })
+        .catch(() => {});
+      pendingResponseBodies.push(pending);
+    });
     const response = await page.goto(boardUrl, {
       waitUntil: 'domcontentloaded',
       timeout: timeoutMs,
@@ -313,32 +391,16 @@ export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = 
       throw new Error(`${boardUrl} returned HTTP ${response?.status() ?? 'unknown'}`);
     }
 
-    // Wait for the data-backed portion of the filter view, not an arbitrary
-    // delay. If the board is genuinely empty, the authoritative marker lets
-    // the parser finish immediately; an unknown shell remains fail-closed.
-    try {
-      await page.waitForFunction(
-        ({ detailPattern, emptyPattern }) => {
-          const source = document.documentElement?.outerHTML || '';
-          const text = document.body?.innerText || '';
-          return new RegExp(detailPattern, 'i').test(source)
-            || new RegExp(emptyPattern, 'i').test(text);
-        },
-        {
-          detailPattern: CSC_NCORE_DETAIL_ROUTE_RE.source,
-          emptyPattern: CSC_NCORE_EMPTY_BOARD_RE.source,
-        },
-        { timeout: timeoutMs },
-      );
-    } catch (error) {
-      // A timeout is handled by parseCscNcoreBoardPage below so the final
-      // failure still names the missing verified source. Navigation/runtime
-      // errors must remain failures.
-      if (error?.name !== 'TimeoutError') throw error;
-    }
+    // Wait for the data-backed portion of the filter view across all frames
+    // and same-vendor responses, not an arbitrary delay. If the board is
+    // genuinely empty, the authoritative marker lets the parser finish; an
+    // unknown shell remains fail-closed.
+    await waitForCscNcoreBoardMarkup(page, responseBodies, timeoutMs);
+    await Promise.allSettled(pendingResponseBodies);
+    const html = await collectCscNcoreBoardMarkup(page, responseBodies);
 
     return {
-      html: await page.content(),
+      html,
       responseUrl: page.url().trim(),
     };
   } finally {

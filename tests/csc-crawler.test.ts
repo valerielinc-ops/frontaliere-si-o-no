@@ -122,6 +122,14 @@ describe('CSC authoritative Drupal discovery', () => {
     });
   });
 
+  it('recovers percent-encoded CSC detail URLs from the filter-board state', () => {
+    const html = '<script type="application/json">{"url":"https%3A%2F%2Fapp.ncoreplat.com%2Fjobposition%2F813007%2Ftecnico-opere-in-sotterraneo-ch%2Fcsc-costruzioni-sa"}</script>';
+    expect(parseCscNcoreBoardPage(html)).toEqual({
+      urls: [ncoreEmbeddedDetailUrl],
+      authoritativeEmpty: false,
+    });
+  });
+
   it('renders the NCore filter board when the initial response is only the SPA shell', async () => {
     const responses = new Map([
       [careersUrl, htmlResponse(careersUrl, ncoreMigratedCareersPage)],
