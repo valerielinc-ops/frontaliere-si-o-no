@@ -18,6 +18,31 @@ type Translations = Record<TranslationKey, string>;
 let currentLocale: Locale = 'it';
 const listeners: Array<(locale: Locale) => void> = [];
 
+// Depth > 0 while listeners are being told that translation DATA arrived (a
+// chunk, an article document, an overlay), as opposed to the visitor switching
+// locale. useLocale() applies the first kind inside startTransition: that
+// re-render touches every component that called t(), and as a default-lane
+// update React renders it in one non-interruptible task — measured up to
+// 1.2-1.8 s on a mid-range phone profile on the article template, right in the
+// window where the visitor's first taps land (field INP p75 327 ms).
+let translationDataNotifyDepth = 0;
+
+/** Bump the tick and tell subscribers that new translation data is available. */
+function notifyTranslationsLoaded(): void {
+ localeTick++;
+ translationDataNotifyDepth++;
+ try {
+  listeners.forEach(fn => fn(currentLocale));
+ } finally {
+  translationDataNotifyDepth--;
+ }
+}
+
+/** True only inside a {@link notifyTranslationsLoaded} dispatch. */
+export function isTranslationDataNotification(): boolean {
+ return translationDataNotifyDepth > 0;
+}
+
 // Loaded locale data — IT critical keys are available synchronously, others load on demand
 const loadedLocales: Partial<Record<Locale, Translations>> = {};
 const localeLoading: Partial<Record<Locale, Promise<void>>> = {};
@@ -103,8 +128,7 @@ export function mergeArticleMetaOverlay(locale: Locale, translations: Translatio
     }
   }
   if (added > 0) {
-    localeTick++;
-    listeners.forEach((fn) => fn(currentLocale));
+    notifyTranslationsLoaded();
   }
   return added;
 }
@@ -127,8 +151,7 @@ export function mergeRecoveredArticleBody(locale: Locale, id: string, parts: rea
     }
   });
   if (changed > 0) {
-    localeTick++;
-    listeners.forEach((fn) => fn(currentLocale));
+    notifyTranslationsLoaded();
   }
   return changed;
 }
@@ -245,8 +268,7 @@ function mergeAuthoritativeArticleApiDocuments(
   changed = true;
  }
  if (changed) {
-  localeTick++;
-  listeners.forEach((fn) => fn(currentLocale));
+  notifyTranslationsLoaded();
  }
 }
 
@@ -293,8 +315,7 @@ export async function loadBlogMeta(section: ArticleSectionName = 'frontaliere'):
     mergeLocaleTranslations(currentLocale, localeMeta);
     blogMetaLoaded.add(key);
    }
-   localeTick++;
-   listeners.forEach(fn => fn(currentLocale));
+   notifyTranslationsLoaded();
   })();
   blogMetaLoadingPromises.set(key, promise);
   await promise;
@@ -319,8 +340,7 @@ export async function loadBlogMeta(section: ArticleSectionName = 'frontaliere'):
  }
  blogMetaLoaded.add(`${section}:it`);
  blogMetaLoaded.add(key);
- localeTick++;
- listeners.forEach(fn => fn(currentLocale));
+ notifyTranslationsLoaded();
  })();
  blogMetaLoadingPromises.set(key, promise);
  await promise;
@@ -401,8 +421,7 @@ export async function loadArticleBody(
  locale !== 'it' ? articleBodyPromises.get(key) : undefined,
  ]);
 
- localeTick++;
- listeners.forEach(fn => fn(currentLocale));
+ notifyTranslationsLoaded();
  return { status: 'legacy' };
 }
 
@@ -498,8 +517,7 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
  if (criticalLoader) {
  const critical = await criticalLoader();
  mergeLocaleTranslations(locale, critical.default);
- localeTick++;
- listeners.forEach(fn => fn(currentLocale));
+ notifyTranslationsLoaded();
  }
  const [core, calc, seoLinks] = await Promise.all([
  chunks.core(),
@@ -516,20 +534,25 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
  // If blog meta was already loaded, merge meta keys for this locale too
  if (blogMetaLoaded.size > 0) await refreshLoadedBlogSections();
 
- // Background-load remaining page chunks
+ // Background-load remaining page chunks — one notification for the
+ // batch, same reason as the Italian loader below.
  const loadRemaining = () => {
- for (const [page, loader] of Object.entries(chunks)) {
- if (page === 'core' || page === 'calculator') continue;
- if (loadedLocaleChunks[locale].has(page)) continue;
- loader()
+ const pending = Object.entries(chunks)
+ .filter(([page]) => page !== 'core' && page !== 'calculator' && !loadedLocaleChunks[locale].has(page))
+ .map(([page, loader]) => loader()
  .then(m => {
  mergeLocaleTranslations(locale, m.default);
  loadedLocaleChunks[locale].add(page);
- localeTick++;
- listeners.forEach(fn => fn(currentLocale));
+ return true;
  })
- .catch(swallowBackgroundLoadError);
- }
+ .catch((err: unknown) => {
+ swallowBackgroundLoadError(err);
+ return false;
+ }));
+ if (pending.length === 0) return;
+ void Promise.all(pending).then(results => {
+ if (results.some(Boolean)) notifyTranslationsLoaded();
+ });
  };
  if (typeof requestIdleCallback === 'function') {
  requestIdleCallback(loadRemaining);
@@ -558,8 +581,7 @@ export function setLocale(locale: Locale): void {
  ensureLocaleLoaded(locale)
  .then(() => {
  // Bump tick so useLocale state changes even though the locale string is the same
- localeTick++;
- listeners.forEach(fn => fn(locale));
+ notifyTranslationsLoaded();
  })
  .catch(swallowBackgroundLoadError);
  }
@@ -637,7 +659,7 @@ export function t(key: string, paramsOrFallback?: string | Record<string, string
 
 // ─── React Hook ──────────────────────────────────────────────
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, startTransition } from 'react';
 
 export function useLocale(): [Locale, (l: Locale) => void] {
  const [, setTick] = useState(0);
@@ -646,8 +668,16 @@ export function useLocale(): [Locale, (l: Locale) => void] {
  // Listen for locale changes — always bump tick to guarantee re-render
  // even when the locale string is the same (async load completed)
  return onLocaleChange((l) => {
+ const apply = () => {
  setL(l);
  setTick(getLocaleTick());
+ };
+ // Translation data arriving in the background is not something the
+ // visitor did: render it as a transition, so React can interrupt it for a
+ // tap or a keystroke instead of holding the main thread for the whole
+ // tree. A locale switch stays urgent.
+ if (isTranslationDataNotification()) startTransition(apply);
+ else apply();
  });
  }, []);
  return [locale, setLocale];
@@ -772,20 +802,27 @@ export const itReady: Promise<void> = Promise.all([
  mergeItTranslations(seoLinks.default);
  loadedItPages.add('seo-links');
  _itReady = true;
- // Background-load remaining page chunks after first render
+ // Background-load remaining page chunks after first render. One
+ // notification for the whole batch, not one per chunk: each notification
+ // re-renders every t() consumer, and the five chunks used to land within a
+ // few ms of each other as five back-to-back full-tree renders.
  const loadRemaining = () => {
- for (const [page, loader] of Object.entries(itPageLoaders)) {
- if (!loadedItPages.has(page)) {
- loader()
+ const pending = Object.entries(itPageLoaders)
+ .filter(([page]) => !loadedItPages.has(page))
+ .map(([page, loader]) => loader()
  .then(m => {
  mergeItTranslations(m.default);
  loadedItPages.add(page);
- localeTick++;
- listeners.forEach(fn => fn(currentLocale));
+ return true;
  })
- .catch(swallowBackgroundLoadError);
- }
- }
+ .catch((err: unknown) => {
+ swallowBackgroundLoadError(err);
+ return false;
+ }));
+ if (pending.length === 0) return;
+ void Promise.all(pending).then(results => {
+ if (results.some(Boolean)) notifyTranslationsLoaded();
+ });
  };
  if (typeof requestIdleCallback === 'function') {
  requestIdleCallback(loadRemaining);
@@ -805,8 +842,7 @@ export async function loadTabTranslations(tab: string): Promise<void> {
  const m = await loader();
  mergeItTranslations(m.default);
  loadedItPages.add(tab);
- localeTick++;
- listeners.forEach(fn => fn(currentLocale));
+ notifyTranslationsLoaded();
 }
 
 /**
@@ -840,8 +876,7 @@ export async function loadAllTranslations(): Promise<void> {
  }
  if (promises.length > 0) {
  await Promise.all(promises);
- localeTick++;
- listeners.forEach(fn => fn(currentLocale));
+ notifyTranslationsLoaded();
  }
 }
 
@@ -866,14 +901,100 @@ export async function loadLocalePageChunk(locale: Locale, page: string): Promise
  if (!loadedLocaleChunks[locale].has(page)) {
  mergeLocaleTranslations(locale, m.default);
  loadedLocaleChunks[locale].add(page);
- localeTick++;
- listeners.forEach(fn => fn(currentLocale));
+ notifyTranslationsLoaded();
  }
  return m.default;
  } catch (err) {
  swallowBackgroundLoadError(err);
  return null;
  }
+}
+
+// ─── On-demand namespaces ───────────────────────────────────
+// Keys that a single lazy surface reads, kept OUT of the core chunks every
+// route waits for. The surface loads its namespace when it actually renders
+// (see useTranslationNamespace below); nothing preloads it in the background.
+// Italian is always merged too, because t() falls back to Italian for a key a
+// non-IT chunk lacks.
+export type TranslationNamespace = 'whatsnew';
+
+const namespaceLoaders: Record<TranslationNamespace, Record<Locale, () => Promise<{ default: Translations }>>> = {
+ whatsnew: {
+ it: () => import('./locales/it-whatsnew'),
+ en: () => import('./locales/en-whatsnew'),
+ de: () => import('./locales/de-whatsnew'),
+ fr: () => import('./locales/fr-whatsnew'),
+ },
+};
+const loadedNamespaces = new Set<string>(); // "namespace:locale"
+const namespacePromises = new Map<string, Promise<boolean>>();
+
+function loadNamespaceLocale(namespace: TranslationNamespace, locale: Locale): Promise<boolean> {
+ const key = `${namespace}:${locale}`;
+ if (loadedNamespaces.has(key)) return Promise.resolve(true);
+ const existing = namespacePromises.get(key);
+ if (existing) return existing;
+ const promise = namespaceLoaders[namespace][locale]()
+ .then(m => {
+ if (locale === 'it') mergeItTranslations(m.default);
+ else mergeLocaleTranslations(locale, m.default);
+ loadedNamespaces.add(key);
+ return true;
+ })
+ .catch((err: unknown) => {
+ swallowBackgroundLoadError(err);
+ return false;
+ })
+ .finally(() => namespacePromises.delete(key));
+ namespacePromises.set(key, promise);
+ return promise;
+}
+
+/** Whether `namespace` is merged for the current locale (and its IT fallback). */
+export function isNamespaceLoaded(namespace: TranslationNamespace): boolean {
+ return loadedNamespaces.has(`${namespace}:it`)
+ && (currentLocale === 'it' || loadedNamespaces.has(`${namespace}:${currentLocale}`));
+}
+
+/**
+ * Load one on-demand namespace for the current locale plus the Italian
+ * fallback. Never rejects: on a failed chunk the keys stay missing, t() keeps
+ * returning its fallback, and the next call retries.
+ */
+export async function loadNamespaceTranslations(namespace: TranslationNamespace): Promise<boolean> {
+ const locale = currentLocale;
+ const alreadyLoaded = isNamespaceLoaded(namespace);
+ const results = await Promise.all([
+ loadNamespaceLocale(namespace, 'it'),
+ locale !== 'it' ? loadNamespaceLocale(namespace, locale) : Promise.resolve(true),
+ ]);
+ const ok = results.every(Boolean);
+ if (!alreadyLoaded && results.some(Boolean)) notifyTranslationsLoaded();
+ return ok;
+}
+
+/**
+ * React side of {@link loadNamespaceTranslations}: returns true once the
+ * namespace is available for the rendered locale. `enabled=false` defers the
+ * load (e.g. a modal that is closed).
+ */
+export function useTranslationNamespace(namespace: TranslationNamespace, enabled = true): boolean {
+ const [locale] = useLocale();
+ const [ready, setReady] = useState(() => isNamespaceLoaded(namespace));
+ useEffect(() => {
+ if (!enabled) return;
+ if (isNamespaceLoaded(namespace)) {
+ setReady(true);
+ return;
+ }
+ setReady(false);
+ let cancelled = false;
+ loadNamespaceTranslations(namespace).then(() => {
+ if (!cancelled) setReady(isNamespaceLoaded(namespace));
+ }).catch(swallowBackgroundLoadError);
+ return () => { cancelled = true; };
+ }, [namespace, enabled, locale]);
+ return ready;
 }
 
 /** Whether Italian core translations are loaded and t() returns real strings. */
