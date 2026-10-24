@@ -49,6 +49,7 @@ describe('remote hero sizes for sparse article re-renders', () => {
 
   it('falls back to the CDN mirror when the origin refuses a non-blog hero', async () => {
     expect(heroMeasureUrls('/images/blog/a.webp')).toEqual(['https://cdn.frontaliereticino.ch/images/blog/a.webp']);
+    expect(heroMeasureUrls('/images/BLOG/a.WEBP')).toEqual(['https://cdn.frontaliereticino.ch/images/blog/a.WEBP']);
     expect(heroMeasureUrls('/images/places/castelgrande.webp')).toEqual([
       'https://frontaliereticino.ch/images/places/castelgrande.webp',
       'https://cdn.frontaliereticino.ch/images/places/castelgrande.webp',

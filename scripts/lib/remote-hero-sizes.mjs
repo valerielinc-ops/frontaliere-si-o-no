@@ -63,9 +63,10 @@ export function publicHeroUrl(heroPath) {
  */
 export function heroMeasureUrls(heroPath) {
   const primary = publicHeroUrl(heroPath);
+  // A full blog hero is already served FROM the CDN: it has no mirror.
+  if (FULL_BLOG_HERO_RX.test(String(heroPath))) return [primary];
   const cdnOrigin = CDN_BLOG_BASE.replace(/\/images\/blog$/, '');
-  const mirror = `${cdnOrigin}${heroPath}`;
-  return primary === mirror ? [primary] : [primary, mirror];
+  return [primary, `${cdnOrigin}${heroPath}`];
 }
 
 /** Read only the prefix needed by the intrinsic-size parser. */
