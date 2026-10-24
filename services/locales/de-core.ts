@@ -4100,7 +4100,7 @@ Regeln:
  'seo.toolOfWeek.description': 'Das Tool der Woche für Grenzgänger: jede Woche heben wir einen anderen Rechner oder Vergleich hervor, den du ausprobieren und teilen kannst. Jetzt entdecken.',
  'seo.feedback.description': 'Hilf uns, Frontaliere Ticino zu verbessern: melde einen Fehler oder schlage eine neue Funktion auf GitHub vor und gestalte den Steuersimulator für Grenzgänger.',
  'seo.forum.description': 'Community-Forum der Grenzgänger: stelle Fragen zu Steuern, Bewilligungen, Versicherungen, Rente und Verkehr und erhalte Antworten von erfahrenen Grenzgängern.',
- 'seo.dashboard.description': 'Persönliches Dashboard für Grenzgänger: speichere deine Steuersimulationen, vergleiche Ergebnisse über die Zeit und exportiere PDF-Berichte zur Übersicht.',
+ 'seo.dashboard.description': 'Persönlicher Bereich für Grenzgänger: Profil und Bewilligungsablauf speichern, Nettolohn schätzen, Bewerbungen und Stellen verfolgen, Daten exportieren.',
  'seo.gamification.description': 'Gamification für Grenzgänger: sammle XP-Punkte beim Erkunden des Steuersimulators, erfülle Ziele und schalte Stufen frei, während du lernst und Spass hast.',
  'seo.privacy.description': 'Datenschutzerklärung von Frontaliere Ticino: Umgang mit personenbezogenen Daten, Cookies, Analytics und Nutzerrechte, konform mit DSGVO und Schweizer DSG.',
  'seo.petition.description': 'Petition zur Schwelle zwischen Gaggiolo und Stabio: Verkehrsmeldungen, offizielle Daten und die Forderung nach einer sicheren technischen Prüfung.',

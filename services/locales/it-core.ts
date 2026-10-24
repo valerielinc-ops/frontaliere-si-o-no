@@ -4186,7 +4186,7 @@ Regole:
  'seo.toolOfWeek.description': 'Lo strumento della settimana per frontalieri: ogni settimana mettiamo in evidenza un calcolatore o un comparatore diverso, da provare e condividere sui social.',
  'seo.feedback.description': 'Aiutaci a migliorare Frontaliere Ticino: segnala un errore o proponi una nuova funzionalità tramite GitHub e contribuisci al simulatore fiscale per frontalieri.',
  'seo.forum.description': 'Forum della community dei frontalieri: fai domande su tasse, permessi, assicurazioni, pensione e trasporti e ricevi risposte da chi ha esperienza diretta.',
- 'seo.dashboard.description': 'Dashboard personale per frontalieri: salva le tue simulazioni fiscali, confronta i risultati nel tempo ed esporta report PDF per seguire il tuo percorso.',
+ 'seo.dashboard.description': 'Area personale del frontaliere: salva profilo e scadenza del permesso, stima il netto, segui candidature e offerte salvate, esporta i tuoi dati.',
  'seo.gamification.description': 'Sistema di gamification per frontalieri: guadagna punti XP esplorando il simulatore fiscale, completa obiettivi e sblocca livelli imparando divertendoti.',
  'seo.privacy.description': 'Informativa sulla privacy di Frontaliere Ticino: trattamento dei dati personali, cookie, analytics e diritti degli utenti, conforme a GDPR e LPD svizzera.',
  'seo.petition.description': 'Petizione sul dosso tra il Gaggiolo e Stabio: segnalazioni di code, dati ufficiali sul traffico e richiesta di una verifica tecnica sicura.',
