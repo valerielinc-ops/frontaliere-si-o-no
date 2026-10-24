@@ -38,6 +38,7 @@ import {
   dedupeLocationCandidates,
   locationEvidenceCandidates,
   locationEvidenceKey,
+  sourceBackedSwissGeographyFields,
 } from '../scripts/lib/prospector/location-evidence.mjs';
 
 const SEED_URL = 'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1';
@@ -169,6 +170,52 @@ describe('prospector location and identity contract', () => {
       });
       expect(fields).toMatchObject({ location: 'Bellinzona', canton: 'TI', addressCountry: 'CH' });
       expect(fields).not.toHaveProperty('duplicateCandidates');
+    });
+
+    it('selects a source municipality when a multi-area candidate has a canton label', () => {
+      const fields = geographyFieldsForDecision({
+        geography: {
+          location: 'Biel / Solothurn / Mittelland',
+          canton: 'SO',
+          addressCountry: 'CH',
+        },
+        candidate: {
+          location: 'Biel / Solothurn / Mittelland',
+          addressLocality: 'Soletta',
+          addressRegion: 'BE',
+          addressCountry: 'CH',
+        },
+      });
+      expect(fields).toMatchObject({
+        location: 'Biel / Solothurn / Mittelland',
+        addressLocality: 'Solothurn',
+        addressRegion: 'SO',
+      });
+    });
+
+    it('reprojects a concrete multi-area locality from another canton', () => {
+      const fields = sourceBackedSwissGeographyFields(
+        {
+          location: 'Winterthur / Solothurn / Mittelland',
+          addressLocality: 'Winterthur',
+        },
+        { location: 'Winterthur / Solothurn / Mittelland', canton: 'SO' },
+      );
+      expect(fields).toMatchObject({
+        addressLocality: 'Solothurn',
+        addressRegion: 'SO',
+      });
+    });
+
+    it('does not publish an unverified locality when no multi-area part matches the canton', () => {
+      const fields = sourceBackedSwissGeographyFields(
+        {
+          location: 'Winterthur / Mittelland',
+          addressLocality: 'Winterthur',
+        },
+        { location: 'Winterthur / Mittelland', canton: 'SO' },
+      );
+      expect(fields).toMatchObject({ addressLocality: '', addressRegion: 'SO' });
     });
   });
 

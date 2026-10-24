@@ -337,6 +337,25 @@ export function readMetaContent(html = '', key = '') {
   return tag ? readAttr(tag.raw, 'content') : '';
 }
 
+const VACANCY_SUMMARY_START_RX = '(?:ab sofort(?:\\s+oder\\s+nach\\s+vereinbarung)?|per sofort|nach vereinbarung|d[eè]s maintenant|[àa] partir(?: de maintenant)?|da subito|su richiesta)';
+const VACANCY_SUMMARY_LOCATION_RX = new RegExp(
+  `^\\s*([^,]{2,80}?)\\s*,\\s*(?:(?:\\d{1,2}\\.\\d{1,2}\\.\\d{4}|${VACANCY_SUMMARY_START_RX})\\s*,\\s*)?\\d{1,3}(?:\\s*[-–]\\s*\\d{1,3})?\\s*%`,
+  'iu',
+);
+
+/**
+ * Read the locality from one SBB vacancy-summary string. The source uses both
+ * `Olten, 01.02.2027, 60-100%` and
+ * `Olten, ab sofort oder nach Vereinbarung, 60-100%`.
+ *
+ * @param {string} summary
+ * @returns {string} Raw (still entity-encoded) vacancy locality, or ''.
+ */
+export function extractVacancySummaryLocation(summary = '') {
+  const match = String(summary || '').match(VACANCY_SUMMARY_LOCATION_RX);
+  return match?.[1]?.trim() || '';
+}
+
 /**
  * Read the locality from a job-specific social summary such as
  * `Bellinzona, 01.02.2027, 60-100%`. This narrow shape is used by SBB detail
@@ -351,10 +370,8 @@ export function readVacancySummaryLocation(html = '') {
     readMetaContent(html, 'og:description'),
   ];
   for (const summary of summaries) {
-    const match = String(summary || '').match(
-      /^\s*([^,]{2,80}?)\s*,\s*(?:(?:\d{1,2}\.\d{1,2}\.\d{4})\s*,\s*)?\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/u,
-    );
-    if (match?.[1]) return match[1].trim();
+    const locality = extractVacancySummaryLocation(summary);
+    if (locality) return locality;
   }
   return '';
 }
