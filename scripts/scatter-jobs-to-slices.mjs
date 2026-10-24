@@ -321,7 +321,7 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
         continue;
       }
       if (!assembledMatches.has(assembled)) assembledMatches.set(assembled, []);
-      assembledMatches.get(assembled).push({ kind, sliceJob });
+      assembledMatches.get(assembled).push({ kind, sliceJob, sliceKey });
       matchedKeys.add(resolveJobDiffKey(assembled));
       const preserveLocationSpecificSlugs = isSourceBackedLocationVariant(sliceJob, assembled);
       const skipBridges = preserveLocationSpecificSlugs
@@ -353,8 +353,7 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
   let shadowedSliceMatches = 0;
   let sourceLocationVariantMatches = 0;
   const safeDuplicateSliceJobsByKey = new Map();
-  const markSafeDuplicateSliceJob = (sliceJob) => {
-    const key = resolveJobDiffKey(sliceJob);
+  const markSafeDuplicateSliceJob = (sliceJob, key) => {
     if (!key) return;
     const jobsForKey = safeDuplicateSliceJobsByKey.get(key) || new Set();
     jobsForKey.add(sliceJob);
@@ -379,22 +378,24 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
       sourceLocationVariantMatches += strongestMatches.length - 1;
       const locationVariantJobsByKey = new Map();
       for (const match of strongestMatches) {
-        const key = resolveJobDiffKey(match.sliceJob);
+        const key = match.sliceKey;
         if (!key) continue;
         const jobsForKey = locationVariantJobsByKey.get(key) || [];
-        jobsForKey.push(match.sliceJob);
+        jobsForKey.push(match);
         locationVariantJobsByKey.set(key, jobsForKey);
       }
       for (const jobsForKey of locationVariantJobsByKey.values()) {
-        for (const sliceJob of jobsForKey.slice(1)) markSafeDuplicateSliceJob(sliceJob);
+        for (const match of jobsForKey.slice(1)) {
+          markSafeDuplicateSliceJob(match.sliceJob, match.sliceKey);
+        }
       }
     }
     else duplicateAssembledMatches += strongestMatches.length - 1;
     shadowedSliceMatches += matches.length - strongestMatches.length;
-    const strongestKeys = new Set(strongestMatches.map(({ sliceJob }) => resolveJobDiffKey(sliceJob)).filter(Boolean));
-    for (const { kind, sliceJob } of matches) {
-      if (MATCH_STRENGTH[kind] < strongest && strongestKeys.has(resolveJobDiffKey(sliceJob))) {
-        markSafeDuplicateSliceJob(sliceJob);
+    const strongestKeys = new Set(strongestMatches.map(({ sliceKey }) => sliceKey).filter(Boolean));
+    for (const { kind, sliceJob, sliceKey } of matches) {
+      if (MATCH_STRENGTH[kind] < strongest && strongestKeys.has(sliceKey)) {
+        markSafeDuplicateSliceJob(sliceJob, sliceKey);
       }
     }
   }
