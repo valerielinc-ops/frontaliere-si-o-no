@@ -373,7 +373,14 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
     else duplicateAssembledMatches += strongestMatches.length - 1;
     shadowedSliceMatches += matches.length - strongestMatches.length;
   }
-  const duplicateSliceKeys = Math.max(0, rawDuplicateSliceKeys - sourceLocationVariantMatches);
+  // A weaker URL/stable-key match is a legitimate shadow of the unique owner
+  // selected at a stronger match strength. It is the same cross-crawler
+  // duplicate class counted by `shadowedSliceMatches`; leaving it in the raw
+  // key count made the verifier reject an otherwise complete projection.
+  const duplicateSliceKeys = Math.max(
+    0,
+    rawDuplicateSliceKeys - sourceLocationVariantMatches - shadowedSliceMatches,
+  );
 
   const report = {
     assembledJobs: jobs.length,

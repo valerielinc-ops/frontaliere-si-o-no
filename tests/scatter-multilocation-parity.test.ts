@@ -122,4 +122,28 @@ describe('scatter parity for source-backed multi-location postings', () => {
       passed: false,
     });
   });
+
+  it('allows a stable-key duplicate shadowed by a unique URL owner', () => {
+    const assembled = {
+      url: 'https://jobs.admin.ch/offene-stellen/role/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+      titleByLocale: { it: 'Ruolo' },
+      descriptionByLocale: { it: 'Descrizione' },
+    };
+    const shadow = {
+      url: 'https://jobs.admin.ch/posti-vacanti/role/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+      titleByLocale: { it: 'Ruolo' },
+      descriptionByLocale: { it: 'Descrizione' },
+    };
+    const owner = structuredClone(assembled);
+
+    expect(verifyScatterParity([assembled], [
+      { file: 'confederazione-ticino.json', jobs: [shadow] },
+      { file: 'vtg.json', jobs: [owner] },
+    ])).toMatchObject({
+      duplicateSliceKeys: 0,
+      duplicateAssembledMatches: 0,
+      shadowedSliceMatches: 1,
+      passed: true,
+    });
+  });
 });
