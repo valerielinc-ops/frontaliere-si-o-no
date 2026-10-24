@@ -4,20 +4,20 @@
   "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "2e36ecd16dd51bfc73721f47f2533412eeb759ba",
+  "sourceCommit": "fa2e99dcabffe8f6d629314ba7263db168965913",
   "artifactObservation": {
     "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
     "sourceRef": "main",
-    "sourceCommit": "2e36ecd16dd51bfc73721f47f2533412eeb759ba"
+    "sourceCommit": "fa2e99dcabffe8f6d629314ba7263db168965913"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 652,
+  "crawlerCount": 653,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:0b185eda62f75daddfa82baa4ba398ba7735410bee9d1f5703231938d8e0de4a",
+    "rosterDigest": "sha256:8054fd0f76cd48472f50937239a57be7d72ac8024a8320d41201aa50ec75d109",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -150,6 +150,7 @@
     "scripts/update-cds-savognin-jobs.mjs",
     "scripts/update-cereneo-jobs.mjs",
     "scripts/update-cern-jobs.mjs",
+    "scripts/update-ch-jobs.mjs",
     "scripts/update-cham-swiss-properties-jobs.mjs",
     "scripts/update-chicco-doro-jobs.mjs",
     "scripts/update-chopard-jobs.mjs",
@@ -1029,8 +1030,8 @@
     {
       "file": "crawler-group-11.yml",
       "sourceLogic": "crawler-group-11-logic.yml",
-      "sourceSha256": "bd2160f9eccf6084ad1dd4d87ad78a2bdfd6ab8856e801263eaeaa777b1db320",
-      "artifactSha256": "4ba97cca34bac17e252c5b89da022814135107b55f97fe2e0069fce2b59a7813",
+      "sourceSha256": "bd954c020c2f33f11076db5cedf50716b4d23e4f12883195ac5844d8b94ea2b4",
+      "artifactSha256": "595f3fe69e0da41561cd482984ef54fa36bddabb8a454e7db1b4345e58df24da",
       "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
       "members": [
         "rehab-basel",
@@ -1061,7 +1062,8 @@
         "see-spital",
         "bls",
         "cnp",
-        "tpl-lugano"
+        "tpl-lugano",
+        "ch"
       ]
     },
     {
