@@ -85,7 +85,9 @@ describe('user-value property totals', () => {
       const body = JSON.parse(init.body);
       calls.push(body);
       if (!body.dimensions) return response({
-        rows: [{ metricValues: body.dimensionFilter ? [{ value: '20' }] : [{ value: '10' }, { value: '3' }, { value: '5' }] }],
+        // Every call now carries the headless-fleet exclusion, so the ad-impression
+        // total is recognised by its event filter, not by having a filter at all.
+        rows: [{ metricValues: JSON.stringify(body.dimensionFilter || {}).includes('ad_impression') ? [{ value: '20' }] : [{ value: '10' }, { value: '3' }, { value: '5' }] }],
         metadata: { currencyCode: 'EUR' },
       });
       if (body.metrics[0].name === 'eventCount') return response({ rows: [] });
@@ -103,6 +105,7 @@ describe('user-value property totals', () => {
     expect(states.segmentUsersAdditive).toBe(false);
     expect(calls.slice(0, 2).every((body) => !body.dimensions)).toBe(true);
     expect(calls.every((body) => body.dateRanges[0].startDate === period.start && body.dateRanges[0].endDate === period.end)).toBe(true);
+    expect(calls.every((body) => JSON.stringify(body.dimensionFilter).includes('"1280x1200"'))).toBe(true);
   });
 
   it('keeps restricted property totals unknown instead of summing segments or emitting zero', async () => {

@@ -8,6 +8,7 @@
  *   node scripts/conversion-funnel-report.mjs --days 30 --json
  */
 
+import { withAutomationFleetExclusion } from './lib/ga4-automation-fleet.mjs';
 import {
   DEFAULT_GA4_PROPERTY_ID,
   GA4_READONLY_SCOPE,
@@ -65,7 +66,9 @@ async function runPeriod({ token, propertyId, range, limit }) {
   // Paginato fino a rowCount: con un limit fisso senza offset un landingPage
   // oltre una pagina da 10000 righe faceva fallire la run come «incomplete»
   // invece di leggere la coda (stessa classe della issue 11423).
-  const run = (body) => runGa4ReportPaged({ token, propertyId, body, pageSize: limit });
+  // Fleet excluded on every body (1280x1200 headless Chrome, 0 key events):
+  // see scripts/lib/ga4-automation-fleet.mjs.
+  const run = (body) => runGa4ReportPaged({ token, propertyId, body: withAutomationFleetExclusion(body), pageSize: limit });
   reports.landingPages = await run(bodies.landingPages);
   reports.channels = await run(bodies.channels);
   reports.conversions = {};
