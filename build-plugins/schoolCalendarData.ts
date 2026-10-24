@@ -24,6 +24,8 @@
  * (the same pattern the 2026 page already uses in the four locales).
  */
 
+import { HOLIDAY_CATALOGUE } from './shared/ticinoHolidaysCatalog.mjs';
+
 export const SCHOOL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 export type SchoolLocale = (typeof SCHOOL_LOCALES)[number];
 
@@ -38,14 +40,18 @@ export type SchoolHolidayId =
   | 'lunedi-pentecoste'
   | 'corpus-domini';
 
-export const SCHOOL_HOLIDAY_NAMES: Record<SchoolHolidayId, Record<SchoolLocale, string>> = {
-  immacolata: { it: 'Immacolata', en: 'Immaculate Conception', de: 'Mariä Empfängnis', fr: 'Immaculée Conception' },
-  'san-giuseppe': { it: 'San Giuseppe', en: "St Joseph's Day", de: 'Josefstag', fr: 'Saint-Joseph' },
-  'festa-lavoro': { it: 'Festa del Lavoro', en: 'Labour Day', de: 'Tag der Arbeit', fr: 'Fête du Travail' },
-  ascensione: { it: 'Ascensione', en: 'Ascension Day', de: 'Auffahrt', fr: 'Ascension' },
-  'lunedi-pentecoste': { it: 'Lunedì di Pentecoste', en: 'Whit Monday', de: 'Pfingstmontag', fr: 'Lundi de Pentecôte' },
-  'corpus-domini': { it: 'Corpus Domini', en: 'Corpus Christi', de: 'Fronleichnam', fr: 'Fête-Dieu' },
-};
+const SCHOOL_HOLIDAY_IDS: readonly SchoolHolidayId[] = [
+  'immacolata', 'san-giuseppe', 'festa-lavoro', 'ascensione', 'lunedi-pentecoste', 'corpus-domini',
+];
+
+/** Localized names, read from the shared Ticino holiday catalogue (single source). */
+export const SCHOOL_HOLIDAY_NAMES = Object.fromEntries(
+  SCHOOL_HOLIDAY_IDS.map((id) => {
+    const holiday = HOLIDAY_CATALOGUE.find((h: { id: string }) => h.id === id);
+    if (!holiday) throw new Error(`[school-calendar] holiday ${id} missing from ticinoHolidaysCatalog`);
+    return [id, holiday.name as Record<SchoolLocale, string>];
+  }),
+) as Record<SchoolHolidayId, Record<SchoolLocale, string>>;
 
 /** Inclusive ISO date range («dal – al compresi» in the DECS document). */
 export interface SchoolDateRange {
