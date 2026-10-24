@@ -1407,12 +1407,12 @@
     },
     {
       "id": "spitex-ch-6843992eba34",
-      "slug": "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil",
+      "slug": "infermiere-certificato-hf-fh-30-50-spitex-flawil-degersheim-flawil",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil",
-        "it": "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil",
-        "en": "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil",
-        "fr": "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil"
+        "it": "infermiere-certificato-hf-fh-30-50-spitex-flawil-degersheim-flawil",
+        "en": "certified-nurse-hf-fh-30-50-spitex-flawil-degersheim-flawil",
+        "fr": "infirmiere-agreee-hf-fh-30-50-spitex-flawil-degersheim-flawil"
       },
       "company": "Spitex Flawil-Degersheim",
       "companyKey": "spitex-ch",
@@ -1471,7 +1471,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-24T09:30:20.231Z"
+      "firstSeenAt": "2026-10-24T09:30:20.231Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil"
+      ]
     },
     {
       "id": "spitex-ch-aa2e08d04899",
@@ -1479,8 +1493,8 @@
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-spitex-ch-kaisten",
         "it": "infermiere-laureata-hf-spitex-kaisten-kaisten",
-        "en": "diplomierte-pflegefachperson-hf-spitex-kaisten",
-        "fr": "diplomierte-pflegefachperson-hf-spitex-kaisten"
+        "en": "graduated-nurse-hf-spitex-kaisten-kaisten",
+        "fr": "infirmiere-diplomee-hf-spitex-kaisten-kaisten"
       },
       "company": "Spitex Kaisten",
       "companyKey": "spitex-ch",
@@ -1531,16 +1545,15 @@
           "diplomierte-pflegefachperson-hf-spitex-ch-kaisten"
         ],
         "en": [
-          "graduated-nurse-hf-spitex-kaisten-kaisten"
+          "diplomierte-pflegefachperson-hf-spitex-kaisten"
         ],
         "fr": [
-          "infirmiere-diplomee-hf-spitex-kaisten-kaisten"
+          "diplomierte-pflegefachperson-hf-spitex-kaisten"
         ]
       },
       "previousSlugs": [
         "diplomierte-pflegefachperson-hf-spitex-ch-kaisten",
-        "graduated-nurse-hf-spitex-kaisten-kaisten",
-        "infirmiere-diplomee-hf-spitex-kaisten-kaisten"
+        "diplomierte-pflegefachperson-hf-spitex-kaisten"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
