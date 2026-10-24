@@ -1,6 +1,6 @@
 /**
- * P1 noindex plan (2026-10-24): the two shared building blocks every family
- * reads — the Search Console demand evidence and the pagination policy.
+ * P1 noindex plan (2026-10-24): the shared Search Console demand evidence
+ * every P1 family reads.
  *
  * The demand evidence fails SAFE: every branch that cannot trust the 90-day
  * page set returns a dormant gate, because a dormant gate keeps the families
@@ -13,12 +13,6 @@ import {
   buildGscDemandEvidence,
   GSC_DEMAND_MIN_IMPRESSED_PATHS,
 } from '../build-plugins/shared/trafficEvidenceFilter';
-import {
-  PAGINATION_NOINDEX_FROM_PAGE,
-  isPaginationNoindex,
-  isPaginationSitemapEligible,
-  paginationRobots,
-} from '../build-plugins/shared/paginationIndexPolicy';
 
 function pages(n: number, extra: Record<string, number> = {}): Record<string, number> {
   const out: Record<string, number> = { ...extra };
@@ -68,21 +62,5 @@ describe('buildGscDemandEvidence', () => {
   it('ignores zero-impression rows', () => {
     const ev = buildGscDemandEvidence({ windowDays: 90, gsc: { pages: pages(FULL, { '/zero/': 0 }) } });
     expect(ev.hasImpressions(['/zero/'])).toBe(false);
-  });
-});
-
-describe('paginationIndexPolicy', () => {
-  it('indexes pages 1-10 and noindexes from page 11', () => {
-    expect(PAGINATION_NOINDEX_FROM_PAGE).toBe(11);
-    for (let p = 1; p <= 10; p++) expect(paginationRobots(p)).toBe('index,follow');
-    for (const p of [11, 12, 200]) {
-      expect(paginationRobots(p)).toBe('noindex,follow');
-      expect(isPaginationNoindex(p)).toBe(true);
-    }
-  });
-
-  it('lists only page 1 in a sitemap', () => {
-    expect(isPaginationSitemapEligible(1)).toBe(true);
-    for (const p of [2, 10, 11, 500]) expect(isPaginationSitemapEligible(p)).toBe(false);
   });
 });
