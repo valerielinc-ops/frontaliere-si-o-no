@@ -7,7 +7,6 @@ import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18n
 import { articleFromOverlay, fetchArticleOverlay, mergeOverlay, type OverlayArticle } from '@/services/articlesOverlay';
 import { articleCoverImageLd, creditedStaticImageObject, fetchImageCredit, fetchImageCredits } from '@/services/imageCredits';
 import type { ImageCreditRecord } from '@/packages/articles/engine/shared/imageCredits.mjs';
-import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from '@/packages/articles/engine/shared/aiDisclosure';
 import ImageCreditLine from '@/components/community/ImageCreditLine';
 import { fuelPriceVariantForArticle, shouldShowFuelTableAfterSingleSegment } from '@/components/blog/fuelArticleContext';
 import { runtimeArticleRecords, recoverArticleBodyParts, publishRuntimeArticleBody, publishedSlugsForIds } from '@/services/runtimeArticleResolution';
@@ -39,8 +38,7 @@ import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { getAuthorBySlug } from '@/data/authors';
-import { resolveArticleProvenance } from '@/services/articleProvenance';
-import { shouldRenderHumanDisclosure } from '@/packages/articles/engine/shared/articleProvenance';
+import { resolveArticleProvenance, resolveArticleTransparencyStatement } from '@/services/articleProvenance';
 import { articleSourceDate, articleSchemaDates, compareArticleSourceDates } from '@/services/articleSourceDates';
 import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, AD_ELIGIBLE_MIN_WORDS, AD_ELIGIBLE_MIN_CHARS, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
 import { collectArticleBodySegments, countArticleBodyChars, countArticleBodyWords } from '@/services/articleBodySegments';
@@ -2368,17 +2366,14 @@ function BlogArticlesContent({
  const resolvedAuthor = {
   provenance: resolveArticleProvenance(article, bylineAuthor),
  };
- const normalizedAuthorName = effectiveAuthorName?.trim();
- const isHumanContributor = shouldRenderHumanDisclosure(resolvedAuthor.provenance, normalizedAuthorName);
- // One AI statement site-wide (packages/articles/engine/shared/aiDisclosure.ts),
- // localized — the static article HTML renders the same copy.
- const transparencyLocale = disclosureLocale(locale);
- const transparencyCopy = ARTICLE_TRANSPARENCY[transparencyLocale];
- const transparencyStatement = resolvedAuthor.provenance.aiAssisted
-  ? transparencyCopy.aiAssisted
-  : isHumanContributor
-   ? transparencyCopy.human(normalizedAuthorName)
-   : transparencyCopy.humanWithoutName;
+ // One statement resolver is used by the static article HTML too, so a
+ // hydration round-trip cannot change the disclosure on whitespace or locale
+ // fallback alone.
+ const transparencyStatement = resolveArticleTransparencyStatement(
+  locale,
+  resolvedAuthor.provenance,
+  effectiveAuthorName,
+ );
 
  // Wait for article body translations to load
  if (!bodyReady) {

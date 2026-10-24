@@ -38,7 +38,7 @@ import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from './shared/aiDisclosure';
 import {
   resolveArticleProvenance,
-  shouldRenderHumanDisclosure,
+  resolveArticleTransparencyStatement,
   type ArticleProvenance,
 } from './shared/articleProvenance';
 
@@ -1184,12 +1184,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const buildArticleTransparencyAside = (locale: string, authorName: string | undefined, provenance: ArticleProvenance): string => {
   const dl = disclosureLocale(locale);
   const tr = ARTICLE_TRANSPARENCY[dl];
-  const normalizedAuthorName = authorName?.trim();
-  const statement = provenance.aiAssisted
-   ? tr.aiAssisted
-   : shouldRenderHumanDisclosure(provenance, normalizedAuthorName)
-    ? tr.human(normalizedAuthorName)
-    : tr.humanWithoutName;
+  const statement = resolveArticleTransparencyStatement(locale, provenance, authorName);
   return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)} ${esc(tr.sources)}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
  };
 
