@@ -25,6 +25,26 @@
 
 import { tenantHostOwner } from './coverage.mjs';
 import { qualityContractVersionOf } from './quality-contract.mjs';
+import { KNOWN_AGGREGATOR_DOMAINS } from '../known-aggregator-domains.mjs';
+import { normalizeHost, registrableDomain } from './registrable.mjs';
+
+/**
+ * The aggregator domain a candidate reads from, if any. The `aggregator` flag
+ * comes from TRACE's structural test on a listing, which a single posting page
+ * on a job search engine passes; the shared denylist covers that case.
+ *
+ * @param {Record<string, any>} candidate
+ * @returns {string}
+ */
+function knownAggregatorDomainOf(candidate) {
+  const hosts = [candidate.tenantHost];
+  try { if (candidate.careersUrl) hosts.push(new URL(candidate.careersUrl).hostname); } catch { /* malformed URL: no host */ }
+  for (const host of hosts) {
+    const domain = registrableDomain(normalizeHost(String(host || '')));
+    if (domain && KNOWN_AGGREGATOR_DOMAINS.has(domain)) return domain;
+  }
+  return '';
+}
 
 /** @typedef {{ passed: boolean, reasons: string[], checks: Record<string, boolean> }} GateResult */
 
@@ -157,9 +177,15 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   const compatibleHistory = validationHistory.filter((entry) =>
     qualityContractVersionOf(entry) === qualityContractVersion);
   const sourceAdapterVersion = String(candidate.sourceAdapterVersion || '').trim();
-  const history = sourceAdapterVersion
-    ? compatibleHistory.filter((entry) => entry.sourceAdapterVersion === sourceAdapterVersion)
+  // A re-keyed candidate starts over: its earlier gradings may have measured
+  // another employer's spec written under the same key.
+  const rekeyedAt = String(candidate.rekeyedAt || '');
+  const currentSpecHistory = rekeyedAt
+    ? compatibleHistory.filter((entry) => String(entry?.at || '') > rekeyedAt)
     : compatibleHistory;
+  const history = sourceAdapterVersion
+    ? currentSpecHistory.filter((entry) => entry.sourceAdapterVersion === sourceAdapterVersion)
+    : currentSpecHistory;
   const lastIncompleteIndex = history.findLastIndex((entry) => entry.runtimeSnapshotComplete === false);
   const stabilityHistory = history.slice(lastIncompleteIndex + 1);
   const good = stabilityHistory.filter((h) => h.verdict === 'good');
@@ -174,8 +200,11 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
       ? `gia' in promozione nella PR ${candidate.promotionPr || '(aperta)'}`
       : `stato ${candidate.status}, atteso "promoted"`);
 
-  mark('notAggregator', candidate.aggregator !== true,
-    'e\' un aggregatore: porta inventario che hanno gia\' tutti');
+  const aggregatorDomain = knownAggregatorDomainOf(candidate);
+  mark('notAggregator', candidate.aggregator !== true && !aggregatorDomain,
+    aggregatorDomain
+      ? `legge da ${aggregatorDomain}, un aggregatore: non e' la pagina del datore`
+      : 'e\' un aggregatore: porta inventario che hanno gia\' tutti');
 
   mark('hasCrawlerKey', Boolean(candidate.crawlerKey),
     'nessuna chiave crawler: la spec non e\' stata sintetizzata');

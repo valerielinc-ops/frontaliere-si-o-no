@@ -28,6 +28,9 @@ export const KNOWN_AGGREGATOR_DOMAINS = new Set([
   'job-room.ch', 'arbeit.swiss', 'eures.europa.eu',
   'jobwinner.ch', 'topjobs.ch', 'jobsuchmaschine.ch',
   'glassdoor.com', 'glassdoor.ch', 'karriere.at', 'ictjobs.ch',
+  // Job search engine (formerly neuvoo): its posting pages name one employer
+  // each, so the structural listing test alone does not catch them.
+  'talent.com',
 ]);
 
 /**

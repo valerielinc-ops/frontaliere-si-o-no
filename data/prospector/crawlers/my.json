@@ -1,19 +1,23 @@
 {
   "companyKey": "my",
-  "companyName": "stiftung-helsenberg",
+  "companyName": "Teo Jakob AG",
   "companyHost": "my.jobalino.ch",
   "platform": "jobalino.ch",
   "mode": "jsonld",
   "seedUrls": [
-    "https://my.jobalino.ch/de/jobpreview/18678"
+    "https://my.jobalino.ch/public/job/de/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w"
   ],
-  "detailTemplate": "/de/jobpreview/18678",
+  "detailTemplate": [
+    "/job/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w",
+    "/job/6627a44879cd0/teo-jakob-ag/lernende-detailhandel-efz-moebel-m-w"
+  ],
   "detailEnrichment": false,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [
-    "Spontanbewerbung / 5%"
+    "Lernende Detailhandel EFZ Möbel (m/w) / 100%"
   ],
+  "canton": "BE",
   "sourceLang": "de",
-  "learnedAt": "2026-10-21T00:10:14.384Z"
+  "learnedAt": "2026-10-11T11:50:06.686Z"
 }

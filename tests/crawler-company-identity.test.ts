@@ -122,6 +122,18 @@ describe('crawler-company-identity — chi e’ l’azienda di uno slice', () =>
     expect(s.domain).toBe('ikea.ch');
   });
 
+  it('ricava la sede dalle localita’ degli annunci, mai da un’etichetta di filtro', () => {
+    // CSEM: 12 annunci a Neuchatel e 8 a Landquart, nella directory come «Lugano, TI».
+    const place = (addressLocality: string, canton: string) => ({ company: 'CSEM', addressLocality, canton });
+    const csem = summariseSliceCompanies([
+      ...Array.from({ length: 12 }, () => place('Neuchâtel', 'NE')),
+      ...Array.from({ length: 8 }, () => place('Landquart', 'GR')),
+    ]);
+    expect([csem.city, csem.canton]).toEqual(['Neuchâtel', 'NE']);
+    const opus = summariseSliceCompanies([{ company: 'Opus', location: '/Region, BE-Bern', canton: 'BE' }]);
+    expect([opus.city, opus.canton]).toEqual(['', '']);
+  });
+
   it('NON prende il primo record quando lo slice copre piu’ datori', () => {
     // La forma di `coop-ticino`: il primo job e' un marchio periferico.
     const jobs = [

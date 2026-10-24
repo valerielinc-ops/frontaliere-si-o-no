@@ -157,6 +157,8 @@ decisione non è «il punteggio è alto», ma la congiunzione in
 | pagine con prosa | ≥ 75% | listing renderizzati lato client |
 | prova semantica di annuncio | ≥ 75% | contenuto editoriale o dettaglio opaco |
 | identità del datore confermata | ≥ 75%, senza mismatch | risultati appartenenti a un'altra azienda |
+| logo dell'azienda verificato | sul dominio del datore, mai su quello del vendor ATS | pagine annuncio col badge a iniziali, o col marchio del vendor |
+| host non aggregatore | flag strutturale e denylist condivisa | una pagina annuncio di un motore di ricerca (`ch.talent.com`) |
 | **validazioni buone** | **≥ 2, su ≥ 2 giorni distinti** | **markup A/B, cookie wall al secondo giro, settimana vuota** |
 | annunci rispetto al massimo osservato | ≥ 50% | un listing che sta collassando |
 | chiave crawler | libera | collisione con un crawler esistente |
@@ -165,6 +167,30 @@ decisione non è «il punteggio è alto», ma la congiunzione in
 La condizione vincolante è quella sulla **stabilità**: non è soddisfacibile da
 una singola run, per quanto buona sembri. Un crawler sintetizzato e graduato
 stamattina non è promuovibile oggi pomeriggio.
+
+La sonda del logo legge la homepage del datore (`apple-touch-icon`, `rel=icon`,
+un `<img>` di logo, il `logo` del JSON-LD) e poi `/favicon.ico`, e registra
+l'URL dell'asset verificato. PROMOTE lo passa allo scaffold, che lo scrive come
+voce diretta di `CRAWLED_COMPANY_LOGOS` e ne fa il mirror: registro, manifest e
+file del logo entrano nella PR insieme al crawler. Prima del 2026-10-24 la
+sonda leggeva solo `/favicon.ico` (31 validazioni su 65 fallite il 2026-10-23)
+e la PR scartava i file del logo: i 15 crawler promossi dal 2026-10-09 sono
+andati in produzione senza logo pur avendo passato il check.
+
+## Chiavi crawler: una per datore, mai condivise
+
+La chiave crawler è il nome del file spec, e un parser in produzione rilegge
+la sua spec da quel file a ogni giro. L'etichetta dell'host ATS diventa chiave
+solo se nomina il datore: `my.jobalino.ch`, `app.jobportal.abaservices.ch`,
+`link.ostendis.com` o `company.sbb.ch` servono molti datori, e la chiave nasce
+allora dal nome (corroborato dal dominio del datore) o dal dominio. SYNTHESIZE
+non scrive mai una spec sotto una chiave già di un crawler in produzione o di
+un altro candidato: la disambigua. Misurato il 2026-10-24: la sintesi di
+Stiftung Helsenberg come `my` aveva riscritto la spec del crawler `my` (Teo
+Jakob AG), che pubblicava l'annuncio di Helsenberg col nome di Teo Jakob. I
+candidati non ancora in produzione con una chiave da etichetta del vendor
+tornano in sintesi con una chiave propria e lo storico azzerato (`rekeyedAt`),
+perché le loro validazioni potevano misurare la spec di un altro datore.
 
 Cosa significa «entrare nel ciclo di produzione»: lo stesso
 `scaffold-crawler.mjs` di ogni crawler scritto a mano, sul tier `prospected` —
