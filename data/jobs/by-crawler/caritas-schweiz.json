@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-10-24T09:20:05.341Z",
-  "runId": "40080788649",
+  "assembledAt": "2026-10-24T21:17:35.908Z",
+  "runId": "40132892563",
   "jobs": [
     {
       "id": "caritas-schweiz-6b39cbcf8a7a",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:19:59.363Z",
+      "crawledAt": "2026-10-24T21:17:29.251Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://apply.refline.ch/126757/2356/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:19:58.897Z",
+      "crawledAt": "2026-10-24T21:17:28.781Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "url": "https://apply.refline.ch/126757/2383/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:19:58.429Z",
+      "crawledAt": "2026-10-24T21:17:28.330Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -284,7 +284,7 @@
       "url": "https://apply.refline.ch/126757/2371/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-24T09:19:57.966Z",
+      "crawledAt": "2026-10-24T21:17:27.881Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -366,7 +366,7 @@
       "url": "https://apply.refline.ch/126757/2380/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:19:57.500Z",
+      "crawledAt": "2026-10-24T21:17:27.433Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -447,7 +447,7 @@
       "url": "https://apply.refline.ch/126757/2381/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:19:57.035Z",
+      "crawledAt": "2026-10-24T21:17:26.966Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -530,7 +530,7 @@
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:19:56.570Z",
+      "crawledAt": "2026-10-24T21:17:26.516Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -607,7 +607,7 @@
       "url": "https://apply.refline.ch/126757/2338/pub/8/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:19:56.104Z",
+      "crawledAt": "2026-10-24T21:17:26.067Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -684,7 +684,7 @@
       "url": "https://apply.refline.ch/126757/2345/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:19:55.632Z",
+      "crawledAt": "2026-10-24T21:17:25.614Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -816,7 +816,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

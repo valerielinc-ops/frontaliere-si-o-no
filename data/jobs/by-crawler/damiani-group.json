@@ -1,7 +1,7 @@
 {
   "crawlerKey": "damiani-group",
-  "assembledAt": "2026-10-24T09:21:22.632Z",
-  "runId": "40080788649",
+  "assembledAt": "2026-10-24T21:23:21.207Z",
+  "runId": "40132892563",
   "jobs": [
     {
       "title": "Social Media Manager",
@@ -253,7 +253,7 @@
         "it": "business-controller-damiani-group-mendrisio",
         "en": "business-controller-damiani-group-mendrisio",
         "de": "geschaftsbetrieb-damiani-group-mendrisio",
-        "fr": "entreprises-damiani-group-mendrisio"
+        "fr": "business-controller-damiani-group-mendrisio"
       },
       "id": "damiani-group-3095ed600c31",
       "needsRetranslation": true,
@@ -273,7 +273,15 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "firstSeenAt": "2026-10-13T21:24:12.552Z"
+      "firstSeenAt": "2026-10-13T21:24:12.552Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "entreprises-damiani-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "entreprises-damiani-group-mendrisio"
+      ]
     },
     {
       "title": "Customer Service Specialist - German Speaking",
