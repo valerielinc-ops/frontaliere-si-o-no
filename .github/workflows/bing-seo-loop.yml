@@ -289,6 +289,7 @@ jobs:
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/pharmacyNoindexTargetMarker.mjs
+            /build-plugins/shared/eventArchiveNoindexTargetMarker.mjs
             /scripts/lib/canton-url-slugs.mjs
             /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
@@ -313,6 +314,7 @@ jobs:
             /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
+            /data/swiss-article-canonical-overrides.json
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
@@ -364,6 +366,7 @@ jobs:
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/pharmacyNoindexTargetMarker.mjs
+            /build-plugins/shared/eventArchiveNoindexTargetMarker.mjs
             /scripts/lib/canton-url-slugs.mjs
             /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
@@ -388,6 +391,7 @@ jobs:
             /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
+            /data/swiss-article-canonical-overrides.json
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
@@ -449,6 +453,7 @@ jobs:
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/pharmacyNoindexTargetMarker.mjs
+            /build-plugins/shared/eventArchiveNoindexTargetMarker.mjs
             /scripts/lib/canton-url-slugs.mjs
             /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
@@ -473,6 +478,7 @@ jobs:
             /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
+            /data/swiss-article-canonical-overrides.json
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
@@ -535,6 +541,7 @@ jobs:
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/pharmacyNoindexTargetMarker.mjs
+            /build-plugins/shared/eventArchiveNoindexTargetMarker.mjs
             /scripts/lib/canton-url-slugs.mjs
             /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
@@ -559,6 +566,7 @@ jobs:
             /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
+            /data/swiss-article-canonical-overrides.json
             /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
@@ -616,6 +624,7 @@ jobs:
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/pharmacyNoindexTargetMarker.mjs
+            /build-plugins/shared/eventArchiveNoindexTargetMarker.mjs
             /scripts/lib/canton-url-slugs.mjs
             /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
@@ -641,6 +650,7 @@ jobs:
             /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
+            /data/swiss-article-canonical-overrides.json
             /scripts/lib/github-issue-creator.mjs
             /scripts/load-rc-env.mjs
             /package.json

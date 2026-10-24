@@ -41,6 +41,7 @@ import { stableTitleToken } from '../build-plugins/shared/titleSuffix';
 import { parsePath } from '../services/router';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
+import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
 
 const EVENT = {
   id: 'tio-agenda:42',
@@ -1218,6 +1219,21 @@ describe('historical event archive reachability', () => {
       const canonicalUrl = canonicalUrlMatch?.[1] ?? canonicalUrlMatch?.[2] ?? canonicalUrlMatch?.[3];
       expect(canonicalUrl, locale).toBe(`https://frontaliereticino.ch${historicalEventsArchivePath(locale)}`);
     }
+  });
+
+  it('declares the municipal archive noindex with the shared marker, and only there', () => {
+    const entries = [{
+      event: { ...EVENT, id: 'historical:municipal', title: 'Evento passato' } as never,
+      canton: 'TI',
+      comune: 'Lugano',
+      slug: 'evento-passato',
+    }];
+    const distDir = path.join(os.tmpdir(), 'frontaliere-historical-events-archive-test');
+    const municipal = renderHistoricalEventsArchivePage({ locale: 'de', entries, page: 1, pageCount: 1, distDir, municipality: { canton: 'TI', comune: 'Lugano' } });
+    expect(municipal.html).toMatch(/noindex,follow/);
+    expect(municipal.html).toContain(EVENT_ARCHIVE_NOINDEX_TARGET_MARKER);
+    const national = renderHistoricalEventsArchivePage({ locale: 'de', entries, page: 1, pageCount: 1, distDir });
+    expect(national.html).not.toContain(EVENT_ARCHIVE_NOINDEX_TARGET_MARKER);
   });
 
   it('patches an inbound archive link idempotently and removes it when no archive remains', () => {

@@ -6,6 +6,8 @@ import {
   hasMetaViewport,
   isIntentionalRedirectPage,
   isIntentionalJobBoardNoindexPage,
+  isIntentionalPharmacyNoindexPage,
+  isIntentionalEventArchiveNoindexPage,
   maskHtmlCommentsOutsideRawText,
   validateBestPracticeSeo,
   validateSchemas,
@@ -13,6 +15,8 @@ import {
 import { minifyHtml } from '../../build-plugins/shared/htmlMinify';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
+import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
 
 const GOOD_PAGE = `
   <html>
@@ -177,6 +181,32 @@ describe('blocking page checks', () => {
     expect(isIntentionalJobBoardNoindexPage(`${JOB_BOARD_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(true);
     expect(isIntentionalJobBoardNoindexPage(noindex)).toBe(false);
     expect(isIntentionalJobBoardNoindexPage(`${JOB_BOARD_NOINDEX_TARGET_MARKER}<meta name=robots content=index,follow>`)).toBe(false);
+  });
+
+  // Replay 39952023039 / 40071128198: 344 pharmacy and ~2,440 municipal event
+  // archive pages are noindex by their producer's decision; a declaration is
+  // the producer's marker AND the noindex, never one without the other.
+  it.each([
+    ['pharmacy', (html: string) => isIntentionalPharmacyNoindexPage('farmacie', html), PHARMACY_NOINDEX_TARGET_MARKER],
+    ['event archive', isIntentionalEventArchiveNoindexPage, EVENT_ARCHIVE_NOINDEX_TARGET_MARKER],
+  ] as const)('recognizes only declared %s noindex pages', (_name, isDeclared, marker) => {
+    const noindex = '<meta name=robots content=noindex,follow>';
+    expect(isDeclared(`${marker}${noindex}`)).toBe(true);
+    expect(isDeclared(noindex)).toBe(false);
+    expect(isDeclared(`${marker}<meta name=robots content=index,follow>`)).toBe(false);
+    expect(isDeclared(`${JOB_BOARD_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(false);
+  });
+
+  it('classifies an owner article consolidation apart, and still flags a canonical to the section hub', () => {
+    const page = (self: string, canonical: string) => GOOD_PAGE
+      .replace('https://frontaliereticino.ch/en/guide/" property="og:url"', `${canonical}" property="og:url"`)
+      .replace('<link href="https://frontaliereticino.ch/en/guide/" rel="canonical">', `<link href="${canonical}" rel="canonical">`)
+      .replace(/en\/guide/g, self);
+    const shadowed = 'en/cross-border-articles/kindergarten-educator-ticino-salary-requirements';
+    const winner = 'https://frontaliereticino.ch/en/cross-border-articles/frontalier-educator-ticino-salary-requirements/';
+    const types = (html: string, p: string) => validateBestPracticeSeo(html, p).map((i) => `${i.type}:${i.type === 'declaredCanonical' ? i.detail : ''}`);
+    expect(types(page(shadowed, winner), shadowed)).toContain('declaredCanonical:article-consolidation');
+    expect(types(page(shadowed, 'https://frontaliereticino.ch/en/cross-border-articles/'), shadowed)).toContain('canonicalMismatch:');
   });
 });
 
