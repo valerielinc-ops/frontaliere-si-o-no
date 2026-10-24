@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 822,
+      "5": 823,
       "6": 5054
     },
-    "publishedCovers": 7559,
+    "publishedCovers": 7560,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207833,6 +207833,39 @@
         "provider": "openai-codex",
         "assetId": "article-prezzi-pompa-non-calano-svizzera",
         "imageUrl": "/images/blog/article-prezzi-pompa-non-calano-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-successione-parmelin-otto-nomi": {
+      "cover": "/images/blog/article-successione-parmelin-otto-nomi.webp",
+      "hash": "77c8ad4bc6d70c19013c90624f77a2fb5bfa4b5582f0ee154d26b3cd0704b629",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "successione-parmelin-otto-nomi",
+          "category": "fiscale",
+          "date": "2026-10-24T05:11:58.276Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-successione-parmelin-otto-nomi.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-successione-parmelin-otto-nomi",
+        "imageUrl": "/images/blog/article-successione-parmelin-otto-nomi.webp",
         "evidence": "generated-engine-record"
       }
     }
