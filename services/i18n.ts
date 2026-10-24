@@ -928,7 +928,34 @@ export async function loadLocalePageChunk(locale: Locale, page: string): Promise
 export type TranslationNamespace = 'whatsnew' | (string & {});
 
 type NamespaceModuleLoader = () => Promise<{ default: Translations }>;
-const splitNamespaceModules = import.meta.glob<{ default: Translations }>('./locales/*-ns-*.ts');
+
+/**
+ * `import.meta.glob` exists only in modules Vite transforms, where the call is
+ * rewritten into an object of loaders at build time. Build plugins import this
+ * file from `vite.config.ts`, which Vite loads through esbuild without that
+ * transform: there `import.meta.glob` is undefined and the bare call threw
+ * `(intermediate value).glob is not a function` while loading the config, so
+ * every deploy leg failed in its first minutes (run 40130476488).
+ *
+ * The call must stay a literal `import.meta.glob(...)` for Vite to rewrite it,
+ * so it is passed as a thunk. A `typeof import.meta.glob` guard would not work:
+ * Vite never defines `import.meta.glob` at runtime, so the browser bundle would
+ * take the empty branch. Outside Vite (config load, plain Node) no on-demand
+ * namespace is registered, which is the "not loaded yet" state t() already
+ * handles by falling back to the core keys.
+ */
+export function importMetaGlobOrEmpty<T>(load: () => Record<string, T>): Record<string, T> {
+ try {
+  return load();
+ } catch (err) {
+  if (err instanceof TypeError) return {};
+  throw err;
+ }
+}
+
+const splitNamespaceModules = importMetaGlobOrEmpty(
+ () => import.meta.glob<{ default: Translations }>('./locales/*-ns-*.ts'),
+);
 
 const namespaceLoaders: Record<string, Partial<Record<Locale, NamespaceModuleLoader>>> = {
  whatsnew: {
