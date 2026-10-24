@@ -43,10 +43,10 @@ import { reportCaughtError } from '@/services/errorReporter';
 import {
   useAuth,
   renderGoogleButtonWithReadiness,
-  isLinkedInSignInAvailable,
   signInWithLinkedIn,
   type AuthAttributionContext,
 } from '@/services/authService';
+import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 
 type SocialSignInLayout = 'stack' | 'grid';
 type GoogleFallbackVariant = 'lg' | 'sm';
@@ -108,13 +108,8 @@ export default function SocialSignInButtons({
   const { t } = useTranslation();
   const { user, signIn: googleSignIn } = useAuth();
   const [googleButtonReady, setGoogleButtonReady] = useState(false);
-  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
+  const linkedInAvailable = useLinkedInSignInAvailable();
   const googleButtonRef = useRef<HTMLDivElement>(null);
-
-  // LinkedIn is gated behind an RC flag (client-id configured).
-  useEffect(() => {
-    isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
-  }, []);
 
   // Mount the GIS rendered button once, only while unauthenticated.
   useEffect(() => {
@@ -171,11 +166,13 @@ export default function SocialSignInButtons({
     </div>
   );
 
-  const linkedInButton = linkedInAvailable ? (
+  // LinkedIn is gated behind an RC flag (client-id configured); the box is
+  // held invisible until it answers (CLS, see useLinkedInSignInAvailable).
+  const linkedInButton = linkedInAvailable !== false ? (
     <button
       type="button"
       onClick={() => { onAuthIntent?.(); void signInWithLinkedIn(undefined, attribution); }}
-      className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors"
+      className={`w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors${linkedInPendingClass(linkedInAvailable)}`}
       aria-label={linkedInLabel(locale)}
     >
       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -192,7 +189,7 @@ export default function SocialSignInButtons({
 
   if (layout === 'grid') {
     return (
-      <div className={`grid grid-cols-1 gap-2 ${linkedInAvailable ? 'sm:grid-cols-2' : ''} ${className}`.trim()}>
+      <div className={`grid grid-cols-1 gap-2 ${linkedInAvailable !== false ? 'sm:grid-cols-2' : ''} ${className}`.trim()}>
         {googleColumn}
         {linkedInButton}
       </div>

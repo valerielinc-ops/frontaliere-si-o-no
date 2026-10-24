@@ -1,3 +1,4 @@
+import { isPaginationSitemapEligible, paginationRobots } from './shared/paginationIndexPolicy';
 import { CALC_HREF } from './shared/calcHref';
 import { buildSalaryAnswer, searchSalaryMedian, hasSalaryIntent } from './shared/searchSalaryAnswer';
 import {
@@ -112,6 +113,7 @@ import { isPromptPlaceholder } from '../scripts/lib/prompt-placeholder.mjs';
 import { ADSENSE_THIN_WORDS } from '../scripts/adsense-prereview-thresholds.mjs';
 import { stemSearchToken, stemHaystack } from '../services/searchStem.mjs';
 import { cantonSearchTokens } from '../services/cantonList';
+import { projectJobsForLocaleHaystack } from './relatedSearchPostingsCore.mjs';
 import {
   AGGREGATE_KEY,
   resolveCantonSection,
@@ -137,8 +139,10 @@ import {
 } from './relatedSearchClustersData';
 import {
   getActiveJobSitemapLocs,
+  getJobSitemapAllowlist,
   jobsSeoPagesFlushed,
   setActiveJobSitemapLocs,
+  setJobSitemapAllowlist,
 } from './shared/buildSignals';
 import { parseAnnotatedSitemapUrls } from './shared/localeVariantSitemap';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
@@ -4076,7 +4080,8 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     title,
     description: copy.hubDescription,
     canonicalUrl,
-    robots: 'index,follow',
+    // P1 noindex plan: hub pages 11+ stay 200 + crawlable but leave the index.
+    robots: paginationRobots(page),
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: page === 1 ? renderHubRootHreflang() : '',
@@ -4978,13 +4983,17 @@ function deriveActiveJobSitemapLocs(
   return active;
 }
 
-function ensureActiveJobSitemapLocs(
+function ensureJobSitemapAllowlist(
   files: ReadonlyArray<{ file: string; xml: string }>,
 ): ReadonlySet<string> {
-  const active = getActiveJobSitemapLocs();
-  if (active !== null) return active;
+  // The all-locale sitemap allowlist, not the link registry: on a
+  // BUILD_LOCALE=it build the latter holds IT URLs only (#14380), and the
+  // EN/DE/FR variants in the shards would all look stale.
+  const allowlist = getJobSitemapAllowlist() ?? getActiveJobSitemapLocs();
+  if (allowlist !== null) return allowlist;
   const recovered = deriveActiveJobSitemapLocs(files);
   setActiveJobSitemapLocs(recovered);
+  setJobSitemapAllowlist(recovered);
   return recovered;
 }
 
@@ -5022,6 +5031,27 @@ function staleJobShardLocs(
     }
   }
   return stale;
+}
+
+/**
+ * Shard `<loc>`s that sitemap-jobs.xml already lists. Google should see each
+ * URL in one sitemap only; the shard copy is the redundant one. Without the
+ * legacy file there is nothing to compare against (shard-only locale leg).
+ */
+function shardLocsListedInLegacyJobSitemap(
+  files: ReadonlyArray<{ file: string; xml: string }>,
+): string[] {
+  const legacy = files.find(({ file }) => file === 'sitemap-jobs.xml')?.xml;
+  if (!legacy) return [];
+  const legacyLocs = new Set(extractSitemapLocs(legacy).map(normalizeLocForCanonicalCmp));
+  const duplicates = new Set<string>();
+  for (const { file, xml } of files) {
+    if (!isJobSitemapShardFilename(file)) continue;
+    for (const loc of extractSitemapLocs(xml)) {
+      if (legacyLocs.has(normalizeLocForCanonicalCmp(loc))) duplicates.add(loc);
+    }
+  }
+  return [...duplicates];
 }
 
 /**
@@ -5180,15 +5210,26 @@ export async function reconcileSitemapJobsWithDist(
   // A cache HIT can reach this reconciler after the jobs producer's normal
   // allowlist population was skipped. Recover the current decision before
   // filtering historical shards; a null registry must never disable this
-  // stale-detail guard.
-  const sourceStale = staleJobShardLocs(sitemapFiles, ensureActiveJobSitemapLocs(sitemapFiles));
+  // stale-detail guard. The allowlist is the all-locale one
+  // (getJobSitemapAllowlist), so EN/DE/FR shard URLs are never mistaken for
+  // stale on the IT build.
+  const sourceStale = staleJobShardLocs(sitemapFiles, ensureJobSitemapAllowlist(sitemapFiles));
   const dropLocs = [...new Set([...unserved, ...mirrorLocs, ...sourceStale])];
-  if (dropLocs.length === 0) return;
+  // One sitemap per URL. A shard restored from an earlier artifact (or written
+  // by a pre-dedupe producer) can still repeat sitemap-jobs.xml entries; the
+  // copy in the shard is the one removed, never the legacy one — the cache-hit
+  // allowlist above is rebuilt from sitemap-jobs.xml, so emptying the legacy
+  // file instead would let staleJobShardLocs wipe every shard detail URL.
+  const legacyDuplicates = shardLocsListedInLegacyJobSitemap(sitemapFiles);
+  if (dropLocs.length === 0 && legacyDuplicates.length === 0) return;
 
   let dropped = 0;
   const changedFiles: string[] = [];
   for (const { file, xml } of sitemapFiles) {
-    const result = dropUrlBlocksByLoc(xml, dropLocs);
+    const fileDropLocs = isJobSitemapShardFilename(file) && legacyDuplicates.length > 0
+      ? [...dropLocs, ...legacyDuplicates]
+      : dropLocs;
+    const result = dropUrlBlocksByLoc(xml, fileDropLocs);
     if (result.xml === xml || result.dropped === 0) continue;
     if (isJobSitemapShardFilename(file) && extractSitemapLocs(result.xml).length === 0) {
       try {
@@ -5207,6 +5248,7 @@ export async function reconcileSitemapJobsWithDist(
     console.log(
       `\x1b[33m[related-search-clusters]\x1b[0m sitemap-jobs*.xml: dropped ${dropped} URL(s) not served self-canonical by dist/ ` +
       `(${unserved.length} failed the dist-truth check, ${sourceStale.length} stale source URL(s), ${mirrorLocs.length} known cross-section mirror(s), ` +
+      `${legacyDuplicates.length} shard duplicate(s) of sitemap-jobs.xml, ` +
       `files=${changedFiles.join(', ')}, issue #911)`,
     );
   }
@@ -5583,24 +5625,19 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       if (!prepassDisabled && totalTokens >= POSTINGS_PREPASS_MIN_TOKENS) {
         const workerUrl = new URL('./relatedSearchPostingsWorker.mjs', import.meta.url);
         const localeKeys = Array.from(tokensByLocale.keys());
-        // Build a SLIM, same-order projection once: the worker reads only these
-        // seven fields (relatedSearchPostingsWorker buildJobHaystack) and returns
-        // postings by job INDEX, so order/length must match `jobs` exactly. This
-        // avoids structured-cloning the full ~88 MB dataset into each of up to 4
-        // worker boot payloads simultaneously (the "external memory pressure" in
-        // the build OOM). Output is byte-identical. (Build OOM fix, #1290.)
-        // `cantonSearch` is the canton-name token string resolved HERE (the
-        // worker can't import the canton JSON) so the worker haystack stays
-        // byte-identical to this plugin's buildJobHaystack (issue #2967).
-        const slimJobs = jobs.map((j: any) => ({
-          title: j.title,
-          titleByLocale: j.titleByLocale,
-          description: j.description,
-          descriptionByLocale: j.descriptionByLocale,
-          company: j.company,
-          location: j.location,
-          cantonSearch: cantonSearchTokens(j.canton ?? ''),
-        }));
+        // The worker reads, for ONE locale, the five fields of
+        // relatedSearchPostingsWorker's buildJobHaystack and returns postings
+        // by job INDEX, so order/length must match `jobs` exactly. The payload
+        // is projected PER LOCALE inside runPrepassWorker below: only the
+        // title/description that locale resolves to, never the
+        // titleByLocale/descriptionByLocale maps of all locales. Cloning those
+        // maps into the worker was ~80% of the payload and the transient that
+        // tripped build-mem-guard during this pre-pass on the de/fr legs
+        // (issue #12763, runs 40070380153 / 40057008446 / 40041643721). The
+        // haystack stays byte-identical (#1290 slim projection, #2967 canton
+        // tokens resolved HERE because the worker can't import the canton
+        // JSON); see projectJobsForLocaleHaystack.
+        const cantonSearchByJob = jobs.map((j: any) => cantonSearchTokens(j.canton ?? ''));
         // Concurrency cap on simultaneous workers. Each worker builds a FULL
         // per-locale 2/3-gram inverted index (~hundreds of MB for ~11k jobs)
         // that lives until the worker exits. Spawning all 4 locales at once
@@ -5626,12 +5663,17 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           entries: Array<{ token: string; list: number[] }>;
           timings?: Record<string, number>;
         };
+        // Per-locale payload size, printed with each pre-pass line so a deploy
+        // log shows whether the worker clone grew back (issue #12763).
+        const prepassPayloadChars = new Map<Locale, number>();
         const runPrepassWorker = (workerLocale: Locale) => {
           const localeTokens = Array.from(tokensByLocale.get(workerLocale) as Set<string>);
+          const projected = projectJobsForLocaleHaystack(jobs, workerLocale, cantonSearchByJob);
+          prepassPayloadChars.set(workerLocale, projected.payloadChars);
           return new Promise<PrepassResult>(
             (resolve, reject) => {
               const worker = new Worker(workerUrl, {
-                workerData: { jobs: slimJobs, locale: workerLocale, tokens: localeTokens, sparse: prepassSparse },
+                workerData: { jobs: projected.jobs, locale: workerLocale, tokens: localeTokens, sparse: prepassSparse },
               });
               // Resolve on 'exit', NOT 'message': the worker holds its full
               // per-locale gram index (~hundreds of MB) in memory until it tears
@@ -5676,7 +5718,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
                 ? ` digest=${crypto.createHash('sha1').update(JSON.stringify(r.entries)).digest('hex').slice(0, 16)}`
                 : '';
               console.log(
-                `\x1b[36m[related-search-clusters]\x1b[0m postings pre-pass ${r.locale}: tokens=${r.entries.length} haystacks_ms=${Math.round(t.haystacks ?? 0)} index_ms=${Math.round(t.index ?? 0)} resolve_ms=${Math.round(t.resolve ?? 0)} mode=${prepassSparse ? 'sparse' : 'dense'}${digest}`,
+                `\x1b[36m[related-search-clusters]\x1b[0m postings pre-pass ${r.locale}: tokens=${r.entries.length} haystacks_ms=${Math.round(t.haystacks ?? 0)} index_ms=${Math.round(t.index ?? 0)} resolve_ms=${Math.round(t.resolve ?? 0)} payload_chars=${prepassPayloadChars.get(r.locale) ?? 0} mode=${prepassSparse ? 'sparse' : 'dense'}${digest}`,
               );
             }
           }
@@ -6284,7 +6326,9 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           collector.add(flatPath, buildFlatBridgeFromSibling(out.html, out.loc));
           emittedFiles.push(path.relative(distDir, indexPath));
           emittedFiles.push(path.relative(distDir, flatPath));
-          sitemapLocs.push(out.loc);
+          // Only page 1 of the hub is advertised (paginationIndexPolicy); the
+          // rest is reached through its own page navigator.
+          if (isPaginationSitemapEligible(page)) sitemapLocs.push(out.loc);
           profileRecord('render-hub-page', __tRenderHub);
         }
 

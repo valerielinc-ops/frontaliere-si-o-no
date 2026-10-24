@@ -98,7 +98,7 @@ describe('deploy.yml — la storia di build ha un solo scrittore per run (#9247)
     expect(job['continue-on-error']).toBe(true);
     expect(job['timeout-minutes']).toBeGreaterThan(0);
     expect(job['timeout-minutes']).toBeLessThanOrEqual(10);
-    const download = job.steps.find((s: Record<string, any>) => s.uses === 'actions/download-artifact@v8');
+    const download = job.steps.find((s: Record<string, any>) => s.uses === 'actions/download-artifact@v8' && s.with?.pattern);
     expect(download?.with?.pattern).toBe('build-history-rows-*');
     // Senza merge-multiple: due tentativi della stessa gamba hanno file omonimi.
     expect(download?.with?.['merge-multiple']).not.toBe(true);
@@ -115,13 +115,32 @@ describe('deploy.yml — la storia di build ha un solo scrittore per run (#9247)
             'build-history-commit',
           );
         }
-        if (id === 'build-locale' && /git-push-with-retry\.sh|\bgit\s+push\b/.test(run)) {
-          // L'unico push rimasto nella gamba e' quello di dist-size-history
-          // (solo gamba it), fuori da questa scheda.
-          expect(step.name).toBe('Commit dist-size-history row + url-first-seen updates');
-          expect(run).not.toContain('data/build-history');
+        if (id === 'build-locale') {
+          // Nessun push su main resta nella gamba: anche dist-size-history +
+          // url-first-seen (gamba it) sono passati al job build-history-commit,
+          // fuori dal percorso critico verso `rearm`.
+          expect(run, `"${step.name}" pusha su main dentro la gamba`).not.toMatch(/git-push-with-retry\.sh|\bgit\s+push\b/);
         }
       }
+    }
+  });
+
+  it('dist-size-history + url-first-seen: artifact dalla gamba it, commit nel job dedicato sulla base della build', () => {
+    const upload = BUILD_LOCALE_STEPS.find((s) => s.name === 'Upload dist-size-history + url-first-seen for the history commit');
+    expect(upload?.uses).toBe('actions/upload-artifact@v7');
+    expect(upload?.if).toBe("matrix.locale == 'it'");
+    expect(String(upload?.with?.name)).toBe('dist-history-${{ github.run_id }}');
+    const job = WORKFLOW.jobs['build-history-commit'];
+    const names: string[] = job.steps.map((s: Record<string, any>) => s.name);
+    const commitIdx = names.indexOf('Commit dist-size-history row + url-first-seen updates');
+    expect(commitIdx).toBeGreaterThan(names.indexOf('Download dist-size-history + url-first-seen (IT leg)'));
+    // Prima del commit delle righe: HEAD e' ancora la SHA della build, la base
+    // su cui la gamba committava, quindi il rebase e i merge driver vedono lo
+    // stesso three-way merge di prima.
+    expect(commitIdx).toBeLessThan(names.indexOf('Commit build-history rows (one commit per run)'));
+    const sparse = String(job.steps.find((s: Record<string, any>) => s.name === 'Checkout build-history writer')?.with?.['sparse-checkout']);
+    for (const p of ['/data/dist-size-history.jsonl', '/data/url-first-seen.json', '/scripts/ci/merge-json-first-seen.mjs']) {
+      expect(sparse).toContain(p);
     }
   });
 

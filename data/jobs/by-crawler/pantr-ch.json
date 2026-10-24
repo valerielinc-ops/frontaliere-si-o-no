@@ -1505,7 +1505,7 @@
         "it": "corporate-contabile-pantr-gmbh-zurich-6770169ea5a0",
         "en": "corporate-accountants-pantr-gmbh-zurich-6770169ea5a0",
         "de": "corporate-accountant-pantr-gmbh-zurich-6770169ea5a0",
-        "fr": "corporate-accountant-pantr-gmbh-zurich"
+        "fr": "comptables-des-entreprises-pantr-gmbh-zurich-6770169ea5a0"
       },
       "slugDisambiguator": "6770169ea5a0",
       "company": "Pantr GmbH",
@@ -1552,7 +1552,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "corporate-accountant-pantr-gmbh-zurich-6770169ea5a0",
-        "comptables-des-entreprises-pantr-gmbh-zurich-6770169ea5a0"
+        "corporate-accountant-pantr-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1563,7 +1563,7 @@
         ],
         "fr": [
           "corporate-accountant-pantr-gmbh-zurich-6770169ea5a0",
-          "comptables-des-entreprises-pantr-gmbh-zurich-6770169ea5a0"
+          "corporate-accountant-pantr-gmbh-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T21:46:15.455Z",
@@ -1664,12 +1664,12 @@
     },
     {
       "id": "pantr-ch-d70800869781",
-      "slug": "treuhand-sachbearbeiter-in-pantr-gmbh-risch-rotkreuz-zug-d70800869781",
+      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-risch-rotkreuz-zug-d70800869781",
       "slugByLocale": {
         "de": "treuhand-sachbearbeiter-in-pantr-gmbh-risch-rotkreuz-zug-d70800869781",
-        "it": "treuhand-sachbearbeiter-in-pantr-gmbh-risch-rotkreuz-zug-d70800869781",
-        "en": "treuhand-sachbearbeiter-in-pantr-gmbh-risch-rotkreuz-zug-d70800869781",
-        "fr": "treuhand-sachbearbeiter-in-pantr-gmbh-risch-rotkreuz-zug-d70800869781"
+        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-risch-rotkreuz-zug-d70800869781",
+        "en": "fiduciary-services-clerk-pantr-gmbh-risch-rotkreuz-zug-d70800869781",
+        "fr": "employe-e-fiduciaire-pantr-gmbh-risch-rotkreuz-zug-d70800869781"
       },
       "slugDisambiguator": "d70800869781",
       "company": "Pantr GmbH",
@@ -1728,7 +1728,21 @@
         }
       },
       "postalCode": "6343",
-      "firstSeenAt": "2026-10-24T09:39:35.218Z"
+      "firstSeenAt": "2026-10-24T09:39:35.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "treuhand-sachbearbeiter-in-pantr-gmbh-risch-rotkreuz-zug-d70800869781"
+        ],
+        "en": [
+          "treuhand-sachbearbeiter-in-pantr-gmbh-risch-rotkreuz-zug-d70800869781"
+        ],
+        "fr": [
+          "treuhand-sachbearbeiter-in-pantr-gmbh-risch-rotkreuz-zug-d70800869781"
+        ]
+      },
+      "previousSlugs": [
+        "treuhand-sachbearbeiter-in-pantr-gmbh-risch-rotkreuz-zug-d70800869781"
+      ]
     },
     {
       "id": "pantr-ch-e004788b2535",
@@ -3033,7 +3047,7 @@
         "it": "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
         "en": "financial-accountants-pantr-gmbh-zurich-fa865fd8b331",
         "de": "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
-        "fr": "financial-accountant-pantr-gmbh-zurich"
+        "fr": "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
       },
       "slugDisambiguator": "fa865fd8b331",
       "company": "Pantr GmbH",
@@ -3081,7 +3095,7 @@
       "previousSlugs": [
         "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
         "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
-        "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
+        "financial-accountant-pantr-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3093,7 +3107,7 @@
         "fr": [
           "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
           "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
-          "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
+          "financial-accountant-pantr-gmbh-zurich"
         ]
       },
       "firstSeenAt": "2026-10-01T09:35:20.253Z",

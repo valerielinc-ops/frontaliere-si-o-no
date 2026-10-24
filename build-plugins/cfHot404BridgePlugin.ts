@@ -373,14 +373,18 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
             ? 'Apri la ricerca aggiornata'
             : 'Vedi le offerte aggiornate',
           noindex: true,
+          // Stand-alone noindex,follow bridge (documented rule «bridge
+          // noindex,follow, mai 404»): no canonical and no hreflang toward
+          // another page — see crossPageSignals in buildCanonicalBridgePage.
+          crossPageSignals: false,
         });
 
         if (isClusterRedirect) {
-          // Land the user on the real (verified-live) page immediately. With the
-          // canonical link + noindex already set on the page, a meta-refresh is
-          // 301-equivalent for crawlers and an instant redirect for users — the
-          // same pattern cantonOrphanRedirectsPlugin uses. Replaces the dead-end
-          // "Pagina archiviata" compat bridge for these orphans.
+          // Land the user on the real (verified-live) page immediately. The page
+          // is noindex,follow, so the crawler drops this URL and follows the
+          // refresh/CTA to the live cluster; users get an instant redirect —
+          // the same pattern cantonOrphanRedirectsPlugin uses. Replaces the
+          // dead-end "Pagina archiviata" compat bridge for these orphans.
           html = html.replace(
             '</head>',
             `  <meta http-equiv="refresh" content="0; url=${to}">\n  </head>`,

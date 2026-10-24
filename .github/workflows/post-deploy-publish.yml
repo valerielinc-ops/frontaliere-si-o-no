@@ -9,7 +9,8 @@ name: Post-deploy Publish (side-effects + mark good)
 #   - Sync previous-slug-winners.json (git push)
 #   - Post to LinkedIn + Reddit (article-publishing build only). Facebook moved to the
 #     standalone scheduled poster: .github/workflows/fb-articles-daily-schedule.yml
-#   - Submit URLs to Google Indexing API + IndexNow + GSC
+#   - Submit URLs to IndexNow + GSC (Google Indexing API for job pages:
+#     monitor-gsc-seo.yml, triggered by deploy-publish completion)
 #   - Mark this run as last_known_good (rollback target)
 #
 # Previously these lived inside `validate-live`. Problem: validate-live
@@ -70,13 +71,6 @@ on:
         description: 'Canonical successful Deploy to GitHub Pages run ID to replay post-deploy side effects from'
         required: true
         type: string
-
-# The scheduled monitor restores/saves the same Indexing API ledger. Keep the
-# whole reusable workflow in the same non-cancelling queue so two writers
-# cannot both spend the same per-day counter before either cache save lands.
-concurrency:
-  group: frontaliere-indexing-api-ledger
-  cancel-in-progress: false
 
 jobs:
   validate-deploy-publish-caller:
@@ -370,7 +364,8 @@ jobs:
       # so it is NOT present in this checkout. The sector coverage monitor
       # needs a real corpus: letting it continue with no artifact silently
       # turns an evidence check into a no-op. (The Google Indexing API
-      # submitter no longer reads it: it works from the live job sitemaps.) The deploy build's master artifact is the canonical snapshot;
+      # submitter no longer reads it: it works from the live job sitemaps.)
+      # The deploy build's master artifact is the canonical snapshot;
       # the committed crawler slices are the trusted assemble fallback used by
       # profile_sequential builds that do not upload jobs-master.
       - name: Download master jobs.json (for sector coverage monitor)
@@ -579,19 +574,10 @@ jobs:
             "$OG_DESCRIPTION" \
             "$ARTICLE_CATEGORY"
 
-      # Ledger of job URLs already notified + the per-day request counter,
-      # shared with the daily run in monitor-gsc-seo.yml (same key prefix, same
-      # branch scope): both callers draw from ONE daily Indexing API budget.
-      - name: Restore Indexing API job ledger
-        id: indexing-cache
-        if: success() && steps.live_identity.outputs.status == 'match'
-        uses: actions/cache@v6
-        with:
-          path: /tmp/indexing-api-jobs-ledger.json
-          key: indexing-api-jobs-ledger-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: |
-            indexing-api-jobs-ledger-
-
+      # Google Indexing API (job pages) no longer runs here: it lives in
+      # monitor-gsc-seo.yml, which this deploy-publish completion triggers via
+      # workflow_run. One serialized job owns the notification ledger and its
+      # daily counter, so two writers can never race on the shared budget.
       - name: Post-deploy indexing (parallel)
         if: success() && steps.live_identity.outputs.status == 'match'
         continue-on-error: true
@@ -604,10 +590,6 @@ jobs:
           # (PR #3322 review, same class as monitor-gsc-job-indexation.mjs).
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # New jobs first (ledger tiers), at most 15 per deploy; reads the live
-          # job sitemaps (~26 files), hence the longer bound.
-          timeout 300 node scripts/submit-google-indexing-jobs.js --max 15 --ledger /tmp/indexing-api-jobs-ledger.json &
-          PID_GOOGLE=$!
           # The deploy snapshot can contain a large first reconciliation after
           # a v2 baseline. Give the recursive diff/submission enough time to
           # drain its bounded 500-URL batches; the scheduled full-graph job is
@@ -622,7 +604,6 @@ jobs:
           PID_SECTOR_COVERAGE=$!
 
           FAIL=0
-          wait $PID_GOOGLE  || { echo "⚠️ Google Indexing API failed"; FAIL=1; }
           wait $PID_INDEXNOW || { echo "⚠️ IndexNow submission failed"; FAIL=1; }
           wait $PID_GSC     || { echo "⚠️ GSC submission failed"; FAIL=1; }
           wait $PID_SEO     || { echo "⚠️ Post-deploy SEO verification failed"; FAIL=1; }

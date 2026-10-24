@@ -17,7 +17,8 @@ import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.m
 import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import { ArrowLeft, ArrowRight, Building2, CheckCircle2, Clock, Euro, Loader2, Mail, MapPin, Shield } from 'lucide-react';
 import { useLocale } from '@/services/i18n';
-import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import { renderGoogleButton, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { currentJobGateAssignment, recordJobGateExposure, shouldBypassJobGateExperiment, useJobGateExperiment } from '@/hooks/useJobGateExperiment';
@@ -175,7 +176,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  const [locale] = useLocale();
  const googleButtonRef = useRef<HTMLDivElement>(null);
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
- const [linkedInAvailable, setLinkedInAvailable] = useState(false);
+ const linkedInAvailable = useLinkedInSignInAvailable();
  const [countdown, setCountdown] = useState(COUNTDOWN_SECONDS);
  const [emailInput, setEmailInput] = useState('');
  const [emailBusy, setEmailBusy] = useState(false);
@@ -265,7 +266,6 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
 
  useEffect(() => {
  if (alreadySignedIn) return;
- isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
  }, [alreadySignedIn]);
 
  // ── Analytics ──
@@ -520,7 +520,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'}
  </a>
  )}
- {linkedInAvailable && (
+ {linkedInAvailable !== false && (
  <button
  type="button"
  disabled={linkedInBusy}
@@ -554,7 +554,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
   });
   signInWithLinkedIn().catch(() => setLinkedInBusy(false));
  }}
- className={gateSkin.linkedInButton}
+ className={`${gateSkin.linkedInButton}${linkedInPendingClass(linkedInAvailable)}`}
  >
  {linkedInBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>

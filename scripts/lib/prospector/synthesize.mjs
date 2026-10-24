@@ -19,6 +19,7 @@ import { extractVacancies, isSufficientVacancyDescription, textOf } from './extr
 import { extractLinks, isRetryableTraceStatus } from './careers-trail.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs';
+import { KNOWN_AGGREGATOR_DOMAINS } from '../known-aggregator-domains.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { isConnectionLevelFetchResult } from '../transient-fetch.mjs';
 import { extractUmantisListingEvidence, umantisVacancyIdentity } from './umantis-detail.mjs';
@@ -164,11 +165,67 @@ export function commonUrlTemplate(urls = []) {
 // synthesis overwrite its spec). Keep the tenant label for name-like hosts,
 // but derive the key from the employer name when the label is only platform
 // plumbing.
+//
+// The list only names labels seen in production. The structural rule in
+// `crawlerKeyFor()` is what covers the next one: `company.sbb.ch` (elvetino),
+// `my.jobalino.ch` (a shared board) and `link.ostendis.com` all became crawler
+// keys before they were listed here, because the label did not name the
+// employer it was serving.
 const GENERIC_TENANT_LABELS = new Set([
-  'app', 'apps', 'apply', 'career', 'careers', 'job', 'jobboard',
-  'job-boards', 'jobs', 'karriere', 'portal', 'recruiting', 'recruitingapp',
-  'stellen', 'www',
+  'app', 'apps', 'apply', 'career', 'careers', 'community', 'company', 'job',
+  'jobboard', 'job-boards', 'jobs', 'karriere', 'link', 'my', 'portal',
+  'recruiting', 'recruitingapp', 'stellen', 'www',
 ]);
+
+/**
+ * Lowercase alphanumerics only, so `CH Media`, `chmedia` and `ch-media`
+ * compare equal.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+function compactIdentity(value) {
+  return crawlerKeyToken(value).replace(/-/g, '');
+}
+
+/** @param {string} a @param {string} b */
+function identitiesOverlap(a, b) {
+  return a.length >= 3 && b.length >= 3 && (a.includes(b) || b.includes(a));
+}
+
+/**
+ * The employer's own domain label, or `''` when the candidate only knows the
+ * vendor's host: `bluedotbpo.careers-page.com` is Manatal's domain, and the
+ * page title there names Manatal too, so neither can contradict the tenant.
+ *
+ * @param {{ domain?: string, tenantHost?: string }} candidate
+ * @returns {string}
+ */
+function employerOwnDomainLabel(candidate) {
+  const vendorDomain = registrableDomain(normalizeHost(String(candidate.tenantHost ?? '')));
+  const employerDomain = registrableDomain(normalizeHost(String(candidate.domain ?? '')));
+  if (!employerDomain || employerDomain === vendorDomain) return '';
+  return compactIdentity(employerDomain.split('.')[0]);
+}
+
+/**
+ * True when the employer's own domain is known and the tenant label names
+ * neither it nor the employer: the label is then the vendor's plumbing
+ * (`company.sbb.ch` serving elvetino.ch, `link.ostendis.com` serving
+ * wassermann-company.ch), and the next employer on that host would get the
+ * same key.
+ *
+ * @param {string} label
+ * @param {{ name?: string, domain?: string, tenantHost?: string }} candidate
+ * @returns {boolean}
+ */
+function tenantLabelContradictsEmployer(label, candidate) {
+  const ownDomain = employerOwnDomainLabel(candidate);
+  if (!ownDomain) return false;
+  const compactLabel = compactIdentity(label);
+  return !identitiesOverlap(compactLabel, ownDomain)
+    && !identitiesOverlap(compactLabel, compactIdentity(candidate.name));
+}
 
 /**
  * Turn a candidate-provided identity into the key form used by crawler files.
@@ -218,18 +275,107 @@ export function crawlerKeyFor(candidate) {
   // di chi e' il crawler, e finisce nel nome dei file, nel manifest e nei
   // gruppi di workflow. Quando il vendor usa id anonimi, il nome dell'azienda
   // — che la pagina del tenant ci ha gia' dato — e' l'unica cosa leggibile.
-  const opaqueLabel = /^[a-z]*[-_]?\d{2,}$/i.test(fromHost) || /^\d/.test(fromHost);
-  const genericLabel = GENERIC_TENANT_LABELS.has(fromHost.toLowerCase());
+  const opaqueLabel = OPAQUE_TENANT_LABEL_RX.test(fromHost) || /^\d/.test(fromHost);
+  // Two letters are a country or language prefix (`ch.talent.com`), never an
+  // employer.
+  const genericLabel = GENERIC_TENANT_LABELS.has(fromHost.toLowerCase())
+    || (Boolean(fromHost) && compactIdentity(fromHost).length < 3);
   const nameKey = crawlerKeyToken(candidate.name);
   const domainKey = employerDomainToken(candidate.domain);
   const hasEmployerName = Boolean(nameKey
     && nameKey !== fromHost.toLowerCase()
     && !GENERIC_TENANT_LABELS.has(nameKey));
-  const preferred = opaqueLabel || genericLabel
-    ? (hasEmployerName ? nameKey : domainKey)
-    : crawlerKeyToken(fromHost);
+  // A readable label that the employer's own domain contradicts is as wrong as
+  // a generic one. The name replaces it only when that domain corroborates the
+  // name; otherwise the domain is the identity we can actually prove.
+  const contradictedLabel = Boolean(fromHost) && !opaqueLabel && !genericLabel
+    && tenantLabelContradictsEmployer(fromHost, candidate);
+  const corroboratedName = hasEmployerName
+    && identitiesOverlap(compactIdentity(nameKey), employerOwnDomainLabel(candidate));
+  const preferred = contradictedLabel
+    ? (corroboratedName ? nameKey : domainKey)
+    : opaqueLabel || genericLabel
+      ? (hasEmployerName ? nameKey : domainKey)
+      : crawlerKeyToken(fromHost);
   const base = preferred || (!opaqueLabel && !genericLabel ? domainKey || nameKey : '') || 'unknown';
   return crawlerKeyToken(base);
+}
+
+/**
+ * A crawler key that nobody else owns.
+ *
+ * The key names the spec file, and a production parser reads its spec from
+ * that file at every run: writing a second employer's spec under a taken key
+ * silently re-points a live crawler. Measured on 2026-10-24: `my` belonged to
+ * the Teo Jakob AG parser, and the synthesis of Stiftung Helsenberg under the
+ * same host label overwrote `my.json`, so production published Helsenberg's
+ * posting as a Teo Jakob vacancy.
+ *
+ * @param {string} key
+ * @param {{ domain?: string }} candidate
+ * @param {(key: string) => boolean} isTaken
+ * @returns {string}
+ */
+export function disambiguateCrawlerKey(key, candidate, isTaken) {
+  if (!isTaken(key)) return key;
+  const domainKey = employerDomainToken(candidate.domain);
+  for (const option of [domainKey, crawlerKeyToken(`${key.slice(0, 24)}-${domainKey}`)]) {
+    if (option && option !== key && !isTaken(option)) return option;
+  }
+  for (let suffix = 2; suffix < 1000; suffix += 1) {
+    const option = `${key.slice(0, 44)}-${suffix}`;
+    if (!isTaken(option)) return option;
+  }
+  throw new Error(`nessuna chiave crawler libera per ${key}`);
+}
+
+/** `recruitingapp-2862`: a vendor's numeric tenant id, not a name. */
+const OPAQUE_TENANT_LABEL_RX = /^[a-z]*[-_]?\d{2,}$/i;
+
+/** Statuses whose spec has been written but has not reached production. */
+const REKEYABLE_STATUSES = new Set(['synthesized', 'validated', 'promoted']);
+
+/**
+ * Candidates whose crawler key is a tenant host label that `crawlerKeyFor()`
+ * no longer accepts. Several of them share one spec file (`jobportal.json`
+ * was written by seven abaservices tenants in turn), so their validation
+ * history may describe another employer's spec: they go back to SYNTHESIZE
+ * under their own key rather than keep a key they cannot own.
+ *
+ * A candidate that already owns a production crawler under the old key is
+ * left alone: re-synthesizing it would put the same employer in production
+ * twice.
+ *
+ * @param {Record<string, any>[]} candidates
+ * @param {{ productionKeys?: Set<string>, specFor?: (key: string) => any }} [ctx]
+ * @returns {{ candidate: Record<string, any>, from: string, to: string }[]}
+ */
+export function findMiskeyedCandidates(candidates, { productionKeys = new Set(), specFor = () => null } = {}) {
+  const out = [];
+  for (const candidate of candidates) {
+    if (!REKEYABLE_STATUSES.has(candidate?.status) || !candidate.crawlerKey || !candidate.tenantHost) continue;
+    const from = String(candidate.crawlerKey);
+    if (tenantLabel(candidate.tenantHost) !== from) continue;
+    // An opaque tenant id (`recruitingapp-2896`) is an unreadable key but a
+    // unique one: no other employer writes that spec, so its history is its
+    // own and is not worth resetting.
+    if (OPAQUE_TENANT_LABEL_RX.test(from) || /^\d/.test(from)) continue;
+    const to = crawlerKeyFor(candidate);
+    if (to === from) continue;
+    if (productionKeys.has(from)) {
+      let spec;
+      try {
+        spec = specFor(from);
+      } catch {
+        // A production spec that cannot be read is not evidence that the key
+        // is free. Fail closed and leave the candidate attached to its key.
+        continue;
+      }
+      if (spec && compactIdentity(spec.companyName) === compactIdentity(candidate.name)) continue;
+    }
+    out.push({ candidate, from, to });
+  }
+  return out;
 }
 
 /**
@@ -409,6 +555,17 @@ export async function synthesizeSpec(candidate, runtime = {}) {
 
   const host = normalizeHost(new URL(res.url).hostname);
   const hostDomain = registrableDomain(host);
+  // The structural aggregator test in TRACE reads a listing; a single posting
+  // page on a job search engine names one employer and passes it. Global Sana
+  // reached the promotion gate from `ch.talent.com/view?id=…` that way.
+  if (KNOWN_AGGREGATOR_DOMAINS.has(hostDomain)) {
+    return {
+      spec: null,
+      reason: `seed su un aggregatore (${hostDomain}): non e' la pagina del datore`,
+      reasonCode: 'aggregator_seed',
+      vacancies: [],
+    };
+  }
   const employerDomain = registrableDomain(candidate.domain || '');
   const inferredPlatform = candidate.selfHosted === undefined
     ? (hostDomain === employerDomain ? '' : hostDomain)

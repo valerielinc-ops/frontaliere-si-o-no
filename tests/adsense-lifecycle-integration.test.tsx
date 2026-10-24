@@ -76,6 +76,20 @@ describe('SPA lifecycle and layout owner', () => {
   expect(document.querySelector('ins')).not.toBe(previous);
   expect(window.adsbygoogle).toHaveLength(2);
  });
+ it('caps the unconfirmed box at its reserve and releases it on fill (CLS)', async () => {
+  // Google sizes a multiplex <ins> before answering (1790px measured live on
+  // `/`, 2026-10-24); an uncapped box grew into that invisible space and then
+  // collapsed. Until `filled` the wrapper clips to the reserve.
+  await mount();
+  await act(async () => { adScript()!.dispatchEvent(new Event('load')); near(); });
+  const wrapper = document.querySelector<HTMLElement>('[data-ft-ad-state]')!;
+  expect(wrapper.dataset.ftAdState).toBe('loading');
+  expect(wrapper.style.maxHeight).toBe('336px');
+  expect(wrapper.style.maxHeight).toBe(wrapper.style.minHeight);
+  await act(async () => { document.querySelector('ins')!.setAttribute('data-ad-status', 'filled'); });
+  expect(wrapper.dataset.ftAdState).toBe('filled');
+  expect(wrapper.style.maxHeight).toBe('');
+ });
  it('does not treat a queued adsbygoogle array as proof of a loaded script', async () => {
   await mount(); await act(async () => { near(); });
   expect(window.adsbygoogle).toHaveLength(0);

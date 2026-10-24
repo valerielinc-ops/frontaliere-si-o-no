@@ -63,6 +63,7 @@ Usage: node scripts/scaffold-crawler.mjs <company-key> [options]
 Options:
   --name <name>       Company display name (e.g. "Lonza AG")
   --domain <domain>   Company domain (e.g. "lonza.com")
+  --logo-url <url>    Verified https logo asset, registered instead of cLogo(domain)
   --lang <code>       Source language: it, en, de, fr (default: it)
   --ats <tier>        ATS tier: workday | greenhouse | lever | successfactors | custom (default: custom)
   --source <type>     Legacy alias for --ats (deprecated)
@@ -194,6 +195,11 @@ if (/\bjobs\s*\(dedicated\)/i.test(companyName) || /\bupdate\b.*\bupdate\b/i.tes
 
 const companyDomain = getOption('--domain') || `${companyKey.replace(/-/g, '')}.ch`;
 const sourceLang = getOption('--lang', 'it');
+// A logo asset already verified on the employer's own domain (the prospector's
+// VALIDATE stage records it). When present it is registered verbatim instead
+// of `cLogo(domain)`: Clearbit is defunct, and for a hosted ATS tenant
+// `--domain` is the vendor's host, whose logo is the vendor's brand.
+const logoUrl = /^https:\/\/[^\s,'"`\\]+$/.test(getOption('--logo-url')) ? getOption('--logo-url') : '';
 
 // --ats wins; --source is the legacy alias. Marquee `ats_hint` is the
 // fallback. Anything not in VALID_ATS_TIERS (e.g. legacy `generic`/`api`)
@@ -1246,7 +1252,7 @@ console.log(
 
 /* ── Logo registry + local mirror ────────────────────────────── */
 
-function registerLogo(key, domain) {
+function registerLogo(key, domain, directUrl = '') {
   const tsPath = path.join(ROOT, 'services', 'jobDataNormalization.ts');
   const src = fs.readFileSync(tsPath, 'utf-8');
   // Skip if the slug is already in the registry. The download script will
@@ -1264,7 +1270,7 @@ function registerLogo(key, domain) {
     return;
   }
   const [, header, body, footer] = blockMatch;
-  const newEntry = ` '${key}': cLogo('${domain}'),`;
+  const newEntry = directUrl ? ` '${key}': '${directUrl}',` : ` '${key}': cLogo('${domain}'),`;
   const lines = body.split('\n');
   // Find the alphabetic insertion point — match how existing entries are
   // keyed (each line starts with ' 'slug':' and is sorted alphabetically).
@@ -1287,7 +1293,7 @@ function registerLogo(key, domain) {
   }
   const next = src.replace(blockMatch[0], `${header}${out.join('\n')}${footer}`);
   fs.writeFileSync(tsPath, next, 'utf-8');
-  console.log(`  ✅ Logo registry: inserted '${key}': cLogo('${domain}') into CRAWLED_COMPANY_LOGOS.`);
+  console.log(`  ✅ Logo registry: inserted ${newEntry.trim()} into CRAWLED_COMPANY_LOGOS.`);
 }
 
 function mirrorLogo(key, domain) {
@@ -1303,7 +1309,7 @@ function mirrorLogo(key, domain) {
   }
 }
 
-registerLogo(companyKey, companyDomain);
+registerLogo(companyKey, companyDomain, logoUrl);
 mirrorLogo(companyKey, companyDomain);
 
 console.log(`

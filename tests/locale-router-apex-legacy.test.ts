@@ -35,7 +35,11 @@ describe('locale-router apex legacy routes', () => {
         ['health', `/${table.confronti}/${table.health}/`], ['pension', `/${table.fisco}/${table.pension}/`],
       ]) for (const suffix of ['/index.html', '.html']) {
         const html = readFileSync(path.join(root, 'dist', `nav:${action}${suffix}`), 'utf8');
-        expect(readAttr(readTagByAttr(html, 'rel', 'canonical'), ['href'])).toBe(`${APEX}${target}`);
+        // Stand-alone noindex,follow bridge: no canonical and no hreflang toward
+        // another page — the ranking transfer is the edge 301, not this stub.
+        expect(readTagByAttr(html, 'rel', 'canonical')).toBeFalsy();
+        expect(html).not.toMatch(/hreflang=/i);
+        expect(html).toContain('<!--REDIRECT_STUB-->');
         expect(readAttr(readTagByAttr(html, 'name', 'robots'), ['content'])?.replace(/\s/g, '')).toBe('noindex,follow');
         expect(readTagByAttr(html, 'http-equiv', 'refresh')).toBeFalsy();
         expect((html.match(/<a\b[^>]*>/g) || []).some(tag => {

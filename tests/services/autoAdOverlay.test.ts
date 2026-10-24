@@ -3,8 +3,18 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
  measureAutoAdOverlayClearance,
+ mutationsTouchAutoAdLayer,
  subscribeToAutoAdOverlay,
 } from '@/services/autoAdOverlay';
+
+// rAF (mocked as a 0ms timer) -> post-frame timer -> listener: three macrotask
+// hops, plus the MutationObserver microtask. Waiting a few extra ticks keeps
+// the assertion about the outcome, not about the exact hop count.
+async function flushRefresh(): Promise<void> {
+ for (let i = 0; i < 4; i += 1) {
+ await new Promise<void>((resolve) => window.setTimeout(resolve, 0));
+ }
+}
 
 function setViewport(width: number, height: number): void {
  Object.defineProperty(window, 'innerWidth', { configurable: true, value: width });
@@ -29,6 +39,7 @@ function addAutoAd(
 describe('autoAdOverlay', () => {
  afterEach(() => {
  document.body.innerHTML = '';
+ vi.restoreAllMocks();
  });
 
  it('returns zero for in-flow Auto Ads', () => {
@@ -136,11 +147,86 @@ describe('autoAdOverlay', () => {
  });
  element.style.position = 'fixed';
 
- await new Promise<void>((resolve) => window.setTimeout(resolve, 0));
- await new Promise<void>((resolve) => window.setTimeout(resolve, 0));
+ await flushRefresh();
 
  expect(listener).toHaveBeenLastCalledWith(60);
  expect(requestAnimationFrame).toHaveBeenCalled();
  unsubscribe();
+ });
+
+ it('does not schedule a layout read for mutations outside the ad layer', async () => {
+ setViewport(390, 800);
+ addAutoAd('fixed', { top: 740, bottom: 800, width: 390, height: 60 });
+ const list = document.createElement('ul');
+ document.body.appendChild(list);
+ const requestAnimationFrame = vi
+ .spyOn(window, 'requestAnimationFrame')
+ .mockImplementation((callback) => window.setTimeout(() => callback(0), 0));
+ const listener = vi.fn();
+ const unsubscribe = subscribeToAutoAdOverlay(listener);
+ await flushRefresh();
+ expect(listener).toHaveBeenLastCalledWith(60);
+ requestAnimationFrame.mockClear();
+
+ // A job-list style re-render: many class rewrites and new rows, no ads.
+ for (let i = 0; i < 50; i += 1) {
+ const row = document.createElement('li');
+ row.className = `row-${i}`;
+ list.appendChild(row);
+ }
+ list.className = 'filtered';
+ await flushRefresh();
+
+ expect(requestAnimationFrame).not.toHaveBeenCalled();
+ unsubscribe();
+ });
+
+ it('measures after the frame, not inside the rAF that precedes the paint', async () => {
+ setViewport(390, 800);
+ const element = addAutoAd('fixed', { top: 740, bottom: 800, width: 390, height: 60 });
+ const rafCallbacks: FrameRequestCallback[] = [];
+ vi.spyOn(window, 'requestAnimationFrame').mockImplementation((callback) => {
+ rafCallbacks.push(callback);
+ return rafCallbacks.length;
+ });
+ const rectSpy = vi.spyOn(element, 'getBoundingClientRect');
+ const listener = vi.fn();
+ const unsubscribe = subscribeToAutoAdOverlay(listener);
+ expect(rafCallbacks).toHaveLength(1);
+
+ rafCallbacks.shift()?.(0);
+ expect(rectSpy).not.toHaveBeenCalled();
+
+ await new Promise<void>((resolve) => window.setTimeout(resolve, 0));
+ expect(rectSpy).toHaveBeenCalled();
+ expect(listener).toHaveBeenLastCalledWith(60);
+ unsubscribe();
+ });
+
+ it('treats candidate and ancestor attribute changes as ad-layer mutations', () => {
+ const wrapper = document.createElement('div');
+ const ad = document.createElement('iframe');
+ ad.id = 'aswift_1';
+ wrapper.appendChild(ad);
+ const unrelated = document.createElement('div');
+ document.body.append(wrapper, unrelated);
+ const attr = (target: Node) => ({ type: 'attributes', target, addedNodes: [], removedNodes: [] }) as unknown as MutationRecord;
+ const added = (node: Node) => ({ type: 'childList', target: document.body, addedNodes: [node], removedNodes: [] }) as unknown as MutationRecord;
+
+ expect(mutationsTouchAutoAdLayer([attr(ad)], [ad])).toBe(true);
+ expect(mutationsTouchAutoAdLayer([attr(wrapper)], [ad])).toBe(true);
+ expect(mutationsTouchAutoAdLayer([attr(unrelated)], [ad])).toBe(false);
+ expect(mutationsTouchAutoAdLayer([added(wrapper)], [])).toBe(true);
+ expect(mutationsTouchAutoAdLayer([added(unrelated)], [ad])).toBe(false);
+
+ const autoPlaced = document.createElement('div');
+ autoPlaced.className = 'google-auto-placed';
+ document.body.appendChild(autoPlaced);
+ const swappedChild = document.createElement('div');
+ const insideCandidate = { type: 'childList', target: autoPlaced, addedNodes: [swappedChild], removedNodes: [] } as unknown as MutationRecord;
+ expect(mutationsTouchAutoAdLayer([insideCandidate], [autoPlaced])).toBe(true);
+ const creativeChild = document.createElement('div');
+ autoPlaced.appendChild(creativeChild);
+ expect(mutationsTouchAutoAdLayer([attr(creativeChild)], [autoPlaced])).toBe(true);
  });
 });

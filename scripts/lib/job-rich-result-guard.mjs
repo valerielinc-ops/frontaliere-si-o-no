@@ -46,17 +46,16 @@ export function hasJobPostingRichResult(richResultsResult) {
 }
 
 /**
- * Latest date in the series that is at least SETTLE_DAYS before `today`.
- * @param {Array<{date: string, clicks: number}>} series
+ * The calendar day to evaluate: `today` minus SETTLE_DAYS, whether or not the
+ * series has a row for it. Search Console omits days without clicks, so
+ * picking "the latest date present" would let a complete JOB_LISTING collapse
+ * (no rows at all) fall back silently to an older, healthy day.
+ * @param {Array<{date: string, clicks: number}>} _series unused, kept for call-site symmetry
  * @param {string} today YYYY-MM-DD (UTC)
  */
-export function pickEvaluationDay(series, today) {
-  const limit = iso(Date.parse(`${today}T00:00:00Z`) - SETTLE_DAYS * DAY_MS);
-  // Search Console omits a day when the dimension has no rows. The latest
-  // settled calendar day is still the day we must judge: a zero-click day is
-  // the strongest regression, not permission to silently fall back to an
-  // earlier healthy day. An empty series has no evidence at all.
-  return series.length ? limit : null;
+export function pickEvaluationDay(_series, today) {
+  const t = Date.parse(`${today}T00:00:00Z`);
+  return Number.isFinite(t) ? iso(t - SETTLE_DAYS * DAY_MS) : null;
 }
 
 function median(values) {
@@ -71,12 +70,14 @@ function median(values) {
  * click at all is the strongest regression, not missing data.
  *
  * @param {Array<{date: string, clicks: number}>} series
- * @param {{day: string, threshold?: number, weeks?: number}} opts
+ * `historyStart` is the first day the query covered: with it, days missing
+ * from the series are known zeros rather than unknown history.
+ * @param {{day: string, threshold?: number, weeks?: number, historyStart?: string}} opts
  */
-export function evaluateWeekdayDrop(series, { day, threshold = CLICK_DROP_THRESHOLD, weeks = BASELINE_WEEKS }) {
+export function evaluateWeekdayDrop(series, { day, threshold = CLICK_DROP_THRESHOLD, weeks = BASELINE_WEEKS, historyStart }) {
   const byDate = new Map(series.map((r) => [r.date, Number(r.clicks) || 0]));
   const base = Date.parse(`${day}T00:00:00Z`);
-  const earliest = series.map((r) => r.date).sort()[0];
+  const earliest = historyStart || series.map((r) => r.date).sort()[0];
   const baselineDates = Array.from({ length: weeks }, (_, k) => iso(base - 7 * (k + 1) * DAY_MS));
   if (!earliest || baselineDates.some((d) => d < earliest)) {
     return { day, clicks: byDate.get(day) ?? 0, baseline: null, drop: null, alert: false, reason: 'insufficient-history' };

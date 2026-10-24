@@ -9,6 +9,7 @@ import { COMPANIES_PAGE_SIZE, HUB_LOCALES, HUB_SLUGS, JOBS_PAGE_SIZE,
 import { legacyTiSectionRoot } from '../../build-plugins/shared/cantonSection';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../../build-plugins/constants';
 import { writeAllKnownJobSlugs } from '../../scripts/lib/all-known-job-slugs-store.mjs';
+import { PAGINATION_NOINDEX_FROM_PAGE } from '../../build-plugins/shared/paginationIndexPolicy';
 
 let root = '';
 let dist: string;
@@ -72,8 +73,10 @@ describe('company archives remain paginated in every locale', () => {
       expect(document.querySelector('link[rel="next"]')?.getAttribute('href') ?? null)
         .toBe(page === 4 ? null : BASE_URL + paginatedPath(base, page + 1));
       const block = xml.match(/<url>[\s\S]*?<\/url>/g)?.find(block => block.includes(`<loc>${BASE_URL}${url}</loc>`));
-      expect(block, url).toBeTruthy();
-      if (page > 1) expect(block).toContain(`hreflang="${locale}" href="${BASE_URL}${url}"`);
+      // P1 noindex plan: only page 1 of a listing is advertised in a sitemap;
+      // pages 2+ stay 200 + indexable (below page 11) and reachable via the pager.
+      if (page === 1) expect(block, url).toBeTruthy();
+      else expect(block, url).toBeUndefined();
       dom.window.close();
     }
     expect(read(base)).toContain(`href="${paginatedPath(base, 2)}"`);
@@ -121,8 +124,19 @@ describe('company archives remain paginated in every locale', () => {
         const url = paginatedPath(base, page);
         expect(pageLinks.has(url), url).toBe(true);
         expect(htmlAt(url), url).toBeTruthy();
+        // P1 noindex plan: pages 1-10 indexable, 11+ `noindex,follow` (still
+        // 200 and linked from the pager and the range indexes above).
+        const robots = htmlAt(url)!.match(/<meta name="robots" content="([^"]+)"/)?.[1];
+        if (page >= PAGINATION_NOINDEX_FROM_PAGE) expect(robots, url).toBe('noindex,follow');
+        else expect(robots, url).not.toMatch(/noindex/);
       }
       expect(htmlAt(paginatedPath(base, totalPages + 1))).toBeUndefined();
     }
+    expect(totalPages).toBeGreaterThanOrEqual(PAGINATION_NOINDEX_FROM_PAGE);
+    const rangeXml = fs.readFileSync(path.join(rangeDist, 'sitemap-seo-hubs.xml'), 'utf8');
+    const pagedLocs = [...rangeXml.matchAll(/<loc>([^<]+)<\/loc>/g)]
+      .map((m) => m[1])
+      .filter((loc) => /\/(?:page|pagina|seite)-\d+\/$/.test(loc));
+    expect(pagedLocs).toEqual([]);
   });
 });

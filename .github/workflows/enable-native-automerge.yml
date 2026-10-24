@@ -90,6 +90,7 @@ jobs:
             /scripts/lib/google-service-account-token.mjs
             /scripts/ci/native-automerge-gate.mjs
             /scripts/ci/review-test-policy.mjs
+            /scripts/ci/prefetch-review-diff.mjs
             /scripts/ci/lib/automation-risk-policy.mjs
             /scripts/ci/lib/fetchPrFiles.mjs
             /scripts/ci/lib/vitestCheck.mjs
