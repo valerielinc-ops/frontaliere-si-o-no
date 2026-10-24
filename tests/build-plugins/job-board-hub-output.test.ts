@@ -189,7 +189,7 @@ describe('job-board emitted output', () => {
     for (const locale of locales) {
       const index = JSON.parse(fs.readFileSync(path.join(root, 'dist/data', `jobs-${locale}-index.json`), 'utf8'));
       const selected = selectJobBoardInventory(index, 'ZH');
-      expect(selected).toHaveLength(128);
+      expect(selected).toHaveLength(129);
       for (const id of ['missing-company', 'blank-company', 'missing-title', 'foreign-location']) {
         expect(index.some((job: any) => job.id === id)).toBe(false);
         expect(htmlDoc(hubPath(locale, 'ZH')).querySelector(`[href*="${id}"]`)).toBeNull();

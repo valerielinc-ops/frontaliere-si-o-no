@@ -61,7 +61,7 @@ afterEach(() => {
 });
 
 describe('archived JobPosting hydration and list navigation', () => {
-  it.each([undefined, null, 'unknown'] as const)('removes stale static JobPosting for selected %s while preserving page and FAQ', (postingDateSource) => {
+  it.each([undefined, null, 'unknown'] as const)('replaces stale static JobPosting for selected %s while preserving page and FAQ', (postingDateSource) => {
     const date = new Date(Date.now() - 86400000).toISOString();
     const selected = { id: 'active', slug: 'active', title: 'Infermiere', company: 'Example SA', location: 'Lugano', canton: 'TI', addressLocality: 'Lugano', postingDateSource, datePosted: date, postedDate: date, crawledAt: date, description: 'Assistenza infermieristica ai pazienti nel reparto clinico e collaborazione con il gruppo sanitario.' };
     document.head.insertAdjacentHTML('beforeend', '<script id="faq" type="application/ld+json">{"@type":"FAQPage","mainEntity":[]}</script>');
@@ -69,7 +69,9 @@ describe('archived JobPosting hydration and list navigation', () => {
     const run = (job: typeof selected) => executeEffect(document, false, job, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate);
     run(selected);
     expect(document.getElementById('archived-posting')).toBeNull();
-    expect(document.getElementById('jobposting-structured-data')).toBeNull();
+    const fallback = document.getElementById('jobposting-structured-data');
+    expect(fallback).not.toBeNull();
+    expect(JSON.parse(fallback!.textContent!)['@graph'][0].datePosted).toBe(date);
     expect(document.getElementById('archive-page')).not.toBeNull();
     expect(document.getElementById('faq')).not.toBeNull();
     expect(document.querySelector('h1')?.textContent).toBe('Infermiere');

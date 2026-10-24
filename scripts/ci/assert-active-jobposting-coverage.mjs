@@ -18,7 +18,7 @@
  *   JOBPOSTING_COVERAGE_OUT=/tmp/jobposting-coverage.json \
  *     node scripts/ci/assert-active-jobposting-coverage.mjs [distDir]
  */
-import fs from 'node:fs';
+import fs, { realpathSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { verifyActiveJobPostingCoverage } from '../lib/active-jobposting-coverage.mjs';
@@ -68,7 +68,10 @@ export function runActiveJobPostingCoverageGate({ distDir, sidecarPath, log = co
   return 1;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => {
+  try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1] || '')).href; }
+  catch { return false; }
+})()) {
   const distDir = path.resolve(process.argv[2] || 'dist');
   process.exit(runActiveJobPostingCoverageGate({ distDir, sidecarPath: process.env.JOBPOSTING_COVERAGE_OUT }));
 }

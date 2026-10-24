@@ -108,13 +108,12 @@ describe('SEO localization', () => {
     const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
     expect(description).toContain('fondo pensione aziendale');
 
-    // Explicit unknown retains metadata/FAQ but never revives publication.
-    // Missing markers also lack verified employer publication evidence.
+    // An active detail retains metadata/FAQ and always emits JobPosting; the
+    // date provenance controls datePosted, not schema presence.
     const graph = [...document.querySelectorAll('script[type="application/ld+json"]')]
       .map((script) => JSON.parse(script.textContent || '{}'));
     const types = JSON.stringify(graph);
-    if (postingDateSource !== 'reported') expect(types).not.toContain('"@type":"JobPosting"');
-    else expect(types).toContain('"@type":"JobPosting"');
+    expect(types).toContain('"@type":"JobPosting"');
     expect(types).toContain('"@type":"FAQPage"');
 
 

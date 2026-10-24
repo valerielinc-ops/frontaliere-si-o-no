@@ -201,7 +201,8 @@ describe('Fondation Soins Lausanne crawler parser (jobup.ch SERP)', () => {
         expect(job.postedDate).toBe(kind === 'past' ? date : '');
         expect(job.datePosted).toBe(job.postedDate);
         expect(job.postingDateSource).toBe(kind === 'past' ? 'reported' : 'unknown');
-      // Unknown provenance preserves the vacancy/FAQ, not invented JobPosting data.
+      // Unknown provenance still emits JobPosting; only datePosted falls back
+      // to the observation/build clock rather than claiming employer evidence.
       for (const locale of ['it', 'en', 'de', 'fr']) {
         const schema = buildJobPostingSchema(job, { locale, url: job.url });
         if (kind === 'past') {
@@ -209,7 +210,8 @@ describe('Fondation Soins Lausanne crawler parser (jobup.ch SERP)', () => {
           expect(schema?.hiringOrganization.name).toBeTruthy();
           expect(schema?.datePosted).toBe(job.datePosted);
         } else {
-          expect(schema).toBeNull();
+          expect(schema).not.toBeNull();
+          expect(schema?.datePosted).toBeTruthy();
         }
         expect(buildJobPostingFacts(job, locale).hiringOrganization.name).toBeTruthy();
       }
