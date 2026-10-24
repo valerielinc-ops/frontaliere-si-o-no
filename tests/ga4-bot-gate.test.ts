@@ -71,6 +71,8 @@ describe('GA4 bot gate: static GA4_BOT_GATE_FN ≡ SPA isAutomatedAnalyticsVisit
   });
 
   it('both keep GA4 for a CUBOT handset, whose model name contains the crawler `bot` token', async () => {
+    // Real Android Chrome exposes `window.chrome`, like the desktop helper sets.
+    setRealDesktopChrome();
     setUserAgent('Mozilla/5.0 (Linux; Android 12; CUBOT P50) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36');
     expect(inlineGate()).toBe(false);
     expect(await isAutomatedAnalyticsVisitor()).toBe(false);

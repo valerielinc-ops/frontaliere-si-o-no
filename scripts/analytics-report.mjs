@@ -43,7 +43,12 @@ import {
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { buildTrafficFilter, fetchTrafficQuality } from './lib/ga4-traffic-quality.mjs';
 import { fetchRuntimeIncidentHistory } from './lib/runtime-incident-history.mjs';
-import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
+import { sleep, fetchRetry as rawFetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
+import { withAutomationFleetExclusionForFetch, AUTOMATION_FLEET_EXCLUSION_NOTE } from './lib/ga4-automation-fleet.mjs';
+// Every GA4 Data API runReport/batchRunReport this report sends excludes the
+// measured automation fleets (scripts/lib/ga4-automation-fleet.mjs); Search
+// Console, PageSpeed and Admin API calls pass through untouched.
+const fetchRetry = (url, options, ...rest) => rawFetchRetry(url, withAutomationFleetExclusionForFetch(url, options), ...rest);
 import {
   EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
   ensureGa4CustomDimensions,
@@ -825,7 +830,7 @@ async function reportGA4(token) {
     settledWindowDays,
   );
 
-  const result = { period: `${fmtDate(startDate)} → ${fmtDate(endDate)}` };
+  const result = { period: `${fmtDate(startDate)} → ${fmtDate(endDate)}`, excludedSegment: AUTOMATION_FLEET_EXCLUSION_NOTE };
   // #7509: il verdetto d'affidabilità viaggia CON la cifra. Le tabelle bounce
   // per-device/per-landing-page e la diagnostica per sorgente leggono la STESSA
   // finestra del riepilogo, quindi ereditano lo stesso verdetto — ma finivano
