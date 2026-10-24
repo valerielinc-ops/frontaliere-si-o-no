@@ -1,4 +1,5 @@
 import AffiliateLink from '@/components/shared/AffiliateLink';
+import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement, type CSSProperties } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
@@ -1134,6 +1135,7 @@ function articleFromOverlay(entry: OverlayArticle): Article {
   hasCalculator: entry.hasCalculator === true,
   ...(entry.articleType ? { articleType: entry.articleType } : {}),
   ...(entry.authorSlug ? { authorSlug: entry.authorSlug } : {}),
+  ...(typeof entry.aiAssisted === 'boolean' ? { aiAssisted: entry.aiAssisted } : {}),
   ...(entry.canton ? { canton: entry.canton } : {}),
  };
 }
@@ -2383,7 +2385,10 @@ function BlogArticlesContent({
  // declaration exists because a registry entry alone cannot answer a
  // per-article provenance question — see services/articleProvenance.ts.
  const bylineAuthor = (effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined) as { uid?: string } | undefined;
- const isHumanContributor = !resolveArticleProvenance(article as Article & { aiAssisted?: boolean }, bylineAuthor).aiAssisted;
+ const resolvedAuthor = {
+  provenance: resolveArticleProvenance(article, bylineAuthor),
+ };
+ const isHumanContributor = !resolvedAuthor.provenance.aiAssisted && Boolean(effectiveAuthorName);
  // One AI statement site-wide (packages/articles/engine/shared/aiDisclosure.ts),
  // localized — the static article HTML renders the same copy.
  const transparencyLocale = disclosureLocale(locale);
@@ -2890,7 +2895,7 @@ function BlogArticlesContent({
  </div>
  <div className="min-w-0 flex-1">
  <p className="text-sm font-semibold text-body truncate group-hover:text-accent transition-colors">
- {job.titleByLocale?.[locale] ?? job.title}
+ {jobDisplayTitle(job)}
  </p>
  <p className="text-sm text-muted truncate">
  {job.company} · {job.location}
@@ -3110,7 +3115,7 @@ function BlogArticlesContent({
  </div>
  <div className="min-w-0">
  <p className="text-sm font-semibold text-body line-clamp-2">
- {job.titleByLocale?.[locale] ?? job.title}
+ {jobDisplayTitle(job)}
  </p>
  <p className="text-sm text-subtle mt-0.5">{job.company} · {job.location}</p>
  </div>

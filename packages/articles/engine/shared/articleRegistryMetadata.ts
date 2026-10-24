@@ -2,6 +2,7 @@ import {
   findTopLevelStaticObjectLiterals,
   parseStaticSource,
   readStaticObjectProperties,
+  readStaticBoolean,
   readStaticString,
   staticPropertyName,
 } from './staticSourceAst.mjs';
@@ -15,6 +16,7 @@ export interface ArticleRegistryMetadata {
   updatedAt?: string;
   authorSlug?: string;
   authorName?: string;
+  aiAssisted?: boolean;
 }
 
 /**
@@ -35,22 +37,38 @@ export function readArticleRegistryMetadata(source: string): ArticleRegistryMeta
   const objects = findTopLevelStaticObjectLiterals(sourceFile);
   if (objects.length === 0) return [];
   const records: ArticleRegistryMetadata[] = [];
-  const fields = new Set(['id', 'category', 'date', 'image', 'updatedAt', 'authorSlug', 'authorName']);
+  const stringFields = new Set(['id', 'category', 'date', 'image', 'updatedAt', 'authorSlug', 'authorName']);
+  const fields = new Set([...stringFields, 'aiAssisted']);
   const seen = new Set<string>();
   for (const object of objects) {
-    const values: Record<string, string> = {};
+    const values: Record<string, string | boolean> = {};
     for (const property of readStaticObjectProperties(object, 'article registry entry')) {
       const key = staticPropertyName(property.name);
       if (!key || !fields.has(key)) continue;
-      values[key] = readStaticString(property.initializer, sourceFile, {
-        label: `${key} in article registry entry`,
-        errorPrefix: '[article-registry]',
-      });
+      values[key] = key === 'aiAssisted'
+        ? readStaticBoolean(property.initializer, sourceFile, {
+          label: `${key} in article registry entry`,
+          errorPrefix: '[article-registry]',
+        })
+        : readStaticString(property.initializer, sourceFile, {
+          label: `${key} in article registry entry`,
+          errorPrefix: '[article-registry]',
+        });
     }
-    if (!values.id) continue;
-    if (seen.has(values.id)) throw new SyntaxError(`Duplicate article registry id: ${values.id}`);
-    seen.add(values.id);
-    records.push({ ...values, id: values.id });
+    const id = values.id;
+    if (typeof id !== 'string' || !id) continue;
+    if (seen.has(id)) throw new SyntaxError(`Duplicate article registry id: ${id}`);
+    seen.add(id);
+    records.push({
+      id,
+      ...(typeof values.category === 'string' ? { category: values.category } : {}),
+      ...(typeof values.date === 'string' ? { date: values.date } : {}),
+      ...(typeof values.image === 'string' ? { image: values.image } : {}),
+      ...(typeof values.updatedAt === 'string' ? { updatedAt: values.updatedAt } : {}),
+      ...(typeof values.authorSlug === 'string' ? { authorSlug: values.authorSlug } : {}),
+      ...(typeof values.authorName === 'string' ? { authorName: values.authorName } : {}),
+      ...(typeof values.aiAssisted === 'boolean' ? { aiAssisted: values.aiAssisted } : {}),
+    });
   }
   return records;
 }

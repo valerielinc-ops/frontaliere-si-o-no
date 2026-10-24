@@ -7,6 +7,7 @@ import {
   compareChangedLines,
   changedLinesFromCompareApi,
   changedLinesForScope,
+  REVIEW_SCOPE_GIT_DIFF_TIMEOUT_MS,
   scopeDeclassificationOptions,
   scopeExit,
   SCOPE_EXITS,
@@ -98,13 +99,15 @@ describe('scope classifier: i due parametri che il fixer perdeva (difetto 1)', (
       headSha: HEAD_SHA,
       repo: 'owner/repo',
       repositoryPaths: FILES,
-      changedLinesFn: (repo, from, to) => {
-        seen.push([repo, from, to]);
+      changedLinesFn: (repo, from, to, options) => {
+        seen.push([repo, from, to, options]);
         return new Map([[SUVA, new Set([10])]]);
       },
     });
     // La finestra di confronto è la review PRECEDENTE, non la corrente.
-    expect(seen).toEqual([['owner/repo', PRIOR_SHA, HEAD_SHA]]);
+    expect(seen).toEqual([[
+      'owner/repo', PRIOR_SHA, HEAD_SHA, { paths: [SUVA] },
+    ]]);
     expect(options.priorFindingIds).toBeInstanceOf(Set);
     expect(options.priorFindingIds!.size).toBeGreaterThan(0);
     expect(options.changedLinesSince).toBeInstanceOf(Map);
@@ -223,6 +226,22 @@ describe('compareChangedLines: il delta a due punti, o niente', () => {
 });
 
 describe('changedLinesForScope: git davanti, compare API come rete', () => {
+  it('limita il diff locale ai path dei finding e mantiene il timeout bounded', () => {
+    let seenOptions: unknown;
+    const map = changedLinesForScope('owner/repo', PRIOR_SHA, HEAD_SHA, {
+      paths: [SUVA, SUVA],
+      gitFn: (_from, _to, options) => {
+        seenOptions = options;
+        return new Map([[SUVA, new Set([1])]]);
+      },
+      apiFn: () => null,
+    });
+    expect(map).toBeInstanceOf(Map);
+    expect(seenOptions).toEqual({ paths: [SUVA] });
+    expect(REVIEW_SCOPE_GIT_DIFF_TIMEOUT_MS).toBeGreaterThan(0);
+    expect(REVIEW_SCOPE_GIT_DIFF_TIMEOUT_MS).toBeLessThanOrEqual(15_000);
+  });
+
   it('usa il git diff quando i commit sono lì e non chiama l\'API', () => {
     let apiCalls = 0;
     const map = changedLinesForScope('owner/repo', PRIOR_SHA, HEAD_SHA, {

@@ -74,70 +74,6 @@ function addLegacyBridgeHead(html: string, from: string, to: string, extraHead =
  return html.replace('</head>', `${refresh}${extraHead}\n </head>`);
 }
 
-/** Hreflang entry extracted from sitemap XML. */
-interface HreflangEntry {
- hreflang: string;
- href: string;
-}
-
-/**
- * Parse all sitemap XML files under public/ and build a lookup from
- * canonical URL (with trailing slash) → array of hreflang <link> entries.
- * This lets legacy redirect pages point to the correct locale variants of
- * their target canonical URL.
- */
-function buildHreflangMap(rootDir: string): Map<string, HreflangEntry[]> {
- const publicDir = path.resolve(rootDir, 'public');
- const sitemapFiles = [
- 'sitemap-pages.xml',
- 'sitemap-blog.xml',
- 'sitemap-blog-ch.xml',
- 'sitemap-glossario.xml',
- 'sitemap-news.xml',
- ];
-
- const map = new Map<string, HreflangEntry[]>();
-
- for (const file of sitemapFiles) {
- const filePath = path.join(publicDir, file);
- if (!fs.existsSync(filePath)) continue;
-
- const xml = fs.readFileSync(filePath, 'utf-8');
-
- // Extract each <url> block
- const urlBlocks = xml.match(/<url>[\s\S]*?<\/url>/g);
- if (!urlBlocks) continue;
-
- for (const block of urlBlocks) {
- // Get <loc>
- const locMatch = block.match(/<loc>([^<]+)<\/loc>/);
- if (!locMatch) continue;
- const loc = locMatch[1].trim();
-
- // Get all xhtml:link hreflang entries
- const hreflangs: HreflangEntry[] = [];
- const linkRegex = /<xhtml:link\s+rel="alternate"\s+hreflang="([^"]+)"\s+href="([^"]+)"\s*\/>/g;
- let linkMatch;
- while ((linkMatch = linkRegex.exec(block)) !== null) {
- hreflangs.push({ hreflang: linkMatch[1], href: linkMatch[2] });
- }
-
- if (hreflangs.length > 0) {
- map.set(loc, hreflangs);
- }
- }
- }
-
- return map;
-}
-
-/** Generate hreflang <link> tags string from entries. */
-function hreflangLinksHtml(entries: HreflangEntry[]): string {
- return entries
- .map(e => ` <link rel="alternate" hreflang="${e.hreflang}" href="${e.href}">`)
- .join('\n');
-}
-
 function pruneRedirectedPageSitemap(sitemapPath: string, redirectedPaths: Set<string>): number {
  if (!fs.existsSync(sitemapPath)) return 0;
  const xml = fs.readFileSync(sitemapPath, 'utf-8');
@@ -614,9 +550,6 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // still points at the real page, so UX is unaffected.
  const redirectCanonicalOverride = new Map<string, string>();
 
- // Build hreflang lookup from sitemaps so legacy pages can point to locale variants
- const hreflangMap = buildHreflangMap(rootDir);
-
  // ── Phase 8.4 (cathedral) — migration map ──
  // Jobs whose canton !== 'TI' are now emitted at canton-aware URLs
  // (e.g. /cerca-lavoro-zurigo/<slug>/). The pre-cathedral URLs at
@@ -692,13 +625,6 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  assertNoCanonicalOverrideRedirectTargets(redirects, loadArticleCanonicalOverrides(rootDir));
  }
 
- const getHreflangHtml = (targetPath: string): string => {
- const targetUrl = `${BASE_URL}${targetPath}`;
- const entries = hreflangMap.get(targetUrl);
- if (!entries || entries.length === 0) return '';
- return '\n' + hreflangLinksHtml(entries);
- };
-
  // Static fallback for aliases that do not have an edge-owned HTTP redirect.
  // The 0-second meta-refresh helps a browser reach the canonical page, but it
  // is intentionally weaker than a server-side 301; the 16 audited aliases
@@ -711,7 +637,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  body: `Questa URL ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : 'dell annuncio'} non e piu la versione corretta. Ti stiamo portando alla pagina corretta; se non vieni reindirizzato, aprila qui sotto.`,
  ctaLabel: 'Apri la pagina corretta',
  noindex: true,
- hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
+ // Stand-alone noindex,follow bridge: no canonical, no hreflang (see
+ // crossPageSignals in buildCanonicalBridgePage).
+ crossPageSignals: false,
  }), from, to);
 
  for (const [fromRaw, toRaw] of Object.entries(redirects)) {
@@ -745,7 +673,6 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  if (fs.existsSync(path.join(outDir, 'index.html')) && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from] && !BORDER_WAIT_LEGACY_REDIRECTS.has(from)) continue;
  const fromUrl = `${BASE_URL}${from}`;
  const toUrl = `${BASE_URL}${to}`;
- const hreflangTags = getHreflangHtml(to);
  const redirectLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'WebPage',
@@ -764,7 +691,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  body: 'Questa URL legacy punta a una pagina aggiornata. Ti stiamo portando alla destinazione corretta; se non vieni reindirizzato, aprila qui sotto.',
  ctaLabel: 'Apri la pagina corretta',
  noindex: true,
- hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
+ // The apex Worker answers this path with a real 301 whenever the origin
+ // serves this stub (EDGE_LEGACY_STUB_REDIRECTS, generated from this table),
+ // so the stub itself only exists for a Worker bypass. It must not compete
+ // with that 301: no canonical and no hreflang, just noindex,follow + CTA.
+ crossPageSignals: false,
  // Keep a browser fallback for aliases that are not intercepted by the edge.
  // It is not a substitute for an HTTP 301; edge-owned aliases are emitted
  // without this tag by addLegacyBridgeHead().

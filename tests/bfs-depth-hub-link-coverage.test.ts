@@ -419,7 +419,11 @@ describe('the overflow ladder keeps the rows it carries reachable (#7329)', () =
     }
   });
 
-  it('sitemaps only rendered ladder pages that pass their robots word-count gate (#7741)', () => {
+  // P1 noindex plan (paginationIndexPolicy, 2026-10-24) supersedes the #7741
+  // contract "a ladder page is sitemapped when it passes its word-count gate":
+  // no page 2+ of a listing is advertised any more, whatever its word count.
+  // The word-count gate still drives the ladder's robots (tested above).
+  it('never sitemaps a ladder page, whatever its word count (P1 pagination policy)', () => {
     const renderedPages = [
       { page: 2, wordCount: MIN_INDEXABLE_WORDS },
       { page: 3, wordCount: MIN_INDEXABLE_WORDS - 1 },
@@ -434,8 +438,8 @@ describe('the overflow ladder keeps the rows it carries reachable (#7329)', () =
       },
     ], new Date().toISOString().slice(0, 10));
 
-    expect(pages).toEqual([2]);
-    expect(sitemap).toContain(overflowLadderPath('it', 'altri-cantoni', undefined, 2));
+    expect(pages).toEqual([]);
+    expect(sitemap).not.toContain(overflowLadderPath('it', 'altri-cantoni', undefined, 2));
     expect(sitemap).not.toContain(overflowLadderPath('it', 'altri-cantoni', undefined, 3));
   });
 });

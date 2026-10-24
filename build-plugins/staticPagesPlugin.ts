@@ -5555,6 +5555,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
+ // The en/de/fr Ticino hubs are filled by the SECTION_EDITORIAL /
+ // LOCALE_EDITORIAL branches above and never reach the isJobsIndex branch
+ // that pushes the slot, so tiHubLatestJobsPlugin found no slot there and
+ // failed deploy 40087494526 (de/fr/en=no-slot). Data area first, every locale.
+ if (isJobsIndex && !editorialBlocks.includes(TI_HUB_LATEST_JOBS_SLOT)) editorialBlocks.unshift(TI_HUB_LATEST_JOBS_SLOT);
+
  // Treat a block as raw HTML when it starts with a block-level tag OR when it
  // contains any HTML tag at all (e.g. paragraphs that begin with text but
  // embed `<strong>` / `<a>` / `<em>`). Without the second check those tags

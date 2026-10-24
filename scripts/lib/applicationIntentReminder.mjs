@@ -7,6 +7,7 @@
  * verified uid; no email-to-anonymous join belongs here.
  */
 
+import { jobDisplayTitle } from './job-title-identity.mjs';
 import { extractKeywords } from '../../services/newsletter-content.mjs';
 import { locationTokenVariants, normalizeLocToken } from '../../services/locToken.mjs';
 import {
@@ -243,7 +244,7 @@ export function buildApplicationIntentEntry(snapshot, jobsById, locale, jobUrlBu
     applicationMode: data.application_mode || job.applyMode || 'external',
     intentAt: applicationIntentTimestamp(data),
     url: jobUrlBuilder(job, locale),
-    title: job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || '',
+    title: jobDisplayTitle(job),
     company: job.company || '',
     canton: job.canton || null,
     location: job.location || job.addressLocality || null,

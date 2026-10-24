@@ -282,6 +282,8 @@ describe('registryPinnedLocaleSlug', () => {
         company: 'Kantonsspital Aarau (KSA)',
         location: 'Aarau',
         disambiguator: '',
+        // The employer title feeds the truncation guard (job-title-identity.mjs).
+        sourceTitle: '',
       });
       expect(registryPinnedLocaleSlug(GARBLED, 'de', 'it', sourceSlugPinContext(job, 'de'))).toBeNull();
     });

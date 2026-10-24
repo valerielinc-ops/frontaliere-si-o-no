@@ -11,6 +11,7 @@
 
 import { AI_USE_STATEMENT } from '../packages/articles/engine/shared/aiDisclosure';
 import { adSlotHtml } from './lib/adSlotHtml';
+import { renderSchoolCalendarSource, renderSchoolYearLinks } from './schoolCalendarLinks';
 
 export type SectionEditorialMap = Record<string, Record<string, string[]>>;
 
@@ -3244,6 +3245,8 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  '/vita-in-ticino/vacanze-scolastiche-ticino-2026': {
  it: [
  buildSchoolCalendarHero('it'),
+ renderSchoolCalendarSource('it', 2026),
+ renderSchoolYearLinks('it', 2026),
  '<h2 class="s-FoMhWG">Calendario scolastico Ticino 2026-2027</h2>',
  '<p>Il calendario delle <strong>vacanze scolastiche in Canton Ticino</strong> è stabilito ogni anno dal <em>Dipartimento dell\'educazione, della cultura e dello sport (DECS)</em> e pubblicato sul sito ti.ch/decs. Si applica alle <strong>scuole dell\'infanzia (3-6 anni), elementari (6-11 anni), medie (11-15 anni)</strong> pubbliche del cantone. Le scuole private seguono generalmente lo stesso calendario ma possono avere deviazioni di 1-2 giorni comunicate ai genitori a inizio anno. Le scuole italiane di confine (Como, Varese, Valtellina) hanno un calendario completamente diverso: chi ha figli divisi tra sistemi svizzero e italiano deve pianificare con attenzione ferie e custodia alternativa.</p>',
  '<h2 class="s-FoMhWG">Date vacanze 2026-2027</h2>',
@@ -3261,6 +3264,8 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  ],
  en: [
  buildSchoolCalendarHero('en'),
+ renderSchoolCalendarSource('en', 2026),
+ renderSchoolYearLinks('en', 2026),
  '<h2 class="s-FoMhWG">Ticino school calendar 2026-2027</h2>',
  '<p>The <strong>school holiday calendar in Canton Ticino</strong> is set annually by the Department of Education, Culture and Sport (DECS) and applies to public kindergartens (ages 3-6), primary schools (6-11) and lower secondary schools (11-15). Private schools generally follow the same calendar with 1-2 day deviations.</p>',
  '<h2 class="s-FoMhWG">2026-2027 holiday dates</h2>',
@@ -3272,6 +3277,8 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  ],
  de: [
  buildSchoolCalendarHero('de'),
+ renderSchoolCalendarSource('de', 2026),
+ renderSchoolYearLinks('de', 2026),
  '<h2 class="s-FoMhWG">Schulkalender Tessin 2026-2027</h2>',
  '<p>Der <strong>Schulferienkalender im Kanton Tessin</strong> wird jährlich vom Departement für Bildung, Kultur und Sport (DECS) festgelegt und gilt für öffentliche Kindergärten (3-6 Jahre), Primar- (6-11) und Sekundarschulen (11-15). Privatschulen folgen im Allgemeinen demselben Kalender mit Abweichungen von 1-2 Tagen.</p>',
  '<h2 class="s-FoMhWG">Ferientermine 2026-2027</h2>',
@@ -3283,6 +3290,8 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  ],
  fr: [
  buildSchoolCalendarHero('fr'),
+ renderSchoolCalendarSource('fr', 2026),
+ renderSchoolYearLinks('fr', 2026),
  '<h2 class="s-FoMhWG">Calendrier scolaire Tessin 2026-2027</h2>',
  '<p>Le <strong>calendrier des vacances scolaires au Tessin</strong> est fixé annuellement par le Département de l\'éducation, de la culture et du sport (DECS) et s\'applique aux écoles maternelles publiques (3-6 ans), primaires (6-11 ans) et secondaires (11-15 ans). Les écoles privées suivent généralement le même calendrier avec 1-2 jours d\'écart.</p>',
  '<h2 class="s-FoMhWG">Dates de vacances 2026-2027</h2>',
