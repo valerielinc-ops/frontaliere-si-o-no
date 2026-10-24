@@ -1167,11 +1167,6 @@ export const RELEASES: Release[] = [
  },
  {
  type: 'feature',
- titleKey: 'whatsNew.v3440.expertQuotes.title',
- descKey: 'whatsNew.v3440.expertQuotes.desc',
- },
- {
- type: 'feature',
  titleKey: 'whatsNew.v3440.enAiReference.title',
  descKey: 'whatsNew.v3440.enAiReference.desc',
  },

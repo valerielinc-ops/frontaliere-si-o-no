@@ -1,7 +1,7 @@
 {
   "key": "my",
   "label": "Teo Jakob AG",
-  "generatedAt": "2026-10-23T21:37:25.284Z",
+  "generatedAt": "2026-10-24T09:35:38.753Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4107,
-  "avgDurationMs": 4107,
+  "unchangedCount": 0,
+  "durationMs": 4312,
+  "avgDurationMs": 4312,
   "durationHistory": [
-    4107
+    4312
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "my-504c86923bce",
       "slug": "applicazione-spontanea-5-teo-jakob-ag-meiringen",
@@ -37,7 +35,7 @@
       "url": "https://my.jobalino.ch/de/jobpreview/18678",
       "source": "Teo Jakob AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:37:10.967Z",
+      "crawledAt": "2026-10-24T09:35:25.127Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -68,5 +66,7 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

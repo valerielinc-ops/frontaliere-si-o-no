@@ -1,15 +1,17 @@
 /**
  * News Sitemap Whitelist (C1) tests.
  *
- * Verifies the topic whitelist + 48h freshness window correctly filter the
- * `dist/sitemap-news.xml` candidate set down to the 5 + 1 macro-themes that
- * Google News rewards.
+ * Verifies the topic whitelist + 48h freshness window of `isArticleNewsEligible`
+ * (kept as the editorial source the corpus vendors) and `isWithinNewsWindow`,
+ * the only gate `sitemap-news.xml` applies since 2026-10-24 — Google News' own
+ * "last two days" rule, every locale, no topic filter.
  */
 import { describe, expect, it } from 'vitest';
 import {
   NEWS_SITEMAP_WHITELIST,
   NEWS_SITEMAP_WINDOW_HOURS,
   isArticleNewsEligible,
+  isWithinNewsWindow,
   matchedWhitelistTokens,
   type NewsEligibilityArticle,
 } from '@/data/news-sitemap-whitelist';
@@ -251,5 +253,29 @@ describe('isArticleNewsEligible — boundary conditions', () => {
       publishedAt: HOUR_AGO,
     };
     expect(isArticleNewsEligible(article, NOW)).toBe(true);
+  });
+});
+
+describe('isWithinNewsWindow (the sitemap-news.xml gate)', () => {
+  it('admits anything published inside the 48h window, whatever the topic', () => {
+    expect(isWithinNewsWindow(HOUR_AGO, NOW)).toBe(true);
+    expect(isWithinNewsWindow(new Date(NOW - 47.9 * 3_600_000), NOW)).toBe(true);
+    // the topic filter would refuse this one; the window does not look at topic at all
+    expect(isArticleNewsEligible({ slug: 'hockey-club-lugano-vittoria', publishedAt: HOUR_AGO }, NOW)).toBe(false);
+  });
+
+  it('refuses aged-out, future, unparseable and missing dates', () => {
+    expect(isWithinNewsWindow(THREE_DAYS_AGO, NOW)).toBe(false);
+    expect(isWithinNewsWindow(new Date(NOW + 3_600_000).toISOString(), NOW)).toBe(false);
+    expect(isWithinNewsWindow('not-a-date', NOW)).toBe(false);
+    expect(isWithinNewsWindow(undefined, NOW)).toBe(false);
+    expect(isWithinNewsWindow(null, NOW)).toBe(false);
+    expect(isWithinNewsWindow('', NOW)).toBe(false);
+  });
+
+  it('is the same window isArticleNewsEligible applies', () => {
+    for (const at of [HOUR_AGO, TWO_HOURS_AGO, THREE_DAYS_AGO]) {
+      expect(isArticleNewsEligible({ slug: 'fisco', publishedAt: at }, NOW)).toBe(isWithinNewsWindow(at, NOW));
+    }
   });
 });

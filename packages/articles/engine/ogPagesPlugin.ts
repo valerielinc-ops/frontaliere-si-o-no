@@ -21,6 +21,7 @@ import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared
 import { normalizeArticleExcerptPlain, stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
+import { composeArticleMetaDescription } from './shared/articleMetaDescription';
 import { ARTICLE_SECTION_DESCRIPTORS, SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId, type OgSection as OgSectionDescriptor } from './shared/articleSectionDescriptors';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { hasArticleBodyPromptPlaceholder } from './shared/articleBodyQuality';
@@ -34,6 +35,7 @@ import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxo
 import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath, cantonTopicHubLabel, cantonTopicHubPath } from './shared/cantonSectionCopy.mjs';
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
+import { ARTICLE_TRANSPARENCY, CORRECTIONS_PAGE_PATHS, METHODOLOGY_PAGE_PATHS, disclosureLocale } from './shared/aiDisclosure';
 
 /**
  * Rich author identity supplied by the site shell at runtime. The package
@@ -325,6 +327,18 @@ export interface RenderArticlePagesOptions {
  * error, so callers may safely pass ids belonging to other sections.
  */
  onlyArticleIds?: string[];
+ /**
+ * Heroes that are NOT on local disk but are known to be served, keyed by the
+ * site-relative path (`/images/blog/<file>.webp`) with the size measured from
+ * the served bytes. The corpus re-render runs from a sparse checkout without
+ * `public/images/`; without this map every hero failed `resolveImagePath`'s
+ * existence check and the page fell back to `/og-image.png` with a guessed
+ * 1200x675 size. An entry here counts as "the file exists" for resolution and
+ * supplies the measured size, so the page is rendered exactly as the full
+ * build renders it (absolute og:image, CDN rewrite, credits, real MIME and
+ * dimensions) instead of being patched afterwards. A local file always wins.
+ */
+ remoteHeroSizes?: Record<string, { width: number; height: number }>;
 }
 
 export interface RenderArticlePagesResult {
@@ -399,6 +413,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   postWalkDerivedKind: 'blog',
  });
  const DEFAULT_IMG = '/og-image.png';
+ const remoteHeroSizes: Record<string, { width: number; height: number }> = opts.remoteHeroSizes ?? {};
  const blogImageById: Record<string, string> = {};
  // Single-article and batch narrowing collapse to the same Set<string> so
  // both the body-file read (parseBlogBodyLocale) and the write-loop filter
@@ -621,11 +636,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const rel = publicPath.replace(/^\/+/, '');
  if (!rel) return false;
  try {
- return fs.statSync(np.join(distDir, rel)).isFile();
+ if (fs.statSync(np.join(distDir, rel)).isFile()) return true;
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
- return false;
  }
+ // Served but not on this disk (sparse re-render): see `remoteHeroSizes`.
+ return Object.prototype.hasOwnProperty.call(remoteHeroSizes, publicPath);
  };
  const fromSameBase = (p: string): string | null => {
  const ext = np.extname(p);
@@ -666,7 +682,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const resolveHeroSize = (imgPath: string): { width: number; height: number } => {
  const cached = heroSizeCache.get(imgPath);
  if (cached) return cached;
- const measured = readImageIntrinsicSize(np.join(distDir, imgPath.replace(/^\/+/, '')));
+ const measured = readImageIntrinsicSize(np.join(distDir, imgPath.replace(/^\/+/, '')))
+ ?? (Object.prototype.hasOwnProperty.call(remoteHeroSizes, imgPath) ? remoteHeroSizes[imgPath] : null);
  const size = measured ?? { width: HERO_FALLBACK_WIDTH, height: HERO_FALLBACK_HEIGHT };
  if (measured && measured.width < DISCOVER_MIN_IMAGE_WIDTH) {
  // Once per file (the cache guarantees it), so a shared hero used by
@@ -1137,9 +1154,25 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   de: { aria: 'Website-Informationen', about: '<a href="/de/ueber-uns/">Über uns</a>', contact: '<a href="/de/kontakt/">Kontakt</a>', privacy: '<a href="/de/datenschutz/">Datenschutz</a>' },
   fr: { aria: 'Informations sur le site', about: '<a href="/fr/a-propos/">À propos</a>', contact: '<a href="/fr/contactez-nous/">Contact</a>', privacy: '<a href="/fr/confidentialite/">Confidentialité</a>' },
  };
+ // Methodology + corrections register belong to the same trust evidence: the
+ // AI disclosure points at them, so the pre-hydration document links them too.
  const buildArticleLegalNav = (locale: string): string => {
   const links = ARTICLE_LEGAL_NAV[locale] || ARTICLE_LEGAL_NAV.it;
-  return `<nav class="ft-static-legal-links" aria-label="${links.aria}">${links.about} | ${links.contact} | ${links.privacy}</nav>`;
+  const dl = disclosureLocale(locale);
+  const tr = ARTICLE_TRANSPARENCY[dl];
+  const methodology = `<a href="${METHODOLOGY_PAGE_PATHS[dl]}">${tr.navMethodology}</a>`;
+  const corrections = `<a href="${CORRECTIONS_PAGE_PATHS[dl]}">${tr.navCorrections}</a>`;
+  return `<nav class="ft-static-legal-links" aria-label="${links.aria}">${links.about} | ${methodology} | ${corrections} | ${links.contact} | ${links.privacy}</nav>`;
+ };
+ // Same disclosure the hydrated article renders (BlogArticles.tsx), from the
+ // same copy. Provenance is inferred like resolveArticleProvenance(): a byline
+ // with a Firebase identity is a human contribution, everything else is
+ // machine-drafted.
+ const buildArticleTransparencyAside = (locale: string, author: { uid?: string; name?: string } | undefined): string => {
+  const dl = disclosureLocale(locale);
+  const tr = ARTICLE_TRANSPARENCY[dl];
+  const statement = author?.uid && author.name ? tr.human(author.name) : tr.aiAssisted;
+  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)} ${esc(tr.sources)}</p><p><a href="${METHODOLOGY_PAGE_PATHS[dl]}">${esc(tr.methodology)}</a> · <a href="${CORRECTIONS_PAGE_PATHS[dl]}">${esc(tr.corrections)}</a></p></aside>`;
  };
 
  // Race-free SPA bundle hash extraction (SiteShellContract.resolveSpaBundle —
@@ -1337,15 +1370,23 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // alt="" would tell Discover this image is not about the article.
  const socialTitle = articleLocale === 'it' ? normalizeArticleTitle(en.ogT) : localizedTitle;
  const heroAlt = localizedMeta?.imageAlt || socialTitle;
- // Pad short descriptions to the active shell budget for Bing (locale variant excerpts are often shorter).
- const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
- en: ' Practical guide and free tools for cross-border workers (frontalieri) between Switzerland and Italy. Frontaliere Ticino.',
- de: ' Praxisratgeber und kostenlose Tools für Grenzgänger zwischen der Schweiz und Italien. Frontaliere Ticino.',
- fr: " Guide pratique et outils gratuits pour travailleurs frontaliers entre la Suisse et l'Italie. Frontaliere Ticino.",
- };
- const metaDescPadded = (localeForMeta && localizedDesc.length < shell.metaDescriptionMaxChars)
- ? localizedDesc + (LOCALE_DESC_CONTEXT[localeForMeta] ?? '')
- : localizedDesc;
+ // Complete a short lede from THIS article's own body, in the page language,
+ // and end an over-long one on a whole sentence (see articleMetaDescription.ts).
+ // This replaced a fixed EN/DE/FR boilerplate ("Practical guide and free tools
+ // for cross-border workers…") that was appended to every short excerpt and
+ // then word-cut at the budget, so hundreds of articles ended on the same
+ // truncated, page-agnostic tail. Only a body in the page's own locale is
+ // read: the IT fallback body would put Italian sentences on an EN snippet.
+ const metaBodySource = blogBodyByLocale[articleLocale]?.[en.articleId];
+ const metaBodyTexts = metaBodySource
+ ? Object.keys(metaBodySource)
+ .filter((k) => /^body\d+$/.test(k))
+ .sort((a, b) => parseInt(a.slice(4), 10) - parseInt(b.slice(4), 10))
+ .map((k) => String(metaBodySource[k] ?? ''))
+ : [];
+ const metaDescPadded = composeArticleMetaDescription(localizedDesc, metaBodyTexts, {
+ max: shell.metaDescriptionMaxChars,
+ });
  // SERP-CTR lever (issue #4300 plan item 2): title/h1/headline are locked by
  // the Google News verbatim-match rule above, so the description is the only
  // safe place to add a freshness/year signal for articles. Additive-only —
@@ -1708,8 +1749,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  }
  }
 
- // keywords from article metadata
- if (en.keywords) {
+ // keywords from article metadata. The corpus keeps them in Italian only, so
+ // they are emitted on the Italian page alone: on EN/DE/FR pages they put
+ // Italian search terms ("NASpI frontalieri", "frontalieri Ticino") into the
+ // structured data of a page written in another language.
+ if (en.keywords && articleLocale === 'it') {
  const kw = typeof en.keywords === 'string'
  ? en.keywords.split(',').map((k: string) => k.trim()).filter(Boolean)
  : Array.isArray(en.keywords) ? en.keywords : [];
@@ -1941,7 +1985,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, resolvedAuthor)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

@@ -122,6 +122,16 @@ jobs:
           mkdir -p reports
           node scripts/job-application-funnel-report.mjs > reports/job-application-funnel.json
 
+      - name: Measure landing value by template
+        # Valore/sessione per template (ricavo ads + candidature × valore di un
+        # clic ads), organico, flotta headless esclusa: input delle priorità
+        # SEO. Read-only; docs/analytics/ga4-misura-affidabile.md.
+        if: always() && (inputs.sections == 'all' || inputs.sections == 'ga4' || inputs.sections == '')
+        run: |
+          mkdir -p reports
+          node scripts/landing-value-report.mjs --out reports/landing-value-by-template.json >> "$GITHUB_STEP_SUMMARY"
+        continue-on-error: true
+
       - name: Commit AI channel history
         # The report is intentionally allowed to finish with partial data, but
         # the history write must not disappear with the runner workspace.
@@ -462,6 +472,7 @@ jobs:
             reports/analytics-*.json
             reports/gsc-top50-monitor*
             reports/job-application-funnel.json
+            reports/landing-value-by-template.json
           retention-days: 90
 
       - name: Cleanup Codex auth broker
