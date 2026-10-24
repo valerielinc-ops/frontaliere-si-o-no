@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-24T12:21:08.773Z",
+  "generatedAt": "2026-10-24T13:20:56.213Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -16427,6 +16427,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T11:25:40.479Z"
+    },
+    "guidle:A3jt2a4::b9c689e3dc375ad816f1fe5b686aaa8003a57f9909f63ca89f3c7d32e2b3ad99": {
+      "id": "guidle:A3jt2a4",
+      "sourceDescriptionHash": "b9c689e3dc375ad816f1fe5b686aaa8003a57f9909f63ca89f3c7d32e2b3ad99",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zollyphon; comune: Zollikofen; cantone: BE; categoria: Fisarmonica; organizzatore: Guidle; data: 2027-03-12; ora: 20:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zollyphon; comune: Zollikofen; cantone: BE; categoria: Fisarmonica; organizzatore: Guidle; data: 2027-03-12; ora: 20:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Zollyphon; municipality: Zollikofen; canton: BE; category: Fisarmonica; organiser: Guidle; date: 2027-03-12; time: 20:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Zollyphon; gemeinde: Zollikofen; kanton: BE; kategorie: Fisarmonica; veranstalter: Guidle; datum: 2027-03-12; uhrzeit: 20:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Zollyphon; commune: Zollikofen; canton: BE; catégorie: Fisarmonica; organisateur: Guidle; date: 2027-03-12; heure: 20:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-24T13:16:29.331Z"
     },
     "guidle:A3LG7NM::b3f1a5b430873ff309c3a9dddeaaa64868cd9fe094bc56c2c67943fd821339fb": {
       "id": "guidle:A3LG7NM",
@@ -169532,15 +169546,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-21T17:22:17.821Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:A3jt2a4::b9c689e3dc375ad816f1fe5b686aaa8003a57f9909f63ca89f3c7d32e2b3ad99": {
-      "id": "guidle:A3jt2a4",
-      "sourceDescriptionHash": "b9c689e3dc375ad816f1fe5b686aaa8003a57f9909f63ca89f3c7d32e2b3ad99",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-23T19:07:17.676Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
