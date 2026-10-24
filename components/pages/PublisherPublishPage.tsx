@@ -15,7 +15,8 @@
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Briefcase, Plus, Trash2, Send, AlertTriangle, Clock, CheckCircle2, Shield, Sparkles, ShoppingCart, Mail, Loader2, AlertCircle, Star, Check, PartyPopper } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, loadNamespaceTranslations } from '@/services/i18n';
+import { TranslationNamespaceGate } from '@/components/shared/TranslationNamespaceGate';
 import { buildPath } from '@/services/router';
 import { useAuth } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
@@ -2218,4 +2219,13 @@ const PublisherPublishPage: React.FC = () => {
  );
 };
 
-export default PublisherPublishPage;
+// Its copy is the on-demand "publisher" namespace (services/locales/<locale>-ns-publisher.ts).
+// The request starts as soon as this lazy module is evaluated.
+void loadNamespaceTranslations('publisher');
+const PublisherPublishPageWithStrings: React.FC = () => (
+ <TranslationNamespaceGate namespace="publisher">
+ <PublisherPublishPage />
+ </TranslationNamespaceGate>
+);
+
+export default PublisherPublishPageWithStrings;

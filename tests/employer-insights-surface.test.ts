@@ -21,12 +21,13 @@ const adminPage = readFileSync(
   'utf8',
 );
 
-const localeFiles = [
-  '../services/locales/it-core.ts',
-  '../services/locales/en-core.ts',
-  '../services/locales/de-core.ts',
-  '../services/locales/fr-core.ts',
-].map((path) => readFileSync(new URL(path, import.meta.url), 'utf8'));
+// Core chunk + the on-demand "publisher" namespace the dashboard loads
+// (services/locales/<locale>-ns-publisher.ts): together they are every string
+// the publisher dashboard can render.
+const localeFiles = ['it', 'en', 'de', 'fr'].map((l) => [
+  `../services/locales/${l}-core.ts`,
+  `../services/locales/${l}-ns-publisher.ts`,
+].map((path) => readFileSync(new URL(path, import.meta.url), 'utf8')).join('\n'));
 
 const WINDOW = {
   from: '2026-06-10T22:00:00.000Z',
@@ -66,7 +67,7 @@ describe('employer insights surface semantics', () => {
     expect(employerPage).not.toContain('candidature direttamente');
   });
 
-  it('uses an intent or click label for the publisher rate in every core locale', () => {
+  it('uses an intent or click label for the publisher rate in every locale', () => {
     for (const locale of localeFiles) {
       expect(locale).toContain('publisherDashboard.kpi.intentRate');
       expect(locale).not.toContain('publisherDashboard.kpi.conversion');
