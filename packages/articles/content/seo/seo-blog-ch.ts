@@ -108831,6 +108831,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-telecom-358-licenziamenti': {
+    title: '358 licenziamenti confermati: prima ipotesi 450 impieghi',
+    description: 'Sunrise annuncia 358 licenziamenti La prima ipotesi indicava 450 impieghi La consultazione con Syndicom è terminata Piano sociale e uscita volontaria',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenziamenti, confermati, prima, ipotesi',
+    ogTitle: 'Sunrise, confermati 358 licenziamenti',
+    ogDescription: 'Sunrise annuncia 358 licenziamenti La prima ipotesi indicava 450 impieghi La consultazione con Syndicom è terminata Piano sociale e uscita volontaria per alcuni',
+    canonicalPath: '/articoli-svizzera/telecom-358-licenziamenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "358 licenziamenti confermati: prima ipotesi 450 impieghi",
+      "description": "Sunrise annuncia 358 licenziamenti La prima ipotesi indicava 450 impieghi La consultazione con Syndicom è terminata Piano sociale e uscita volontaria",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-telecom-358-licenziamenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-24T13:01:21+00:00",
+      "dateModified": "2026-10-24T13:01:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/telecom-358-licenziamenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
