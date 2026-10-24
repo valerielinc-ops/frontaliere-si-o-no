@@ -199,12 +199,6 @@ function getDeadlines2026(t: (key: string) => string): TaxDeadline[] {
  category: 'festivo', who: ['tutti'],
  },
  {
- id: 'h5', date: '2026-04-05',
- title: t('calendar.h5.title'),
- description: t('calendar.h5.description'),
- category: 'festivo', who: ['tutti'],
- },
- {
  id: 'h6', date: '2026-04-06',
  title: t('calendar.h6.title'),
  description: t('calendar.h6.description'),

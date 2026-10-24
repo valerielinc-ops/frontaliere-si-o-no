@@ -258,8 +258,6 @@ const frFisco: Record<string, string> = {
  'calendar.h3.description': 'Jour férié au Canton du Tessin (patron des travailleurs)',
  'calendar.h4.title': 'Fête du Travail',
  'calendar.h4.description': 'Jour férié officiel au Canton du Tessin et en Italie (1er mai)',
- 'calendar.h5.title': 'Dimanche de Pâques',
- 'calendar.h5.description': 'Pâques — jour férié officiel',
  'calendar.h6.title': 'Lundi de Pâques',
  'calendar.h6.description': 'Jour férié officiel au Canton du Tessin et en Italie',
  'calendar.h7.title': 'Ascension',

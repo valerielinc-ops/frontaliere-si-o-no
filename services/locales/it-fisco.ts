@@ -273,8 +273,6 @@ const translations: Record<string, string> = {
  'calendar.h3.description': 'Giorno festivo nel Canton Ticino (patrono dei lavoratori)',
  'calendar.h4.title': 'Festa del Lavoro',
  'calendar.h4.description': 'Giorno festivo ufficiale nel Canton Ticino e in Italia (1° maggio)',
- 'calendar.h5.title': 'Domenica di Pasqua',
- 'calendar.h5.description': 'Pasqua — giorno festivo ufficiale',
  'calendar.h6.title': 'Lunedì di Pasqua',
  'calendar.h6.description': 'Lunedì dell\'Angelo — giorno festivo ufficiale',
  'calendar.h7.title': 'Ascensione',

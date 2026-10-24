@@ -258,8 +258,6 @@ const deFisco: Record<string, string> = {
  'calendar.h3.description': 'Feiertag im Kanton Tessin (Patron der Arbeiter)',
  'calendar.h4.title': 'Tag der Arbeit',
  'calendar.h4.description': 'Offizieller Feiertag im Kanton Tessin und in Italien (1. Mai)',
- 'calendar.h5.title': 'Ostersonntag',
- 'calendar.h5.description': 'Ostern — offizieller Feiertag',
  'calendar.h6.title': 'Ostermontag',
  'calendar.h6.description': 'Offizieller Feiertag im Kanton Tessin und Italien',
  'calendar.h7.title': 'Auffahrt',

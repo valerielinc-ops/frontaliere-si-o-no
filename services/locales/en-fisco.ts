@@ -258,8 +258,6 @@ const enFisco: Record<string, string> = {
  'calendar.h3.description': 'Public holiday in Canton Ticino (patron of workers)',
  'calendar.h4.title': 'Labour Day',
  'calendar.h4.description': 'Official public holiday in Canton Ticino and in Italy (1 May)',
- 'calendar.h5.title': 'Easter Sunday',
- 'calendar.h5.description': 'Easter — official holiday',
  'calendar.h6.title': 'Easter Monday',
  'calendar.h6.description': 'Official holiday in Canton Ticino and Italy',
  'calendar.h7.title': 'Ascension Day',
