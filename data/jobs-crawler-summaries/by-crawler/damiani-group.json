@@ -1,62 +1,20 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-23T21:11:55.329Z",
+  "generatedAt": "2026-10-24T09:21:31.022Z",
   "total": 11,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 9590,
-  "avgDurationMs": 9590,
+  "unchangedCount": 8,
+  "durationMs": 10657,
+  "avgDurationMs": 10657,
   "durationHistory": [
-    9590
+    10657
   ],
-  "newJobs": [
-    {
-      "title": "Social Media Manager",
-      "slug": "social-media-manager-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Social-Media-Manager/1374169255/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1374169255/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "damiani-group-ef01cc390b3e",
-      "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-10-23T21:11:46.597Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 23
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "IT Support & Junior System Administrator",
@@ -186,6 +144,47 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Social Media Manager",
+      "slug": "social-media-manager-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Social-Media-Manager/1374169255/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1374169255/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "damiani-group-ef01cc390b3e",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-10-23T21:11:46.597Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
     {
       "title": "Watches Designer",
       "slug": "orologi-designer-damiani-group-ginevra",
@@ -471,5 +470,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

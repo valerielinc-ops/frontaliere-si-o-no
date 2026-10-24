@@ -1,27 +1,28 @@
 {
   "key": "kuehne-nagel",
   "label": "Kuehne+Nagel",
-  "generatedAt": "2026-10-23T21:21:04.033Z",
-  "total": 6,
+  "generatedAt": "2026-10-24T09:34:48.345Z",
+  "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 6,
+  "written": 5,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7131,
-  "avgDurationMs": 7131,
+  "durationMs": 5630,
+  "avgDurationMs": 5630,
   "durationHistory": [
-    7131
+    5630
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kuehne-nagel-5f22e0afaa2c",
       "slug": "import-specialist-luftfracht-m-w-d-kuehne-nagel-opfikon",
@@ -34,7 +35,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL19181EXTERNALENGLOBAL/import-specialist-luftfracht-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:20:51.203Z",
+      "crawledAt": "2026-10-24T09:34:38.505Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -54,20 +55,18 @@
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL19181EXTERNALENGLOBAL/import-specialist-luftfracht-m-w-d",
       "jobReqId": "19181",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-23T21:20:51.203Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-23T21:20:51.203Z",
-      "_qualityScore": 76,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "kuehne-nagel-305ddb6f1fdc",
       "slug": "impiegato-a-commerciale-per-spedizioni-healthcare-m-f-d-kuehne-nagel-kaiseraugst",
@@ -80,7 +79,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL19407EXTERNALENGLOBAL/speditionskaufmann-frau-healthcare-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:20:52.615Z",
+      "crawledAt": "2026-10-24T09:34:38.192Z",
       "addressLocality": "Kaiseraugst",
       "addressRegion": "AG",
       "postalCode": "4303",
@@ -124,7 +123,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17233EXTERNALENGLOBAL/senior-internal-auditor",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:20:50.856Z",
+      "crawledAt": "2026-10-24T09:34:37.822Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -155,51 +154,6 @@
         "translation": 25,
         "completeness": 23
       }
-    },
-    {
-      "id": "kuehne-nagel-1afed546b5fd",
-      "slug": "spedizioniere-a-trasporto-aereo-export-m-f-d-kuehne-nagel-opfikon",
-      "company": "Kuehne+Nagel",
-      "companyKey": "kuehne-nagel",
-      "companyDomain": "kuehne-nagel.com",
-      "title": "Speditionskaufmann/-frau Luftfracht Export (m/w/d)",
-      "location": "Opfikon",
-      "canton": "ZH",
-      "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL18789EXTERNALENGLOBAL/speditionskaufmann-frau-luftfracht-export-m-w-d",
-      "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:20:46.501Z",
-      "addressLocality": "Opfikon",
-      "addressRegion": "ZH",
-      "postalCode": "8152",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Logistics / Freight Forwarding",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL18789EXTERNALENGLOBAL/speditionskaufmann-frau-luftfracht-export-m-w-d",
-      "jobReqId": "18789",
-      "firstSeenAt": "2026-10-03T09:20:36.739Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true,
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
   "removedJobs": [],
@@ -216,7 +170,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:20:54.039Z",
+      "crawledAt": "2026-10-24T09:34:39.362Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -259,7 +213,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:20:53.161Z",
+      "crawledAt": "2026-10-24T09:34:39.007Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -292,5 +246,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

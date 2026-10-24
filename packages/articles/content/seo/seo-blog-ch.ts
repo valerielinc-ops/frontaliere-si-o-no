@@ -18680,17 +18680,17 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-permesso-frontaliere-g-procedura-ticino': {
-    title: 'Permesso G per frontalieri: procedura e obblighi in Ticino',
-    description: 'Scopri come richiedere il permesso G per frontalieri in Ticino: procedura, obblighi di notifica, costi e documenti necessari per lavorare in Svizzera.',
+    title: 'Richiesta permesso G in Ticino: procedura, documenti e costi',
+    description: 'Come fare la richiesta del permesso G in Ticino: notifica all\'Ufficio della migrazione prima di iniziare, documenti, dati biometrici e costi.',
     keywords: 'frontalieri, ticino, svizzera, italia, permesso, procedura, obblighi, pratica',
-    ogTitle: 'Permesso G frontaliere: guida alla richiesta in Ticino',
-    ogDescription: 'Guida pratica alla richiesta del permesso G per frontalieri in Ticino: documenti, obblighi e procedura ufficiale.',
+    ogTitle: 'Richiesta permesso G in Ticino: procedura, documenti e costi',
+    ogDescription: 'Come fare la richiesta del permesso G in Ticino: notifica all\'Ufficio della migrazione prima di iniziare, documenti, dati biometrici e costi.',
     canonicalPath: '/articoli-svizzera/permesso-frontaliere-g-procedura-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Permesso G per frontalieri: procedura e obblighi in Ticino",
-      "description": "Scopri come richiedere il permesso G per frontalieri in Ticino: procedura, obblighi di notifica, costi e documenti necessari per lavorare in Svizzera.",
+      "headline": "Richiesta permesso G in Ticino: procedura, documenti e costi",
+      "description": "Come fare la richiesta del permesso G in Ticino: notifica all'Ufficio della migrazione prima di iniziare, documenti, dati biometrici e costi.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -108788,6 +108788,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-pompa-non-calano-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-successione-parmelin-otto-nomi': {
+    title: 'Consiglio federale: in corsa Parmelin per otto nomi',
+    description: 'La corsa alla successione di Parmelin arriva a otto nomi Graber e Ruppen si presentano a Berna Le candidature cantonali scadono venerdì a mezzogiorno',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, corsa, parmelin',
+    ogTitle: 'Consiglio federale: corsa a otto nomi',
+    ogDescription: 'La corsa alla successione di Parmelin arriva a otto nomi Graber e Ruppen si presentano a Berna Le candidature cantonali scadono venerdì a mezzogiorno Il voto è',
+    canonicalPath: '/articoli-svizzera/successione-parmelin-otto-nomi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: in corsa Parmelin per otto nomi",
+      "description": "La corsa alla successione di Parmelin arriva a otto nomi Graber e Ruppen si presentano a Berna Le candidature cantonali scadono venerdì a mezzogiorno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-successione-parmelin-otto-nomi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-24T05:11:58+00:00",
+      "dateModified": "2026-10-24T05:11:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/successione-parmelin-otto-nomi/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

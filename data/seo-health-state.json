@@ -1,40 +1,32 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-23T09:26:44.497Z",
+  "lastRunAt": "2026-10-24T08:57:44.381Z",
   "findings": {
     "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-vallese/burchen/": {
       "code": "jobposting-missing",
       "url": "https://frontaliereticino.ch/cerca-lavoro-vallese/burchen/",
-      "consecutiveRuns": 1,
+      "consecutiveRuns": 2,
       "firstSeenAt": "2026-10-23T09:26:44.497Z",
-      "lastSeenAt": "2026-10-23T09:26:44.497Z",
+      "lastSeenAt": "2026-10-24T08:57:44.381Z",
       "detail": null
     },
     "jobposting-withheld-unverified-date|https://frontaliereticino.ch/cerca-lavoro-zurigo/consulente-alle-vendite-interdiscount-affoltern-am-albis/": {
       "code": "jobposting-withheld-unverified-date",
       "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/consulente-alle-vendite-interdiscount-affoltern-am-albis/",
-      "consecutiveRuns": 1,
+      "consecutiveRuns": 2,
       "firstSeenAt": "2026-10-23T09:26:44.497Z",
-      "lastSeenAt": "2026-10-23T09:26:44.497Z",
+      "lastSeenAt": "2026-10-24T08:57:44.381Z",
       "detail": null
     },
-    "cloudflare-5xx-persistent|https://gh-default-agenti.frontaliereticino.ch/github/webhook": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch:2087/login/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://gh-default-agenti.frontaliereticino.ch/github/webhook",
+      "url": "https://frontaliereticino.ch:2087/login/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-10-23T09:26:44.497Z",
-      "lastSeenAt": "2026-10-23T09:26:44.497Z",
-      "detail": "edge=502 count=68 live=502 surface=github-webhook-default-agenti"
-    },
-    "cloudflare-5xx-persistent|https://gh-nanako-agenti.frontaliereticino.ch/github/webhook": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://gh-nanako-agenti.frontaliereticino.ch/github/webhook",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-10-23T09:26:44.497Z",
-      "lastSeenAt": "2026-10-23T09:26:44.497Z",
-      "detail": "edge=502 count=13 live=502 surface=github-webhook-nanako-agenti"
+      "firstSeenAt": "2026-10-24T08:57:44.381Z",
+      "lastSeenAt": "2026-10-24T08:57:44.381Z",
+      "detail": "edge=503 count=1 live=503 surface=other"
     }
   },
   "cleanRuns": 0,
-  "lastActionable": false
+  "lastActionable": true
 }

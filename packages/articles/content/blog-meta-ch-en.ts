@@ -7700,8 +7700,8 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-voto-zurigo-referendum.title': 'Cantonal vote in Zurich: guide to initiatives and referendums',
     'blog.article.guida-voto-zurigo-referendum.excerpt': 'Cantonal vote in Zurich: initiatives, referendums, calendar and eligible voters. Federal thresholds: 100\'000 signatures in 18 months and 50\'000 in 100 days.',
     'blog.article.guida-voto-zurigo-referendum.imageAlt': 'Ballot papers for a cantonal vote in the Canton of Zurich',
-    'blog.article.elezioni-cantonali-zurigo-vademecum.title': 'Cantonal elections in Zurich: a guide to the calendar and voting',
-    'blog.article.elezioni-cantonali-zurigo-vademecum.excerpt': 'Practical guide to the cantonal elections in the Canton of Zurich: what to check regarding the election schedule, voting methods, lists, and official information.',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.title': 'Zurich cantonal elections: how to vote and where to find the date',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.excerpt': 'Zurich cantonal elections explained: how the vote works, what to check on lists and voting methods, and which office publishes the official date.',
     'blog.article.elezioni-cantonali-zurigo-vademecum.imageAlt': 'Information material for cantonal elections in the Canton of Zurich',
     'blog.article.protezione-civile-zurigo.title': 'Civil protection in the Canton of Zurich: requirements and allowances',
     'blog.article.protezione-civile-zurigo.excerpt': 'In the Canton of Zurich, civil protection is coordinated at the cantonal level. Call-ups and allowances are verified with the competent authority.',
@@ -8609,6 +8609,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzi-pompa-non-calano-svizzera.title': 'Pump prices are not falling in Switzerland: refining constraints and the Rhine',
     'blog.article.prezzi-pompa-non-calano-svizzera.excerpt': 'Flows from Hormuz remain 30-40% lower.',
     'blog.article.prezzi-pompa-non-calano-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.successione-parmelin-otto-nomi.title': 'Federal Council: Parmelin among eight names in the running',
+    'blog.article.successione-parmelin-otto-nomi.excerpt': 'The race to succeed Parmelin has reached eight names Graber and Ruppen put themselves forward in Bern Cantonal candidacies close on Friday at noon The vote is',
+    'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

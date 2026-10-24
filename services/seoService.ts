@@ -121,6 +121,7 @@ const BASE_URL = 'https://frontaliereticino.ch';
 export { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
 import { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
 import { EDITORIAL_TEAM_ID, ORGANIZATION_LD } from './seo/organizationLd';
+import { withoutShardArticleNodes } from './seo/blogArticleRuntimeLd';
 
 /**
  * E-E-A-T Author & Publisher Schema for YMYL content.
@@ -2196,9 +2197,13 @@ export async function updateMetaTags(section: string): Promise<void> {
  } else if (legalSeo) {
  updateStructuredData([legalSeo.jsonLd, breadcrumbs]);
  } else if (metadata.structuredData) {
- const existingData = Array.isArray(metadata.structuredData)
+ const shardData = Array.isArray(metadata.structuredData)
  ? metadata.structuredData
  : [metadata.structuredData];
+ // Blog articles: the article node (and its author) comes from the author
+ // registry — static HTML + BlogArticles.tsx. The shard's legacy `Person`
+ // authors must not reach the rendered DOM (see blogArticleRuntimeLd.ts).
+ const existingData = isBlogArticle ? withoutShardArticleNodes(shardData) : shardData;
  const localizedData = existingData.map(item => {
  const clone = JSON.parse(JSON.stringify(item)) as Record<string, any>;
  if (clone && typeof clone === 'object') {

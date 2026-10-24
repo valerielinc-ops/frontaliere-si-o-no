@@ -952,8 +952,8 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.autovelox-ticino-introiti-frontalieri.title': 'Radars tessinois : revenus décuplés, 60 % sont italiens',
     'blog.article.autovelox-ticino-introiti-frontalieri.excerpt': 'Les sanctions routières au Tessin enregistrent une nette augmentation des revenus : 60 % des conducteurs sanctionnés résident en Italie.',
     'blog.article.autovelox-ticino-introiti-frontalieri.imageAlt': 'Radar de contrôle de vitesse sur une route tessinoise',
-    'blog.article.offerte-fielmann-svizzera.title': 'Offres Fielmann en Suisse : ce qu\'il faut savoir',
-    'blog.article.offerte-fielmann-svizzera.excerpt': 'Analyse des propositions commerciales de Fielmann en Suisse pour ceux qui recherchent des solutions optiques et leur impact sur le coût de la vie quotidienne.',
+    'blog.article.offerte-fielmann-svizzera.title': 'Offres Fielmann en Suisse : lunettes, lentilles et prix',
+    'blog.article.offerte-fielmann-svizzera.excerpt': 'Offres Fielmann en Suisse : lunettes, lentilles de contact et services d\'optique, prix selon les personnalisations et promotions en cours en filiale.',
     'blog.article.offerte-fielmann-svizzera.imageAlt': 'Intérieur d\'un magasin d\'optique en Suisse',
     'blog.article.axa-manno-lavoro-frontaliere.title': 'Travailler chez AXA Suisse à Manno : guide pour les frontaliers',
     'blog.article.axa-manno-lavoro-frontaliere.excerpt': 'Détails sur l\'emploi à Manno, le permis G, la fiscalité 2024 et les cotisations sociales pour les travailleurs frontaliers au Tessin.',
@@ -8609,6 +8609,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prezzi-pompa-non-calano-svizzera.title': 'Prix à la pompe stagnent en Suisse : raffinage et Rhin',
     'blog.article.prezzi-pompa-non-calano-svizzera.excerpt': 'Les flux en provenance d\'Ormuz restent inférieurs de 30-40 %.',
     'blog.article.prezzi-pompa-non-calano-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.successione-parmelin-otto-nomi.title': 'Conseil fédéral : huit noms en lice pour succéder à Parmelin',
+    'blog.article.successione-parmelin-otto-nomi.excerpt': 'La course à la succession de Parmelin atteint huit noms Graber et Ruppen se présentent à Berne Les candidatures cantonales arrivent à échéance vendredi à midi Le vote est',
+    'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

@@ -257,6 +257,8 @@ import type { CantonRealDataSectorRow, CantonRealDataEmployer } from './shared/c
 import {
  buildEmployerHubTitle,
  buildCantonLandingTitle,
+ buildCantonHubH1,
+ frenchCantonTitlePlace,
  buildRoleHubTitle,
 } from '../services/seo/job-board-titles';
 import {
@@ -288,7 +290,8 @@ import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
-import { setActiveJobSitemapLocs } from './shared/buildSignals';
+import { setActiveJobSitemapLocs, setTiHubLatestJobsBlocks } from './shared/buildSignals';
+import { renderTiHubLatestJobsBlock, summarizeTiHubInventory, TI_HUB_LATEST_JOBS_LIMIT } from './shared/tiHubLatestJobs';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
 import type { EmittedEmployerProfile } from './shared/buildSignals';
 import { employerTitleCandidates, type EmployerProfileLocale } from './employerProfilePagesPlugin';
@@ -3318,6 +3321,36 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   const href = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCanton)}`;
   return activeJobSitemapLocs.has(href) ? href : null;
  };
+ // Ticino hub data area. /cerca-lavoro-ticino/ (+ locale twins) is emitted by
+ // staticPagesPlugin, which has no view of the active-detail registry above,
+ // so its HTML linked zero job details. Render the stat tiles + 12 latest
+ // active TI cards here (same pool, recency order and self-canonical href
+ // rule as the canton hubs' "latest jobs" grid) and hand the per-locale HTML
+ // to tiHubLatestJobsPlugin through buildSignals. ~48 small strings; the
+ // pool is a filtered view of validJobs, not a copy of the dataset.
+ {
+  const tiPool = selectJobBoardInventory(validJobs, 'TI');
+  const tiStats = summarizeTiHubInventory(tiPool);
+  const tiRecent = [...tiPool].sort((a, b) => _jobRecency(b) - _jobRecency(a));
+  const tiBlocks: Record<string, string> = {};
+  for (const locale of localeList) {
+   const linkable: Array<{ job: any; href: string }> = [];
+   for (const job of tiRecent) {
+    if (linkable.length >= TI_HUB_LATEST_JOBS_LIMIT) break;
+    const href = activeCanonicalJobHref(job, locale);
+    if (href) linkable.push({ job, href });
+   }
+   const tiSectionPath = withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}`.replace(/\/+/g, '/'));
+   tiBlocks[locale] = renderTiHubLatestJobsBlock({
+    locale,
+    jobs: linkable,
+    stats: tiStats,
+    todayHref: `${tiSectionPath}${getJobTodayLandingSlug(locale, 'TI')}/`,
+    allHref: hubSlugFor('TI', locale, 'tutti'),
+   });
+  }
+  setTiHubLatestJobsBlocks(tiBlocks);
+ }
  // Shared with the expired soft-landing sweep below: an active localized
  // path must reserve its cluster slot before any BUILD_LOCALE filter.
  const claimedJobPaths = new Set<string>();
@@ -4789,7 +4822,18 @@ ${staticAnalyticsHtml}
  const __tCrossCantonLegacy = startTimer();
  const legacyTIRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const legacyTIKey = legacyTIRel.replace(/\/+$/, '');
- if (!activeJobDirs.has(legacyTIKey)) {
+ if (locale !== 'it' && !activeJobDirs.has(legacyTIKey)) {
+ // en/de/fr: no copy. The legacy TI URL of a non-TI job is left to the
+ // shard origin's 404, which the locale-router Worker turns into a 301 to
+ // the canton-aware page via /job-canon (recoverCantonDriftOrphan): a 200
+ // noindex copy here is exactly what stops that 301 from firing (same
+ // decision as the expired soft-landing loop and cfHot404BridgePlugin).
+ // The path is still CLAIMED, so the canton-blind previousSlug TI mirror
+ // below cannot put another job's stale alias on it (#2545). IT is
+ // unchanged by choice: its copy is noindex (no canonical mismatch) and
+ // the expired soft-landing loop never emitted an IT legacy copy either.
+ legacyTiBridgeDirs.add(legacyTIKey);
+ } else if (!activeJobDirs.has(legacyTIKey)) {
  const legacyTIReuseInput = incrementalManifests
   ? {
    bridgeType: 'legacy-ti',
@@ -11443,19 +11487,25 @@ ${staticAnalyticsHtml}
      display: string,
      count: number,
      year: number,
-   ): { title: string; lede: string; ctaLabel: string } => {
+   ): { title: string; h1: string; lede: string; ctaLabel: string } => {
      const title = buildCantonLandingTitle({ locale, cantonDisplay: display, count, year });
+     // The H1 used to be the bare canton name ("Zurigo"): it now carries the
+     // searched shape ("Lavoro Zurigo", "Jobs in Zurich", "Emploi … Genève")
+     // and the live count, like the Ticino hub (services/seo/job-board-titles).
+     const h1 = buildCantonHubH1({ locale, cantonDisplay: display, count });
      switch (locale) {
        case 'it':
          return {
           title,
-          lede: `Offerte di lavoro aggiornate ogni giorno: ${display}.`,
+          h1,
+          lede: `Annunci di lavoro attivi ${display === 'Svizzera' ? 'in Svizzera' : `nel Canton ${display}`}, aggiornati ogni giorno con sede, azienda e data di pubblicazione.`,
           ctaLabel: `Vedi tutte le offerte`,
         };
        case 'en':
          return {
           title,
-          lede: `Current job openings in ${display}, updated daily.`,
+          h1,
+          lede: `Active job listings in ${display}, updated daily with location, employer and posting date.`,
           ctaLabel: `View all listings`,
         };
        case 'de':
@@ -11475,6 +11525,7 @@ ${staticAnalyticsHtml}
          // the generic "job board index" framing.
          return {
           title,
+          h1,
           lede: `Aktuelle Stellenangebote für Grenzgänger ${germanCantonPrep(display)} — täglich aktualisiert.`,
           ctaLabel: `Alle Stellen anzeigen`,
         };
@@ -11482,7 +11533,8 @@ ${staticAnalyticsHtml}
        default:
          return {
           title,
-          lede: `Offres d’emploi actualisées chaque jour : ${display}.`,
+          h1,
+          lede: `Offres d’emploi actives ${frenchCantonTitlePlace(display)}, mises à jour chaque jour avec lieu, employeur et date de publication.`,
           ctaLabel: `Voir toutes les offres`,
         };
      }
@@ -12265,7 +12317,7 @@ ${staticAnalyticsHtml}
        // staticOverlay handoff preserved).
        `<div class="s-LFxJYv">`,
        `<nav class="s-ZVaIKh"><a class="s-t_pXue" href="/">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
-       `<header class="s-TYF4UK"><h1 class="s-Wb8ho2">${esc(display)}</h1><p class="s-b7cYUf">${esc(labels.lede)}</p></header>`,
+       `<header class="s-TYF4UK"><h1 class="s-Wb8ho2">${esc(labels.h1)}</h1><p class="s-b7cYUf">${esc(labels.lede)}</p></header>`,
        tileGrid,
        `<p class="s-ziawP1"><a class="s-yy370N" data-primary-cta href="${legacyJobBoardHref}">${esc(labels.ctaLabel)}</a></p>`,
        subPageNav,
@@ -13390,7 +13442,6 @@ ${staticAnalyticsHtml}
  };
 
  let expiredCount = 0;
- let legacyCount = 0;
  const expiredSitemapEntries: string[] = [];
 
  // Pre-compute invariant HTML fragments for soft-landing pages (~69K pages).
@@ -13565,6 +13616,9 @@ ${staticAnalyticsHtml}
  // keep only a bounded chunk of HTML in memory. Once a chunk is flushed, its
  // cache entries are read back from dist/ by the later reconciliation pass.
  const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512;
+ // One sampled-only memory line every 64 chunks (~32k slugs, ~20 per leg):
+ // the sweep runs ~40 min and had no milestone between its two ends.
+ const EXPIRED_MEM_MILESTONE_EVERY_CHUNKS = 64;
  const expiredHtmlCacheOnDisk = new Set<string>();
  const expiredHtmlCachePaths = new Map<string, string>();
  let expiredHtmlCachePeakEntries = 0;
@@ -13925,9 +13979,9 @@ ${staticAnalyticsHtml}
  // memory — is bounded. Grace/no-traffic pages stay stripped + thin-shelled.
  //
  // Two gates, two DELIBERATELY DIFFERENT path-sets — built from ONE shared base
- // (the candidate builder, hoisted above the body) so the per-locale legacy-bridge
- // idiom lives in exactly one place (no drift by construction):
- //   • Thin-shell gate (__slDecision, emission block below) probes __slCandidatePaths:
+ // (the candidate builder, hoisted above the body) so the per-locale legacy-path
+ // evidence idiom lives in exactly one place (no drift by construction):
+ //   • Thin-shell gate (__slDecision) probes __slCandidatePaths:
  //     relPath + the current locale's own legacy bridge (only when locale!=='it',
  //     because the IT legacy section IS the canonical relPath for a TI IT page) +
  //     every OTHER locale's legacy section path.
@@ -13946,8 +14000,9 @@ ${staticAnalyticsHtml}
  // so the THIN gate's set stays byte-identical to its prior behaviour (widening it
  // would flip some IT canton-aware pages thin→full, changing the emitted shell +
  // build footprint — out of scope here).
- // PR #743 lesson: non-IT locales also emit a legacy-locale bridge at legacyRel,
- // so traffic may land there — probe relPath + every locale variant.
+ // PR #743 lesson: non-IT locale legacy paths remain valid traffic candidates
+ // because old requests are redirected by the edge — probe relPath + every
+ // locale variant without materialising another expired page here.
  const __slCandidatePaths: string[] = [relPath];
  if (locale !== 'it') {
  const __slLegacyRel = `/${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
@@ -14364,10 +14419,6 @@ ${staticAnalyticsHtml}
    registerIncrementalPage(locale, relPath, 'expired-soft-landing', softLandingManifestInput);
   }
  }
- const softLandingReuseHash = incrementalManifests?.get(locale)?.getReuseHash(
-  relPath,
-  'expired-soft-landing',
- ) ?? null;
  const cacheKey = jobsSeoHtmlCacheKey(locale, relPath);
  if (expiredCacheKeys.has(cacheKey)) {
   expiredSoftLandingCache.set(cacheKey, softLandingHtml);
@@ -14384,44 +14435,21 @@ ${staticAnalyticsHtml}
  }
  expiredCount++;
 
- // Legacy slug bridge (Italian slug in non-IT locale path)
- if (locale !== 'it') {
- const legacyRel = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/').replace(/^\//, '');
- const trackedRel = relPath.replace(/^\//, '');
- if (legacyRel !== trackedRel && !claimedJobPaths.has(legacyRel.replace(/\/+$/, ''))) {
- claimedJobPaths.add(legacyRel.replace(/\/+$/, ''));
- const legacySoftLandingReuseInput = incrementalManifests
-  ? {
-   bridgeType: 'expired-soft-landing-legacy-locale',
-   source: 'expired-soft-landing',
-   sourceInputHash: softLandingReuseHash,
-   jobId: stableJobId(ejData || { slug }),
-   sourcePath: relPath,
-   targetPath: legacyRel,
-   legacySlug: slug,
-  }
-  : null;
- const legacySoftLandingReuse = jobsSeoReuse?.lookup(
-  locale,
-  legacyRel,
-  'legacy-slug-bridge',
-  legacySoftLandingReuseInput,
-  'previous-slug-legacy',
-  jobsSeoProbeShapeHints(ejData),
- );
- const legacySoftLandingHtml = legacySoftLandingReuse?.hit && !jobsSeoReuse?.shouldRender(legacySoftLandingReuse)
-  ? jobsSeoReuse.reusedHtml(legacySoftLandingReuse, STATIC_PAGE_BUILD_ID) || legacySoftLandingReuse.html
-  : softLandingHtml;
- jobsSeoReuse?.finish(legacySoftLandingReuse, legacySoftLandingHtml);
- const wroteLegacySoftLanding = writeSoftLandingPage(legacyRel, legacySoftLandingHtml);
- if (wroteLegacySoftLanding) {
-  if (incrementalManifests) {
-   registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge', legacySoftLandingReuseInput);
-  }
- }
- legacyCount++;
- }
- }
+ // No legacy-TI copy of this soft-landing (Italian slug under the legacy TI
+ // section of a non-IT locale, e.g. /fr/trouver-emploi-tessin/<slug>/).
+ // After the cathedral `relPath` is canton-aware, so that copy was a 200
+ // page whose canonical pointed at another URL: for every expired non-TI
+ // job (~373k per locale, `(+ N legacy slug bridges)` in the deploy log of
+ // run 39917633944) it was an indexable duplicate whose canonical named the
+ // native canton page — 911k `canonicalMismatch` advisories on the
+ // full-corpus validate:page-seo replay — and for the ~6.6k TI aliases
+ // (localized slug != registry key) the same mismatch inside TI. The URL
+ // now 404s at the shard origin and the locale-router Worker 301s it
+ // (`recoverCantonDriftOrphan`, /job-canon/*.json): to `${prefix}/${slug}/`
+ // when the slug segment is the same in this locale, and to the registry's
+ // localized path (`alias`, jobCanonRedirectMapPlugin) when it is not. IT
+ // never emitted this copy. See cfHot404BridgePlugin: for en/de/fr the
+ // Worker 301 is strictly better than a duplicate 200.
  recordPhase('ejp:write', __tEjpWrite);
  recordEmit('expired-soft-landing', __tExpiredSoftLanding);
  }
@@ -14484,17 +14512,34 @@ ${staticAnalyticsHtml}
  await collector.awaitDrainSlot(2);
  if ((expiredSlugIndex + 1) % EXPIRED_HTML_CACHE_CHUNK_SIZE === 0) {
   await releaseExpiredHtmlCacheChunk();
+  // This ~940k-page sweep is the jobs-SEO memory peak on a zero-reuse
+  // build (run 40057008446, leg de: rss-ceiling at 19 539 MB, mid-sweep),
+  // yet it was the only large emit without the 1 GB last-resort GC that
+  // the active and hub phases already run at their flush boundaries.
+  // The chunk boundary is the cheap point: the collector has just drained
+  // and the released HTML chunk is garbage.
+  maybeForceJobsSeoHtmlGc();
+  if ((expiredSlugIndex + 1) % (EXPIRED_HTML_CACHE_CHUNK_SIZE * EXPIRED_MEM_MILESTONE_EVERY_CHUNKS) === 0) {
+   logJobsSeoMem('expired-sweep-progress', {
+    expiredSlugIndex: expiredSlugIndex + 1,
+    expiredSlugs: expiredSlugs.length,
+    expiredCount,
+    expiredHtmlCacheChunks,
+    jobsSeoHtmlGcRuns,
+   });
+  }
  }
  }
 
  // Release the final partial chunk before the retained-set checkpoint. The
  // cross-locale pass below will read these pages from disk as needed.
  await releaseExpiredHtmlCacheChunk();
+ maybeForceJobsSeoHtmlGc();
 
  jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
  logJobsSeoMem('after-expired-cache-population', {
   expiredCount,
-  legacyCount,
+  jobsSeoHtmlGcRuns,
   expiredCacheKeys: expiredCacheKeys.size,
   expiredCacheEntries: expiredSoftLandingCache.size,
   expiredHtmlCachePeakEntries,
@@ -14525,7 +14570,7 @@ ${staticAnalyticsHtml}
  }
 
  if (expiredCount > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs`);
  // Backpressure between expired-soft-landing (~150k pages) and the
  // next big emit (previousSlugs full-content ~65k pages).
  await collector.awaitDrainSlot(2);
@@ -14535,7 +14580,6 @@ ${staticAnalyticsHtml}
  jobsSeoMemContext.sitemap.entries = expiredSitemapEntries.length;
  logJobsSeoMem('after-expired-softlandings', {
   expiredCount,
-  legacyCount,
   expiredSitemapEntries: expiredSitemapEntries.length,
   sitemapEntries: expiredSitemapEntries.length,
  });
@@ -14573,6 +14617,21 @@ ${staticAnalyticsHtml}
  // e.g. `/cerca-lavoro-ticino/<slug-fr>` renders soft-landing content in
  // Italian instead of a 404. Canonical (inherited from the cached HTML)
  // already points to the base locale's tracked slug URL.
+ // en/de/fr URL `/<loc>/<TI legacy section>/<slug>/` that the locale-router
+ // Worker recovers by itself: the registry knows `slug` in this locale at a
+ // DIFFERENT path, so /job-canon carries either the exact prefix (same slug
+ // segment) or the `alias` (localized slug) for it, and every registry path
+ // is emitted (soft-landing / self-healing). Writing a 200 copy here instead
+ // only stops that 301 from firing — the class the expired soft-landing loop
+ // and the active cross-canton bridge no longer emit. The cross-locale and
+ // previousSlug-TI mirrors below must not re-fill those paths now that the
+ // removed copies no longer claim them; paths the Worker cannot resolve keep
+ // their noindex page.
+ const legacyTiPathRecoveredByWorker = (locale: 'it' | 'en' | 'de' | 'fr', slug: string, relPath: string): boolean => {
+  if (locale === 'it') return false;
+  const registryPath = tracking[slug]?.[locale];
+  return Boolean(registryPath) && localePathClaimKey(registryPath) !== localePathClaimKey(relPath);
+ };
  let crossLocaleExpiredCount = 0;
  for (const ej of expiredJobsData) {
  const slugByLocale = (ej && ej.slugByLocale) as Record<string, string> | undefined;
@@ -14634,6 +14693,8 @@ ${staticAnalyticsHtml}
  const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  // Active job wins if a live page already occupies this path.
  if (activeJobDirs.has(relPathKey)) continue;
+ // The locale-router Worker 301s it (see legacyTiPathRecoveredByWorker).
+ if (legacyTiPathRecoveredByWorker(baseLocale, foreignSlug, relPath)) continue;
  const outDir = safeTargets.directoryPath;
  const indexFile = safeTargets.indexPath;
  // Skip if any earlier phase (active, bridge, soft-landing) already wrote here.
@@ -15125,7 +15186,10 @@ ${staticAnalyticsHtml}
  // to whichever job happened to write last (#2545).
  if (
  !activeJobDirs.has(legacyTIKey) &&
- !legacyTiBridgeDirs.has(legacyTIKey)
+ !legacyTiBridgeDirs.has(legacyTIKey) &&
+ // en/de/fr: when the registry knows `oldSlug` in this locale the Worker
+ // 301s this URL to that page, which a 200 mirror here would block.
+ !legacyTiPathRecoveredByWorker(locale, oldSlug, legacyTIRelPath)
  ) {
  legacyTiBridgeDirs.add(legacyTIKey);
  const __tPrevSlugLegacyTIBridge = startTimer();
@@ -15395,6 +15459,8 @@ ${staticAnalyticsHtml}
  // `buildCantonAwareSection(locale, 'TI')` early-returns — hence the
  // 'TI' canton in the key.
  if (emittedActiveJobPaths.has(`TI:${baseLocale}:${foreignSlug}`)) continue;
+ // The locale-router Worker 301s it (see legacyTiPathRecoveredByWorker).
+ if (legacyTiPathRecoveredByWorker(baseLocale, foreignSlug, relPath)) continue;
  const outDir = safeTargets.directoryPath;
  const indexFile = safeTargets.indexPath;
  // Skip if a previousSlugs bridge already covered this path for

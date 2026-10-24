@@ -1,7 +1,7 @@
 {
   "crawlerKey": "my",
-  "assembledAt": "2026-10-23T21:37:17.040Z",
-  "runId": "40026520485",
+  "assembledAt": "2026-10-24T09:35:30.471Z",
+  "runId": "40081835959",
   "jobs": [
     {
       "id": "my-504c86923bce",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "applicazione-spontanea-5-teo-jakob-ag-meiringen",
         "en": "spontaneous-application-5-teo-jakob-ag-meiringen",
-        "de": "spontanbewerbung-5-meiringen-my-ch",
+        "de": "spontanbewerbung-5-teo-jakob-ag-meiringen",
         "fr": "application-spontanee-5-teo-jakob-ag-meiringen"
       },
       "company": "Teo Jakob AG",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/de/jobpreview/18678",
       "source": "Teo Jakob AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:37:10.967Z",
+      "crawledAt": "2026-10-24T09:35:25.127Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -68,6 +68,9 @@
         ],
         "fr": [
           "spontanbewerbung-5-teo-jakob-ag-meiringen"
+        ],
+        "de": [
+          "spontanbewerbung-5-meiringen-my-ch"
         ]
       },
       "firstSeenAt": "2026-10-21T09:58:35.925Z",
