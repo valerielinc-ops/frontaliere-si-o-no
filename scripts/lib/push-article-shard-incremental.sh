@@ -145,12 +145,8 @@ if [ ! -r "$owners_json" ]; then
   echo "::error::cannot resolve article shard owner: missing or unreadable $owners_json" >&2
   exit 1
 fi
-if ! SHARD_OWNER="$(jq -er --arg s "$section" '.[$s] // empty' "$owners_json" 2>/dev/null)"; then
+if ! SHARD_OWNER="$(jq -er --arg s "$section" '.[$s] | select(type == "string" and length > 0)' "$owners_json" 2>/dev/null)"; then
   echo "::error::cannot resolve article shard owner for section '$section' from $owners_json" >&2
-  exit 1
-fi
-if [ -z "$SHARD_OWNER" ]; then
-  echo "::error::article shard owner for section '$section' is empty in $owners_json" >&2
   exit 1
 fi
 SHARD_REPO="git@github.com:$SHARD_OWNER/frontaliere-$section-$loc.git"
