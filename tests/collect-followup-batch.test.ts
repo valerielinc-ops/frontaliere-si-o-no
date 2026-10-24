@@ -468,6 +468,25 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     )).toEqual({ buckets: [], requiresBucket: true });
   });
 
+  it('recognizes the live summary wording with an inline daily bucket', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated the daily bucket #14961 (`follow-up(daily:2026-10-24)`) in target repository `valerielinc-ops/frontaliere-si-o-no`:',
+      '- FU-2026-10-24-006 — Scansione completa delle sorgenti editoriali reali.',
+      '',
+      'Bucket state: `collecting`; no fix label was added.',
+    ].join('\n');
+    const persisted = {
+      number: 14961,
+      title: 'follow-up(daily:2026-10-24): 20 items — valerielinc-ops/frontaliere-si-o-no',
+      body: '### FU-2026-10-24-006 — Scansione completa delle sorgenti editoriali reali.\n- Sources: PR #14699\n',
+    };
+
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [14961], requiresBucket: true });
+    expect(verifyTriageMarkerPersistence(marker, 14699, () => persisted)).toBe(true);
+  });
+
   it('proves persistence in a decomposed parent tracker with inline source bullets', () => {
     const marker = [
       '## Post-merge follow-up triage',
