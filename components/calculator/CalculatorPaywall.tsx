@@ -22,9 +22,9 @@ import {
   useAuth,
   getAuthEmail,
   renderGoogleButtonWithReadiness,
-  isLinkedInSignInAvailable,
   signInWithLinkedIn,
 } from '@/services/authService';
+import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import { reportCaughtError } from '@/services/errorReporter';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
@@ -124,7 +124,7 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [googleButtonReady, setGoogleButtonReady] = useState(false);
-  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
+  const linkedInAvailable = useLinkedInSignInAvailable();
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const googleButtonRef = useRef<HTMLDivElement>(null);
@@ -139,7 +139,6 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
 
   // LinkedIn RC flag gate.
   useEffect(() => {
-    isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
   }, []);
 
   // Pre-fill email from authenticated user (Google / LinkedIn / Facebook).
@@ -371,11 +370,11 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
                       <span>Loading…</span>
                     </div>
                   )}
-                  {linkedInAvailable && (
+                  {linkedInAvailable !== false && (
                     <button
                       type="button"
                       onClick={() => signInWithLinkedIn(undefined, CALCULATOR_PAYWALL_AUTH_ATTRIBUTION)}
-                      className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors"
+                      className={`w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors${linkedInPendingClass(linkedInAvailable)}`}
                       aria-label="Continue with LinkedIn"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

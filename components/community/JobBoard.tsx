@@ -235,7 +235,8 @@ import {
 } from '@/services/adExperiment';
 import type { InfeedAdVariant } from '@/services/adExperiment';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import {
  parseJobDescription,
  type Block as JobDescBlock,
@@ -2753,7 +2754,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
  useEffect(() => {
- isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => setLinkedInAvailable(false));
  // The employer-hub CTA renders above the gate's description only once its
  // count map has loaded; fetched from the detail render it landed ~1.5s after
  // the gate and shifted it (CLS). Start it at mount on slug routes instead.
@@ -2840,10 +2840,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [filtersExpanded, setFiltersExpanded] = useState(false);
  const searchInputRef = useRef<HTMLInputElement>(null);
  const searchDebounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
- // null = Remote Config not answered yet. The button's box is held (invisible,
- // inert) until then, so the answer arriving ~2s after the gate painted does
- // not push the email form, the consent notice and the ad below it by 56px.
- const [linkedInAvailable, setLinkedInAvailable] = useState<boolean | null>(null);
+ // null until Remote Config answers; the button's box is held invisible
+ // meanwhile (CLS: +56px under the gate otherwise). See the hook.
+ const linkedInAvailable = useLinkedInSignInAvailable();
  const modalGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const authUnlockCandidateRef = useRef<string | null>(null);
@@ -8716,9 +8715,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {linkedInAvailable !== false && (
  <button
  type="button"
- disabled={authBusy !== null || !linkedInAvailable}
- aria-hidden={linkedInAvailable ? undefined : true}
- tabIndex={linkedInAvailable ? undefined : -1}
+ disabled={authBusy !== null}
  onClick={() => {
  const job = pendingJob || selectedJob;
  if (job) {
@@ -8762,7 +8759,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  signInWithLinkedIn().catch(() => setAuthBusy(null));
  }
  }}
- className={`w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors${linkedInAvailable ? '' : ' invisible'}`}
+ className={`w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors${linkedInPendingClass(linkedInAvailable)}`}
  >
  {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -10231,9 +10228,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {linkedInAvailable !== false && (
  <button
  type="button"
- disabled={authBusy !== null || !linkedInAvailable}
- aria-hidden={linkedInAvailable ? undefined : true}
- tabIndex={linkedInAvailable ? undefined : -1}
+ disabled={authBusy !== null}
  onClick={() => {
  const job = selectedJob;
  if (job) {
@@ -10277,7 +10272,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  signInWithLinkedIn().catch(() => setAuthBusy(null));
  }
  }}
- className={linkedInAvailable ? gateSkin.linkedInButton : `${gateSkin.linkedInButton} invisible`}
+ className={`${gateSkin.linkedInButton}${linkedInPendingClass(linkedInAvailable)}`}
  >
  {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className={gateSkin.linkedInIcon ? `w-4 h-4 ${gateSkin.linkedInIcon}` : 'w-4 h-4'} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>

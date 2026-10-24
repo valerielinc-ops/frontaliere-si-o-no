@@ -17,7 +17,8 @@ import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY, canShowPromotionalPrompt, markSlotShown } from '@/services/popupQueue';
 import { observeGoogleAdOverlays } from '@/services/modalAdOcclusion';
-import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
+import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, signInWithLinkedIn } from '@/services/authService';
+import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
@@ -79,13 +80,11 @@ const NewsletterPopup: React.FC = () => {
  const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
- // null = Remote Config pending: the LinkedIn box is held invisible meanwhile (CLS).
- const [linkedInAvailable, setLinkedInAvailable] = useState<boolean | null>(null);
+ const linkedInAvailable = useLinkedInSignInAvailable();
  const { user, signIn: googleSignIn, signInFacebook: facebookSignIn } = useAuth();
  const userRef = useRef(user);
  const googleButtonRef = useRef<HTMLDivElement>(null);
  useEffect(() => { userRef.current = user; }, [user]);
- useEffect(() => { isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => setLinkedInAvailable(false)); }, []);
  const timeReady = useRef(false);
  const scrollReady = useRef(false);
  const exitIntentFired = useRef(false);
@@ -491,11 +490,8 @@ const NewsletterPopup: React.FC = () => {
  {linkedInAvailable !== false && (
  <button
  type="button"
- disabled={!linkedInAvailable}
- aria-hidden={linkedInAvailable ? undefined : true}
- tabIndex={linkedInAvailable ? undefined : -1}
  onClick={() => signInWithLinkedIn(undefined, NEWSLETTER_POPUP_AUTH_ATTRIBUTION)}
- className={`w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors${linkedInAvailable ? '' : ' invisible'}`}
+ className={`w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand-linkedin hover:bg-brand-linkedin-hover text-on-accent text-sm font-semibold transition-colors${linkedInPendingClass(linkedInAvailable)}`}
  >
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
