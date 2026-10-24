@@ -53,6 +53,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { clampMetaDescription } from './shared/titleSuffix';
@@ -591,6 +592,8 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
     description: clampMetaDescription(topic.intro[locale], undefined, locale),
     canonicalUrl,
     ogLocale: LOCALE_OG[locale],
+    // P1 noindex plan: page 11+ of a topic hub stays 200 and linked but leaves the index.
+    ...(isPaginationNoindex(page) ? { robots: 'noindex,follow' } : {}),
     hreflangHtml: buildLocaleAlternateBlock({
       eligibleLocales: TOPIC_HUB_LOCALES,
       hrefFor: (loc) => `${BASE_URL}${buildTopicHubPath(loc as TopicHubLocale, section, topicKey, page)}`,
@@ -979,6 +982,12 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
     urlPath: string;
     indexable: boolean;
     /**
+     * False for an indexable page that is still not announced in the sitemap:
+     * page 2+ of a paginated topic hub (paginationIndexPolicy), reached
+     * through page 1's pager. Absent means listed.
+     */
+    listed?: boolean;
+    /**
      * The SAME page in another locale — what the sitemap's hreflang block
      * needs. A closure rather than the `(topicKey, page)` pair it replaced,
      * because the section now emits two KINDS of page (the per-topic hubs and
@@ -995,7 +1004,7 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
     locale: TopicHubLocale,
     urlPath: string,
     html: string,
-    meta: { indexable: boolean; altPathFor: (locale: TopicHubLocale) => string },
+    meta: { indexable: boolean; listed?: boolean; altPathFor: (locale: TopicHubLocale) => string },
   ): void => {
     const indexRel = np.join(urlPath.slice(1), 'index.html');
     const flatRel = `${urlPath.replace(/^\/+/, '').replace(/\/+$/, '')}.html`;
@@ -1112,7 +1121,10 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
           continue;
         }
         emit(locale, rendered.urlPath, rendered.html, {
-          indexable: true,
+          // P1 noindex plan (paginationIndexPolicy): page 11+ is noindex, and
+          // only page 1 of a topic is announced in the section sitemap.
+          indexable: !isPaginationNoindex(page),
+          listed: isPaginationSitemapEligible(page),
           altPathFor: (alt) => buildTopicHubPath(alt, section, topic.key, page),
         });
         hubPages++;
@@ -1132,7 +1144,7 @@ function renderTopicHubSectionCore(args: TopicHubSectionCoreArgs): TopicHubSecti
   // Nothing rendered indexable ⇒ no file. Not an empty `<urlset>`: "there is
   // nothing to announce" and "I announce nothing" read the same to a crawler
   // but not to the sitemap index, which would carry a dead entry.
-  const indexable = emitted.filter((e) => e.indexable);
+  const indexable = emitted.filter((e) => e.indexable && e.listed !== false);
   const announcedUrlPaths = indexable.map((e) => e.urlPath);
   let sitemapPath: string | null = null;
   if (indexable.length > 0) {

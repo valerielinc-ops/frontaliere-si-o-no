@@ -456,6 +456,32 @@ if (!promotable.length) {
   process.exit(0);
 }
 
+/** @param {unknown} value */
+function compactName(value) {
+  return String(value || '').toLowerCase().normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+}
+
+/**
+ * The name the crawler publishes. A candidate found in the web index is named
+ * after its domain label (`servicekuhn`, `mueller-frauenfeld`), and that label
+ * became the company of every vacancy; the name the employer's homepage
+ * declares, recorded by VALIDATE and corroborated by the domain there, replaces
+ * it. Any other name (SECO, OSM, a tenant page) is kept as it is.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {Record<string, any>} spec
+ * @returns {string}
+ */
+function promotionCompanyName(candidate, spec) {
+  const domain = String(candidate.domain || spec.companyHost || '').replace(/^www\./i, '');
+  const label = compactName(domain.split('.')[0]);
+  if (!label || compactName(spec.companyName) !== label) return spec.companyName;
+  const siteName = [...(candidate.validationHistory || [])].reverse()
+    .find((entry) => typeof entry?.employerSiteName === 'string' && entry.employerSiteName.trim())?.employerSiteName;
+  return siteName ? siteName.trim() : spec.companyName;
+}
+
 console.log('\n── in promozione ──');
 const shipped = [];
 for (const c of promotable) {
@@ -473,12 +499,20 @@ for (const c of promotable) {
   }
   const args = [
     'scripts/scaffold-crawler.mjs', spec.companyKey,
-    '--name', spec.companyName,
+    '--name', promotionCompanyName(c, spec),
     '--domain', spec.companyHost,
     '--lang', spec.sourceLang || 'it',
     '--ats', 'prospected',
     '--url', spec.seedUrls[0],
   ];
+  // Il logo verificato da VALIDATE sul dominio del datore. Senza, lo scaffold
+  // registrava `cLogo(dominio)` — Clearbit e' spento e il runtime scarta la
+  // voce — e i file del logo restavano fuori dal commit: i 15 crawler promossi
+  // dal 2026-10-09 sono andati in produzione senza logo pur avendo passato il
+  // check `logo` del gate.
+  const logoSourceUrl = [...(c.validationHistory || [])].reverse()
+    .find((entry) => entry?.logoFound === true && entry.logoSourceUrl)?.logoSourceUrl;
+  if (logoSourceUrl) args.push('--logo-url', logoSourceUrl);
   if (dryRun) {
     console.log(`  · ${spec.companyKey.padEnd(28)} ${String(c.vacancyCount).padStart(3)} annunci  (dry-run)`);
     shipped.push({ ...c, spec });
@@ -723,7 +757,12 @@ try {
   // `data/prospector` NON entra nel commit del branch: la coda e le spec sono
   // gia' su main (le committa lo stadio precedente), e includerle qui aggiunge
   // solo righe che main muove sotto i piedi della PR.
-  const paths = ['scripts', 'tests', 'data/crawler-manifest.json'];
+  // Registro, manifest e asset del logo scritti dallo scaffold: senza, il
+  // crawler entra in produzione con il badge a iniziali.
+  const paths = [
+    'scripts', 'tests', 'data/crawler-manifest.json',
+    'services/jobDataNormalization.ts', 'data/company-logos-manifest.json', 'public/images/brands',
+  ];
   // Il registro aziende entra solo se la rigenerazione e' RIUSCITA. Vedi il
   // `catch` piu' sopra: un fallimento deve lasciare nel diff il file vecchio
   // intatto, non trascinarcene dentro uno a meta'.

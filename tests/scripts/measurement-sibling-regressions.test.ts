@@ -85,7 +85,9 @@ describe('user-value property totals', () => {
       const body = JSON.parse(init.body);
       calls.push(body);
       if (!body.dimensions) return response({
-        rows: [{ metricValues: body.dimensionFilter ? [{ value: '20' }] : [{ value: '10' }, { value: '3' }, { value: '5' }] }],
+        // Every body now carries the automation-fleet exclusion, so the ad_impression
+        // query is told apart by its eventName filter, not by having a filter.
+        rows: [{ metricValues: JSON.stringify(body.dimensionFilter ?? {}).includes('ad_impression') ? [{ value: '20' }] : [{ value: '10' }, { value: '3' }, { value: '5' }] }],
         metadata: { currencyCode: 'EUR' },
       });
       if (body.metrics[0].name === 'eventCount') return response({ rows: [] });
@@ -102,6 +104,7 @@ describe('user-value property totals', () => {
     expect(states.totals?.activeUsers).toBe(3);
     expect(states.segmentUsersAdditive).toBe(false);
     expect(calls.slice(0, 2).every((body) => !body.dimensions)).toBe(true);
+    expect(calls.every((body) => JSON.stringify(body.dimensionFilter).includes('"notExpression"'))).toBe(true);
     expect(calls.every((body) => body.dateRanges[0].startDate === period.start && body.dateRanges[0].endDate === period.end)).toBe(true);
   });
 

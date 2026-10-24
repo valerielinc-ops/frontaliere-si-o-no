@@ -22,6 +22,7 @@
  * Plugin contract: apply 'build', enforce 'post', emit in closeBundle(),
  * distDir passed through. Pure/deterministic so output is stable.
  */
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
@@ -523,7 +524,7 @@ export function renderSalaryProfessionCantonPage(opts: {
     const detailUrl = jobDetailUrl(job, locale, cantonKey);
     const posting = buildJobListEntry(featuredToJobInput(job), { locale, url: detailUrl, baseUrl: BASE_URL });
     if (posting) jobLdItems.push(posting);
-    const title = sanitizeJobTitleForDisplay(job.titleByLocale[locale] ?? job.title ?? '');
+    const title = sanitizeJobTitleForDisplay(jobDisplayTitle(job));
     const cityBit = job.city ? ` · ${esc(job.city)}` : '';
     jobCards.push(
       `<li class="${CARD_CLASS}"><a href="${esc(detailUrl)}" class="font-semibold text-heading">${esc(title)}</a><div class="text-sm text-subtle">${esc(job.company)}${cityBit} · ${esc(c.jobPostedDays(job.daysAgo))}</div></li>`,

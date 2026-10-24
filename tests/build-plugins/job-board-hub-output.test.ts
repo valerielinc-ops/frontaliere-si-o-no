@@ -245,7 +245,11 @@ describe('job-board emitted output', () => {
       expect(detail.querySelector('meta[name="robots"]')?.getAttribute('content')).toContain('noindex');
       expect(detail.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(`https://frontaliereticino.ch${hubPath(locale, 'TI')}${job.slug}/`);
     }
-    for (const name of ['sitemap-jobs.xml', 'sitemap-jobs-ticino.xml', 'sitemap-jobs-zurigo.xml', 'sitemap-jobs-svizzera.xml']) {
+    // Every job sitemap file: the Ticino roots and IT details live in
+    // sitemap-jobs.xml only, the locale variants in sitemap-jobs-<canton>-<locale>.xml.
+    const jobSitemaps = fs.readdirSync(path.join(root, 'dist')).filter((name) => /^sitemap-jobs(?:-[a-z0-9-]+)?\.xml$/.test(name));
+    expect(jobSitemaps).toEqual(expect.arrayContaining(['sitemap-jobs.xml', 'sitemap-jobs-zurigo.xml', 'sitemap-jobs-svizzera.xml']));
+    for (const name of jobSitemaps) {
       const xml = fs.readFileSync(path.join(root, 'dist', name), 'utf8');
       expect(xml).not.toContain('listing-only-0/');
       expect(xml).not.toContain('cuoco-acme-ticino/');
@@ -325,7 +329,8 @@ describe('job-board emitted output', () => {
       const entries = structured(document);
       expect(entries.find((entry) => entry['@type'] === 'JobPosting')?.datePosted).toBe(jobs[0].crawledAt);
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['FAQPage', 'BreadcrumbList']));
-      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].titleByLocale[locale]);
+      // The employer's title in every locale (scripts/lib/job-title-identity.mjs).
+      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].title);
       expect(document.body.textContent).toContain('La posizione prevede');
       const applicationHref = document.querySelector('a.mab-cta')?.getAttribute('href');
       expect(applicationHref).toBeTruthy();
@@ -362,7 +367,8 @@ describe('job-board emitted output', () => {
       expect(postings).toHaveLength(1);
       const posting = postings[0];
       for (const field of ['title', 'description', 'datePosted', 'employmentType', 'baseSalary', 'jobLocation']) expect(posting[field]).toBeTruthy();
-      expect(posting.title).toBe(jobs[7].titleByLocale[locale]);
+      // The archived page names the employer's title in every locale (scripts/lib/job-title-identity.mjs).
+      expect(posting.title).toBe(jobs[7].title);
       if (['archived-short-description', 'archived-markup-short'].includes(slug)) expect(posting.description).toContain('Reparto dati.');
       if (slug === 'archived-medium-description') expect(posting.description).toContain('Esperienza in analisi dati e report.');
       if (['archived-sparse', 'archived-short-description', 'archived-medium-description', 'archived-markup-short'].includes(slug)) {

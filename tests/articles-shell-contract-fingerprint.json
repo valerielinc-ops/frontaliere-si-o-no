@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repositories assert this fingerprint. Re-recorded 2026-10-24 after adding canonical article overrides and contextual-link rules; keep the site and host contract twins aligned through transport-identical-twins.",
+  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repositories assert this fingerprint. Re-recorded 2026-10-24 after the GA4-only square-screen gate was separated from the shared AdSense/PostHog verdict in gtag-init.js (GTAG_SNIPPET points to the resulting content-addressed asset); keep host/constants.ts GTAG_INIT_CONTENT byte-equal in the corpus.",
   "scalarFields": 22,
-  "sha256": "52d4c9dac48f60eb3e4a512cfa6782b82a3ca9aede2d130fc616af10264dd50e"
+  "sha256": "08b97443ab5e85ab6ea85945a19348134a77615e488eaf3afd25d00979d7fd26"
 }

@@ -123,6 +123,7 @@ import {
 import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
+import { isPaginationSitemapEligible, paginationPageFromPath } from './shared/paginationIndexPolicy';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F6 fuel-daily feature.
@@ -5708,7 +5709,9 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), html);
-        indexSitemapPaths.push(path);
+        // P1 noindex plan: only page 1 of a paginated index is advertised
+        // (paginationIndexPolicy); page 2+ is reached through its pager.
+        if (isPaginationSitemapEligible(paginationPageFromPath(path))) indexSitemapPaths.push(path);
         indexPagesWritten++;
       }
 

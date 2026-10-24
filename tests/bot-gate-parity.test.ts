@@ -17,6 +17,7 @@ import {
   isLikelyBot,
   matchesAutomationLanguageSignature,
   matchesAutomationScreenSignature,
+  matchesSquareScreenFleetSignature,
 } from '@/services/botPatterns';
 import { BOT_GATE_FN } from '@/build-plugins/constants';
 
@@ -385,4 +386,87 @@ describe('automation language signature (zh-CN desktop Chrome, observed clock)',
     expect(matchesAutomationLanguageSignature(WIN_CHROME.toLowerCase())).toBe(false);
     expect(verdict()).toBe(false);
   });
+});
+
+/**
+ * Square-screen fleet (GA4 2026-09-26 → 10-23: 11,292 Direct sessions,
+ * 1600x1600, Windows, zh-CN, every one on Chrome 99.0.4844.51): positive AND
+ * negative matrix on BOTH gates.
+ */
+describe('square-screen fleet signature (1600x1600, zh-CN, Chrome 99)', () => {
+  const WIN_CHROME_99 = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36';
+  // Same screen from Hong Kong/Japan in the same window: Chrome 133, English UI.
+  const WIN_CHROME_133 = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.6943.141 Safari/537.36';
+  const WIN_EDGE_99 = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 Edg/99.0.1150.36';
+  const MAC_CHROME_99 = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36';
+  const ANDROID_CHROME_99 = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Mobile Safari/537.36';
+
+  const originalLanguage = window.navigator.language;
+  let restoreNav: () => void = () => {};
+  let hadChrome = false;
+
+  function setLanguage(language: string): void {
+    Object.defineProperty(window.navigator, 'language', { configurable: true, get: () => language });
+  }
+  function setScreen(width: number, height: number): void {
+    Object.defineProperty(window.screen, 'width', { configurable: true, get: () => width });
+    Object.defineProperty(window.screen, 'height', { configurable: true, get: () => height });
+  }
+
+  beforeEach(() => {
+    setWebdriver(false);
+    hadChrome = 'chrome' in window;
+    if (!hadChrome) Object.defineProperty(window, 'chrome', { configurable: true, value: {} });
+    restoreNav = setRealBrowserNavigator();
+    // A clock the other two signatures never accept: only this rule decides.
+    const real = Intl.DateTimeFormat.prototype.resolvedOptions;
+    vi.spyOn(Intl.DateTimeFormat.prototype, 'resolvedOptions').mockImplementation(function (this: Intl.DateTimeFormat) {
+      return { ...real.call(this), timeZone: 'Asia/Urumqi' };
+    });
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    restoreNav();
+    if (!hadChrome) delete (window as unknown as Record<string, unknown>).chrome;
+    delete (window.screen as unknown as Record<string, unknown>).width;
+    delete (window.screen as unknown as Record<string, unknown>).height;
+    setLanguage(originalLanguage);
+    setUserAgent(ORIGINAL_UA);
+    setWebdriver(ORIGINAL_WEBDRIVER);
+  });
+
+  function verdict(): boolean {
+    const inline = inlineGate();
+    expect(inline).toBe(isLikelyBot());
+    return inline;
+  }
+
+  it('leaves the GA4-only fleet out of the shared AdSense/PostHog verdict', () => {
+    setUserAgent(WIN_CHROME_99);
+    setScreen(1600, 1600);
+    setLanguage('zh-CN');
+    expect(matchesSquareScreenFleetSignature(WIN_CHROME_99.toLowerCase())).toBe(true);
+    expect(verdict()).toBe(false);
+  });
+
+  const negatives: ReadonlyArray<readonly [string, string, number, number, string]> = [
+    ['same screen, current Chrome 133, English (Hong Kong/Japan rows)', WIN_CHROME_133, 1600, 1600, 'en-US'],
+    ['same screen, current Chrome 133, zh-CN', WIN_CHROME_133, 1600, 1600, 'zh-CN'],
+    ['Chrome 99 zh-CN on a real 1920x1080 monitor', WIN_CHROME_99, 1920, 1080, 'zh-CN'],
+    ['Chrome 99 on 1600x1600 with an Italian UI', WIN_CHROME_99, 1600, 1600, 'it-IT'],
+    ['Chrome 99 on 1600x1600, Traditional Chinese UI', WIN_CHROME_99, 1600, 1600, 'zh-TW'],
+    ['Edge 99 on 1600x1600, zh-CN', WIN_EDGE_99, 1600, 1600, 'zh-CN'],
+    ['macOS Chrome 99 on 1600x1600, zh-CN', MAC_CHROME_99, 1600, 1600, 'zh-CN'],
+    ['mobile Chrome 99 on 1600x1600, zh-CN', ANDROID_CHROME_99, 1600, 1600, 'zh-CN'],
+  ];
+  for (const [name, ua, width, height, language] of negatives) {
+    it(`passes a real visitor: ${name}`, () => {
+      setUserAgent(ua);
+      setScreen(width, height);
+      setLanguage(language);
+      expect(matchesSquareScreenFleetSignature(ua.toLowerCase())).toBe(false);
+      expect(verdict()).toBe(false);
+    });
+  }
 });

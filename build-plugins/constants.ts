@@ -45,6 +45,11 @@ import {
   AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS,
   AUTOMATION_LANGUAGE_TIME_ZONES,
   BOT_UA_PATTERNS,
+  CRAWLER_UA_DEVICE_EXCEPTIONS,
+  SQUARE_SCREEN_FLEET_CHROME_MAJORS,
+  SQUARE_SCREEN_FLEET_HEIGHT,
+  SQUARE_SCREEN_FLEET_LANGUAGE,
+  SQUARE_SCREEN_FLEET_WIDTH,
 } from '../services/botPatterns';
 // Single source of truth for the ads-consent storage contract (#5842). Imported
 // rather than re-typed so the inline static loader below and the SPA gate in
@@ -84,6 +89,7 @@ import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from './shared/robotsDirective';
 import { JOB_BOARD_SECTION_PATHNAME_RX } from '../scripts/lib/jobBoardSections.mjs';
+import { CRAWLER_UA_RE } from '../functions/src/lib/returnVisit.js';
 import { AD_PAGE_DIAG_FN } from './shared/adPageDiagInline';
 
 /**
@@ -382,6 +388,16 @@ export function buildCanonicalBridgePage(options: {
  lang?: string;
  noindex?: boolean;
  hreflangEntries?: Array<{ hreflang: string; href: string }>;
+ /**
+  * `false` = a stand-alone `noindex,follow` bridge: no `<link rel=canonical>`
+  * and no hreflang alternates. A noindex page that canonicalizes onto another
+  * URL sends Google two contradictory instructions (drop me / index that one
+  * instead) and hreflang from a noindex page names alternates for a document
+  * that must not be in the index at all. The bridge's job is the visible CTA
+  * and `follow`; the ranking transfer, where one exists, is the edge's 301.
+  * Only valid with `noindex: true`.
+  */
+ crossPageSignals?: boolean;
 }): string {
  const {
  canonicalUrl,
@@ -393,12 +409,16 @@ export function buildCanonicalBridgePage(options: {
  lang = 'it',
  noindex = false,
  hreflangEntries,
+ crossPageSignals = true,
  } = options;
+ if (!crossPageSignals && !noindex) {
+ throw new Error('buildCanonicalBridgePage: crossPageSignals:false is only valid on a noindex bridge');
+ }
 
  // Indexable bridges are real SERP entry points, so they get the same
  // preview qualifiers as any other indexable page (see normalizeRobotsDirective).
  const robotsContent = noindex ? 'noindex,follow' : ROBOTS_INDEX_ENHANCED_CONTENT;
- const hreflangHtml = hreflangEntries && hreflangEntries.length > 0
+ const hreflangHtml = crossPageSignals && hreflangEntries && hreflangEntries.length > 0
  ? '\n' + hreflangEntries.map(e => ` <link rel="alternate" hreflang="${e.hreflang}" href="${e.href}">`).join('\n')
  : '';
 
@@ -409,8 +429,8 @@ export function buildCanonicalBridgePage(options: {
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>${title}</title>
  <meta name="description" content="${clampMetaDescription(description, undefined, lang)}">
- <meta name="robots" content="${robotsContent}">
- <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
+ <meta name="robots" content="${robotsContent}">${crossPageSignals ? `
+ <link rel="canonical" href="${canonicalUrl}">` : ''}${hreflangHtml}
  ${ANALYTICS_SNIPPET}
  ${SPA_ACTION_REDIRECT_SCRIPT}
  ${BRIDGE_CSS_LINK}
@@ -507,6 +527,54 @@ export const BASE_URL = 'https://frontaliereticino.ch';
 export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
 
 /**
+ * Client-side bot-detection literals shared by every static inline script.
+ *
+ * `BOT_PATTERNS_LITERAL` serialises services/botPatterns.ts `BOT_UA_PATTERNS`.
+ * `BOT_GATE_FN` is the inline-JS twin of services/botPatterns.ts `isLikelyBot()`
+ * — a function-expression string returning `true` for bot sessions. It is the
+ * SINGLE source for the bot gate in the static inline scripts below
+ * (`GTAG_INIT_CONTENT` via `GA4_BOT_GATE_FN`, `ADSENSE_LOADER_CONTENT`,
+ * `POSTHOG_INIT_CONTENT`), so the logic is never copy-pasted. Behaviour is kept aligned with the TS `isLikelyBot()` by
+ * tests/bot-gate-parity.test.ts (same UA matrix, identical verdicts).
+ *
+ * Why a string and not the TS function: these run inside externalised plain-JS
+ * assets emitted at build time (no module graph), so the detection must be
+ * embedded literally. botPatterns.ts stays the source of truth for the pattern
+ * list and for the automation screen/language signature constants (interpolated below);
+ * only the wrapper logic is necessarily re-expressed here.
+ */
+const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
+const AUTOMATION_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_TIME_ZONES);
+const AUTOMATION_LANGUAGE_CHROME_MAJORS_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_CHROME_MAJORS);
+const AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS);
+const AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_TIME_ZONES);
+const SQUARE_SCREEN_FLEET_CHROME_MAJORS_LITERAL = JSON.stringify(SQUARE_SCREEN_FLEET_CHROME_MAJORS);
+const BOT_GATE_FN_WITH_SQUARE = `function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return true;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return true;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return true;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return true;if(navigator.plugins&&navigator.plugins.length===0)return true;if(typeof navigator.permissions==='undefined')return true;}var S=window.screen;if(S&&S.width===${AUTOMATION_SCREEN_WIDTH}&&S.height===${AUTOMATION_SCREEN_HEIGHT}&&ua.indexOf('windows nt')>=0&&ua.indexOf('chrome/')>=0&&ua.indexOf('mobile')<0&&String(navigator.language||'').toLowerCase().indexOf('en')===0){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_TIME_ZONES_LITERAL}.indexOf(tz)>=0)return true;}if(String(navigator.language||'').toLowerCase()===${JSON.stringify(AUTOMATION_LANGUAGE)}&&ua.indexOf('chrome/')>=0&&${AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL}.every(function(token){return ua.indexOf(token)<0;})&&ua.indexOf('mobile')<0&&(ua.indexOf('windows nt')>=0||ua.indexOf('macintosh')>=0)&&${AUTOMATION_LANGUAGE_CHROME_MAJORS_LITERAL}.indexOf(parseInt(ua.split('chrome/')[1]||'',10))>=0){var ltz='';try{ltz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL}.indexOf(ltz)>=0)return true;}if(S&&S.width===${SQUARE_SCREEN_FLEET_WIDTH}&&S.height===${SQUARE_SCREEN_FLEET_HEIGHT}&&ua.indexOf('windows nt')>=0&&ua.indexOf('chrome/')>=0&&ua.indexOf('mobile')<0&&${AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL}.every(function(token){return ua.indexOf(token)<0;})&&${SQUARE_SCREEN_FLEET_CHROME_MAJORS_LITERAL}.indexOf(parseInt(ua.split('chrome/')[1]||'',10))>=0&&String(navigator.language||'').toLowerCase()===${JSON.stringify(SQUARE_SCREEN_FLEET_LANGUAGE)})return true;return false;}`;
+const SQUARE_SCREEN_FLEET_INLINE = `if(S&&S.width===${SQUARE_SCREEN_FLEET_WIDTH}&&S.height===${SQUARE_SCREEN_FLEET_HEIGHT}&&ua.indexOf('windows nt')>=0&&ua.indexOf('chrome/')>=0&&ua.indexOf('mobile')<0&&${AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL}.every(function(token){return ua.indexOf(token)<0;})&&${SQUARE_SCREEN_FLEET_CHROME_MAJORS_LITERAL}.indexOf(parseInt(ua.split('chrome/')[1]||'',10))>=0&&String(navigator.language||'').toLowerCase()===${JSON.stringify(SQUARE_SCREEN_FLEET_LANGUAGE)})return true;`;
+// The square-screen fleet is a GA4-only rule. AdSense and PostHog retain the
+// shared bot verdict, while GA4 adds this explicit signature below.
+export const BOT_GATE_FN = BOT_GATE_FN_WITH_SQUARE.replace(SQUARE_SCREEN_FLEET_INLINE, '');
+const SQUARE_SCREEN_FLEET_GATE_FN = `function(){var s=window.screen;var u=(navigator.userAgent||'').toLowerCase();return !!s&&s.width===${SQUARE_SCREEN_FLEET_WIDTH}&&s.height===${SQUARE_SCREEN_FLEET_HEIGHT}&&u.indexOf('windows nt')>=0&&u.indexOf('chrome/')>=0&&u.indexOf('mobile')<0&&${AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL}.every(function(token){return u.indexOf(token)<0;})&&${SQUARE_SCREEN_FLEET_CHROME_MAJORS_LITERAL}.indexOf(parseInt(u.split('chrome/')[1]||'',10))>=0&&String(navigator.language||'').toLowerCase()===${JSON.stringify(SQUARE_SCREEN_FLEET_LANGUAGE)};}`;
+
+/**
+ * GA4 twin of the bot gate (2026-10-24). GA4 was the one producer outside the
+ * shared verdict: AdSense and PostHog skipped bot sessions, `gtag-init.js` and
+ * the SPA Firebase Analytics init did not, so the 1280x1200 headless fleet sent
+ * ~106k sessions in 28 days (half of the property, 0 key events) and the
+ * 1600x1600 Chrome 99 fleet ~11k more. Verdict =
+ * `BOT_GATE_FN` (services/botPatterns.ts `isLikelyBot()`) OR the GA4-only
+ * square-screen signature OR the declared crawler/unfurler pattern
+ * `CRAWLER_UA_RE` (functions/src/lib/returnVisit.js
+ * `isCrawlerVisitorAgent()`), the same union services/analyticsBotGate.ts
+ * applies in the SPA. `CRAWLER_UA_RE` carries a bare `bot` token, which also
+ * matches handset brands whose model sits in the UA (`CUBOT P50`): those are
+ * people, so `CRAWLER_UA_DEVICE_EXCEPTIONS` (services/botPatterns.ts) skips the
+ * crawler half of the verdict for them. Kept aligned by tests/ga4-bot-gate.test.ts.
+ */
+const CRAWLER_UA_DEVICE_EXCEPTIONS_LITERAL = JSON.stringify(CRAWLER_UA_DEVICE_EXCEPTIONS);
+export const GA4_BOT_GATE_FN = `function(){if((${BOT_GATE_FN})())return true;if((${SQUARE_SCREEN_FLEET_GATE_FN})())return true;var u=navigator.userAgent||'';var l=u.toLowerCase();for(var i=0;i<${CRAWLER_UA_DEVICE_EXCEPTIONS_LITERAL}.length;i++)if(l.indexOf(${CRAWLER_UA_DEVICE_EXCEPTIONS_LITERAL}[i])>=0)return false;return ${CRAWLER_UA_RE.toString()}.test(u);}`;
+
+/**
  * Lightweight gtag.js snippet for static HTML pages.
  *
  * WHY: Users who bounce before React hydrates and Firebase Analytics
@@ -529,7 +597,7 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
  * external + async). Saves ~260 B/page across ~200k SEO pages (~52 MB dist).
  */
 export const ANALYTICS_EMISSION_ID_FACTORY_JS = `function(){try{if(typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function')return crypto.randomUUID();}catch(e){}return Date.now()+'-'+Math.random().toString(36).slice(2);}`;
-export const GTAG_INIT_CONTENT = `(function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();window.__GTAG_PAGE_VIEW_EMISSION_ID__=emissionId;window.__GTAG_PAGE_VIEW_PATH__=location.pathname;gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon',send_page_view:false});gtag('event','page_view',{page_path:location.pathname,page_location:location.href,page_title:document.title,emission_id:emissionId});})();`;
+export const GTAG_INIT_CONTENT = `(function(){if((${GA4_BOT_GATE_FN})())return;window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();window.__GTAG_PAGE_VIEW_EMISSION_ID__=emissionId;window.__GTAG_PAGE_VIEW_PATH__=location.pathname;gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon',send_page_view:false});gtag('event','page_view',{page_path:location.pathname,page_location:location.href,page_title:document.title,emission_id:emissionId});})();`;
 export const GTAG_INIT_FILENAME = 'gtag-init.js';
 // New HTML references a content-addressed filename so a stale edge copy of
 // this identity-bearing producer cannot satisfy a page that references newer
@@ -590,32 +658,9 @@ export const GTAG_SNIPPET = `${GTAG_LOADER_SNIPPET}
 export const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
 export const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
 
-/**
- * Client-side bot-detection literals shared by every static inline script.
- *
- * `BOT_PATTERNS_LITERAL` serialises services/botPatterns.ts `BOT_UA_PATTERNS`.
- * `BOT_GATE_FN` is the inline-JS twin of services/botPatterns.ts `isLikelyBot()`
- * — a function-expression string returning `true` for bot sessions. It is the
- * SINGLE source for the bot gate in BOTH static inline scripts below
- * (`ADSENSE_LOADER_CONTENT` + `POSTHOG_INIT_CONTENT`), so the logic is never
- * copy-pasted. Behaviour is kept aligned with the TS `isLikelyBot()` by
- * tests/bot-gate-parity.test.ts (same UA matrix, identical verdicts).
- *
- * Why a string and not the TS function: these run inside externalised plain-JS
- * assets emitted at build time (no module graph), so the detection must be
- * embedded literally. botPatterns.ts stays the source of truth for the pattern
- * list and for the automation screen/language signature constants (interpolated below);
- * only the wrapper logic is necessarily re-expressed here.
- */
-const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
-const AUTOMATION_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_TIME_ZONES);
-const AUTOMATION_LANGUAGE_CHROME_MAJORS_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_CHROME_MAJORS);
-const AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS);
-const AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_LANGUAGE_TIME_ZONES);
 const POSTHOG_LOCAL_DEV_HOSTS_LITERAL = JSON.stringify(POSTHOG_LOCAL_DEV_HOSTS);
 const POSTHOG_QUOTA_EXEMPT_EVENTS_LITERAL = JSON.stringify(POSTHOG_QUOTA_EXEMPT_EVENTS);
 const POSTHOG_LOCAL_HOST_GATE_FN = `function(){var h=String(window.location&&window.location.hostname||'').toLowerCase();return ${POSTHOG_LOCAL_DEV_HOSTS_LITERAL}.indexOf(h)>=0;}`;
-export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return true;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return true;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return true;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return true;if(navigator.plugins&&navigator.plugins.length===0)return true;if(typeof navigator.permissions==='undefined')return true;}var S=window.screen;if(S&&S.width===${AUTOMATION_SCREEN_WIDTH}&&S.height===${AUTOMATION_SCREEN_HEIGHT}&&ua.indexOf('windows nt')>=0&&ua.indexOf('chrome/')>=0&&ua.indexOf('mobile')<0&&String(navigator.language||'').toLowerCase().indexOf('en')===0){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_TIME_ZONES_LITERAL}.indexOf(tz)>=0)return true;}if(String(navigator.language||'').toLowerCase()===${JSON.stringify(AUTOMATION_LANGUAGE)}&&ua.indexOf('chrome/')>=0&&${AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS_LITERAL}.every(function(token){return ua.indexOf(token)<0;})&&ua.indexOf('mobile')<0&&(ua.indexOf('windows nt')>=0||ua.indexOf('macintosh')>=0)&&${AUTOMATION_LANGUAGE_CHROME_MAJORS_LITERAL}.indexOf(parseInt(ua.split('chrome/')[1]||'',10))>=0){var ltz='';try{ltz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_LANGUAGE_TIME_ZONES_LITERAL}.indexOf(ltz)>=0)return true;}return false;}`;
 
 /**
  * Plain JS body for the PostHog snippet — written to dist/assets/posthog-init.js

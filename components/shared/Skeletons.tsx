@@ -486,8 +486,39 @@ function getFirstSegment(): string {
  return path.split('/').filter(Boolean)[0] ?? '';
 }
 
+/**
+ * True on the document of a build-seeded active job detail: the job page HTML
+ * carries `window.__JOB_SEED__` for the job whose slug is the URL's last
+ * segment. The slug match keeps a seed left over from an earlier document
+ * (seeds are never cleared by SPA navigation) from turning a board or hub
+ * route into a detail skeleton.
+ */
+function isSeededJobDetailPath(): boolean {
+ if (typeof window === 'undefined') return false;
+ try {
+ const seed = (window as unknown as { __JOB_SEED__?: unknown }).__JOB_SEED__;
+ if (!seed || typeof seed !== 'object') return false;
+ const segments = stripLocalePrefix(window.location.pathname).split('/').filter(Boolean);
+ if (segments.length < 2) return false;
+ const last = decodeURIComponent(segments[segments.length - 1]);
+ const { slug, slugByLocale } = seed as { slug?: unknown; slugByLocale?: unknown };
+ if (slug === last) return true;
+ return Boolean(slugByLocale && typeof slugByLocale === 'object'
+ && Object.values(slugByLocale as Record<string, unknown>).includes(last));
+ } catch {
+ return false;
+ }
+}
+
 const SkeletonFallback: React.FC = () => {
  const firstSegment = getFirstSegment();
+ // A job-detail URL shares its first segment with the board, but its page is
+ // the detail layout. Showing the 10-card board skeleton while the JobBoard
+ // chunk loads swapped the static detail for a list, then back to the detail
+ // ~4s later (measured live 2026-10-24, Pixel 5) and moved the footer twice.
+ if (SLUG_SKELETON_MAP[firstSegment] === SkeletonJobBoard && isSeededJobDetailPath()) {
+ return <SkeletonJobDetail />;
+ }
  const Skeleton = SLUG_SKELETON_MAP[firstSegment];
  if (Skeleton) return <Skeleton />;
 

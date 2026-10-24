@@ -102,7 +102,22 @@ function mockFetch(plan: FetchPlan) {
 
 const cdnFetches = () => fetched.filter((u) => u.startsWith(CDN));
 const registryFetches = () => fetched.filter((u) => u === REGISTRY_URL);
-const get = (p: string, init?: RequestInit) => worker.fetch(new Request(`${APEX}${p}`, init), {}, ctx);
+let requestStart = 0; // index in `fetched` where the latest get() began
+const get = (p: string, init?: RequestInit) => {
+  requestStart = fetched.length;
+  return worker.fetch(new Request(`${APEX}${p}`, init), {}, ctx);
+};
+// Which origin served the request. A shard 404 on an en/de/fr document (or on a
+// job-detail path) carries the Worker's localized 404 page instead of the
+// origin body, so the host is read from the first shard/apex fetch of the
+// latest get() instead (CDN objects and the registry are lookups; the shard is
+// always fetched before any recovery subrequest).
+const answeredBy = async (res: Response) => {
+  const body = await res.text();
+  if (body.startsWith('origin:')) return body.slice('origin:'.length);
+  const origin = fetched.slice(requestStart).find((u) => u !== REGISTRY_URL && !u.startsWith(CDN));
+  return res.status === 404 && origin ? new URL(origin).hostname : body;
+};
 
 beforeEach(() => {
   fetched = [];
@@ -253,7 +268,7 @@ describe('FAIL-CLOSED: nothing changes until the registry declares a section liv
     ]) {
       const res = await get(p);
       expect(res.status).toBe(404);
-      expect(await res.text()).toBe(`origin:${host}`);
+      expect(await answeredBy(res)).toBe(host);
       // Same 404 Cache-Control the locale shard always stamped.
       expect(res.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=7200');
     }
@@ -296,7 +311,7 @@ describe('NO REGRESSION on the URLs that exist today', () => {
     ['/fr/articles-frontalier/', 'origin-articolifrontaliere-fr.frontaliereticino.ch'],
   ])('article section %s still goes to its shard, registry untouched', async (p, host) => {
     const res = await get(p);
-    expect(await res.text()).toBe(`origin:${host}`);
+    expect(await answeredBy(res)).toBe(host);
     expect(registryFetches()).toEqual([]);
   });
 
@@ -310,7 +325,7 @@ describe('NO REGRESSION on the URLs that exist today', () => {
     ['/fr/trouver-emploi-bale/', 'origin-basilea-fr.frontaliereticino.ch'],
   ])('canton job page %s still goes to its job shard, registry untouched', async (p, host) => {
     const res = await get(p);
-    expect(await res.text()).toBe(`origin:${host}`);
+    expect(await answeredBy(res)).toBe(host);
     expect(registryFetches()).toEqual([]);
   });
 
@@ -321,7 +336,7 @@ describe('NO REGRESSION on the URLs that exist today', () => {
     ['/en/ticino-articles-old/', 'origin-en.frontaliereticino.ch'],
   ])('look-alike / unrelated path %s keeps its old origin, registry untouched', async (p, host) => {
     const res = await get(p);
-    expect(await res.text()).toBe(`origin:${host}`);
+    expect(await answeredBy(res)).toBe(host);
     expect(registryFetches()).toEqual([]);
   });
 });

@@ -1481,6 +1481,53 @@ export function requeuePromotedCandidate(store, key, patch = {}, ledgerFile) {
 }
 
 /**
+ * Send a not-yet-live candidate back to SYNTHESIZE because its crawler key was
+ * a vendor host label it cannot own (see `findMiskeyedCandidates()`).
+ *
+ * The validation history goes with the key: while several employers shared
+ * one spec file, a "good" grading may have measured another employer's spec,
+ * so none of it can count towards the new spec's two-day stability.
+ * `rekeyedAt` lets the promotion gate ignore any entry a concurrent-run merge
+ * brings back.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {string} key
+ * @param {{ from: string, to: string }} rekey
+ * @param {string|null} [ledgerFile]
+ * @returns {Record<string, any>|null}
+ */
+export function requeueMiskeyedCandidate(store, key, { from, to }, ledgerFile) {
+  key = resolveCandidateKey(store, key);
+  const c = store.candidates[key];
+  if (!c || !['synthesized', 'validated', 'promoted'].includes(c.status) || c.crawlerKey !== from) return null;
+  const at = new Date().toISOString();
+  const prev = c.status;
+  c.status = 'traced';
+  c.rekeyedFrom = from;
+  c.rekeyedAt = at;
+  c.reason = `chiave crawler "${from}" e' un'etichetta del vendor: risintesi come "${to}"`;
+  c.validationHistory = [];
+  for (const field of ['crawlerKey', 'qualityScore', 'qualityVerdict', 'qualityProblems', 'validationAnomalyIds']) {
+    delete c[field];
+  }
+  c.synthesisRetryable = false;
+  c.synthesisAttempts = 0;
+  c.synthesisLastAttemptAt = null;
+  c.synthesisRetryAt = null;
+  c.updatedAt = at;
+  appendLedger({
+    eventType: 'candidate_transition',
+    key,
+    from: prev,
+    to: 'traced',
+    at,
+    reasonCode: 'crawler_key_rekey',
+    reason: c.reason,
+  }, ledgerFile);
+  return c;
+}
+
+/**
  * Reopen a candidate only after the exact promotion PR is verified CLOSED and
  * unmerged. This is the sole allowed rewind from `promoting`; ordinary
  * `setStatus` stays forward-only. The closed PR remains in bounded audit

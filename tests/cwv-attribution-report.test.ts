@@ -21,6 +21,7 @@ import {
   parseTemplateRows,
 } from '../scripts/lib/cwv-attribution.mjs';
 import { ga4DateRange, weightedQuantile } from '../scripts/lib/ga4-service-account.mjs';
+import { withAutomationFleetExclusion } from '../scripts/lib/ga4-automation-fleet.mjs';
 import {
   main,
   NO_EVENTS_MESSAGE,
@@ -184,12 +185,13 @@ describe('GA4 requests', () => {
 
     expect(a.dimensions.map((d: any) => d.name)).toEqual(['pagePath', 'customEvent:section', 'customEvent:component', 'customEvent:action']);
     expect(a.metrics).toEqual([{ name: 'eventCount' }]);
-    expect(a.dimensionFilter).toEqual(attributionFilter);
+    const sent = (dimensionFilter: unknown) => withAutomationFleetExclusion({ dimensionFilter }).dimensionFilter;
+    expect(a.dimensionFilter).toEqual(sent(attributionFilter));
 
     expect(b.dimensions.map((d: any) => d.name)).toEqual([
       'pagePath', 'customEvent:section', 'customEvent:component', 'customEvent:action', 'customEvent:details',
     ]);
-    expect(b.dimensionFilter).toEqual(attributionFilter);
+    expect(b.dimensionFilter).toEqual(sent(attributionFilter));
     expect(b.limit).toBe(200);
     expect(b.orderBys).toEqual(b.dimensions.map((dimension: any) => ({
       dimension: { dimensionName: dimension.name },
@@ -199,15 +201,15 @@ describe('GA4 requests', () => {
     expect(c.dimensions.map((d: any) => d.name)).toEqual([
       'customEvent:page_template', 'customEvent:metric_name', 'customEvent:metric_value', 'deviceCategory',
     ]);
-    expect(c.dimensionFilter).toEqual({ andGroup: { expressions: [
+    expect(c.dimensionFilter).toEqual(sent({ andGroup: { expressions: [
       { filter: { fieldName: 'eventName', stringFilter: { value: 'web_vitals', matchType: 'EXACT' } } },
       { filter: { fieldName: 'customEvent:metric_name', inListFilter: { values: ['CLS', 'INP'] } } },
       { filter: { fieldName: 'pagePath', stringFilter: { value: '/cerca-lavoro', matchType: 'BEGINS_WITH' } } },
-    ] } });
+    ] } }));
     // The exported builders are what main() sends.
     // All three requests are whole populations read page by page from offset 0.
     const paged = (request: any) => ({
-      ...request,
+      ...withAutomationFleetExclusion(request),
       orderBys: request.dimensions.map((dimension: any) => ({
         dimension: { dimensionName: dimension.name },
         desc: false,
