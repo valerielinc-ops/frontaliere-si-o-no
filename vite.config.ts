@@ -127,6 +127,7 @@ import { employerProfilePagesLinksPlugin } from './build-plugins/employerProfile
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
 import { holidaysLandingsPlugin } from './build-plugins/holidaysLandingsPlugin';
+import { schoolCalendarLandingsPlugin } from './build-plugins/schoolCalendarLandingsPlugin';
 import { seoHeroCardsPlugin } from './build-plugins/seoHeroCardsPlugin';
 import { topicClusterHubsPlugin } from './build-plugins/topicClusterHubsPlugin';
 import { bfsSalaryLandingsPlugin } from './build-plugins/bfsSalaryLandingsPlugin';
@@ -302,6 +303,7 @@ export default defineConfig(({ mode }) => {
  // comparison (2 page types × 4 locales = 8 static pages). Dataset-driven
  // (data/seo/frontaliere-holidays.json). Curated set, no floor loop.
  holidaysLandingsPlugin(__dirname),
+ schoolCalendarLandingsPlugin(__dirname),
  // #5001 — article topic hubs. One hub per (section × locale × curated
  // topic); membership derived from the #5107 TF-IDF similarity graph, names
  // curated (a component cannot name itself — see topicClusters.ts). Topics

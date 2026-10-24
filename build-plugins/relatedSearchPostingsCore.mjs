@@ -43,6 +43,46 @@ export function buildJobHaystack(job, locale) {
   return stemHaystack(normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${job.cantonSearch ?? ''} ${description}`));
 }
 
+/**
+ * The worker payload for ONE locale: the five fields buildJobHaystack reads
+ * for that locale, already resolved, and nothing else (issue #12763).
+ *
+ * The pre-pass used to structured-clone `titleByLocale` and
+ * `descriptionByLocale` of every job into a worker that reads one locale only.
+ * The descriptions of the four locales plus the base one are ~80% of the
+ * payload, and the clone (serialized buffer on the main side + a second copy
+ * in the worker heap) is the transient that pushed the de/fr legs over the
+ * build-mem-guard ceiling in runs 40070380153, 40057008446 and 40041643721:
+ * the guard fired between `shared matching summary loaded` and the end of the
+ * pre-pass every time. Measured on a 22.5k-job corpus: 277M -> 56M payload
+ * chars, worker transient RSS 1142 -> 642 MB.
+ *
+ * The haystack is byte-identical: `title`/`description` hold exactly the value
+ * `titleByLocale?.[locale] ?? title` / `descriptionByLocale?.[locale] ??
+ * description` that buildJobHaystack would pick, and without the by-locale maps
+ * buildJobHaystack falls through to them. Strings are shared by reference, so
+ * the projection costs one small object per job on the main thread.
+ *
+ * @param {ReadonlyArray<{ titleByLocale?: Record<string,string>, descriptionByLocale?: Record<string,string>, title?: string, description?: string, company?: string, location?: string }>} jobs
+ * @param {string} locale
+ * @param {ReadonlyArray<string>} cantonSearchByJob same order and length as `jobs`
+ * @returns {{ jobs: Array<{ title?: string, description?: string, company?: string, location?: string, cantonSearch?: string }>, payloadChars: number }}
+ */
+export function projectJobsForLocaleHaystack(jobs, locale, cantonSearchByJob) {
+  const out = new Array(jobs.length);
+  let payloadChars = 0;
+  for (let i = 0; i < jobs.length; i++) {
+    const job = jobs[i];
+    const title = job.titleByLocale?.[locale] ?? job.title;
+    const description = job.descriptionByLocale?.[locale] ?? job.description;
+    const cantonSearch = cantonSearchByJob[i];
+    out[i] = { title, description, company: job.company, location: job.location, cantonSearch };
+    payloadChars += (typeof title === 'string' ? title.length : 0)
+      + (typeof description === 'string' ? description.length : 0);
+  }
+  return { jobs: out, payloadChars };
+}
+
 /** @param {string} value */
 function isSearchTokenGram(value) {
   for (let i = 0; i < value.length; i++) {

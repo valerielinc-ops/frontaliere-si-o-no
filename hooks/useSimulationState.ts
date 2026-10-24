@@ -15,6 +15,7 @@ import { SimulationInputs, SimulationResult } from '@/types';
 import { decodeSimulationParams, hasSimulationParams, cleanSimulationParams } from '@/services/urlStateService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { resilientImport } from '@/services/resilientImport';
+import { runAfterNextPaint } from '@/services/afterNextPaint';
 import type { SeoLandingId, ActiveTab } from '@/services/router';
 
 // Unlike every other lazily-loaded service module in this codebase
@@ -98,6 +99,13 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  // preset / first-interaction pass false to avoid inflating `calculate`.
  const handleCalculate = useCallback(async (userInitiated = true) => {
  if (userInitiated) {
+ // INP: a user change (preset tap, keystroke, "Calcola") reaches this
+ // effect in the same task as the tap, and the calculation, the analytics
+ // and the `setResult` re-render all ran before the browser could paint
+ // the tapped control (1.2 s of processing on the 75k preset, Pixel 5,
+ // CPU 4x). The result does not need that frame: compute after it.
+ // Automatic runs (idle initial calc, hydration) keep their timing.
+ await new Promise<void>((resolve) => runAfterNextPaint(resolve));
  // Funnel step fired BEFORE the heavy calc so we measure the click-to-result
  // latency in PostHog and capture users who abort mid-calculation.
  Analytics.trackFunnelStep('simulation_start', {

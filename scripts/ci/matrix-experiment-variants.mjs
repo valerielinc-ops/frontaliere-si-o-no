@@ -34,6 +34,9 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   'SEQUENTIAL_PROFILE',
   'RELATED_SEARCH_CLUSTERS_NO_CACHE',
   'RELATED_SEARCH_POSTINGS_SPARSE',
+  // build-plugins/profilePlugin.ts: skip the per-plugin forced GC after a
+  // plugin that grew heap/RSS by less than this many MB.
+  'PROFILE_GC_MIN_GROWTH_MB',
 ]);
 
 const ALLOWED_ENV_KEY_SET = new Set(ALLOWED_ENV_KEYS);

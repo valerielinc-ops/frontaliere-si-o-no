@@ -62,6 +62,11 @@ import {
 
 export const FOLLOWUP_MARKER = 'OUT_OF_SCOPE_REVIEW_FOLLOWUP';
 const MAX_FOLLOWUP_BODY_LEN = 60_000;
+// `--scope` runs in a blobless sparse checkout. A full two-point diff can
+// trigger lazy fetching of every blob touched by a merge of main and hold the
+// five-minute scope job open. The compare API remains the bounded fallback;
+// timing out the local probe keeps an unavailable delta fail-closed.
+export const REVIEW_SCOPE_GIT_DIFF_TIMEOUT_MS = 15_000;
 const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE = /^\s*(?:[-*+>]\s*)?(?:nessun[oa]?|no)\s+$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]\s*|(?=\s+\S))/u;
@@ -1734,13 +1739,24 @@ function readReviews(repo, pr) {
  * review precedente», merge di main compresi, non il contributo della PR (per
  * quello esiste il fingerprint). `null` = non calcolabile.
  */
-function changedLinesBetween(fromSha, toSha) {
+function normalizedDiffPaths(paths) {
+  if (!Array.isArray(paths)) return [];
+  return [...new Set(paths
+    .map((path) => normalizePath(path, { stripGitPrefix: false }))
+    .filter(Boolean))];
+}
+
+function changedLinesBetween(fromSha, toSha, { paths = [] } = {}) {
   if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
       || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
   try {
-    const patch = execFileSync(trustedGitBin(), ['diff', '--unified=0', '--no-color', `${fromSha}..${toSha}`], {
+    const args = ['diff', '--unified=0', '--no-color', `${fromSha}..${toSha}`];
+    const scopedPaths = normalizedDiffPaths(paths);
+    if (scopedPaths.length > 0) args.push('--', ...scopedPaths);
+    const patch = execFileSync(trustedGitBin(), args, {
       encoding: 'utf8',
       maxBuffer: 64 * 1024 * 1024,
+      timeout: REVIEW_SCOPE_GIT_DIFF_TIMEOUT_MS,
     });
     return changedLinesFromPatch(String(patch));
   } catch {
@@ -1864,8 +1880,9 @@ export function changedLinesFromCompareApi(repo, fromSha, toSha, { ghFn = gh } =
 export function changedLinesForScope(repo, fromSha, toSha, {
   gitFn = changedLinesBetween,
   apiFn = changedLinesFromCompareApi,
+  paths = [],
 } = {}) {
-  const local = gitFn(fromSha, toSha);
+  const local = gitFn(fromSha, toSha, { paths: normalizedDiffPaths(paths) });
   if (local instanceof Map) return local;
   return apiFn(repo, fromSha, toSha);
 }
@@ -1908,7 +1925,15 @@ export function scopeDeclassificationOptions({
       repositoryPathsFromFallback,
     }).map(stableFindingId),
   );
-  const changedLinesSince = changedLinesFn(repo, String(prior.commit_id || ''), String(headSha || ''));
+  // Only current finding anchors can be declassified by this delta. Restrict
+  // the local diff to those paths: a merge of main may add thousands of
+  // unrelated blobs to the two-point range, while loading them cannot affect
+  // the unchanged-line predicate for this review.
+  const paths = normalizedDiffPaths(importantFindings(resolved.body)
+    .flatMap((finding) => finding.citations.map((citation) => citation.path)));
+  const changedLinesSince = paths.length > 0
+    ? changedLinesFn(repo, String(prior.commit_id || ''), String(headSha || ''), { paths })
+    : null;
   return { priorFindingIds, changedLinesSince, priorReviewCommit: String(prior.commit_id || '') };
 }
 

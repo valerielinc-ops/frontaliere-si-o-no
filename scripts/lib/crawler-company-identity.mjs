@@ -159,10 +159,18 @@ function tally(values) {
  * nome -> dominio dominante, e `domain` e' solo la voce del nome che lo slice
  * stesso avrebbe scelto.
  *
- * @param {ReadonlyArray<{ company?: string, companyDomain?: string }>} jobs
+ * `city`/`canton` sono la coppia piu' frequente fra le localita' degli
+ * annunci, che i crawler prospected pubblicano solo source-backed: una sede
+ * vera e' meglio del ripiego «Lugano, TI» che il generatore usava per ogni
+ * crawler senza voce in COMPANY_HQ (misurato il 2026-10-24: 34 voci su 34 dei
+ * crawler prospected, fra cui CSEM a Neuchatel e Opus a Berna).
+ *
+ * @param {ReadonlyArray<{ company?: string, companyDomain?: string, addressLocality?: string, location?: string, canton?: string }>} jobs
  * @returns {{
  *   name: string,
  *   domain: string,
+ *   city: string,
+ *   canton: string,
  *   domains: Record<string, string>,
  *   total: number,
  *   named: number,
@@ -191,9 +199,19 @@ export function summariseSliceCompanies(jobs) {
     if (domain) domains[candidate] = domain;
   }
 
+  const [topPlace = ''] = tally(list.map((j) => {
+    const canton = String(j?.canton || '').trim().toUpperCase();
+    const city = String(j?.addressLocality || String(j?.location || '').split(/[,;/|]/)[0] || '').trim();
+    // Solo un toponimo: `/Region, BE-Bern` e' un'etichetta di filtro, non una sede.
+    return /^[A-Z]{2}$/.test(canton) && /^\p{L}[\p{L} .'’-]{1,48}$/u.test(city) ? `${city}\u0000${canton}` : '';
+  }))[0] || [];
+  const [city = '', canton = ''] = topPlace ? topPlace.split('\u0000') : [];
+
   return {
     name,
     domain: name ? domains[name] || '' : '',
+    city,
+    canton,
     domains,
     total: list.length,
     named,

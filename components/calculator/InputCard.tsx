@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef, useCallback, startTransition, useOptimistic } from 'react';
 import { createPortal } from 'react-dom';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel, Info, Smartphone, Droplet, Tv, Shield, Landmark, AlertTriangle, ChevronRight } from 'lucide-react';
@@ -285,6 +285,17 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchan
  }
  };
 
+ // INP: same split as MobileCalcLayout — a salary preset updates App's
+ // `inputs` in a transition, while the pressed pill and the salary field
+ // repaint immediately from this optimistic value. Typing stays urgent.
+ const [shownSalary, showSalary] = useOptimistic(inputs.annualIncomeCHF);
+ const selectSalaryPreset = (value: number) => {
+ startTransition(() => {
+ showSalary(value);
+ handleChange('annualIncomeCHF', value);
+ });
+ };
+
  const handleReset = () => {
  setInputs(DEFAULT_INPUTS);
  Analytics.trackUIInteraction('simulatore', 'input', 'bottone_reset', 'click', undefined, 'calculator.input.reset');
@@ -436,7 +447,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchan
  <input
  type="text"
  inputMode="numeric"
- value={formatNumber(inputs.annualIncomeCHF)}
+ value={formatNumber(shownSalary)}
  onChange={(e) => {
  const val = parseNumber(e.target.value);
  const clamped = Math.max(SALARY_MIN, Math.min(SALARY_MAX, val));
@@ -466,11 +477,11 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchan
  <button
  key={s}
  type="button"
- onClick={() => handleChange('annualIncomeCHF', s)}
+ onClick={() => selectSalaryPreset(s)}
  aria-label={`Stipendio annuo ${(s / 1000).toLocaleString('it-IT')} mila CHF`}
- aria-pressed={inputs.annualIncomeCHF === s}
+ aria-pressed={shownSalary === s}
  className={`shrink-0 min-h-[44px] px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
- inputs.annualIncomeCHF === s
+ shownSalary === s
  ? 'bg-accent-strong text-on-accent shadow-sm'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
@@ -595,7 +606,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchan
  <input
  type="text"
  inputMode="numeric"
- value={formatNumber(inputs.annualIncomeCHF)}
+ value={formatNumber(shownSalary)}
  onChange={(e) => {
  const val = parseNumber(e.target.value);
  const clamped = Math.max(SALARY_MIN, Math.min(SALARY_MAX, val));
@@ -625,11 +636,11 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchan
  <button
  key={s}
  type="button"
- onClick={() => handleChange('annualIncomeCHF', s)}
+ onClick={() => selectSalaryPreset(s)}
  aria-label={`Stipendio annuo ${(s / 1000).toLocaleString('it-IT')} mila CHF`}
- aria-pressed={inputs.annualIncomeCHF === s}
+ aria-pressed={shownSalary === s}
  className={`shrink-0 min-h-[44px] px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
- inputs.annualIncomeCHF === s
+ shownSalary === s
  ? 'bg-accent-strong text-on-accent shadow-sm'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}

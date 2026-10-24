@@ -711,7 +711,18 @@ push_section_shard() {
   # leg and crashed the job with "No space left on device" before it could
   # push its CDN build id, which is what made the downstream de/en/fr
   # locales' cross-shard ordering wait (#2569) time out (issue #4734).
-  rm -rf "$stage"
+  # SHARD_STAGE_RM_ASYNC=1: the staging dir is never read again, so on the
+  # critical path we only pay a rename; the delete runs in the background
+  # (ticino-it: 177 s, ticino-de: 255 s of `rm -rf` before this push could
+  # return its slot; 165 s for a 270k-file stage on bench run 40074671144).
+  # Same filesystem → the rename is O(1); if it fails, the historical
+  # synchronous delete runs. Unset → synchronous, as before.
+  if [ "${SHARD_STAGE_RM_ASYNC:-}" = 1 ] && [ -d "$stage" ] \
+     && mv "$stage" "$stage.rm.$$" 2>/dev/null; then
+    ( rm -rf "$stage.rm.$$" >/dev/null 2>&1 & )
+  else
+    rm -rf "$stage"
+  fi
   # Partial rewrite pushed: complete the staged copy for the pack step in
   # background (the pack steps wait for it — scripts/lib/shard-cdn-rewrite.sh).
   # On a failed push the pack skips this section anyway (no ok-marker), but the

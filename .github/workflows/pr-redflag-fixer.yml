@@ -298,28 +298,14 @@ jobs:
           # and resolves the changed files through the GitHub API.
           ref: main
           fetch-depth: 1
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          # The scope classifier imports only trusted code under scripts/. The
+          # repository tree used for citation resolution comes from the API or
+          # git ls-tree, so materializing the whole main tree only adds checkout
+          # time before the bounded classifier can start.
           sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/docs/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
+            /scripts/
+            /data/loop-fleet/loop-registry.json
+            /.gitignore
           sparse-checkout-cone-mode: false
 
       # Il delta «righe toccate dall'ultima review» e' l'input che decide se un

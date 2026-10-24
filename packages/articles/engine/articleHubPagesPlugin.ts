@@ -70,6 +70,7 @@ import {
   readBlogUrlSlugs,
 } from './shared/articleReaders';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
+import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
 import {
   TOPIC_CLUSTERS,
   TOPIC_HUB_MIN_ARTICLES,
@@ -986,7 +987,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(description, undefined, locale))}">
-    <meta name="robots" content="${ARTICLE_ROBOTS_INDEX_ENHANCED}">
+    <meta name="robots" content="${isPaginationNoindex(page) ? 'noindex,follow' : ARTICLE_ROBOTS_INDEX_ENHANCED}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
@@ -1422,7 +1423,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     //
     // Not a reachability fix: the flat pagination nav links every page, so
     // page-31 was always one hop from page-1, and `sitemapEntries` is pushed
-    // inside the per-page loop so every page gets an entry in a full build.
+    // inside the per-page loop (page 1 only since the P1 noindex plan).
     // (Neither is worth much today — no archive URL is in any live sitemap,
     // because fast-publish passes `sitemapEntries: []` and the site build no
     // longer emits these pages. That is its own gap.) This is about the page
@@ -1486,11 +1487,16 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
             `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${archiveBases[alt]}" />`,
           ).join('\n')
         : `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${canonicalPath}" />`;
-      const url = `${BASE_URL}${canonicalPath}`;
-      const priority = page === 1 ? '0.7' : '0.5';
-      sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
-      );
+      // P1 noindex plan (2026-10-24): only page 1 of a listing is advertised
+      // in a sitemap; page 2+ is reached through its own pager. Pages 11+
+      // also ship `noindex,follow` (see shared/paginationIndexPolicy.ts).
+      // Same rule, same bytes as `emitSeoHubs`.
+      if (isPaginationSitemapEligible(page)) {
+        const url = `${BASE_URL}${canonicalPath}`;
+        sitemapEntries.push(
+          `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+        );
+      }
     }
   }
 }

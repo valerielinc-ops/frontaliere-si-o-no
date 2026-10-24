@@ -52,7 +52,10 @@
 // Mirrors the proven rewrite+guard logic of blogImageCdnFinalizePlugin.
 
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { Worker, isMainThread, parentPort, workerData } from 'node:worker_threads';
 import {
   ASSET_EXT_ALTERNATION,
   ASSETS_SAME_ORIGIN_RX,
@@ -609,7 +612,7 @@ const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
 //   4. Collect every literal same-origin /data/ ref (sitemap/href) so those files
 //      stay same-origin (kept), while cdn-only data files are deleted.
 // Then the guarded deletes (og dirs if no leak; cdn-only dist/data files).
-function offloadAll(distDir, cdnBase, onlyFiles = null) {
+async function offloadAll(distDir, cdnBase, onlyFiles = null, { chunk = false } = {}) {
   const partial = Array.isArray(onlyFiles);
   const escOrigin = ORIGIN.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -898,7 +901,43 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
     }
   };
 
-  if (!partial) {
+  if (chunk) {
+    // Worker side of OFFLOAD_CDN_WORKERS: the listed files come from walk()
+    // (already SCAN_EXT-only and outside the top-level assets/data/images), so
+    // this is the full pass's per-file work on a contiguous slice of the walk
+    // order. No marker, no delete: the main thread merges and decides.
+    for (const fp of onlyFiles) visit(fp);
+    return {
+      scanned, ogRewritten, assetRewritten, dataRefRewritten, injected, htmlSeen,
+      ogLeaks, assetsLeaks, templateScanMalformedFiles,
+      cdnAssetUrls: [...cdnAssetUrls], dataReferenced: [...dataReferenced],
+    };
+  }
+
+  const workers = offloadWorkerCount();
+  if (!partial && workers > 1) {
+    // Same file set, same per-file transform, same walk order: only WHO does
+    // the per-file work changes. Results are merged in slice order, so every
+    // aggregate below (counters, leak lists, the /assets/ verdict, the CDN URL
+    // set's insertion order, the /data/ keep-set) equals the sequential pass's.
+    const files = [];
+    walk(distDir, (fp) => { files.push(fp); });
+    const results = await runOffloadPool(files, distDir, cdnBase, workers);
+    for (const r of results) {
+      scanned += r.scanned;
+      ogRewritten += r.ogRewritten;
+      assetRewritten += r.assetRewritten;
+      dataRefRewritten += r.dataRefRewritten;
+      injected += r.injected;
+      htmlSeen += r.htmlSeen;
+      for (const v of r.ogLeaks) ogLeaks.push(v);
+      for (const v of r.assetsLeaks) assetsLeaks.push(v);
+      for (const v of r.templateScanMalformedFiles) templateScanMalformedFiles.push(v);
+      for (const v of r.cdnAssetUrls) cdnAssetUrls.add(v);
+      for (const v of r.dataReferenced) dataReferenced.add(v);
+    }
+    log(`parallel rewrite: ${files.length} file(s) across ${workers} worker thread(s)`);
+  } else if (!partial) {
     walk(distDir, visit);
   } else {
     // --files-from (SHARD_DELTA_CDN_REWRITE=changed): the SAME per-file
@@ -1021,6 +1060,67 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
   return { cdnAssetUrls: [...cdnAssetUrls], assetsLeaks };
 }
 
+// ── OFFLOAD_CDN_WORKERS: the full pass's per-file work on N worker threads ──
+// The full pass reads, rewrites and writes every HTML/XML/TXT file one at a
+// time on one thread: 527 s for the 362'635 files of ticino-it and 1241 s for
+// the 712'044 of ticino-de (deploy 39917633944 / publish 39946751902), the
+// longest phase of the longest shard push on the deploy critical path. Each
+// file's output depends only on its own bytes and cdnBase, so slices of the
+// walk order can be rewritten concurrently; the main thread keeps the walk,
+// the merge (in slice order), the marker and every guarded delete. Unset, 1
+// or invalid → the historical single-thread pass, byte for byte.
+const OFFLOAD_CHUNK_FILES = 512;
+
+function offloadWorkerCount() {
+  const raw = (process.env.OFFLOAD_CDN_WORKERS || '').trim();
+  if (!/^[0-9]+$/.test(raw)) return 1;
+  const n = Number(raw);
+  const cap = typeof os.availableParallelism === 'function' ? os.availableParallelism() : os.cpus().length;
+  return Math.max(1, Math.min(n, Math.max(1, cap) * 2, 16));
+}
+
+function runOffloadPool(files, distDir, cdnBase, workerCount) {
+  const slices = [];
+  for (let i = 0; i < files.length; i += OFFLOAD_CHUNK_FILES) slices.push(files.slice(i, i + OFFLOAD_CHUNK_FILES));
+  const results = new Array(slices.length);
+  const n = Math.max(1, Math.min(workerCount, slices.length));
+  if (slices.length === 0) return Promise.resolve(results);
+  return new Promise((resolve, reject) => {
+    let next = 0;
+    let done = 0;
+    let failed = false;
+    const pool = [];
+    const finish = (err) => {
+      if (failed) return;
+      if (err) failed = true;
+      if (err || done === slices.length) {
+        for (const w of pool) w.terminate();
+        if (err) reject(err); else resolve(results);
+      }
+    };
+    const feed = (w) => {
+      if (failed || next >= slices.length) return;
+      const id = next++;
+      w.postMessage({ id, files: slices[id] });
+    };
+    for (let i = 0; i < n; i += 1) {
+      const w = new Worker(fileURLToPath(import.meta.url), {
+        workerData: { offloadChunkWorker: true, distDir, cdnBase },
+      });
+      pool.push(w);
+      w.on('message', (msg) => {
+        if (msg.error) { finish(new Error(msg.error)); return; }
+        results[msg.id] = msg.result;
+        done += 1;
+        if (done === slices.length) finish(null); else feed(w);
+      });
+      w.on('error', (err) => finish(err));
+      w.on('exit', (code) => { if (code !== 0 && done < slices.length) finish(new Error(`offload worker exited with code ${code}`)); });
+      feed(w);
+    }
+  });
+}
+
 async function main() {
   // CDN_BASE is the full origin+path of the CDN repo's GitHub Pages site
   // (e.g. https://valerielinc-ops.github.io/frontaliere-cdn), exported by the
@@ -1042,7 +1142,7 @@ async function main() {
   }
 
   const onlyFiles = cli.filesFrom ? readFileList(cli.filesFrom, distDir) : null;
-  const { cdnAssetUrls, assetsLeaks } = offloadAll(distDir, cdnBase, onlyFiles);
+  const { cdnAssetUrls, assetsLeaks } = await offloadAll(distDir, cdnBase, onlyFiles);
 
   // GUARDIA DI ESISTENZA (issue #7366). Gli /assets/ sono l'unica famiglia che
   // l'ordine del deploy non garantisce: puntano al bundle dell'ULTIMO deploy e
@@ -1126,7 +1226,16 @@ function readFileList(listFile, distDir) {
 }
 
 let cli = { filesFrom: '', strict: false };
-try {
+if (!isMainThread && workerData && workerData.offloadChunkWorker) {
+  parentPort.on('message', async ({ id, files }) => {
+    try {
+      const result = await offloadAll(workerData.distDir, workerData.cdnBase, files, { chunk: true });
+      parentPort.postMessage({ id, result });
+    } catch (err) {
+      parentPort.postMessage({ id, error: err && err.message ? err.message : String(err) });
+    }
+  });
+} else try {
   cli = parseCli(process.argv.slice(2));
   await main();
 } catch (err) {

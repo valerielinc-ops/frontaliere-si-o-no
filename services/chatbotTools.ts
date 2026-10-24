@@ -16,6 +16,7 @@
  * exported for testability.
  */
 
+import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import { buildPath } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { cdnDataUrl } from '@/services/cdnDataBase';
@@ -315,7 +316,7 @@ export async function searchJobs(
 
  const topN = scored.slice(0, Math.max(1, Math.min(limit, 20)));
  return topN.map(({ job }) => ({
- title: job.titleByLocale?.[locale] ?? job.title ?? '',
+ title: jobDisplayTitle(job),
  company: job.company ?? '',
  location: job.location ?? '',
  slug: job.slugByLocale?.[locale] ?? job.slug,

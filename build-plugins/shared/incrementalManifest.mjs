@@ -715,6 +715,7 @@ export function buildExpiredSoftLandingPageInput({
   postalCode,
   hreflangHtml = '',
   derivedFromUnhashedSource,
+  demandIndexable = true,
 }) {
   return {
     ...buildMinimalJobInput(job, locale, slug, relatedJobs, inputCache),
@@ -742,6 +743,11 @@ export function buildExpiredSoftLandingPageInput({
     ...(derivedFromUnhashedSource
       ? { expiredPayloadDigest: expiredSoftLandingPayloadDigest(expiredPayloadJson, postalCode) }
       : {}),
+    // P1 noindex plan: the robots verdict moves with the calendar (30-day
+    // grace) and with Search Console, neither of which is in the job record.
+    // Only the noindex case is hashed, so an unchanged indexable page keeps
+    // its pre-P1 input hash and is not re-rendered for nothing.
+    ...(demandIndexable === false ? { demandNoindex: true } : {}),
   };
 }
 

@@ -78,6 +78,7 @@ import {
 } from './shared/seoContentTokens';
 import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { paginationRobots } from './shared/paginationIndexPolicy';
 
 // Index pages use shared semantic-token CSS classes instead of repeating long
 // inline declarations in every row and pagination chip.
@@ -1183,7 +1184,8 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     title,
     description,
     canonicalUrl,
-    robots: 'index,follow',
+    // P1 noindex plan (paginationIndexPolicy): page 11+ stays 200 + linked, leaves the index.
+    robots: paginationRobots(page),
     ogType: 'website',
     hreflangHtml: alternatesHtml,
     extraHeadHtml: prevNextHtml,

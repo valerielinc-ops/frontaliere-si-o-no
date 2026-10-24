@@ -1135,7 +1135,7 @@ export default function JobAlertForm({
      confirmation that waits in a queue is a confirmation that never arrives.
      Its z-50 keeps it above any prompt still on screen. */}
  {toast && (
- <div className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-heading text-surface text-sm shadow-lg animate-fade-in`}>
+ <div className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} inset-x-0 mx-auto w-fit z-50 px-4 py-2 rounded-lg bg-heading text-surface text-sm shadow-lg animate-fade-in`}>
  {toast}
  </div>
  )}
