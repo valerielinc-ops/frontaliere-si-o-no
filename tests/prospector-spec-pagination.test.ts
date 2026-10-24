@@ -273,6 +273,21 @@ describe('spec.pagination', () => {
     ]);
   });
 
+  it('fallisce chiuso quando una pagina duplicata soddisferebbe solo il totale raw', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 4, next: `${ORIGIN}/?sf_paged=2` }),
+      // Counting raw rows alone would accept 4/4 even though page 2 repeats
+      // the complete first page and contributes no new vacancy identity.
+      [`${ORIGIN}/?sf_paged=2`]: listingPage({ ids: ['sa1', 'sa2'], page: 2, total: 4 }),
+    };
+    await expect(collect(specWith({
+      pagination: { ...PAGINATION, countDuplicateRowsForCoverage: true },
+    }), pages)).rejects.toMatchObject({
+      specListingFailure: true,
+      message: expect.stringMatching(/nessun URL distinto nuovo/),
+    });
+  });
+
   it('fallisce chiuso quando la lettura non copre il totale dichiarato (link next sparito)', async () => {
     const pages = {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 40 }),

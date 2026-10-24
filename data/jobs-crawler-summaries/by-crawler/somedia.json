@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-10-23T21:26:51.057Z",
+  "generatedAt": "2026-10-24T09:34:32.605Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -9,19 +9,20 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 4,
-  "resurrectedJobs": 1,
+  "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9022,
-  "avgDurationMs": 9022,
+  "durationMs": 7296,
+  "avgDurationMs": 7296,
   "durationHistory": [
-    9022
+    7296
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "somedia-c861507800dc",
       "slug": "sales-manager-field-service-80-100-somedia-ag-glarus",
@@ -34,7 +35,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:26:31.596Z",
+      "crawledAt": "2026-10-24T09:34:16.833Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -57,22 +58,21 @@
         "identifier": "",
         "hiringOrganization": "Somedia Promotion AG"
       },
+      "firstSeenAt": "2026-09-10T23:15:11.091Z",
       "needsRetranslation": true,
       "salaryMin": 100000,
       "salaryMax": 152000,
       "salarySource": "estimated",
       "addressRegion": "GL",
-      "firstSeenAt": "2026-09-10T23:15:11.091Z",
-      "_qualityScore": 87,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -87,7 +87,7 @@
       "url": "https://jobs.somedia.ch/Data-Engineer-100-de-j428.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:26:33.691Z",
+      "crawledAt": "2026-10-24T09:34:18.866Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -135,7 +135,7 @@
       "url": "https://jobs.somedia.ch/Polygrafin-oder-Grafikerin-100-mit-Lernendenbetreuung-de-j427.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:26:32.579Z",
+      "crawledAt": "2026-10-24T09:34:17.800Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -183,7 +183,7 @@
       "url": "https://jobs.somedia.ch/Senior-Subscription-Digital-Marketing-Managerin-80-100-de-j430.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:26:30.491Z",
+      "crawledAt": "2026-10-24T09:34:15.762Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -221,5 +221,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

@@ -1,0 +1,20 @@
+{
+  "companyKey": "ebikon-ch",
+  "companyName": "Gemeindeamt Ebikon",
+  "companyHost": "publicjobs.ch",
+  "platform": "publicjobs.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://publicjobs.ch/jobs/luzern/unterhalt-handwerk-aussenstellen/163822-lehrstelle-2027-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-efz"
+  ],
+  "detailTemplate": "/jobs/luzern/unterhalt-handwerk-aussenstellen/163822-lehrstelle-2027-fachmann-fachfrau-betriebsunterhalt-schwerpunkt-werkdienst-efz",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Lehrstelle 2027: Fachmann/Fachfrau Betriebsunterhalt Schwerpunkt Werkdienst (EFZ) "
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-24T10:47:04.042Z"
+}

@@ -45,6 +45,11 @@ import { BLOG_SEO_SHARD_IDS, type BlogSeoShardId } from '../build-plugins/shared
 import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
 import { needsArticleBodyRecovery } from './articleBodyRecovery';
 import { collectArticleBodySegments } from './articleBodySegments';
+import {
+ applyCanonicalHref as applyStaticCanonicalHref,
+ applyHreflangEntries,
+ resolveRobotsDirective,
+} from './seo/staticHeadAuthority';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -122,6 +127,7 @@ const BASE_URL = 'https://frontaliereticino.ch';
 export { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
 import { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
 import { EDITORIAL_TEAM_ID, ORGANIZATION_LD } from './seo/organizationLd';
+import { withoutShardArticleNodes } from './seo/blogArticleRuntimeLd';
 
 /**
  * E-E-A-T Author & Publisher Schema for YMYL content.
@@ -2054,13 +2060,14 @@ export async function updateMetaTags(section: string): Promise<void> {
  }
  })();
  const articleBodyUnavailable = isBlogArticle && articleBodyLoadFailed;
- const robotsDirective = isApplicationConciergeService
+ const spaRobotsDirective = isApplicationConciergeService
  ? 'noindex, nofollow'
  : hasFilterQuery || route.activeTab === 'newsletter-preferences'
  ? 'noindex, follow'
  : articleBodyHasPromptPlaceholder || articleBodyUnavailable
  ? 'noindex, follow'
  : pharmacyMetadata?.robots ?? ROBOTS_INDEX_ENHANCED_CONTENT;
+ const robotsDirective = resolveRobotsDirective(spaRobotsDirective);
  updateOrCreateMetaTag('name', 'robots', robotsDirective);
 
  // Update Open Graph tags (used by Bing, Facebook, LinkedIn)
@@ -2197,9 +2204,13 @@ export async function updateMetaTags(section: string): Promise<void> {
  } else if (legalSeo) {
  updateStructuredData([legalSeo.jsonLd, breadcrumbs]);
  } else if (metadata.structuredData) {
- const existingData = Array.isArray(metadata.structuredData)
+ const shardData = Array.isArray(metadata.structuredData)
  ? metadata.structuredData
  : [metadata.structuredData];
+ // Blog articles: the article node (and its author) comes from the author
+ // registry — static HTML + BlogArticles.tsx. The shard's legacy `Person`
+ // authors must not reach the rendered DOM (see blogArticleRuntimeLd.ts).
+ const existingData = isBlogArticle ? withoutShardArticleNodes(shardData) : shardData;
  const localizedData = existingData.map(item => {
  const clone = JSON.parse(JSON.stringify(item)) as Record<string, any>;
  if (clone && typeof clone === 'object') {
@@ -2303,9 +2314,6 @@ function updateHreflangTags(
  // uses `window.location.pathname` for staticOverlay routes.
  if (route.staticOverlay) return;
 
- // Remove existing hreflang tags
- document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
-
  // Get locale-specific paths from the router
  const paths = pathResolver
   ? {
@@ -2320,23 +2328,15 @@ function updateHreflangTags(
  // Semrush flags empty hreflang codes as conflicts; this guard ensures we
  // never emit one even if `paths` ends up with a missing/empty locale.
  const hreflangEntries = (['it', 'en', 'de', 'fr'] as const)
- .map((lang) => ({ lang, url: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}${querySuffix}` : '' }))
- .filter((h) => h.lang && h.lang.length > 0 && h.url && h.url.length > 0);
-
- hreflangEntries.forEach(({ lang, url }) => {
- const link = document.createElement('link');
- link.rel = 'alternate';
- link.hreflang = lang;
- link.href = url;
- document.head.appendChild(link);
- });
+ .map((lang) => ({ lang, href: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}${querySuffix}` : '' }))
+ .filter((h) => h.lang && h.lang.length > 0 && h.href && h.href.length > 0);
 
  // Add x-default (Italian as default)
- const xDefault = document.createElement('link');
- xDefault.rel = 'alternate';
- xDefault.setAttribute('hreflang', 'x-default');
- xDefault.href = `${BASE_URL}${withTrailingSlashPath(paths.it)}${querySuffix}`;
- document.head.appendChild(xDefault);
+ const xDefault = {
+  lang: 'x-default',
+  href: `${BASE_URL}${withTrailingSlashPath(paths.it)}${querySuffix}`,
+ };
+ applyHreflangEntries([...hreflangEntries, xDefault]);
 }
 
 function withTrailingSlashPath(path: string): string {
@@ -2364,15 +2364,7 @@ function updateOrCreateMetaTag(attrName: string, attrValue: string, content: str
  * Update canonical link
  */
 function updateCanonicalLink(url: string): void {
- let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-
- if (!canonical) {
- canonical = document.createElement('link');
- canonical.rel = 'canonical';
- document.head.appendChild(canonical);
- }
-
- canonical.href = url;
+ applyStaticCanonicalHref(url);
 }
 
 const PHARMACY_SCHEMA_PATH = /\/(?:farmacie|pharmacies|apotheken)(?:\/|$)/i;

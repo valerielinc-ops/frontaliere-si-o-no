@@ -86,8 +86,10 @@ import {
 import {
   getTrafficEvidenceFilter,
   type FilterDecision,
+  type GscDemandEvidence,
   type UrlClass,
 } from './shared/trafficEvidenceFilter';
+import { hasClusterStopwordLead } from './shared/searchSlugStopwords';
 import { buildClusterThinHtml } from './shared/clusterThinShell';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import {
@@ -233,6 +235,40 @@ const SVIZZERA_HUB_BRIDGE_LINK_COUNT = 60;
 // the URL still resolves 200 with live, crawlable content: it just stops
 // competing with the hub and real per-canton clusters for the same query.
 const MIN_JOBS_FOR_INDEXABLE_CLUSTER = 3;
+
+// CLUSTER_DEMAND_MIN_JOBS — P1 noindex plan (2026-10-24, "scaled content
+// abuse"). Since this date a cluster page is `noindex,follow` and out of the
+// sitemap BY DEFAULT; it stays indexable only when ALL of these hold:
+//   1. Search Console showed it (or one of its same-locale legacy mirrors) at
+//      least once in the last 90 days (`GscDemandEvidence`), AND
+//   2. it lists at least CLUSTER_DEMAND_MIN_JOBS real matching jobs — the
+//      AI-intro exemption of `isClusterBelowFloor` does NOT count here, AND
+//   3. the first slug token is not a stop-word (`CLUSTER_SLUG_LEAD_STOPWORDS`).
+//
+// Why N = 3 and not higher. Measured on 2026-10-23 on the 2 039 cluster URLs
+// of sitemap-search-clusters-* with a Search Console impression in 90 days
+// (job count read from the live page, capped at 30 by MAX_JOBS_PER_PAGE):
+//   0-2 jobs →   55 URLs,   22 with clicks,   36 clicks
+//   3-4 jobs →  281 URLs,  205 with clicks,  557 clicks
+//   5-9 jobs →  319 URLs,  235 with clicks,  947 clicks
+//   10+ jobs → 1384 URLs,  970 with clicks, 4564 clicks
+// N = 5 would de-index 205 pages that earn clicks — the opposite of a page
+// "without demand". N = 3 is the anti-doorway floor every other job landing
+// already uses (MIN_JOBS_FOR_INDEXABLE_CLUSTER, KEYWORD_LANDING_MIN_JOBS) and
+// removes only the 0-2-job pages kept indexable by the AI intro.
+//
+// The page is still emitted (200, crawlable, internal links unchanged): the
+// directive is a robots rewrite, never a 404 — same contract as the #5168
+// inert band.
+const CLUSTER_DEMAND_MIN_JOBS = MIN_JOBS_FOR_INDEXABLE_CLUSTER;
+
+// Lead-token stop-words live in shared/searchSlugStopwords.ts: the keyword
+// landings of jobsSeoPagesPlugin apply the same list (P1 noindex plan).
+export {
+  CLUSTER_SLUG_LEAD_STOPWORDS_BY_LANG,
+  clusterSlugLeadToken,
+  hasClusterStopwordLead,
+} from './shared/searchSlugStopwords';
 
 // STRIP_CLUSTER_SEO_PROSE: when ON (default), drops the per-cluster
 // commuter-context block (~5 KB raw: crawler methodology + Permesso G +
@@ -382,6 +418,12 @@ const CACHE_KEY_INPUTS = [
   // Missing file is hashed as `missing:<rel>` by computeCacheKey, so
   // bootstrap stub vs. populated data still produce distinct cache keys.
   'data/indexed-cluster-urls.json',
+  // P1 demand gate reads `gsc.pages` from here, and both modules decide
+  // indexability: a cache hit restores `sitemapLocs` verbatim, so any change to
+  // them must re-run the decision.
+  'data/evidence-index.json',
+  'build-plugins/shared/trafficEvidenceFilter.ts',
+  'build-plugins/shared/searchSlugStopwords.ts',
   'scripts/lib/related-search-cluster-path.mjs',
   'build-plugins/relatedSearchClustersPlugin.ts',
   'build-plugins/shared/jobDetailPath.ts',
@@ -2240,7 +2282,16 @@ export interface ClusterEmissionDecision {
   readonly belowFloor: boolean;
   /** Traffic-evidence inert band (#5168) → robots meta rewritten. */
   readonly inertBand: boolean;
-  /** The page ships a `noindex` robots directive, for EITHER reason above. */
+  /**
+   * P1 demand gate (see CLUSTER_DEMAND_MIN_JOBS): no Search Console impression
+   * in 90 days, fewer than CLUSTER_DEMAND_MIN_JOBS real jobs, or a stop-word
+   * lead token → robots meta rewritten. Always false while the evidence is
+   * dormant (`GscDemandEvidence.active === false`).
+   */
+  readonly insufficientDemand: boolean;
+  /** Which demand condition failed first, for build logs; '' when indexable. */
+  readonly demandReason: '' | 'stopword-lead' | 'below-demand-min-jobs' | 'no-gsc-impressions-90d';
+  /** The page ships a `noindex` robots directive, for ANY reason above. */
   readonly noindex: boolean;
   /** Derived from {@link noindex}: a noindex URL may never enter a sitemap. */
   readonly sitemapEligible: boolean;
@@ -2305,8 +2356,14 @@ export function decideClusterEmission(input: {
   enriched: EnrichedEntry | undefined;
   indexedClusterUrlsByKey: ReadonlyMap<string, string[]>;
   trafficFilter: ClusterTrafficFilter;
+  /**
+   * Search Console demand evidence (P1). REQUIRED, not optional: an optional
+   * input is exactly how divergence #2 happened — one producer passes it, the
+   * other silently decides without it.
+   */
+  demand: ClusterDemandEvidence;
 }): ClusterEmissionDecision {
-  const { ctx, locale, enriched, indexedClusterUrlsByKey, trafficFilter } = input;
+  const { ctx, locale, enriched, indexedClusterUrlsByKey, trafficFilter, demand } = input;
   const urlPath = buildClusterPath(locale, ctx.candidate.slug, ctx.cantonGroup);
 
   // Legacy-canton + GSC-driven mirrors. These are REAL emit targets on the
@@ -2346,7 +2403,13 @@ export function decideClusterEmission(input: {
 
   const belowFloor = isClusterBelowFloor(ctx, enriched);
   const inertBand = decision.noindex === true;
-  const noindex = belowFloor || inertBand;
+  // Demand is a property of THIS page: its own URL and the same-locale legacy
+  // mirrors that carry the same HTML and canonicalise to it. Cross-locale
+  // probes are different pages with their own index entry, so they do not
+  // lend their impressions here (they still feed the thin/full decision).
+  const demandReason = decideClusterDemand(ctx, [urlPath, ...mirrorPaths], demand);
+  const insufficientDemand = demandReason !== '';
+  const noindex = belowFloor || inertBand || insufficientDemand;
   return {
     urlPath,
     loc: `${BASE_URL}${urlPath}`,
@@ -2354,9 +2417,31 @@ export function decideClusterEmission(input: {
     decision,
     belowFloor,
     inertBand,
+    insufficientDemand,
+    demandReason,
     noindex,
     sitemapEligible: !noindex,
   };
+}
+
+/** Minimal structural view of GscDemandEvidence — keeps this decidable in tests. */
+export type ClusterDemandEvidence = Pick<GscDemandEvidence, 'active' | 'hasImpressions'>;
+
+/**
+ * The P1 demand verdict for one cluster page. '' = indexable on demand; any
+ * other value names the first failed condition. Dormant evidence → '' always,
+ * so a broken Search Console pull can never de-index the family wholesale.
+ */
+export function decideClusterDemand(
+  ctx: ClusterContext,
+  ownPaths: readonly string[],
+  demand: ClusterDemandEvidence,
+): ClusterEmissionDecision['demandReason'] {
+  if (!demand.active) return '';
+  if (hasClusterStopwordLead(ctx.candidate.slug)) return 'stopword-lead';
+  if (clusterMatchingJobCount(ctx) < CLUSTER_DEMAND_MIN_JOBS) return 'below-demand-min-jobs';
+  if (!demand.hasImpressions(ownPaths)) return 'no-gsc-impressions-90d';
+  return '';
 }
 
 /**
@@ -5311,6 +5396,8 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // SPA hydrates the filtered listing client-side from the URL.
       // See build-plugins/shared/clusterThinShell.ts.
       const trafficFilter = getTrafficEvidenceFilter(rootDir);
+      const gscDemand = trafficFilter.gscDemand();
+      const clusterDemandNoindexByReason: Record<string, number> = {};
       let clusterFullCount = 0;
       let clusterThinCount = 0;
       let clusterNoindexCount = 0;
@@ -5930,6 +6017,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
             enriched: enriched[`${locale}::${ctx.candidate.slug}`],
             indexedClusterUrlsByKey,
             trafficFilter,
+            demand: gscDemand,
           });
           profileRecord('cluster-decide-skip', __tSkDecide);
           if (__skEmission.sitemapEligible) sitemapLocs.push(__skEmission.loc);
@@ -6000,6 +6088,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           enriched: enriched[enrichedKey],
           indexedClusterUrlsByKey,
           trafficFilter,
+          demand: gscDemand,
         });
         profileRecord('cluster-decide', __tClDecide);
         const __clMirrorPaths = __clEmission.mirrorPaths;
@@ -6016,7 +6105,14 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // membership reads `sitemapEligible`, which also covers the below-floor
         // bridge — a page that is already noindex from its own template and
         // must not be rewritten a second time.
-        const __clNoindex = __clEmission.inertBand;
+        // P1 demand gate: same rewrite, same contract (200 + noindex,follow,
+        // links kept). A below-floor bridge is noindex from its own template;
+        // rewriting it again is a no-op.
+        const __clNoindex = __clEmission.inertBand || __clEmission.insufficientDemand;
+        if (__clEmission.insufficientDemand) {
+          clusterDemandNoindexByReason[__clEmission.demandReason] =
+            (clusterDemandNoindexByReason[__clEmission.demandReason] ?? 0) + 1;
+        }
         // Enrichment is spent only where it can still pay: a page leaving the
         // index gains nothing from more prose, while the thin pages that stay
         // indexed are exactly the residual near-duplicate surface. Same reason
@@ -6292,6 +6388,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           `full=${clusterFullCount} thin=${clusterThinCount} ` +
           `noindex=${clusterNoindexCount} ` +
           `bytes_saved=${fmtBytes(clusterBytesSaved)}`,
+        );
+        console.log(
+          `\x1b[36m[related-search-clusters]\x1b[0m P1 demand gate ` +
+          `${gscDemand.active ? 'active' : 'DORMANT'}: noindex by reason ` +
+          `${JSON.stringify(clusterDemandNoindexByReason)}`,
         );
         console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${trafficFilter.summary()}`);
       }

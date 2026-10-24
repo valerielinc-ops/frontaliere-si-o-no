@@ -1,7 +1,7 @@
 {
   "key": "rennbahnklinik",
   "label": "Rennbahnklinik",
-  "generatedAt": "2026-10-23T21:29:39.741Z",
+  "generatedAt": "2026-10-24T09:35:13.345Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8487,
-  "avgDurationMs": 8487,
+  "durationMs": 10456,
+  "avgDurationMs": 10456,
   "durationHistory": [
-    8487
+    10456
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:29.502Z",
+      "crawledAt": "2026-10-24T09:34:52.444Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:30.503Z",
+      "crawledAt": "2026-10-24T09:34:53.379Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/praktikum-biomechanik",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:28.522Z",
+      "crawledAt": "2026-10-24T09:34:51.507Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/unterassistenz",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:27.544Z",
+      "crawledAt": "2026-10-24T09:34:50.593Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:26.557Z",
+      "crawledAt": "2026-10-24T09:34:49.688Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/empfangsmitarbeiter-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:25.708Z",
+      "crawledAt": "2026-10-24T09:34:48.755Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -282,5 +282,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

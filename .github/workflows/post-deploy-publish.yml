@@ -71,6 +71,13 @@ on:
         required: true
         type: string
 
+# The scheduled monitor restores/saves the same Indexing API ledger. Keep the
+# whole reusable workflow in the same non-cancelling queue so two writers
+# cannot both spend the same per-day counter before either cache save lands.
+concurrency:
+  group: frontaliere-indexing-api-ledger
+  cancel-in-progress: false
+
 jobs:
   validate-deploy-publish-caller:
     name: validate legacy deploy-publish caller
@@ -360,13 +367,13 @@ jobs:
 
       # Master jobs.json (titleByLocale/slugByLocale) is GITIGNORED and
       # stripped from the Pages artifact (jobsJsonDistCleanupPlugin, PR #712),
-      # so it is NOT present in this checkout. The coverage monitor and the
-      # Google Indexing API submitter both need a real corpus: letting either
-      # one continue with no artifact silently turns an evidence check into a
-      # no-op. The deploy build's master artifact is the canonical snapshot;
+      # so it is NOT present in this checkout. The sector coverage monitor
+      # needs a real corpus: letting it continue with no artifact silently
+      # turns an evidence check into a no-op. (The Google Indexing API
+      # submitter no longer reads it: it works from the live job sitemaps.) The deploy build's master artifact is the canonical snapshot;
       # the committed crawler slices are the trusted assemble fallback used by
       # profile_sequential builds that do not upload jobs-master.
-      - name: Download master jobs.json (for indexing API)
+      - name: Download master jobs.json (for sector coverage monitor)
         id: jobs_master_download
         uses: actions/download-artifact@v8
         continue-on-error: true
@@ -389,9 +396,9 @@ jobs:
           # Materialize one trusted snapshot for every consumer. Prefer the
           # exact build artifact; profile_sequential has no jobs-master, so
           # assemble the checked-in per-crawler slices at this build SHA.
-          # Both locations are intentional: the indexing submitter reads
-          # public/data/jobs.json while the sector monitor's aggregators read
-          # data/jobs.json through their scratch root.
+          # Both locations are intentional: the sector monitor reads
+          # public/data/jobs.json while its aggregators read data/jobs.json
+          # through their scratch root.
           # continue-on-error above is only here so this step can distinguish a
           # genuinely absent artifact from a failed download. Never turn an
           # auth/API/transport failure into the trusted slice fallback.
@@ -572,15 +579,18 @@ jobs:
             "$OG_DESCRIPTION" \
             "$ARTICLE_CATEGORY"
 
-      - name: Restore indexing API daily tracker
+      # Ledger of job URLs already notified + the per-day request counter,
+      # shared with the daily run in monitor-gsc-seo.yml (same key prefix, same
+      # branch scope): both callers draw from ONE daily Indexing API budget.
+      - name: Restore Indexing API job ledger
         id: indexing-cache
         if: success() && steps.live_identity.outputs.status == 'match'
         uses: actions/cache@v6
         with:
-          path: /tmp/indexing-api-submitted-today.json
-          key: indexing-api-${{ github.run_id }}
+          path: /tmp/indexing-api-jobs-ledger.json
+          key: indexing-api-jobs-ledger-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            indexing-api-
+            indexing-api-jobs-ledger-
 
       - name: Post-deploy indexing (parallel)
         if: success() && steps.live_identity.outputs.status == 'match'
@@ -594,7 +604,9 @@ jobs:
           # (PR #3322 review, same class as monitor-gsc-job-indexation.mjs).
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          timeout 90 node scripts/submit-google-indexing-jobs.js &
+          # New jobs first (ledger tiers), at most 15 per deploy; reads the live
+          # job sitemaps (~26 files), hence the longer bound.
+          timeout 300 node scripts/submit-google-indexing-jobs.js --max 15 --ledger /tmp/indexing-api-jobs-ledger.json &
           PID_GOOGLE=$!
           # The deploy snapshot can contain a large first reconciliation after
           # a v2 baseline. Give the recursive diff/submission enough time to

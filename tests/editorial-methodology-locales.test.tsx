@@ -4,7 +4,8 @@ import { buildMethodologyEditorial, localizeMethodologyStructuredData } from '..
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
-import { METHODOLOGY_COPY, METHODOLOGY_PATHS, type MethodologyLocale } from '../services/editorialMethodology';
+import { METHODOLOGY_COPY, type MethodologyLocale } from '../services/editorialMethodology';
+import { DISCLOSURE_ROUTE_CONTRACT } from '../packages/articles/engine/shared/aiDisclosure';
 import { translateSchema } from '../services/seo/schema-translators';
 import Metodologia from '../components/pages/Metodologia';
 
@@ -45,7 +46,7 @@ for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       expect(about).toMatchObject({
         name: METHODOLOGY_COPY[locale].title,
         description: METHODOLOGY_COPY[locale].description,
-        url: `https://frontaliereticino.ch${METHODOLOGY_PATHS[locale]}`,
+        url: `https://frontaliereticino.ch${DISCLOSURE_ROUTE_CONTRACT[locale].methodology}`,
         inLanguage: locale,
       });
       for (const node of nodes) if (locale !== 'it') translateSchema(node, locale);
@@ -54,7 +55,7 @@ for (const locale of ['it', 'en', 'de', 'fr'] as const) {
     if (locale !== 'it') it('localizes AboutPage identity and description through the production dispatcher', () => {
       const schema = { '@type': 'AboutPage', name: METHODOLOGY_COPY.it.title, description: 'Italian description', url: 'https://frontaliereticino.ch/metodologia/', inLanguage: 'it' };
       translateSchema(schema, locale);
-      expect(schema).toMatchObject({ name: METHODOLOGY_COPY[locale].title, description: METHODOLOGY_COPY[locale].description, url: `https://frontaliereticino.ch${METHODOLOGY_PATHS[locale]}`, inLanguage: locale });
+      expect(schema).toMatchObject({ name: METHODOLOGY_COPY[locale].title, description: METHODOLOGY_COPY[locale].description, url: `https://frontaliereticino.ch${DISCLOSURE_ROUTE_CONTRACT[locale].methodology}`, inLanguage: locale });
       // SPA sets the local name and URL before calling the same dispatcher.
       Object.assign(schema, { about: { '@type': 'CreativeWork', name: 'Editorial methodology and AI-assistance disclosure' } });
       translateSchema(schema, locale);

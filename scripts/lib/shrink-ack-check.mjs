@@ -33,6 +33,9 @@ import { realpathSync } from 'node:fs';
  * Usage (exit 0 = acknowledged, 1 = refuse, 2 = bad input):
  *   node scripts/lib/shrink-ack-check.mjs --section giura --locale fr \
  *     --prev 4948 --new 1259 [--acks path/to/acks.json]
+ *
+ * Entry shape: { from, min_new, issue, reason } pins one exact baseline;
+ * { from, from_max, min_new, … } pins a self-expiring band (see checkShrinkAck).
  */
 
 import { readFileSync } from 'node:fs';
@@ -64,7 +67,37 @@ export function checkShrinkAck({ section, locale, prev, next, acks }) {
   // Pinned to the exact baseline a human reviewed. Once the acknowledged push
   // lands, .shard-filecount advances and this stops matching — that is what
   // makes the entry self-expiring rather than a standing permission.
-  if (ack.from !== prev) {
+  //
+  // `from_max` (optional) widens the pin to a BAND [from, from_max] for a shard
+  // that keeps publishing while the change that shrinks it waits for review:
+  // ticino en/de/fr grow by ~18k files per deploy (693636 -> 712136 on run
+  // 39946751902) and deploy several times a day, so no exact `from` written in
+  // a PR survives until its merge. The band keeps the self-expiry by
+  // construction: the guard only trips when next < prev/2 <= from_max/2, and
+  // from_max <= 2*from makes that strictly below `from`, so the count the
+  // acknowledged push leaves behind is always outside the band. A wider band
+  // is refused as malformed instead of being trusted.
+  if (ack.from_max !== undefined) {
+    if (
+      !Number.isInteger(ack.from) || !Number.isInteger(ack.from_max)
+      || ack.from_max < ack.from || ack.from_max > 2 * ack.from
+    ) {
+      return {
+        acknowledged: false,
+        reason:
+          `acknowledgement for ${section}/${locale} has a malformed band from=${ack.from} from_max=${ack.from_max} ` +
+          `(needs integers with from <= from_max <= 2*from, or it would not self-expire)`,
+      };
+    }
+    if (prev < ack.from || prev > ack.from_max) {
+      return {
+        acknowledged: false,
+        reason:
+          `acknowledgement for ${section}/${locale} is pinned to from=${ack.from}..${ack.from_max} but the shard ` +
+          `reports prev=${prev} — the baseline moved since it was reviewed, so it no longer applies`,
+      };
+    }
+  } else if (ack.from !== prev) {
     return {
       acknowledged: false,
       reason:

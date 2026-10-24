@@ -19,6 +19,7 @@ describe('BlogArticles — editorial transparency placement', () => {
     expect(disclosureEnd).toBeGreaterThan(disclosure);
     expect(articleEnd).toBeGreaterThan(disclosureEnd);
     expect(SOURCE.slice(disclosureEnd, articleEnd).trim()).toBe('');
-    expect(SOURCE.match(/aria-label="Trasparenza editoriale"/g)).toHaveLength(1);
+    // Localized label from the shared disclosure copy (aiDisclosure.ts), once.
+    expect(SOURCE.match(/aria-label=\{transparencyCopy\.label\}/g)).toHaveLength(1);
   });
 });

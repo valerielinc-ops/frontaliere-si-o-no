@@ -1,3 +1,5 @@
+import { DISCLOSURE_ROUTE_CONTRACT } from '../packages/articles/engine/shared/aiDisclosure';
+
 export interface CorrectionsLog {
   policy: { contactEmail: string };
   entries: { date: string; articleId: string; type: string; description: string }[];
@@ -5,7 +7,13 @@ export interface CorrectionsLog {
 
 /** Shared public copy for static and React corrections pages. */
 export type CorrectionsLocale = 'it' | 'en' | 'de' | 'fr';
-export const CORRECTIONS_PATHS = { it: '/correzioni/', en: '/en/corrections/', de: '/de/korrekturen/', fr: '/fr/corrections/' } as const;
+/** @deprecated Read `DISCLOSURE_ROUTE_CONTRACT[locale].corrections` instead. */
+export const CORRECTIONS_PATHS = Object.freeze({
+  it: DISCLOSURE_ROUTE_CONTRACT.it.corrections,
+  en: DISCLOSURE_ROUTE_CONTRACT.en.corrections,
+  de: DISCLOSURE_ROUTE_CONTRACT.de.corrections,
+  fr: DISCLOSURE_ROUTE_CONTRACT.fr.corrections,
+});
 export const CORRECTIONS_COPY = {
   it: {
     title: 'Correzioni', subtitle: 'Politica di rettifica e registro pubblico', home: 'Torna alla Home',

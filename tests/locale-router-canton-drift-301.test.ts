@@ -14,7 +14,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker from '../infra/cloudflare-worker/locale-router.js';
+import worker, { jobCanonTarget } from '../infra/cloudflare-worker/locale-router.js';
 
 const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
@@ -158,5 +158,143 @@ describe('locale-router canton-drift 301', () => {
     expect(res.status).toBe(200);
     const calls = (globalThis.fetch as unknown as { mock: { calls: unknown[][] } }).mock.calls;
     expect(calls.some((c) => String(c[0]).includes('/job-canon/'))).toBe(false);
+  });
+});
+
+// The build no longer writes a 200 copy of an expired (or active) non-TI job
+// under the legacy TI section of en/de/fr (jobsSeoPagesPlugin: the 911k
+// canonicalMismatch advisories of the full-corpus replay came from those
+// copies). The shard origin therefore answers 404 for them, and THIS is what
+// keeps them alive: a 301 to the job's canton page, inside the same locale.
+describe('locale-router: legacy TI URL of a non-TI job (origin 404) → 301 to its canton', () => {
+  const slug = 'zweigstelle-80-100-valiant-bank-ag-moutier';
+  const registryEntry = {
+    it: '/cerca-lavoro-giura',
+    en: '/en/find-jobs-jura',
+    de: '/de/jobs-im-jura',
+    fr: '/fr/trouver-emploi-jura',
+  };
+
+  it.each([
+    ['en', '/en/find-jobs-ticino', '/en/find-jobs-jura'],
+    ['de', '/de/jobs-im-tessin', '/de/jobs-im-jura'],
+    ['fr', '/fr/trouver-emploi-tessin', '/fr/trouver-emploi-jura'],
+  ])('%s: %s/<slug>/ → %s/<slug>/', async (_loc, legacyRoot, cantonRoot) => {
+    mockFetch(404, { [slug]: registryEntry });
+
+    const res = await worker.fetch(new Request(`${APEX}${legacyRoot}/${slug}/`), {}, ctx);
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe(`${cantonRoot}/${slug}/`);
+  });
+
+  it('answers HEAD with the same 301 as GET', async () => {
+    mockFetch(404, { [slug]: registryEntry });
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/fr/trouver-emploi-tessin/${slug}/`, { method: 'HEAD' }),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe(`/fr/trouver-emploi-jura/${slug}/`);
+  });
+});
+
+// When the job's page in this locale has a DIFFERENT slug, `${prefix}/${slug}/`
+// would not exist: jobCanonRedirectMapPlugin records the localized path as
+// `alias` and the Worker 301s there, after seeing the target live.
+describe('locale-router: registry alias for a localized slug', () => {
+  const itSlug = 'acquirente-strategico-yellowshark-ag-weinfelden';
+  const frTarget = '/fr/trouver-emploi-thurgovie/acheteur-strategique-yellowshark-ag-weinfelden';
+
+  function mockAliasFetch(map: Record<string, unknown>, live: (url: URL) => number) {
+    return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname.includes('/job-canon/')) return Response.json(map);
+      return new Response('x', { status: live(url) });
+    });
+  }
+
+  it('fr legacy TI URL with the Italian slug → 301 to the French page in its canton', async () => {
+    const fetchMock = mockAliasFetch(
+      { [itSlug]: { it: '/cerca-lavoro-turgovia', alias: { fr: frTarget } } },
+      (url) => (url.pathname === `${frTarget}/` && url.hostname === 'origin-turgovia-fr.frontaliereticino.ch' ? 200 : 404),
+    );
+
+    const res = await worker.fetch(new Request(`${APEX}/fr/trouver-emploi-tessin/${itSlug}/?utm=x`), {}, ctx);
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe(`${frTarget}/?utm=x`);
+    // The alias target was verified on its own shard before the permanent 301.
+    expect(
+      fetchMock.mock.calls.some(([input]) => String(input instanceof Request ? input.url : input).includes(frTarget)),
+    ).toBe(true);
+  });
+
+  it('TI alias (same canton, localized slug) → 301 to the localized TI page through the physical fan-out', async () => {
+    const enTarget = '/en/find-jobs-ticino/buyer-food-bell-schweiz-ag';
+    mockAliasFetch(
+      { 'acquirente-food-bell-schweiz-ag': { it: '/cerca-lavoro-ticino', alias: { en: enTarget } } },
+      (url) => (
+        url.hostname === 'origin-ticino-en.frontaliereticino.ch' && url.pathname.endsWith('/buyer-food-bell-schweiz-ag/')
+          ? 200
+          : 404
+      ),
+    );
+
+    const res = await worker.fetch(new Request(`${APEX}/en/find-jobs-ticino/acquirente-food-bell-schweiz-ag/`), {}, ctx);
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe(`${enTarget}/`);
+  });
+
+  it('does not 301 to an alias whose target is not live', async () => {
+    mockAliasFetch({ [itSlug]: { alias: { fr: frTarget } } }, () => 404);
+
+    const res = await worker.fetch(new Request(`${APEX}/fr/trouver-emploi-tessin/${itSlug}/`), {}, ctx);
+
+    expect(res.status).toBe(404);
+    expect(res.headers.get('Location')).toBeNull();
+  });
+
+  it('answers 503, not a permanent verdict, when the alias target cannot be verified', async () => {
+    mockAliasFetch({ [itSlug]: { alias: { fr: frTarget } } }, (url) => (url.pathname === `${frTarget}/` ? 503 : 404));
+
+    const res = await worker.fetch(new Request(`${APEX}/fr/trouver-emploi-tessin/${itSlug}/`), {}, ctx);
+
+    expect(res.status).toBe(503);
+    expect(res.headers.get('Location')).toBeNull();
+  });
+
+  it('never follows an alias into another locale', async () => {
+    mockAliasFetch({ [itSlug]: { alias: { fr: '/en/find-jobs-thurgau/strategic-buyer' } } }, () => 200);
+
+    const res = await worker.fetch(new Request(`${APEX}/fr/trouver-emploi-tessin/${itSlug}/`), {}, ctx);
+
+    expect(res.status).not.toBe(301);
+  });
+
+  it('lets an exact prefix win over an alias (the slug really exists in this locale)', async () => {
+    mockAliasFetch({ [itSlug]: { fr: '/fr/trouver-emploi-thurgovie', alias: { fr: frTarget } } }, () => 404);
+
+    const res = await worker.fetch(new Request(`${APEX}/fr/trouver-emploi-tessin/${itSlug}/`), {}, ctx);
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe(`/fr/trouver-emploi-thurgovie/${itSlug}/`);
+  });
+});
+
+describe('jobCanonTarget', () => {
+  it('builds prefix targets, accepts same-locale aliases and refuses the rest', () => {
+    expect(jobCanonTarget({ fr: '/fr/trouver-emploi-jura' }, 's', 'fr')).toBe('/fr/trouver-emploi-jura/s/');
+    expect(jobCanonTarget({ alias: { fr: '/fr/trouver-emploi-jura/t' } }, 's', 'fr')).toBe('/fr/trouver-emploi-jura/t/');
+    expect(jobCanonTarget({ alias: { fr: '/en/find-jobs-jura/t' } }, 's', 'fr')).toBeNull();
+    expect(jobCanonTarget({ alias: { it: '/fr/trouver-emploi-jura/t' } }, 's', 'it')).toBeNull();
+    expect(jobCanonTarget({ alias: { fr: '/fr/x//t' } }, 's', 'fr')).toBeNull();
+    expect(jobCanonTarget({ alias: { fr: '/fr/x/t?q=1' } }, 's', 'fr')).toBeNull();
+    expect(jobCanonTarget({ alias: 'nope' }, 's', 'fr')).toBeNull();
+    expect(jobCanonTarget('legacy-string', 's', 'fr')).toBeNull();
   });
 });

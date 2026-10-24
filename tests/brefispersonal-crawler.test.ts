@@ -5,6 +5,7 @@ import {
   BREFISPERSONAL_COMPANY_NAME,
   isBrefispersonalJob,
   isTrustedDomain,
+  normalizeBrefispersonalSpec,
   resolveBrefispersonalGeography,
 } from '../scripts/lib/brefispersonal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -25,6 +26,28 @@ describe('brefis personal ag crawler parser', () => {
       expect(brefispersonalSpec.detailTemplate).toBe('/Vacancyboard/Detail/#');
       expect(brefispersonalSpec.detailEnrichment).toBe(true);
       expect(brefispersonalSpec.sampleVacancyCount).toBeGreaterThan(1);
+    });
+  });
+
+  describe('legacy prospector spec compatibility', () => {
+    it('backfills the bounded Brefis pagination contract when it is absent', () => {
+      const spec = normalizeBrefispersonalSpec({
+        companyKey: BREFISPERSONAL_KEY,
+        seedUrls: ['https://brefis.ch/Vacancyboard/'],
+      });
+
+      expect(spec.pagination).toEqual({
+        maxPages: 10,
+        declaredTotalPattern: "Offene\\s+Stellen(?:\\s|&nbsp;|<[^>]+>)*([\\d'’.,]+)",
+        minCoverage: 0.95,
+      });
+    });
+
+    it('preserves an explicit pagination contract', () => {
+      const pagination = { maxPages: 2, minCoverage: 0.5 };
+      const spec = { companyKey: BREFISPERSONAL_KEY, pagination };
+
+      expect(normalizeBrefispersonalSpec(spec)).toBe(spec);
     });
   });
 

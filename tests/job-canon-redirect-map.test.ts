@@ -28,6 +28,18 @@ describe('jobCanonRedirectMapPlugin', () => {
     'data-engineer-acme-lugano': {
       it: '/cerca-lavoro-ticino/data-engineer-acme-lugano',
     },
+    // Registry key = Italian slug; the French/English pages carry localized
+    // slugs (one of them with the trailing slash some registry rows have).
+    'acquirente-strategico-yellowshark-weinfelden': {
+      it: '/cerca-lavoro-turgovia/acquirente-strategico-yellowshark-weinfelden',
+      fr: '/fr/trouver-emploi-thurgovie/acheteur-strategique-yellowshark-weinfelden/',
+      en: '/en/find-jobs-thurgau/strategic-buyer-yellowshark-weinfelden',
+    },
+    // A second key whose German page really ends in the first key: that exact
+    // prefix must win over any alias for the first key in `de`.
+    'einkaufer-yellowshark': {
+      de: '/de/jobs-im-thurgau/acquirente-strategico-yellowshark-weinfelden',
+    },
   };
 
   beforeAll(() => {
@@ -74,5 +86,32 @@ describe('jobCanonRedirectMapPlugin', () => {
     // A /de orphan must resolve to the DE page, never the IT one.
     expect(deCanon).toBe('/de/jobs-in-bern/capo-ottimizzazione-portafoglio-ffs-zollikofen/');
     expect(deCanon).not.toBe(itCanon);
+  });
+
+  // The build no longer writes a 200 copy at /<loc>/<TI section>/<registry key>/
+  // for en/de/fr; when this locale's page has a DIFFERENT slug the Worker needs
+  // the full localized path to 301 there (`alias`).
+  it('records an en/de/fr alias when the localized slug differs from the registry key', () => {
+    const entry = readShard('acquirente-strategico-yellowshark-weinfelden')['acquirente-strategico-yellowshark-weinfelden'] as unknown as {
+      it?: string; fr?: string; en?: string; de?: string; alias?: Record<string, string>;
+    };
+    expect(entry.it).toBe('/cerca-lavoro-turgovia');
+    expect(entry.fr).toBeUndefined();
+    expect(entry.alias?.fr).toBe('/fr/trouver-emploi-thurgovie/acheteur-strategique-yellowshark-weinfelden');
+    expect(entry.alias?.en).toBe('/en/find-jobs-thurgau/strategic-buyer-yellowshark-weinfelden');
+  });
+
+  it('lets an exact prefix win over an alias and never aliases IT', () => {
+    const entry = readShard('acquirente-strategico-yellowshark-weinfelden')['acquirente-strategico-yellowshark-weinfelden'] as unknown as {
+      de?: string; alias?: Record<string, string>;
+    };
+    expect(entry.de).toBe('/de/jobs-im-thurgau');
+    expect(entry.alias?.de).toBeUndefined();
+    expect(entry.alias?.it).toBeUndefined();
+    // Keys whose localized slug equals the key get no alias at all.
+    const same = readShard('capo-ottimizzazione-portafoglio-ffs-zollikofen')['capo-ottimizzazione-portafoglio-ffs-zollikofen'] as unknown as {
+      alias?: unknown;
+    };
+    expect(same.alias).toBeUndefined();
   });
 });

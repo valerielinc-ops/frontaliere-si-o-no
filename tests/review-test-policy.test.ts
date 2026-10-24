@@ -21,6 +21,10 @@ import {
   findLedgerOnlyApproval,
 } from '../scripts/ci/review-test-policy.mjs';
 import { codeContributionFingerprint } from '../scripts/ci/auto-merge-eval.mjs';
+import {
+  reviewInputMarker,
+  reviewInputRevisionFromBody,
+} from '../scripts/ci/lib/review-input-revision.mjs';
 const head = 'a'.repeat(40);
 const reviewRevision = `body:${'c'.repeat(64)}`;
 const reviewRevisionMarker = `<!-- REVIEW_INPUT_REVISION: ${reviewRevision} -->`;
@@ -44,8 +48,10 @@ const ledgerBody = `## Implementato
 - Appended the validated ledger batch.
 
 ## Non implementato (ancora)
-- Nothing else in questa PR — per scelta.
+- Nessuno
 `;
+const canonicalLedgerBody = ledgerBody;
+const ledgerReviewRevisionMarker = reviewInputMarker(reviewInputRevisionFromBody(canonicalLedgerBody));
 const ledgerHead = 'c'.repeat(40);
 const ledgerBase = 'd'.repeat(40);
 const ledgerRegistry = JSON.parse(readFileSync('data/loop-fleet/loop-registry.json', 'utf8'));
@@ -139,7 +145,7 @@ function ledgerFixture({
   baseContents = {} as Record<string, string>,
   baseMissing = [] as string[],
   reviews = [] as any[],
-  body = ledgerBody,
+  body = canonicalLedgerBody,
   labels = [] as any[],
   state = 'open',
   draft = false,
@@ -247,7 +253,7 @@ describe('owner policy excluding test files from review', () => {
     expect(f.posts).toEqual([]);
   });
   it('accepts the marked bot review only after independently verifying the current complete file list', () => {
-    const review = { commit_id: head, user: { type: 'Bot', login: 'frontaliere-automation[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
+    const review = { id: 1, commit_id: head, user: { type: 'Bot', login: 'frontaliere-automation[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
     expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBe(review);
     expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1, reviewRevision })).toBe(review);
     expect(findTestOnlyApproval([review], head, { ...fixture(), repo: 'owner/repo', pr: 1, reviewRevision: `body:${'d'.repeat(64)}` })).toBeNull();
@@ -257,7 +263,7 @@ describe('owner policy excluding test files from review', () => {
     expect(findTestOnlyApproval([{ ...review, commit_id: 'b'.repeat(40) }], head, { ...fixture(), repo: 'owner/repo', pr: 1 })).toBeNull();
   });
   it('does not repost on the same head and keeps test-only changes out of the code fingerprint', () => {
-    const review = { commit_id: head, user: { type: 'Bot', login: 'frontaliere-automation[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
+    const review = { id: 2, commit_id: head, user: { type: 'Bot', login: 'frontaliere-automation[bot]' }, state: 'COMMENTED', body: `${TEST_REVIEW_MARKER}\n${reviewRevisionMarker}\n## LGTM` };
     const f = fixture({ reviews: [review] });
     postTestOnlyReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn });
     expect(f.posts).toEqual([]);
@@ -287,11 +293,13 @@ describe('owner policy excluding test files from review', () => {
     ]) expect(isLoopFleetLedgerSnapshot(value)).toBe(false);
   });
   it('requires the complete canonical body before the bounded lane can approve', () => {
-    expect(isReviewBodyComplete(ledgerBody)).toBe(true);
+    expect(isReviewBodyComplete(canonicalLedgerBody)).toBe(true);
     for (const body of [
       '## Summary\n- done\n\n## Non implementato (ancora)\nNessuno',
       '## Implementato\n- done\n\n## Non implementato\nNessuno',
       '## Implementato\n- \n\n## Non implementato (ancora)\n- ',
+      '## Implementato\n- done\n\n## Non implementato (ancora)\n- Residuo senza stato',
+      '## Implementato\n- done\n\n## Non implementato (ancora)\n- Residuo — per scelta',
       '## Implementato\n- done\n\n## Non implementato (ancora)\nNessuno\nCloses #1 #2',
     ]) expect(isReviewBodyComplete(body)).toBe(false);
   });
@@ -416,9 +424,16 @@ describe('owner policy excluding test files from review', () => {
     expect(f.posts).toHaveLength(1);
     expect(f.posts[0]).toMatchObject({ commit_id: ledgerHead, event: 'COMMENT' });
     expect(f.posts[0].body).toContain(LOOP_FLEET_LEDGER_REVIEW_MARKER);
+    expect(f.posts[0].body).toContain(ledgerReviewRevisionMarker);
     expect(f.posts[0].body).toContain('## Scope');
     expect(f.posts[0].body).toContain('## Findings (Important: 0, Nit: 0)');
     expect(f.posts[0].body).toContain('## LGTM');
+  });
+  it('fails closed when the ledger reviews API is unavailable or malformed', () => {
+    const f = ledgerFixture({ reviews: null as any });
+    expect(() => postLedgerOnlyReview({ repo: 'owner/repo', pr: 1, head: ledgerHead, ghFn: f.ghFn }))
+      .toThrow(/Reviews API.*malformed/i);
+    expect(f.posts).toEqual([]);
   });
   it.each([
     'chore/loop-fleet-ledger-L6-35160222880-1',
@@ -502,10 +517,11 @@ describe('owner policy excluding test files from review', () => {
   });
   it('recognizes only the exact App review marker on the current verified head and never reposts it', () => {
     const review = {
+      id: 1,
       commit_id: ledgerHead,
       user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
       state: 'COMMENTED',
-      body: `${LOOP_FLEET_LEDGER_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
+      body: `${LOOP_FLEET_LEDGER_REVIEW_MARKER}\n${ledgerReviewRevisionMarker}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
     };
     const f = ledgerFixture({ reviews: [review] });
     expect(findLedgerOnlyApproval([review], ledgerHead, { ghFn: f.ghFn, repo: 'owner/repo', pr: 1 })).toBe(review);
@@ -514,6 +530,18 @@ describe('owner policy excluding test files from review', () => {
     expect(f.posts).toEqual([]);
     expect(findLedgerOnlyApproval([{ ...review, commit_id: 'e'.repeat(40) }], ledgerHead, { ghFn: f.ghFn, repo: 'owner/repo', pr: 1 })).toBeNull();
     expect(findLedgerOnlyApproval([{ ...review, user: { type: 'Bot', login: 'frontaliere-automation-evil[bot]' } }], ledgerHead, { ghFn: f.ghFn, repo: 'owner/repo', pr: 1 })).toBeNull();
+  });
+  it('does not reuse a ledger review after the PR body changes', () => {
+    const review = {
+      id: 2,
+      commit_id: ledgerHead,
+      user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+      state: 'COMMENTED',
+      body: `${LOOP_FLEET_LEDGER_REVIEW_MARKER}\n${ledgerReviewRevisionMarker}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
+    };
+    const changedBody = `## Implementato\n- Appended the revised validated ledger batch.\n\n## Non implementato (ancora)\n- Nessuno\n`;
+    const f = ledgerFixture({ body: changedBody, reviews: [review] });
+    expect(findLedgerOnlyApproval([review], ledgerHead, { ghFn: f.ghFn, repo: 'owner/repo', pr: 1 })).toBeNull();
   });
   it('accepts a trusted registry supplied outside the checkout for the pre-checkout lane', () => {
     const registryPath = join(mkdtempSync(join(tmpdir(), 'ledger-policy-')), 'loop-registry.json');
@@ -568,6 +596,9 @@ describe('owner policy excluding test files from review', () => {
     expect(source).toContain('download_main scripts/ci/lib/review-input-revision.mjs');
     expect(source).toContain('download_main scripts/ci/lib/constants.mjs');
     expect(source).toContain('download_main scripts/ci/lib/pr-review-admission.mjs');
+    expect(source).toContain('download_main scripts/ci/lib/false-positive-declaration.mjs');
+    expect(source).toContain('download_main scripts/lib/pr-body-closes-check.mjs');
+    expect(source).toContain('download_main scripts/lib/pr-body-sections-check.mjs');
     expect(source).toContain('PR review context/body illeggibile');
     expect(source).toContain('Review history illeggibile');
     expect(source).toContain('review_pr_file=$PR_FILE');

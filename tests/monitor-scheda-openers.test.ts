@@ -30,7 +30,7 @@ import { buildIssueBody as buildCwvBody } from '../scripts/cwv-monitor-check.mjs
 import { buildIssueBody as buildDeploySkewBody, evaluateSkew as evaluateDeploySkew } from '../scripts/lib/deploy-skew-signal.mjs';
 import { buildIssueBody as buildTelegramBody } from '../scripts/monitor-telegram-member-count.mjs';
 import { buildIssueBody as buildCampaignGoalBody } from '../scripts/campaign-goal-check.mjs';
-import { buildIndexationIssueBody, buildStructuredDataIssueBody } from '../scripts/monitor-gsc-job-indexation.mjs';
+import { buildIndexationIssueBody, buildStructuredDataIssueBody, buildRichRegressionIssueBody } from '../scripts/monitor-gsc-job-indexation.mjs';
 import { buildIssueBody as buildSourceLivenessBody } from '../scripts/check-source-liveness.mjs';
 import { buildIssueBody as buildAuthSignupBody } from '../scripts/check-auth-signup-subscribers.mjs';
 import { buildIssueBody as buildEmployerInsightsFreshnessBody, evaluateFreshness as evaluateEmployerInsightsFreshness } from '../scripts/ci/check-employer-insights-freshness.mjs';
@@ -95,6 +95,12 @@ const OPENERS: Array<[string, () => string]> = [
     [{ url: 'https://frontaliereticino.ch/it/x/', googleCanonical: '', crawlTime: '' }],
     { PASS: 9, FAIL: 1, WARN: 0, STALE: 0 }, 1, [],
   )],
+  ['gsc-job-rich-regression', () => buildRichRegressionIssueBody({
+    share: { eligible: 27, withJobs: 20, share: 20 / 27, alert: true },
+    listing: { day: '2026-10-21', clicks: 1059, baseline: 1424.5, drop: 0.26, alert: false },
+    details: { day: '2026-10-21', clicks: 168, baseline: 250.5 },
+    rows: [{ url: 'https://frontaliereticino.ch/cerca-lavoro-zurigo/x/', liveJob: true, hasJobs: false, coverageState: 'Submitted and indexed', crawlTime: '2026-10-10T00:00:00Z' }],
+  })],
   ['gsc-structured-data', () => buildStructuredDataIssueBody(
     [{ url: 'https://frontaliereticino.ch/it/x/', richResults: 'FAIL', richResultsIssues: ['manca baseSalary'] }],
   )],

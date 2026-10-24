@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-10-23T21:24:09.534Z",
-  "runId": "40024682938",
+  "assembledAt": "2026-10-24T09:44:47.835Z",
+  "runId": "40080858733",
   "jobs": [
     {
       "id": "spital-sts-31893623eded",
@@ -35,7 +35,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7d1c6902-2bd5-493b-acf6-44d3ec72c4c3/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:02.466Z",
+      "crawledAt": "2026-10-24T09:44:40.962Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4d61a5c9-146f-429b-9f9a-3123a4279ecc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:01.968Z",
+      "crawledAt": "2026-10-24T09:44:40.565Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7c5e571c-823b-467d-8386-a2a8e2947e3e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:01.424Z",
+      "crawledAt": "2026-10-24T09:44:40.134Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -261,7 +261,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b4dc00f-29d4-4e26-baa0-4346080c57d2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:00.955Z",
+      "crawledAt": "2026-10-24T09:44:39.716Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -327,7 +327,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6ebd8ce3-5397-446f-879b-00878d7b3e8a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:00.477Z",
+      "crawledAt": "2026-10-24T09:44:39.306Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -400,7 +400,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/16756454-c7a4-4597-95b1-07a55ff3bd39/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:23:59.986Z",
+      "crawledAt": "2026-10-24T09:44:38.890Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -451,9 +451,9 @@
     },
     {
       "id": "spital-sts-c4c395441242",
-      "slug": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
+      "slug": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
+        "it": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "en": "registered-nurse-medicine-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "fr": "infirmiere-infirmier-diplomee-diplome-en-medecine-spital-sts-thun"
@@ -480,7 +480,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/86f24237-a339-46ca-baf6-0e076f12a645/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:23:59.513Z",
+      "crawledAt": "2026-10-24T09:44:38.474Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -500,11 +500,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
+        "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
+          "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-09-11T23:11:23.158Z",
@@ -554,7 +554,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2d87aba8-03a5-4d9e-a9ac-09488ee5f8bc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:23:59.062Z",
+      "crawledAt": "2026-10-24T09:44:38.084Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -634,7 +634,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/933e431f-6eef-4f55-9c1f-32a157b02780/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:23:58.610Z",
+      "crawledAt": "2026-10-24T09:44:37.686Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -686,9 +686,9 @@
     },
     {
       "id": "spital-sts-47bfb889248c",
-      "slug": "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun",
+      "slug": "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun",
+        "it": "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
         "en": "diploma-nurse-gastroenterology-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
         "fr": "infirmier-iere-diplome-e-en-gastroenterologie-spital-sts-thun"
@@ -715,7 +715,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6e2ea497-b235-49f8-a54c-363a2f2316c6/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:23:58.144Z",
+      "crawledAt": "2026-10-24T09:44:37.270Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -738,12 +738,12 @@
         "infermiera-diplomata-infermiere-diplomato-in-gastroenterologia-spital-sts-thun",
         "diploma-qualified-nursing-specialist-in-gastroenterology-spital-sts-thun",
         "infirmier-infirmiere-diplome-e-en-gastroenterologie-spital-sts-thun",
-        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
+        "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infermiera-diplomata-infermiere-diplomato-in-gastroenterologia-spital-sts-thun",
-          "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
+          "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun"
         ],
         "en": [
           "diploma-qualified-nursing-specialist-in-gastroenterology-spital-sts-thun"
@@ -766,81 +766,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spital-sts-6b06021ab08b",
-      "slug": "ostetrica-dipl-in-sala-parto-spital-sts-thun",
-      "slugByLocale": {
-        "it": "ostetrica-dipl-in-sala-parto-spital-sts-thun",
-        "en": "certified-midwife-in-the-childbirth-room-spital-sts-thun",
-        "de": "dipl-hebamme-im-gebarsaal-spital-sts-thun",
-        "fr": "sage-femme-diplomee-en-salle-d-accouchement-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Hebamme im Gebärsaal",
-      "titleByLocale": {
-        "it": "Ostetrica dipl. in sala parto",
-        "en": "Certified midwife in the childbirth room",
-        "de": "Dipl. Hebamme im Gebärsaal",
-        "fr": "Sage-femme diplômée en salle d'accouchement"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDie professionelle, individuelle und familienorientierte Betreuung von Schwangeren, Müttern, Neugeborenen und ihren Familien steht im Zentrum deiner Tätigkeit. Du begleitest und betreust Frauen und ihre Familien während der Schwangerschaft, rund um die Geburt sowie im frühen Wochenbett und gewährleistest dabei eine ganzheitliche, bedürfnisorientierte und fachkompetente Versorgung. In enger Zusammenarbeit mit dem interdisziplinären Team begleitest du die Frauen von der Aufnahme über die Geburt bis zur Verlegung ins Wochenbett und stellst eine kontinuierliche, sichere und einfühlsame Betreuung sicher. Dabei unterstützt und stärkst du die Familien in ihrer individuellen Situation und trägst zu einem positiven und vertrauensvollen Geburtserlebnis bei.\n\nEintritt per 1. November 2026 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Sorgfältige Einführung in die Geburtenabteilung\n\n• Spannendes und abwechslungsreiches Arbeitsumfeld\n\n• Gute Anstellungsbedingungen nach GAV\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\nSo wirst du Teil unseres Teams\n\n• Hebamme FH/HF\n\n• Mehrjährige Berufserfahrung als Hebamme wird vorausgesetzt\n\n• Exakte und selbständige Arbeitsweise\n\n• Hohes Verantwortungsbewusstsein",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nLa cura professionale, individuale e familiare di donne incinte, madri, neonati e le loro famiglie è al centro del vostro lavoro. Accompagnate e curate le donne e le loro famiglie durante la gravidanza, intorno alla nascita e all'inizio del post-partum e assicurate un'assistenza olistica, orientata alle esigenze e competente. In stretta collaborazione con il team interdisciplinare, accompagni le donne dall'ammissione alla nascita al post-parto e assicuri cure continue, sicure e sensibili. Supporti e rafforzi le famiglie nella loro situazione individuale e contribuisci ad un'esperienza di nascita positiva e affidabile.\n\nEntrata di 1. Novembre 2026 o accordo\n\nTi sta aspettando.\n\n• Introduzione attenta al reparto nascita\n\n• Ambiente di lavoro emozionante e vario\n\n• Buone condizioni di lavoro secondo GAV\n\n• Modello flessibile per le vacanze e i fondi pensione\n\nDiventa parte del nostro team\n\n• Midwife FH/HF\n\n• Diversi anni di esperienza professionale come ostetrica sono necessari\n\n• Lavoro preciso e indipendente\n\n• Alto senso di responsabilità",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nProfessional, individual and family-oriented care of pregnant women, mothers, newborns and their families is at the heart of your work. You accompany and care for women and their families during pregnancy, around birth and in early postpartum and ensure a holistic, needs-oriented and competent care. In close cooperation with the interdisciplinary team, you accompany the women from admission to birth to postpartum and ensure continuous, safe and sensitive care. You support and strengthen the families in their individual situation and contribute to a positive and trusting birth experience.\n\nEntrance by 1. November 2026 or by arrangement\n\nThis is waiting for you\n\n• Careful introduction to the birth department\n\n• Exciting and varied working environment\n\n• Good employment conditions according to GAV\n\n• Flexibly selectable holiday and pension fund model\n\nBecome part of our team\n\n• Midwife FH/HF\n\n• Several years of professional experience as a midwife are required\n\n• Precise and independent work\n\n• High sense of responsibility",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDie professionelle, individuelle und familienorientierte Betreuung von Schwangeren, Müttern, Neugeborenen und ihren Familien steht im Zentrum deiner Tätigkeit. Du begleitest und betreust Frauen und ihre Familien während der Schwangerschaft, rund um die Geburt sowie im frühen Wochenbett und gewährleistest dabei eine ganzheitliche, bedürfnisorientierte und fachkompetente Versorgung. In enger Zusammenarbeit mit dem interdisziplinären Team begleitest du die Frauen von der Aufnahme über die Geburt bis zur Verlegung ins Wochenbett und stellst eine kontinuierliche, sichere und einfühlsame Betreuung sicher. Dabei unterstützt und stärkst du die Familien in ihrer individuellen Situation und trägst zu einem positiven und vertrauensvollen Geburtserlebnis bei.\n\nEintritt per 1. November 2026 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Sorgfältige Einführung in die Geburtenabteilung\n\n• Spannendes und abwechslungsreiches Arbeitsumfeld\n\n• Gute Anstellungsbedingungen nach GAV\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\nSo wirst du Teil unseres Teams\n\n• Hebamme FH/HF\n\n• Mehrjährige Berufserfahrung als Hebamme wird vorausgesetzt\n\n• Exakte und selbständige Arbeitsweise\n\n• Hohes Verantwortungsbewusstsein",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nLes soins professionnels, individuels et familiaux des femmes enceintes, des mères, des nouveau-nés et de leur famille sont au cœur de votre travail. Vous accompagnez et soignez les femmes et leur famille pendant la grossesse, autour de la naissance et au début de la période postnatale et vous assurez un soin holistique, adapté aux besoins et compétent. En étroite collaboration avec l'équipe interdisciplinaire, vous accompagnez les femmes de l'admission à l'accouchement à l'après-partum et assurez des soins continus, sûrs et sensibles. Vous soutenez et renforcez les familles dans leur situation individuelle et contribuez à une expérience de naissance positive et confiante.\n\nEntrée par 1. Novembre 2026 ou par arrangement\n\nÇa vous attend.\n\n• Introduction attentive au service des naissances\n\n• Environnement de travail passionnant et varié\n\n• Bonnes conditions d'emploi selon GAV\n\n• Modèle flexible de fonds de vacances et de retraite\n\nDevenez membre de notre équipe\n\n• Sage-femme FH/HF\n\n• Plusieurs années d'expérience professionnelle en tant que sage-femme sont nécessaires\n\n• Travail précis et indépendant\n\n• Haut sens des responsabilités"
-      },
-      "needsRetranslation": false,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/2425bdbe-06b6-4676-9124-a101e1c624ea/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:20:47.910Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/2425bdbe-06b6-4676-9124-a101e1c624ea",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-hebamme-im-gebarsaal-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-hebamme-im-gebarsaal-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T13:28:13.113Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

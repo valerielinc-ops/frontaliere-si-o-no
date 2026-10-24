@@ -1,7 +1,7 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-10-23T21:29:16.190Z",
+  "generatedAt": "2026-10-24T09:34:09.558Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5332,
-  "avgDurationMs": 5332,
+  "unchangedCount": 3,
+  "durationMs": 7238,
+  "avgDurationMs": 7238,
   "durationHistory": [
-    5332
+    7238
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "medics-labor-2a8a66164fcc",
       "slug": "finanza-specialistica-medics-labor-ag-bern",
@@ -36,7 +38,7 @@
       "url": "https://app.reflinejobs.io/1474/0144/pub/107/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:28:59.445Z",
+      "crawledAt": "2026-10-24T09:33:53.481Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -65,10 +67,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "medics-labor-d0655eb7bc72",
       "slug": "collaboratore-trice-del-servizio-di-imballaggio-con-salario-orario-medics-labor-ag-bern",
@@ -82,7 +81,7 @@
       "url": "https://app.reflinejobs.io/1474/0141/pub/105/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:28:58.914Z",
+      "crawledAt": "2026-10-24T09:33:52.787Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -124,7 +123,7 @@
       "url": "https://app.reflinejobs.io/1474/0138/pub/103/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:28:58.357Z",
+      "crawledAt": "2026-10-24T09:33:52.164Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -154,5 +153,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

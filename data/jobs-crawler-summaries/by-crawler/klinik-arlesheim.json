@@ -1,7 +1,7 @@
 {
   "key": "klinik-arlesheim",
   "label": "Klinik Arlesheim",
-  "generatedAt": "2026-10-23T21:25:12.115Z",
+  "generatedAt": "2026-10-24T09:55:17.293Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 6480,
-  "avgDurationMs": 6480,
+  "durationMs": 6992,
+  "avgDurationMs": 6992,
   "durationHistory": [
-    6480
+    6992
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/5017a040-f259-4164-b48e-107ae89bec2b/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:54.065Z",
+      "crawledAt": "2026-10-24T09:54:56.715Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/fb81d846-baa0-4569-bcac-e1d37e8221c8/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:53.683Z",
+      "crawledAt": "2026-10-24T09:54:56.348Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/40ed87b2-7458-45c7-86ca-bcbdd434ae7b/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:53.296Z",
+      "crawledAt": "2026-10-24T09:54:55.952Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/ece50152-606a-4d7f-b7e8-afa88e34e616/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:52.919Z",
+      "crawledAt": "2026-10-24T09:54:55.554Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/53d7d098-9ffd-4a26-8846-aaee9439e20e/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:52.526Z",
+      "crawledAt": "2026-10-24T09:54:55.144Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/67b062dc-16f8-45a9-9956-955827d888fe/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:52.134Z",
+      "crawledAt": "2026-10-24T09:54:54.764Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/231a7f8d-bd7b-4f12-923b-144c31173006/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:51.738Z",
+      "crawledAt": "2026-10-24T09:54:54.364Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -316,5 +316,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

@@ -1,14 +1,24 @@
 /**
  * News Sitemap Topic Whitelist (Google News C1 — see docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4 FASE 3 C1).
  *
- * Google News rewards topical authority. The whitelist filters articles so only
- * those matching the 5 + 1 macro-themes survive in `sitemap-news.xml`:
+ * The whitelist names the 5 + 1 macro-themes that, until 2026-10-24, were the
+ * only articles allowed into `sitemap-news.xml` (see Status below):
  *   1. Fisco / tasse / dichiarazione / nuovo accordo 2026
  *   2. AVS / LPP / pensioni / previdenza
  *   3. LAMal / cassa malati / tassa salute
  *   4. Dogana / frontiera / permit G/B / lavoro frontaliere / salari
  *   5. Cambio valuta / CHF-EUR / bonifico / tasso
  *   6. Trasporti frontaliere / treno / auto / traffico / webcam dogana
+ *
+ * **Status (2026-10-24): the topic list no longer gates `sitemap-news.xml`.**
+ * Google News' own rule is "articles published in the last two days", and the
+ * list had narrowed the live news sitemap to 7 Italian URLs on a corpus that
+ * publishes in four languages every day. The corpus emitter
+ * (frontaliere-articles `scripts/build-api.mjs`) and
+ * `scripts/cleanup-news-sitemap.mjs` now apply ONLY the window,
+ * {@link isWithinNewsWindow}. The list and {@link isArticleNewsEligible} stay as
+ * the editorial source the corpus vendors, and for the dormant site-side
+ * `scripts/create-article.mjs` producer (dispatch-only since the #4974 cutover).
  *
  * **Important** (per memory `feedback_never_noindex_without_approval`):
  * Filtered-out articles stay in `sitemap-blog.xml` and remain reachable —
@@ -154,6 +164,24 @@ export interface NewsEligibilityArticle {
 /** Google News sitemap window (per spec, articles older than ~2 days are dropped by Google). */
 export const NEWS_SITEMAP_WINDOW_HOURS = 48;
 
+/**
+ * True iff `publishedAt` lies inside the last {@link NEWS_SITEMAP_WINDOW_HOURS}
+ * hours. A future date is malformed (a clock or timezone bug, not an
+ * exceptionally fresh article) and an unparseable or missing one is rejected.
+ * The only gate the Google News sitemap applies since 2026-10-24.
+ */
+export function isWithinNewsWindow(
+  publishedAt: string | Date | null | undefined,
+  now: number = Date.now(),
+): boolean {
+  if (publishedAt === undefined || publishedAt === null || publishedAt === '') return false;
+  const ts = publishedAt instanceof Date ? publishedAt.getTime() : new Date(publishedAt).getTime();
+  if (Number.isNaN(ts)) return false;
+  const ageMs = now - ts;
+  if (ageMs < 0) return false; // future-dated = malformed, drop
+  return ageMs <= NEWS_SITEMAP_WINDOW_HOURS * 60 * 60 * 1000;
+}
+
 /** Lowercase a value safely (handles undefined/null). */
 function toLower(value: unknown): string {
   if (value === null || value === undefined) return '';
@@ -176,15 +204,7 @@ export function isArticleNewsEligible(
   now: number = Date.now(),
 ): boolean {
   // 1. 48h freshness window — Google News spec.
-  if (article.publishedAt !== undefined) {
-    const ts = article.publishedAt instanceof Date
-      ? article.publishedAt.getTime()
-      : new Date(article.publishedAt).getTime();
-    if (Number.isNaN(ts)) return false;
-    const ageMs = now - ts;
-    if (ageMs < 0) return false; // future-dated = malformed, drop
-    if (ageMs > NEWS_SITEMAP_WINDOW_HOURS * 60 * 60 * 1000) return false;
-  }
+  if (article.publishedAt !== undefined && !isWithinNewsWindow(article.publishedAt, now)) return false;
 
   // 2. Topic whitelist — substring match across all available text fields.
   const haystack = [

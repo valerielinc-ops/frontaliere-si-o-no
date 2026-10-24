@@ -8,6 +8,7 @@ import {
   classifyIstDetailPage,
   dropIstFabricatedText,
   extractIstMicrodata,
+  filterPublishableIstStoredJobs,
   hasCompleteIstDetailEvidence,
   hasIstSitemapPositiveHint,
   isIstDetailJob,
@@ -585,6 +586,31 @@ describe('IST detail tenant identity', () => {
 // Fixture: the start of a live jobs.inspirededu.com posting text (2026-09-29).
 describe('IST description fields', () => {
   const text = fs.readFileSync(path.join(__dirname, 'fixtures', 'ist', 'inspired-description-cover-teacher.txt'), 'utf8').trim();
+
+  it('does not retain metadata-only or thin stored rows during a thin-source merge', () => {
+    const staleMetadataOnly = {
+      url: '',
+      title: '',
+      companyKey: 'international-school-of-ticino',
+      description: '',
+      descriptionByLocale: {},
+    };
+    const thin = {
+      url: 'https://jobs.inspirededu.com/job/teacher/123456/',
+      title: 'English Teacher',
+      companyKey: 'international-school-of-ticino',
+      sourceLang: 'en',
+      description: 'Short source text',
+      descriptionByLocale: { en: 'Short source text' },
+    };
+    const publishable = {
+      ...thin,
+      description: text,
+      descriptionByLocale: { en: text },
+    };
+
+    expect(filterPublishableIstStoredJobs([staleMetadataOnly, thin, publishable])).toEqual([publishable]);
+  });
 
   it('publishes the posting text alone, keyed by its language', () => {
     const fields = buildIstDescriptionFields('Primary Cover Teacher', text, 'Lugano', 'TI');

@@ -193,15 +193,9 @@ function getDeadlines2026(t: (key: string) => string): TaxDeadline[] {
  category: 'festivo', who: ['tutti'],
  },
  {
- id: 'h4', date: '2026-04-03',
+ id: 'h4', date: '2026-05-01',
  title: t('calendar.h4.title'),
  description: t('calendar.h4.description'),
- category: 'festivo', who: ['tutti'],
- },
- {
- id: 'h5', date: '2026-04-05',
- title: t('calendar.h5.title'),
- description: t('calendar.h5.description'),
  category: 'festivo', who: ['tutti'],
  },
  {
@@ -301,7 +295,7 @@ function getDeadlines2026(t: (key: string) => string): TaxDeadline[] {
  notes: t('calendar.hf.notes'),
  },
  {
- id: 'hf5', date: '2026-05-01',
+ id: 'hf5', date: '2026-04-03',
  title: t('calendar.hf5.title'),
  description: t('calendar.hf5.description'),
  category: 'facoltativo', who: ['tutti'],

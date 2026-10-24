@@ -94,6 +94,9 @@ describe('404 discovery workflows publish protected data through PRs', () => {
       'git show "$' + '{REFRESH_BASE}:scripts/lib/read-git-blob.mjs"',
     );
     expect(publisher).toContain(
+      'git show "$' + '{REFRESH_BASE}:scripts/lib/compat-path-safety.mjs"',
+    );
+    expect(publisher).toContain(
       'if [ "$RECONCILE_COMPAT" = true ] || [ "$RECONCILE_MAIN" = true ]; then',
     );
     expect(reconciler).toContain("if (flag === '--compat')");

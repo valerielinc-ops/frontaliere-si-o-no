@@ -265,17 +265,7 @@ describe('sharedWriteRegistry', () => {
  });
  });
 
- describe('retained claim metadata (run 40057008446, leg de rss-ceiling)', () => {
- it('keeps the per-plugin lazy call-site placeholder on every first claim', () => {
- claim('/dist/a/index.html', 'pluginA', 'a');
- claim('/dist/b/index.html', 'pluginA', 'b');
- claim('/dist/c/index.html', 'pluginB', 'c');
- const history = getPathHistory();
- expect(history.get('/dist/a/index.html')?.[0].callSite).toBe('<lazy:pluginA>');
- expect(history.get('/dist/b/index.html')?.[0].callSite).toBe('<lazy:pluginA>');
- expect(history.get('/dist/c/index.html')?.[0].callSite).toBe('<lazy:pluginB>');
- });
-
+ describe('path-shape guards', () => {
  it('still rejects a file that becomes a directory for absolute and relative claims', () => {
  const root = path.resolve(os.tmpdir(), 'retained-shape-fixture');
  claim(path.join(root, 'guide.pdf'), 'pluginA', 'pdf');

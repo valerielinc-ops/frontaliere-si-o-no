@@ -1,7 +1,7 @@
 {
   "crawlerKey": "integra-biosciences",
-  "assembledAt": "2026-10-23T21:30:00.278Z",
-  "runId": "40025993440",
+  "assembledAt": "2026-10-24T09:46:12.436Z",
+  "runId": "40081558017",
   "jobs": [
     {
       "id": "integra-biosciences-eab8fd2b0d66",
@@ -34,7 +34,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/347/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:29:54.521Z",
+      "crawledAt": "2026-10-24T09:46:06.781Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -57,7 +57,9 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
-      "firstSeenAt": "2026-10-23T09:28:25.174Z",
+      "previousSlugs": [
+        "marketing-automation-specialist-m-f-d-100-integra-biosciences-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-automation-specialist-m-f-d-100-integra-biosciences-ch"
@@ -69,9 +71,7 @@
           "marketing-automation-specialist-m-f-d-100-integra-biosciences-ch"
         ]
       },
-      "previousSlugs": [
-        "marketing-automation-specialist-m-f-d-100-integra-biosciences-ch"
-      ],
+      "firstSeenAt": "2026-10-23T09:28:25.174Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -118,7 +118,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/346/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:52.754Z",
+      "crawledAt": "2026-10-24T09:46:05.190Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -199,7 +199,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:51.313Z",
+      "crawledAt": "2026-10-24T09:46:03.712Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -277,7 +277,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/344/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:49.840Z",
+      "crawledAt": "2026-10-24T09:46:02.206Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -331,7 +331,7 @@
         "it": "contabile-m-w-d-50-60-integra-biosciences-zizers",
         "en": "accountant-m-w-d-50-60-integra-biosciences-ch",
         "de": "accountant-m-w-d-50-60-integra-biosciences-ch",
-        "fr": "comptable-h-f-d-50-60-integra-biosciences-zizers"
+        "fr": "accountant-m-w-d-50-60-integra-biosciences-zizers"
       },
       "company": "INTEGRA Biosciences",
       "companyKey": "integra-biosciences",
@@ -355,7 +355,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/343/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:48.341Z",
+      "crawledAt": "2026-10-24T09:46:00.259Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -380,14 +380,14 @@
       "pensumMax": 60,
       "previousSlugs": [
         "accountant-m-w-d-50-60-integra-biosciences-ch",
-        "accountant-m-w-d-50-60-integra-biosciences-zizers"
+        "comptable-h-f-d-50-60-integra-biosciences-zizers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "accountant-m-w-d-50-60-integra-biosciences-ch"
         ],
         "fr": [
-          "accountant-m-w-d-50-60-integra-biosciences-zizers"
+          "comptable-h-f-d-50-60-integra-biosciences-zizers"
         ]
       },
       "firstSeenAt": "2026-10-03T09:31:33.192Z",
@@ -437,7 +437,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/341/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:46.875Z",
+      "crawledAt": "2026-10-24T09:45:58.658Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -523,7 +523,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/331/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:45.181Z",
+      "crawledAt": "2026-10-24T09:45:56.837Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -602,7 +602,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/330/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:43.453Z",
+      "crawledAt": "2026-10-24T09:45:54.965Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -648,85 +648,6 @@
         }
       },
       "addressRegion": "GR"
-    },
-    {
-      "id": "integra-biosciences-81194ef73195",
-      "slug": "business-analista-erp-m-f-d-100-integra-biosciences-zizers",
-      "slugByLocale": {
-        "it": "business-analista-erp-m-f-d-100-integra-biosciences-zizers",
-        "en": "business-analyst-erp-m-f-d-100-integra-biosciences-ch",
-        "de": "business-analyst-erp-m-f-d-100-integra-biosciences-ch",
-        "fr": "business-analyste-erp-m-f-d-100-integra-biosciences-zizers"
-      },
-      "company": "INTEGRA Biosciences",
-      "companyKey": "integra-biosciences",
-      "companyDomain": "integra-biosciences.com",
-      "title": "Business Analyst ERP (m/f/d | 100%)",
-      "titleByLocale": {
-        "it": "Business Analista ERP (m/f/d | 100%)",
-        "en": "Business Analyst ERP (m/f/d | 100%)",
-        "de": "Business Analyst ERP (m/w/d | 100%)",
-        "fr": "Business Analyste ERP (m/f/d | 100%)"
-      },
-      "description": "Are you ready to use innovation to improve the lives of millions of people?\nDo you think one step ahead, see opportunities where others see limits, and want to invest your energy in something meaningful? If so, INTEGRA is the right place for you.\nOur solutions are not created by chance – they are the result of passion, precision and team spirit. With every technology we develop, we help people around the world to research diseases, perform diagnoses and enable new therapies. Whether in diagnostics, research or quality control, our instruments – made in Switzerland and the USA – make laboratory work safer, more efficient and more sustainable.\n\nWith us, you can make changes that will shape the world.\nDoes this sound like what you're looking for? Then join our team and help to accelerate scientific discovery.\nWhat you can expect from the role\n• Analyze and optimize business processes within Infor LN\n• Support business users with ERP-related inquiries and operational issues\n• Manage administrative ERP tasks, including layouts, workflows, user management, and system configuration\n• Lead ERP related projects from requirements gathering through implementation, testing, and handover to operations\n• Advise stakeholders on process design, system capabilities, and best practices\n• Support ERP-related integrations and middleware topics\n• Coordinate with internal and external stakeholders to ensure stable ERP operations and successful project delivery\nWhat you offer\n• Education in business informatics, IT, business administration, or equivalent experience\n• Minimum 3 years of ERP experience or comparable ERP key-user know-how with strong interest in the technical side; Infor LN knowledge is a plus\n• Experience with ERP configuration, reporting, workflows, authorization concepts and user management\n• Understanding of operational business processes in an international manufacturing environment\n• Strong technical understanding\n• Team player and cooperative, independent and responsible personality\n• Experience in coordinating IT and or ERP-related projects\n• Fluent in English; German is an advantage",
-      "descriptionByLocale": {
-        "it": "Sei pronto ad usare l'innovazione per migliorare la vita di milioni di persone?\nPensi che un passo avanti, vedi opportunità dove gli altri vedono limiti, e vogliono investire la tua energia in qualcosa di significativo? Se è così, INTEGRA è il posto giusto per voi.\nLe nostre soluzioni non sono create per caso – sono il risultato di passione, precisione e spirito di squadra. Con ogni tecnologia che sviluppiamo, aiutiamo le persone di tutto il mondo a ricercare malattie, a eseguire diagnosi e abilitare nuove terapie. Sia nella diagnostica, nella ricerca o nel controllo della qualità, i nostri strumenti – realizzati in Svizzera e negli Stati Uniti – rendono il lavoro di laboratorio più sicuro, più efficiente e più sostenibile.\n\nCon noi, si possono fare cambiamenti che plasmano il mondo.\nSembra quello che stai cercando? Poi unisciti al nostro team e aiuta ad accelerare la scoperta scientifica.\nCosa ci si può aspettare dal ruolo\n• Analizzare e ottimizzare i processi aziendali all'interno di Infor LN\n• Sostenere gli utenti aziendali con le richieste relative all'ERP e le questioni operative\n• Gestione delle attività ERP amministrative, inclusi layout, flussi di lavoro, gestione utente e configurazione di sistema\n• Piombo progetti correlati ERP da requisiti di raccolta attraverso l'implementazione, il test e la consegna a operazioni\n• Consigliare le parti interessate alla progettazione dei processi, alle capacità di sistema e alle migliori pratiche\n• Supporta le integrazioni ERP e gli argomenti del middleware\n• Coordinare con gli stakeholder interni ed esterni per garantire operazioni ERP stabili e la consegna di progetti di successo\nCosa offri\n• Istruzione in informatica aziendale, IT, amministrazione aziendale o esperienza equivalente\n• Minimo 3 anni di esperienza ERP o know-how ERP simile con un forte interesse per il lato tecnico; Infor LN conoscenza è un plus\n• Esperienza con configurazione, reporting, workflow, concetti di autorizzazione e gestione degli utenti\n• Comprensione dei processi aziendali operativi in un ambiente di produzione internazionale\n• Forte comprensione tecnica\n• Giocatore di squadra e personalità cooperativa, indipendente e responsabile\n• Esperienza nel coordinamento dei progetti IT e relativi all'ERP\n• Fluente in inglese; tedesco è un vantaggio",
-        "en": "Are you ready to use innovation to improve the lives of millions of people?\nDo you think one step ahead, see opportunities where others see limits, and want to invest your energy in something meaningful? If so, INTEGRA is the right place for you.\nOur solutions are not created by chance – they are the result of passion, precision and team spirit. With every technology we develop, we help people around the world to research diseases, perform diagnoses and enable new therapies. Whether in diagnostics, research or quality control, our instruments – made in Switzerland and the USA – make laboratory work safer, more efficient and more sustainable.\n\nWith us, you can make changes that will shape the world.\nDoes this sound like what you're looking for? Then join our team and help to accelerate scientific discovery.\nWhat you can expect from the role\n• Analyze and optimize business processes within Infor LN\n• Support business users with ERP-related inquiries and operational issues\n• Manage administrative ERP tasks, including layouts, workflows, user management, and system configuration\n• Lead ERP related projects from requirements gathering through implementation, testing, and handover to operations\n• Advise stakeholders on process design, system capabilities, and best practices\n• Support ERP-related integrations and middleware topics\n• Coordinate with internal and external stakeholders to ensure stable ERP operations and successful project delivery\nWhat you offer\n• Education in business informatics, IT, business administration, or equivalent experience\n• Minimum 3 years of ERP experience or comparable ERP key-user know-how with strong interest in the technical side; Infor LN knowledge is a plus\n• Experience with ERP configuration, reporting, workflows, authorization concepts and user management\n• Understanding of operational business processes in an international manufacturing environment\n• Strong technical understanding\n• Team player and cooperative, independent and responsible personality\n• Experience in coordinating IT and or ERP-related projects\n• Fluent in English; German is an advantage",
-        "de": "Sind Sie bereit, Innovationen zu nutzen, um das Leben von Millionen von Menschen zu verbessern?\nDenken Sie einen Schritt voraus, sehen Sie Chancen, bei denen andere Grenzen sehen, und möchten Sie Ihre Energie in etwas Sinnvolles investieren? Wenn ja, ist INTEGRA der richtige Ort für Sie.\nUnsere Lösungen entstehen nicht zufällig – sie sind das Ergebnis von Leidenschaft, Präzision und Teamgeist. Mit jeder Technologie, die wir entwickeln, helfen wir Menschen auf der ganzen Welt, Krankheiten zu erforschen, Diagnosen durchzuführen und neue Therapien zu ermöglichen. Ob in der Diagnostik, Forschung oder Qualitätskontrolle, unsere Instrumente – made in Switzerland und USA – machen Laborarbeit sicherer, effizienter und nachhaltiger.\n\nMit uns können Sie Veränderungen vornehmen, die die Welt prägen werden.\nKlingt das nach dem, wonach Sie suchen? Dann treten Sie unserem Team bei und helfen Sie, die wissenschaftliche Entdeckung zu beschleunigen.\nWas Sie von der Rolle erwarten können\n• Analysieren und Optimieren von Geschäftsprozessen in Infor LN\n• Unterstützen Sie Geschäftsanwender bei ERP-bezogenen Anfragen und operativen Problemen\n• Verwalten Sie administrative ERP-Aufgaben, einschließlich Layouts, Workflows, Benutzerverwaltung und Systemkonfiguration\n• Führen Sie ERP-bezogene Projekte von Anforderungen durch Implementierung, Testen und Übergabe an den Betrieb\n• Beratung von Stakeholdern zu Prozessdesign, Systemfähigkeiten und Best Practices\n• Unterstützung ERP-bezogener Integrationen und Middleware-Themen\n• Koordination mit internen und externen Stakeholdern, um einen stabilen ERP-Betrieb und eine erfolgreiche Projektabwicklung sicherzustellen\nWas Sie anbieten\n• Ausbildung in Wirtschaftsinformatik, IT, Betriebswirtschaft oder gleichwertige Erfahrung\n• Mindestens 3 Jahre ERP-Erfahrung oder vergleichbares ERP-Key-User-Know-how mit starkem Interesse an der technischen Seite; Infor LN-Wissen ist ein Plus\n• Erfahrung mit ERP-Konfiguration, Reporting, Workflows, Autorisierungskonzepten und Benutzermanagement\n• Verständnis der operativen Geschäftsprozesse in einer internationalen Fertigungsumgebung\n• Starkes technisches Verständnis\n• Teamplayer und kooperative, unabhängige und verantwortliche Persönlichkeit\n• Erfahrung in der Koordination von IT- und/oder ERP-bezogenen Projekten\n• fließend Englisch; Deutsch ist von Vorteil",
-        "fr": "Êtes-vous prêt à utiliser l'innovation pour améliorer la vie de millions de personnes?\nPensez-vous qu'un pas en avant, voir des occasions où d'autres voient des limites, et veulent investir votre énergie dans quelque chose de significatif? Si oui, INTEGRA est le bon endroit pour vous.\nNos solutions ne sont pas créées par hasard – elles sont le résultat de la passion, de la précision et de l'esprit d'équipe. Avec chaque technologie que nous développons, nous aidons les gens du monde entier à rechercher des maladies, à effectuer des diagnostics et à permettre de nouvelles thérapies. Qu'il s'agisse de diagnostic, de recherche ou de contrôle de qualité, nos instruments – fabriqués en Suisse et aux États-Unis – rendent le travail en laboratoire plus sûr, plus efficace et plus durable.\n\nAvec nous, vous pouvez faire des changements qui façonneront le monde.\nÇa ressemble à ce que vous cherchez ? Ensuite, rejoignez notre équipe et aidez à accélérer la découverte scientifique.\nCe que vous pouvez attendre du rôle\n• Analyser et optimiser les processus d'affaires au sein d'Infor LN\n• Aider les utilisateurs commerciaux à répondre aux questions relatives au PGI et aux questions opérationnelles\n• Gérer les tâches administratives ERP, y compris les mises en page, les flux de travail, la gestion des utilisateurs et la configuration du système\n• Diriger les projets liés au PGI, depuis la collecte des besoins jusqu'à la mise en œuvre, l'essai et le transfert aux opérations\n• Conseiller les parties prenantes sur la conception des processus, les capacités du système et les meilleures pratiques\n• Supporter les intégrations liées au PGI et les sujets intermédiaires\n• Coordonner avec les parties prenantes internes et externes pour assurer la stabilité des opérations du PGI et la réussite de l ' exécution des projets\nCe que vous offrez\n• Formation en informatique, informatique, administration des affaires ou expérience équivalente\n• Au moins 3 ans d'expérience en ERP ou un savoir-faire comparable de l'utilisateur clé ERP avec un fort intérêt pour le côté technique;\n• Expérience de la configuration du PGI, des rapports, des flux de travail, des concepts d ' autorisation et de la gestion des utilisateurs\n• Compréhension des processus opérationnels dans un environnement manufacturier international\n• Bonne compréhension technique\n• Joueur d'équipe et personnalité coopérative, indépendante et responsable\n• Expérience en matière de coordination de projets liés aux technologies de l ' information et aux PGI\n• Fluent en anglais; l'allemand est un avantage"
-      },
-      "location": "Zizers",
-      "canton": "GR",
-      "url": "https://jobs.integra-biosciences.com/Vacancies/329/Description/2?lang=eng",
-      "source": "INTEGRA Biosciences Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:43:38.704Z",
-      "addressLocality": "Zizers",
-      "postalCode": "7205",
-      "streetAddress": "Tardisstrasse 201",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Scienze della Vita / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20",
-      "postedDate": "2026-08-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.integra-biosciences.com/Vacancies/329/Description/2?lang=eng",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "IT",
-      "pensum": "100%",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "previousSlugs": [
-        "business-analyst-erp-m-f-d-100-integra-biosciences-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-erp-m-f-d-100-integra-biosciences-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:31:23.765Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -69,6 +69,8 @@ import type { BlogArticleId } from '../services/blogArticleIds';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { articleSourceDate, compareArticleSourceDates } from '../services/articleSourceDates';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { claim } from './sharedWriteRegistry';
+import { sectionPagesEnabled } from './shared/sectionPageOwnership';
 import {
   type SectionId,
   SECTION_IDS,
@@ -965,7 +967,7 @@ function buildItemListLd(
   };
 }
 
-interface RenderResult {
+export interface RenderResult {
   readonly urlPath: string;
   readonly html: string;
 }
@@ -1073,6 +1075,21 @@ function renderSectionPage(opts: {
   return { urlPath, html };
 }
 
+/**
+ * Every section page in every locale (7 × 4 = 28), in emit order. Exported so
+ * tests can read the exact HTML the plugin writes without running a build.
+ */
+export function renderAllSectionPages(distDir: string, dateStamp: string): RenderResult[] {
+  const out: RenderResult[] = [];
+  for (const sectionId of SECTION_IDS) {
+    const section = SECTIONS[sectionId];
+    for (const locale of LOCALES) {
+      out.push(renderSectionPage({ section, locale, distDir, dateStamp }));
+    }
+  }
+  return out;
+}
+
 // ── Plugin entry ──────────────────────────────────────────────────
 
 export function sectionPagesPlugin(): Plugin {
@@ -1081,7 +1098,7 @@ export function sectionPagesPlugin(): Plugin {
     apply: 'build',
     enforce: 'post',
     closeBundle() {
-      if (process.env.SKIP_SECTION_PAGES === '1') {
+      if (!sectionPagesEnabled()) {
         console.log('\x1b[33m[section-pages]\x1b[0m Skipped (SKIP_SECTION_PAGES=1)');
         return;
       }
@@ -1096,15 +1113,19 @@ export function sectionPagesPlugin(): Plugin {
       const t0 = Date.now();
       let written = 0;
 
-      for (const sectionId of SECTION_IDS) {
-        const section = SECTIONS[sectionId];
-        for (const locale of LOCALES) {
-          const rendered = renderSectionPage({ section, locale, distDir, dateStamp });
-          const outPath = np.join(distDir, rendered.urlPath, 'index.html');
-          fs.mkdirSync(np.dirname(outPath), { recursive: true });
-          fs.writeFileSync(outPath, rendered.html, 'utf-8');
-          written++;
-        }
+      for (const rendered of renderAllSectionPages(distDir, dateStamp)) {
+        const outPath = np.join(distDir, rendered.urlPath, 'index.html');
+        // Claim the path on the shared registry before writing it. These
+        // files go to disk directly (not through a WriteCollector), so
+        // without the claim a later collector write to the same path — the
+        // staticPagesPlugin hreflang loop did exactly that to the 21 EN/DE/FR
+        // pages until 2026-10-24 — was invisible: no collision report, and in
+        // `WRITE_COLLISION_MODE=throw` no failure. With it, that overwrite is
+        // a reported (or fatal) collision instead of a silent regression.
+        if (claim(outPath, 'sectionPagesPlugin', rendered.html) === 'skip-write') continue;
+        fs.mkdirSync(np.dirname(outPath), { recursive: true });
+        fs.writeFileSync(outPath, rendered.html, 'utf-8');
+        written++;
       }
 
       console.log(

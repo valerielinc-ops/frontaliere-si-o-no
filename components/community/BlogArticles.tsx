@@ -7,6 +7,7 @@ import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18n
 import { fetchArticleOverlay, mergeOverlay, type OverlayArticle } from '@/services/articlesOverlay';
 import { articleCoverImageLd, creditedStaticImageObject, fetchImageCredit, fetchImageCredits } from '@/services/imageCredits';
 import type { ImageCreditRecord } from '@/packages/articles/engine/shared/imageCredits.mjs';
+import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from '@/packages/articles/engine/shared/aiDisclosure';
 import ImageCreditLine from '@/components/community/ImageCreditLine';
 import { fuelPriceVariantForArticle, shouldShowFuelTableAfterSingleSegment } from '@/components/blog/fuelArticleContext';
 import { runtimeArticleRecords, recoverArticleBodyParts, publishRuntimeArticleBody, publishedSlugsForIds } from '@/services/runtimeArticleResolution';
@@ -2384,6 +2385,10 @@ function BlogArticlesContent({
  // per-article provenance question — see services/articleProvenance.ts.
  const bylineAuthor = (effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined) as { uid?: string } | undefined;
  const isHumanContributor = !resolveArticleProvenance(article as Article & { aiAssisted?: boolean }, bylineAuthor).aiAssisted;
+ // One AI statement site-wide (packages/articles/engine/shared/aiDisclosure.ts),
+ // localized — the static article HTML renders the same copy.
+ const transparencyLocale = disclosureLocale(locale);
+ const transparencyCopy = ARTICLE_TRANSPARENCY[transparencyLocale];
 
  // Wait for article body translations to load
  if (!bodyReady) {
@@ -3146,30 +3151,30 @@ function BlogArticlesContent({
  <aside
  className="mx-4 sm:mx-6 mt-8 mb-6 rounded-xl border border-edge bg-surface-alt px-4 py-3 text-sm text-subtle"
  role="note"
- aria-label="Trasparenza editoriale"
+ aria-label={transparencyCopy.label}
  >
  <p className="mb-1">
- <strong className="text-body">Trasparenza editoriale:</strong>{' '}
+ <strong className="text-body">{transparencyCopy.label}:</strong>{' '}
  {isHumanContributor
- ? `contributo originale di ${effectiveAuthorName}, pubblicato dalla redazione senza stesura assistita da intelligenza artificiale.`
- : 'bozza assistita da intelligenza artificiale, revisionata dalla redazione. Questa indicazione non certifica una revisione umana.'}
- {' '}Le fonti utilizzate sono linkate nel testo.
+ ? transparencyCopy.human(effectiveAuthorName ?? "")
+ : transparencyCopy.aiAssisted}
+ {' '}{transparencyCopy.sources}
  </p>
  <p className="text-xs">
  <a
- href="/metodologia/"
+ href={DISCLOSURE_ROUTE_CONTRACT[transparencyLocale].methodology}
  className="text-accent hover:underline"
  onClick={(e) => { e.preventDefault(); nav.navigateTo('metodologia' as any); }}
  >
- Come scriviamo gli articoli
+ {transparencyCopy.methodology}
  </a>
  {' · '}
  <a
- href="/correzioni/"
+ href={DISCLOSURE_ROUTE_CONTRACT[transparencyLocale].corrections}
  className="text-accent hover:underline"
  onClick={(e) => { e.preventDefault(); nav.navigateTo('correzioni' as any); }}
  >
- Segnala una correzione
+ {transparencyCopy.corrections}
  </a>
  </p>
  </aside>

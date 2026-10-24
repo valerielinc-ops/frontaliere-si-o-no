@@ -24,8 +24,12 @@ import { vi, describe, it, expect, beforeEach, beforeAll, afterEach } from 'vite
 // ISOLATION NOTE: Use vi.importActual() instead of vi.unmock() to avoid
 // permanently removing mocks from the shared module registry (isolate: false).
 // vi.unmock() at module level persists across all test files in a worker.
+// The module keeps a singleton, so only the first test that boots it sees
+// `init` in `mock.calls` (beforeEach clears them). The implementation survives
+// mockClear(), so the options of the one real init stay readable here.
+let lastInitOptions: Record<string, any> | undefined;
 const posthogMock = {
-  init: vi.fn(),
+  init: vi.fn((_key: string, options: Record<string, any>) => { lastInitOptions = options; }),
   capture: vi.fn(),
   identify: vi.fn(),
 };
@@ -103,6 +107,23 @@ describe('PostHog smoke tests', () => {
     expect(opts.session_recording.sampleRate).toBe(0.05);
     expect(Array.isArray(opts.before_send)).toBe(true);
     expect(opts.before_send).toHaveLength(2);
+  });
+
+  it('lets the SPA $pageview through the whole before_send chain (no page view reached PostHog from 2026-09-16)', async () => {
+    // Observer for the regression of PR 8752: the zero analytics sample rate
+    // also dropped $pageview, so the SDK captured page views that before_send
+    // then discarded. Run the event through every hook the init installs, in
+    // order, exactly as posthog-js does; a null at any step = lost page view.
+    posthogModule.initPostHog();
+    await waitFor(() => lastInitOptions !== undefined);
+    const hooks = lastInitOptions?.before_send as Array<(event: unknown) => unknown>;
+    expect(Array.isArray(hooks)).toBe(true);
+    const run = (event: unknown) => hooks.reduce<unknown>((acc, hook) => (acc ? hook(acc) : acc), event);
+
+    const pageview = { event: '$pageview', properties: { $session_id: 'spa-session', $pathname: '/calcolatore/' } };
+    expect(run(pageview)).toEqual(pageview);
+    // Ordinary product events stay behind the quota hard stop.
+    expect(run({ event: 'funnel_step', properties: { $session_id: 'spa-session' } })).toBeNull();
   });
 
   it('capturePageView() emits a $pageview event with $current_url + title', async () => {

@@ -12,6 +12,7 @@ import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
  */
 
 import { updateJobBoardListingMetadata } from '@/services/seo/jobBoardListingMetadata';
+import { applyCanonicalHref, clearSpaNoindex } from '@/services/seo/staticHeadAuthority';
 import { isForeignLocation, isListingInventoryJob, normalizeListingIdentity } from '@/services/jobBoardInventory';
 import React, { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
@@ -6500,7 +6501,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // (e.g., slim index loaded first without description), preserve the
  // static HTML's JobPosting injected by the build plugin. The full data
  // will load shortly and re-trigger this effect with a valid schema.
- if (selectedJob && jobPostings.length === 0 && resolveRolloutPostingDate(selectedJob, () => '')) {
+ // Unconditional (2026-10-24): the static page always carries JobPosting,
+ // whatever the provenance of its date, so the SPA must never strip it —
+ // Googlebot renders this effect.
+ if (selectedJob && jobPostings.length === 0) {
  return;
  }
 
@@ -6760,14 +6764,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  : (companySlugFilter || locationSlugFilter || searchSlugFilter || editorialLandingDescriptor) && initialJobSlug
  ? initialJobSlug
  : initialJobSlug || selectedJob;
- const canonicalHref = `${window.location.origin}${buildJobPath(canonicalSlugSource)}`;
- let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
- if (!canonical) {
- canonical = document.createElement('link');
- canonical.setAttribute('rel', 'canonical');
- document.head.appendChild(canonical);
- }
- canonical.setAttribute('href', canonicalHref);
+ // Canonical origin is the production host, never `window.location.origin`
+ // (a preview/www/shard origin would leak into the canonical). And on a path
+ // served with its own HTML the build-emitted canonical wins: see
+ // services/seo/staticHeadAuthority.ts.
+ const canonicalHref = `${PUBLIC_SITE_URL}${buildJobPath(canonicalSlugSource)}`;
+ applyCanonicalHref(canonicalHref);
 
  if (selectedJob) {
  const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
@@ -6822,8 +6824,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const editorialLandingModel = editorialOfficialGazetteLanding || editorialJobTodayLanding || editorialLocationLanding || editorialLocationTypeLanding || editorialLocationSectorLanding || editorialSectorRegionLanding || editorialNursesHubLanding || editorialPartTimeLanding || editorialCareVariantLanding;
  if (editorialLandingModel) {
  const canonicalPath = buildPath({ activeTab: 'job-board', jobSlug: editorialLandingModel.slug }, locale);
- const editorialCanonicalHref = `${window.location.origin}${canonicalPath}`;
- canonical.setAttribute('href', editorialCanonicalHref);
+ const editorialCanonicalHref = `${PUBLIC_SITE_URL}${canonicalPath}`;
+ applyCanonicalHref(editorialCanonicalHref);
  // Brand suffix is the first thing dropped when the (often place-bearing)
  // landing headline would push the title past the SERP cap.
  document.title = buildTitleWithBrand(editorialLandingModel.title);
@@ -9774,12 +9776,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // via bridgeTargetSlug above. No redirect or interstitial needed.
 
  if (initialJobSlug && !selectedJob && !companySlugFilter && !locationSlugFilter && !searchSlugFilter) {
- // Ensure expired/orphan job pages are indexable — remove any stale noindex
- // that may have been set by a previous navigation or SPA hydration race.
- const robotsMeta = document.querySelector('meta[name="robots"]');
- if (robotsMeta?.getAttribute('content')?.includes('noindex')) {
- robotsMeta.remove();
- }
+ // Drop a stale noindex an earlier SPA navigation left behind — but never
+ // the one the static HTML shipped for this URL: an expired or orphan offer
+ // is noindex by build-time decision, and lifting it at hydration made those
+ // pages indexable (2026-10 audit). See services/seo/staticHeadAuthority.ts.
+ clearSpaNoindex();
  // Bridge-in-flight guard: show skeleton instead of flashing JobOrphanView
  // ("Questo annuncio non è più disponibile") during the resolution window.
  // Two cases:

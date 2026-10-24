@@ -36,7 +36,7 @@ import {
 } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
-import { WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
+import { isConnectionLevelFetchError, isConnectionLevelFetchResult, WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
 import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
 import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES } from '../crawler-detail-drop.mjs';
 import { isDetailFailureWithinGrace } from '../detail-failure-reuse-policy.mjs';
@@ -68,6 +68,43 @@ const BROWSER_RESCUE_USER_AGENT =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
   + '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
+function browserAbortReason(signal, message) {
+  if (signal?.reason) return signal.reason;
+  const error = new Error(message);
+  error.name = 'AbortError';
+  return error;
+}
+
+function raceBrowserOperation(promise, signal, message, onLateValue) {
+  if (!signal) return promise;
+  if (signal.aborted) return Promise.reject(browserAbortReason(signal, message));
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const cleanup = () => signal.removeEventListener('abort', onAbort);
+    const onAbort = () => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(browserAbortReason(signal, message));
+    };
+    signal.addEventListener('abort', onAbort, { once: true });
+    Promise.resolve(promise).then((value) => {
+      if (settled) {
+        Promise.resolve(onLateValue?.(value)).catch(() => {});
+        return;
+      }
+      settled = true;
+      cleanup();
+      resolve(value);
+    }, (error) => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(error);
+    });
+  });
+}
+
 /**
  * Fetch a source page through a real browser after direct transport and the
  * clean-IP proxy have both hit the source's anti-bot wall. The caller still
@@ -76,33 +113,64 @@ const BROWSER_RESCUE_USER_AGENT =
  * vacancy extractor as an empty page.
  *
  * @param {string} url
- * @param {{ timeoutMs?: number, attempts?: number }} [options]
+ * @param {{ timeoutMs?: number, attempts?: number, signal?: AbortSignal }} [options]
  * @returns {Promise<string|null>}
  */
-export async function fetchHtmlViaBrowser(url, { timeoutMs = 45000, attempts = 3 } = {}) {
+export async function fetchHtmlViaBrowser(
+  url,
+  { timeoutMs = 45000, attempts = 3, signal } = {},
+) {
   let browser;
   try {
-    browser = await launchChromium({
-      headless: true,
-      args: ['--disable-blink-features=AutomationControlled'],
-    });
-    const context = await browser.newContext({
+    if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
+    browser = await raceBrowserOperation(
+      launchChromium({
+        headless: true,
+        args: ['--disable-blink-features=AutomationControlled'],
+      }),
+      signal,
+      `browser rescue launch aborted for ${url}`,
+      (lateBrowser) => lateBrowser?.close?.(),
+    );
+    const context = await raceBrowserOperation(browser.newContext({
       userAgent: BROWSER_RESCUE_USER_AGENT,
       locale: 'de-CH',
       viewport: { width: 1280, height: 720 },
-    });
-    const page = await context.newPage();
+    }), signal, `browser rescue context aborted for ${url}`, (lateContext) => lateContext?.close?.());
+    const page = await raceBrowserOperation(
+      context.newPage(),
+      signal,
+      `browser rescue page creation aborted for ${url}`,
+      (latePage) => latePage?.close?.(),
+    );
     let lastReason = 'unknown browser failure';
     for (let attempt = 1; attempt <= attempts; attempt += 1) {
       try {
-        const response = await page.goto(url, {
+        const response = await raceBrowserOperation(page.goto(url, {
           waitUntil: 'domcontentloaded',
           timeout: Math.max(Number(timeoutMs) || 0, 45000),
-        });
-        await page.waitForTimeout(attempt === 1 ? 2500 : 4500);
-        const title = await page.title().catch(() => '');
-        const bodyText = await page.locator('body').textContent().catch(() => '');
-        const html = await page.content();
+        }), signal, `browser rescue navigation aborted for ${url}`);
+        await raceBrowserOperation(
+          page.waitForTimeout(attempt === 1 ? 2500 : 4500),
+          signal,
+          `browser rescue settle wait aborted for ${url}`,
+        );
+        const title = await raceBrowserOperation(
+          Promise.resolve(page.title()).catch(() => ''),
+          signal,
+          `browser rescue title read aborted for ${url}`,
+        );
+        const bodyText = await raceBrowserOperation(
+          Promise.resolve(page.locator('body').textContent()).catch(() => ''),
+          signal,
+          `browser rescue body read aborted for ${url}`,
+        );
+        const html = await raceBrowserOperation(
+          page.content(),
+          signal,
+          `browser rescue content read aborted for ${url}`,
+        );
+        if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
         if (!looksLikeAntiBotChallenge(`${title}\n${bodyText}\n${html}`)) {
           return html;
         }
@@ -110,13 +178,22 @@ export async function fetchHtmlViaBrowser(url, { timeoutMs = 45000, attempts = 3
           ? `HTTP ${response?.status?.() ?? 'no response'} with browser challenge marker`
           : 'browser challenge marker';
       } catch (error) {
+        if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
         lastReason = error?.message || String(error);
       }
-      if (attempt < attempts) await page.waitForTimeout(2500 * attempt);
+      if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
+      if (attempt < attempts) {
+        await raceBrowserOperation(
+          page.waitForTimeout(2500 * attempt),
+          signal,
+          `browser rescue retry wait aborted for ${url}`,
+        );
+      }
     }
     console.warn(`⚠️ Browser rescue exhausted for ${url} (${lastReason}).`);
     return null;
   } catch (error) {
+    if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
     console.warn(`⚠️ Browser rescue unavailable for ${url}: ${error?.message || error}.`);
     return null;
   } finally {
@@ -327,10 +404,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
   });
   let wafProxyExhausted = false;
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
-  const connectionLevelFailure = !result.policyBlocked
-    && !result.blockedByRobots
-    && !result.status
-    && Boolean(result.transportError);
+  const connectionLevelFailure = isConnectionLevelFetchResult(result);
   const antiBotResponse = directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status));
 
   // A WAF may answer HTTP 200 with an interstitial instead of a hard block.
@@ -1359,6 +1433,12 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     }
   };
 
+  const transportFallbackSeedUrls = [...new Set(
+    (Array.isArray(spec.transportFallbackSeedUrls) ? spec.transportFallbackSeedUrls : [])
+      .map((url) => String(url || '').trim())
+      .filter(Boolean),
+  )];
+
   for (const seed of spec.seedUrls || []) {
     if (listingEndpoint) {
       if (endpointConsumed) continue;
@@ -1427,16 +1507,38 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     const seedRowsBefore = bySlug.size;
     const seedCoverageRowsBefore = listingRowsForCoverage;
     let page;
-    try {
-      page = await fetchRuntimePage(seed, validateUrl, runtime);
-    } catch (err) {
-      // Let the standard pipeline classify it: a connection-level failure is
-      // infra and must soft-exit, an HTTP status is a real break.
-      throw markSpecListingFailure(err);
+    let effectiveSeed = seed;
+    const seedCandidates = [seed, ...transportFallbackSeedUrls]
+      .filter((candidate, index, all) => all.indexOf(candidate) === index);
+    for (let candidateIndex = 0; candidateIndex < seedCandidates.length; candidateIndex += 1) {
+      const candidate = seedCandidates[candidateIndex];
+      try {
+        page = await fetchRuntimePage(candidate, validateUrl, runtime);
+        effectiveSeed = candidate;
+        break;
+      } catch (err) {
+        // The primary seed is the stable, source-declared ordering. An
+        // alternate seed is allowed only after a connection-level failure;
+        // HTTP responses, robots denials and URL-policy failures remain
+        // authoritative and fail closed.
+        const hasNextCandidate = candidateIndex < seedCandidates.length - 1;
+        if (!hasNextCandidate || !isConnectionLevelFetchError(err)) {
+          throw markSpecListingFailure(err);
+        }
+        console.warn(
+          `[prospector:${spec.companyKey}] listing seed ${candidate} `
+          + `failed at transport boundary; trying fallback seed ${seedCandidates[candidateIndex + 1]}`,
+        );
+      }
+    }
+    if (!page) {
+      throw markSpecListingFailure(new Error(
+        `[prospector:${spec.companyKey}] listing seed did not produce a page`,
+      ));
     }
     let html = page.body;
     if (!html) continue;
-    let effectiveSeedUrl = page.url || seed;
+    let effectiveSeedUrl = page.url || effectiveSeed;
     let umantisListingEvidence = spec.platform === 'umantis.com'
       ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
         cantonOverrides: spec.umantisListingCantonOverrides,
@@ -1643,12 +1745,32 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         const extracted = extractListingCandidates(body, pageUrl, templateRx, spec, runtime);
         recordSourceFetchMetadata(extracted);
         const nextCandidates = filterListingCandidates(spec, extracted.candidates);
+        const pageCoverageRowsBefore = listingRowsForCoverage;
+        const pageDistinctRowsBefore = bySlug.size;
         await addListingCandidates(
           nextCandidates,
           nextEvidence,
           pageUrl,
           pagination.pageStateParams,
         );
+        const pageCoverageRows = listingRowsForCoverage - pageCoverageRowsBefore;
+        const pageDistinctRows = bySlug.size - pageDistinctRowsBefore;
+        // A source may legitimately repeat an occasional vacancy across page
+        // boundaries, so Stellenpartner counts validated source rows for its
+        // declared-total coverage. A whole page with no new identity is a
+        // different signal: the provider returned an earlier page again (or
+        // replaced this page with a partial snapshot). Counting those rows
+        // would let a missing slice satisfy the declared total and retire
+        // still-live jobs. Keep the duplicate-row tolerance, but fail closed
+        // when a non-empty paginated page contributes no new URL.
+        if (pagination.countDuplicateRowsForCoverage
+          && pageCoverageRows > 0
+          && pageDistinctRows === 0) {
+          throw markSpecListingFailure(new Error(
+            `[prospector:${spec.companyKey}] listing troncata: la pagina ${pageUrl} `
+            + `ha ${pageCoverageRows} righe source ma nessun URL distinto nuovo`,
+          ), bySlug.size);
+        }
         html = body;
         currentPageCandidateCount = nextCandidates.length;
         nextUrl = findNextListingPageUrl(body, pageUrl);
