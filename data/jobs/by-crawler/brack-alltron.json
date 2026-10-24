@@ -2472,12 +2472,12 @@
     },
     {
       "id": "brack-alltron-85e3bc4f205a",
-      "slug": "product-lead-pricing-brack-alltron-magenwil",
+      "slug": "prezzo-di-piombo-del-prodotto-brack-alltron-ag-magenwil",
       "slugByLocale": {
         "de": "product-lead-pricing-brack-alltron-magenwil",
-        "it": "product-lead-pricing-brack-alltron-magenwil",
+        "it": "prezzo-di-piombo-del-prodotto-brack-alltron-ag-magenwil",
         "en": "product-lead-pricing-brack-alltron-magenwil",
-        "fr": "product-lead-pricing-brack-alltron-magenwil"
+        "fr": "prix-du-plomb-de-produit-brack-alltron-ag-magenwil"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -2537,7 +2537,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:22:47.294Z"
+      "firstSeenAt": "2026-10-23T21:22:47.294Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-lead-pricing-brack-alltron-magenwil"
+        ],
+        "fr": [
+          "product-lead-pricing-brack-alltron-magenwil"
+        ]
+      },
+      "previousSlugs": [
+        "product-lead-pricing-brack-alltron-magenwil"
+      ]
     }
   ]
 }

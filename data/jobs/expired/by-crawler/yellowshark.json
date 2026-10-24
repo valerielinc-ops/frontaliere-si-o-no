@@ -581,10 +581,10 @@
       "echarpe-h-f-yellowshark-ag-luzern-lu",
       "schaler-m-w-luzern-lu-yellowshark-ch-bd543043",
       "schaler-m-w-luzern-lu-yellowshark-ch-66f41565",
-      "formwork-carpenter-m-w-d-yellowshark-ag-luzern",
-      "coffreur-m-w-d-yellowshark-ag-luzern",
       "schaler-m-w-luzern-lu-yellowshark-ch-d93f7a03",
-      "schaler-m-w-luzern-lu-yellowshark-ch"
+      "schaler-m-w-luzern-lu-yellowshark-ch",
+      "formwork-carpenter-m-w-d-yellowshark-ag-luzern",
+      "coffreur-m-w-d-yellowshark-ag-luzern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -604,9 +604,9 @@
         "bowl-m-f-yellowshark-ag-luzern-lu",
         "schaler-m-w-luzern-lu-yellowshark-ch-bd543043",
         "schaler-m-w-luzern-lu-yellowshark-ch-66f41565",
-        "formwork-carpenter-m-w-d-yellowshark-ag-luzern",
         "schaler-m-w-luzern-lu-yellowshark-ch-d93f7a03",
-        "schaler-m-w-luzern-lu-yellowshark-ch"
+        "schaler-m-w-luzern-lu-yellowshark-ch",
+        "formwork-carpenter-m-w-d-yellowshark-ag-luzern"
       ],
       "fr": [
         "shell-h-f-yellowshark-ag-luzern",
@@ -614,9 +614,9 @@
         "echarpe-h-f-yellowshark-ag-luzern-lu",
         "schaler-m-w-luzern-lu-yellowshark-ch-bd543043",
         "schaler-m-w-luzern-lu-yellowshark-ch-66f41565",
-        "coffreur-m-w-d-yellowshark-ag-luzern",
         "schaler-m-w-luzern-lu-yellowshark-ch-d93f7a03",
-        "schaler-m-w-luzern-lu-yellowshark-ch"
+        "schaler-m-w-luzern-lu-yellowshark-ch",
+        "coffreur-m-w-d-yellowshark-ag-luzern"
       ]
     },
     "postalCode": "6003",
@@ -1274,7 +1274,6 @@
       "dryers-m-f-yellowshark-ag-st-gallen-sg-bda4da2f",
       "sechoirs-h-f-yellowshark-ag-st-gallen-sg-e36ce4c0",
       "trockenbauer-m-w-st-gallen-sg-yellowshark-ch-a2785c4f",
-      "plaquiste-m-w-d-yellowshark-ag-st-gallen",
       "asciugatrici-m-f-yellowshark-ag-st-gallen-sg-f380d0f8",
       "dryers-m-f-yellowshark-ag-st-gallen-sg-7785419d",
       "sechoirs-h-f-yellowshark-ag-st-gallen-sg-7dc77b65",
@@ -1282,7 +1281,8 @@
       "trockenbauer-m-w-st-gallen-sg-yellowshark-ch",
       "asciugatrici-m-f-yellowshark-ag-st-gallen-sg",
       "dryers-m-f-yellowshark-ag-st-gallen-sg",
-      "sechoirs-h-f-yellowshark-ag-st-gallen-sg"
+      "sechoirs-h-f-yellowshark-ag-st-gallen-sg",
+      "plaquiste-m-w-d-yellowshark-ag-st-gallen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4003,8 +4003,6 @@
       "carpenter-m-f-yellowshark-ag-zurich-e9024dd5",
       "schreiner-m-w-zurich-zh-yellowshark-ch-88f1f4d3",
       "carpenter-m-f-yellowshark-ag-zurich-zh-c529565f",
-      "charpentier-h-f-yellowshark-ag-zurich-77ef72dd",
-      "carpenter-m-f-yellowshark-ag-zurich-2a21ee66",
       "charpentier-h-f-yellowshark-ag-zurich-e9e8778f",
       "carpenter-m-f-yellowshark-ag-zurich-a59a9ecd",
       "schreiner-m-w-zurich-zh-yellowshark-ch-fb8eb6eb",
@@ -4012,7 +4010,9 @@
       "charpentier-h-f-yellowshark-ag-zurich",
       "carpenter-m-f-yellowshark-ag-zurich",
       "schreiner-m-w-zurich-zh-yellowshark-ch",
-      "carpenter-m-f-yellowshark-ag-zurich-zh"
+      "carpenter-m-f-yellowshark-ag-zurich-zh",
+      "charpentier-h-f-yellowshark-ag-zurich-77ef72dd",
+      "carpenter-m-f-yellowshark-ag-zurich-2a21ee66"
     ],
     "previousSlugsByLocale": {
       "it": [

@@ -6021,7 +6021,7 @@
         "it": "gestione-dei-processi-stadtspital-zurich-zurich",
         "en": "process-manager-stadtspital-zurich-zurich",
         "de": "prozessmanager-in-stadtspital-zuerich-51681",
-        "fr": "gestionnairedeprocessus-stadtspital-zurich"
+        "fr": "gestionnaire-de-processus-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6071,7 +6071,7 @@
       "previousSlugs": [
         "prozessmanager-in-stadtspital-zurich",
         "prozessmanager-in-stadtspital-zuerich-51681",
-        "gestionnaire-de-processus-stadtspital-zurich-zurich"
+        "gestionnairedeprocessus-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6082,7 +6082,7 @@
         ],
         "fr": [
           "prozessmanager-in-stadtspital-zurich",
-          "gestionnaire-de-processus-stadtspital-zurich-zurich"
+          "gestionnairedeprocessus-stadtspital-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.497Z",
@@ -7087,12 +7087,12 @@
     },
     {
       "id": "stadtspital-zuerich-29b8ca9a55d6",
-      "slug": "hebamme-fh-bsc-stadtspital-zuerich-52047",
+      "slug": "ostetricia-fh-bsc-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "hebamme-fh-bsc-stadtspital-zuerich-52047",
-        "it": "hebamme-fh-bsc-stadtspital-zuerich-52047",
-        "en": "hebamme-fh-bsc-stadtspital-zuerich-52047",
-        "fr": "hebamme-fh-bsc-stadtspital-zuerich-52047"
+        "it": "ostetricia-fh-bsc-stadtspital-zurich-zurich",
+        "en": "midwife-fh-bsc-stadtspital-zurich-zurich",
+        "fr": "sage-femme-fh-bsc-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7154,7 +7154,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:28:26.235Z"
+      "firstSeenAt": "2026-10-23T21:28:26.235Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hebamme-fh-bsc-stadtspital-zuerich-52047"
+        ],
+        "en": [
+          "hebamme-fh-bsc-stadtspital-zuerich-52047"
+        ],
+        "fr": [
+          "hebamme-fh-bsc-stadtspital-zuerich-52047"
+        ]
+      },
+      "previousSlugs": [
+        "hebamme-fh-bsc-stadtspital-zuerich-52047"
+      ]
     },
     {
       "id": "stadtspital-zuerich-d4cf7786466d",

@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "en": "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
-        "de": "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel",
+        "de": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
         "fr": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -60,11 +60,12 @@
           "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
         ],
         "de": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+          "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
         ]
       },
       "previousSlugs": [
-        "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+        "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+        "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
       ],
       "firstSeenAt": "2026-08-23T09:42:52.269Z",
       "salaryMin": 109000,
@@ -1042,7 +1043,7 @@
       "slugByLocale": {
         "en": "portfolio-manager-analyst-thematic-equities-jsafrasarasin-ch",
         "it": "portfolio-manager-analyst-thematic-equities-jsafrasarasin-ch",
-        "de": "portfolio-manager-analyst-thematic-equities-jsafrasarasin-ch",
+        "de": "portfolio-manager-analyst-thematische-aktien-j-safra-sarasin-zurich-ch",
         "fr": "portfolio-manager-analyst-thematic-equities-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -1105,12 +1106,12 @@
     },
     {
       "id": "jsafrasarasin-0d6334a9b3c2",
-      "slug": "senior-investment-consultant-jsafrasarasin-ch",
+      "slug": "senior-investment-consulente-j-safra-sarasin-geneva-ch",
       "slugByLocale": {
         "en": "senior-investment-consultant-jsafrasarasin-ch",
-        "it": "senior-investment-consultant-jsafrasarasin-ch",
-        "de": "senior-investment-consultant-jsafrasarasin-ch",
-        "fr": "senior-investment-consultant-jsafrasarasin-ch"
+        "it": "senior-investment-consulente-j-safra-sarasin-geneva-ch",
+        "de": "senior-investment-berater-j-safra-sarasin-geneva-ch",
+        "fr": "consultant-principal-en-investissement-j-safra-sarasin-geneva-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -1168,7 +1169,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-23T21:24:10.799Z"
+      "firstSeenAt": "2026-10-23T21:24:10.799Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-investment-consultant-jsafrasarasin-ch"
+        ],
+        "de": [
+          "senior-investment-consultant-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "senior-investment-consultant-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-investment-consultant-jsafrasarasin-ch"
+      ]
     }
   ]
 }

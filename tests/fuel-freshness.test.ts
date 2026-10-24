@@ -1,0 +1,192 @@
+/**
+ * Freshness of the fuel "oggi" pages.
+ *
+ * 2026-10-17..23: MIMIT stopped answering the runners, the generator bailed
+ * out on the shared Promise.all and threw away the (reachable) TCS prices too,
+ * so every /prezzi-*\/oggi/ title kept «TCS 16.10.2026» for a week while the
+ * workflow stayed green. These tests pin the three pieces of the fix:
+ *  1. an Italian outage degrades the Italian half only (carry-over, dated);
+ *  2. Italian/CH station titles carry the observation day, not the build day;
+ *  3. a freshness gate fails when a source is older than 48h.
+ * All dates are relative to the test clock (no calendar time bombs).
+ */
+import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import {
+  buildDataset,
+  italyByMunicipalityFromDataset,
+  resolveItalySource,
+} from '../scripts/generate-fuel-prices-dataset.mjs';
+import { evaluateFuelFreshness } from '../scripts/check-fuel-freshness.mjs';
+import {
+  generateFuelItalianCityPages,
+  isFuelObservationStale,
+  latestItalianObservationDay,
+} from '../build-plugins/fuelDailyPagesPlugin';
+
+const NOW = new Date();
+const daysAgo = (n: number) => new Date(NOW.getTime() - n * 86_400_000);
+const day = (d: Date) => d.toISOString().slice(0, 10);
+
+const COMO = { name: 'Como', province: 'CO', lat: 45.81, lng: 9.08, distanceKm: 0, fascia: '0-10' };
+
+function previousDataset(snapshotDay: string) {
+  return {
+    generatedAt: `${snapshotDay}T11:00:00.000Z`,
+    sources: { italy: { provider: 'MIMIT Open Data', priceSnapshotDate: snapshotDay } },
+    municipalities: [{
+      municipality: 'Como',
+      province: 'CO',
+      italy: {
+        stationCount: 1,
+        stations: [{ id: '1', stationName: 'Eni Como', brand: 'Eni', address: 'Via Milano 10, 22100 Como', priceEur: 1.759, benzinaUpdatedAt: snapshotDay, isSelf: true }],
+      },
+    }],
+  };
+}
+
+describe('generator: MIMIT outage keeps the Swiss refresh', () => {
+  it('carries the previous Italian snapshot over with its own date', () => {
+    const snapshot = day(daysAgo(7));
+    const result = resolveItalySource({
+      italyResult: { ok: false, error: new Error('fetch failed') },
+      municipalities: [COMO],
+      previousDataset: previousDataset(snapshot),
+    });
+    expect(result.status).toBe('carried-over');
+    expect(result.extractedAt).toBe(snapshot);
+    expect(result.reason).toBe('fetch failed');
+    expect(result.italyByMunicipality.get('Como:CO')?.[0]?.priceEur).toBe(1.759);
+  });
+
+  it('reports unavailable (no invented rows) when nothing can be carried over', () => {
+    const result = resolveItalySource({ italyResult: { ok: false, error: new Error('fetch failed') }, municipalities: [COMO], previousDataset: null });
+    expect(result.status).toBe('unavailable');
+    expect(result.extractedAt).toBeNull();
+    expect(result.italyByMunicipality.size).toBe(0);
+  });
+
+  it('parses a live MIMIT read as before', () => {
+    const today = day(NOW);
+    const result = resolveItalySource({
+      italyResult: {
+        ok: true,
+        pricesText: `Estrazione del ${today}\nidImpianto|descCarburante|prezzo|isSelf|dtComu\n1|Benzina|1.700|1|01/01/2026 08:00:00`,
+        stationsText: `Estrazione del ${today}\nidImpianto|Gestore|Bandiera|Tipo Impianto|Nome Impianto|Indirizzo|Comune|Provincia|Latitudine|Longitudine\n1|G|Eni|Stradale|Eni Como|Via Milano 10|COMO|CO|45.81|9.08`,
+      },
+      municipalities: [COMO],
+      previousDataset: previousDataset(day(daysAgo(7))),
+    });
+    expect(result.status).toBe('live');
+    expect(result.extractedAt).toBe(today);
+  });
+
+  it('labels the published Italian source with its status', () => {
+    const carried = italyByMunicipalityFromDataset(previousDataset(day(daysAgo(3))));
+    const payload = buildDataset({
+      municipalities: [COMO],
+      italyExtractedAt: day(daysAgo(3)),
+      swissStations: [],
+      italyByMunicipality: carried,
+      exchangeRate: { chfPerEur: 1, eurPerChf: 1 },
+      italyStatus: { status: 'carried-over', reason: 'fetch failed' },
+    });
+    expect(payload.sources.italy.status).toBe('carried-over');
+    expect(payload.sources.italy.unavailableReason).toBe('fetch failed');
+    expect(payload.sources.italy.priceSnapshotDate).toBe(day(daysAgo(3)));
+    expect(payload.municipalities[0].italy.minPriceEur).toBe(1.759);
+
+    const live = buildDataset({ municipalities: [COMO], italyExtractedAt: day(NOW), swissStations: [], italyByMunicipality: new Map(), exchangeRate: { chfPerEur: 1, eurPerChf: 1 } });
+    expect(live.sources.italy.status).toBe('live');
+    expect(live.sources.italy).not.toHaveProperty('unavailableReason');
+  });
+});
+
+describe('Italian "oggi" pages print the data day, not the build day', () => {
+  it('latestItalianObservationDay picks the newest dated row for the fuel', () => {
+    const stations = [
+      { priceEur: 1.7, benzinaUpdatedAt: day(daysAgo(5)) },
+      { priceEur: 1.8, benzinaUpdatedAt: day(daysAgo(2)) },
+      { priceEur: 1.9, dieselPriceEur: 1.9, dieselUpdatedAt: day(NOW) },
+    ] as never[];
+    expect(latestItalianObservationDay(stations, 'benzina')).toBe(day(daysAgo(2)));
+    expect(latestItalianObservationDay(stations, 'diesel')).toBe(day(NOW));
+    expect(latestItalianObservationDay([{ priceEur: 1.7 }] as never[], 'benzina')).toBeNull();
+  });
+
+  it('isFuelObservationStale uses a 48h window from the end of the reporting day', () => {
+    expect(isFuelObservationStale(day(NOW), NOW)).toBe(false);
+    expect(isFuelObservationStale(day(daysAgo(1)), NOW)).toBe(false);
+    expect(isFuelObservationStale(day(daysAgo(4)), NOW)).toBe(true);
+    expect(isFuelObservationStale(null, NOW)).toBe(true);
+  });
+
+  it('a week-old MIMIT cut shows its own date in title and a stale note, never the build date', () => {
+    const snapshot = day(daysAgo(7));
+    const pages = generateFuelItalianCityPages({
+      dataset: {
+        generatedAt: NOW.toISOString(),
+        municipalities: [{
+          municipality: 'Como',
+          province: 'CO',
+          italy: { stations: [{ id: '1', stationName: 'Eni Como', brand: 'Eni', address: 'Via Milano 10, 22100 Como', priceEur: 1.759, benzinaUpdatedAt: snapshot, isSelf: true }] },
+          swiss: { nearbyStations: [] },
+        }],
+      } as never,
+      today: NOW,
+    });
+    const html = pages['/prezzi-benzina/italia/como/oggi/'];
+    expect(html).toBeTruthy();
+    const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+    expect(title).toContain(snapshot);
+    expect(title).not.toContain(day(NOW));
+    expect(html).toContain(`Ultimo dato MIMIT disponibile: ${snapshot}`);
+  });
+});
+
+describe('freshness gate (scripts/check-fuel-freshness.mjs)', () => {
+  const fresh = {
+    generatedAt: daysAgo(0.2).toISOString(),
+    sources: {
+      switzerland: { latestObservedUpdate: daysAgo(0.3).toISOString() },
+      italy: { priceSnapshotDate: day(NOW), status: 'live' },
+    },
+  };
+
+  it('passes when every source is within 48h', () => {
+    const verdict = evaluateFuelFreshness({ fuel: fresh, cantons: { generatedAt: daysAgo(0.2).toISOString() }, now: NOW });
+    expect(verdict.ok).toBe(true);
+  });
+
+  it('fails on the 2026-10-23 shape: TCS and MIMIT a week old', () => {
+    const stale = {
+      generatedAt: daysAgo(7).toISOString(),
+      sources: { switzerland: { latestObservedUpdate: daysAgo(7).toISOString() }, italy: { priceSnapshotDate: day(daysAgo(8)) } },
+    };
+    const verdict = evaluateFuelFreshness({ fuel: stale, cantons: { generatedAt: daysAgo(0.5).toISOString() }, now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.checks.filter((c) => c.stale).map((c) => c.key).sort()).toEqual(['generatedAt', 'mimit', 'tcs']);
+  });
+
+  it('fails on a carried-over MIMIT cut once it ages past the window, even with fresh TCS', () => {
+    const fuel = { ...fresh, sources: { ...fresh.sources, italy: { priceSnapshotDate: day(daysAgo(4)), status: 'carried-over' } } };
+    const verdict = evaluateFuelFreshness({ fuel, now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.checks.find((c) => c.key === 'mimit')?.stale).toBe(true);
+    expect(verdict.checks.find((c) => c.key === 'tcs')?.stale).toBe(false);
+  });
+
+  it('treats an undated or missing dataset as stale', () => {
+    expect(evaluateFuelFreshness({ fuel: null, now: NOW }).ok).toBe(false);
+  });
+
+  it('is wired into the daily workflow after the publishing PR, with a stable-title issue and its resolver', () => {
+    const workflow = readFileSync(resolve(import.meta.dirname, '..', '.github/workflows/update-fuel-prices.yml'), 'utf8');
+    expect(workflow).toContain('node scripts/check-fuel-freshness.mjs --max-age-hours 48');
+    expect(workflow.indexOf('Open PR with fuel price cache')).toBeLessThan(workflow.indexOf('Check fuel data freshness (max 48h)'));
+    expect(workflow).toContain("if: steps.fuel_freshness.outcome == 'failure'");
+    expect(workflow).toContain("if: steps.fuel_freshness.outcome == 'success'");
+    expect(workflow.match(/--title "Dati carburante più vecchi di 48 ore \(update-fuel-prices\)"/g)).toHaveLength(2);
+  });
+});

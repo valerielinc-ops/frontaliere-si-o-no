@@ -11136,8 +11136,8 @@
       "slugByLocale": {
         "de": "kv-lehrstelle-efz-privatversicherung-w-m-d-2027-generalagentur-rheintal-helvetia-rebstein",
         "it": "kv-apprendistato-cfc-privatversicherung-m-w-d-2027-agenzia-generale-rheintal-helvetia-versicherungen-rebstein",
-        "en": "kv-lehrstelle-efz-privatversicherung-w-m-d-2027-generalagentur-rheintal-helvetia-rebstein",
-        "fr": "kv-lehrstelle-efz-privatversicherung-w-m-d-2027-generalagentur-rheintal-helvetia-rebstein"
+        "en": "commercial-apprenticeship-efz-in-private-insurance-m-f-d-2027-general-agency-rheintal-helvetia-versicherungen-rebstein",
+        "fr": "place-d-apprentissage-d-employe-e-de-commerce-cfc-en-assurance-privee-h-f-d-2027-agence-generale-rheintal-helvetia"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11185,6 +11185,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kv-lehrstelle-efz-privatversicherung-w-m-d-2027-generalagentur-rheintal-helvetia-rebstein"
+        ],
+        "en": [
+          "kv-lehrstelle-efz-privatversicherung-w-m-d-2027-generalagentur-rheintal-helvetia-rebstein"
+        ],
+        "fr": [
           "kv-lehrstelle-efz-privatversicherung-w-m-d-2027-generalagentur-rheintal-helvetia-rebstein"
         ]
       },

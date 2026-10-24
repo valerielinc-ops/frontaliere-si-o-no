@@ -20,5 +20,25 @@
       "issue": 5222,
       "reason": "Same correction as giura/fr — see that entry. Build emits 1125 files."
     }
+  },
+  "ticino": {
+    "en": {
+      "from": 715704,
+      "min_new": 250000,
+      "issue": 14979,
+      "reason": "Issue #14979 removes the expired soft-landing emitter's 373115 legacy-TI copies from en; run 39917633944 measured 715704 files before the intentional correction, with the expected canton-aware rebuild in the 280000-310000 range and a 250000 safety floor."
+    },
+    "de": {
+      "from": 712044,
+      "min_new": 250000,
+      "issue": 14979,
+      "reason": "Issue #14979 removes the expired soft-landing emitter's 372933 legacy-TI copies from de; run 39917633944 measured 712044 files before the intentional correction, with the expected canton-aware rebuild in the 280000-310000 range and a 250000 safety floor."
+    },
+    "fr": {
+      "from": 712136,
+      "min_new": 250000,
+      "issue": 14979,
+      "reason": "Issue #14979 removes the expired soft-landing emitter's 375766 legacy-TI copies from fr; run 39917633944 measured 712136 files before the intentional correction, with the expected canton-aware rebuild in the 280000-310000 range and a 250000 safety floor."
+    }
   }
 }
