@@ -122,4 +122,60 @@ describe('scatter parity for source-backed multi-location postings', () => {
       passed: false,
     });
   });
+
+  it('allows a stable-key duplicate shadowed by a unique URL owner', () => {
+    const assembled = {
+      url: 'https://jobs.admin.ch/offene-stellen/role/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+      titleByLocale: { it: 'Ruolo' },
+      descriptionByLocale: { it: 'Descrizione' },
+    };
+    const shadow = {
+      url: 'https://jobs.admin.ch/posti-vacanti/role/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+      titleByLocale: { it: 'Ruolo' },
+      descriptionByLocale: { it: 'Descrizione' },
+    };
+    const owner = structuredClone(assembled);
+
+    expect(verifyScatterParity([assembled], [
+      { file: 'confederazione-ticino.json', jobs: [shadow] },
+      { file: 'vtg.json', jobs: [owner] },
+    ])).toMatchObject({
+      duplicateSliceKeys: 0,
+      duplicateAssembledMatches: 0,
+      shadowedSliceMatches: 1,
+      passed: true,
+    });
+  });
+
+  it('does not spend a shadow allowance on a duplicate with another key', () => {
+    const assembled = {
+      id: 'assembled-owner',
+      url: 'https://jobs.admin.ch/offene-stellen/role/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+      titleByLocale: { it: 'Ruolo' },
+      descriptionByLocale: { it: 'Descrizione' },
+    };
+    const owner = {
+      ...structuredClone(assembled),
+      id: 'owner-slice',
+    };
+    const shadow = {
+      ...structuredClone(assembled),
+      id: 'shadow-slice',
+      url: 'https://jobs.admin.ch/posti-vacanti/role/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+    };
+    const duplicateA = { id: 'unrelated-duplicate', url: 'https://example.test/jobs/a' };
+    const duplicateB = { ...duplicateA, url: 'https://example.test/jobs/b' };
+
+    expect(verifyScatterParity([assembled], [
+      { file: 'confederazione-ticino.json', jobs: [shadow] },
+      { file: 'vtg.json', jobs: [owner] },
+      { file: 'other-a.json', jobs: [duplicateA] },
+      { file: 'other-b.json', jobs: [duplicateB] },
+    ])).toMatchObject({
+      duplicateSliceKeys: 1,
+      shadowedSliceMatches: 1,
+      unmatchedSliceJobs: 2,
+      passed: false,
+    });
+  });
 });
