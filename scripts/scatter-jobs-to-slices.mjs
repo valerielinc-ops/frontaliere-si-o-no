@@ -302,8 +302,7 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
 
   const matchedKeys = new Set();
   const assembledMatches = new Map();
-  const sliceKeys = new Set();
-  let rawDuplicateSliceKeys = 0;
+  const sliceKeyCounts = new Map();
   let sliceJobs = 0;
   let unmatchedSliceJobs = 0;
   let missingBridges = 0;
@@ -314,8 +313,7 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
     for (const sliceJob of sliceEntryJobs(entry)) {
       sliceJobs++;
       const sliceKey = resolveJobDiffKey(sliceJob);
-      if (sliceKey && sliceKeys.has(sliceKey)) rawDuplicateSliceKeys++;
-      if (sliceKey) sliceKeys.add(sliceKey);
+      if (sliceKey) sliceKeyCounts.set(sliceKey, (sliceKeyCounts.get(sliceKey) || 0) + 1);
 
       const { job: assembled, kind } = matchAssembledJobWithKind(sliceJob, index);
       if (!assembled) {
@@ -354,6 +352,14 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
   let duplicateAssembledMatches = 0;
   let shadowedSliceMatches = 0;
   let sourceLocationVariantMatches = 0;
+  const safeDuplicateSliceJobsByKey = new Map();
+  const markSafeDuplicateSliceJob = (sliceJob) => {
+    const key = resolveJobDiffKey(sliceJob);
+    if (!key) return;
+    const jobsForKey = safeDuplicateSliceJobsByKey.get(key) || new Set();
+    jobsForKey.add(sliceJob);
+    safeDuplicateSliceJobsByKey.set(key, jobsForKey);
+  };
   for (const [assembled, matches] of assembledMatches) {
     const strongest = Math.max(...matches.map(({ kind }) => MATCH_STRENGTH[kind]));
     const strongestMatches = matches.filter(({ kind }) => MATCH_STRENGTH[kind] === strongest);
@@ -369,18 +375,37 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
         normalizedSourceLocation(sliceJob) === assembledLocation
         || isSourceBackedLocationVariant(sliceJob, assembled)
       ));
-    if (isLocationVariantGroup) sourceLocationVariantMatches += strongestMatches.length - 1;
+    if (isLocationVariantGroup) {
+      sourceLocationVariantMatches += strongestMatches.length - 1;
+      const locationVariantJobsByKey = new Map();
+      for (const match of strongestMatches) {
+        const key = resolveJobDiffKey(match.sliceJob);
+        if (!key) continue;
+        const jobsForKey = locationVariantJobsByKey.get(key) || [];
+        jobsForKey.push(match.sliceJob);
+        locationVariantJobsByKey.set(key, jobsForKey);
+      }
+      for (const jobsForKey of locationVariantJobsByKey.values()) {
+        for (const sliceJob of jobsForKey.slice(1)) markSafeDuplicateSliceJob(sliceJob);
+      }
+    }
     else duplicateAssembledMatches += strongestMatches.length - 1;
     shadowedSliceMatches += matches.length - strongestMatches.length;
+    const strongestKeys = new Set(strongestMatches.map(({ sliceJob }) => resolveJobDiffKey(sliceJob)).filter(Boolean));
+    for (const { kind, sliceJob } of matches) {
+      if (MATCH_STRENGTH[kind] < strongest && strongestKeys.has(resolveJobDiffKey(sliceJob))) {
+        markSafeDuplicateSliceJob(sliceJob);
+      }
+    }
   }
-  // A weaker URL/stable-key match is a legitimate shadow of the unique owner
-  // selected at a stronger match strength. It is the same cross-crawler
-  // duplicate class counted by `shadowedSliceMatches`; leaving it in the raw
-  // key count made the verifier reject an otherwise complete projection.
-  const duplicateSliceKeys = Math.max(
-    0,
-    rawDuplicateSliceKeys - sourceLocationVariantMatches - shadowedSliceMatches,
-  );
+  // Only subtract a duplicate when the exact slice job was proven to be a
+  // shadow/variant of a stronger owner with the SAME resolved key. A global
+  // subtraction would let an unrelated duplicate key consume another class's
+  // allowance and would weaken the parity gate.
+  const duplicateSliceKeys = [...sliceKeyCounts].reduce((total, [key, count]) => {
+    const safeDuplicateCount = safeDuplicateSliceJobsByKey.get(key)?.size || 0;
+    return total + Math.max(0, count - 1 - safeDuplicateCount);
+  }, 0);
 
   const report = {
     assembledJobs: jobs.length,
