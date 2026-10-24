@@ -44,6 +44,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'POST_WALK_INCREMENTAL',
       'POST_WALK_INCREMENTAL_VERIFY',
       'POST_WALK_TARGETED_WALK',
+      'PROFILE_GC_MIN_GROWTH_MB',
       'RELATED_SEARCH_CLUSTERS_NO_CACHE',
       'RELATED_SEARCH_POSTINGS_SPARSE',
       'SEQUENTIAL_PROFILE',
@@ -64,6 +65,24 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       .toBe('${{ inputs.fallback_workers }}');
     expect(inputs.cpu_profile).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.compare_monolith).toMatchObject({ type: 'boolean', default: false });
+    expect(inputs.compare_variants).toMatchObject({ type: 'boolean', default: false });
+    expect(inputs.prep_compare).toMatchObject({ type: 'boolean', default: false });
+  });
+
+  it('pins one build id per run and compares variants against base only when asked', () => {
+    // Without a shared DEPLOY_BUILD_ID each leg stamps its own Date.now(),
+    // so two variants of one commit could never be byte-identical.
+    expect(WORKFLOW.jobs['build-locale'].env.DEPLOY_BUILD_ID).toBe('${{ needs.prep.outputs.build_id }}');
+    expect(WORKFLOW.jobs.prep.outputs.build_id).toBe('${{ steps.build_id.outputs.build_id }}');
+    const job = WORKFLOW.jobs['compare-variants'];
+    expect(job.needs).toEqual(expect.arrayContaining(['matrix-setup', 'build-locale']));
+    expect(String(job.if)).toContain('inputs.compare_variants == true');
+    expect(String(job.if)).toContain("needs.matrix-setup.outputs.variant_count != '1'");
+    const run = String((job.steps as Array<Record<string, any>>).at(-1)?.run);
+    expect(run).toContain('variant-manifest-*-base');
+    expect(run).toContain('compare-dist-manifests.mjs');
+    // A run with nothing to compare must not read as a pass.
+    expect(run).toMatch(/compared" -eq 0[\s\S]*exit 1/u);
   });
 
   it('writes only namespaced chained caches and uses an experiment-only concurrency group', () => {

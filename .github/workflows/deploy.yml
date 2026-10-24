@@ -298,6 +298,15 @@ jobs:
       - name: Install dependencies
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
+      # The thumbnail encoder reads only the checked-out public/images tree and
+      # writes only its thumbnails/ subdirs, which nothing reads before the
+      # snapshot pack: it overlaps the single-threaded dataset steps below
+      # instead of adding its 116 s (deploy 39917633944) to the prep critical
+      # path. The join step sits where the foreground step used to, so every
+      # later step still sees the thumbnails exactly as before, and a failure
+      # still fails the job there (scripts/ci/background-step.sh).
+      - name: Start responsive image thumbnails (background)
+        run: bash scripts/ci/background-step.sh start thumbnails -- node scripts/generate-image-thumbnails.mjs
       - name: Audit no merge conflict markers
         run: npm run audit:no-merge-markers
       - name: Prepare Firebase credentials
@@ -372,8 +381,8 @@ jobs:
         run: node scripts/mine-all-job-slugs.mjs
       - name: Canton-aware migration of slug registry
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
-      - name: Generate responsive image thumbnails
-        run: node scripts/generate-image-thumbnails.mjs
+      - name: Join responsive image thumbnails
+        run: bash scripts/ci/background-step.sh wait thumbnails
       - name: Cleanup stale news sitemap entries
         run: node scripts/cleanup-news-sitemap.mjs
       - name: Generate shared related-search matching summary
@@ -381,7 +390,16 @@ jobs:
           BUILD_PROFILE: '1'
           SEQUENTIAL_PROFILE: '1'
           RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
-          RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
+          # prep is not the memory-bound build: this process peaks at ~3.6 GB
+          # of heap on a 16 GB runner, so the four per-locale postings workers
+          # run at once instead of one after another (350 s serial in deploy
+          # 39917633944). Results are seeded in locale order either way, so
+          # the summary is byte-identical — proved on the bench with
+          # prep_compare (see the PR). The build legs keep 1: there the same
+          # workers would stack on a ~10 GB build heap.
+          RELATED_SEARCH_PREPASS_CONCURRENCY: '4'
+          # Same repository-variable rollout as the build legs below.
+          RELATED_SEARCH_POSTINGS_SPARSE: ${{ vars.RELATED_SEARCH_POSTINGS_SPARSE == '1' && '1' || '' }}
           RELATED_SEARCH_CLUSTERS_SUMMARY_OUT: data/related-search-clusters-summary.json
           NODE_OPTIONS: '--max-old-space-size=14336 --expose-gc'
         run: ./node_modules/.bin/tsx scripts/generate-related-search-clusters-summary.ts
@@ -396,11 +414,16 @@ jobs:
           # is missing on the IT shard (validate-critical-dist-pages fail) and the
           # SPA's /data/jobs.json 404s live. (fuel-prices/health-premiums/etc. are
           # CDN-managed by their own crons, not produced by the deploy.)
-          tar -czf /tmp/prepared-snapshot.tgz \
+          # pigz writes the same gzip format on every core (gzip used one:
+          # 108 s for 833 MB in deploy 39917633944); consumers keep reading a
+          # plain .tgz. gzip stays the fallback if an image ever drops pigz.
+          GZ="$(command -v pigz || command -v gzip)"
+          echo "[prepared-snapshot] compressor=$GZ"
+          tar -I "$GZ" -cf /tmp/prepared-snapshot.tgz \
             data \
             public/data \
             public/images/blog/thumbnails public/images/places/thumbnails 2>/dev/null || \
-            tar -czf /tmp/prepared-snapshot.tgz data public/data
+            tar -I "$GZ" -cf /tmp/prepared-snapshot.tgz data public/data
           ls -lh /tmp/prepared-snapshot.tgz
       - name: Upload prepared snapshot
         uses: actions/upload-artifact@v7
@@ -408,6 +431,8 @@ jobs:
           name: prepared-snapshot
           path: /tmp/prepared-snapshot.tgz
           retention-days: 1
+          # Already gzip: a second deflate pass only costs upload time.
+          compression-level: 0
 
   # ── Matrix build: one runner per locale. IT serves Pages + uploads the same
   # artifacts as the monolith; en/de/fr push to their frontaliere-<loc> shards.
@@ -545,22 +570,30 @@ jobs:
       - name: Record job start (#7106 CDN gate job-deadline safety margin)
         run: echo "CDN_JOB_START_EPOCH=$(date +%s)" >> "$GITHUB_ENV"
 
-      - name: Free disk space (remove unused toolchains)
+      # The removal (80 s in deploy 39917633944) runs detached while checkout,
+      # swap and the snapshot restore proceed: the runner starts with 86 GB
+      # free, those steps need ~10 GB, and the space only matters once the
+      # build writes dist/. "Join disk cleanup" right before the Build step
+      # waits for it and prints the AFTER figure the old step printed. The
+      # script cannot live in the repo: nothing is checked out yet.
+      - name: Free disk space (remove unused toolchains, background)
         shell: bash
         run: |
           echo "::group::Disk usage BEFORE cleanup"
           df -h /
           echo "::endgroup::"
-          sudo rm -rf /usr/local/lib/android &
-          sudo rm -rf /usr/share/dotnet &
-          sudo rm -rf /opt/ghc &
-          sudo rm -rf /usr/local/share/boost &
-          sudo rm -rf /opt/hostedtoolcache/CodeQL &
-          sudo rm -rf /usr/share/swift &
-          wait
-          echo "::group::Disk usage AFTER cleanup"
-          df -h /
-          echo "::endgroup::"
+          rm -f /tmp/free-disk.done
+          nohup bash -c '
+            sudo rm -rf /usr/local/lib/android &
+            sudo rm -rf /usr/share/dotnet &
+            sudo rm -rf /opt/ghc &
+            sudo rm -rf /usr/local/share/boost &
+            sudo rm -rf /opt/hostedtoolcache/CodeQL &
+            sudo rm -rf /usr/share/swift &
+            wait
+            date +%s > /tmp/free-disk.done
+          ' < /dev/null > /tmp/free-disk.log 2>&1 &
+          date +%s > /tmp/free-disk.started
 
       - name: Restore runner CA trust before checkout (#9681)
         shell: bash
@@ -672,7 +705,10 @@ jobs:
       - name: Restore prepared snapshot (data + thumbnails)
         run: |
           set -eo pipefail
-          tar -xzf /tmp/snapshot/prepared-snapshot.tgz -C .
+          # Same gzip stream; pigz decompresses it with separate read, inflate
+          # and write threads (gzip -d did all three on one core).
+          GZ="$(command -v pigz || command -v gzip)"
+          tar -I "$GZ" -xf /tmp/snapshot/prepared-snapshot.tgz -C .
           if [ -f data/jobs.json ]; then
             echo "✓ data/jobs.json restored ($(wc -c < data/jobs.json) bytes)"
           else
@@ -806,10 +842,40 @@ jobs:
             fi
           fi
 
+      - name: Join disk cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Bounded: a removal that never finishes must fail here, before the
+          # build fills the disk, not hang the leg.
+          for _ in $(seq 1 900); do
+            [ -f /tmp/free-disk.done ] && break
+            sleep 1
+          done
+          cat /tmp/free-disk.log 2>/dev/null || true
+          if [ ! -f /tmp/free-disk.done ]; then
+            echo "::error::disk cleanup did not finish within 900 s"
+            exit 1
+          fi
+          echo "[free-disk] cleanup wall_s=$(( $(cat /tmp/free-disk.done) - $(cat /tmp/free-disk.started) )) waited_after_start_s=$(( $(date +%s) - $(cat /tmp/free-disk.started) ))"
+          echo "::group::Disk usage AFTER cleanup"
+          df -h /
+          echo "::endgroup::"
+
       - name: Build (BUILD_LOCALE=${{ matrix.locale }})
         id: build_step
         shell: bash
         env:
+          # Skip the per-plugin `last-resort` GC after a plugin that grew
+          # neither heapUsed nor RSS by 256 MB since the last forced GC
+          # (build-plugins/profilePlugin.ts). Each of those calls cost
+          # 5.8-8.4 s on a 6.4-7.6 GB live heap even after a 0.01 s plugin:
+          # 8.4 min of the IT step and 9.4 of the FR one in deploy 39917633944.
+          # Bench numbers and the byte-identity proof are in the PR body.
+          # Revert trigger: a leg that breaches the memory guard or is
+          # host-killed between two plugins (last `[profile-mem]` line with
+          # `gc=skipped`) → drop this line, the code path reverts to GC-always.
+          PROFILE_GC_MIN_GROWTH_MB: '256'
           # Redundant with the job-level `MALLOC_ARENA_MAX` above, which has
           # been in place since 2026-07-27 — kept only so this step is
           # self-contained if it is ever lifted out. It is NOT the fix for the
