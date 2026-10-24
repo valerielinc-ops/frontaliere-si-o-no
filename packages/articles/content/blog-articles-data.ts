@@ -45846,6 +45846,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'cisl-ricerca-lavoratori-ritiene',
+ category: 'fiscale',
+ date: '2026-10-24T19:06:53.140Z',
+ image: '/images/blog/article-ricerca-cisl-frontalieri-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

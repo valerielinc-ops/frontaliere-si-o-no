@@ -13588,6 +13588,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-24.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.bollettino-frontaliere-2026-10-24.seoDescription': 'Grenzgänger-Bulletin am 24. Oktober 2026: aktuelle Wartezeiten, Benzinpreise, CHF/EUR-Kurs und offene Stellen in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-10-24.ogDescription': 'Die Zahlen vom 24. Oktober 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, wo das Benzin am günstigsten ist, der aktuelle Franken-Euro-Kurs und die Zahl aktiver Stellenanzeigen auf unserem Job-Board in der Schweiz.',
+    'blog.article.cisl-ricerca-lavoratori-ritiene.title': '55,6% der Grenzgänger verdienen weniger als Ansässige',
+    'blog.article.cisl-ricerca-lavoratori-ritiene.excerpt': '55,6% halten ihren eigenen Lohn für niedriger 48,4% melden einen Rückgang der Kaufkraft 73% erklären sich mit der Vergütung zufrieden 1.542 Arbeitnehmer',
+    'blog.article.cisl-ricerca-lavoratori-ritiene.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 834,
-  "generatedAt": "2026-10-24T17:37:01.706Z",
+  "assetCount": 835,
+  "generatedAt": "2026-10-24T19:28:10.755Z",
   "assets": [
     {
       "schema": 1,
@@ -35624,6 +35624,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic, photorealistic transit illustration with no readable text, logos, or people."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-giura-aumento-sussidi-famiglie",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "3d09c444c29c09c94bd65b4e9ab5d01b1cfef4e109423474d4316dcf40381a6c",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "418e26c6895bd366bd08a3c854d640034b4eb15e9a532098498ae4d86912eb48",
+      "bytes": 91240,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-24T18:24:10.180Z",
+      "verifiedAt": "2026-10-24T18:24:32.196Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-giura-aumento-sussidi-famiglie.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic family scene relevant to family support; no readable text, logos, identifiable faces, or specific real event."
       }
     }
   ]

@@ -13591,6 +13591,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-24.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.bollettino-frontaliere-2026-10-24.seoDescription': 'Bulletin frontalier 24 octobre 2026 : attentes aux douanes, prix du carburant, taux CHF/EUR et offres d\'emploi actives en Suisse.',
     'blog.article.bollettino-frontaliere-2026-10-24.ogDescription': 'Les chiffres du 24 octobre 2026 pour les frontaliers : attentes aux douanes, communes où le carburant coûte le moins cher, dernier taux CHF/EUR et offres d\'emploi actives sur notre job board suisse au quotidien.',
+    'blog.article.cisl-ricerca-lavoratori-ritiene.title': '55,6% des frontaliers estiment gagner moins qu\'un Suisse',
+    'blog.article.cisl-ricerca-lavoratori-ritiene.excerpt': '55,6% estime son salaire inférieur 48,4% signale une diminution du pouvoir d’achat 73% se déclare satisfait de sa rémunération 1.542 travailleurs',
+    'blog.article.cisl-ricerca-lavoratori-ritiene.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;
