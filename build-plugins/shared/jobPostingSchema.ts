@@ -857,9 +857,10 @@ export function buildJobPostingFacts(
   opts: BuildJobPostingFactsOptions = {},
 ): JobPostingFacts {
   const companyName = resolveCompanyName(job, locale);
+  const title = resolveTitle(job, locale);
   return {
     baseSalary: resolveBaseSalary(job),
-    employmentType: normaliseEmploymentType([job.employmentType, job.contractType, job.contract], job.title),
+    employmentType: normaliseEmploymentType([job.employmentType, job.contractType, job.contract], title),
     hiringOrganization: buildCompanyOrganization(job, {
       locale,
       baseUrl: opts.baseUrl || CANONICAL_ORIGIN,
