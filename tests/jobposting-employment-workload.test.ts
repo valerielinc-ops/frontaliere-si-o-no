@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { buildJobPostingFacts } from '../build-plugins/shared/jobPostingSchema';
 import { isPartTimeWorkload, workloadPercent } from '../scripts/lib/employment-workload.mjs';
 import { normalizeContract } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { normalizeJobContract } from '../services/jobDataNormalization';
 
 const job = (patch: Record<string, unknown>) => ({
   id: 'x-1',
@@ -30,6 +31,14 @@ describe('JobPosting employmentType', () => {
   it('lets a known contract field win over the title and over an unknown field', () => {
     expect(typeOf({ title: 'Assistent 50%', employmentType: 'FULL_TIME' })).toBe('FULL_TIME');
     expect(typeOf({ title: 'Lernende/r', employmentType: 'OTHER', contractType: 'apprenticeship' })).toBe('INTERN');
+  });
+});
+
+describe('normalizeJobContract workload', () => {
+  it('classifies a workload range by its upper bound and prefers the title', () => {
+    expect(normalizeJobContract('', 'Pflegefachperson 70% - 100%', '')).not.toBe('part-time');
+    expect(normalizeJobContract('', 'Verkäufer/in 60%', '100% Lohnfortzahlung')).toBe('part-time');
+    expect(normalizeJobContract('', 'Koch 100%', 'Teamevents zu 50% bezahlt')).not.toBe('part-time');
   });
 });
 
