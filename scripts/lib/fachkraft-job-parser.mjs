@@ -129,6 +129,10 @@ function raceWithSignal(promise, signal, message) {
   });
 }
 
+function throwIfAborted(signal, message) {
+  if (signal?.aborted) throw signal.reason || abortError(message);
+}
+
 function combineSignals(...signals) {
   const active = signals.filter(Boolean);
   if (active.length === 0) return undefined;
@@ -382,6 +386,7 @@ async function fetchFachkraftPage(
     retryBaseMs: transport.retryBaseMs,
     timeoutMs: transport.requestTimeoutMs,
   });
+  throwIfAborted(signal, `fachkraft ${label} transport aborted`);
   const jinaOptions = {
     timeoutMs: transport.requestTimeoutMs,
     retries: transport.retries,
@@ -399,10 +404,13 @@ async function fetchFachkraftPage(
 
   const rescueWithJina = async (reason) => {
     try {
+      throwIfAborted(signal, `fachkraft ${label} Jina rescue aborted`);
       console.warn(`⚠️ fachkraft ${label} returned ${reason} — trying Jina egress rescue`);
       const rescued = await fetchJinaImpl(url, jinaOptions);
+      throwIfAborted(signal, `fachkraft ${label} Jina rescue aborted`);
       return rescued != null && !looksLikeAntiBotChallenge(rescued) ? rescued : null;
     } catch (error) {
+      if (signal?.aborted) throw signal.reason || error;
       console.warn(`⚠️ fachkraft ${label} Jina rescue failed: ${error?.message || error}`);
       return null;
     }
@@ -443,11 +451,21 @@ async function fetchFachkraftPage(
     && (routeRescueEligible || antiBotResponse);
   if (browserRescueEligible && typeof fetchBrowserImpl === 'function') {
     try {
-      const rendered = await fetchBrowserImpl(url, { timeoutMs: transport.requestTimeoutMs });
+      throwIfAborted(signal, `fachkraft ${label} browser rescue aborted`);
+      const rendered = await raceWithSignal(
+        fetchBrowserImpl(url, {
+          timeoutMs: transport.requestTimeoutMs,
+          signal,
+        }),
+        signal,
+        `fachkraft ${label} browser rescue aborted`,
+      );
+      throwIfAborted(signal, `fachkraft ${label} browser rescue aborted`);
       if (typeof rendered === 'string' && rendered.trim() && !looksLikeAntiBotChallenge(rendered)) {
         return { ...result, ok: true, body: rendered, status: 200, proxiedBy: 'browser' };
       }
     } catch (error) {
+      if (signal?.aborted) throw signal.reason || error;
       console.warn(`⚠️ fachkraft ${label} browser rescue failed: ${error?.message || error}`);
     }
   }

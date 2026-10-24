@@ -33,7 +33,10 @@ function response(url: string, status: number, location: string | null = null, b
 }
 
 describe('prospector public-only polite transport', () => {
-  beforeEach(() => clearPoliteFetchStateForTests());
+  beforeEach(() => {
+    clearPoliteFetchStateForTests();
+    launchChromium.mockReset();
+  });
 
   it('accepts a usable DOM after a non-2xx browser navigation', async () => {
     const html = '<html><body><a href="/jobs/chef-de-partie">Chef de partie</a></body></html>';
@@ -53,6 +56,40 @@ describe('prospector public-only polite transport', () => {
     await expect(fetchHtmlViaBrowser('https://hotelcareer.example/jobs', { attempts: 1 }))
       .resolves.toBe(html);
     expect(page.content).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('aborts browser rescue waits without starting another bounded attempt', async () => {
+    let waitStartedResolve: (() => void) | undefined;
+    const waitStarted = new Promise<void>((resolve) => { waitStartedResolve = resolve; });
+    const page = {
+      goto: vi.fn(async () => ({ ok: () => true, status: () => 200 })),
+      waitForTimeout: vi.fn(() => {
+        waitStartedResolve?.();
+        return new Promise<void>(() => {});
+      }),
+      title: vi.fn(async () => 'unused'),
+      locator: vi.fn(() => ({ textContent: vi.fn(async () => 'unused') })),
+      content: vi.fn(async () => '<html></html>'),
+    };
+    const browser = {
+      newContext: vi.fn(async () => ({ newPage: vi.fn(async () => page) })),
+      close: vi.fn(async () => {}),
+    };
+    launchChromium.mockResolvedValue(browser);
+    const controller = new AbortController();
+    const reason = new Error('fachkraft detail aborted');
+    const rescue = fetchHtmlViaBrowser('https://hotelcareer.example/jobs', {
+      attempts: 3,
+      signal: controller.signal,
+    });
+
+    await waitStarted;
+    controller.abort(reason);
+
+    await expect(rescue).rejects.toBe(reason);
+    expect(page.goto).toHaveBeenCalledOnce();
+    expect(page.waitForTimeout).toHaveBeenCalledOnce();
     expect(browser.close).toHaveBeenCalledOnce();
   });
 

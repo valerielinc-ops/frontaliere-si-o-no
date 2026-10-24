@@ -8,16 +8,17 @@ import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-
 
 const LISTING_URL = 'https://www.fachkraft.ch/stellen/';
 const DETAIL_URL = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+const SECOND_DETAIL_URL = 'https://www.fachkraft.ch/stellen/elektriker-in-luzern-456/';
 const TITLE = 'Polymechaniker/in';
 const DESCRIPTION = Array.from({ length: 55 }, (_, index) => `detail${index + 1}`).join(' ');
 
-const listingHtml = () => `
-  <html><body><div data-count="1"><ul>
-    <li class="ff-job-entry" data-canton="LU">
-      <a href="${DETAIL_URL}">${TITLE}</a>
+const listingHtml = (detailUrls = [DETAIL_URL]) => `
+  <html><body><div data-count="${detailUrls.length}"><ul>
+    ${detailUrls.map((detailUrl) => `<li class="ff-job-entry" data-canton="LU">
+      <a href="${detailUrl}">${TITLE}</a>
       <p class="ff-job-entry__description">Teaser text for the vacancy</p>
       <div class="ff-job-entry__region">Region: Luzern</div>
-    </li>
+    </li>`).join('')}
   </ul></div></body></html>`;
 
 const detailHtml = () => `<html><head><script type="application/ld+json">${JSON.stringify({
@@ -101,9 +102,56 @@ describe('fachkraft crawler transport recovery', () => {
     expect(fetchJinaImpl).toHaveBeenCalledOnce();
     expect(fetchBrowserImpl).toHaveBeenCalledWith(LISTING_URL, expect.objectContaining({
       timeoutMs: runtimeOptions.requestTimeoutMs,
+      signal: expect.any(AbortSignal),
     }));
     expect(snapshot).toHaveLength(1);
     expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+  });
+
+  it('cancels a pending browser rescue on sibling detail abort and preserves its reason', async () => {
+    let browserStartedResolve: (() => void) | undefined;
+    const browserStarted = new Promise<void>((resolve) => { browserStartedResolve = resolve; });
+    let browserAbortReason: unknown;
+    const fetchImpl = vi.fn(async (target: string) => {
+      if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+      if (target === LISTING_URL) return new Response(listingHtml([DETAIL_URL, SECOND_DETAIL_URL]), { status: 200 });
+      if (target === DETAIL_URL) return new Response('blocked by WAF', { status: 406 });
+      if (target === SECOND_DETAIL_URL) {
+        await browserStarted;
+        return new Response('broken detail', { status: 500 });
+      }
+      throw new Error(`unexpected fetch target: ${target}`);
+    });
+    const fetchJinaImpl = vi.fn().mockResolvedValue(null);
+    const fetchBrowserImpl = vi.fn(async (_url: string, { signal }: { signal: AbortSignal }) => {
+      browserStartedResolve?.();
+      return new Promise<string>((_resolve, reject) => {
+        const onAbort = () => {
+          browserAbortReason = signal.reason;
+          reject(signal.reason);
+        };
+        if (signal.aborted) onAbort();
+        else signal.addEventListener('abort', onAbort, { once: true });
+      });
+    });
+
+    let failure: unknown;
+    try {
+      await fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        detailWorkers: 2,
+        fetchImpl,
+        fetchJinaImpl,
+        fetchBrowserImpl,
+      });
+    } catch (error) {
+      failure = error;
+    }
+
+    expect(failure).toBeInstanceOf(Error);
+    expect(failure).toBe(browserAbortReason);
+    expect(fetchBrowserImpl).toHaveBeenCalledOnce();
+    expect(fetchBrowserImpl.mock.calls[0][1].signal).toBeInstanceOf(AbortSignal);
   });
 
   it('keeps an exhausted connection failure classifiable for the standard soft-exit', async () => {
