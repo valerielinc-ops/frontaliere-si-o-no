@@ -2327,8 +2327,8 @@ function updateHreflangTags(
  // Semrush flags empty hreflang codes as conflicts; this guard ensures we
  // never emit one even if `paths` ends up with a missing/empty locale.
  const hreflangEntries = (['it', 'en', 'de', 'fr'] as const)
- .map((lang) => ({ lang, url: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}${querySuffix}` : '' }))
- .filter((h) => h.lang && h.lang.length > 0 && h.url && h.url.length > 0);
+ .map((lang) => ({ lang, href: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}${querySuffix}` : '' }))
+ .filter((h) => h.lang && h.lang.length > 0 && h.href && h.href.length > 0);
 
  // Add x-default (Italian as default)
  const xDefault = {
