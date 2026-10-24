@@ -232,7 +232,13 @@ export function decideHreflangBlock(page, lookup) {
     }
     seenCodes.set(code, member.path ?? member.href);
   }
-  if (seenCodes.size !== MANIFEST_LOCALES.length || MANIFEST_LOCALES.some((locale) => !seenCodes.has(locale))) {
+  // A block is valid only for the complete, exact four-locale contract.  The
+  // size check alone would allow four unknown codes; the explicit membership
+  // checks reject both partial clusters and extra/unknown locale codes.
+  const expectedCodes = new Set(MANIFEST_LOCALES);
+  if (seenCodes.size !== expectedCodes.size
+    || MANIFEST_LOCALES.some((locale) => !seenCodes.has(locale))
+    || [...seenCodes.keys()].some((code) => !expectedCodes.has(code))) {
     return { action: 'strip', reason: 'incomplete-locale-set', xDefault: null, unknown };
   }
   for (const member of page.members) {

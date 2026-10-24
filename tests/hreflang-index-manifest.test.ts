@@ -172,6 +172,11 @@ describe('decideHreflangBlock', () => {
     expect(decideHreflangBlock(partial, eligibleAll)).toMatchObject({ action: 'strip', reason: 'incomplete-locale-set' });
   });
 
+  it('strips a block whose four links contain an unknown locale instead of fr', () => {
+    const foreign = classifyHreflangPage(page('/a/', clusterFor({ it: 'a', en: 'a-en', de: 'a-de', es: 'a-es' })), '/a');
+    expect(decideHreflangBlock(foreign, eligibleAll)).toMatchObject({ action: 'strip', reason: 'incomplete-locale-set' });
+  });
+
   it('does not judge members without a manifest or served outside this build', () => {
     const d = decideHreflangBlock(self, (l) => (l === 'it' ? eligibleAll() : { status: 'unknown' as const, reason: `no-manifest-${l}` }));
     expect(d.action).toBe('keep');

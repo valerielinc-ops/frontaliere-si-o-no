@@ -1163,6 +1163,44 @@ jobs:
           path: .cache/hreflang-index-manifest/fr.json
           key: hreflang-index-manifest-fr-${{ github.run_id }}-${{ github.run_attempt }}
 
+      # `actions/cache/restore` is deliberately allowed to be a no-op on a
+      # miss.  Verify the files and their envelope before the rewrite pass so
+      # a missing, truncated, or foreign manifest cannot be interpreted as an
+      # unknown member and let one shard publish a different graph.
+      - name: Verify same-run hreflang manifests after restore
+        id: verify-hreflang-index-manifest
+        shell: bash
+        env:
+          HREFlANG_BUILD_LOCALE: ${{ matrix.locale }}
+          HREFlANG_RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          for locale in it en de fr; do
+            if [[ "$locale" == "$HREFlANG_BUILD_LOCALE" ]]; then
+              continue
+            fi
+            file=".cache/hreflang-index-manifest/${locale}.json"
+            if [[ ! -s "$file" ]]; then
+              echo "::error::same-run hreflang manifest missing after restore: ${locale}"
+              exit 1
+            fi
+            node --input-type=module - "$file" "$locale" "$HREFlANG_RUN_ID" <<'NODE'
+          import fs from 'node:fs';
+          import { parseHreflangManifest } from './scripts/lib/hreflang-index-manifest.mjs';
+
+          const [file, locale, expectedRunId] = process.argv.slice(2);
+          const parsed = parseHreflangManifest(fs.readFileSync(file, 'utf8'), locale);
+          if ('error' in parsed) {
+            console.error(`::error::invalid same-run hreflang manifest ${locale}: ${parsed.error}`);
+            process.exit(1);
+          }
+          if (!parsed.runId || parsed.runId !== expectedRunId) {
+            console.error(`::error::foreign same-run hreflang manifest ${locale}: runId=${parsed.runId || '<missing>'}, expected=${expectedRunId}`);
+            process.exit(1);
+          }
+          NODE
+          done
+
       # Every decision is taken before the first rename. A read, write or
       # rename failure aborts this leg before packing/publishing and the script
       # restores any files moved before the failure.
