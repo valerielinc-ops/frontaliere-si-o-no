@@ -27,7 +27,7 @@ name: Campaign Goal Check
 on:
   schedule:
     # Weekly: Sunday 05:37 UTC — clear of the other Sunday crons
-    # (monitor-gsc-seo.yml 15:00, monitor-seo-ctr-by-template.yml 16:00).
+    # (monitor-gsc-seo.yml daily 08:20, monitor-seo-ctr-by-template.yml 16:00).
     - cron: '37 5 * * 0'
   workflow_dispatch: {}
 

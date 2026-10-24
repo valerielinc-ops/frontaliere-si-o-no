@@ -209,8 +209,6 @@
       "jobReqId": "19181",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-23T21:20:51.203Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -223,7 +221,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-23T21:20:51.203Z"
     },
     {
       "id": "kuehne-nagel-305ddb6f1fdc",

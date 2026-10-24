@@ -167,6 +167,15 @@ const GENERIC_TENANT_LABELS = new Set([
   'stellen', 'www',
 ]);
 
+// The Brefis vacancy index exposes a bounded multi-page listing and a declared
+// total. Keep this source contract in the generator: the cron rewrites the
+// promoted spec, so editing the generated JSON would only fix one run.
+const BREFISPERSONAL_PAGINATION = Object.freeze({
+  maxPages: 10,
+  declaredTotalPattern: "Offene\\s+Stellen(?:\\s|&nbsp;|<[^>]+>)*([\\d'’.,]+)",
+  minCoverage: 0.95,
+});
+
 /**
  * Turn a candidate-provided identity into the key form used by crawler files.
  * Keeping the normalization in one place matters here: whitespace and names
@@ -410,13 +419,20 @@ export async function synthesizeSpec(candidate, runtime = {}) {
   const inferredPlatform = candidate.selfHosted === undefined
     ? (hostDomain === employerDomain ? '' : hostDomain)
     : (candidate.selfHosted === false && hostDomain !== employerDomain ? hostDomain : '');
+  const companyKey = crawlerKeyFor(candidate);
+  const candidateName = String(candidate.name || '').toLowerCase();
+  const isBrefispersonal = companyKey === 'brefispersonal'
+    || (hostDomain === 'brefis.ch' && /\bbrefis\s+personal\b/.test(candidateName));
+  const pagination = isBrefispersonal && hostDomain === 'brefis.ch'
+    ? { ...BREFISPERSONAL_PAGINATION }
+    : undefined;
   const listingNeedsDetail = vacancies.some(
     (vacancy) => !resolveDetailOrListingSwissGeography({}, vacancy).geography
       || !isSufficientVacancyDescription(vacancy.description),
   );
   /** @type {CrawlerSpec} */
   const spec = {
-    companyKey: crawlerKeyFor(candidate),
+    companyKey,
     companyName: candidate.name || tenantLabel(host) || host,
     companyHost: host,
     platform: candidate.platform || inferredPlatform,
@@ -425,6 +441,7 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     detailTemplate: commonUrlTemplate(vacancies.map((v) => v.url)) || undefined,
     detailEnrichment: via === 'template' || listingNeedsDetail,
     detailFetchWorkers: 4,
+    pagination,
     sampleVacancyCount: vacancies.length,
     sampleTitles: vacancies.slice(0, 5).map((v) => v.title),
     canton: candidate.canton || undefined,

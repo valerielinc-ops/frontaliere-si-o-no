@@ -36,17 +36,27 @@ import { stripMarkdownPlain } from './stripMarkdownPlain';
  */
 export const ARTICLE_META_DESCRIPTION_MIN_CHARS = 120;
 
-const TERMINAL_RX = /[.!?…]$/;
+const TERMINAL_RX = /[.!?…](?:[\p{Pe}\p{Pf}"'»”’])*$/u;
+const SENTENCE_BOUNDARY_RX = /[.!?…](?:[\p{Pe}\p{Pf}"'»”’])*(?=\s+(?=[\p{Lu}\p{N}«"“'])|$)/gu;
 const MIN_SENTENCE_CHARS = 30;
 
 /** Split plain text into sentences that end with terminal punctuation. */
 export function splitSentences(text: string): string[] {
   const normalized = String(text ?? '').replace(/\s+/g, ' ').trim();
   if (!normalized) return [];
-  // A terminal mark followed by space + an uppercase/digit/quote start. Keeps
-  // decimals ("1.584,70"), abbreviations before lowercase and "0.5%" intact.
-  const parts = normalized.split(/(?<=[.!?…])\s+(?=[\p{Lu}\p{N}«"“'])/u);
-  return parts.map((p) => p.trim()).filter(Boolean);
+  // A terminal mark (and any closing punctuation) followed by space + an
+  // uppercase/digit/quote start. Keeps decimals ("1.584,70"), abbreviations
+  // before lowercase and "0.5%" intact, while consuming wrappers such as
+  // ").", "]" and typographic closing quotes with the sentence.
+  const parts: string[] = [];
+  let start = 0;
+  for (const match of normalized.matchAll(SENTENCE_BOUNDARY_RX)) {
+    const end = (match.index ?? 0) + match[0].length;
+    parts.push(normalized.slice(start, end).trim());
+    start = end;
+  }
+  if (start < normalized.length) parts.push(normalized.slice(start).trim());
+  return parts.filter(Boolean);
 }
 
 const normalizeForCompare = (s: string): string =>
@@ -104,7 +114,9 @@ export function composeArticleMetaDescription(
       if (next.length > max) break;
       acc = next;
     }
-    return acc.length >= min && TERMINAL_RX.test(acc) ? acc : base;
+    // If no prefix reaches the floor, keep the best complete prefix rather
+    // than handing the over-budget base to the final word clamp mid-sentence.
+    return acc && TERMINAL_RX.test(acc) ? acc : base;
   }
   if (base.length >= min) return base;
 

@@ -2496,7 +2496,7 @@
       "slug": "farmacista-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "farmacista-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "apothekerin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
         "de": "apothekerin-w-m-80-kispi-zurich-zurich",
         "fr": "pharmacie-h-f-80-universitats-kinderspital-zurich-kispi-zurich"
       },
@@ -2544,7 +2544,7 @@
       "previousSlugs": [
         "apothekerin-w-m-80-universitats-kinderspital-zurich-kispi-zurich",
         "apothekerin-w-m-80-kispi-zurich-zurich",
-        "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
+        "apothekerin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2552,7 +2552,7 @@
         ],
         "en": [
           "apothekerin-w-m-80-universitats-kinderspital-zurich-kispi-zurich",
-          "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
+          "apothekerin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-09-21T15:55:31.358Z",
@@ -3278,7 +3278,7 @@
       "slug": "pratica-esperto-esperto-di-cura-50-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "pratica-esperto-esperto-di-cura-50-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "pflegeexpertin-pflegeexperte-praxis-50-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "nursing-expert-nursing-expert-practice-50-universitats-kinderspital-zurich-kispi-zurich",
         "de": "pflegeexpertin-pflegeexperte-praxis-50-kispi-zurich-zurich",
         "fr": "expert-en-soins-pratique-expert-en-soins-50-universitats-kinderspital-zurich-kispi-zurich"
       },
@@ -3327,7 +3327,7 @@
       "previousSlugs": [
         "care-expert-care-expert-practice-50-universitats-kinderspital-zurich-kispi-zurich",
         "pflegeexpertin-pflegeexperte-praxis-50-kispi-zurich-zurich",
-        "nursing-expert-nursing-expert-practice-50-universitats-kinderspital-zurich-kispi-zurich"
+        "pflegeexpertin-pflegeexperte-praxis-50-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3335,7 +3335,7 @@
         ],
         "en": [
           "care-expert-care-expert-practice-50-universitats-kinderspital-zurich-kispi-zurich",
-          "nursing-expert-nursing-expert-practice-50-universitats-kinderspital-zurich-kispi-zurich"
+          "pflegeexpertin-pflegeexperte-praxis-50-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "salaryMin": 45800,
@@ -3439,7 +3439,7 @@
       "slug": "insegnante-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "insegnante-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "lehrperson-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "teacher-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
         "de": "lehrperson-m-w-80-kispi-zurich-zurich",
         "fr": "professeur-h-f-80-universitats-kinderspital-zurich-kispi-zurich"
       },
@@ -3488,7 +3488,7 @@
       "previousSlugs": [
         "lehrperson-m-w-80-kispi-zurich-zurich",
         "lehrperson-m-w-80-universitats-kinderspital-zurich-kispi-zurich",
-        "teacher-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
+        "lehrperson-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3496,7 +3496,7 @@
         ],
         "en": [
           "lehrperson-m-w-80-universitats-kinderspital-zurich-kispi-zurich",
-          "teacher-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
+          "lehrperson-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-10-06T21:14:56.019Z",
@@ -4240,12 +4240,12 @@
     },
     {
       "id": "kispi-zurich-8529b2a552df",
-      "slug": "pflegeexpertin-praxis-m-w-10-kispi-zurich-zurich",
+      "slug": "pratica-esperta-di-cura-m-f-10-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "pflegeexpertin-praxis-m-w-10-kispi-zurich-zurich",
-        "it": "pflegeexpertin-praxis-m-w-10-kispi-zurich-zurich",
-        "en": "pflegeexpertin-praxis-m-w-10-kispi-zurich-zurich",
-        "fr": "pflegeexpertin-praxis-m-w-10-kispi-zurich-zurich"
+        "it": "pratica-esperta-di-cura-m-f-10-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "care-expert-practice-m-f-10-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "pratique-experte-en-soins-h-f-10-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -4253,18 +4253,17 @@
       "title": "Pflegeexpertin Praxis (m/w) 10%",
       "titleByLocale": {
         "de": "Pflegeexpertin Praxis (m/w) 10%",
-        "en": "Pflegeexpertin Praxis (m/w) 10%",
-        "it": "Pflegeexpertin Praxis (m/w) 10%",
-        "fr": "Pflegeexpertin Praxis (m/w) 10%"
+        "en": "Care expert practice (m/f) 10%",
+        "it": "Pratica esperta di cura (m/f) 10%",
+        "fr": "Pratique experte en soins (h/f) 10%"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.10.2026\n\nauf der Intensivstation in Kombination mit einer Anstellung auf der IPS\n\nDeine Aufgaben\n• Du betreust Patienten und Patientinnen sowie deren Familien insbesondere in komplexen Situationen.\n• Du trägst die Fachverantwortung der Pflege und stellst die Pflegequalität mit der Leitung Pflege und dem Führungsteam sicher.\n• Du arbeitest in der klinischen Weiterentwicklung der evidenzbasierten Pflege mit.\n• Du unterstützt und berätst die Pflegefachpersonen der Station.\n\nDein Profil\n• Nachdiplomstudium in Intensivpflege mit Fachexpertise im interdisziplinären Bereich von Vorteil\n• Fachweiterbildung auf CAS-Niveau oder die Bereitschaft diese zu absolvieren\n• Leadership-Fähigkeiten\n\nAndrea Elsmann Senior HR Business Partner +41 44 249 23 06\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.10.2026\n\nauf der Intensivstation in Kombination mit einer Anstellung auf der IPS\n\nDeine Aufgaben\n• Du betreust Patienten und Patientinnen sowie deren Familien insbesondere in komplexen Situationen.\n• Du trägst die Fachverantwortung der Pflege und stellst die Pflegequalität mit der Leitung Pflege und dem Führungsteam sicher.\n• Du arbeitest in der klinischen Weiterentwicklung der evidenzbasierten Pflege mit.\n• Du unterstützt und berätst die Pflegefachpersonen der Station.\n\nDein Profil\n• Nachdiplomstudium in Intensivpflege mit Fachexpertise im interdisziplinären Bereich von Vorteil\n• Fachweiterbildung auf CAS-Niveau oder die Bereitschaft diese zu absolvieren\n• Leadership-Fähigkeiten\n\nAndrea Elsmann Senior HR Business Partner +41 44 249 23 06\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
-        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.10.2026\n\nauf der Intensivstation in Kombination mit einer Anstellung auf der IPS\n\nDeine Aufgaben\n• Du betreust Patienten und Patientinnen sowie deren Familien insbesondere in komplexen Situationen.\n• Du trägst die Fachverantwortung der Pflege und stellst die Pflegequalität mit der Leitung Pflege und dem Führungsteam sicher.\n• Du arbeitest in der klinischen Weiterentwicklung der evidenzbasierten Pflege mit.\n• Du unterstützt und berätst die Pflegefachpersonen der Station.\n\nDein Profil\n• Nachdiplomstudium in Intensivpflege mit Fachexpertise im interdisziplinären Bereich von Vorteil\n• Fachweiterbildung auf CAS-Niveau oder die Bereitschaft diese zu absolvieren\n• Leadership-Fähigkeiten\n\nAndrea Elsmann Senior HR Business Partner +41 44 249 23 06\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
-        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.10.2026\n\nauf der Intensivstation in Kombination mit einer Anstellung auf der IPS\n\nDeine Aufgaben\n• Du betreust Patienten und Patientinnen sowie deren Familien insbesondere in komplexen Situationen.\n• Du trägst die Fachverantwortung der Pflege und stellst die Pflegequalität mit der Leitung Pflege und dem Führungsteam sicher.\n• Du arbeitest in der klinischen Weiterentwicklung der evidenzbasierten Pflege mit.\n• Du unterstützt und berätst die Pflegefachpersonen der Station.\n\nDein Profil\n• Nachdiplomstudium in Intensivpflege mit Fachexpertise im interdisziplinären Bereich von Vorteil\n• Fachweiterbildung auf CAS-Niveau oder die Bereitschaft diese zu absolvieren\n• Leadership-Fähigkeiten\n\nAndrea Elsmann Senior HR Business Partner +41 44 249 23 06\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
-        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.10.2026\n\nauf der Intensivstation in Kombination mit einer Anstellung auf der IPS\n\nDeine Aufgaben\n• Du betreust Patienten und Patientinnen sowie deren Familien insbesondere in komplexen Situationen.\n• Du trägst die Fachverantwortung der Pflege und stellst die Pflegequalität mit der Leitung Pflege und dem Führungsteam sicher.\n• Du arbeitest in der klinischen Weiterentwicklung der evidenzbasierten Pflege mit.\n• Du unterstützt und berätst die Pflegefachpersonen der Station.\n\nDein Profil\n• Nachdiplomstudium in Intensivpflege mit Fachexpertise im interdisziplinären Bereich von Vorteil\n• Fachweiterbildung auf CAS-Niveau oder die Bereitschaft diese zu absolvieren\n• Leadership-Fähigkeiten\n\nAndrea Elsmann Senior HR Business Partner +41 44 249 23 06\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
+        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 22.10.2026\n\nnell'unità di assistenza intensiva in combinazione con l'occupazione presso l'IPS\n\nI tuoi compiti\n• Ti preoccupi per i pazienti e le loro famiglie, soprattutto in situazioni complesse.\n• Si assume la responsabilità professionale di cura e garantire la qualità della cura con la gestione e il team di gestione.\n• Lavori nello sviluppo clinico della cura basata sulle prove.\n• Lei sostiene e consiglia le infermiere della stazione.\n\nIl tuo profilo\n• Studi post-laurea in terapia intensiva con competenze specialistiche nel campo interdisciplinare di vantaggio\n• Formazione professionale a livello CAS o la volontà di completarlo\n• Capacità di leadership\n\nAndrea Elsmann Senior HR Business Partner +41 44 249 23 06\n\nhttp://www.kispi.uzh.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro",
+        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 22.10.2026\n\nin the intensive care unit in combination with employment at the IPS\n\nYour tasks\n• You care for patients and their families, especially in complex situations.\n• You carry the professional responsibility of care and ensure the quality of care with the management care and the management team.\n• You work in the clinical development of evidence-based care.\n• You support and advise the nurses of the station.\n\nYour profile\n• Postgraduate studies in intensive care with specialist expertise in the interdisciplinary field of advantage\n• Professional training at CAS level or the willingness to complete it\n• Leadership skills\n\nAndrea Elsmann Senior HR Business Partner +41 44 249 23 06\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nBack",
+        "fr": "L'hôpital des enfants Zurich Eleonorenstiftung en ligne depuis : 22.10.2026\n\ndans l'unité de soins intensifs en combinaison avec l'emploi à l'IPS\n\nVos tâches\n• Vous prenez soin des patients et de leur famille, surtout dans des situations complexes.\n• Vous assumez la responsabilité professionnelle des soins et assurez la qualité des soins avec les soins de gestion et l'équipe de gestion.\n• Vous travaillez dans le développement clinique de soins fondés sur des preuves.\n• Vous aidez et conseillez les infirmières du poste.\n\nVotre profil\n• Études supérieures en soins intensifs avec une expertise spécialisée dans le domaine interdisciplinaire d'avantage\n• Formation professionnelle au niveau CAS ou la volonté de la compléter\n• Compétences en leadership\n\nAndrea Elsmann Senior HR Business Partner +41 44 249 23 06\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent"
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3769/Description/1",
@@ -4304,7 +4303,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-24T09:17:42.781Z"
+      "firstSeenAt": "2026-10-24T09:17:42.781Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-praxis-m-w-10-kispi-zurich-zurich"
+        ],
+        "en": [
+          "pflegeexpertin-praxis-m-w-10-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "pflegeexpertin-praxis-m-w-10-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-praxis-m-w-10-kispi-zurich-zurich"
+      ]
     }
   ]
 }

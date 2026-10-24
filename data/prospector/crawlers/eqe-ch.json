@@ -1,0 +1,21 @@
+{
+  "companyKey": "eqe-ch",
+  "companyName": "eqe AG",
+  "companyHost": "eqe.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://eqe.ch/unternehmen-2/karriere"
+  ],
+  "detailTemplate": "/unternehmen-2/offene-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Ingenieur/Techniker im Maschinenbau / Anlagenbau - w / m / d (Pensum 80 % - 100 %) Mehr erfahren",
+    "Anlagen- und Apparatebauer / Schweisser - w / m / d (Pensum 100 %) Mehr erfahren"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-24T10:49:36.423Z"
+}

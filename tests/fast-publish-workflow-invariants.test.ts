@@ -230,6 +230,15 @@ describe('push-article-shard-incremental.sh invariants', () => {
     expect(cloneAt, 'the shard clone call is missing').toBeGreaterThan(gateAt);
     expect(script.slice(gateAt, cloneAt)).toContain('cdn_gate_args');
   });
+
+  it('anchors owner resolution to the script and fails closed on missing provisioning', () => {
+    expect(script).toContain('script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"');
+    expect(script).toContain('repo_root="$(cd -- "$script_dir/../.." && pwd)"');
+    expect(script).toContain(`jq -er --arg s "$section" '.[$s] | select(type == "string" and length > 0)'`);
+    expect(script).not.toContain('|| echo valerielinc-ops');
+    expect(script).toContain('cannot publish $loc $section article fast-path shard');
+    expect(script).toContain('exit 1');
+  });
 });
 
 describe('wait-for-live-article-shards.mjs invariants', () => {

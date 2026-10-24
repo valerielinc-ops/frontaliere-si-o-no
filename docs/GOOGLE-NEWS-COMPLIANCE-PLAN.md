@@ -664,6 +664,15 @@ CSS: `.ad-label` distinguibile, contrasto 4.5:1, font-size 12px.
 
 #### C1 — Filtra news sitemap per topic frontaliere
 
+> **Superato il 2026-10-24.** Il filtro tematico è stato rimosso dalla news
+> sitemap: insieme all'emettitore del corpus (`frontaliere-articles`
+> `scripts/build-api.mjs`, solo IT) l'aveva ridotta a 7 URL italiani su un
+> corpus che pubblica ogni giorno in quattro lingue, e Discover/News portavano
+> 0 clic. La regola di Google News è «articoli pubblicati negli ultimi due
+> giorni»: oggi la sitemap contiene tutte le pagine (it/en/de/fr) degli articoli
+> nella finestra di 48h (`isWithinNewsWindow` in `data/news-sitemap-whitelist.ts`),
+> senza filtro di topic. La sezione sotto resta come storia della decisione.
+
 **File**: `scripts/cleanup-news-sitemap.mjs`
 
 **Whitelist topic** (case-insensitive su `articleSection`, slug, tag):

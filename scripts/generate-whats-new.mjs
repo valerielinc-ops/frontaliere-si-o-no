@@ -26,10 +26,10 @@ const ROOT = resolve(__dirname, '..');
 const PENDING_FILE = resolve(ROOT, 'data/pending-releases.json');
 const WHATS_NEW_FILE = resolve(ROOT, 'components/community/WhatsNewModal.tsx');
 const LOCALE_FILES = {
-  it: resolve(ROOT, 'services/locales/it-core.ts'),
-  en: resolve(ROOT, 'services/locales/en-core.ts'),
-  de: resolve(ROOT, 'services/locales/de-core.ts'),
-  fr: resolve(ROOT, 'services/locales/fr-core.ts'),
+  it: resolve(ROOT, 'services/locales/it-whatsnew.ts'),
+  en: resolve(ROOT, 'services/locales/en-whatsnew.ts'),
+  de: resolve(ROOT, 'services/locales/de-whatsnew.ts'),
+  fr: resolve(ROOT, 'services/locales/fr-whatsnew.ts'),
 };
 
 const applyMode = process.argv.includes('--apply');
@@ -394,9 +394,9 @@ if (applyMode) {
         `${keysBlock}\n$1`
       );
       writeFileSync(localeFile, content);
-      console.log(`   ✅ ${locale}-core.ts updated (${Object.keys(keys).length} keys)`);
+      console.log(`   ✅ ${locale}-whatsnew.ts updated (${Object.keys(keys).length} keys)`);
     } else {
-      console.error(`   ⚠️  No existing whatsNew keys in ${locale}-core.ts — skipping`);
+      console.error(`   ⚠️  No existing whatsNew keys in ${locale}-whatsnew.ts — skipping`);
     }
   }
 

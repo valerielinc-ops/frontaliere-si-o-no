@@ -46,45 +46,33 @@ describe('AI SEO P0: Dataset date provenance', () => {
   });
 });
 
-describe('AI SEO P0: ClaimReview schema validity (AE-8)', () => {
-  it('every ClaimReview has url, claimReviewed, author.url, itemReviewed.author, reviewRating + datePublished', async () => {
+describe('AI SEO P0: no ClaimReview on our own claims', () => {
+  // ClaimReview is fact-check markup for third-party claims reviewed by an
+  // independent fact-checker. Ours rated our own paraphrases of "common
+  // opinion" with an in-house verdict: Google's ClaimReview policy excludes
+  // self-review. Removed in the E-E-A-T P0 cleanup; this keeps it out.
+  it('seo-pages structured data emits no ClaimReview', async () => {
     const mod = await import('../services/seo/seo-pages.ts');
     const metadata = (mod as Record<string, unknown>).default ?? Object.values(mod).find(v => typeof v === 'object' && v !== null && !Array.isArray(v));
-    if (!metadata || typeof metadata !== 'object') return;
+    expect(metadata && typeof metadata === 'object').toBe(true);
 
-    type ClaimReviewShape = {
-      '@type': 'ClaimReview';
-      url?: unknown;
-      claimReviewed?: unknown;
-      datePublished?: unknown;
-      author?: { url?: unknown } | unknown;
-      reviewRating?: { ratingValue?: unknown } | unknown;
-      itemReviewed?: { author?: unknown } | unknown;
-    };
-
-    let reviewed = 0;
+    const offenders: string[] = [];
     for (const [key, entry] of Object.entries(metadata as Record<string, { structuredData?: Record<string, unknown> | Record<string, unknown>[] }>)) {
       const sd = entry.structuredData;
       if (!sd) continue;
       const schemas = Array.isArray(sd) ? sd : [sd];
       for (const schema of schemas) {
-        if (schema['@type'] !== 'ClaimReview') continue;
-        const cr = schema as ClaimReviewShape;
-        expect(cr.url, `ClaimReview in "${key}" missing url`).toBeTruthy();
-        expect(cr.claimReviewed, `ClaimReview in "${key}" missing claimReviewed`).toBeTruthy();
-        expect(cr.datePublished, `ClaimReview in "${key}" missing datePublished`).toBeTruthy();
-        expect(cr.author, `ClaimReview in "${key}" missing author`).toBeDefined();
-        expect((cr.author as { url?: unknown })?.url, `ClaimReview in "${key}" author.url must be set`).toBeTruthy();
-        expect(cr.reviewRating, `ClaimReview in "${key}" missing reviewRating`).toBeDefined();
-        expect((cr.reviewRating as { ratingValue?: unknown })?.ratingValue, `ClaimReview in "${key}" reviewRating.ratingValue missing`).toBeTruthy();
-        expect(cr.itemReviewed, `ClaimReview in "${key}" missing itemReviewed`).toBeDefined();
-        expect((cr.itemReviewed as { author?: unknown })?.author, `ClaimReview in "${key}" itemReviewed.author missing`).toBeDefined();
-        reviewed += 1;
+        if (schema['@type'] === 'ClaimReview') offenders.push(key);
       }
     }
+    expect(offenders).toEqual([]);
+  });
 
-    // AE-8 target: at least 10 ClaimReview entries across the site.
-    expect(reviewed, 'AE-8 target: at least 10 ClaimReview JSON-LD entries shipped').toBeGreaterThanOrEqual(10);
+  it('homepage isBasedOn cites no GovernmentService as a source', async () => {
+    const { readFileSync } = await import('node:fs');
+    const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+    expect(html).not.toContain('"GovernmentService"');
+    expect(html).not.toContain('"ClaimReview"');
   });
 });
 

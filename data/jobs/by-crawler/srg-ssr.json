@@ -2914,7 +2914,7 @@
         "it": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano",
         "en": "a-a-specialist-in-research-and-analysis-of-audience-data-srg-ssr-lugano",
         "de": "a-ein-spezialist-fur-forschung-und-analyse-von-publikumsdaten-srg-ssr-lugano",
-        "fr": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano"
+        "fr": "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2972,14 +2972,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-10-22T09:14:31.160Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-      ],
       "salaryMin": 50500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -3096,9 +3088,9 @@
     },
     {
       "id": "srg-ssr-a386e2fe59eb",
-      "slug": "consiglio-di-amministrazione-srg-deutschschweiz-srg-ssr-zurich",
+      "slug": "presidenza-del-consiglio-del-pubblico-della-srg-svizzera-tedesca-srg-ssr-zurich",
       "slugByLocale": {
-        "it": "consiglio-di-amministrazione-srg-deutschschweiz-srg-ssr-zurich",
+        "it": "presidenza-del-consiglio-del-pubblico-della-srg-svizzera-tedesca-srg-ssr-zurich",
         "en": "chair-of-the-srg-german-speaking-switzerland-audience-council-srg-ssr-zurich",
         "de": "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
         "fr": "presidence-du-conseil-du-public-srg-suisse-alemanique-srg-ssr-zurich"
@@ -3108,7 +3100,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Präsidium Publikumsrat SRG Deutschschweiz",
       "titleByLocale": {
-        "it": "Consiglio di Amministrazione SRG Deutschschweiz",
+        "it": "Presidenza del Consiglio del pubblico della SRG Svizzera tedesca",
         "en": "Chair of the SRG German-speaking Switzerland Audience Council",
         "de": "Präsidium Publikumsrat SRG Deutschschweiz",
         "fr": "Présidence du Conseil du public SRG Suisse alémanique"
@@ -3157,11 +3149,13 @@
         "pensumMax": 30
       },
       "previousSlugs": [
-        "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+        "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
+        "consiglio-di-amministrazione-srg-deutschschweiz-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+          "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
+          "consiglio-di-amministrazione-srg-deutschschweiz-srg-ssr-zurich"
         ],
         "en": [
           "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
@@ -3170,7 +3164,6 @@
           "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-23T21:10:49.732Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3263,7 +3256,6 @@
           "ordentliches-mitglied-leitungsteam-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-23T21:10:49.197Z",
       "salaryMin": 73500,
       "salaryMax": 111500,

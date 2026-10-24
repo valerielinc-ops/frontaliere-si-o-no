@@ -23,9 +23,10 @@ import { realpathSync } from 'node:fs';
  * Safe to run before `dist/` is built — emits an empty stub and exits 0.
  */
 
-import { readdirSync, readFileSync, statSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { walkHtml } from './lib/walk-html.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = resolve(__dirname, '..', '..');
@@ -43,30 +44,6 @@ function parseArgs(argv) {
   return args;
 }
 
-function walkHtml(dir) {
-  if (!existsSync(dir)) return [];
-  const out = [];
-  const stack = [dir];
-  while (stack.length) {
-    const cur = stack.pop();
-    let entries;
-    try {
-      entries = readdirSync(cur, { withFileTypes: true });
-    } catch {
-      continue;
-    }
-    for (const e of entries) {
-      const full = join(cur, e.name);
-      if (e.isDirectory()) {
-        if (e.name === 'assets' || e.name === 'node_modules') continue;
-        stack.push(full);
-      } else if (e.isFile() && e.name.endsWith('.html')) {
-        out.push(full);
-      }
-    }
-  }
-  return out;
-}
 
 function fileToUrlPath(filePath, distRoot) {
   const rel = '/' + relative(distRoot, filePath).split('\\').join('/');
@@ -169,7 +146,7 @@ function main() {
     writeStubReport(args, `dist-missing (${args.dist})`);
     return;
   }
-  const files = walkHtml(args.dist);
+  const files = [...walkHtml(args.dist)];
   if (files.length === 0) {
     writeStubReport(args, 'dist-empty');
     return;

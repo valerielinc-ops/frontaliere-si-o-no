@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 23 Oct 2026 15:23:51 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 09:37:11 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -17,6 +17,79 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Frontaliers : les relevés disponibles aujourd’hui — 24 octobre 2026</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/bulletin-frontalier-2026-10-24/</link>
+      <description><![CDATA[Les chiffres du jour, 24 octobre 2026, pour les frontaliers : les dernières attentes aux douanes, les communes où le carburant coûte le moins cher]]></description>
+      <content:encoded><![CDATA[Aucune comparaison homogène ne franchit aujourd’hui le seuil pour constituer le fait principal. Le bulletin présente les relevés disponibles et la période couverte par chaque source.
+
+Bonjour — nous sommes samedi 24 octobre 2026. Voici le bulletin quotidien pour celles et ceux qui vivent d'un côté de la frontière et travaillent de l'autre : quatre thèmes suivis par notre monitoring — files aux douanes, essence, taux de change et emploi — chacun avec le lien vers sa page en direct.
+
+## Attentes selon les relevés disponibles
+
+Les relevés disponibles indiquent un trafic fluide : sur 141 passages surveillés, 141 ne signalent aucune file et l'attente maximale relevée n'est que de **0 minutes** (Anières).
+
+Le trafic change d'heure en heure — l'état en direct de chaque douane est sur la [page du temps d'attente](/fr/temps-attente-douane/).
+## Carburants : prix communiqués à la frontière
+
+⚠️ Le suivi des carburants n’a pas de données vérifiables pour cette édition ; la section revient dès que des données vérifiables sont de nouveau disponibles. En attendant : [prix de l’essence à la frontière](/fr/prix-essence-suisse/aujourd-hui/).
+## Taux de change franc–euro
+
+Un franc vaut **1,0832 €** (relevé du 2026-10-23). Par rapport au relevé précédent il gagne +0,0021 € ; par rapport au relevé hebdomadaire disponible, la variation est de +0,0058 €.
+
+### Simulation du seul change pour 4.000 CHF
+Contre-valeur brute en euros: **4'332,80 EUR** (2026-10-23).
+
+Différence avec le relevé de change hebdomadaire disponible: **+23,20 EUR**.
+
+💡 Quand on gagne en francs et qu'on dépense en euros, le taux fait partie du salaire : sur 4 000 CHF, un centime de variation vaut 40 € par mois. Le [calculateur de salaire net](/fr/calculer-salaire/) et le [comparatif des services de change](/fr/comparaison-services/taux-change-chf-eur/) font le calcul pour votre cas.
+## Offres d’emploi actives
+
+Notre job board compte actuellement **32'779 offres d'emploi actives en Suisse**, de 860 entreprises.
+
+Filtrez par canton, secteur et ville : [trouver un emploi au Tessin et en Suisse](/fr/trouver-emploi-tessin/).
+
+### Entreprises avec le plus d’annonces actives en Suisse
+| Entreprise / localité | Annonces actives |
+|---|---|
+| fachkraft.ch GmbH | 3'414 |
+| STA Personal AG | 1'765 |
+| Coop Genossenschaft | 1'079 |
+| yellowshark AG | 950 |
+| Stellentreff AG | 897 |
+
+### Localités avec le plus d’annonces actives
+| Entreprise / localité | Annonces actives |
+|---|---|
+| Zurich | 4'009 |
+| Berne | 1'321 |
+| Lucerne | 1'294 |
+| Bâle | 864 |
+| Winterthur | 831 |
+
+## Les thèmes recherchés par les lecteurs
+2026-10-15 → 2026-10-21
+
+| Thème | Impressions dans la Recherche Google | Événements de recherche sur le site |
+|---|---|---|
+| Emploi | 3'769 | 6'784 |
+| Carburants | 709 | 0 |
+| Salaire net | 45 | 0 |
+| Frontière et mobilité | 37 | 0 |
+
+Thèmes agrégés uniquement : aucune recherche individuelle n’est publiée. Les impressions mesurent la visibilité sur Google. Les événements peuvent inclure des mises à jour de recherche ; ce ne sont pas des personnes ou des recherches uniques.
+
+Source: Google Search Console, Firebase Analytics / GA4 (échantillon partiel).
+
+## Comment naît ce bulletin
+
+Aucun des chiffres ci-dessus ne vient d’un flux d’agence — c’est notre propre suivi : files échantillonnées plusieurs fois par heure à chaque passage frontalier suisse, prix des carburants dans les communes frontalières italiennes et aux stations suisses proches, série officielle quotidienne CHF/EUR et crawlers de notre job board. Le bulletin est publié chaque jour et peut être actualisé dans la journée ; les périodes d’observation dépendent de la source, les pages liées restent en direct toute la journée.]]></content:encoded>
+      <pubDate>Sat, 24 Oct 2026 09:37:11 GMT</pubDate>
+      <dc:creator><![CDATA[Samuele Valente]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/bollettino-frontaliere-2026-10-24</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-bollettino-frontaliere-2026-10-24.webp" medium="image"/>
+    </item>
     <item>
       <title>Professionnels de santé frontaliers : Côme suffoque</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/soignants-italiens-suisse/</link>
@@ -3289,84 +3362,6 @@ C'est également une séquence utile pour ceux qui passent par Brogeda et travai
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/g-verifica-datore-20km</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp" medium="image"><media:credit role="author" scheme="urn:ebu">الهام خزائی</media:credit><media:license type="text/html" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</media:license></media:content>
-    </item>
-    <item>
-      <title>Changement d&apos;employeur pour frontaliers : permis G et procédure 2026</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/frontalier-changement-employeur/</link>
-      <description><![CDATA[Guide 2026 du changement d'employeur pour les frontaliers : préavis, renouvellement du permis G, continuité des cotisations, impôt à la source]]></description>
-      <content:encoded><![CDATA[## En bref
-- Le nouvel accord est en vigueur depuis le 1er janvier 2024
-- Anciens frontaliers : exemption de 7'500 € jusqu' en 2033
-- Nouveaux frontaliers : franchise de 10'000 €
-- AVS/AI/APG : 5,3 % à la charge de l'employé
-
-## Faits clés
-- Convention : signée le 23 décembre 2020
-- Ratification italienne : Loi 83 du 13 juin 2023
-- Impôt sur le revenu : retenu uniquement en Suisse
-- Double imposition : crédit dans le cadre CE du 730
-- LAMal : droit d'option pour les frontaliers G
-- AD/AC : 1.1% avec plafond à CHF 148'200
-
-Le 23 décembre 2020 est la date de signature du Nouvel Accord Transfrontalier. L'accord est entré en vigueur le 1er janvier 2024 et a été ratifié en Italie par la loi 83 du 13 juin 2023. Pour cette raison, le libellé du nouvel accord fiscal 2026 doit être lu comme une référence à l'année de l'orientation et non comme la date d'entrée en vigueur.
-
-Pour le frontalier qui change d'employeur en 2026, la procédure à suivre combine quatre étapes : le respect du préavis, la gestion du renouvellement du permis G, le maintien de la continuité des cotisations et la mise à jour des documents. Ce sont les quatre points de fonctionnement du coin de ce guide ; il ne suffit donc pas de regarder le nouveau salaire.
-
-### Le cadre fiscal qui accompagne le changement
-
-L'impôt sur les revenus du travail n'est retenu qu'en Suisse pour les travailleurs frontaliers. L'Italie évite la double imposition grâce au crédit d'impôt indiqué dans le cadre CE 730. La Convention de double imposition Italie-Suisse a été signée le 9 mars 1976 ; La Suisse n'est pas membre de l'UE ou de l'EEE.
-
-La règle rapportée ne présente pas de retenue dans les deux pays : elle indique uniquement la retenue suisse et le crédit d'impôt italien. Dans le lexique des relations Tessin-Italie, le terme rabais apparaît également ; ici la règle fiscale vérifiée est celle de l'impôt anticipé suisse et du crédit italien.
-
-La distinction fiscale à conserver dans la documentation est celle entre anciens et nouveaux travailleurs frontaliers. Les travailleurs qui étaient déjà frontaliers avant le 17 juillet 2023 sont âgés : ils bénéficient de l'exonération de 7 500 € du régime transitoire 2024-2033. Les nouveaux frontaliers disposent d’une franchise de 10 000 €. La référence temporelle indiquée est le 17 juillet 2023, tandis que le changement d'employeur est la procédure à gérer en 2026.
-
-La photographie opérationnelle est donc double : document de travail, avec permis G et notice ; cadre fiscal et social, avec prélèvement à la source, AVS et LPP. Le frontalier qui travaille dans le canton du Tessin doit mettre à jour les premières données sans perdre de vue les secondes, même si son trajet quotidien passe par un col comme celui de Brogeda. Le changement d'employeur s'inscrit dans ce cadre : 2026 est l'année de la procédure, pas celle d'une nouvelle entrée en vigueur de l'accord.
-La comparaison la plus utile, après un changement d’employeur, est la première fiche de paie. Les tarifs indiqués par la source ne sont pas interchangeables et doivent être lus avec l'article auquel ils se réfèrent.
-
-| Voix | Données à vérifier |
-| --- | --- |
-| AVS/IA/IPG | 5,3% payé par le salarié |
-| AD/AC | 1.1%, avec plafond CHF 148'200 |
-| LAINF | 0,7 à 1,5 % |
-| LPP | 7 à 18 % par tranche d'âge, à partir de 25 ans |
-
-AVS/AI/IPG est le poste pour lequel une part salariale est explicitement indiquée : 5,3 %. AD/AC est indiqué à 1.1%, avec un plafond de CHF 148'200. Pour le LAINF, la source indique une fourchette de 0,7 à 1,5 % ; pour le LPP, il indique 7 à 18% selon la tranche d'âge, à partir de 25 ans. Dans l'étape, ces valeurs servent de grille de lecture de la nouvelle fiche de paie, et non de somme automatique à appliquer sans distinguer les postes individuels.
-
-La comparaison avant-après doit être effectuée entre la fiche de paie finale de la relation précédente et celle du nouvel emploi, en enregistrant les retenues et les périodes. La source propose des pourcentages et des seuils, et non un chiffre net individuel : la donnée utile est donc la cohérence des éléments rapportés, et non un chiffre standard construit sur le tableau.
-
-### Qui gère le retrait
-
-Les taux d'imposition, y compris fédéraux et cantonaux, sont fixés par les lois fédérales et cantonales. Au niveau fédéral, ils sont administrés par l'AFC/ESTV, tandis qu'au niveau cantonal, les administrations fiscales cantonales interviennent. L'UFAS, qui concerne la sécurité sociale et l'AVS/AI, ne fixe pas les taux d'imposition ; il en va de même pour BFS, qui collecte des données statistiques.
-
-Pour l'IRPEF italien à partir de 2026, l'encadrement indiqué est de 23 % jusqu'à 28 000 €, 33 % de 28 001 € à 50 000 € et 43 % au-delà de 50 000 €, selon la loi 199/2025, art. 1 c. 3. Pour les revenus 2024-2025, les taux indiqués sont de 23 %, 35 % et 43 %. La comparaison entre les années doit être séparée de l’impôt anticipé suisse.
-
-### KVG est un chapitre distinct
-
-La LAMal est une assurance maladie, pas une taxe maladie. Les frontaliers titulaires d'un permis G ont le droit d'option ; pour les adultes, les franchises indiquées vont de CHF 300 à CHF 2'500. Lors d'un changement d'employeur, ce poste doit être séparé des retenues à la source et de la sécurité sociale AVS/LPP : ce sont des chapitres différents de la documentation du frontalier.
-Le changement d'employeur se gère mieux comme une séquence documentaire, pas comme une seule mise à jour à la fin. La trace pratique doit relier le préavis, le permis G, les cotisations et la documentation fiscale et sanitaire.
-
-### séquence opératoire
-
-1. Mettez en ligne les dates du rapport qui se termine et du nouveau rapport. Saisissez le délai de préavis prévu par le travail et conservez les documents liés aux deux phases. La séquence doit rendre lisible le passage entre la sortie et l'entrée.
-
-2. Il met à jour le dossier du permis G. Il traite le renouvellement du document avec le changement d'employeur et vérifie que les données du nouveau rapport sont cohérentes dans la documentation à mettre à jour. Vérifiez le nom de l'employeur et les dates indiquées dans les documents.
-
-3. Protégez la continuité contributive. Comparez le bulletin de paie final du rapport précédent avec le premier du nouvel emploi, en recherchant les postes AVS/AI/APG, AD/AC, LAA et LPP. Pour la lecture de la prévoyance, vous pouvez joindre le calcolatore AVS/LPP à la vérification des documents.
-
-4. Vérifiez le périmètre fiscal. La distinction entre anciens et nouveaux frontaliers dépend de la référence du 17 juillet 2023 : avant cette date, le groupe des anciens frontaliers s'applique, avec une exemption de 7 500 € dans le régime transitoire 2024–2033 ; pour les nouveaux, la franchise de 10 000 € est indiquée. Il vérifie également que l'impôt à la source reste lu avec le crédit d'impôt du cadre CE de 730, sans retenue dans les deux pays.
-
-5. N'oubliez pas que c'est une assurance-maladie, que le frontalier G a le droit d'option et que les franchises adultes vont de CHF 300 à CHF 2'500. Pour la fiscalité, la référence administrative indiquée est l'AFC/ESTV au niveau fédéral et les administrations cantonales des contributions ; pas l'OFAS ou le BFS.
-
-Pour le contrôle du document, consultez Permesso G/B. Complétez ensuite le fichier avec un contrat, un préavis, une autorisation mise à jour, des bulletins de paie et des références fiscales. L'objectif est d'arriver à la nouvelle occupation avec une documentation cohérente et avec le cadre de l'accord lu selon les dates correctes.
-
-Pour estimer l'effet des retenues sur le nouveau salaire, utilisez le calcolatore fiscale
-
-<footer class="ft-image-credit mt-8 text-sm text-subtle" data-image-credit="wikimedia-commons"><small>Image de couverture : <a href="https://commons.wikimedia.org/wiki/File:Currency_exchange_counter_at_ZBAD_4F_(20190926162248).jpg" target="_blank" rel="noopener" class="underline underline-offset-2">« <bdi>Currency exchange counter at ZBAD 4F (20190926162248)</bdi> »</a> par <a href="https://commons.wikimedia.org/wiki/User:N509FZ" target="_blank" rel="noopener" class="underline underline-offset-2"><bdi>N509FZ</bdi></a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" class="underline underline-offset-2">CC BY-SA 4.0</a>, via Wikimedia Commons (recadrée et redimensionnée).</small></footer>]]></content:encoded>
-      <pubDate>Sun, 18 Oct 2026 05:22:20 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/passaggio-nuovo-impiego-g</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.webp" medium="image"><media:credit role="author" scheme="urn:ebu">N509FZ</media:credit><media:license type="text/html" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</media:license></media:content>
     </item>
   </channel>
 </rss>
