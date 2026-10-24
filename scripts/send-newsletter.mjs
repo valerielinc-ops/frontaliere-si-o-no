@@ -1442,7 +1442,7 @@ function getWeeklyFact(locale = 'it') {
   const FACTS = {
     it: [
       { text: 'In Svizzera, il salario mediano \u00e8 di circa 6.665 CHF al mese (2022).', source: 'UST' },
-      { text: 'Oltre 78.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' },
+      { text: 'Circa 79.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' },
       { text: 'La franchigia per i nuovi frontalieri dal 2024 \u00e8 di \u20ac10.000.', source: 'Nuovo Accordo Fiscale' },
       { text: 'Il tasso di disoccupazione in Ticino \u00e8 circa il 2.3%.', source: 'SECO' },
       { text: "L'AVS (1\u00b0 pilastro) copre circa il 40% del reddito pre-pensionamento.", source: 'BSV' },
@@ -1450,7 +1450,7 @@ function getWeeklyFact(locale = 'it') {
     ],
     en: [
       { text: 'In Switzerland, the median salary is around CHF 6,665 per month (2022).', source: 'FSO' },
-      { text: 'Over 78,000 cross-border workers commute to Canton Ticino.', source: 'USTAT' },
+      { text: 'About 79,000 cross-border workers commute to Canton Ticino.', source: 'USTAT' },
       { text: 'The tax allowance for new cross-border workers from 2024 is \u20ac10,000.', source: 'New Fiscal Agreement' },
       { text: 'The unemployment rate in Ticino is around 2.3%.', source: 'SECO' },
       { text: 'The AVS (1st pillar) covers about 40% of pre-retirement income.', source: 'BSV' },
@@ -1466,7 +1466,7 @@ function getWeeklyFact(locale = 'it') {
     ],
     fr: [
       { text: 'En Suisse, le salaire m\u00e9dian est d\u2019environ 6 665 CHF par mois (2022).', source: 'OFS' },
-      { text: 'Plus de 78 000 frontaliers travaillent dans le canton du Tessin.', source: 'USTAT' },
+      { text: 'Environ 79 000 frontaliers travaillent dans le canton du Tessin.', source: 'USTAT' },
       { text: 'L\u2019abattement fiscal pour les nouveaux frontaliers \u00e0 partir de 2024 est de \u20ac10 000.', source: 'Nouvel Accord Fiscal' },
       { text: 'Le taux de ch\u00f4mage au Tessin est d\u2019environ 2,3%.', source: 'SECO' },
       { text: 'L\u2019AVS (1er pilier) couvre environ 40% du revenu avant la retraite.', source: 'BSV' },

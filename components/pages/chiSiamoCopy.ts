@@ -1,4 +1,5 @@
 import type { Locale } from '@/services/i18n';
+import { FOUNDING_YEAR } from '@/services/seo/keyFacts';
 import { AI_USE_STATEMENT } from '@/packages/articles/engine/shared/aiDisclosure';
 
 interface AboutSection { title: string; paragraphs: string[]; bullets?: string[] }
@@ -31,7 +32,7 @@ export const CHI_SIAMO_COPY: Record<Locale, AboutCopy> = {
   ai: `Uso dell’IA: ${AI_USE_STATEMENT.it} Vedi la nostra`, methodologyLink: 'Metodologia', corrections: 'Correzioni: gli errori vengono corretti tempestivamente e tracciati nel', correctionsLink: 'registro pubblico delle correzioni',
   team: 'Il team editoriale', teamIntro: 'I profili editoriali che organizzano i contenuti pubblicati su Frontaliere Ticino. Ogni profilo ha una pagina dedicata con descrizione, temi e articoli associati.',
   contacts: 'Contatti e Segnalazioni', correctionContact: 'Per correzioni', orPage: 'o la pagina', editorialContact: 'Per domande editoriali', urgent: 'Per segnalazioni urgenti: usiamo il processo descritto nella',
-  footer: 'Frontaliere Ticino · Ticino, Svizzera · Fondata nel 2024', photo: 'Illustrazione di', authorPage: 'Profilo editoriale di',
+  footer: `Frontaliere Ticino · Ticino, Svizzera · Fondata nel ${FOUNDING_YEAR}`, photo: 'Illustrazione di', authorPage: 'Profilo editoriale di',
  },
  en: {
   back: 'Back to home', title: 'About us', subtitle: 'Frontaliere Ticino editorial team',
@@ -50,7 +51,7 @@ export const CHI_SIAMO_COPY: Record<Locale, AboutCopy> = {
   ai: `AI use: ${AI_USE_STATEMENT.en} See our`, methodologyLink: 'Methodology', corrections: 'Corrections: errors are corrected promptly and recorded in the', correctionsLink: 'public corrections register',
   team: 'The editorial team', teamIntro: 'The editorial profiles that organise content published on Frontaliere Ticino. Each profile has a dedicated page with a description, topics and associated articles.',
   contacts: 'Contacts and reports', correctionContact: 'For corrections', orPage: 'or the page', editorialContact: 'For editorial questions', urgent: 'For urgent reports: we use the process described in our',
-  footer: 'Frontaliere Ticino · Ticino, Switzerland · Founded in 2024', photo: 'Illustration for', authorPage: 'Editorial profile for',
+  footer: `Frontaliere Ticino · Ticino, Switzerland · Founded in ${FOUNDING_YEAR}`, photo: 'Illustration for', authorPage: 'Editorial profile for',
  },
  de: {
   back: 'Zur Startseite', title: 'Über uns', subtitle: 'Redaktion Frontaliere Ticino',
@@ -69,7 +70,7 @@ export const CHI_SIAMO_COPY: Record<Locale, AboutCopy> = {
   ai: `KI-Einsatz: ${AI_USE_STATEMENT.de} Siehe unsere`, methodologyLink: 'Methodik', corrections: 'Korrekturen: Fehler werden zeitnah korrigiert und dokumentiert im', correctionsLink: 'öffentlichen Korrekturregister',
   team: 'Das Redaktionsteam', teamIntro: 'Die redaktionellen Profile, die Inhalte auf Frontaliere Ticino ordnen. Jedes Profil hat eine eigene Seite mit Beschreibung, Themen und zugeordneten Artikeln.',
   contacts: 'Kontakt und Hinweise', correctionContact: 'Für Korrekturen', orPage: 'oder die Seite', editorialContact: 'Für redaktionelle Fragen', urgent: 'Für dringende Hinweise nutzen wir das Verfahren in unserer',
-  footer: 'Frontaliere Ticino · Tessin, Schweiz · Gegründet 2024', photo: 'Illustration für', authorPage: 'Redaktionelles Profil von',
+  footer: `Frontaliere Ticino · Tessin, Schweiz · Gegründet ${FOUNDING_YEAR}`, photo: 'Illustration für', authorPage: 'Redaktionelles Profil von',
  },
  fr: {
   back: 'Retour à l’accueil', title: 'À propos', subtitle: 'Rédaction Frontaliere Ticino',
@@ -88,6 +89,6 @@ export const CHI_SIAMO_COPY: Record<Locale, AboutCopy> = {
   ai: `Usage de l’IA : ${AI_USE_STATEMENT.fr} Consultez notre`, methodologyLink: 'Méthodologie', corrections: 'Corrections : les erreurs sont corrigées rapidement et consignées dans le', correctionsLink: 'registre public des corrections',
   team: 'L’équipe éditoriale', teamIntro: 'Les profils éditoriaux qui organisent les contenus publiés sur Frontaliere Ticino. Chaque profil dispose d’une page dédiée avec sa description, ses thèmes et ses articles associés.',
   contacts: 'Contacts et signalements', correctionContact: 'Pour les corrections', orPage: 'ou la page', editorialContact: 'Pour les questions éditoriales', urgent: 'Pour les signalements urgents, nous suivons la procédure décrite dans notre',
-  footer: 'Frontaliere Ticino · Tessin, Suisse · Fondé en 2024', photo: 'Illustration de', authorPage: 'Profil éditorial de',
+  footer: `Frontaliere Ticino · Tessin, Suisse · Fondé en ${FOUNDING_YEAR}`, photo: 'Illustration de', authorPage: 'Profil éditorial de',
  },
 };

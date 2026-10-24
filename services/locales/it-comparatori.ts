@@ -804,7 +804,7 @@ const translations: Record<string, string> = {
  // ── BonusCalculator dynamic keys ──
 
  // ── AI-extractable intro paragraphs ──
- 'comparatori.salaryCompare.intro.p1': 'Il confronto stipendio ti permette di calcolare il reddito netto di un frontaliero in Svizzera rispetto a un equivalente in Italia, tenendo conto di imposte, contributi AVS (5,3%) e costo della vita. Oltre 79.000 frontalieri lavorano in Svizzera ogni giorno (UST, IV trim. 2025).',
+ 'comparatori.salaryCompare.intro.p1': 'Il confronto stipendio ti permette di calcolare il reddito netto di un frontaliero in Svizzera rispetto a un equivalente in Italia, tenendo conto di imposte, contributi AVS (5,3%) e costo della vita. Circa 79.000 frontalieri lavorano in Svizzera ogni giorno (UST, IV trim. 2025).',
  'comparatori.mortgage.intro.p1': 'Il comparatore mutui mette a confronto le soluzioni di finanziamento immobiliare in Svizzera e in Italia. I mutui svizzeri offrono tassi tipicamente variabili (SARON) o fissi, spesso più competitivi per i frontalieri con reddito in CHF.',
  'comparatori.bank.intro.p1': 'Il comparatore banche aiuta i frontalieri a scegliere tra istituti svizzeri e italiani per ottimizzare i costi di conversione CHF-EUR, le commissioni di conto e la gestione del salario in franchi svizzeri.',
  "health.residence.label": "Paese di residenza",
