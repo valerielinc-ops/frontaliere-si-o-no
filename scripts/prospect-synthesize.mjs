@@ -70,8 +70,23 @@ const synthesisLimit = limit;
 const productionKeys = loadCoverage(ROOT).keys;
 const keyOwners = new Map();
 const TERMINAL = new Set(['rejected', 'dead']);
+const addKeyOwner = (key, candidateKey) => {
+  const owners = keyOwners.get(key) || new Set();
+  owners.add(candidateKey);
+  keyOwners.set(key, owners);
+};
+const removeKeyOwner = (key, candidateKey) => {
+  const owners = keyOwners.get(key);
+  if (!owners) return;
+  owners.delete(candidateKey);
+  if (!owners.size) keyOwners.delete(key);
+};
+const hasOtherKeyOwner = (key, candidateKey) => {
+  const owners = keyOwners.get(key);
+  return Boolean(owners?.size && [...owners].some((owner) => owner !== candidateKey));
+};
 for (const candidate of Object.values(store.candidates)) {
-  if (candidate?.crawlerKey && !TERMINAL.has(candidate.status)) keyOwners.set(candidate.crawlerKey, candidate.key);
+  if (candidate?.crawlerKey && !TERMINAL.has(candidate.status)) addKeyOwner(candidate.crawlerKey, candidate.key);
 }
 const readSpec = (key) => {
   try { return JSON.parse(fs.readFileSync(path.join(SPEC_DIR, `${key}.json`), 'utf8')); } catch { return null; }
@@ -84,7 +99,7 @@ const rekeyed = onlyKey ? [] : findMiskeyedCandidates(Object.values(store.candid
   specFor: readSpec,
 }).slice(0, synthesisLimit).filter(({ candidate, from, to }) => {
   if (!requeueMiskeyedCandidate(store, candidate.key, { from, to }, dryRun ? null : undefined)) return false;
-  if (keyOwners.get(from) === candidate.key) keyOwners.delete(from);
+  removeKeyOwner(from, candidate.key);
   return true;
 });
 const rekeyedKeys = new Set(rekeyed.map(({ candidate }) => candidate.key));
@@ -205,11 +220,11 @@ for (const c of queue) {
   }
   const ownKey = spec.companyKey;
   spec.companyKey = disambiguateCrawlerKey(ownKey, c, (key) => (
-    productionKeys.has(key) || (keyOwners.has(key) && keyOwners.get(key) !== c.key)
+    productionKeys.has(key) || hasOtherKeyOwner(key, c.key)
   ));
   if (spec.companyKey !== ownKey) console.log(`  · ${ownKey} e' gia' di un altro crawler: uso ${spec.companyKey}`);
   spec.candidateKey = c.key;
-  keyOwners.set(spec.companyKey, c.key);
+  addKeyOwner(spec.companyKey, c.key);
   written++;
   vacancies += found.length;
   if (!dryRun) {
