@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-24T22:19:49.873Z",
+  "generatedAt": "2026-10-24T23:11:28.364Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -42607,6 +42607,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T13:44:58.190Z"
+    },
+    "guidle:ATZYs5D::54c22c787737812e5d9514b68cb12c3f3b3bb8bc0a8a522da2bf77c8914a5dce": {
+      "id": "guidle:ATZYs5D",
+      "sourceDescriptionHash": "54c22c787737812e5d9514b68cb12c3f3b3bb8bc0a8a522da2bf77c8914a5dce",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Mühle Hunziken; comune: Rubigen; cantone: BE; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-03-18; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Mühle Hunziken; comune: Rubigen; cantone: BE; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-03-18; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Mühle Hunziken; municipality: Rubigen; canton: BE; category: Pop generalmente; organiser: Guidle; date: 2027-03-18; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Mühle Hunziken; gemeinde: Rubigen; kanton: BE; kategorie: Pop generalmente; veranstalter: Guidle; datum: 2027-03-18; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Mühle Hunziken; commune: Rubigen; canton: BE; catégorie: Pop generalmente; organisateur: Guidle; date: 2027-03-18; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-24T23:06:50.714Z"
     },
     "guidle:AU1jLwP::c933cfbb56cc530b7777c57a4c7fdfaae0e282cd8c645cd7758e4b1cb87f3c07": {
       "id": "guidle:AU1jLwP",
@@ -171268,15 +171282,6 @@
       "code": "new-number",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T13:42:42.491Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:ATZYs5D::54c22c787737812e5d9514b68cb12c3f3b3bb8bc0a8a522da2bf77c8914a5dce": {
-      "id": "guidle:ATZYs5D",
-      "sourceDescriptionHash": "54c22c787737812e5d9514b68cb12c3f3b3bb8bc0a8a522da2bf77c8914a5dce",
-      "code": "promotional-language",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-23T19:06:49.237Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
