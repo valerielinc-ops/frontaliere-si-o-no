@@ -319,6 +319,26 @@ export function readStaticString(expression, sourceFile, options = {}) {
 }
 
 /**
+ * Read a static boolean expression. Runtime values are an error, never a
+ * truthiness fallback: provenance must not turn an unknown declaration into
+ * an assertion that no AI assistance was used.
+ *
+ * @param {import('typescript').Expression | undefined} expression
+ * @param {import('typescript').SourceFile} sourceFile
+ * @param {{ label?: string, errorPrefix?: string, nonLiteralMessage?: string }} [options]
+ */
+export function readStaticBoolean(expression, sourceFile, options = {}) {
+  const node = expression ? unwrapStaticExpression(expression) : undefined;
+  const label = options.label ?? 'static property';
+  const prefix = parseErrorPrefix(options.errorPrefix);
+  const defaultMessage = `${label} must have a static boolean literal`;
+  if (!node || (node.kind !== ts.SyntaxKind.TrueKeyword && node.kind !== ts.SyntaxKind.FalseKeyword)) {
+    throw new Error(`${prefix}${options.nonLiteralMessage ?? defaultMessage}`);
+  }
+  return node.kind === ts.SyntaxKind.TrueKeyword;
+}
+
+/**
  * Return direct object properties. A spread, method or computed property is
  * unsupported because evaluating it would turn this reader into application
  * code and could expose a partial registry.
