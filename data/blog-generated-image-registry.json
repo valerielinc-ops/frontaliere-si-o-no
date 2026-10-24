@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 821,
-  "generatedAt": "2026-10-23T23:41:02.558Z",
+  "assetCount": 822,
+  "generatedAt": "2026-10-24T00:31:49.469Z",
   "assets": [
     {
       "schema": 1,
@@ -35065,6 +35065,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic editorial illustration of a wallet and coins against a Swiss lake landscape; no people, text, logos, or event-specific cues."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-zenith-soppressione-locle",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "bbef979a8c5d9a362b18fde54ef7b263de3aa39fa7d8cbd640b7fe8942136aee",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "a97c3e3e9e9224fc1d3cb318bdb1467a161835709e0ede18a21097bccca60cd6",
+      "bytes": 111680,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-23T23:49:56.082Z",
+      "verifiedAt": "2026-10-23T23:50:03.620Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-zenith-soppressione-locle.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic watchmaking workshop scene with precision machinery; no text, logos, or people."
       }
     }
   ]
