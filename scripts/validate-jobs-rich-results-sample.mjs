@@ -74,23 +74,6 @@ function extractAlternateHrefLangs(html = '') {
   return byLocale;
 }
 
-function extractCanonicalUrl(html = '') {
-  const linkRe = /<link\b[^>]*>/gi;
-  let match;
-  while ((match = linkRe.exec(html)) !== null) {
-    const attrs = parseHtmlAttributes(match[0] || '');
-    if (String(attrs.rel || '').toLowerCase() !== 'canonical') continue;
-    const href = String(attrs.href || '').trim();
-    if (!href) return null;
-    try {
-      return new URL(href, BASE_URL).toString();
-    } catch {
-      return null;
-    }
-  }
-  return null;
-}
-
 function hrefToDistFile(href = '') {
   if (typeof href !== 'string' || href.length === 0) return null;
   if (!href.startsWith(BASE_URL)) return null;
@@ -262,9 +245,9 @@ function main() {
     localeChecks: 0,
     filesMissing: 0,
     jobPostingMissing: 0,
-    jobPostingWithheldUnverifiedDate: 0,
     jobPostingFirstSeenDate: 0,
-    jobPostingSafeDefaultDate: 0,
+    jobPostingObservedDate: 0,
+    jobPostingBuildClockDate: 0,
     publicationDateUnverified: 0,
     eligibleLocaleChecks: 0,
     parseErrors: 0,
@@ -301,36 +284,14 @@ function main() {
         continue;
       }
       const jobPosting = getJobPosting(blocks);
-      const schemaDate = resolveRolloutSchemaPostingDate(
-        job,
-        undefined,
-        extractCanonicalUrl(html),
-      );
-      if (!schemaDate) {
-        report.publicationDateUnverified += 1;
-        if (jobPosting || job?.postingDateSource === 'reported') {
-          report.errors += 1;
-          const issue = jobPosting ? 'jobposting_without_reported_publication_date' : 'jobposting_missing';
-          if (issue === 'jobposting_missing') report.jobPostingMissing += 1;
-          report.details.push({
-            slug: job.slug,
-            locale: loc.code,
-            level: 'error',
-            issue,
-          });
-        } else {
-          report.jobPostingWithheldUnverifiedDate += 1;
-          report.details.push({ slug: job.slug, locale: loc.code, level: 'info', issue: 'jobposting-withheld-unverified-date' });
-        }
-        continue;
-      }
-      if (schemaDate.provenance === 'first-seen') {
-        report.publicationDateUnverified += 1;
-        report.jobPostingFirstSeenDate += 1;
-      } else if (schemaDate.provenance === 'safe-default') {
-        report.publicationDateUnverified += 1;
-        report.jobPostingSafeDefaultDate += 1;
-      }
+      // Owner decision 2026-10-24: an active job ALWAYS emits JobPosting.
+      // The date chain never yields null, so every locale check is eligible
+      // and a page without JobPosting is an error whatever the provenance.
+      const schemaDate = resolveRolloutSchemaPostingDate(job);
+      if (schemaDate.provenance !== 'reported') report.publicationDateUnverified += 1;
+      if (schemaDate.provenance === 'first-seen') report.jobPostingFirstSeenDate += 1;
+      else if (schemaDate.provenance === 'observed') report.jobPostingObservedDate += 1;
+      else if (schemaDate.provenance === 'build-clock') report.jobPostingBuildClockDate += 1;
       report.eligibleLocaleChecks += 1;
 
       if (!jobPosting) {
@@ -340,17 +301,17 @@ function main() {
         continue;
       }
 
-      if (jobPosting.datePosted !== schemaDate.value) {
+      // build-clock is the build's own date: the audit may run on another day.
+      const dateMatches = schemaDate.provenance === 'build-clock'
+        ? /^\d{4}-\d{2}-\d{2}/.test(String(jobPosting.datePosted || ''))
+        : jobPosting.datePosted === schemaDate.value;
+      if (!dateMatches) {
         report.errors += 1;
         report.details.push({
           slug: job.slug,
           locale: loc.code,
           level: 'error',
-          issue: schemaDate.provenance === 'reported'
-            ? 'datePosted:source_mismatch'
-            : schemaDate.provenance === 'first-seen'
-              ? 'datePosted:first_seen_mismatch'
-              : 'datePosted:safe_default_mismatch',
+          issue: `datePosted:${schemaDate.provenance}_mismatch`,
         });
       }
       const { errors, warnings } = validateJobPosting(jobPosting, html, job, loc.code);
@@ -377,10 +338,10 @@ function main() {
   console.log(`Errors: ${report.errors} | Warnings: ${report.warnings}`);
   console.log(`Missing files: ${report.filesMissing}`);
   console.log(`Eligible locale checks: ${report.eligibleLocaleChecks}`);
-  console.log(`Publication date synthetic (first-seen or safe-default): ${report.publicationDateUnverified}`);
-  console.log(`JobPosting withheld (unverified publication): ${report.jobPostingWithheldUnverifiedDate}`);
+  console.log(`Publication date not reported by the source (first-seen/observed/build-clock): ${report.publicationDateUnverified}`);
   console.log(`JobPosting first-seen dates: ${report.jobPostingFirstSeenDate}`);
-  console.log(`JobPosting safe-default dates: ${report.jobPostingSafeDefaultDate}`);
+  console.log(`JobPosting observed dates: ${report.jobPostingObservedDate}`);
+  console.log(`JobPosting build-clock dates: ${report.jobPostingBuildClockDate}`);
   console.log(`Missing eligible JobPosting: ${report.jobPostingMissing}`);
   console.log(`JSON-LD parse errors: ${report.parseErrors}`);
 

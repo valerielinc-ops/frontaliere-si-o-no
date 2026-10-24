@@ -6,8 +6,8 @@ import { aggregateHealthFacilityJobs, _resetHealthFacilityJobsAggregateCache } f
 import { renderFacilityPage } from '../build-plugins/healthFacilitiesPlugin';
 import { describe, expect, it, vi } from 'vitest';
 import {
-  JOB_POSTING_DATE_SAFE_DEFAULT,
   resolveFirstSeenPostingDate,
+  resolveObservedPostingDate,
   resolveReportedPostingDate,
   resolveSchemaPostingDate,
 } from '../scripts/lib/job-posting-date.mjs';
@@ -19,6 +19,7 @@ import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollo
 
 const now = new Date();
 const yesterday = new Date(now.getTime() - 86400000).toISOString().slice(0, 10);
+const today = now.toISOString().slice(0, 10);
 const options = { locale: 'it', url: 'https://frontaliereticino.ch/jobs/example/', now };
 const job = { company: 'Example SA', title: 'Infermiere', location: 'Lugano', postedDate: yesterday };
 
@@ -29,16 +30,17 @@ describe('employer publication date provenance', () => {
     expect(resolveRolloutPostingDate(input, legacyDate, now)).toBe(postingDateSource === 'reported' ? yesterday : null);
     expect(legacyDate).not.toHaveBeenCalled();
   });
-  it('requires an explicit scope decision before resolving a schema-safe default', () => {
-    expect(resolveSchemaPostingDate({ postingDateSource: 'unknown' }, now)).toBeNull();
-    expect(resolveSchemaPostingDate({ postingDateSource: 'unknown' }, now, true)).toEqual({
-      value: JOB_POSTING_DATE_SAFE_DEFAULT,
-      provenance: 'safe-default',
+  it('never returns null: a record without any timestamp gets the build date', () => {
+    expect(resolveSchemaPostingDate({ postingDateSource: 'unknown' }, now)).toEqual({
+      value: today,
+      provenance: 'build-clock',
     });
   });
-  it.each([undefined, 'unknown', 'existing', 'scraped'])('rejects %s provenance despite parseable dates', (postingDateSource) => {
+  it.each([undefined, 'unknown', 'existing', 'scraped'])('never treats %s provenance as a reported date, yet still emits JobPosting', (postingDateSource) => {
     expect(resolveReportedPostingDate({ ...job, postingDateSource }, now)).toBeNull();
-    expect(buildJobPostingSchema({ ...job, postingDateSource }, options)).toBeNull();
+    const schema = buildJobPostingSchema({ ...job, postingDateSource }, options);
+    expect(schema['@type']).toBe('JobPosting');
+    expect(schema.datePosted).toBe(today);
   });
   it('uses firstSeenAt as a synthetic fallback while preserving a reported date', () => {
     const firstSeenAt = new Date(now.getTime() - 3 * 86400000).toISOString();
@@ -48,23 +50,28 @@ describe('employer publication date provenance', () => {
     expect(resolveRolloutPostingDate({ ...job, postingDateSource: 'reported', firstSeenAt }, vi.fn(), now)).toBe(yesterday);
     expect(buildJobPostingSchema({ ...job, postingDateSource: 'reported', firstSeenAt }, options)?.datePosted).toBe(yesterday);
   });
-  it.each([undefined, null, 'unknown'])('does not use crawl/build clocks without firstSeenAt for %s', (postingDateSource) => {
-    for (const clocks of [{}, { crawledAt: yesterday }, { scrapedAt: yesterday }]) {
-      expect(buildJobPostingSchema({ ...job, postingDateSource, ...clocks }, options)).toBeNull();
-      expect(buildJobPostingSchema({ postingDateSource, ...clocks }, options)).toBeNull();
+  it.each([undefined, null, 'unknown'])('falls back to the earliest crawler observation without firstSeenAt for %s', (postingDateSource) => {
+    const older = new Date(now.getTime() - 5 * 86400000).toISOString();
+    for (const clocks of [{ crawledAt: yesterday }, { scrapedAt: yesterday }, { updatedAt: yesterday }]) {
+      expect(buildJobPostingSchema({ ...job, postingDateSource, ...clocks }, options).datePosted).toBe(yesterday);
+      expect(buildJobPostingSchema({ postingDateSource, ...clocks }, options).datePosted).toBe(yesterday);
     }
+    expect(resolveObservedPostingDate({ crawledAt: yesterday, scrapedAt: older }, now)).toBe(older);
+    expect(resolveSchemaPostingDate({ postingDateSource, crawledAt: older }, now)).toEqual({ value: older, provenance: 'observed' });
   });
-  it.each(['', 'not-a-date', '2025-02-29', '2024-04-31', '2024-01-01T24:00:00Z'])('rejects invalid firstSeenAt %s', (firstSeenAt) => {
+  it.each(['', 'not-a-date', '2025-02-29', '2024-04-31', '2024-01-01T24:00:00Z'])('rejects invalid firstSeenAt %s without dropping the schema', (firstSeenAt) => {
     expect(resolveFirstSeenPostingDate({ firstSeenAt }, now)).toBeNull();
-    expect(buildJobPostingSchema({ ...job, postingDateSource: 'unknown', firstSeenAt }, options)).toBeNull();
+    const schema = buildJobPostingSchema({ ...job, postingDateSource: 'unknown', firstSeenAt, crawledAt: yesterday }, options);
+    expect(schema.datePosted).toBe(yesterday);
   });
   it.each(['', 'not-a-date', '2025-02-29', '2024-04-31', '2024-01-01T24:00:00Z'])('rejects invalid reported date %s', (postedDate) => {
     expect(resolveReportedPostingDate({ postedDate, postingDateSource: 'reported' }, now)).toBeNull();
   });
-  it('rejects future publication and never substitutes collection timestamps', () => {
+  it('rejects a future publication date and falls back to the observation, never to the future value', () => {
     const tomorrow = new Date(now.getTime() + 86400000).toISOString();
-    expect(buildJobPostingSchema({ ...job, postingDateSource: 'reported', postedDate: tomorrow, crawledAt: yesterday, scrapedAt: yesterday }, options)).toBeNull();
-    expect(buildJobPostingSchema({ postingDateSource: 'reported', crawledAt: yesterday }, options)).toBeNull();
+    expect(buildJobPostingSchema({ ...job, postingDateSource: 'reported', postedDate: tomorrow, crawledAt: yesterday, scrapedAt: yesterday }, options).datePosted).toBe(yesterday);
+    expect(buildJobPostingSchema({ postingDateSource: 'reported', crawledAt: yesterday }, options).datePosted).toBe(yesterday);
+    expect(resolveSchemaPostingDate({ postingDateSource: 'reported', postedDate: tomorrow, crawledAt: tomorrow }, now)).toEqual({ value: today, provenance: 'build-clock' });
   });
   it('preserves a verified original date and emits all mandatory schema properties', () => {
     const schema = buildJobPostingSchema({ ...job, postingDateSource: 'reported' }, options);
@@ -74,12 +81,12 @@ describe('employer publication date provenance', () => {
     expect(schema?.jobLocation.address.postalCode).toBeTruthy();
     expect(schema?.baseSalary.value.minValue).toBeGreaterThan(0);
   });
-  it('keeps presentation FAQ available without manufacturing a JobPosting', () => {
+  it('keeps presentation FAQ facts separate from the JobPosting date', () => {
     const facts = buildJobPostingFacts(job, 'it');
     expect(facts).not.toHaveProperty('datePosted');
     expect(facts).not.toHaveProperty('@type');
     expect(buildJobPostingFaqPairs(facts, { locale: 'it', jobUrl: options.url, cantonDisplay: 'Ticino', isTicino: true })).toHaveLength(4);
-    expect(buildJobPostingSchema(job, options)).toBeNull();
+    expect(buildJobPostingSchema(job, options)['@type']).toBe('JobPosting');
   });
   it('retains explicit provenance in locale payloads and slim hydration records', () => {
     const localized = buildLocaleJob({ ...job, postingDateSource: 'reported' }, 'it');

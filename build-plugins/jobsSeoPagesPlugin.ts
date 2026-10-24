@@ -1,6 +1,7 @@
-import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
 import { hasSameJobSourcePosting } from '../scripts/lib/job-identity.mjs';
 import { resolveRolloutPostingDate, resolveRolloutSchemaPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { createActiveJobPostingCoverage } from '../scripts/lib/active-jobposting-coverage.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -1011,8 +1012,8 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 });
 
 export type ActiveJobReuseFragments = {
- jobPostingDatePosted: string | null;
- jobPostingDateProvenance: 'reported' | 'first-seen' | 'safe-default' | null;
+ jobPostingDatePosted: string;
+ jobPostingDateProvenance: JobPostingDateProvenance;
  jobPostingValidThrough: string;
  jobPostingCrawledAt: string | null;
  heroBadges: string;
@@ -1067,11 +1068,13 @@ function replaceActiveJobReuseFragment(
 
 export function replaceActiveJobPostingDates(
  fragment: string,
- datePosted: string | null,
+ datePosted: string,
  validThrough: string,
  crawledAt?: string | null,
 ): string {
- if (!datePosted) return '';
+ // An active page never loses its JobPosting on a cache hit: a missing date
+ // is a broken input, so fail closed and let the reuse layer re-render.
+ if (!datePosted) throw new Error('active JobPosting datePosted unavailable');
  const scriptMatch = fragment.match(
   /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
  );
@@ -1124,14 +1127,14 @@ export function hasActiveJobPostingJsonLd(fragment: string): boolean {
  return false;
 }
 
-export function shouldInvalidateActiveJobReuseForSafeDefault(
- fragment: string,
- provenance: 'reported' | 'first-seen' | 'safe-default' | null,
-): boolean {
- // Function name retained for the cache contract; both synthetic date paths
- // need a fresh render when a legacy cache has no JobPosting script.
- return (provenance === 'first-seen' || provenance === 'safe-default')
-  && !hasActiveJobPostingJsonLd(fragment);
+/**
+ * An active job ALWAYS carries JobPosting (owner decision 2026-10-24), whatever
+ * the provenance of its date. A cached fragment without one — written by the
+ * 2026-10-04..24 builds that withheld the schema for unverified dates — must
+ * be re-rendered, never reused with its dates patched.
+ */
+export function shouldInvalidateActiveJobReuseWithoutJobPosting(fragment: string): boolean {
+ return !hasActiveJobPostingJsonLd(fragment);
 }
 
 export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
@@ -1139,11 +1142,8 @@ export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFrag
   html,
   ACTIVE_JOB_REUSE_MARKERS.jobPosting,
   (current) => {
-   if (shouldInvalidateActiveJobReuseForSafeDefault(
-    current,
-    fragments.jobPostingDateProvenance,
-   )) {
-    throw new Error('cached active-job HTML missing JobPosting JSON-LD for fallback date');
+   if (shouldInvalidateActiveJobReuseWithoutJobPosting(current)) {
+    throw new Error(`cached active-job HTML missing JobPosting JSON-LD (${fragments.jobPostingDateProvenance} date)`);
    }
    return replaceActiveJobPostingDates(
     current,
@@ -2998,6 +2998,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  * so that expired soft-landing pages never overwrite a live job page. */
  const activeJobDirs = new Set<string>();
  jobsSeoMemContext.activeJobDirs = activeJobDirs;
+ // Owner decision 2026-10-24: every active job detail written by THIS build
+ // carries JobPosting. Fed with the final HTML (fresh render or cache reuse)
+ // and asserted after the active loop; the sidecar lets the post-build gate
+ // re-check the same pages in the final dist (scripts/lib/active-jobposting-coverage.mjs).
+ const activeJobPostingCoverage = createActiveJobPostingCoverage({ keepPages: Boolean(process.env.JOBPOSTING_COVERAGE_OUT) });
 
  /**
   * Tracks every legacy-TI bridge path (`cerca-lavoro-ticino/<slug>/`,
@@ -3771,11 +3776,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   const resolvedJobPostingDate = resolveRolloutSchemaPostingDate(
    job,
    jobsSeoReuseBuildNow,
-   canonicalUrl,
   );
    return {
-   jobPostingDatePosted: resolvedJobPostingDate?.value ?? null,
-   jobPostingDateProvenance: resolvedJobPostingDate?.provenance ?? null,
+   jobPostingDatePosted: resolvedJobPostingDate.value,
+   jobPostingDateProvenance: resolvedJobPostingDate.provenance,
    jobPostingCrawledAt: job?.crawledAt ? String(job.crawledAt) : null,
    jobPostingValidThrough: toValidThrough(
     String(job?.postedDate || ''),
@@ -4219,7 +4223,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Merge editorial-only fields that sit outside the 9-mandatory core.
  // The canonical block is authoritative for every required field — only
  // optional enrichment data is layered on.
- const jobLd = canonicalSchema ? inlineScriptJson({
+ const jobLd = inlineScriptJson({
  ...canonicalSchema,
  // validThrough from the legacy helper (may differ from builder default).
  validThrough: toValidThrough(job.postedDate, job.crawledAt, jobsSeoReuseBuildNow),
@@ -4230,7 +4234,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
  ...(canonicalKeywords.length > 0 ? { skills: canonicalKeywords.join(', ') } : {}),
  ...(canonicalRequirements.length > 0 ? { qualifications: canonicalRequirements.join('\n') } : {}),
- }) : null;
+ });
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -4317,7 +4321,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:alt" content="${esc(ogTitle)}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
 ${hreflangHtml}
- <!-- jobs-seo-reuse:job-posting:start -->${jobLd ? `<script type="application/ld+json">${jobLd}</script>` : ''}<!-- jobs-seo-reuse:job-posting:end -->
+ <!-- jobs-seo-reuse:job-posting:start --><script type="application/ld+json">${jobLd}</script><!-- jobs-seo-reuse:job-posting:end -->
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${jobFaqLd}</script>
  <script type="application/ld+json">${inlineScriptJson({'@context':'https://schema.org','@type':'WebPage',name:localizedTitle,url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
@@ -4667,6 +4671,7 @@ ${staticAnalyticsHtml}
  }
  html = markJobBoardNoindexTargetHtml(html);
  jobsSeoReuse?.finish(activeReuse, html);
+ activeJobPostingCoverage.record(locale, canonicalPath, html);
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
  const __tPh_write = phaseTimer();
@@ -4840,6 +4845,11 @@ ${staticAnalyticsHtml}
  // collision/foreign-writer edge cases; the normal path drops the full HTML
  // cache before the marker.
  await releaseActiveHtmlCacheChunk();
+ if (process.env.JOBPOSTING_COVERAGE_OUT) {
+  fs.mkdirSync(np.dirname(process.env.JOBPOSTING_COVERAGE_OUT), { recursive: true });
+  fs.writeFileSync(process.env.JOBPOSTING_COVERAGE_OUT, JSON.stringify(activeJobPostingCoverage.sidecar()));
+ }
+ activeJobPostingCoverage.assertComplete('jobposting-coverage');
  // These indexes are only read by the active-detail related-links renderer.
  // Keeping their per-job arrays alive through company/editorial emission
  // retains another copy of the corpus graph after the active pages are done.
