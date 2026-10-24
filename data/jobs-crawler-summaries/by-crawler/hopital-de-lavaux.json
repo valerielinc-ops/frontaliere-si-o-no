@@ -1,7 +1,7 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-10-24T09:18:28.626Z",
+  "generatedAt": "2026-10-24T21:16:20.572Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3636,
-  "avgDurationMs": 3636,
+  "durationMs": 3192,
+  "avgDurationMs": 3192,
   "durationHistory": [
-    3636
+    3192
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:18:12.644Z",
+      "crawledAt": "2026-10-24T21:16:07.166Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:18:12.643Z",
+      "crawledAt": "2026-10-24T21:16:07.165Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://app.beehire.com/invite/CTb1_gVt5",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:18:12.642Z",
+      "crawledAt": "2026-10-24T21:16:07.164Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       "url": "https://app.beehire.com/invite/SQHUP0Mz6",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:18:12.639Z",
+      "crawledAt": "2026-10-24T21:16:07.162Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -201,5 +201,5 @@
       }
     }
   ],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
