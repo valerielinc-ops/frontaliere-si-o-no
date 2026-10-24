@@ -189,6 +189,19 @@ function coverage(report, name) {
   const meta = report.metadata || {};
   if (meta.subjectToThresholding) reasons.push(`${name}: thresholding`);
   if (meta.dataLossFromOtherRow) reasons.push(`${name}: (other) row`);
+  if (Array.isArray(meta.dataTruncationReasons) && meta.dataTruncationReasons.length) {
+    reasons.push(`${name}: dataTruncationReasons`);
+  }
+  if (meta.schemaRestrictionResponse?.activeMetricRestrictions?.length) {
+    reasons.push(`${name}: schemaRestrictionResponse`);
+  }
+  if (Array.isArray(meta.samplingMetadatas) && meta.samplingMetadatas.some((sampling) => {
+    const read = Number(sampling?.samplesReadCount);
+    const space = Number(sampling?.samplingSpaceSize);
+    return Number.isFinite(read) && Number.isFinite(space) ? space > read : true;
+  })) {
+    reasons.push(`${name}: samplingMetadatas`);
+  }
   return reasons;
 }
 

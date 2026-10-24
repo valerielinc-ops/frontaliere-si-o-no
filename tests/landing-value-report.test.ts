@@ -70,6 +70,21 @@ describe('landing value by template', () => {
     expect(renderMarkdown(report)).toContain('| job_detail | 100 |');
   });
 
+  it('flags GA4 truncation, schema restrictions, and sampling metadata', async () => {
+    const metadata = {
+      dataTruncationReasons: ['x'],
+      schemaRestrictionResponse: { activeMetricRestrictions: [{}] },
+      samplingMetadatas: [{ samplesReadCount: '1', samplingSpaceSize: '2' }],
+    };
+    const report = await buildLandingValueReport({
+      token: 't',
+      propertyId: 'properties/1',
+      run: async () => ({ rows: [], complete: true, metadata }) as never,
+    });
+    expect(['dataTruncationReasons', 'schemaRestrictionResponse', 'samplingMetadatas']
+      .every((key) => report.dataQuality.some((reason) => reason.includes(key)))).toBe(true);
+  });
+
   it('parses CLI options and rejects a negative application value', () => {
     expect(parseArgs(['--days', '56', '--channel', 'all', '--apply-value', '0.5'])).toMatchObject({ days: 56, channel: 'all', applyValue: 0.5 });
     expect(() => parseArgs(['--apply-value', '-1'])).toThrow();

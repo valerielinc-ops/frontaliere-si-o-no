@@ -36,7 +36,7 @@ describe('GA4 automation-fleet exclusion', () => {
     expect(withAutomationFleetExclusion(once)).toBe(once);
   });
 
-  it('rewrites runReport and batchRunReport bodies but leaves other Google APIs alone', () => {
+  it('rewrites runReport and batchRunReports bodies but leaves other Google APIs alone', () => {
     const run = withAutomationFleetExclusionForFetch(
       'https://analyticsdata.googleapis.com/v1beta/properties/1:runReport',
       { method: 'POST', body: JSON.stringify({ dimensionFilter: hostFilter }) },
@@ -44,7 +44,7 @@ describe('GA4 automation-fleet exclusion', () => {
     expect(JSON.parse(run.body).dimensionFilter.andGroup.expressions[1]).toEqual(buildAutomationFleetExclusion());
 
     const batch = withAutomationFleetExclusionForFetch(
-      'https://analyticsdata.googleapis.com/v1beta/properties/1:batchRunReport',
+      'https://analyticsdata.googleapis.com/v1beta/properties/1:batchRunReports',
       { method: 'POST', body: JSON.stringify({ requests: [{}, { dimensionFilter: hostFilter }] }) },
     );
     const requests = JSON.parse(batch.body).requests;

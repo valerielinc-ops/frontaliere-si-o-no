@@ -89,14 +89,14 @@ export function withAutomationFleetExclusion(body) {
 
 /**
  * Same, for the raw fetch options of a GA4 Data API call: rewrites the JSON
- * body of `:runReport` and of every request of `:batchRunReport`. Any other
+ * body of `:runReport` and of every request of `:batchRunReports`. Any other
  * URL (Search Console, PageSpeed, Admin API) passes through untouched.
  */
 export function withAutomationFleetExclusionForFetch(url, options = {}) {
   const href = String(url || '');
   if (!href.includes('analyticsdata.googleapis.com') || typeof options?.body !== 'string') return options;
   const isRun = /:runReport(?:$|\?)/.test(href);
-  const isBatch = /:batchRunReport(?:$|\?)/.test(href);
+  const isBatch = /:batchRunReports?(?:$|\?)/.test(href);
   if (!isRun && !isBatch) return options;
   let parsed;
   try {
