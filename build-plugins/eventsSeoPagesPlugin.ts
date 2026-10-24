@@ -2930,7 +2930,9 @@ export function renderHistoricalEventsArchivePage(params: {
     canonicalUrl,
     hreflangHtml: municipality ? LOCALES.map((loc) => `  <link rel="alternate" hreflang="${loc}" href="${BASE_URL}${canonicalFor(loc)}">`)
       .concat(`  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${canonicalFor('it')}">`).join('\n') : historicalEventsArchiveAlternates(page),
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    // P1 noindex plan (paginationIndexPolicy): page 11+ of the archive stays
+    // 200 and linked but leaves the index.
+    robots: indexable && !isPaginationNoindex(page) ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd],
@@ -4634,8 +4636,10 @@ export function buildSitemap(
       for (const page of pages) entries.push(ladderSitemapUrl(canton, comune, page, dateStamp));
     }
   }
+  // Only page 1 of the archive is advertised (P1 noindex plan,
+  // paginationIndexPolicy); page 2+ is reached through its pager.
   for (let page = 1; page <= historicalArchivePageCount; page += 1) {
-    entries.push(historicalEventsArchiveSitemapUrl(page));
+    if (isPaginationSitemapEligible(page)) entries.push(historicalEventsArchiveSitemapUrl(page));
   }
   // Per-event detail pages, including the indexable historical archive.
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp, e.imageUrl));
