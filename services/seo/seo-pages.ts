@@ -5152,17 +5152,17 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-mercato-lavoro-ticino-q4-2025': {
- title: 'Mercato del lavoro Ticino: dati e trend quarto trimestre',
- description: 'Scopri i dati e le analisi sul mercato del lavoro in Ticino nel quarto trimestre 2025, con focus su frontalieri e trend occupazionali. Dati aggiornati 2026 per',
+ title: 'Mercato del lavoro Ticino: dati e trend primo trimestre 2026',
+ description: 'Scopri i dati e le analisi sul mercato del lavoro in Ticino nel primo trimestre 2026, con focus su frontalieri e trend occupazionali (dati USTAT Q1 2026).',
  keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, dati, trend',
- ogTitle: 'Mercato lavoro Ticino Q4 2025 | Frontaliere Ticino',
- ogDescription: 'Analisi dettagliata sul mercato del lavoro ticinese nel Q4 2025, con dati su frontalieri, salari e permessi di lavoro.',
+ ogTitle: 'Mercato lavoro Ticino Q1 2026 | Frontaliere Ticino',
+ ogDescription: 'Analisi dettagliata sul mercato del lavoro ticinese nel Q1 2026 (dati USTAT), con dati su frontalieri, salari e permessi di lavoro.',
  canonicalPath: '/articoli-frontaliere/mercato-lavoro-ticino-q4-2025/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Notiziario statistico Ustat: Il mercato del lavoro, Ticino, quarto",
- "description": "Scopri i dati e le analisi sul mercato del lavoro in Ticino nel quarto trimestre 2025, con focus su frontalieri e trend occupazionali. Dati aggiornati 2026 per",
+ "headline": "Notiziario statistico Ustat: Il mercato del lavoro, Ticino, primo trimestre 2026",
+ "description": "Scopri i dati e le analisi sul mercato del lavoro in Ticino nel primo trimestre 2026, con focus su frontalieri e trend occupazionali (dati USTAT Q1 2026).",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/mercato-lavoro-ticino-q4-2025.webp`,
  "width": 1344,
