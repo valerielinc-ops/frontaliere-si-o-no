@@ -583,7 +583,7 @@ function attestationLines(lines) {
 // Recent triage summaries also use the explicit `Daily bucket aggiornato:`
 // form. It is a persistence claim just like `Created/updated:`; accepting only
 // this named variant keeps ordinary prose from becoming bucket evidence.
-const TRIAGE_CLAIM_LINE_RE = /^\s*(?:[-*]\s+)?(?:Created(?:\/updated)(?::|\s+the\s+daily\s+bucket\b)|Daily\s+bucket\s+(?:aggiornato|updated):)/i;
+const TRIAGE_CLAIM_LINE_RE = /^\s*(?:[-*]\s+)?(?:Created(?:\/updated)?(?::|\s+the\s+daily\s+bucket\b)|Daily\s+bucket\s+(?:aggiornato|updated):)/i;
 const CLAIM_BULLET_LINE_RE = /^\s*[-*+]\s+\S/;
 
 /**
