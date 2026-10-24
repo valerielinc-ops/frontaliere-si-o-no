@@ -2338,7 +2338,6 @@
           "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-10-22T09:42:31.537Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2353,7 +2352,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "id": "accor-711ae44782b7",
