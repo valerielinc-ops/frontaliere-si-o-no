@@ -4,20 +4,20 @@
   "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "fa2e99dcabffe8f6d629314ba7263db168965913",
+  "sourceCommit": "44bb85fc2f609e986acc4bb811741d912e3c8474",
   "artifactObservation": {
     "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
     "sourceRef": "main",
-    "sourceCommit": "fa2e99dcabffe8f6d629314ba7263db168965913"
+    "sourceCommit": "44bb85fc2f609e986acc4bb811741d912e3c8474"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 653,
+  "crawlerCount": 652,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:8054fd0f76cd48472f50937239a57be7d72ac8024a8320d41201aa50ec75d109",
+    "rosterDigest": "sha256:71f4ec3385fedc40fc796f55c027beeee3562d7da6de789621683aacc54c856e",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },

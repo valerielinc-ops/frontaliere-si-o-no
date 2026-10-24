@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 653,
+  "crawlerCount": 652,
   "groups": {
     "10": [
       "atec-personal",
@@ -1358,5 +1358,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:8054fd0f76cd48472f50937239a57be7d72ac8024a8320d41201aa50ec75d109"
+  "digest": "sha256:71f4ec3385fedc40fc796f55c027beeee3562d7da6de789621683aacc54c856e"
 }
