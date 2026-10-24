@@ -157,11 +157,12 @@ describe('editorial transparency disclosure matches how the article was produced
   it('uses the same explicit provenance payload for static HTML and hydration', () => {
     const staticSrc = readFileSync(join(ROOT, 'packages/articles/engine/ogPagesPlugin.ts'), 'utf-8');
     const spaSrc = readFileSync(join(ROOT, 'components/community/BlogArticles.tsx'), 'utf-8');
+    const overlaySrc = readFileSync(join(ROOT, 'services/articlesOverlay.ts'), 'utf-8');
 
     expect(staticSrc).toMatch(/resolveArticleProvenance\(\{ aiAssisted: en\.aiAssisted \}, authorProfile\)/);
     expect(staticSrc).toMatch(/const articleProvenance = resolvedAuthor\s+\?\s+resolvedAuthor\.provenance/);
     expect(staticSrc).toMatch(/buildArticleTransparencyAside\(locale, en\.authorName \|\| resolvedAuthor\?\.name, articleProvenance\)/);
-    expect(spaSrc).toMatch(/typeof entry\.aiAssisted === 'boolean' \? \{ aiAssisted: entry\.aiAssisted \}/);
+    expect(overlaySrc).toMatch(/typeof entry\.aiAssisted === 'boolean' \? \{ aiAssisted: entry\.aiAssisted \}/);
     expect(spaSrc).toMatch(/provenance: resolveArticleProvenance\(article, bylineAuthor\)/);
   });
 });
