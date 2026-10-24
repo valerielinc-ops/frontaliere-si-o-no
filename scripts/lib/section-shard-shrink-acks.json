@@ -25,21 +25,21 @@
     "fr": {
       "from": 650000,
       "from_max": 900000,
-      "min_new": 150000,
+      "min_new": 200000,
       "issue": 14979,
       "reason": "The build stops writing the 200 legacy-TI copy of every expired non-TI soft-landing under /fr/trouver-emploi-tessin/<slug>/ (its canonical named the native canton page: 911,071 canonicalMismatch advisories on the full-corpus validate:page-seo replay) and the noindex active cross-canton copy; both URLs now 404 at the shard origin and the locale-router Worker 301s them via /job-canon. Measured on the fr build of deploy 39917633944: '(+ 375766 legacy slug bridges)' and 31406 active-job-cross-canton-legacy emits, against a shard of 712136 files (prev 693636); a sample of _tree bucket 07 (2768 entries) classified 1828 entries as registry slugs whose fr page lives in another canton, 330 as real TI pages. Expected after: ~280-310k files. Band, not exact pin, because the shard grows ~18k files per deploy (several deploys a day); it self-expires because the post-shrink count is far below `from`."
     },
     "en": {
       "from": 650000,
       "from_max": 900000,
-      "min_new": 150000,
+      "min_new": 200000,
       "issue": 14979,
       "reason": "Same change as ticino/fr — see that entry. en build of deploy 39917633944: '(+ 373115 legacy slug bridges)', 31463 active cross-canton emits, shard 715704 files."
     },
     "de": {
       "from": 650000,
       "from_max": 900000,
-      "min_new": 150000,
+      "min_new": 200000,
       "issue": 14979,
       "reason": "Same change as ticino/fr — see that entry. de build of deploy 39917633944: '(+ 372933 legacy slug bridges)', 30549 active cross-canton emits, shard 712044 files."
     }
