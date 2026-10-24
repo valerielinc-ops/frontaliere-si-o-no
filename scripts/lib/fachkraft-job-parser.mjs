@@ -33,6 +33,7 @@ import {
 } from './prospector/spec-crawler.mjs';
 import { DATA_ROOT } from './prospector/config.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -126,6 +127,10 @@ function raceWithSignal(promise, signal, message) {
       signal.removeEventListener('abort', onAbort);
     });
   });
+}
+
+function throwIfAborted(signal, message) {
+  if (signal?.aborted) throw signal.reason || abortError(message);
 }
 
 function combineSignals(...signals) {
@@ -361,6 +366,7 @@ async function fetchFachkraftPage(
   signal,
   label,
   fetchJinaImpl = fetchHtmlViaJinaWithRetry,
+  fetchBrowserImpl,
 ) {
   const startedAt = Date.now();
   const result = await politeFetch(url, {
@@ -380,31 +386,92 @@ async function fetchFachkraftPage(
     retryBaseMs: transport.retryBaseMs,
     timeoutMs: transport.requestTimeoutMs,
   });
+  throwIfAborted(signal, `fachkraft ${label} transport aborted`);
   const jinaOptions = {
     timeoutMs: transport.requestTimeoutMs,
     retries: transport.retries,
     retryBaseMs: transport.retryBaseMs,
-    fetchImpl: transport.fetchImpl,
-    sleepImpl: transport.sleepImpl,
+    fetchImpl: (target, init = {}) => transport.fetchImpl(target, {
+      ...init,
+      signal: combineSignals(init.signal, signal),
+    }),
+    sleepImpl: (ms) => raceWithSignal(
+      transport.sleepImpl(ms),
+      signal,
+      `fachkraft ${label} Jina rescue sleep aborted`,
+    ),
   };
-  if (result.status === 403 && !result.policyBlocked && !result.blockedByRobots) {
+
+  const rescueWithJina = async (reason) => {
     try {
-      console.warn(`⚠️ fachkraft ${label} returned HTTP 403 — trying Jina egress rescue`);
+      throwIfAborted(signal, `fachkraft ${label} Jina rescue aborted`);
+      console.warn(`⚠️ fachkraft ${label} returned ${reason} — trying Jina egress rescue`);
       const rescued = await fetchJinaImpl(url, jinaOptions);
-      if (rescued != null && !looksLikeAntiBotChallenge(rescued)) {
-        return { ...result, body: rescued, status: 200, proxiedBy: 'jina' };
+      throwIfAborted(signal, `fachkraft ${label} Jina rescue aborted`);
+      return rescued != null && !looksLikeAntiBotChallenge(rescued) ? rescued : null;
+    } catch (error) {
+      if (signal?.aborted) throw signal.reason || error;
+      console.warn(`⚠️ fachkraft ${label} Jina rescue failed: ${error?.message || error}`);
+      return null;
+    }
+  };
+
+  const connectionLevelFailure = !result.policyBlocked
+    && !result.blockedByRobots
+    && !result.status
+    && Boolean(result.transportError);
+  const hardWafResponse = WAF_IP_BLOCK_STATUS.has(Number(result.status));
+  // A timeout means this source request did not answer within the crawler's
+  // bounded deadline. Replaying it through Jina/browser would multiply the
+  // deadline cost without distinguishing a slow origin from a blocked egress;
+  // keep the standard connection-level soft-exit for it, but reserve rescue
+  // attempts for transport failures that a clean route can actually change.
+  const routeRescueEligible = connectionLevelFailure && result.transportError !== 'timeout';
+  const routeRescueEligibleWithPolicy = !result.policyBlocked
+    && !result.blockedByRobots
+    && (routeRescueEligible || hardWafResponse);
+  let rescuedBody = null;
+  if (routeRescueEligibleWithPolicy) {
+    const reason = connectionLevelFailure
+      ? `transport ${result.transportError || 'other'}`
+      : `HTTP ${result.status}`;
+    rescuedBody = await rescueWithJina(reason);
+  }
+
+  const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
+  const antiBotResponse = directChallenge || hardWafResponse;
+  if (!rescuedBody && directChallenge) rescuedBody = await rescueWithJina('anti-bot challenge');
+
+  if (rescuedBody) {
+    return { ...result, ok: true, body: rescuedBody, status: 200, proxiedBy: 'jina' };
+  }
+
+  const browserRescueEligible = !result.policyBlocked
+    && !result.blockedByRobots
+    && (routeRescueEligible || antiBotResponse);
+  if (browserRescueEligible && typeof fetchBrowserImpl === 'function') {
+    try {
+      throwIfAborted(signal, `fachkraft ${label} browser rescue aborted`);
+      const rendered = await raceWithSignal(
+        fetchBrowserImpl(url, {
+          timeoutMs: transport.requestTimeoutMs,
+          signal,
+        }),
+        signal,
+        `fachkraft ${label} browser rescue aborted`,
+      );
+      throwIfAborted(signal, `fachkraft ${label} browser rescue aborted`);
+      if (typeof rendered === 'string' && rendered.trim() && !looksLikeAntiBotChallenge(rendered)) {
+        return { ...result, ok: true, body: rendered, status: 200, proxiedBy: 'browser' };
       }
     } catch (error) {
-      console.warn(`⚠️ fachkraft ${label} Jina rescue failed: ${error?.message || error}`);
+      if (signal?.aborted) throw signal.reason || error;
+      console.warn(`⚠️ fachkraft ${label} browser rescue failed: ${error?.message || error}`);
     }
   }
-  const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
+
   if (result.ok && !directChallenge) return result;
   if (directChallenge) {
-    const rescued = await fetchJinaImpl(url, jinaOptions);
-    if (rescued != null && !looksLikeAntiBotChallenge(rescued)) {
-      return { ...result, body: rescued, status: 200, proxiedBy: 'jina' };
-    }
     const error = new Error(`fachkraft ${label} returned an exhausted anti-bot challenge`);
     error.status = result.status;
     error.retryable = false;
@@ -419,8 +486,12 @@ async function fetchFachkraftPage(
   const error = new Error(
     `fachkraft ${label} failed after <=${transport.retries + 1} attempt(s) in ${Date.now() - startedAt}ms: ${reason}`,
   );
-  error.status = result.status;
-  error.retryable = false;
+  const hasHttpStatus = Number.isFinite(result.status) && result.status > 0;
+  const preserveStatusSentinel = result.policyBlocked || result.blockedByRobots;
+  if (hasHttpStatus || preserveStatusSentinel) error.status = result.status;
+  error.retryable = connectionLevelFailure;
+  if (result.transportError) error.transportError = result.transportError;
+  if (antiBotResponse) error.antiBotExhausted = true;
   throw error;
 }
 
@@ -430,6 +501,7 @@ async function fetchFachkraftListingSnapshot({
   signal,
   maxPages,
   fetchJinaImpl,
+  fetchBrowserImpl,
 }) {
   const rows = [];
   const seenPages = new Set();
@@ -457,6 +529,7 @@ async function fetchFachkraftListingSnapshot({
       signal,
       pages === 0 ? 'listing' : `listing page ${pages + 1}`,
       fetchJinaImpl,
+      fetchBrowserImpl,
     );
     const pageRows = parseFachkraftListingPage(listingPage.body);
     const navigation = parseFachkraftListingNavigation(listingPage.body, pageUrl);
@@ -535,6 +608,10 @@ export async function fetchFachkraftSnapshot(options = {}) {
   )), runTimeoutMs);
   const transport = createBoundedRuntime(options, runController.signal);
   const fetchJinaImpl = options.fetchJinaImpl || fetchHtmlViaJinaWithRetry;
+  // Browser rescue is opt-in at the parser boundary so offline/unit callers
+  // never launch Chromium implicitly. The production runner wires the shared
+  // bounded browser implementation explicitly.
+  const fetchBrowserImpl = options.fetchBrowserImpl;
   const spec = options.spec || loadSpec(FACHKRAFT_KEY);
   const urlPolicy = createSpecUrlPolicy(spec, { lookupImpl: transport.lookupImpl });
   try {
@@ -547,6 +624,7 @@ export async function fetchFachkraftSnapshot(options = {}) {
       signal: runController.signal,
       maxPages: FACHKRAFT_MAX_LISTING_PAGES,
       fetchJinaImpl,
+      fetchBrowserImpl,
     });
     const { rows } = listing;
     const declaredLabel = listing.listingCountDrift
@@ -588,6 +666,7 @@ export async function fetchFachkraftSnapshot(options = {}) {
             detailSignal,
             `detail ${item.index + 1}/${rows.length}`,
             fetchJinaImpl,
+            fetchBrowserImpl,
           );
           const fresh = freshDetailListing(item.row, page);
           if (fresh) enriched[item.index] = fresh;
