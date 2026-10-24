@@ -232,6 +232,55 @@ describe('snapshotWebcamsForOg', () => {
     expect(meta.fetchedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
   });
 
+  it('replays a previous snapshot byte for byte instead of fetching (bench replayDir)', async () => {
+    const first = path.join(tmp, 'first');
+    await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_WEBCAM],
+      outDir: first,
+      fetchFn: fakeFetchFactory(async () => makeResponse(await makeFakeJpeg())),
+      log: () => {},
+    });
+    const replayed = path.join(tmp, 'replayed');
+    const res = await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_WEBCAM, CROSSING_WITHOUT_WEBCAM],
+      outDir: replayed,
+      replayDir: first,
+      log: () => {},
+    });
+    expect(res).toMatchObject({ snapshotted: 1, skipped: 0, total: 1 });
+    for (const name of ['chiasso-brogeda.jpg', 'chiasso-brogeda.jpg.meta.json']) {
+      expect(readFileSync(path.join(replayed, name))).toEqual(readFileSync(path.join(first, name)));
+    }
+  });
+
+  it('a crossing missing from the replay dir is skipped like a failed fetch', async () => {
+    const res = await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_WEBCAM],
+      outDir: path.join(tmp, 'out'),
+      replayDir: path.join(tmp, 'empty'),
+      log: () => {},
+    });
+    expect(res).toMatchObject({ snapshotted: 0, skipped: 1, total: 1 });
+    expect(readdirSync(path.join(tmp, 'out'))).toEqual([]);
+  });
+
+  it('an explicit fetchFn wins over OG_WEBCAM_REPLAY_DIR', async () => {
+    const saved = process.env.OG_WEBCAM_REPLAY_DIR;
+    process.env.OG_WEBCAM_REPLAY_DIR = path.join(tmp, 'does-not-exist');
+    try {
+      const res = await snapshotWebcamsForOg({
+        crossings: [CROSSING_WITH_WEBCAM],
+        outDir: tmp,
+        fetchFn: fakeFetchFactory(async () => makeResponse(await makeFakeJpeg())),
+        log: () => {},
+      });
+      expect(res.snapshotted).toBe(1);
+    } finally {
+      if (saved === undefined) delete process.env.OG_WEBCAM_REPLAY_DIR;
+      else process.env.OG_WEBCAM_REPLAY_DIR = saved;
+    }
+  });
+
   it('skips crossings with no webcams without counting them as failures', async () => {
     const fake = fakeFetchFactory(async () => makeResponse(await makeFakeJpeg()));
     const res = await snapshotWebcamsForOg({
