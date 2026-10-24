@@ -49,4 +49,3 @@ export function jobSitemapLastmodDay(job: PostingDateInput | null | undefined, n
 export function renderJobSitemapLastmod(job: PostingDateInput | null | undefined, now: Date = new Date()): string {
   return renderSitemapLastmod(jobSitemapLastmodSource(job, now));
 }
-
