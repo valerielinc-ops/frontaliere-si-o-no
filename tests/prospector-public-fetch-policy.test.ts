@@ -1056,6 +1056,42 @@ describe('prospector public-only polite transport', () => {
     expect(jinaFetchImpl).toHaveBeenCalledOnce();
   });
 
+  it('tries a declared fallback seed after the primary listing seed loses transport', async () => {
+    const primary = 'https://employer.example/jobs?sort=title-asc';
+    const fallback = 'https://employer.example/jobs';
+    const detail = 'https://employer.example/careers/detail/1';
+    const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
+      + 'coordinate production releases, improve observability, support colleagues across the platform team, '
+      + 'and document resilient operational practices for every service owner.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === primary) throw new TypeError('fetch failed');
+      if (url === fallback) return response(url, 200, null, listing);
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [primary], transportFallbackSeedUrls: [fallback],
+      detailTemplate: '/careers/detail/*',
+    } as any, {
+      fetchImpl,
+      disableWafProxy: true,
+      retries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
+    })]);
+    expect(fetchImpl).toHaveBeenCalledWith(primary, expect.anything());
+    expect(fetchImpl).toHaveBeenCalledWith(fallback, expect.anything());
+  });
+
   it('keeps an exhausted connection rescue retryable instead of marking it anti-bot', async () => {
     const seed = 'https://employer.example/jobs';
     const fetchImpl = vi.fn(async (url: string) => {

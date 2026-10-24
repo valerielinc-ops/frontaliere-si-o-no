@@ -321,11 +321,15 @@ function assertSafeLiteralHost(hostname) {
  * Exact-origin policy for a promoted or prospective spec. Seeds define the
  * allowed origins; reviewed ATS/CDN origins must be explicit.
  *
- * @param {{ seedUrls?: string[], allowedDetailOrigins?: string[] }} spec
+ * @param {{ seedUrls?: string[], transportFallbackSeedUrls?: string[], allowedDetailOrigins?: string[] }} spec
  * @param {{ lookupImpl?: typeof dnsLookup }} [options]
  */
 export function createSpecUrlPolicy(spec, { lookupImpl = dnsLookup } = {}) {
-  const configured = [...(spec.seedUrls || []), ...(spec.allowedDetailOrigins || [])];
+  const configured = [
+    ...(spec.seedUrls || []),
+    ...(spec.transportFallbackSeedUrls || []),
+    ...(spec.allowedDetailOrigins || []),
+  ];
   const allowedOrigins = new Set();
   for (const raw of configured) {
     try {

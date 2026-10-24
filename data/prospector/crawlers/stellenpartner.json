@@ -7,6 +7,9 @@
   "seedUrls": [
     "https://www.stellenpartner.ch/stellen/?sort=title-asc"
   ],
+  "transportFallbackSeedUrls": [
+    "https://www.stellenpartner.ch/stellen/"
+  ],
   "detailTemplate": "/stellen/*/",
   "pagination": {
     "maxPages": 100,

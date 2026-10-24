@@ -36,7 +36,7 @@ import {
 } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
-import { WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
+import { isConnectionLevelFetchError, isConnectionLevelFetchResult, WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
 import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
 import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES } from '../crawler-detail-drop.mjs';
 import { isDetailFailureWithinGrace } from '../detail-failure-reuse-policy.mjs';
@@ -327,10 +327,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
   });
   let wafProxyExhausted = false;
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
-  const connectionLevelFailure = !result.policyBlocked
-    && !result.blockedByRobots
-    && !result.status
-    && Boolean(result.transportError);
+  const connectionLevelFailure = isConnectionLevelFetchResult(result);
   const antiBotResponse = directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status));
 
   // A WAF may answer HTTP 200 with an interstitial instead of a hard block.
@@ -1359,6 +1356,12 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     }
   };
 
+  const transportFallbackSeedUrls = [...new Set(
+    (Array.isArray(spec.transportFallbackSeedUrls) ? spec.transportFallbackSeedUrls : [])
+      .map((url) => String(url || '').trim())
+      .filter(Boolean),
+  )];
+
   for (const seed of spec.seedUrls || []) {
     if (listingEndpoint) {
       if (endpointConsumed) continue;
@@ -1427,16 +1430,38 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     const seedRowsBefore = bySlug.size;
     const seedCoverageRowsBefore = listingRowsForCoverage;
     let page;
-    try {
-      page = await fetchRuntimePage(seed, validateUrl, runtime);
-    } catch (err) {
-      // Let the standard pipeline classify it: a connection-level failure is
-      // infra and must soft-exit, an HTTP status is a real break.
-      throw markSpecListingFailure(err);
+    let effectiveSeed = seed;
+    const seedCandidates = [seed, ...transportFallbackSeedUrls]
+      .filter((candidate, index, all) => all.indexOf(candidate) === index);
+    for (let candidateIndex = 0; candidateIndex < seedCandidates.length; candidateIndex += 1) {
+      const candidate = seedCandidates[candidateIndex];
+      try {
+        page = await fetchRuntimePage(candidate, validateUrl, runtime);
+        effectiveSeed = candidate;
+        break;
+      } catch (err) {
+        // The primary seed is the stable, source-declared ordering. An
+        // alternate seed is allowed only after a connection-level failure;
+        // HTTP responses, robots denials and URL-policy failures remain
+        // authoritative and fail closed.
+        const hasNextCandidate = candidateIndex < seedCandidates.length - 1;
+        if (!hasNextCandidate || !isConnectionLevelFetchError(err)) {
+          throw markSpecListingFailure(err);
+        }
+        console.warn(
+          `[prospector:${spec.companyKey}] listing seed ${candidate} `
+          + `failed at transport boundary; trying fallback seed ${seedCandidates[candidateIndex + 1]}`,
+        );
+      }
+    }
+    if (!page) {
+      throw markSpecListingFailure(new Error(
+        `[prospector:${spec.companyKey}] listing seed did not produce a page`,
+      ));
     }
     let html = page.body;
     if (!html) continue;
-    let effectiveSeedUrl = page.url || seed;
+    let effectiveSeedUrl = page.url || effectiveSeed;
     let umantisListingEvidence = spec.platform === 'umantis.com'
       ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
         cantonOverrides: spec.umantisListingCantonOverrides,
