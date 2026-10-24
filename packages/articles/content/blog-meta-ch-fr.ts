@@ -8606,6 +8606,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iva-aumento-pensione-sondaggio.title': 'TVA retraite sup: 49% contre selon premier sondage',
     'blog.article.iva-aumento-pensione-sondaggio.excerpt': '49 % contre, 46 % pour et 5 % indécis.',
     'blog.article.iva-aumento-pensione-sondaggio.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.prezzi-pompa-non-calano-svizzera.title': 'Prix à la pompe stagnent en Suisse : raffinage et Rhin',
+    'blog.article.prezzi-pompa-non-calano-svizzera.excerpt': 'Les flux en provenance d\'Ormuz restent inférieurs de 30-40 %.',
+    'blog.article.prezzi-pompa-non-calano-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

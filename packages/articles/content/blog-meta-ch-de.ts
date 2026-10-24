@@ -8606,6 +8606,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iva-aumento-pensione-sondaggio.title': 'Mehrwertsteuererhöhung für Zusatzrente: 49% dagegen in der ersten Umfrage',
     'blog.article.iva-aumento-pensione-sondaggio.excerpt': '49% dagegen, 46% dafür und 5% unentschlossen.',
     'blog.article.iva-aumento-pensione-sondaggio.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.prezzi-pompa-non-calano-svizzera.title': 'Schweizer Benzinpreise sinken nicht: Raffinerie und Rhein',
+    'blog.article.prezzi-pompa-non-calano-svizzera.excerpt': 'Die Zuflüsse aus Hormus liegen weiterhin 30-40% niedriger.',
+    'blog.article.prezzi-pompa-non-calano-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

@@ -2891,6 +2891,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sondaggio-votazioni-novembre-svizzera': { it: 'sondaggio-votazioni-novembre-svizzera', en: 'swiss-voting-survey-november', de: 'schweizer-abstimmungsumfrage-november', fr: 'sondage-votations-suisse-novembre' },
  'franco-euro-cambio-ottobre-2026': { it: 'franco-euro-cambio-ottobre-2026', en: 'franco-euro-exchange-october-2026', de: 'franko-euro-wechsel-oktober-2026', fr: 'franco-euro-change-octobre-2026' },
  'iva-aumento-pensione-sondaggio': { it: 'iva-aumento-pensione-sondaggio', en: 'vat-increase-pension-poll', de: 'iva-erhoehung-rente-umfrage', fr: 'hausse-tva-retraite-sondage' },
+ 'prezzi-pompa-non-calano-svizzera': { it: 'prezzi-pompa-non-calano-svizzera', en: 'pump-prices-do-not-fall-switzerland', de: 'preise-pumpe-fallen-nicht-schweiz', fr: 'prix-pompe-ne-baissent-pas-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

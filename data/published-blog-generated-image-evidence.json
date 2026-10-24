@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "f2f5bf9864540a65a8266d4893b1d681d23dc0af",
+  "commit": "3f3a49e47e602d2fd9d7545711a9745774ae3bc6",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -36386,6 +36386,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic illustration of a formal legislative chamber; no readable text, logos, or identifiable people."
+      }
+    },
+    "/images/blog/article-prezzi-pompa-non-calano-svizzera.webp": {
+      "schema": 1,
+      "assetId": "article-prezzi-pompa-non-calano-svizzera",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "297e1f1893f0bdfacb644c2ad3750d090c42374e75b94d3afd16e9d33a8340ae",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "b3f7808cf7f1d525fd0b6f0adad459fb43236c1fe5cb1dab8889c01c36b494be",
+      "bytes": 67152,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-24T04:24:18.459Z",
+      "verifiedAt": "2026-10-24T04:24:25.412Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-prezzi-pompa-non-calano-svizzera.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic fuel-pump illustration in a Swiss landscape; no readable text, logos, people, or event-specific cues."
       }
     },
     "/images/places/lugano-view.webp": {
