@@ -1063,6 +1063,30 @@ function lowerSegment(seg) {
   }
 }
 
+// Canonical URL for `slug` in the request `locale`, from one /job-canon entry.
+// Two shapes, both emitted by jobCanonRedirectMapPlugin:
+//   - entry[locale] = section prefix → `${prefix}/${slug}/` (the slug segment is
+//     the same in this locale; the canton-drift case);
+//   - entry.alias[locale] = full path, only when this locale's registry path has
+//     a DIFFERENT last segment — the legacy URL that kept the Italian slug under
+//     a localized section (/fr/trouver-emploi-tessin/<it-slug>/ for a job whose
+//     French page is /fr/trouver-emploi-zurich/<fr-slug>/). The build no longer
+//     writes a 200 copy there, so this is what recovers it.
+// The exact prefix wins; an alias is accepted only inside the request's own
+// locale prefix, so neither shape can produce a cross-locale 301.
+export function jobCanonTarget(entry, slug, locale) {
+  if (!isPlainObject(entry)) return null;
+  const prefix = entry[locale];
+  if (typeof prefix === 'string' && prefix) return `${prefix}/${slug}/`;
+  const alias = isPlainObject(entry.alias) ? entry.alias[locale] : null;
+  if (typeof alias !== 'string') return null;
+  const inLocale = locale === 'it'
+    ? alias.startsWith('/') && !/^\/(?:en|de|fr)\//.test(alias)
+    : alias.startsWith(`/${locale}/`);
+  if (!inLocale || alias.includes('//') || alias.includes('?') || alias.includes('#')) return null;
+  return `${alias.replace(/\/+$/, '')}/`;
+}
+
 // (en|de|fr) so the 301 stays within-locale, never cross-locale to IT.
 async function recoverCantonDriftOrphan(url, locale) {
   const m = url.pathname.match(JOB_DETAIL_RE);
@@ -1093,9 +1117,8 @@ async function recoverCantonDriftOrphan(url, locale) {
   // Per-locale object only: a legacy string value (IT-only map from a stale
   // deploy) or a missing per-locale prefix → null, so we never 301 cross-locale.
   if (!entry || typeof entry !== 'object') return null;
-  const prefix = entry[locale];
-  if (!prefix) return null; // unknown/expired slug for this locale → soft 404 fallback
-  const canonical = `${prefix}/${slug}/`;
+  const canonical = jobCanonTarget(entry, slug, locale);
+  if (!canonical) return null; // unknown/expired slug for this locale → soft 404 fallback
   // Never 301 to the path we are already on (avoids a redirect loop).
   if (canonical === url.pathname.replace(/\/+$/, '') + '/') return null;
 
@@ -1103,7 +1126,11 @@ async function recoverCantonDriftOrphan(url, locale) {
   // Only the registry can identify those as the same vacancy. Verify its
   // destination on the owning shard (including Ticino's physical fan-out),
   // since the job may also have moved to another canton in the meantime.
-  if (m[2]) {
+  // A registry ALIAS (the slug segment differs in this locale) gets the same
+  // verification: the target is a different URL, so we only make the 301
+  // permanent after seeing it live.
+  const viaAlias = typeof entry[locale] !== 'string' || !entry[locale];
+  if (m[2] || viaAlias) {
     const route = matchSection(canonical);
     if (!route || route.locale !== locale) return null;
     const targetOrigin = SECTION_ORIGIN[route.section]?.[locale];

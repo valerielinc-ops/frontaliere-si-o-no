@@ -311,12 +311,12 @@
     },
     {
       "id": "hilti-21354-de",
-      "slug": "verkaufsberater-im-aussendienst-baubranche-m-w-d-hilti-ch",
+      "slug": "consulenti-di-vendita-nel-settore-industria-edile-m-f-d-hilti-visp-wallis",
       "slugByLocale": {
         "de": "verkaufsberater-im-aussendienst-baubranche-m-w-d-hilti-ch",
-        "it": "verkaufsberater-im-aussendienst-baubranche-m-w-d-hilti-ch",
-        "en": "verkaufsberater-im-aussendienst-baubranche-m-w-d-hilti-ch",
-        "fr": "verkaufsberater-im-aussendienst-baubranche-m-w-d-hilti-ch"
+        "it": "consulenti-di-vendita-nel-settore-industria-edile-m-f-d-hilti-visp-wallis",
+        "en": "sales-consultants-in-the-field-construction-industry-m-f-d-hilti-visp-wallis",
+        "fr": "consultants-en-ventes-dans-le-secteur-construction-h-f-d-hilti-visp-wallis"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -368,23 +368,27 @@
         "consultant-en-ventes-sur-le-terrain-construction-h-f-d-hilti-visp-wallis",
         "consulente-commerciale-nel-settore-costruzione-m-f-d-hilti-visp",
         "sales-consultant-in-the-field-construction-m-f-d-hilti-visp",
-        "consultant-en-ventes-sur-le-terrain-construction-h-f-d-hilti-visp"
+        "consultant-en-ventes-sur-le-terrain-construction-h-f-d-hilti-visp",
+        "verkaufsberater-im-aussendienst-baubranche-m-w-d-hilti-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-im-aussendienst-bau-m-w-d-hilti-ch",
           "consulente-commerciale-nel-settore-costruzione-m-f-d-hilti-visp-wallis",
-          "consulente-commerciale-nel-settore-costruzione-m-f-d-hilti-visp"
+          "consulente-commerciale-nel-settore-costruzione-m-f-d-hilti-visp",
+          "verkaufsberater-im-aussendienst-baubranche-m-w-d-hilti-ch"
         ],
         "en": [
           "verkaufsberater-im-aussendienst-bau-m-w-d-hilti-ch",
           "sales-consultant-in-the-field-construction-m-f-d-hilti-visp-wallis",
-          "sales-consultant-in-the-field-construction-m-f-d-hilti-visp"
+          "sales-consultant-in-the-field-construction-m-f-d-hilti-visp",
+          "verkaufsberater-im-aussendienst-baubranche-m-w-d-hilti-ch"
         ],
         "fr": [
           "verkaufsberater-im-aussendienst-bau-m-w-d-hilti-ch",
           "consultant-en-ventes-sur-le-terrain-construction-h-f-d-hilti-visp-wallis",
-          "consultant-en-ventes-sur-le-terrain-construction-h-f-d-hilti-visp"
+          "consultant-en-ventes-sur-le-terrain-construction-h-f-d-hilti-visp",
+          "verkaufsberater-im-aussendienst-baubranche-m-w-d-hilti-ch"
         ],
         "de": [
           "verkaufsberater-im-aussendienst-bau-m-w-d-hilti-ch"
@@ -853,7 +857,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch",

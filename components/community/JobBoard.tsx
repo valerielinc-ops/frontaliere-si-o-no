@@ -6900,6 +6900,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const onVisible = () => {
  // The gate is inline content, not a floating prompt: it must not reserve the
  // popup queue and block the activity banner from appearing.
+ gate.dataset.viewerPromptJobId = String(selectedJob.id);
+  gate.dataset.viewerPromptVisibleAt = String(Date.now());
  const exposureKey = `${selectedJob.id}:inline:${gateExperimentId}:${gateVariant}`;
  if (jobAuthExposureRef.current === exposureKey) return;
  jobAuthExposureRef.current = exposureKey;

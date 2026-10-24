@@ -567,12 +567,12 @@
     },
     {
       "id": "huber-suhner-450aeb48d698",
-      "slug": "produktionscontroller-huber-suhner-pfaffikon",
+      "slug": "controllore-di-produzione-huber-suhner-ag-pfaffikon",
       "slugByLocale": {
         "de": "produktionscontroller-huber-suhner-pfaffikon",
-        "it": "produktionscontroller-huber-suhner-pfaffikon",
-        "en": "produktionscontroller-huber-suhner-pfaffikon",
-        "fr": "produktionscontroller-huber-suhner-pfaffikon"
+        "it": "controllore-di-produzione-huber-suhner-ag-pfaffikon",
+        "en": "production-controller-huber-suhner-ag-pfaffikon",
+        "fr": "controleur-de-production-huber-suhner-ag-pfaffikon"
       },
       "company": "Huber+Suhner AG",
       "companyKey": "huber-suhner",
@@ -635,7 +635,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:29:15.576Z"
+      "firstSeenAt": "2026-10-23T21:29:15.576Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionscontroller-huber-suhner-pfaffikon"
+        ],
+        "en": [
+          "produktionscontroller-huber-suhner-pfaffikon"
+        ],
+        "fr": [
+          "produktionscontroller-huber-suhner-pfaffikon"
+        ]
+      },
+      "previousSlugs": [
+        "produktionscontroller-huber-suhner-pfaffikon"
+      ]
     },
     {
       "id": "huber-suhner-dc95c9b6a90f",

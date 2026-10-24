@@ -3932,12 +3932,12 @@
     },
     {
       "id": "mediamarkt-99877",
-      "slug": "black-friday-aushilfe-60-2-monate-mediamarkt-sursee-ch",
+      "slug": "black-friday-helper-60-2-mesi-mediamarkt-sursee",
       "slugByLocale": {
         "de": "black-friday-aushilfe-60-2-monate-mediamarkt-sursee-ch",
-        "it": "black-friday-aushilfe-60-2-monate-mediamarkt-sursee-ch",
-        "en": "black-friday-aushilfe-60-2-monate-mediamarkt-sursee-ch",
-        "fr": "black-friday-aushilfe-60-2-monate-mediamarkt-sursee-ch"
+        "it": "black-friday-helper-60-2-mesi-mediamarkt-sursee",
+        "en": "black-friday-helper-60-2-months-mediamarkt-sursee",
+        "fr": "aide-du-vendredi-noir-60-2-mois-mediamarkt-sursee"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3998,7 +3998,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T21:57:57.163Z"
+      "firstSeenAt": "2026-10-05T21:57:57.163Z",
+      "previousSlugs": [
+        "black-friday-helper-60-2-mesi-mediamarkt-sursee",
+        "black-friday-helper-60-2-months-mediamarkt-sursee",
+        "aide-du-vendredi-noir-60-2-mois-mediamarkt-sursee",
+        "black-friday-aushilfe-60-2-monate-mediamarkt-sursee-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "black-friday-helper-60-2-mesi-mediamarkt-sursee",
+          "black-friday-helper-60-2-months-mediamarkt-sursee",
+          "aide-du-vendredi-noir-60-2-mois-mediamarkt-sursee",
+          "black-friday-aushilfe-60-2-monate-mediamarkt-sursee-ch"
+        ],
+        "en": [
+          "black-friday-helper-60-2-months-mediamarkt-sursee",
+          "black-friday-aushilfe-60-2-monate-mediamarkt-sursee-ch"
+        ],
+        "fr": [
+          "aide-du-vendredi-noir-60-2-mois-mediamarkt-sursee",
+          "black-friday-aushilfe-60-2-monate-mediamarkt-sursee-ch"
+        ]
+      }
     },
     {
       "id": "mediamarkt-99870",

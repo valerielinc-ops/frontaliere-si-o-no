@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "medimeo-a3d3e4533106",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-con-einem-erfahrenen-team-medimeo-ag-region-basel",
+      "slug": "medica-senior-medico-senior-in-ginecologia-e-ostetricia-60-100-il-suo-ingresso-in-svizzera-con-un-team-esperto-medimeo",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit",
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-con-einem-erfahrenen-team-medimeo-ag-region-basel",
-        "en": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit",
-        "fr": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit"
+        "it": "medica-senior-medico-senior-in-ginecologia-e-ostetricia-60-100-il-suo-ingresso-in-svizzera-con-un-team-esperto-medimeo",
+        "en": "senior-physician-senior-physician-gynecology-and-obstetrics-60-100-your-start-in-switzerland-with-an-experienced-team",
+        "fr": "medecin-senior-medecin-senior-gynecologie-et-obstetrique-60-100-votre-depart-en-suisse-avec-une-equipe-experimentee"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -54,14 +54,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit",
+          "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-con-einem-erfahrenen-team-medimeo-ag-region-basel"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit"
+        ],
+        "fr": [
           "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit",
+        "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-con-einem-erfahrenen-team-medimeo-ag-region-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -81,12 +88,12 @@
     },
     {
       "id": "medimeo-5ea25e5d9d55",
-      "slug": "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe",
+      "slug": "piu-responsabilita-piu-margine-di-manovra-medica-dirigente-medico-dirigente-in-ostetricia-e-diagnosi-prenatale-80-100",
       "slugByLocale": {
         "de": "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe",
-        "it": "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe",
-        "en": "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe",
-        "fr": "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe"
+        "it": "piu-responsabilita-piu-margine-di-manovra-medica-dirigente-medico-dirigente-in-ostetricia-e-diagnosi-prenatale-80-100",
+        "en": "more-responsibility-more-room-for-manoeuvre-senior-physician-obstetrics-and-prenatal-diagnosis-80-100-medimeo-ag-region",
+        "fr": "plus-de-responsabilite-plus-de-marge-de-manoeuvre-obstetrique-et-diagnostic-prenatal-80-100-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -130,7 +137,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -145,16 +151,30 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-23T21:19:21.614Z"
+      "firstSeenAt": "2026-10-23T21:19:21.614Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe"
+        ],
+        "en": [
+          "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe"
+        ],
+        "fr": [
+          "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe"
+        ]
+      },
+      "previousSlugs": [
+        "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe"
+      ]
     },
     {
       "id": "medimeo-4bf169162c5a",
-      "slug": "oberarztin-oberarzt-notfallpraxis-50-100-geregelte-arbeitszeit-ohne-nachtdienste-olten",
+      "slug": "medico-senior-pratica-di-emergenza-50-100-ore-di-lavoro-regolamentate-escluso-il-lavoro-notturno-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-notfallpraxis-50-100-geregelte-arbeitszeit-ohne-nachtdienste-olten",
-        "it": "oberarztin-oberarzt-notfallpraxis-50-100-geregelte-arbeitszeit-ohne-nachtdienste-olten",
-        "en": "oberarztin-oberarzt-notfallpraxis-50-100-geregelte-arbeitszeit-ohne-nachtdienste-olten",
-        "fr": "oberarztin-oberarzt-notfallpraxis-50-100-geregelte-arbeitszeit-ohne-nachtdienste-olten"
+        "it": "medico-senior-pratica-di-emergenza-50-100-ore-di-lavoro-regolamentate-escluso-il-lavoro-notturno-medimeo-ag-olten-aargau",
+        "en": "senior-physician-emergency-practice-50-100-regulated-working-hours-excluding-night-work-medimeo-ag-olten-aargau",
+        "fr": "medecin-principal-pratique-d-urgence-50-100-heures-de-travail-reglementees-a-l-exclusion-du-travail-de-nuit-medimeo-ag"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -212,16 +232,30 @@
         }
       },
       "postalCode": "4600",
-      "firstSeenAt": "2026-10-23T21:19:21.612Z"
+      "firstSeenAt": "2026-10-23T21:19:21.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-notfallpraxis-50-100-geregelte-arbeitszeit-ohne-nachtdienste-olten"
+        ],
+        "en": [
+          "oberarztin-oberarzt-notfallpraxis-50-100-geregelte-arbeitszeit-ohne-nachtdienste-olten"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-notfallpraxis-50-100-geregelte-arbeitszeit-ohne-nachtdienste-olten"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-notfallpraxis-50-100-geregelte-arbeitszeit-ohne-nachtdienste-olten"
+      ]
     },
     {
       "id": "medimeo-14f233f9e747",
-      "slug": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten",
+      "slug": "studio-medico-di-famiglia-da-rilevare-essere-il-proprio-capo-e-realizzare-oltre-chf-200-000-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
-        "it": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten",
-        "en": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
-        "fr": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften"
+        "it": "studio-medico-di-famiglia-da-rilevare-essere-il-proprio-capo-e-realizzare-oltre-chf-200-000-medimeo-ag-olten-aargau",
+        "en": "family-practice-for-takeover-be-your-own-boss-and-earn-over-chf-200-000-medimeo-ag-olten-aargau",
+        "fr": "pratique-familiale-pour-la-reprise-soyez-votre-propre-patron-et-gagnez-plus-de-chf-200-000-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -265,14 +299,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
+          "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten"
+        ],
+        "en": [
+          "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften"
+        ],
+        "fr": [
           "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften"
         ]
       },
       "previousSlugs": [
-        "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften"
+        "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
+        "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -292,12 +333,12 @@
     },
     {
       "id": "medimeo-39e62ca5ac8d",
-      "slug": "oberarzt-oberarztin-psychiatrie-olten-aargau-medimeo-ch",
+      "slug": "medico-senior-psichiatria-medico-senior-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-psychiatrie-olten-aargau-medimeo-ch",
-        "it": "oberarzt-oberarztin-psychiatrie-olten-aargau-medimeo-ch",
-        "en": "oberarzt-oberarztin-psychiatrie-olten-aargau-medimeo-ch",
-        "fr": "oberarzt-oberarztin-psychiatrie-olten-aargau-medimeo-ch"
+        "it": "medico-senior-psichiatria-medico-senior-medimeo-ag-olten-aargau",
+        "en": "senior-physician-senior-physician-psychiatry-medimeo-ag-olten-aargau",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrie-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -355,16 +396,30 @@
         }
       },
       "postalCode": "4600",
-      "firstSeenAt": "2026-10-23T21:19:21.608Z"
+      "firstSeenAt": "2026-10-23T21:19:21.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-psychiatrie-olten-aargau-medimeo-ch"
+        ],
+        "en": [
+          "oberarzt-oberarztin-psychiatrie-olten-aargau-medimeo-ch"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-psychiatrie-olten-aargau-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-psychiatrie-olten-aargau-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-f832027b4f75",
-      "slug": "hausarztin-hausarzt-allgemeine-innere-medizin-moderne-gruppenpraxis-mit-umsatzbeteiligung",
+      "slug": "medica-di-famiglia-medico-di-famiglia-in-medicina-interna-generale-moderno-studio-medico-di-gruppo-con-partecipazione-al",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-allgemeine-innere-medizin-moderne-gruppenpraxis-mit-umsatzbeteiligung",
-        "it": "hausarztin-hausarzt-allgemeine-innere-medizin-moderne-gruppenpraxis-mit-umsatzbeteiligung",
-        "en": "hausarztin-hausarzt-allgemeine-innere-medizin-moderne-gruppenpraxis-mit-umsatzbeteiligung",
-        "fr": "hausarztin-hausarzt-allgemeine-innere-medizin-moderne-gruppenpraxis-mit-umsatzbeteiligung"
+        "it": "medica-di-famiglia-medico-di-famiglia-in-medicina-interna-generale-moderno-studio-medico-di-gruppo-con-partecipazione-al",
+        "en": "general-internal-medicine-modern-group-practice-with-a-turnover-share-in-the-schaffhausen-region-medimeo-ag-winterthur",
+        "fr": "medecine-interne-generale-pratique-de-groupe-moderne-avec-une-part-de-chiffre-d-affaires-dans-la-region-de-schaffhausen"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -408,7 +463,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -423,16 +477,30 @@
         }
       },
       "postalCode": "8400",
-      "firstSeenAt": "2026-10-23T21:19:21.606Z"
+      "firstSeenAt": "2026-10-23T21:19:21.606Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-moderne-gruppenpraxis-mit-umsatzbeteiligung"
+        ],
+        "en": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-moderne-gruppenpraxis-mit-umsatzbeteiligung"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-allgemeine-innere-medizin-moderne-gruppenpraxis-mit-umsatzbeteiligung"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-allgemeine-innere-medizin-moderne-gruppenpraxis-mit-umsatzbeteiligung"
+      ]
     },
     {
       "id": "medimeo-721dfba298c0",
-      "slug": "hausarzt-facharztin-allgemeine-innere-medizin-wiedereinstieg-mit-flexiblem-pensum-nahe",
+      "slug": "medico-di-famiglia-medica-specialista-in-medicina-interna-generale-rientro-professionale-con-un-grado-d-impiego",
       "slugByLocale": {
         "de": "hausarzt-facharztin-allgemeine-innere-medizin-wiedereinstieg-mit-flexiblem-pensum-nahe",
-        "it": "hausarzt-facharztin-allgemeine-innere-medizin-wiedereinstieg-mit-flexiblem-pensum-nahe",
-        "en": "hausarzt-facharztin-allgemeine-innere-medizin-wiedereinstieg-mit-flexiblem-pensum-nahe",
-        "fr": "hausarzt-facharztin-allgemeine-innere-medizin-wiedereinstieg-mit-flexiblem-pensum-nahe"
+        "it": "medico-di-famiglia-medica-specialista-in-medicina-interna-generale-rientro-professionale-con-un-grado-d-impiego",
+        "en": "family-doctor-specialist-general-internal-medicine-re-entry-with-flexible-workload-near-schaffhausen-medimeo-ag",
+        "fr": "medecin-de-famille-specialiste-medecine-interne-generale-readmission-avec-une-charge-de-travail-flexible-pres-de"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -476,7 +544,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -491,7 +558,21 @@
         }
       },
       "postalCode": "8400",
-      "firstSeenAt": "2026-10-23T21:19:21.603Z"
+      "firstSeenAt": "2026-10-23T21:19:21.603Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarzt-facharztin-allgemeine-innere-medizin-wiedereinstieg-mit-flexiblem-pensum-nahe"
+        ],
+        "en": [
+          "hausarzt-facharztin-allgemeine-innere-medizin-wiedereinstieg-mit-flexiblem-pensum-nahe"
+        ],
+        "fr": [
+          "hausarzt-facharztin-allgemeine-innere-medizin-wiedereinstieg-mit-flexiblem-pensum-nahe"
+        ]
+      },
+      "previousSlugs": [
+        "hausarzt-facharztin-allgemeine-innere-medizin-wiedereinstieg-mit-flexiblem-pensum-nahe"
+      ]
     },
     {
       "id": "medimeo-a3663e234aa6",
