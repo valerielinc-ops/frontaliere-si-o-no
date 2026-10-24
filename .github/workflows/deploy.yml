@@ -824,6 +824,9 @@ jobs:
           # the build byte-identical and writes no manifest; set
           # INCREMENTAL_MANIFEST=1 in repository variables for a canary.
           INCREMENTAL_MANIFEST: ${{ vars.INCREMENTAL_MANIFEST == '1' && '1' || '' }}
+          # The jobs SEO plugin lists every active job detail it writes here;
+          # "Assert active JobPosting coverage" re-checks them in the final dist.
+          JOBPOSTING_COVERAGE_OUT: ${{ runner.temp }}/jobposting-coverage.json
         run: |
           set -o pipefail
 
@@ -1212,6 +1215,17 @@ jobs:
       - name: Validate locale shard output
         id: validate-locale-shard
         run: node scripts/ci/validate-locale-shard-build.mjs dist
+
+      # Owner decision 2026-10-24: an active job ALWAYS emits JobPosting.
+      # Blocking and zero tolerance (it judges this build's own output, not the
+      # reassembled corpus): every active detail the jobs SEO plugin recorded
+      # must still carry JobPosting in the final, pruned dist. PR 11394 removed
+      # it silently for 20 days; the plugin's in-build assertion covers the
+      # render, this covers every step after it.
+      - name: Assert active JobPosting coverage
+        env:
+          JOBPOSTING_COVERAGE_OUT: ${{ runner.temp }}/jobposting-coverage.json
+        run: node scripts/ci/assert-active-jobposting-coverage.mjs dist
 
       # The build runner hands the non-IT tail to deploy-publish.yml as one
       # compact, immutable source artifact. It contains the already validated

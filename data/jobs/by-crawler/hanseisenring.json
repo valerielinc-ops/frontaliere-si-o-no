@@ -1123,12 +1123,12 @@
     },
     {
       "id": "hanseisenring-b78b54b0adb1",
-      "slug": "projektleitung-kuchenbau-regionen-aargau-zurich-basel-solothurn-hanseisenring-ch",
+      "slug": "project-manager-cucina-costruzione-hans-eisenring-ag-regionen-aargau-zurich-basel-solothurn",
       "slugByLocale": {
         "de": "projektleitung-kuchenbau-regionen-aargau-zurich-basel-solothurn-hanseisenring-ch",
-        "it": "projektleitung-kuchenbau-regionen-aargau-zurich-basel-solothurn-hanseisenring-ch",
-        "en": "projektleitung-kuchenbau-regionen-aargau-zurich-basel-solothurn-hanseisenring-ch",
-        "fr": "projektleitung-kuchenbau-regionen-aargau-zurich-basel-solothurn-hanseisenring-ch"
+        "it": "project-manager-cucina-costruzione-hans-eisenring-ag-regionen-aargau-zurich-basel-solothurn",
+        "en": "project-manager-kitchen-construction-hans-eisenring-ag-regionen-aargau-zurich-basel-solothurn",
+        "fr": "chef-de-projet-hans-eisenring-ag-regionen-aargau-zurich-basel-solothurn"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -1186,16 +1186,30 @@
         }
       },
       "postalCode": "4500",
-      "firstSeenAt": "2026-10-24T09:46:57.471Z"
+      "firstSeenAt": "2026-10-24T09:46:57.471Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleitung-kuchenbau-regionen-aargau-zurich-basel-solothurn-hanseisenring-ch"
+        ],
+        "en": [
+          "projektleitung-kuchenbau-regionen-aargau-zurich-basel-solothurn-hanseisenring-ch"
+        ],
+        "fr": [
+          "projektleitung-kuchenbau-regionen-aargau-zurich-basel-solothurn-hanseisenring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektleitung-kuchenbau-regionen-aargau-zurich-basel-solothurn-hanseisenring-ch"
+      ]
     },
     {
       "id": "hanseisenring-02da8b64d50e",
-      "slug": "kuchenmontage-per-endmontagearbeiten-hans-eisenring-ag-zurich",
+      "slug": "montaggio-di-cucine-per-lavori-di-montaggio-finale-hans-eisenring-ag-regionen-nordwestschweiz-zurich",
       "slugByLocale": {
         "de": "kuchenmontage-fur-endmontagearbeiten-regionen-nordwestschweiz-zurich-hanseisenring-ch",
-        "it": "kuchenmontage-per-endmontagearbeiten-hans-eisenring-ag-zurich",
-        "en": "kuchenmontage-fur-endmontagearbeiten-hans-eisenring-ag-zurich",
-        "fr": "kuchenmontage-fur-endmontagearbeiten-hans-eisenring-ag-zurich"
+        "it": "montaggio-di-cucine-per-lavori-di-montaggio-finale-hans-eisenring-ag-regionen-nordwestschweiz-zurich",
+        "en": "kitchen-assembly-for-final-assembly-work-hans-eisenring-ag-regionen-nordwestschweiz-zurich",
+        "fr": "montage-de-cuisine-pour-le-montage-final-hans-eisenring-ag-regionen-nordwestschweiz-zurich"
       },
       "company": "Hans Eisenring AG",
       "companyKey": "hanseisenring",
@@ -1239,14 +1253,22 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "kuchenmontage-fur-endmontagearbeiten-regionen-nordwestschweiz-zurich-hanseisenring-ch"
+          "kuchenmontage-fur-endmontagearbeiten-regionen-nordwestschweiz-zurich-hanseisenring-ch",
+          "kuchenmontage-per-endmontagearbeiten-hans-eisenring-ag-zurich"
+        ],
+        "en": [
+          "kuchenmontage-fur-endmontagearbeiten-hans-eisenring-ag-zurich"
+        ],
+        "fr": [
+          "kuchenmontage-fur-endmontagearbeiten-hans-eisenring-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "kuchenmontage-fur-endmontagearbeiten-regionen-nordwestschweiz-zurich-hanseisenring-ch"
+        "kuchenmontage-fur-endmontagearbeiten-regionen-nordwestschweiz-zurich-hanseisenring-ch",
+        "kuchenmontage-per-endmontagearbeiten-hans-eisenring-ag-zurich",
+        "kuchenmontage-fur-endmontagearbeiten-hans-eisenring-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

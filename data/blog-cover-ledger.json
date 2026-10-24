@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 828,
+      "5": 831,
       "6": 5054
     },
-    "publishedCovers": 7565,
+    "publishedCovers": 7568,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -208031,6 +208031,105 @@
         "provider": "openai-codex",
         "assetId": "article-lotteriefonds-89-progetti-cantone",
         "imageUrl": "/images/blog/article-lotteriefonds-89-progetti-cantone.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-mellingen-budget-2027": {
+      "cover": "/images/blog/article-mellingen-budget-2027.webp",
+      "hash": "0b054cb36c5de0e227bfa44890bc575782d3674870d61b95f04d376f51268102",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "mellingen-budget-2027",
+          "category": "fiscale",
+          "date": "2026-10-24T12:03:10.391Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mellingen-budget-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-mellingen-budget-2027",
+        "imageUrl": "/images/blog/article-mellingen-budget-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-mobilita-aargovia-sistema-unico": {
+      "cover": "/images/blog/article-mobilita-aargovia-sistema-unico.webp",
+      "hash": "b626f30e576c1bbdd737ecbb32caced03468d1177629cafa4f999c42b47cb87a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "mobilita-aargovia-sistema-unico",
+          "category": "pratico",
+          "date": "2026-10-24T11:27:50.606Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mobilita-aargovia-sistema-unico.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-mobilita-aargovia-sistema-unico",
+        "imageUrl": "/images/blog/article-mobilita-aargovia-sistema-unico.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-telecom-358-licenziamenti": {
+      "cover": "/images/blog/article-telecom-358-licenziamenti.webp",
+      "hash": "0122b5ffd569291018fb62c09cd3615b49bb989ac97d5332c6601462c29ad3d5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "telecom-358-licenziamenti",
+          "category": "novita",
+          "date": "2026-10-24T13:01:20.849Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-telecom-358-licenziamenti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-telecom-358-licenziamenti",
+        "imageUrl": "/images/blog/article-telecom-358-licenziamenti.webp",
         "evidence": "generated-engine-record"
       }
     }

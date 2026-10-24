@@ -20,6 +20,7 @@ import { extractLinks, isRetryableTraceStatus } from './careers-trail.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
+import { isConnectionLevelFetchResult } from '../transient-fetch.mjs';
 import { extractUmantisListingEvidence, umantisVacancyIdentity } from './umantis-detail.mjs';
 import { listingEvidenceFields } from './detail-extract.mjs';
 import { BREFISPERSONAL_PAGINATION } from './brefispersonal-contract.mjs';
@@ -81,6 +82,7 @@ function careerLinksFromPage(body, baseUrl) {
  * @property {string} platform            registrable domain of the ATS, '' when self-hosted
  * @property {'jsonld'|'microdata'|'template'} mode
  * @property {string[]} seedUrls
+ * @property {string[]} [transportFallbackSeedUrls] Listing seeds tried only after a primary seed fails without receiving an HTTP response
  * @property {string[]} [allowedDetailOrigins] Exact extra origins reviewed for cross-origin ATS/CDN detail URLs
  * @property {string | string[]} [detailTemplate]    URL template(s) shared by the vacancy links
  * @property {string} [detailLocationLabel] Exact detail-page heading whose following paragraph names the vacancy workplace
@@ -456,14 +458,32 @@ export async function runSpec(spec, runtime = {}) {
   const errors = [];
   const urlPolicy = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl });
   try {
+    const fallbackSeeds = [...new Set(
+      (Array.isArray(spec.transportFallbackSeedUrls) ? spec.transportFallbackSeedUrls : [])
+        .map((url) => String(url || '').trim())
+        .filter(Boolean),
+    )];
     for (const seed of spec.seedUrls) {
-      const res = await politeFetch(seed, {
-        urlPolicy,
-        dispatcher: urlPolicy.dispatcher,
-        fetchImpl: runtime.fetchImpl,
-        sleepImpl: runtime.sleepImpl,
-      });
-      if (!res.ok) { errors.push(`${seed}: HTTP ${res.status}`); continue; }
+      const seedCandidates = [seed, ...fallbackSeeds]
+        .filter((candidate, index, all) => all.indexOf(candidate) === index);
+      let effectiveSeed = seed;
+      let res;
+      for (let candidateIndex = 0; candidateIndex < seedCandidates.length; candidateIndex += 1) {
+        const candidate = seedCandidates[candidateIndex];
+        res = await politeFetch(candidate, {
+          urlPolicy,
+          dispatcher: urlPolicy.dispatcher,
+          fetchImpl: runtime.fetchImpl,
+          sleepImpl: runtime.sleepImpl,
+        });
+        effectiveSeed = candidate;
+        const hasNextCandidate = candidateIndex < seedCandidates.length - 1;
+        if (res.ok || !hasNextCandidate || !isConnectionLevelFetchResult(res)) break;
+      }
+      if (!res?.ok) {
+        errors.push(`${effectiveSeed}: ${res?.status ? `HTTP ${res.status}` : `transport ${res?.transportError || 'other'}`}`);
+        continue;
+      }
       // Stessa evidenza di listing che allega `runSpecInProduction()`: su
       // Umantis la localita' dell'annuncio sta nella riga del listing, non
       // nella pagina di dettaglio. Senza, il validatore grada righe piu'

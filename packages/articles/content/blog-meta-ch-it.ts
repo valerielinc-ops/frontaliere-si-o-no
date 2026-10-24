@@ -8612,6 +8612,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.successione-parmelin-otto-nomi.title': 'Consiglio federale: in corsa Parmelin per otto nomi',
     'blog.article.successione-parmelin-otto-nomi.excerpt': 'La corsa alla successione di Parmelin arriva a otto nomi Graber e Ruppen si presentano a Berna Le candidature cantonali scadono venerdì a mezzogiorno Il voto è',
     'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.telecom-358-licenziamenti.title': '358 licenziamenti confermati: prima ipotesi 450 impieghi',
+    'blog.article.telecom-358-licenziamenti.excerpt': 'Sunrise annuncia 358 licenziamenti La prima ipotesi indicava 450 impieghi La consultazione con Syndicom è terminata Piano sociale e uscita volontaria per alcuni',
+    'blog.article.telecom-358-licenziamenti.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

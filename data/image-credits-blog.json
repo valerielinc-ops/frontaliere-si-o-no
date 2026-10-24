@@ -71388,6 +71388,228 @@
           "notes": "Generic synthetic autumn cultural-market scene; no readable text, logos, identifiable faces, or recognizable foreground people."
         }
       }
+    },
+    "generated:article-mellingen-budget-2027": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-24T12:03:03.084Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-24",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-mellingen-budget-2027",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "0f653666f71051cc26484e7439a311260e1e1ffff172d725327ed71d376f95ae",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "0b054cb36c5de0e227bfa44890bc575782d3674870d61b95f04d376f51268102",
+        "bytes": 198738,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-24T12:03:03.084Z",
+        "verifiedAt": "2026-10-24T12:03:10.338Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-mellingen-budget-2027.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Synthetic photorealistic illustration of a Swiss municipal building and streetscape; no people, text, signage, logos, watermark, or specific real event."
+        }
+      }
+    },
+    "generated:article-mobilita-aargovia-sistema-unico": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-24T11:27:40.582Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-24",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-mobilita-aargovia-sistema-unico",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "132b266b1678030d146851ea3a55910d6f432fa8ffd5e5b39a9ff809080fad05",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "b626f30e576c1bbdd737ecbb32caced03468d1177629cafa4f999c42b47cb87a",
+        "bytes": 195316,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-24T11:27:40.582Z",
+        "verifiedAt": "2026-10-24T11:27:50.556Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-mobilita-aargovia-sistema-unico.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic illustration of an integrated rail, bus, and road transport hub; no readable text, logos, or recognizable people."
+        }
+      }
+    },
+    "generated:article-telecom-358-licenziamenti": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-24T13:01:12.427Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-24",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-telecom-358-licenziamenti",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "fd8922d0fc8c8eee3d1e5c04aca90bfabffecbd49c48475fb67dae9177a6fa80",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "0122b5ffd569291018fb62c09cd3615b49bb989ac97d5332c6601462c29ad3d5",
+        "bytes": 80912,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-24T13:01:12.427Z",
+        "verifiedAt": "2026-10-24T13:01:20.204Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-telecom-358-licenziamenti.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic Swiss-style corporate office illustration; no readable text, logos, identifiable faces, or foreground people."
+        }
+      }
     }
   },
   "covers": {
@@ -111575,6 +111797,18 @@
     },
     "article-lotteriefonds-89-progetti-cantone": {
       "file": "generated:article-lotteriefonds-89-progetti-cantone",
+      "modified": "resized"
+    },
+    "article-mellingen-budget-2027": {
+      "file": "generated:article-mellingen-budget-2027",
+      "modified": "resized"
+    },
+    "article-mobilita-aargovia-sistema-unico": {
+      "file": "generated:article-mobilita-aargovia-sistema-unico",
+      "modified": "resized"
+    },
+    "article-telecom-358-licenziamenti": {
+      "file": "generated:article-telecom-358-licenziamenti",
       "modified": "resized"
     }
   }

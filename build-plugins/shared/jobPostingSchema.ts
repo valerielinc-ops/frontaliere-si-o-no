@@ -11,7 +11,7 @@ import { isPartTimeWorkload } from '../../scripts/lib/employment-workload.mjs';
  *   3. streetAddress (nested inside `jobLocation.address`)
  *   4. title
  *   5. description (≥ 50 chars)
- *   6. datePosted (ISO 8601, date-only or date-time; reported or first-seen fallback)
+ *   6. datePosted (ISO 8601; reported -> first-seen -> observed -> build-date chain)
  *   7. hiringOrganization.name
  *   8. jobLocation (Place + PostalAddress with addressCountry 'CH')
  *   9. employmentType (schema.org token)
@@ -872,21 +872,23 @@ export function buildJobPostingFacts(
 }
 
 /**
- * Build a JobPosting with an employer date when reported, otherwise with the
- * explicit first-seen fallback. The six exact canonical URLs tracked by issue
- * #12937 still use the stable schema-only sentinel when neither is available.
+ * Build a JobPosting for an active job. Never returns null (owner decision
+ * 2026-10-24: an active job ALWAYS emits JobPosting). `datePosted` follows the
+ * provenance chain of resolveSchemaPostingDate(): reported source date ->
+ * first-seen -> earliest crawler observation -> build date. The return type is
+ * non-nullable so a future "withhold the schema" branch fails type-checking at
+ * every caller instead of silently dropping Google for Jobs eligibility (the
+ * 2026-10-04 regression of PR 11394).
  */
 export function buildJobPostingSchema(
   job: JobInput,
   opts: BuildJobPostingOptions,
-): JobPostingSchema | null {
+): JobPostingSchema {
   if (!opts || !opts.locale || !opts.url) {
     throw new Error('buildJobPostingSchema: opts.locale and opts.url are required');
   }
 
-  const resolvedDate = resolveRolloutSchemaPostingDate(job, opts.now, opts.url);
-  if (!resolvedDate) return null;
-  const { value: datePosted } = resolvedDate;
+  const { value: datePosted } = resolveRolloutSchemaPostingDate(job, opts.now);
 
   const companyName = resolveCompanyName(job, opts.locale);
   const title = resolveTitle(job, opts.locale);

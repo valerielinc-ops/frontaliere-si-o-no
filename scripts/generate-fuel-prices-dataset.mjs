@@ -389,7 +389,10 @@ export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, r
     const json = await fetchJsonWithRetry(MIMIT_API_URL, retries, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ region, province, town: null, priceOrder: 'asc', fuelType: '0-x' }),
+      // Osservaprezzi encodes the fuel and refuelling mode as <fuel>-<mode>;
+      // 1 is Benzina and x means either self-service or served. `0-x` is not
+      // the API's all-fuels selector and returns no usable station rows.
+      body: JSON.stringify({ region, province, town: null, priceOrder: 'asc', fuelType: '1-x' }),
     }, fetchImpl);
     const results = Array.isArray(json?.results) ? json.results : Array.isArray(json?.array) ? json.array : null;
     if (json?.success !== true || !results) {

@@ -77,7 +77,11 @@ async function readResponsePrefix(res, maxBytes) {
       const remaining = maxBytes - total;
       const { done, value } = byob ? await reader.read(new Uint8Array(remaining)) : await reader.read();
       if (done) break;
-      const chunk = value ? Buffer.from(value) : Buffer.alloc(0);
+      // A stream is allowed to reuse its backing buffer on the next read.
+      // Normalise both ArrayBuffer and typed-array chunks through
+      // Uint8Array.from so the retained bytes are an independent copy.
+      const bytes = value instanceof ArrayBuffer ? new Uint8Array(value) : value;
+      const chunk = bytes ? Buffer.from(Uint8Array.from(bytes)) : Buffer.alloc(0);
       if (!chunk.length) continue;
       const take = Math.min(chunk.length, remaining);
       chunks.push(chunk.subarray(0, take));

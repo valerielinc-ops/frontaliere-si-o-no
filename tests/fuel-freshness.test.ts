@@ -202,7 +202,7 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
       province: 'CO',
       town: null,
       priceOrder: 'asc',
-      fuelType: '0-x',
+      fuelType: '1-x',
     });
     expect(result.source).toBe('mimit-api');
     expect(result.extractedAt).toBe(day(observedAt));

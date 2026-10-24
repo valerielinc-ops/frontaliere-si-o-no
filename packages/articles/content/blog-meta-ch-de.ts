@@ -8612,6 +8612,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.successione-parmelin-otto-nomi.title': 'Bundesrat: Für Parmelins Nachfolge sind acht Namen im Rennen',
     'blog.article.successione-parmelin-otto-nomi.excerpt': 'Das Rennen um Parmelins Nachfolge umfasst acht Namen Graber und Ruppen stellen sich in Bern vor Die kantonalen Kandidaturen laufen am Freitagmittag ab Die Abstimmung ist',
     'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.telecom-358-licenziamenti.title': '358 bestätigte Entlassungen: erste Annahme 450 Stellen',
+    'blog.article.telecom-358-licenziamenti.excerpt': 'Sunrise kündigt 358 Entlassungen an Die erste Hypothese deutete auf 450 Arbeitsplätze hin Die Konsultation mit Syndicom wurde beendet Sozialplan und freiwilliger Austritt für einige',
+    'blog.article.telecom-358-licenziamenti.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
