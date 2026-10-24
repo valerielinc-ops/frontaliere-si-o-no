@@ -39,7 +39,7 @@
  */
 
 import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
-import { pathToFileURL } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { createJwtAssertion, exchangeAssertionForToken } from './lib/google-service-account-token.mjs';
 import {
   quotaDayKey,
@@ -317,8 +317,7 @@ async function main() {
   ]);
 }
 
-const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
-if (isMain) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     log('❌', `Unhandled error: ${err.message}`);
     process.exit(0);

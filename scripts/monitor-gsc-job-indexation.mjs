@@ -37,7 +37,8 @@
 import { readFileSync, existsSync, writeFileSync, mkdirSync, appendFileSync } from 'node:fs';
 import { createSign } from 'node:crypto';
 import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE, getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
 import { isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
@@ -994,8 +995,7 @@ async function submitToIndexNow(urls) {
 // Run only as a CLI: tests import the issue-body builders, and an import must
 // not inspect 30 URLs (and spend URL Inspection quota) wherever credentials
 // happen to be in the environment.
-const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
-if (isMain) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch(err => {
     log('⚠️', `Monitor error: ${err.message}`);
     process.exit(0); // Always exit 0
