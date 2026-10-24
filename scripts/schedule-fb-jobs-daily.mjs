@@ -119,8 +119,8 @@ function defaultRepoRoot() {
 }
 
 function jobsPath(repoRoot) {
-  // Match scripts/submit-google-indexing-jobs.js: prefer public/data, fall
-  // back to data/ (the agent worktree only has the latter for tests).
+  // Prefer public/data (what the deploy publishes), fall back to data/ (the
+  // agent worktree only has the latter for tests).
   const pub = resolve(repoRoot, 'public', 'data', 'jobs.json');
   if (existsSync(pub)) return pub;
   return resolve(repoRoot, 'data', 'jobs.json');

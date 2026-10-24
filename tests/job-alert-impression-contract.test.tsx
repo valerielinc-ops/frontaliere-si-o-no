@@ -515,12 +515,18 @@ describe('applied-state copy exists in all four locales', () => {
       'jobBoard.applied.body',
       'jobBoard.applied.alertCta',
       'jobBoard.applied.reopen',
-      // User-facing feature ⇒ WhatsNewModal entry (AGENTS.md, Accessibility And UX).
+    ]) {
+      expect(src, `${locale} is missing ${key}`).toContain(`'${key}'`);
+    }
+    // User-facing feature ⇒ WhatsNewModal entry (AGENTS.md, Accessibility And UX).
+    // Release notes live in the on-demand `<locale>-whatsnew.ts` namespace.
+    const notes = fs.readFileSync(path.join(ROOT, 'services/locales', `${locale}-whatsnew.ts`), 'utf-8');
+    for (const key of [
       'whatsNew.v3910.title',
       'whatsNew.v3910.applyReceipt.title',
       'whatsNew.v3910.applyReceipt.desc',
     ]) {
-      expect(src, `${locale} is missing ${key}`).toContain(`'${key}'`);
+      expect(notes, `${locale} is missing ${key}`).toContain(`'${key}'`);
     }
   });
 });

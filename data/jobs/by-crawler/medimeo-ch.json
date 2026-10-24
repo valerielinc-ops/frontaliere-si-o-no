@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medimeo-ch",
-  "assembledAt": "2026-10-23T21:30:59.273Z",
-  "runId": "40026256678",
+  "assembledAt": "2026-10-24T09:33:01.526Z",
+  "runId": "40081697922",
   "jobs": [
     {
       "id": "medimeo-ch-d7ee5bf88116",
@@ -34,8 +34,8 @@
       "url": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-und-geburtshilfe-50-100-3645/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:30:52.561Z",
-      "addressLocality": "Soletta",
+      "crawledAt": "2026-10-24T09:32:56.037Z",
+      "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
       "country": "CH",
@@ -81,7 +81,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "4500"
     },
     {
       "id": "medimeo-ch-ca3ac562d27e",
@@ -161,7 +162,7 @@
       "previousSlugs": [
         "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "medimeo-ch-df97ed6cdd55",
@@ -241,7 +242,7 @@
       "previousSlugs": [
         "facharztin-facharzt-dermatologie-60-100-zentrale-lage-in-zurich-region-zurich-medimeo-ch"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

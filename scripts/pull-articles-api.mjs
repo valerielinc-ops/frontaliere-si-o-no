@@ -57,6 +57,7 @@ import {
 } from './lib/article-canonical-overrides.mjs';
 import { dropRetiredSitemapUrlBlocks, isRetiredLoc } from './lib/sitemap-retired-urls.mjs';
 import { readSlugRegistryWithRows } from './lib/article-slug-registry.mjs';
+import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { isReservedPublishedSlug } from './lib/published-slug-guard.mjs';
 import { validatePublishedBlogImageEvidence } from './lib/published-blog-image-evidence.mjs';
 import {
@@ -1101,34 +1102,45 @@ for (const name of FEEDS) {
     // expires on its own. `rimborsi-730-sostituti-imposta` did exactly this.
     //
     // The registries use the shared textual parser rather than being imported:
-    // they are TypeScript and this is a plain .mjs script with no TS pipeline. Only
-    // the IT slug is needed — <loc> in this sitemap is always the IT canonical.
+    // they are TypeScript and this is a plain .mjs script with no TS pipeline.
+    // Since 2026-10-24 the candidates carry one <loc> per published locale page
+    // (it/en/de/fr), so every locale slug is read and every localized section
+    // prefix is matched: an EN/DE/FR entry whose article left the registry must
+    // leave too, not linger until the window ages it out.
     // Absent registry ≠ empty registry. A checkout without the corpus (the
     // script's own tests run against a throwaway tree, and so does anyone
     // pointing ARTICLES_API_BASE at a fixture) simply cannot judge what is
     // de-listed, so it prunes nothing. A file that EXISTS but yields no slugs
     // is the corrupt case and still refuses — parsing it as empty would de-list
     // the entire sitemap in one run.
-    const itSlugsOf = (file, constName) => {
+    const NEWS_LOCALES = ['it', 'en', 'de', 'fr'];
+    const localeSlugsOf = (file, constName) => {
       const abs = path.join(ROOT, file);
       if (!fs.existsSync(abs)) return null;
       const parsed = readSlugRegistryWithRows(abs, constName);
       if (parsed.rows === 0 || Object.keys(parsed.registry).length !== parsed.rows) {
         fail(`could not parse ${constName} out of ${file}: ${Object.keys(parsed.registry).length}/${parsed.rows} rows — refusing`);
       }
-      return new Set(Object.values(parsed.registry).map((slugs) => slugs.it));
+      return Object.fromEntries(
+        NEWS_LOCALES.map((loc) => [loc, new Set(Object.values(parsed.registry).map((slugs) => slugs?.[loc]).filter(Boolean))]),
+      );
     };
 
+    // Hub slugs per locale from the shared section core, not re-typed here.
     const registries = [
-      {
-        pattern: /^https:\/\/frontaliereticino\.ch\/articoli-frontaliere\/([^/]+)\/$/,
-        slugs: itSlugsOf('packages/articles/content/routerBlogData.ts', 'BLOG_SLUGS'),
-      },
-      {
-        pattern: /^https:\/\/frontaliereticino\.ch\/articoli-svizzera\/([^/]+)\/$/,
-        slugs: itSlugsOf('packages/articles/content/routerSwissData.ts', 'SWISS_SLUGS'),
-      },
-    ].filter((r) => r.slugs !== null);
+      { section: 'frontaliere', file: 'packages/articles/content/routerBlogData.ts', constName: 'BLOG_SLUGS' },
+      { section: 'svizzera', file: 'packages/articles/content/routerSwissData.ts', constName: 'SWISS_SLUGS' },
+    ].flatMap(({ section, file, constName }) => {
+      const slugsByLocale = localeSlugsOf(file, constName);
+      if (slugsByLocale === null) return [];
+      const { indexSlug } = ARTICLE_SECTION_CORE[section];
+      return NEWS_LOCALES.map((loc) => ({
+        pattern: new RegExp(
+          `^https://frontaliereticino\\.ch/${loc === 'it' ? '' : `${loc}/`}${indexSlug[loc].replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/([^/]+)/$`,
+        ),
+        slugs: slugsByLocale[loc],
+      }));
+    });
 
     // A <loc> that is not article-shaped is not this check's business — say so
     // by returning false rather than by guessing.

@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { main, movedSinceReview, writeReviewDiff } from '../scripts/ci/prefetch-review-diff.mjs';
 
@@ -22,6 +23,16 @@ function fixture() {
 }
 
 describe('host-prepared complete review patch', () => {
+  it('keeps the identical twin importable without the adapted review policy', async () => {
+    const isolated = mkdtempSync(join(tmpdir(), 'review-diff-twin-'));
+    roots.push(isolated);
+    const twin = join(isolated, 'prefetch-review-diff.mjs');
+    writeFileSync(twin, readFileSync(new URL('../scripts/ci/prefetch-review-diff.mjs', import.meta.url), 'utf8'));
+
+    const isolatedModule = await import(pathToFileURL(twin).href);
+    expect(isolatedModule.TEST_DIFF_EXCLUSIONS).toContain(':(glob,exclude)**/tests/**');
+  });
+
   it('retains more than 20,000 code lines while excluding generated data', () => {
     const f = fixture();
     mkdirSync(join(f.repo, 'data'));

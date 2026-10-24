@@ -1,64 +1,20 @@
 {
   "key": "oscam",
   "label": "OSCAM",
-  "generatedAt": "2026-10-23T21:20:45.814Z",
+  "generatedAt": "2026-10-24T09:11:36.122Z",
   "total": 0,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7921,
-  "avgDurationMs": 7921,
+  "durationMs": 7499,
+  "avgDurationMs": 7499,
   "durationHistory": [
-    7921
+    7499
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Concorso generale 2026",
-      "slug": "concorso-generale-2026-oscam",
-      "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
-      "companyKey": "oscam",
-      "location": "Castelrotto",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf",
-      "applyUrl": "https://www.oscam.ch/candidature/",
-      "category": "general",
-      "sector": "Sanità pubblica / Assistenza anziani",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "source": "oscam-crawler",
-      "postedDate": "",
-      "sourceLang": "it",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Castelrotto"
-      },
-      "crawledAt": "2026-10-23T09:15:20.184Z",
-      "id": "oscam-90801fb9d04f",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Nucleo 30",
-      "postalCode": "6980",
-      "addressLocality": "Castelrotto",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-17T10:50:46.725Z",
-      "salarySource": "estimated",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

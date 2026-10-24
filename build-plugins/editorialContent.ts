@@ -9,6 +9,7 @@
  * Italian editorial content remains inline in staticPagesPlugin.ts.
  */
 
+import { AI_USE_STATEMENT } from '../packages/articles/engine/shared/aiDisclosure';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { renderSchoolCalendarSource, renderSchoolYearLinks } from './schoolCalendarLinks';
 
@@ -22,9 +23,9 @@ export type SectionEditorialMap = Record<string, Record<string, string[]>>;
 type PontiLocale = 'it' | 'en' | 'de' | 'fr';
 type DowKey = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 type HolidayKey =
- | 'newYear' | 'berchtold' | 'epiphany' | 'goodFriday' | 'easter' | 'easterMonday'
- | 'liberation' | 'labour' | 'ascension' | 'pentecost' | 'whitMonday' | 'republic'
- | 'corpusChristi' | 'swissNational' | 'assumption' | 'allSaints' | 'immaculate'
+ | 'newYear' | 'epiphany' | 'stJoseph' | 'easterMonday'
+ | 'liberation' | 'labour' | 'ascension' | 'whitMonday' | 'republic'
+ | 'corpusChristi' | 'stPeterPaul' | 'swissNational' | 'assumption' | 'allSaints' | 'immaculate'
  | 'christmas' | 'stStephen';
 
 const PONTI_DOW: Record<PontiLocale, Record<DowKey, string>> = {
@@ -36,56 +37,58 @@ const PONTI_DOW: Record<PontiLocale, Record<DowKey, string>> = {
 
 const PONTI_NAMES: Record<PontiLocale, Record<HolidayKey, string>> = {
  it: {
- newYear: 'Capodanno', berchtold: 'San Berchtoldo', epiphany: 'Epifania', goodFriday: 'Venerdì Santo',
- easter: 'Pasqua', easterMonday: 'Pasquetta', liberation: 'Festa della Liberazione (IT)',
- labour: 'Festa del Lavoro', ascension: 'Ascensione', pentecost: 'Pentecoste', whitMonday: 'Lunedì di Pentecoste',
- republic: 'Festa della Repubblica (IT)', corpusChristi: 'Corpus Domini', swissNational: 'Festa nazionale svizzera',
+ newYear: 'Capodanno', epiphany: 'Epifania', stJoseph: 'San Giuseppe',
+ easterMonday: 'Pasquetta', liberation: 'Festa della Liberazione (IT)',
+ labour: 'Festa del Lavoro', ascension: 'Ascensione', whitMonday: 'Lunedì di Pentecoste',
+ republic: 'Festa della Repubblica (IT)', corpusChristi: 'Corpus Domini', stPeterPaul: 'Santi Pietro e Paolo', swissNational: 'Festa nazionale svizzera',
  assumption: 'Assunzione / Ferragosto', allSaints: 'Ognissanti', immaculate: 'Immacolata',
  christmas: 'Natale', stStephen: 'Santo Stefano',
  },
  en: {
- newYear: "New Year's Day", berchtold: "St Berchtold's Day", epiphany: 'Epiphany', goodFriday: 'Good Friday',
- easter: 'Easter Sunday', easterMonday: 'Easter Monday', liberation: 'Italian Liberation Day',
- labour: 'Labour Day', ascension: 'Ascension', pentecost: 'Pentecost', whitMonday: 'Whit Monday',
- republic: 'Italian Republic Day', corpusChristi: 'Corpus Christi', swissNational: 'Swiss National Day',
+ newYear: "New Year's Day", epiphany: 'Epiphany', stJoseph: "St Joseph's Day",
+ easterMonday: 'Easter Monday', liberation: 'Italian Liberation Day',
+ labour: 'Labour Day', ascension: 'Ascension', whitMonday: 'Whit Monday',
+ republic: 'Italian Republic Day', corpusChristi: 'Corpus Christi', stPeterPaul: 'Saints Peter and Paul', swissNational: 'Swiss National Day',
  assumption: 'Assumption', allSaints: "All Saints' Day", immaculate: 'Immaculate Conception',
  christmas: 'Christmas Day', stStephen: 'Boxing Day',
  },
  de: {
- newYear: 'Neujahr', berchtold: 'Berchtoldstag', epiphany: 'Dreikönigstag', goodFriday: 'Karfreitag',
- easter: 'Ostersonntag', easterMonday: 'Ostermontag', liberation: 'Italienischer Befreiungstag',
- labour: 'Tag der Arbeit', ascension: 'Auffahrt', pentecost: 'Pfingstsonntag', whitMonday: 'Pfingstmontag',
- republic: 'Italienischer Tag der Republik', corpusChristi: 'Fronleichnam', swissNational: 'Schweizer Bundesfeier',
+ newYear: 'Neujahr', epiphany: 'Dreikönigstag', stJoseph: 'Josefstag',
+ easterMonday: 'Ostermontag', liberation: 'Italienischer Befreiungstag',
+ labour: 'Tag der Arbeit', ascension: 'Auffahrt', whitMonday: 'Pfingstmontag',
+ republic: 'Italienischer Tag der Republik', corpusChristi: 'Fronleichnam', stPeterPaul: 'Peter und Paul', swissNational: 'Schweizer Bundesfeier',
  assumption: 'Mariä Himmelfahrt', allSaints: 'Allerheiligen', immaculate: 'Mariä Empfängnis',
  christmas: 'Weihnachten', stStephen: 'Stephanstag',
  },
  fr: {
- newYear: "Jour de l'An", berchtold: 'Saint-Berchtold', epiphany: 'Épiphanie', goodFriday: 'Vendredi saint',
- easter: 'Pâques', easterMonday: 'Lundi de Pâques', liberation: 'Fête de la Libération (IT)',
- labour: 'Fête du Travail', ascension: 'Ascension', pentecost: 'Pentecôte', whitMonday: 'Lundi de Pentecôte',
- republic: 'Fête de la République (IT)', corpusChristi: 'Fête-Dieu', swissNational: 'Fête nationale suisse',
+ newYear: "Jour de l'An", epiphany: 'Épiphanie', stJoseph: 'Saint-Joseph',
+ easterMonday: 'Lundi de Pâques', liberation: 'Fête de la Libération (IT)',
+ labour: 'Fête du Travail', ascension: 'Ascension', whitMonday: 'Lundi de Pentecôte',
+ republic: 'Fête de la République (IT)', corpusChristi: 'Fête-Dieu', stPeterPaul: 'Saints Pierre et Paul', swissNational: 'Fête nationale suisse',
  assumption: 'Assomption', allSaints: 'Toussaint', immaculate: 'Immaculée Conception',
  christmas: 'Noël', stStephen: 'Saint-Étienne',
  },
 };
 
-// Verified vs ti.ch + gov.it. Easter 2026 = 5 Apr → Good Friday 3 Apr,
-// Easter Monday 6 Apr, Ascension 14 May (Thu), Pentecost 24 May (Sun),
+// The 15 official Ticino holidays of 2026 as published by the Canton (DFE,
+// «Giorni festivi in Ticino»; Legge concernente i giorni festivi ufficiali del
+// 15.12.2009) plus the two Italy-only national holidays. San Giuseppe and
+// SS. Pietro e Paolo ARE Ticino holidays; Good Friday and 2 January (St
+// Berchtold) are NOT — they are holidays in many German-speaking cantons, not
+// here. Easter 2026 = 5 Apr → Easter Monday 6 Apr, Ascension 14 May (Thu),
 // Whit Monday 25 May, Corpus Christi 4 Jun.
 const PONTI_2026_ROWS: ReadonlyArray<readonly [string, DowKey, HolidayKey, boolean, boolean]> = [
  ['1/1', 'thu', 'newYear', true, true],
- ['2/1', 'fri', 'berchtold', true, false],
  ['6/1', 'tue', 'epiphany', true, true],
- ['3/4', 'fri', 'goodFriday', true, false],
- ['5/4', 'sun', 'easter', true, true],
+ ['19/3', 'thu', 'stJoseph', true, false],
  ['6/4', 'mon', 'easterMonday', true, true],
  ['25/4', 'sat', 'liberation', false, true],
  ['1/5', 'fri', 'labour', true, true],
  ['14/5', 'thu', 'ascension', true, false],
- ['24/5', 'sun', 'pentecost', true, false],
  ['25/5', 'mon', 'whitMonday', true, false],
  ['2/6', 'tue', 'republic', false, true],
  ['4/6', 'thu', 'corpusChristi', true, false],
+ ['29/6', 'mon', 'stPeterPaul', true, false],
  ['1/8', 'sat', 'swissNational', true, false],
  ['15/8', 'sat', 'assumption', true, true],
  ['1/11', 'sun', 'allSaints', true, true],
@@ -96,7 +99,7 @@ const PONTI_2026_ROWS: ReadonlyArray<readonly [string, DowKey, HolidayKey, boole
 
 // ── Top bridges (gold standard for the year) ──
 // Listed Italian-side; per-locale labels generated below from this template.
-type BridgeKey = 'newYearBerchtold' | 'epiphany' | 'easter' | 'mayDay' | 'ascension' | 'pentecost' | 'corpus' | 'immaculate' | 'christmas';
+type BridgeKey = 'newYear' | 'epiphany' | 'stJoseph' | 'easter' | 'mayDay' | 'ascension' | 'pentecost' | 'corpus' | 'stPeterPaul' | 'immaculate' | 'christmas';
 interface BridgeMeta {
  readonly key: BridgeKey;
  /** Localised date span (e.g. "3 → 6 aprile"). */
@@ -110,14 +113,16 @@ interface BridgeMeta {
 }
 
 const PONTI_BRIDGES: ReadonlyArray<BridgeMeta> = [
- { key: 'newYearBerchtold', span: '1 → 4', days: 4, leave: 0, emoji: '🎊' },
- { key: 'epiphany', span: '5 → 6', days: 4, leave: 1, emoji: '🧦' },
- { key: 'easter', span: '3 → 6', days: 4, leave: 0, emoji: '🐣' },
+ { key: 'newYear', span: '1 → 4', days: 4, leave: 1, emoji: '🎊' },
+ { key: 'epiphany', span: '3 → 6', days: 4, leave: 1, emoji: '🧦' },
+ { key: 'stJoseph', span: '19 → 22', days: 4, leave: 1, emoji: '🔨' },
+ { key: 'easter', span: '4 → 6', days: 3, leave: 0, emoji: '🐣' },
  { key: 'mayDay', span: '1 → 3', days: 3, leave: 0, emoji: '🌷' },
  { key: 'ascension', span: '14 → 17', days: 4, leave: 1, emoji: '☁️' },
  { key: 'pentecost', span: '23 → 25', days: 3, leave: 0, emoji: '🕊️' },
  { key: 'corpus', span: '4 → 7', days: 4, leave: 1, emoji: '🌿' },
- { key: 'immaculate', span: '7 → 8', days: 4, leave: 1, emoji: '🕯️' },
+ { key: 'stPeterPaul', span: '27 → 29', days: 3, leave: 0, emoji: '🗝️' },
+ { key: 'immaculate', span: '5 → 8', days: 4, leave: 1, emoji: '🕯️' },
  { key: 'christmas', span: '25 → 27', days: 3, leave: 0, emoji: '🎄' },
 ];
 
@@ -171,152 +176,152 @@ interface PontiCopy {
 const PONTI_COPY_V2: Record<PontiLocale, PontiCopy> = {
  it: {
  eyebrow: '🇮🇹🇨🇭 Almanacco frontaliere · 2026',
- leadStatement: '<strong>17 festività</strong> in Canton Ticino. Spendi <strong>4 giorni di ferie</strong> nei momenti giusti e ne guadagni <strong>12 di pausa extra</strong> — quasi tre settimane di stacco. Mica male.',
+ leadStatement: '<strong>15 festività ufficiali</strong> in Canton Ticino. Con <strong>6 giorni di ferie</strong> nei punti giusti metti in fila <strong>11 weekend lunghi</strong> da 3–4 giorni: 39 giorni di stacco in tutto. Mica male.',
  ctaLabel: 'Calcola il netto frontaliere con i festivi inclusi',
  ctaHref: '/calcola-stipendio/',
  bridgesHeading: '🌉 I ponti lunghi del 2026',
  tableHeading: '📅 Tutte le date sul calendario',
  bridgeMonths: {
- newYearBerchtold: 'gennaio', epiphany: 'gennaio', easter: 'aprile', mayDay: 'maggio',
- ascension: 'maggio', pentecost: 'maggio', corpus: 'giugno', immaculate: 'dicembre', christmas: 'dicembre',
+ newYear: 'gennaio', epiphany: 'gennaio', stJoseph: 'marzo', easter: 'aprile', mayDay: 'maggio',
+ ascension: 'maggio', pentecost: 'maggio', corpus: 'giugno', stPeterPaul: 'giugno', immaculate: 'dicembre', christmas: 'dicembre',
  },
  bridgeNames: {
- newYearBerchtold: 'Capodanno + San Berchtoldo', epiphany: 'Epifania', easter: 'Pasqua', mayDay: '1° maggio',
- ascension: 'Ascensione', pentecost: 'Pentecoste', corpus: 'Corpus Domini', immaculate: 'Immacolata', christmas: 'Natale',
+ newYear: 'Capodanno', epiphany: 'Epifania', stJoseph: 'San Giuseppe', easter: 'Pasqua', mayDay: '1° maggio',
+ ascension: 'Ascensione', pentecost: 'Pentecoste', corpus: 'Corpus Domini', stPeterPaul: 'Santi Pietro e Paolo', immaculate: 'Immacolata', christmas: 'Natale',
  },
  leaveCopy: (n) => (n === 0 ? '<span class="s-agVEfZ">🎁 0 ferie</span>' : `${n} ferie ben spese`),
  daysCopy: (n) => `${n} giorni di pausa`,
  cols: { date: 'Data', day: 'Giorno', holiday: 'Festività', ch: 'TI', it: 'IT' },
  quarters: [
- { emoji: '❄️', label: 'Inverno', quip: 'Tre ponti nei primi 6 giorni dell\'anno. Si parte forte.' },
- { emoji: '🌷', label: 'Primavera', quip: 'Tre ponti in 9 settimane — il picco anti-produttività del frontaliere.' },
- { emoji: '☀️', label: 'Estate', quip: 'Tutti i festivi cadono nel weekend. Cosmico complotto svizzero.' },
- { emoji: '🍂', label: 'Autunno', quip: 'Calma piatta fino all\'Immacolata, poi giù le saracinesche.' },
+ { emoji: '❄️', label: 'Inverno', quip: 'Tre ponti entro il 22 marzo: Capodanno, Epifania e San Giuseppe.' },
+ { emoji: '🌷', label: 'Primavera', quip: 'Sei long weekend tra aprile e giugno — il picco anti-produttività del frontaliere.' },
+ { emoji: '☀️', label: 'Estate', quip: 'Il 1° agosto e Ferragosto cadono di sabato. Cosmico complotto svizzero.' },
+ { emoji: '🍂', label: 'Autunno', quip: 'Ognissanti cade di domenica; poi Immacolata e Natale chiudono l\'anno.' },
  ],
  legend: '<strong>●</strong> festa pagata · <strong>○</strong> giorno normale, ti tocca andare a lavorare',
  closingLine: 'Stampala, attaccala in cucina, conta i giorni alla rovescia. È un tuo diritto contrattuale.',
  tiles: [
- { value: '17', label: 'Festività ufficiali in Ticino', tone: 'accent' },
- { value: '9', label: 'Long weekend da 3-4 giorni', tone: 'success' },
- { value: '4', label: 'Ferie ti bastano per il pieno', tone: 'success' },
- { value: '+12', label: 'Giorni di pausa guadagnati', tone: 'accent' },
- { value: '5', label: 'Festivi sprecati nel weekend', tone: 'warning' },
+ { value: '15', label: 'Festività ufficiali in Ticino', tone: 'accent' },
+ { value: '11', label: 'Long weekend da 3-4 giorni', tone: 'success' },
+ { value: '6', label: 'Ferie ti bastano per il pieno', tone: 'success' },
+ { value: '39', label: 'Giorni di stacco nei long weekend', tone: 'accent' },
+ { value: '4', label: 'Festivi sprecati nel weekend', tone: 'warning' },
  ],
- advice: 'Anno generoso: <strong>gennaio</strong>, <strong>aprile</strong> e <strong>dicembre</strong> concentrano due terzi dei ponti. L\'estate è piatta — la natura compensa con il sole.',
+ advice: 'La primavera è generosa: tra <strong>aprile</strong> e <strong>giugno</strong> cadono sei long weekend. L\'estate è piatta — 1° agosto e Ferragosto sono di sabato.',
  monthLetters: ['G', 'F', 'M', 'A', 'M', 'G', 'L', 'A', 'S', 'O', 'N', 'D'],
  stripCaption: 'Densità festività mese per mese',
  stripA11y: 'Calendario annuale 2026: numero di festività per ogni mese',
  },
  en: {
  eyebrow: '🇮🇹🇨🇭 Cross-border almanac · 2026',
- leadStatement: '<strong>17 public holidays</strong> in Canton Ticino. Spend <strong>4 days of leave</strong> in the right places and you gain <strong>12 extra days off</strong> — almost three weeks unplugged. Not bad at all.',
+ leadStatement: '<strong>15 official public holidays</strong> in Canton Ticino. Spend <strong>6 days of leave</strong> in the right places and you line up <strong>11 long weekends</strong> of 3–4 days: 39 days off in total. Not bad at all.',
  ctaLabel: 'Calculate cross-border net salary (holidays included)',
  ctaHref: '/en/calculate-salary/',
  bridgesHeading: '🌉 2026 long bridges, at a glance',
  tableHeading: '📅 Every date on the calendar',
  bridgeMonths: {
- newYearBerchtold: 'January', epiphany: 'January', easter: 'April', mayDay: 'May',
- ascension: 'May', pentecost: 'May', corpus: 'June', immaculate: 'December', christmas: 'December',
+ newYear: 'January', epiphany: 'January', stJoseph: 'March', easter: 'April', mayDay: 'May',
+ ascension: 'May', pentecost: 'May', corpus: 'June', stPeterPaul: 'June', immaculate: 'December', christmas: 'December',
  },
  bridgeNames: {
- newYearBerchtold: 'New Year + St Berchtold', epiphany: 'Epiphany', easter: 'Easter', mayDay: 'Labour Day',
- ascension: 'Ascension', pentecost: 'Pentecost', corpus: 'Corpus Christi', immaculate: 'Immaculate Conception', christmas: 'Christmas',
+ newYear: 'New Year', epiphany: 'Epiphany', stJoseph: "St Joseph's Day", easter: 'Easter', mayDay: 'Labour Day',
+ ascension: 'Ascension', pentecost: 'Pentecost', corpus: 'Corpus Christi', stPeterPaul: 'Saints Peter and Paul', immaculate: 'Immaculate Conception', christmas: 'Christmas',
  },
  leaveCopy: (n) => (n === 0 ? '<span class="s-agVEfZ">🎁 0 leave</span>' : `${n} day well spent`),
  daysCopy: (n) => `${n} days off`,
  cols: { date: 'Date', day: 'Day', holiday: 'Holiday', ch: 'TI', it: 'IT' },
  quarters: [
- { emoji: '❄️', label: 'Winter', quip: 'Three bridges in the first six days of the year. Quite the start.' },
- { emoji: '🌷', label: 'Spring', quip: 'Three bridges in nine weeks — peak anti-productivity for the commuter.' },
- { emoji: '☀️', label: 'Summer', quip: 'Every holiday falls on a weekend. The universe is unjust.' },
- { emoji: '🍂', label: 'Autumn', quip: 'Quiet until Immaculate Conception, then the curtain comes down.' },
+ { emoji: '❄️', label: 'Winter', quip: 'Three bridges by 22 March: New Year, Epiphany and St Joseph.' },
+ { emoji: '🌷', label: 'Spring', quip: 'Six long weekends between April and June — peak anti-productivity for the commuter.' },
+ { emoji: '☀️', label: 'Summer', quip: '1 August and 15 August both fall on a Saturday. The universe is unjust.' },
+ { emoji: '🍂', label: 'Autumn', quip: 'All Saints falls on a Sunday; Immaculate Conception and Christmas close the year.' },
  ],
  legend: '<strong>●</strong> paid holiday · <strong>○</strong> normal working day',
  closingLine: 'Print it, pin it to the fridge, count down the days. Your contractual right.',
  tiles: [
- { value: '17', label: 'Official Ticino holidays', tone: 'accent' },
- { value: '9', label: 'Long weekends, 3-4 days each', tone: 'success' },
- { value: '4', label: 'Leave days to make the most of it', tone: 'success' },
- { value: '+12', label: 'Extra days off you gain', tone: 'accent' },
- { value: '5', label: 'Holidays wasted on weekends', tone: 'warning' },
+ { value: '15', label: 'Official Ticino holidays', tone: 'accent' },
+ { value: '11', label: 'Long weekends, 3-4 days each', tone: 'success' },
+ { value: '6', label: 'Leave days to make the most of it', tone: 'success' },
+ { value: '39', label: 'Days off across the long weekends', tone: 'accent' },
+ { value: '4', label: 'Holidays wasted on weekends', tone: 'warning' },
  ],
- advice: 'A generous year: <strong>January</strong>, <strong>April</strong> and <strong>December</strong> hold two thirds of the bridges. Summer is flat — nature compensates with sun.',
+ advice: 'Spring is the generous season: <strong>April</strong> to <strong>June</strong> holds six of the long weekends. Summer is flat — 1 and 15 August fall on a Saturday.',
  monthLetters: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
  stripCaption: 'Holiday density, month by month',
  stripA11y: 'Year-2026 calendar: number of public holidays per month',
  },
  de: {
  eyebrow: '🇮🇹🇨🇭 Grenzgänger-Almanach · 2026',
- leadStatement: '<strong>17 Feiertage</strong> im Tessin. Setzen Sie <strong>4 Urlaubstage</strong> gezielt ein und gewinnen Sie <strong>12 zusätzliche freie Tage</strong> — fast drei Wochen Auszeit. Nicht übel.',
+ leadStatement: '<strong>15 offizielle Feiertage</strong> im Tessin. Mit <strong>6 Urlaubstagen</strong> an den richtigen Stellen reihen Sie <strong>11 lange Wochenenden</strong> von 3–4 Tagen aneinander: insgesamt 39 freie Tage. Nicht übel.',
  ctaLabel: 'Grenzgänger-Nettolohn berechnen (Feiertage inklusive)',
  ctaHref: '/de/gehalt-berechnen/',
  bridgesHeading: '🌉 Die langen Brücken 2026',
  tableHeading: '📅 Alle Daten im Kalender',
  bridgeMonths: {
- newYearBerchtold: 'Januar', epiphany: 'Januar', easter: 'April', mayDay: 'Mai',
- ascension: 'Mai', pentecost: 'Mai', corpus: 'Juni', immaculate: 'Dezember', christmas: 'Dezember',
+ newYear: 'Januar', epiphany: 'Januar', stJoseph: 'März', easter: 'April', mayDay: 'Mai',
+ ascension: 'Mai', pentecost: 'Mai', corpus: 'Juni', stPeterPaul: 'Juni', immaculate: 'Dezember', christmas: 'Dezember',
  },
  bridgeNames: {
- newYearBerchtold: 'Neujahr + Berchtoldstag', epiphany: 'Dreikönigstag', easter: 'Ostern', mayDay: '1. Mai',
- ascension: 'Auffahrt', pentecost: 'Pfingsten', corpus: 'Fronleichnam', immaculate: 'Mariä Empfängnis', christmas: 'Weihnachten',
+ newYear: 'Neujahr', epiphany: 'Dreikönigstag', stJoseph: 'Josefstag', easter: 'Ostern', mayDay: '1. Mai',
+ ascension: 'Auffahrt', pentecost: 'Pfingsten', corpus: 'Fronleichnam', stPeterPaul: 'Peter und Paul', immaculate: 'Mariä Empfängnis', christmas: 'Weihnachten',
  },
  leaveCopy: (n) => (n === 0 ? '<span class="s-agVEfZ">🎁 0 Urlaub</span>' : `${n} Urlaubstag gut investiert`),
  daysCopy: (n) => `${n} Tage frei`,
  cols: { date: 'Datum', day: 'Tag', holiday: 'Feiertag', ch: 'TI', it: 'IT' },
  quarters: [
- { emoji: '❄️', label: 'Winter', quip: 'Drei Brücken in den ersten sechs Tagen. Starker Auftakt.' },
- { emoji: '🌷', label: 'Frühling', quip: 'Drei Brücken in neun Wochen — Anti-Produktivitätsspitze des Grenzgängers.' },
- { emoji: '☀️', label: 'Sommer', quip: 'Jeder Feiertag fällt aufs Wochenende. Kosmische Ungerechtigkeit.' },
- { emoji: '🍂', label: 'Herbst', quip: 'Funkstille bis Mariä Empfängnis, dann fallen die Rollläden.' },
+ { emoji: '❄️', label: 'Winter', quip: 'Drei Brücken bis zum 22. März: Neujahr, Dreikönigstag und Josefstag.' },
+ { emoji: '🌷', label: 'Frühling', quip: 'Sechs lange Wochenenden zwischen April und Juni — Anti-Produktivitätsspitze des Grenzgängers.' },
+ { emoji: '☀️', label: 'Sommer', quip: '1. August und 15. August fallen auf einen Samstag. Kosmische Ungerechtigkeit.' },
+ { emoji: '🍂', label: 'Herbst', quip: 'Allerheiligen fällt auf einen Sonntag; Mariä Empfängnis und Weihnachten schliessen das Jahr.' },
  ],
  legend: '<strong>●</strong> bezahlter Feiertag · <strong>○</strong> normaler Arbeitstag',
  closingLine: 'Ausdrucken, an den Kühlschrank pinnen, Tage zählen. Ihr vertragliches Recht.',
  tiles: [
- { value: '17', label: 'Offizielle Tessiner Feiertage', tone: 'accent' },
- { value: '9', label: 'Lange Wochenenden, je 3-4 Tage', tone: 'success' },
- { value: '4', label: 'Urlaubstage reichen aus', tone: 'success' },
- { value: '+12', label: 'Zusätzliche freie Tage gewonnen', tone: 'accent' },
- { value: '5', label: 'Feiertage am Wochenende verloren', tone: 'warning' },
+ { value: '15', label: 'Offizielle Tessiner Feiertage', tone: 'accent' },
+ { value: '11', label: 'Lange Wochenenden, je 3-4 Tage', tone: 'success' },
+ { value: '6', label: 'Urlaubstage reichen aus', tone: 'success' },
+ { value: '39', label: 'Freie Tage in den langen Wochenenden', tone: 'accent' },
+ { value: '4', label: 'Feiertage am Wochenende verloren', tone: 'warning' },
  ],
- advice: 'Großzügiges Jahr: <strong>Januar</strong>, <strong>April</strong> und <strong>Dezember</strong> bündeln zwei Drittel der Brücken. Sommer ist flach — die Natur gleicht mit Sonne aus.',
+ advice: 'Der Frühling ist grosszügig: Zwischen <strong>April</strong> und <strong>Juni</strong> liegen sechs der langen Wochenenden. Der Sommer ist flach — 1. und 15. August fallen auf einen Samstag.',
  monthLetters: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
  stripCaption: 'Feiertagsdichte Monat für Monat',
  stripA11y: 'Kalender 2026: Anzahl der Feiertage pro Monat',
  },
  fr: {
  eyebrow: '🇮🇹🇨🇭 Almanach frontalier · 2026',
- leadStatement: "<strong>17 jours fériés</strong> au Tessin. Dépensez <strong>4 jours de congés</strong> aux bons endroits et gagnez <strong>12 jours de pause supplémentaires</strong> — presque trois semaines de coupure. Pas mal.",
+ leadStatement: "<strong>15 jours fériés officiels</strong> au Tessin. Avec <strong>6 jours de congé</strong> bien placés, vous enchaînez <strong>11 longs week-ends</strong> de 3–4 jours : 39 jours de pause au total. Pas mal.",
  ctaLabel: 'Calculer le salaire net frontalier (fériés inclus)',
  ctaHref: '/fr/calculer-salaire/',
  bridgesHeading: '🌉 Les longs ponts 2026',
  tableHeading: '📅 Toutes les dates du calendrier',
  bridgeMonths: {
- newYearBerchtold: 'janvier', epiphany: 'janvier', easter: 'avril', mayDay: 'mai',
- ascension: 'mai', pentecost: 'mai', corpus: 'juin', immaculate: 'décembre', christmas: 'décembre',
+ newYear: 'janvier', epiphany: 'janvier', stJoseph: 'mars', easter: 'avril', mayDay: 'mai',
+ ascension: 'mai', pentecost: 'mai', corpus: 'juin', stPeterPaul: 'juin', immaculate: 'décembre', christmas: 'décembre',
  },
  bridgeNames: {
- newYearBerchtold: 'Nouvel An + Saint-Berchtold', epiphany: 'Épiphanie', easter: 'Pâques', mayDay: 'Fête du Travail',
- ascension: 'Ascension', pentecost: 'Pentecôte', corpus: 'Fête-Dieu', immaculate: 'Immaculée', christmas: 'Noël',
+ newYear: 'Nouvel An', epiphany: 'Épiphanie', stJoseph: 'Saint-Joseph', easter: 'Pâques', mayDay: 'Fête du Travail',
+ ascension: 'Ascension', pentecost: 'Pentecôte', corpus: 'Fête-Dieu', stPeterPaul: 'Saints Pierre et Paul', immaculate: 'Immaculée', christmas: 'Noël',
  },
  leaveCopy: (n) => (n === 0 ? '<span class="s-agVEfZ">🎁 0 congé</span>' : `${n} jour de congé bien placé`),
  daysCopy: (n) => `${n} jours de pause`,
  cols: { date: 'Date', day: 'Jour', holiday: 'Fête', ch: 'TI', it: 'IT' },
  quarters: [
- { emoji: '❄️', label: 'Hiver', quip: 'Trois ponts dans les six premiers jours. Démarrage en fanfare.' },
- { emoji: '🌷', label: 'Printemps', quip: 'Trois ponts en neuf semaines — pic anti-productivité du frontalier.' },
- { emoji: '☀️', label: 'Été', quip: 'Tous les fériés tombent un week-end. Injustice cosmique.' },
- { emoji: '🍂', label: 'Automne', quip: 'Calme plat jusqu\'à l\'Immaculée, puis on baisse le rideau.' },
+ { emoji: '❄️', label: 'Hiver', quip: 'Trois ponts d\'ici au 22 mars : Nouvel An, Épiphanie et Saint-Joseph.' },
+ { emoji: '🌷', label: 'Printemps', quip: 'Six longs week-ends entre avril et juin — pic anti-productivité du frontalier.' },
+ { emoji: '☀️', label: 'Été', quip: 'Le 1er et le 15 août tombent un samedi. Injustice cosmique.' },
+ { emoji: '🍂', label: 'Automne', quip: 'La Toussaint tombe un dimanche ; l\'Immaculée et Noël ferment l\'année.' },
  ],
  legend: '<strong>●</strong> férié payé · <strong>○</strong> jour ouvré normal',
  closingLine: 'Imprimez-le, collez-le au frigo, comptez à rebours. C\'est votre droit contractuel.',
  tiles: [
- { value: '17', label: 'Jours fériés officiels au Tessin', tone: 'accent' },
- { value: '9', label: 'Longs week-ends de 3-4 jours', tone: 'success' },
- { value: '4', label: 'Jours de congé bien placés', tone: 'success' },
- { value: '+12', label: 'Jours de pause supplémentaires', tone: 'accent' },
- { value: '5', label: 'Fériés perdus en week-end', tone: 'warning' },
+ { value: '15', label: 'Jours fériés officiels au Tessin', tone: 'accent' },
+ { value: '11', label: 'Longs week-ends de 3-4 jours', tone: 'success' },
+ { value: '6', label: 'Jours de congé bien placés', tone: 'success' },
+ { value: '39', label: 'Jours de pause dans les longs week-ends', tone: 'accent' },
+ { value: '4', label: 'Fériés perdus en week-end', tone: 'warning' },
  ],
- advice: 'Année généreuse : <strong>janvier</strong>, <strong>avril</strong> et <strong>décembre</strong> concentrent deux tiers des ponts. L\'été est plat — la nature compense avec le soleil.',
+ advice: 'Le printemps est généreux : d\'<strong>avril</strong> à <strong>juin</strong> tombent six des longs week-ends. L\'été est plat — le 1er et le 15 août tombent un samedi.',
  monthLetters: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
  stripCaption: 'Densité de jours fériés mois par mois',
  stripA11y: 'Calendrier 2026 : nombre de jours fériés par mois',
@@ -1939,45 +1944,45 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  // ───── Ticino public holidays ────────────────────────────────
  '/tasse-e-pensione/festivita-ticino': {
  en: [
- 'Canton Ticino observes 15 official public holidays in 2026 — the 9 federal Swiss holidays plus 6 cantonal holidays specific to Ticino, the richest holiday calendar in Switzerland. For cross-border workers, these dates directly affect overtime calculations, pay for days worked on holidays (at least 1.25× rate), the 13th-month salary calculation, and whether the employer must pay for the holiday even if the worker is absent.',
- 'What happens if a holiday falls on a weekend in Switzerland? Unlike Italian law, Swiss law does NOT grant automatic recovery of holidays that fall on Saturday or Sunday — the worker simply loses the benefit of the day off. In 2026 this penalises frontalieri on three holidays: 1 August (National Day) and 15 August (Assumption) both fall on Saturday, and 1 November (All Saints) falls on Sunday. Only some sectoral CCL agreements (MEM industry, construction, healthcare) compensate with an extra vacation day.',
+ 'Canton Ticino observes 15 official public holidays, set by the cantonal law of 15 December 2009: New Year, Epiphany, St Joseph\'s Day, Easter Monday, Labour Day, Ascension, Whit Monday, Corpus Christi, Saints Peter and Paul, Swiss National Day, Assumption, All Saints, Immaculate Conception, Christmas and St Stephen\'s Day. Only 1 August is set by federal law; Good Friday and 2 January (St Berchtold), holidays in many German-speaking cantons, are working days in Ticino. For cross-border workers, these dates directly affect overtime calculations, pay for days worked on holidays (at least 1.25× rate), the 13th-month salary calculation, and whether the employer must pay for the holiday even if the worker is absent.',
+ 'What happens if a holiday falls on a weekend in Switzerland? Unlike Italian law, Swiss law does NOT grant automatic recovery of holidays that fall on Saturday or Sunday — the worker simply loses the benefit of the day off. In 2026 this penalises frontalieri on four holidays: 1 August (National Day), 15 August (Assumption) and 26 December (St Stephen) fall on Saturday, and 1 November (All Saints) falls on Sunday. Only some sectoral CCL agreements (MEM industry, construction, healthcare) compensate with an extra vacation day.',
  'Public holidays that fall on weekdays reduce the number of working days in that month, which can affect prorated salary calculations for monthly-paid workers, holiday entitlement accrual, and the distribution of the 13th month payment across the calendar year. Swiss law (CO art. 329) requires the employer to pay for the holiday even if the monthly-paid worker is absent, with exceptions for hourly-paid staff (Stundenlohn).',
  'Cross-border workers should note that Italian public holidays do not automatically apply in Switzerland: if you are working in Ticino, the Swiss holiday calendar governs your schedule (lex loci laboris principle). Italian holidays like 25 April (Liberation Day), 2 June (Republic Day) and local patron saint days are regular working days in Ticino. However, Swiss law allows workers to take Italian national holidays as vacation days if agreed with the employer in writing.',
  'For hourly-paid cross-border workers (Stundenlohn), public holidays have a direct financial impact: hours not worked on a holiday are generally compensated at the regular rate if the holiday falls on a normal working day. Monthly-paid workers receive their full salary regardless, but overtime worked on holidays must be paid at a minimum 125% rate under the Swiss Code of Obligations, and many CCL agreements in Ticino stipulate 150% (construction, MEM) or even 200% (healthcare, hospitality on Sunday holidays).',
- 'The 2026 calendar offers several attractive long weekends for cross-border workers optimising their vacation days: Easter (Good Friday 3 April + Easter Monday 6 April, 4 consecutive days with zero vacation days used), Ascension (Thursday 14 May, bridging Friday 15 May for 4 days), Corpus Christi (Thursday 4 June, bridging Friday 5 June), and Immaculate Conception (Tuesday 8 December, bridging Monday 7 December). With careful planning a frontalier can obtain up to 25-28 days of effective holiday using only 15-17 vacation days.',
+ 'The 2026 calendar offers several attractive long weekends for cross-border workers optimising their vacation days: St Joseph\'s Day (Thursday 19 March, bridging Friday 20 March for 4 days), Easter (Saturday 4 to Easter Monday 6 April, 3 days with no leave — Good Friday is a working day in Ticino), Ascension (Thursday 14 May, bridging Friday 15 May for 4 days), Corpus Christi (Thursday 4 June, bridging Friday 5 June), and Immaculate Conception (Tuesday 8 December, bridging Monday 7 December). With careful planning a frontalier can obtain up to 25-28 days of effective holiday using only 15-17 vacation days.',
  'Planning around the Swiss and Italian holiday calendars is essential for frontalieri families with children in Italian schools. Italian schools observe approximately 12 additional closure days not aligned with Swiss holidays, including Carnevale, patron saint days, and regional holidays. Conversely, Swiss holidays like Ascension Thursday, Corpus Christi and Whit Monday are regular school days in Italy, requiring careful coordination of childcare arrangements.',
  ],
  de: [
  '<h2 class="s-lEEXLG">Feiertage Tessin 2026: vollständiger offizieller Kalender</h2>',
- 'Der Kanton Tessin feiert 2026 insgesamt 15 offizielle Feiertage — die 9 nationalen Schweizer Feiertage plus 6 kantonale Feiertage speziell für das Tessin, der reichste Feiertagskalender der Schweiz. Für Grenzgänger wirken sich diese Daten direkt auf die Überstundenberechnung, die Vergütung für an Feiertagen geleistete Arbeit (mindestens 1,25-fach), die Berechnung des 13. Monatslohns und die Lohnfortzahlungspflicht aus.',
+ 'Der Kanton Tessin hat 15 offizielle Feiertage, festgelegt im kantonalen Gesetz vom 15. Dezember 2009: Neujahr, Dreikönigstag, Josefstag, Ostermontag, Tag der Arbeit, Auffahrt, Pfingstmontag, Fronleichnam, Peter und Paul, Bundesfeier, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis, Weihnachten und Stephanstag. Nur der 1. August ist bundesrechtlich festgelegt; Karfreitag und Berchtoldstag, in vielen Deutschschweizer Kantonen Feiertage, sind im Tessin Arbeitstage. Für Grenzgänger wirken sich diese Daten direkt auf die Überstundenberechnung, die Vergütung für an Feiertagen geleistete Arbeit (mindestens 1,25-fach), die Berechnung des 13. Monatslohns und die Lohnfortzahlungspflicht aus.',
  '<h2 class="s-FoMhWG">Kalender Feiertage Tessin 2026</h2>',
- '<div class="s-Tzz0X_"><table class="s-bzA9D0"><thead><tr class="s-3WzZY3"><th class="s-oF89cR">Datum</th><th class="s-oF89cR">Wochentag</th><th class="s-oF89cR">Feiertag</th><th class="s-oF89cR">Typ</th></tr></thead><tbody><tr><td class="s-z725d5">Do 1. Jan 2026</td><td class="s-z725d5">Donnerstag</td><td class="s-z725d5">Neujahr</td><td class="s-z725d5">Bundesfeiertag</td></tr><tr><td class="s-z725d5">Fr 2. Jan 2026</td><td class="s-z725d5">Freitag</td><td class="s-z725d5">Berchtoldstag</td><td class="s-z725d5">Kantonal (teilweise)</td></tr><tr><td class="s-z725d5">Di 6. Jan 2026</td><td class="s-z725d5">Dienstag</td><td class="s-z725d5">Dreikönigstag</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Do 19. Mär 2026</td><td class="s-z725d5">Donnerstag</td><td class="s-z725d5">Josefstag</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Fr 3. Apr 2026</td><td class="s-z725d5">Freitag</td><td class="s-z725d5">Karfreitag</td><td class="s-z725d5">Bundesfeiertag</td></tr><tr><td class="s-z725d5">Mo 6. Apr 2026</td><td class="s-z725d5">Montag</td><td class="s-z725d5">Ostermontag</td><td class="s-z725d5">Bundesfeiertag</td></tr><tr><td class="s-z725d5">Fr 1. Mai 2026</td><td class="s-z725d5">Freitag</td><td class="s-z725d5">Tag der Arbeit</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Do 14. Mai 2026</td><td class="s-z725d5">Donnerstag</td><td class="s-z725d5">Auffahrt</td><td class="s-z725d5">Bundesfeiertag</td></tr><tr><td class="s-z725d5">Mo 25. Mai 2026</td><td class="s-z725d5">Montag</td><td class="s-z725d5">Pfingstmontag</td><td class="s-z725d5">Bundesfeiertag</td></tr><tr><td class="s-z725d5">Do 4. Jun 2026</td><td class="s-z725d5">Donnerstag</td><td class="s-z725d5">Fronleichnam</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Mo 29. Jun 2026</td><td class="s-z725d5">Montag</td><td class="s-z725d5">Peter und Paul</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr class="s-ATnCqo"><td class="s-z725d5"><strong>Sa 1. Aug 2026</strong></td><td class="s-z725d5">Samstag</td><td class="s-z725d5">Schweizer Bundesfeier</td><td class="s-z725d5">Bundesfeiertag</td></tr><tr class="s-ATnCqo"><td class="s-z725d5"><strong>Sa 15. Aug 2026</strong></td><td class="s-z725d5">Samstag</td><td class="s-z725d5">Mariä Himmelfahrt</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">So 1. Nov 2026</td><td class="s-z725d5">Sonntag</td><td class="s-z725d5">Allerheiligen</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Di 8. Dez 2026</td><td class="s-z725d5">Dienstag</td><td class="s-z725d5">Mariä Empfängnis</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Fr 25. Dez 2026</td><td class="s-z725d5">Freitag</td><td class="s-z725d5">Weihnachten</td><td class="s-z725d5">Bundesfeiertag</td></tr><tr><td class="s-z725d5">Sa 26. Dez 2026</td><td class="s-z725d5">Samstag</td><td class="s-z725d5">Stephanstag</td><td class="s-z725d5">Kantonal (TI)</td></tr></tbody></table></div>',
- '<p class="s-3DDKBR">2026 fallen zwei wichtige Feiertage auf einen Samstag (1. August und 15. August) und einer auf einen Sonntag (1. November). Das Schweizer Recht sieht — anders als das italienische — keine automatische Nachholung vor: Der Grenzgänger erhält keinen zusätzlichen freien Tag, ausser der anwendbare GAV (Gesamtarbeitsvertrag) regelt dies ausdrücklich.</p>',
+ '<div class="s-Tzz0X_"><table class="s-bzA9D0"><thead><tr class="s-3WzZY3"><th class="s-oF89cR">Datum</th><th class="s-oF89cR">Wochentag</th><th class="s-oF89cR">Feiertag</th><th class="s-oF89cR">Typ</th></tr></thead><tbody><tr><td class="s-z725d5">Do 1. Jan 2026</td><td class="s-z725d5">Donnerstag</td><td class="s-z725d5">Neujahr</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Di 6. Jan 2026</td><td class="s-z725d5">Dienstag</td><td class="s-z725d5">Dreikönigstag</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Do 19. Mär 2026</td><td class="s-z725d5">Donnerstag</td><td class="s-z725d5">Josefstag</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Mo 6. Apr 2026</td><td class="s-z725d5">Montag</td><td class="s-z725d5">Ostermontag</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Fr 1. Mai 2026</td><td class="s-z725d5">Freitag</td><td class="s-z725d5">Tag der Arbeit</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Do 14. Mai 2026</td><td class="s-z725d5">Donnerstag</td><td class="s-z725d5">Auffahrt</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Mo 25. Mai 2026</td><td class="s-z725d5">Montag</td><td class="s-z725d5">Pfingstmontag</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Do 4. Jun 2026</td><td class="s-z725d5">Donnerstag</td><td class="s-z725d5">Fronleichnam</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Mo 29. Jun 2026</td><td class="s-z725d5">Montag</td><td class="s-z725d5">Peter und Paul</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr class="s-ATnCqo"><td class="s-z725d5"><strong>Sa 1. Aug 2026</strong></td><td class="s-z725d5">Samstag</td><td class="s-z725d5">Schweizer Bundesfeier</td><td class="s-z725d5">Bundesfeiertag</td></tr><tr class="s-ATnCqo"><td class="s-z725d5"><strong>Sa 15. Aug 2026</strong></td><td class="s-z725d5">Samstag</td><td class="s-z725d5">Mariä Himmelfahrt</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">So 1. Nov 2026</td><td class="s-z725d5">Sonntag</td><td class="s-z725d5">Allerheiligen</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Di 8. Dez 2026</td><td class="s-z725d5">Dienstag</td><td class="s-z725d5">Mariä Empfängnis</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Fr 25. Dez 2026</td><td class="s-z725d5">Freitag</td><td class="s-z725d5">Weihnachten</td><td class="s-z725d5">Kantonal (TI)</td></tr><tr><td class="s-z725d5">Sa 26. Dez 2026</td><td class="s-z725d5">Samstag</td><td class="s-z725d5">Stephanstag</td><td class="s-z725d5">Kantonal (TI)</td></tr></tbody></table></div>',
+ '<p class="s-3DDKBR">2026 fallen drei Feiertage auf einen Samstag (1. August, 15. August und 26. Dezember) und einer auf einen Sonntag (1. November). Das Schweizer Recht sieht — anders als das italienische — keine automatische Nachholung vor: Der Grenzgänger erhält keinen zusätzlichen freien Tag, ausser der anwendbare GAV (Gesamtarbeitsvertrag) regelt dies ausdrücklich.</p>',
  '<h2 class="s-FoMhWG">Tessin vs. übrige Schweiz: welche Feiertage sich unterscheiden</h2>',
  '<div class="s-Tzz0X_"><table class="s-bzA9D0"><thead><tr class="s-3WzZY3"><th class="s-oF89cR">Feiertag</th><th class="s-xatC0t">Tessin</th><th class="s-xatC0t">Zürich / Bern</th><th class="s-xatC0t">Genf / Waadt</th></tr></thead><tbody><tr><td class="s-z725d5">Dreikönigstag (6.1.)</td><td class="s-OogV4_">Ja</td><td class="s-OogV4_">Nein</td><td class="s-OogV4_">Nein</td></tr><tr><td class="s-z725d5">Josefstag (19.3.)</td><td class="s-OogV4_">Ja</td><td class="s-OogV4_">Nein</td><td class="s-OogV4_">Nein</td></tr><tr><td class="s-z725d5">Tag der Arbeit (1.5.)</td><td class="s-OogV4_">Ja</td><td class="s-OogV4_">Teilweise</td><td class="s-OogV4_">Ja</td></tr><tr><td class="s-z725d5">Fronleichnam</td><td class="s-OogV4_">Ja</td><td class="s-OogV4_">Nein</td><td class="s-OogV4_">Nein</td></tr><tr><td class="s-z725d5">Peter und Paul (29.6.)</td><td class="s-OogV4_">Ja</td><td class="s-OogV4_">Nein</td><td class="s-OogV4_">Nein</td></tr><tr><td class="s-z725d5">Mariä Himmelfahrt (15.8.)</td><td class="s-OogV4_">Ja</td><td class="s-OogV4_">Nein</td><td class="s-OogV4_">Nein</td></tr><tr><td class="s-z725d5">Allerheiligen (1.11.)</td><td class="s-OogV4_">Ja</td><td class="s-OogV4_">Nein</td><td class="s-OogV4_">Nein</td></tr><tr><td class="s-z725d5">Mariä Empfängnis (8.12.)</td><td class="s-OogV4_">Ja</td><td class="s-OogV4_">Nein</td><td class="s-OogV4_">Nein</td></tr><tr><td class="s-z725d5">Stephanstag (26.12.)</td><td class="s-OogV4_">Ja</td><td class="s-OogV4_">Ja</td><td class="s-OogV4_">Nein</td></tr></tbody></table></div>',
- 'Der Kanton Tessin hat aufgrund seiner katholischen Tradition und der Grenzlage zu Italien den reichsten Feiertagskalender der Schweiz: 15 bezahlte Feiertage gegenüber 9 nationalen. Das ist ein konkreter Vorteil für Grenzgänger gegenüber Beschäftigten in Zürich oder Basel, denen pro Jahr 5–6 kantonale Feiertage fehlen. Ein Tessiner Mitarbeiter mit einem Vollzeit-Monatslohn von CHF 6.000 erhält dadurch im Jahr rund CHF 1.400 mehr an bezahlten freien Tagen als der Kollege in Zürich.',
+ 'Der Kanton Tessin hat aufgrund seiner katholischen Tradition und der Grenzlage zu Italien den reichsten Feiertagskalender der Schweiz: 15 offizielle Feiertage gegenüber 9–10 in Kantonen wie Zürich oder Basel-Stadt. Das ist ein konkreter Vorteil für Grenzgänger gegenüber Beschäftigten in Zürich oder Basel, denen pro Jahr 5–6 kantonale Feiertage fehlen. Ein Tessiner Mitarbeiter mit einem Vollzeit-Monatslohn von CHF 6.000 erhält dadurch im Jahr rund CHF 1.400 mehr an bezahlten freien Tagen als der Kollege in Zürich.',
  '<h2 class="s-FoMhWG">Was passiert, wenn ein Feiertag auf ein Wochenende fällt?</h2>',
- 'Was passiert, wenn ein Feiertag auf ein Wochenende fällt? Anders als im italienischen Recht gewährt das Schweizer Recht KEINE automatische Nachholung von Feiertagen, die auf Samstag oder Sonntag fallen — der Arbeitnehmer verliert einfach den Vorteil des freien Tages. 2026 trifft dies drei Feiertage: Der 1. August (Bundesfeier) und der 15. August (Mariä Himmelfahrt) fallen auf Samstag, der 1. November (Allerheiligen) auf Sonntag. Nur einige GAV (MEM, Bau, Gesundheitswesen) gleichen mit einem zusätzlichen Urlaubstag aus.',
+ 'Was passiert, wenn ein Feiertag auf ein Wochenende fällt? Anders als im italienischen Recht gewährt das Schweizer Recht KEINE automatische Nachholung von Feiertagen, die auf Samstag oder Sonntag fallen — der Arbeitnehmer verliert einfach den Vorteil des freien Tages. 2026 trifft dies vier Feiertage: Der 1. August (Bundesfeier), der 15. August (Mariä Himmelfahrt) und der 26. Dezember (Stephanstag) fallen auf Samstag, der 1. November (Allerheiligen) auf Sonntag. Nur einige GAV (MEM, Bau, Gesundheitswesen) gleichen mit einem zusätzlichen Urlaubstag aus.',
  'Feiertage an Werktagen reduzieren die Anzahl der Arbeitstage im Monat und beeinflussen anteilige Gehaltsberechnungen, die Urlaubsrückstellungsrate und die Verteilung des 13. Monatslohns. Das Schweizer OR (Art. 329) verpflichtet den Arbeitgeber zur Lohnfortzahlung auch bei Abwesenheit des Monatslohnempfängers, mit Ausnahmen für Stundenlohnempfänger.',
  '<h2 class="s-FoMhWG">Italienische vs. Schweizer Feiertage: was ändert sich für Grenzgänger</h2>',
  'Grenzgänger sollten beachten, dass italienische Feiertage in der Schweiz nicht automatisch gelten (lex loci laboris). Im Tessin tätige Grenzgänger unterliegen dem Schweizer Feiertagskalender: italienische Feiertage wie der 25. April (Tag der Befreiung), 2. Juni (Tag der Republik) und lokale Schutzpatrontage (z. B. Sant\'Abbondio in Como am 31. August) sind im Tessin reguläre Arbeitstage. Wer zu Hause bleiben möchte, muss reguläre Ferien nehmen oder einen unbezahlten Urlaubstag beantragen.',
- 'Umgekehrt fallen einige Tessiner Feiertage auf Tage, an denen in Italien gearbeitet wird: Auffahrt (Donnerstag), Fronleichnam (Donnerstag) und Pfingstmontag. Für Familien mit Kindern in italienischen Schulen schafft das einen wichtigen Kalenderversatz, der Babysitter, Grosseltern oder Sommerbetreuung erfordert. Ostern, Weihnachten und Neujahr sind dagegen in beiden Ländern aufeinander abgestimmt — das Tessin fügt zusätzlich den Ostermontag als Bundesfeiertag hinzu.',
+ 'Umgekehrt fallen einige Tessiner Feiertage auf Tage, an denen in Italien gearbeitet wird: Auffahrt (Donnerstag), Fronleichnam (Donnerstag) und Pfingstmontag. Für Familien mit Kindern in italienischen Schulen schafft das einen wichtigen Kalenderversatz, der Babysitter, Grosseltern oder Sommerbetreuung erfordert. Neujahr, Dreikönigstag, Ostermontag, 1. Mai, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis, Weihnachten und Stephanstag sind dagegen in beiden Ländern Feiertage.',
  '<h2 class="s-FoMhWG">Lohn, Überstunden und Zuschläge an Feiertagen</h2>',
  'Für im Stundenlohn bezahlte Grenzgänger haben Feiertage eine direkte finanzielle Auswirkung: An Feiertagen nicht geleistete Stunden werden zum regulären Satz vergütet, wenn der Feiertag auf einen normalen Arbeitstag fällt. An Feiertagen geleistete Überstunden müssen mindestens zu 125 % vergütet werden — viele GAV im Tessin sehen 150 % (Bau, MEM) oder sogar 200 % (Gesundheitswesen, Gastronomie an Sonntagsfeiertagen) vor.',
  '<h2 class="s-FoMhWG">Beste Brückentage im Kalender Tessin 2026</h2>',
- 'Der Kalender 2026 bietet attraktive Brückentage zur Urlaubsoptimierung: (1) Ostern — Karfreitag 3. April + Ostermontag 6. April: keine Ferientage für 4 zusammenhängende freie Tage. (2) Auffahrt — Donnerstag 14. Mai, Brücke mit Freitag 15. Mai für 4 Tage. (3) Fronleichnam — Donnerstag 4. Juni, Brücke mit Freitag 5. Juni für 4 Tage. (4) Peter und Paul — Montag 29. Juni, langes Wochenende von 3 Tagen ohne Ferienbezug. (5) Mariä Empfängnis — Dienstag 8. Dezember, Brücke mit Montag 7. Dezember für 4 Tage. Mit geschickter Planung kann ein Grenzgänger bis zu 25–28 effektive Urlaubstage mit nur 15–17 Urlaubstagen erhalten.',
+ 'Der Kalender 2026 bietet attraktive Brückentage zur Urlaubsoptimierung: (1) Josefstag — Donnerstag 19. März, Brücke mit Freitag 20. März für 4 Tage. (2) Ostern — Samstag 4. bis Ostermontag 6. April: 3 freie Tage, keine Ferientage nötig; der Karfreitag ist im Tessin ein Arbeitstag. (3) Auffahrt — Donnerstag 14. Mai, Brücke mit Freitag 15. Mai für 4 Tage. (4) Fronleichnam — Donnerstag 4. Juni, Brücke mit Freitag 5. Juni für 4 Tage. (5) Peter und Paul — Montag 29. Juni, langes Wochenende von 3 Tagen ohne Ferienbezug. (6) Mariä Empfängnis — Dienstag 8. Dezember, Brücke mit Montag 7. Dezember für 4 Tage. Mit geschickter Planung kann ein Grenzgänger bis zu 25–28 effektive Urlaubstage mit nur 15–17 Urlaubstagen erhalten.',
  '<h2 class="s-FoMhWG">Ferientage und Feiertage: wie addieren sie sich?</h2>',
- 'Nach Schweizer Recht (OR Art. 329a) beträgt das Minimum 4 Wochen (20 Arbeitstage) pro Jahr für Erwachsene und 5 Wochen für Arbeitnehmende unter 20 Jahren. Viele Tessiner GAV sehen nach 5–10 Jahren Betriebszugehörigkeit 5 Wochen vor und 6 Wochen für Beschäftigte über 50. Tessiner Feiertage zählen NICHT zur Ferienberechnung: sie kommen zu den Mindestferientagen hinzu. Ein Grenzgänger mit MEM-Vertrag und 10 Jahren Betriebszugehörigkeit hat damit 25 Ferientage + rund 13 effektive Feiertage (15 minus die im Wochenende liegenden) = 38 bezahlte freie Tage pro Jahr.',
+ 'Nach Schweizer Recht (OR Art. 329a) beträgt das Minimum 4 Wochen (20 Arbeitstage) pro Jahr für Erwachsene und 5 Wochen für Arbeitnehmende unter 20 Jahren. Viele Tessiner GAV sehen nach 5–10 Jahren Betriebszugehörigkeit 5 Wochen vor und 6 Wochen für Beschäftigte über 50. Tessiner Feiertage zählen NICHT zur Ferienberechnung: sie kommen zu den Mindestferientagen hinzu. Ein Grenzgänger mit MEM-Vertrag und 10 Jahren Betriebszugehörigkeit hat damit 25 Ferientage + 11 Feiertage an Werktagen (2026: 15 minus die 4 am Wochenende) = 36 bezahlte freie Tage pro Jahr.',
  'Die Planung rund um die Schweizer und italienischen Feiertagskalender ist für Grenzgängerfamilien mit Kindern in italienischen Schulen unerlässlich. Italienische Schulen haben etwa 12 zusätzliche Schliesstage, die nicht mit Schweizer Feiertagen übereinstimmen — darunter Karneval, Schutzpatrontage und regionale Feiertage. Umgekehrt sind Schweizer Feiertage wie Auffahrt, Fronleichnam und Pfingstmontag in Italien reguläre Schultage, was eine sorgfältige Koordination der Kinderbetreuung erfordert.',
  '<p class="s-JBVO9H">Quelle: <a class="s-OsohZU" href="https://www4.ti.ch/dfe/dipartimento/" rel="noopener">Departement für Finanzen und Wirtschaft Kanton Tessin</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · Kantonales Gesetz über die offiziellen Feiertage des Kantons Tessin (RL 10.1.1.5) · Schweizerisches Obligationenrecht (OR Art. 110, 321, 329, 329a). Letzte Aktualisierung: 24. April 2026.</p>',
  ],
  fr: [
- 'Le Canton du Tessin observe en 2026 quinze (15) jours fériés officiels — les 9 jours fériés fédéraux suisses plus 6 jours fériés cantonaux spécifiques au Tessin, le calendrier férié le plus riche de Suisse. Pour les frontaliers, ces dates impactent directement le calcul des heures supplémentaires, la rémunération des jours travaillés en jours fériés (minimum 1,25×), le calcul du 13e salaire et l\'obligation de l\'employeur de payer ces jours même en cas d\'absence.',
- 'Que se passe-t-il si un jour férié tombe un samedi ou un dimanche ? Contrairement au droit italien, le droit suisse ne prévoit AUCUN rattrapage automatique : le travailleur perd simplement le bénéfice du jour de congé. En 2026, trois fériés sont concernés : le 1er août (Fête nationale) et le 15 août (Assomption) tombent un samedi, le 1er novembre (Toussaint) un dimanche. Seules certaines CCT sectorielles (industrie MEM, construction, santé) compensent avec un jour de congé supplémentaire.',
+ 'Le Canton du Tessin observe quinze (15) jours fériés officiels, fixés par la loi cantonale du 15 décembre 2009 : Nouvel An, Épiphanie, Saint-Joseph, lundi de Pâques, Fête du Travail, Ascension, lundi de Pentecôte, Fête-Dieu, Saints Pierre et Paul, Fête nationale, Assomption, Toussaint, Immaculée Conception, Noël et Saint-Étienne. Seul le 1er août est fixé par le droit fédéral ; le Vendredi saint et le 2 janvier (Saint-Berchtold), fériés dans de nombreux cantons alémaniques, sont ouvrés au Tessin. Pour les frontaliers, ces dates impactent directement le calcul des heures supplémentaires, la rémunération des jours travaillés en jours fériés (minimum 1,25×), le calcul du 13e salaire et l\'obligation de l\'employeur de payer ces jours même en cas d\'absence.',
+ 'Que se passe-t-il si un jour férié tombe un samedi ou un dimanche ? Contrairement au droit italien, le droit suisse ne prévoit AUCUN rattrapage automatique : le travailleur perd simplement le bénéfice du jour de congé. En 2026, quatre fériés sont concernés : le 1er août (Fête nationale), le 15 août (Assomption) et le 26 décembre (Saint-Étienne) tombent un samedi, le 1er novembre (Toussaint) un dimanche. Seules certaines CCT sectorielles (industrie MEM, construction, santé) compensent avec un jour de congé supplémentaire.',
  'Les jours fériés tombant en semaine réduisent le nombre de jours ouvrables du mois, affectant les calculs de salaire au prorata, l\'accumulation des droits aux congés et la répartition du 13e mois. Le CO suisse (art. 329) oblige l\'employeur à payer le jour férié même en cas d\'absence du salarié mensuel, avec des exceptions pour le personnel payé à l\'heure (Stundenlohn).',
  'Les frontaliers doivent noter que les jours fériés italiens ne s\'appliquent pas automatiquement en Suisse (principe lex loci laboris) : les fériés italiens comme le 25 avril (Libération), le 2 juin (Fête de la République) et les fêtes patronales locales sont des jours ouvrables normaux au Tessin. Sur accord écrit de l\'employeur, ils peuvent être pris comme congés payés.',
  'Pour les frontaliers payés à l\'heure (Stundenlohn), les jours fériés ont un impact financier direct : les heures non travaillées un jour férié sont compensées au taux normal si le jour tombe sur un jour ouvrable habituel. Les heures supplémentaires effectuées un jour férié doivent être payées au minimum à 125 % selon le Code des obligations suisse — de nombreuses CCT au Tessin prévoient 150 % (construction, MEM) voire 200 % (santé, hôtellerie le dimanche férié).',
- 'Le calendrier 2026 offre plusieurs ponts attractifs pour optimiser les jours de vacances : Pâques (Vendredi Saint 3 avril + Lundi de Pâques 6 avril, 4 jours consécutifs sans utiliser de congé), Ascension (jeudi 14 mai, pont avec vendredi 15 mai), Fête-Dieu (jeudi 4 juin, pont avec vendredi 5 juin) et Immaculée Conception (mardi 8 décembre, pont avec lundi 7 décembre). Avec une planification soignée, un frontalier peut obtenir jusqu\'à 25-28 jours de vacances effectives en utilisant seulement 15-17 jours de congé.',
+ 'Le calendrier 2026 offre plusieurs ponts attractifs pour optimiser les jours de vacances : Saint-Joseph (jeudi 19 mars, pont avec vendredi 20 mars pour 4 jours), Pâques (du samedi 4 au lundi de Pâques 6 avril, 3 jours sans congé — le Vendredi saint est ouvré au Tessin), Ascension (jeudi 14 mai, pont avec vendredi 15 mai), Fête-Dieu (jeudi 4 juin, pont avec vendredi 5 juin) et Immaculée Conception (mardi 8 décembre, pont avec lundi 7 décembre). Avec une planification soignée, un frontalier peut obtenir jusqu\'à 25-28 jours de vacances effectives en utilisant seulement 15-17 jours de congé.',
  'La planification autour des calendriers de jours fériés suisses et italiens est essentielle pour les familles frontalières avec des enfants scolarisés en Italie. Les écoles italiennes observent environ 12 jours de fermeture supplémentaires non alignés avec les fériés suisses — dont le Carnaval, les fêtes patronales et les fériés régionaux. Inversement, les fériés suisses comme l\'Ascension, la Fête-Dieu et le Lundi de Pentecôte sont des jours d\'école normaux en Italie, nécessitant une coordination soigneuse de la garde d\'enfants.',
  ],
  },
@@ -2899,16 +2904,20 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  'Frontaliere Ticino is an independent information platform for cross-border workers between Switzerland (Canton Ticino) and Italy. The platform provides free calculators, comparison tools, practical guides, and job listings — all maintained with data from official Swiss and Italian sources.',
  'The project started from the direct experience of cross-border workers who found it difficult to navigate the complex fiscal, administrative, and practical landscape of working in one country and living in another. Every tool is designed to answer real questions with verifiable data.',
  'Content is updated continuously to reflect legislative changes, new tax rates, and evolving bilateral agreements. The platform operates independently of any financial institution, insurance provider, or employer, ensuring unbiased information for all users.',
+ // The one AI statement shared with the IT page, React /chi-siamo/ and articles.
+ AI_USE_STATEMENT.en,
  ],
  de: [
  'Frontaliere Ticino ist eine unabhängige Informationsplattform für Grenzgänger zwischen der Schweiz (Kanton Tessin) und Italien. Die Plattform bietet kostenlose Rechner, Vergleichstools, praktische Leitfäden und Stellenangebote — alle mit Daten aus offiziellen schweizerischen und italienischen Quellen gepflegt.',
  'Das Projekt entstand aus der direkten Erfahrung von Grenzgängern, die es schwierig fanden, die komplexe steuerliche, administrative und praktische Landschaft der Arbeit in einem Land bei Wohnsitz in einem anderen zu navigieren. Jedes Tool beantwortet echte Fragen mit überprüfbaren Daten.',
  'Inhalte werden kontinuierlich aktualisiert, um Gesetzesänderungen, neue Steuersätze und sich weiterentwickelnde bilaterale Abkommen widerzuspiegeln. Die Plattform arbeitet unabhängig von Finanzinstituten, Versicherungsanbietern oder Arbeitgebern.',
+ AI_USE_STATEMENT.de,
  ],
  fr: [
  'Frontaliere Ticino est une plateforme d\'information indépendante pour les travailleurs frontaliers entre la Suisse (Canton du Tessin) et l\'Italie. La plateforme offre des calculateurs gratuits, des outils de comparaison, des guides pratiques et des offres d\'emploi — le tout alimenté par des données de sources officielles suisses et italiennes.',
  'Le projet est né de l\'expérience directe de frontaliers qui trouvaient difficile de naviguer dans le paysage fiscal, administratif et pratique complexe du travail dans un pays avec résidence dans un autre. Chaque outil répond à de vraies questions avec des données vérifiables.',
  'Le contenu est mis à jour en continu pour refléter les changements législatifs, les nouveaux taux d\'imposition et l\'évolution des accords bilatéraux. La plateforme fonctionne indépendamment de toute institution financière, assureur ou employeur.',
+ AI_USE_STATEMENT.fr,
  ],
  },
 
@@ -3184,52 +3193,52 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  '/vita-in-ticino/ponti-2026-ticino': {
  it: [
  buildPontiHero('it'),
- '<h2 class="s-FoMhWG">Calendario ponti 2026 in Ticino — 17 festività ufficiali</h2>',
- '<p>Il calendario dei <strong>ponti 2026 in Canton Ticino</strong> è particolarmente favorevole per i frontalieri: diverse festività infrasettimanali permettono long weekend di 3–4 giorni senza consumare troppe ferie. Le <strong>17 festività ufficiali</strong> riconosciute dal Canton Ticino (Legge sulle giornate festive cantonali) sono: Capodanno (giovedì 1/1), San Berchtoldo (venerdì 2/1), Epifania (martedì 6/1), Venerdì Santo (3 aprile), Pasqua (domenica 5 aprile), Pasquetta (lunedì 6 aprile), Festa del Lavoro (venerdì 1/5), Ascensione (giovedì 14 maggio), Pentecoste (domenica 24 maggio), Lunedì di Pentecoste (25 maggio), Corpus Domini (giovedì 4 giugno), Festa nazionale svizzera (sabato 1/8), Assunzione (sabato 15/8), Ognissanti (domenica 1/11), Immacolata (martedì 8/12), Natale (venerdì 25/12) e Santo Stefano (sabato 26/12).</p>',
+ '<h2 class="s-FoMhWG">Calendario ponti 2026 in Ticino — 15 festività ufficiali</h2>',
+ '<p>Il calendario dei <strong>ponti 2026 in Canton Ticino</strong> è particolarmente favorevole per i frontalieri: diverse festività infrasettimanali permettono long weekend di 3–4 giorni senza consumare troppe ferie. Le <strong>15 festività ufficiali</strong> del Canton Ticino (Legge concernente i giorni festivi ufficiali del 15 dicembre 2009) sono: Capodanno (giovedì 1/1), Epifania (martedì 6/1), San Giuseppe (giovedì 19/3), Lunedì di Pasqua (6 aprile), Festa del Lavoro (venerdì 1/5), Ascensione (giovedì 14 maggio), Lunedì di Pentecoste (25 maggio), Corpus Domini (giovedì 4 giugno), Santi Pietro e Paolo (lunedì 29 giugno), Festa nazionale svizzera (sabato 1/8), Assunzione (sabato 15/8), Ognissanti (domenica 1/11), Immacolata (martedì 8/12), Natale (venerdì 25/12) e Santo Stefano (sabato 26/12). Il Venerdì Santo e il 2 gennaio, festivi in molti cantoni d\'oltralpe, in Ticino sono giorni lavorativi.</p>',
  '<h2 class="s-FoMhWG">I migliori long weekend del 2026</h2>',
- '<p>Per i frontalieri i ponti più convenienti del 2026 sono: <strong>Capodanno + San Berchtoldo</strong> (giovedì 1/1 + venerdì 2/1, ponte automatico di 4 giorni con il weekend); <strong>Epifania</strong> (martedì 6/1, ponte di 4 giorni con 1 giorno di ferie lunedì 5/1); <strong>Pasqua</strong> (3–6 aprile, ponte di 4 giorni senza ferie); <strong>1° maggio</strong> (venerdì, long weekend automatico); <strong>Ascensione</strong> (giovedì 14 maggio, ponte di 4 giorni con 1 giorno di ferie venerdì 15); <strong>Pentecoste</strong> (sabato 23 → lunedì 25 maggio, long weekend automatico di 3 giorni); <strong>Corpus Domini</strong> (giovedì 4 giugno, ponte di 4 giorni con 1 giorno di ferie venerdì 5); <strong>Immacolata</strong> (martedì 8/12, ponte di 4 giorni con 1 giorno di ferie lunedì 7/12); <strong>Natale</strong> (venerdì 25 + sabato 26 + domenica 27 dicembre, long weekend automatico di 3 giorni). Nel 2026 Festa nazionale svizzera (1/8), Assunzione (15/8) e Ognissanti (1/11) cadono nel weekend e non generano un ponte.</p>',
+ '<p>Per i frontalieri i ponti più convenienti del 2026 sono: <strong>Capodanno</strong> (giovedì 1/1, ponte di 4 giorni con 1 giorno di ferie venerdì 2/1); <strong>Epifania</strong> (martedì 6/1, ponte di 4 giorni con 1 giorno di ferie lunedì 5/1); <strong>San Giuseppe</strong> (giovedì 19/3, ponte di 4 giorni con 1 giorno di ferie venerdì 20/3); <strong>Pasqua</strong> (sabato 4 → lunedì 6 aprile, long weekend automatico di 3 giorni); <strong>1° maggio</strong> (venerdì, long weekend automatico); <strong>Ascensione</strong> (giovedì 14 maggio, ponte di 4 giorni con 1 giorno di ferie venerdì 15); <strong>Pentecoste</strong> (sabato 23 → lunedì 25 maggio, long weekend automatico di 3 giorni); <strong>Corpus Domini</strong> (giovedì 4 giugno, ponte di 4 giorni con 1 giorno di ferie venerdì 5); <strong>Santi Pietro e Paolo</strong> (sabato 27 → lunedì 29 giugno, long weekend automatico di 3 giorni); <strong>Immacolata</strong> (martedì 8/12, ponte di 4 giorni con 1 giorno di ferie lunedì 7/12); <strong>Natale</strong> (venerdì 25 + sabato 26 + domenica 27 dicembre, long weekend automatico di 3 giorni). Nel 2026 Festa nazionale svizzera (1/8), Assunzione (15/8), Ognissanti (1/11) e Santo Stefano (26/12) cadono nel weekend e non generano un ponte.</p>',
  '<h2 class="s-FoMhWG">Differenze tra calendario svizzero e italiano</h2>',
- '<p>Il calendario festivo svizzero differisce da quello italiano su <strong>otto giorni</strong>. Sono festività <strong>solo in Ticino</strong> (non in Italia): San Berchtoldo (2/1), Venerdì Santo (3/4), Ascensione (14/5), Lunedì di Pentecoste (25/5), Corpus Domini (4/6) e Festa nazionale svizzera (1/8). Sono festività <strong>solo in Italia</strong> (non in Svizzera): 25 aprile (Festa della Liberazione) e 2 giugno (Festa della Repubblica). L\'Immacolata (8/12) non è festivo federale svizzero ma è festivo cantonale in Ticino. Il frontaliere segue il calendario del paese di lavoro (Svizzera) per ferie, indennità e festivi pagati; per le spese familiari in Italia (scuole, visite mediche, banche, pubblica amministrazione) deve invece tenere conto del calendario italiano. In caso di malattia o infortunio durante un giorno rosso italiano ma lavorativo svizzero, si applicano le regole del datore di lavoro svizzero e del CCL di settore.</p>',
+ '<p>Il calendario festivo svizzero differisce da quello italiano su <strong>otto giorni</strong>. Sono festività <strong>solo in Ticino</strong> (non in Italia): San Giuseppe (19/3), Ascensione (14/5), Lunedì di Pentecoste (25/5), Corpus Domini (4/6), Santi Pietro e Paolo (29/6) e Festa nazionale svizzera (1/8). Sono festività <strong>solo in Italia</strong> (non in Svizzera): 25 aprile (Festa della Liberazione) e 2 giugno (Festa della Repubblica). L\'Immacolata (8/12) non è festivo federale svizzero ma è festivo cantonale in Ticino. Il frontaliere segue il calendario del paese di lavoro (Svizzera) per ferie, indennità e festivi pagati; per le spese familiari in Italia (scuole, visite mediche, banche, pubblica amministrazione) deve invece tenere conto del calendario italiano. In caso di malattia o infortunio durante un giorno rosso italiano ma lavorativo svizzero, si applicano le regole del datore di lavoro svizzero e del CCL di settore.</p>',
  '<h2 class="s-FoMhWG">Chiusure dogana e traffico previsto</h2>',
  '<p>Le <strong>dogane tra Italia e Svizzera</strong> restano sempre aperte (autostradali 24/7, secondarie con orari differenziati) ma subiscono forti picchi di traffico nei weekend lunghi. Giornate di massimo traffico previste nel 2026: venerdì 3 aprile (ritorno vacanze pasquali), lunedì 6 aprile (ritorno in Italia), venerdì 1 maggio, giovedì 14 maggio (partenza Ascensione), lunedì 18 maggio (rientro), venerdì 31 luglio (partenza vacanze estive), venerdì 7 agosto (massimo esodo), mercoledì 23 dicembre (partenza Natale). Chi deve attraversare il confine in queste date è consigliato di partire fuori dalle fasce 7:00-10:00 e 16:00-20:00, controllando i tempi d\'attesa sulla nostra pagina <em>Tempi attesa dogana</em> aggiornata ogni 15 minuti tramite API TomTom.</p>',
  '<h2 class="s-FoMhWG">Stipendio frontaliere e festività</h2>',
- '<p>Lo <strong>stipendio del frontaliere</strong> non subisce decurtazioni per le festività svizzere: il salario mensile è calcolato sul lordo annuo che include già le giornate festive pagate (~13 giornate festive cantonali e federali in Ticino). In busta paga (Lohnabrechnung) i giorni festivi non appaiono come voce separata. Eventuali straordinari prestati in giornate festive sono pagati con maggiorazione del <strong>50–100 %</strong> a seconda del contratto collettivo di lavoro (CCL) o del contratto individuale: verificare sempre l\'articolo specifico del proprio CCL settoriale. La 13ª mensilità è prassi consolidata in molti settori (banche, assicurazioni, pubblica amministrazione, gran parte dell\'industria); la 14ª è rara in Svizzera.</p>',
+ '<p>Lo <strong>stipendio del frontaliere</strong> non subisce decurtazioni per le festività svizzere: il salario mensile è calcolato sul lordo annuo che include già le giornate festive pagate (le 15 festività ufficiali ticinesi, 11 delle quali nel 2026 cadono in giorni feriali). In busta paga (Lohnabrechnung) i giorni festivi non appaiono come voce separata. Eventuali straordinari prestati in giornate festive sono pagati con maggiorazione del <strong>50–100 %</strong> a seconda del contratto collettivo di lavoro (CCL) o del contratto individuale: verificare sempre l\'articolo specifico del proprio CCL settoriale. La 13ª mensilità è prassi consolidata in molti settori (banche, assicurazioni, pubblica amministrazione, gran parte dell\'industria); la 14ª è rara in Svizzera.</p>',
  ],
  en: [
  buildPontiHero('en'),
- '<h2 class="s-FoMhWG">2026 public holidays calendar in Ticino — 17 official days</h2>',
- '<p>The <strong>2026 public holiday calendar in Canton Ticino</strong> is particularly favourable for cross-border workers: several midweek holidays create 3–4 day long weekends without burning much annual leave. Ticino officially recognises <strong>17 cantonal holidays</strong>: New Year (Thu 1/1), St Berchtold (Fri 2/1), Epiphany (Tue 6/1), Good Friday (Fri 3 April), Easter Sunday (5 April), Easter Monday (6 April), Labour Day (Fri 1/5), Ascension (Thu 14 May), Pentecost (Sun 24 May), Whit Monday (25 May), Corpus Christi (Thu 4 June), Swiss National Day (Sat 1/8), Assumption (Sat 15/8), All Saints (Sun 1/11), Immaculate Conception (Tue 8/12), Christmas (Fri 25/12) and Boxing Day (Sat 26/12).</p>',
- '<p>The most rewarding 2026 bridges for cross-border workers: New Year + St Berchtold (Thu 1/1 + Fri 2/1, automatic 4-day bridge); Epiphany (Tue 6/1, 4-day bridge with 1 day leave on Mon 5/1); Easter (3–6 April, 4 days with no leave); 1 May (Fri, automatic long weekend); Ascension (Thu 14 May + 1 day leave Fri 15); Pentecost (Sat 23 → Mon 25 May, automatic 3 days); Corpus Christi (Thu 4 June + 1 day leave Fri 5); Immaculate Conception (Tue 8/12 + 1 day leave Mon 7/12); Christmas (Fri 25 + Sat 26 + Sun 27 Dec, automatic 3 days). Swiss National Day, Assumption and All Saints fall on a weekend in 2026 and do not produce a bridge.</p>',
+ '<h2 class="s-FoMhWG">2026 public holidays calendar in Ticino — 15 official days</h2>',
+ '<p>The <strong>2026 public holiday calendar in Canton Ticino</strong> is particularly favourable for cross-border workers: several midweek holidays create 3–4 day long weekends without burning much annual leave. Ticino officially recognises <strong>15 public holidays</strong> (cantonal law of 15 December 2009): New Year (Thu 1/1), Epiphany (Tue 6/1), St Joseph\'s Day (Thu 19/3), Easter Monday (6 April), Labour Day (Fri 1/5), Ascension (Thu 14 May), Whit Monday (25 May), Corpus Christi (Thu 4 June), Saints Peter and Paul (Mon 29 June), Swiss National Day (Sat 1/8), Assumption (Sat 15/8), All Saints (Sun 1/11), Immaculate Conception (Tue 8/12), Christmas (Fri 25/12) and St Stephen\'s Day (Sat 26/12). Good Friday and 2 January, holidays in many German-speaking cantons, are working days in Ticino.</p>',
+ '<p>The most rewarding 2026 bridges for cross-border workers: New Year (Thu 1/1 + 1 day leave Fri 2/1, 4 days); Epiphany (Tue 6/1, 4-day bridge with 1 day leave on Mon 5/1); St Joseph (Thu 19/3 + 1 day leave Fri 20/3); Easter (Sat 4 → Mon 6 April, automatic 3 days); 1 May (Fri, automatic long weekend); Ascension (Thu 14 May + 1 day leave Fri 15); Pentecost (Sat 23 → Mon 25 May, automatic 3 days); Corpus Christi (Thu 4 June + 1 day leave Fri 5); Saints Peter and Paul (Sat 27 → Mon 29 June, automatic 3 days); Immaculate Conception (Tue 8/12 + 1 day leave Mon 7/12); Christmas (Fri 25 + Sat 26 + Sun 27 Dec, automatic 3 days). Swiss National Day, Assumption, All Saints and St Stephen\'s Day fall on a weekend in 2026 and do not produce a bridge.</p>',
  '<h2 class="s-FoMhWG">Differences with the Italian calendar</h2>',
- '<p>The Swiss holiday calendar differs from the Italian one on <strong>eight days</strong>. Observed only in Ticino (not in Italy): St Berchtold (2/1), Good Friday (3/4), Ascension (14/5), Whit Monday (25/5), Corpus Christi (4/6) and Swiss National Day (1/8). Observed only in Italy (not in Switzerland): 25 April (Liberation Day) and 2 June (Republic Day). Immaculate Conception (8/12) is not a federal Swiss holiday but is recognised in Ticino. A cross-border worker follows the work-country calendar (Switzerland) for paid time off, holiday allowances and overtime premiums, but must plan family logistics in Italy (schools, doctors, banks, public offices) against the Italian calendar — the two diverge on enough days each year to matter for school pick-ups and bank deadlines.</p>',
+ '<p>The Swiss holiday calendar differs from the Italian one on <strong>eight days</strong>. Observed only in Ticino (not in Italy): St Joseph\'s Day (19/3), Ascension (14/5), Whit Monday (25/5), Corpus Christi (4/6), Saints Peter and Paul (29/6) and Swiss National Day (1/8). Observed only in Italy (not in Switzerland): 25 April (Liberation Day) and 2 June (Republic Day). Immaculate Conception (8/12) is not a federal Swiss holiday but is recognised in Ticino. A cross-border worker follows the work-country calendar (Switzerland) for paid time off, holiday allowances and overtime premiums, but must plan family logistics in Italy (schools, doctors, banks, public offices) against the Italian calendar — the two diverge on enough days each year to matter for school pick-ups and bank deadlines.</p>',
  '<h2 class="s-FoMhWG">Border crossings and traffic outlook</h2>',
  '<p>The Italy–Switzerland border crossings stay open 24/7 on motorways and operate reduced hours on secondary roads, but they see severe traffic spikes on long-weekend Fridays and return Mondays. Peak traffic days for 2026: Fri 3 April (Easter departure), Mon 6 April (Easter return), Fri 1 May, Thu 14 May (Ascension departure), Mon 18 May (return), Fri 31 July (summer-holiday start), Fri 7 August (peak exodus) and Wed 23 December (Christmas departure). On those days, avoid the 7:00–10:00 and 16:00–20:00 windows and check live wait times on our <em>Border wait times</em> page, refreshed every 15 minutes via the TomTom API. Chiasso-Brogeda, Stabio-Gaggiolo and Ponte Tresa typically queue the longest; secondary crossings such as Oria-Gandria can shave 20–40 minutes during peak hours.</p>',
  '<h2 class="s-FoMhWG">Salary, overtime and holiday pay</h2>',
- '<p>Swiss salaries are <strong>not reduced</strong> on public holidays — the monthly salary already includes the gross annual figure with ~13 paid cantonal and federal holidays in Ticino. Paid holidays do not appear as a separate line item on the Lohnabrechnung (payslip). Overtime worked on a public holiday is paid at a <strong>50–100% premium</strong> depending on the collective labour agreement (CCL) or individual contract — always check the specific article of your sector CCL before agreeing to work a festivo. The 13th-month salary is standard practice across banks, insurance, public administration and most industrial sectors; a 14th month is rare in Switzerland and usually replaced by performance bonuses or profit-share schemes.</p>',
+ '<p>Swiss salaries are <strong>not reduced</strong> on public holidays — the monthly salary already includes the gross annual figure with Ticino\'s 15 official holidays (11 of them on weekdays in 2026). Paid holidays do not appear as a separate line item on the Lohnabrechnung (payslip). Overtime worked on a public holiday is paid at a <strong>50–100% premium</strong> depending on the collective labour agreement (CCL) or individual contract — always check the specific article of your sector CCL before agreeing to work a festivo. The 13th-month salary is standard practice across banks, insurance, public administration and most industrial sectors; a 14th month is rare in Switzerland and usually replaced by performance bonuses or profit-share schemes.</p>',
  ],
  de: [
  buildPontiHero('de'),
- '<h2 class="s-FoMhWG">Feiertage 2026 im Tessin — 17 offizielle Tage</h2>',
- '<p>Der <strong>Feiertagskalender 2026 im Tessin</strong> ist für Grenzgänger besonders günstig: mehrere Feiertage fallen unter der Woche und ermöglichen 3–4-tägige verlängerte Wochenenden ohne grossen Urlaubsabzug. Das Tessin erkennt <strong>17 kantonale Feiertage</strong> an: Neujahr (Do 1.1.), Berchtoldstag (Fr 2.1.), Dreikönigstag (Di 6.1.), Karfreitag (Fr 3.4.), Ostersonntag (5.4.), Ostermontag (6.4.), Tag der Arbeit (Fr 1.5.), Auffahrt (Do 14.5.), Pfingstsonntag (So 24.5.), Pfingstmontag (25.5.), Fronleichnam (Do 4.6.), Schweizer Bundesfeier (Sa 1.8.), Mariä Himmelfahrt (Sa 15.8.), Allerheiligen (So 1.11.), Mariä Empfängnis (Di 8.12.), Weihnachten (Fr 25.12.) und Stephanstag (Sa 26.12.).</p>',
- '<p>Beste Brückentage 2026 für Grenzgänger: Neujahr + Berchtoldstag (Do 1.1. + Fr 2.1., automatische 4-Tage-Brücke); Dreikönigstag (Di 6.1. + 1 Urlaubstag Mo 5.1.); Ostern (3.–6.4., 4 Tage ohne Urlaub); 1. Mai (Fr, automatisch); Auffahrt (Do 14.5. + 1 Urlaubstag Fr 15.5.); Pfingsten (Sa 23. → Mo 25.5.); Fronleichnam (Do 4.6. + 1 Urlaubstag Fr 5.6.); Mariä Empfängnis (Di 8.12. + Mo 7.12. Urlaub); Weihnachten (Fr 25. + Sa 26. + So 27.12.). Bundesfeier (1.8.), Mariä Himmelfahrt (15.8.) und Allerheiligen (1.11.) fallen 2026 aufs Wochenende.</p>',
+ '<h2 class="s-FoMhWG">Feiertage 2026 im Tessin — 15 offizielle Tage</h2>',
+ '<p>Der <strong>Feiertagskalender 2026 im Tessin</strong> ist für Grenzgänger besonders günstig: mehrere Feiertage fallen unter der Woche und ermöglichen 3–4-tägige verlängerte Wochenenden ohne grossen Urlaubsabzug. Das Tessin erkennt <strong>15 offizielle Feiertage</strong> an (kantonales Gesetz vom 15. Dezember 2009): Neujahr (Do 1.1.), Dreikönigstag (Di 6.1.), Josefstag (Do 19.3.), Ostermontag (6.4.), Tag der Arbeit (Fr 1.5.), Auffahrt (Do 14.5.), Pfingstmontag (25.5.), Fronleichnam (Do 4.6.), Peter und Paul (Mo 29.6.), Schweizer Bundesfeier (Sa 1.8.), Mariä Himmelfahrt (Sa 15.8.), Allerheiligen (So 1.11.), Mariä Empfängnis (Di 8.12.), Weihnachten (Fr 25.12.) und Stephanstag (Sa 26.12.). Karfreitag und Berchtoldstag, in vielen Deutschschweizer Kantonen Feiertage, sind im Tessin Arbeitstage.</p>',
+ '<p>Beste Brückentage 2026 für Grenzgänger: Neujahr (Do 1.1. + 1 Urlaubstag Fr 2.1., 4 Tage); Dreikönigstag (Di 6.1. + 1 Urlaubstag Mo 5.1.); Josefstag (Do 19.3. + 1 Urlaubstag Fr 20.3.); Ostern (Sa 4. → Mo 6.4., automatisch 3 Tage); 1. Mai (Fr, automatisch); Auffahrt (Do 14.5. + 1 Urlaubstag Fr 15.5.); Pfingsten (Sa 23. → Mo 25.5.); Fronleichnam (Do 4.6. + 1 Urlaubstag Fr 5.6.); Peter und Paul (Sa 27. → Mo 29.6., automatisch 3 Tage); Mariä Empfängnis (Di 8.12. + Mo 7.12. Urlaub); Weihnachten (Fr 25. + Sa 26. + So 27.12.). Bundesfeier (1.8.), Mariä Himmelfahrt (15.8.), Allerheiligen (1.11.) und Stephanstag (26.12.) fallen 2026 aufs Wochenende.</p>',
  '<h2 class="s-FoMhWG">Unterschiede zum italienischen Kalender</h2>',
- '<p>Der Schweizer Feiertagskalender unterscheidet sich vom italienischen an <strong>acht Tagen</strong>. Nur im Tessin (nicht in Italien): Berchtoldstag (2.1.), Karfreitag (3.4.), Auffahrt (14.5.), Pfingstmontag (25.5.), Fronleichnam (4.6.) und Schweizer Bundesfeier (1.8.). Nur in Italien (nicht in der Schweiz): 25. April (Befreiungstag) und 2. Juni (Tag der Republik). Mariä Empfängnis (8.12.) ist kein eidgenössischer Feiertag, im Tessin aber anerkannt. Grenzgänger richten sich für Lohn, Urlaub und Feiertagszuschläge nach dem Arbeitsland (Schweiz), müssen aber Familienlogistik in Italien (Schulen, Arztpraxen, Banken, Behörden) nach dem italienischen Kalender planen — die beiden divergieren an genügend Tagen pro Jahr, um Schulabholungen und Banküberweisungen zu beeinflussen.</p>',
+ '<p>Der Schweizer Feiertagskalender unterscheidet sich vom italienischen an <strong>acht Tagen</strong>. Nur im Tessin (nicht in Italien): Josefstag (19.3.), Auffahrt (14.5.), Pfingstmontag (25.5.), Fronleichnam (4.6.), Peter und Paul (29.6.) und Schweizer Bundesfeier (1.8.). Nur in Italien (nicht in der Schweiz): 25. April (Befreiungstag) und 2. Juni (Tag der Republik). Mariä Empfängnis (8.12.) ist kein eidgenössischer Feiertag, im Tessin aber anerkannt. Grenzgänger richten sich für Lohn, Urlaub und Feiertagszuschläge nach dem Arbeitsland (Schweiz), müssen aber Familienlogistik in Italien (Schulen, Arztpraxen, Banken, Behörden) nach dem italienischen Kalender planen — die beiden divergieren an genügend Tagen pro Jahr, um Schulabholungen und Banküberweisungen zu beeinflussen.</p>',
  '<h2 class="s-FoMhWG">Grenzübergänge und Verkehrsprognose</h2>',
  '<p>Die Grenzübergänge zwischen Italien und der Schweiz bleiben rund um die Uhr offen (Autobahnen 24/7, Nebenstrassen mit reduzierten Zeiten), aber an Freitagen vor langen Wochenenden und an Rückreisemontagen kommt es zu starken Staus. Hauptverkehrstage 2026: Fr 3. April (Osterstart), Mo 6. April (Osterrückkehr), Fr 1. Mai, Do 14. Mai (Auffahrt), Mo 18. Mai (Rückkehr), Fr 31. Juli (Sommerferienstart), Fr 7. August (Hauptexodus) und Mi 23. Dezember (Weihnachtsstart). An diesen Tagen die Zeitfenster 7:00–10:00 und 16:00–20:00 meiden und Echtzeit-Wartezeiten auf unserer Seite <em>Grenzwartezeiten</em> prüfen (alle 15 Minuten via TomTom-API aktualisiert). Chiasso-Brogeda, Stabio-Gaggiolo und Ponte Tresa zeigen die längsten Schlangen; Nebenübergänge wie Oria-Gandria können in Spitzenzeiten 20–40 Minuten einsparen.</p>',
  '<h2 class="s-FoMhWG">Lohn, Überstunden und Feiertagszuschläge</h2>',
- '<p>Schweizer Löhne werden an Feiertagen <strong>nicht gekürzt</strong> — sie sind bereits im Jahresbruttolohn enthalten (~13 bezahlte kantonale und eidgenössische Feiertage im Tessin). Bezahlte Feiertage erscheinen nicht als separate Position auf der Lohnabrechnung. Überstunden an einem Feiertag werden je nach Gesamtarbeitsvertrag (GAV) oder individuellem Vertrag mit einem <strong>50–100 %-Zuschlag</strong> vergütet — vor Zustimmung zum Festtagseinsatz immer den spezifischen GAV-Artikel des Branchen-CCL prüfen. Der 13. Monatslohn ist in Banken, Versicherungen, öffentlicher Verwaltung und im grössten Teil der Industrie Standard; ein 14. Monat ist in der Schweiz selten und wird meist durch Boni oder Erfolgsbeteiligung ersetzt.</p>',
+ '<p>Schweizer Löhne werden an Feiertagen <strong>nicht gekürzt</strong> — sie sind bereits im Jahresbruttolohn enthalten (die 15 offiziellen Tessiner Feiertage, 2026 davon 11 an Werktagen). Bezahlte Feiertage erscheinen nicht als separate Position auf der Lohnabrechnung. Überstunden an einem Feiertag werden je nach Gesamtarbeitsvertrag (GAV) oder individuellem Vertrag mit einem <strong>50–100 %-Zuschlag</strong> vergütet — vor Zustimmung zum Festtagseinsatz immer den spezifischen GAV-Artikel des Branchen-CCL prüfen. Der 13. Monatslohn ist in Banken, Versicherungen, öffentlicher Verwaltung und im grössten Teil der Industrie Standard; ein 14. Monat ist in der Schweiz selten und wird meist durch Boni oder Erfolgsbeteiligung ersetzt.</p>',
  ],
  fr: [
  buildPontiHero('fr'),
- '<h2 class="s-FoMhWG">Jours fériés 2026 au Tessin — 17 jours officiels</h2>',
- '<p>Le <strong>calendrier des jours fériés 2026 au Tessin</strong> est particulièrement favorable aux frontaliers : plusieurs fêtes tombent en milieu de semaine et permettent des longs week-ends de 3–4 jours sans trop entamer les congés annuels. Le Tessin reconnaît <strong>17 jours fériés cantonaux</strong> : Jour de l\'An (jeu 1/1), Saint-Berchtold (ven 2/1), Épiphanie (mar 6/1), Vendredi saint (ven 3/4), Pâques (dim 5/4), Lundi de Pâques (6/4), Fête du Travail (ven 1/5), Ascension (jeu 14/5), Pentecôte (dim 24/5), Lundi de Pentecôte (25/5), Fête-Dieu (jeu 4/6), Fête nationale suisse (sam 1/8), Assomption (sam 15/8), Toussaint (dim 1/11), Immaculée Conception (mar 8/12), Noël (ven 25/12) et Saint-Étienne (sam 26/12).</p>',
- '<p>Les ponts les plus rentables 2026 : Nouvel An + Saint-Berchtold (jeu 1/1 + ven 2/1, pont automatique de 4 jours) ; Épiphanie (mar 6/1 + 1 jour de congé lun 5/1) ; Pâques (3–6 avril, 4 jours sans congé) ; 1er mai (ven, automatique) ; Ascension (jeu 14/5 + 1 congé ven 15) ; Pentecôte (sam 23 → lun 25 mai) ; Fête-Dieu (jeu 4/6 + 1 congé ven 5) ; Immaculée (mar 8/12 + 1 congé lun 7/12) ; Noël (ven 25 + sam 26 + dim 27 décembre). Fête nationale suisse, Assomption et Toussaint tombent en week-end en 2026.</p>',
+ '<h2 class="s-FoMhWG">Jours fériés 2026 au Tessin — 15 jours officiels</h2>',
+ '<p>Le <strong>calendrier des jours fériés 2026 au Tessin</strong> est particulièrement favorable aux frontaliers : plusieurs fêtes tombent en milieu de semaine et permettent des longs week-ends de 3–4 jours sans trop entamer les congés annuels. Le Tessin reconnaît <strong>15 jours fériés officiels</strong> (loi cantonale du 15 décembre 2009) : Jour de l\'An (jeu 1/1), Épiphanie (mar 6/1), Saint-Joseph (jeu 19/3), Lundi de Pâques (6/4), Fête du Travail (ven 1/5), Ascension (jeu 14/5), Lundi de Pentecôte (25/5), Fête-Dieu (jeu 4/6), Saints Pierre et Paul (lun 29/6), Fête nationale suisse (sam 1/8), Assomption (sam 15/8), Toussaint (dim 1/11), Immaculée Conception (mar 8/12), Noël (ven 25/12) et Saint-Étienne (sam 26/12). Le Vendredi saint et le 2 janvier, fériés dans de nombreux cantons alémaniques, sont ouvrés au Tessin.</p>',
+ '<p>Les ponts les plus rentables 2026 : Nouvel An (jeu 1/1 + 1 congé ven 2/1, 4 jours) ; Épiphanie (mar 6/1 + 1 jour de congé lun 5/1) ; Saint-Joseph (jeu 19/3 + 1 congé ven 20/3) ; Pâques (sam 4 → lun 6 avril, 3 jours automatiques) ; 1er mai (ven, automatique) ; Ascension (jeu 14/5 + 1 congé ven 15) ; Pentecôte (sam 23 → lun 25 mai) ; Fête-Dieu (jeu 4/6 + 1 congé ven 5) ; Saints Pierre et Paul (sam 27 → lun 29 juin, 3 jours automatiques) ; Immaculée (mar 8/12 + 1 congé lun 7/12) ; Noël (ven 25 + sam 26 + dim 27 décembre). Fête nationale suisse, Assomption, Toussaint et Saint-Étienne tombent en week-end en 2026.</p>',
  '<h2 class="s-FoMhWG">Différences avec le calendrier italien</h2>',
- '<p>Le calendrier suisse diffère de l\'italien sur <strong>huit jours</strong>. Fériés uniquement au Tessin (pas en Italie) : Saint-Berchtold (2/1), Vendredi saint (3/4), Ascension (14/5), Lundi de Pentecôte (25/5), Fête-Dieu (4/6) et Fête nationale suisse (1/8). Fériés uniquement en Italie (pas en Suisse) : 25 avril (Libération) et 2 juin (République). L\'Immaculée Conception (8/12) n\'est pas un férié fédéral suisse, mais l\'est au Tessin. Un frontalier suit le calendrier du pays de travail (Suisse) pour ses congés, indemnités et primes de jour férié, mais doit planifier la logistique familiale en Italie (écoles, médecins, banques, administrations) sur le calendrier italien — les deux divergent sur suffisamment de jours par an pour affecter les sorties d\'école et les virements bancaires.</p>',
+ '<p>Le calendrier suisse diffère de l\'italien sur <strong>huit jours</strong>. Fériés uniquement au Tessin (pas en Italie) : Saint-Joseph (19/3), Ascension (14/5), Lundi de Pentecôte (25/5), Fête-Dieu (4/6), Saints Pierre et Paul (29/6) et Fête nationale suisse (1/8). Fériés uniquement en Italie (pas en Suisse) : 25 avril (Libération) et 2 juin (République). L\'Immaculée Conception (8/12) n\'est pas un férié fédéral suisse, mais l\'est au Tessin. Un frontalier suit le calendrier du pays de travail (Suisse) pour ses congés, indemnités et primes de jour férié, mais doit planifier la logistique familiale en Italie (écoles, médecins, banques, administrations) sur le calendrier italien — les deux divergent sur suffisamment de jours par an pour affecter les sorties d\'école et les virements bancaires.</p>',
  '<h2 class="s-FoMhWG">Passages de frontière et prévisions de trafic</h2>',
  '<p>Les passages de frontière entre l\'Italie et la Suisse restent ouverts 24h/24 sur autoroute et fonctionnent à horaires réduits sur les routes secondaires, mais connaissent des pics de trafic intenses les vendredis avant un long week-end et les lundis de retour. Journées de pic 2026 : ven 3 avril (départ Pâques), lun 6 avril (retour), ven 1er mai, jeu 14 mai (départ Ascension), lun 18 mai (retour), ven 31 juillet (départ vacances d\'été), ven 7 août (exode maximal) et mer 23 décembre (départ Noël). Ces jours-là, éviter les créneaux 7h–10h et 16h–20h et consulter les temps d\'attente en direct sur notre page <em>Temps d\'attente frontière</em>, rafraîchie toutes les 15 minutes via l\'API TomTom. Chiasso-Brogeda, Stabio-Gaggiolo et Ponte Tresa font les plus longues files ; les passages secondaires comme Oria-Gandria peuvent faire gagner 20–40 minutes aux heures de pointe.</p>',
  '<h2 class="s-FoMhWG">Salaire, heures supplémentaires et primes de jour férié</h2>',
- '<p>Les salaires suisses <strong>ne sont pas réduits</strong> les jours fériés — ils intègrent déjà le brut annuel avec ~13 fériés payés cantonaux et fédéraux au Tessin. Les fériés payés n\'apparaissent pas comme ligne séparée sur la Lohnabrechnung (fiche de paie). Les heures supplémentaires effectuées un jour férié sont majorées de <strong>50–100 %</strong> selon la convention collective de travail (CCT) ou le contrat individuel — toujours vérifier l\'article spécifique de la CCT de votre secteur avant d\'accepter de travailler un jour férié. Le 13ème mois est la norme dans les banques, assurances, administration publique et la majeure partie de l\'industrie ; un 14ème mois est rare en Suisse, généralement remplacé par des bonus ou de l\'intéressement.</p>',
+ '<p>Les salaires suisses <strong>ne sont pas réduits</strong> les jours fériés — ils intègrent déjà le brut annuel avec les 15 jours fériés officiels du Tessin (11 en semaine en 2026). Les fériés payés n\'apparaissent pas comme ligne séparée sur la Lohnabrechnung (fiche de paie). Les heures supplémentaires effectuées un jour férié sont majorées de <strong>50–100 %</strong> selon la convention collective de travail (CCT) ou le contrat individuel — toujours vérifier l\'article spécifique de la CCT de votre secteur avant d\'accepter de travailler un jour férié. Le 13ème mois est la norme dans les banques, assurances, administration publique et la majeure partie de l\'industrie ; un 14ème mois est rare en Suisse, généralement remplacé par des bonus ou de l\'intéressement.</p>',
  ],
  },
 
@@ -3563,3 +3572,69 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  */
 export const SECTION_EDITORIAL_KEYS: string[] = Object.keys(SECTION_EDITORIAL)
  .sort((a, b) => b.length - a.length);
+
+/**
+ * The SECTION_EDITORIAL entry for an Italian source path, for `locale`.
+ *
+ * 1. The longest key the path starts with — except the homepage key '/',
+ *    which is the homepage's own copy and matches only '/'. As a prefix it
+ *    matched EVERY path, so each EN/DE/FR page without a more specific key
+ *    shipped the three homepage paragraphs («Sur la page d'accueil, vous
+ *    trouverez…») padded with LOCALE_EDITORIAL: the identical body that
+ *    audit:information-gain scored 0 % on the fr:/fr/~83248f and
+ *    de:/de/~5b78c1 cohorts (2026-10-24).
+ * 2. A section INDEX: source paths carry no trailing slash ('/statistiche')
+ *    while the section keys do ('/statistiche/'), so /en/statistics/,
+ *    /de/grenzgaenger-ratgeber/, /fr/calculer-salaire/ … never matched their
+ *    own section copy («The statistics section presents…») and fell through
+ *    to the homepage key. They now get it — EN/DE/FR only: the Italian index
+ *    pages are owned by the inline chain of staticPagesPlugin, unchanged.
+ */
+export function findSectionEditorialKey(italianPath: string, locale?: string): string | undefined {
+ const direct = SECTION_EDITORIAL_KEYS.find((key) => key !== '/' && italianPath.startsWith(key));
+ if (direct) return direct;
+ if (italianPath === '/') return Object.hasOwn(SECTION_EDITORIAL, '/') ? '/' : undefined;
+ if (!locale || locale === 'it' || italianPath.endsWith('/')) return undefined;
+ const asIndex = `${italianPath}/`;
+ return SECTION_EDITORIAL_KEYS.find((key) => key !== '/' && asIndex.startsWith(key) && Boolean(SECTION_EDITORIAL[key]?.[locale]?.length));
+}
+
+/**
+ * Site-wide EN/DE/FR editorial for static pages that have no section-specific
+ * copy (and the padding that tops a short SECTION_EDITORIAL entry up to seven
+ * paragraphs). Identical on every page that uses it: it is the fallback, not
+ * page content. Moved here from staticPagesPlugin.ts so tests can compose the
+ * fallback body the plugin emits (tests/spa-tab-static-content.test.ts).
+ */
+export const LOCALE_EDITORIAL: Record<string, string[]> = {
+ en: [
+ 'This page is part of Frontaliere Ticino, the reference platform for cross-border workers between Switzerland (Canton Ticino) and Italy. Find practical tools, updated data, and verified information.',
+ 'Content is designed to help cross-border workers make informed decisions about taxation, pensions, transportation, cost of living, and administrative procedures.',
+ 'All tools and data are updated for the 2026 fiscal year, reflecting the New Bilateral Tax Agreement between Switzerland and Italy, current AVS/LPP contribution rates, and Canton Ticino withholding tax tables.',
+ 'The platform covers the complete cross-border worker lifecycle: from obtaining your G or B permit and opening a Swiss bank account, to filing your annual tax returns in both countries, planning your AVS and LPP pension, and comparing the cost of living on both sides of the border.',
+ 'All calculators and comparators use real, verifiable data from official Swiss and Italian sources — Federal Statistical Office, SECO, USTAT, INPS, and the Italian Revenue Agency — so you can trust the results to support real financial decisions.',
+ 'Cross-border workers benefit from Switzerland\'s high salaries while potentially maintaining a lower cost of living in Italy. The key financial factors include withholding tax rates, social security contributions, health insurance choices, and currency exchange rates — all of which vary based on your personal situation and work permit type.',
+ 'Whether you hold a G permit (cross-border commuter) or a B permit (Swiss resident), understanding the tax implications of the Italy–Switzerland tax agreement is essential. Tax status depends on the agreement conditions and qualifying frontier work between 31 December 2018 and 17 July 2023, rather than the hiring date alone.',
+ 'This platform provides free, no-registration-required tools built by domain experts. Every calculation follows official Swiss and Italian tax parameters, and results are presented in both CHF and EUR for immediate practical use.',
+ ],
+ de: [
+ 'Diese Seite ist Teil von Frontaliere Ticino, der Referenzplattform für Grenzgänger zwischen der Schweiz (Kanton Tessin) und Italien. Hier finden Sie praktische Tools, aktuelle Daten und verifizierte Informationen.',
+ 'Die Inhalte helfen Grenzgängern, fundierte Entscheidungen zu Besteuerung, Vorsorge, Transport, Lebenshaltungskosten und Verwaltungsverfahren zu treffen.',
+ 'Alle Tools und Daten sind für das Steuerjahr 2026 aktualisiert und berücksichtigen das Neue Bilaterale Steuerabkommen zwischen der Schweiz und Italien, aktuelle AHV/BVG-Beitragssätze und Tessiner Quellensteuertabellen.',
+ 'Die Plattform deckt den vollständigen Grenzgänger-Lebenszyklus ab: von der Beantragung des G- oder B-Ausweises und der Eröffnung eines Schweizer Bankkontos bis zur jährlichen Steuererklärung in beiden Ländern, der AHV/BVG-Vorsorgeplanung und dem Lebenshaltungskostenvergleich beider Seiten.',
+ 'Alle Rechner und Vergleicher nutzen verifizierbare Daten aus offiziellen Schweizer und italienischen Quellen — BFS, SECO, USTAT, INPS und die italienische Steuerbehörde — damit Sie sich bei echten Finanzentscheidungen auf die Ergebnisse verlassen können.',
+ 'Grenzgänger profitieren von den hohen Schweizer Gehältern bei potenziell niedrigeren Lebenshaltungskosten in Italien. Die wichtigsten finanziellen Faktoren umfassen Quellensteuersätze, Sozialversicherungsbeiträge, Krankenversicherungswahl und Wechselkurse — die alle von Ihrer persönlichen Situation und Aufenthaltsgenehmigung abhängen.',
+ 'Ob Sie eine G-Bewilligung (Grenzgänger) oder eine B-Bewilligung (Schweizer Aufenthalt) besitzen, das Verständnis der steuerlichen Auswirkungen des Steuerabkommens Italien–Schweiz ist entscheidend. Das Steuerregime hängt von den Abkommensbedingungen und qualifizierter Grenzgängertätigkeit zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 ab, nicht allein vom Anstellungsdatum.',
+ 'Diese Plattform bietet kostenlose Tools ohne Registrierung, entwickelt von Fachexperten. Jede Berechnung folgt den offiziellen Schweizer und italienischen Steuerparametern, und die Ergebnisse werden sowohl in CHF als auch in EUR für den sofortigen praktischen Gebrauch dargestellt.',
+ ],
+ fr: [
+ 'Cette page fait partie de Frontaliere Ticino, la plateforme de référence pour les travailleurs frontaliers entre la Suisse (Canton du Tessin) et l\'Italie. Trouvez des outils pratiques, des données actualisées et des informations vérifiées.',
+ 'Le contenu aide les frontaliers à prendre des décisions éclairées sur la fiscalité, la prévoyance, les transports, le coût de la vie et les procédures administratives.',
+ 'Tous les outils et données sont mis à jour pour l\'année fiscale 2026, reflétant le Nouvel Accord Fiscal Bilatéral entre la Suisse et l\'Italie, les taux de cotisation AVS/LPP actuels et les barèmes d\'impôt à la source du Canton du Tessin.',
+ 'La plateforme couvre le cycle de vie complet du frontalier : de l\'obtention du permis G ou B et l\'ouverture d\'un compte bancaire suisse, aux déclarations fiscales annuelles dans les deux pays, la planification de la retraite AVS/LPP, et la comparaison du coût de la vie des deux côtés de la frontière.',
+ 'Tous les calculateurs et comparateurs utilisent des données réelles et vérifiables de sources officielles suisses et italiennes — OFS, SECO, USTAT, INPS et l\'Agence des revenus italienne — pour des résultats dignes de confiance dans vos décisions financières.',
+ 'Les travailleurs frontaliers bénéficient des salaires élevés suisses tout en maintenant potentiellement un coût de la vie inférieur en Italie. Les facteurs financiers clés incluent les taux d\'impôt à la source, les cotisations sociales, le choix de l\'assurance maladie et les taux de change — qui varient selon votre situation personnelle et votre type de permis.',
+ 'Que vous déteniez un permis G (frontalier) ou un permis B (résident suisse), comprendre les implications fiscales de l’accord fiscal Italie–Suisse est essentiel. Le régime fiscal dépend des conditions de l’accord et d’une activité frontalière qualifiée entre le 31 décembre 2018 et le 17 juillet 2023, et non de la seule date d’embauche.',
+ 'Cette plateforme offre des outils gratuits sans inscription, développés par des experts du domaine. Chaque calcul suit les paramètres fiscaux officiels suisses et italiens, et les résultats sont présentés en CHF et en EUR pour une utilisation pratique immédiate.',
+ ],
+ };

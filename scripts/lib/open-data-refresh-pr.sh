@@ -314,6 +314,8 @@ git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs" \
 if [ "$RECONCILE_COMPAT" = true ] || [ "$RECONCILE_MAIN" = true ]; then
   git show "${REFRESH_BASE}:scripts/ci/reconcile-data-refresh-main.mjs" \
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs"
+  git show "${REFRESH_BASE}:scripts/lib/compat-path-safety.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/compat-path-safety.mjs"
 fi
 
 if [ "$RECONCILE_COMPAT" = false ]; then

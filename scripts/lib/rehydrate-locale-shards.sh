@@ -3,6 +3,8 @@ set -uo pipefail
 
 # shellcheck source=scripts/lib/rehydrate-trunk-guard.sh
 . "$(dirname "${BASH_SOURCE[0]}")/rehydrate-trunk-guard.sh"
+# shellcheck source=scripts/lib/rehydrate-provenance.sh
+. "$(dirname "${BASH_SOURCE[0]}")/rehydrate-provenance.sh"
 
 # Extracted from post-deploy-validate-dist.yml, which had this exact
 # function byte-for-byte duplicated across its 3 jobs (validate-dist-source,
@@ -57,8 +59,9 @@ set -uo pipefail
 
 rehydrate_locale() {
   set -euo pipefail
-  local artifact_run_id="${SHARD_ARTIFACT_RUN_ID:-$DEPLOY_RUN_ID}"
+  local artifact_run_id
   for loc in en de fr; do
+    artifact_run_id="$(rehydrate_artifact_run_id "$loc")"
     # Skip rehydrate only when BOTH the locale dir AND its homepage
     # `dist/$loc.html` (= `/{loc}`) are present. Checking just the dir
     # couples this guard to the implicit assumption that the strip in
@@ -68,6 +71,7 @@ rehydrate_locale() {
     # loss. Verifying both decouples the guard from that assumption (#1607).
     if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
       echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
+      rehydrate_provenance "$loc" trunk "$DEPLOY_RUN_ID"
       continue
     fi
 
@@ -117,6 +121,7 @@ rehydrate_locale() {
       # the git-clone fallback below.
       if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+        rehydrate_provenance "$loc" artifact "locale-dist-$loc-$artifact_run_id"
         trunk_replace_end "locale-$loc"
         continue
       fi
@@ -148,6 +153,7 @@ rehydrate_locale() {
         cp "$SHARD_CLONE_CACHE_DIR/locale-$loc/$loc.html" "dist/$loc.html"
       fi
       echo "rehydrated $loc from cross-job clone cache: $(find "dist/$loc" -type f | wc -l) files"
+      rehydrate_provenance "$loc" clone-cache "frontaliere-$loc"
       trunk_replace_end "locale-$loc"
       continue
     fi
@@ -184,6 +190,7 @@ rehydrate_locale() {
     mv "$tmp/$loc" "dist/$loc"
     if [ -f "$tmp/$loc.html" ]; then mv "$tmp/$loc.html" "dist/$loc.html"; fi
     echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
+    rehydrate_provenance "$loc" clone "frontaliere-$loc@$(git -C "$tmp" rev-parse --short HEAD 2>/dev/null || echo unknown)"
     trunk_replace_end "locale-$loc"
     if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]; then
       mkdir -p "$SHARD_CLONE_CACHE_DIR/locale-$loc" 2>/dev/null \

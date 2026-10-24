@@ -2,6 +2,7 @@ import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
   isTransientFetchError,
   isConnectionLevelFetchError,
+  isConnectionLevelFetchResult,
   fetchWithRetry,
   httpFetchWithRetry,
   isRetryBudgetExhausted,
@@ -120,6 +121,21 @@ describe('isConnectionLevelFetchError (Jina egress fallback gate)', () => {
   it('returns false for nullish input', () => {
     expect(isConnectionLevelFetchError(null)).toBe(false);
     expect(isConnectionLevelFetchError(undefined)).toBe(false);
+  });
+});
+
+describe('isConnectionLevelFetchResult (declarative seed fallback gate)', () => {
+  it('accepts a transport result without an HTTP response', () => {
+    expect(isConnectionLevelFetchResult({ status: 0, transportError: 'dns' })).toBe(true);
+  });
+
+  it.each([
+    { status: 503, transportError: 'other' },
+    { status: 0, transportError: 'timeout', policyBlocked: true },
+    { status: 0, transportError: 'timeout', blockedByRobots: true },
+    { status: 0 },
+  ])('rejects a non-transport result: %j', (result) => {
+    expect(isConnectionLevelFetchResult(result)).toBe(false);
   });
 });
 

@@ -172,7 +172,7 @@ function extractLocaleKeys(locale: string, includeCorpus: boolean): Set<string> 
   const keys = new Set<string>();
   // Chunk names map 1:1 to `services/locales/{locale}-{chunk}.ts`. Dash-separated
   // chunks (e.g. `seo-links`) are camelCased to build the exported variable name.
-  const chunks = ['core', 'calculator', 'comparatori', 'fisco', 'guide', 'vita', 'stats', 'seo-links'];
+  const chunks = ['core', 'calculator', 'comparatori', 'fisco', 'guide', 'vita', 'stats', 'seo-links', 'whatsnew'];
   const toCamel = (s: string) => s.replace(/-([a-z])/g, (_m, c: string) => c.toUpperCase());
 
   // 1. Extract keys from all per-page chunk files

@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 824,
+      "5": 831,
       "6": 5054
     },
-    "publishedCovers": 7561,
+    "publishedCovers": 7568,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207899,6 +207899,237 @@
         "provider": "openai-codex",
         "assetId": "article-rolex-acquisisce-cpautomation",
         "imageUrl": "/images/blog/article-rolex-acquisisce-cpautomation.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-kolumbanstrasse-nuova-velostrasse": {
+      "cover": "/images/blog/article-kolumbanstrasse-nuova-velostrasse.webp",
+      "hash": "ba481d0b21620f2c2ca38671506c59a0473e6a125979928a9503cba544f99872",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "kolumbanstrasse-nuova-velostrasse",
+          "category": "novita",
+          "date": "2026-10-24T09:05:50.183Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-kolumbanstrasse-nuova-velostrasse.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-kolumbanstrasse-nuova-velostrasse",
+        "imageUrl": "/images/blog/article-kolumbanstrasse-nuova-velostrasse.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-stadtfonds-steuerfuss-wil": {
+      "cover": "/images/blog/article-stadtfonds-steuerfuss-wil.webp",
+      "hash": "a66f0319934f9ca3c3cd6471d6ad7c4f2d843822b896c6290752f3a2536579f6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "stadtfonds-steuerfuss-wil",
+          "category": "fiscale",
+          "date": "2026-10-24T08:43:34.169Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-stadtfonds-steuerfuss-wil.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-stadtfonds-steuerfuss-wil",
+        "imageUrl": "/images/blog/article-stadtfonds-steuerfuss-wil.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bollettino-frontaliere-2026-10-24": {
+      "cover": "/images/blog/article-bollettino-frontaliere-2026-10-24.webp",
+      "hash": "7d211b3a62540f26858af92f4c8f73cf60d3e3b38d566646675d96b573438cda",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-10-24",
+          "category": "novita",
+          "date": "2026-10-24T09:37:11.642Z",
+          "updatedAt": null,
+          "authorSlug": "samuele-valente"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-10-24.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bollettino-frontaliere-2026-10-24",
+        "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-10-24.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lotteriefonds-89-progetti-cantone": {
+      "cover": "/images/blog/article-lotteriefonds-89-progetti-cantone.webp",
+      "hash": "f0f93e3e62ec6a9a700d3798bc66cd34fa07cffce4b7d3d9ce1f68907214a4cf",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "lotteriefonds-89-progetti-cantone",
+          "category": "novita",
+          "date": "2026-10-24T10:01:50.012Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lotteriefonds-89-progetti-cantone.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lotteriefonds-89-progetti-cantone",
+        "imageUrl": "/images/blog/article-lotteriefonds-89-progetti-cantone.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-mellingen-budget-2027": {
+      "cover": "/images/blog/article-mellingen-budget-2027.webp",
+      "hash": "0b054cb36c5de0e227bfa44890bc575782d3674870d61b95f04d376f51268102",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "mellingen-budget-2027",
+          "category": "fiscale",
+          "date": "2026-10-24T12:03:10.391Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mellingen-budget-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-mellingen-budget-2027",
+        "imageUrl": "/images/blog/article-mellingen-budget-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-mobilita-aargovia-sistema-unico": {
+      "cover": "/images/blog/article-mobilita-aargovia-sistema-unico.webp",
+      "hash": "b626f30e576c1bbdd737ecbb32caced03468d1177629cafa4f999c42b47cb87a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "mobilita-aargovia-sistema-unico",
+          "category": "pratico",
+          "date": "2026-10-24T11:27:50.606Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mobilita-aargovia-sistema-unico.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-mobilita-aargovia-sistema-unico",
+        "imageUrl": "/images/blog/article-mobilita-aargovia-sistema-unico.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-telecom-358-licenziamenti": {
+      "cover": "/images/blog/article-telecom-358-licenziamenti.webp",
+      "hash": "0122b5ffd569291018fb62c09cd3615b49bb989ac97d5332c6601462c29ad3d5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "telecom-358-licenziamenti",
+          "category": "novita",
+          "date": "2026-10-24T13:01:20.849Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-telecom-358-licenziamenti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-telecom-358-licenziamenti",
+        "imageUrl": "/images/blog/article-telecom-358-licenziamenti.webp",
         "evidence": "generated-engine-record"
       }
     }

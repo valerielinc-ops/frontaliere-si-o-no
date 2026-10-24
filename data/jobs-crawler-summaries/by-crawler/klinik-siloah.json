@@ -1,7 +1,7 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-10-23T21:24:29.553Z",
+  "generatedAt": "2026-10-24T09:36:40.803Z",
   "total": 2,
   "discovered": null,
   "parsed": 1,
@@ -12,16 +12,19 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2811,
-  "avgDurationMs": 2811,
+  "unchangedCount": 2,
+  "durationMs": 3087,
+  "avgDurationMs": 3087,
   "durationHistory": [
-    2811
+    3087
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-siloah-b781a0311a15",
       "slug": "infermiera-qualificata-in-hf-fh-con-funzione-di-formatore-professionale-80-100-privatklinik-siloah-muri-bei-bern",
@@ -29,14 +32,14 @@
       "companyKey": "klinik-siloah",
       "companyDomain": "swissmedical.net",
       "title": "Dipl. Pflegefachperson HF/FH mit Berufsbildnerfunktion 80%-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Muri bei Bern",
       "canton": "BE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157492949-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157492949-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:24:19.286Z",
+      "crawledAt": "2026-10-24T09:36:27.403Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -52,10 +55,10 @@
       "datePosted": "2026-10-23T14:15:53.436Z",
       "postedDate": "2026-10-23T14:15:53.436Z",
       "postingDateSource": "reported",
+      "firstSeenAt": "2026-09-30T21:17:08.487Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-30T21:17:08.487Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -63,11 +66,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "klinik-siloah-6fe47603b42b",
       "slug": "infermiera-qualificata-in-hf-fh-con-funzione-di-formatore-professionale-80-100-privatklinik-siloah-muri-bei-bern-69487c519a",
@@ -102,7 +101,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -112,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

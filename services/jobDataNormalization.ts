@@ -19,6 +19,7 @@ export type CanonicalContractType = 'full-time' | 'part-time' | 'temporary' | 'i
 import COMPANY_LOGOS_MANIFEST from '../data/company-logos-manifest.json';
 import { registrableDomain } from '../scripts/lib/prospector/registrable.mjs';
 import { isSlashSeparatedMultiLocation } from '../scripts/lib/job-location-display.mjs';
+import { isPartTimeWorkload, workloadPercent } from '../scripts/lib/employment-workload.mjs';
 
 type JobLike = {
  company?: string;
@@ -741,8 +742,12 @@ export function normalizeJobContract(raw: unknown, title = '', description = '')
  const rawText = `${String(raw || '')} ${String(title || '')} ${String(description || '')}`;
  const norm = normalizeText(rawText);
 
- const percent = Number((rawText.match(/\b(\d{1,3})\s*%/)?.[1] || ''));
- if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'part-time';
+ // Range-aware, source-precedence workload (#3482): "70% - 100%" is full
+ // time, and a marketing percent in the description never overrides the title.
+ const workloadSource = [raw, title, description]
+   .map((value) => String(value || ''))
+   .find((value) => Number.isFinite(workloadPercent(value)));
+ if (workloadSource && isPartTimeWorkload(workloadSource)) return 'part-time';
 
  if (looksLike(norm, /\b(thesis|internship|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|tirocin|apprendist|praktikum)/)) return 'internship';
  if (looksLike(norm, /(part time|tempo parziale|teilzeit|temps partiel)/)) return 'part-time';

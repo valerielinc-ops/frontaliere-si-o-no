@@ -101,6 +101,7 @@
 
 import { jobJourneyFields, recordJobJourneyStep, type JobJourneyStep, type JobJourneyIdentity } from './jobApplicationJourney';
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
+import { runAfterNextPaint } from './afterNextPaint';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
@@ -1082,7 +1083,8 @@ function bindGlobalInteractionTracking() {
  // Dead-click detection: user clicked on a non-interactive element
  // that visually looks clickable (has pointer cursor, card-like styling, etc.)
  if (!actionable) {
- detectDeadClick(target);
+ // getComputedStyle + a GA4/PostHog event: after the tap is painted.
+ runAfterNextPaint(() => detectDeadClick(target));
  return;
  }
 
@@ -1100,22 +1102,30 @@ function bindGlobalInteractionTracking() {
  return;
  }
  lastCtaAt = now;
+ // What the visitor clicked is read NOW (the element's label and the URL can
+ // change with the re-render this click causes); sending it waits until the
+ // tap has been painted — see services/afterNextPaint.ts for the INP cost.
  const href = actionable instanceof HTMLAnchorElement ? actionable.href : '';
  const internal = href ? href.startsWith(window.location.origin) : false;
  const label = getElementLabel(actionable);
- const pageCtx = deriveAnalyticsPageContext(window.location.pathname);
+ const pathname = window.location.pathname;
+ const pagePath = `${pathname}${window.location.search}`;
+ const elementId = actionable.id || '(none)';
+ runAfterNextPaint(() => {
+ const pageCtx = deriveAnalyticsPageContext(pathname);
  log('cta_click', {
- page_path: truncate(`${window.location.pathname}${window.location.search}`, 180),
+ page_path: truncate(pagePath, 180),
  page_template: pageCtx.pageTemplate,
  content_group: pageCtx.contentGroup,
  element_tag: tag,
- element_id: truncate(actionable.id || '(none)', 80),
+ element_id: truncate(elementId, 80),
  element_label: label,
  target_type: href ? (internal ? 'internal_link' : 'external_link') : 'ui_action',
  link_host: href ? truncate((() => { try { return new URL(href).hostname; } catch { return ''; } })() || '(none)', 80) : '(none)',
  });
  // Bridge to Clarity
  tagClarity('cta', `${tag}_${truncate(label, 30)}`);
+ });
  };
 
  const onSubmit = (event: Event) => {

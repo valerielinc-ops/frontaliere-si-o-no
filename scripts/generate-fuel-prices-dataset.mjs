@@ -18,6 +18,25 @@ const PUBLIC_OUT = path.join(ROOT, 'public', 'data', 'fuel-prices.json');
 
 const ITALY_PRICES_URL = 'https://www.mimit.gov.it/images/exportCSV/prezzo_alle_8.csv';
 const ITALY_STATIONS_URL = 'https://www.mimit.gov.it/images/exportCSV/anagrafica_impianti_attivi.csv';
+const MIMIT_API_URL = 'https://carburanti.mise.gov.it/ospzApi/search/area';
+// The generator only publishes the border municipalities below. Keep the
+// region mapping explicit so an unknown province cannot silently broaden an
+// API query and produce data for the wrong target set.
+const MIMIT_API_REGION_BY_PROVINCE = Object.freeze({
+  AO: 2,
+  CO: 3,
+  VA: 3,
+  VB: 1,
+  LC: 3,
+  SO: 3,
+  VC: 1,
+  MB: 3,
+  BG: 3,
+  BS: 3,
+  TN: 4,
+  BZ: 4,
+});
+const MIMIT_API_CONCURRENCY = 4;
 const ECB_DAILY_URL = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
 // TCS deprecated direct Firestore reads on 2026-05-22 (App Check + anon-auth
 // enforcement). Their web app now hits a public Cloud Function in
@@ -149,6 +168,241 @@ function toNumber(value) {
   return Number.isFinite(n) ? n : null;
 }
 
+function consistentValue(values, normalize = (value) => String(value).trim()) {
+  const present = values.filter((value) => value != null && String(value).trim() !== '');
+  if (!present.length) return { value: null, ambiguous: false };
+  const normalized = present.map((value) => normalize(value));
+  if (normalized.some((value) => value == null || value === '')) return { value: null, ambiguous: true };
+  if (new Set(normalized).size !== 1) return { value: null, ambiguous: true };
+  return { value: present[0], ambiguous: false };
+}
+
+function readApiCoordinatePair(station) {
+  const location = station.location && typeof station.location === 'object' ? station.location : {};
+  const candidates = [
+    [location.lat, location.lng],
+    [location.latitude, location.longitude],
+    [location.lat, location.lon],
+    [station.lat, station.lng],
+    [station.latitude, station.longitude],
+    [station.lat, station.lon],
+  ];
+  const pairs = [];
+  for (const [latValue, lngValue] of candidates) {
+    if (latValue == null || lngValue == null || String(latValue).trim() === '' || String(lngValue).trim() === '') continue;
+    const lat = toNumber(latValue);
+    const lng = toNumber(lngValue);
+    if (lat == null || lng == null || lat < -90 || lat > 90 || lng < -180 || lng > 180) continue;
+    if (!pairs.some(([knownLat, knownLng]) => knownLat === lat && knownLng === lng)) pairs.push([lat, lng]);
+  }
+  if (pairs.length !== 1) return null;
+  return { lat: pairs[0][0], lng: pairs[0][1] };
+}
+
+function readApiObservationTimestamp(station) {
+  const values = [station.insertDate, station.dIns].filter((value) => value != null && String(value).trim() !== '');
+  if (!values.length) return null;
+  const normalized = values.map((value) => normalizeMimitApiObservationDate(value));
+  if (normalized.some((value) => !value) || new Set(normalized).size !== 1) return null;
+  return normalized[0];
+}
+
+function normalizeMimitApiObservationDate(value) {
+  const normalized = normalizeItalyObservationDate(value);
+  if (normalized) return normalized.slice(0, 10);
+  // The legacy Osservaprezzi response documents `dIns` as a date-time but
+  // emits it without a timezone. Preserve its verified calendar day instead
+  // of inventing a timezone, which is all the downstream freshness contract
+  // needs for the source snapshot.
+  const legacy = String(value || '').trim().match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/);
+  if (!legacy) return null;
+  const [, yearText, monthText, dayText, hourText, minuteText, secondText] = legacy;
+  const date = new Date(Date.UTC(Number(yearText), Number(monthText) - 1, Number(dayText)));
+  if (date.getUTCFullYear() !== Number(yearText) || date.getUTCMonth() !== Number(monthText) - 1 || date.getUTCDate() !== Number(dayText)) return null;
+  if (Number(hourText) > 23 || Number(minuteText) > 59 || Number(secondText) > 59) return null;
+  return `${yearText}-${monthText}-${dayText}`;
+}
+
+function readApiFuelList(station) {
+  const lists = [station.fuels, station.carburanti].filter(Array.isArray);
+  if (!lists.length) return null;
+  if (lists.length > 1 && JSON.stringify(lists[0]) !== JSON.stringify(lists[1])) return null;
+  return lists[0];
+}
+
+function readApiBoolean(value) {
+  if (value === true || value === 1 || value === '1' || value === 'true') return true;
+  if (value === false || value === 0 || value === '0' || value === 'false') return false;
+  return null;
+}
+
+function resolveApiMunicipality(station, province, municipalities) {
+  const provinceCode = String(province || '').trim().toUpperCase();
+  const provinceMunicipalities = municipalities.filter(
+    (municipality) => String(municipality.province || '').trim().toUpperCase() === provinceCode,
+  );
+  if (!provinceMunicipalities.length) return null;
+
+  const location = station.location && typeof station.location === 'object' ? station.location : {};
+  const stationProvince = consistentValue(
+    [station.province, station.provincia, location.province, location.provincia],
+    (value) => normalizeText(value),
+  );
+  if (stationProvince.ambiguous || (stationProvince.value && normalizeText(stationProvince.value) !== normalizeText(provinceCode))) return null;
+
+  const directTown = consistentValue(
+    [station.town, station.comune, station.municipality, location.town, location.comune, location.municipality, location.city],
+    (value) => normalizeText(value),
+  );
+  if (directTown.ambiguous) return null;
+  if (directTown.value) {
+    const directMatches = provinceMunicipalities.filter(
+      (municipality) => normalizeText(municipality.name) === normalizeText(directTown.value),
+    );
+    return directMatches.length === 1 ? directMatches[0] : null;
+  }
+
+  const address = consistentValue([station.address, station.addr, station.indirizzo], (value) => normalizeText(value));
+  if (address.ambiguous || !address.value) return null;
+  const normalizedAddress = normalizeText(address.value);
+  const suffixMatches = provinceMunicipalities.filter((municipality) => {
+    const municipalitySuffix = `${normalizeText(municipality.name)}${normalizeText(provinceCode)}`;
+    return municipalitySuffix && normalizedAddress.endsWith(municipalitySuffix);
+  });
+  return suffixMatches.length === 1 ? suffixMatches[0] : null;
+}
+
+function readApiFuelRows(station, observationTimestamp) {
+  const fuels = readApiFuelList(station);
+  if (!fuels) return [];
+  const rows = [];
+  for (const fuel of fuels) {
+    if (!fuel || typeof fuel !== 'object') continue;
+    const name = consistentValue([fuel.name, fuel.carb], (value) => normalizeText(value));
+    if (name.ambiguous || !name.value) continue;
+    const normalizedName = normalizeText(name.value);
+    if (normalizedName !== 'BENZINA' && normalizedName !== 'GASOLIO') continue;
+    const price = consistentValue([fuel.price, fuel.prezzo], (value) => {
+      const parsed = toNumber(value);
+      return parsed == null || parsed <= 0 ? null : String(parsed);
+    });
+    const self = consistentValue([fuel.isSelf], (value) => {
+      const parsed = readApiBoolean(value);
+      return parsed == null ? null : String(parsed);
+    });
+    if (price.ambiguous || self.ambiguous || price.value == null || self.value == null) continue;
+    rows.push({
+      descCarburante: normalizedName === 'BENZINA' ? 'Benzina' : 'Gasolio',
+      prezzo: String(toNumber(price.value)),
+      isSelf: readApiBoolean(self.value) ? '1' : '0',
+      dtComu: observationTimestamp,
+    });
+  }
+  return rows;
+}
+
+/**
+ * Normalize the official MIMIT Osservaprezzi response into the same rows
+ * consumed by the existing MIMIT CSV parser. The API has no municipality
+ * filter in this job, so a station is accepted only when its province and
+ * municipality are resolved unambiguously from the response/address.
+ */
+export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
+  if (!Array.isArray(municipalities) || !municipalities.length) throw new Error('MIMIT API fallback has no target municipalities');
+  if (!Array.isArray(responses)) throw new Error('MIMIT API fallback response list is invalid');
+
+  const stationsById = new Map();
+  const pricesByKey = new Map();
+  let latestObservedAt = null;
+  for (const response of responses) {
+    const province = String(response?.province || '').trim().toUpperCase();
+    if (!province || !Array.isArray(response?.results)) continue;
+    for (const station of response.results) {
+      if (!station || typeof station !== 'object') continue;
+      const id = consistentValue([station.id, station.idImpianto], (value) => String(value).trim());
+      if (id.ambiguous || !id.value) continue;
+      const municipality = resolveApiMunicipality(station, province, municipalities);
+      if (!municipality) continue;
+      const coordinates = readApiCoordinatePair(station);
+      const observationTimestamp = readApiObservationTimestamp(station);
+      if (!coordinates || !observationTimestamp) continue;
+      const fuelRows = readApiFuelRows(station, observationTimestamp);
+      if (!fuelRows.length) continue;
+
+      const name = consistentValue([station.name, station.nome], (value) => normalizeText(value));
+      const brand = consistentValue([station.brand, station.bnd, station.bandiera], (value) => normalizeText(value));
+      const address = consistentValue([station.address, station.addr, station.indirizzo], (value) => normalizeText(value));
+      if (name.ambiguous || brand.ambiguous || address.ambiguous) continue;
+      const stationRow = {
+        idImpianto: String(id.value),
+        'Nome Impianto': name.value || brand.value || `Impianto ${id.value}`,
+        Gestore: brand.value || '',
+        Bandiera: brand.value || '',
+        Indirizzo: address.value || '',
+        Comune: municipality.name,
+        Provincia: municipality.province,
+        Latitudine: String(coordinates.lat),
+        Longitudine: String(coordinates.lng),
+      };
+      const existingStation = stationsById.get(String(id.value));
+      if (existingStation) {
+        if (JSON.stringify(existingStation) !== JSON.stringify(stationRow)) {
+          throw new Error(`MIMIT API returned conflicting station identity for ${id.value}`);
+        }
+      } else {
+        stationsById.set(String(id.value), stationRow);
+      }
+
+      for (const fuelRow of fuelRows) {
+        const key = `${id.value}:${fuelRow.descCarburante}:${fuelRow.isSelf}`;
+        const normalizedPriceRow = { idImpianto: String(id.value), ...fuelRow };
+        const existingPrice = pricesByKey.get(key);
+        if (existingPrice && JSON.stringify(existingPrice) !== JSON.stringify(normalizedPriceRow)) {
+          throw new Error(`MIMIT API returned conflicting price rows for ${key}`);
+        }
+        pricesByKey.set(key, normalizedPriceRow);
+      }
+      if (!latestObservedAt || Date.parse(observationTimestamp) > Date.parse(latestObservedAt)) latestObservedAt = observationTimestamp;
+    }
+  }
+
+  const stationsRows = [...stationsById.values()];
+  const pricesRows = [...pricesByKey.values()];
+  if (!stationsRows.length || !pricesRows.some((row) => row.descCarburante === 'Benzina')) {
+    throw new Error('MIMIT API returned no valid Benzina rows for target municipalities');
+  }
+  return {
+    stationsRows,
+    pricesRows,
+    extractedAt: latestObservedAt?.slice(0, 10) ?? null,
+  };
+}
+
+export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, retries = 3 } = {}) {
+  const provinces = [...new Set(municipalities.map((municipality) => String(municipality.province || '').trim().toUpperCase()))]
+    .filter(Boolean)
+    .sort();
+  if (!provinces.length) throw new Error('MIMIT API fallback has no target provinces');
+  const responses = await mapWithConcurrency(provinces, MIMIT_API_CONCURRENCY, async (province) => {
+    const region = MIMIT_API_REGION_BY_PROVINCE[province];
+    if (region == null) throw new Error(`MIMIT API fallback has no region mapping for province ${province}`);
+    const json = await fetchJsonWithRetry(MIMIT_API_URL, retries, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      // Osservaprezzi encodes the fuel and refuelling mode as <fuel>-<mode>;
+      // 1 is Benzina and x means either self-service or served. `0-x` is not
+      // the API's all-fuels selector and returns no usable station rows.
+      body: JSON.stringify({ region, province, town: null, priceOrder: 'asc', fuelType: '1-x' }),
+    }, fetchImpl);
+    const results = Array.isArray(json?.results) ? json.results : Array.isArray(json?.array) ? json.array : null;
+    if (json?.success !== true || !results) {
+      throw new Error(`Unexpected response shape from ${MIMIT_API_URL} for province ${province}`);
+    }
+    return { province, results };
+  });
+  return { ok: true, source: 'mimit-api', ...buildItalyRowsFromMimitApi({ municipalities, responses }) };
+}
+
 // haversineKm (e il suo deg2rad) ora arrivano dal modulo condiviso
 // scripts/lib/haversine.mjs: era una delle sei copie byte-equivalenti della
 // stessa formula nel repo (#5002).
@@ -183,10 +437,10 @@ export function extractEcbRate(xml) {
   };
 }
 
-async function fetchJsonWithRetry(url, retries = 3, init = {}) {
+async function fetchJsonWithRetry(url, retries = 3, init = {}, fetchImpl = fetch) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      const res = await fetch(url, {
+      const res = await fetchImpl(url, {
         ...init,
         headers: { 'user-agent': 'FrontaliereTicino/1.0', ...(init.headers || {}) },
         signal: AbortSignal.timeout(30_000),
@@ -200,6 +454,21 @@ async function fetchJsonWithRetry(url, retries = 3, init = {}) {
       await new Promise((r) => setTimeout(r, delay));
     }
   }
+}
+
+async function mapWithConcurrency(items, concurrency, mapper) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+  const worker = async () => {
+    while (nextIndex < items.length) {
+      const index = nextIndex;
+      nextIndex += 1;
+      results[index] = await mapper(items[index]);
+    }
+  };
+  const workers = Array.from({ length: Math.min(concurrency, items.length) }, () => worker());
+  await Promise.all(workers);
+  return results;
 }
 
 // `fiability` is the TCS proxy for price freshness. The previous direct-
@@ -606,6 +875,14 @@ export function italyByMunicipalityFromDataset(dataset) {
  */
 export function resolveItalySource({ italyResult, municipalities, previousDataset }) {
   if (italyResult?.ok) {
+    if (italyResult.source === 'mimit-api') {
+      return {
+        status: 'live',
+        reason: null,
+        extractedAt: italyResult.extractedAt,
+        italyByMunicipality: buildItalyStations(municipalities, italyResult.stationsRows, italyResult.pricesRows),
+      };
+    }
     const prices = parseDelimited(italyResult.pricesText);
     const stations = parseDelimited(italyResult.stationsText);
     return {
@@ -729,7 +1006,19 @@ async function main() {
     // `resolveItalySource`); TCS/ECB failures keep the old skip behaviour.
     const italyFetch = Promise.all([fetchText(ITALY_PRICES_URL), fetchText(ITALY_STATIONS_URL)])
       .then(([pricesText, stationsText]) => ({ ok: true, pricesText, stationsText }))
-      .catch((error) => ({ ok: false, error }));
+      .catch(async (csvError) => {
+        try {
+          const apiResult = await fetchMimitApiSource(municipalities);
+          console.warn(`::warning::[fuel] MIMIT bulk CSV unavailable (${csvError.message}) — official Osservaprezzi API fallback used`);
+          return apiResult;
+        } catch (apiError) {
+          const csvMessage = csvError instanceof Error ? csvError.message : String(csvError);
+          const apiMessage = apiError instanceof Error ? apiError.message : String(apiError);
+          const combined = new Error(`MIMIT bulk CSV unavailable (${csvMessage}); official Osservaprezzi API fallback failed (${apiMessage})`);
+          combined.cause = apiError;
+          return { ok: false, error: combined };
+        }
+      });
     const [italyResult, ecbXml, swissDocs] = await Promise.all([
       italyFetch,
       fetchText(ECB_DAILY_URL),

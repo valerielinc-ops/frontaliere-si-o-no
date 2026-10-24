@@ -1,6 +1,6 @@
 {
   "date": "2026-10-24",
-  "generatedAt": "2026-10-24T08:14:35.757Z",
+  "generatedAt": "2026-10-24T11:32:51.823Z",
   "zones": {
     "chiasso": {
       "diesel": 2.338,
@@ -24,14 +24,14 @@
     }
   },
   "regional": {
-    "diesel": 2.341,
-    "benzina": 2.04
+    "diesel": 2.335,
+    "benzina": 2.039
   },
   "diesel": {
     "source": "api",
     "realCoveragePct": 98.9,
-    "realStationCount": 90,
-    "totalStationCount": 91
+    "realStationCount": 91,
+    "totalStationCount": 92
   },
   "italianCities": {
     "como": {
@@ -126,29 +126,29 @@
     }
   },
   "stations": {
-    "pemoil-corso-san-gottardo": {
-      "diesel": 2.31,
-      "benzina": 1.96
-    },
     "silo-via-emilio-bossi": {
       "diesel": 2.29,
       "benzina": 1.96
     },
-    "bp-via-del-breggia": {
-      "diesel": 2.38,
-      "benzina": 1.99
+    "pemoil-corso-san-gottardo": {
+      "diesel": 2.31,
+      "benzina": 1.96
     },
     "eni-via-del-breggia": {
       "diesel": 2.39,
       "benzina": 1.99
     },
+    "piccadilly-via-s-gottardo": {
+      "diesel": 2.22,
+      "benzina": 1.99
+    },
+    "bp-via-del-breggia": {
+      "diesel": 2.38,
+      "benzina": 1.99
+    },
     "eni-via-cantonale": {
       "diesel": 2.29,
       "benzina": 1.99
-    },
-    "euro-via-cantonale": {
-      "diesel": 2.28,
-      "benzina": 1.98
     },
     "ecsa-via-colombera": {
       "diesel": 2.29,
@@ -157,6 +157,10 @@
     "texon-via-cantonale": {
       "diesel": 2.24,
       "benzina": 1.93
+    },
+    "euro-via-cantonale": {
+      "diesel": 2.28,
+      "benzina": 1.98
     },
     "euro-via-colombera": {
       "diesel": 2.26,
@@ -230,12 +234,12 @@
       "diesel": 2.3,
       "benzina": 1.98
     },
-    "garage-via-lugano": {
-      "diesel": 2.28,
-      "benzina": 1.98
-    },
     "socar-via-san-gottardo": {
       "diesel": 2.29,
+      "benzina": 1.98
+    },
+    "garage-via-lugano": {
+      "diesel": 2.28,
       "benzina": 1.98
     },
     "eni-via-como": {
@@ -282,21 +286,17 @@
       "diesel": 2.34,
       "benzina": 2.04
     },
+    "eni-via-marcetto": {
+      "diesel": 2.33,
+      "benzina": 2.05
+    },
     "avia-via-casate": {
       "diesel": 2.33,
       "benzina": 2.05
     },
-    "bp-via-san-giorgio": {
-      "diesel": 2.82,
+    "piccadilly-via-canova": {
+      "diesel": 2.34,
       "benzina": 2.06
-    },
-    "tamoil-giulia": {
-      "diesel": 2.33,
-      "benzina": 2.06
-    },
-    "piccadilly-via-s-gottardo": {
-      "diesel": 2.22,
-      "benzina": 1.99
     },
     "orcam-via-carlo-maderno": {
       "diesel": 2.32,
@@ -306,13 +306,13 @@
       "diesel": 2.32,
       "benzina": 2.04
     },
+    "tamoil-giulia": {
+      "diesel": 2.33,
+      "benzina": 2.06
+    },
     "eni-via-al-confine": {
       "diesel": 2.34,
       "benzina": 2.04
-    },
-    "piccadilly-via-canova": {
-      "diesel": 2.34,
-      "benzina": 2.09
     },
     "eni-cassinone": {
       "diesel": 2.29,
@@ -338,10 +338,6 @@
       "diesel": 2.32,
       "benzina": 2.07
     },
-    "fahrzeug-furkastrasse": {
-      "diesel": 2.46,
-      "benzina": 2.14
-    },
     "tamoil-furkastrasse": {
       "diesel": 2.44,
       "benzina": 2.14
@@ -350,9 +346,17 @@
       "diesel": 2.39,
       "benzina": 2.14
     },
+    "fahrzeug-furkastrasse": {
+      "diesel": 2.46,
+      "benzina": 2.14
+    },
     "tamoil-fuergangen": {
       "diesel": 2.44,
       "benzina": 2.15
+    },
+    "migrol-via-emmaus": {
+      "diesel": 2.29,
+      "benzina": 1.99
     },
     "eni-via-varenna": {
       "diesel": 2.26,
@@ -366,12 +370,12 @@
       "diesel": 2.44,
       "benzina": 2.19
     },
-    "antrobio-la-cantonal": {
-      "diesel": 2.34,
-      "benzina": 2.02
-    },
     "stazione-via-cantonale": {
       "diesel": 2.29,
+      "benzina": 2.02
+    },
+    "antrobio-la-cantonal": {
+      "diesel": 2.34,
       "benzina": 2.02
     },
     "tankstelle-dorfpl": {
@@ -393,16 +397,16 @@
       "diesel": 2.45,
       "benzina": 2.14
     },
-    "socar-via-maistra": {
-      "diesel": 2.45,
+    "eni-via-principala": {
+      "diesel": 2.47,
       "benzina": 2.16
     },
     "bp-parc-rom": {
       "diesel": 2.45,
       "benzina": 2.16
     },
-    "eni-via-principala": {
-      "diesel": 2.47,
+    "socar-via-maistra": {
+      "diesel": 2.45,
       "benzina": 2.16
     },
     "socar-stradon": {

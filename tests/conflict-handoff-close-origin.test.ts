@@ -24,26 +24,26 @@ const handoff = (closes: number[] | null, lgtm = false) => buildConflictHandoffI
 const step3 = (body: string) => body.split('\n').find((line) => line.startsWith('3. '))!;
 
 describe('issue di hand-off: le issue chiuse dalla PR di origine passano alla PR nuova', () => {
-  it('elenca le issue che #N chiude e chiede un Closes per ciascuna', () => {
+  it('elenca le issue che #N chiude e chiede di trasferire i riferimenti', () => {
     const line = step3(handoff([10082, 10083]).body);
-    expect(line).toContain('La PR #10095 chiude #10082, #10083');
-    expect(line).toContain('`Closes #<n>` per ciascuna, uno per riga');
+    expect(line).toContain('La PR #10095 dichiara di chiudere #10082, #10083');
+    expect(line).toContain('trasferisci nella PR nuova gli stessi riferimenti, uno per riga');
   });
 
   it('senza issue chiuse da #N non aggiunge nulla', () => {
     expect(step3(handoff([]).body)).toBe(
-      '3. Apri la PR con `Supersedes #10095` e `Closes` di questa issue, poi chiudi #10095 con un commento che rimanda alla nuova PR.',
+      '3. Apri la PR con `Supersedes #10095`, includi la chiusura di questa issue, poi chiudi #10095 con un commento che rimanda alla nuova PR.',
     );
   });
 
   it('con elenco illeggibile chiede di ricavarlo dal body di #N', () => {
-    expect(step3(handoff(null).body)).toContain('i `Closes #<n>` del body di #10095');
+    expect(step3(handoff(null).body)).toContain('le issue che la PR dichiara di chiudere e trasferisci quei riferimenti');
   });
 
-  it.each([[[10082]], [[]], [null]])('nessuna keyword di chiusura adiacente a #N (closes=%j)', (closes) => {
+  it.each([[[10082]], [[]], [null]])('nessuna keyword di chiusura nel testo (closes=%j)', (closes) => {
     for (const lgtm of [true, false]) {
       expect(handoff(closes as number[] | null, lgtm).body)
-        .not.toMatch(/\b(close[sd]?|fix(e[sd])?|resolve[sd]?)\s+#10095\b/i);
+        .not.toMatch(/\b(?:closes?|fixes?|resolves?)\b/i);
     }
   });
 

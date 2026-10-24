@@ -94,7 +94,7 @@ export function parseConcorsiHtml(html) {
   const blocks = html.split(/<div class="ce-bodytext"/i).slice(1);
 
   for (const block of blocks) {
-    const yidMatch = /href\s*=\s*(["'])(https?:\/\/www\.concorsi\.ti\.ch\/[^"']*yid=(\d+)[^"']*)\1/i.exec(
+    const yidMatch = /href\s*=\s*(["'])(https?:\/\/www\.concorsi\.ti\.ch\/(?:(?!\1)[^>])*?yid=(\d+)(?:(?!\1)[^>])*)\1/i.exec(
       block,
     );
     if (!yidMatch) continue;

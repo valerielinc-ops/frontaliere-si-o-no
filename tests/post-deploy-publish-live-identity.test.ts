@@ -84,7 +84,7 @@ describe('post-deploy-publish.yml — live identity placement', () => {
   });
 
   it('materializes a trusted jobs corpus before post-deploy coverage checks', () => {
-    const download = workflow.indexOf('- name: Download master jobs.json (for indexing API)');
+    const download = workflow.indexOf('- name: Download master jobs.json (for sector coverage monitor)');
     const staging = workflow.indexOf('- name: Stage downloaded data files');
     const identityGuard = workflow.indexOf('- name: Verify live build identity before post-deploy side effects');
     const indexing = workflow.indexOf('- name: Post-deploy indexing (parallel)');

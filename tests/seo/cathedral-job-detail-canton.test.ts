@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-import { resolveCantonSection } from '../../build-plugins/shared/cantonSection';
+import { resolveCantonSection, SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonSection';
 import { readJobsDataset } from '../helpers/jobsDataset';
 import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
 
@@ -92,6 +92,57 @@ describe('job-detail URLs route per job.canton (Phase 1)', () => {
         .toMatch(new RegExp(`/${sectionSlug}/`));
       expect(href!, `legacy TI bridge for ${cantonCode} job ${slug} canonicalises to legacy TI section: ${href}`)
         .not.toMatch(/\/cerca-lavoro-ticino\//);
+    });
+  }
+});
+
+// en/de/fr: the legacy TI URL of a NON-TI job is not a page any more. The build
+// used to write the expired soft-landing there again (index,follow, canonical =
+// the native canton page: 911k canonicalMismatch advisories on the full-corpus
+// replay) and a noindex copy of every active cross-canton job; both are gone,
+// the shard origin 404s and the locale-router Worker 301s the URL to the canton
+// page (tests/locale-router-canton-drift-301.test.ts). Anything still found at
+// such a path must therefore be a page that canonicalises to ITSELF (another
+// job's real TI page), never a bridge pointing elsewhere.
+const NON_IT_LOCALES = ['en', 'de', 'fr'] as const;
+const REGISTRY_SAMPLE_PART = path.resolve(__dirname, '../../data/all-known-job-slugs/part-00.json');
+const REGISTRY_SAMPLE_SIZE = 400;
+
+function legacyTiFile(locale: (typeof NON_IT_LOCALES)[number], slug: string): string {
+  return path.join(DIST, locale, SECTION_LEGACY_TI[locale], slug, 'index.html');
+}
+
+function expectSelfCanonicalOrAbsent(file: string, url: string, what: string): void {
+  if (!fs.existsSync(file)) return;
+  const href = extractCanonicalHref(fs.readFileSync(file, 'utf8'));
+  expect(href, `${what}: a page is still emitted at ${url} with canonical ${href}`).toBe(`https://frontaliereticino.ch${url}`);
+}
+
+describe('en/de/fr: no legacy TI copy of a non-TI job', () => {
+  for (const locale of NON_IT_LOCALES) {
+    it(`${locale}: active non-TI jobs have no page under /${locale}/${SECTION_LEGACY_TI[locale]}/`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+      if (!fs.existsSync(path.join(DIST, locale))) return;
+      const jobs = readJobs();
+      if (!jobs) return;
+      for (const cantonCode of SAMPLED_NON_TI_CANTONS) {
+        const job = jobs.find((j) => j.canton === cantonCode && j.slug);
+        if (!job?.slug) continue;
+        const url = `/${locale}/${SECTION_LEGACY_TI[locale]}/${job.slug}/`;
+        expectSelfCanonicalOrAbsent(legacyTiFile(locale, job.slug), url, `active ${cantonCode} job`);
+      }
+    });
+
+    it(`${locale}: expired non-TI registry slugs have no page under /${locale}/${SECTION_LEGACY_TI[locale]}/`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+      if (!fs.existsSync(path.join(DIST, locale)) || !fs.existsSync(REGISTRY_SAMPLE_PART)) return;
+      const part = JSON.parse(fs.readFileSync(REGISTRY_SAMPLE_PART, 'utf8')) as { slugs?: Record<string, Record<string, string>> };
+      const section = `/${locale}/${SECTION_LEGACY_TI[locale]}/`;
+      let checked = 0;
+      for (const [slug, paths] of Object.entries(part.slugs ?? {})) {
+        const localePath = paths?.[locale];
+        if (!localePath || localePath.startsWith(section)) continue; // TI job, or no page in this locale
+        expectSelfCanonicalOrAbsent(legacyTiFile(locale, slug), `${section}${slug}/`, `registry slug living at ${localePath}`);
+        if (++checked >= REGISTRY_SAMPLE_SIZE) break;
+      }
     });
   }
 });

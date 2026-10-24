@@ -1,0 +1,20 @@
+{
+  "companyKey": "enzianhealth-ch",
+  "companyName": "Praxis im Lenzhof",
+  "companyHost": "eichhofpraxis.ch",
+  "platform": "eichhofpraxis.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.eichhofpraxis.ch/jobs/facharztin-facharzt-fur-allgemeine-innere-medizin"
+  ],
+  "detailTemplate": "/jobs/facharztin-facharzt-fur-allgemeine-innere-medizin",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Fachärztin/Facharzt FMH Allgemeine Innere Medizin"
+  ],
+  "canton": "AG",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-24T10:47:09.080Z"
+}

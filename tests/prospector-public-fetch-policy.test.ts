@@ -33,7 +33,10 @@ function response(url: string, status: number, location: string | null = null, b
 }
 
 describe('prospector public-only polite transport', () => {
-  beforeEach(() => clearPoliteFetchStateForTests());
+  beforeEach(() => {
+    clearPoliteFetchStateForTests();
+    launchChromium.mockReset();
+  });
 
   it('accepts a usable DOM after a non-2xx browser navigation', async () => {
     const html = '<html><body><a href="/jobs/chef-de-partie">Chef de partie</a></body></html>';
@@ -53,6 +56,40 @@ describe('prospector public-only polite transport', () => {
     await expect(fetchHtmlViaBrowser('https://hotelcareer.example/jobs', { attempts: 1 }))
       .resolves.toBe(html);
     expect(page.content).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('aborts browser rescue waits without starting another bounded attempt', async () => {
+    let waitStartedResolve: (() => void) | undefined;
+    const waitStarted = new Promise<void>((resolve) => { waitStartedResolve = resolve; });
+    const page = {
+      goto: vi.fn(async () => ({ ok: () => true, status: () => 200 })),
+      waitForTimeout: vi.fn(() => {
+        waitStartedResolve?.();
+        return new Promise<void>(() => {});
+      }),
+      title: vi.fn(async () => 'unused'),
+      locator: vi.fn(() => ({ textContent: vi.fn(async () => 'unused') })),
+      content: vi.fn(async () => '<html></html>'),
+    };
+    const browser = {
+      newContext: vi.fn(async () => ({ newPage: vi.fn(async () => page) })),
+      close: vi.fn(async () => {}),
+    };
+    launchChromium.mockResolvedValue(browser);
+    const controller = new AbortController();
+    const reason = new Error('fachkraft detail aborted');
+    const rescue = fetchHtmlViaBrowser('https://hotelcareer.example/jobs', {
+      attempts: 3,
+      signal: controller.signal,
+    });
+
+    await waitStarted;
+    controller.abort(reason);
+
+    await expect(rescue).rejects.toBe(reason);
+    expect(page.goto).toHaveBeenCalledOnce();
+    expect(page.waitForTimeout).toHaveBeenCalledOnce();
     expect(browser.close).toHaveBeenCalledOnce();
   });
 
@@ -1054,6 +1091,42 @@ describe('prospector public-only polite transport', () => {
       title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
     })]);
     expect(jinaFetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('tries a declared fallback seed after the primary listing seed loses transport', async () => {
+    const primary = 'https://employer.example/jobs?sort=title-asc';
+    const fallback = 'https://employer.example/jobs';
+    const detail = 'https://employer.example/careers/detail/1';
+    const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
+      + 'coordinate production releases, improve observability, support colleagues across the platform team, '
+      + 'and document resilient operational practices for every service owner.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === primary) throw new TypeError('fetch failed');
+      if (url === fallback) return response(url, 200, null, listing);
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected URL ${url}`);
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [primary], transportFallbackSeedUrls: [fallback],
+      detailTemplate: '/careers/detail/*',
+    } as any, {
+      fetchImpl,
+      disableWafProxy: true,
+      retries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
+    })]);
+    expect(fetchImpl).toHaveBeenCalledWith(primary, expect.anything());
+    expect(fetchImpl).toHaveBeenCalledWith(fallback, expect.anything());
   });
 
   it('keeps an exhausted connection rescue retryable instead of marking it anti-bot', async () => {

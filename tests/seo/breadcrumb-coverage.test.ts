@@ -45,6 +45,7 @@ import {
   assertScanCompleted,
   scanDistHtml,
 } from '../helpers/distHtmlScan';
+import { describeAuditAllVerdict, readAuditAllVerdict } from '../helpers/auditAllMirror';
 
 const DIST_ROOT = resolve(__dirname, '..', '..', 'dist');
 
@@ -89,6 +90,14 @@ describe('SEO: breadcrumb coverage (D.2)', () => {
   // (RUN_DIST_GATES=1, see file header) and no workflow sets it — the real
   // gate is scripts/audit-breadcrumb-coverage.mjs via `npm run audit:all`.
   it('every non-exempt dist/ HTML page includes a BreadcrumbList JSON-LD block', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+    // audit:all already judged this dist in the shared walk: assert ITS
+    // verdict instead of re-walking the corpus (tests/helpers/auditAllMirror.ts).
+    const verdict = readAuditAllVerdict(DIST_ROOT, 'breadcrumb-coverage');
+    if (verdict) {
+      console.log(describeAuditAllVerdict(verdict));
+      expect(verdict.passed, `breadcrumb coverage gap (audit:all): ${JSON.stringify(verdict.topOffenders.slice(0, 20))}`).toBe(true);
+      return;
+    }
     const missing: Array<{ url: string; file: string }> = [];
 
     const scan = scanDistHtml(DIST_ROOT, (relPath, html) => {

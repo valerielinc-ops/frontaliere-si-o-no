@@ -1,5 +1,5 @@
 import { decode as decodeHTML } from 'html-entities';
-import { workloadPercent } from './dedicated-crawler-common.mjs';
+import { PART_TIME_MAX_WORKLOAD, workloadPercent } from './employment-workload.mjs';
 import { extractBalancedTagBlock, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
@@ -73,7 +73,7 @@ export function inferMedactaContract({ rawContract = '', title = '', description
     percent = workloadPercent(String(source || ''));
     if (Number.isFinite(percent)) break;
   }
-  if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'part-time';
+  if (Number.isFinite(percent) && percent > 0 && percent < PART_TIME_MAX_WORKLOAD) return 'part-time';
 
   if (/\b(thesis|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|internship|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|tirocin|apprendist|praktikum)/.test(norm)) return 'internship';
   if (/(part time|tempo parziale|teilzeit|temps partiel)/.test(norm)) return 'part-time';
