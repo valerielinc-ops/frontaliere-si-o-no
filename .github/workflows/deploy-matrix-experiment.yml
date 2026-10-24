@@ -127,6 +127,11 @@ on:
         type: boolean
         required: false
         default: false
+      keep_dist_paths:
+        description: 'Comma-separated dist-relative files to upload per leg (small artifact, to diff pages that compare_variants flags)'
+        type: string
+        required: false
+        default: ''
       prep_compare:
         description: 'In prep, also run the previous related-search summary and gzip pack, and compare bytes and wall time'
         type: boolean
@@ -950,6 +955,39 @@ jobs:
           name: variant-manifest-${{ matrix.locale }}-${{ matrix.variant }}
           path: /tmp/manifest-${{ matrix.locale }}.txt
           retention-days: 7
+
+      # keep_dist_paths: copy a handful of named dist files out of each leg so
+      # the pages compare_variants reports can be diffed byte for byte.
+      - name: Collect kept dist files
+        if: success() && inputs.keep_dist_paths != ''
+        env:
+          KEEP_DIST_PATHS: ${{ inputs.keep_dist_paths }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          out=/tmp/kept-dist
+          rm -rf "$out"; mkdir -p "$out"
+          IFS=',' read -ra paths <<< "$KEEP_DIST_PATHS"
+          if [ "${#paths[@]}" -gt 20 ]; then echo "::error::keep_dist_paths: at most 20 files"; exit 1; fi
+          for raw in "${paths[@]}"; do
+            rel="$(echo "$raw" | xargs)"
+            [ -n "$rel" ] || continue
+            case "$rel" in /*|*..*) echo "::error::keep_dist_paths: '$rel' must be dist-relative without '..'"; exit 1;; esac
+            if [ -f "dist/$rel" ]; then
+              mkdir -p "$out/$(dirname "$rel")"
+              cp "dist/$rel" "$out/$rel"
+            else
+              echo "::warning::keep_dist_paths: dist/$rel not found"
+            fi
+          done
+      - name: Upload kept dist files
+        if: success() && inputs.keep_dist_paths != ''
+        uses: actions/upload-artifact@v7
+        with:
+          name: kept-dist-${{ matrix.locale }}-${{ matrix.variant }}
+          path: /tmp/kept-dist
+          retention-days: 7
+          if-no-files-found: warn
 
       - name: Extract build markers
         if: always()
