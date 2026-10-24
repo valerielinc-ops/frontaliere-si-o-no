@@ -124,7 +124,6 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(script.slice(downloadIdx - 120, downloadIdx)).toContain('timeout "$zip_timeout" gh api');
     // Same 150 s default as before; replays that must not mix raise it.
     expect(script).toContain('local zip_timeout="${REHYDRATE_ZIP_TIMEOUT:-150}"');
-    expect(script).toContain('[ "$waited" -lt $((2 * zip_timeout + 90)) ]');
     expect(script.slice(cloneIdx - 30, cloneIdx)).toContain('timeout 300');
     // #7392: an expired artifact stays listed and would only fail on the zip.
     expect(script).toContain('select(.expired == false)');
@@ -133,8 +132,9 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(script).toMatch(/batch_download_ok=1[\s\S]*for attempt in 1 2; do/);
     expect(script).toMatch(/clone_ok=1[\s\S]*for attempt in 1 2; do/);
     // The losing workers must wait for both bounded download attempts before
-    // paying for a duplicate clone themselves.
-    expect(script).toContain('[ "$waited" -lt 390 ]');
+    // paying for a duplicate clone themselves: 2 × download + 90 s, i.e. the
+    // historical 390 s at the default 150 s (asserted next to the timeout).
+    expect(script).toContain('[ "$waited" -lt $((2 * zip_timeout + 90)) ]');
   });
 
   it('does NOT use partial clone / sparse-checkout for the network fallback (proven not to help, see the test above)', () => {
