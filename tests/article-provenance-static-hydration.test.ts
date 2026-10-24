@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { resolveArticleProvenance } from '../packages/articles/engine/shared/articleProvenance';
+import { resolveArticleProvenance, shouldRenderHumanDisclosure } from '../packages/articles/engine/shared/articleProvenance';
+import { ARTICLE_TRANSPARENCY } from '../packages/articles/engine/shared/aiDisclosure';
 
 const ROOT = join(__dirname, '..');
 
@@ -11,6 +12,16 @@ describe('article provenance static-to-SPA contract', () => {
       .toEqual({ aiAssisted: true, basis: 'declared' });
     expect(resolveArticleProvenance({ aiAssisted: false }, {}))
       .toEqual({ aiAssisted: false, basis: 'declared' });
+  });
+
+  it('keeps an explicit non-AI declaration human even without a usable name', () => {
+    expect(shouldRenderHumanDisclosure({ aiAssisted: false, basis: 'declared' }, 'Ada')).toBe(true);
+    expect(shouldRenderHumanDisclosure({ aiAssisted: false, basis: 'declared' }, '   ')).toBe(false);
+    expect(shouldRenderHumanDisclosure({ aiAssisted: false, basis: 'declared' }, undefined)).toBe(false);
+    expect(shouldRenderHumanDisclosure({ aiAssisted: true, basis: 'declared' }, 'Ada')).toBe(false);
+    for (const copy of Object.values(ARTICLE_TRANSPARENCY)) {
+      expect(copy.humanWithoutName.length).toBeGreaterThan(0);
+    }
   });
 
   it('propagates one provenance payload into both disclosure emitters', () => {
@@ -25,6 +36,9 @@ describe('article provenance static-to-SPA contract', () => {
     expect(overlaySrc).toMatch(/typeof entry\.authorName === 'string' \? entry\.authorName\.trim\(\) : ''/);
     expect(overlaySrc).toMatch(/authorSlug \? getAuthorBySlug\(authorSlug\)\?\.name/);
     expect(spaSrc).toMatch(/provenance: resolveArticleProvenance\(article, bylineAuthor\)/);
-    expect(spaSrc).toMatch(/shouldRenderHumanDisclosure\(resolvedAuthor\.provenance, effectiveAuthorName\)/);
+    expect(spaSrc).toMatch(/shouldRenderHumanDisclosure\(resolvedAuthor\.provenance, normalizedAuthorName\)/);
+    expect(staticSrc).toMatch(/shouldRenderHumanDisclosure\(provenance, normalizedAuthorName\)/);
+    expect(staticSrc).toMatch(/tr\.humanWithoutName/);
+    expect(spaSrc).toMatch(/transparencyCopy\.humanWithoutName/);
   });
 });

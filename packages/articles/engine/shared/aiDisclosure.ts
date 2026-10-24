@@ -71,6 +71,8 @@ export interface ArticleTransparencyCopy {
   readonly aiAssisted: string;
   /** Original contribution by a registered human author. */
   readonly human: (authorName: string) => string;
+  /** Original contribution whose source has no named byline. */
+  readonly humanWithoutName: string;
   readonly sources: string;
   readonly methodology: string;
   readonly corrections: string;
@@ -85,6 +87,7 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     label: 'Trasparenza editoriale',
     aiAssisted: 'testo preparato con strumenti di IA generativa e pubblicato dopo controlli automatici; eventuali correzioni redazionali possono avvenire dopo la pubblicazione. Non garantiamo una revisione umana preventiva.',
     human: (name) => `contributo originale di ${name}, pubblicato dalla redazione senza stesura assistita da intelligenza artificiale.`,
+    humanWithoutName: 'contributo originale della redazione, pubblicato senza stesura assistita da intelligenza artificiale.',
     sources: 'Le fonti utilizzate sono linkate nel testo.',
     methodology: 'Come scriviamo gli articoli',
     corrections: 'Segnala una correzione',
@@ -95,6 +98,7 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     label: 'Editorial transparency',
     aiAssisted: 'text prepared with generative AI tools and published after automated checks; editorial corrections may follow publication. We do not guarantee human review before publication.',
     human: (name) => `original contribution by ${name}, published by the newsroom without AI-assisted drafting.`,
+    humanWithoutName: 'original contribution by the newsroom, published without AI-assisted drafting.',
     sources: 'The sources used are linked in the text.',
     methodology: 'How we write articles',
     corrections: 'Report a correction',
@@ -105,6 +109,7 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     label: 'Redaktionelle Transparenz',
     aiAssisted: 'Text mit generativer KI erstellt und nach automatisierten Prüfungen veröffentlicht; redaktionelle Korrekturen können nach der Veröffentlichung erfolgen. Eine menschliche Prüfung vor der Veröffentlichung garantieren wir nicht.',
     human: (name) => `Originalbeitrag von ${name}, von der Redaktion ohne KI-gestützte Erstellung veröffentlicht.`,
+    humanWithoutName: 'Originalbeitrag der Redaktion, ohne KI-gestützte Erstellung veröffentlicht.',
     sources: 'Die verwendeten Quellen sind im Text verlinkt.',
     methodology: 'Wie wir Artikel schreiben',
     corrections: 'Korrektur melden',
@@ -115,6 +120,7 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     label: 'Transparence éditoriale',
     aiAssisted: 'texte préparé avec des outils d’IA générative et publié après des contrôles automatiques ; des corrections rédactionnelles peuvent suivre la publication. Nous ne garantissons pas de relecture humaine avant publication.',
     human: (name) => `contribution originale de ${name}, publiée par la rédaction sans rédaction assistée par l’IA.`,
+    humanWithoutName: 'contribution originale de la rédaction, publiée sans rédaction assistée par l’IA.',
     sources: 'Les sources utilisées sont liées dans le texte.',
     methodology: 'Comment nous rédigeons les articles',
     corrections: 'Signaler une correction',

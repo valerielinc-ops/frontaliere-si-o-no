@@ -2368,11 +2368,17 @@ function BlogArticlesContent({
  const resolvedAuthor = {
   provenance: resolveArticleProvenance(article, bylineAuthor),
  };
- const isHumanContributor = shouldRenderHumanDisclosure(resolvedAuthor.provenance, effectiveAuthorName);
+ const normalizedAuthorName = effectiveAuthorName?.trim();
+ const isHumanContributor = shouldRenderHumanDisclosure(resolvedAuthor.provenance, normalizedAuthorName);
  // One AI statement site-wide (packages/articles/engine/shared/aiDisclosure.ts),
  // localized — the static article HTML renders the same copy.
  const transparencyLocale = disclosureLocale(locale);
  const transparencyCopy = ARTICLE_TRANSPARENCY[transparencyLocale];
+ const transparencyStatement = resolvedAuthor.provenance.aiAssisted
+  ? transparencyCopy.aiAssisted
+  : isHumanContributor
+   ? transparencyCopy.human(normalizedAuthorName)
+   : transparencyCopy.humanWithoutName;
 
  // Wait for article body translations to load
  if (!bodyReady) {
@@ -3139,9 +3145,7 @@ function BlogArticlesContent({
  >
  <p className="mb-1">
  <strong className="text-body">{transparencyCopy.label}:</strong>{' '}
- {isHumanContributor
- ? transparencyCopy.human(effectiveAuthorName ?? "")
- : transparencyCopy.aiAssisted}
+ {transparencyStatement}
  {' '}{transparencyCopy.sources}
  </p>
  <p className="text-xs">
