@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 830,
+      "5": 831,
       "6": 5054
     },
-    "publishedCovers": 7567,
+    "publishedCovers": 7568,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -208097,6 +208097,39 @@
         "provider": "openai-codex",
         "assetId": "article-mobilita-aargovia-sistema-unico",
         "imageUrl": "/images/blog/article-mobilita-aargovia-sistema-unico.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-telecom-358-licenziamenti": {
+      "cover": "/images/blog/article-telecom-358-licenziamenti.webp",
+      "hash": "0122b5ffd569291018fb62c09cd3615b49bb989ac97d5332c6601462c29ad3d5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "telecom-358-licenziamenti",
+          "category": "novita",
+          "date": "2026-10-24T13:01:20.849Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-telecom-358-licenziamenti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-telecom-358-licenziamenti",
+        "imageUrl": "/images/blog/article-telecom-358-licenziamenti.webp",
         "evidence": "generated-engine-record"
       }
     }

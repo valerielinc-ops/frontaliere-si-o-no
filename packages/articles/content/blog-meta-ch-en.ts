@@ -8612,6 +8612,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.successione-parmelin-otto-nomi.title': 'Federal Council: Parmelin among eight names in the running',
     'blog.article.successione-parmelin-otto-nomi.excerpt': 'The race to succeed Parmelin has reached eight names Graber and Ruppen put themselves forward in Bern Cantonal candidacies close on Friday at noon The vote is',
     'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.telecom-358-licenziamenti.title': '358 confirmed redundancies: first hypothesis 450 jobs',
+    'blog.article.telecom-358-licenziamenti.excerpt': 'Sunrise announces 358 redundancies The first hypothesis indicated 450 jobs Consultation with Syndicom has ended Social plan and voluntary exit for some',
+    'blog.article.telecom-358-licenziamenti.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
