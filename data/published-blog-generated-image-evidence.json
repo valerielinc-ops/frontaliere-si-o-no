@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "1ff9982afbd677a3e4edb5dedd856e9d0b9a95fd",
+  "commit": "6fdf8db047115683a688a397e3d6a6f77d50518a",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -36773,6 +36773,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Synthetic photorealistic illustration of a Swiss municipal building and streetscape; no people, text, signage, logos, watermark, or specific real event."
+      }
+    },
+    "/images/blog/article-telecom-358-licenziamenti.webp": {
+      "schema": 1,
+      "assetId": "article-telecom-358-licenziamenti",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "fd8922d0fc8c8eee3d1e5c04aca90bfabffecbd49c48475fb67dae9177a6fa80",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "0122b5ffd569291018fb62c09cd3615b49bb989ac97d5332c6601462c29ad3d5",
+      "bytes": 80912,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-24T13:01:12.427Z",
+      "verifiedAt": "2026-10-24T13:01:20.204Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-telecom-358-licenziamenti.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic Swiss-style corporate office illustration; no readable text, logos, identifiable faces, or foreground people."
       }
     },
     "/images/places/lugano-view.webp": {
