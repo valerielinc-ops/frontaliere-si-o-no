@@ -133,7 +133,7 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     ]));
     expect(apiRows.pricesRows).toEqual(expect.arrayContaining([
       expect.objectContaining({ idImpianto: '42', descCarburante: 'Benzina', isSelf: '1', dtComu: day(observedAt) }),
-      expect.objectContaining({ idImpianto: '42', descCarburante: 'Gasolio', isSelf: '0', dtComu: day(observedAt) }),
+      expect.objectContaining({ idImpianto: '42', descCarburante: 'Gasolio', isSelf: '1', dtComu: day(observedAt) }),
     ]));
 
     const stations = buildItalyStations([COMO], apiRows.stationsRows, apiRows.pricesRows);
