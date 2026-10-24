@@ -43,7 +43,10 @@ export const SOURCE_VERSION = 'input@1';
 // remains in the publish digest because it changes JobPosting/visible date
 // bytes, but the active-page reuse key carries a second digest without that
 // heartbeat: the cache-hit path rewrites those date fragments before publishing.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@8';
+// job-digest@9: expired soft landings can emit a locale-cluster hreflang block
+// selected by the mutable path-claim registry. That exact block is now part of
+// the page input, so old manifests must not be treated as current.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@9';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 // The full active-page input remains the publish key: every input field that
@@ -710,6 +713,7 @@ export function buildExpiredSoftLandingPageInput({
   action,
   expiredPayloadJson,
   postalCode,
+  hreflangHtml = '',
   derivedFromUnhashedSource,
 }) {
   return {
@@ -730,6 +734,11 @@ export function buildExpiredSoftLandingPageInput({
     prosePaths,
     keepProse,
     action,
+    // `resolveLocaleClusterClaim()` reads the mutable path-claim registry,
+    // which is not otherwise represented in this page input. Hash the exact
+    // alternate block emitted by the shell so a claim-set change cannot leave
+    // a stale `<link rel="alternate">` set on a cache hit.
+    hreflangDigest: activePageHreflangDigest(hreflangHtml),
     ...(derivedFromUnhashedSource
       ? { expiredPayloadDigest: expiredSoftLandingPayloadDigest(expiredPayloadJson, postalCode) }
       : {}),

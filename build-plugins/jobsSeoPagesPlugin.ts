@@ -1014,10 +1014,40 @@ export type ActiveJobReuseFragments = {
  jobPostingDatePosted: string | null;
  jobPostingDateProvenance: 'reported' | 'first-seen' | 'safe-default' | null;
  jobPostingValidThrough: string;
+ jobPostingCrawledAt: string | null;
  heroBadges: string;
  mobileAction: string;
  recentArticles: string;
 };
+
+/**
+ * Return the stable ordering timestamp used by the active-job corpus.
+ *
+ * `crawledAt` is a liveness heartbeat: it changes when a crawler sees the
+ * same listing again, but it does not change the active page's related-job
+ * pool. Using it to order `validJobs` made that pool (and therefore the page
+ * reuse input) move on every crawl. `datePosted` and `firstSeenAt` are the
+ * durable timestamps that can decide which duplicate route wins without
+ * turning a heartbeat into a content change.
+ */
+export function activeJobOrderTimestamp(job: unknown): number {
+ const record = job && typeof job === 'object' ? job as Record<string, unknown> : null;
+ for (const value of [record?.datePosted, record?.firstSeenAt]) {
+  const timestamp = value ? new Date(String(value)).getTime() : 0;
+  if (timestamp > 0 && !Number.isNaN(timestamp)) return timestamp;
+ }
+ return 0;
+}
+
+export function compareActiveJobsByStableOrder(left: unknown, right: unknown): number {
+ const leftTimestamp = activeJobOrderTimestamp(left);
+ const rightTimestamp = activeJobOrderTimestamp(right);
+ if (leftTimestamp !== rightTimestamp) return rightTimestamp - leftTimestamp;
+ const leftRecord = left && typeof left === 'object' ? left as Record<string, unknown> : null;
+ const rightRecord = right && typeof right === 'object' ? right as Record<string, unknown> : null;
+ return String(leftRecord?.id || leftRecord?.slug || '')
+  .localeCompare(String(rightRecord?.id || rightRecord?.slug || ''));
+}
 
 function replaceActiveJobReuseFragment(
  html: string,
@@ -1039,6 +1069,7 @@ export function replaceActiveJobPostingDates(
  fragment: string,
  datePosted: string | null,
  validThrough: string,
+ crawledAt?: string | null,
 ): string {
  if (!datePosted) return '';
  const scriptMatch = fragment.match(
@@ -1046,7 +1077,18 @@ export function replaceActiveJobPostingDates(
  );
  if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
  let script = scriptMatch[0];
- for (const [field, value] of [['datePosted', datePosted], ['validThrough', validThrough]] as const) {
+ const fields: Array<[string, string]> = [
+  ['datePosted', datePosted],
+  ['validThrough', validThrough],
+ ];
+ // Keep the third field optional for legacy callers/tests. The production
+ // active-page rewrite supplies null when the current source has no heartbeat;
+ // fail closed instead of manufacturing an empty field or serving a stale one.
+ if (crawledAt !== undefined) {
+  if (!crawledAt) throw new Error('current JobPosting crawledAt unavailable');
+  fields.push(['crawledAt', crawledAt]);
+ }
+ for (const [field, value] of fields) {
   const fieldPattern = new RegExp(`("${field}"\\s*:\\s*)"[^"]*"`);
   if (!fieldPattern.test(script)) throw new Error(`missing JobPosting JSON-LD field: ${field}`);
   const next = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
@@ -1107,6 +1149,7 @@ export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFrag
     current,
     fragments.jobPostingDatePosted,
     fragments.jobPostingValidThrough,
+    fragments.jobPostingCrawledAt,
    );
   },
  );
@@ -2238,9 +2281,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  console.log(`\x1b[33m[jobs-seo-pages]\x1b[0m Filtered ${fixtureCount} fixture job(s) from input (test/dev seed records)`);
  }
 
- // Recency timestamp helper: prefers `datePosted` (employer publish time)
- // over `crawledAt` (when our crawler last saw the listing). Used both
- // here (validJobs sort) and below (expiredJobsData sort) so the
+ // Recency timestamp helper for archived records: prefers `datePosted`
+ // (employer publish time) over `crawledAt` (when our crawler last saw the
+ // listing). Used below for expiredJobsData so the
  // sharedWriteRegistry's first-write-wins claim() picks the FRESHEST job
  // when multiple distinct jobs converge on the same per-locale path
  // (e.g. 40 different localsearch postings whose German title slugifies
@@ -2260,16 +2303,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .filter((j: any): boolean => isListingInventoryJob(j))
  .map((j: any) => normalizeListingIdentity(j))
  .filter((j: any) => !!j.slug)
- // DESC by recency, tiebreak by id for determinism. Most-recent first
- // means the registry's first-write-wins gives the canonical URL to the
- // freshest posting; older duplicates record a collision (visible in
+ // DESC by durable active-job order, tiebreak by id for determinism. The
+ // active detail's related-job pool must not move when only the crawler
+ // heartbeat changes; see compareActiveJobsByStableOrder above.
+ // This makes duplicate active routes choose the same durable winner across
+ // crawls; older duplicates record a collision (visible in
  // dist/.write-collisions.json) but don't overwrite on disk.
- .sort((a: any, b: any) => {
- const ta = _jobRecency(a);
- const tb = _jobRecency(b);
- if (ta !== tb) return tb - ta;
- return String(a.id || a.slug || '').localeCompare(String(b.id || b.slug || ''));
- });
+ .sort(compareActiveJobsByStableOrder);
  if (jobsSeoSample !== null) {
   const totalValidJobs = validJobs.length;
   validJobs = selectJobsSeoSample(validJobs, jobsSeoSample);
@@ -3736,6 +3776,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    return {
    jobPostingDatePosted: resolvedJobPostingDate?.value ?? null,
    jobPostingDateProvenance: resolvedJobPostingDate?.provenance ?? null,
+   jobPostingCrawledAt: job?.crawledAt ? String(job.crawledAt) : null,
    jobPostingValidThrough: toValidThrough(
     String(job?.postedDate || ''),
     job?.crawledAt,
@@ -13950,6 +13991,7 @@ ${staticAnalyticsHtml}
    action: __slAction,
    expiredPayloadJson: expiredWindowData,
    postalCode: ejData?.postalCode || slugInfo?.postalCode || '',
+   hreflangHtml: hreflangLinks,
    derivedFromUnhashedSource: Boolean(gscInfo) || Boolean(slugInfo),
   })
   : null;
@@ -15249,7 +15291,12 @@ ${staticAnalyticsHtml}
   `${localePrefix[baseLocale]}/${buildCantonAwareSection(baseLocale, jobCantonForCrossLocale)}/${baseSlug}`
    .replace(/\/+/g, '/'),
  );
- const baseReuseHash = incrementalManifests?.get(baseLocale)?.getReuseHash(
+ // This bridge reads the canonical page back from disk after the active HTML
+ // cache has been released. It therefore cannot use the active reuse hash:
+ // that key deliberately omits `crawledAt`, while the copied JobPosting JSON-LD
+ // still emits it. Use the publish hash so a source heartbeat that changes
+ // emitted bytes invalidates this alias page too.
+ const baseInputHash = incrementalManifests?.get(baseLocale)?.getHash(
   baseCanonicalPath,
   'active-job',
  ) ?? null;
@@ -15347,7 +15394,7 @@ ${staticAnalyticsHtml}
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
    source: 'active-job',
-   sourceInputHash: baseReuseHash,
+   sourceInputHash: baseInputHash,
    jobId: stableJobId(job),
    path: relPath,
    baseLocale,
