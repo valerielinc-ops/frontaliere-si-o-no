@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -12,6 +12,7 @@ import {
 } from '../build-plugins/shared/tiHubLatestJobs';
 import { patchTiHubFile, tiHubIndexPath, tiHubLatestJobsPlugin } from '../build-plugins/tiHubLatestJobsPlugin';
 import { resolveStaticPagesFlushed } from '../build-plugins/shared/buildSignals';
+import { SECTION_LEGACY_TI_ROOT } from '../build-plugins/shared/cantonSection';
 import {
   buildCantonHubH1,
   buildListingHubH1,
@@ -177,35 +178,15 @@ describe('tiHubLatestJobsPlugin closeBundle', () => {
     }
   };
 
-  const writeHubs = (dist: string, withSlot: Partial<Record<'it' | 'en' | 'de' | 'fr', boolean>>) => {
-    for (const [locale, slot] of Object.entries(withSlot) as ['it' | 'en' | 'de' | 'fr', boolean][]) {
+  it('fails the build when an emitted hub is missing or lost its slot', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ti-hub-plugin-'));
+    const dist = path.join(root, 'dist');
+    fs.mkdirSync(dist);
+    for (const locale of ['it', 'en', 'de'] as const) {
       fs.mkdirSync(path.dirname(tiHubIndexPath(dist, locale)), { recursive: true });
-      fs.writeFileSync(tiHubIndexPath(dist, locale), `<h1>x</h1>${slot ? TI_HUB_LATEST_JOBS_SLOT : ''}`);
+      fs.writeFileSync(tiHubIndexPath(dist, locale), `<h1>x</h1>${locale === 'de' ? '' : TI_HUB_LATEST_JOBS_SLOT}`);
     }
-  };
-
-  it('fails the build when the IT hub lost its slot or is missing', async () => {
-    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ti-hub-plugin-'));
-    const dist = path.join(root, 'dist');
-    writeHubs(dist, { it: false, en: true, de: true, fr: true });
-    await expect(run(root)).rejects.toThrow(/it=no-slot:/);
-    fs.rmSync(tiHubIndexPath(dist, 'it'));
-    await expect(run(root)).rejects.toThrow(/it=missing-file:/);
-    fs.rmSync(root, { recursive: true, force: true });
-  });
-
-  it('only warns when an en/de/fr hub is missing or lost its slot (deploy 40087494526)', async () => {
-    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ti-hub-plugin-'));
-    const dist = path.join(root, 'dist');
-    writeHubs(dist, { it: true, en: false, de: false });
-    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    try {
-      await expect(run(root)).resolves.toBeUndefined();
-      expect(warn).toHaveBeenCalledWith(expect.stringMatching(/^::warning::\[ti-hub-latest-jobs\] en=no-slot, de=no-slot, fr=missing-file:/));
-    } finally {
-      warn.mockRestore();
-    }
-    expect(fs.readFileSync(tiHubIndexPath(dist, 'it'), 'utf-8')).toBe('<h1>x</h1>');
+    await expect(run(root)).rejects.toThrow(/de=no-slot, fr=missing-file/);
     fs.rmSync(root, { recursive: true, force: true });
   });
 
@@ -221,5 +202,34 @@ describe('tiHubLatestJobsPlugin closeBundle', () => {
       expect(fs.readFileSync(tiHubIndexPath(dist, locale), 'utf-8')).toBe('<h1>x</h1>');
     }
     fs.rmSync(root, { recursive: true, force: true });
+  });
+});
+
+/**
+ * `buildPage()` in staticPagesPlugin.ts is not callable on its own (see
+ * tests/spa-tab-static-content.test.ts), so the slot contract is pinned on the
+ * source: deploy 40087494526 failed with de/fr/en=no-slot because the slot was
+ * pushed only inside the `isJobsIndex` branch, which the en/de/fr hubs never
+ * reach (SECTION_EDITORIAL / LOCALE_EDITORIAL branches come first).
+ */
+describe('staticPagesPlugin emits the slot on every locale hub', () => {
+  const src = fs.readFileSync(path.join(__dirname, '../build-plugins/staticPagesPlugin.ts'), 'utf-8');
+
+  it('inserts the slot after the editorial branch chain, before editorialHtml is rendered', () => {
+    const guard = src.indexOf('if (isJobsIndex && !editorialBlocks.includes(TI_HUB_LATEST_JOBS_SLOT)) editorialBlocks.unshift(TI_HUB_LATEST_JOBS_SLOT);');
+    const render = src.indexOf('const editorialHtml = localizeOfficialSourceRootLinks(');
+    const lastBranchPush = src.lastIndexOf('editorialBlocks.push(', render);
+    expect(guard).toBeGreaterThan(-1);
+    expect(guard).toBeGreaterThan(lastBranchPush);
+    expect(guard).toBeLessThan(render);
+  });
+
+  it('isJobsIndex matches all four Ticino hub roots', () => {
+    const m = src.match(/const isJobsIndex = (\/.+\/)\.test\(canonicalPath\);/);
+    expect(m).not.toBeNull();
+    const rx = new Function(`return ${m![1]};`)() as RegExp;
+    for (const root of Object.values(SECTION_LEGACY_TI_ROOT)) {
+      expect(rx.test(`${root}/`)).toBe(true);
+    }
   });
 });
