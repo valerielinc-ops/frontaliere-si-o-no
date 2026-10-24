@@ -188,6 +188,15 @@ function extractLocaleKeys(locale: string, includeCorpus: boolean): Set<string> 
     const searchStart = `const ${varName}: Record<string, string> = {`;
     extractKeysFromObject(chunkFile, searchStart, keys);
   }
+  // On-demand namespaces split out of core: `services/locales/{locale}-ns-<name>.ts`
+  // (loaded by services/i18n.ts through a glob, one file per family).
+  const nsPrefix = `${locale}-ns-`;
+  for (const file of fs.readdirSync(path.join(PROJECT_ROOT, 'services', 'locales'))) {
+    if (!file.startsWith(nsPrefix) || !file.endsWith('.ts')) continue;
+    const camel = toCamel(file.slice(nsPrefix.length, -'.ts'.length));
+    const varName = locale === 'it' ? 'translations' : `${locale}Ns${camel.charAt(0).toUpperCase()}${camel.slice(1)}`;
+    extractKeysFromObject(path.join(PROJECT_ROOT, 'services', 'locales', file), `const ${varName}: Record<string, string> = {`, keys);
+  }
 
   // Everything below is the article corpus (live data): see the file header.
   if (!includeCorpus) return keys;
