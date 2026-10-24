@@ -221,7 +221,7 @@ const RULES_IT: readonly BlogContextualLinkRule[] = [
   // competitions link to it instead of leaving it to the job clusters.
   {
     id: 'it.jobs.concorsi-pubblici',
-    keywordPattern: /\bconcorsi\s+pubblici(?:\s+(?:in\s+)?(?:ticino|lugano))?\b/i,
+    keywordPattern: /\bconcorsi\s+pubblici\s+(?:(?:in|a|del|di)\s+)?(?:canton\s+)?(?:ticino|lugano)\b/i,
     targetUrl: '/concorsi-pubblici-lugano/',
     priority: 8,
   },

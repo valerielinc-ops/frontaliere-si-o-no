@@ -195,6 +195,15 @@ describe('hub di ricerca lavoro — routing dei link contestuali del blog', () =
     expect(rule!.keywordPattern.test('öffentliche Stellen im Tessin')).toBe(false);
   });
 
+  it('i concorsi pubblici richiedono il qualificatore Ticino/Lugano', () => {
+    const rule = IT_RULES.find((r) => r.id === 'it.jobs.concorsi-pubblici');
+    expect(rule).toBeDefined();
+    expect(rule!.keywordPattern.test('concorsi pubblici')).toBe(false);
+    expect(rule!.keywordPattern.test('concorsi pubblici in Italia')).toBe(false);
+    expect(rule!.keywordPattern.test('concorsi pubblici in Ticino')).toBe(true);
+    expect(rule!.keywordPattern.test('concorsi pubblici a Lugano')).toBe(true);
+  });
+
   it('nessun locale manda piu\' l\'intento transazionale al report di mercato', () => {
     // Guardia esplicita contro il ritorno del difetto originale.
     const REPORTS = [
