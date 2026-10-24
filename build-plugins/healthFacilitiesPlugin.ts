@@ -21,6 +21,7 @@
  */
 
 import { reportedSalaryNote } from './shared/reportedSalaryNote';
+import { healthSectorWageBenchmark } from './shared/healthSectorWageBenchmark';
 import * as fs from 'node:fs';
 import * as np from 'node:path';
 import type { Plugin } from 'vite';
@@ -248,6 +249,7 @@ export function renderFacilityPage(
     healthcareCount: snapshot.healthcareCount,
     fresh30Count: snapshot.fresh30Count,
     medianSalaryChf: snapshot.medianSalaryChf,
+    sectorBenchmark: healthSectorWageBenchmark(facility.canton),
     siteCount: facility.sites.length,
     topRoles: roles,
     commuterLabel: commuterLabel(facility.commuterOrigins),
@@ -258,13 +260,11 @@ export function renderFacilityPage(
   const homeUrl = `${BASE_URL}/${locale === 'it' ? '' : `${locale}/`}`;
   const sectionUrl = `${BASE_URL}${buildHealthFacilitySectionPath(locale)}`;
 
-  // Stat tiles.
-  const medianStr = snapshot.medianSalaryChf
-    ? `CHF ${new Intl.NumberFormat(locale === 'it' ? 'it-CH' : `${locale}-CH`, { maximumFractionDigits: 0 }).format(snapshot.medianSalaryChf)}`
-    : copy.noSalary;
+  // Stat tiles. The salary tile is never empty: reported median when the
+  // sample clears the floor, otherwise the BFS sector median (see copy).
   const tiles = renderStatGrid([
     { label: copy.tileOpenings, value: String(snapshot.liveCount), tone: pickStatTileTone('openings', snapshot.liveCount) },
-    { label: copy.tileMedian, value: medianStr, tone: 'accent' },
+    { label: copy.tileMedian, value: copy.tileMedianValue, tone: 'accent' },
     { label: copy.tileFresh, value: String(snapshot.fresh30Count), tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
   ]);
 
@@ -330,6 +330,7 @@ export function renderFacilityPage(
     ${header}
     ${tiles}
     ${reportedSalaryNote(locale, snapshot.reportedSalary)}
+    ${copy.benchmarkNote ? `<p class="mt-1 text-sm text-body" data-salary-provenance="official-benchmark">${esc(copy.benchmarkNote)}</p>` : ''}
     ${jobsSection}
     ${rolesSection}
     ${infoSection}

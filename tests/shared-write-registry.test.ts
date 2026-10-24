@@ -264,4 +264,35 @@ describe('sharedWriteRegistry', () => {
  expect(result).toEqual({ kept: 0, removed: 0 });
  });
  });
+
+ describe('retained claim metadata (run 40057008446, leg de rss-ceiling)', () => {
+ it('keeps the per-plugin lazy call-site placeholder on every first claim', () => {
+ claim('/dist/a/index.html', 'pluginA', 'a');
+ claim('/dist/b/index.html', 'pluginA', 'b');
+ claim('/dist/c/index.html', 'pluginB', 'c');
+ const history = getPathHistory();
+ expect(history.get('/dist/a/index.html')?.[0].callSite).toBe('<lazy:pluginA>');
+ expect(history.get('/dist/b/index.html')?.[0].callSite).toBe('<lazy:pluginA>');
+ expect(history.get('/dist/c/index.html')?.[0].callSite).toBe('<lazy:pluginB>');
+ });
+
+ it('still rejects a file that becomes a directory for absolute and relative claims', () => {
+ const root = path.resolve(os.tmpdir(), 'retained-shape-fixture');
+ claim(path.join(root, 'guide.pdf'), 'pluginA', 'pdf');
+ expect(() => claim(path.join(root, 'guide.pdf', 'index.html'), 'pluginB', 'html')).toThrow();
+
+ reset();
+ const relativeFile = path.join('retained-shape-relative', 'guide.pdf');
+ claim(relativeFile, 'pluginA', 'pdf');
+ expect(() => claim(path.resolve(relativeFile, 'index.html'), 'pluginB', 'html')).toThrow();
+ });
+
+ it('still rejects a directory that becomes a file after reset clears the shape index', () => {
+ const root = path.resolve(os.tmpdir(), 'retained-shape-dir-fixture');
+ claim(path.join(root, 'guide', 'index.html'), 'pluginA', 'html');
+ expect(() => claim(path.join(root, 'guide'), 'pluginB', 'file')).toThrow();
+ reset();
+ expect(claim(path.join(root, 'guide'), 'pluginB', 'file')).toBe('allow-write');
+ });
+ });
 });

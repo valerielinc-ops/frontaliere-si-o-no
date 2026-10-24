@@ -16,7 +16,10 @@
  *   — fix: extract structured HTML sections and prefer them when longer.
  */
 import { stripScriptsAndStyles } from './crawler-template.mjs';
-import { readVacancySummaryLocation } from './html-attr.mjs';
+import {
+  extractVacancySummaryLocation,
+  readVacancySummaryLocation,
+} from './html-attr.mjs';
 import { canonicalSwissCityName, isKnownSwissCity } from './target-swiss-locations.mjs';
 
 /** Minimum accepted description length (characters). */
@@ -230,6 +233,8 @@ export function extractSbbBodyLocation(html = '') {
 
   for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
     const line = lines[lineIndex];
+    const inlineSummaryLocation = canonicalSbbLocality(extractVacancySummaryLocation(line));
+    if (inlineSummaryLocation) return inlineSummaryLocation;
     const datedPrefix = line.match(/^([^,]{2,80}),\s*\d{1,2}\.\d{1,2}\.\d{4}\s*,\s*\d{1,3}%/);
     if (datedPrefix?.[1]) {
       const locality = canonicalSbbLocality(datedPrefix[1]);

@@ -28801,6 +28801,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'successione-parmelin-otto-nomi',
+    category: 'fiscale',
+    date: '2026-10-24T05:11:58.276Z',
+    image: '/images/blog/article-successione-parmelin-otto-nomi.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

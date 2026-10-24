@@ -6,8 +6,12 @@
  *   'ch-vs-it' — Switzerland (Ticino) vs Italy: the non-coinciding days (the
  *                frontaliere differentiator) + bridge-day planning
  *
- * All content is derived from data/seo/frontaliere-holidays.json (refreshed by
- * scripts/update-holidays-dataset.mjs). No floor/threshold loop — the page set
+ * All content is derived from the catalogue in
+ * build-plugins/shared/ticinoHolidaysCatalog.mjs, computed for the years of the
+ * BUILD DATE (current + next; from September the title leads with next year),
+ * so the yearly rollover needs no manual refresh. The committed snapshot
+ * data/seo/frontaliere-holidays.json is written by
+ * scripts/update-holidays-dataset.mjs from the same catalogue. No floor/threshold loop — the page set
  * is fixed and curated, so no below-floor bridge / searchConsoleCompat self-map
  * is required.
  *
@@ -18,10 +22,7 @@
 
 import fs from 'node:fs';
 import np from 'node:path';
-import { fileURLToPath } from 'node:url';
 import type { Plugin } from 'vite';
-
-const __dirname_holidays = np.dirname(fileURLToPath(import.meta.url));
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -49,6 +50,13 @@ import {
   type HolidaysDataset,
   type HolidayRecord,
 } from './holidaysLandingsData';
+import {
+  buildHolidaysDataset,
+  holidayFocusYear,
+  holidayYearsFor,
+  TICINO_HOLIDAYS_LAW,
+  TICINO_HOLIDAYS_SOURCE_URL,
+} from './shared/ticinoHolidaysCatalog.mjs';
 import {
   H1_STYLE,
   H2_STYLE,
@@ -96,15 +104,19 @@ const WEEKDAY_ABBR: Record<HolidayLocale, readonly string[]> = {
   fr: ['dim', 'lun', 'mar', 'mer', 'jeu', 'ven', 'sam'],
 };
 
-// ── Dataset load (module-cached) ──────────────────────────────────────────
+// ── Dataset (computed for the build date) ─────────────────────────────────
 
-let _dataset: HolidaysDataset | null = null;
-function loadDataset(): HolidaysDataset {
-  if (_dataset) return _dataset;
-  const dataPath = np.resolve(__dirname_holidays, '..', 'data', 'seo', 'frontaliere-holidays.json');
-  const raw = fs.readFileSync(dataPath, 'utf-8');
-  _dataset = JSON.parse(raw) as HolidaysDataset;
-  return _dataset;
+/**
+ * Dataset for the build date `dateStamp` (YYYY-MM-DD). Computed, not read from
+ * the committed JSON: a JSON frozen at the last manual refresh is what kept
+ * the page on «2026 e 2027» while Search Console already asked for 2027.
+ */
+function datasetFor(dateStamp: string): { ds: HolidaysDataset; focus: number; other: number } {
+  const now = new Date(`${dateStamp}T12:00:00Z`);
+  const years = holidayYearsFor(now);
+  const focus = holidayFocusYear(now);
+  const other = years.find((y) => y !== focus) ?? focus;
+  return { ds: buildHolidaysDataset(years, dateStamp) as unknown as HolidaysDataset, focus, other };
 }
 
 function formatDate(iso: string, locale: HolidayLocale): string {
@@ -179,10 +191,11 @@ interface HolidayCopy {
   readonly nonCoincTitle: string;
   // page-specific
   readonly ticino: {
-    title: (y1: number, y2: number) => string;
-    description: (y1: number) => string;
+    /** `focus` is the year readers search now (see holidayFocusYear), `other` the second covered year. */
+    title: (focus: number, other: number) => string;
+    description: (focus: number, other: number, holidays: number, bridges: number) => string;
     eyebrow: string;
-    h1: (y1: number, y2: number) => string;
+    h1: (focus: number, other: number) => string;
     lede: (n: number, y1: number) => string;
     calendarTitle: (y: number) => string;
     intro: string;
@@ -209,6 +222,8 @@ interface HolidayCopy {
     openLabel: string;
   };
   readonly faqs: ReadonlyArray<{ q: string; a: string }>;
+  /** Official source line, before the linked law title. */
+  readonly sourceLabel: string;
 }
 
 const COPY: Record<HolidayLocale, HolidayCopy> = {
@@ -230,11 +245,11 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
     faqTitle: 'Domande frequenti',
     nonCoincTitle: 'I festivi che NON coincidono',
     ticino: {
-      title: (y1, y2) => `Giorni festivi Ticino ${y1} e ${y2}`,
-      description: (y1) =>
-        `Calendario completo dei giorni festivi ufficiali del Canton Ticino ${y1} e ${y1 + 1}: date, ponti e differenze con l’Italia per i frontalieri.`,
+      title: (focus, other) => `Giorni festivi e festività Ticino ${focus} e ${other}`,
+      description: (focus, other, n, bridges) =>
+        `I ${n} giorni festivi ufficiali del Canton Ticino nel ${focus} (e nel ${other}) con le date, ${bridges} ponti e i festivi che non coincidono con l’Italia. Fonte: Cantone Ticino.`,
       eyebrow: 'Calendario frontalieri',
-      h1: (y1, y2) => `Giorni festivi in Ticino ${y1}–${y2}`,
+      h1: (focus, other) => `Giorni festivi in Ticino ${focus} e ${other}`,
       lede: (n, y1) =>
         `Il Canton Ticino osserva ${n} giorni festivi ufficiali nel ${y1}: ecco tutte le date, i ponti e i festivi che non coincidono con l’Italia.`,
       calendarTitle: (y) => `Calendario festivi ${y}`,
@@ -270,7 +285,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
     faqs: [
       {
         q: 'Quali giorni festivi ha il Ticino che non ha l’Italia?',
-        a: 'In Ticino sono festivi ma in Italia no: Venerdì Santo, Ascensione, Lunedì di Pentecoste, Corpus Domini, Santi Pietro e Paolo (29 giugno) e la Festa nazionale svizzera (1° agosto). In questi giorni il frontaliere non lavora in Svizzera.',
+        a: 'In Ticino sono festivi ma in Italia no: San Giuseppe (19 marzo), Ascensione, Lunedì di Pentecoste, Corpus Domini, Santi Pietro e Paolo (29 giugno) e la Festa nazionale svizzera (1° agosto). In questi giorni il frontaliere non lavora in Svizzera.',
       },
       {
         q: 'Quali festività italiane non valgono in Ticino?',
@@ -281,6 +296,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
         a: 'Sì. I giorni festivi cantonali riconosciuti sono giorni non lavorativi retribuiti secondo il contratto svizzero, esattamente come per i lavoratori residenti in Ticino.',
       },
     ],
+    sourceLabel: 'Fonte ufficiale dell’elenco dei giorni festivi: Cantone Ticino,',
   },
   en: {
     breadcrumbHome: 'Home',
@@ -300,11 +316,11 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
     faqTitle: 'Frequently asked questions',
     nonCoincTitle: 'The holidays that do NOT coincide',
     ticino: {
-      title: (y1, y2) => `Ticino public holidays ${y1} and ${y2}`,
-      description: (y1) =>
-        `Full calendar of official public holidays in Canton Ticino for ${y1} and ${y1 + 1}: dates, bridge days and differences with Italy for cross-border workers.`,
+      title: (focus, other) => `Ticino public holidays ${focus} and ${other}`,
+      description: (focus, other, n, bridges) =>
+        `The ${n} official public holidays of Canton Ticino in ${focus} (and ${other}) with dates, ${bridges} bridge days and the holidays that differ from Italy. Source: Canton Ticino.`,
       eyebrow: 'Cross-border calendar',
-      h1: (y1, y2) => `Public holidays in Ticino ${y1}–${y2}`,
+      h1: (focus, other) => `Public holidays in Ticino ${focus} and ${other}`,
       lede: (n, y1) =>
         `Canton Ticino observes ${n} official public holidays in ${y1}: here are all the dates, the bridge days and the holidays that do not coincide with Italy.`,
       calendarTitle: (y) => `Holiday calendar ${y}`,
@@ -339,7 +355,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
     faqs: [
       {
         q: 'Which Ticino holidays does Italy not have?',
-        a: 'Public holidays in Ticino but not in Italy: Good Friday, Ascension Day, Whit Monday, Corpus Christi, Saints Peter and Paul (29 June) and the Swiss National Day (1 August). On these days the cross-border worker does not work in Switzerland.',
+        a: 'Public holidays in Ticino but not in Italy: St Joseph’s Day (19 March), Ascension Day, Whit Monday, Corpus Christi, Saints Peter and Paul (29 June) and the Swiss National Day (1 August). On these days the cross-border worker does not work in Switzerland.',
       },
       {
         q: 'Which Italian holidays do not apply in Ticino?',
@@ -350,6 +366,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
         a: 'Yes. Recognised cantonal holidays are paid non-working days under the Swiss contract, exactly as for workers resident in Ticino.',
       },
     ],
+    sourceLabel: 'Official source for the list of public holidays: Canton Ticino,',
   },
   de: {
     breadcrumbHome: 'Home',
@@ -369,11 +386,11 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
     faqTitle: 'Häufige Fragen',
     nonCoincTitle: 'Die Feiertage, die NICHT übereinstimmen',
     ticino: {
-      title: (y1, y2) => `Feiertage Tessin ${y1} und ${y2}`,
-      description: (y1) =>
-        `Vollständiger Kalender der offiziellen Feiertage im Kanton Tessin ${y1} und ${y1 + 1}: Daten, Brückentage und Unterschiede zu Italien für Grenzgänger.`,
+      title: (focus, other) => `Feiertage Tessin ${focus} und ${other}`,
+      description: (focus, other, n, bridges) =>
+        `Die ${n} offiziellen Feiertage im Kanton Tessin ${focus} (und ${other}) mit Daten, ${bridges} Brückentagen und den Unterschieden zu Italien. Quelle: Kanton Tessin.`,
       eyebrow: 'Grenzgänger-Kalender',
-      h1: (y1, y2) => `Feiertage im Tessin ${y1}–${y2}`,
+      h1: (focus, other) => `Feiertage im Tessin ${focus} und ${other}`,
       lede: (n, y1) =>
         `Der Kanton Tessin hat ${n} offizielle Feiertage im Jahr ${y1}: hier alle Daten, die Brückentage und die Feiertage, die nicht mit Italien übereinstimmen.`,
       calendarTitle: (y) => `Feiertagskalender ${y}`,
@@ -408,7 +425,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
     faqs: [
       {
         q: 'Welche Tessiner Feiertage hat Italien nicht?',
-        a: 'Im Tessin, aber nicht in Italien Feiertag: Karfreitag, Auffahrt, Pfingstmontag, Fronleichnam, Peter und Paul (29. Juni) und der Schweizer Bundesfeiertag (1. August). An diesen Tagen arbeitet der Grenzgänger nicht in der Schweiz.',
+        a: 'Im Tessin, aber nicht in Italien Feiertag: Josefstag (19. März), Auffahrt, Pfingstmontag, Fronleichnam, Peter und Paul (29. Juni) und der Schweizer Bundesfeiertag (1. August). An diesen Tagen arbeitet der Grenzgänger nicht in der Schweiz.',
       },
       {
         q: 'Welche italienischen Feiertage gelten im Tessin nicht?',
@@ -419,6 +436,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
         a: 'Ja. Anerkannte kantonale Feiertage sind bezahlte arbeitsfreie Tage nach dem Schweizer Vertrag, genau wie für die im Tessin wohnhaften Arbeitnehmer.',
       },
     ],
+    sourceLabel: 'Offizielle Quelle der Feiertagsliste: Kanton Tessin,',
   },
   fr: {
     breadcrumbHome: 'Accueil',
@@ -438,11 +456,11 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
     faqTitle: 'Questions fréquentes',
     nonCoincTitle: 'Les jours fériés qui NE coïncident PAS',
     ticino: {
-      title: (y1, y2) => `Jours fériés Tessin ${y1} et ${y2}`,
-      description: (y1) =>
-        `Calendrier complet des jours fériés officiels du Canton du Tessin ${y1} et ${y1 + 1} : dates, ponts et différences avec l’Italie pour les frontaliers.`,
+      title: (focus, other) => `Jours fériés Tessin ${focus} et ${other}`,
+      description: (focus, other, n, bridges) =>
+        `Les ${n} jours fériés officiels du Canton du Tessin en ${focus} (et ${other}) avec les dates, ${bridges} ponts et les différences avec l’Italie. Source : Canton du Tessin.`,
       eyebrow: 'Calendrier frontalier',
-      h1: (y1, y2) => `Jours fériés au Tessin ${y1}–${y2}`,
+      h1: (focus, other) => `Jours fériés au Tessin ${focus} et ${other}`,
       lede: (n, y1) =>
         `Le Canton du Tessin observe ${n} jours fériés officiels en ${y1} : voici toutes les dates, les ponts et les jours fériés qui ne coïncident pas avec l’Italie.`,
       calendarTitle: (y) => `Calendrier des jours fériés ${y}`,
@@ -477,7 +495,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
     faqs: [
       {
         q: 'Quels jours fériés le Tessin a-t-il que l’Italie n’a pas ?',
-        a: 'Fériés au Tessin mais pas en Italie : Vendredi Saint, Ascension, Lundi de Pentecôte, Fête-Dieu, Saints Pierre et Paul (29 juin) et la Fête nationale suisse (1er août). Ces jours-là le frontalier ne travaille pas en Suisse.',
+        a: 'Fériés au Tessin mais pas en Italie : Saint-Joseph (19 mars), Ascension, Lundi de Pentecôte, Fête-Dieu, Saints Pierre et Paul (29 juin) et la Fête nationale suisse (1er août). Ces jours-là le frontalier ne travaille pas en Suisse.',
       },
       {
         q: 'Quelles fêtes italiennes ne valent pas au Tessin ?',
@@ -488,6 +506,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
         a: 'Oui. Les jours fériés cantonaux reconnus sont des jours chômés payés selon le contrat suisse, exactement comme pour les travailleurs résidant au Tessin.',
       },
     ],
+    sourceLabel: 'Source officielle de la liste des jours fériés : Canton du Tessin,',
   },
 };
 
@@ -523,10 +542,9 @@ function renderPage(opts: {
 }): RenderResult {
   const { locale, page, dateStamp, distDir, eligibleLocales = new Set<string>() } = opts;
   const L = COPY[locale];
-  const ds = loadDataset();
-  const years = [...ds.meta.years].sort((a, b) => a - b);
-  const y1 = years[0];
-  const y2 = years[years.length - 1];
+  // y1 = the year readers search now (leads title, H1 and the first table),
+  // y2 = the other covered year.
+  const { ds, focus: y1, other: y2 } = datasetFor(dateStamp);
   const holidays = ds.holidays;
 
   const urlPath = buildHolidaysLandingPath(locale, page);
@@ -539,7 +557,7 @@ function renderPage(opts: {
   const tiOnly = holidays.filter((h) => h.coincidence === 'ticino-only');
   const itOnly = holidays.filter((h) => h.coincidence === 'italy-only');
   const both = holidays.filter((h) => h.coincidence === 'both');
-  const tiCount = holidays.filter((h) => h.ticino).length;
+  const tiCount = holidays.filter((h) => h.ticino && h.dates[String(y1)]).length;
   const bridges = computeBridges(holidays, y1, locale);
 
   // hreflang (4 locales + x-default IT), emitted only when every locale's
@@ -554,7 +572,7 @@ function renderPage(opts: {
 
   const isTicino = page === 'ticino';
   const title = isTicino ? L.ticino.title(y1, y2) : L.chVsIt.title(y1);
-  const description = isTicino ? L.ticino.description(y1) : L.chVsIt.description;
+  const description = isTicino ? L.ticino.description(y1, y2, tiCount, bridges.length) : L.chVsIt.description;
   const eyebrow = isTicino ? L.ticino.eyebrow : L.chVsIt.eyebrow;
   const h1 = isTicino ? L.ticino.h1(y1, y2) : L.chVsIt.h1;
   const lede = isTicino ? L.ticino.lede(tiCount, y1) : L.chVsIt.lede(tiOnly.length, itOnly.length);
@@ -730,6 +748,7 @@ function renderPage(opts: {
            </section>
            ${bridgesBlock()}`
     }
+    <p class="text-sm text-muted">${esc(L.sourceLabel)} <a href="${esc(TICINO_HOLIDAYS_SOURCE_URL)}" rel="noopener" target="_blank" style="${LINK_ACCENT_STYLE}">${esc(TICINO_HOLIDAYS_LAW)}</a></p>
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(L.faqTitle)}</h2>
       ${faqHtml}
