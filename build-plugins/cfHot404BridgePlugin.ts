@@ -255,22 +255,9 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         .sort((a, b) => (b.hits || 0) - (a.hits || 0))
         .slice(0, MAX_EMIT);
 
-      // OPT-IN equity-SEO variant (DEFAULT OFF): the IT canton-moved full-content
-      // copies below are forced noindex so they recover UX + a 200 status without
-      // competing for index equity. With CF_HOT_404_IT_INDEX=1 the forced noindex
-      // is dropped: the copied page stays indexable and its own
-      // <link rel=canonical>/og:url already point at the CURRENT canton (`to`), so
-      // Google consolidates equity to the live page (the canonical index+canonical
-      // pattern) instead of dropping the URL. DEFAULT OFF because flipping ~65k
-      // verbatim copies to indexable is a duplicate-content judgement call (Google
-      // may consolidate via canonical, or may treat the mass-duplication as soft
-      // doppione) — activate only after evaluating the duplicate-content impact,
-      // exactly as the noindex was a deliberate choice. Mirrors the accumulator
-      // opt-in above: a deploy/owner flag flip, never a default behaviour change.
-      const itIndexable = process.env.CF_HOT_404_IT_INDEX === '1';
 
       let emitted = 0;
-      let emittedFull = 0;
+      let skippedWorkerRedirect = 0;
       let skippedExisting = 0;
       let skippedUnresolved = 0;
       let skippedNonOwnedLocale = 0;
@@ -307,8 +294,8 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         //  - the gap-fill `existsSync(outDir/index.html)` probes the path we are
         //    about to write, always in the SAME locale as `from`;
         //  - `canonFile` / `fallbackPath` probes resolve inside the same locale
-        //    subtree as `from` too (the canton-moved full-copy branch is gated
-        //    on `isItPath`), so a non-owned skip never changes an owned emit;
+        //    subtree as `from` too, so a non-owned skip never changes an owned
+        //    emit;
         //  - postWalkCoordinator's hreflang pass keeps a cross-shard alternate
         //    UNCONDITIONALLY (`!shouldEmitLocale(ownerEmitLocale(l)) → keep`,
         //    hreflangPostprocessPlugin.ts:115), so a missing non-owned file can
@@ -360,81 +347,29 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         // user straight there instead of serving the archived compat bridge.
         const isClusterRedirect = SEARCH_CLUSTER_LEGACY_SET.has(fromNorm);
 
-        // Canton-drift recovery as a REAL 200 page WITH the job's full content.
-        // For an IT canton-moved orphan (the apex is NOT behind the locale Worker,
-        // so without this it only ever gets a soft-404/JS redirect or a thin
-        // bridge), copy the slug's already-built canonical page HTML verbatim. The
-        // copied HTML's own <link rel=canonical>/og:url/hreflang already point at
-        // the current canton, so ranking signals consolidate there while this URL
-        // serves a full 200 instead of a 404. By default the copy is forced
-        // noindex (UX + 200, no index competition); with CF_HOT_404_IT_INDEX=1 the
-        // forced noindex is dropped so the copy stays indexable and consolidates
-        // equity to `to` via its embedded canonical (see itIndexable note above).
-        // en/de/fr are intentionally left to the thin bridge below: the locale
-        // Worker 301s them at the edge (strictly better than a duplicate 200).
-        // Falls through to the thin bridge if the canonical file isn't on disk.
-        const isItPath = !/^\/(en|de|fr)\//.test(from);
-        if (kind === 'canton-moved' && isItPath) {
-          const canonFile = path.join(distDir, to.slice(1), 'index.html');
-          if (fs.existsSync(canonFile)) {
-            let canonHtml = fs.readFileSync(canonFile, 'utf-8');
-            if (!itIndexable) {
-              // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so
-              // single-token attribute values lose their quotes in dist/ (`name=robots`).
-              // A quote-mandatory regex (`name=["']robots["']`) misses the minified meta,
-              // falls through to the <head> branch, and injects a SECOND robots meta while
-              // the original `index,follow` one survives — the drift copy stays indexable.
-              canonHtml = /<meta\s+name=["']?robots["']?/i.test(canonHtml)
-                ? canonHtml.replace(
-                    /<meta\s+name=["']?robots["']?[^>]*>/i,
-                    '<meta name="robots" content="noindex,follow">',
-                  )
-                : canonHtml.replace(
-                    /<head(\s[^>]*)?>/i,
-                    (m) => `${m}<meta name="robots" content="noindex,follow">`,
-                  );
-            }
-            if (!writeDistPageSafely({
-              distDir,
-              indexPath: safeTargets.indexPath,
-              html: canonHtml,
-              urlPath: from,
-              logPrefix: 'cf-hot-404-bridge',
-            })) { skippedWriteErrors++; continue; }
-            registerIncrementalBridge(
-              from,
-              resolution,
-              to,
-              itIndexable ? 'full-copy-indexable' : 'full-copy-noindex',
-              canonHtml,
-            );
-            emitted++;
-            emittedFull++;
-            continue;
-          }
-        }
+        // Canton-drift orphan (same job, now under another canton): emit nothing.
+        // Every job section — IT ticino included, via the apex wildcard route —
+        // is served behind the locale-router Worker, which turns the origin 404
+        // into a real 301 to the job's current canton page from /job-canon
+        // (recoverCantonDriftOrphan; the alias for a localized slug). A 200
+        // here, full copy or thin bridge, is what stops that 301: the replay of
+        // run 40071128198 counted 512 such IT copies as blocking noindex pages
+        // (noindex,follow, canonical to the canton, no job-board marker).
+        if (kind === 'canton-moved') { skippedWorkerRedirect++; continue; }
 
-        // canton-moved: the canonical IS the same job at its current canton path
-        // (a real 200 page), so word the bridge as a relocation and point the CTA
-        // straight at it. Other kinds land on a listing/landing.
-        const body = kind === 'canton-moved'
-          ? `Questo annuncio e stato spostato. Lo trovi aggiornato alla pagina collegata qui sotto.`
-          : isClusterRedirect
+        // Every remaining kind lands on a listing/landing.
+        const body = isClusterRedirect
           ? `Questa ricerca ha una versione aggiornata. Ti stiamo portando alla pagina corretta; se non vieni reindirizzato, aprila qui sotto.`
           : `Questa pagina ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : "dell annuncio"} non e piu disponibile. Abbiamo mantenuto una pagina compatibile per evitare un errore e mostrarti le offerte aggiornate per questa zona.`;
         let html = buildCanonicalBridgePage({
           canonicalUrl: `${BASE_URL}${to}`,
           pathLabel: to,
-          title: kind === 'canton-moved'
-            ? 'Annuncio spostato | Frontaliere Ticino'
-            : isClusterRedirect
+          title: isClusterRedirect
             ? 'Ricerca aggiornata | Frontaliere Ticino'
             : 'Pagina archiviata | Frontaliere Ticino',
-          description: kind === 'canton-moved' ? `Annuncio spostato: vedi ${to}.` : `Annuncio non piu disponibile collegato a ${to}.`,
+          description: `Annuncio non piu disponibile collegato a ${to}.`,
           body,
-          ctaLabel: kind === 'canton-moved'
-            ? 'Vai all annuncio'
-            : isClusterRedirect
+          ctaLabel: isClusterRedirect
             ? 'Apri la ricerca aggiornata'
             : 'Vedi le offerte aggiornate',
           noindex: true,
@@ -483,8 +418,7 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         const heapMb = Math.round(process.memoryUsage().heapUsed / 1048576);
         console.log(
           `\x1b[36m[cf-hot-404-bridge]\x1b[0m Recovered ${emitted} Cloudflare/GSC-confirmed 404s ` +
-            `(${emittedFull} full-content canton-moved copies [${itIndexable ? 'indexable+canonical' : 'noindex'}], ` +
-            `${emitted - emittedFull} thin bridges; ` +
+            `(${emitted} thin bridges; ${skippedWorkerRedirect} canton-moved left to the Worker 301; ` +
             `cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved, ` +
             `${skippedNonOwnedLocale} non-owned-locale skipped, ${skippedWriteErrors} write errors). ` +
             `[mem] heapUsed=${heapMb}MB after emit.`,
