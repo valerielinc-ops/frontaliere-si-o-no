@@ -223,13 +223,12 @@ describe('Prospector synthesis transient source failures', () => {
 
     const result = await synthesizeSpec({
       careersUrl: 'https://brefis.ch/Vacancyboard/',
-      tenantHost: 'brefispersonal.ch',
+      tenantHost: 'brefis.ch',
       domain: 'brefis.ch',
       name: 'brefis personal ag',
     });
 
     expect(result.spec).toMatchObject({
-      companyKey: 'brefispersonal',
       pagination: { maxPages: 10, minCoverage: 0.95 },
     });
     const pagination = normalizeSpecPagination(result.spec);

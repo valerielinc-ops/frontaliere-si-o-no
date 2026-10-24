@@ -420,7 +420,10 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     ? (hostDomain === employerDomain ? '' : hostDomain)
     : (candidate.selfHosted === false && hostDomain !== employerDomain ? hostDomain : '');
   const companyKey = crawlerKeyFor(candidate);
-  const pagination = companyKey === 'brefispersonal' && hostDomain === 'brefis.ch'
+  const candidateName = String(candidate.name || '').toLowerCase();
+  const isBrefispersonal = companyKey === 'brefispersonal'
+    || (hostDomain === 'brefis.ch' && /\bbrefis\s+personal\b/.test(candidateName));
+  const pagination = isBrefispersonal && hostDomain === 'brefis.ch'
     ? { ...BREFISPERSONAL_PAGINATION }
     : undefined;
   const listingNeedsDetail = vacancies.some(
