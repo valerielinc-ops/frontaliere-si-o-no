@@ -13,6 +13,10 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { withoutShardArticleNodes } from '../services/seo/blogArticleRuntimeLd';
+import itCore from '../services/locales/it-core';
+import enCore from '../services/locales/en-core';
+import deCore from '../services/locales/de-core';
+import frCore from '../services/locales/fr-core';
 
 const ROOT = resolve(__dirname, '..');
 const read = (rel: string): string => readFileSync(resolve(ROOT, rel), 'utf8');
@@ -30,10 +34,6 @@ const FABRICATED_EXPERTS = [
 
 const SURFACES = [
   'index.html',
-  'services/locales/it-core.ts',
-  'services/locales/en-core.ts',
-  'services/locales/de-core.ts',
-  'services/locales/fr-core.ts',
   'services/seo/seo-pages.ts',
   'services/seo/faq-translations.ts',
   'components/shared/SeoContentBlock.tsx',
@@ -73,13 +73,18 @@ describe('E-E-A-T: no fabricated experts', () => {
     expect(types).not.toContain('Person');
   });
 
-  it('no locale ships an expert quote or the changelog entry announcing them', () => {
-    for (const locale of ['it', 'en', 'de', 'fr']) {
-      const core = read(`services/locales/${locale}-core.ts`);
-      expect(core, `${locale}-core`).not.toMatch(/'seoContent\.[a-z]+\.expert(Quote|Name)'/);
-      expect(core, `${locale}-core`).not.toContain('whatsNew.v3440.expertQuotes');
-    }
-  });
+  // UI locale chunks are imported (not read by path): they are interface code,
+  // not pipeline-written data.
+  it.each([['it', itCore], ['en', enCore], ['de', deCore], ['fr', frCore]] as const)(
+    '%s-core ships no expert quote, no expert name, no changelog entry announcing them',
+    (_locale, core) => {
+      const keys = Object.keys(core as Record<string, string>);
+      expect(keys.filter((key) => /^seoContent\.[a-z]+\.expert(Quote|Name)$/.test(key))).toEqual([]);
+      expect(keys.filter((key) => key.startsWith('whatsNew.v3440.expertQuotes'))).toEqual([]);
+      const text = JSON.stringify(core);
+      expect(FABRICATED_EXPERTS.filter((name) => text.includes(name))).toEqual([]);
+    },
+  );
 });
 
 describe('E-E-A-T: legacy shard authors stay out of the runtime DOM', () => {
