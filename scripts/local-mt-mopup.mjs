@@ -594,9 +594,10 @@ export function orderMopupJobsByTraffic(jobs, popularity, cap, { priorityOf } = 
  * (tests/job-locale-consistency.test.ts, titoli non tradotti) e' salito dal
  * 31,54% al 34,46% in un giorno con ~3.200 slot titolo nuovi in coda.
  *
- * Un titolo costa una sola unita': messi in testa, quelli dei job selezionati
- * finiscono nei primi minuti e le descrizioni usano il tempo che resta. Nessun
- * job entra o esce dalla selezione: cambia solo l'ordine dentro il batch.
+ * Un titolo costa una sola unita': dopo la corsia source-copy, quelli dei job
+ * selezionati finiscono nei primi minuti e le descrizioni normali usano il tempo
+ * che resta. Nessun job entra o esce dalla selezione: cambia solo l'ordine dentro
+ * il batch.
  *
  * @param {Array<{ id: string }>} requests nell'ordine dei job selezionati
  * @param {(request: { id: string }) => string | undefined} fieldOf il campo
