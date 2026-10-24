@@ -4606,10 +4606,10 @@
     },
     {
       "id": "opus-personal-cbceb6fa5aa7",
-      "slug": "hochbauzeichner-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+      "slug": "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
       "slugByLocale": {
         "de": "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch",
-        "it": "hochbauzeichner-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
+        "it": "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
         "en": "building-drawings-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
         "fr": "dessins-de-construction-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
       },
@@ -4659,16 +4659,16 @@
       },
       "previousSlugs": [
         "disegnatore-edile-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-        "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
         "drawer-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
         "tiroir-efz-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-        "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch"
+        "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch",
+        "hochbauzeichner-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disegnatore-edile-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-          "disegnatore-edile-afc-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
-          "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch"
+          "hochbauzeichner-efz-m-w-region-ow-obwalden-opus-personal-ch",
+          "hochbauzeichner-cfc-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden"
         ],
         "en": [
           "drawer-efz-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-ow-obwalden",
@@ -8304,12 +8304,12 @@
     },
     {
       "id": "opus-personal-99b31aae685d",
-      "slug": "spengler-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+      "slug": "lattoniere-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
       "slugByLocale": {
-        "it": "spengler-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "it": "lattoniere-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
         "en": "spengler-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
         "de": "spengler-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-        "fr": "spengler-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
+        "fr": "ferblantier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -8355,22 +8355,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ferblantier-ere-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "lattoniere-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
         "sheet-metal-worker-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "ferblantier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "spengler-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
+        "spengler-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
+        "spengler-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lattoniere-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-          "spengler-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
+          "spengler-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
+          "spengler-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
         ],
         "en": [
           "sheet-metal-worker-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
         ],
         "fr": [
           "ferblantier-ere-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-          "ferblantier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "spengler-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
         ]
       },
       "firstSeenAt": "2026-10-14T09:35:35.415Z",
