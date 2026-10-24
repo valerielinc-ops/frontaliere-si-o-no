@@ -1,5 +1,7 @@
 /** Shared editorial disclosure: the static page and SPA must describe the same process. */
-export type MethodologyLocale = 'it' | 'en' | 'de' | 'fr';
+import { DISCLOSURE_ROUTE_CONTRACT, type DisclosureLocale } from '../packages/articles/engine/shared/aiDisclosure';
+
+export type MethodologyLocale = DisclosureLocale;
 interface MethodologyCopy {
   title: string;
   description: string;
@@ -9,9 +11,13 @@ interface MethodologyCopy {
   corrections: string;
   sections: { id: string; title: string; paragraphs: string[] }[];
 }
-export const METHODOLOGY_PATHS: Record<MethodologyLocale, string> = {
-  it: '/metodologia/', en: '/en/methodology/', de: '/de/methodik/', fr: '/fr/methodologie/',
-};
+/** @deprecated Read `DISCLOSURE_ROUTE_CONTRACT[locale].methodology` instead. */
+export const METHODOLOGY_PATHS: Readonly<Record<MethodologyLocale, string>> = Object.freeze({
+  it: DISCLOSURE_ROUTE_CONTRACT.it.methodology,
+  en: DISCLOSURE_ROUTE_CONTRACT.en.methodology,
+  de: DISCLOSURE_ROUTE_CONTRACT.de.methodology,
+  fr: DISCLOSURE_ROUTE_CONTRACT.fr.methodology,
+});
 export const METHODOLOGY_COPY: Record<MethodologyLocale, MethodologyCopy> = {
   it: {
     title: 'Metodologia editoriale — Come scriviamo gli articoli',

@@ -12,13 +12,11 @@ import { describe, expect, it } from 'vitest';
 import {
   AI_USE_STATEMENT,
   ARTICLE_TRANSPARENCY,
-  CORRECTIONS_PAGE_PATHS,
-  METHODOLOGY_PAGE_PATHS,
+  DISCLOSURE_ROUTE_CONTRACT,
 } from '../packages/articles/engine/shared/aiDisclosure';
 import { CHI_SIAMO_COPY } from '../components/pages/chiSiamoCopy';
 import { SECTION_EDITORIAL } from '../build-plugins/editorialContent';
-import { METHODOLOGY_PATHS } from '../services/editorialMethodology';
-import { CORRECTIONS_PATHS } from '../services/editorialCorrections';
+import { SLUG_TABLES } from '../services/routeSlugs.data';
 
 const ROOT = resolve(__dirname, '..');
 const read = (rel: string): string => readFileSync(resolve(ROOT, rel), 'utf8');
@@ -56,14 +54,17 @@ describe('AI disclosure: single source', () => {
     const src = read('build-plugins/staticPagesPlugin.ts');
     for (const locale of ['it', 'en'] as const) {
       expect(src).toContain(`\${AI_USE_STATEMENT.${locale}}`);
-      expect(src).toContain(`\${METHODOLOGY_PAGE_PATHS.${locale}}`);
-      expect(src).toContain(`\${CORRECTIONS_PAGE_PATHS.${locale}}`);
+      expect(src).toContain(`\${DISCLOSURE_ROUTE_CONTRACT.${locale}.methodology}`);
+      expect(src).toContain(`\${DISCLOSURE_ROUTE_CONTRACT.${locale}.corrections}`);
     }
   });
 
-  it('engine paths match the site routes they point to', () => {
-    expect(METHODOLOGY_PAGE_PATHS).toEqual(METHODOLOGY_PATHS);
-    expect(CORRECTIONS_PAGE_PATHS).toEqual(CORRECTIONS_PATHS);
+  it('the shared disclosure contract builds the same paths as the host router', () => {
+    for (const locale of LOCALES) {
+      const prefix = locale === 'it' ? '' : `/${locale}`;
+      expect(DISCLOSURE_ROUTE_CONTRACT[locale].methodology).toBe(`${prefix}/${SLUG_TABLES[locale].metodologia}/`);
+      expect(DISCLOSURE_ROUTE_CONTRACT[locale].corrections).toBe(`${prefix}/${SLUG_TABLES[locale].correzioni}/`);
+    }
   });
 
   it.each(LOCALES)('article disclosure (%s) never claims a human review for machine drafts', (locale) => {
@@ -78,7 +79,7 @@ describe('AI disclosure: single source', () => {
     expect(og).toMatch(/links\.about\} \| \$\{methodology\} \| \$\{corrections\}/);
     const spa = read('components/community/BlogArticles.tsx');
     expect(spa).toContain('ARTICLE_TRANSPARENCY[transparencyLocale]');
-    expect(spa).toContain('METHODOLOGY_PAGE_PATHS[transparencyLocale]');
-    expect(spa).toContain('CORRECTIONS_PAGE_PATHS[transparencyLocale]');
+    expect(spa).toContain('DISCLOSURE_ROUTE_CONTRACT[transparencyLocale].methodology');
+    expect(spa).toContain('DISCLOSURE_ROUTE_CONTRACT[transparencyLocale].corrections');
   });
 });
