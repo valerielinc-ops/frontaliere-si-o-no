@@ -198,15 +198,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Come si calcola la pensione AVS per un frontaliere?": {
  en: {
  q: "How is the AVS pension calculated for a cross-border worker?",
- a: "The AVS pension is based on contribution years and average career income. A full pension (44 years of contributions) ranges from CHF 1,260 to CHF 2,520/month (2026). Missing years reduce the pension by 1/44 per gap year. Swiss and Italian contribution periods can be totalized under the bilateral agreement. According to Andrea Fiorini, pension planning consultant: 'Even a few years of AVS contributions generate pension rights thanks to totalization with INPS periods'."
+ a: "The AVS pension is based on contribution years and average career income. A full pension (44 years of contributions) ranges from CHF 1,260 to CHF 2,520/month (2026). Missing years reduce the pension by 1/44 per gap year. Swiss and Italian contribution periods can be totalized under the bilateral agreement. Even a few years of AVS contributions generate pension rights thanks to totalization with INPS periods."
  },
  de: {
  q: "Wie wird die AHV-Rente für einen Grenzgänger berechnet?",
- a: "Die AHV-Rente basiert auf Beitragsjahren und dem durchschnittlichen Karriereeinkommen. Eine Vollrente (44 Beitragsjahre) liegt zwischen CHF 1.260 und CHF 2.520/Monat (2026). Fehlende Jahre reduzieren die Rente um 1/44 pro Lückenjahr. Schweizerische und italienische Beitragszeiten können gemäss dem bilateralen Abkommen zusammengerechnet werden. Wie Andrea Fiorini, Vorsorgeberater, erklärt: «Selbst wenige Jahre AHV-Beiträge begründen dank der Zusammenrechnung mit INPS-Zeiten einen Rentenanspruch»."
+ a: "Die AHV-Rente basiert auf Beitragsjahren und dem durchschnittlichen Karriereeinkommen. Eine Vollrente (44 Beitragsjahre) liegt zwischen CHF 1.260 und CHF 2.520/Monat (2026). Fehlende Jahre reduzieren die Rente um 1/44 pro Lückenjahr. Schweizerische und italienische Beitragszeiten können gemäss dem bilateralen Abkommen zusammengerechnet werden. Selbst wenige Jahre AHV-Beiträge begründen dank der Zusammenrechnung mit INPS-Zeiten einen Rentenanspruch."
  },
  fr: {
  q: "Comment la rente AVS est-elle calculée pour un frontalier ?",
- a: "La rente AVS est basée sur les années de cotisation et le revenu moyen de carrière. Une rente complète (44 ans de cotisations) varie de CHF 1 260 à CHF 2 520/mois (2026). Les années manquantes réduisent la rente de 1/44 par année lacunaire. Les périodes de cotisation suisses et italiennes peuvent être totalisées en vertu de l'accord bilatéral. Comme l'explique Andrea Fiorini, conseiller en prévoyance: «Même quelques années de cotisations AVS génèrent un droit à la retraite grâce à la totalisation avec les périodes INPS»."
+ a: "La rente AVS est basée sur les années de cotisation et le revenu moyen de carrière. Une rente complète (44 ans de cotisations) varie de CHF 1 260 à CHF 2 520/mois (2026). Les années manquantes réduisent la rente de 1/44 par année lacunaire. Les périodes de cotisation suisses et italiennes peuvent être totalisées en vertu de l'accord bilatéral. Même quelques années de cotisations AVS génèrent un droit à la retraite grâce à la totalisation avec les périodes INPS."
  }
  },
 
@@ -214,15 +214,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Posso riscuotere il secondo pilastro LPP quando lascio la Svizzera?": {
  en: {
  q: "Can I withdraw my 2nd pillar (LPP) when I leave Switzerland?",
- a: "If you permanently leave Switzerland for an EU country, you can withdraw the extra-mandatory portion of the 2nd pillar. The mandatory portion is frozen in a vested benefits account (conto di libero passaggio) until the legal retirement age. If you leave for a non-EU country, the entire capital can be withdrawn. According to Andrea Fiorini, pension planning consultant: 'Before withdrawal, it is essential to evaluate the taxation in the canton where the pension fund is domiciled, as rates vary significantly'."
+ a: "If you permanently leave Switzerland for an EU country, you can withdraw the extra-mandatory portion of the 2nd pillar. The mandatory portion is frozen in a vested benefits account (conto di libero passaggio) until the legal retirement age. If you leave for a non-EU country, the entire capital can be withdrawn. Before withdrawal, it is essential to evaluate the taxation in the canton where the pension fund is domiciled, as rates vary significantly."
  },
  de: {
  q: "Kann ich die 2. Säule (BVG) abheben, wenn ich die Schweiz verlasse?",
- a: "Bei dauerhaftem Wegzug in ein EU-Land können Sie den überobligatorischen Teil der 2. Säule beziehen. Der obligatorische Teil wird auf einem Freizügigkeitskonto eingefroren, bis das gesetzliche Rentenalter erreicht ist. Bei Wegzug in ein Nicht-EU-Land kann das gesamte Kapital bezogen werden. Wie Andrea Fiorini, Vorsorgeberater, erklärt: «Vor dem Bezug ist es wichtig, die Besteuerung im Sitzkanton der Pensionskasse zu prüfen, da die Sätze erheblich variieren»."
+ a: "Bei dauerhaftem Wegzug in ein EU-Land können Sie den überobligatorischen Teil der 2. Säule beziehen. Der obligatorische Teil wird auf einem Freizügigkeitskonto eingefroren, bis das gesetzliche Rentenalter erreicht ist. Bei Wegzug in ein Nicht-EU-Land kann das gesamte Kapital bezogen werden. Vor dem Bezug ist es wichtig, die Besteuerung im Sitzkanton der Pensionskasse zu prüfen, da die Sätze erheblich variieren."
  },
  fr: {
  q: "Puis-je retirer mon 2e pilier (LPP) en quittant la Suisse ?",
- a: "Si vous quittez définitivement la Suisse pour un pays de l'UE, vous pouvez retirer la part surobligatoire du 2e pilier. La part obligatoire est gelée sur un compte de libre passage jusqu'à l'âge légal de la retraite. En cas de départ vers un pays hors UE, la totalité du capital peut être retirée. Comme l'explique Andrea Fiorini, conseiller en prévoyance: «Avant le retrait, il est essentiel d'évaluer la fiscalité dans le canton de domicile de la caisse de pension, car les taux varient considérablement»."
+ a: "Si vous quittez définitivement la Suisse pour un pays de l'UE, vous pouvez retirer la part surobligatoire du 2e pilier. La part obligatoire est gelée sur un compte de libre passage jusqu'à l'âge légal de la retraite. En cas de départ vers un pays hors UE, la totalité du capital peut être retirée. Avant le retrait, il est essentiel d'évaluer la fiscalité dans le canton de domicile de la caisse de pension, car les taux varient considérablement."
  }
  },
 
@@ -598,15 +598,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Un frontaliere licenziato in Svizzera prende la disoccupazione in Italia o in Svizzera?": {
  en: {
  q: "Does a cross-border worker laid off in Switzerland receive unemployment in Italy or Switzerland?",
- a: "A G-permit cross-border worker who loses their job in Switzerland receives unemployment benefits in Italy (NASpI), not in Switzerland. EU Regulation 883/2004 provides that cross-border workers in total unemployment are the responsibility of the country of residence. According to Prof. Roberto Bentivoglio, Professor of Labor Law at USI: 'The cross-border worker must immediately request the PD U1 form in Switzerland to avoid losing the right to NASpI'."
+ a: "A G-permit cross-border worker who loses their job in Switzerland receives unemployment benefits in Italy (NASpI), not in Switzerland. EU Regulation 883/2004 provides that cross-border workers in total unemployment are the responsibility of the country of residence. The cross-border worker must immediately request the PD U1 form in Switzerland to avoid losing the right to NASpI."
  },
  de: {
  q: "Erhält ein in der Schweiz entlassener Grenzgänger Arbeitslosengeld in Italien oder der Schweiz?",
- a: "Ein Grenzgänger mit G-Bewilligung, der in der Schweiz seine Arbeit verliert, erhält Arbeitslosengeld in Italien (NASpI), nicht in der Schweiz. Die EU-Verordnung 883/2004 sieht vor, dass Grenzgänger bei Vollarbeitslosigkeit vom Wohnsitzstaat betreut werden. Wie Prof. Roberto Bentivoglio, Professor für Arbeitsrecht an der USI, erklärt: «Der Grenzgänger muss das Formular PD U1 sofort in der Schweiz beantragen, um den NASpI-Anspruch nicht zu verlieren»."
+ a: "Ein Grenzgänger mit G-Bewilligung, der in der Schweiz seine Arbeit verliert, erhält Arbeitslosengeld in Italien (NASpI), nicht in der Schweiz. Die EU-Verordnung 883/2004 sieht vor, dass Grenzgänger bei Vollarbeitslosigkeit vom Wohnsitzstaat betreut werden. Der Grenzgänger muss das Formular PD U1 sofort in der Schweiz beantragen, um den NASpI-Anspruch nicht zu verlieren."
  },
  fr: {
  q: "Un frontalier licencié en Suisse perçoit-il le chômage en Italie ou en Suisse ?",
- a: "Un frontalier titulaire d'un permis G qui perd son emploi en Suisse perçoit les allocations chômage en Italie (NASpI), et non en Suisse. Le règlement UE 883/2004 prévoit que les travailleurs frontaliers en chômage complet relèvent du pays de résidence. Comme l'explique le Prof. Roberto Bentivoglio, professeur de droit du travail à l'USI: «Le frontalier doit immédiatement demander le formulaire PD U1 en Suisse pour ne pas perdre son droit à la NASpI»."
+ a: "Un frontalier titulaire d'un permis G qui perd son emploi en Suisse perçoit les allocations chômage en Italie (NASpI), et non en Suisse. Le règlement UE 883/2004 prévoit que les travailleurs frontaliers en chômage complet relèvent du pays de résidence. Le frontalier doit immédiatement demander le formulaire PD U1 en Suisse pour ne pas perdre son droit à la NASpI."
  }
  },
 
@@ -918,15 +918,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Come funziona il credito d'imposta per frontalieri?": {
  en: {
  q: "How does the tax credit for cross-border workers work?",
- a: "The tax credit avoids double taxation: taxes paid in Switzerland (withholding tax) are deducted from Italian IRPEF in Section CE of the tax return. The credit is limited to the Italian tax share corresponding to the foreign income. According to Elena Colombo, international tax accountant: 'It is essential to keep the Swiss salary certificate (Lohnausweis) as proof of the withholding tax paid'."
+ a: "The tax credit avoids double taxation: taxes paid in Switzerland (withholding tax) are deducted from Italian IRPEF in Section CE of the tax return. The credit is limited to the Italian tax share corresponding to the foreign income. It is essential to keep the Swiss salary certificate (Lohnausweis) as proof of the withholding tax paid."
  },
  de: {
  q: "Wie funktioniert die Steuergutschrift für Grenzgänger?",
- a: "Die Steuergutschrift vermeidet Doppelbesteuerung: In der Schweiz gezahlte Steuern (Quellensteuer) werden im Abschnitt CE der Steuererklärung von der italienischen IRPEF abgezogen. Die Gutschrift ist auf den italienischen Steueranteil begrenzt, der dem ausländischen Einkommen entspricht. Wie Elena Colombo, auf internationale Steuern spezialisierte Steuerberaterin, erklärt: «Es ist unerlässlich, den Schweizer Lohnausweis als Nachweis der bezahlten Quellensteuer aufzubewahren»."
+ a: "Die Steuergutschrift vermeidet Doppelbesteuerung: In der Schweiz gezahlte Steuern (Quellensteuer) werden im Abschnitt CE der Steuererklärung von der italienischen IRPEF abgezogen. Die Gutschrift ist auf den italienischen Steueranteil begrenzt, der dem ausländischen Einkommen entspricht. Es ist unerlässlich, den Schweizer Lohnausweis als Nachweis der bezahlten Quellensteuer aufzubewahren."
  },
  fr: {
  q: "Comment fonctionne le crédit d'impôt pour les frontaliers ?",
- a: "Le crédit d'impôt évite la double imposition : les impôts payés en Suisse (impôt à la source) sont déduits de l'IRPEF italienne dans la section CE de la déclaration fiscale. Le crédit est limité à la part d'impôt italien correspondant au revenu étranger. Comme l'explique Elena Colombo, comptable spécialisée en fiscalité internationale: «Il est essentiel de conserver le certificat de salaire suisse (Lohnausweis) comme preuve de l'impôt à la source payé»."
+ a: "Le crédit d'impôt évite la double imposition : les impôts payés en Suisse (impôt à la source) sont déduits de l'IRPEF italienne dans la section CE de la déclaration fiscale. Le crédit est limité à la part d'impôt italien correspondant au revenu étranger. Il est essentiel de conserver le certificat de salaire suisse (Lohnausweis) comme preuve de l'impôt à la source payé."
  }
  },
 
@@ -1286,15 +1286,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Come funziona il credito d'imposta nel quadro CE?": {
  en: {
  q: "How does the tax credit work in Section CE?",
- a: "In Section CE, you declare the Swiss withholding tax paid, converted to EUR at the annual average exchange rate. The tax credit reduces the IRPEF due, up to the limit: it can never exceed the Italian IRPEF calculated on the foreign income. According to Elena Colombo, international tax accountant: 'Any excess credit can be carried forward to the next eight tax returns'."
+ a: "In Section CE, you declare the Swiss withholding tax paid, converted to EUR at the annual average exchange rate. The tax credit reduces the IRPEF due, up to the limit: it can never exceed the Italian IRPEF calculated on the foreign income. Any excess credit can be carried forward to the next eight tax returns."
  },
  de: {
  q: "Wie funktioniert die Steuergutschrift im Abschnitt CE?",
- a: "Im Abschnitt CE wird die gezahlte Schweizer Quellensteuer angegeben, zum Jahresdurchschnittskurs in EUR umgerechnet. Die Steuergutschrift reduziert die geschuldete IRPEF bis zur Obergrenze: Sie kann nie die auf das ausländische Einkommen berechnete italienische IRPEF übersteigen. Wie Elena Colombo, auf internationale Steuern spezialisierte Steuerberaterin, erklärt: «Ein allfälliger Überschuss der Steuergutschrift kann in die nächsten acht Steuererklärungen vorgetragen werden»."
+ a: "Im Abschnitt CE wird die gezahlte Schweizer Quellensteuer angegeben, zum Jahresdurchschnittskurs in EUR umgerechnet. Die Steuergutschrift reduziert die geschuldete IRPEF bis zur Obergrenze: Sie kann nie die auf das ausländische Einkommen berechnete italienische IRPEF übersteigen. Ein allfälliger Überschuss der Steuergutschrift kann in die nächsten acht Steuererklärungen vorgetragen werden."
  },
  fr: {
  q: "Comment fonctionne le crédit d'impôt dans la section CE ?",
- a: "Dans la section CE, on déclare l'impôt à la source suisse payé, converti en EUR au taux de change moyen annuel. Le crédit d'impôt réduit l'IRPEF due, dans la limite : il ne peut jamais dépasser l'IRPEF italienne calculée sur le revenu étranger. Comme l'explique Elena Colombo, comptable spécialisée en fiscalité internationale: «L'éventuel excédent du crédit peut être reporté sur les huit déclarations suivantes»."
+ a: "Dans la section CE, on déclare l'impôt à la source suisse payé, converti en EUR au taux de change moyen annuel. Le crédit d'impôt réduit l'IRPEF due, dans la limite : il ne peut jamais dépasser l'IRPEF italienne calculée sur le revenu étranger. L'éventuel excédent du crédit peut être reporté sur les huit déclarations suivantes."
  }
  },
 

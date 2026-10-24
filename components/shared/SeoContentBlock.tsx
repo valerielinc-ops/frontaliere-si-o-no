@@ -21,9 +21,8 @@ import React, { useState } from 'react';
 import {
  Calculator, Scale, Landmark, BookOpen, Users, Target,
  ChevronDown, ChevronUp, Check, Star, Shield, Clock,
- ArrowRight, Info, CalendarDays, Quote,
+ ArrowRight, Info, CalendarDays,
 } from 'lucide-react';
-import Callout from '@/components/shared/Callout';
 import { useTranslation } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import type { ActiveTab } from '@/services/router';
@@ -235,20 +234,6 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
  <p className="text-sm text-subtle mb-3">
  {t(`seoContent.${context}.subtitle`)}
  </p>
-
- {/* Expert quote — authority signal for AI citation (+30% visibility) */}
- {t(`seoContent.${context}.expertQuote`) !== `seoContent.${context}.expertQuote` && (
- <Callout status="accent" variant="plain" icon={<Quote className="w-3.5 h-3.5" />} className="mb-3">
- <blockquote data-speakable="true">
- <p className="text-sm italic text-subtle">
- {t(`seoContent.${context}.expertQuote`)}
- </p>
- <cite className="text-xs text-muted not-italic font-medium">
- — {t(`seoContent.${context}.expertName`)}
- </cite>
- </blockquote>
- </Callout>
- )}
 
  {/* Trust signals */}
  <div className="flex flex-wrap gap-3 mb-3">

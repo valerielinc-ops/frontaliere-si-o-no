@@ -1436,7 +1436,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Come si calcola la pensione AVS per un frontaliere?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "La rendita AVS dipende dagli anni di contribuzione e dal reddito medio. Con 44 anni di contributi (scala 44) si ottiene la rendita completa: minima CHF 1.260/mese, massima CHF 2.520/mese (2026). Ogni anno mancante riduce la rendita di 1/44. Come sottolinea il Dott. Andrea Fiorini, consulente previdenziale: «Anche pochi anni di contributi AVS generano un diritto pensionistico grazie alla totalizzazione con i periodi INPS»."
+ "text": "La rendita AVS dipende dagli anni di contribuzione e dal reddito medio. Con 44 anni di contributi (scala 44) si ottiene la rendita completa: minima CHF 1.260/mese, massima CHF 2.520/mese (2026). Ogni anno mancante riduce la rendita di 1/44. Anche pochi anni di contributi AVS generano un diritto pensionistico grazie alla totalizzazione con i periodi INPS."
  }
  },
  {
@@ -1444,7 +1444,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Posso riscuotere il secondo pilastro LPP quando lascio la Svizzera?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I frontalieri UE possono riscuotere la parte sovraobbligatoria del 2° pilastro al momento della partenza. La parte obbligatoria resta in un conto di libero passaggio fino all'età pensionabile, salvo eccezioni (avvio attività indipendente, acquisto casa principale). Come consiglia il Dott. Andrea Fiorini, consulente previdenziale: «Prima del prelievo è fondamentale valutare la tassazione nel cantone di residenza della cassa pensione, che varia sensibilmente»."
+ "text": "I frontalieri UE possono riscuotere la parte sovraobbligatoria del 2° pilastro al momento della partenza. La parte obbligatoria resta in un conto di libero passaggio fino all'età pensionabile, salvo eccezioni (avvio attività indipendente, acquisto casa principale). Prima del prelievo è fondamentale valutare la tassazione nel cantone di residenza della cassa pensione, che varia sensibilmente."
  }
  },
  {
@@ -2399,7 +2399,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Un frontaliere licenziato in Svizzera prende la disoccupazione in Italia o in Svizzera?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il frontaliere con permesso G che perde il lavoro in Svizzera riceve la disoccupazione in Italia (NASpI), non in Svizzera. Il regolamento UE 883/2004 prevede che i lavoratori frontalieri in disoccupazione totale siano a carico del Paese di residenza. Come chiarisce il Prof. Roberto Bentivoglio, docente di diritto del lavoro all'USI: «Il frontaliere deve richiedere immediatamente il formulario PD U1 in Svizzera per non perdere il diritto alla NASpI»."
+ "text": "Il frontaliere con permesso G che perde il lavoro in Svizzera riceve la disoccupazione in Italia (NASpI), non in Svizzera. Il regolamento UE 883/2004 prevede che i lavoratori frontalieri in disoccupazione totale siano a carico del Paese di residenza. Il frontaliere deve richiedere immediatamente il formulario PD U1 in Svizzera per non perdere il diritto alla NASpI."
  }
  },
  {
@@ -3521,7 +3521,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Come funziona il credito d'imposta per frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il credito d'imposta evita la doppia imposizione: le tasse pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana nel quadro CE della dichiarazione dei redditi. Il credito è limitato alla quota di imposta italiana corrispondente al reddito estero. Secondo la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «È essenziale conservare il certificato di salario svizzero (Lohnausweis) come prova dell'imposta alla fonte pagata»."
+ "text": "Il credito d'imposta evita la doppia imposizione: le tasse pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana nel quadro CE della dichiarazione dei redditi. Il credito è limitato alla quota di imposta italiana corrispondente al reddito estero. È essenziale conservare il certificato di salario svizzero (Lohnausweis) come prova dell'imposta alla fonte pagata."
  }
  },
  {
@@ -4248,7 +4248,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Come funziona il credito d'imposta nel quadro CE?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Nel quadro CE si indica l'imposta alla fonte svizzera pagata, convertita in euro al cambio medio annuo. Il credito d'imposta riduce l'IRPEF dovuta fino a concorrenza: non può mai superare l'IRPEF italiana calcolata sul reddito estero. Secondo la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «L'eventuale eccedenza del credito può essere riportata nelle otto dichiarazioni successive»."
+ "text": "Nel quadro CE si indica l'imposta alla fonte svizzera pagata, convertita in euro al cambio medio annuo. Il credito d'imposta riduce l'IRPEF dovuta fino a concorrenza: non può mai superare l'IRPEF italiana calcolata sul reddito estero. L'eventuale eccedenza del credito può essere riportata nelle otto dichiarazioni successive."
  }
  },
  {
