@@ -70796,6 +70796,80 @@
           "notes": "Generic synthetic watchmaking workshop scene with precision machinery; no text, logos, or people."
         }
       }
+    },
+    "generated:article-grand-conseil-27-ottobre": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-24T02:01:16.832Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-24",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-grand-conseil-27-ottobre",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "1a7da0ff97c35965d0e3a2147480ac49ac89cd64abf4f63f2db7d277aac7a4f7",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "efdcde33446e476a526b09d24314039a0d4b454907c5d4a8a5ba836c94459e0d",
+        "bytes": 93230,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-24T02:01:16.832Z",
+        "verifiedAt": "2026-10-24T02:01:24.535Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-grand-conseil-27-ottobre.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic illustration of a formal legislative chamber; no readable text, logos, or identifiable people."
+        }
+      }
     }
   },
   "covers": {
@@ -110951,6 +111025,10 @@
     },
     "article-zenith-soppressione-locle": {
       "file": "generated:article-zenith-soppressione-locle",
+      "modified": "resized"
+    },
+    "article-grand-conseil-27-ottobre": {
+      "file": "generated:article-grand-conseil-27-ottobre",
       "modified": "resized"
     }
   }
