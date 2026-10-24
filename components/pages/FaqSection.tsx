@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, loadNamespaceTranslations } from '@/services/i18n';
+import { TranslationNamespaceGate } from '@/components/shared/TranslationNamespaceGate';
 import { HelpCircle, ChevronDown, ChevronUp, Search } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 
@@ -195,4 +196,15 @@ const FaqSection: React.FC = () => {
  );
 };
 
-export default FaqSection;
+// Questions, answers and page copy are the on-demand "faq" namespace
+// (services/locales/<locale>-ns-faq.ts). The request starts as soon as this
+// lazy module is evaluated, in parallel with the render, not after it.
+void loadNamespaceTranslations('faq');
+
+const FaqSectionWithStrings: React.FC = () => (
+ <TranslationNamespaceGate namespace="faq">
+ <FaqSection />
+ </TranslationNamespaceGate>
+);
+
+export default FaqSectionWithStrings;
