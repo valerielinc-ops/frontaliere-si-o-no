@@ -14,14 +14,18 @@ import { getActiveJobCountsByLocale } from '../../build-plugins/jobBoardSeo';
 import { resolveCantonSection as buildCantonAwareSection } from '../../build-plugins/shared/cantonSection';
 import { writeAllKnownJobSlugs } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 import { selectJobBoardInventory } from '../../services/jobBoardInventory';
+import { runActiveJobPostingCoverageGate } from '../../scripts/ci/assert-active-jobposting-coverage.mjs';
 import { buildJobBoardListingMetadata } from '../../services/seo/jobBoardListingMetadata';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
 const prefix = (locale: string) => locale === 'it' ? '' : `/${locale}`;
 const hubPath = (locale: typeof locales[number], canton: string) => `${prefix(locale)}/${buildCantonAwareSection(locale, canton)}/`;
 const daysAgo = (n: number) => new Date(Date.now() - n * 86400000).toISOString();
+const activeFirstSeenAt = daysAgo(3);
 const description = 'La posizione prevede la collaborazione con il gruppo di lavoro e la gestione delle attività quotidiane. Cerchiamo una persona con esperienza professionale, precisione e capacità organizzative, interessata a crescere in un ambiente qualificato. Offriamo formazione continua, un contratto stabile e condizioni di lavoro trasparenti. Le candidature complete vengono esaminate dal responsabile delle risorse umane.';
 let root: string;
+let coverageSidecar: string;
+const previousCoverageOut = process.env.JOBPOSTING_COVERAGE_OUT;
 const jobs = Array.from({ length: 8 }, (_, i) => ({
   id: `audit-position-${i}`, slug: `audit-position-${i}`, title: `Specialista amministrativo ${i}`,
   titleByLocale: { it: `Specialista amministrativo ${i}`, en: `Administrative specialist ${i}`, de: `Verwaltungsspezialist ${i}`, fr: `Spécialiste administratif ${i}` },
@@ -81,7 +85,7 @@ beforeAll(async () => {
     { ...jobs[0], id: 'missing-title', slug: 'missing-title', title: '' },
     { ...jobs[0], id: 'foreign-location', slug: 'foreign-location', location: 'London', addressLocality: 'London' },
   ];
-  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, { ...jobs[0], id: 'active-unverified', slug: 'active-unverified', postingDateSource: 'unknown', tags: ['infermiere'] }, ...listingOnly, ...sgJobs, ...invalidListings, { title: 'Developer (m/f/d) #1?', company: 'Acme', canton: 'TI', description }, { title: 'Cuoco', company: 'Acme', canton: 'TI', titleByLocale: { it: 'Cuoco', en: 'Cook', de: 'Koch', fr: 'Cuisinier' } }, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
+  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, { ...jobs[0], id: 'active-unverified', slug: 'active-unverified', postingDateSource: 'unknown', tags: ['infermiere'] }, { ...jobs[0], id: 'active-first-seen', slug: 'active-first-seen', postingDateSource: 'unknown', datePosted: '', postedDate: '', firstSeenAt: activeFirstSeenAt }, ...listingOnly, ...sgJobs, ...invalidListings, { title: 'Developer (m/f/d) #1?', company: 'Acme', canton: 'TI', description }, { title: 'Cuoco', company: 'Acme', canton: 'TI', titleByLocale: { it: 'Cuoco', en: 'Cook', de: 'Koch', fr: 'Cuisinier' } }, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
   // The archive emitter consumes its historical snapshot, independently of
   // current listing counts: ZH has one archive page and SG has two.
   fs.mkdirSync(path.join(root, 'data/jobs-snapshots-history'));
@@ -93,6 +97,8 @@ beforeAll(async () => {
     Object.fromEntries(locales.map((locale) => [locale, `${hubPath(locale, 'TI')}${slug}`])),
   ])), root);
   fs.writeFileSync(path.join(root, 'data/expired-jobs.json'), JSON.stringify(archivedJobs));
+  coverageSidecar = path.join(root, 'jobposting-coverage.json');
+  process.env.JOBPOSTING_COVERAGE_OUT = coverageSidecar;
   await (employerProfilePagesPlugin(root).closeBundle as () => Promise<void>)();
   (localeJobsSplitPlugin(root).closeBundle as () => void)();
   await (jobsSeoPagesPlugin(root).closeBundle as () => Promise<void>)();
@@ -102,7 +108,11 @@ beforeAll(async () => {
   } });
 }, 120000);
 
-afterAll(() => { if (root) fs.rmSync(root, { recursive: true, force: true }); });
+afterAll(() => {
+  if (previousCoverageOut === undefined) delete process.env.JOBPOSTING_COVERAGE_OUT;
+  else process.env.JOBPOSTING_COVERAGE_OUT = previousCoverageOut;
+  if (root) fs.rmSync(root, { recursive: true, force: true });
+});
 function htmlDoc(relative: string): Document {
   return new JSDOM(fs.readFileSync(path.join(root, 'dist', relative, 'index.html'), 'utf8')).window.document;
 }
@@ -179,7 +189,7 @@ describe('job-board emitted output', () => {
     for (const locale of locales) {
       const index = JSON.parse(fs.readFileSync(path.join(root, 'dist/data', `jobs-${locale}-index.json`), 'utf8'));
       const selected = selectJobBoardInventory(index, 'ZH');
-      expect(selected).toHaveLength(128);
+      expect(selected).toHaveLength(129);
       for (const id of ['missing-company', 'blank-company', 'missing-title', 'foreign-location']) {
         expect(index.some((job: any) => job.id === id)).toBe(false);
         expect(htmlDoc(hubPath(locale, 'ZH')).querySelector(`[href*="${id}"]`)).toBeNull();
@@ -209,7 +219,9 @@ describe('job-board emitted output', () => {
       const detail = htmlDoc(`${hub}listing-only-0/`);
       expect(detail.querySelector('meta[name="robots"]')?.getAttribute('content')).toContain('noindex');
       expect(detail.querySelector('h1')?.textContent).toContain('Posizione 0');
-      expect(structured(detail).find((entry) => entry['@type'] === 'JobPosting')).toBeUndefined();
+      // A listing-only record is still an active job: it keeps JobPosting
+      // (owner decision 2026-10-24) while the thin page stays noindex.
+      expect(structured(detail).find((entry) => entry['@type'] === 'JobPosting')?.datePosted).toBeTruthy();
       expect([...detail.scripts].some((script) => script.textContent?.includes('window.__JOB_SEED__'))).toBe(true);
       for (const link of lastPage.querySelectorAll('a[href*="listing-only-"]')) {
         const pathname = new URL(link.getAttribute('href')!, 'https://frontaliereticino.ch').pathname;
@@ -273,11 +285,11 @@ describe('job-board emitted output', () => {
     }
   });
 
-  it('keeps legacy active pages accessible without unverifiable schema', () => {
+  it('keeps JobPosting on legacy active pages, dated by the crawler observation', () => {
     for (const locale of locales) {
       const document = htmlDoc(`${hubPath(locale, 'ZH')}${jobs[1].slug}/`);
       const posting = structured(document).find((entry) => entry['@type'] === 'JobPosting');
-      expect(posting).toBeUndefined();
+      expect(posting?.datePosted).toBe(jobs[1].crawledAt);
       expect(document.querySelector('h1')?.textContent).toBeTruthy();
       expect(structured(document).some((entry) => entry['@type'] === 'FAQPage')).toBe(true);
       expect(document.querySelector('a.mab-cta')?.getAttribute('href')).toBe('#job-auth-gate');
@@ -296,11 +308,22 @@ describe('job-board emitted output', () => {
     }
   });
 
-  it('keeps active content, application link and FAQ without unverified JobPosting', () => {
+  // Regression of PR 11394 (2026-10-04): an unverified publication date used
+  // to withhold JobPosting from the emitted page.
+  it('emits JobPosting dated by first-seen when the source date is unverified', () => {
+    for (const locale of locales) {
+      const document = htmlDoc(`${hubPath(locale, 'ZH')}active-first-seen/`);
+      const posting = structured(document).find((entry) => entry['@type'] === 'JobPosting');
+      expect(posting?.datePosted).toBe(activeFirstSeenAt);
+      expect(posting?.hiringOrganization?.name).toBe('Audit Example SA');
+    }
+  });
+
+  it('keeps active content, application link, FAQ and JobPosting for an unverified date without first-seen', () => {
     for (const locale of locales) {
       const document = htmlDoc(`${hubPath(locale, 'ZH')}active-unverified/`);
       const entries = structured(document);
-      expect(entries.flatMap(allTypes)).not.toContain('JobPosting');
+      expect(entries.find((entry) => entry['@type'] === 'JobPosting')?.datePosted).toBe(jobs[0].crawledAt);
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['FAQPage', 'BreadcrumbList']));
       expect(document.querySelector('h1')?.textContent).toContain(jobs[0].titleByLocale[locale]);
       expect(document.body.textContent).toContain('La posizione prevede');
@@ -373,4 +396,30 @@ describe('job-board emitted output', () => {
       }
     },
   );
+
+  it('records every active detail it emits and the post-build gate finds JobPosting on each', () => {
+    const sidecar = JSON.parse(fs.readFileSync(coverageSidecar, 'utf8'));
+    expect(sidecar.total).toBe(sidecar.pages.length);
+    expect(sidecar.pages.some((page: { path: string }) => page.path.endsWith('/active-first-seen/'))).toBe(true);
+    const errors: string[] = [];
+    const status = runActiveJobPostingCoverageGate({ distDir: path.join(root, 'dist'), sidecarPath: coverageSidecar, log: () => {}, error: (line: string) => errors.push(line) });
+    expect(errors).toEqual([]);
+    expect(status).toBe(0);
+  });
+
+  it('fails the post-build gate when a later step strips JobPosting from an emitted page', () => {
+    const sidecar = JSON.parse(fs.readFileSync(coverageSidecar, 'utf8'));
+    const target = sidecar.pages.find((page: { path: string }) => page.path.endsWith('/active-first-seen/'));
+    const file = path.join(root, 'dist', target.path, 'index.html');
+    const original = fs.readFileSync(file, 'utf8');
+    try {
+      fs.writeFileSync(file, original.replace(/<script type="?application\/ld\+json"?>[^<]*"JobPosting"[^<]*<\/script>/g, ''));
+      const errors: string[] = [];
+      const status = runActiveJobPostingCoverageGate({ distDir: path.join(root, 'dist'), sidecarPath: coverageSidecar, log: () => {}, error: (line: string) => errors.push(line) });
+      expect(status).toBe(1);
+      expect(errors.join('\n')).toContain('active-first-seen');
+    } finally {
+      fs.writeFileSync(file, original);
+    }
+  });
 });

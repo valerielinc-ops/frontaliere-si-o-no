@@ -34,7 +34,7 @@ describe('promoted Prospector parsers — JobPosting mandatory fields', () => {
   it.each([
     ['christinavassalli', fetchAllChristinavassalliJobs],
     ['premiumpflege24', fetchAllPremiumpflege24Jobs],
-  ] as const)('%s keeps unverified listings ineligible while preserving facts and verified mandatory fields', async (_key, fetchJobs) => {
+  ] as const)('%s keeps unverified publication provenance while preserving JobPosting and mandatory fields', async (_key, fetchJobs) => {
     const [job] = await fetchJobs();
 
     expect(job).toHaveProperty('postalCode', '');
@@ -48,7 +48,8 @@ describe('promoted Prospector parsers — JobPosting mandatory fields', () => {
         now: new Date(),
       });
 
-      expect(schema).toBeNull();
+      expect(schema).not.toBeNull();
+      expect(schema?.datePosted).toBeTruthy();
       expect(job.title).toBeTruthy();
       expect(job.url).toBe(specListings[_key].url);
       expect(buildJobPostingFacts(job, locale).hiringOrganization.name).toBeTruthy();

@@ -4,7 +4,6 @@ import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
-import { JOB_POSTING_DATE_SAFE_DEFAULT } from '../scripts/lib/job-posting-date.mjs';
 
 const script = resolve('scripts/validate-jobs-rich-results-sample.mjs');
 const date = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
@@ -15,12 +14,13 @@ const posting = {
   jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', postalCode: '6900', streetAddress: 'Via Test 1' } },
   baseSalary: { currency: 'CHF', value: { minValue: 70000, maxValue: 90000, unitText: 'YEAR' } },
 };
-const fallbackPosting = { ...posting, datePosted: JOB_POSTING_DATE_SAFE_DEFAULT };
 function validate(
   source: string | undefined,
   schema: Record<string, unknown> | null,
   overrides: {
     firstSeenAt?: string;
+    crawledAt?: string;
+    postedDate?: string;
     canonicalUrlByLocale?: Record<string, string>;
     schemaByLocale?: Record<string, Record<string, unknown> | null>;
   } = {},
@@ -28,7 +28,7 @@ function validate(
   const root = mkdtempSync(join(tmpdir(), 'rich-result-provenance-'));
   try {
     mkdirSync(join(root, 'data'));
-    writeFileSync(join(root, 'data/jobs.json'), JSON.stringify([{ slug: 'example', postingDateSource: source, postedDate: date, firstSeenAt: overrides.firstSeenAt }]));
+    writeFileSync(join(root, 'data/jobs.json'), JSON.stringify([{ slug: 'example', postingDateSource: source, postedDate: overrides.postedDate ?? date, firstSeenAt: overrides.firstSeenAt, crawledAt: overrides.crawledAt }]));
     for (const [locale, section] of Object.entries(SECTION_LEGACY_TI)) {
       const dir = join(root, 'dist', locale === 'it' ? '' : locale, section, 'example');
       mkdirSync(dir, { recursive: true });
@@ -45,19 +45,12 @@ function validate(
   }
 }
 describe('rich-result eligibility validation', () => {
-  it.each(['unknown'])('still withholds schema when %s has no first observation', (source) => {
+  // Regression of PR 11394 (2026-10-04): an unverified publication date used
+  // to withhold JobPosting and the validator counted that as success.
+  it.each([undefined, 'unknown'])('rejects an active page without JobPosting even when provenance is %s', (source) => {
     const result = validate(source, null);
-    expect(result.status, result.stdout + result.stderr).toBe(0);
-    expect(result.stdout).toContain('JobPosting withheld (unverified publication): 4');
-  });
-  it('requires missing legacy provenance to remain ineligible', () => {
-    expect(validate(undefined, posting).status).toBe(1);
-    expect(validate(undefined, null).status).toBe(0);
-  });
-  it('rejects a schema manufactured for unverified publication outside the issue scope', () => {
-    const result = validate('unknown', posting);
-    expect(result.status).toBe(1);
-    expect(result.stdout).toContain('jobposting_without_reported_publication_date');
+    expect(result.status, result.stdout + result.stderr).toBe(1);
+    expect(result.stdout).toContain('jobposting_missing');
   });
   it('accepts a first-seen fallback when the record carries its observation timestamp', () => {
     const firstSeenAt = new Date(Date.now() - 4 * 86400000).toISOString();
@@ -66,16 +59,22 @@ describe('rich-result eligibility validation', () => {
     expect(result.stdout).toContain('JobPosting first-seen dates: 4');
     expect(result.stdout).toContain('Eligible locale checks: 4');
   });
-  it('accepts the safe default only for an exact canonical issue URL', () => {
-    const result = validate('unknown', null, {
-      canonicalUrlByLocale: {
-        it: 'https://frontaliereticino.ch/cerca-lavoro-berna/mansioni-richieste-hirslanden-klinik-search-a0f5e9/',
-      },
-      schemaByLocale: { it: fallbackPosting },
-    });
+  it('accepts the crawler observation when firstSeenAt is absent', () => {
+    const crawledAt = new Date(Date.now() - 2 * 86400000).toISOString();
+    const result = validate('unknown', { ...posting, datePosted: crawledAt }, { crawledAt });
     expect(result.status, result.stdout + result.stderr).toBe(0);
-    expect(result.stdout).toContain('JobPosting safe-default dates: 1');
-    expect(result.stdout).toContain('JobPosting withheld (unverified publication): 3');
+    expect(result.stdout).toContain('JobPosting observed dates: 4');
+  });
+  it('accepts the build date for a record without any timestamp', () => {
+    const result = validate('unknown', posting, { postedDate: '' });
+    expect(result.status, result.stdout + result.stderr).toBe(0);
+    expect(result.stdout).toContain('JobPosting build-clock dates: 4');
+  });
+  it('rejects a first-seen record whose page carries another date', () => {
+    const firstSeenAt = new Date(Date.now() - 4 * 86400000).toISOString();
+    const result = validate('unknown', posting, { firstSeenAt });
+    expect(result.status).toBe(1);
+    expect(result.stdout).toContain('datePosted:first-seen_mismatch');
   });
   it('still requires schema for every reported eligible job', () => {
     const result = validate('reported', null);
@@ -90,7 +89,7 @@ describe('rich-result eligibility validation', () => {
   it('rejects a substituted publication date', () => {
     const result = validate('reported', { ...posting, datePosted: '2026-01-02' });
     expect(result.status).toBe(1);
-    expect(result.stdout).toContain('datePosted:source_mismatch');
+    expect(result.stdout).toContain('datePosted:reported_mismatch');
   });
   it('preserves mandatory salary validation for eligible jobs', () => {
     const result = validate('reported', { ...posting, baseSalary: undefined });

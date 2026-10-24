@@ -220,7 +220,8 @@ describe('publisher-ads JobPosting structured data — AGENTS #3 mandatory field
   ])('%s: a verified publication retains every mandatory field in every locale', (_label, rec) => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const url = `https://frontaliereticino.ch/${locale === 'it' ? '' : `${locale}/`}lavoro/${rec.slug}/`;
-      expect(buildJobPostingSchema(rec, { locale, url })).toBeNull();
+      // An undated ad still emits JobPosting (owner decision 2026-10-24).
+      expect(buildJobPostingSchema(rec, { locale, url })['@type']).toBe('JobPosting');
       expect(renderBody(rec, locale)).toContain(rec.title);
       const reportedDate = new Date(Date.now() - 86400000).toISOString();
       const schema = buildReportedJobPostingFixture({ ...rec, postingDateSource: 'reported', datePosted: reportedDate, postedDate: reportedDate }, { locale, url });

@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Shared helpers to recover the REAL job description from a detail page when
  * the listing source only carries metadata (the canonical fix for the

@@ -50,7 +50,10 @@ describe.each(consumers)('%s publication provenance through real client and cons
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const schema = buildJobPostingSchema(job, { locale, url: job.url });
       if (kind === 'valid') expect(schema?.datePosted).toBe(past);
-      else expect(schema).toBeNull();
+      else {
+        expect(schema).not.toBeNull();
+        expect(schema?.datePosted).toBeTruthy();
+      }
       expect(buildJobPostingFacts(job, locale).hiringOrganization.name).toBeTruthy();
     }
     expect(fetchMock).toHaveBeenCalledTimes(2);

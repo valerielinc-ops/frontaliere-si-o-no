@@ -44,24 +44,42 @@ export function resolveFirstSeenPostingDate(input, now = new Date()) {
 }
 
 /**
- * Stable sentinel used only for the mandatory JobPosting.datePosted field.
- *
- * It is deliberately independent from crawl and build clocks. Consumers must
- * keep the returned provenance alongside the value, especially when a
- * first-seen fallback is used for an unknown employer publication date.
+ * Earliest collection timestamp of the record itself (crawler observations).
+ * It is weaker evidence than firstSeenAt: a crawler heartbeat says the listing
+ * was open at that instant, so it is an honest upper bound of the publication
+ * date, never a claim about the employer's own date.
  */
-export const JOB_POSTING_DATE_SAFE_DEFAULT = '1970-01-01';
+export function resolveObservedPostingDate(input, now = new Date()) {
+  let earliest = null;
+  for (const value of [input?.crawledAt, input?.scrapedAt, input?.updatedAt]) {
+    const resolved = resolveValidatedPostingDate(value, now);
+    if (resolved && (!earliest || compareValidatedPostingDates(resolved, earliest) < 0)) earliest = resolved;
+  }
+  return earliest;
+}
 
 /**
- * Resolve a value emitted at the JSON-LD boundary without changing source
- * provenance. Callers must explicitly opt into the safe default only after
- * checking the exact URL scope that permits it. Visible recency UI must
- * continue to use resolveReportedPostingDate().
+ * Resolve the mandatory JobPosting.datePosted at the JSON-LD boundary.
+ *
+ * Owner decision (2026-10-24): an active job ALWAYS emits JobPosting, so this
+ * resolver never returns null. The chain is ordered by strength of evidence
+ * and the provenance travels with the value:
+ *   1. `reported`    — the employer/source publication date (validated);
+ *   2. `first-seen`  — when the listing first appeared in our inventory;
+ *   3. `observed`    — the record's earliest crawler observation;
+ *   4. `build-clock` — the build date, only for a record with no usable
+ *                      timestamp at all (the job is in the active inventory
+ *                      that this build publishes, so it is open today).
+ * Visible recency UI and alerts keep using resolveReportedPostingDate() /
+ * firstSeenAt directly: this value feeds only structured data.
  */
-export function resolveSchemaPostingDate(input, now = new Date(), allowSafeDefault = false) {
-  const reported = resolveReportedPostingDate(input, now);
+export function resolveSchemaPostingDate(input, now = new Date()) {
+  const clock = Number.isFinite(now?.getTime()) ? now : new Date();
+  const reported = resolveReportedPostingDate(input, clock);
   if (reported) return { value: reported, provenance: 'reported' };
-  return allowSafeDefault
-    ? { value: JOB_POSTING_DATE_SAFE_DEFAULT, provenance: 'safe-default' }
-    : null;
+  const firstSeen = resolveFirstSeenPostingDate(input, clock);
+  if (firstSeen) return { value: firstSeen, provenance: 'first-seen' };
+  const observed = resolveObservedPostingDate(input, clock);
+  if (observed) return { value: observed, provenance: 'observed' };
+  return { value: clock.toISOString().slice(0, 10), provenance: 'build-clock' };
 }
