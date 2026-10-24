@@ -244,6 +244,7 @@ import {
   isLocaleVariantSitemapFile,
 } from './shared/localeVariantSitemap';
 import { forceGc } from './shared/forceGc';
+import { routeModulePreloadTags } from './shared/modulePreloads';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 import {
   glossaryTermSlugFromItalianPath,
@@ -2422,6 +2423,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ...itCriticalChunks.map(c => `<link rel="modulepreload" href="/assets/${c}">`),
  ].filter(Boolean).join('\n ');
  const preloadTag = corePreloads ? '\n ' + corePreloads : '';
+ // What `corePreloads` already hints: the page list below must not repeat it
+ // (shared/modulePreloads.ts — /calcola-stipendio/ shipped it-calculator twice).
+ const corePreloadedChunks: ReadonlySet<string> = new Set([vendorReactChunk, ...itCriticalChunks].filter(Boolean));
 
  /* ── 0b. Build page-component modulepreload map ────────────── */
  // Maps URL path prefixes → component chunk filename prefixes so static HTML
@@ -2708,18 +2712,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  };
  const componentPrefixes = routeAwarePreloadChunksFor(urlPath, sectionChunks[firstSeg]);
- if (componentPrefixes) {
- for (const prefix of componentPrefixes) {
- const chunk = resolveChunk(prefix);
- if (chunk) tags.push(`<link rel="modulepreload" href="/assets/${chunk}">`);
- }
- }
+ const routeChunks: string[] = (componentPrefixes ?? []).map(prefix => resolveChunk(prefix));
  // Add locale-specific translation chunk (e.g., it-guide-xxx.js)
  const localeChunkKey = sectionLocaleChunks[firstSeg];
- if (localeChunkKey) {
- const localeChunk = stableChunkFile(`${locale}-${localeChunkKey}`);
- tags.push(`<link rel="modulepreload" href="/assets/${localeChunk}">`);
- }
+ if (localeChunkKey) routeChunks.push(stableChunkFile(`${locale}-${localeChunkKey}`));
+ tags.push(...routeModulePreloadTags(routeChunks, corePreloadedChunks));
  // Preload the first-paint hero image on article listing and detail pages.
  // #5001: su una pagina di DETTAGLIO va preloadata la hero DI QUELL'ARTICOLO.
  // Preloadare quella dell'hub significava un fetch ad alta priorita' per
