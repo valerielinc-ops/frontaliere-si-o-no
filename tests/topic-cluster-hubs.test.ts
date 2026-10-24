@@ -554,7 +554,9 @@ describe('topic hubs — non annunciare una sezione che il build non spedisce', 
     // accodato — quindi saltare la sezione salta anche la sua sitemap, e nel
     // loop del build non esiste piu' un punto in cui scriverne una per una
     // sezione non renderizzata.
-    expect(src).toMatch(/const indexable = emitted\.filter\(\(e\) => e\.indexable\);/);
+    // `listed` (P1 noindex plan): page 2+ of a topic hub is written and
+    // indexable but not announced — still one claim, derived from `emitted`.
+    expect(src).toMatch(/const indexable = emitted\.filter\(\(e\) => e\.indexable && e\.listed !== false\);/);
     expect(src).toMatch(/if \(indexable\.length > 0\) \{[\s\S]{0,300}?topicSitemapFileName\(section\)/);
     // E il loop del build non deve poter scrivere una sitemap da solo.
     const loop = src.indexOf('for (const section of TOPIC_HUB_SECTIONS)');
@@ -806,10 +808,23 @@ describe.skipIf(SKIP_LIVE_DATA)('fast-publish topic hub render', () => {
         expect(audit.announcedNotWritten).toEqual([]);
         expect(audit.writtenNotAnnounced).toEqual([]);
 
-        // Pagination is where the two sides drifted: the sitemap must carry
-        // page-N URLs, not just the 14 bare topic paths, or "no phantom
-        // pagination" would be true only because there is no pagination.
-        expect(locs.filter((p) => /\/page-\d+\/$/.test(p)).length).toBeGreaterThan(0);
+        // Pagination is where the two sides drifted. Since the P1 noindex plan
+        // (paginationIndexPolicy, 2026-10-24) page 2+ of a topic hub is never
+        // announced — but "no phantom pagination" must still not be true only
+        // because there is no pagination: the page-N files exist on disk, are
+        // linked from page 1's pager, and none of them is in the sitemap.
+        expect(locs.filter((p) => /\/page-\d+\/$/.test(p))).toEqual([]);
+        const writtenPaged = Object.values(result.pathsByLocale).flat()
+          .filter((rel) => /(^|\/)page-\d+\/index\.html$/.test(rel));
+        expect(writtenPaged.length).toBeGreaterThan(0);
+        for (const rel of writtenPaged) {
+          const page = Number(/page-(\d+)\/index\.html$/.exec(rel)![1]);
+          const robots = fs.readFileSync(np.join(distDir, rel), 'utf-8')
+            .match(/<meta[^>]*\bname=["']?robots["']?[^>]*\bcontent=["']?([^"'>]+)/i)?.[1]?.replace(/\s+/g, '') ?? '';
+          // Below page 11 a thin page may legitimately be a noindex bridge
+          // (renderBridgePage), so only the policy side is asserted.
+          if (page >= 11) expect(robots, rel).toBe('noindex,follow');
+        }
       } finally {
         fs.rmSync(distDir, { recursive: true, force: true });
       }
