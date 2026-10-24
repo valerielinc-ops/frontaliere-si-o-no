@@ -223,7 +223,7 @@ function tryRead<T>(filePath: string): T | null {
  *
  * Fail-safe direction: when the evidence cannot be trusted the gate is
  * DORMANT (`active === false`) and callers must keep their pre-P1 behaviour
- * (indexable). A missing file, a window shorter than 90 days, a Pass-3 error
+ * (indexable). A missing file, a window other than exactly 90 days, a Pass-3 error
  * or an implausibly small page set would otherwise read as "no page has
  * impressions" and de-index every family at once.
  */
@@ -570,9 +570,12 @@ export class TrafficEvidenceFilter {
  */
 export function buildGscDemandEvidence(ev: EvidenceIndex | null | undefined): GscDemandEvidence {
   if (!ev) return DORMANT_GSC_DEMAND('evidence-index.json missing or unreadable');
+  // Exactly 90 days, in both directions: `gsc.pages` carries no per-path
+  // date, so a shorter window would read recent silence as no demand, and a
+  // longer one would let impressions from day 91+ keep a page indexable.
   const windowDays = Number(ev.windowDays);
-  if (!Number.isFinite(windowDays) || windowDays < GSC_DEMAND_WINDOW_DAYS) {
-    return DORMANT_GSC_DEMAND(`window ${ev.windowDays ?? 'absent'}d < ${GSC_DEMAND_WINDOW_DAYS}d`);
+  if (windowDays !== GSC_DEMAND_WINDOW_DAYS) {
+    return DORMANT_GSC_DEMAND(`window ${ev.windowDays ?? 'absent'}d is not the required ${GSC_DEMAND_WINDOW_DAYS}d`);
   }
   // Only a Pass-3 failure truncates `gsc.pages`; Pass 2 (query+page) hits its
   // row cap routinely and leaves the page set complete.

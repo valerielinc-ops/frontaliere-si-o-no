@@ -50,6 +50,7 @@ describe('buildGscDemandEvidence', () => {
     ['missing file', null],
     ['window shorter than 90 days', { windowDays: 28, gsc: { pages: pages(FULL) } }],
     ['window absent', { gsc: { pages: pages(FULL) } }],
+    ['window longer than 90 days (no per-path date to cut it)', { windowDays: 120, gsc: { pages: pages(FULL + 1) } }],
     ['Pass-3 error', { windowDays: 90, gsc: { error: 'pass3 (page): HTTP 500', pages: pages(FULL) } }],
     ['truncated page set', { windowDays: 90, gsc: { pages: pages(FULL - 1) } }],
     ['no gsc block', { windowDays: 90 }],
@@ -57,6 +58,7 @@ describe('buildGscDemandEvidence', () => {
     const ev = buildGscDemandEvidence(input as any);
     expect(ev.active).toBe(false);
     expect(ev.dormantReason).not.toBe('');
+    if ((input as any)?.windowDays === 120) expect(ev.dormantReason).toMatch(/120d/);
   });
 
   it('ignores zero-impression rows', () => {
