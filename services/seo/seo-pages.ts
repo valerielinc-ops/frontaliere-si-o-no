@@ -2273,36 +2273,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ],
  "speakable": SPEAKABLE_SECTION
  },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/`,
- "claimReviewed": "Il Canton Ticino riconosce 15 giorni festivi ufficiali: Capodanno, Epifania, San Giuseppe, Lunedì di Pasqua, 1° maggio, Ascensione, Lunedì di Pentecoste, Corpus Domini, SS. Pietro e Paolo, 1° agosto, Assunzione, Ognissanti, Immacolata, Natale e Santo Stefano.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-24",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Cancelleria dello Stato del Canton Ticino — Legge sui giorni festivi (LGF)" },
- "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/254", "name": "Canton Ticino — Legge concernente i giorni festivi ufficiali (art. 1)" }
- },
- "reviewBody": "Elenco ufficiale dei giorni festivi cantonali stabilito dalla Legge concernente i giorni festivi ufficiali nel Cantone Ticino (15 dicembre 2009), pubblicato dal Cantone per il 2026 e il 2027: 15 giorni, San Giuseppe incluso, Venerdì Santo escluso."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/`,
- "claimReviewed": "Il frontaliere italiano segue il calendario festivo svizzero (lex loci laboris), non quello italiano: le festività italiane non sono riconosciute come giorni non lavorativi dal datore svizzero.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-24",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Codice delle Obbligazioni svizzero (CO) art. 110 + Regolamento (CE) 883/2004" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/it#art_110", "name": "Fedlex — CO art. 110 (giorni festivi ufficiali)" }
- },
- "reviewBody": "Principio lex loci laboris del diritto internazionale del lavoro: rapporto di lavoro e festività regolati dalla legge del luogo di esecuzione (Svizzera/Ticino). Confermato art. 11 Reg. (CE) 883/2004 + dottrina SECO."
- }
  ]
  },
 
@@ -2373,36 +2343,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ],
  "speakable": SPEAKABLE_SECTION
  },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/`,
- "claimReviewed": "Der Kanton Tessin anerkennt 15 offizielle Feiertage: Neujahr, Dreikönigstag, Josefstag, Ostermontag, 1. Mai, Auffahrt, Pfingstmontag, Fronleichnam, Peter und Paul, 1. August, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis, Weihnachten und Stephanstag.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-24",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Wahr" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Staatskanzlei Kanton Tessin — Gesetz über die offiziellen Feiertage (LGF)" },
- "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/254", "name": "Kanton Tessin — Gesetz über die offiziellen Feiertage (Art. 1)" }
- },
- "reviewBody": "Offizielle Liste der kantonalen Feiertage gemäss Tessiner Gesetz über die offiziellen Feiertage (15. Dezember 2009), vom Kanton für 2026 und 2027 veröffentlicht: 15 Tage, Josefstag inbegriffen, Karfreitag nicht."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/`,
- "claimReviewed": "Der italienische Grenzgänger folgt dem Schweizer Feiertagskalender (lex loci laboris) und nicht dem italienischen: Italienische Feiertage werden vom Schweizer Arbeitgeber nicht als arbeitsfreie Tage anerkannt.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-24",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Wahr" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Schweizerisches Obligationenrecht (OR) Art. 110 + Verordnung (EG) 883/2004" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de#art_110", "name": "Fedlex — OR Art. 110 (offizielle Feiertage)" }
- },
- "reviewBody": "Grundsatz lex loci laboris des internationalen Arbeitsrechts: Arbeitsverhältnis und Feiertage richten sich nach dem Recht des Arbeitsortes (Schweiz/Tessin). Bestätigt durch Art. 11 Verordnung (EG) 883/2004 + Lehrmeinung SECO."
- }
  ]
  },
 
