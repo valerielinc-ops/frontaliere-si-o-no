@@ -5,13 +5,18 @@ name: Monitor GSC Job Indexation
 # monitor just found WITHOUT a "Job Postings" rich result.
 # 08:20 UTC is after the Indexing API quota reset (midnight America/Los_Angeles,
 # 07:00 UTC in summer, 08:00 UTC in winter), so this run opens the quota day.
+# Every completed deploy-publish also triggers the `indexing` job alone, so new
+# jobs reach Google the same day (this replaced the inline post-deploy call).
 on:
   schedule:
     - cron: '20 8 * * *'
+  workflow_run:
+    workflows: ['Publish to GitHub Pages (deploy + validate)']
+    types: [completed]
   workflow_dispatch:
     inputs:
       indexing_max:
-        description: 'Max Indexing API notifications this run (default 130 of the 160/day job budget; the rest stays for post-deploy new jobs)'
+        description: 'Max Indexing API notifications this run (default 130 of the 160/day job budget; the rest stays for deploy-triggered runs)'
         required: false
         default: '130'
         type: string
@@ -21,14 +26,6 @@ on:
         default: false
         type: boolean
 
-concurrency:
-  # Shared with post-deploy-publish.yml: both callers restore/save the same
-  # ledger and must never read the same counter concurrently.
-  group: frontaliere-indexing-api-ledger
-  # false: a cancelled run would drop the Indexing API ledger (actions/cache
-  # saves only when the job completes), re-spending quota on the same URLs.
-  cancel-in-progress: false
-
 permissions:
   contents: read
   issues: write
@@ -37,8 +34,12 @@ permissions:
 
 jobs:
   monitor:
+    if: github.event_name != 'workflow_run'
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 30
+    concurrency:
+      group: monitor-gsc-seo
+      cancel-in-progress: false
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -84,8 +85,109 @@ jobs:
           if [ "$INPUT_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
           node scripts/monitor-gsc-job-indexation.mjs "${ARGS[@]}"
 
-      # Same ledger as post-deploy-publish.yml (key prefix and branch scope):
-      # both callers share ONE daily Indexing API budget.
+      - name: Hand the pages without Jobs rich result to the indexing job
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: job-rich-missing
+          path: /tmp/job-rich-missing.json
+          if-no-files-found: ignore
+          retention-days: 2
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+  # Sole owner of the Indexing API ledger (notified URLs + per-day counter).
+  # The job-level group serializes every writer across scheduled, dispatched
+  # and deploy-triggered runs: restore → submit → save never overlap, so two
+  # runs cannot both read the same counter. A newer pending run may replace an
+  # older pending one; nothing is lost, the ledger carries the backlog and the
+  # first run of each quota day takes the large share (--max-first-run).
+  indexing:
+    needs: monitor
+    if: >-
+      always() &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: indexing-api-jobs-ledger
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      # load-rc-env.mjs has a dependency-free Remote Config path (#4837) and
+      # the submitter uses Node built-ins only: no npm install needed.
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      # GSC_CLIENT_ID/SECRET/REFRESH_TOKEN: the owner OAuth identity, used when
+      # the service account is not a Search Console Owner.
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Fetch the monitor's pages without Jobs rich result
+        if: needs.monitor.result == 'success'
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: job-rich-missing
+          path: /tmp/job-rich-missing
+
       - name: Restore Indexing API job ledger
         uses: actions/cache@v6
         with:
@@ -95,15 +197,14 @@ jobs:
             indexing-api-jobs-ledger-
 
       - name: Notify job pages to Google Indexing API
-        # GSC_CLIENT_ID/SECRET/REFRESH_TOKEN come from Remote Config (step
-        # above): the owner OAuth identity, used when the service account is
-        # not a Search Console Owner. Always exits 0.
+        # Always exits 0. Scheduled/dispatched: up to indexing_max. Deploy-
+        # triggered: 15, or 130 when it is the first run of the quota day.
         env:
-          INPUT_MAX: ${{ inputs.indexing_max || '130' }}
+          INPUT_MAX: ${{ github.event_name == 'workflow_run' && '15' || inputs.indexing_max || '130' }}
           INPUT_DRY_RUN: ${{ inputs.dry_run }}
         run: |
           case "$INPUT_MAX" in ''|*[!0-9]*) echo "::error::indexing_max must be an integer"; exit 1 ;; esac
-          ARGS=(--max "$INPUT_MAX" --ledger /tmp/indexing-api-jobs-ledger.json --priority-file /tmp/job-rich-missing.json)
+          ARGS=(--max "$INPUT_MAX" --max-first-run 130 --ledger /tmp/indexing-api-jobs-ledger.json --priority-file /tmp/job-rich-missing/job-rich-missing.json)
           if [ "$INPUT_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
           node scripts/submit-google-indexing-jobs.js "${ARGS[@]}"
 

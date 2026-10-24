@@ -157,8 +157,10 @@ function main() {
   const missingByKind = {};
   let malformed = 0;
   let withSchema = 0;
+  let pagesScanned = 0;
 
-  for (const f of files) {
+  for (const f of walkHtml(args.dist)) {
+    pagesScanned += 1;
     const url = fileToUrlPath(f, args.dist);
     let html;
     try {
@@ -200,6 +202,11 @@ function main() {
     }
   }
 
+  if (pagesScanned === 0) {
+    writeStubReport(args, 'dist-empty');
+    return;
+  }
+
   mkdirSync(args.out, { recursive: true });
   const today = isoDate();
   const report = {
@@ -208,7 +215,7 @@ function main() {
     generatedAt: new Date().toISOString(),
     distRoot: args.dist,
     totals: {
-      pages: files.length,
+      pages: pagesScanned,
       withSchema,
       malformed,
     },
@@ -226,7 +233,7 @@ function main() {
   const md = [];
   md.push(`# Schema Audit — ${today}`);
   md.push('');
-  md.push(`- Pages scanned: **${files.length}**`);
+  md.push(`- Pages scanned: **${pagesScanned}**`);
   md.push(`- Pages with >=1 JSON-LD block: **${withSchema}**`);
   md.push(`- Malformed JSON-LD blocks: **${malformed}**`);
   md.push('');
@@ -247,7 +254,7 @@ function main() {
   }
   writeFileSync(join(args.out, `schema-audit-${today}.md`), md.join('\n'));
 
-  console.log(`[schema-audit] ${files.length} pages → ${jsonPath}`);
+  console.log(`[schema-audit] ${pagesScanned} pages → ${jsonPath}`);
   console.log(`[schema-audit] withSchema=${withSchema} malformed=${malformed} missingKinds=${Object.keys(missingByKind).length}`);
 }
 
@@ -263,7 +270,7 @@ if (invokedDirectly) {
     } catch {
       /* noop */
     }
-    process.exit(0);
+    process.exit(1);
   }
 }
 

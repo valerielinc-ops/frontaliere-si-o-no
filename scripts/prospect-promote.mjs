@@ -479,6 +479,14 @@ for (const c of promotable) {
     '--ats', 'prospected',
     '--url', spec.seedUrls[0],
   ];
+  // Il logo verificato da VALIDATE sul dominio del datore. Senza, lo scaffold
+  // registrava `cLogo(dominio)` — Clearbit e' spento e il runtime scarta la
+  // voce — e i file del logo restavano fuori dal commit: i 15 crawler promossi
+  // dal 2026-10-09 sono andati in produzione senza logo pur avendo passato il
+  // check `logo` del gate.
+  const logoSourceUrl = [...(c.validationHistory || [])].reverse()
+    .find((entry) => entry?.logoFound === true && entry.logoSourceUrl)?.logoSourceUrl;
+  if (logoSourceUrl) args.push('--logo-url', logoSourceUrl);
   if (dryRun) {
     console.log(`  · ${spec.companyKey.padEnd(28)} ${String(c.vacancyCount).padStart(3)} annunci  (dry-run)`);
     shipped.push({ ...c, spec });
@@ -723,7 +731,12 @@ try {
   // `data/prospector` NON entra nel commit del branch: la coda e le spec sono
   // gia' su main (le committa lo stadio precedente), e includerle qui aggiunge
   // solo righe che main muove sotto i piedi della PR.
-  const paths = ['scripts', 'tests', 'data/crawler-manifest.json'];
+  // Registro, manifest e asset del logo scritti dallo scaffold: senza, il
+  // crawler entra in produzione con il badge a iniziali.
+  const paths = [
+    'scripts', 'tests', 'data/crawler-manifest.json',
+    'services/jobDataNormalization.ts', 'data/company-logos-manifest.json', 'public/images/brands',
+  ];
   // Il registro aziende entra solo se la rigenerazione e' RIUSCITA. Vedi il
   // `catch` piu' sopra: un fallimento deve lasciare nel diff il file vecchio
   // intatto, non trascinarcene dentro uno a meta'.

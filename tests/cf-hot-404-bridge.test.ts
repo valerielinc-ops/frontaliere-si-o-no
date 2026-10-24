@@ -71,12 +71,15 @@ describe('cfHot404BridgePlugin', () => {
     if (tmp) fs.rmSync(tmp, { recursive: true, force: true });
   });
 
-  it('recovers a hot non-Ticino job path as a noindex canonical bridge', () => {
+  it('recovers a hot non-Ticino job path as a stand-alone noindex,follow bridge', () => {
     const file = path.join(tmp, 'dist', rel('/cerca-lavoro-argovia/recovered-non-ti-role-acme-aarau'));
     expect(fs.existsSync(file)).toBe(true);
     const html = fs.readFileSync(file, 'utf-8');
-    expect(html).toContain('rel="canonical"');
-    expect(html).toContain('noindex');
+    expect(html).toContain('content="noindex,follow"');
+    // Rule «bridge noindex,follow, mai 404»: no canonical and no hreflang
+    // toward another page — the bridge only offers the CTA.
+    expect(html).not.toContain('rel="canonical"');
+    expect(html).not.toMatch(/hreflang=/i);
   });
 
   it('recovers a hot path in a non-default locale (EN)', () => {
@@ -104,7 +107,8 @@ describe('cfHot404BridgePlugin', () => {
     const html = fs.readFileSync(file, 'utf-8');
     // Redirects the user straight to the live page…
     expect(html).toContain(`<meta http-equiv="refresh" content="0; url=${target}"`);
-    expect(html).toContain(`rel="canonical" href="https://frontaliereticino.ch${target}"`);
+    expect(html).toContain(`href="${target}" class="btn"`);
+    expect(html).not.toContain('rel="canonical"');
     expect(html).toContain('noindex');
     // …instead of dead-ending on the archived compat copy.
     expect(html).not.toContain('Pagina archiviata');
@@ -120,7 +124,8 @@ describe('cfHot404BridgePlugin', () => {
     const file = path.join(tmp, 'dist', rel('/cerca-lavoro-argovia/page-97'));
     expect(fs.existsSync(file)).toBe(true);
     const html = fs.readFileSync(file, 'utf-8');
-    expect(html).toContain('rel="canonical" href="https://frontaliereticino.ch/cerca-lavoro-argovia/"');
+    expect(html).toContain('href="/cerca-lavoro-argovia/" class="btn"');
+    expect(html).not.toContain('rel="canonical"');
     expect(html).not.toContain('/cerca-lavoro-argovia/pagina-97/');
   });
 
@@ -132,7 +137,8 @@ describe('cfHot404BridgePlugin', () => {
     const file = path.join(tmp, 'dist', rel('/en/find-jobs-zurich/page-88'));
     expect(fs.existsSync(file)).toBe(true);
     const html = fs.readFileSync(file, 'utf-8');
-    expect(html).toContain('rel="canonical" href="https://frontaliereticino.ch/en/find-jobs-zurich/"');
+    expect(html).toContain('href="/en/find-jobs-zurich/" class="btn"');
+    expect(html).not.toContain('rel="canonical"');
     expect(html).not.toContain('/en/find-jobs-zurich/page-88/');
   });
 });

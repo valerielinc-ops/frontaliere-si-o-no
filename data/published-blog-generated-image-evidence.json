@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "6fdf8db047115683a688a397e3d6a6f77d50518a",
+  "commit": "1d143955b0a5cab3e2e175cfe7de2e7e9c6c8bd8",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -36816,6 +36816,104 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic Swiss-style corporate office illustration; no readable text, logos, identifiable faces, or foreground people."
+      }
+    },
+    "/images/blog/article-abstimmung-bahnhof-wil-allee.webp": {
+      "schema": 1,
+      "assetId": "article-abstimmung-bahnhof-wil-allee",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "ba5b2dbd9876d088aa68ad5221eb289ea52dbca25d24df06c3ec632d8479f117",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "0e1708e2bcb6205f1adbeec1f05febf65dca7d3e9553503d92cee83795dbd73a",
+      "bytes": 196506,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-24T13:42:55.617Z",
+      "verifiedAt": "2026-10-24T13:43:09.204Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-abstimmung-bahnhof-wil-allee.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic, photorealistic transit illustration with no readable text, logos, or people."
+      }
+    },
+    "/images/blog/article-cambio-ora-rischio-wildunfalli.webp": {
+      "schema": 1,
+      "assetId": "article-cambio-ora-rischio-wildunfalli",
+      "kind": "photo",
+      "provider": "wikimedia",
+      "model": "Wikimedia Commons file mirror",
+      "executorModel": "Wikimedia Commons file mirror",
+      "license": "CC BY 2.0",
+      "licenseFamily": "cc-by",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "Thomas Depenbusch (Depi) from Cologne, Germany · CC BY 2.0",
+      "author": {
+        "name": "Thomas Depenbusch (Depi) from Cologne, Germany"
+      },
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kyrgyzstan_(6020481422).jpg",
+      "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Kyrgyzstan_%286020481422%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "sourceWidth": 1600,
+      "sourceHeight": 870,
+      "photoTitle": "File:Kyrgyzstan (6020481422).jpg",
+      "copyrightNotice": "© Thomas Depenbusch (Depi) from Cologne, Germany",
+      "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Kyrgyzstan_(6020481422).jpg",
+      "modifications": [
+        "cropped",
+        "resized",
+        "converted-to-webp"
+      ],
+      "sha256": "bc20f2579ee22410e5c9f3724ee8aaad6879ac4a365b91674baf2d5b319142dc",
+      "bytes": 87280,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-24T14:03:06.210Z",
+      "verifiedAt": "2026-10-24T14:03:16.050Z",
+      "restrictions": [
+        "licensed-source",
+        "no-recognizable-foreground-person",
+        "no-logo-brand-or-trademark"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-cambio-ora-rischio-wildunfalli.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": true,
+        "is_topic_relevant": true,
+        "notes": "Photorealistic twilight landscape with a rural road; no people, logos, signage, or readable text."
       }
     },
     "/images/places/lugano-view.webp": {

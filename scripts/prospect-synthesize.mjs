@@ -33,9 +33,16 @@ import {
   finishLedgerPhase,
   recordCandidateAttempt,
   requeueLegacyNoVacancyCandidates,
+  requeueMiskeyedCandidate,
 } from './lib/prospector/candidate-store.mjs';
-import { synthesizeSpec, isExpectedSynthesisError } from './lib/prospector/synthesize.mjs';
-import { PROSPECTOR_DIR } from './lib/prospector/config.mjs';
+import {
+  synthesizeSpec,
+  isExpectedSynthesisError,
+  disambiguateCrawlerKey,
+  findMiskeyedCandidates,
+} from './lib/prospector/synthesize.mjs';
+import { PROSPECTOR_DIR, ROOT } from './lib/prospector/config.mjs';
+import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 import { parseSynthesisLimit, prioritizeSynthesisCandidates } from './lib/prospector/synthesis-schedule.mjs';
 
@@ -54,6 +61,63 @@ const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
 const store = loadCandidates();
 const synthesisLimit = limit;
+
+// Ogni chiave crawler e' il nome di un file spec, e un parser in produzione
+// rilegge la SUA spec da quel file a ogni giro: chi la sovrascrive cambia il
+// datore che quel crawler pubblica. Le chiavi prese sono quindi quelle dei
+// crawler in produzione (`scripts/update-<key>-jobs.mjs`) e quelle dei
+// candidati vivi che hanno gia' una spec.
+const productionKeys = loadCoverage(ROOT).keys;
+const keyOwners = new Map();
+const TERMINAL = new Set(['rejected', 'dead']);
+const addKeyOwner = (key, candidateKey) => {
+  const owners = keyOwners.get(key) || new Set();
+  owners.add(candidateKey);
+  keyOwners.set(key, owners);
+};
+const removeKeyOwner = (key, candidateKey) => {
+  const owners = keyOwners.get(key);
+  if (!owners) return;
+  owners.delete(candidateKey);
+  if (!owners.size) keyOwners.delete(key);
+};
+const hasOtherKeyOwner = (key, candidateKey) => {
+  const owners = keyOwners.get(key);
+  return Boolean(owners?.size && [...owners].some((owner) => owner !== candidateKey));
+};
+for (const candidate of Object.values(store.candidates)) {
+  if (candidate?.crawlerKey && !TERMINAL.has(candidate.status)) addKeyOwner(candidate.crawlerKey, candidate.key);
+}
+const readSpec = (key) => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(SPEC_DIR, `${key}.json`), 'utf8'));
+  } catch (error) {
+    // A missing production spec is the only case that proves the key is free.
+    // Malformed or unreadable specs must stop rekeying: treating them as absent
+    // could emit a second crawler while the live key still owns the employer.
+    if (error?.code === 'ENOENT') return null;
+    throw error;
+  }
+};
+
+// Candidati la cui chiave e' un'etichetta del vendor (`my`, `jobportal`,
+// `link`): tornano a SYNTHESIZE con una chiave propria, davanti alla coda.
+const rekeyed = onlyKey ? [] : findMiskeyedCandidates(Object.values(store.candidates), {
+  productionKeys,
+  specFor: readSpec,
+}).slice(0, synthesisLimit).filter(({ candidate, from, to }) => {
+  if (!requeueMiskeyedCandidate(store, candidate.key, { from, to }, dryRun ? null : undefined)) return false;
+  removeKeyOwner(from, candidate.key);
+  return true;
+});
+const rekeyedKeys = new Set(rekeyed.map(({ candidate }) => candidate.key));
+// La spec della vecchia chiave resta solo se qualcuno la legge ancora: un
+// crawler in produzione o un candidato vivo. Orfana, VALIDATE la giudicherebbe
+// ogni giorno senza un candidato a cui attribuire l'esito.
+for (const from of new Set(rekeyed.map((item) => item.from))) {
+  if (dryRun || productionKeys.has(from) || keyOwners.has(from)) continue;
+  fs.rmSync(path.join(SPEC_DIR, `${from}.json`), { force: true });
+}
 const legacyRecoveryLimit = onlyKey ? 0 : Math.min(synthesisLimit, Math.ceil(synthesisLimit * 0.25));
 const legacyRecovery = legacyRecoveryLimit
   ? requeueLegacyNoVacancyCandidates(store, legacyRecoveryLimit)
@@ -62,18 +126,26 @@ const legacyRecoveryKeys = new Set(legacyRecovery.map((candidate) => candidate.k
 const tracedQueue = onlyKey
   ? []
   : byStatus(store, 'traced').filter((candidate) => isSynthesisRetryDue(candidate)
-    && !legacyRecoveryKeys.has(candidate.key));
+    && !legacyRecoveryKeys.has(candidate.key)
+    && !rekeyedKeys.has(candidate.key));
+const rekeyedQueue = rekeyed.map(({ candidate }) => store.candidates[candidate.key])
+  .filter(Boolean);
 const queue = onlyKey
   ? [store.candidates[resolveCandidateKey(store, onlyKey)]].filter(Boolean)
   : [
+    ...rekeyedQueue,
     ...legacyRecovery,
     ...prioritizeSynthesisCandidates(
       tracedQueue,
-      legacyRecovery.length ? synthesisLimit - legacyRecovery.length : synthesisLimit,
+      Math.max(0, synthesisLimit - rekeyedQueue.length - legacyRecovery.length),
     ),
   ];
 
 console.log('═══ Prospector · SYNTHESIZE ═══');
+if (rekeyed.length) {
+  console.log(`chiavi crawler da etichetta del vendor: ${rekeyed.length} candidati tornano in sintesi`);
+  for (const { candidate, from, to } of rekeyed) console.log(`  ↺ ${candidate.key}: ${from} → ${to}`);
+}
 if (legacyRecovery.length) console.log(`recupero seed senza annunci: ${legacyRecovery.length} candidati legacy in coda`);
 console.log(`da sintetizzare: ${queue.length} candidati tracciati\n`);
 
@@ -154,6 +226,13 @@ for (const c of queue) {
     }
     continue;
   }
+  const ownKey = spec.companyKey;
+  spec.companyKey = disambiguateCrawlerKey(ownKey, c, (key) => (
+    productionKeys.has(key) || hasOtherKeyOwner(key, c.key)
+  ));
+  if (spec.companyKey !== ownKey) console.log(`  · ${ownKey} e' gia' di un altro crawler: uso ${spec.companyKey}`);
+  spec.candidateKey = c.key;
+  addKeyOwner(spec.companyKey, c.key);
   written++;
   vacancies += found.length;
   if (!dryRun) {

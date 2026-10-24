@@ -121,6 +121,7 @@ import {
   isHolidaysLandingPath,
   parseHolidaysLandingPath,
 } from '../build-plugins/holidaysLandingsData';
+import { parseSchoolCalendarLandingPath } from '../build-plugins/schoolCalendarData';
 import {
   isTopicClusterHubPath,
   isTopicIndexPath,
@@ -2781,6 +2782,20 @@ export function parsePath(pathname: string): ParseResult {
      if (parsed) {
        return { route: { activeTab: 'guida', staticOverlay: true }, locale: parsed.locale as Locale };
      }
+   }
+ }
+
+ // Ticino school-calendar landings (/vita-in-ticino/vacanze-scolastiche-ticino-<Y>/
+ // + locale variants, one per published DECS school year from 2027/28).
+ // Static HTML from schoolCalendarLandingsPlugin; staticOverlay keeps it on
+ // screen instead of the generic «vita» sub-tab.
+ {
+   const parsed = parseSchoolCalendarLandingPath(pathname);
+   if (parsed) {
+     return {
+       route: { activeTab: 'vita', vitaSubTab: 'living-ch', staticOverlay: true },
+       locale: parsed.locale as Locale,
+     };
    }
  }
 

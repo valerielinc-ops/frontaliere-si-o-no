@@ -112,9 +112,10 @@
         // already serve as 200 compat-bridge pages, but Google indexed more than our
         // snapshot, so the long tail soft-404s. Unknown ones have no derivable
         // SPECIFIC target → the locale's NATIONAL board (always a live 200, never a
-        // 301→404). Returns null for non-cluster slugs. Mirrors the Worker's
-        // recoverLegacySearchCluster; this branch ALSO covers the IT route (which
-        // bypasses the Worker). Called ONLY after the /job-canon map miss (below),
+        // 301→404). Returns null for non-cluster slugs. The Worker no longer does
+        // this for the job sections it routes: there an unknown slug is a real 404
+        // with its own localized page (renderNotFoundPage), so this branch only
+        // runs where the origin still serves this file. Called ONLY after the /job-canon map miss (below),
         // so a real job slug that happens to start with `ricerca-` is recovered to
         // its exact canonical first and never board-redirected.
         function clusterBoardTarget() {

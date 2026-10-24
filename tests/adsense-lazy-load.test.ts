@@ -229,7 +229,10 @@ describe('AdSense lazy loading — SPA AdSenseBanner component', () => {
     expect(adSenseBanner).toContain('collapseWhenLayoutSafe');
     expect(adSenseBanner).toContain('observeManualAd');
     const lifecycle = readFileSync(resolve(__dirname, '..', 'services/manualAdLifecycle.ts'), 'utf8');
-    expect(lifecycle).toContain('if (stopped || filled || !terminal || visible()) return;');
+    expect(lifecycle).toContain('if (stopped || filled || !terminal || visible() || !belowViewport()) return;');
+    // Space is given back only below the viewport: collapsing a box the reader
+    // already scrolled past pulls the visible page up (CLS 1.0 on `/`, 2026-10-24).
+    expect(lifecycle).toContain('const belowViewport = () => box.getBoundingClientRect().top >= window.innerHeight;');
     expect(adSenseBanner).not.toContain("currentStatus === 'unfilled') {\n console.info(`[AdSense] unfilled slot=${adSlot}, collapsing banner`)");
   });
 });

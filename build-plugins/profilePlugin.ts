@@ -43,6 +43,59 @@ const SEQUENTIAL_PROFILE = process.env.SEQUENTIAL_PROFILE === '1';
 const timings = new Map<string, number>();
 
 /**
+ * Soglia (MB) sotto la quale la GC forzata fra due plugin si salta.
+ *
+ * Perche'. La GC forzata qui sotto e' `flavor: 'last-resort'`, cioe' la
+ * raccolta che V8 ripete finche' non libera piu' nulla: il suo costo e'
+ * proporzionale all'heap VIVO, non alla spazzatura. Nel deploy 39917633944
+ * l'heap vivo fra i plugin e' 6,4-7,6 GB e ogni chiamata costa 5,8-8,4 s anche
+ * dopo un plugin da 0,01 s: sono le 98 pause fra `[profile-detail]` e
+ * `[profile-mem]`, 8,4 min sulla gamba IT e 9,4 sulla FR, il grosso del tempo
+ * di step che non sta in nessun plugin (`unattributed=718 s` / `862 s`).
+ *
+ * La GC resta OBBLIGATORIA dopo ogni plugin che ha fatto crescere heapUsed o
+ * RSS di almeno questa soglia dall'ultima GC forzata: e' il caso che il
+ * commento in `withProfile` difende (jobs-seo-pages lasciava 9 GB raccolti ma
+ * non restituiti). La crescita si misura PRIMA della GC e contro i valori
+ * DOPO l'ultima GC eseguita, quindi una serie di plugin piccoli saltati
+ * accumula: alla somma di soglia la GC torna a girare. La prima GC (dopo il
+ * bundle Rollup) gira sempre, perche' non c'e' ancora un valore di partenza.
+ *
+ * `PROFILE_GC_MIN_GROWTH_MB` non impostato o 0 = comportamento precedente
+ * (GC dopo ogni plugin). Letto a ogni chiamata, non al caricamento del
+ * modulo, cosi' un test puo' impostarlo.
+ */
+export function profileGcMinGrowthMb(env: NodeJS.ProcessEnv = process.env): number {
+  const raw = Number(env.PROFILE_GC_MIN_GROWTH_MB);
+  return Number.isFinite(raw) && raw > 0 ? raw : 0;
+}
+
+export type GcBaseline = { heapUsed: number; rss: number };
+
+/**
+ * `true` quando la GC forzata va eseguita. `last` e' la memoria misurata
+ * subito dopo l'ultima GC forzata (`null` prima della prima). Con soglia 0
+ * la risposta e' sempre `true`.
+ */
+export function shouldForceGcAfterPlugin(
+  before: GcBaseline,
+  last: GcBaseline | null,
+  thresholdMb: number,
+): boolean {
+  if (!(thresholdMb > 0) || last === null) return true;
+  const limit = thresholdMb * 1048576;
+  return before.heapUsed - last.heapUsed >= limit || before.rss - last.rss >= limit;
+}
+
+// Memoria subito dopo l'ultima GC forzata eseguita da questo wrapper.
+let lastForcedGc: GcBaseline | null = null;
+
+/** Tests only. */
+export function resetProfileGcBaseline(): void {
+  lastForcedGc = null;
+}
+
+/**
  * Wrap a Vite Plugin so its `closeBundle` hook is timed. Returns the input
  * plugin unchanged when `BUILD_PROFILE=0` or when the plugin has no
  * `closeBundle` to wrap.
@@ -98,15 +151,36 @@ export function withProfile(plugin: Plugin): Plugin {
       // pages mapped — the claim above was prose the call did not deliver,
       // and the memory guard samples RSS. See shared/forceGc.ts for the
       // before/after measurement that #5899 turned on.
-      forceGc();
+      //
+      // With PROFILE_GC_MIN_GROWTH_MB set, the call is skipped after a plugin
+      // that grew neither heapUsed nor RSS by that much since the last forced
+      // GC (see `profileGcMinGrowthMb` above for the measurement).
+      const gcThresholdMb = profileGcMinGrowthMb();
+      let gcNote = '';
+      let gcRan = false;
+      if (gcThresholdMb > 0) {
+        const before = process.memoryUsage();
+        if (shouldForceGcAfterPlugin(before, lastForcedGc, gcThresholdMb)) {
+          const gcStart = Date.now();
+          forceGc();
+          gcRan = true;
+          gcNote = ` gc=forced gc_ms=${Date.now() - gcStart}`;
+        } else {
+          const last = lastForcedGc as GcBaseline;
+          gcNote = ` gc=skipped heap_growth_mb=${((before.heapUsed - last.heapUsed) / 1048576).toFixed(0)} rss_growth_mb=${((before.rss - last.rss) / 1048576).toFixed(0)}`;
+        }
+      } else {
+        forceGc();
+      }
       // Memory profile per-plugin. RSS logged AFTER the forced GC so the
       // value reflects post-shrink RSS — the gap vs pre-GC heapUsed shows
       // how much V8 actually returned to the OS this iteration.
       // ~1 process.memoryUsage() call per plugin (~30 plugins) → < 1 ms total
       // overhead, no behaviour change.
       const m = process.memoryUsage();
+      if (gcRan) lastForcedGc = { heapUsed: m.heapUsed, rss: m.rss };
       console.log(
-        `[profile-mem] ${name.padEnd(40)} rss_mb=${(m.rss / 1048576).toFixed(0)} heapUsed_mb=${(m.heapUsed / 1048576).toFixed(0)} heapTotal_mb=${(m.heapTotal / 1048576).toFixed(0)} external_mb=${(m.external / 1048576).toFixed(0)} arrayBuffers_mb=${(m.arrayBuffers / 1048576).toFixed(0)}`,
+        `[profile-mem] ${name.padEnd(40)} rss_mb=${(m.rss / 1048576).toFixed(0)} heapUsed_mb=${(m.heapUsed / 1048576).toFixed(0)} heapTotal_mb=${(m.heapTotal / 1048576).toFixed(0)} external_mb=${(m.external / 1048576).toFixed(0)} arrayBuffers_mb=${(m.arrayBuffers / 1048576).toFixed(0)}${gcNote}`,
       );
     }
   };
