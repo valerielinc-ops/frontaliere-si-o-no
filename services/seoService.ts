@@ -44,6 +44,11 @@ import { BLOG_SEO_SHARD_IDS, type BlogSeoShardId } from '../build-plugins/shared
 import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
 import { needsArticleBodyRecovery } from './articleBodyRecovery';
 import { collectArticleBodySegments } from './articleBodySegments';
+import {
+ applyCanonicalHref as applyStaticCanonicalHref,
+ applyHreflangEntries,
+ resolveRobotsDirective,
+} from './seo/staticHeadAuthority';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -2054,13 +2059,14 @@ export async function updateMetaTags(section: string): Promise<void> {
  }
  })();
  const articleBodyUnavailable = isBlogArticle && articleBodyLoadFailed;
- const robotsDirective = isApplicationConciergeService
+ const spaRobotsDirective = isApplicationConciergeService
  ? 'noindex, nofollow'
  : hasFilterQuery || route.activeTab === 'newsletter-preferences'
  ? 'noindex, follow'
  : articleBodyHasPromptPlaceholder || articleBodyUnavailable
  ? 'noindex, follow'
  : pharmacyMetadata?.robots ?? ROBOTS_INDEX_ENHANCED_CONTENT;
+ const robotsDirective = resolveRobotsDirective(spaRobotsDirective);
  updateOrCreateMetaTag('name', 'robots', robotsDirective);
 
  // Update Open Graph tags (used by Bing, Facebook, LinkedIn)
@@ -2307,9 +2313,6 @@ function updateHreflangTags(
  // uses `window.location.pathname` for staticOverlay routes.
  if (route.staticOverlay) return;
 
- // Remove existing hreflang tags
- document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
-
  // Get locale-specific paths from the router
  const paths = pathResolver
   ? {
@@ -2327,20 +2330,12 @@ function updateHreflangTags(
  .map((lang) => ({ lang, url: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}${querySuffix}` : '' }))
  .filter((h) => h.lang && h.lang.length > 0 && h.url && h.url.length > 0);
 
- hreflangEntries.forEach(({ lang, url }) => {
- const link = document.createElement('link');
- link.rel = 'alternate';
- link.hreflang = lang;
- link.href = url;
- document.head.appendChild(link);
- });
-
  // Add x-default (Italian as default)
- const xDefault = document.createElement('link');
- xDefault.rel = 'alternate';
- xDefault.setAttribute('hreflang', 'x-default');
- xDefault.href = `${BASE_URL}${withTrailingSlashPath(paths.it)}${querySuffix}`;
- document.head.appendChild(xDefault);
+ const xDefault = {
+  lang: 'x-default',
+  href: `${BASE_URL}${withTrailingSlashPath(paths.it)}${querySuffix}`,
+ };
+ applyHreflangEntries([...hreflangEntries, xDefault]);
 }
 
 function withTrailingSlashPath(path: string): string {
@@ -2368,15 +2363,7 @@ function updateOrCreateMetaTag(attrName: string, attrValue: string, content: str
  * Update canonical link
  */
 function updateCanonicalLink(url: string): void {
- let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-
- if (!canonical) {
- canonical = document.createElement('link');
- canonical.rel = 'canonical';
- document.head.appendChild(canonical);
- }
-
- canonical.href = url;
+ applyStaticCanonicalHref(url);
 }
 
 const PHARMACY_SCHEMA_PATH = /\/(?:farmacie|pharmacies|apotheken)(?:\/|$)/i;
