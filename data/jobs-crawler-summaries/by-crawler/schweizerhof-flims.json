@@ -1,7 +1,7 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-10-23T21:19:44.381Z",
+  "generatedAt": "2026-10-24T09:18:15.187Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 34577,
-  "avgDurationMs": 34577,
+  "durationMs": 34926,
+  "avgDurationMs": 34926,
   "durationHistory": [
-    34577
+    34926
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,9 +35,9 @@
       "url": "https://romantikhotels.hcm4all.de/list/19839",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:19:29.238Z",
+      "crawledAt": "2026-10-24T09:17:56.702Z",
       "addressLocality": "Flims",
-      "addressRegion": "Graubünden",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7017",
@@ -81,9 +81,9 @@
       "url": "https://romantikhotels.hcm4all.de/list/18876",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:19:29.241Z",
+      "crawledAt": "2026-10-24T09:17:56.707Z",
       "addressLocality": "Flims",
-      "addressRegion": "Graubünden",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7017",
@@ -123,9 +123,9 @@
       "url": "https://romantikhotels.hcm4all.de/list/18877",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:19:29.240Z",
+      "crawledAt": "2026-10-24T09:17:56.705Z",
       "addressLocality": "Flims",
-      "addressRegion": "Graubünden",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7017",
@@ -154,5 +154,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

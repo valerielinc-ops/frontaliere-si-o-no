@@ -18,7 +18,7 @@
  * booting Vite plugins.
  */
 
-import { buildListingHubTitle } from '../services/seo/job-board-titles'
+import { buildListingHubH1, buildListingHubTitle } from '../services/seo/job-board-titles'
 import { buildListingHubMeta } from '../services/seo/meta-descriptions'
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 
@@ -29,6 +29,8 @@ export interface JobBoardSeoEntry {
   desc: string
   ogT: string
   ogD: string
+  /** On-page H1 aimed at the head query (no year, live count). */
+  h1: string
 }
 
 export const FIRE_EMOJI_THRESHOLD = 500
@@ -148,24 +150,25 @@ export function buildJobBoardSeo(
   // Ticino" brand suffix because OG renderers don't truncate at 60 chars.
   const title = buildListingHubTitle({ locale, count: safeCount, year })
   const desc = buildListingHubMeta({ locale, count: safeCount })
+  const h1 = buildListingHubH1({ locale, count: safeCount })
   const ogPrefix = safeCount > 0 ? (useFire ? `🔥 ${safeCount} ` : `${safeCount} `) : ''
 
   switch (locale) {
     case 'it': {
       const ogT = `${ogPrefix}Offerte di Lavoro Ticino ${year} | Aggiornate Oggi`
-      return { title, desc, ogT, ogD: desc }
+      return { title, desc, ogT, ogD: desc, h1 }
     }
     case 'en': {
       const ogT = `${ogPrefix}Jobs in Ticino ${year} | Updated Daily`
-      return { title, desc, ogT, ogD: desc }
+      return { title, desc, ogT, ogD: desc, h1 }
     }
     case 'de': {
       const ogT = `${ogPrefix}Jobs im Tessin ${year} | Täglich Aktualisiert`
-      return { title, desc, ogT, ogD: desc }
+      return { title, desc, ogT, ogD: desc, h1 }
     }
     case 'fr': {
       const ogT = `${ogPrefix}Emploi au Tessin ${year} | Mises à Jour Quotidiennes`
-      return { title, desc, ogT, ogD: desc }
+      return { title, desc, ogT, ogD: desc, h1 }
     }
   }
 }

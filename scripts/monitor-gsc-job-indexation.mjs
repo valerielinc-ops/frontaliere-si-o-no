@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Layer 3: Weekly GSC Job Indexation Monitor
+ * Layer 3: Daily GSC Job Indexation Monitor (weekly until 2026-10-24)
  *
  * Proactive monitoring of job page indexation health via Google Search Console.
  *
@@ -14,10 +14,20 @@
  *     (priority 3), separate from indexation FAIL
  * 5. Submits stale URLs via IndexNow for re-crawl
  * 6. Logs summary with trend data
+ * 7. Anti-regression for job rich results (scripts/lib/job-rich-result-guard.mjs):
+ *    - JOB_LISTING clicks (searchAppearance, dataState all) vs the median of
+ *      the same weekday over the 4 previous weeks: drop > 30% alerts;
+ *    - share of sampled LIVE job pages Google reports with a "Job Postings"
+ *      rich result: < 80% alerts. The sample is fixed (top job pages by
+ *      impressions) + random (live job sitemaps, seeded by date).
+ *    Either alert opens/updates ONE issue with a stable title. The live job
+ *    pages found without a Jobs rich result are written to
+ *    `--rich-missing-out <file>`, which scripts/submit-google-indexing-jobs.js
+ *    notifies first (monitor-gsc-seo.yml runs the two back to back).
  *
  * Always exits 0 — alerting/monitoring only.
  *
- * Usage: node scripts/monitor-gsc-job-indexation.mjs [--dry-run]
+ * Usage: node scripts/monitor-gsc-job-indexation.mjs [--dry-run] [--rich-missing-out <file>]
  *
  * Environment:
  *   GOOGLE_APPLICATION_CREDENTIALS — path to Service Account JSON
@@ -28,12 +38,23 @@ import { readFileSync, existsSync, writeFileSync, mkdirSync, appendFileSync } fr
 import { createSign } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE, getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
 import { isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import { enqueueDeployRearmRequest } from './ci/deploy-rearm-request.mjs';
+import {
+  hasJobPostingRichResult,
+  pickEvaluationDay,
+  evaluateWeekdayDrop,
+  evaluateRichShare,
+  seededSample,
+  CLICK_DROP_THRESHOLD,
+  RICH_SHARE_THRESHOLD,
+} from './lib/job-rich-result-guard.mjs';
+import { isJobDetailCandidate, parseJobSitemapIndex, parseSitemapUrlset, judgeLive } from './lib/indexing-jobs-planner.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -42,6 +63,17 @@ const SITE_URL = 'https://frontaliereticino.ch';
 const JOB_BOARD_LISTING_ROOT_RX = new RegExp(`/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/$`);
 const MAX_ANALYTICS_PAGES = 50;
 const MAX_INSPECT = 30;
+// Fixed half of the sample (top job pages by impressions); the rest is random
+// from the live job sitemaps so a regression on long-tail jobs is visible too.
+const FIXED_SAMPLE = 15;
+const APPEARANCE_LOOKBACK_DAYS = 40;
+// Cloudflare answers 403 to Node's default fetch user agent (measured
+// 2026-10-24): every fetch of our own pages must identify itself.
+const SITE_FETCH = { headers: { 'User-Agent': 'frontaliere-gsc-monitor/1.0 (+https://frontaliereticino.ch)' } };
+const RICH_MISSING_OUT = (() => {
+  const i = process.argv.indexOf('--rich-missing-out');
+  return i > -1 ? process.argv[i + 1] : null;
+})();
 const FETCH_TIMEOUT_MS = 20_000;
 const DRY_RUN = process.argv.includes('--dry-run');
 const HISTORY_FILE = join(__dirname, '..', 'data', 'gsc-monitor-history.json');
@@ -194,6 +226,9 @@ async function inspectUrl(accessToken, siteUrl, inspectionUrl) {
       canonical: r?.indexStatusResult?.userCanonical || null,
       googleCanonical: r?.indexStatusResult?.googleCanonical || null,
       richResults: r?.richResultsResult?.verdict || 'UNKNOWN',
+      // The verdict is PASS even when only Breadcrumbs were detected: the
+      // job-specific signal is the "Job Postings" item.
+      hasJobs: hasJobPostingRichResult(r?.richResultsResult),
       richResultsIssues,
       crawlTime: r?.indexStatusResult?.lastCrawlTime || null,
       coverageState: r?.indexStatusResult?.coverageState || null,
@@ -201,6 +236,64 @@ async function inspectUrl(accessToken, siteUrl, inspectionUrl) {
   } catch (err) {
     return { error: err.message };
   }
+}
+
+/**
+ * Daily clicks for one searchAppearance (JOB_LISTING / JOB_DETAILS), with
+ * dataState "all" so the newest days are present (still partial: the guard
+ * evaluates a day at least SETTLE_DAYS old).
+ */
+async function getAppearanceSeries(accessToken, siteUrl, appearance) {
+  const end = new Date();
+  const start = utcDaysBefore(end, APPEARANCE_LOOKBACK_DAYS);
+  const fmt = d => d.toISOString().split('T')[0];
+  try {
+    const res = await fetchWithTimeout(
+      `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(siteUrl)}/searchAnalytics/query`,
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          startDate: fmt(start),
+          endDate: fmt(end),
+          dimensions: ['date'],
+          dimensionFilterGroups: [{ filters: [{ dimension: 'searchAppearance', operator: 'equals', expression: appearance }] }],
+          dataState: 'all',
+          rowLimit: 100,
+          type: 'web',
+        }),
+      },
+    );
+    if (!res.ok) return { error: `http-${res.status}`, rows: [] };
+    const data = await res.json();
+    return { rows: (data.rows || []).map(r => ({ date: r.keys[0], clicks: r.clicks || 0, impressions: r.impressions || 0 })) };
+  } catch (err) {
+    return { error: err.message, rows: [] };
+  }
+}
+
+/** Job-detail URLs from the live job sitemaps ([] when unreadable). */
+async function loadLiveJobDetailUrls() {
+  try {
+    const idx = await fetchWithTimeout(`${SITE_URL}/sitemap.xml`, SITE_FETCH);
+    if (!idx.ok) return [];
+    const urls = new Set();
+    for (const sm of parseJobSitemapIndex(await idx.text())) {
+      const res = await fetchWithTimeout(sm, SITE_FETCH);
+      if (!res.ok) continue;
+      for (const { loc } of parseSitemapUrlset(await res.text())) if (isJobDetailCandidate(loc)) urls.add(loc);
+    }
+    return [...urls];
+  } catch { return []; }
+}
+
+/** True when the page is served right now as an indexable job page with JobPosting. */
+async function isLiveJobPage(url) {
+  try {
+    const res = await fetchWithTimeout(url, { ...SITE_FETCH, redirect: 'manual' });
+    const html = res.status === 200 ? await res.text() : '';
+    return judgeLive('URL_UPDATED', { status: res.status, html }) === 'ok';
+  } catch { return false; }
 }
 
 // ── Analysis ────────────────────────────────────────────────
@@ -441,7 +534,7 @@ function writeStepSummary({ results, sample, failedPages, warnPages, persistentF
 
 // ── Main ────────────────────────────────────────────────────
 async function main() {
-  log('📊', 'Layer 3: Weekly GSC Job Indexation Monitor\n');
+  log('📊', 'Layer 3: Daily GSC Job Indexation Monitor\n');
 
   if (DRY_RUN) log('ℹ️', 'DRY RUN — no GitHub issues or IndexNow submissions\n');
 
@@ -463,16 +556,20 @@ async function main() {
   const siteUrl = await detectSiteUrl(accessToken);
   log('🌐', `GSC site: ${siteUrl}`);
 
-  // Get top job pages
+  // Sample: fixed (top job-detail pages by impressions) + random (live job
+  // sitemaps, seeded by date so a same-day re-run inspects the same pages).
+  const today = new Date().toISOString().split('T')[0];
   const topPages = await getTopJobPages(accessToken, siteUrl);
-  if (topPages.length === 0) {
-    log('ℹ️', 'No job page analytics data — done');
+  const fixed = topPages.filter(isJobDetailCandidate).slice(0, FIXED_SAMPLE);
+  const fixedSet = new Set(fixed);
+  const randomPool = (await loadLiveJobDetailUrls()).filter(u => !fixedSet.has(u));
+  const sample = [...fixed, ...seededSample(randomPool, MAX_INSPECT - fixed.length, today)];
+  if (sample.length === 0) {
+    log('ℹ️', 'No job page analytics data nor live job sitemap — done');
     return;
   }
-
-  // Sample pages for inspection (prioritize diverse paths)
-  const sample = topPages.slice(0, MAX_INSPECT);
-  log('🔍', `Inspecting ${sample.length} pages (from ${topPages.length} with impressions)...\n`);
+  log('🔍', `Inspecting ${sample.length} pages (${fixed.length} fixed from ${topPages.length} with impressions, ${sample.length - fixed.length} random of ${randomPool.length} live)...\n`);
+  const richRows = [];
 
   const results = { PASS: 0, FAIL: 0, WARN: 0, STALE: 0, UNKNOWN: 0 };
   const failedPages = [];
@@ -480,12 +577,21 @@ async function main() {
   const stalePages = [];
 
   for (const pageUrl of sample) {
+    const liveJob = await isLiveJobPage(pageUrl);
     const result = await inspectUrl(accessToken, siteUrl, pageUrl);
 
     if (result.error === 'quota') {
       log('⚠️', 'API quota reached — stopping');
       break;
     }
+    richRows.push({
+      url: pageUrl,
+      liveJob,
+      inspected: !result.error,
+      hasJobs: !!result.hasJobs,
+      coverageState: result.coverageState || null,
+      crawlTime: result.crawlTime || null,
+    });
 
     const category = result.error ? 'UNKNOWN' : categorize(result, pageUrl);
     results[category]++;
@@ -593,6 +699,120 @@ async function main() {
     log('📤', `Submitting ${stalePages.length} stale URLs to IndexNow for re-crawl`);
     await submitToIndexNow(stalePages.map(p => p.url));
   }
+
+  await checkRichResultRegression({ accessToken, siteUrl, today, richRows });
+}
+
+// ── Job rich result anti-regression ─────────────────────────
+async function checkRichResultRegression({ accessToken, siteUrl, today, richRows }) {
+  const share = evaluateRichShare(richRows);
+  const appearances = {};
+  for (const appearance of ['JOB_LISTING', 'JOB_DETAILS']) {
+    const series = await getAppearanceSeries(accessToken, siteUrl, appearance);
+    const day = pickEvaluationDay(series.rows, today);
+    appearances[appearance] = day
+      ? evaluateWeekdayDrop(series.rows, { day })
+      : { day: null, alert: false, reason: series.error || 'no-data' };
+  }
+  const listing = appearances.JOB_LISTING;
+  const fmtPct = v => (v == null ? 'n/a' : `${(v * 100).toFixed(0)}%`);
+
+  log('🧪', `Jobs rich result share: ${share.withJobs}/${share.eligible} live job pages = ${fmtPct(share.share)} (threshold ${fmtPct(RICH_SHARE_THRESHOLD)}, ${share.reason})`);
+  for (const [name, a] of Object.entries(appearances)) {
+    log('🧪', `${name} clicks ${a.day || 'n/a'}: ${a.clicks ?? 'n/a'} vs same-weekday median ${a.baseline ?? 'n/a'} → drop ${fmtPct(a.drop)} (${a.reason})`);
+  }
+
+  const missing = richRows.filter(r => r.liveJob && !r.hasJobs).map(r => r.url);
+  if (RICH_MISSING_OUT) {
+    try {
+      writeFileSync(RICH_MISSING_OUT, JSON.stringify({ date: today, urls: missing }, null, 2));
+      log('💾', `${missing.length} live job page(s) without Jobs rich result → ${RICH_MISSING_OUT}`);
+    } catch (err) { log('⚠️', `rich-missing write failed: ${err.message}`); }
+  }
+
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    try {
+      appendFileSync(process.env.GITHUB_STEP_SUMMARY, [
+        '### Job rich results guard',
+        '',
+        '| Signal | Value | Threshold | Alert |',
+        '|---|---|---|---|',
+        `| Live job pages with "Job Postings" | ${share.withJobs}/${share.eligible} (${fmtPct(share.share)}) | ≥ ${fmtPct(RICH_SHARE_THRESHOLD)} | ${share.alert ? '🔴' : '—'} |`,
+        `| JOB_LISTING clicks ${listing.day || ''} vs weekday median | ${listing.clicks ?? 'n/a'} vs ${listing.baseline ?? 'n/a'} (${fmtPct(listing.drop)}) | drop ≤ ${fmtPct(CLICK_DROP_THRESHOLD)} | ${listing.alert ? '🔴' : '—'} |`,
+        `| JOB_DETAILS clicks ${appearances.JOB_DETAILS.day || ''} (info) | ${appearances.JOB_DETAILS.clicks ?? 'n/a'} vs ${appearances.JOB_DETAILS.baseline ?? 'n/a'} | — | — |`,
+        '',
+      ].join('\n'));
+    } catch { /* ignore */ }
+  }
+
+  if (!share.alert && !listing.alert) return;
+  if (DRY_RUN) {
+    log('ℹ️', 'DRY RUN — would open the job rich result regression issue');
+    return;
+  }
+  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+  if (!apiKey) { log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping issue'); return; }
+  try {
+    const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
+    await create({
+      title: RICH_REGRESSION_TITLE,
+      description: buildRichRegressionIssueBody({ share, listing, details: appearances.JOB_DETAILS, rows: richRows }),
+      priority: 1,
+      labels: ['Bug', 'seo'],
+      project: 'SEO',
+    });
+    log('📋', 'GitHub issue created (job rich result regression)');
+  } catch (err) {
+    log('⚠️', `GitHub issue creation failed: ${err.message}`);
+  }
+}
+
+export const RICH_REGRESSION_TITLE = '[Monitor] job rich results regression (JOB_LISTING / Job Postings)';
+
+/** Corpo della issue anti-regressione, scheda inclusa. Esportato per il test. */
+export function buildRichRegressionIssueBody({ share, listing, details, rows }) {
+  const pct = v => (v == null ? 'n/a' : `${(v * 100).toFixed(0)}%`);
+  const missing = rows.filter(r => r.liveJob && !r.hasJobs);
+  return [
+    '## Job rich results — regressione rilevata',
+    '',
+    `**Data**: ${new Date().toISOString().split('T')[0]}`,
+    `- Pagine annuncio live con rich result "Job Postings": **${share.withJobs}/${share.eligible} (${pct(share.share)})**, soglia ${pct(RICH_SHARE_THRESHOLD)}${share.alert ? ' — 🔴 sotto soglia' : ''}`,
+    `- Clic JOB_LISTING del ${listing.day || 'n/a'}: **${listing.clicks ?? 'n/a'}** contro mediana ${listing.baseline ?? 'n/a'} dello stesso giorno della settimana nelle 4 settimane precedenti → calo ${pct(listing.drop)}${listing.alert ? ` — 🔴 oltre il ${pct(CLICK_DROP_THRESHOLD)}` : ''}`,
+    `- Clic JOB_DETAILS del ${details?.day || 'n/a'} (informativo): ${details?.clicks ?? 'n/a'} contro ${details?.baseline ?? 'n/a'}`,
+    '',
+    '### Pagine live senza rich result Jobs nel campione',
+    ...(missing.length
+      ? missing.slice(0, 30).map(r => `- \`${new URL(r.url).pathname}\` — ${r.coverageState || 'stato sconosciuto'}, ultima scansione ${r.crawlTime || 'n/a'}`)
+      : ['- nessuna (allarme dai soli clic)']),
+    '',
+    'Queste URL sono gia\' state accodate per prime all\'Indexing API dallo stesso workflow',
+    '(`scripts/submit-google-indexing-jobs.js --priority-file`).',
+    '',
+    buildScheda({
+      causa: [
+        '(ipotesi, da confermare.) Google mostra meno annunci come offerte di lavoro. Le cause',
+        "osservate finora: pagine servite senza JSON-LD JobPosting (4-22/10/2026, PR 11394) e",
+        "Google che conserva lo stato dell'ultima scansione finche' non riscansiona.",
+      ],
+      fix: [
+        "Verificare che le pagine elencate emettano JobPosting valido (`curl -s URL | grep JobPosting`);",
+        "se si', la riscansione e' gia' richiesta via Indexing API; se no, correggere l'emissione. | **REPO**: sito.",
+      ],
+      metrica: `prima=${pct(share.share)} pagine con Jobs, calo clic ${pct(listing.drop)} atteso=share ≥ ${pct(RICH_SHARE_THRESHOLD)} e calo ≤ ${pct(CLICK_DROP_THRESHOLD)}`,
+      comando: 'node scripts/monitor-gsc-job-indexation.mjs --dry-run',
+      note: [
+        'Il comando rifa la stessa misura senza coniare issue e stampa le due righe `🧪`.',
+        'Vuole le credenziali Search Console: dalla root del workspace, `source bin/rc-env.sh`.',
+      ],
+      osservatore: [
+        '`.github/workflows/monitor-gsc-seo.yml` (giornaliero), che rifa la misura e aggiorna',
+        "questa issue finche' uno dei due segnali resta oltre soglia. Non c'e' un closer",
+        "automatico: il comando qui sopra e' il criterio di chiusura.",
+      ],
+      fallimento: `\`${RICH_REGRESSION_TITLE}\``,
+    }),
+  ].join('\n');
 }
 
 // ── GitHub Issue ────────────────────────────────────────────
@@ -772,7 +992,12 @@ async function submitToIndexNow(urls) {
   }
 }
 
-main().catch(err => {
-  log('⚠️', `Monitor error: ${err.message}`);
-  process.exit(0); // Always exit 0
-});
+// Run only as a CLI: tests import the issue-body builders, and an import must
+// not inspect 30 URLs (and spend URL Inspection quota) wherever credentials
+// happen to be in the environment.
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch(err => {
+    log('⚠️', `Monitor error: ${err.message}`);
+    process.exit(0); // Always exit 0
+  });
+}

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sygnum",
-  "assembledAt": "2026-10-23T21:21:55.458Z",
-  "runId": "40025738858",
+  "assembledAt": "2026-10-24T09:51:27.625Z",
+  "runId": "40081416098",
   "jobs": [
     {
       "id": "sygnum-3e8d178c34ea",
@@ -34,7 +34,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN293",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:21:48.985Z",
+      "crawledAt": "2026-10-24T09:51:18.494Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -115,7 +115,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN217",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:21:48.397Z",
+      "crawledAt": "2026-10-24T09:51:17.958Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -194,7 +194,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN296",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:21:47.441Z",
+      "crawledAt": "2026-10-24T09:51:17.472Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -275,7 +275,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN283",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:21:46.858Z",
+      "crawledAt": "2026-10-24T09:51:16.894Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -367,7 +367,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN287",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:21:45.782Z",
+      "crawledAt": "2026-10-24T09:51:16.315Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -442,7 +442,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:21:43.576Z",
+      "crawledAt": "2026-10-24T09:51:14.668Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -517,7 +517,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:21:42.410Z",
+      "crawledAt": "2026-10-24T09:51:14.143Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -592,7 +592,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:21:41.737Z",
+      "crawledAt": "2026-10-24T09:51:13.570Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -627,88 +627,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "sygnum-8e82aad2d346",
-      "slug": "responsabile-di-prodotto-tokenizzazione-sygnum-bank-zurich",
-      "slugByLocale": {
-        "it": "responsabile-di-prodotto-tokenizzazione-sygnum-bank-zurich",
-        "en": "product-manager-tokenization-sygnum-zurich",
-        "de": "produktmanager-tokenization-sygnum-bank-zurich",
-        "fr": "gestionnaire-de-produits-tokenization-sygnum-bank-zurich"
-      },
-      "company": "Sygnum Bank",
-      "companyKey": "sygnum",
-      "companyDomain": "sygnum.com",
-      "title": "Product Manager - Tokenization",
-      "titleByLocale": {
-        "it": "Responsabile di prodotto - Tokenizzazione",
-        "en": "Product Manager - Tokenization",
-        "de": "Produktmanager - Tokenization",
-        "fr": "Gestionnaire de produits - Tokenization"
-      },
-      "description": "As a Senior Product Manager in the Tokenization team, you will play a key role in developing and scaling Sygnum’s tokenization platform and on-chain investment solutions. You will work closely with engineering, legal and business teams to deliver innovative on-chain applications for our global client base. Key Responsibilities:\n• Own and drive Sygnum’s tokenization platform and on-chain investments initiatives, ensuring successful delivery to Sygnum’s global clients\n• Collaborate with clients, partners, engineering teams, and internal stakeholders to gather requirements and translate business needs into product specifications, user stories, and workflows\n• Lead the development and launch of new features to scale Sygnum’s tokenization platform, working closely with engineering teams throughout the product lifecycle\n• Support the definition and evolution of the tokenization platform’s vision and strategy, contributing insights from client needs, market developments, and technical capabilities\n• Conduct analysis and identify opportunities to expand Sygnum’s on-chain solution and tokenization offerings We are seeking someone who is passionate about the future of blockchain, tokenization, and decentralized finance, and who thrives in a fast-moving, entrepreneurial environment. Requirements:\n• Several years of relevant experience, ideally in a top-tier consulting firm, or as a Product Manager in a dynamic technology or fintech environment\n• Bachelor’s or Master’s degree in Computer Science, Finance, or a related field\n• Strong interest in digital assets, tokenization, blockchain, and DeFi\n• Ability to deep dive into technical topics while maintaining strategic perspective\n• Excellent analytical, organizational, and problem-solving skills\n• Strong communication skills and ability to collaborate with cross-functional teams\n• Fluent in English Nice to Have:\n• Technical background with hands-on coding experience\n• Understanding of blockchain infrastructure\n• Experience building blockchain-based financial products Joining Sygnum means being part of a dynamic, global team that is building a trusted gateway between the traditional and digital asset economies. Working at Sygnum, you will experience our fast-paced, exciting work environment that embraces meritocracy and collaboration and open communication. Alongside our ambitious long-term mission, we also come together for reaching important milestones and annual crypto-industry anniversaries like Bitcoin Pizza Day, and regularly celebrate together at themed company events as part of our journey to shape Future Finance. Sygnum offers a comprehensive package of benefits for all team members. They include:\n• Attractive combination of market salaries and entrepreneurial incentive scheme\n• Flexible/Work at home policies\n• Professional development via Mentoring and Buddy programs\n• One-month fully paid sabbatical after five years of continuous employment If you are passionate about the potential of blockchain to shape Future Finance and your profile is a good fit for this position, please send us your CV today!",
-      "descriptionByLocale": {
-        "it": "Come Senior Product Manager nel team Tokenization, si svolgerà un ruolo chiave nello sviluppo e scalare la piattaforma di tokenizzazione di Sygnum e le soluzioni di investimento on-chain. Potrai lavorare a stretto contatto con team di ingegneria, legali e aziendali per fornire applicazioni innovative on-chain per la nostra base clienti globale. Responsabilità chiave:\n• Possedere e guidare la piattaforma di tokenizzazione di Sygnum e iniziative di investimento on-chain, garantendo la consegna di successo ai clienti globali di Sygnum\n• Collabora con clienti, partner, team di ingegneria e stakeholder interni per raccogliere i requisiti e tradurre le esigenze aziendali in specifiche dei prodotti, storie degli utenti e flussi di lavoro\n• Condurre lo sviluppo e il lancio di nuove funzionalità per scalare la piattaforma di tokenizzazione di Sygnum, lavorando a stretto contatto con i team di ingegneria in tutto il ciclo di vita del prodotto\n• Supporta la definizione e l’evoluzione della visione e della strategia della piattaforma di tokenizzazione, contribuendo a comprendere le esigenze del cliente, gli sviluppi del mercato e le capacità tecniche\n• Condurre analisi e identificare le opportunità per espandere la soluzione on-chain di Sygnum e le offerte di tokenizzazione Stiamo cercando qualcuno che sia appassionato del futuro del blockchain, della tokenizzazione e della finanza decentralizzata, e che prospera in un ambiente imprenditoriale in rapida evoluzione. Requisiti:\n• Diversi anni di esperienza rilevante, idealmente in una società di consulenza di alto livello, o come Product Manager in una tecnologia dinamica o in un ambiente fintech\n• Corso di laurea o master in Informatica, finanza, o un campo correlato\n• Forte interesse per i beni digitali, tokenizzazione, blockchain e DeFi\n• Capacità di immergersi in argomenti tecnici mantenendo una prospettiva strategica\n• Eccellente capacità analitiche, organizzative e problem solving\n• Forte capacità di comunicazione e capacità di collaborare con team interfunzionali\n• Fluente in inglese Nizza per avere:\n• Sfondo tecnico con esperienza di codifica manuale\n• Comprensione delle infrastrutture blockchain\n• Unisciti a Sygnum significa essere parte di un team dinamico e globale che sta costruendo un gateway affidabile tra le economie di asset tradizionali e digitali. Lavorando a Sygnum, sperimenterete il nostro ambiente di lavoro veloce ed emozionante che abbraccia la meritocrazia e la collaborazione e la comunicazione aperta. Accanto alla nostra ambiziosa missione a lungo termine, ci uniamo anche per raggiungere importanti pietre miliari e anniversari cripto-industriali annuali come Bitcoin Pizza Day, e regolarmente celebrare insieme a eventi aziendali a tema come parte del nostro viaggio per formare Future Finance. Sygnum offre un pacchetto completo di vantaggi per tutti i membri del team. Essi includono:\n• Combinazione attraente di salari di mercato e di incentivazione imprenditoriale\n• Flessibile / Lavoro nelle politiche domestiche\n• Sviluppo professionale tramite programmi Mentoring e Buddy\n• Un mese completamente pagato sabbatico dopo cinque anni di occupazione continua Se siete appassionati del potenziale di blockchain per modellare Future Finance e il vostro profilo è una buona misura per questa posizione, si prega di inviare il vostro CV oggi!",
-        "en": "As a Senior Product Manager in the Tokenization team, you will play a key role in developing and scaling Sygnum’s tokenization platform and on-chain investment solutions. You will work closely with engineering, legal and business teams to deliver innovative on-chain applications for our global client base. Key Responsibilities:\n• Own and drive Sygnum’s tokenization platform and on-chain investments initiatives, ensuring successful delivery to Sygnum’s global clients\n• Collaborate with clients, partners, engineering teams, and internal stakeholders to gather requirements and translate business needs into product specifications, user stories, and workflows\n• Lead the development and launch of new features to scale Sygnum’s tokenization platform, working closely with engineering teams throughout the product lifecycle\n• Support the definition and evolution of the tokenization platform’s vision and strategy, contributing insights from client needs, market developments, and technical capabilities\n• Conduct analysis and identify opportunities to expand Sygnum’s on-chain solution and tokenization offerings We are seeking someone who is passionate about the future of blockchain, tokenization, and decentralized finance, and who thrives in a fast-moving, entrepreneurial environment. Requirements:\n• Several years of relevant experience, ideally in a top-tier consulting firm, or as a Product Manager in a dynamic technology or fintech environment\n• Bachelor’s or Master’s degree in Computer Science, Finance, or a related field\n• Strong interest in digital assets, tokenization, blockchain, and DeFi\n• Ability to deep dive into technical topics while maintaining strategic perspective\n• Excellent analytical, organizational, and problem-solving skills\n• Strong communication skills and ability to collaborate with cross-functional teams\n• Fluent in English Nice to Have:\n• Technical background with hands-on coding experience\n• Understanding of blockchain infrastructure\n• Experience building blockchain-based financial products Joining Sygnum means being part of a dynamic, global team that is building a trusted gateway between the traditional and digital asset economies. Working at Sygnum, you will experience our fast-paced, exciting work environment that embraces meritocracy and collaboration and open communication. Alongside our ambitious long-term mission, we also come together for reaching important milestones and annual crypto-industry anniversaries like Bitcoin Pizza Day, and regularly celebrate together at themed company events as part of our journey to shape Future Finance. Sygnum offers a comprehensive package of benefits for all team members. They include:\n• Attractive combination of market salaries and entrepreneurial incentive scheme\n• Flexible/Work at home policies\n• Professional development via Mentoring and Buddy programs\n• One-month fully paid sabbatical after five years of continuous employment If you are passionate about the potential of blockchain to shape Future Finance and your profile is a good fit for this position, please send us your CV today!",
-        "de": "Als Senior Product Manager im Tokenization-Team spielen Sie eine Schlüsselrolle bei der Entwicklung und Skalierung der Tokenization-Plattform und der On-Chain-Investmentlösungen von Sygnum. Sie werden eng mit Ingenieur-, Rechts- und Geschäftsteams zusammenarbeiten, um innovative On-Chain-Anwendungen für unseren globalen Kundenstamm zu liefern. Hauptzuständigkeiten:\n• Besitzen und betreiben Sie die Tokenisierungsplattform und On-Chain-Investitionsinitiativen von Sygnum, um eine erfolgreiche Lieferung an globale Kunden von Sygnum sicherzustellen\n• Arbeiten Sie mit Kunden, Partnern, Engineering-Teams und internen Stakeholdern zusammen, um Anforderungen zu sammeln und Geschäftsanforderungen in Produktspezifikationen, User Stories und Workflows zu übersetzen\n• Führen Sie die Entwicklung und Einführung neuer Funktionen zur Skalierung der Tokenisierungsplattform von Sygnum und arbeiten Sie während des gesamten Produktlebenszyklus eng mit Engineering-Teams zusammen\n• Unterstützen Sie die Definition und Weiterentwicklung der Vision und Strategie der Tokenisierungsplattform, indem Sie Einblicke in die Kundenbedürfnisse, Marktentwicklungen und technischen Fähigkeiten erhalten.\n• Analyse und Identifizierung von Möglichkeiten zur Erweiterung der On-Chain-Lösung und des Tokenisierungsangebots von Sygnum Wir suchen jemanden, der sich für die Zukunft der Blockchain, Tokenisierung und dezentralen Finanzen begeistert und in einem schnelllebigen, unternehmerischen Umfeld gedeiht. Anforderungen:\n• Mehrjährige relevante Erfahrung, idealerweise in einem erstklassigen Beratungsunternehmen oder als Produktmanager in einem dynamischen Technologie- oder Fintech-Umfeld\n• Bachelor- oder Master-Abschluss in Informatik, Finanzen oder einem verwandten Bereich\n• Starkes Interesse an digitalen Assets, Tokenisierung, Blockchain und DeFi\n• Fähigkeit, tief in technische Themen einzutauchen und gleichzeitig die strategische Perspektive zu bewahren\n• Ausgezeichnete analytische, organisatorische und Problemlösungsfähigkeiten\n• Starke Kommunikationsfähigkeit und Fähigkeit zur Zusammenarbeit mit funktionsübergreifenden Teams\n• Fließend auf Englisch Nice to Have:\n• Technischer Hintergrund mit praktischer Programmiererfahrung\n• Verständnis der Blockchain-Infrastruktur\n• Sich Sygnum anzuschließen bedeutet, Teil eines dynamischen, globalen Teams zu sein, das ein vertrauenswürdiges Tor zwischen den traditionellen und digitalen Asset-Ökonomen aufbaut. Bei Sygnum erleben Sie unser schnelles, aufregendes Arbeitsumfeld, das Meritokratie, Zusammenarbeit und offene Kommunikation umfasst. Neben unserer ehrgeizigen langfristigen Mission kommen wir auch zusammen, um wichtige Meilensteine und jährliche Jubiläen der Kryptobranche wie den Bitcoin Pizza Day zu erreichen, und feiern regelmäßig gemeinsam auf Themenveranstaltungen im Rahmen unserer Reise zur Gestaltung von Future Finance. Sygnum bietet ein umfassendes Leistungspaket für alle Teammitglieder. Dazu gehören:\n• Attraktive Kombination von Marktgehältern und unternehmerischem Anreizsystem\n• Flexible / Arbeit zu Hause Politik\n• Professionelle Entwicklung durch Mentoring und Buddy Programme\n• Ein Monat voll bezahltes Sabbatical nach fünf Jahren Dauerbeschäftigung Wenn Sie sich für das Potenzial der Blockchain zur Gestaltung von Future Finance begeistern und Ihr Profil gut zu dieser Position passt, senden Sie uns bitte noch heute Ihren Lebenslauf!",
-        "fr": "En tant que Senior Product Manager dans l'équipe de tokenization, vous jouerez un rôle clé dans le développement et la mise à l'échelle de la plate-forme de tokenization Sygnum et des solutions d'investissement en chaîne. Vous travaillerez en étroite collaboration avec les équipes d'ingénierie, de droit et d'affaires pour fournir des applications en chaîne innovantes pour notre clientèle mondiale. Principales responsabilités :\n• Posséder et piloter la plateforme de tokenisation de Sygnum et les initiatives d'investissement en chaîne, assurant une livraison réussie à Sygnums clients mondiaux\n• Collaborer avec les clients, les partenaires, les équipes d'ingénierie et les intervenants internes pour recueillir les exigences et traduire les besoins opérationnels en spécifications de produits, en histoires d'utilisateurs et en flux de travail\n• Diriger le développement et le lancement de nouvelles fonctionnalités à l'échelle de la plate-forme de tokenisation Sygnum, en travaillant en étroite collaboration avec les équipes d'ingénierie tout au long du cycle de vie du produit\n• Soutenir la définition et l'évolution de la plate-forme de tokenisation.\n• Effectuer des analyses et identifier les possibilités d'élargir la solution Sygnums on-chain et les offres de tokenisation Nous recherchons quelqu'un qui est passionné par l'avenir de la blockchain, de la tokenisation et de la finance décentralisée, et qui prospère dans un environnement d'entreprise en évolution rapide. Exigences:\n• Plusieurs années d'expérience pertinente, idéalement dans une société de conseil de haut niveau, ou comme chef de produit dans un environnement technologique ou fintech dynamique\n• Baccalauréat ou maîtrise en informatique, finance ou domaine connexe\n• Fort intérêt pour les actifs numériques, tokenisation, blockchain et DeFi\n• Capacité de plonger profondément dans des sujets techniques tout en conservant une perspective stratégique\n• Excellentes compétences en analyse, organisation et résolution de problèmes\n• Capacité de communication et de collaboration avec les équipes interfonctionnelles\n• C'est un plaisir d'avoir:\n• Contexte technique avec expérience pratique du codage\n• Compréhension de l'infrastructure blockchain\n• L'expérience de la construction de produits financiers basés sur la chaîne de blocs L'intégration de Sygnum signifie faire partie d'une équipe dynamique et mondiale qui construit une passerelle de confiance entre les économies d'actifs traditionnelles et numériques. En travaillant chez Sygnum, vous vivrez notre environnement de travail rapide et passionnant qui embrasse la méritocratie et la collaboration et la communication ouverte. Parallèlement à notre mission ambitieuse à long terme, nous nous réunissons également pour atteindre des jalons importants et des anniversaires annuels de crypto-industrie comme la Journée de la pizza Bitcoin, et célébrons régulièrement ensemble lors des événements thématiques de l'entreprise dans le cadre de notre voyage pour façonner Future Finance. Sygnum offre un ensemble complet d'avantages pour tous les membres de l'équipe. Ils comprennent:\n• Combinaison attrayante des salaires du marché et du régime d ' incitation à l ' entreprise\n• Les politiques de flexibilité/travail à domicile\n• Développement professionnel via les programmes de mentorat et de Buddy\n• Un mois plein salaire sabbatique après cinq années d'emploi continu Si vous êtes passionné par le potentiel de blockchain pour façonner Future Finance et votre profil est un bon ajustement pour ce poste, veuillez nous envoyer votre CV aujourd'hui!"
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN219",
-      "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:30:49.559Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "streetAddress": "Uetlibergstrasse 134A",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banche digitali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-03-13",
-      "postedDate": "2026-03-13",
-      "postingDateSource": "reported",
-      "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN219",
-      "jobReqId": "VN219",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "product-manager-tokenization-sygnum-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "product-manager-tokenization-sygnum-zurich"
-        ],
-        "de": [
-          "product-manager-tokenization-sygnum-zurich"
-        ],
-        "fr": [
-          "product-manager-tokenization-sygnum-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T09:22:34.069Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
