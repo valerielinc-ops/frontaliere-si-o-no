@@ -160,6 +160,9 @@ import {
 } from './shared/jobDetailHtml';
 import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
+import { isSourceStreetAddress } from '../scripts/lib/jobposting-field-provenance.mjs';
+import { formatJobEmploymentTypes, resolveJobEmploymentTypes } from '../scripts/lib/job-employment-type.mjs';
+import { salaryProvenanceSuffix } from './shared/salaryEstimateSuffix';
 import { resolveJobApplicationUrl } from '../services/jobApplicationDestination';
 import { buildFallbackCanonicalContent, canonicalizeFallbackCleaned, localizeFallbackCanonical, type CleanedFallbackContent } from '../services/jobs/canonicalFallback';
 import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
@@ -891,125 +894,19 @@ export function deriveJobAddressLocality(job: Record<string, unknown>, region: s
  return CANTON_CAPITAL_ADDRESSES[region]?.addressLocality || DEFAULT_CANTON_DISPLAY;
 }
 
- /** Sanitize address fields — reject crawler artifacts */
- const isValidAddress = (s: string): boolean => {
- if (!s || s.length > 100) return false;
- // Reject strings with too many spaces (likely scraped garbage)
- if ((s.match(/\s/g) || []).length > 8) return false;
- // Reject strings with navigation/UI artifacts
- if (/stampa|segnalazione|descrizione|annuncio|verifica|attività|dillo/i.test(s)) return false;
- return true;
- };
- // COMPANY_HQ_ADDRESSES is imported at module scope from
- // ./shared/companyHqAddresses — shared with weeklyEmployersPlugin.
-
- /** Does the value look like an actual street address (not just a city/region name)? */
- const isStreetLikeAddress = (s: string): boolean => {
- if (!s || s.length < 3) return false;
- // Must contain a known street keyword
- if (/\b(via|piazza|piazzale|piazzetta|viale|strada|corso|vicolo|salita|sentiero|contrada|largo|riva|lungolago|rampa|passaggio)\b/i.test(s)) return true;
- // Accept strings with both letters AND digits (e.g. "Rue de Lausanne 42") —
- // but reject pure-digit strings like "2026" that are years, not addresses
- if (/[a-zA-Z]/.test(s) && /\d/.test(s)) return true;
- return false;
- };
-
- /** City → generic central street address for last-resort fallback */
- const CITY_GENERIC_ADDRESS: Record<string, string> = {
- // Luganese
- 'lugano': 'Piazza Riforma 1', 'paradiso': 'Riva Albertolli 1', 'massagno': 'Via S. Gottardo 52',
- 'viganello': 'Via San Gottardo 87', 'pregassona': 'Via Pregassona 29', 'breganzona': 'Via Breganzona 16',
- 'montagnola': 'Via Cantonale 24', 'grancia': 'Via Cantonale 18', 'muzzano': 'Via Municipio 8',
- 'cadempino': 'Via Cantonale 31', 'lamone': 'Via Cantonale 31', 'comano': 'Via Cantonale 4',
- 'canobbio': 'Via Cantone 1', 'tesserete': 'Via Stazione 2', 'capriasca': 'Via Stazione 2',
- 'agno': 'Piazza Luini 2', 'bioggio': 'Via Cantonale 19', 'manno': 'Via Cantonale 2c', 'caslano': 'Piazza Lago 2',
- 'novaggio': 'Via Cantonale 5', 'noranco': 'Via Noranco 10', 'neggio': 'Via Cantonale 12',
- 'luganese': 'Piazza Riforma 1', 'malcantone': 'Piazza Lago 2',
- // Bellinzonese
- 'bellinzona': 'Piazza Governo', 'giubiasco': 'Piazza Grande 1', 'sementina': 'Via Cantonale 35',
- 'camorino': 'Via Cantonale 20', 'arbedo': 'Via Cantonale 1', 'castione': 'Via Cantonale 8',
- 'cadenazzo': 'Via Stazione 10', 's. antonino': 'Via Serrai 1', 's.antonino': 'Via Serrai 1',
- 'castione-arbedo': 'Via Cantonale 1', 'belinzona': 'Piazza Governo',
- // Sopraceneri
- 'lodrino': 'Via Cantonale 1', 'sopraceneri': 'Piazza Governo',
- // Locarnese
- 'locarno': 'Piazza Grande 18', 'muralto': 'Via Stazione 1', 'minusio': 'Via San Gottardo 73',
- 'gordola': 'Via Cantonale 40', 'tenero': 'Via Brere 7', 'ascona': 'Via Borgo 34',
- 'losone': 'Via Municipio 9', 'magadino': 'Via Cantonale 32', 'quartino': 'Via Cantonale 32',
- // Mendrisiotto
- 'mendrisio': 'Via Luigi Benteler 1', 'chiasso': 'Corso San Gottardo 84', 'stabio': 'Via Industria 1',
- 'balerna': 'Via Municipio 13', 'coldrerio': 'Via Municipio 12', 'novazzano': 'Via Cantonale 5',
- 'castel san pietro': 'Via Municipio 1', 'morbio inferiore': 'Via Cantonale 46', 'vacallo': 'Via Municipio 8',
- // Leventina / Blenio
- 'airolo': 'Piazza Stazione 1', 'faido': 'Piazza Municipio 1', 'bodio': 'Via Cantonale 3',
- 'biasca': 'Via Giuseppe Lepori 1', 'mezzovico': 'Via Vedeggio 4', 'rivera': 'Via Cantonale 1',
- 'taverne': 'Via Cantonale 20', 'pazzallo': 'Via Pazzallo 10', 'cadro': 'Via Cadro 5',
- 'riazzino': 'Via Cantonale 12', 'castelrotto': 'Via Pratocarasso 1',
- 'bedano': 'Via Cantonale 31', 'pollegio': 'Via Cantonale 1',
- // Graubünden / Grigioni
- 'chur': 'Bahnhofstrasse 1', 'coira': 'Bahnhofstrasse 1',
- 'landquart': 'Bahnhofstrasse 1', 'davos': 'Promenade 68',
- 'st. moritz': 'Via Maistra 12', 'samedan': 'Plazzet 4', 'pontresina': 'Via Maistra 133',
- 'walenstadt': 'Bahnhofstrasse 19', 'obervaz': 'Voa Principala 22',
- 'ilanz': 'Via Centrala 2', 'thusis': 'Neudorfstrasse 60', 'poschiavo': 'Via da la Stazione 1',
- // Ginevra
- 'plan-les-ouates': 'Route de Saint-Julien 7',
- 'genève': 'Rue du Rhône 1', 'ginevra': 'Rue du Rhône 1', 'genf': 'Rue du Rhône 1', 'geneva': 'Rue du Rhône 1',
- // Major Swiss cities outside Ticino/GR
- 'zürich': 'Bahnhofstrasse 1', 'zurich': 'Bahnhofstrasse 1', 'zurigo': 'Bahnhofstrasse 1',
- 'bern': 'Bundesplatz 1', 'berna': 'Bundesplatz 1',
- 'basel': 'Marktplatz 1', 'basilea': 'Marktplatz 1',
- 'lausanne': 'Place de la Palud 2', 'losanna': 'Place de la Palud 2',
- 'luzern': 'Bahnhofstrasse 1', 'lucerna': 'Bahnhofstrasse 1', 'lucerne': 'Bahnhofstrasse 1',
- 'st. gallen': 'Bahnhofplatz 1', 'san gallo': 'Bahnhofplatz 1',
- 'winterthur': 'Bahnhofplatz 1',
- 'zug': 'Bahnhofstrasse 1',
- 'aarau': 'Bahnhofstrasse 1',
- 'fribourg': 'Rue de Romont 1', 'friburgo': 'Rue de Romont 1',
- 'neuchâtel': 'Place du Port 1',
- 'schaffhausen': 'Bahnhofstrasse 1',
- 'solothurn': 'Hauptgasse 1',
- 'thun': 'Bahnhofstrasse 1',
- 'baden': 'Bahnhofstrasse 1',
- 'olten': 'Bahnhofstrasse 1',
- };
-
- // Accent/punctuation-folded view of the table above, so the lookup accepts the
- // emitted locality in any spelling the sanitizer lets through ("Zurich").
- const CITY_GENERIC_ADDRESS_BY_KEY = new Map<string, string>();
- for (const [city, street] of Object.entries(CITY_GENERIC_ADDRESS)) {
- const key = normalizePostalCityKey(city);
- if (key && !CITY_GENERIC_ADDRESS_BY_KEY.has(key)) CITY_GENERIC_ADDRESS_BY_KEY.set(key, street);
- }
-
 /**
- * Derive the job page's streetAddress: the job's own street, else a street of
- * the locality the page emits (`locality`, already sanitized by
- * deriveJobAddressLocality): the company HQ when it sits in that city, or the
- * curated central street of that city. Returns '' when none applies: the
- * canonical builder (`resolveAddress` in ./shared/jobPostingSchema) then uses
- * "<city> centro".
- *
- * Every lookup is anchored on the EMITTED locality (issue 9852). The previous
- * chain also searched the raw location parts ("Lyssach · Bern"), the raw street
- * and fuzzy variants, and ended on the canton capital's street: the street of
- * another place (Bern's "Bundesplatz 1", Lausanne's "Place de la Palud 2",
- * the Ticino default "Piazza Governo" on a TG job) next to the emitted
- * locality.
+ * The job's own streetAddress, when it reads as a street of the emitted
+ * locality (`isSourceStreetAddress`), else ''. Nothing else: the curated
+ * city-hall street of each city ("Piazza Riforma 1" for every Lugano job) and
+ * the canton capital's street were addresses no listing stated, and owner
+ * decision 2026-10-24 keeps a JobPosting field present only when the source
+ * states it. The employer's curated HQ, when it sits in the job's city, is
+ * applied by the canonical builder (`resolveAddress` in
+ * ./shared/jobPostingSchema) together with its own CAP.
  */
 export function deriveJobStreetAddress(job: any, locality: string): string {
- // 1. The job's own streetAddress — only if it looks like a real street.
- const raw = String(job.streetAddress || '').trim();
- if (isValidAddress(raw) && isStreetLikeAddress(raw)) return raw;
- // 2. Company HQ — ONLY in the emitted city (#3513). Same-canton is not
- // enough: pairing the HQ street with a different posting locality (e.g. HQ
- // Manno street on a Winterthur job) emits a contradictory PostalAddress.
- const companyKey = String(job.companyKey || '').toLowerCase().trim();
- const hq = companyKey ? COMPANY_HQ_ADDRESSES[companyKey] : undefined;
- if (hq && locality && localityMatchesHq(locality, hq)) return hq.streetAddress;
- // 3. Curated central street of the emitted city.
- const key = normalizePostalCityKey(locality);
- return (key && CITY_GENERIC_ADDRESS_BY_KEY.get(key)) || '';
+ const raw = String(job?.streetAddress || '').trim();
+ return isSourceStreetAddress(raw, locality) ? raw : '';
 }
 
 const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
@@ -1022,7 +919,8 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 export type ActiveJobReuseFragments = {
  jobPostingDatePosted: string;
  jobPostingDateProvenance: JobPostingDateProvenance;
- jobPostingValidThrough: string;
+ /** The source deadline, or null: a JobPosting without one carries no validThrough. */
+ jobPostingValidThrough: string | null;
  jobPostingCrawledAt: string | null;
  heroBadges: string;
  mobileAction: string;
@@ -1074,10 +972,34 @@ function replaceActiveJobReuseFragment(
  return `${html.slice(0, contentStart)}${next}${html.slice(end)}`;
 }
 
+/**
+ * The active page's `validThrough`: the source deadline as ISO, or null. The
+ * synthetic window this replaced (crawledAt+60d / postedDate+90d, floored to
+ * now+30d by #3505) is gone with it: Google asks to omit the property when
+ * the expiry is unknown, and the expired contract uses the real past
+ * timestamps of the archive, not this value.
+ */
+export function activeJobSourceValidThrough(job: unknown): string | null {
+ const raw = job && typeof job === 'object' ? (job as Record<string, unknown>).validThrough : null;
+ if (!raw) return null;
+ const parsed = new Date(String(raw));
+ return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
+}
+
+function omitJsonLdStringField(script: string, field: string): string {
+ const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+ const value = '(?:"(?:\\\\.|[^"\\\\])*"|null)';
+ const nonFirst = new RegExp(`,\\s*"${escapedField}"\\s*:\\s*${value}`);
+ const withoutNonFirst = script.replace(nonFirst, '');
+ if (withoutNonFirst !== script) return withoutNonFirst;
+ const first = new RegExp(`\\{(\\s*)"${escapedField}"\\s*:\\s*${value}\\s*(?:,)?`);
+ return script.replace(first, '{$1');
+}
+
 export function replaceActiveJobPostingDates(
  fragment: string,
  datePosted: string,
- validThrough: string,
+ validThrough: string | null,
  crawledAt?: string | null,
 ): string {
  // An active page never loses its JobPosting on a cache hit: a missing date
@@ -1088,10 +1010,12 @@ export function replaceActiveJobPostingDates(
  );
  if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
  let script = scriptMatch[0];
- const fields: Array<[string, string]> = [
-  ['datePosted', datePosted],
-  ['validThrough', validThrough],
- ];
+ const fields: Array<[string, string]> = [['datePosted', datePosted]];
+ // validThrough comes from the source only. When the current source has no
+ // deadline, remove any legacy synthetic deadline from the cached fragment;
+ // otherwise a cache hit can resurrect a value the source never stated.
+ if (validThrough) fields.push(['validThrough', validThrough]);
+ else script = omitJsonLdStringField(script, 'validThrough');
  // Keep the third field optional for legacy callers/tests. The production
  // active-page rewrite supplies null when the current source has no heartbeat;
  // fail closed instead of manufacturing an empty field or serving a stale one.
@@ -1200,20 +1124,31 @@ export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: strin
  return rewritten;
 }
 
-function formatActiveJobSalaryText(
+/**
+ * Visible salary of an active job page (hero pill, hero meta, mobile block,
+ * right rail). A figure the listing did not report carries the same
+ * provenance label as the job cards — "(stima)" for the pipeline's sector
+ * estimate, "(fonte non verificata)" for a structured salary of unknown
+ * origin — because only a reported salary reaches the JobPosting markup
+ * (owner decision 2026-10-24).
+ */
+export function formatActiveJobSalaryText(
  locale: 'it' | 'en' | 'de' | 'fr',
  salaryMin: number,
  salaryMax: number,
  salaryCurrency: string,
+ salarySource?: string | null,
 ): string {
  const salaryFormatter = new Intl.NumberFormat(
   locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : locale === 'en' ? 'en-CH' : 'it-CH',
   { maximumFractionDigits: 0 },
  );
  if (Number.isFinite(salaryMin)) {
-  return Number.isFinite(salaryMax) && salaryMax > salaryMin
+  const range = Number.isFinite(salaryMax) && salaryMax > salaryMin
    ? `${salaryCurrency} ${salaryFormatter.format(salaryMin)} - ${salaryFormatter.format(salaryMax)}`
    : `${salaryCurrency} ${salaryFormatter.format(salaryMin)}`;
+  const suffix = salaryProvenanceSuffix(salarySource, locale);
+  return suffix ? `${range} ${suffix}` : range;
  }
  return locale === 'de'
   ? 'nicht angegeben'
@@ -2602,34 +2537,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   const key = canonicalFallbackKeyForJobLocale(job, locale);
   if (key !== null) releaseCanonicalCleanedAfterUse(key);
  };
- const toIsoDateTime = (raw: string, now?: Date) => {
- if (!raw) return (now || new Date()).toISOString();
- const parsed = new Date(raw);
- if (!Number.isNaN(parsed.getTime())) return parsed.toISOString();
- const safe = new Date(`${raw}T00:00:00.000Z`);
- return Number.isNaN(safe.getTime()) ? (now || new Date()).toISOString() : safe.toISOString();
- };
- const toValidThrough = (postedRaw: string, crawledAt?: string, now?: Date) => {
- // If crawledAt is available (= job was verified active at crawl time),
- // use it as base + 60 days — tolerates up to ~1 month of rebuild interruption.
- // Fallback: postedDate + 90 days (more lenient than the old 60d window).
- const base = crawledAt ? new Date(crawledAt) : new Date(toIsoDateTime(postedRaw, now));
- if (Number.isNaN(base.getTime())) {
- const fallback = new Date(now || new Date());
- fallback.setUTCDate(fallback.getUTCDate() + 60);
- return fallback.toISOString();
- }
- const result = new Date(base);
- result.setUTCDate(result.getUTCDate() + (crawledAt ? 60 : 90));
- // Floor to now+30d (#3505): this helper feeds ACTIVE job emissions only —
- // the expired soft-landing derives its own, deliberately-past validThrough.
- // A stale crawledAt/postedDate would otherwise emit validThrough < now on a
- // live "Apply now" page → GSC "Job posting has expired" and the posting is
- // dropped from Google Jobs while still indexed as active.
- const floor = new Date(now || new Date());
- floor.setUTCDate(floor.getUTCDate() + 30);
- return (result.getTime() < floor.getTime() ? floor : result).toISOString();
- };
  const contractMap: Record<string, string> = {
  'full-time': 'FULL_TIME',
  'part-time': 'PART_TIME',
@@ -2657,15 +2564,19 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   * data is too thin for Google rich results (CLAUDE.md rule #3 — defaults, not skips).
   */
  const buildJobDescriptionFallback = (
- jobArg: { title?: string; company?: string; location?: string; canton?: string; category?: string; contract?: string },
+ jobArg: { title?: string; company?: string; location?: string; canton?: string; category?: string; contract?: string; employmentType?: string; contractType?: string },
  titleText: string,
  localityText: string,
  regionText: string,
  localeArg: string
  ): string => {
  const loc = localeArg in contractLabelByLocale ? localeArg : 'it';
- const contractKey = String(jobArg.contract || '').toLowerCase();
- const contractLabel = contractLabelByLocale[loc][contractKey] || contractLabelByLocale[loc].other;
+ // Same contract resolution as the JobPosting employmentType: a type the
+ // listing does not state is not written into the synthesized description.
+ const contractTypes = resolveJobEmploymentTypes(jobArg, titleText);
+ const contractLabel = contractTypes.length > 0
+  ? formatJobEmploymentTypes(contractTypes, loc)
+  : ({ it: 'Contratto da verificare', en: 'Contract to be confirmed', de: 'Vertrag zu klären', fr: 'Contrat à confirmer' } as Record<string, string>)[loc];
  const categoryKey = String(jobArg.category || '').toLowerCase();
  const sectorLabelRaw = fallbackSectorLabel[loc]?.[categoryKey] || '';
  const company = String(jobArg.company || '').trim();
@@ -3703,7 +3614,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_jobLocation = String(job.location || '').trim();
  const perJob_co = String(job.company || '');
  const perJob_cat = String(job.category || '').toLowerCase();
- const perJob_contractKey = String(job.contract || '').toLowerCase();
+ // Contract types the listing states: one resolution for the JSON-LD
+ // employmentType, the visible "Contratto" labels and the prose below. The
+ // workload fallback (#15009) reads the same localized title as the builder.
+ const perJob_employmentTypesFor = (loc: string): string[] => resolveJobEmploymentTypes(
+  job,
+  stripLiteralMarkdownFromTitle(String(job?.titleByLocale?.[loc] || job.title || '')),
+ );
  const perJob_matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
  const perJob_logoUrl = companyLogo(job);
  const perJob_relatedPool = getRelatedPool(job);
@@ -3750,6 +3667,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_addressRegion = deriveCanton(job);
  const perJob_addressLocality = deriveJobAddressLocality(job, perJob_addressRegion);
  const perJob_addressCountry = String(job.addressCountry || 'CH');
+ // Keep the locality-derived CAP for visible page metadata, but pass only
+ // the crawler's own source CAP to the canonical JobPosting builder. The
+ // builder treats every value it receives as source evidence; feeding it the
+ // derived Zurich/Ticino fallback would therefore publish an invented
+ // postalCode in JSON-LD (owner decision 2026-10-24).
+ const perJob_sourcePostalCode = String(job.postalCode || '').trim();
  const perJob_postalCode = deriveJobPostalCode(job);
  const perJob_streetAddress = deriveJobStreetAddress(job, perJob_addressLocality);
  // NOTE: `isRemote` is intentionally NOT hoisted here. The original test
@@ -3841,6 +3764,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     perJob_salaryMin,
     perJob_salaryMax,
     perJob_salaryCurrency,
+    job.salarySource,
    );
   const resolvedJobPostingDate = resolveRolloutSchemaPostingDate(
    job,
@@ -3850,11 +3774,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    jobPostingDatePosted: resolvedJobPostingDate.value,
    jobPostingDateProvenance: resolvedJobPostingDate.provenance,
    jobPostingCrawledAt: job?.crawledAt ? String(job.crawledAt) : null,
-   jobPostingValidThrough: toValidThrough(
-    String(job?.postedDate || ''),
-    job?.crawledAt,
-    jobsSeoReuseBuildNow,
-   ),
+   jobPostingValidThrough: activeJobSourceValidThrough(job),
    heroBadges: renderHeroBadges({
     job,
     locale,
@@ -4150,7 +4070,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const salaryMin = perJob_salaryMin;
  const salaryMax = perJob_salaryMax;
  const salaryCurrency = perJob_salaryCurrency;
- const salaryText = formatActiveJobSalaryText(locale, salaryMin, salaryMax, salaryCurrency);
+ const salaryText = formatActiveJobSalaryText(locale, salaryMin, salaryMax, salaryCurrency, job.salarySource);
  // Address fields hoisted to perJob block — all derived from job alone.
  const addressLocality = perJob_addressLocality;
  const addressRegion = perJob_addressRegion;
@@ -4220,10 +4140,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const finalJobPostingDescription = hasValidJobPostingDescription
  ? jobPostingDescription
  : buildJobDescriptionFallback(job, localizedTitle, addressLocality, addressRegion, locale);
- // Build the canonical JobPosting schema via the shared builder — this
- // guarantees all 9 mandatory fields (CLAUDE.md rule #3) with realistic
- // defaults. Extra editorial fields (responsibilities, skills, etc.) are
- // merged on top of the canonical output.
+ // Build the canonical JobPosting schema via the shared builder — Google's
+ // required fields always, every other field only as the source states it
+ // (AGENTS.md rule #3, owner decision 2026-10-24). Extra editorial fields
+ // (responsibilities, skills, etc.) are merged on top of the canonical output.
  const canonicalJobInput: JobInput = {
  id: job.id,
  slug: job.slug,
@@ -4237,7 +4157,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  addressLocality,
  addressRegion,
  addressCountry,
- postalCode,
+  postalCode: perJob_sourcePostalCode,
  streetAddress,
  postingDateSource: job.postingDateSource,
  datePosted: job.datePosted,
@@ -4245,10 +4165,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  firstSeenAt: job.firstSeenAt,
  crawledAt: job.crawledAt,
  updatedAt: job.updatedAt,
+ employmentType: job.employmentType,
  contract: job.contract,
+ contractType: job.contractType,
+ validThrough: job.validThrough,
  salaryMin: Number.isFinite(salaryMin) ? salaryMin : null,
  salaryMax: Number.isFinite(salaryMax) ? salaryMax : null,
  salaryCurrency,
+ salarySource: job.salarySource,
  sector: job.category,
  category: job.category,
  url: job.url,
@@ -4294,8 +4218,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // optional enrichment data is layered on.
  const jobLd = inlineScriptJson({
  ...canonicalSchema,
- // validThrough from the legacy helper (may differ from builder default).
- validThrough: toValidThrough(job.postedDate, job.crawledAt, jobsSeoReuseBuildNow),
+ // validThrough: the builder's own, i.e. the source deadline or nothing.
  // industry / occupationalCategory / applicantLocationRequirements (the
  // last one scoped to isRemote, never unconditional — see #applicant
  // LocationRequirements hardcode fix) are already present on
@@ -4416,7 +4339,7 @@ ${staticAnalyticsHtml}
  <div class="hero-sub">${esc(job.company)} · ${esc(formatJobLocation(job.location, job.canton || DEFAULT_CANTON))}</div>
  <div class="hero-meta">
  <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
- <span>${esc(`Contratto: ${String(job.contract || 'other')}`)}</span>
+ <span>${esc(`Contratto: ${formatJobEmploymentTypes(perJob_employmentTypesFor(locale), locale)}`)}</span>
  <span>${esc(`Salario: ${salaryText}`)}</span>
  </div>
  </section>
@@ -4508,8 +4431,9 @@ ${staticAnalyticsHtml}
  };
  const sectorName = sectorLabel[locale]?.[cat] || sectorLabel[locale]?.['administration'] || '';
  // Contract label localized (reuse top-level map).
- const contractKey = perJob_contractKey;
- const contractLabelLocal = contractLabelByLocale[locale]?.[contractKey] || contractLabelByLocale[locale]?.other || '';
+ const contractLabelLocal = perJob_employmentTypesFor(locale).length > 0
+  ? formatJobEmploymentTypes(perJob_employmentTypesFor(locale), locale)
+  : '';
  const safeTitle = esc(String(localizedTitle || job.title || ''));
  // Deterministic variant picker — stable across rebuilds, varies across slugs.
  const slugHash = stableHash(String(perLocaleSlug[locale] || job.slug || job.id || ''));
@@ -14365,10 +14289,13 @@ ${staticAnalyticsHtml}
  postingDateSource: ejData?.postingDateSource,
  datePosted: expiredDatePosted,
  validThrough: realValidThrough,
+ employmentType: ejData?.employmentType,
  contract: ejData?.contract,
+ contractType: ejData?.contractType,
  salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
  salaryMax: typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : null,
  salaryCurrency: ejData?.salaryCurrency,
+ salarySource: ejData?.salarySource,
  category: ejData?.category,
  sector: ejData?.category,
  url: undefined,

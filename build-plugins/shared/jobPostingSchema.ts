@@ -1,32 +1,36 @@
 import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
-import { isPartTimeWorkload } from '../../scripts/lib/employment-workload.mjs';
 /**
  * Canonical `JobPosting` structured-data builder.
  *
- * Produces a schema.org `JobPosting` block that always contains the 9
- * mandatory fields per CLAUDE.md rule #3:
+ * Owner decision 2026-10-24: the schema is ALWAYS emitted for an active job,
+ * and every field in it is present if and only if the source states it. The
+ * builder never invents a value to fill a slot. Always present (Google's
+ * required set, guaranteed by `assertMandatoryFieldsComplete`):
  *
- *   1. baseSalary (with currency + minValue > 0 + maxValue + unitText)
- *   2. postalCode (nested inside `jobLocation.address`)
- *   3. streetAddress (nested inside `jobLocation.address`)
- *   4. title
- *   5. description (≥ 50 chars)
- *   6. datePosted (ISO 8601; reported -> first-seen -> observed -> build-date chain)
- *   7. hiringOrganization.name
- *   8. jobLocation (Place + PostalAddress with addressCountry 'CH')
- *   9. employmentType (schema.org token)
+ *   1. title
+ *   2. description (≥ 50 chars)
+ *   3. datePosted (ISO 8601, provenance chain of resolveRolloutSchemaPostingDate)
+ *   4. hiringOrganization.name
+ *   5. jobLocation (Place + PostalAddress with addressLocality and addressCountry 'CH')
  *
- * Input shape is intentionally permissive — every field is optional and
- * the builder fills a realistic default when the source data is missing.
- * Output is strictly typed (all mandatory fields required).
+ * Present only when the source supports them:
+ *   - jobLocation.address.streetAddress / postalCode: the listing's own
+ *     address, or the curated HQ tuple of the employer when the job sits in
+ *     the HQ city. Never a city-hall or canton-capital address.
+ *   - baseSalary: only a salary the source reported (`salarySource:
+ *     'reported'`). Sector estimates stay on the page, labelled as such.
+ *   - employmentType: the contract types the listing states
+ *     (scripts/lib/job-employment-type.mjs), one token or an array.
+ *   - validThrough: only the source deadline. Google: "If you don't know
+ *     when the job will expire, don't include this property."
  *
  * Shared by (as of this refactor):
  *   - `build-plugins/jobsSeoPagesPlugin.ts` (per-job active + soft-landing)
  *   - `build-plugins/weeklyEmployersPlugin.ts` (per-company × per-city hubs)
  *   - `services/seoService.ts` (runtime SPA JSON-LD injection)
  *
- * Beyond the 9 mandatory fields, the builder also emits three optional
- * schema.org properties when the source data supports them:
+ * The builder also emits three further optional schema.org properties
+ * when the source data supports them:
  *   - `industry` / `occupationalCategory` — derived from `job.sector`/
  *     `job.category` (already present on every job for the ONet mapping
  *     used elsewhere), so this is real signal, not invented data.
@@ -50,7 +54,6 @@ import { isPartTimeWorkload } from '../../scripts/lib/employment-workload.mjs';
 
 import {
   CANTON_CAPITAL_ADDRESSES,
-  CITY_FALLBACK_ADDRESSES,
   COMPANY_HQ_ADDRESSES,
   deriveCantonFromCity,
   localityMatchesHq,
@@ -71,11 +74,12 @@ import {
 } from './postalCodes';
 import { sameOrg } from '../../scripts/lib/prospector/registrable.mjs';
 import { CANTON_LOCATION_FALLBACK } from '../../scripts/lib/canton-postal-fallback.mjs';
+import { resolveSalaryBand, type SalaryBand } from './salaryDefaults';
 import {
-  resolveSalaryBand,
-  TICINO_MIN_ANNUAL_CHF,
-  type SalaryBand,
-} from './salaryDefaults';
+  employmentTypeJsonLdValue,
+  resolveJobEmploymentTypes,
+} from '../../scripts/lib/job-employment-type.mjs';
+import { isSalaryReportedBySource, isSourceStreetAddress } from '../../scripts/lib/jobposting-field-provenance.mjs';
 import { truncateCodeUnits } from './safeTruncate';
 import { sanitizeBrowserJobTitle } from './literalMarkdown';
 import {
@@ -139,6 +143,11 @@ export interface JobInput {
   readonly salaryMax?: number | null;
   readonly salaryCurrency?: string | null;
   readonly salaryPeriod?: string | null;
+  /**
+   * Salary provenance as persisted by the crawler pipeline: only 'reported'
+   * (stated by the listing or by the employer) reaches `baseSalary`.
+   */
+  readonly salarySource?: string | null;
 
   readonly sector?: string | null;
   readonly category?: string | null;
@@ -172,11 +181,15 @@ export interface BuildJobPostingOptions {
   readonly now?: Date;
 }
 
-/** Strict schema.org `PostalAddress` shape emitted by the builder. */
+/**
+ * schema.org `PostalAddress` emitted by the builder. Street and CAP are
+ * optional by contract: present only when the listing (or the employer's
+ * curated HQ in the job's own city) states them.
+ */
 export interface PostalAddressSchema {
   readonly '@type': 'PostalAddress';
-  readonly streetAddress: string;
-  readonly postalCode: string;
+  readonly streetAddress?: string;
+  readonly postalCode?: string;
   readonly addressLocality: string;
   readonly addressRegion: string;
   readonly addressCountry: 'CH';
@@ -188,14 +201,18 @@ export interface PlaceSchema {
   readonly address: PostalAddressSchema;
 }
 
-/** Strict schema.org `MonetaryAmount` shape emitted by the builder. */
+/**
+ * schema.org `MonetaryAmount` emitted by the builder. `maxValue` is present
+ * only when the source states an upper bound: a single reported figure is a
+ * single figure, not a range the builder widens by 20 %.
+ */
 export interface BaseSalarySchema {
   readonly '@type': 'MonetaryAmount';
   readonly currency: string;
   readonly value: {
     readonly '@type': 'QuantitativeValue';
     readonly minValue: number;
-    readonly maxValue: number;
+    readonly maxValue?: number;
     readonly unitText: 'YEAR';
   };
 }
@@ -213,9 +230,9 @@ export interface HiringOrganizationSchema {
 }
 
 /**
- * Output shape: a fully populated `JobPosting`. Every one of the 9
- * mandatory fields (CLAUDE.md rule #3) is **required** — the TypeScript
- * compiler will flag any future regression.
+ * Output shape. Google's required fields are **required** here so the
+ * compiler flags a regression; every other field is optional because it is
+ * present only when the source states it (owner decision 2026-10-24).
  */
 export interface JobPostingSchema {
   readonly '@context': 'https://schema.org';
@@ -223,10 +240,10 @@ export interface JobPostingSchema {
   readonly title: string;
   readonly description: string;
   readonly datePosted: string;
-  readonly employmentType: EmploymentType;
+  readonly employmentType?: EmploymentType | readonly EmploymentType[];
   readonly hiringOrganization: HiringOrganizationSchema;
   readonly jobLocation: PlaceSchema;
-  readonly baseSalary: BaseSalarySchema;
+  readonly baseSalary?: BaseSalarySchema;
   readonly url: string;
   readonly validThrough?: string;
   readonly directApply?: boolean;
@@ -287,64 +304,17 @@ export type EmploymentType =
  */
 const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
 
-const EMPLOYMENT_TYPE_MAP: Record<string, EmploymentType> = {
-  permanent: 'FULL_TIME',
-  'full-time': 'FULL_TIME',
-  full_time: 'FULL_TIME',
-  fulltime: 'FULL_TIME',
-  cdi: 'FULL_TIME',
-  indeterminato: 'FULL_TIME',
-  'part-time': 'PART_TIME',
-  part_time: 'PART_TIME',
-  parttime: 'PART_TIME',
-  temporary: 'TEMPORARY',
-  temp: 'TEMPORARY',
-  temporaneo: 'TEMPORARY',
-  determinato: 'TEMPORARY',
-  cdd: 'TEMPORARY',
-  fixed_term: 'TEMPORARY',
-  'fixed-term': 'TEMPORARY',
-  interim: 'TEMPORARY',
-  internship: 'INTERN',
-  intern: 'INTERN',
-  stage: 'INTERN',
-  stagiaire: 'INTERN',
-  tirocinio: 'INTERN',
-  apprendista: 'INTERN',
-  apprentice: 'INTERN',
-  apprenticeship: 'INTERN',
-  contract: 'CONTRACTOR',
-  contractor: 'CONTRACTOR',
-  freelance: 'CONTRACTOR',
-  mandato: 'CONTRACTOR',
-  volunteer: 'VOLUNTEER',
-  volontario: 'VOLUNTEER',
-  'per-diem': 'PER_DIEM',
-  per_diem: 'PER_DIEM',
-};
-
 /**
- * Normalise a job's contract/employment-type fields to a schema.org token.
- *
- * The first field that names a known type wins. A crawler that cannot read
- * the type writes `OTHER` (the scaffolded parsers recognise only the words
- * Teilzeit/Vollzeit, never "60%"), and every unknown value used to become
- * FULL_TIME: measured 2026-10-24 on the prospected crawlers, 1,440 of 1,448
- * jobs were `OTHER`, so "Spontanbewerbung / 5%" and "Night Watch 20-40 %"
- * were published as full-time. The workload in the title now decides with the
- * crawlers' own rule (`normalizeContract`), and FULL_TIME stays the default.
+ * Contract types the listing states, as schema.org tokens (see
+ * scripts/lib/job-employment-type.mjs). Empty when the source says nothing
+ * recognisable: the schema then carries no employmentType, instead of the
+ * FULL_TIME default the builder used to invent.
  */
-function normaliseEmploymentType(
-  values: ReadonlyArray<string | null | undefined>,
+export function resolveEmploymentTypes(
+  job: Pick<JobInput, 'employmentType' | 'contract' | 'contractType'>,
   title?: string | null,
-): EmploymentType {
-  for (const raw of values) {
-    if (!raw) continue;
-    const key = String(raw).toLowerCase().trim().replace(/\s+/g, '_');
-    const mapped = EMPLOYMENT_TYPE_MAP[key];
-    if (mapped) return mapped;
-  }
-  return isPartTimeWorkload(title) ? 'PART_TIME' : 'FULL_TIME';
+): EmploymentType[] {
+  return resolveJobEmploymentTypes(job, title) as EmploymentType[];
 }
 
 /**
@@ -423,45 +393,18 @@ function toIsoDate(raw: string | null | undefined): string | null {
   return d.toISOString();
 }
 
-/** Floor a derived `validThrough` to at least now+30d (#3505): derived windows
- * (crawledAt+60d / datePosted+90d) feed ACTIVE emissions — a stale timestamp
- * would emit an already-past validThrough on a live page, which Google treats
- * as an expired posting (dropped from Google Jobs). Explicit source-provided
- * `validThrough` values are NOT floored: they are source truth (real
- * deadlines), and the expired soft-landing deliberately passes a past one. */
-function floorToFuture(computed: Date, now?: Date): string {
-  const floor = new Date(now || new Date());
-  floor.setUTCDate(floor.getUTCDate() + 30);
-  return (computed.getTime() < floor.getTime() ? floor : computed).toISOString();
-}
-
-/** Compute a future `validThrough` given a `datePosted` ISO string. */
-function computeValidThrough(
-  explicit: string | null | undefined,
-  crawledAt: string | null | undefined,
-  datePosted: string,
-  now?: Date,
-): string {
-  const explicitIso = toIsoDate(explicit);
-  if (explicitIso) return explicitIso;
-
-  const crawledIso = toIsoDate(crawledAt);
-  if (crawledIso) {
-    const out = new Date(crawledIso);
-    out.setUTCDate(out.getUTCDate() + 60);
-    return floorToFuture(out, now);
-  }
-
-  const posted = new Date(datePosted);
-  if (!Number.isNaN(posted.getTime())) {
-    const out = new Date(posted);
-    out.setUTCDate(out.getUTCDate() + 90);
-    return floorToFuture(out, now);
-  }
-
-  const fallback = new Date(now || new Date());
-  fallback.setUTCDate(fallback.getUTCDate() + 60);
-  return fallback.toISOString();
+/**
+ * `validThrough` only from the source. The derived windows this replaced
+ * (crawledAt+60d, datePosted+90d, now+60d, floored to now+30d by #3505) were
+ * dates no employer stated. Google's guidance for the property is explicit:
+ * "If a job posting never expires, or you don't know when the job will
+ * expire, don't include this property." The expired contract does not need
+ * them either: an expired page passes its own real past timestamp as
+ * `job.validThrough` (`expiredInput` in jobsSeoPagesPlugin.ts), and an
+ * active page that stops being listed becomes that expired page.
+ */
+function resolveSourceValidThrough(explicit: string | null | undefined): string | undefined {
+  return toIsoDate(explicit) ?? undefined;
 }
 
 /** Build a locale-aware fallback description ≥ 50 chars. */
@@ -640,11 +583,18 @@ export function sanitizeLocalityForRegion(rawLocality: string, region: string): 
   return cityRaw;
 }
 
-/** Resolve the PostalAddress with every field guaranteed non-empty. */
+/**
+ * Resolve the PostalAddress. Locality, region and country are always present
+ * (Google requires the locality and the country). Street and CAP are present
+ * only when the listing states them, or when the employer's curated HQ sits in
+ * the job's own city: never the city-hall street of a lookup table ("Piazza
+ * Riforma 1", 6900 on every Lugano job), never "<city> centro", never the
+ * canton capital's tuple.
+ */
 function resolveAddress(
   job: JobInput,
   _companyName: string,
-  locale: string,
+  _locale: string,
 ): PostalAddressSchema {
   const companySlug = job.companySlug || job.companyKey || '';
   const rawCity = String(
@@ -673,28 +623,13 @@ function resolveAddress(
   // A curated company HQ address is only trustworthy for jobs with no own
   // city or in the HQ's own CITY (#3513). Canton-level matching is not
   // enough: a Lugano posting for a Bellinzona-seat employer (same canton)
-  // must not pair the HQ street/CAP with the Lugano locality. Fall through
-  // to the city lookup instead, which anchors on the job's own city.
+  // must not pair the HQ street/CAP with the Lugano locality.
   const hqUsable =
     !!hqEntry &&
     String(hqEntry.addressRegion || '').toUpperCase() === String(region || '').toUpperCase() &&
     localityMatchesHq(cityRaw, hqEntry);
 
-  // The fallback tuple is the complete address of ONE locality: the curated HQ
-  // (same city only), the city table, or, as a last resort, the canton
-  // capital. Its street and CAP may complete this address only when they
-  // describe the same locality. The capital's street/CAP next to another real
-  // locality is the incoherent tuple of issue 9852 (Pully + Place de la
-  // Palud 2 + 1003, which are Lausanne's).
-  const fallbackDescribesLocality = cityRaw.length === 0
-    || fallback === hqEntry
-    || fallback === CITY_FALLBACK_ADDRESSES[cityRaw.toLowerCase()]
-    || normalizePostalCityKey(fallback.addressLocality) === normalizePostalCityKey(cityRaw);
-
-  // Precedence: coherent explicit source value → company HQ (only when same
-  // city, or no city signal) → the locality's own CAP (curated tables, then
-  // the official directory) → the fallback tuple when it is this locality. A
-  // source CAP can be formally valid and still belong to another known
+  // A source CAP can be formally valid and still belong to another known
   // locality (for example 6500 on a Lugano posting). Treat that pair as
   // unusable by construction so every JobPosting consumer shares the same guard.
   const sourcePostalCode = isValidPostalCode(job.postalCode)
@@ -715,40 +650,39 @@ function resolveAddress(
     ));
   const sourcePostalIsCoherent = sourcePostalCode.length === 0
     || (isPostalCodeCoherentWithCity(addressLocality, sourcePostalCode) && !sourcePostalIsCantonFallback);
-  const postalCode = sourcePostalIsCoherent && sourcePostalCode.length > 0
-    ? sourcePostalCode
-    : (hqUsable && hqEntry.postalCode && isValidPostalCode(hqEntry.postalCode) ? hqEntry.postalCode : '') ||
-      localityPostalCode ||
-      // Non-Negotiable #3 safe default. When the fallback tuple is this
-      // locality, that is its own CAP. Otherwise the locality is known but no
-      // postal table lists it (a city quarter such as "Oerlikon", a region
-      // alias): no official CAP exists, postalCode is mandatory, and the
-      // locality must stay the one the page shows. Only this canton-level CAP
-      // is borrowed; the street below stays the locality's own "<city> centro",
-      // never the capital's.
-      fallback.postalCode;
+  const sourcePostal = sourcePostalIsCoherent ? sourcePostalCode : '';
 
+  // The listing's own street, when it reads as a street of this locality. An
+  // incoherent source CAP drops the street travelling with it: that tuple is
+  // usually an HQ address stamped on a vacancy in another city (#9108).
   const streetAddressRaw = String(job.streetAddress || job.address || '').trim();
-  const streetAddress =
-    sourcePostalIsCoherent && streetAddressRaw.length > 0
-      ? streetAddressRaw
-      : (hqUsable && hqEntry.streetAddress && hqEntry.streetAddress.length > 0 ? hqEntry.streetAddress : '') ||
-        (fallbackDescribesLocality ? fallback.streetAddress : '') ||
-        localisedCentro(addressLocality, locale);
+  const sourceStreet = sourcePostalIsCoherent && isSourceStreetAddress(streetAddressRaw, addressLocality)
+    ? streetAddressRaw
+    : '';
 
-  // Final guard — if anything is still empty, throw. Should never happen:
-  // every branch above has a non-empty fallback.
-  if (!streetAddress || !postalCode || !addressLocality || !region) {
+  // The HQ tuple completes the address only as a whole, and only when the
+  // listing does not name another CAP of the same city (6912 on a Lugano HQ
+  // listed at 6900 is another site, not the HQ).
+  const hqPostal = hqUsable && isValidPostalCode(hqEntry.postalCode) ? String(hqEntry.postalCode).trim() : '';
+  const useHq = !sourceStreet
+    && hqUsable
+    && String(hqEntry.streetAddress || '').trim().length > 0
+    && (sourcePostal.length === 0 || sourcePostal === hqPostal);
+
+  const streetAddress = sourceStreet || (useHq ? String(hqEntry.streetAddress).trim() : '');
+  const postalCode = useHq ? (hqPostal || sourcePostal) : sourcePostal;
+
+  if (!addressLocality || !region) {
     throw new Error(
-      `buildJobPostingSchema: could not resolve complete address for job ` +
+      `buildJobPostingSchema: could not resolve locality/region for job ` +
       `"${job.id || job.slug || job.title || _companyName}"`,
     );
   }
 
   return {
     '@type': 'PostalAddress',
-    streetAddress,
-    postalCode,
+    ...(streetAddress ? { streetAddress } : {}),
+    ...(postalCode ? { postalCode } : {}),
     addressLocality,
     addressRegion: region,
     addressCountry: 'CH',
@@ -773,58 +707,56 @@ function cantonFallbackPostalTuples(region: string): Array<{ postalCode: string;
   ].filter(({ postalCode }) => postalCode.length > 0);
 }
 
-/** Localised "<city> centro" fallback for streetAddress. */
-function localisedCentro(city: string, locale: string): string {
-  const short = (locale || 'it').slice(0, 2).toLowerCase();
-  switch (short) {
-    case 'en':
-      return `${city} city centre`;
-    case 'de':
-      return `${city} Stadtzentrum`;
-    case 'fr':
-      return `${city} centre-ville`;
-    case 'it':
-    default:
-      return `${city} centro`;
-  }
+/**
+ * Salary as the visible page states it: the listing's own figures, or the
+ * pipeline's sector estimate flagged `isEstimate`. A job without any salary
+ * value gets the sector band of salaryDefaults, also flagged: the page may
+ * show an estimate, labelled as one, but it never reaches `baseSalary`.
+ */
+export interface JobSalaryFact {
+  readonly currency: string;
+  readonly minValue: number;
+  /** Present only when the source states an upper bound above minValue. */
+  readonly maxValue?: number;
+  readonly isEstimate: boolean;
 }
 
-/** Resolve a guaranteed-positive salary band. */
-function resolveBaseSalary(job: JobInput): BaseSalarySchema {
-  let min = 0;
-  let max = 0;
-  let currency = 'CHF';
-
+export function resolveSalaryFact(job: JobInput): JobSalaryFact {
+  const reported = isSalaryReportedBySource(job);
   if (job.salary && Number.isFinite(job.salary.minValue) && job.salary.minValue > 0) {
-    min = job.salary.minValue;
-    max = job.salary.maxValue > min ? job.salary.maxValue : Math.round(min * 1.2);
-    currency = job.salary.currency || 'CHF';
-  } else if (Number.isFinite(job.salaryMin) && Number(job.salaryMin) > 0) {
-    min = Number(job.salaryMin);
-    max =
-      Number.isFinite(job.salaryMax) && Number(job.salaryMax) > min
-        ? Number(job.salaryMax)
-        : Math.round(min * 1.2);
-    currency = String(job.salaryCurrency || 'CHF').toUpperCase();
-  } else {
-    const band = resolveSalaryBand(job.sector || job.category || '', resolveCanton(job));
-    min = band.minValue;
-    max = band.maxValue;
-    currency = band.currency;
+    const min = job.salary.minValue;
+    return {
+      currency: String(job.salary.currency || 'CHF').toUpperCase(),
+      minValue: min,
+      ...(Number.isFinite(job.salary.maxValue) && job.salary.maxValue > min ? { maxValue: job.salary.maxValue } : {}),
+      isEstimate: !reported,
+    };
   }
+  if (Number.isFinite(job.salaryMin) && Number(job.salaryMin) > 0) {
+    const min = Number(job.salaryMin);
+    const max = Number(job.salaryMax);
+    return {
+      currency: String(job.salaryCurrency || 'CHF').toUpperCase(),
+      minValue: min,
+      ...(Number.isFinite(max) && max > min ? { maxValue: max } : {}),
+      isEstimate: !reported,
+    };
+  }
+  const band = resolveSalaryBand(job.sector || job.category || '', resolveCanton(job));
+  return { currency: band.currency, minValue: band.minValue, maxValue: band.maxValue, isEstimate: true };
+}
 
-  // Hard floor: never emit an obvious placeholder.
-  if (!(min > 0)) min = TICINO_MIN_ANNUAL_CHF;
-  if (!(max > min)) max = Math.round(min * 1.2);
-  if (!currency) currency = 'CHF';
-
+/** `baseSalary` only for a salary the source reported; undefined otherwise. */
+function resolveBaseSalary(job: JobInput): BaseSalarySchema | undefined {
+  const fact = resolveSalaryFact(job);
+  if (fact.isEstimate) return undefined;
   return {
     '@type': 'MonetaryAmount',
-    currency,
+    currency: fact.currency || 'CHF',
     value: {
       '@type': 'QuantitativeValue',
-      minValue: min,
-      maxValue: max,
+      minValue: fact.minValue,
+      ...(fact.maxValue !== undefined ? { maxValue: fact.maxValue } : {}),
       unitText: 'YEAR',
     },
   };
@@ -842,8 +774,17 @@ export function resolveJobPostingAddress(job: JobInput, locale: string): PostalA
   return resolveAddress(job, resolveCompanyName(job, locale), locale);
 }
 
-/** Facts used by visible FAQ content independently of rich-result eligibility. */
-export type JobPostingFacts = Pick<JobPostingSchema, 'baseSalary' | 'employmentType' | 'hiringOrganization' | 'jobLocation'>;
+/**
+ * Facts used by visible FAQ content. Unlike the schema they may carry an
+ * estimated salary (flagged) and an empty contract list: the FAQ then says
+ * so in words instead of presenting a guess as the employer's statement.
+ */
+export interface JobPostingFacts {
+  readonly salary: JobSalaryFact;
+  readonly employmentTypes: readonly EmploymentType[];
+  readonly hiringOrganization: HiringOrganizationSchema;
+  readonly jobLocation: PlaceSchema;
+}
 
 export interface BuildJobPostingFactsOptions {
   readonly baseUrl?: string;
@@ -859,8 +800,8 @@ export function buildJobPostingFacts(
   const companyName = resolveCompanyName(job, locale);
   const title = resolveTitle(job, locale);
   return {
-    baseSalary: resolveBaseSalary(job),
-    employmentType: normaliseEmploymentType([job.employmentType, job.contractType, job.contract], title),
+    salary: resolveSalaryFact(job),
+    employmentTypes: resolveEmploymentTypes(job, title),
     hiringOrganization: buildCompanyOrganization(job, {
       locale,
       baseUrl: opts.baseUrl || CANONICAL_ORIGIN,
@@ -900,16 +841,8 @@ export function buildJobPostingSchema(
     address.addressLocality,
     opts.locale,
   );
-  const validThrough = computeValidThrough(
-    job.validThrough,
-    job.crawledAt || job.scrapedAt || null,
-    datePosted,
-    opts.now,
-  );
-  const employmentType = normaliseEmploymentType(
-    [job.employmentType, job.contractType, job.contract],
-    title,
-  );
+  const validThrough = resolveSourceValidThrough(job.validThrough);
+  const employmentType = employmentTypeJsonLdValue(resolveEmploymentTypes(job, title)) as JobPostingSchema['employmentType'];
   const baseSalary = resolveBaseSalary(job);
   const industry = resolveIndustry(job);
   const occupationalCategory = resolveOccupationalCategory(job);
@@ -928,15 +861,15 @@ export function buildJobPostingSchema(
     title,
     description,
     datePosted,
-    employmentType,
+    ...(employmentType ? { employmentType } : {}),
     hiringOrganization,
     jobLocation: {
       '@type': 'Place',
       address,
     },
-    baseSalary,
+    ...(baseSalary ? { baseSalary } : {}),
     url: opts.url,
-    validThrough,
+    ...(validThrough ? { validThrough } : {}),
     directApply: isEmployerOwnedApplyUrl(job),
     ...(job.id || job.slug
       ? {
@@ -958,34 +891,36 @@ export function buildJobPostingSchema(
 }
 
 /**
- * Paranoid sanity-check — fails loudly if a future code change ever
- * produces an empty mandatory field. Intended to catch regressions at
- * build time rather than during Semrush crawl.
+ * Paranoid sanity-check — fails loudly if a future code change ever produces
+ * an empty Google-required field, or an optional field that is present but
+ * malformed. Optional fields that are absent are the contract, not a defect.
  */
 function assertMandatoryFieldsComplete(schema: JobPostingSchema): void {
   const missing: string[] = [];
   if (!schema.title) missing.push('title');
   if (!schema.description || schema.description.length < 50) missing.push('description');
   if (!schema.datePosted) missing.push('datePosted');
-  if (!schema.employmentType) missing.push('employmentType');
   if (!schema.hiringOrganization?.name) missing.push('hiringOrganization.name');
 
   const addr = schema.jobLocation?.address;
   if (!addr) missing.push('jobLocation');
   else {
-    if (!addr.streetAddress) missing.push('jobLocation.address.streetAddress');
-    if (!addr.postalCode) missing.push('jobLocation.address.postalCode');
     if (!addr.addressLocality) missing.push('jobLocation.address.addressLocality');
-    if (!addr.addressRegion) missing.push('jobLocation.address.addressRegion');
     if (addr.addressCountry !== 'CH') missing.push('jobLocation.address.addressCountry');
+    if (addr.streetAddress !== undefined && !addr.streetAddress) missing.push('jobLocation.address.streetAddress');
+    if (addr.postalCode !== undefined && !isValidPostalCode(addr.postalCode)) missing.push('jobLocation.address.postalCode');
+  }
+
+  if (schema.employmentType !== undefined) {
+    const types = Array.isArray(schema.employmentType) ? schema.employmentType : [schema.employmentType];
+    if (types.length === 0) missing.push('employmentType');
   }
 
   const sal = schema.baseSalary;
-  if (!sal) missing.push('baseSalary');
-  else {
+  if (sal) {
     if (!sal.currency) missing.push('baseSalary.currency');
     if (!(sal.value?.minValue > 0)) missing.push('baseSalary.value.minValue');
-    if (!(sal.value?.maxValue >= sal.value?.minValue)) missing.push('baseSalary.value.maxValue');
+    if (sal.value?.maxValue !== undefined && !(sal.value.maxValue >= sal.value.minValue)) missing.push('baseSalary.value.maxValue');
     if (sal.value?.unitText !== 'YEAR') missing.push('baseSalary.value.unitText');
   }
 

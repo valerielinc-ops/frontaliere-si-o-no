@@ -658,7 +658,7 @@ class TitleUniqAudit {
 // ───── validate-jobposting-schema helpers ────────────────────────────────────
 
 /**
- * The nine mandatory fields come from the shared contract. This audit keeps
+ * The required/optional fields come from the shared contract. This audit keeps
  * only the standalone validator's additional address-quality checks here.
  */
 function checkJobPostingSchemaAddressDetails(schema) {
@@ -772,15 +772,14 @@ function sdValidateDataset(schema, filePath) {
 }
 
 /**
- * Structured-data completeness checks beyond the shared nine-field contract.
+ * Structured-data completeness checks beyond the shared JobPosting contract.
  * `validThrough` and address-region quality are consumer-specific; the shared
  * contract is added by StructuredDataAudit below.
  */
 function validateStructuredDataJobPostingExtras(schema, filePath) {
   const errors = [];
-  if (!sdIsNonEmpty(schema.validThrough)) {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'validThrough', message: 'JobPosting missing "validThrough"' });
-  }
+  // validThrough exists only when the source states a deadline (owner
+  // decision 2026-10-24): validated when present, never required.
   if (sdIsNonEmpty(schema.validThrough)) {
     const vt = new Date(String(schema.validThrough));
     if (Number.isNaN(vt.getTime())) {
@@ -789,9 +788,7 @@ function validateStructuredDataJobPostingExtras(schema, filePath) {
   }
   const address = schema.jobLocation?.address;
   if (address && typeof address === 'object') {
-    if (!sdIsNonEmpty(address.addressLocality)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressLocality', message: 'JobPosting missing "addressLocality"' });
-    }
+    // addressLocality is part of the shared contract (validateMandatoryJobPostingFields).
     if (!sdIsNonEmpty(address.addressRegion)) {
       errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressRegion', message: 'JobPosting missing "addressRegion"' });
     } else if (!/^[A-Z]{2}$/.test(String(address.addressRegion).trim())) {

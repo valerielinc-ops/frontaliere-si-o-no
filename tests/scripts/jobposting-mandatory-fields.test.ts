@@ -3,18 +3,27 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
   MANDATORY_JOBPOSTING_FIELDS,
+  OPTIONAL_JOBPOSTING_FIELDS,
   validateMandatoryJobPostingFields,
 } from '../../scripts/lib/jobposting-mandatory-fields.mjs';
 
 const ROOT = resolve(__dirname, '..', '..');
 
+// Google's required set: missing or empty is an error.
 const FIELD_CASES = [
   ['title', 'title'],
   ['description', 'description'],
   ['datePosted', 'datePosted'],
-  ['employmentType', 'employmentType'],
   ['hiringOrganization.name', 'hiringOrganization.name'],
   ['jobLocation', 'jobLocation'],
+  ['jobLocation.address.addressLocality', 'jobLocation.address.addressLocality'],
+  ['jobLocation.address.addressCountry', 'jobLocation.address.addressCountry'],
+] as const;
+
+// Owner decision 2026-10-24: present only when the source states them.
+// Absent is the contract; present-but-empty is an error.
+const OPTIONAL_CASES = [
+  ['employmentType', 'employmentType'],
   ['jobLocation.address.postalCode', 'jobLocation.address.postalCode'],
   ['jobLocation.address.streetAddress', 'jobLocation.address.streetAddress'],
   ['baseSalary', 'baseSalary'],
@@ -63,8 +72,30 @@ function deletePath(target: MutableJsonObject, path: string) {
 }
 
 describe('JobPosting mandatory-field contract (#10499)', () => {
-  it('contains exactly the nine AGENTS.md mandatory field paths', () => {
+  it('requires exactly Google\'s required JobPosting field paths', () => {
     expect(MANDATORY_JOBPOSTING_FIELDS).toEqual(FIELD_CASES.map(([, field]) => field));
+    expect(OPTIONAL_JOBPOSTING_FIELDS).toEqual(expect.arrayContaining(OPTIONAL_CASES.map(([, field]) => field)));
+  });
+
+  it.each(OPTIONAL_CASES)('accepts a JobPosting without the optional %s field', (_label, field) => {
+    const schema = validJobPosting();
+    deletePath(schema, field);
+    expect(validateMandatoryJobPostingFields(schema)).toEqual([]);
+  });
+
+  it.each(OPTIONAL_CASES)('rejects an empty optional %s field', (_label, field) => {
+    const schema = validJobPosting();
+    setPath(schema, field, '');
+    expect(validateMandatoryJobPostingFields(schema).map((error) => error.field).join(' ')).toContain(field);
+  });
+
+  it('accepts several stated employment types and a salary without an upper bound', () => {
+    const schema = validJobPosting();
+    schema.employmentType = ['FULL_TIME', 'TEMPORARY'];
+    (schema.baseSalary as MutableJsonObject).value = { minValue: 72000, unitText: 'YEAR' };
+    expect(validateMandatoryJobPostingFields(schema)).toEqual([]);
+    schema.employmentType = ['FULL_TIME', 'PERMANENT'];
+    expect(validateMandatoryJobPostingFields(schema).map((error) => error.field)).toContain('employmentType');
   });
 
   it('accepts a valid default fixture', () => {

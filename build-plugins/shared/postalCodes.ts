@@ -4,9 +4,10 @@
  * primary audience) plus the major Swiss cities that appear regularly
  * in crawler output.
  *
- * CLAUDE.md rule #3: `JobPosting.jobLocation.address.postalCode` must
- * always be present. This map + the canton-capital fallback guarantees
- * we never emit an empty postal code.
+ * These tables locate a locality and check that a source CAP is coherent
+ * with it. They are not a source of the JobPosting `postalCode`: that field
+ * is present only when the listing (or the employer's HQ in the job's city)
+ * states it (AGENTS.md rule #3, owner decision 2026-10-24).
  */
 
 import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json';

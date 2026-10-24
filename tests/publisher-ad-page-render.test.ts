@@ -172,11 +172,11 @@ describe('isCanaryOrTestAd — sitemap exclusion guard for owner verification fi
   });
 });
 
-describe('publisher-ads JobPosting structured data — AGENTS #3 mandatory fields', () => {
+describe('publisher-ads JobPosting structured data — required fields always, optional ones from the source', () => {
   // Real slice records (data/jobs/by-crawler/publisher-submitted.json) —
   // one free-tier ad with several null address fields, one canary/sponsored
-  // ad with a full address. buildJobPostingSchema must fill safe defaults
-  // for the missing fields, never drop the check (#4408).
+  // ad with a full address. buildJobPostingSchema keeps Google's required
+  // fields and emits the others only when the record carries them.
   const FREE_TIER_RECORD = {
     postingDateSource: 'unknown', datePosted: '', postedDate: '',
     title: 'Fisioterapista con riconoscimento CRS',
@@ -224,19 +224,24 @@ describe('publisher-ads JobPosting structured data — AGENTS #3 mandatory field
       expect(buildJobPostingSchema(rec, { locale, url })['@type']).toBe('JobPosting');
       expect(renderBody(rec, locale)).toContain(rec.title);
       const reportedDate = new Date(Date.now() - 86400000).toISOString();
-      const schema = buildReportedJobPostingFixture({ ...rec, postingDateSource: 'reported', datePosted: reportedDate, postedDate: reportedDate }, { locale, url });
-      expect(schema.baseSalary?.value?.minValue).toBeGreaterThan(0);
-      expect(schema.jobLocation?.address?.postalCode).toBeTruthy();
-      expect(schema.jobLocation?.address?.streetAddress).toBeTruthy();
+      // The plugin marks the employer-entered salary as reported.
+      const schema = buildReportedJobPostingFixture({ ...rec, salarySource: 'reported', postingDateSource: 'reported', datePosted: reportedDate, postedDate: reportedDate }, { locale, url });
+      // Owner decision 2026-10-24: optional fields only as the employer entered them.
+      if ('salaryMin' in rec) expect(schema.baseSalary?.value?.minValue).toBe(rec.salaryMin);
+      else expect(schema).not.toHaveProperty('baseSalary');
+      if (rec.postalCode) expect(schema.jobLocation?.address?.postalCode).toBe(rec.postalCode);
+      else expect(schema.jobLocation?.address).not.toHaveProperty('postalCode');
+      expect(schema.jobLocation?.address).not.toHaveProperty('streetAddress');
+      expect(schema).not.toHaveProperty('employmentType');
+      expect(schema.jobLocation?.address?.addressLocality).toBeTruthy();
       expect(schema.title).toBeTruthy();
       expect(schema.description?.length).toBeGreaterThanOrEqual(50);
       expect(schema.datePosted).toBeTruthy();
       expect(schema.hiringOrganization?.name).toBeTruthy();
       expect(schema.jobLocation).toBeTruthy();
-      expect(schema.employmentType).toBeTruthy();
-      // Cross-check against the canonical mandatory-field list so this test
-      // regresses if the shared list ever grows without a matching assertion.
-      expect(MANDATORY_JOBPOSTING_FIELDS.length).toBeGreaterThanOrEqual(9);
+      // Cross-check against the canonical required-field list so this test
+      // regresses if the shared list ever changes without a matching assertion.
+      expect(MANDATORY_JOBPOSTING_FIELDS.length).toBe(7);
     }
   });
 });

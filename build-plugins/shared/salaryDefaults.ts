@@ -9,8 +9,9 @@
  * Figures are rough Ticino medians (2025) — not legal advice. They are
  * intentionally conservative so they cannot overstate a role's pay.
  *
- * CLAUDE.md rule #3: every JobPosting must have a `baseSalary` with
- * `minValue > 0` and `maxValue >= minValue`.
+ * These bands are ESTIMATES: they may be shown on a page, labelled as such,
+ * but never become the JobPosting `baseSalary`, which carries only a salary
+ * the source reported (AGENTS.md rule #3, owner decision 2026-10-24).
  */
 
 import {

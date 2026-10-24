@@ -7,10 +7,13 @@
  *   - `weeklyEmployersPlugin.ts` (per-company × per-city weekly hubs)
  *
  * Keys are canonicalised company slugs (normEmployerKey output: lowercase,
- * diacritics stripped, non-alphanumerics collapsed to `-`). When a job has
- * no explicit HQ entry, callers MUST fall back to a city-level default and
- * ultimately to the canton-capital default — never emit empty fields (see
- * CLAUDE.md rule #3).
+ * diacritics stripped, non-alphanumerics collapsed to `-`).
+ *
+ * Owner decision 2026-10-24 (AGENTS.md rule #3): a JobPosting street/CAP is
+ * present only when the listing states it or when the job sits in the city
+ * of a curated HQ below. The city and canton-capital tables further down
+ * resolve a LOCALITY (Google requires one); their streets and CAPs are town
+ * halls and central squares, and must never be emitted as a job's address.
  */
 
 import { inferAnyCanton } from '../../scripts/lib/target-swiss-locations.mjs';
@@ -77,9 +80,10 @@ export const COMPANY_HQ_ADDRESSES = {
 };
 
 /**
- * City-level fallback addresses per known Ticino/Grigioni locality.
- * Used when a company has no HQ entry and the job lacks a valid
- * streetAddress — guarantees `streetAddress` is always present.
+ * City-level reference tuples per known locality, used to resolve and check
+ * a locality. Their street/CAP (e.g. Lugano's "Piazza Riforma 1", the town
+ * hall) are NOT a job's address and are never emitted as JobPosting
+ * `streetAddress`/`postalCode` (owner decision 2026-10-24).
  */
 export const CITY_FALLBACK_ADDRESSES = {
   'lugano': { streetAddress: 'Piazza Riforma 1', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },

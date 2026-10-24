@@ -201,6 +201,62 @@ export async function parsePemsaDetailPage(url, timeoutMs = 15000) {
 }
 
 /**
+ * The text of one vacancy ends where PEMSA's "related jobs" grid starts. The
+ * rendered body otherwise runs on through the teasers of OTHER offers (other
+ * offer ids under the same locale path: "Muratore tradizionale",
+ * "Muratore – Ingegneria civile"), the branch contact card and the site-wide
+ * benefits footer ("CONDIZIONI ECCEZIONALI … consulenza sociale"). The
+ * canonical splitter then read that footer as the responsibilities of the
+ * vacancy: the Lugano "Macchinista M1, M2,M3" (offer 2700968) published
+ * "Promozione di iniziative a tutela della salute … e consulenza sociale" as
+ * its JobPosting `responsibilities`.
+ *
+ * Identification is by offer id, not by wording: an anchor whose href is a job
+ * of the same locale path with a different trailing id is a related offer
+ * (language variants of this same vacancy live under other locale paths and
+ * carry their own ids, so they are excluded). Its anchor text is the teaser
+ * title, unless the same text also labels a link that is not another offer
+ * (the "Candidarsi per questo lavoro" button of this vacancy). The body is cut
+ * at the first such title line, together with the section heading right above
+ * it ("Lavori correlati").
+ *
+ * @param {string} description rendered body text, one block per line
+ * @param {string} html the fetched detail page
+ * @param {string} url the vacancy URL (`…/{locale}/job/{slug}-{id}/`)
+ * @returns {string}
+ */
+export function cutPemsaRelatedOffers(description = '', html = '', url = '') {
+  const text = String(description || '');
+  let own;
+  try { own = new URL(url); } catch { return text; }
+  const ownId = own.pathname.match(/-(\d+)\/?$/)?.[1];
+  if (!ownId) return text;
+  const localePrefix = own.pathname.replace(/[^/]+\/?$/, '');
+  const key = (value) => normalizeSpace(decodeHtmlEntities(String(value || ''))).toLowerCase();
+  const relatedTitles = new Set();
+  const otherLabels = new Set();
+  for (const match of String(html || '').matchAll(/<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
+    const label = key(stripHtml(match[2]));
+    if (label.length < 3) continue;
+    let path = '';
+    try { path = new URL(match[1], url).pathname; } catch { /* fragment-only or malformed href */ }
+    const id = path.match(/\/job\/[^/]*-(\d+)\/?$/)?.[1];
+    if (id && id !== ownId && path.startsWith(localePrefix)) relatedTitles.add(label);
+    else otherLabels.add(label);
+  }
+  for (const label of otherLabels) relatedTitles.delete(label);
+  if (relatedTitles.size === 0) return text;
+  const lines = text.split('\n');
+  const start = lines.findIndex((line) => relatedTitles.has(key(line)));
+  if (start < 0) return text;
+  const headings = new Set([...String(html || '').matchAll(/<h[2-4]\b[^>]*>([\s\S]*?)<\/h[2-4]>/gi)]
+    .map((match) => key(stripHtml(match[1]))));
+  let end = start;
+  while (end > 0 && headings.has(key(lines[end - 1]))) end -= 1;
+  return lines.slice(0, end).join('\n').trim();
+}
+
+/**
  * Parse one fetched detail page. PEMSA's JSON-LD carries only the intro and
  * the rendered detail body carries the remaining mission/profile sections.
  * Use the same balanced, chrome-aware extractor as the source-detail audit so
@@ -209,13 +265,14 @@ export async function parsePemsaDetailPage(url, timeoutMs = 15000) {
 export function parsePemsaDetailHtml(html, url = '') {
   try {
     const rendered = extractDetailFields(html, url, { recordUrl: url });
+    const renderedDescription = cutPemsaRelatedOffers(rendered.description, html, url);
 
     const data = extractJobPostingNodes(html)[0] || null;
     if (data) {
       const loc = data.jobLocation?.address || {};
       const rawDesc = data.description || '';
       const parsed = parseDescriptionToMarkdown(rawDesc);
-      const description = String(rendered.description || parsed.text || '').trim();
+      const description = String(renderedDescription || parsed.text || '').trim();
       return {
         title: normalizeSpace(data.title || ''),
         description,

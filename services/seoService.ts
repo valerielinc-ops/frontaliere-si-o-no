@@ -460,7 +460,7 @@ async function resolveJobSeoBySlug(
  if (!slim) return null;
  // The slim index lacks description + structured-data fields (postalCode,
  // streetAddress, baseSalary). Lazy-fetch the per-job detail and merge so the
- // JobPosting builder still gets all 9 mandatory fields (CLAUDE.md rule #3).
+ // JobPosting builder sees every field the source states (AGENTS.md rule #3).
  const detail = await loadJobDetail(slim?.id);
  const job = detail ? { ...slim, ...detail } : slim;
  const localizedTitle = normalizeSeoText(jobDisplayTitle(job));
@@ -480,10 +480,10 @@ async function resolveJobSeoBySlug(
  `${localizedTitle} ${localizedDescription} ${job?.location || ''}`
  );
  // Delegate to the canonical builder — see
- // build-plugins/shared/jobPostingSchema.ts. This guarantees all 9
- // mandatory JobPosting fields (CLAUDE.md rule #3) with realistic defaults,
- // plus industry/occupationalCategory/applicantLocationRequirements when the
- // source data supports them.
+ // build-plugins/shared/jobPostingSchema.ts. It guarantees Google's required
+ // JobPosting fields and emits every other field only when the source states
+ // it (owner decision 2026-10-24), plus industry/occupationalCategory/
+ // applicantLocationRequirements when the source data supports them.
  const canonicalInput: JobInput = {
  id: job?.id,
  slug: job?.slug || cleanSlug,
@@ -506,10 +506,14 @@ async function resolveJobSeoBySlug(
  firstSeenAt: job?.firstSeenAt,
  crawledAt: job?.crawledAt,
  updatedAt: job?.updatedAt,
+ employmentType: job?.employmentType,
  contract: job?.contract,
+ contractType: job?.contractType,
+ validThrough: job?.validThrough,
  salaryMin: salary?.minValue ?? null,
  salaryMax: salary?.maxValue ?? null,
  salaryCurrency: salary?.currency,
+ salarySource: job?.salarySource,
  sector: job?.category,
  category: job?.category,
  url: job?.url,

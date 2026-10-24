@@ -269,24 +269,19 @@ describe('deriveJobAddressLocality — visible-page locality sanitization (Hirsl
   });
 });
 
-describe('deriveJobStreetAddress — street of the emitted locality only (#9852)', () => {
-  it('returns no street for a locality without one, instead of a canton capital street', () => {
-    // TG had no capital-table entry, so this used to be the Ticino default.
+describe('deriveJobStreetAddress — the listing\'s own street only (owner decision 2026-10-24)', () => {
+  it('returns no street when the listing states none, instead of a city-hall or capital street', () => {
     expect(deriveJobStreetAddress({ addressLocality: 'Weinfelden', canton: 'TG' }, 'Weinfelden')).toBe('');
     expect(deriveJobStreetAddress({ addressLocality: 'Pully', canton: 'VD' }, 'Pully')).toBe('');
+    expect(deriveJobStreetAddress({ location: 'Lyssach · Bern' }, 'Bern')).toBe('');
+    // Was "Piazza Riforma 1" (Lugano town hall) on every Lugano job.
+    expect(deriveJobStreetAddress({ addressLocality: 'Lugano' }, 'Lugano')).toBe('');
+    expect(deriveJobStreetAddress({ addressLocality: 'Zurich' }, 'Zurich')).toBe('');
   });
 
-  it('never takes the street of another place named in the raw location', () => {
-    // The street follows the locality the page emits, not the raw parts: Bern's
-    // street is right only when the emitted locality is Bern.
-    expect(deriveJobStreetAddress({ location: 'Lyssach · Bern' }, 'Lyssach')).toBe('');
-    expect(deriveJobStreetAddress({ location: 'Lyssach · Bern' }, 'Bern')).toBe('Bundesplatz 1');
-  });
-
-  it('keeps the job\'s own street and the curated street of the emitted city', () => {
+  it('keeps the job\'s own street and rejects a stored locality name', () => {
     expect(deriveJobStreetAddress({ streetAddress: 'Via Nassa 5', addressLocality: 'Lugano' }, 'Lugano')).toBe('Via Nassa 5');
-    expect(deriveJobStreetAddress({ addressLocality: 'Lugano' }, 'Lugano')).toBe('Piazza Riforma 1');
-    expect(deriveJobStreetAddress({ addressLocality: 'Zurich' }, 'Zurich')).toBe('Bahnhofstrasse 1');
+    expect(deriveJobStreetAddress({ streetAddress: 'Lugano', addressLocality: 'Lugano' }, 'Lugano')).toBe('');
   });
 });
 
@@ -303,7 +298,8 @@ describe('JobPosting locality equals the page locality (review of #9870)', () =>
     }, 'de');
     expect(pageLocality).toBe('Oerlikon');
     expect(address.addressLocality).toBe(pageLocality);
-    expect(address.postalCode).toMatch(/^\d{4}$/);
-    expect(address.streetAddress).toBe('Oerlikon Stadtzentrum');
+    // No street or CAP is borrowed: the listing states neither.
+    expect(address).not.toHaveProperty('postalCode');
+    expect(address).not.toHaveProperty('streetAddress');
   });
 });

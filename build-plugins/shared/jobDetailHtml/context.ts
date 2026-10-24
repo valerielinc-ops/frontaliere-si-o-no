@@ -25,11 +25,14 @@ export interface JobDetailJob {
   readonly id?: string;
   readonly companyKey?: string;
   readonly title?: string;
+  readonly titleByLocale?: Readonly<Partial<Record<string, string>>>;
   readonly company?: string;
   readonly location?: string;
   readonly canton?: string;
   readonly category?: string;
   readonly contract?: string;
+  readonly employmentType?: string;
+  readonly contractType?: string;
   readonly featured?: boolean;
   readonly postingDateSource?: string;
   readonly datePosted?: string;

@@ -73,13 +73,15 @@ describe('employer publication date provenance', () => {
     expect(buildJobPostingSchema({ postingDateSource: 'reported', crawledAt: yesterday }, options).datePosted).toBe(yesterday);
     expect(resolveSchemaPostingDate({ postingDateSource: 'reported', postedDate: tomorrow, crawledAt: tomorrow }, now)).toEqual({ value: today, provenance: 'build-clock' });
   });
-  it('preserves a verified original date and emits all mandatory schema properties', () => {
+  it('preserves a verified original date and emits the required schema properties', () => {
     const schema = buildJobPostingSchema({ ...job, postingDateSource: 'reported' }, options);
     expect(schema).not.toBeNull();
     expect(schema?.datePosted).toBe(yesterday);
     expect(schema?.['@type']).toBe('JobPosting');
-    expect(schema?.jobLocation.address.postalCode).toBeTruthy();
-    expect(schema?.baseSalary.value.minValue).toBeGreaterThan(0);
+    expect(schema?.jobLocation.address.addressLocality).toBe('Lugano');
+    // Owner decision 2026-10-24: the fixture states no CAP and no salary.
+    expect(schema?.jobLocation.address).not.toHaveProperty('postalCode');
+    expect(schema).not.toHaveProperty('baseSalary');
   });
   it('keeps presentation FAQ facts separate from the JobPosting date', () => {
     const facts = buildJobPostingFacts(job, 'it');
