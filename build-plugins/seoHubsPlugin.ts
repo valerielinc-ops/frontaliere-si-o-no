@@ -2616,7 +2616,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     //
     // Not a reachability fix: the flat pagination nav links every page, so
     // page-31 was always one hop from page-1, and `sitemapEntries` is pushed
-    // inside the per-page loop so every page gets an entry in a full build.
+    // inside the per-page loop (page 1 only since the P1 noindex plan).
     // (Neither is worth much today — no archive URL is in any live sitemap,
     // because fast-publish passes `sitemapEntries: []` and the site build no
     // longer emits these pages. That is its own gap.) This is about the page
