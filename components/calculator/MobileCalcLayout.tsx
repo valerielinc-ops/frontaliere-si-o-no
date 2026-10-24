@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
+import React, { useState, useEffect, useRef, useCallback, Suspense, startTransition, useOptimistic } from 'react';
 import { Coins, TrainFront, Check, ChevronUp, ArrowDown, Settings2, Home, Briefcase, TrendingUp, TrendingDown, Ruler, Mail, X, Loader2, CheckCircle2 } from 'lucide-react';
 import { SimulationInputs, SimulationResult } from '../../types';
 import { useTranslation, getCantonI18nParams } from '../../services/i18n';
@@ -108,6 +108,20 @@ const MobileCalcLayout: React.FC<Props> = ({
  const handleChange = useCallback((field: keyof SimulationInputs, value: any) => {
  setInputs(prev => ({ ...prev, [field]: value }));
  }, [setInputs]);
+
+ // INP: `setInputs` lives in App, so an urgent preset tap re-rendered the
+ // whole App before the browser could paint the pressed pill (1.2 s of
+ // processing on "75k", Pixel 5, CPU 4x). The preset now updates App in a
+ // transition; the pill and the salary field read an optimistic value that
+ // repaints this layout immediately and falls back to `inputs` once the
+ // transition commits. Typing stays urgent (a controlled input must not lag).
+ const [shownSalary, showSalary] = useOptimistic(inputs.annualIncomeCHF);
+ const selectSalaryPreset = useCallback((value: number) => {
+ startTransition(() => {
+ showSalary(value);
+ handleChange('annualIncomeCHF', value);
+ });
+ }, [handleChange, showSalary]);
 
  // Track first open for deferred rendering
  const openSheet = useCallback((focusField?: 'age' | 'maritalStatus' | 'children') => {
@@ -295,7 +309,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  id="mc-salary"
  type="text"
  inputMode="numeric"
- value={formatNumber(inputs.annualIncomeCHF)}
+ value={formatNumber(shownSalary)}
  onChange={(e) => handleChange('annualIncomeCHF', parseNumber(e.target.value))}
  className="w-full pl-14 pr-3 py-3.5 bg-surface-alt border-2 border-edge rounded-xl focus-visible:ring-4 focus-visible:border-accent focus-visible:ring-accent/10 outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-2xl tracking-tight text-center"
  placeholder="0"
@@ -315,9 +329,9 @@ const MobileCalcLayout: React.FC<Props> = ({
  {SALARY_PRESETS.map(s => (
  <button
  key={s}
- onClick={() => handleChange('annualIncomeCHF', s)}
+ onClick={() => selectSalaryPreset(s)}
  className={`shrink-0 px-2.5 py-1 min-h-11 rounded-lg text-xs font-bold transition-colors ${
- inputs.annualIncomeCHF === s
+ shownSalary === s
  ? 'bg-accent-strong text-on-accent shadow-sm'
  : 'bg-surface-raised text-muted hover:bg-surface-raised'
  }`}

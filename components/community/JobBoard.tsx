@@ -323,6 +323,7 @@ import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarket
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/shared/healthPremiumsPaths';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { isJobBoardSectionPathname } from '../../scripts/lib/jobBoardSections.mjs';
+import JobBoardQuickFilterChips from './JobBoardQuickFilterChips';
 import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
@@ -11471,29 +11472,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Role/category shortcuts are useful after users have seen real inventory,
      but no longer push the first result below the mobile fold. */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide" role="group" aria-label={t('jobBoard.quickFilters.label')}>
- {([
- { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health'); } },
- { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time'); } },
- { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship'); } },
- ] as const).map(chip => (
- <button
- key={chip.id}
- type="button"
- onClick={chip.action}
- className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 min-h-11 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
- chip.active
- ? 'bg-accent-strong border-accent text-on-accent shadow-sm shadow-accent/20'
- : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
- }`}
- aria-pressed={chip.active}
- >
- <chip.icon className="w-3 h-3" />
- {chip.label}
- </button>
- ))}
+ <JobBoardQuickFilterChips chips={[
+ { id: 'nurse', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'engineer', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'driver', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'health', group: 'category', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedCategory((prev) => (prev === 'health' ? 'all' : 'health')); } },
+ { id: 'parttime', group: 'contract', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract((prev) => (prev === 'part-time' ? 'all' : 'part-time')); } },
+ { id: 'apprentice', group: 'contract', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract((prev) => (prev === 'internship' ? 'all' : 'internship')); } },
+ ]} />
  </div>
 
  {/* Single search-utility mount remains the 0-results alert scroll target. */}
@@ -11677,31 +11663,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div role="group" aria-label={t('jobBoard.quickFilters.label')}>
  {/* Time & Location */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
- {([
- { id: 'today', icon: Clock, label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '24h' ? 'all' : '24h'); } },
- { id: '3days', icon: Clock, label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '3d' ? 'all' : '3d'); } },
- { id: '7days', icon: Clock, label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '7d' ? 'all' : '7d'); } },
- { id: 'lugano', icon: MapPin, label: 'Lugano', active: selectedLocation === 'lugano', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'lugano' ? 'all' : 'lugano'); } },
- { id: 'mendrisio', icon: MapPin, label: 'Mendrisio', active: selectedLocation === 'mendrisio', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'mendrisio' ? 'all' : 'mendrisio'); } },
- { id: 'bellinzona', icon: MapPin, label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'bellinzona' ? 'all' : 'bellinzona'); } },
- { id: 'locarno', icon: MapPin, label: 'Locarno', active: selectedLocation === 'locarno', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'locarno' ? 'all' : 'locarno'); } },
- { id: 'chiasso', icon: MapPin, label: 'Chiasso', active: selectedLocation === 'chiasso', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'chiasso' ? 'all' : 'chiasso'); } },
- ] as const).map(chip => (
- <button
- key={chip.id}
- type="button"
- onClick={chip.action}
- className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 min-h-11 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
- chip.active
- ? 'bg-accent-strong border-accent text-on-accent shadow-sm shadow-accent/20'
- : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
- }`}
- aria-pressed={chip.active}
- >
- <chip.icon className="w-3 h-3" />
- {chip.label}
- </button>
- ))}
+ <JobBoardQuickFilterChips chips={[
+ { id: 'today', group: 'date', icon: Clock, label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange((prev) => (prev === '24h' ? 'all' : '24h')); } },
+ { id: '3days', group: 'date', icon: Clock, label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange((prev) => (prev === '3d' ? 'all' : '3d')); } },
+ { id: '7days', group: 'date', icon: Clock, label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange((prev) => (prev === '7d' ? 'all' : '7d')); } },
+ { id: 'lugano', group: 'location', icon: MapPin, label: 'Lugano', active: selectedLocation === 'lugano', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'lugano' ? 'all' : 'lugano')); } },
+ { id: 'mendrisio', group: 'location', icon: MapPin, label: 'Mendrisio', active: selectedLocation === 'mendrisio', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'mendrisio' ? 'all' : 'mendrisio')); } },
+ { id: 'bellinzona', group: 'location', icon: MapPin, label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'bellinzona' ? 'all' : 'bellinzona')); } },
+ { id: 'locarno', group: 'location', icon: MapPin, label: 'Locarno', active: selectedLocation === 'locarno', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'locarno' ? 'all' : 'locarno')); } },
+ { id: 'chiasso', group: 'location', icon: MapPin, label: 'Chiasso', active: selectedLocation === 'chiasso', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'chiasso' ? 'all' : 'chiasso')); } },
+ ]} />
  </div>
  </div>
 
