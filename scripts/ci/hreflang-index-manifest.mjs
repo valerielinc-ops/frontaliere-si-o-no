@@ -31,6 +31,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { readHeadOrAll } from '../lib/readHead.mjs';
 import { distFileToUrlPath } from '../lib/externally-served-paths.mjs';
 import {
@@ -258,7 +259,13 @@ function parseArgs(argv) {
   return args;
 }
 
-const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname);
+const invokedDirectly = (() => {
+  try {
+    return fs.realpathSync(fileURLToPath(import.meta.url)) === fs.realpathSync(process.argv[1] || '');
+  } catch {
+    return false;
+  }
+})();
 if (invokedDirectly) {
   const args = parseArgs(process.argv.slice(2));
   const distDir = path.resolve(args.distDir);
