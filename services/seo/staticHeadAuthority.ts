@@ -39,6 +39,15 @@ const hasNoindex = (value: string | null | undefined): boolean => /\bnoindex\b/i
 
 let snapshot: StaticHeadSnapshot | null = null;
 let captured = false;
+let navigatedSinceCapture = false;
+let navigationObserver: {
+  history: History;
+  pushState: History['pushState'];
+  replaceState: History['replaceState'];
+  onPopState: () => void;
+  wrappedPushState: History['pushState'];
+  wrappedReplaceState: History['replaceState'];
+} | null = null;
 
 const normalizePath = (p: string): string => {
   if (!p) return '/';
@@ -54,6 +63,66 @@ const isGenericShell = (canonical: string | null, path: string): boolean => {
     return false;
   }
 };
+
+/**
+ * Once the document has crossed a pathname boundary, its original head no
+ * longer belongs to the current SPA route — even if the user navigates back
+ * to the pathname that was served initially. History API calls do not emit a
+ * `popstate` event, so observe them alongside browser back/forward events.
+ */
+function markPathnameNavigation(): void {
+  if (!snapshot || typeof window === 'undefined') return;
+  if (normalizePath(window.location.pathname) !== normalizePath(snapshot.path)) {
+    navigatedSinceCapture = true;
+  }
+}
+
+function installNavigationObserver(): void {
+  if (typeof window === 'undefined' || navigationObserver) return;
+  const history = window.history;
+  const pushState = history.pushState;
+  const replaceState = history.replaceState;
+  const wrappedPushState = function (this: History, ...args: Parameters<History['pushState']>) {
+    const result = pushState.apply(this, args);
+    markPathnameNavigation();
+    return result;
+  } as History['pushState'];
+  const wrappedReplaceState = function (this: History, ...args: Parameters<History['replaceState']>) {
+    const result = replaceState.apply(this, args);
+    markPathnameNavigation();
+    return result;
+  } as History['replaceState'];
+  const onPopState = () => markPathnameNavigation();
+  try {
+    history.pushState = wrappedPushState;
+    history.replaceState = wrappedReplaceState;
+    window.addEventListener('popstate', onPopState);
+    navigationObserver = {
+      history,
+      pushState,
+      replaceState,
+      onPopState,
+      wrappedPushState,
+      wrappedReplaceState,
+    };
+  } catch {
+    // A host may expose a non-writable History object. currentSnapshot still
+    // checks the live pathname, so hydration remains safe on that host.
+  }
+}
+
+function removeNavigationObserver(): void {
+  if (!navigationObserver || typeof window === 'undefined') return;
+  const observer = navigationObserver;
+  window.removeEventListener('popstate', observer.onPopState);
+  if (observer.history.pushState === observer.wrappedPushState) {
+    observer.history.pushState = observer.pushState;
+  }
+  if (observer.history.replaceState === observer.wrappedReplaceState) {
+    observer.history.replaceState = observer.replaceState;
+  }
+  navigationObserver = null;
+}
 
 /**
  * Record the head the document was served with. Idempotent: only the first
@@ -77,18 +146,25 @@ export function captureStaticHead(): void {
   // its own to defend (a bare shell, a test fixture): the SPA writes it.
   const ownsHead = canonical != null || hasNoindex(robots);
   snapshot = { path, robots, canonical, hreflang, authoritative: ownsHead && !isGenericShell(canonical, path) };
+  navigatedSinceCapture = false;
+  installNavigationObserver();
 }
 
 /** Test-only: forget the captured head. */
 export function resetStaticHeadAuthorityForTests(): void {
+  removeNavigationObserver();
   snapshot = null;
   captured = false;
+  navigatedSinceCapture = false;
 }
 
 /** The snapshot, when the document is still on the path it was served for. */
 function currentSnapshot(): StaticHeadSnapshot | null {
   if (!snapshot || typeof window === 'undefined') return null;
-  return normalizePath(window.location.pathname) === normalizePath(snapshot.path) ? snapshot : null;
+  markPathnameNavigation();
+  return !navigatedSinceCapture && normalizePath(window.location.pathname) === normalizePath(snapshot.path)
+    ? snapshot
+    : null;
 }
 
 /** True when canonical/hreflang of the current path belong to the static HTML. */

@@ -25,6 +25,7 @@ import {
   applyCanonicalHref,
   captureStaticHead,
   clearSpaNoindex,
+  hasAuthoritativeStaticHead,
   resetStaticHeadAuthorityForTests,
 } from '../services/seo/staticHeadAuthority';
 
@@ -208,5 +209,21 @@ describe('controls: where the SPA still owns the head', () => {
     const after = readHead();
     expect(after.noindex).toBe(false);
     expect(after.canonicals).toEqual([`${BASE}${nextPath}`]);
+  });
+
+  it('does not restore static authority after leaving and returning to the initial pathname', () => {
+    const servedPath = '/foo/';
+    serve(servedPath, {
+      robots: 'index,follow',
+      canonical: `${BASE}${servedPath}`,
+      hreflang: [['it', `${BASE}${servedPath}`]],
+    });
+
+    window.history.pushState({}, '', '/bar/');
+    window.history.pushState({}, '', servedPath);
+
+    expect(hasAuthoritativeStaticHead()).toBe(false);
+    applyCanonicalHref(`${BASE}${servedPath}?spa-route`);
+    expect(readHead().canonicals).toEqual([`${BASE}${servedPath}?spa-route`]);
   });
 });
