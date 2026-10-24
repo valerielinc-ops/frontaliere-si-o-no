@@ -9,6 +9,10 @@ describe('job viewers activity prompt contract', () => {
   it('shows promptly, then bounds the synthetic viewer count', () => {
     expect(SOURCE).toMatch(/DISPLAY_DELAY_MS\s*=\s*1_500/u);
     expect(SOURCE).toMatch(/AUTO_DISMISS_MS\s*=\s*3_500/u);
+    expect(SOURCE).toMatch(/viewerPromptVisibleAt/u);
+    expect(JOB_BOARD_SOURCE).toMatch(
+      /gate\.dataset\.viewerPromptVisibleAt\s*=\s*String\(Date\.now\(\)\)/u,
+    );
     expect(SOURCE).toMatch(/Math\.floor\(Math\.random\(\) \* 4\) \+ 2/u);
     expect(SOURCE).toMatch(/stored >= 2 && stored <= 5/u);
   });

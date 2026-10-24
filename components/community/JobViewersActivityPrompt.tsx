@@ -121,12 +121,43 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
       // Session storage is optional; the prompt still works without it.
     }
 
-    const timer = window.setTimeout(() => {
-      setCount(getSessionViewerCount(jobId));
-      setVisible(true);
-    }, DISPLAY_DELAY_MS);
+    let timer: number | null = null;
+    let gateObserver: MutationObserver | null = null;
+    const schedule = () => {
+      if (timer !== null) return;
+      const gateVisibleAt = Number(
+        document.getElementById('job-auth-gate')?.dataset.viewerPromptVisibleAt,
+      );
+      const elapsedSinceGate = Number.isFinite(gateVisibleAt)
+        ? Math.max(0, Date.now() - gateVisibleAt)
+        : 0;
+      timer = window.setTimeout(() => {
+        setCount(getSessionViewerCount(jobId));
+        setVisible(true);
+      }, Math.max(0, DISPLAY_DELAY_MS - elapsedSinceGate));
+    };
+    const gate = document.getElementById('job-auth-gate');
+    if (gate?.dataset.viewerPromptVisibleAt) {
+      schedule();
+    } else if (gate && typeof MutationObserver !== 'undefined') {
+      gateObserver = new MutationObserver(() => {
+        if (!gate.dataset.viewerPromptVisibleAt) return;
+        gateObserver?.disconnect();
+        gateObserver = null;
+        schedule();
+      });
+      gateObserver.observe(gate, {
+        attributes: true,
+        attributeFilter: ['data-viewer-prompt-visible-at'],
+      });
+    } else {
+      schedule();
+    }
 
-    return () => window.clearTimeout(timer);
+    return () => {
+      gateObserver?.disconnect();
+      if (timer !== null) window.clearTimeout(timer);
+    };
   }, [jobId]);
 
   const close = useCallback(() => {
