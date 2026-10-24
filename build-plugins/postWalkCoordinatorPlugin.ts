@@ -101,6 +101,14 @@ import {
 } from './shared/distHtmlWalk';
 import { buildSharedHtmlPathIndex } from './shared/htmlPathIndex.mjs';
 import {
+  BLOG_IMAGE_REF_MARKER,
+  blogImageFoldEnabled,
+  collectHtmlWithBlogScope,
+  isInBlogSweepScope,
+  publishPostWalkBlogScan,
+  resetPostWalkBlogScan,
+} from './shared/blogImageFold';
+import {
   startTimer as profileStart,
   recordEmit as profileRecord,
   ingestBuckets as profileIngestBuckets,
@@ -193,6 +201,12 @@ interface WorkerResult {
   hreflangLinksDropped: number;
   totalWrites: number;
   writeFailures: Array<{ filePath: string; msg: string }>;
+  // Scansione blog-image condivisa (shared/blogImageFold.ts): file il cui
+  // contenuto finale contiene `/images/blog/`, e file che il lavoratore non
+  // ha potuto verificare (lettura o scrittura fallita). Vuoti se il tracking
+  // e' spento.
+  blogMarkerPaths?: string[];
+  blogUnscannedPaths?: string[];
   // Populated only by the coordinator's single-threaded dry-run verifier.
   // Worker threads do not need to serialize this set during normal builds.
   wouldWritePaths?: string[];
@@ -299,6 +313,7 @@ function runSingleThreaded(
   assetIntegrityRegistry: ReadonlyMap<string, string>,
   writeFiles = true,
   collectWouldWritePaths = false,
+  trackBlogMarkers = false,
 ): WorkerResult {
   const result: WorkerResult = {
     bridgeConverted: 0,
@@ -311,6 +326,7 @@ function runSingleThreaded(
     totalWrites: 0,
     writeFailures: [],
     ...(collectWouldWritePaths ? { wouldWritePaths: [] } : {}),
+    ...(trackBlogMarkers ? { blogMarkerPaths: [], blogUnscannedPaths: [] } : {}),
   };
 
   // Article sections are routed away from this build and have no file here on
@@ -339,12 +355,16 @@ function runSingleThreaded(
       html = fs.readFileSync(filePath, 'utf-8');
     } catch {
       profileRecord('read', __tRead);
+      result.blogUnscannedPaths?.push(filePath);
       continue;
     }
     profileRecord('read', __tRead);
     const original = html;
     let mutated = false;
     let isBridge = false;
+    if (trackBlogMarkers && original.includes(BLOG_IMAGE_REF_MARKER)) {
+      result.blogMarkerPaths?.push(filePath);
+    }
 
     const baseName = path.basename(filePath);
     if (baseName !== 'index.html' && !baseName.startsWith('.')) {
@@ -423,6 +443,9 @@ function runSingleThreaded(
 
     if (mutated && html !== original) {
       if (collectWouldWritePaths) result.wouldWritePaths?.push(filePath);
+      if (trackBlogMarkers && html.includes(BLOG_IMAGE_REF_MARKER) && !original.includes(BLOG_IMAGE_REF_MARKER)) {
+        result.blogMarkerPaths?.push(filePath);
+      }
       const __tWrite = profileStart();
       if (writeFiles) {
         try {
@@ -431,6 +454,7 @@ function runSingleThreaded(
         } catch (err: unknown) {
           const msg = err instanceof Error ? err.message : String(err);
           result.writeFailures.push({ filePath, msg });
+          result.blogUnscannedPaths?.push(filePath);
         }
       }
       profileRecord('write', __tWrite);
@@ -452,6 +476,7 @@ async function runInWorker(
     htmlPathIndex: ReturnType<typeof buildSharedHtmlPathIndex>;
     keywordLandingPlan: KeywordLandingPlanSnapshot;
     assetIntegrityEntries: ReadonlyArray<readonly [string, string]>;
+    trackBlogMarkers: boolean;
   },
 ): Promise<WorkerResult> {
   return new Promise((resolve, reject) => {
@@ -576,6 +601,14 @@ function mergeResultInto(acc: WorkerResult, result: WorkerResult): void {
   acc.hreflangLinksDropped += result.hreflangLinksDropped;
   acc.totalWrites += result.totalWrites;
   acc.writeFailures.push(...result.writeFailures);
+  if (result.blogMarkerPaths) {
+    const target = (acc.blogMarkerPaths ??= []);
+    for (const p of result.blogMarkerPaths) target.push(p);
+  }
+  if (result.blogUnscannedPaths) {
+    const target = (acc.blogUnscannedPaths ??= []);
+    for (const p of result.blogUnscannedPaths) target.push(p);
+  }
   if (acc.wouldWritePaths && result.wouldWritePaths) {
     acc.wouldWritePaths.push(...result.wouldWritePaths);
   }
@@ -611,6 +644,7 @@ function buildPostWalkCoordinatorPlugin(
         }
 
         const startTotal = Date.now();
+        resetPostWalkBlogScan();
         // staticScriptsPlugin writes stable carriers during closeBundle, so
         // register the final on-disk asset bytes before dispatching the shared
         // HTML walk. Workers receive this small map by structured clone.
@@ -786,6 +820,17 @@ function buildPostWalkCoordinatorPlugin(
               + `manifests=${manifests === null ? 'missing' : 'loaded'}`,
           );
         }
+        // Scansione blog-image condivisa: solo sul percorso completo (nessun
+        // walk incrementale/mirato), cosi' la copertura e' provabile.
+        const blogFold = blogImageFoldEnabled() && !incrementalEnabled && !canUseTargetedWalk;
+        let blogWalkExtras: string[] = [];
+        const blogTopLevelOwned = new Map<string, boolean>();
+        const blogFallbackPaths: string[] = [];
+        let foldedWalk: ReturnType<typeof collectHtmlWithBlogScope> | null = null;
+        if (blogFold) {
+          foldedWalk = collectHtmlWithBlogScope(distDir);
+          blogWalkExtras = foldedWalk.extras;
+        }
         const walkResult = canUseTargetedWalk
           ? collectHtmlFromClaimedPaths(
             distDir,
@@ -796,7 +841,7 @@ function buildPostWalkCoordinatorPlugin(
             indexedInventory,
           )
           : {
-            paths: collectHtml(distDir, []),
+            paths: foldedWalk ? foldedWalk.html : collectHtml(distDir, []),
             claimed: 0,
             targeted: 0,
             topLevels: listWalkableDistTopLevels(distDir),
@@ -861,6 +906,7 @@ function buildPostWalkCoordinatorPlugin(
           if (!shouldEmitPath(file, distDir)) {
             nonOwnedLocaleSkipped++;
             excludedHtmlPaths?.add(file);
+            if (blogFold && isInBlogSweepScope(distDir, file, blogTopLevelOwned)) blogFallbackPaths.push(file);
           } else {
             const preEmitted = isPreEmittedJobFlatBridgePath(distDir, file);
             let relative: string | null = null;
@@ -896,6 +942,7 @@ function buildPostWalkCoordinatorPlugin(
             if (preEmitted) {
               preEmittedFlatBridgesSkipped++;
               excludedHtmlPaths?.add(file);
+              if (blogFold && isInBlogSweepScope(distDir, file, blogTopLevelOwned)) blogFallbackPaths.push(file);
               continue;
             }
             allHtmlPaths[processableCount] = file;
@@ -1194,6 +1241,9 @@ function buildPostWalkCoordinatorPlugin(
                 baseUrl,
                 trimmedBase,
                 assetIntegrityRegistry,
+                true,
+                false,
+                blogFold,
               )
             : await (async () => {
                 const __tChunk = profileStart();
@@ -1219,6 +1269,7 @@ function buildPostWalkCoordinatorPlugin(
                       htmlPathIndex,
                       keywordLandingPlan,
                       assetIntegrityEntries,
+                      trackBlogMarkers: blogFold,
                     });
                     if (r.profilerBuckets && r.profilerBuckets.length > 0) {
                       profileIngestBuckets(r.profilerBuckets);
@@ -1232,6 +1283,26 @@ function buildPostWalkCoordinatorPlugin(
                 return finalMerged;
               })();
         const processPhaseMs = Date.now() - processPhaseStartedAt;
+
+        // Pubblica la scansione condivisa SOLO se ogni file della lista di
+        // lavoro e' stato davvero passato dal coordinatore (percorso completo).
+        // Qualunque altra forma lascia il finalize sullo sweep originale.
+        if (blogFold && processHtmlPaths === fullProcessHtmlPaths) {
+          const extraPaths = blogWalkExtras
+            .concat(blogFallbackPaths)
+            .concat(merged.blogUnscannedPaths ?? []);
+          for (const failure of merged.writeFailures) extraPaths.push(failure.filePath);
+          publishPostWalkBlogScan({
+            distDir,
+            markerPaths: merged.blogMarkerPaths ?? [],
+            extraPaths,
+          });
+          // eslint-disable-next-line no-console
+          console.log(
+            `[post-walk-coordinator] blog-image scan shared: processed=${processHtmlPaths.length} ` +
+              `marker=${merged.blogMarkerPaths?.length ?? 0} extra=${extraPaths.length}`,
+          );
+        }
 
         if (incrementalEnabled) {
           logBuildMem(

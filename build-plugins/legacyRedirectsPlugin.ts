@@ -38,6 +38,8 @@ import {
  writeDistPageSafely,
 } from './shared/distPathSafety';
 import { shouldEmitPath } from './shared/localeEmitFilter';
+import { earlyRejectEnabled } from './shared/midPluginFlags';
+import { makeStartsWithAnyPrefix } from './shared/prefixMatcher';
 
 // These legacy URLs are intercepted by the apex Worker with a real 301. Keep
 // their static fallback free of a second, weaker redirect mechanism: the
@@ -647,10 +649,16 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  crossPageSignals: false,
  }), from, to);
 
+ const earlyReject = earlyRejectEnabled();
  for (const [fromRaw, toRaw] of Object.entries(redirects)) {
  const from = withSlash(fromRaw);
  const to = withSlash(toRaw);
  if (from === to || from === '/') continue;
+ // Il controllo di proprieta' del locale (ripetuto sotto, invariato) e' una
+ // pura funzione di stringa: farlo prima dei tre controlli di sicurezza, che
+ // costano path.join/resolve/regex per candidato, evita quel lavoro per i
+ // ~3/4 dei bridge che questa gamba scarta comunque senza scrivere nulla.
+ if (earlyReject && !shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) continue;
 
  // Search Console and other compatibility inputs can contain dot-prefixed
  // segments. Reject them before any filesystem path is derived: a trailing
@@ -750,14 +758,8 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  return Array.from(out);
  })();
  const isJobPath = (p: string): boolean => JOB_SECTION_PREFIXES.some(prefix => p.startsWith(prefix));
- // Search-combo slugs and out-of-range pagination leaves are job-section-prefixed
- // (e.g. /cerca-lavoro-svizzera/ricerca-fondo-arbon/) but NEITHER is handled by
- // jobsSeoPagesPlugin or seoHubsPlugin: jobsSeoPagesPlugin explicitly excludes
- // searchComboPattern from its own tracking, and out-of-range individual pagination
- // leaves (a canton's page count shrinking build-over-build) get no bridge from
- // seoHubsPlugin either. Without this exemption isJobPath's skip below makes this
- // resolver's correct handling for both shapes permanently dead code, and the URL
- // is left unresolvable (real 404) — see build-plugins/searchConsoleCompat.ts.
+ // Stesso verdetto di `isJobPath`, O(1) per path (vedi shared/prefixMatcher.ts).
+ const isJobPathFast = makeStartsWithAnyPrefix(JOB_SECTION_PREFIXES);
  const isCompatResolvableUnderJobPrefix = (p: string): boolean =>
  SEARCH_COMBO_SEGMENT_PATTERN.test(p) || JOB_BOARD_PAGINATION_PATTERN.test(p);
  let skippedJobPaths = 0;
@@ -765,6 +767,14 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  const compatPaths = readCompatPaths(rootDir).paths;
  for (const compatPathRaw of compatPaths) {
  const from = normalize(String(compatPathRaw || ''));
+ // Stessa idea: ownership e job-board sono predicati puri di `from` che, nel
+ // percorso storico, vengono dopo safety check, resolver e probe su disco ma
+ // portano sempre a `continue` (nessuna scrittura). `skippedJobPaths` conta
+ // quindi anche i job path che prima morivano prima (solo log).
+ if (earlyReject) {
+   if (!shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) continue;
+   if (isJobPathFast(from) && !isCompatResolvableUnderJobPrefix(from)) { skippedJobPaths++; continue; }
+ }
  if (isDistPathOverFilesystemLimits(from)) { skippedFilesystemLimitPaths++; continue; }
  if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
  const safeTargets = getSafeDistPageTargets(distDir, from);

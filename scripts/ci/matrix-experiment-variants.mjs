@@ -42,6 +42,12 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   // la prova di byte-identita' fra varianti dello stesso run.
   'PHASE_CPU_PROFILE',
   'DIST_HASH_MANIFEST',
+  // Scansione blog-image condivisa col post-walk coordinator (blogImageFold.ts).
+  'BLOG_IMAGE_CDN_FOLD',
+  // Scarto anticipato in legacy-redirects/cf-hot-404-bridge (midPluginFlags.ts).
+  'MID_PLUGINS_EARLY_REJECT',
+  // Pool di thread libuv per le I/O asincrone del build (default Node: 4).
+  'UV_THREADPOOL_SIZE',
 ]);
 
 const ALLOWED_ENV_KEY_SET = new Set(ALLOWED_ENV_KEYS);

@@ -23,6 +23,7 @@ const WORKFLOW = YAML.parse(WORKFLOW_TEXT) as any;
 describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
   it('keeps the explicit build-flag allowlist', () => {
     expect([...ALLOWED_ENV_KEYS].sort()).toEqual([
+      'BLOG_IMAGE_CDN_FOLD',
       'BUILD_BENCH',
       'BUILD_PROFILE',
       'BUILD_STOP_AFTER',
@@ -42,6 +43,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'JOBS_SEO_REUSE_VERIFY',
       'JOBS_SEO_REUSE_VERIFY_SAMPLE',
       'JOBS_SEO_SAMPLE',
+      'MID_PLUGINS_EARLY_REJECT',
       'PHASE_CPU_PROFILE',
       'POST_WALK_INCREMENTAL',
       'POST_WALK_INCREMENTAL_VERIFY',
@@ -50,6 +52,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'RELATED_SEARCH_CLUSTERS_NO_CACHE',
       'RELATED_SEARCH_POSTINGS_SPARSE',
       'SEQUENTIAL_PROFILE',
+      'UV_THREADPOOL_SIZE',
     ]);
   });
 

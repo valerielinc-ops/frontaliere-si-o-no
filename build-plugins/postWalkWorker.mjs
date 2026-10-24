@@ -69,7 +69,14 @@ const {
   htmlPathIndex: serializedHtmlPathIndex,
   keywordLandingPlan,
   assetIntegrityEntries,
+  trackBlogMarkers,
 } = workerData;
+
+// Scansione blog-image condivisa (build-plugins/shared/blogImageFold.ts):
+// unica sequenza che le regex del finalize possono riconoscere.
+const BLOG_IMAGE_REF_MARKER = '/images/blog/';
+const blogMarkerPaths = [];
+const blogUnscannedPaths = [];
 
 // The coordinator already walked the same dist tree. A shared, exact byte
 // index avoids both a 1.5M-entry Set clone per worker and one synchronous
@@ -166,12 +173,15 @@ async function processFile(filePath) {
     html = await fs.promises.readFile(filePath, 'utf-8');
   } catch {
     profileRecord('read', __tRead);
+    if (trackBlogMarkers) blogUnscannedPaths.push(filePath);
     return;
   }
   profileRecord('read', __tRead);
   const original = html;
   let mutated = false;
   let isBridge = false;
+  const hadBlogMarker = trackBlogMarkers === true && original.includes(BLOG_IMAGE_REF_MARKER);
+  if (hadBlogMarker) blogMarkerPaths.push(filePath);
 
   const baseName = path.basename(filePath);
   if (baseName !== 'index.html' && !baseName.startsWith('.')) {
@@ -252,6 +262,9 @@ async function processFile(filePath) {
   }
 
   if (mutated && html !== original) {
+    if (trackBlogMarkers === true && !hadBlogMarker && html.includes(BLOG_IMAGE_REF_MARKER)) {
+      blogMarkerPaths.push(filePath);
+    }
     const __tWrite = profileStart();
     try {
       await fs.promises.writeFile(filePath, html, 'utf-8');
@@ -259,6 +272,7 @@ async function processFile(filePath) {
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       writeFailures.push({ filePath, msg });
+      if (trackBlogMarkers === true) blogUnscannedPaths.push(filePath);
     }
     profileRecord('write', __tWrite);
   }
@@ -288,6 +302,8 @@ parentPort.postMessage({
   hreflangLinksDropped,
   totalWrites,
   writeFailures,
+  blogMarkerPaths,
+  blogUnscannedPaths,
   // Empty array when POST_WALK_PROFILE/BUILD_PROFILE are off — coordinator
   // ingestBuckets() is a no-op on empty input and an early no-op when its
   // own ENABLED gate is false, so the round-trip cost is bounded.

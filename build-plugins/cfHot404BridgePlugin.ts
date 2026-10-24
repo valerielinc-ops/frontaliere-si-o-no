@@ -30,6 +30,7 @@ import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { withPhaseInstrument } from './shared/phaseInstrument';
+import { earlyRejectEnabled } from './shared/midPluginFlags';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
@@ -270,8 +271,15 @@ function buildCfHot404BridgePlugin(rootDir: string): Plugin {
       let skippedFilesystemLimitPaths = 0;
       let skippedWriteErrors = 0;
 
+      const earlyReject = earlyRejectEnabled();
       for (const { path: rawPath } of ordered) {
         const from = withSlash(rawPath);
+        // Proprieta' del locale prima dei controlli di sicurezza (vedi il
+        // commento sul gate piu' sotto, invariato): puro predicato di stringa.
+        if (earlyReject && !shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) {
+          skippedNonOwnedLocale++;
+          continue;
+        }
         if (isDistPathOverFilesystemLimits(from)) {
           skippedFilesystemLimitPaths++;
           continue;
