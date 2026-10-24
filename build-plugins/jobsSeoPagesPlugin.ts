@@ -13555,6 +13555,9 @@ ${staticAnalyticsHtml}
  // keep only a bounded chunk of HTML in memory. Once a chunk is flushed, its
  // cache entries are read back from dist/ by the later reconciliation pass.
  const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512;
+ // One sampled-only memory line every 64 chunks (~32k slugs, ~20 per leg):
+ // the sweep runs ~40 min and had no milestone between its two ends.
+ const EXPIRED_MEM_MILESTONE_EVERY_CHUNKS = 64;
  const expiredHtmlCacheOnDisk = new Set<string>();
  const expiredHtmlCachePaths = new Map<string, string>();
  let expiredHtmlCachePeakEntries = 0;
@@ -14474,17 +14477,36 @@ ${staticAnalyticsHtml}
  await collector.awaitDrainSlot(2);
  if ((expiredSlugIndex + 1) % EXPIRED_HTML_CACHE_CHUNK_SIZE === 0) {
   await releaseExpiredHtmlCacheChunk();
+  // This ~940k-page sweep is the jobs-SEO memory peak on a zero-reuse
+  // build (run 40057008446, leg de: rss-ceiling at 19 539 MB, mid-sweep),
+  // yet it was the only large emit without the 1 GB last-resort GC that
+  // the active and hub phases already run at their flush boundaries.
+  // The chunk boundary is the cheap point: the collector has just drained
+  // and the released HTML chunk is garbage.
+  maybeForceJobsSeoHtmlGc();
+  if ((expiredSlugIndex + 1) % (EXPIRED_HTML_CACHE_CHUNK_SIZE * EXPIRED_MEM_MILESTONE_EVERY_CHUNKS) === 0) {
+   logJobsSeoMem('expired-sweep-progress', {
+    expiredSlugIndex: expiredSlugIndex + 1,
+    expiredSlugs: expiredSlugs.length,
+    expiredCount,
+    legacyCount,
+    expiredHtmlCacheChunks,
+    jobsSeoHtmlGcRuns,
+   });
+  }
  }
  }
 
  // Release the final partial chunk before the retained-set checkpoint. The
  // cross-locale pass below will read these pages from disk as needed.
  await releaseExpiredHtmlCacheChunk();
+ maybeForceJobsSeoHtmlGc();
 
  jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
  logJobsSeoMem('after-expired-cache-population', {
   expiredCount,
   legacyCount,
+  jobsSeoHtmlGcRuns,
   expiredCacheKeys: expiredCacheKeys.size,
   expiredCacheEntries: expiredSoftLandingCache.size,
   expiredHtmlCachePeakEntries,
