@@ -2124,7 +2124,6 @@
       "previousSlugs": [
         "lehre-als-fachmann-frau-betriebsunterhalt-efz-post"
       ],
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-d54fedfa6d53",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -2319,8 +2318,8 @@
       "slugByLocale": {
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "fr": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
+        "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -2344,16 +2343,15 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+          "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
-          "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
+          "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ]
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
-        "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -2429,7 +2427,6 @@
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
       ],
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-484788c067f1",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -2700,7 +2697,7 @@
       },
       "slug": "apprendistato-come-addetto-a-alla-logistica-eba-centro-di-smistamento-o-attivita-interna-in-una-zona-di-distribuzione-die-a9d1199f77",
       "slugByLocale": {
-        "it": "apprendistato-come-addetto-a-alla-logistica-eba-centro-di-smistamento-o-attivita-interna-in-una-zona-di-distribuzione-die-a9d1199f77",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die",
         "en": "apprenticeship-as-a-logistics-specialist-in-eba-sorting-centre-or-in-house-in-a-distribution-area-die-schweizerische",
         "de": "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
         "fr": "apprentissage-en-tant-que-specialiste-de-la-logistique-en-eba-centre-de-tri-ou-en-interne-dans-une-zone-de-distribution"
@@ -2724,15 +2721,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
-          "apprendistato-come-addetto-a-alla-logistica-eba-centro-di-smistamento-o-attivita-interna-in-una-zona-di-distribuzione-die-a9d1199f77",
-          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die"
+          "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
-        "apprendistato-come-addetto-a-alla-logistica-eba-centro-di-smistamento-o-attivita-interna-in-una-zona-di-distribuzione-die-a9d1199f77",
-        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die"
+        "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post"
       ],
       "id": "posta-svizzera-centro-regionale-4eed4f5e5528",
       "salaryMin": 48000,
@@ -2808,7 +2801,6 @@
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post"
       ],
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-c5c4bd106b2e",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -3636,7 +3628,6 @@
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-9b5ab5bda907",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -4311,7 +4302,6 @@
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-723708ad2463",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4504,7 +4494,7 @@
       },
       "slug": "apprendistato-come-logista-eba-centro-di-smistamento-o-inhouse-in-una-regione-di-distribuzione-die-schweizerische-post-untervaz-c0a4d3a18c",
       "slugByLocale": {
-        "it": "apprendistato-come-logista-eba-centro-di-smistamento-o-inhouse-in-una-regione-di-distribuzione-die-schweizerische-post-untervaz-c0a4d3a18c",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die",
         "en": "apprenticeship-as-a-logistics-specialist-in-eba-sorting-centre-or-in-house-in-a-distribution-area-die-schweizerische",
         "de": "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
         "fr": "apprentissage-en-tant-que-specialiste-de-la-logistique-en-eba-centre-de-tri-ou-en-interne-dans-une-zone-de-distribution"
@@ -4529,16 +4519,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
-          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-908fbbb283",
-          "apprendistato-come-logista-eba-centro-di-smistamento-o-inhouse-in-una-regione-di-distribuzione-die-schweizerische-post-untervaz-c0a4d3a18c",
-          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die"
+          "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-908fbbb283"
         ]
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-eba-sortierzentrum-oder-inhouse-in-einem-distributionsgebiet-post",
-        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-908fbbb283",
-        "apprendistato-come-logista-eba-centro-di-smistamento-o-inhouse-in-una-regione-di-distribuzione-die-schweizerische-post-untervaz-c0a4d3a18c",
-        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die"
+        "apprendistato-come-impiegata-impiegato-in-logistica-afp-sortierzentrum-o-inhouse-in-einem-distributionsgebiet-die-schweizerische-908fbbb283"
       ],
       "id": "posta-svizzera-centro-regionale-5a937b9790ca",
       "salaryMin": 48000,
@@ -5805,7 +5791,6 @@
       "previousSlugs": [
         "lehre-als-detailhandelsfachmann-frau-efz-post"
       ],
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-449fb81e22fc",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -14162,7 +14147,6 @@
       "previousSlugs": [
         "teamleader-in-sortierung-entwicklungsprogramm-avanti-dauernacht-post"
       ],
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-50bf8526c2b9",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14229,7 +14213,6 @@
         "canton": "TI",
         "location": "Bellinzona"
       },
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-53fa2f5ed221",
       "salaryMin": 49500,
       "salaryMax": 75000,
