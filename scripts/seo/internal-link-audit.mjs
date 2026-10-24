@@ -248,8 +248,10 @@ function main() {
   const outbound = new Map();  // url → Array<url>
   const outboundCount = new Map();
   const allPages = new Set();
+  let pagesScanned = 0;
 
-  for (const f of files) {
+  for (const f of walkHtml(args.dist)) {
+    pagesScanned += 1;
     const urlPath = fileToUrlPath(f, args.dist);
     allPages.add(urlPath);
     if (!inbound.has(urlPath)) inbound.set(urlPath, 0);
@@ -274,6 +276,11 @@ function main() {
     }
     outbound.set(urlPath, resolvedOut);
     outboundCount.set(urlPath, resolvedOut.length);
+  }
+
+  if (pagesScanned === 0) {
+    writeStubReport(args, 'dist-empty');
+    return;
   }
 
   // Accumulate inbound counts (only for targets that exist in dist).
@@ -371,7 +378,7 @@ if (invokedDirectly) {
     } catch {
       /* last-resort: silent */
     }
-    process.exit(0);
+    process.exit(1);
   }
 }
 

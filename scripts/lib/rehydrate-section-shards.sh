@@ -293,6 +293,12 @@ rehydrate_section() {
       echo "[rehydrate] $section-$loc artifact absent — falling back to git clone"
     fi
 
+    if [ "${AUDIT_REPLAY_FAIL_CLOSED:-}" = 'true' ]; then
+      trunk_replace_end "$section-$loc" || true
+      echo "::error::replay shard artifact unavailable for $section $loc — refusing current shard-main fallback"
+      return 1
+    fi
+
     # Cross-job clone cache (issue #4881 defect C). The 3 post-deploy-
     # validate-dist.yml jobs (validate-dist-source/-postbuild/-postbuild-bfs)
     # run in PARALLEL with no `needs:` between them, so all 3 reach this same

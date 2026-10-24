@@ -190,6 +190,21 @@ jobs:
           rm -f "$TAR_PATH"
           echo "Restored $(find dist -type f | wc -l) files into dist/"
 
+      # A replay must use artifacts belonging to the selected run (or to the
+      # explicitly supplied publisher run). Resolve every live subtree before
+      # rehydrate can reach its git-clone resilience path; an expired artifact
+      # is an inconclusive replay, never permission to read today's shard-main.
+      - name: Resolve replay shard artifacts and provenance (fail closed)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
+          REPO_VARS_JSON: ${{ toJSON(vars) }}
+          REPLAY_DIST_DIR: dist
+          REHYDRATE_PROVENANCE_FILE: ${{ runner.temp }}/replay-shard-provenance.tsv
+        run: bash scripts/ci/resolve-replay-shard-runs.sh
+
       # The `github-pages` artifact is the TRUNK only. With LOCALE_SHARDS_LIVE /
       # <SECTION>_SHARD_LIVE on, deploy.yml strips the en/de/fr subtrees and the
       # per-section subtrees (cerca-lavoro-ticino, cerca-lavoro-svizzera, …) out
@@ -244,6 +259,11 @@ jobs:
           bash scripts/lib/rehydrate-section-shards.sh
           echo "dist/ now holds $(find dist -type f | wc -l) files"
           if [ "$LOCALE_RC" -ne 0 ]; then exit "$LOCALE_RC"; fi
+
+      - name: Verify replay shard provenance after rehydrate
+        env:
+          REHYDRATE_PROVENANCE_FILE: ${{ runner.temp }}/replay-shard-provenance.tsv
+        run: bash scripts/lib/rehydrate-provenance.sh verify dist
 
       # Precondition, not a gate: abort BEFORE any audit runs (and before a
       # misleading report is uploaded) if dist/ is still missing whole subtrees.
