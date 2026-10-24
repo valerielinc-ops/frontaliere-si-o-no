@@ -104,7 +104,7 @@ describe('concurrency group per-run = nessun limite', () => {
 
   it('pinna i quattro studi manuali corretti in questa PR', () => {
     const expected: Record<string, string> = {
-      'deploy-matrix-experiment.yml': 'deploy-matrix-experiment',
+      'deploy-matrix-experiment.yml': 'deploy-matrix-experiment-${{ github.ref_name }}',
       'cluster-pages-experiment.yml': 'cluster-pages-experiment',
       'matrix-equivalence-check.yml': 'matrix-equivalence',
       'post-build-matrix-test.yml': 'post-build-matrix-test',

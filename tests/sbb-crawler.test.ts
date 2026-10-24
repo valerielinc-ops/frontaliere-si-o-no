@@ -346,6 +346,20 @@ describe('parseSbbDetailPage — body location override', () => {
     expect(parseSbbDetailPage(fixture).location).toBe('Olten');
   });
 
+  it('extracts a city when the current metadata template keeps the start marker inline', () => {
+    const fixture = `<!DOCTYPE html><html lang="de"><head>
+      <script type="application/ld+json">{"@type":"JobPosting","title":"Automatiker:in",
+        "jobLocation":{"address":{"addressLocality":"Bern"}}}</script>
+      </head><body><main><h1>Automatiker:in</h1>
+        <p>Olten, ab sofort oder nach Vereinbarung, 60-100%</p>
+        <h2>Darauf kannst du dich freuen</h2>
+        <p>Eine ausführliche Beschreibung der Stelle und ihrer Aufgaben.</p>
+      </main></body></html>`;
+
+    expect(extractSbbBodyLocation(fixture)).toBe('Olten');
+    expect(parseSbbDetailPage(fixture).location).toBe('Olten');
+  });
+
   it('does not join an employer city to a later vacancy marker', () => {
     const fixture = `<!DOCTYPE html><html lang="de"><body><main>
       <h1>Automatiker:in</h1>
