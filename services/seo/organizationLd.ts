@@ -289,13 +289,14 @@ export const ORGANIZATION_LD = {
 } as const;
 
 /**
- * Founding year. ONE value, because there were two: `index.html` said 2023 and
- * `services/seo/seo-pages.ts` said 2024, both under the same `@id`. A graph
- * cannot hold both, and a consumer that sees them disagree has no reason to
- * trust either. 2023 wins because it is the value actually served on the
- * homepage today, i.e. the one already crawled.
+ * Founding year. ONE value: `index.html` said 2023 while /chi-siamo/ (static
+ * and React, four locales) said 2024 under the same `@id`. The visible copy
+ * wins — structured data must describe the page. `keyFacts.ts` re-exports it
+ * as `FOUNDING_YEAR` (this file is an `identical` twin of the corpus and must
+ * not import site-only modules) and `tests/key-facts-single-source.test.ts`
+ * holds every surface to it.
  */
-export const ORGANIZATION_FOUNDING_DATE = '2023';
+export const ORGANIZATION_FOUNDING_DATE = '2024';
 
 /**
  * The FULL entity — identity plus the publisher-transparency block.

@@ -109,7 +109,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
    "width": 512,
    "height": 512
   },
-  "foundingDate": "2023",
+  "foundingDate": "2024",
   "contactPoint": {
    "@type": "ContactPoint",
    "contactType": "customer support",
@@ -163,7 +163,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
  { "@type": "Question", "name": "Qual è il modo migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Wise (ex TransferWise) e Revolut offrono i tassi migliori con markup dello 0,25-0,5% sul tasso interbancario. Le banche tradizionali (UBS, PostFinance) applicano markup del 2-3%. Per un frontaliere che cambia CHF 5.000/mese, Wise fa risparmiare circa CHF 100-150/mese rispetto alla banca tradizionale, ovvero CHF 1.200-1.800/anno." } },
  { "@type": "Question", "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri fiscali il salario svizzero è imponibile anche in Italia, con credito per le imposte svizzere. I vecchi qualificati dall’articolo 9 sono esenti sul salario coperto dal regime, ma possono avere obblighi italiani per altri redditi o monitoraggio. Lo status dipende dai requisiti fiscali e dall’attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023, non soltanto dall’ultima assunzione. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (dati BFS 2025). Il Ticino è il cantone svizzero con la più alta concentrazione di frontalieri, che rappresentano circa il 30% della forza lavoro cantonale. Il numero cresce del 2-3% annuo. I settori principali sono manifattura, costruzioni, finanza, sanità, ospitalità e IT." } },
+ { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (USTAT, I trimestre 2026). I frontalieri rappresentano circa il 32% della forza lavoro cantonale. Negli ultimi due anni il numero è in lieve calo (-0,5% su base annua nel I trimestre 2026, USTAT). I settori principali sono manifattura, costruzioni, finanza, sanità, ospitalità e IT." } },
  { "@type": "Question", "name": "Cosa sono i ristorni fiscali?", "acceptedAnswer": { "@type": "Answer", "text": "L’articolo 9 prevede una compensazione all’Italia pari al 40% del gettito sui vecchi frontalieri fino all’anno fiscale 2033, senza riduzione graduale della percentuale. Dopo tale anno la Svizzera conserva il gettito. Questo non fa passare automaticamente i vecchi frontalieri al regime concorrente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Quanto guadagna un frontaliere in Svizzera al mese?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere in Canton Ticino guadagna in media CHF 5.600 lordi al mese (mediana USS), pari a circa CHF 4.300–4.600 netti dopo imposta alla fonte e contributi AVS/LPP/AC. Profili qualificati (IT, ingegneria, farma, finanza) arrivano a CHF 7.000–9.000 lordi, mentre operai e commercio si attestano intorno a CHF 4.200–4.800. Usa il simulatore gratuito su frontaliereticino.ch per stimare il netto esatto in base a stato civile, figli e comune." } },
  { "@type": "Question", "name": "Quali sono le differenze tra permesso G e permesso B?", "acceptedAnswer": { "@type": "Answer", "text": "Il permesso G prevede domicilio all’estero e rientro almeno settimanale; il B è un permesso di dimora in Svizzera. Il titolo di soggiorno non determina da solo le imposte: per il G occorre distinguere vecchi frontalieri fiscalmente qualificati, nuovi e lavoratori fuori dai requisiti dell’accordo. Confronta residenza effettiva, reddito e costi familiari senza una soglia salariale universale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
@@ -1328,10 +1328,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  stats: {
  title: 'Statistiche Frontalieri e Lavoro Ticino | Frontaliere Ticino',
- description: 'Oltre 78.000 frontalieri in Ticino (BFS 2024) e 4.000+ offerte attive. Statistiche aggiornate: aziende, località, settori in crescita e trend giornalieri.',
+ description: 'Circa 79.000 frontalieri in Ticino (USTAT 2026) e 4.000+ offerte attive. Statistiche aggiornate: aziende, località, settori in crescita e trend giornalieri.',
  keywords: 'statistiche frontalieri, lavoro ticino, offerte lavoro ticino, aziende che assumono ticino, trend offerte lavoro, bfs frontalieri, annunci lavoro svizzera italiana, statistiche lavoro ticino 2026',
  ogTitle: 'Statistiche Frontalieri e Lavoro Ticino | BFS e Job Board',
- ogDescription: 'Oltre 78.000 frontalieri in Ticino (BFS 2024) e 4.000+ offerte lavoro attive. Statistiche aggiornate: aziende che assumono, località, settori in crescita e trend giornalieri.',
+ ogDescription: 'Circa 79.000 frontalieri in Ticino (USTAT 2026) e 4.000+ offerte lavoro attive. Statistiche aggiornate: aziende che assumono, località, settori in crescita e trend giornalieri.',
  canonicalPath: '/statistiche/',
  structuredData: [
  {
@@ -1352,7 +1352,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "temporalCoverage": "2024/2026",
  "variableMeasured": [
- { "@type": "PropertyValue", "name": "Numero frontalieri", "value": "~79.000 (2025)" },
+ { "@type": "PropertyValue", "name": "Numero frontalieri (USTAT, I trimestre 2026)", "value": "78561" },
  { "@type": "PropertyValue", "name": "Offerte lavoro attive", "value": "Aggiornate quotidianamente" },
  { "@type": "PropertyValue", "name": "Aziende attive", "value": "100+ aziende ticinesi" },
  { "@type": "PropertyValue", "name": "Trend offerte", "value": "Variazione giornaliera annunci" }
@@ -1363,7 +1363,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (dati BFS 2025). Il Ticino è il cantone con la più alta concentrazione di frontalieri, circa il 30% della forza lavoro cantonale." } },
+  { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (USTAT, I trimestre 2026). I frontalieri rappresentano circa il 32% della forza lavoro cantonale." } },
  { "@type": "Question", "name": "Quali settori offrono più lavoro in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I settori con più offerte attive nel job board sono: IT e sviluppo software, ingegneria meccanica ed elettrotecnica, sanità e pharma, finanza e banking, e costruzioni. Il settore IT ha visto la crescita maggiore negli ultimi 12 mesi." } },
  { "@type": "Question", "name": "Come vengono calcolate le statistiche degli stipendi?", "acceptedAnswer": { "@type": "Answer", "text": "Le statistiche salariali combinano i dati ufficiali BFS (Indagine svizzera sulla struttura dei salari) con i salary range pubblicati negli annunci del job board. Le mediane e i range sono calcolati per settore, ruolo e livello di esperienza." } },
  { "@type": "Question", "name": "Con quale frequenza vengono aggiornati i dati?", "acceptedAnswer": { "@type": "Answer", "text": "L'osservatorio del job board viene aggiornato due volte al giorno con i nuovi annunci. I dati BFS sui frontalieri vengono aggiornati trimestralmente. I prezzi benzina sono aggiornati ogni ora. Il tasso di disoccupazione SECO è aggiornato mensilmente." } }
@@ -1997,7 +1997,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "FAQPage",
  "mainEntity": [
  { "@type": "Question", "name": "Quali sono i nomi delle ditte in Svizzera che assumono frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 le principali ditte in Svizzera italiana che assumono frontalieri sono concentrate in 5 settori: banche-finanza (UBS, BancaStato, Raiffeisen Svizzera italiana, EFG), farmaceutico/biotech (Helsinn a Lugano, IBSA a Lamone, Cosmo Pharmaceuticals a Lainate-Mendrisio, Cerbios-Pharma a Barbengo), industria medtech (Medacta International a Castel San Pietro, Dätwyler a Schattdorf-Altdorf con stabilimento in Ticino), ICT e servizi (PostFinance, SUPSI, Swisscom business, Rhenus logistica a Stabio), retail-lusso (VF International a Stabio, Gucci Logistica a Cadempino). Per l'elenco completo ufficiale delle aziende autorizzate ad assumere frontalieri consulta [SECO — Registro aziende prestatrici](https://www.sem.admin.ch/sem/it/home/themen/arbeit.html)." } },
- { "@type": "Question", "name": "Aziende in Canton Ticino: quante sono e dove cercarle nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel Canton Ticino sono registrate circa 36.700 aziende attive (fonte: [USTAT — Censimento aziende 2024](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)), di cui oltre 5.300 con almeno 10 dipendenti. Il 52% ha sede nel Distretto di Lugano, il 22% nel Mendrisiotto, l'11% nel Luganese-Malcantone e il 15% nel Bellinzonese-Locarnese. Per cercarle: Registro di Commercio (zefix.ch) per dati ufficiali, Orell-Füssli per bilanci, Moneyhouse per network aziendali, SUPSI Alumni per contatti diretti. Le offerte di lavoro aziendali sono raccolte su JobUp, JobScout24 e sul nostro aggregatore [Frontaliere Ticino — Job Board](/cerca-lavoro-ticino). I frontalieri italiani (oltre 74.000 secondo UST) rappresentano quasi il 30% della forza lavoro ticinese." } },
+ { "@type": "Question", "name": "Aziende in Canton Ticino: quante sono e dove cercarle nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel Canton Ticino sono registrate circa 36.700 aziende attive (fonte: [USTAT — Censimento aziende 2024](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)), di cui oltre 5.300 con almeno 10 dipendenti. Il 52% ha sede nel Distretto di Lugano, il 22% nel Mendrisiotto, l'11% nel Luganese-Malcantone e il 15% nel Bellinzonese-Locarnese. Per cercarle: Registro di Commercio (zefix.ch) per dati ufficiali, Orell-Füssli per bilanci, Moneyhouse per network aziendali, SUPSI Alumni per contatti diretti. Le offerte di lavoro aziendali sono raccolte su JobUp, JobScout24 e sul nostro aggregatore [Frontaliere Ticino — Job Board](/cerca-lavoro-ticino). I frontalieri italiani (circa 79.000 secondo USTAT) rappresentano circa il 32% della forza lavoro ticinese." } },
  { "@type": "Question", "name": "Come candidarsi alle aziende svizzero-italiane che assumono frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per candidarsi efficacemente alle aziende svizzero-italiane nel 2026 servono 4 documenti: CV in formato Europass o svizzero (1-2 pagine, foto-tessera, dettaglio scolastico EFZ/maturità, lingue con livello CEFR), lettera di motivazione personalizzata per la ditta, copia del permesso G in corso di validità (o dichiarazione di richiesta), casellario giudiziale italiano tradotto. I canali principali: pagine carriere corporate (UBS Careers, Medacta Careers, Helsinn Careers), LinkedIn con filtro 'Canton Ticino', JobUp/JobScout24, agenzie interinali SECO-autorizzate (Adecco, Manpower, Randstad, Kelly Services). Per i lavoratori OSS/infermieri la candidatura passa per MEBEKO con riconoscimento titolo. Tempo medio di selezione: 3-6 settimane. Fonte: [SECO — Orientamento al mercato del lavoro](https://www.sem.admin.ch/sem/it/home/themen/arbeit.html)." } }
  ]
  }
@@ -2446,7 +2446,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Come funzionano le addizionali IRPEF nei comuni di frontiera?", "acceptedAnswer": { "@type": "Answer", "text": "I comuni italiani entro la fascia 20 km applicano un'addizionale comunale IRPEF che va da 0% (comuni che azzerano grazie ai ristorni fiscali svizzeri) fino a 0,9%. Comuni con zero addizionale grazie ai ristorni: Maslianico, Bizzarone, Ronago, Cermenate. Comuni con addizionale massima: Como città (0,8%), Varese città (0,8%). Per un frontaliere con reddito CHF 80.000 la differenza tra 0% e 0,8% di addizionale è circa €570/anno di IRPEF in più. La scelta del comune di residenza ha quindi un impatto netto misurabile." } },
  { "@type": "Question", "name": "Le webcam dei valichi sono in diretta?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: la mappa incorpora i feed live di BAZG (Ufficio federale della dogana e della sicurezza dei confini) e di USTRA (Ufficio federale delle strade) per i valichi autostradali Chiasso-Brogeda e Gaggiolo. I feed si aggiornano ogni 60-120 secondi. Per i valichi minori senza webcam ufficiale pubblichiamo i tempi medi calcolati dai dati storici BAZG delle ultime 12 settimane per ogni fascia oraria." } },
  { "@type": "Question", "name": "Dove trovo una mappa del confine Italia-Svizzera aggiornata 2026?", "acceptedAnswer": { "@type": "Answer", "text": "La mappa del confine Italia-Svizzera 2026 di frontaliereticino.ch è aggiornata ogni settimana: incorpora i 9 valichi autorizzati del Canton Ticino (Chiasso-Brogeda A2, Chiasso Centro, Chiasso Strada, Gaggiolo-Stabio, Ponte Tresa, Bizzarone-Novazzano, Luino-Fornasette, Zenna-Dirinella, Maslianico-Roggiana) con coordinate geografiche esatte, tempi medi di attesa per fascia oraria e webcam live BAZG/USTRA. Copre anche la fascia dei 146 comuni italiani entro 20 km in linea d'aria, requisito per lo status di frontaliere fiscale secondo il Nuovo Accordo del 17 luglio 2023." } },
- { "@type": "Question", "name": "Quali sono i valichi della mappa confine tra Lugano e l'Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Tra Lugano (centro urbano principale del Ticino) e il confine italiano la mappa mostra 5 valichi principali ordinati per distanza: Ponte Tresa (15 km, Malcantone), Gaggiolo-Stabio (18 km, Mendrisiotto nord), Bizzarone-Novazzano (20 km, Mendrisiotto), Chiasso Strada/Chiasso Centro (25 km, Mendrisiotto sud), Brogeda A2 autostradale (27 km). Tempi ottimali dal centro di Lugano: 25-35 min via autostrada A2 verso Como, 20-25 min verso Varese via Ponte Tresa in orari non di punta. Chiasso-Brogeda resta il valico più trafficato d'Europa con oltre 70.000 frontalieri al giorno." } },
+ { "@type": "Question", "name": "Quali sono i valichi della mappa confine tra Lugano e l'Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Tra Lugano (centro urbano principale del Ticino) e il confine italiano la mappa mostra 5 valichi principali ordinati per distanza: Ponte Tresa (15 km, Malcantone), Gaggiolo-Stabio (18 km, Mendrisiotto nord), Bizzarone-Novazzano (20 km, Mendrisiotto), Chiasso Strada/Chiasso Centro (25 km, Mendrisiotto sud), Brogeda A2 autostradale (27 km). Tempi ottimali dal centro di Lugano: 25-35 min via autostrada A2 verso Como, 20-25 min verso Varese via Ponte Tresa in orari non di punta. Chiasso-Brogeda è il principale valico autostradale tra Ticino e Lombardia." } },
  { "@type": "Question", "name": "La mappa confine Svizzera-Italia mostra anche le dogane secondarie?", "acceptedAnswer": { "@type": "Answer", "text": "Sì. La nostra mappa confine Svizzera-Italia distingue i 4 valichi principali aperti 24/7 (Chiasso-Brogeda A2, Chiasso Strada, Gaggiolo, Ponte Tresa) dalle 5 dogane secondarie con orari ridotti (Bizzarone-Novazzano 06:00-23:00, Luino-Fornasette 06:00-21:00, Zenna-Dirinella 06:00-22:00, Maslianico-Roggiana 05:00-23:00, Chiasso Centro 05:00-01:00). Per ogni valico indichiamo orari, stato attuale (aperto/chiuso/coda), tipologia di merci ammesse e restrizioni (es. Pizzamiglio/Maslianico non ammette camion > 3,5 t). Dati ufficiali UDSC/BAZG aggiornati mensilmente." } }
  ],
  "speakable": SPEAKABLE_SECTION
@@ -5152,17 +5152,17 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-mercato-lavoro-ticino-q4-2025': {
- title: 'Mercato del lavoro Ticino: dati e trend quarto trimestre',
- description: 'Scopri i dati e le analisi sul mercato del lavoro in Ticino nel quarto trimestre 2025, con focus su frontalieri e trend occupazionali. Dati aggiornati 2026 per',
+ title: 'Mercato del lavoro Ticino: dati e trend primo trimestre 2026',
+ description: 'Scopri i dati e le analisi sul mercato del lavoro in Ticino nel primo trimestre 2026, con focus su frontalieri e trend occupazionali (dati USTAT Q1 2026).',
  keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, dati, trend',
- ogTitle: 'Mercato lavoro Ticino Q4 2025 | Frontaliere Ticino',
- ogDescription: 'Analisi dettagliata sul mercato del lavoro ticinese nel Q4 2025, con dati su frontalieri, salari e permessi di lavoro.',
+ ogTitle: 'Mercato lavoro Ticino Q1 2026 | Frontaliere Ticino',
+ ogDescription: 'Analisi dettagliata sul mercato del lavoro ticinese nel Q1 2026, sulla base dei dati USTAT, con dati su frontalieri, salari e permessi di lavoro.',
  canonicalPath: '/articoli-frontaliere/mercato-lavoro-ticino-q4-2025/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Notiziario statistico Ustat: Il mercato del lavoro, Ticino, quarto",
- "description": "Scopri i dati e le analisi sul mercato del lavoro in Ticino nel quarto trimestre 2025, con focus su frontalieri e trend occupazionali. Dati aggiornati 2026 per",
+ "headline": "Notiziario statistico Ustat: Il mercato del lavoro, Ticino, primo trimestre 2026",
+ "description": "Scopri i dati e le analisi sul mercato del lavoro in Ticino nel primo trimestre 2026, con focus su frontalieri e trend occupazionali (dati USTAT Q1 2026).",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/mercato-lavoro-ticino-q4-2025.webp`,
  "width": 1344,
@@ -6212,7 +6212,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quanti frontalieri lavorano in Canton Ticino e quanto guadagnano?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Circa 79.000 frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (BFS 2025), rappresentando circa il 30% della forza lavoro cantonale. Il salario mediano lordo in Ticino e di circa CHF 5.200/mese (CHF 62.400/anno). I settori principali sono manifattura, costruzioni, finanza, sanita, ospitalita e IT. Il numero cresce del 2-3% annuo."
+ "text": "Circa 79.000 frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (USTAT, I trimestre 2026), rappresentando circa il 32% della forza lavoro cantonale. Il salario mediano lordo in Ticino e di circa CHF 5.200/mese (CHF 62.400/anno). I settori principali sono manifattura, costruzioni, finanza, sanita, ospitalita e IT. Negli ultimi due anni il numero è in lieve calo (-0,5% su base annua nel I trimestre 2026, USTAT)."
  }
  }
  ]
@@ -6510,7 +6510,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
    "width": 512,
    "height": 512
   },
-  "foundingDate": "2023",
+  "foundingDate": "2024",
   "contactPoint": {
    "@type": "ContactPoint",
    "contactType": "customer support",
@@ -6666,7 +6666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
    "width": 512,
    "height": 512
   },
-  "foundingDate": "2023",
+  "foundingDate": "2024",
   "contactPoint": {
    "@type": "ContactPoint",
    "contactType": "customer support",
