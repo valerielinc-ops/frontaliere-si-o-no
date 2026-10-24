@@ -3,10 +3,7 @@ import path from 'node:path';
 import * as ts from 'typescript';
 import { describe, expect, it } from 'vitest';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
-import {
-  dropUnreadableSourceJobsWithoutValidBody,
-  keepStoredSourceBodies,
-} from '../scripts/lib/stored-source-body.mjs';
+import { keepStoredSourceBodies } from '../scripts/lib/stored-source-body.mjs';
 import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
 import {
   buildIstDescriptionFields,
@@ -653,12 +650,6 @@ describe('IST description fields', () => {
       filterPublishableIstStoredJobs,
       keepStoredSourceBodies,
       extractStableJobId,
-      istJobMatchKey: (jobOrUrl: any) => {
-        const url = typeof jobOrUrl === 'string' ? jobOrUrl : jobOrUrl?.url;
-        const normalizedUrl = String(url || '').trim().replace(/\/+$/, '');
-        return extractStableJobId(normalizedUrl) || normalizedUrl;
-      },
-      dropUnreadableSourceJobsWithoutValidBody,
       mergePreserveLocaleData: (existing: unknown[], fresh: unknown[]) => [...existing, ...fresh],
       withLegacyPostingDay: (job: unknown) => job,
       IST_COMPANY_NAME: 'International School of Ticino',

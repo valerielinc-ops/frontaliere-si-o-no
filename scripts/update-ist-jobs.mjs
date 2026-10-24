@@ -94,11 +94,7 @@ import { readAttr, scanStartTags } from './lib/html-attr.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
-import {
-  dropUnreadableSourceJobsWithoutValidBody,
-  keepStoredSourceBodies,
-  sourceBodyForJob,
-} from './lib/stored-source-body.mjs';
+import { keepStoredSourceBodies, sourceBodyForJob } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1254,17 +1250,6 @@ export function filterPublishableIstStoredJobs(jobs) {
   ));
 }
 
-/**
- * Use the same identity for source-body fallback, quarantine and merge stats.
- * The URL is the only stable identity available for the generic IST portal;
- * retain the normalized URL when it has no extractable numeric/UUID key.
- */
-function istJobMatchKey(jobOrUrl = {}) {
-  const url = typeof jobOrUrl === 'string' ? jobOrUrl : jobOrUrl?.url;
-  const normalizedUrl = String(url || '').trim().replace(/\/+$/, '');
-  return extractStableJobId(normalizedUrl) || normalizedUrl;
-}
-
 // Fossils of the removed builders in stored jobs (see source-locale-description.mjs).
 const IST_IT_BLURB_RE = /^Posizione aperta presso la International School of Ticino\b[\s\S]*Inspired Education Group/;
 const IST_APPENDED_BLURB_RE = /The International School of Ticino \(IST\) is part of the Inspired Education Group/;
@@ -1426,7 +1411,6 @@ function filterEmpty(obj = {}) {
 async function mergeIstJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(IST_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
-  const freshDiscoveredJobs = Array.isArray(discoveredJobs) ? [...discoveredJobs] : [];
 
   const nonIstJobs = allJobs.filter((j) => !isLegacyIstJob(j));
   const existingIstJobs = allJobs.filter(isLegacyIstJob);
@@ -1442,27 +1426,17 @@ async function mergeIstJobs(discoveredJobs) {
   }
   // Under the shared word floor the builder emits no body: keep the stored
   // source body (fossils already dropped above), or omit the job this run.
-  const withBody = keepStoredSourceBodies(freshDiscoveredJobs, existingIstJobs, istJobMatchKey);
-  if (withBody.length < freshDiscoveredJobs.length) {
-    console.log(`  ⏭️ ${freshDiscoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
+  const withBody = keepStoredSourceBodies(discoveredJobs, existingIstJobs, (url) => extractStableJobId(url) || url);
+  if (withBody.length < discoveredJobs.length) {
+    console.log(`  ⏭️ ${discoveredJobs.length - withBody.length} job(s) without a source body over the word floor: not published this run`);
   }
   discoveredJobs = withBody;
 
-  // Do not let mergePreserveLocaleData re-add a metadata-only stored row after
-  // the fresh discovery was quarantined for a thin/failed source body. The
-  // fallback above gets the chance to retain a valid previous body first; this
-  // second boundary removes only the stored rows that have no such proof.
-  const mergeExistingIstJobs = dropUnreadableSourceJobsWithoutValidBody(
-    publishableExistingIstJobs,
-    freshDiscoveredJobs,
-    istJobMatchKey,
-  );
-
   const existingKeys = new Set(
-    mergeExistingIstJobs.map(istJobMatchKey).filter(Boolean)
+    publishableExistingIstJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
   );
   const discoveredKeys = new Set(
-    discoveredJobs.map(istJobMatchKey).filter(Boolean)
+    discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
   );
   const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
   const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
@@ -1473,7 +1447,7 @@ async function mergeIstJobs(discoveredJobs) {
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(mergeExistingIstJobs, discoveredJobs).map((job) => ({
+  const merged = mergePreserveLocaleData(publishableExistingIstJobs, discoveredJobs).map((job) => ({
     ...withLegacyPostingDay(job),
     company: IST_COMPANY_NAME,
     companyKey: IST_KEY,
