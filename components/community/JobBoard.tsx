@@ -304,7 +304,7 @@ import {
 // (e.g. tests/jobboard-italian-lowercase-list-parsing.test.ts).
 export { buildFallbackCanonicalContent } from '@/services/jobs/canonicalFallback';
 import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoService';
-import { getJobLocationSnapshot, resolveJobPostingPostalCode } from '@/services/jobLocationSnapshot';
+import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
  unifiedEmailConsentInput,
@@ -478,6 +478,17 @@ export interface JobListing {
  canton: string;
  category: JobCategory;
  contract: ContractType;
+ /**
+  * Contract values exactly as the source record carries them. `contract`
+  * above is the filter bucket of normalizeJobContract(), which defaults to
+  * 'full-time' when nothing matches; the JobPosting employmentType reads
+  * these instead, so an unstated contract stays unstated in the markup.
+  */
+ sourceContract?: string;
+ employmentType?: string;
+ contractType?: string;
+ /** Source deadline only; the JobPosting carries no validThrough without it. */
+ validThrough?: string;
  salaryMin?: number;
  salaryMax?: number;
  /** Provenance of the salary band — 'estimated' bands get an «(stima)»-style
@@ -885,6 +896,7 @@ export function normalizeIncomingJob(raw: any): JobListing {
  canton: String(raw?.canton || '').trim() || DEFAULT_CANTON,
  category: normalizeJobCategory(raw?.category, `${title} ${String(raw?.department || '')}`) as JobCategory,
  contract: normalizeJobContract(raw?.contract, title, description) as ContractType,
+ sourceContract: String(raw?.contract || '').trim() || undefined,
  currency: String(raw?.currency || '').toUpperCase() === 'EUR' ? 'EUR' : 'CHF',
  description,
  requirements: Array.isArray(raw?.requirements)
@@ -6453,11 +6465,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Same CAP/street pairing as the static JobPosting (#9108, #9841): discard
  // a source tuple when its CAP belongs to another locality (for example a
  // Chur job stamped with the employer HQ's Dübendorf CAP and street).
- const { postalCode, sourcePostalCoherent } = resolveJobPostingPostalCode(
- { location: job.location, addressLocality, postalCode: job.postalCode },
- addressLocality,
- addressRegion,
- );
+ // Street and CAP go to the canonical builder as the source states them:
+ // it keeps them only when coherent with the locality (#9108, #9841) and
+ // never fills them from lookup tables (owner decision 2026-10-24).
+ const postalCode = String(job.postalCode || '').trim();
  const rawStreet = String(job.streetAddress || '').trim();
  // Skip JobPosting if no meaningful description — an empty description is worse than no schema
  if (!description || description.length < 30) return null;
@@ -6474,16 +6485,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  addressRegion,
  addressCountry: job.addressCountry,
  postalCode,
- streetAddress: sourcePostalCoherent && isValidAddr(rawStreet) ? rawStreet : '',
+ streetAddress: isValidAddr(rawStreet) ? rawStreet : '',
  postingDateSource: job.postingDateSource,
  datePosted: job.datePosted,
  postedDate: job.postedDate,
  firstSeenAt: job.firstSeenAt,
  crawledAt: job.crawledAt,
- contract: job.contract,
+ // Source contract values, not the 'full-time'-defaulting filter bucket.
+ employmentType: job.employmentType,
+ contract: job.sourceContract,
+ contractType: job.contractType,
+ validThrough: job.validThrough,
  salaryMin,
  salaryMax,
  salaryCurrency,
+ salarySource: job.salarySource,
  sector: job.sector,
  category: job.category,
  url: job.url,
@@ -10626,7 +10642,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  postedDate: selectedJob.postedDate,
  firstSeenAt: selectedJob.firstSeenAt,
  crawledAt: selectedJob.crawledAt,
- contract: selectedJob.contract,
+ employmentType: selectedJob.employmentType,
+ contract: selectedJob.sourceContract,
+ contractType: selectedJob.contractType,
+ salarySource: selectedJob.salarySource,
  salaryMin: selectedJob.salaryMin ?? selectedJob.baseSalary?.value?.minValue ?? null,
  salaryMax: selectedJob.salaryMax ?? selectedJob.baseSalary?.value?.maxValue ?? null,
  salaryCurrency: selectedJob.currency || selectedJob.baseSalary?.currency || selectedJob.baseSalary?.value?.currency,

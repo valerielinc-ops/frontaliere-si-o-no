@@ -1,26 +1,42 @@
 /**
- * Canonical JobPosting mandatory-field contract.
+ * Canonical JobPosting field contract.
  *
  * The post-build validator, the structured-data completeness scan, and the
- * consolidated dist audit all inspect the same nine fields. Keep the field
+ * consolidated dist audit all inspect the same fields. Keep the field
  * semantics here so a new producer cannot pass one gate while failing another
  * because a copy drifted (issue #10499).
  *
- * Consumer-specific checks stay in their callers. For example, `validThrough`
- * belongs to the structured-data completeness consumer and is not one of the
- * nine fields in AGENTS.md rule #3.
+ * Owner decision 2026-10-24: the JobPosting is always emitted for an active
+ * job, and each field is present if and only if the source states it. So the
+ * contract has two halves:
+ *   - REQUIRED (Google's required set): title, description, datePosted,
+ *     hiringOrganization.name, jobLocation with addressLocality and
+ *     addressCountry. Missing = error, as before.
+ *   - OPTIONAL fields (employmentType, baseSalary, postalCode,
+ *     streetAddress): absent is the contract, present-but-malformed is an
+ *     error. Whether a present value really comes from the source is checked
+ *     against data/jobs.json by scripts/validate-jobs-rich-results-sample.mjs.
+ *
+ * Consumer-specific checks stay in their callers.
  */
 
 export const MANDATORY_JOBPOSTING_FIELDS = Object.freeze([
   'title',
   'description',
   'datePosted',
-  'employmentType',
   'hiringOrganization.name',
   'jobLocation',
+  'jobLocation.address.addressLocality',
+  'jobLocation.address.addressCountry',
+]);
+
+/** Validated when present, never required (they exist only when the source states them). */
+export const OPTIONAL_JOBPOSTING_FIELDS = Object.freeze([
+  'employmentType',
+  'baseSalary',
   'jobLocation.address.postalCode',
   'jobLocation.address.streetAddress',
-  'baseSalary',
+  'validThrough',
 ]);
 
 export const JOBPOSTING_EMPLOYMENT_TYPES = new Set([
@@ -44,7 +60,8 @@ export function isValidIsoDate(value) {
  */
 
 /**
- * Validate the shared nine-field JobPosting contract.
+ * Validate the shared JobPosting contract: required fields present, optional
+ * fields well-formed when present.
  *
  * The returned `field` is the canonical field path used by structured-data
  * reports. A single top-level field may produce more than one detail (for
@@ -71,13 +88,17 @@ export function validateMandatoryJobPostingFields(schema) {
 
   if (!isValidIsoDate(posting.datePosted)) add('datePosted', 'datePosted missing/invalid');
 
-  if (!isNonEmptyString(posting.employmentType)) {
-    add('employmentType', 'employmentType missing/empty');
-  } else if (!JOBPOSTING_EMPLOYMENT_TYPES.has(posting.employmentType)) {
-    add(
-      'employmentType',
-      `employmentType="${posting.employmentType}" not in schema.org enum`,
-    );
+  if (posting.employmentType !== undefined) {
+    const types = Array.isArray(posting.employmentType) ? posting.employmentType : [posting.employmentType];
+    if (types.length === 0 || !types.every(isNonEmptyString)) {
+      add('employmentType', 'employmentType present but empty');
+    } else {
+      for (const type of types) {
+        if (!JOBPOSTING_EMPLOYMENT_TYPES.has(type)) {
+          add('employmentType', `employmentType="${type}" not in schema.org enum`);
+        }
+      }
+    }
   }
 
   if (!posting.hiringOrganization || typeof posting.hiringOrganization !== 'object') {
@@ -94,46 +115,54 @@ export function validateMandatoryJobPostingFields(schema) {
     if (!address || typeof address !== 'object') {
       add('jobLocation', 'jobLocation.address missing');
     } else {
-      if (!isNonEmptyString(address.postalCode)) {
-        add('jobLocation.address.postalCode', 'jobLocation.address.postalCode missing/empty');
-      } else if (!/^\d{4,5}$/.test(String(address.postalCode).trim())) {
+      if (!isNonEmptyString(address.addressLocality)) {
+        add('jobLocation.address.addressLocality', 'jobLocation.address.addressLocality missing/empty');
+      }
+      if (!isNonEmptyString(address.addressCountry)) {
+        add('jobLocation.address.addressCountry', 'jobLocation.address.addressCountry missing/empty');
+      }
+      if (address.postalCode !== undefined && !/^\d{4,5}$/.test(String(address.postalCode).trim())) {
         add(
           'jobLocation.address.postalCode',
           `jobLocation.address.postalCode="${address.postalCode}" invalid`,
         );
       }
-      if (!isNonEmptyString(address.streetAddress)) {
-        add('jobLocation.address.streetAddress', 'jobLocation.address.streetAddress missing/empty');
+      if (address.streetAddress !== undefined && !isNonEmptyString(address.streetAddress)) {
+        add('jobLocation.address.streetAddress', 'jobLocation.address.streetAddress present but empty');
       }
     }
   }
 
   const salary = posting.baseSalary;
-  if (!salary || typeof salary !== 'object') {
-    add('baseSalary', 'baseSalary missing');
-  } else {
-    if (!isNonEmptyString(salary.currency)) {
-      add('baseSalary.currency', 'baseSalary.currency missing/empty');
-    }
-    if (!salary.value || typeof salary.value !== 'object') {
-      add('baseSalary.value', 'baseSalary.value missing');
+  if (salary !== undefined) {
+    if (!salary || typeof salary !== 'object') {
+      add('baseSalary', 'baseSalary present but not an object');
     } else {
-      const min = Number(salary.value.minValue);
-      const max = Number(salary.value.maxValue);
-      if (!Number.isFinite(min) || !(min > 0)) {
-        add(
-          'baseSalary.value.minValue',
-          `baseSalary.value.minValue=${salary.value.minValue} must be > 0`,
-        );
+      if (!isNonEmptyString(salary.currency)) {
+        add('baseSalary.currency', 'baseSalary.currency missing/empty');
       }
-      if (!Number.isFinite(max) || !(max >= min)) {
-        add(
-          'baseSalary.value.maxValue',
-          `baseSalary.value.maxValue=${salary.value.maxValue} must be >= minValue`,
-        );
-      }
-      if (!isNonEmptyString(salary.value.unitText)) {
-        add('baseSalary.value.unitText', 'baseSalary.value.unitText missing/empty');
+      if (!salary.value || typeof salary.value !== 'object') {
+        add('baseSalary.value', 'baseSalary.value missing');
+      } else {
+        const min = Number(salary.value.minValue);
+        if (!Number.isFinite(min) || !(min > 0)) {
+          add(
+            'baseSalary.value.minValue',
+            `baseSalary.value.minValue=${salary.value.minValue} must be > 0`,
+          );
+        }
+        if (salary.value.maxValue !== undefined) {
+          const max = Number(salary.value.maxValue);
+          if (!Number.isFinite(max) || !(max >= min)) {
+            add(
+              'baseSalary.value.maxValue',
+              `baseSalary.value.maxValue=${salary.value.maxValue} must be >= minValue`,
+            );
+          }
+        }
+        if (!isNonEmptyString(salary.value.unitText)) {
+          add('baseSalary.value.unitText', 'baseSalary.value.unitText missing/empty');
+        }
       }
     }
   }

@@ -16,9 +16,9 @@ This is a client-side SPA. Without static HTML, Google sees an empty `<div id="r
 
 **Every new page MUST generate a static HTML file in `dist/`.** If it doesn't, it will NOT be indexed.
 
-## JobPosting Structured Data — ZERO TOLERANCE
+## JobPosting Structured Data — schema always present, each field iff the source states it
 
-Every active job page in every locale MUST have valid `JobPosting` JSON-LD with ALL fields. **Even "optional" fields must always be present using defaults/fallbacks — missing them is a deploy-blocking error.**
+Owner decision 2026-10-24: every active job page in every locale MUST carry valid `JobPosting` JSON-LD, and **every field in it is present if and only if it exists in the source** (the listing, the employer's publisher form, or the employer's curated HQ in the job's own city). A missing optional field is the contract; an invented one is the defect. This replaces the old "ZERO TOLERANCE — even optional fields must always be present using defaults" rule, which shipped the Lugano town hall ("Piazza Riforma 1", 6900) as the street of every Lugano job, sector estimates as `baseSalary`, `FULL_TIME` for unknown contracts and a synthetic `validThrough`.
 
 ### Active job ⇒ JobPosting, always (owner decision 2026-10-24)
 
@@ -34,33 +34,33 @@ An active (non-expired) job detail page **never** omits `JobPosting`, whatever t
 1. In build: `jobsSeoPagesPlugin` feeds every active canonical detail, as written (fresh render or cache reuse), to `createActiveJobPostingCoverage()` (`scripts/lib/active-jobposting-coverage.mjs`) and throws if any lacks JobPosting. It prints `[jobposting-coverage] active=… with-jobposting=… rate=…%` on every build.
 2. Post build: with `JOBPOSTING_COVERAGE_OUT` set (deploy build step) the plugin writes the list of those pages; `scripts/ci/assert-active-jobposting-coverage.mjs dist` re-reads each one from the final, pruned `dist/` and fails the deploy on a page that lost JobPosting, on an absent page, or on a missing/truncated sidecar.
 
-### Required fields (Google minimum for rich results)
-`title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`
+### Always present (Google's required set — missing is deploy-blocking)
+`title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation` with `addressLocality` and `addressCountry`. Contract: `MANDATORY_JOBPOSTING_FIELDS` in `scripts/lib/jobposting-mandatory-fields.mjs`; the builder throws on a regression (`assertMandatoryFieldsComplete` in `build-plugins/shared/jobPostingSchema.ts`).
 
-### Mandatory fields enforced as deploy-blocking errors
-`baseSalary`, `postalCode`, `streetAddress`, `employmentType`, `validThrough`, `jobLocation.address.addressRegion`
-
-### Fallback rules — when source data is missing, generate defaults (never omit):
-- **`baseSalary`**: Use `minValue: 41080, currency: CHF, unitText: YEAR` (Ticino minimum wage)
-- **`postalCode`**: Use `6900` (Lugano) if lookup fails
-- **`streetAddress`**: Use `addressLocality` value as fallback
-- **`employmentType`**: Default to `OTHER` if contract type unknown
-- **`jobLocation`**: Default to `addressLocality: Bellinzona, addressRegion: TI, addressCountry: CH`. `addressRegion` is derived from `addressLocality` via `CITY_TO_CANTON` (build-plugins/shared/companyHqAddresses.ts) when source data is missing.
-- **`validThrough`**: Source value wins; otherwise `crawledAt + 60 days`, then `datePosted + 90 days`, then `now + 60 days`. Must always be a valid ISO datetime.
-- **`datePosted`**: reported → first-seen → observed → build date (see above). Never omitted.
+### Present only when the source states them (malformed when present is deploy-blocking)
+- **`baseSalary`**: only `salarySource: 'reported'` (publisher ads: the employer's own figure). `maxValue` only when the source states an upper bound — a single figure is never widened by 20 %. Sector estimates (`salarySource: 'estimated'`, `salaryDefaults.ts`) and structured salaries of unknown origin (`existing`, missing) **stay visible on the page with an explicit label** — "(stima)" / "(fonte non verificata)" from `build-plugins/shared/salaryEstimateSuffix.ts`, and an FAQ answer that says the listing states no salary — and never reach the markup.
+- **`streetAddress` / `postalCode`**: the listing's own street (`isSourceStreetAddress`: a street, not the locality name) and its own CAP when coherent with the locality (not another city's CAP, not a crawler canton default); or the curated `COMPANY_HQ_ADDRESSES` tuple, whole, only when the job sits in the HQ city and the listing names no other CAP there. Never a city-hall table, never "<city> centro", never the canton capital's tuple. `addressRegion` stays (it comes from the canton).
+- **`employmentType`**: the contract types the listing states, resolved once by `scripts/lib/job-employment-type.mjs` from `employmentType`, `contract`, `contractType` (`OTHER` = crawler could not read it, not a statement), else from the workload the title states (#15009: "60%" → PART_TIME, "80-100%" → FULL_TIME) — one token or an array (`["FULL_TIME","TEMPORARY"]` for "A tempo pieno, Interinale"). Unknown or unrecognised → absent, and the page prints the same resolution ("Contratto: Tempo pieno, Temporaneo" / "non indicato"). "permanent"/"indeterminato" state a duration, not hours: they are not `FULL_TIME`.
+- **`validThrough`**: only the source deadline. Google: "If a job posting never expires, or you don't know when the job will expire, don't include this property." The synthetic windows (crawledAt+60d, datePosted+90d, floor now+30d, #3505) are gone; the expired contract does not need them, because an expired page uses the archive's real past timestamps (see below) and an active page that stops being listed becomes that expired page.
+- **`responsibilities` / `qualifications`**: only text of the same listing. A crawler must cut its body where other offers start (PEMSA: `cutPemsaRelatedOffers`, by offer id).
 - **`description`**: Use locale fallback chain (locale -> Italian -> raw description); when the result is thinner than 30 chars the static page synthesizes a description from the structured fields (title, company, city, contract) — the schema is never skipped. Only the SPA runtime path, which cannot synthesize it, skips its own copy and keeps the static one.
+
+### Observer
+`scripts/validate-jobs-rich-results-sample.mjs` (`npm run validate:jobs-rich-results`) compares each built JobPosting with the `data/jobs.json` record it came from, both ways: a field the source lacks is an error (`baseSalary:estimate_in_markup`, `streetAddress:not_from_source`, `validThrough:not_from_source`, `employmentType:not_from_source`), and so is a source value the page dropped (`baseSalary:reported_salary_dropped`, `validThrough:source_value_dropped`).
 
 ### Applies to all page types:
 - Active job pages (all 4 locales) — validated by `validate-jobs-rich-results-sample.mjs`
-- Expired job soft-landing pages — same rules apply, generate defaults
+- Expired job soft-landing pages — same rules apply: no generated defaults
 - Bridge pages (non-IT locale redirects, `__BRIDGE_TARGET_SLUG__`) — treated as warnings, not errors
 
 ### SPA runtime schema (JobBoard.tsx):
 - The `JobBoard` component dynamically injects `JobPosting` JSON-LD via `useEffect`
-- Same rules apply: description fallback chain, baseSalary always present
+- Same rules apply: description fallback chain; source fields only (it reads the raw `contract`/`employmentType`/`contractType`, never the `'full-time'`-defaulting filter bucket of `normalizeJobContract`)
 - Jobs with description < 30 chars are excluded from the SPA's own schema graph, and the static JobPosting is then preserved (never removed)
 
 The validation script `scripts/validate-jobs-rich-results-sample.mjs` (`npm run validate:jobs-rich-results`) audits a dist against `data/jobs.json`: every active job/locale must carry JobPosting and its `datePosted` must match the provenance chain. The deploy-blocking gates are the two coverage gates above. **Do not weaken them. `employmentType` is an error, not a warning.**
+
+The validation script `scripts/validate-jobs-rich-results-sample.mjs` enforces this. **Do not weaken it: a schema without the required fields, a malformed optional field, or an optional field that is not in the source are errors, not warnings.**
 
 ### Dataset schema (statistics pages):
 Every `Dataset` schema.org block MUST include `description` and `creator` fields. These are validated by Google and missing fields appear in Search Console as warnings. All new Dataset schemas must follow the pattern used in `jobsObservatory` and `livability` entries in `seo-pages.ts`.

@@ -60,7 +60,7 @@ const DETAIL_FIELDS = new Set([
  'canonicalContent',
  'baseSalary', 'streetAddress', 'postalCode', 'applyUrl',
  'addressLocality', 'addressRegion', 'addressCountry',
- 'employmentType', 'hiringOrganization',
+ 'employmentType', 'contractType', 'hiringOrganization',
  'titleByLocale', 'slugByLocale',
  'sector', 'experienceLevel',
  'validThrough', 'benefits',

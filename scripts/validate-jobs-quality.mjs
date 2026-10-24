@@ -5,7 +5,7 @@
  * Checks:
  *   1. Italian description length (error if < 100 chars)
  *   2. Untranslated Italian slugs (warning — German/French words in IT slug)
- *   3. Missing baseSalary in generated rich-result pages (error)
+ *   (baseSalary is NOT required: it exists only for a reported salary, owner decision 2026-10-24)
  *
  * Exit 1 on errors, exit 0 on warnings only.
  */

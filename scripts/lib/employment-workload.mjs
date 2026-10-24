@@ -48,6 +48,18 @@ function contextualWorkloadPercent(text) {
 }
 
 /**
+ * The workload a title states as such (at its end or next to a workload
+ * word), upper bound of a range; `NaN` when it states none. Qualifier
+ * percentages ("50% travel") are not workloads.
+ *
+ * @param {unknown} text
+ * @returns {number}
+ */
+export function statedWorkloadPercent(text) {
+  return contextualWorkloadPercent(text);
+}
+
+/**
  * True when the text states a part-time workload ("60%", "20-40 %").
  *
  * @param {unknown} text

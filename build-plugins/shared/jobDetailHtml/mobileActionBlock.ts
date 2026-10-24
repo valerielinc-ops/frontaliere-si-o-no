@@ -1,4 +1,5 @@
 import { resolveRolloutPostingDate } from '../../../scripts/lib/job-posting-date-rollout.mjs';
+import { formatJobEmploymentTypes, resolveJobEmploymentTypes } from '../../../scripts/lib/job-employment-type.mjs';
 /**
  * Mobile-first action block (above-the-fold on small screens) for the
  * static job-detail page. Mirrors the React
@@ -76,7 +77,9 @@ export function renderMobileActionBlock(ctx: MobileActionBlockRenderContext): st
     const days = Math.max(0, Math.round(((now || new Date()).getTime() - t) / 86400000));
     return DAYS_AGO_FORMATTER[locale](days);
   })();
-  const contractText = String(job.contract || 'other');
+  // Same resolution as the JobPosting employmentType and the hero "Contratto"
+  // label (scripts/lib/job-employment-type.mjs): never the raw "other".
+  const contractText = formatJobEmploymentTypes(resolveJobEmploymentTypes(job), locale);
   // Salary line — only when we actually have a number; the "non indicato"
   // fallback is meaningless as a money signal so we suppress it instead of
   // rendering a tile that adds zero information.

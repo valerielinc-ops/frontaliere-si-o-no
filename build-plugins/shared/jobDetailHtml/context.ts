@@ -30,6 +30,8 @@ export interface JobDetailJob {
   readonly canton?: string;
   readonly category?: string;
   readonly contract?: string;
+  readonly employmentType?: string;
+  readonly contractType?: string;
   readonly featured?: boolean;
   readonly postingDateSource?: string;
   readonly datePosted?: string;

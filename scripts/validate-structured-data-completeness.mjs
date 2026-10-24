@@ -128,13 +128,9 @@ function validateJobPosting(schema, filePath) {
   const errors = validateMandatoryJobPostingFields(schema)
     .map((violation) => toStructuredDataJobPostingError(violation, filePath));
 
-  // Consumer-specific: GSC reports validThrough separately from the nine
-  // mandatory fields and this gate intentionally keeps it deploy-blocking.
-  if (!isNonEmpty(schema.validThrough)) {
-    errors.push({ file: filePath, type: 'JobPosting', field: 'validThrough', message: 'JobPosting missing "validThrough"' });
-  }
-
-  // validThrough must parse to a valid date. Past dates are allowed —
+  // validThrough is present only when the source states a deadline (owner
+  // decision 2026-10-24; Google: omit it when the expiry is unknown). When
+  // present it must parse to a valid date. Past dates are allowed —
   // expired soft-landing pages legitimately use a past validThrough to
   // signal closure to Google.
   if (isNonEmpty(schema.validThrough)) {
@@ -145,12 +141,10 @@ function validateJobPosting(schema, filePath) {
   }
 
   // Consumer-specific address quality checks. The shared contract already
-  // reports missing jobLocation/address/postalCode/streetAddress.
+  // reports a missing jobLocation/address/addressLocality/addressCountry and a
+  // malformed postalCode/streetAddress.
   const address = schema.jobLocation?.address;
   if (address && typeof address === 'object') {
-    if (!isNonEmpty(address.addressLocality)) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressLocality', message: 'JobPosting missing "addressLocality"' });
-    }
     // GSC quality issue: missing addressRegion flagged as non-critical but
     // counted in the JobPosting "Issues" report — treat as deploy-blocking.
     if (!isNonEmpty(address.addressRegion)) {

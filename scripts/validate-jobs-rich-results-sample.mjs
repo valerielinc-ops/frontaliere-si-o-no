@@ -4,6 +4,9 @@ import path from 'node:path';
 import { resolveRolloutSchemaPostingDate } from './lib/job-posting-date-rollout.mjs';
 import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import { COMPANY_HQ_ADDRESSES } from '../build-plugins/shared/companyHqAddresses.mjs';
+import { resolveJobEmploymentTypes } from './lib/job-employment-type.mjs';
+import { isSalaryReportedBySource } from './lib/jobposting-field-provenance.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -118,13 +121,70 @@ function hasValidBaseSalary(baseSalary) {
   const value = baseSalary.value;
   if (!value || typeof value !== 'object') return false;
   const min = Number(value.minValue);
-  const max = value.maxValue !== undefined ? Number(value.maxValue) : null;
   if (!Number.isFinite(min) || min <= 0) return false;
-  // FRO-maxValue: maxValue is now MANDATORY — GSC flags missing maxValue as quality issue.
-  if (max === null) return false;
-  if (!Number.isFinite(max) || max < min) return false;
+  // maxValue exists only when the source states an upper bound.
+  if (value.maxValue !== undefined) {
+    const max = Number(value.maxValue);
+    if (!Number.isFinite(max) || max < min) return false;
+  }
   if (!value.unitText || String(value.unitText).trim().length === 0) return false;
   return true;
+}
+
+const sameInstant = (a, b) => {
+  const left = new Date(String(a ?? '')).getTime();
+  const right = new Date(String(b ?? '')).getTime();
+  return Number.isFinite(left) && left === right;
+};
+
+/**
+ * Owner decision 2026-10-24: a JobPosting field is present if and only if the
+ * source states it. This is the observer of that contract on the built page:
+ * each optional field is compared with the job record it was built from, in
+ * both directions (a value the source lacks is invented; a value the source
+ * has and the page lacks is lost).
+ */
+function validateFieldProvenance(jobPosting, job) {
+  const errors = [];
+  const sourceValidThrough = isIsoDate(job?.validThrough) ? job.validThrough : null;
+  if (jobPosting?.validThrough !== undefined) {
+    if (!isIsoDate(jobPosting.validThrough)) errors.push('invalid:validThrough');
+    else if (!sourceValidThrough || !sameInstant(jobPosting.validThrough, sourceValidThrough)) {
+      errors.push('validThrough:not_from_source');
+    }
+  } else if (sourceValidThrough) {
+    errors.push('validThrough:source_value_dropped');
+  }
+
+  const reportedSalary = isSalaryReportedBySource(job) && Number(job?.salaryMin) > 0;
+  if (jobPosting?.baseSalary !== undefined) {
+    if (!hasValidBaseSalary(jobPosting.baseSalary)) errors.push('invalid:baseSalary');
+    if (!isSalaryReportedBySource(job)) errors.push('baseSalary:estimate_in_markup');
+  } else if (reportedSalary) {
+    errors.push('baseSalary:reported_salary_dropped');
+  }
+
+  const expectedTypes = resolveJobEmploymentTypes(job);
+  const actualTypes = jobPosting?.employmentType === undefined
+    ? []
+    : (Array.isArray(jobPosting.employmentType) ? jobPosting.employmentType : [jobPosting.employmentType]);
+  if ([...expectedTypes].sort().join('|') !== [...actualTypes].map(String).sort().join('|')) {
+    errors.push(`employmentType:not_from_source:${actualTypes.join('+') || 'none'}!=${expectedTypes.join('+') || 'none'}`);
+  }
+
+  const address = jobPosting?.jobLocation?.address || {};
+  const hq = COMPANY_HQ_ADDRESSES[String(job?.companyKey || '').toLowerCase().trim()] || null;
+  const fromSourceOrHq = (value, sourceValue, hqValue) => {
+    const v = String(value ?? '').trim();
+    return v === String(sourceValue ?? '').trim() || (hqValue !== undefined && v === String(hqValue ?? '').trim());
+  };
+  if (address.streetAddress !== undefined && !fromSourceOrHq(address.streetAddress, job?.streetAddress, hq?.streetAddress)) {
+    errors.push('streetAddress:not_from_source');
+  }
+  if (address.postalCode !== undefined && !fromSourceOrHq(address.postalCode, job?.postalCode, hq?.postalCode)) {
+    errors.push('postalCode:not_from_source');
+  }
+  return errors;
 }
 
 function validateJobPosting(jobPosting, html, job, localeCode) {
@@ -144,13 +204,9 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
   if (jobPosting?.datePosted && !isIsoDate(jobPosting.datePosted)) {
     errors.push('invalid:datePosted');
   }
-  // GSC quality issue: missing validThrough is a non-critical issue but still
-  // counted in the JobPosting "Issues" report — promoted to deploy-blocking.
-  if (!jobPosting?.validThrough || String(jobPosting.validThrough).trim().length === 0) {
-    errors.push('missing:validThrough');
-  } else if (!isIsoDate(jobPosting.validThrough)) {
-    errors.push('invalid:validThrough');
-  }
+  // Optional fields (validThrough, baseSalary, employmentType, street/CAP):
+  // present if and only if the source states them.
+  errors.push(...validateFieldProvenance(jobPosting, job));
 
   const descLen = String(jobPosting?.description || '').trim().length;
   if (descLen < 140) warnings.push(`thin_description:${descLen}`);
@@ -162,17 +218,8 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
   if (!hasRemote && !hasLocation) {
     errors.push('missing:jobLocation');
   }
-  if (!hasValidBaseSalary(jobPosting?.baseSalary)) {
-    errors.push('missing_or_invalid:baseSalary');
-  }
   if (!hasRemote) {
     const address = jobPosting?.jobLocation?.address || {};
-    if (!address.postalCode || String(address.postalCode).trim().length === 0) {
-      errors.push('missing:jobLocation.address.postalCode');
-    }
-    if (!address.streetAddress || String(address.streetAddress).trim().length === 0) {
-      errors.push('missing:jobLocation.address.streetAddress');
-    }
     // GSC quality issue: missing addressRegion is a non-critical issue but
     // still counted in the JobPosting "Issues" report — promoted to error.
     if (!address.addressRegion || String(address.addressRegion).trim().length === 0) {
@@ -186,7 +233,6 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
     warnings.push('url:not_internal_canonical');
   }
   if (!jobPosting?.identifier?.value) warnings.push('missing:identifier.value');
-  if (!jobPosting?.employmentType) errors.push('missing:employmentType');
   if (!jobPosting?.hiringOrganization?.logo) warnings.push('missing:hiringOrganization.logo');
 
   const expectedSlug = resolveSlugForLocale(job, localeCode);

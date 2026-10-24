@@ -3,19 +3,16 @@
  * validate-jobposting-schema.mjs
  *
  * Post-build walker that opens every HTML file in `dist/`, extracts
- * JSON-LD blocks of @type `JobPosting`, and asserts that every one of
- * the 9 mandatory fields required by CLAUDE.md rule #3 is present and
- * non-empty:
+ * JSON-LD blocks of @type `JobPosting`, and asserts the shared contract of
+ * scripts/lib/jobposting-mandatory-fields.mjs (owner decision 2026-10-24):
  *
- *   1. title
- *   2. description (≥ 50 chars — Google treats thinner strings as low quality)
- *   3. datePosted  (parseable ISO 8601)
- *   4. employmentType (schema.org enum)
- *   5. hiringOrganization.name
- *   6. jobLocation (Place with PostalAddress)
- *   7. jobLocation.address.postalCode
- *   8. jobLocation.address.streetAddress
- *   9. baseSalary (MonetaryAmount with currency + value.minValue>0 + value.maxValue>=min + value.unitText)
+ *   required, non-empty: title, description (≥ 50 chars), datePosted
+ *   (parseable ISO 8601), hiringOrganization.name, jobLocation with
+ *   addressLocality and addressCountry;
+ *   optional, well-formed when present: employmentType (schema.org enum,
+ *   one token or an array), postalCode, streetAddress, baseSalary
+ *   (currency + value.minValue>0 + value.maxValue>=min when present +
+ *   value.unitText). They exist only when the source states them.
  *
  * Exits with code 1 and prints a summary of failing URLs when any
  * violation is found — blocks deploy.
@@ -88,16 +85,14 @@ function flattenBlocks(blocks) {
 }
 
 // ── Consumer-specific validation ───────────────────────────────────────────
-// The nine mandatory fields are validated by the shared contract. These
+// The required/optional fields are validated by the shared contract. These
 // address details are stricter quality checks owned by this standalone gate.
 function checkJobPostingAddressDetails(schema) {
   const errors = [];
   const address = schema?.jobLocation?.address;
   if (!address || typeof address !== 'object') return errors;
 
-  if (!isNonEmptyString(address.addressLocality)) {
-    errors.push('jobLocation.address.addressLocality missing/empty');
-  }
+  // addressLocality/addressCountry presence is part of the shared contract.
   if (!isNonEmptyString(address.addressRegion)) {
     errors.push('jobLocation.address.addressRegion missing/empty');
   }
@@ -106,9 +101,7 @@ function checkJobPostingAddressDetails(schema) {
   // positions legitimately surface as LU, DE, IT, FR, AT, etc. — the
   // validator used to hardcode "CH" and rejected every non-Swiss country,
   // which masked the REAL failure mode (missing or malformed codes).
-  if (!isNonEmptyString(address.addressCountry)) {
-    errors.push('jobLocation.address.addressCountry missing/empty');
-  } else if (!/^[A-Z]{2}$/.test(String(address.addressCountry).trim())) {
+  if (isNonEmptyString(address.addressCountry) && !/^[A-Z]{2}$/.test(String(address.addressCountry).trim())) {
     errors.push(`jobLocation.address.addressCountry="${address.addressCountry}" is not a 2-letter ISO 3166-1 alpha-2 code`);
   }
   return errors;

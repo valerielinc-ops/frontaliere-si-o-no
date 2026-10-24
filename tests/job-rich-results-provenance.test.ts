@@ -14,6 +14,17 @@ const posting = {
   jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', postalCode: '6900', streetAddress: 'Via Test 1' } },
   baseSalary: { currency: 'CHF', value: { minValue: 70000, maxValue: 90000, unitText: 'YEAR' } },
 };
+// The source record the posting above was built from: every optional field
+// of the posting exists here (owner decision 2026-10-24: present iff stated).
+const SOURCE_FIELDS: Record<string, unknown> = {
+  validThrough: posting.validThrough,
+  salaryMin: 70000,
+  salaryMax: 90000,
+  salarySource: 'reported',
+  employmentType: 'FULL_TIME',
+  postalCode: '6900',
+  streetAddress: 'Via Test 1',
+};
 function validate(
   source: string | undefined,
   schema: Record<string, unknown> | null,
@@ -23,12 +34,13 @@ function validate(
     postedDate?: string;
     canonicalUrlByLocale?: Record<string, string>;
     schemaByLocale?: Record<string, Record<string, unknown> | null>;
+    job?: Record<string, unknown>;
   } = {},
 ) {
   const root = mkdtempSync(join(tmpdir(), 'rich-result-provenance-'));
   try {
     mkdirSync(join(root, 'data'));
-    writeFileSync(join(root, 'data/jobs.json'), JSON.stringify([{ slug: 'example', postingDateSource: source, postedDate: overrides.postedDate ?? date, firstSeenAt: overrides.firstSeenAt, crawledAt: overrides.crawledAt }]));
+    writeFileSync(join(root, 'data/jobs.json'), JSON.stringify([{ slug: 'example', postingDateSource: source, postedDate: overrides.postedDate ?? date, firstSeenAt: overrides.firstSeenAt, crawledAt: overrides.crawledAt, ...(overrides.job ?? SOURCE_FIELDS) }]));
     for (const [locale, section] of Object.entries(SECTION_LEGACY_TI)) {
       const dir = join(root, 'dist', locale === 'it' ? '' : locale, section, 'example');
       mkdirSync(dir, { recursive: true });
@@ -91,9 +103,26 @@ describe('rich-result eligibility validation', () => {
     expect(result.status).toBe(1);
     expect(result.stdout).toContain('datePosted:reported_mismatch');
   });
-  it('preserves mandatory salary validation for eligible jobs', () => {
+  it('accepts a posting whose optional fields are absent because the source lacks them', () => {
+    const { validThrough: _v, baseSalary: _b, employmentType: _e, ...bare } = posting;
+    const result = validate('reported', { ...bare, jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI' } } }, {
+      job: { salaryMin: 61000, salaryMax: 77000, salarySource: 'estimated' },
+    });
+    expect(result.status, result.stdout + result.stderr).toBe(0);
+  });
+  it.each([
+    ['an estimated salary in baseSalary', { ...SOURCE_FIELDS, salarySource: 'estimated' }, 'baseSalary:estimate_in_markup'],
+    ['a validThrough the source does not state', { ...SOURCE_FIELDS, validThrough: undefined }, 'validThrough:not_from_source'],
+    ['a street the source does not state (city-hall default)', { ...SOURCE_FIELDS, streetAddress: undefined }, 'streetAddress:not_from_source'],
+    ['an employmentType the source does not state', { ...SOURCE_FIELDS, employmentType: undefined }, 'employmentType:not_from_source'],
+  ])('rejects %s', (_label, job, issue) => {
+    const result = validate('reported', posting, { job });
+    expect(result.status).toBe(1);
+    expect(result.stdout).toContain(issue);
+  });
+  it('rejects a reported salary dropped from the markup', () => {
     const result = validate('reported', { ...posting, baseSalary: undefined });
     expect(result.status).toBe(1);
-    expect(result.stdout).toContain('missing_or_invalid:baseSalary');
+    expect(result.stdout).toContain('baseSalary:reported_salary_dropped');
   });
 });

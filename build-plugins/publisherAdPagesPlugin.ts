@@ -15,9 +15,9 @@
  * each with its own slug/url). Every record gets a page in all 4 locales.
  *
  * Contract: apply:'build', emit in closeBundle(), pass distDir. JSON-LD via the
- * shared buildJobPostingSchema (guarantees AGENTS #3 fields: baseSalary,
- * postalCode, streetAddress, title, description, datePosted,
- * hiringOrganization.name, jobLocation, employmentType). Sitemap is written as
+ * shared buildJobPostingSchema (Google's required fields always; salary,
+ * address details and employmentType only as the employer entered them).
+ * Sitemap is written as
  * `dist/sitemap-publisher-ads.xml`; sitemapAliasPlugin auto-discovers it.
  *
  * Gate: SKIP_PUBLISHER_AD_PAGES=1 fast-exits for local builds.
@@ -465,7 +465,8 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           const bodyHtml = renderBody(rec, locale);
           const wordCount = countHtmlBodyWords(bodyHtml);
 
-          const jobPosting = buildJobPostingSchema(rec, {
+          // The salary of a publisher ad is the employer's own statement.
+          const jobPosting = buildJobPostingSchema({ ...rec, salarySource: 'reported' }, {
             locale,
             url: canonicalUrl,
             knownSlugs: knownEmployerProfileSlugs,

@@ -159,3 +159,36 @@ describe('resolveJobCanton (shared resolver consumed by all 3 FAQ call sites)', 
     expect(resolveJobCanton({})).toBe('TI');
   });
 });
+
+// Owner decision 2026-10-24: an estimate stays visible but is labelled as
+// ours, and an unstated contract is not presented as the employer's word.
+describe('buildJobPostingFaqPairs — provenance of salary and contract', () => {
+  it('labels an estimated salary as an estimate and never as the employer offer', () => {
+    const facts = buildJobPostingFacts({ ...TICINO_JOB, salarySource: 'estimated' }, 'it');
+    const [salary] = buildJobPostingFaqPairs(facts, faqOptsFor(TICINO_JOB, true, 'Ticino'));
+    expect(salary.a).toContain('stima');
+    expect(salary.a).toContain('non indica lo stipendio');
+    expect(salary.a).not.toMatch(/^Acme SA indica/);
+  });
+
+  it('states a reported salary as published in the listing', () => {
+    const facts = buildJobPostingFacts({ ...TICINO_JOB, salarySource: 'reported' }, 'it');
+    const [salary] = buildJobPostingFaqPairs(facts, faqOptsFor(TICINO_JOB, true, 'Ticino'));
+    expect(salary.a).toMatch(/^Acme SA indica/);
+    expect(salary.a).not.toContain('stima');
+  });
+
+  it('says the contract is not stated instead of defaulting to full-time', () => {
+    const facts = buildJobPostingFacts({ ...TICINO_JOB, contract: undefined }, 'it');
+    expect(facts.employmentTypes).toEqual([]);
+    const contract = buildJobPostingFaqPairs(facts, faqOptsFor(TICINO_JOB, true, 'Ticino'))[1];
+    expect(contract.a).toContain('non indica il tipo di contratto');
+    expect(contract.a).not.toContain('tempo pieno');
+  });
+
+  it('names every contract type the listing states', () => {
+    const facts = buildJobPostingFacts({ ...TICINO_JOB, contract: undefined, employmentType: 'full-time', contractType: 'temporary' }, 'it');
+    const contract = buildJobPostingFaqPairs(facts, faqOptsFor(TICINO_JOB, true, 'Ticino'))[1];
+    expect(contract.a).toContain('tempo pieno e contratto a tempo determinato');
+  });
+});

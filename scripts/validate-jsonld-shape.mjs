@@ -15,7 +15,7 @@
  *     audit-jsonld-no-nested-scripts but checked here for completeness)
  *   - Missing required fields per @type:
  *       JobPosting: title, description, datePosted, hiringOrganization,
- *                   jobLocation, employmentType, baseSalary
+ *                   jobLocation
  *       Article / BlogPosting: headline, datePublished, author, publisher
  *       Person: name
  *       Organization: name
@@ -58,7 +58,9 @@ const JSONLD_RE = /<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<
 // Required-fields per @type. Sourced from Google's Search Central docs:
 // https://developers.google.com/search/docs/appearance/structured-data
 const REQUIRED = {
-  JobPosting: ['title', 'description', 'datePosted', 'hiringOrganization', 'jobLocation', 'employmentType', 'baseSalary'],
+  // Google's required set only: employmentType and baseSalary exist only when
+  // the source states them (owner decision 2026-10-24).
+  JobPosting: ['title', 'description', 'datePosted', 'hiringOrganization', 'jobLocation'],
   Article: ['headline', 'datePublished', 'author', 'publisher'],
   BlogPosting: ['headline', 'datePublished', 'author', 'publisher'],
   NewsArticle: ['headline', 'datePublished', 'author', 'publisher'],

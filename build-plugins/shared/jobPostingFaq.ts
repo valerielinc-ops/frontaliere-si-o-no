@@ -98,11 +98,12 @@ const LOCALE_INTL: Record<FaqLocale, string> = {
 };
 
 function formatSalaryRange(schema: JobPostingFacts, locale: FaqLocale): string {
-  const { currency, value } = schema.baseSalary;
+  const { currency, minValue, maxValue } = schema.salary;
   const fmt = new Intl.NumberFormat(LOCALE_INTL[locale], { maximumFractionDigits: 0 });
-  const min = fmt.format(value.minValue);
-  const max = fmt.format(value.maxValue);
-  return value.maxValue > value.minValue ? `${currency} ${min} - ${max}` : `${currency} ${min}`;
+  const min = fmt.format(minValue);
+  return maxValue !== undefined && maxValue > minValue
+    ? `${currency} ${min} - ${fmt.format(maxValue)}`
+    : `${currency} ${min}`;
 }
 
 const PER_YEAR_LABEL: Record<FaqLocale, string> = {
@@ -112,60 +113,84 @@ const PER_YEAR_LABEL: Record<FaqLocale, string> = {
   fr: 'bruts par an',
 };
 
+// The answer says which kind of figure it is. A reported salary is the
+// employer's statement; an estimate is labelled as ours and is never phrased
+// as "<company> offers" (owner decision 2026-10-24: estimates stay visible,
+// explicitly labelled, and stay out of the JobPosting markup).
 function buildSalaryFaq(schema: JobPostingFacts, opts: BuildJobPostingFaqOptions): JobFaqPair {
   const { locale } = opts;
   const company = schema.hiringOrganization.name;
   const range = formatSalaryRange(schema, locale);
   const perYear = PER_YEAR_LABEL[locale];
+  const city = schema.jobLocation.address.addressLocality;
+  const estimate = schema.salary.isEstimate;
   if (locale === 'en') {
     return {
       q: `What salary does ${company} offer for this role?`,
-      a: `${company} lists ${range} ${perYear} for this position in ${schema.jobLocation.address.addressLocality}. This is the salary published in the original listing (or, when the employer omits a figure, a realistic estimate for the role and sector) — the calculator on this site converts it to your actual net take-home once cross-border tax and social contributions are applied.`,
+      a: estimate
+        ? `The original listing does not state a salary. Our estimate for this role and sector in ${city} is ${range} ${perYear} — an estimate, not a figure communicated by ${company}. The calculator on this site converts a gross salary into your actual net take-home once cross-border tax and social contributions are applied.`
+        : `${company} lists ${range} ${perYear} for this position in ${city}. This is the salary published in the original listing — the calculator on this site converts it to your actual net take-home once cross-border tax and social contributions are applied.`,
     };
   }
   if (locale === 'de') {
     return {
       q: `Welches Gehalt bietet ${company} für diese Stelle?`,
-      a: `${company} gibt ${range} ${perYear} für diese Position in ${schema.jobLocation.address.addressLocality} an. Dies ist das im Original-Inserat veröffentlichte Gehalt (oder, falls der Arbeitgeber keinen Betrag nennt, eine realistische Schätzung für Rolle und Branche) — der Rechner auf dieser Seite berechnet daraus Ihr tatsächliches Netto nach Grenzgänger-Steuer und Sozialabgaben.`,
+      a: estimate
+        ? `Das Original-Inserat nennt kein Gehalt. Unsere Schätzung für diese Rolle und Branche in ${city} liegt bei ${range} ${perYear} — eine Schätzung, kein von ${company} mitgeteilter Betrag. Der Rechner auf dieser Seite berechnet aus einem Bruttogehalt Ihr tatsächliches Netto nach Grenzgänger-Steuer und Sozialabgaben.`
+        : `${company} gibt ${range} ${perYear} für diese Position in ${city} an. Dies ist das im Original-Inserat veröffentlichte Gehalt — der Rechner auf dieser Seite berechnet daraus Ihr tatsächliches Netto nach Grenzgänger-Steuer und Sozialabgaben.`,
     };
   }
   if (locale === 'fr') {
     return {
       q: `Quel salaire propose ${company} pour ce poste ?`,
-      a: `${company} indique ${range} ${perYear} pour ce poste à ${schema.jobLocation.address.addressLocality}. Il s'agit du salaire publié dans l'annonce d'origine (ou, si l'employeur ne précise pas de montant, d'une estimation réaliste pour le rôle et le secteur) — le calculateur de ce site le convertit en net réel une fois l'impôt frontalier et les cotisations sociales appliqués.`,
+      a: estimate
+        ? `L'annonce d'origine n'indique pas de salaire. Notre estimation pour ce rôle et ce secteur à ${city} est de ${range} ${perYear} — une estimation, pas un montant communiqué par ${company}. Le calculateur de ce site convertit un salaire brut en net réel une fois l'impôt frontalier et les cotisations sociales appliqués.`
+        : `${company} indique ${range} ${perYear} pour ce poste à ${city}. Il s'agit du salaire publié dans l'annonce d'origine — le calculateur de ce site le convertit en net réel une fois l'impôt frontalier et les cotisations sociales appliqués.`,
     };
   }
   return {
     q: `Che stipendio offre ${company} per questa posizione?`,
-    a: `${company} indica ${range} ${perYear} per questo ruolo a ${schema.jobLocation.address.addressLocality}. Questo è lo stipendio pubblicato nell'annuncio originale (o, quando il datore non specifica una cifra, una stima realistica per ruolo e settore) — il calcolatore di questo sito lo converte nel netto reale una volta applicate imposta da frontaliere e contributi sociali.`,
+    a: estimate
+      ? `L'annuncio originale non indica lo stipendio. La nostra stima per questo ruolo e settore a ${city} è ${range} ${perYear}: è una stima, non una cifra comunicata da ${company}. Il calcolatore di questo sito converte un lordo nel netto reale una volta applicate imposta da frontaliere e contributi sociali.`
+      : `${company} indica ${range} ${perYear} per questo ruolo a ${city}. Questo è lo stipendio pubblicato nell'annuncio originale — il calcolatore di questo sito lo converte nel netto reale una volta applicate imposta da frontaliere e contributi sociali.`,
   };
 }
 
 function buildContractFaq(schema: JobPostingFacts, opts: BuildJobPostingFaqOptions): JobFaqPair {
   const { locale } = opts;
-  const contractLabel = EMPLOYMENT_TYPE_FAQ_LABEL[locale][schema.employmentType];
+  const labels = EMPLOYMENT_TYPE_FAQ_LABEL[locale];
+  const contractLabel = schema.employmentTypes.map((type) => labels[type]).join(locale === 'it' ? ' e ' : locale === 'de' ? ' und ' : locale === 'fr' ? ' et ' : ' and ');
+  const stated = schema.employmentTypes.length > 0;
   const company = schema.hiringOrganization.name;
   if (locale === 'en') {
     return {
       q: `Is this a full-time role, and what type of contract does ${company} offer?`,
-      a: `This listing is a ${contractLabel} position. The contract type shown here comes directly from the employer's original posting; always confirm exact hours, notice period and probation length with ${company} during the application process, since these details can vary by role even within the same contract category.`,
+      a: stated
+        ? `This listing is a ${contractLabel} position. The contract type shown here comes directly from the employer's original posting; always confirm exact hours, notice period and probation length with ${company} during the application process, since these details can vary by role even within the same contract category.`
+        : `The original posting does not state the contract type or the working hours. Ask ${company} about hours, contract duration, notice period and probation during the application process.`,
     };
   }
   if (locale === 'de') {
     return {
       q: `Ist das eine Vollzeitstelle, und welchen Vertragstyp bietet ${company}?`,
-      a: `Diese Stelle ist eine ${contractLabel}-Position. Der hier angezeigte Vertragstyp stammt direkt aus dem Original-Inserat des Arbeitgebers; klären Sie genaue Arbeitszeiten, Kündigungsfrist und Probezeit während des Bewerbungsprozesses mit ${company}, da diese Details auch innerhalb derselben Vertragskategorie variieren können.`,
+      a: stated
+        ? `Diese Stelle ist eine ${contractLabel}-Position. Der hier angezeigte Vertragstyp stammt direkt aus dem Original-Inserat des Arbeitgebers; klären Sie genaue Arbeitszeiten, Kündigungsfrist und Probezeit während des Bewerbungsprozesses mit ${company}, da diese Details auch innerhalb derselben Vertragskategorie variieren können.`
+        : `Das Original-Inserat nennt weder den Vertragstyp noch das Pensum. Klären Sie Arbeitszeiten, Vertragsdauer, Kündigungsfrist und Probezeit während des Bewerbungsprozesses mit ${company}.`,
     };
   }
   if (locale === 'fr') {
     return {
       q: `Est-ce un poste à temps plein, et quel type de contrat propose ${company} ?`,
-      a: `Cette offre est un poste en ${contractLabel}. Le type de contrat affiché ici provient directement de l'annonce originale de l'employeur ; confirmez toujours les horaires exacts, le préavis et la durée d'essai avec ${company} pendant le processus de candidature, ces détails pouvant varier même au sein de la même catégorie de contrat.`,
+      a: stated
+        ? `Cette offre est un poste en ${contractLabel}. Le type de contrat affiché ici provient directement de l'annonce originale de l'employeur ; confirmez toujours les horaires exacts, le préavis et la durée d'essai avec ${company} pendant le processus de candidature, ces détails pouvant varier même au sein de la même catégorie de contrat.`
+        : `L'annonce originale n'indique ni le type de contrat ni le taux d'activité. Renseignez-vous auprès de ${company} sur les horaires, la durée du contrat, le préavis et la période d'essai pendant la candidature.`,
     };
   }
   return {
     q: `È un ruolo a tempo pieno, e che tipo di contratto offre ${company}?`,
-    a: `Questo annuncio è una posizione a ${contractLabel}. Il tipo di contratto mostrato qui arriva direttamente dall'annuncio originale del datore di lavoro; conferma sempre orario esatto, preavviso e durata del periodo di prova con ${company} durante il colloquio, perché questi dettagli possono variare anche all'interno della stessa categoria contrattuale.`,
+    a: stated
+      ? `Questo annuncio è una posizione a ${contractLabel}. Il tipo di contratto mostrato qui arriva direttamente dall'annuncio originale del datore di lavoro; conferma sempre orario esatto, preavviso e durata del periodo di prova con ${company} durante il colloquio, perché questi dettagli possono variare anche all'interno della stessa categoria contrattuale.`
+      : `L'annuncio originale non indica il tipo di contratto né la percentuale di impiego. Chiedi a ${company} orario, durata del contratto, preavviso e periodo di prova durante il colloquio.`,
   };
 }
 

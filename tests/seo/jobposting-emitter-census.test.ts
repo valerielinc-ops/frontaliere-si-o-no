@@ -7,7 +7,6 @@ import {
   JOBPOSTING_PUBLIC_VARIANTS,
 } from '../../scripts/ci/jobposting-emitter-census.mjs';
 import { buildReportedJobPostingFixture as buildJobPostingSchema } from '../helpers/reported-job-schema';
-import { resolveJobPostingPostalCode } from '../../services/jobLocationSnapshot';
 
 describe('public JobPosting emitter census', () => {
   it('keeps every public path registered and builder-backed', () => {
@@ -24,9 +23,13 @@ describe('public JobPosting emitter census', () => {
   });
 
   it('keeps the hydrated JobBoard address tuple aligned with static output', () => {
+    // Both paths hand the canonical builder the source street/CAP as stated;
+    // the builder alone decides coherence (#9108, #9841) and never fills them
+    // from lookup tables (owner decision 2026-10-24).
     const jobBoardSource = readFileSync('components/community/JobBoard.tsx', 'utf8');
-    expect(jobBoardSource).toMatch(/const \{ postalCode, sourcePostalCoherent \} = resolveJobPostingPostalCode\(/);
-    expect(jobBoardSource).toContain("streetAddress: sourcePostalCoherent && isValidAddr(rawStreet) ? rawStreet : ''");
+    expect(jobBoardSource).toContain("const postalCode = String(job.postalCode || '').trim();");
+    expect(jobBoardSource).toContain("streetAddress: isValidAddr(rawStreet) ? rawStreet : ''");
+    expect(jobBoardSource).not.toMatch(/resolveJobPostingPostalCode\(/);
 
     const job = {
       id: 'jobposting-census-address',
@@ -43,21 +46,12 @@ describe('public JobPosting emitter census', () => {
       locale: 'it',
       url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/chur/',
     };
-    const resolved = resolveJobPostingPostalCode(
-      { location: job.location, addressLocality: job.addressLocality, postalCode: job.postalCode },
-      job.addressLocality,
-      job.canton,
-    );
-    const hydrated = buildJobPostingSchema({
-      ...job,
-      postalCode: resolved.postalCode,
-      streetAddress: resolved.sourcePostalCoherent ? job.streetAddress : '',
-    }, opts).jobLocation.address;
+    const hydrated = buildJobPostingSchema({ ...job }, opts).jobLocation.address;
     const staticAddress = buildJobPostingSchema(job, opts).jobLocation.address;
 
-    expect(resolved).toEqual({ postalCode: '7000', sourcePostalCoherent: false });
     expect(hydrated).toEqual(staticAddress);
-    expect(hydrated).toMatchObject({ addressLocality: 'Chur', addressRegion: 'GR', postalCode: '7000' });
-    expect(hydrated.streetAddress).not.toBe(job.streetAddress);
+    // 8600 is Dübendorf's CAP: the stamped HQ tuple is dropped as a pair, and
+    // no Chur street/CAP is invented in its place.
+    expect(hydrated).toEqual({ '@type': 'PostalAddress', addressLocality: 'Chur', addressRegion: 'GR', addressCountry: 'CH' });
   });
 });
