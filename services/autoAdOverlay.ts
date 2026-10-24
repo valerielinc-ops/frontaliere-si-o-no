@@ -163,6 +163,9 @@ function nodeTouchesAdLayer(node: Node): boolean {
 export function mutationsTouchAutoAdLayer(records: readonly MutationRecord[], candidates: readonly Element[]): boolean {
  for (const record of records) {
  if (record.type === 'childList') {
+ // A creative swapped inside an existing candidate (its children change,
+ // the candidate itself does not) can move or resize the anchor band.
+ if (record.target.nodeType === 1 && (record.target as Element).closest(AUTO_AD_CANDIDATE_SELECTOR)) return true;
  for (const node of record.addedNodes) if (nodeTouchesAdLayer(node)) return true;
  for (const node of record.removedNodes) if (nodeTouchesAdLayer(node)) return true;
  continue;

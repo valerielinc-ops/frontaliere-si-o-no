@@ -2771,11 +2771,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // writers (chips, clear button, autocomplete, URL sync) go through
  // `applySearchQuery` so a stale pending debounce can't clobber their change; the
  // sync effect below reflects any of these back into the input's DOM value.
+ // Latest query requested by a non-typing writer, ahead of the transition
+ // commit: a second tap on a search chip while the first transition is still
+ // pending must toggle against what the user asked for, not the stale state.
+ const latestSearchQueryRef = useRef(searchQuery);
+ useEffect(() => {
+ latestSearchQueryRef.current = searchQuery;
+ }, [searchQuery]);
  const applySearchQuery = useCallback((value: React.SetStateAction<string>) => {
  if (searchDebounceTimerRef.current) {
  clearTimeout(searchDebounceTimerRef.current);
  searchDebounceTimerRef.current = null;
  }
+ if (typeof value === 'string') latestSearchQueryRef.current = value;
  startTransition(() => setSearchQuery(value));
  }, []);
  useEffect(() => {
@@ -11473,9 +11481,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
      but no longer push the first result below the mobile fold. */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide" role="group" aria-label={t('jobBoard.quickFilters.label')}>
  <JobBoardQuickFilterChips chips={[
- { id: 'nurse', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'engineer', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'driver', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'nurse', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(latestSearchQueryRef.current.toLowerCase() === term ? '' : term); } },
+ { id: 'engineer', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(latestSearchQueryRef.current.toLowerCase() === term ? '' : term); } },
+ { id: 'driver', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(latestSearchQueryRef.current.toLowerCase() === term ? '' : term); } },
  { id: 'health', group: 'category', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedCategory((prev) => (prev === 'health' ? 'all' : 'health')); } },
  { id: 'parttime', group: 'contract', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract((prev) => (prev === 'part-time' ? 'all' : 'part-time')); } },
  { id: 'apprentice', group: 'contract', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract((prev) => (prev === 'internship' ? 'all' : 'internship')); } },

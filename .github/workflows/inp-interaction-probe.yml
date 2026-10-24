@@ -18,6 +18,7 @@ on:
   pull_request:
     paths:
       - 'scripts/perf/inp-interaction-probe.mjs'
+      - 'scripts/perf/lib/inp-probe-summary.mjs'
       - '.github/workflows/inp-interaction-probe.yml'
 
 permissions:
@@ -39,7 +40,8 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             scripts/perf/inp-interaction-probe.mjs
-            package.json
+            scripts/perf/lib/inp-probe-summary.mjs
+            package-lock.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -52,12 +54,15 @@ jobs:
       - name: Install Playwright + Chromium
         run: |
           set -euo pipefail
-          spec="$(node -p "const p=require('./package.json'); (p.devDependencies||{}).playwright || (p.dependencies||{}).playwright")"
-          mkdir -p "$RUNNER_TEMP/probe"
+          # The exact version the lockfile pins, not the package.json range:
+          # runs months apart must measure with the same browser build.
+          version="$(node -p "require('./package-lock.json').packages['node_modules/playwright'].version")"
+          mkdir -p "$RUNNER_TEMP/probe/lib"
           cp scripts/perf/inp-interaction-probe.mjs "$RUNNER_TEMP/probe/"
+          cp scripts/perf/lib/inp-probe-summary.mjs "$RUNNER_TEMP/probe/lib/"
           cd "$RUNNER_TEMP/probe"
           npm init -y >/dev/null
-          npm install --no-audit --no-fund "playwright@${spec}"
+          npm install --no-audit --no-fund "playwright@${version}"
           npx playwright install --with-deps chromium
 
       - name: Probe

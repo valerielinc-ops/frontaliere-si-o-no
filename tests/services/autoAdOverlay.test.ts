@@ -218,5 +218,12 @@ describe('autoAdOverlay', () => {
  expect(mutationsTouchAutoAdLayer([attr(unrelated)], [ad])).toBe(false);
  expect(mutationsTouchAutoAdLayer([added(wrapper)], [])).toBe(true);
  expect(mutationsTouchAutoAdLayer([added(unrelated)], [ad])).toBe(false);
+
+ const autoPlaced = document.createElement('div');
+ autoPlaced.className = 'google-auto-placed';
+ document.body.appendChild(autoPlaced);
+ const swappedChild = document.createElement('div');
+ const insideCandidate = { type: 'childList', target: autoPlaced, addedNodes: [swappedChild], removedNodes: [] } as unknown as MutationRecord;
+ expect(mutationsTouchAutoAdLayer([insideCandidate], [autoPlaced])).toBe(true);
  });
 });

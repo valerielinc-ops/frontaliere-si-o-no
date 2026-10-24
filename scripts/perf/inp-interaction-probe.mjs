@@ -23,11 +23,12 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium, devices } from 'playwright';
+import { parseRuns, summarizeInteraction } from './lib/inp-probe-summary.mjs';
 
 const args = process.argv.slice(2);
 const option = (name, fallback) => (args.includes(name) ? args[args.indexOf(name) + 1] : fallback);
 const origin = String(option('--url', 'https://frontaliereticino.ch')).replace(/\/$/, '');
-const runs = Math.max(1, Number(option('--runs', '3')) || 3);
+const runs = parseRuns(option('--runs', '3'));
 const outDir = option('--out', 'tmp/inp-probe');
 const SETTLE_MS = 8000;
 const AFTER_TAP_MS = 4000;
@@ -83,37 +84,6 @@ function observeInit() {
  }
 }
 
-function summarizeWindow(probe, since) {
- const events = probe.events.filter((e) => e.start >= since);
- // One tap emits pointerdown, pointerup and click under the same
- // interactionId, all with the same rounded duration: the interaction's
- // processing is the SUM of its entries, not the first entry's (which is
- // usually pointerdown, with ~0 ms of handlers).
- const byInteraction = new Map();
- for (const e of events) {
- const group = byInteraction.get(e.interactionId) ?? { duration: 0, inputDelay: Infinity, processing: 0, presentation: 0 };
- group.duration = Math.max(group.duration, e.duration);
- group.inputDelay = Math.min(group.inputDelay, e.inputDelay);
- group.processing += e.processing;
- group.presentation = Math.max(group.presentation, e.presentation);
- byInteraction.set(e.interactionId, group);
- }
- const worst = [...byInteraction.values()].reduce((max, e) => (e.duration > (max?.duration ?? -1) ? e : max), null);
- const frames = probe.loaf.filter((f) => f.start + f.duration >= since);
- const scripts = frames.flatMap((f) => f.scripts);
- const topScripts = [...scripts].sort((a, b) => b.duration - a.duration).slice(0, 5)
- .map((s) => ({ ...s, duration: Math.round(s.duration), forcedLayout: Math.round(s.forcedLayout) }));
- return {
- inp: worst ? Math.round(worst.duration) : null,
- inputDelay: worst ? Math.round(worst.inputDelay) : null,
- processing: worst ? Math.round(worst.processing) : null,
- presentation: worst ? Math.round(worst.presentation) : null,
- loafBlocking: Math.round(frames.reduce((sum, f) => sum + (f.blocking || 0), 0)),
- forcedLayout: Math.round(scripts.reduce((sum, s) => sum + s.forcedLayout, 0)),
- topScripts,
- };
-}
-
 async function acceptConsent(page) {
  const button = page.locator('.fc-cta-consent').first();
  try {
@@ -124,7 +94,7 @@ async function acceptConsent(page) {
  const since = await page.evaluate(() => performance.now());
  await button.click({ timeout: 5000 });
  await page.waitForTimeout(2500);
- return summarizeWindow(await page.evaluate(() => window.__inpProbe), since);
+ return summarizeInteraction(await page.evaluate(() => window.__inpProbe), since);
 }
 
 async function runScenario(browser, scenario) {
@@ -144,7 +114,7 @@ async function runScenario(browser, scenario) {
  const since = await page.evaluate(() => performance.now());
  await target.click({ timeout: 10000 });
  await page.waitForTimeout(AFTER_TAP_MS);
- const tap = summarizeWindow(await page.evaluate(() => window.__inpProbe), since);
+ const tap = summarizeInteraction(await page.evaluate(() => window.__inpProbe), since);
  return { scenario: scenario.id, ok: true, loadBlocking, consent, tap };
  } catch (error) {
  return { scenario: scenario.id, ok: false, error: String(error?.message || error).slice(0, 300) };
