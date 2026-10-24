@@ -4338,9 +4338,9 @@ function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
  * cannot observe a stale filesystem snapshot. `opendir` keeps the transient
  * directory-entry buffer bounded. When the caller supplies the paths it can
  * probe, the index uses a bounded `lstat` pool over those candidates only;
- * unrelated production assets are never retained or opened. Non-HTML
- * regular-file candidates are checked with a targeted `stat` instead of
- * retaining every asset path in memory.
+ * unrelated production assets are never retained or opened. The candidate
+ * probe records the type returned by that `lstat`, so `hasRegularFile()` does
+ * not immediately issue a second `stat` for the same route path.
  */
 export interface ForeignDirectoryIndex {
   hasFile(filePath: string): Promise<boolean>;
@@ -4355,53 +4355,81 @@ export function createForeignDirectoryIndex(
   let retainedCandidates: Iterator<string> | null = candidatePaths
     ? candidatePaths[Symbol.iterator]()
     : null;
+  const candidateScoped = candidatePaths !== undefined;
   let inventory: Promise<{
     htmlFiles: ReadonlySet<string>;
     symlinks: ReadonlySet<string>;
+    regularFiles: ReadonlySet<string>;
   }> | null = null;
 
   const loadInventory = (): Promise<{
     htmlFiles: ReadonlySet<string>;
     symlinks: ReadonlySet<string>;
+    regularFiles: ReadonlySet<string>;
   }> => {
     if (inventory) return inventory;
 
     inventory = (async () => {
       const htmlFiles = new Set<string>();
       const symlinks = new Set<string>();
+      const regularFiles = new Set<string>();
 
       if (retainedCandidates) {
         const candidateIterator = retainedCandidates;
+        const inspectCandidateFile = async (filePath: string): Promise<void> => {
+          try {
+            const entry = await fs.promises.lstat(filePath);
+            if (entry.isSymbolicLink()) symlinks.add(filePath);
+            else if (entry.isFile()) {
+              regularFiles.add(filePath);
+              if (path.extname(filePath).toLowerCase() === '.html') {
+                htmlFiles.add(filePath);
+              }
+            }
+          } catch (error: unknown) {
+            if (!isNodeErrnoException(error) || (error.code !== 'ENOENT' && error.code !== 'ENOTDIR')) {
+              throw error;
+            }
+          }
+        };
         const inspectCandidate = async (): Promise<void> => {
           while (true) {
             const next = candidateIterator.next();
             if (next.done) return;
             const routePath = path.resolve(next.value);
-            const candidateFiles = [
-              routePath,
-              path.join(routePath, 'index.html'),
-              `${routePath}.html`,
-            ];
-            for (const filePath of candidateFiles) {
-              try {
-                const entry = await fs.promises.lstat(filePath);
-                if (entry.isSymbolicLink()) symlinks.add(filePath);
-                else if (entry.isFile() && path.extname(filePath).toLowerCase() === '.html') {
-                  htmlFiles.add(filePath);
-                }
-              } catch (error: unknown) {
-                if (!isNodeErrnoException(error) || (error.code !== 'ENOENT' && error.code !== 'ENOTDIR')) {
-                  throw error;
-                }
+            const indexPath = path.join(routePath, 'index.html');
+            const flatPath = `${routePath}.html`;
+            let routeIsDirectory = false;
+            try {
+              const routeEntry = await fs.promises.lstat(routePath);
+              if (routeEntry.isSymbolicLink()) {
+                symlinks.add(routePath);
+                continue;
+              }
+              if (routeEntry.isFile()) {
+                regularFiles.add(routePath);
+                if (path.extname(routePath).toLowerCase() === '.html') htmlFiles.add(routePath);
+              } else {
+                routeIsDirectory = routeEntry.isDirectory();
+              }
+            } catch (error: unknown) {
+              if (!isNodeErrnoException(error) || (error.code !== 'ENOENT' && error.code !== 'ENOTDIR')) {
+                throw error;
               }
             }
+
+            // An index file can only exist below an actual directory. A flat
+            // `.html` candidate remains possible when the route path is absent
+            // or a regular file, so it is always the final probe.
+            if (routeIsDirectory) await inspectCandidateFile(indexPath);
+            await inspectCandidateFile(flatPath);
           }
         };
         await Promise.all(
           Array.from({ length: 16 }, () => inspectCandidate()),
         );
         retainedCandidates = null;
-        return { htmlFiles, symlinks };
+        return { htmlFiles, symlinks, regularFiles };
       }
 
       const pendingDirectories = [path.resolve(distDir)];
@@ -4470,7 +4498,7 @@ export function createForeignDirectoryIndex(
         schedule();
       });
 
-      return { htmlFiles, symlinks };
+      return { htmlFiles, symlinks, regularFiles };
     })();
 
     return inventory;
@@ -4481,9 +4509,13 @@ export function createForeignDirectoryIndex(
       return loadInventory().then(({ htmlFiles }) => htmlFiles.has(path.resolve(filePath)));
     },
     hasRegularFile(filePath: string): Promise<boolean> {
-      // This method is used only for the route-path candidate. A targeted
-      // stat preserves non-HTML file detection without retaining every PDF,
-      // image, font, and other static asset in the walk's path set.
+      // Candidate-scoped indexes already lstat every route path while building
+      // the inventory. Reusing that exact type result avoids a second syscall
+      // for every foreign sitemap loc. The full-tree index keeps the fallback
+      // stat because it deliberately does not retain arbitrary asset paths.
+      if (candidateScoped) {
+        return loadInventory().then(({ regularFiles }) => regularFiles.has(path.resolve(filePath)));
+      }
       return fs.promises.stat(path.resolve(filePath)).then((stat) => stat.isFile()).catch((error: unknown) => {
         if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
           return false;
@@ -4520,11 +4552,13 @@ async function probeForeignPresentPage(
 
   const candidates: string[] = [];
   const routeFile = await index.hasFile(routePath);
-  if (await index.hasRegularFile(routePath) && !routeFile) return { kind: 'non-html' };
+  const routeIsRegularFile = await index.hasRegularFile(routePath);
   if (routeFile && path.extname(urlPath).toLowerCase() === '.html') candidates.push(routePath);
   if (await index.hasFile(indexPath) || await index.hasSymlink(indexPath)) candidates.push(indexPath);
   if (await index.hasFile(flatPath) || await index.hasSymlink(flatPath)) candidates.push(flatPath);
-  if (candidates.length === 0) return { kind: 'missing' };
+  if (candidates.length === 0) {
+    return routeIsRegularFile && !routeFile ? { kind: 'non-html' } : { kind: 'missing' };
+  }
 
   for (const candidate of candidates) {
     try {
