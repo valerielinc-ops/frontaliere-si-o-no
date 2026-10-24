@@ -1643,12 +1643,32 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         const extracted = extractListingCandidates(body, pageUrl, templateRx, spec, runtime);
         recordSourceFetchMetadata(extracted);
         const nextCandidates = filterListingCandidates(spec, extracted.candidates);
+        const pageCoverageRowsBefore = listingRowsForCoverage;
+        const pageDistinctRowsBefore = bySlug.size;
         await addListingCandidates(
           nextCandidates,
           nextEvidence,
           pageUrl,
           pagination.pageStateParams,
         );
+        const pageCoverageRows = listingRowsForCoverage - pageCoverageRowsBefore;
+        const pageDistinctRows = bySlug.size - pageDistinctRowsBefore;
+        // A source may legitimately repeat an occasional vacancy across page
+        // boundaries, so Stellenpartner counts validated source rows for its
+        // declared-total coverage. A whole page with no new identity is a
+        // different signal: the provider returned an earlier page again (or
+        // replaced this page with a partial snapshot). Counting those rows
+        // would let a missing slice satisfy the declared total and retire
+        // still-live jobs. Keep the duplicate-row tolerance, but fail closed
+        // when a non-empty paginated page contributes no new URL.
+        if (pagination.countDuplicateRowsForCoverage
+          && pageCoverageRows > 0
+          && pageDistinctRows === 0) {
+          throw markSpecListingFailure(new Error(
+            `[prospector:${spec.companyKey}] listing troncata: la pagina ${pageUrl} `
+            + `ha ${pageCoverageRows} righe source ma nessun URL distinto nuovo`,
+          ), bySlug.size);
+        }
         html = body;
         currentPageCandidateCount = nextCandidates.length;
         nextUrl = findNextListingPageUrl(body, pageUrl);

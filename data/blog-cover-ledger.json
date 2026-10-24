@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 825,
+      "5": 826,
       "6": 5054
     },
-    "publishedCovers": 7562,
+    "publishedCovers": 7563,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207899,6 +207899,39 @@
         "provider": "openai-codex",
         "assetId": "article-rolex-acquisisce-cpautomation",
         "imageUrl": "/images/blog/article-rolex-acquisisce-cpautomation.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-kolumbanstrasse-nuova-velostrasse": {
+      "cover": "/images/blog/article-kolumbanstrasse-nuova-velostrasse.webp",
+      "hash": "ba481d0b21620f2c2ca38671506c59a0473e6a125979928a9503cba544f99872",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "kolumbanstrasse-nuova-velostrasse",
+          "category": "novita",
+          "date": "2026-10-24T09:05:50.183Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-kolumbanstrasse-nuova-velostrasse.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-kolumbanstrasse-nuova-velostrasse",
+        "imageUrl": "/images/blog/article-kolumbanstrasse-nuova-velostrasse.webp",
         "evidence": "generated-engine-record"
       }
     },

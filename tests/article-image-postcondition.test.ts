@@ -3,7 +3,12 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import { filterEntriesByImagePostcondition } from '../scripts/lib/article-image-postcondition.mjs';
+import {
+  declaredImageIsOwn,
+  filterEntriesByImagePostcondition,
+  isGenericOgImage,
+  normalizeImagePath,
+} from '../scripts/lib/article-image-postcondition.mjs';
 import { heroPathOf, probeRemoteHeroSizes, publicHeroUrl } from '../scripts/lib/remote-hero-sizes.mjs';
 
 /** Minimal VP8X WebP header: enough for intrinsicSizeFromBuffer. */
@@ -123,6 +128,17 @@ describe('remote hero sizes for sparse article re-renders', () => {
 });
 
 describe('article image postcondition', () => {
+  it('does not reinterpret external declared images as site-owned paths', () => {
+    expect(normalizeImagePath('//cdn.example/images/hero.webp')).toBeNull();
+    expect(declaredImageIsOwn('//cdn.example/images/hero.webp')).toBe(false);
+    expect(normalizeImagePath('https://frontaliereticino.ch/images/hero.webp')).toBe('/images/hero.webp');
+  });
+
+  it('only recognizes the same-origin generic image as the fallback', () => {
+    expect(isGenericOgImage('<meta property="og:image" content="https://frontaliereticino.ch/og-image.png">')).toBe(true);
+    expect(isGenericOgImage('<meta property="og:image" content="https://cdn.example/og-image.png">')).toBe(false);
+  });
+
   it('withholds an article whose page fell back to the generic image', () => {
     const entries = [
       { articleId: 'a', paths: { it: 'a/index.html' }, flatPaths: {} },

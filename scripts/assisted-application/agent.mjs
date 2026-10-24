@@ -17,6 +17,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { appendFileSync, writeFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../functions/src/assistedApplicationCvCheck.js';
+import { ASSISTED_APPLICATION_ORDER_ID_RE } from '../../functions/src/assistedApplicationConstants.js';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
@@ -32,7 +33,6 @@ import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailo
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
-const ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
 // dry_run: the submission without the final click, for the owner's tests.
 const MODES = new Set(['draft', 'submit', 'dry_run']);
 const DRAFT_STATES = new Set(['drafting', 'regenerating']);
@@ -169,7 +169,7 @@ async function main() {
   const orderId = String(values.order || '');
   const mode = String(values.mode || '');
   const round = Number(values.round || '1');
-  if (!ORDER_ID_RE.test(orderId) || !MODES.has(mode) || !Number.isInteger(round) || round < 1 || round > 20) {
+  if (!ASSISTED_APPLICATION_ORDER_ID_RE.test(orderId) || !MODES.has(mode) || !Number.isInteger(round) || round < 1 || round > 20) {
     throw new Error('invalid_arguments');
   }
 

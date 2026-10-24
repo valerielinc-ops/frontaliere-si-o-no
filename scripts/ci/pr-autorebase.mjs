@@ -1972,9 +1972,9 @@ export function buildConflictHandoffIssue({
   // `null` = elenco illeggibile: l'agente lo ricava dal body di #N.
   const closesStep = Array.isArray(closes)
     ? (closes.length > 0
-      ? ` La PR #${num} chiude ${closes.map((n) => `#${n}`).join(', ')}: nella PR nuova scrivi un \`Closes #<n>\` per ciascuna, uno per riga.`
+      ? ` La PR #${num} dichiara di chiudere ${closes.map((n) => `#${n}`).join(', ')}: trasferisci nella PR nuova gli stessi riferimenti, uno per riga.`
       : '')
-    : ` Riporta nella PR nuova, uno per riga, i \`Closes #<n>\` del body di #${num}.`;
+    : ` Ricava dal body di #${num} le issue che la PR dichiara di chiudere e trasferisci quei riferimenti nella PR nuova, uno per riga.`;
   const title = lgtm
     ? `Conflitto con main dopo LGTM: riapplicare la PR #${num} su main`
     : `Conflitto con main: riapplicare la PR #${num} su main`;
@@ -2000,7 +2000,7 @@ export function buildConflictHandoffIssue({
     '',
     `1. \`git fetch origin main ${branch}\` e \`git diff $(git merge-base origin/main origin/${branch}) origin/${branch}\`: e' il contributo della PR, gia' approvato.`,
     '2. Riapplicalo su `origin/main` nel branch di questa issue risolvendo i conflitti: conserva il comportamento arrivato su `main` E quello della PR. Nessuna modifica oltre a quella gia\' approvata.',
-    `3. Apri la PR con \`Supersedes #${num}\` e \`Closes\` di questa issue, poi chiudi #${num} con un commento che rimanda alla nuova PR.${closesStep}`,
+    `3. Apri la PR con \`Supersedes #${num}\`, includi la chiusura di questa issue, poi chiudi #${num} con un commento che rimanda alla nuova PR.${closesStep}`,
     '',
     'Se il conflitto e\' gia\' stato risolto sul branch originale (la PR torna mergeable), chiudi questa issue senza PR.',
     '',

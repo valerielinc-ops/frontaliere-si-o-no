@@ -1,0 +1,19 @@
+{
+  "companyKey": "siga-fsia",
+  "companyName": "siga-fsia",
+  "companyHost": "karriere.lindenhofgruppe.ch",
+  "platform": "lindenhofgruppe.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-anaesthesie-weiterbildungsstelle/2f3965ca-5b14-4328-9d35-930d08d5d916"
+  ],
+  "detailTemplate": "/offene-stellen/nds-anaesthesie-weiterbildungsstelle/2f3965ca-5b14-4328-9d35-930d08d5d916",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "NDS Anästhesie - Weiterbildungsstelle"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-24T10:47:12.637Z"
+}

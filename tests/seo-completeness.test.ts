@@ -288,9 +288,6 @@ const VALID_SCHEMA_TYPES = new Set([
   'Service', 'BreadcrumbList',
   'Organization', 'NewsMediaOrganization', 'FinancialService', 'DefinedTermSet', 'DefinedTerm',
   'Product', 'Offer', 'Event', 'Review', 'AggregateRating',
-  // ClaimReview: fact-check markup emitted by services/seo/claim-review.ts on pillar pages
-  // (AE-8). Verifiable factual claims are paired with AFC/AdE/UFAS/UFSP/bilateral-accord sources.
-  'ClaimReview',
   // Domain-specific Schema.org types used by a small number of landings:
   // - ExchangeRateSpecification: confronti/exchange (currency exchange hub)
   // - Place: guida/border-map (geographic border crossings map)

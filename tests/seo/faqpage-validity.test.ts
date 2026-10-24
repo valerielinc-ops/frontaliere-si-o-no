@@ -20,9 +20,10 @@
  * `npx vitest run` works without a build.
  */
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, resolve } from 'node:path';
-import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { SCAN_TEST_TIMEOUT_MS, assertScanCompleted, scanDistHtml } from '../helpers/distHtmlScan';
+import { describeAuditAllVerdict, readAuditAllVerdict } from '../helpers/auditAllMirror';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
 
@@ -42,17 +43,6 @@ interface Offender {
   count?: number;
 }
 
-function walkHtml(dir: string, out: string[] = []): string[] {
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir)) {
-    if (entry.startsWith('.')) continue;
-    const full = join(dir, entry);
-    const st = statSync(full);
-    if (st.isDirectory()) walkHtml(full, out);
-    else if (entry.endsWith('.html')) out.push(full);
-  }
-  return out;
-}
 
 function extractLdJsonBlocks(html: string): string[] {
   const blocks: string[] = [];
@@ -149,19 +139,26 @@ describe('dist HTML — FAQPage validity gate (GSC duplicate/missing-fields)', (
     'every page emits at most one FAQPage with non-empty name + text on every Question/Answer',
     { timeout: SCAN_TEST_TIMEOUT_MS },
     () => {
-      const files = walkHtml(DIST_DIR);
+      // audit:all already judged this dist in the shared walk: assert ITS
+      // verdict instead of re-walking the corpus (tests/helpers/auditAllMirror.ts).
+      const verdict = readAuditAllVerdict(DIST_DIR, 'faqpage-validity');
+      if (verdict) {
+        console.log(describeAuditAllVerdict(verdict));
+        expect(verdict.passed, `FAQPage defects (audit:all): ${JSON.stringify(verdict.topOffenders.slice(0, 15))}`).toBe(true);
+        return;
+      }
       const offenders: Offender[] = [];
       const filesByDefect = new Map<Defect, Set<string>>();
 
-      for (const file of files) {
-        const html = readFileSync(file, 'utf-8');
-        for (const o of findOffenders(html, file)) {
+      const scan = scanDistHtml(DIST_DIR, (relPath, html) => {
+        for (const o of findOffenders(html, `${DIST_DIR}${relPath}`)) {
           offenders.push(o);
           const s = filesByDefect.get(o.defect) ?? new Set<string>();
           s.add(o.file);
           filesByDefect.set(o.defect, s);
         }
-      }
+      });
+      assertScanCompleted(scan, 'FAQPage validity', offenders.map((o) => `${o.file} — ${o.defect}`));
 
       if (offenders.length === 0) {
         expect(offenders.length).toBe(0);

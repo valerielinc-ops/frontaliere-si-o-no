@@ -1,7 +1,7 @@
 {
   "key": "rh-expert-ch",
   "label": "RH-Expert",
-  "generatedAt": "2026-10-23T21:38:19.731Z",
+  "generatedAt": "2026-10-24T09:52:10.600Z",
   "total": 10,
   "discovered": 17,
   "parsed": 10,
@@ -15,19 +15,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 22191,
-  "avgDurationMs": 22191,
+  "durationMs": 23059,
+  "avgDurationMs": 23059,
   "durationHistory": [
-    22191
+    23059
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rh-expert-ch-debaefbfbbbe",
-      "slug": "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf",
+      "slug": "hostesses-rh-expert-geneve-debaefbf",
       "slugDisambiguator": "debaefbf",
       "company": "RH-Expert",
       "companyKey": "rh-expert-ch",
@@ -38,7 +39,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/hotes-et-hotesses-daccueil",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:38:06.681Z",
+      "crawledAt": "2026-10-24T09:51:54.532Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -52,23 +53,20 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://rh-expert.ch/fr/offres-demploi/hotes-et-hotesses-daccueil",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-23T21:38:06.681Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "firstSeenAt": "2026-10-23T21:38:06.681Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "rh-expert-ch-d2b0f2fcec23",
       "slug": "hunter-bagger-varier-rh-expert-geneve-d2b0f2fc",
@@ -82,7 +80,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/chasseurbagagistevoiturier-35",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:38:06.678Z",
+      "crawledAt": "2026-10-24T09:51:54.529Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -124,7 +122,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/test-2",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:38:06.676Z",
+      "crawledAt": "2026-10-24T09:51:54.527Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -169,7 +167,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/plongeur",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:38:06.681Z",
+      "crawledAt": "2026-10-24T09:51:54.532Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -210,7 +208,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/lingere-repasseuse",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:38:06.681Z",
+      "crawledAt": "2026-10-24T09:51:54.532Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -251,7 +249,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/shift-leader-receptionniste",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:38:06.679Z",
+      "crawledAt": "2026-10-24T09:51:54.530Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -292,7 +290,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/chefs-de-rang-hf-hotel-5",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:38:06.679Z",
+      "crawledAt": "2026-10-24T09:51:54.530Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -333,7 +331,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/garcon-doffice",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:38:06.679Z",
+      "crawledAt": "2026-10-24T09:51:54.530Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -374,7 +372,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/portier-detage-valet-de-chambre-5",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:38:06.678Z",
+      "crawledAt": "2026-10-24T09:51:54.529Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -415,7 +413,7 @@
       "url": "https://rh-expert.ch/fr/offres-demploi/maitre-dhotel",
       "source": "RH-Expert Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-23T21:38:06.675Z",
+      "crawledAt": "2026-10-24T09:51:54.526Z",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
@@ -444,5 +442,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

@@ -1,7 +1,7 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-10-23T21:29:38.980Z",
+  "generatedAt": "2026-10-24T09:47:26.220Z",
   "total": 4,
   "discovered": null,
   "parsed": 5,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5209,
-  "avgDurationMs": 5209,
+  "durationMs": 5510,
+  "avgDurationMs": 5510,
   "durationHistory": [
-    5209
+    5510
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "forel-klinik-4d9f440f8846",
       "slug": "dipl-pflegefachperson-hf-60-100-m-w-d-60-100-forel-klinik-ellikon-an-der-thur",
@@ -29,13 +30,13 @@
       "companyKey": "forel-klinik",
       "companyDomain": "forel-klinik.ch",
       "title": "Dipl. Pflegefachperson HF 60 - 100 % (m/w/d) 60-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Ellikon an der Thur",
       "canton": "ZH",
       "url": "https://jobs.dualoo.com/portal/w1f713hy/e375c196-0287-4d4b-b396-3eb86ae2e3c9/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:22.669Z",
+      "crawledAt": "2026-10-24T09:47:10.246Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,20 +53,19 @@
       "postedDate": "2026-10-23T14:56:28Z",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/e375c196-0287-4d4b-b396-3eb86ae2e3c9/detail?lang=DE",
+      "firstSeenAt": "2026-10-23T21:29:22.669Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-23T21:29:22.669Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +81,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/3753b756-a74d-4a84-9bcd-df7dca809453/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:24.052Z",
+      "crawledAt": "2026-10-24T09:47:11.762Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:23.614Z",
+      "crawledAt": "2026-10-24T09:47:11.266Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/ed713087-46af-475b-9c0a-ccd7cedb67cf/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:29:23.117Z",
+      "crawledAt": "2026-10-24T09:47:10.759Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -194,5 +194,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

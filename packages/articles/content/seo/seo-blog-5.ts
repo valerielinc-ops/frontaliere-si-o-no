@@ -42003,7 +42003,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Paola Nurnberg, vertenza chiusa: la RSI paga 4 mesi di salario",
-      "description": "Paola Nurnberg, licenziata dalla RSI nel 2023 dopo un post su Twitter: vertenza chiusa, la RSI ha pagato tutte le pretese avanzate secondo Unia.",
+      "description": "Paola Nurnberg, licenziata dalla RSI nel 2023 dopo un post su Twitter: vertenza chiusa, la RSI ha pagato tutte le pretese avanzate secondo Unia. La chiusura è stata confermata da Unia.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -47391,7 +47391,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "CU 2026 per frontalieri: modelli ufficiali e credito d'imposta",
-      "description": "Certificazione Unica 2026: modelli ufficiali per i redditi 2025 e come i frontalieri dichiarano in Italia lo stipendio svizzero col credito d'imposta.",
+      "description": "Certificazione Unica 2026: modelli ufficiali per i redditi 2025 e come i frontalieri dichiarano in Italia lo stipendio svizzero col credito d'imposta. La guida chiarisce gli adempimenti per i lavoratori transfrontalieri.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -51797,7 +51797,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Tecnico di radiologia in Ticino: quanto guadagna e requisiti",
-      "description": "Quanto guadagna un tecnico di radiologia in Ticino: stipendio medio di CHF 80.000 l'anno, requisiti, riconoscimento del titolo di studio e permesso G.",
+      "description": "Quanto guadagna un tecnico di radiologia in Ticino: stipendio medio di CHF 80.000 l'anno, requisiti, riconoscimento del titolo di studio e permesso G. La guida riassume i passaggi per esercitare la professione in Svizzera.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -66283,7 +66283,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Multe stradali in Svizzera: importi, termini e pagamento",
-      "description": "Multe stradali in Svizzera: da 40 CHF per le infrazioni lievi a oltre 1.000 CHF per quelle gravi, pagamento entro 30 giorni dalla notifica.",
+      "description": "Come funzionano le multe stradali svizzere per i residenti italiani. Implicazioni e procedure per il pagamento. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -75182,7 +75182,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Multe dalla Svizzera con targa italiana: pagamento e ricorso",
-      "description": "Multa dalla Svizzera con targa italiana: come arriva la notifica, come pagarla o fare ricorso entro la scadenza e cosa succede se non la paghi.",
+      "description": "Procedura completa per il pagamento di una multa stradale ricevuta in Svizzera da residente italiano: notifica, pagamento, ricorsi e conseguenze.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -88614,7 +88614,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Premi cassa malati 2027: aumento di quasi il 5%, picchi al 20%",
-      "description": "Premi cassa malati 2027: per bonus.ch l'aumento medio LAMal sarà di quasi il 5%, dopo il 4,4% del 2026, con picchi fino al 20% per alcuni assicurati.",
+      "description": "Premi cassa malati aumenteranno il 5% nel 2027. Scopri come l'aumento LAMal impacta la busta paga e come comparare le casse malati. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",

@@ -7941,6 +7941,46 @@ function evergreenAngleTokens(text) {
     .filter((w) => w.length > 2 && !structural.has(w) && !/^(19|20)\d{2}$/.test(w));
 }
 
+// The evergreen pool can contain hundreds of candidates, while the live
+// article corpus contains thousands of summaries. Keep the expensive,
+// corpus-only normalization work at one pass per stable snapshot instead of
+// repeating it for every candidate in that pool.
+const evergreenPreflightIndexCache = new WeakMap();
+function getEvergreenPreflightIndex(existingArticles) {
+  const cached = evergreenPreflightIndexCache.get(existingArticles);
+  if (cached && cached.length === existingArticles.length) return cached;
+
+  const entries = existingArticles.map((existing, position) => {
+    const title = String(existing.title || '');
+    const existingText = `${title} ${existing.excerpt || ''} ${existing.id || ''}`;
+    return {
+      existing,
+      position,
+      titleDistinctive: filterDistinctive(tokenizeIt(title)),
+      family: evergreenTopicFamily(existingText),
+      angleTokens: evergreenAngleTokens(existingText),
+    };
+  });
+  const titleTokenPositions = new Map();
+  const familyPositions = new Map();
+  for (const entry of entries) {
+    for (const token of new Set(entry.titleDistinctive)) {
+      const positions = titleTokenPositions.get(token) || [];
+      positions.push(entry.position);
+      titleTokenPositions.set(token, positions);
+    }
+    if (entry.family) {
+      const positions = familyPositions.get(entry.family) || [];
+      positions.push(entry.position);
+      familyPositions.set(entry.family, positions);
+    }
+  }
+
+  const index = { length: existingArticles.length, entries, titleTokenPositions, familyPositions };
+  evergreenPreflightIndexCache.set(existingArticles, index);
+  return index;
+}
+
 function preFlightEvergreenTopicCheck(candidate, existingArticles) {
   const keyword = String(candidate?.keyword || candidate || '');
   const angle = String(candidate?.angle || '');
@@ -7969,10 +8009,19 @@ function preFlightEvergreenTopicCheck(candidate, existingArticles) {
   // just published, making its 6 addon variants immediate near-duplicates.
   const SATURATED_FAMILIES = new Set(['permesso-g-b', 'lamal-cmi', 'avs-inps', 'telelavoro', 'credito-imposta', 'residenza-comune']);
   const keywordDistinctive = filterDistinctive(tokenizeIt(keyword));
+  const index = getEvergreenPreflightIndex(existingArticles);
+  const candidatePositions = new Set();
+  for (const token of new Set(keywordDistinctive)) {
+    for (const position of index.titleTokenPositions.get(token) || []) candidatePositions.add(position);
+  }
+  if (candidateFamily) {
+    for (const position of index.familyPositions.get(candidateFamily) || []) candidatePositions.add(position);
+  }
 
-  for (const existing of existingArticles) {
-    const existingText = `${existing.title || ''} ${existing.excerpt || ''} ${existing.id || ''}`;
-    const existingTitleDistinctive = filterDistinctive(tokenizeIt(existing.title || ''));
+  // Sorting restores the original corpus order after the inverted-index
+  // lookup, so the first matching article and signal remain deterministic.
+  for (const position of [...candidatePositions].sort((a, b) => a - b)) {
+    const { existing, titleDistinctive: existingTitleDistinctive, family: existingFamily, angleTokens: existingTokens } = index.entries[position];
     if (keywordDistinctive.length >= TITLE_MIN_DISTINCTIVE && existingTitleDistinctive.length >= TITLE_MIN_DISTINCTIVE) {
       const sim = jaccardSim(keywordDistinctive, existingTitleDistinctive);
       if (sim >= PRE_FLIGHT_THRESHOLD) {
@@ -7980,9 +8029,7 @@ function preFlightEvergreenTopicCheck(candidate, existingArticles) {
       }
     }
 
-    const existingFamily = evergreenTopicFamily(existingText);
     if (candidateFamily && existingFamily === candidateFamily) {
-      const existingTokens = evergreenAngleTokens(existingText);
       const overlap = containmentSim(candidateTokens, existingTokens);
       if (SATURATED_FAMILIES.has(candidateFamily) || overlap >= FAMILY_TOKEN_OVERLAP_THRESHOLD || candidateTokens.length <= 3) {
         return {
