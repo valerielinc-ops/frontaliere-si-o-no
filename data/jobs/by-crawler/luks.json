@@ -926,7 +926,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -973,7 +973,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -981,7 +981,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -9711,7 +9711,7 @@
       "id": "luks-5e1f8ddfed0d",
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
+        "it": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
         "en": "nursing-specialist-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
         "fr": "specialiste-des-soins-infirmiers-hf-fh-urogynecologie-60-luzerner-kantonsspital-luks-luzern"
@@ -9759,11 +9759,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
+        "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
+          "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
@@ -15056,9 +15058,9 @@
     },
     {
       "id": "luks-5d80ee6615cc",
-      "slug": "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern",
+      "slug": "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern",
+        "it": "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern",
         "en": "medical-secretary-medical-secretary-gastroenterology-hepatology-80-90-luzerner-kantonsspital-luks-luzern",
         "de": "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
         "fr": "secretaire-medical-secretaire-medical-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
@@ -15107,12 +15109,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
-        "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
+        "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
-          "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
+          "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern"
@@ -15302,12 +15304,12 @@
     },
     {
       "id": "luks-e18d1451b69b",
-      "slug": "addetta-addetto-alla-cucina-dietetica-70-luzerner-kantonsspital-luks-luzern",
+      "slug": "mitarbeiterin-collaboratore-trice-diatkuche-70-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern",
-        "it": "addetta-addetto-alla-cucina-dietetica-70-luzerner-kantonsspital-luks-luzern",
-        "en": "employee-employee-diet-kitchen-70-luzerner-kantonsspital-luks-luzern",
-        "fr": "employe-employe-cuisine-de-regime-70-luzerner-kantonsspital-luks-luzern"
+        "it": "mitarbeiterin-collaboratore-trice-diatkuche-70-luzerner-kantonsspital-luks-luzern",
+        "en": "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern",
+        "fr": "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -15356,19 +15358,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern",
-          "mitarbeiterin-collaboratore-trice-diatkuche-70-luzerner-kantonsspital-luks-luzern"
-        ],
-        "en": [
-          "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern"
-        ],
-        "fr": [
           "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern",
-        "mitarbeiterin-collaboratore-trice-diatkuche-70-luzerner-kantonsspital-luks-luzern"
+        "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern"
       ],
       "salaryMin": 60500,
       "salaryMax": 84400,

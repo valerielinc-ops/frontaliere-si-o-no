@@ -473,8 +473,8 @@
       "slugByLocale": {
         "it": "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
         "en": "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "de": "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-        "fr": "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+        "de": "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
+        "fr": "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -516,18 +516,19 @@
       "previousSlugs": [
         "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
         "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
+        "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+        "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsreparateur-in-service-m-w-d-otis-belp"
         ],
         "de": [
-          "aufzugsreparateur-in-service-m-w-d-otis-sa-belp"
+          "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
         ],
         "fr": [
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-          "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
+          "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:43.487Z",

@@ -89,8 +89,8 @@
       "slugByLocale": {
         "en": "product-storytelling-and-creative-design-manager-msc-geneva",
         "it": "product-storytelling-and-creative-design-manager-msc-geneva",
-        "de": "manager-fur-produkt-storytelling-und-kreatives-design-msc-group-geneva",
-        "fr": "recit-de-produit-et-responsable-du-design-creatif-msc-group-geneva"
+        "de": "product-storytelling-and-creative-design-manager-msc-geneva",
+        "fr": "product-storytelling-and-creative-design-manager-msc-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -151,11 +151,19 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-10-20T09:22:40.433Z",
       "previousSlugsByLocale": {
+        "de": [
+          "manager-fur-produkt-storytelling-und-kreatives-design-msc-group-geneva"
+        ],
+        "fr": [
+          "recit-de-produit-et-responsable-du-design-creatif-msc-group-geneva"
+        ],
         "it": [
           "storytelling-del-prodotto-e-creative-design-manager-msc-group-geneva"
         ]
       },
       "previousSlugs": [
+        "manager-fur-produkt-storytelling-und-kreatives-design-msc-group-geneva",
+        "recit-de-produit-et-responsable-du-design-creatif-msc-group-geneva",
         "storytelling-del-prodotto-e-creative-design-manager-msc-group-geneva"
       ]
     },
@@ -675,7 +683,7 @@
       "slugByLocale": {
         "en": "retail-marketing-manager-msc-geneva",
         "it": "retail-marketing-manager-msc-geneva",
-        "de": "einzelhandelsmarketing-manager-msc-group-geneva",
+        "de": "retail-marketing-manager-msc-geneva",
         "fr": "retail-marketing-manager-msc-geneva"
       },
       "company": "MSC Group",
@@ -737,6 +745,9 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-10-02T09:22:11.341Z",
       "previousSlugsByLocale": {
+        "de": [
+          "einzelhandelsmarketing-manager-msc-group-geneva"
+        ],
         "fr": [
           "responsable-retail-marketing-msc-group-geneva"
         ],
@@ -746,6 +757,7 @@
         ]
       },
       "previousSlugs": [
+        "einzelhandelsmarketing-manager-msc-group-geneva",
         "responsable-retail-marketing-msc-group-geneva",
         "responsabile-marketing-al-dettaglio-msc-group-geneva",
         "directeur-du-marketing-de-detail-msc-group-geneva"
@@ -1014,7 +1026,7 @@
         "it": "risorse-umane-direttore-msc-group-geneva",
         "en": "hr-director-msc-geneva",
         "de": "personalwesen-direktor-msc-group-geneva",
-        "fr": "directeur-des-ressources-humaines-msc-group-geneva"
+        "fr": "hr-director-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1060,7 +1072,7 @@
       "previousSlugs": [
         "directeur-rh-msc-group-geneva",
         "hr-director-msc-geneva",
-        "hr-director-msc-group-geneva"
+        "directeur-des-ressources-humaines-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1072,7 +1084,7 @@
         ],
         "fr": [
           "directeur-rh-msc-group-geneva",
-          "hr-director-msc-group-geneva"
+          "directeur-des-ressources-humaines-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-10-03T09:25:31.059Z",
