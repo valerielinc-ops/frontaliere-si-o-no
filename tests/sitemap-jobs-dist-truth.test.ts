@@ -399,6 +399,7 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     const previousBuildLocale = process.env.BUILD_LOCALE;
     const opendirSpy = vi.spyOn(fs.promises, 'opendir');
     const lstatSpy = vi.spyOn(fs.promises, 'lstat');
+    const statSpy = vi.spyOn(fs.promises, 'stat');
     process.env.BUILD_LOCALE = 'it';
     try {
       vi.resetModules();
@@ -479,7 +480,7 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     }
   });
 
-  it('keeps a foreign non-HTML file even when its flat HTML sibling exists', async () => {
+  it('classifies a foreign regular file through its flat HTML sibling', async () => {
     fs.writeFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), wrap([FOREIGN_PDF]), 'utf-8');
     const pdfPath = path.join(dist, new URL(FOREIGN_PDF).pathname.replace(/^\/+/, ''));
     fs.mkdirSync(path.dirname(pdfPath), { recursive: true });
@@ -492,8 +493,7 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     try {
       const shard = await import('../build-plugins/relatedSearchClustersPlugin');
       await shard.reconcileSitemapJobsWithDist(dist, []);
-      expect(shard.extractSitemapLocs(fs.readFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), 'utf8')))
-        .toEqual([FOREIGN_PDF]);
+      expect(fs.existsSync(path.join(dist, 'sitemap-jobs-argovia.xml'))).toBe(false);
     } finally {
       if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
       else process.env.BUILD_LOCALE = previousBuildLocale;
@@ -506,6 +506,7 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     const previousBuildLocale = process.env.BUILD_LOCALE;
     const opendirSpy = vi.spyOn(fs.promises, 'opendir');
     const lstatSpy = vi.spyOn(fs.promises, 'lstat');
+    const statSpy = vi.spyOn(fs.promises, 'stat');
     process.env.BUILD_LOCALE = 'it';
     try {
       vi.resetModules();
@@ -520,15 +521,17 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
       const expectedProbePaths = new Set(
         [EN, DE, FR].flatMap((loc) => {
           const routePath = path.join(dist, new URL(loc).pathname.replace(/\/+$/, ''));
-          return [routePath, path.join(routePath, 'index.html'), `${routePath}.html`];
+          return [routePath, `${routePath}.html`];
         }).map((filePath) => path.resolve(filePath)),
       );
       const actualProbePaths = new Set(
         lstatSpy.mock.calls.map(([filePath]) => path.resolve(String(filePath))),
       );
       expect(actualProbePaths).toEqual(expectedProbePaths);
+      expect(statSpy).not.toHaveBeenCalled();
       expect(shard.extractSitemapLocs(readSitemap())).toEqual([EN, DE, FR]);
     } finally {
+      statSpy.mockRestore();
       lstatSpy.mockRestore();
       opendirSpy.mockRestore();
       if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
