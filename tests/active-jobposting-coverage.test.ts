@@ -21,6 +21,10 @@ describe('active JobPosting coverage', () => {
     expect(htmlHasActiveJobPosting(page(breadcrumb))).toBe(false);
     expect(htmlHasActiveJobPosting(page('<script type="application/ld+json">{"@type":"JobPosting"</script>'))).toBe(false);
     expect(htmlHasActiveJobPosting(page('<script type="application/ld+json">{"@type":"JobPosting","datePosted":""}</script>'))).toBe(false);
+    expect(htmlHasActiveJobPosting(page('<script type="application/ld+json">{"@type":"JobPosting","datePosted":{}}</script>'))).toBe(false);
+    expect(htmlHasActiveJobPosting(page('<script type="application/ld+json">{"@type":"JobPosting","datePosted":true}</script>'))).toBe(false);
+    expect(htmlHasActiveJobPosting(page('<script type="application/ld+json">{"@type":"JobPosting","datePosted":"not-a-date"}</script>'))).toBe(false);
+    expect(htmlHasActiveJobPosting(page('<script type="application/ld+json">{"@type":"JobPosting","datePosted":"2026-02-30"}</script>'))).toBe(false);
   });
 
   it('reads robots meta in quoted and unquoted form', () => {
@@ -45,6 +49,12 @@ describe('active JobPosting coverage', () => {
     const kept = createActiveJobPostingCoverage({ keepPages: true });
     kept.record('en', '/en/a/', page(posting, 'noindex'));
     expect(kept.sidecar()).toMatchObject({ total: 1, pages: [{ locale: 'en', path: '/en/a/', indexable: false }] });
+  });
+
+  it('fails closed when the active population is non-empty but no page was recorded', () => {
+    const coverage = createActiveJobPostingCoverage({ keepPages: true, expectedTotal: 1 });
+    expect(() => coverage.assertComplete('test')).toThrow(/active population mismatch/);
+    expect(coverage.sidecar()).toMatchObject({ expectedTotal: 1, total: 0, pages: [] });
   });
 });
 
@@ -94,6 +104,24 @@ describe('post-build JobPosting gate', () => {
       expect(run({ distDir: f.dist }).status).toBe(2);
       expect(run({ distDir: f.dist, sidecarPath: path.join(f.root, 'missing.json') }).status).toBe(2);
       expect(run({ distDir: f.dist, sidecarPath: f.sidecarPath }).status).toBe(2);
+    } finally { fs.rmSync(f.root, { recursive: true, force: true }); }
+  });
+
+  it('fails an empty sidecar without an independent active-population count', () => {
+    const f = fixture({}, { version: 1, total: 0, pages: [] });
+    try {
+      const result = run({ distDir: f.dist, sidecarPath: f.sidecarPath });
+      expect(result.status).toBe(2);
+      expect(result.errors.join('\n')).toContain('independent active-population count');
+    } finally { fs.rmSync(f.root, { recursive: true, force: true }); }
+  });
+
+  it('fails when the sidecar population count disagrees with recorded pages', () => {
+    const f = fixture({ '/a/': page(posting) }, { version: 1, expectedTotal: 2, total: 1, pages: [{ locale: 'it', path: '/a/' }] });
+    try {
+      const result = run({ distDir: f.dist, sidecarPath: f.sidecarPath });
+      expect(result.status).toBe(2);
+      expect(result.errors.join('\n')).toContain('population mismatch');
     } finally { fs.rmSync(f.root, { recursive: true, force: true }); }
   });
 });

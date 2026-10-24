@@ -3277,6 +3277,19 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // whose HTML would point at a path the per-job dedup skipped — keeping
  // sitemap and dist/ byte-for-byte consistent.
  const emittedActiveJobPaths = new Set<string>();
+ // Keep an independent population count for the coverage sidecar. It mirrors
+ // only the active emitter's ownership rule (first `(canton, locale, slug)`
+ // wins), before any HTML is written, so a skipped active loop cannot make an
+ // empty sidecar look like a successful 100% build.
+ const expectedActiveJobPaths = new Set<string>();
+ for (const job of validJobs) {
+  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
+  for (const locale of localeList) {
+   if (!shouldEmitLocale(locale)) continue;
+   expectedActiveJobPaths.add(`${jobCanton}:${locale}:${localizedSlug(job, locale)}`);
+  }
+ }
+ activeJobPostingCoverage.setExpectedTotal(expectedActiveJobPaths.size);
  // This is the source-level set of active, self-canonical detail URLs. Build
  // it before any hub or detail page renders so every job-board anchor uses the
  // same ownership and indexability decision as the sitemap. The old set was
@@ -14284,8 +14297,12 @@ ${staticAnalyticsHtml}
  .find((date): date is string => date !== null && Date.parse(date) < archiveNowMs);
  if (!realTitle || !realValidThrough || !realCompany) return '';
  const validThroughMs = Date.parse(realValidThrough);
+ // Expired pages intentionally do NOT use the active builder's build-clock
+ // fallback. Without a publication date declared by the source there is no
+ // verifiable historical JobPosting, so keep the archive as WebPage-only.
  const expiredDatePosted = resolveReportedPostingDate(ejData || {});
- if (!expiredDatePosted || Date.parse(expiredDatePosted) >= validThroughMs) return '';
+ if (typeof expiredDatePosted !== 'string' || expiredDatePosted.trim() === '') return '';
+ if (Date.parse(expiredDatePosted) >= validThroughMs) return '';
  // Match the builder's 50-character guarantee after visible-text normalization,
  // so short historical copy never falls back to an active application prompt.
  const archivedDescription = capJsonLdDescription(jobDescription);
@@ -14341,7 +14358,7 @@ ${staticAnalyticsHtml}
  knownSlugs: knownEmployerProfileSlugs,
  });
 
- return expiredSchema ? `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>` : '';
+ return `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>`;
  })();
 
  const jsonLdScripts = breadcrumbLd + '\n ' + archivePageLd + (jobPostingLd ? '\n ' + jobPostingLd : '');

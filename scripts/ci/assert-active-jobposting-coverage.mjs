@@ -50,6 +50,16 @@ export function runActiveJobPostingCoverageGate({ distDir, sidecarPath, log = co
     error(`✖ active JobPosting sidecar is truncated: total=${sidecar?.total} listed=${listed}`);
     return 2;
   }
+  const expectedTotal = sidecar?.expectedTotal;
+  if (expectedTotal === undefined || expectedTotal === null) {
+    if (Number(sidecar?.total) === 0) {
+      error('✖ active JobPosting sidecar has no independent active-population count: an empty sidecar cannot pass coverage.');
+      return 2;
+    }
+  } else if (!Number.isInteger(expectedTotal) || expectedTotal < 0 || Number(sidecar?.total) !== expectedTotal) {
+    error(`✖ active JobPosting population mismatch: expected=${expectedTotal} recorded=${sidecar?.total}`);
+    return 2;
+  }
   const report = verifyActiveJobPostingCoverage(sidecar, (pagePath) => readDistPage(distDir, pagePath));
   const rate = report.pages === 0 ? 100 : (100 * report.withJobPosting) / report.pages;
   log(

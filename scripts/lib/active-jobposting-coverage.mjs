@@ -49,9 +49,38 @@ export function extractJobPostingsFromHtml(html) {
   return out;
 }
 
+/**
+ * A JSON-LD value is usable as `datePosted` only when it is an ISO calendar
+ * date or an ISO timestamp with an explicit timezone.  Truthiness is not
+ * enough here: objects, booleans and arbitrary strings serialize into markup
+ * that Google cannot interpret as a publication date.
+ */
+function isValidatedIsoDate(value) {
+  if (typeof value !== 'string') return false;
+  const raw = value.trim();
+  const match = /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2})(?::(\d{2})(?:\.\d{1,6})?)?(?:Z|[+-]\d{2}:\d{2}))?$/.exec(raw);
+  if (!match) return false;
+  const [, yearText, monthText, dayText, hourText, minuteText, secondText] = match;
+  const year = Number(yearText);
+  const month = Number(monthText);
+  const day = Number(dayText);
+  const calendar = new Date(`${yearText}-${monthText}-${dayText}T00:00:00.000Z`);
+  if (
+    calendar.getUTCFullYear() !== year
+    || calendar.getUTCMonth() + 1 !== month
+    || calendar.getUTCDate() !== day
+  ) return false;
+  if (hourText !== undefined && (
+    Number(hourText) > 23
+    || Number(minuteText) > 59
+    || Number(secondText || 0) > 59
+  )) return false;
+  return Number.isFinite(Date.parse(raw));
+}
+
 /** True when the page carries at least one JobPosting with a datePosted. */
 export function htmlHasActiveJobPosting(html) {
-  return extractJobPostingsFromHtml(html).some((node) => String(node?.datePosted || '').trim().length > 0);
+  return extractJobPostingsFromHtml(html).some((node) => isValidatedIsoDate(node?.datePosted));
 }
 
 /** True unless a robots meta says noindex. */
@@ -65,19 +94,23 @@ export function htmlIsIndexable(html) {
 }
 
 /**
- * @param {{ keepPages?: boolean }} [options] keepPages retains the page list
+ * @param {{ keepPages?: boolean, expectedTotal?: number | null }} [options]
+ *   keepPages retains the page list; expectedTotal is the independent active
+ *   population computed by the emitter before the page loop.
  *   for the post-build sidecar; without it only counters and misses are kept
  *   (the full build emits ~130k active details: no list unless asked for).
  * @returns {{
  *   record: (locale: string, pagePath: string, html: string) => void,
- *   summary: () => { pages: number, indexable: number, withJobPosting: number, missing: { locale: string, path: string, indexable: boolean }[] },
+ *   setExpectedTotal: (value: number) => void,
+ *   summary: () => { pages: number, expectedTotal: number | null, indexable: number, withJobPosting: number, missing: { locale: string, path: string, indexable: boolean }[] },
  *   sidecar: () => object,
  *   assertComplete: (label?: string) => void,
  * }}
  */
-export function createActiveJobPostingCoverage({ keepPages = false } = {}) {
+export function createActiveJobPostingCoverage({ keepPages = false, expectedTotal: configuredExpectedTotal = null } = {}) {
   const pages = [];
   let total = 0;
+  let expectedTotal = configuredExpectedTotal;
   const missing = [];
   let indexable = 0;
   let withJobPosting = 0;
@@ -91,11 +124,23 @@ export function createActiveJobPostingCoverage({ keepPages = false } = {}) {
       if (hasJobPosting) withJobPosting += 1;
       else missing.push({ locale, path: pagePath, indexable: isIndexable });
     },
+    setExpectedTotal(value) {
+      if (!Number.isInteger(value) || value < 0) {
+        throw new TypeError(`jobposting-coverage expectedTotal must be a non-negative integer, got ${value}`);
+      }
+      expectedTotal = value;
+    },
     summary() {
-      return { pages: total, indexable, withJobPosting, missing: [...missing] };
+      return { pages: total, expectedTotal, indexable, withJobPosting, missing: [...missing] };
     },
     sidecar() {
-      return { version: 1, generatedAt: new Date().toISOString(), total, pages: [...pages] };
+      return {
+        version: 1,
+        generatedAt: new Date().toISOString(),
+        expectedTotal,
+        total,
+        pages: [...pages],
+      };
     },
     assertComplete(label = 'jobposting-coverage') {
       const rate = total === 0 ? 100 : (100 * withJobPosting) / total;
@@ -103,6 +148,11 @@ export function createActiveJobPostingCoverage({ keepPages = false } = {}) {
         `[${label}] active=${total} indexable=${indexable} with-jobposting=${withJobPosting} `
         + `missing=${missing.length} rate=${rate.toFixed(3)}%`,
       );
+      if (expectedTotal !== null && total !== expectedTotal) {
+        throw new Error(
+          `[${label}] active population mismatch: expected ${expectedTotal} page(s), recorded ${total}`,
+        );
+      }
       if (missing.length === 0) return;
       const sample = missing.slice(0, 20).map((entry) => `  - ${entry.locale} ${entry.path}${entry.indexable ? '' : ' (noindex)'}`);
       throw new Error(
