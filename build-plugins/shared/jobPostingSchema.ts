@@ -905,7 +905,7 @@ export function buildJobPostingSchema(
   );
   const employmentType = normaliseEmploymentType(
     [job.employmentType, job.contractType, job.contract],
-    job.title,
+    title,
   );
   const baseSalary = resolveBaseSalary(job);
   const industry = resolveIndustry(job);
