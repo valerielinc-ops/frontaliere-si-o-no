@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-10-24T09:35:21.012Z",
+  "generatedAt": "2026-10-24T21:49:25.610Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 173210,
-  "avgDurationMs": 173210,
+  "durationMs": 195685,
+  "avgDurationMs": 195685,
   "durationHistory": [
-    173210
+    195685
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-24T09:35:03.114Z",
+      "crawledAt": "2026-10-24T21:49:07.973Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -81,7 +81,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-24T09:35:03.114Z",
+      "crawledAt": "2026-10-24T21:49:07.973Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -109,5 +109,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }

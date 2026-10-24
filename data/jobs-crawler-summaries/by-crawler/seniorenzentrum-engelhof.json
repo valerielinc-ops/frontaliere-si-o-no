@@ -1,7 +1,7 @@
 {
   "key": "seniorenzentrum-engelhof",
   "label": "Seniorenzentrum Engelhof",
-  "generatedAt": "2026-10-24T09:35:58.689Z",
+  "generatedAt": "2026-10-24T21:48:49.382Z",
   "total": 4,
   "discovered": 6,
   "parsed": 4,
@@ -19,10 +19,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11503,
-  "avgDurationMs": 11503,
+  "durationMs": 11457,
+  "avgDurationMs": 11457,
   "durationHistory": [
-    11503
+    11457
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "url": "https://www.sozjobs.ch/job/lernende-r-fachfrau-fachmann-gesundheit-efz/J993250/partnerDetail/easypublish/widgetid/C340F41D-F9B5-4321-9E415FE28675D925",
       "source": "Seniorenzentrum Engelhof Dedicated Parser (official career board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:35:43.512Z",
+      "crawledAt": "2026-10-24T21:48:36.265Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://www.sozjobs.ch/job/lernende-r-assistent-in-gesundheit-soziales-eba/J993249/partnerDetail/easypublish/widgetid/C340F41D-F9B5-4321-9E415FE28675D925",
       "source": "Seniorenzentrum Engelhof Dedicated Parser (official career board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:35:43.511Z",
+      "crawledAt": "2026-10-24T21:48:36.264Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://www.sozjobs.ch/job/pflegehelferin-pflegehelfer-srk-60-100-prozent/J983414/partnerDetail/easypublish/widgetid/FC0873CE-1182-45F0-B8F989A584E8271E",
       "source": "Seniorenzentrum Engelhof Dedicated Parser (official career board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:35:43.510Z",
+      "crawledAt": "2026-10-24T21:48:36.263Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://www.sozjobs.ch/job/pflegefachperson-hf-oder-fachfrau-fachmann-gesundheit-efz-40-100-prozent/J983412/partnerDetail/easypublish/widgetid/FC0873CE-1182-45F0-B8F989A584E8271E",
       "source": "Seniorenzentrum Engelhof Dedicated Parser (official career board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:35:43.509Z",
+      "crawledAt": "2026-10-24T21:48:36.262Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -201,5 +201,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
