@@ -1218,6 +1218,7 @@ jobs:
             rm -f "${destination}.err"
           }
           download_main package.json "$policy_root/package.json"
+          download_main scripts/ci/prefetch-review-diff.mjs "$policy_root/scripts/ci/prefetch-review-diff.mjs"
           download_main scripts/ci/review-test-policy.mjs "$policy_root/scripts/ci/review-test-policy.mjs"
           download_main scripts/ci/lib/fetchPrFiles.mjs "$policy_root/scripts/ci/lib/fetchPrFiles.mjs"
           download_main scripts/ci/lib/constants.mjs "$policy_root/scripts/ci/lib/constants.mjs"
@@ -3616,6 +3617,7 @@ jobs:
             rm -f "${destination}.err"
           }
           for trusted_path in \
+            scripts/ci/prefetch-review-diff.mjs \
             scripts/ci/review-test-policy.mjs \
             scripts/ci/lib/fetchPrFiles.mjs \
             scripts/ci/lib/review-input-revision.mjs \
