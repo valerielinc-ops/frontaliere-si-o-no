@@ -1,16 +1,16 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-10-24T09:36:05.952Z",
-  "total": 64,
+  "generatedAt": "2026-10-24T21:26:22.998Z",
+  "total": 62,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 59,
-  "durationMs": 82020,
-  "avgDurationMs": 82020,
+  "removedCount": 2,
+  "unchangedCount": 57,
+  "durationMs": 81293,
+  "avgDurationMs": 81293,
   "durationHistory": [
-    82020
+    81293
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -201,7 +201,86 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "company-bw4i0s",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-bachenbulach-jysk-bachenbulach-bw4i0s",
+      "company": "JYSK",
+      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Bachenbülach",
+      "location": "Bachenbülach",
+      "canton": "ZH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-bachenbuelach",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-08-25T10:19:53.570Z",
+      "firstSeenAt": "2026-07-30T22:22:51.016Z",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Bachenbülach",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "ZH",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-bachenbuelach",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "8184",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "company-kwqdp1",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-arbon-jysk-arbon-kwqdp1",
+      "company": "JYSK",
+      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Arbon",
+      "location": "Arbon",
+      "canton": "TG",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-arbon",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-08-25T10:19:53.570Z",
+      "firstSeenAt": "2026-07-30T22:22:51.016Z",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Arbon",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "TG",
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-arbon",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "9320",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "id": "company-w76zez",
@@ -1314,5 +1393,5 @@
       }
     }
   ],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
