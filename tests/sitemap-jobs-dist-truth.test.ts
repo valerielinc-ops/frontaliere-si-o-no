@@ -480,7 +480,7 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     }
   });
 
-  it('keeps a foreign non-HTML file even when its flat HTML sibling exists', async () => {
+  it('classifies a foreign regular file through its flat HTML sibling', async () => {
     fs.writeFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), wrap([FOREIGN_PDF]), 'utf-8');
     const pdfPath = path.join(dist, new URL(FOREIGN_PDF).pathname.replace(/^\/+/, ''));
     fs.mkdirSync(path.dirname(pdfPath), { recursive: true });
@@ -493,8 +493,7 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     try {
       const shard = await import('../build-plugins/relatedSearchClustersPlugin');
       await shard.reconcileSitemapJobsWithDist(dist, []);
-      expect(shard.extractSitemapLocs(fs.readFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), 'utf8')))
-        .toEqual([FOREIGN_PDF]);
+      expect(fs.existsSync(path.join(dist, 'sitemap-jobs-argovia.xml'))).toBe(false);
     } finally {
       if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
       else process.env.BUILD_LOCALE = previousBuildLocale;

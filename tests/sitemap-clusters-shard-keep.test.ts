@@ -118,7 +118,7 @@ describe('dropOverwrittenLocs — en shard still real-checks its own locale', ()
     expect(kept).not.toContain(EN);
   });
 
-  it('keeps a foreign regular non-HTML file before its flat HTML sibling', async () => {
+  it('uses a foreign flat HTML sibling before classifying the route file', async () => {
     const pdfPath = path.join(dist, 'document.pdf');
     fs.writeFileSync(pdfPath, '%PDF-fixture');
     fs.writeFileSync(
@@ -129,6 +129,6 @@ describe('dropOverwrittenLocs — en shard still real-checks its own locale', ()
     const { dropOverwrittenLocs } = await loadPlugin('en');
     await expect(
       dropOverwrittenLocs(dist, [ROOT_PDF], { inspectForeignPresent: true }),
-    ).resolves.toEqual([ROOT_PDF]);
+    ).resolves.toEqual([]);
   });
 });

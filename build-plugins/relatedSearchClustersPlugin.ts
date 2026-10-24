@@ -4409,9 +4409,9 @@ export function createForeignDirectoryIndex(
               if (routeEntry.isFile()) {
                 regularFiles.add(routePath);
                 if (path.extname(routePath).toLowerCase() === '.html') htmlFiles.add(routePath);
-                continue;
+              } else {
+                routeIsDirectory = routeEntry.isDirectory();
               }
-              routeIsDirectory = routeEntry.isDirectory();
             } catch (error: unknown) {
               if (!isNodeErrnoException(error) || (error.code !== 'ENOENT' && error.code !== 'ENOTDIR')) {
                 throw error;
@@ -4419,8 +4419,8 @@ export function createForeignDirectoryIndex(
             }
 
             // An index file can only exist below an actual directory. A flat
-            // `.html` candidate remains possible when the route path is
-            // absent, so it is always the final probe.
+            // `.html` candidate remains possible when the route path is absent
+            // or a regular file, so it is always the final probe.
             if (routeIsDirectory) await inspectCandidateFile(indexPath);
             await inspectCandidateFile(flatPath);
           }
@@ -4552,11 +4552,13 @@ async function probeForeignPresentPage(
 
   const candidates: string[] = [];
   const routeFile = await index.hasFile(routePath);
-  if (await index.hasRegularFile(routePath) && !routeFile) return { kind: 'non-html' };
+  const routeIsRegularFile = await index.hasRegularFile(routePath);
   if (routeFile && path.extname(urlPath).toLowerCase() === '.html') candidates.push(routePath);
   if (await index.hasFile(indexPath) || await index.hasSymlink(indexPath)) candidates.push(indexPath);
   if (await index.hasFile(flatPath) || await index.hasSymlink(flatPath)) candidates.push(flatPath);
-  if (candidates.length === 0) return { kind: 'missing' };
+  if (candidates.length === 0) {
+    return routeIsRegularFile && !routeFile ? { kind: 'non-html' } : { kind: 'missing' };
+  }
 
   for (const candidate of candidates) {
     try {
