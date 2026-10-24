@@ -266,7 +266,10 @@ async function getAppearanceSeries(accessToken, siteUrl, appearance) {
     );
     if (!res.ok) return { error: `http-${res.status}`, rows: [] };
     const data = await res.json();
-    return { rows: (data.rows || []).map(r => ({ date: r.keys[0], clicks: r.clicks || 0, impressions: r.impressions || 0 })) };
+    return {
+      startDate: fmt(start),
+      rows: (data.rows || []).map(r => ({ date: r.keys[0], clicks: r.clicks || 0, impressions: r.impressions || 0 })),
+    };
   } catch (err) {
     return { error: err.message, rows: [] };
   }
@@ -709,9 +712,11 @@ async function checkRichResultRegression({ accessToken, siteUrl, today, richRows
   const appearances = {};
   for (const appearance of ['JOB_LISTING', 'JOB_DETAILS']) {
     const series = await getAppearanceSeries(accessToken, siteUrl, appearance);
-    const day = pickEvaluationDay(series.rows, today);
+    // An API error is "unknown", never "zero clicks": only a successful query
+    // turns missing days into zeros.
+    const day = series.error ? null : pickEvaluationDay(series.rows, today);
     appearances[appearance] = day
-      ? evaluateWeekdayDrop(series.rows, { day })
+      ? evaluateWeekdayDrop(series.rows, { day, historyStart: series.startDate })
       : { day: null, alert: false, reason: series.error || 'no-data' };
   }
   const listing = appearances.JOB_LISTING;

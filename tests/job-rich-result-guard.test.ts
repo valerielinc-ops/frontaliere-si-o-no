@@ -56,14 +56,19 @@ describe('evaluateWeekdayDrop', () => {
 });
 
 describe('pickEvaluationDay', () => {
-  it(`skips the last ${SETTLE_DAYS} days of fresh data`, () => {
+  it(`evaluates the calendar day ${SETTLE_DAYS} days back, present in the series or not`, () => {
     const s = series('2026-10-15', [1, 1, 1, 1, 1, 1, 1, 1, 1]); // 15..23
     expect(pickEvaluationDay(s, '2026-10-24')).toBe('2026-10-21');
-    expect(pickEvaluationDay([], '2026-10-24')).toBeNull();
+    // Search Console omits zero-click days: a collapse must not fall back to
+    // the last healthy day that still has a row (review on PR 14993).
+    expect(pickEvaluationDay([{ date: '2026-10-20', clicks: 10 }], '2026-10-24')).toBe('2026-10-21');
+    expect(pickEvaluationDay([], '2026-10-24')).toBe('2026-10-21');
   });
 
-  it('evaluates the settled calendar day even when Search Console omitted its zero-click row', () => {
-    expect(pickEvaluationDay([{ date: '2026-10-20', clicks: 10 }], '2026-10-24')).toBe('2026-10-21');
+  it('a collapse to zero rows is a 100% drop once the query window is known', () => {
+    const healthy = series('2026-09-14', Array(31).fill(1000)); // 14/09..14/10, then nothing
+    const day = pickEvaluationDay(healthy, '2026-10-24');
+    expect(evaluateWeekdayDrop(healthy, { day: day!, historyStart: '2026-09-14' })).toMatchObject({ clicks: 0, drop: 1, alert: true });
   });
 });
 

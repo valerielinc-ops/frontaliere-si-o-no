@@ -5,18 +5,18 @@
  * Notifies Google of job pages via the Indexing API, the official channel for
  * JobPosting (Google accepts only JobPosting / BroadcastEvent pages here).
  *
- * Callers:
- *   - post-deploy-publish.yml after every published deploy (small `--max`, so
- *     new jobs reach Google the same day);
- *   - monitor-gsc-seo.yml daily, right after the PT quota reset, with the
- *     URLs the GSC monitor found WITHOUT a "Job Postings" rich result as
- *     `--priority-file`, then the rest of the daily budget.
+ * Caller: ONLY the `indexing` job of monitor-gsc-seo.yml, serialized by the
+ * concurrency group `indexing-api-jobs-ledger` (one writer of the ledger at a
+ * time). It runs daily right after the PT quota reset, with the URLs the GSC
+ * monitor found WITHOUT a "Job Postings" rich result as `--priority-file`, and
+ * after every completed deploy-publish (small `--max`, so new jobs reach
+ * Google the same day).
  *
  * Source of URLs: the LIVE job sitemaps (what Google is told exists), so the
  * script needs neither a build nor jobs.json. What to send and in which order
  * is decided by scripts/lib/indexing-jobs-planner.mjs against a persistent
- * ledger (`--ledger`, restored/saved by actions/cache in the workflows) that
- * also carries the per-day request counter shared by every caller.
+ * ledger (`--ledger`, restored/saved by actions/cache) that also carries the
+ * per-day request counter.
  * Every URL is fetched live before it is notified: URL_UPDATED only for a 200
  * page carrying JobPosting without noindex, URL_DELETED only for 404/410 or
  * noindex. Nothing that is not a job page is ever sent.
@@ -32,8 +32,8 @@
  * 403 "Failed to verify the URL ownership" and no job URL was ever notified.
  *
  * Usage:
- *   node scripts/submit-google-indexing-jobs.js [--max N] [--priority-file f.json]
- *        [--ledger path] [--dry-run]
+ *   node scripts/submit-google-indexing-jobs.js [--max N] [--max-first-run N]
+ *        [--priority-file f.json] [--ledger path] [--dry-run]
  *
  * Always exits 0: notification is best-effort and must not fail a deploy.
  */
@@ -79,18 +79,30 @@ function fetchWithTimeout(url, options = {}) {
 }
 
 export function parseArgs(argv) {
-  const args = { max: DEFAULT_MAX, priorityFile: null, ledger: DEFAULT_LEDGER, dryRun: false };
+  const args = { max: DEFAULT_MAX, maxFirstRun: 0, priorityFile: null, ledger: DEFAULT_LEDGER, dryRun: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--dry-run') args.dryRun = true;
     else if (a === '--max') args.max = Number(argv[++i]);
+    else if (a === '--max-first-run') args.maxFirstRun = Number(argv[++i]);
     else if (a === '--priority-file') args.priorityFile = argv[++i];
     else if (a === '--ledger') args.ledger = argv[++i];
   }
   const envMax = Number(process.env.GSC_JOBS_INDEXING_MAX);
   if (!argv.includes('--max') && Number.isFinite(envMax) && envMax > 0) args.max = envMax;
   args.max = Math.max(0, Math.min(DAILY_BUDGET, Math.floor(Number.isFinite(args.max) ? args.max : DEFAULT_MAX)));
+  args.maxFirstRun = Math.max(0, Math.min(DAILY_BUDGET, Math.floor(Number.isFinite(args.maxFirstRun) ? args.maxFirstRun : 0)));
   return args;
+}
+
+/**
+ * Per-run cap. `--max-first-run` lets whichever run opens the quota day
+ * (nothing spent yet) take the large share, so it does not matter whether the
+ * 08:20 schedule or a deploy-triggered run gets there first.
+ */
+export function runBudgetFor(args, spent) {
+  const cap = spent === 0 && args.maxFirstRun > args.max ? args.maxFirstRun : args.max;
+  return Math.max(0, Math.min(cap, DAILY_BUDGET - spent));
 }
 
 // ── Credentials ─────────────────────────────────────────────
@@ -194,9 +206,7 @@ async function liveCheck(type, url) {
     const html = res.status === 200 ? await res.text() : '';
     return judgeLive(type, { status: res.status, html });
   } catch {
-    // A timeout/transport rejection is not evidence that the page lacks a
-    // JobPosting. Keep it retryable; recordOutcome deliberately leaves the
-    // URL's not-job/gone markers untouched for this outcome.
+    // Timeout or transport error: says nothing about the page, retry later.
     return 'transient';
   }
 }
@@ -246,7 +256,7 @@ async function main() {
 
   const ledger = loadLedger(existsSync(args.ledger) ? readFileSync(args.ledger, 'utf-8') : null, today);
   const spent = spentOn(ledger, today);
-  const runBudget = Math.min(args.max, DAILY_BUDGET - spent);
+  const runBudget = runBudgetFor(args, spent);
   log('📊', `Budget: ${spent}/${DAILY_BUDGET} used today, this run may send ${Math.max(0, runBudget)}`);
 
   let entries;
@@ -279,7 +289,7 @@ async function main() {
     const verdict = await liveCheck(item.type, item.url);
     if (verdict !== 'ok') {
       counts.skipped += 1;
-      if (!args.dryRun) recordOutcome(ledger, item, verdict, today);
+      if (!args.dryRun && verdict !== 'transient') recordOutcome(ledger, item, verdict, today);
       continue;
     }
     if (args.dryRun) {
