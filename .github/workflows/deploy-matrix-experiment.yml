@@ -720,7 +720,9 @@ jobs:
 
           BUILD_LOCALE_FOR_LOG="${BUILD_LOCALE:-all}"
           BUILD_LOG="/tmp/build-${BUILD_LOCALE_FOR_LOG}.log"
-          BUILD_NODE_OPTIONS='--max-old-space-size=14336 --expose-gc'
+          # Same V8 flags as package.json build:ci, so every variant (and the
+          # build:ci fallback below) measures what production runs.
+          BUILD_NODE_OPTIONS='--max-old-space-size=14336 --expose-gc --max-semi-space-size=64'
           # freeze_clock: every variant sees the same "now" (the run build id),
           # so wall-clock instants printed into pages cannot differ between
           # variants built hours apart and compare_variants stays a RAW
