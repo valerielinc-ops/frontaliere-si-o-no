@@ -1,6 +1,5 @@
 import { realpathSync } from 'node:fs';
 /** Build the review patch on the host, before the network-isolated reviewer starts. */
-import { TEST_DIFF_EXCLUSIONS } from './review-test-policy.mjs';
 import { execFileSync } from 'node:child_process';
 import { openSync, closeSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
