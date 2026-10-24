@@ -68,6 +68,7 @@ import {
 } from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { isExpiredJobDemandIndexable } from './shared/expiredJobIndexPolicy';
+import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
@@ -8526,6 +8527,8 @@ ${staticAnalyticsHtml}
  ogLocale: localeOg[locale],
  hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
  extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
+ // P1 noindex plan (paginationIndexPolicy): page 11+ stays 200 + linked, leaves the index.
+ ...(isPaginationNoindex(pageNum) ? { robots: 'noindex,follow' } : {}),
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
  bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul class="s-0WjlyL">${pgListHtml}</ul>\n ${renderJobBoardListingDensityProse(locale, { subject: pgListName, location: getCantonDisplayLabel(DEFAULT_CANTON, locale), resultCount: pgJobs.length, companyCount: pgCompanyCount, locationCount: pgLocationCount, pageLabel: String(pageNum) })}\n <nav class="s-HarBzc">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: getCantonDisplayLabel(DEFAULT_CANTON, locale), omitCommute: true }))}`,
  distDir,
@@ -8557,7 +8560,9 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ // P1 noindex plan: page 2+ of a listing is never advertised in a sitemap
+ // (paginationIndexPolicy) — it stays reachable through page 1's pager.
+ if (isPaginationSitemapEligible(pageNum)) paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
  }
  }
  if (paginationPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${paginationPageCount} paginated listing pages (${totalListingPages - 1} pages \u00d7 4 locales)`);
@@ -8660,6 +8665,8 @@ ${staticAnalyticsHtml}
  ogLocale: localeOg[locale],
  hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
  extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
+ // P1 noindex plan (paginationIndexPolicy): page 11+ stays 200 + linked, leaves the index.
+ ...(isPaginationNoindex(pageNum) ? { robots: 'noindex,follow' } : {}),
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
  bodyHtml: `<h1>${esc(pgHeading)}</h1>\n <p>${esc(pgDesc)}</p>\n <ul class="s-0WjlyL">${pgListHtml}</ul>\n ${renderJobBoardListingDensityProse(locale, { subject: pgListName, location: cDisplay, resultCount: pgJobs.length, companyCount: pgCompanyCount, locationCount: pgLocationCount, pageLabel: String(pageNum) })}\n <nav class="s-HarBzc">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'canton-hub' }))}`,
  distDir,
@@ -8692,7 +8699,9 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ // P1 noindex plan: page 2+ of a listing is never advertised in a sitemap
+ // (paginationIndexPolicy) — it stays reachable through page 1's pager.
+ if (isPaginationSitemapEligible(pageNum)) paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
  }
  }
  }

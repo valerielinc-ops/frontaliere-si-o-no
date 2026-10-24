@@ -64,6 +64,7 @@ import {
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
+import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
 // Shared with the crawler + assembler + tests (AGENTS.md §6 — one source of truth).
 import {
@@ -482,12 +483,19 @@ function isIndexableWordCount(wordCount: number): boolean {
   return wordCount >= MIN_INDEXABLE_WORDS;
 }
 
-/** Page numbers whose rendered bodies pass the same gate used by `robots`. */
+/**
+ * Ladder page numbers that may be listed in `sitemap-eventi.xml`: the ones
+ * whose rendered bodies pass the same gate used by `robots`, AND that the
+ * pagination policy allows in a sitemap. Since the P1 noindex plan
+ * (paginationIndexPolicy, 2026-10-24) no page 2+ of a listing is advertised,
+ * so a ladder — which starts at page 2 — contributes nothing; its pages stay
+ * reachable through the bucket page's pills.
+ */
 export function indexableLadderPages(
   renderedPages: ReadonlyArray<{ page: number; wordCount: number }>,
 ): number[] {
   return renderedPages
-    .filter(({ page, wordCount }) => page >= 2 && isIndexableWordCount(wordCount))
+    .filter(({ page, wordCount }) => page >= 2 && isIndexableWordCount(wordCount) && isPaginationSitemapEligible(page))
     .map(({ page }) => page);
 }
 
@@ -2922,7 +2930,9 @@ export function renderHistoricalEventsArchivePage(params: {
     canonicalUrl,
     hreflangHtml: municipality ? LOCALES.map((loc) => `  <link rel="alternate" hreflang="${loc}" href="${BASE_URL}${canonicalFor(loc)}">`)
       .concat(`  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${canonicalFor('it')}">`).join('\n') : historicalEventsArchiveAlternates(page),
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    // P1 noindex plan (paginationIndexPolicy): page 11+ of the archive stays
+    // 200 and linked but leaves the index.
+    robots: indexable && !isPaginationNoindex(page) ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd],
@@ -3438,7 +3448,9 @@ export function renderOverflowLadderPage(params: {
     description: oCopy.ladderDesc(label, page, pageCount),
     canonicalUrl,
     hreflangHtml: buildLadderAlternates(canton, comune, page),
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    // P1 noindex plan (paginationIndexPolicy): page 11+ of a ladder stays 200
+    // and linked but leaves the index. Ads follow content quality (`indexable`).
+    robots: indexable && !isPaginationNoindex(page) ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [breadcrumbLd],
@@ -4624,8 +4636,10 @@ export function buildSitemap(
       for (const page of pages) entries.push(ladderSitemapUrl(canton, comune, page, dateStamp));
     }
   }
+  // Only page 1 of the archive is advertised (P1 noindex plan,
+  // paginationIndexPolicy); page 2+ is reached through its pager.
   for (let page = 1; page <= historicalArchivePageCount; page += 1) {
-    entries.push(historicalEventsArchiveSitemapUrl(page));
+    if (isPaginationSitemapEligible(page)) entries.push(historicalEventsArchiveSitemapUrl(page));
   }
   // Per-event detail pages, including the indexable historical archive.
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp, e.imageUrl));
