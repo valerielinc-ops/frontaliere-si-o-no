@@ -442,12 +442,12 @@ describe('square-screen fleet signature (1600x1600, zh-CN, Chrome 99)', () => {
     return inline;
   }
 
-  it('flags the fleet: 1600x1600, Windows Chrome 99, zh-CN', () => {
+  it('leaves the GA4-only fleet out of the shared AdSense/PostHog verdict', () => {
     setUserAgent(WIN_CHROME_99);
     setScreen(1600, 1600);
     setLanguage('zh-CN');
     expect(matchesSquareScreenFleetSignature(WIN_CHROME_99.toLowerCase())).toBe(true);
-    expect(verdict()).toBe(true);
+    expect(verdict()).toBe(false);
   });
 
   const negatives: ReadonlyArray<readonly [string, string, number, number, string]> = [

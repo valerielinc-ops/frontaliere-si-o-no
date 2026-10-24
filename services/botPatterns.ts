@@ -271,8 +271,10 @@ export const CRAWLER_UA_DEVICE_EXCEPTIONS: readonly string[] = ['cubot'];
  *  7. Automation language signature — the zh-CN desktop Chrome fleet on its
  *     pinned Chrome majors and one of its four observed clocks
  *     (`matchesAutomationLanguageSignature`).
- *  8. Square-screen signature — the 1600x1600 zh-CN Windows fleet pinned on
- *     Chrome 99 (`matchesSquareScreenFleetSignature`).
+ *
+ * The square-screen signature is intentionally kept out of this shared
+ * AdSense/PostHog verdict: it is a GA4-only fleet rule and belongs in the
+ * analytics-specific gate.
  *
  * On purpose NOT here: WebGL renderer / canvas fingerprint / TLS JA3.
  * Those add weight but are bypassable by `puppeteer-extra-plugin-stealth`
@@ -324,7 +326,6 @@ export function isLikelyBot(): boolean {
 
   if (matchesAutomationScreenSignature(ua)) return true;
   if (matchesAutomationLanguageSignature(ua)) return true;
-  if (matchesSquareScreenFleetSignature(ua)) return true;
 
   return false;
 }
