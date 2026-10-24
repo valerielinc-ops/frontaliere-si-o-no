@@ -4,6 +4,7 @@
 // hand-copying literal tables — a hand-copy silently stops following a slug
 // rename in routeSlugs.data.ts.
 import { describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
@@ -12,6 +13,14 @@ const root = path.resolve(__dirname, '..');
 const read = (relPath: string) => fs.readFileSync(path.resolve(root, relPath), 'utf-8');
 
 describe('route-slugs anti-drift guard (#4315)', () => {
+  it('keeps the shared route-slug module importable by direct Node ESM senders', () => {
+    expect(() => execFileSync(
+      process.execPath,
+      ['--input-type=module', '-e', "import('./services/routeSlugs.data.ts')"],
+      { cwd: root, stdio: 'pipe' },
+    )).not.toThrow();
+  });
+
   it('router.ts no longer defines SLUG_TABLES locally and imports the shared module', () => {
     const src = read('services/router.ts');
     expect(src).not.toMatch(/^const SLUG_TABLES/m);
