@@ -5,6 +5,7 @@
  */
 export {
   resolveArticleProvenance,
+  resolveArticleTransparencyStatement,
   type ArticleProvenance,
   type ProvenanceBasis,
   type ProvenanceDeclaringArticle,

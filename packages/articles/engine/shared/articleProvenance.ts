@@ -1,3 +1,5 @@
+import { ARTICLE_TRANSPARENCY, disclosureLocale } from './aiDisclosure';
+
 /**
  * How a given article came to exist — the fact the editorial-transparency
  * disclosure states to the reader.
@@ -32,6 +34,27 @@ export function shouldRenderHumanDisclosure(
   authorName: string | undefined,
 ): authorName is string {
   return !provenance.aiAssisted && Boolean(authorName?.trim());
+}
+
+/**
+ * Resolve the exact article disclosure statement used by both emitters.
+ *
+ * The static engine and the hydrated SPA receive the same provenance payload,
+ * but they still have different call sites and locale inputs. Keeping the
+ * final copy selection here makes a round-trip unable to drift on whitespace,
+ * missing bylines, or a locale fallback.
+ */
+export function resolveArticleTransparencyStatement(
+  locale: string,
+  provenance: ArticleProvenance,
+  authorName?: string,
+): string {
+  const copy = ARTICLE_TRANSPARENCY[disclosureLocale(locale)];
+  const normalizedAuthorName = authorName?.trim();
+  if (provenance.aiAssisted) return copy.aiAssisted;
+  return shouldRenderHumanDisclosure(provenance, normalizedAuthorName)
+    ? copy.human(normalizedAuthorName)
+    : copy.humanWithoutName;
 }
 
 /** The article-side shape this needs; anything wider is accepted. */

@@ -38,7 +38,7 @@ import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from './shared/aiDisclosure';
 import {
   resolveArticleProvenance,
-  shouldRenderHumanDisclosure,
+  resolveArticleTransparencyStatement,
   type ArticleProvenance,
 } from './shared/articleProvenance';
 
@@ -1184,12 +1184,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const buildArticleTransparencyAside = (locale: string, authorName: string | undefined, provenance: ArticleProvenance): string => {
   const dl = disclosureLocale(locale);
   const tr = ARTICLE_TRANSPARENCY[dl];
-  const normalizedAuthorName = authorName?.trim();
-  const statement = provenance.aiAssisted
-   ? tr.aiAssisted
-   : shouldRenderHumanDisclosure(provenance, normalizedAuthorName)
-    ? tr.human(normalizedAuthorName)
-    : tr.humanWithoutName;
+  const statement = resolveArticleTransparencyStatement(locale, provenance, authorName);
   return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)} ${esc(tr.sources)}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
  };
 
@@ -1534,6 +1529,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleProvenance = resolvedAuthor
   ? resolvedAuthor.provenance
   : resolveArticleProvenance({ aiAssisted: en.aiAssisted }, undefined);
+ const articleTransparencyAuthorName = en.authorName.trim() || resolvedAuthor?.name;
  // The one author surface #author-eeat left behind: `article:author` below
  // stayed hardcoded to /chi-siamo/ while byline, JSON-LD and hreflang all
  // moved to the per-article editorial profile. Every OG consumer (Facebook,
@@ -2012,7 +2008,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, en.authorName || resolvedAuthor?.name, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
