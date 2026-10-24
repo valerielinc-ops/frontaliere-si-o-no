@@ -1417,6 +1417,7 @@ async function mergeIstJobs(discoveredJobs) {
   const fossils = existingIstJobs.filter((job) => dropIstFabricatedText(job)).length;
   if (fossils > 0) console.log(`  🧹 Dropped fabricated IST text from ${fossils} stored job(s); they will be retranslated`);
   const publishableExistingIstJobs = filterPublishableIstStoredJobs(existingIstJobs);
+  const preMergeIstJobs = existingIstJobs.filter(isIstJob);
   if (publishableExistingIstJobs.length < existingIstJobs.length) {
     console.log(
       `  ⏭️  Excluded ${existingIstJobs.length - publishableExistingIstJobs.length} `
@@ -1475,6 +1476,7 @@ async function mergeIstJobs(discoveredJobs) {
     removed,
     total: final.length,
     publishedIstJobs: merged.length,
+    preMergeIstJobs,
   };
 }
 
@@ -1773,7 +1775,7 @@ async function main() {
   // housekeeping proof instead of weakening the source-body gate.
   if (mergeResult.publishedIstJobs === 0) {
     await rewriteStoredJobsWithoutThinSource(
-      readExistingCrawlerJobs(IST_KEY, DATA_JOBS).filter(isIstJob),
+      mergeResult.preMergeIstJobs,
     );
     updateAdapterConfig();
     const _cdResult = logStats(beforeSnapshot);
