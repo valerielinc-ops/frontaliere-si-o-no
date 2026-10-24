@@ -56,6 +56,14 @@ const BANNED_STRINGS = ['4,5%', '4.5%', '4,5 %', '60 giorni', '60 Arbeitstage', 
 // anchor) must never be published.
 const BANNED_WORKER_COUNT_STRINGS = ['9.000', "9'000", '9000', '9,000'];
 
+/**
+ * The build-id marker is generated metadata, not page copy or structured data.
+ * It must not make the worker-count exclusion flaky when a timestamp happens
+ * to contain one of the banned digit sequences (for example, `...9000...`).
+ */
+const htmlWithoutBuildId = (html: string): string =>
+  html.replace(/<meta\s+name=["']?ft-build-id["']?[^>]*>/i, '');
+
 describe('Austrian border municipality above-floor page render (#4883)', () => {
   const feldkirch = AUSTRIAN_ABOVE_FLOOR.find((m) => m.slug === 'feldkirch') ?? AUSTRIAN_ABOVE_FLOOR[0];
 
@@ -105,8 +113,9 @@ describe('Austrian border municipality above-floor page render (#4883)', () => {
       dateStamp: DATE_STAMP,
       distDir: DIST,
     });
+    const content = htmlWithoutBuildId(html);
     for (const banned of BANNED_WORKER_COUNT_STRINGS) {
-      expect(html).not.toContain(banned);
+      expect(content).not.toContain(banned);
     }
   });
 });
@@ -121,8 +130,9 @@ describe('Austrian border municipality below-floor bridge + self-map (#4883)', (
 
   it('bridge page also stays free of the banned sibling-regime figures', () => {
     const html = renderBridgePage({ municipality: small, locale: 'it', distDir: DIST });
+    const content = htmlWithoutBuildId(html);
     for (const banned of [...BANNED_STRINGS, ...BANNED_WORKER_COUNT_STRINGS]) {
-      expect(html).not.toContain(banned);
+      expect(content).not.toContain(banned);
     }
   });
 
@@ -157,8 +167,9 @@ describe('fiscal-exclusion contract holds across every above-floor comune and lo
     for (const locale of AUSTRIAN_LOCALES) {
       it(`${municipality.name} [${locale}] never emits a German-corridor figure or the unverified worker count`, () => {
         const { html } = renderAboveFloorPage({ municipality, locale, dateStamp: DATE_STAMP, distDir: DIST });
+        const content = htmlWithoutBuildId(html);
         for (const banned of [...BANNED_STRINGS, ...BANNED_WORKER_COUNT_STRINGS]) {
-          expect(html).not.toContain(banned);
+          expect(content).not.toContain(banned);
         }
       });
     }
@@ -170,8 +181,9 @@ describe('fiscal-exclusion contract holds across every below-floor bridge and lo
     for (const locale of AUSTRIAN_LOCALES) {
       it(`${municipality.name} [${locale}] bridge never emits a German-corridor figure or the unverified worker count`, () => {
         const html = renderBridgePage({ municipality, locale, distDir: DIST });
+        const content = htmlWithoutBuildId(html);
         for (const banned of [...BANNED_STRINGS, ...BANNED_WORKER_COUNT_STRINGS]) {
-          expect(html).not.toContain(banned);
+          expect(content).not.toContain(banned);
         }
       });
     }
