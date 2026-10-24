@@ -117,7 +117,7 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     name: 'ENI COMO',
     carburanti: [
       { carb: 'Benzina', prezzo: '1.700', isSelf: 1 },
-      { carb: 'Gasolio', prezzo: '1.650', isSelf: 0 },
+      { carb: 'Gasolio', prezzo: '1.650', isSelf: 1 },
     ],
   });
 
