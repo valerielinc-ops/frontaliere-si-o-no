@@ -191,7 +191,13 @@ async function replayWebcamSnapshots({ crossings, outDir, replayDir, logger }) {
   return { snapshotted, skipped, total: withWebcams.length, results };
 }
 
-export async function snapshotWebcamsForOg({ crossings, outDir, fetchFn, log, replayDir }) {
+export async function snapshotWebcamsForOg({
+  crossings,
+  outDir,
+  fetchFn = undefined,
+  log = undefined,
+  replayDir = undefined,
+}) {
   const logger = log ?? ((m) => console.log(m));
   const fn = fetchFn ?? globalThis.fetch;
   await fs.mkdir(outDir, { recursive: true });
