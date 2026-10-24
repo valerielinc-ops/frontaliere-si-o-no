@@ -3621,6 +3621,9 @@ jobs:
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/constants.mjs \
+            scripts/ci/lib/false-positive-declaration.mjs \
+            scripts/lib/pr-body-closes-check.mjs \
+            scripts/lib/pr-body-sections-check.mjs \
             scripts/lib/loop-fleet-contract.mjs \
             scripts/lib/githubApiHeaders.mjs \
             functions/src/githubApiHeaders.js; do
