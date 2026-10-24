@@ -51,6 +51,7 @@ function observeInit() {
  for (const e of list.getEntries()) {
  if (!e.interactionId) continue;
  window.__inpProbe.events.push({
+ interactionId: e.interactionId,
  name: e.name,
  start: e.startTime,
  duration: e.duration,
@@ -84,7 +85,20 @@ function observeInit() {
 
 function summarizeWindow(probe, since) {
  const events = probe.events.filter((e) => e.start >= since);
- const worst = events.reduce((max, e) => (e.duration > (max?.duration ?? -1) ? e : max), null);
+ // One tap emits pointerdown, pointerup and click under the same
+ // interactionId, all with the same rounded duration: the interaction's
+ // processing is the SUM of its entries, not the first entry's (which is
+ // usually pointerdown, with ~0 ms of handlers).
+ const byInteraction = new Map();
+ for (const e of events) {
+ const group = byInteraction.get(e.interactionId) ?? { duration: 0, inputDelay: Infinity, processing: 0, presentation: 0 };
+ group.duration = Math.max(group.duration, e.duration);
+ group.inputDelay = Math.min(group.inputDelay, e.inputDelay);
+ group.processing += e.processing;
+ group.presentation = Math.max(group.presentation, e.presentation);
+ byInteraction.set(e.interactionId, group);
+ }
+ const worst = [...byInteraction.values()].reduce((max, e) => (e.duration > (max?.duration ?? -1) ? e : max), null);
  const frames = probe.loaf.filter((f) => f.start + f.duration >= since);
  const scripts = frames.flatMap((f) => f.scripts);
  const topScripts = [...scripts].sort((a, b) => b.duration - a.duration).slice(0, 5)
