@@ -1432,18 +1432,8 @@ async function mergeIstJobs(discoveredJobs) {
   }
   discoveredJobs = withBody;
 
-  // Do not let mergePreserveLocaleData re-add a metadata-only stored row after
-  // the fresh discovery was quarantined for a thin/failed source body. The
-  // fallback above gets the chance to retain a valid previous body first; this
-  // second boundary removes only the stored rows that have no such proof.
-  const mergeExistingIstJobs = dropUnreadableSourceJobsWithoutValidBody(
-    existingIstJobs,
-    freshDiscoveredJobs,
-    istJobKey,
-  );
-
   const existingKeys = new Set(
-    mergeExistingIstJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
+    publishableExistingIstJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)
   );
   const discoveredKeys = new Set(
     discoveredJobs.map((j) => extractStableJobId(j?.url)).filter(Boolean)

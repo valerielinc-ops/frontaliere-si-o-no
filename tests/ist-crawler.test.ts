@@ -1,7 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import * as ts from 'typescript';
 import { describe, expect, it } from 'vitest';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import { keepStoredSourceBodies } from '../scripts/lib/stored-source-body.mjs';
+import { extractStableJobId } from '../scripts/lib/job-match-key.mjs';
 import {
   buildIstDescriptionFields,
   classifyIstDetailWalk,
@@ -17,6 +20,19 @@ import {
   parseCountryCode,
   parseIstSitemapJobUrls,
 } from '@/scripts/update-ist-jobs.mjs';
+
+function extractIstMerge(dependencies: Record<string, unknown>) {
+  const source = fs.readFileSync(path.resolve('scripts/update-ist-jobs.mjs'), 'utf8');
+  const ast = ts.createSourceFile('update-ist-jobs.mjs', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+  const declaration = ast.statements.find(
+    (node): node is ts.FunctionDeclaration => ts.isFunctionDeclaration(node) && node.name?.text === 'mergeIstJobs',
+  );
+  if (!declaration) throw new Error('Missing mergeIstJobs');
+  return new Function(
+    ...Object.keys(dependencies),
+    `return (${declaration.getText(ast)});`,
+  )(...Object.values(dependencies)) as (jobs: unknown[]) => Promise<unknown>;
+}
 
 describe('IST country-code parsing', () => {
   it('keeps Swiss canton codes Swiss when they are the final location component', () => {
@@ -610,6 +626,47 @@ describe('IST description fields', () => {
     };
 
     expect(filterPublishableIstStoredJobs([staleMetadataOnly, thin, publishable])).toEqual([publishable]);
+  });
+
+  it('removes a thin discovery and its stale stored row instead of failing before the merge', async () => {
+    const jobUrl = 'https://jobs.inspirededu.com/job/teacher/123456/';
+    const storedThin = {
+      url: jobUrl,
+      title: 'English Teacher',
+      companyKey: 'international-school-of-ticino',
+      sourceLang: 'en',
+      description: 'Short source text',
+      descriptionByLocale: { en: 'Short source text' },
+    };
+    const written: unknown[] = [];
+    const merge = extractIstMerge({
+      readExistingCrawlerJobs: () => [storedThin],
+      IST_KEY: 'international-school-of-ticino',
+      DATA_JOBS: 'scratch',
+      PUBLIC_JOBS: 'scratch-public',
+      isLegacyIstJob: (job: any) => job?.companyKey === 'international-school-of-ticino',
+      isIstJob: (job: any) => job?.companyKey === 'international-school-of-ticino',
+      dropIstFabricatedText: () => false,
+      filterPublishableIstStoredJobs,
+      keepStoredSourceBodies,
+      extractStableJobId,
+      mergePreserveLocaleData: (existing: unknown[], fresh: unknown[]) => [...existing, ...fresh],
+      withLegacyPostingDay: (job: unknown) => job,
+      IST_COMPANY_NAME: 'International School of Ticino',
+      dropStaleLocaleDescriptions: () => {},
+      writeJsonAtomic: (_file: string, jobs: unknown[]) => written.push(jobs),
+      fs: { mkdirSync: () => {} },
+      path,
+    });
+
+    const result: any = await merge([{
+      ...storedThin,
+      description: 'Short source text',
+      descriptionByLocale: { en: 'Short source text' },
+    }]);
+
+    expect(result.publishedIstJobs).toBe(0);
+    expect(written).toEqual([[] , []]);
   });
 
   it('publishes the posting text alone, keyed by its language', () => {
