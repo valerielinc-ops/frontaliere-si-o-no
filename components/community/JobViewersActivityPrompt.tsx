@@ -125,9 +125,10 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
     let gateObserver: MutationObserver | null = null;
     const schedule = () => {
       if (timer !== null) return;
-      const gateVisibleAt = Number(
-        document.getElementById('job-auth-gate')?.dataset.viewerPromptVisibleAt,
-      );
+      const gate = document.getElementById('job-auth-gate');
+      if (gate?.dataset.viewerPromptJobId !== jobId) return;
+      const gateVisibleAt = Number(gate.dataset.viewerPromptVisibleAt);
+      if (!Number.isFinite(gateVisibleAt)) return;
       const elapsedSinceGate = Number.isFinite(gateVisibleAt)
         ? Math.max(0, Date.now() - gateVisibleAt)
         : 0;
@@ -137,18 +138,27 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
       }, Math.max(0, DISPLAY_DELAY_MS - elapsedSinceGate));
     };
     const gate = document.getElementById('job-auth-gate');
-    if (gate?.dataset.viewerPromptVisibleAt) {
+    if (
+      gate?.dataset.viewerPromptJobId === jobId
+      && gate.dataset.viewerPromptVisibleAt
+    ) {
       schedule();
     } else if (gate && typeof MutationObserver !== 'undefined') {
       gateObserver = new MutationObserver(() => {
-        if (!gate.dataset.viewerPromptVisibleAt) return;
+        if (
+          gate.dataset.viewerPromptJobId !== jobId
+          || !gate.dataset.viewerPromptVisibleAt
+        ) return;
         gateObserver?.disconnect();
         gateObserver = null;
         schedule();
       });
       gateObserver.observe(gate, {
         attributes: true,
-        attributeFilter: ['data-viewer-prompt-visible-at'],
+        attributeFilter: [
+          'data-viewer-prompt-job-id',
+          'data-viewer-prompt-visible-at',
+        ],
       });
     } else {
       schedule();

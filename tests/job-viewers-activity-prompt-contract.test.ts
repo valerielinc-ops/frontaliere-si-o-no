@@ -10,6 +10,10 @@ describe('job viewers activity prompt contract', () => {
     expect(SOURCE).toMatch(/DISPLAY_DELAY_MS\s*=\s*1_500/u);
     expect(SOURCE).toMatch(/AUTO_DISMISS_MS\s*=\s*3_500/u);
     expect(SOURCE).toMatch(/viewerPromptVisibleAt/u);
+    expect(SOURCE).toMatch(/viewerPromptJobId/u);
+    expect(JOB_BOARD_SOURCE).toMatch(
+      /gate\.dataset\.viewerPromptJobId\s*=\s*String\(selectedJob\.id\)/u,
+    );
     expect(JOB_BOARD_SOURCE).toMatch(
       /gate\.dataset\.viewerPromptVisibleAt\s*=\s*String\(Date\.now\(\)\)/u,
     );
