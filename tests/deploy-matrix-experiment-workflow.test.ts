@@ -88,7 +88,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       .find((step) => String(step.name).startsWith('Build ('));
     expect(String(build?.run)).toContain('--import=${GITHUB_WORKSPACE}/scripts/ci/bench-frozen-clock.mjs');
     expect(WORKFLOW.jobs['build-locale'].env.BENCH_FROZEN_CLOCK_MS)
-      .toBe("${{ inputs.freeze_clock == true && needs.prep.outputs.build_id || '' }}");
+      .toBe("${{ (inputs.freeze_clock == true || inputs.compare_variants == true) && needs.prep.outputs.build_id || '' }}");
     // A run with nothing to compare must not read as a pass.
     expect(run).toMatch(/compared" -eq 0[\s\S]*exit 1/u);
   });

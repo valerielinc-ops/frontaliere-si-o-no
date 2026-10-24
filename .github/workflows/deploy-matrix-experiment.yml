@@ -118,7 +118,7 @@ on:
         required: false
         default: false
       compare_variants:
-        description: 'Hash every leg dist and compare each variant against base (byte-identity between variants)'
+        description: 'Hash every leg dist and compare each variant against base, raw sha256 (implies freeze_clock: per-plugin timings read 0)'
         type: boolean
         required: false
         default: false
@@ -434,7 +434,9 @@ jobs:
       # Same preload and variable as the jobs-seo bench work (agent A, commit
       # 0595e0979f0): scripts/ci/bench-frozen-clock.mjs freezes Date.now()
       # and argument-less new Date() at the run's build id.
-      BENCH_FROZEN_CLOCK_MS: ${{ inputs.freeze_clock == true && needs.prep.outputs.build_id || '' }}
+      # compare_variants implies it: without a frozen clock the raw hashes of
+      # legs built hours apart differ by wall-clock instants alone.
+      BENCH_FROZEN_CLOCK_MS: ${{ (inputs.freeze_clock == true || inputs.compare_variants == true) && needs.prep.outputs.build_id || '' }}
     steps:
       # Copied minimally from deploy.yml's build-locale job, whose source of
       # truth is the production cleanup step in this same repository.
@@ -1217,7 +1219,7 @@ jobs:
   # 40080692388, clock not frozen: 174,631 of 1,554,241 files differed by
   # wall-clock instants alone). The reference is the variant named `base`.
   compare-variants:
-    needs: [matrix-setup, build-locale]
+    needs: [matrix-setup, prep, build-locale]
     if: >-
       !cancelled()
       && inputs.compare_variants == true && inputs.stop_after_jobs_seo != true
@@ -1241,7 +1243,7 @@ jobs:
           merge-multiple: false
       - name: Compare every variant against base
         env:
-          FREEZE_CLOCK_INPUT: ${{ inputs.freeze_clock }}
+          FROZEN_CLOCK: ${{ needs.prep.outputs.build_id }}
         run: |
           set -euo pipefail
           root=/tmp/variant-manifests
@@ -1269,7 +1271,7 @@ jobs:
                 status=1
               fi
               echo "::endgroup::"
-              echo "[compare-variants] locale=${locale} variant=${variant} freeze_clock=${FREEZE_CLOCK_INPUT} identical=${identical} files=$(wc -l < "$base_file")"
+              echo "[compare-variants] locale=${locale} variant=${variant} frozen_clock_ms=${FROZEN_CLOCK} identical=${identical} files=$(wc -l < "$base_file")"
               compared=$((compared + 1))
             done
           done
