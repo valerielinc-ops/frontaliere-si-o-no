@@ -22,6 +22,7 @@ import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractUmantisListingEvidence, umantisVacancyIdentity } from './umantis-detail.mjs';
 import { listingEvidenceFields } from './detail-extract.mjs';
+import { BREFISPERSONAL_PAGINATION } from './brefispersonal-contract.mjs';
 
 const MAX_SYNTHESIS_FETCHES = 5;
 const CAREER_LINK_RX = /(?:^|[\/_-])(?:jobs?|careers?|vacancies|karriere|stellen(?:angebote)?|offene-stellen|emplois?|carrieres?|offres-d-emploi|lavora|carriere|posizioni-aperte|offerte-di-lavoro|posti-vacanti)(?:[/?#._-]|$)/i;
@@ -166,16 +167,6 @@ const GENERIC_TENANT_LABELS = new Set([
   'job-boards', 'jobs', 'karriere', 'portal', 'recruiting', 'recruitingapp',
   'stellen', 'www',
 ]);
-
-// The Brefis vacancy index exposes a bounded multi-page listing and a declared
-// total. Share this source contract with runtime compatibility handling: the
-// cron may leave a promoted legacy spec without it until the next rewrite, so
-// editing the generated JSON would only fix one run.
-export const BREFISPERSONAL_PAGINATION = Object.freeze({
-  maxPages: 10,
-  declaredTotalPattern: "Offene\\s+Stellen(?:\\s|&nbsp;|<[^>]+>)*([\\d'’.,]+)",
-  minCoverage: 0.95,
-});
 
 /**
  * Turn a candidate-provided identity into the key form used by crawler files.
