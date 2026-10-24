@@ -196,7 +196,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -257,7 +257,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -265,7 +265,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -3960,7 +3960,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:50:08.957Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -6201,7 +6200,7 @@
         "it": "risorse-umane-business-partner-emmi-bischofszell",
         "en": "hr-business-partner-emmi-ch",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-bischofszell"
+        "fr": "partenaire-rh-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -6258,14 +6257,14 @@
       },
       "previousSlugs": [
         "hr-business-partner-emmi-ch",
-        "partenaire-rh-emmi-bischofszell-thurgau"
+        "hr-business-partner-emmi-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-emmi-ch"
         ],
         "fr": [
-          "partenaire-rh-emmi-bischofszell-thurgau"
+          "hr-business-partner-emmi-bischofszell"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -6290,7 +6289,7 @@
         "it": "risorse-umane-business-partner-emmi-suhr",
         "en": "hr-business-partner-emmi-ch-2",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-suhr"
+        "fr": "partenaire-rh-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -6350,7 +6349,7 @@
       "previousSlugs": [
         "hr-business-partner-emmi-ch",
         "hr-business-partner-emmi-ch-2",
-        "partenaire-rh-emmi-suhr-aargau"
+        "hr-business-partner-emmi-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6358,7 +6357,7 @@
           "hr-business-partner-emmi-ch-2"
         ],
         "fr": [
-          "partenaire-rh-emmi-suhr-aargau"
+          "hr-business-partner-emmi-suhr"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -6655,9 +6654,9 @@
     },
     {
       "id": "emmi-2c911f7030c9",
-      "slug": "collaborateur-affinage-de-fromage-emmi-saignelegier",
+      "slug": "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura",
       "slugByLocale": {
-        "it": "collaborateur-affinage-de-fromage-emmi-saignelegier",
+        "it": "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura",
         "en": "collaborative-cheese-refining-emmi-saignelegier",
         "de": "verbundkaseraffination-emmi-saignelegier",
         "fr": "collaborateur-affinage-de-fromage-emmi-ch"
@@ -6722,12 +6721,12 @@
         "collaborateur-affinage-de-fromage-emmi-ch",
         "collaborative-cheese-refining-emmi-saignelegier-jura",
         "verbundkaseraffination-emmi-saignelegier-jura",
-        "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura"
+        "collaborateur-affinage-de-fromage-emmi-saignelegier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-affinage-de-fromage-emmi-ch",
-          "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura"
+          "collaborateur-affinage-de-fromage-emmi-saignelegier"
         ],
         "en": [
           "collaborateur-affinage-de-fromage-emmi-ch",
@@ -8135,12 +8134,12 @@
     },
     {
       "id": "emmi-999c5d8a8793",
-      "slug": "betriebselektriker-in-automatiker-in-emmi-suhr",
+      "slug": "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau",
       "slugByLocale": {
         "de": "betriebselektriker-in-automatiker-in-emmi-ch",
-        "it": "betriebselektriker-in-automatiker-in-emmi-suhr",
-        "en": "betriebselektriker-in-automatiker-in-emmi-suhr",
-        "fr": "betriebselektriker-in-automatiker-in-emmi-suhr"
+        "it": "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau",
+        "en": "industrial-electrician-automation-technician-emmi-suhr-aargau",
+        "fr": "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8148,16 +8147,16 @@
       "title": "Betriebselektriker:in / Automatiker:in",
       "titleByLocale": {
         "de": "Betriebselektriker:in / Automatiker:in",
-        "it": "Betriebselektriker:in / Automatiker:in",
-        "en": "Betriebselektriker:in / Automatiker:in",
-        "fr": "Betriebselektriker:in / Automatiker:in"
+        "it": "Elettricista industriale / Tecnico/a di automazione",
+        "en": "Industrial Electrician / Automation Technician",
+        "fr": "Électricien·ne d’exploitation / Automaticien·ne"
       },
       "description": "Als Betriebselektriker:in / Automatiker:in tauchst du in ein Umfeld ein, in dem moderne Technik, viel Eigenverantwortung und echte Gestaltungsmöglichkeiten zusammenkommen.\nHier kannst du dein Fachwissen voll einbringen, Abläufe optimieren, technische Herausforderungen lösen und gemeinsam mit dem Team eine Anlage mit aufbauen, die Standards setzt. Wenn du Lust hast, deine Ideen einzubringen, Projekte voranzutreiben und den nächsten Schritt in deiner technischen Laufbahn zu gehen, wartet in Suhr eine Aufgabe auf dich, die richtig Freude macht und viel Perspektive bietet.\n\nDas kannst du bewirken\n\n• Die Instandhaltung an diversen Produktionsanlagen bereitet dir Freude und gerne arbeitest du in einem engagierten Team.\n\n• Durch dein lösungsorientiertes Denken schaffst du es mit deinen Kollegen Störungen nachhaltig zu beheben.\n\n• Abwechslung macht das Leben und den Job spannend und du magst es, wenn kein Tag wie der andere ist.\n\n• Mit deinem Lebensmotto \"man kann alles lernen\" bist du jeden Tag mit vollem Elan und Leidenschaft dabei.\n\nDas bringst du mit\n\n• Mit einer abgeschlossene Ausbildung EFZ als Automatiker:in/Elektriker:in und einigen Jahren Berufserfahrung bist du eine wertvolle Ergänzung unseres Teams.\n\n• Deine Systemaffinität hilft dir bei deiner Arbeit ebenso wie deine guten Deutschkenntnisse und die NIV Art. 13/15 Bewilligung.\n\n• Du bist flexibel für die 2-Schichtarbeit mit Piketteinsätzen und magst es, jeden Tag neue, spannende Herausforderungen zu erleben.\n\n• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen.\n\nDas bieten wir dir\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Kostenlose Parkplätze: Wir bieten unseren Mitarbeitenden gratis Parkplätze am Standort.\n\n• Vergünstigungen: Profitiere von bis zu 20 % Rabatt auf Emmi Produkte, attraktiven Freizeit- und Reisevergünstigungen, Sonderangeboten bei Topmarken sowie Flottenrabatten beim Autokauf.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren",
       "descriptionByLocale": {
         "de": "Als Betriebselektriker:in / Automatiker:in tauchst du in ein Umfeld ein, in dem moderne Technik, viel Eigenverantwortung und echte Gestaltungsmöglichkeiten zusammenkommen.\nHier kannst du dein Fachwissen voll einbringen, Abläufe optimieren, technische Herausforderungen lösen und gemeinsam mit dem Team eine Anlage mit aufbauen, die Standards setzt. Wenn du Lust hast, deine Ideen einzubringen, Projekte voranzutreiben und den nächsten Schritt in deiner technischen Laufbahn zu gehen, wartet in Suhr eine Aufgabe auf dich, die richtig Freude macht und viel Perspektive bietet.\n\nDas kannst du bewirken\n\n• Die Instandhaltung an diversen Produktionsanlagen bereitet dir Freude und gerne arbeitest du in einem engagierten Team.\n\n• Durch dein lösungsorientiertes Denken schaffst du es mit deinen Kollegen Störungen nachhaltig zu beheben.\n\n• Abwechslung macht das Leben und den Job spannend und du magst es, wenn kein Tag wie der andere ist.\n\n• Mit deinem Lebensmotto \"man kann alles lernen\" bist du jeden Tag mit vollem Elan und Leidenschaft dabei.\n\nDas bringst du mit\n\n• Mit einer abgeschlossene Ausbildung EFZ als Automatiker:in/Elektriker:in und einigen Jahren Berufserfahrung bist du eine wertvolle Ergänzung unseres Teams.\n\n• Deine Systemaffinität hilft dir bei deiner Arbeit ebenso wie deine guten Deutschkenntnisse und die NIV Art. 13/15 Bewilligung.\n\n• Du bist flexibel für die 2-Schichtarbeit mit Piketteinsätzen und magst es, jeden Tag neue, spannende Herausforderungen zu erleben.\n\n• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen.\n\nDas bieten wir dir\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Kostenlose Parkplätze: Wir bieten unseren Mitarbeitenden gratis Parkplätze am Standort.\n\n• Vergünstigungen: Profitiere von bis zu 20 % Rabatt auf Emmi Produkte, attraktiven Freizeit- und Reisevergünstigungen, Sonderangeboten bei Topmarken sowie Flottenrabatten beim Autokauf.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren",
-        "it": "Als Betriebselektriker:in / Automatiker:in tauchst du in ein Umfeld ein, in dem moderne Technik, viel Eigenverantwortung und echte Gestaltungsmöglichkeiten zusammenkommen.\nHier kannst du dein Fachwissen voll einbringen, Abläufe optimieren, technische Herausforderungen lösen und gemeinsam mit dem Team eine Anlage mit aufbauen, die Standards setzt. Wenn du Lust hast, deine Ideen einzubringen, Projekte voranzutreiben und den nächsten Schritt in deiner technischen Laufbahn zu gehen, wartet in Suhr eine Aufgabe auf dich, die richtig Freude macht und viel Perspektive bietet.\n\nDas kannst du bewirken\n\n• Die Instandhaltung an diversen Produktionsanlagen bereitet dir Freude und gerne arbeitest du in einem engagierten Team.\n\n• Durch dein lösungsorientiertes Denken schaffst du es mit deinen Kollegen Störungen nachhaltig zu beheben.\n\n• Abwechslung macht das Leben und den Job spannend und du magst es, wenn kein Tag wie der andere ist.\n\n• Mit deinem Lebensmotto \"man kann alles lernen\" bist du jeden Tag mit vollem Elan und Leidenschaft dabei.\n\nDas bringst du mit\n\n• Mit einer abgeschlossene Ausbildung EFZ als Automatiker:in/Elektriker:in und einigen Jahren Berufserfahrung bist du eine wertvolle Ergänzung unseres Teams.\n\n• Deine Systemaffinität hilft dir bei deiner Arbeit ebenso wie deine guten Deutschkenntnisse und die NIV Art. 13/15 Bewilligung.\n\n• Du bist flexibel für die 2-Schichtarbeit mit Piketteinsätzen und magst es, jeden Tag neue, spannende Herausforderungen zu erleben.\n\n• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen.\n\nDas bieten wir dir\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Kostenlose Parkplätze: Wir bieten unseren Mitarbeitenden gratis Parkplätze am Standort.\n\n• Vergünstigungen: Profitiere von bis zu 20 % Rabatt auf Emmi Produkte, attraktiven Freizeit- und Reisevergünstigungen, Sonderangeboten bei Topmarken sowie Flottenrabatten beim Autokauf.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren",
-        "en": "Als Betriebselektriker:in / Automatiker:in tauchst du in ein Umfeld ein, in dem moderne Technik, viel Eigenverantwortung und echte Gestaltungsmöglichkeiten zusammenkommen.\nHier kannst du dein Fachwissen voll einbringen, Abläufe optimieren, technische Herausforderungen lösen und gemeinsam mit dem Team eine Anlage mit aufbauen, die Standards setzt. Wenn du Lust hast, deine Ideen einzubringen, Projekte voranzutreiben und den nächsten Schritt in deiner technischen Laufbahn zu gehen, wartet in Suhr eine Aufgabe auf dich, die richtig Freude macht und viel Perspektive bietet.\n\nDas kannst du bewirken\n\n• Die Instandhaltung an diversen Produktionsanlagen bereitet dir Freude und gerne arbeitest du in einem engagierten Team.\n\n• Durch dein lösungsorientiertes Denken schaffst du es mit deinen Kollegen Störungen nachhaltig zu beheben.\n\n• Abwechslung macht das Leben und den Job spannend und du magst es, wenn kein Tag wie der andere ist.\n\n• Mit deinem Lebensmotto \"man kann alles lernen\" bist du jeden Tag mit vollem Elan und Leidenschaft dabei.\n\nDas bringst du mit\n\n• Mit einer abgeschlossene Ausbildung EFZ als Automatiker:in/Elektriker:in und einigen Jahren Berufserfahrung bist du eine wertvolle Ergänzung unseres Teams.\n\n• Deine Systemaffinität hilft dir bei deiner Arbeit ebenso wie deine guten Deutschkenntnisse und die NIV Art. 13/15 Bewilligung.\n\n• Du bist flexibel für die 2-Schichtarbeit mit Piketteinsätzen und magst es, jeden Tag neue, spannende Herausforderungen zu erleben.\n\n• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen.\n\nDas bieten wir dir\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Kostenlose Parkplätze: Wir bieten unseren Mitarbeitenden gratis Parkplätze am Standort.\n\n• Vergünstigungen: Profitiere von bis zu 20 % Rabatt auf Emmi Produkte, attraktiven Freizeit- und Reisevergünstigungen, Sonderangeboten bei Topmarken sowie Flottenrabatten beim Autokauf.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren",
-        "fr": "Als Betriebselektriker:in / Automatiker:in tauchst du in ein Umfeld ein, in dem moderne Technik, viel Eigenverantwortung und echte Gestaltungsmöglichkeiten zusammenkommen.\nHier kannst du dein Fachwissen voll einbringen, Abläufe optimieren, technische Herausforderungen lösen und gemeinsam mit dem Team eine Anlage mit aufbauen, die Standards setzt. Wenn du Lust hast, deine Ideen einzubringen, Projekte voranzutreiben und den nächsten Schritt in deiner technischen Laufbahn zu gehen, wartet in Suhr eine Aufgabe auf dich, die richtig Freude macht und viel Perspektive bietet.\n\nDas kannst du bewirken\n\n• Die Instandhaltung an diversen Produktionsanlagen bereitet dir Freude und gerne arbeitest du in einem engagierten Team.\n\n• Durch dein lösungsorientiertes Denken schaffst du es mit deinen Kollegen Störungen nachhaltig zu beheben.\n\n• Abwechslung macht das Leben und den Job spannend und du magst es, wenn kein Tag wie der andere ist.\n\n• Mit deinem Lebensmotto \"man kann alles lernen\" bist du jeden Tag mit vollem Elan und Leidenschaft dabei.\n\nDas bringst du mit\n\n• Mit einer abgeschlossene Ausbildung EFZ als Automatiker:in/Elektriker:in und einigen Jahren Berufserfahrung bist du eine wertvolle Ergänzung unseres Teams.\n\n• Deine Systemaffinität hilft dir bei deiner Arbeit ebenso wie deine guten Deutschkenntnisse und die NIV Art. 13/15 Bewilligung.\n\n• Du bist flexibel für die 2-Schichtarbeit mit Piketteinsätzen und magst es, jeden Tag neue, spannende Herausforderungen zu erleben.\n\n• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen.\n\nDas bieten wir dir\n\n• 5 Wochen Ferien: Geniesse fünf Wochen Ferien pro Jahr. Ab dem 46. Lebensjahr steigert sich dein Urlaubsanspruch schrittweise auf bis zu sechs Wochen.\n\n• Attraktive Pensionskasse mit flexiblen Sparplänen: Unsere Emmi Vorsorgestiftung verzinst dein Altersguthaben über dem gesetzlichen Minimum. Dein Beitrag basiert auf deinem Jahresgehalt – ohne Koordinationsabzug. Wähle zwischen Standard- oder Plus-Sparplan mit 1 % höheren Sparbeiträgen.\n\n• Kostenlose Parkplätze: Wir bieten unseren Mitarbeitenden gratis Parkplätze am Standort.\n\n• Vergünstigungen: Profitiere von bis zu 20 % Rabatt auf Emmi Produkte, attraktiven Freizeit- und Reisevergünstigungen, Sonderangeboten bei Topmarken sowie Flottenrabatten beim Autokauf.\n\n• Günstige Verpflegung im Personalrestaurant: Für Frühstück, Mittagessen und Pausenverpflegung steht dir ein Personalrestaurant mit vergünstigten Mitarbeitendenpreisen zur Verfügung.\n\n• Freiwillige Erfolgsbeteiligung: Je nach Geschäftserfolg erhältst du eine freiwillige Erfolgsbeteiligung. Damit möchten wir deinen wertvollen Beitrag zum Unternehmenserfolg anerkennen.\n\nMehr über Benefits erfahren"
+        "it": "Come elettricista aziendale, ti immergerai in un ambiente in cui la tecnologia moderna, molta responsabilità personale e possibilità di design reali si fondono.\nQui puoi contribuire pienamente alla tua esperienza, ottimizzare i processi, risolvere le sfide tecniche e insieme al team costruire un sistema che definisce gli standard. Se si desidera contribuire le vostre idee, progetti di anticipo e fare il passo successivo nella vostra carriera tecnica, c'è un compito in Suhr che è davvero divertente e offre un sacco di prospettiva.\n\nPuoi farlo.\n\n• La manutenzione in varie strutture di produzione ti dà piacere e ti piace lavorare in un team impegnato.\n\n• Attraverso il vostro pensiero orientato alla soluzione, è possibile risolvere i problemi in modo sostenibile con i vostri colleghi.\n\n• Varietà rende la vita e il lavoro eccitante e ti piace quando nessun giorno è come l'altro.\n\n• Con il tuo motto di vita \"puoi imparare tutto\" ci sei ogni giorno con pieno slancio e passione.\n\nLo porti con te.\n\n• Con una formazione completa EFZ come automatista:in/elettrico:in e alcuni anni di esperienza professionale, sei un'aggiunta preziosa al nostro team.\n\n• La vostra affinità di sistema vi aiuta con il vostro lavoro così come la vostra buona conoscenza del tedesco e della NIV Art. 13/15 Autorizzazione.\n\n• Sei flessibile per il lavoro a 2 turni con inserti di piket e piace sperimentare nuove sfide emozionanti ogni giorno.\n\n• Quando viene giù e giù, si rimane calmi e può fissare le priorità.\n\nQuesto è ciò che vi offriamo\n\n• 5 settimane di vacanza: Godetevi cinque settimane di vacanza all'anno. Dall'età di 46 anni, il diritto di vacanza aumenta gradualmente fino a sei settimane.\n\n• Attraente fondo pensionistico con piani di risparmio flessibili: La nostra fondazione pensione Emmi paga l'interesse per il vostro saldo di pensione al di sopra del minimo legale. Il vostro contributo si basa sul vostro stipendio annuale – senza deduzione di coordinamento. Scegliere tra piano di risparmio standard o più con 1% maggiori contributi di risparmio.\n\n• Parcheggio gratuito: Offriamo ai nostri dipendenti parcheggio gratuito nella posizione.\n\n• Sconti: Approfitta fino al 20% di sconto sui prodotti Emmi, sconti interessanti per il tempo libero e viaggi, offerte speciali ai migliori marchi e sconti per la flotta quando acquisti un'auto.\n\n• Pasti economici nel ristorante del personale: Per la prima colazione, pranzo e pausa pasti, è disponibile un ristorante personale con prezzi scontati dei dipendenti.\n\n• Condivisione di successo volontaria: A seconda del successo aziendale, riceverai una condivisione volontaria di successo. In questo modo, vogliamo riconoscere il vostro prezioso contributo al successo dell’azienda.\n\nMaggiori informazioni sui benefici",
+        "en": "As a company electrician, you will immerse yourself in an environment in which modern technology, a lot of personal responsibility and real design possibilities come together.\nHere you can fully contribute your expertise, optimize processes, solve technical challenges and together with the team build a system that sets standards. If you want to contribute your ideas, advance projects and take the next step in your technical career, there is a task in Suhr that is really fun and offers a lot of perspective.\n\nYou can do that.\n\n• Maintenance at various production facilities gives you pleasure and you enjoy working in a committed team.\n\n• Through your solution-oriented thinking, you can solve problems sustainably with your colleagues.\n\n• Variety makes life and the job exciting and you like it when no day is like the other.\n\n• With your life motto \"you can learn everything\" you are there every day with full impetus and passion.\n\nYou bring that with you\n\n• With a completed training EFZ as an automatist:in/electrician:in and a few years of professional experience, you are a valuable addition to our team.\n\n• Your system affinity helps you with your work as well as your good knowledge of German and the NIV Art. 13/15 Authorisation.\n\n• You are flexible for 2-shift work with piket inserts and like to experience new, exciting challenges every day.\n\n• When it comes down and down, you stay calm and can set priorities.\n\nThis is what we offer you\n\n• 5 weeks of vacation: Enjoy five weeks of vacation per year. From the age of 46, your holiday entitlement gradually increases to up to six weeks.\n\n• Attractive pension fund with flexible savings plans: Our Emmi pension foundation pays interest on your retirement balance above the legal minimum. Your contribution is based on your annual salary – without coordination deduction. Choose between standard or plus savings plan with 1% higher savings contributions.\n\n• Free parking: We offer our employees free parking at the location.\n\n• Discounts: Benefit from up to 20% discount on Emmi products, attractive leisure and travel discounts, special offers at top brands and fleet discounts when buying a car.\n\n• Cheap meals in the staff restaurant: For breakfast, lunch and break meals, a staff restaurant with discounted employee prices is available.\n\n• Voluntary Success Sharing: Depending on the business success, you will receive a voluntary success Sharing. In doing so, we want to acknowledge your valuable contribution to the company’s success.\n\nLearn more about benefits",
+        "fr": "En tant qu'électricien d'entreprise, vous vous immergerez dans un environnement où la technologie moderne, beaucoup de responsabilité personnelle et de réelles possibilités de conception se rencontrent.\nIci, vous pouvez contribuer pleinement à votre expertise, optimiser les processus, résoudre les défis techniques et avec l'équipe construire un système qui fixe des normes. Si vous voulez contribuer à vos idées, faire avancer vos projets et prendre la prochaine étape de votre carrière technique, il y a une tâche à Suhr qui est vraiment amusante et offre beaucoup de perspectives.\n\nTu peux le faire.\n\n• L'entretien dans diverses installations de production vous donne plaisir et vous aimez travailler dans une équipe engagée.\n\n• Grâce à votre réflexion axée sur la solution, vous pouvez résoudre les problèmes de manière durable avec vos collègues.\n\n• La variété rend la vie et le travail excitant et vous aimez quand aucun jour n'est comme l'autre.\n\n• Avec votre devise de vie \"vous pouvez tout apprendre\" vous êtes là tous les jours avec plein d'élan et de passion.\n\nApporte ça avec toi.\n\n• Avec une formation complète EFZ en tant qu'automatiste:in/electrician:in et quelques années d'expérience professionnelle, vous êtes un ajout précieux à notre équipe.\n\n• Votre affinité système vous aide dans votre travail ainsi que votre bonne connaissance de l'allemand et de la NIV Art. 13/15 Autorisation.\n\n• Vous êtes flexible pour le travail en 2 équipes avec des inserts piket et aimez vivre de nouveaux défis passionnants chaque jour.\n\n• Quand il descend et descend, vous restez calme et pouvez fixer des priorités.\n\nC'est ce que nous vous offrons\n\n• 5 semaines de vacances: Profitez de cinq semaines de vacances par an. À partir de l'âge de 46 ans, votre droit de vacances augmente graduellement jusqu'à six semaines.\n\n• Fonds de pension attrayant avec des régimes d'épargne flexibles : Notre fondation de pension Emmi verse des intérêts sur votre solde de retraite au-dessus du minimum légal. Votre contribution est basée sur votre salaire annuel – sans déduction de coordination. Choisissez entre un régime d'épargne standard ou plus avec des cotisations d'épargne plus élevées de 1%.\n\n• Parking gratuit: Nous offrons à nos employés un parking gratuit à l'emplacement.\n\n• Réductions: Bénéficiez de jusqu'à 20% de réduction sur les produits Emmi, des réductions de loisirs et de voyage attrayantes, des offres spéciales aux grandes marques et des réductions de flotte lors de l'achat d'une voiture.\n\n• Repas bon marché au restaurant du personnel : Pour le petit déjeuner, le déjeuner et la pause, un restaurant du personnel à prix réduit est disponible.\n\n• Partage volontaire du succès : Selon le succès de l'entreprise, vous recevrez un partage volontaire du succès. Ce faisant, nous voulons reconnaître votre précieuse contribution au succès de l'entreprise.\n\nEn savoir plus sur les avantages"
       },
       "location": "Suhr, Aargau",
       "canton": "AG",
@@ -8195,16 +8194,23 @@
           "• Wenn es mal drunter und drüber geht, bleibst du ruhig und kannst Prioritäten setzen."
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-automatiker-in-emmi-ch",
-          "betriebselektriker-in-automatiker-in-emmi-ch-2"
+          "betriebselektriker-in-automatiker-in-emmi-ch-2",
+          "betriebselektriker-in-automatiker-in-emmi-suhr"
+        ],
+        "en": [
+          "betriebselektriker-in-automatiker-in-emmi-suhr"
+        ],
+        "fr": [
+          "betriebselektriker-in-automatiker-in-emmi-suhr"
         ]
       },
       "previousSlugs": [
         "betriebselektriker-in-automatiker-in-emmi-ch",
-        "betriebselektriker-in-automatiker-in-emmi-ch-2"
+        "betriebselektriker-in-automatiker-in-emmi-ch-2",
+        "betriebselektriker-in-automatiker-in-emmi-suhr"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

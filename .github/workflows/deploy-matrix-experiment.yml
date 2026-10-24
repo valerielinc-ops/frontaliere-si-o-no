@@ -125,14 +125,20 @@ env:
   # Data oltre la quale lo studio non parte più senza una riconferma esplicita
   # (formato YYYY-MM-DD, UTC). Spostarla è una PR di una riga: serve proprio a
   # rendere visibile la scelta di continuare a spendere capacità.
-  EXPERIMENT_EXPIRES_ON: '2026-10-21'
+  # Riaperto il 2026-10-24 per la campagna «durata del deploy al minimo»: ogni
+  # ottimizzazione di build/publish va misurata qui sul proprio branch (wall
+  # time per plugin, picco memoria, byte-identità) prima del merge.
+  EXPERIMENT_EXPIRES_ON: '2026-11-07'
 
-# Gruppo STABILE, non `github.run_id`: al più un run dello studio vivo per volta
-# (vedi «BUDGET DI CAPACITÀ» in testa al file). `cancel-in-progress: false`
-# protegge la misura già partita; l'eccedenza resta pendente e GitHub scarta il
-# pendente precedente senza mai occupare un runner.
+# Gruppo STABILE PER BRANCH, mai `github.run_id`: al più un run vivo per ref
+# (vedi «BUDGET DI CAPACITÀ» in testa al file). Un solo gruppo globale faceva sì
+# che due branch della stessa campagna si scartassero a vicenda il run pendente
+# (GitHub tiene un solo pendente per gruppo): con un gruppo per ref ogni branch
+# misura in serie le proprie varianti, e il costo resta limitato dal numero di
+# branch di campagna aperti, non dal numero di dispatch. `cancel-in-progress:
+# false` protegge la misura già partita.
 concurrency:
-  group: deploy-matrix-experiment
+  group: deploy-matrix-experiment-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
