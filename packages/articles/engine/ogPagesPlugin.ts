@@ -35,7 +35,7 @@ import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxo
 import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath, cantonTopicHubLabel, cantonTopicHubPath } from './shared/cantonSectionCopy.mjs';
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
-import { ARTICLE_TRANSPARENCY, CORRECTIONS_PAGE_PATHS, METHODOLOGY_PAGE_PATHS, disclosureLocale } from './shared/aiDisclosure';
+import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from './shared/aiDisclosure';
 
 /**
  * Rich author identity supplied by the site shell at runtime. The package
@@ -1160,8 +1160,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   const links = ARTICLE_LEGAL_NAV[locale] || ARTICLE_LEGAL_NAV.it;
   const dl = disclosureLocale(locale);
   const tr = ARTICLE_TRANSPARENCY[dl];
-  const methodology = `<a href="${METHODOLOGY_PAGE_PATHS[dl]}">${tr.navMethodology}</a>`;
-  const corrections = `<a href="${CORRECTIONS_PAGE_PATHS[dl]}">${tr.navCorrections}</a>`;
+  const methodology = `<a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${tr.navMethodology}</a>`;
+  const corrections = `<a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${tr.navCorrections}</a>`;
   return `<nav class="ft-static-legal-links" aria-label="${links.aria}">${links.about} | ${methodology} | ${corrections} | ${links.contact} | ${links.privacy}</nav>`;
  };
  // Same disclosure the hydrated article renders (BlogArticles.tsx), from the
@@ -1172,7 +1172,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   const dl = disclosureLocale(locale);
   const tr = ARTICLE_TRANSPARENCY[dl];
   const statement = author?.uid && author.name ? tr.human(author.name) : tr.aiAssisted;
-  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)} ${esc(tr.sources)}</p><p><a href="${METHODOLOGY_PAGE_PATHS[dl]}">${esc(tr.methodology)}</a> · <a href="${CORRECTIONS_PAGE_PATHS[dl]}">${esc(tr.corrections)}</a></p></aside>`;
+  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)} ${esc(tr.sources)}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
  };
 
  // Race-free SPA bundle hash extraction (SiteShellContract.resolveSpaBundle —

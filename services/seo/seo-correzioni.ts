@@ -1,5 +1,6 @@
 import correctionsLog from '../../data/corrections-log.json';
-import { CORRECTIONS_COPY, CORRECTIONS_PATHS, type CorrectionsLocale } from '../editorialCorrections';
+import { CORRECTIONS_COPY, type CorrectionsLocale } from '../editorialCorrections';
+import { DISCLOSURE_ROUTE_CONTRACT } from '../../packages/articles/engine/shared/aiDisclosure';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -23,7 +24,7 @@ export interface CorrezioniSeo {
  * Build the SEO bundle for /correzioni/ in the given locale.
  */
 export function buildCorrezioniSeo(locale: CorrezioniLocale = 'it'): CorrezioniSeo {
-  const canonical = `${BASE_URL}${CORRECTIONS_PATHS[locale]}`;
+  const canonical = `${BASE_URL}${DISCLOSURE_ROUTE_CONTRACT[locale].corrections}`;
   const lastReviewed = resolveLastReviewed();
   const copy = CORRECTIONS_COPY[locale];
   const title = `${copy.title} — ${copy.subtitle} | Frontaliere Ticino`;

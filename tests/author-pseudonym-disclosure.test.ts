@@ -10,7 +10,7 @@ import { EDITORIAL_PROFILE_DISCLOSURE } from '../data/authorLocales';
 import { getAuthorBySlug } from '../data/authors';
 import { renderAuthorEditorial } from '../build-plugins/shared/authorEditorial';
 import { buildAuthorSeo } from '../services/seo/seo-authors';
-import { METHODOLOGY_PAGE_PATHS } from '../packages/articles/engine/shared/aiDisclosure';
+import { DISCLOSURE_ROUTE_CONTRACT } from '../packages/articles/engine/shared/aiDisclosure';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const NOT_A_PERSON = { it: /non una persona reale/, en: /not a real person/, de: /keine reale Person/, fr: /pas une personne réelle/ };
@@ -31,7 +31,7 @@ describe('editorial pseudonyms are declared as such', () => {
       expect(getAuthorBySlug(slug)?.kind).toBe('editorial-profile');
       const html = (renderAuthorEditorial(`${AUTHOR_PATH[locale]}/${slug}/`, locale) ?? []).join('');
       expect(html).toContain(EDITORIAL_PROFILE_DISCLOSURE[locale].replace(/'/g, '&#39;'));
-      expect(html).toContain(`href="${METHODOLOGY_PAGE_PATHS[locale]}"`);
+      expect(html).toContain(`href="${DISCLOSURE_ROUTE_CONTRACT[locale].methodology}"`);
       const ld = buildAuthorSeo(slug, locale).jsonLd;
       expect(ld['@type']).toBe('Organization');
       expect(ld.disambiguatingDescription).toBe(EDITORIAL_PROFILE_DISCLOSURE[locale]);
