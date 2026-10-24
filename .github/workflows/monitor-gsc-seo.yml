@@ -22,7 +22,9 @@ on:
         type: boolean
 
 concurrency:
-  group: monitor-gsc-seo
+  # Shared with post-deploy-publish.yml: both callers restore/save the same
+  # ledger and must never read the same counter concurrently.
+  group: frontaliere-indexing-api-ledger
   # false: a cancelled run would drop the Indexing API ledger (actions/cache
   # saves only when the job completes), re-spending quota on the same URLs.
   cancel-in-progress: false

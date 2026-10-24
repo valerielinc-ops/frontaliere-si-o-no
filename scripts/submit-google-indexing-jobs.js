@@ -194,7 +194,10 @@ async function liveCheck(type, url) {
     const html = res.status === 200 ? await res.text() : '';
     return judgeLive(type, { status: res.status, html });
   } catch {
-    return 'not-job';
+    // A timeout/transport rejection is not evidence that the page lacks a
+    // JobPosting. Keep it retryable; recordOutcome deliberately leaves the
+    // URL's not-job/gone markers untouched for this outcome.
+    return 'transient';
   }
 }
 

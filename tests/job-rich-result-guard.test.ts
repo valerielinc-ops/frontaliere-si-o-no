@@ -61,6 +61,10 @@ describe('pickEvaluationDay', () => {
     expect(pickEvaluationDay(s, '2026-10-24')).toBe('2026-10-21');
     expect(pickEvaluationDay([], '2026-10-24')).toBeNull();
   });
+
+  it('evaluates the settled calendar day even when Search Console omitted its zero-click row', () => {
+    expect(pickEvaluationDay([{ date: '2026-10-20', clicks: 10 }], '2026-10-24')).toBe('2026-10-21');
+  });
 });
 
 describe('evaluateRichShare', () => {

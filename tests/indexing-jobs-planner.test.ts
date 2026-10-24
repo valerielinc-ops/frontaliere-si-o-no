@@ -161,6 +161,14 @@ describe('planSubmissions', () => {
     expect(planSubmissions(l, { today: '2026-11-01', max: 10 }).map((p) => p.url)).toContain(first.url);
   });
 
+  it('keeps a URL retryable after a transient live-check failure', () => {
+    const l = seeded();
+    const [first] = planSubmissions(l, { today: day0, max: 1 });
+    recordOutcome(l, first, 'transient', day0);
+    expect(l.urls[first.url].n).toBeUndefined();
+    expect(planSubmissions(l, { today: day0, max: 10 }).map((p) => p.url)).toContain(first.url);
+  });
+
   it('returns nothing without budget', () => {
     expect(planSubmissions(seeded(), { today: day0, max: 0 })).toEqual([]);
   });

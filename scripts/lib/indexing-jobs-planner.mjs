@@ -234,7 +234,7 @@ export function backlogRank(url) {
  * Apply the outcome of one attempt to the ledger.
  * @param {object} ledger
  * @param {{url: string, type: string}} item
- * @param {'sent'|'not-job'|'still-live'|'failed'} outcome
+ * @param {'sent'|'not-job'|'still-live'|'transient'|'failed'} outcome
  * @param {string} today
  */
 export function recordOutcome(ledger, item, outcome, today) {
@@ -247,6 +247,9 @@ export function recordOutcome(ledger, item, outcome, today) {
   } else if (outcome === 'still-live') {
     e.g = today;
   }
+  // A transport/timeout failure says nothing about the page. Leave the
+  // ledger untouched so the next caller can retry it immediately instead of
+  // parking a valid job behind the seven-day not-job backoff.
 }
 
 /**

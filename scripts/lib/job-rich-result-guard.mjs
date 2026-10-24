@@ -52,8 +52,11 @@ export function hasJobPostingRichResult(richResultsResult) {
  */
 export function pickEvaluationDay(series, today) {
   const limit = iso(Date.parse(`${today}T00:00:00Z`) - SETTLE_DAYS * DAY_MS);
-  const dates = series.map((r) => r.date).filter((d) => d <= limit).sort();
-  return dates.at(-1) || null;
+  // Search Console omits a day when the dimension has no rows. The latest
+  // settled calendar day is still the day we must judge: a zero-click day is
+  // the strongest regression, not permission to silently fall back to an
+  // earlier healthy day. An empty series has no evidence at all.
+  return series.length ? limit : null;
 }
 
 function median(values) {

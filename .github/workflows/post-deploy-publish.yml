@@ -71,6 +71,13 @@ on:
         required: true
         type: string
 
+# The scheduled monitor restores/saves the same Indexing API ledger. Keep the
+# whole reusable workflow in the same non-cancelling queue so two writers
+# cannot both spend the same per-day counter before either cache save lands.
+concurrency:
+  group: frontaliere-indexing-api-ledger
+  cancel-in-progress: false
+
 jobs:
   validate-deploy-publish-caller:
     name: validate legacy deploy-publish caller
