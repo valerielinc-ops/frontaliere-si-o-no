@@ -1,17 +1,22 @@
 import { realpathSync } from 'node:fs';
 /** Owner policy: tests run in CI, but are excluded from model review. */
+import { TEST_DIFF_EXCLUSIONS, TEST_EXTENSIONS } from './prefetch-review-diff.mjs';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import {
+  acceptedReviewInputRevisionsFromBody,
   normalizeReviewInputRevision,
   normalizeReviewInputRevisionInput,
   reviewHasInputRevision,
   reviewInputMarker,
+  reviewInputRevisionFromBody,
 } from './lib/review-input-revision.mjs';
-import { isTerminalManagedReview } from './lib/pr-review-admission.mjs';
+import { isTerminalManagedReview, parseReviewPages } from './lib/pr-review-admission.mjs';
+import { checkClosesLines } from '../lib/pr-body-closes-check.mjs';
+import { checkPrBodySections } from '../lib/pr-body-sections-check.mjs';
 import {
   validateActionClassAgainstPolicy,
   validateDecisionLifecycle,
@@ -206,12 +211,12 @@ function hasMeaningfulBodyContent(text) {
 }
 
 /**
- * Minimal, fail-closed body predicate for the ledger fast lane.
+ * Fail-closed body predicate for the ledger fast lane.
  *
- * The full tests workflow remains the source of the wider body contract for
- * ordinary/mixed PRs. The ledger tier still requires canonical sections,
- * substantive content and the unambiguous no-multi-close rule before it can
- * publish an LGTM early in that same required job.
+ * The full tests workflow remains the source of the wider diff-specific
+ * contract for ordinary/mixed PRs. The ledger tier reuses the canonical
+ * section/state/close checks after its API preflight, so a later body edit
+ * cannot replace a valid review input with an ambiguous residual item.
  */
 export function isReviewBodyComplete(body) {
   if (typeof body !== 'string') return false;
@@ -221,17 +226,24 @@ export function isReviewBodyComplete(body) {
   if (!hasMeaningfulBodyContent(implemented)) return false;
   const nonContent = stripBodyNonContent(notImplemented);
   if (!/\bnessun[oa]?\b/iu.test(nonContent) && !hasMeaningfulBodyContent(notImplemented)) return false;
-  return !MULTI_CLOSE_RE.test(stripBodyNonContent(body));
+  // This check runs again after the API preflight, so it must use the same
+  // canonical section/state contract as the PR write gate. The early
+  // workflow check is a separate race boundary; a later body edit must not
+  // be able to replace a complete body with a vague residual item.
+  const sections = checkPrBodySections(body, {
+    strictDecisionDeferrals: true,
+    strictClaims: true,
+  });
+  const completeWithoutResiduals = /^[-*+][ \t]+nessun[oa]?\.?$/iu.test(nonContent.trim());
+  if (!sections.ok || (sections.warnings.some((warning) => warning.type === 'bullet-without-state')
+    && !completeWithoutResiduals)) return false;
+  const closes = checkClosesLines(body);
+  return closes.ok && !MULTI_CLOSE_RE.test(stripBodyNonContent(body));
 }
 
-const TEST_EXTENSIONS = ['js', 'jsx', 'ts', 'tsx', 'mjs', 'cjs', 'mts', 'cts', 'd.ts', 'd.mts', 'd.cts'];
 export const TEST_PATH_RE = new RegExp('(?:^|/)(?:tests|__tests__)/|\\.(?:test|spec)\\.(?:'
   + TEST_EXTENSIONS.map(ext => ext.replaceAll('.', '\\.')).join('|') + ')$');
-export const TEST_DIFF_EXCLUSIONS = [
-  ':(glob,exclude)**/tests/**', ':(glob,exclude)**/__tests__/**',
-  ...TEST_EXTENSIONS.flatMap(ext =>
-    ['test', 'spec'].map(kind => `:(glob,exclude)**/*.${kind}.${ext}`)),
-];
+export { TEST_DIFF_EXCLUSIONS };
 export const isReviewTestPath = path => typeof path === 'string' && TEST_PATH_RE.test(path);
 function trustedGhBin() {
   const value = String(process.env.TRUSTED_GH_BIN || '').trim();
@@ -284,7 +296,9 @@ export function findTestOnlyApproval(
     ? undefined
     : normalizeReviewInputRevisionInput(reviewRevision);
   if (reviewRevision !== undefined && !revision) return null;
-  const candidates = (reviews ?? []).flat().filter(review => isTerminalManagedReview(review)
+  const parsedReviews = parseReviewPages(reviews);
+  if (!parsedReviews) return null;
+  const candidates = parsedReviews.filter(review => isTerminalManagedReview(review)
     && /^frontaliere-automation\[bot\]$/.test(review.user.login ?? '')
     && review.commit_id === head && String(review.body ?? '').includes(TEST_REVIEW_MARKER)
     && (revision === undefined || reviewHasInputRevision(review.body, revision))
@@ -298,8 +312,9 @@ export function postTestOnlyReview({ repo, pr, head, reviewRevision, ghFn = gh }
   if (!revision) throw new Error('Review input revision is not verifiable');
   if (!verifyTestOnlyHead(ghFn, repo, pr, head)) throw new Error('PR is not a complete tests-only change on the expected HEAD');
   const reviews = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate']);
-  if (!Array.isArray(reviews)) throw new Error('Reviews API is unavailable or malformed');
-  if (findTestOnlyApproval(reviews, head, { ghFn, repo, pr, reviewRevision: revision })) return;
+  const parsedReviews = parseReviewPages(reviews);
+  if (!parsedReviews) throw new Error('Reviews API is unavailable or malformed');
+  if (findTestOnlyApproval(parsedReviews, head, { ghFn, repo, pr, reviewRevision: revision })) return;
   const body = `${TEST_REVIEW_MARKER}\n${reviewInputMarker(revision)}\n## Scope\nApprovazione automatica: la PR modifica esclusivamente test. I controlli CI e il contratto del body restano obbligatori; nessuna review del modello richiesta dalla policy del proprietario.\n\n## Findings (Important: 0, Nit: 0)\n\n## LGTM\n`;
   const posted = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--method', 'POST', '--input', '-'], {
     input: JSON.stringify({ commit_id: head, event: 'COMMENT', body }),
@@ -587,18 +602,29 @@ export function verifyLedgerOnlyHead(ghFn, repo, pr, head) {
 }
 
 export function findLedgerOnlyApproval(reviews, head, { ghFn = gh, repo, pr } = {}) {
-  const candidates = (reviews ?? []).flat().filter((review) => {
+  const parsedReviews = parseReviewPages(reviews);
+  if (!parsedReviews) return null;
+  const inspection = inspectLedgerOnlyHead(ghFn, repo, pr, head);
+  if (!inspection.ok) return null;
+  let acceptedRevisions;
+  try {
+    acceptedRevisions = acceptedReviewInputRevisionsFromBody(inspection.metadata.body);
+  } catch {
+    return null;
+  }
+  const candidates = parsedReviews.filter((review) => {
     const body = String(review?.body ?? '');
     return review?.user?.type === 'Bot'
       && review?.user?.login === 'frontaliere-automation[bot]'
       && ['COMMENTED', 'APPROVED'].includes(String(review?.state || '').toUpperCase())
       && review.commit_id === head
       && body.includes(LOOP_FLEET_LEDGER_REVIEW_MARKER)
+      && reviewHasInputRevision(body, acceptedRevisions)
       && /^## Findings \(Important: 0, Nit: 0\)\s*$/mu.test(body)
       && /^## LGTM\s*$/mu.test(body)
       && !/🔴/u.test(body);
   });
-  if (!candidates.length || !verifyLedgerOnlyHead(ghFn, repo, pr, head)) return null;
+  if (!candidates.length) return null;
   return candidates.at(-1);
 }
 
@@ -609,13 +635,17 @@ export function postLedgerOnlyReview({ repo, pr, head, ghFn = gh }) {
   const first = inspectLedgerOnlyHead(ghFn, repo, pr, head);
   if (!first.ok) throw new Error(`PR non autorizzabile dal fast path ledger: ${first.reason}`);
   const reviews = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate']);
-  if (findLedgerOnlyApproval(reviews, head, { ghFn, repo, pr })) return;
+  const parsedReviews = parseReviewPages(reviews);
+  if (!parsedReviews) throw new Error('Reviews API is unavailable or malformed');
+  if (findLedgerOnlyApproval(parsedReviews, head, { ghFn, repo, pr })) return;
   // A body edit can arrive while the review list is being read. Re-read the
   // complete target immediately before the mutation; the next edited event is
   // also allowed to run because the fast workflow uses cancel-in-progress=false.
   const final = inspectLedgerOnlyHead(ghFn, repo, pr, head);
   if (!final.ok) throw new Error(`PR cambiata prima della review: ${final.reason}`);
+  const reviewRevision = reviewInputRevisionFromBody(final.metadata.body);
   const body = `${LOOP_FLEET_LEDGER_REVIEW_MARKER}
+${reviewInputMarker(reviewRevision)}
 ## Scope
 - HEAD esatta verificata: \`${head}\`.
 - File-list completa verificata: esclusivamente i quattro JSONL canonici del ledger; nessun path mixed, unknown o rename.

@@ -47,6 +47,11 @@ import {
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { isCantonTicinoOscPosting } from './crawler-company-ownership.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import {
+  SOURCE_URL as OFFICIAL_LISTING_URL,
+  isTichOfficialListingHtml,
+  parseConcorsiHtml,
+} from '../scrape-concorsi-ti.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -57,6 +62,7 @@ export const CANTON_TICINO_OSC_COMPANY_DOMAIN = 'concorsi.ti.ch';
 
 const LISTING_URL = 'https://www.concorsi.ti.ch/';
 const BASE_URL = 'https://www.concorsi.ti.ch';
+const OFFICIAL_DETAIL_PATH = "/offerte-d'impieghi.html";
 
 // Drop these entirely (placeholders / cross-dept).
 const SKIP_TITLE_RE = /Candidatur[ae]\s+spontane|spontanbewerb/i;
@@ -120,6 +126,41 @@ export function parseConcorsiListingIndex(html = '') {
       decodeEntities(String(m[3]).replace(/<[^>]+>/g, '')),
     );
     out.push({ yid, anchorText });
+  }
+  return out;
+}
+
+/**
+ * Parse the official Canton Ticino listing used when the Rexx portal cannot
+ * be reached. Reuse the shared official-page parser, then validate the
+ * consumer URL again at this boundary: only the canonical detail host/path
+ * and a numeric yid are safe to hand to the OSC detail fetcher.
+ */
+export function parseOfficialConcorsiListing(html = '') {
+  if (!isTichOfficialListingHtml(html)) return [];
+
+  const out = [];
+  const seen = new Set();
+  for (const row of parseConcorsiHtml(html)) {
+    if (!row?.title || typeof row.url !== 'string') continue;
+
+    let detailUrl;
+    try {
+      detailUrl = new URL(row.url);
+    } catch {
+      continue;
+    }
+
+    if (
+      detailUrl.protocol !== 'https:'
+      || detailUrl.hostname !== 'www.concorsi.ti.ch'
+      || detailUrl.pathname !== OFFICIAL_DETAIL_PATH
+    ) continue;
+
+    const yid = detailUrl.searchParams.get('yid');
+    if (!/^\d+$/.test(yid || '') || seen.has(yid)) continue;
+    seen.add(yid);
+    out.push({ yid, anchorText: normalizeSpace(row.title) });
   }
   return out;
 }
@@ -196,13 +237,39 @@ export async function fetchAllCantonTicinoOscJobs() {
   console.log(`🏥 Fetching ${CANTON_TICINO_OSC_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL} (TI cantonal jobportal — filtered to DSS / OSC)\n`);
 
-  let indexHtml;
+  let candidates = [];
+  let indexError;
   try {
-    indexHtml = await fetchHtml(LISTING_URL, { timeoutMs });
+    const indexHtml = await fetchHtml(LISTING_URL, { timeoutMs });
+    candidates = parseConcorsiListingIndex(indexHtml);
   } catch (err) {
-    throw new Error(`Failed to fetch concorsi.ti.ch index: ${err?.message || err}`);
+    indexError = err;
+    console.warn(`  ⚠️  ${LISTING_URL} unavailable: ${err?.message || err}`);
   }
-  const candidates = parseConcorsiListingIndex(indexHtml);
+
+  if (candidates.length === 0) {
+    try {
+      const officialHtml = await fetchHtml(OFFICIAL_LISTING_URL, { timeoutMs });
+      candidates = parseOfficialConcorsiListing(officialHtml);
+      if (candidates.length > 0) {
+        console.warn(
+          `  ↪️  Using official Canton Ticino listing fallback: ${OFFICIAL_LISTING_URL}`,
+        );
+      }
+    } catch (err) {
+      if (indexError) {
+        throw new Error(
+          `Failed to fetch concorsi.ti.ch index and official Canton Ticino listing: ${indexError?.message || indexError}; ${err?.message || err}`,
+          { cause: err },
+        );
+      }
+      throw new Error(
+        `Failed to parse or fetch official Canton Ticino listing: ${err?.message || err}`,
+        { cause: err },
+      );
+    }
+  }
+
   console.log(`  📋 Found ${candidates.length} active concorsi on index\n`);
   if (candidates.length === 0) return [];
 

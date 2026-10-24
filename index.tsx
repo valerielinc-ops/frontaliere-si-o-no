@@ -1,6 +1,11 @@
 import './index.css';
+import { captureStaticHead } from './services/seo/staticHeadAuthority';
 import { waitForInitialPaintOpportunity } from './services/initialPaintBootstrap';
 import type { StaticFallbackKind } from './services/staticFallbackHandoff';
+
+// Before any module can touch the head: record the robots/canonical/hreflang
+// the document was served with, which stay authoritative for this URL.
+captureStaticHead();
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
