@@ -285,7 +285,9 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /data/canton-url-slugs.json
+            /data/swiss-article-canonical-overrides.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/eventArchiveNoindexTargetMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/pharmacyNoindexTargetMarker.mjs
@@ -360,7 +362,9 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /data/canton-url-slugs.json
+            /data/swiss-article-canonical-overrides.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/eventArchiveNoindexTargetMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/pharmacyNoindexTargetMarker.mjs
@@ -445,7 +449,9 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /data/canton-url-slugs.json
+            /data/swiss-article-canonical-overrides.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/eventArchiveNoindexTargetMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/pharmacyNoindexTargetMarker.mjs
@@ -531,7 +537,9 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /data/canton-url-slugs.json
+            /data/swiss-article-canonical-overrides.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/eventArchiveNoindexTargetMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/pharmacyNoindexTargetMarker.mjs
@@ -612,7 +620,9 @@ jobs:
           sparse-checkout: |
             /scripts/seo/
             /data/canton-url-slugs.json
+            /data/swiss-article-canonical-overrides.json
             /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/eventArchiveNoindexTargetMarker.mjs
             /build-plugins/shared/weeklyEmployersRoutes.mjs
             /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
             /build-plugins/shared/pharmacyNoindexTargetMarker.mjs
