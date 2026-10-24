@@ -98,7 +98,9 @@ describe('fixed bottom chrome follows the anchor ad with translate, not bottom',
   it('no box carrying ABOVE_MOBILE_NAV_BOTTOM uses a Tailwind translate utility or an inline bottom', () => {
     const shell = read('components/shared/BottomPromptShell.tsx');
     const align = shell.slice(shell.indexOf('const ALIGN_CLASS'), shell.indexOf('const WIDTH_CLASS'));
-    expect(align).not.toMatch(/translate-/u);
+    const alignValues = [...align.matchAll(/^\s*\w+: '([^']*)',$/gmu)].map((m) => m[1]);
+    expect(alignValues).toEqual(['right-4', 'inset-x-0 mx-auto']);
+    expect(alignValues.join(' ')).not.toMatch(/translate-/u);
 
     const alertForm = read('components/community/JobAlertForm.tsx');
     const toastLine = alertForm.split('\n').find((l) => l.includes('${ABOVE_MOBILE_NAV_BOTTOM}')) ?? '';
