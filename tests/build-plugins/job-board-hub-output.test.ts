@@ -245,7 +245,11 @@ describe('job-board emitted output', () => {
       expect(detail.querySelector('meta[name="robots"]')?.getAttribute('content')).toContain('noindex');
       expect(detail.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(`https://frontaliereticino.ch${hubPath(locale, 'TI')}${job.slug}/`);
     }
-    for (const name of ['sitemap-jobs.xml', 'sitemap-jobs-ticino.xml', 'sitemap-jobs-zurigo.xml', 'sitemap-jobs-svizzera.xml']) {
+    // Every job sitemap file: the Ticino roots and IT details live in
+    // sitemap-jobs.xml only, the locale variants in sitemap-jobs-<canton>-<locale>.xml.
+    const jobSitemaps = fs.readdirSync(path.join(root, 'dist')).filter((name) => /^sitemap-jobs(?:-[a-z0-9-]+)?\.xml$/.test(name));
+    expect(jobSitemaps).toEqual(expect.arrayContaining(['sitemap-jobs.xml', 'sitemap-jobs-zurigo.xml', 'sitemap-jobs-svizzera.xml']));
+    for (const name of jobSitemaps) {
       const xml = fs.readFileSync(path.join(root, 'dist', name), 'utf8');
       expect(xml).not.toContain('listing-only-0/');
       expect(xml).not.toContain('cuoco-acme-ticino/');

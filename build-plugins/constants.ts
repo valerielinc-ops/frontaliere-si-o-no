@@ -382,6 +382,16 @@ export function buildCanonicalBridgePage(options: {
  lang?: string;
  noindex?: boolean;
  hreflangEntries?: Array<{ hreflang: string; href: string }>;
+ /**
+  * `false` = a stand-alone `noindex,follow` bridge: no `<link rel=canonical>`
+  * and no hreflang alternates. A noindex page that canonicalizes onto another
+  * URL sends Google two contradictory instructions (drop me / index that one
+  * instead) and hreflang from a noindex page names alternates for a document
+  * that must not be in the index at all. The bridge's job is the visible CTA
+  * and `follow`; the ranking transfer, where one exists, is the edge's 301.
+  * Only valid with `noindex: true`.
+  */
+ crossPageSignals?: boolean;
 }): string {
  const {
  canonicalUrl,
@@ -393,12 +403,16 @@ export function buildCanonicalBridgePage(options: {
  lang = 'it',
  noindex = false,
  hreflangEntries,
+ crossPageSignals = true,
  } = options;
+ if (!crossPageSignals && !noindex) {
+ throw new Error('buildCanonicalBridgePage: crossPageSignals:false is only valid on a noindex bridge');
+ }
 
  // Indexable bridges are real SERP entry points, so they get the same
  // preview qualifiers as any other indexable page (see normalizeRobotsDirective).
  const robotsContent = noindex ? 'noindex,follow' : ROBOTS_INDEX_ENHANCED_CONTENT;
- const hreflangHtml = hreflangEntries && hreflangEntries.length > 0
+ const hreflangHtml = crossPageSignals && hreflangEntries && hreflangEntries.length > 0
  ? '\n' + hreflangEntries.map(e => ` <link rel="alternate" hreflang="${e.hreflang}" href="${e.href}">`).join('\n')
  : '';
 
@@ -409,8 +423,8 @@ export function buildCanonicalBridgePage(options: {
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>${title}</title>
  <meta name="description" content="${clampMetaDescription(description, undefined, lang)}">
- <meta name="robots" content="${robotsContent}">
- <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
+ <meta name="robots" content="${robotsContent}">${crossPageSignals ? `
+ <link rel="canonical" href="${canonicalUrl}">` : ''}${hreflangHtml}
  ${ANALYTICS_SNIPPET}
  ${SPA_ACTION_REDIRECT_SCRIPT}
  ${BRIDGE_CSS_LINK}

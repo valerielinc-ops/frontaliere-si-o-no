@@ -13,6 +13,8 @@
  *     FAIL or ERROR-severity detectedItems issues) → creates GitHub issue
  *     (priority 3), separate from indexation FAIL
  * 5. Submits stale URLs via IndexNow for re-crawl
+ * 5b. Queues job pages missing an explicit Job postings rich result through
+ *     the Google Indexing API
  * 6. Logs summary with trend data
  * 7. Anti-regression for job rich results (scripts/lib/job-rich-result-guard.mjs):
  *    - JOB_LISTING clicks (searchAppearance, dataState all) vs the median of
@@ -266,7 +268,10 @@ async function getAppearanceSeries(accessToken, siteUrl, appearance) {
     );
     if (!res.ok) return { error: `http-${res.status}`, rows: [] };
     const data = await res.json();
-    return { rows: (data.rows || []).map(r => ({ date: r.keys[0], clicks: r.clicks || 0, impressions: r.impressions || 0 })) };
+    return {
+      startDate: fmt(start),
+      rows: (data.rows || []).map(r => ({ date: r.keys[0], clicks: r.clicks || 0, impressions: r.impressions || 0 })),
+    };
   } catch (err) {
     return { error: err.message, rows: [] };
   }
@@ -575,6 +580,7 @@ async function main() {
   const failedPages = [];
   const warnPages = [];
   const stalePages = [];
+  const jobRichResultRegressions = [];
 
   for (const pageUrl of sample) {
     const liveJob = await isLiveJobPage(pageUrl);
@@ -596,12 +602,23 @@ async function main() {
     const category = result.error ? 'UNKNOWN' : categorize(result, pageUrl);
     results[category]++;
 
+    const jobRichResultRegressionReason = isJobPageUrl(pageUrl)
+      ? jobPostingRichResultRegression(result)
+      : null;
+    if (jobRichResultRegressionReason) {
+      jobRichResultRegressions.push({
+        url: pageUrl,
+        ...result,
+        richResultRegression: jobRichResultRegressionReason,
+      });
+    }
+
     const path = new URL(pageUrl).pathname;
     const shortPath = path.slice(0, 65);
 
     switch (category) {
       case 'PASS':
-        log('  ✅', `${shortPath} — PASS ${result.richResults === 'PASS' ? '(RR ✓)' : ''}`);
+        log('  ✅', `${shortPath} — PASS ${hasJobPostingRichResult(result) ? '(Job postings ✓)' : '(Job postings missing)'}${result.richResults === 'PASS' ? '' : ` (${result.richResults})`}`);
         break;
       case 'FAIL':
         log('  ❌', `${shortPath} — FAIL (canonical: ${result.googleCanonical || 'unknown'})`);
@@ -664,7 +681,7 @@ async function main() {
   }
 
   // Write GitHub Step Summary
-  writeStepSummary({ results, sample, failedPages, warnPages, persistentFailures, history });
+  writeStepSummary({ results, sample, failedPages, warnPages, persistentFailures, history, jobRichResultRegressions });
 
   // Act on failures
   if (failedPages.length > 0 && !DRY_RUN) {
@@ -694,6 +711,19 @@ async function main() {
     log('ℹ️', 'DRY RUN — would create structured-data GitHub issue');
   }
 
+  if (jobRichResultRegressions.length > 0 && !DRY_RUN) {
+    log('🚨', `${jobRichResultRegressions.length} job page(s) lack a Job postings rich result — creating regression issue (P2)`);
+    await createJobRichResultIssue(jobRichResultRegressions);
+    const queue = planJobIndexingUrls(jobRichResultRegressions, { limit: MAX_INSPECT });
+    if (queue.length > 0) {
+      log('📨', `Queueing ${queue.length} JobPosting URL(s) for the Google Indexing API`);
+      const outcomes = await notifyGoogleIndexing(queue);
+      log('📊', `JobPosting re-crawl queue: ${outcomes.filter((item) => item.ok).length}/${queue.length} accepted`);
+    }
+  } else if (jobRichResultRegressions.length > 0 && DRY_RUN) {
+    log('ℹ️', `DRY RUN — would open a JobPosting rich-result issue and queue ${jobRichResultRegressions.length} URL(s)`);
+  }
+
   // Re-submit stale pages via IndexNow
   if (stalePages.length > 0 && !DRY_RUN) {
     log('📤', `Submitting ${stalePages.length} stale URLs to IndexNow for re-crawl`);
@@ -709,9 +739,11 @@ async function checkRichResultRegression({ accessToken, siteUrl, today, richRows
   const appearances = {};
   for (const appearance of ['JOB_LISTING', 'JOB_DETAILS']) {
     const series = await getAppearanceSeries(accessToken, siteUrl, appearance);
-    const day = pickEvaluationDay(series.rows, today);
+    // An API error is "unknown", never "zero clicks": only a successful query
+    // turns missing days into zeros.
+    const day = series.error ? null : pickEvaluationDay(series.rows, today);
     appearances[appearance] = day
-      ? evaluateWeekdayDrop(series.rows, { day })
+      ? evaluateWeekdayDrop(series.rows, { day, historyStart: series.startDate })
       : { day: null, alert: false, reason: series.error || 'no-data' };
   }
   const listing = appearances.JOB_LISTING;
@@ -967,6 +999,44 @@ async function createStructuredDataIssue(pages) {
     log('📋', 'GitHub issue created (structured data)');
   } catch (err) {
     log('⚠️', `GitHub issue creation failed: ${err.message}`);
+  }
+}
+
+async function createJobRichResultIssue(pages) {
+  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+  if (!apiKey) {
+    log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping JobPosting regression issue');
+    return;
+  }
+
+  const description = [
+    '## GSC Job Posting Rich-Result Regression',
+    '',
+    `**Date**: ${new Date().toISOString().split('T')[0]}`,
+    `**Affected pages**: ${pages.length}`,
+    '**Signal**: URL Inspection returned no explicit `Job postings` rich result.',
+    '',
+    '### Affected pages',
+    ...pages.map((page) => `- \`${new URL(page.url).pathname}\` — rich-results verdict: \`${page.richResults || 'UNKNOWN'}\``),
+    '',
+    '### Required response',
+    '1. Verify the live page still emits a complete `JobPosting` JSON-LD object.',
+    '2. Check the URL in Search Console after the queued Indexing API notification.',
+    '3. Resolve this issue only after the daily monitor reports `Job postings` for every sampled page.',
+  ].join('\n');
+
+  try {
+    const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
+    await create({
+      title: '[Monitor] JobPosting rich-result regression',
+      description,
+      priority: 2,
+      labels: ['Bug', 'seo'],
+      project: 'SEO',
+    });
+    log('📋', 'GitHub JobPosting rich-result regression issue created/updated');
+  } catch (err) {
+    log('⚠️', `JobPosting regression issue creation failed: ${err.message}`);
   }
 }
 

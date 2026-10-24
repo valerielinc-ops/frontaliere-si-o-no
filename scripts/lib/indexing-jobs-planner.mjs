@@ -235,6 +235,8 @@ export function backlogRank(url) {
  * @param {object} ledger
  * @param {{url: string, type: string}} item
  * @param {'sent'|'not-job'|'still-live'|'transient'|'failed'} outcome
+ *   `transient` (timeout, network error, 429/5xx) leaves the entry untouched,
+ *   so the URL stays plannable on the next run.
  * @param {string} today
  */
 export function recordOutcome(ledger, item, outcome, today) {
@@ -247,9 +249,6 @@ export function recordOutcome(ledger, item, outcome, today) {
   } else if (outcome === 'still-live') {
     e.g = today;
   }
-  // A transport/timeout failure says nothing about the page. Leave the
-  // ledger untouched so the next caller can retry it immediately instead of
-  // parking a valid job behind the seven-day not-job backoff.
 }
 
 /**
@@ -259,9 +258,11 @@ export function recordOutcome(ledger, item, outcome, today) {
  * 200 with a robots noindex (Google's Indexing API removal contract).
  * @param {'URL_UPDATED'|'URL_DELETED'} type
  * @param {{status: number, html?: string}} res
- * @returns {'ok'|'not-job'|'still-live'}
+ * A 429/5xx is `transient`: the edge said nothing about the page itself.
+ * @returns {'ok'|'not-job'|'still-live'|'transient'}
  */
 export function judgeLive(type, { status, html = '' }) {
+  if (status === 429 || status >= 500) return 'transient';
   const noindex = /<meta[^>]+name=["']?robots["']?[^>]*content=["'][^"']*noindex/i.test(html)
     || /<meta[^>]+content=["'][^"']*noindex[^"']*["'][^>]*name=["']?robots/i.test(html);
   if (type === 'URL_DELETED') {

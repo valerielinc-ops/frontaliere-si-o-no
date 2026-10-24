@@ -44,6 +44,27 @@ describe('checkShrinkAck — the acknowledged transition', () => {
   });
 });
 
+describe('checkShrinkAck — intentional IT transitions from PR #15036', () => {
+  const transitions = [
+    ['appenzello', 9707, 3210],
+    ['friburgo', 23857, 10760],
+    ['giura', 6702, 1507],
+    ['svitto', 15786, 6171],
+    ['zugo', 20582, 9385],
+    ['sciaffusa', 16085, 5947],
+    ['neuchatel', 10426, 3369],
+    ['obvaldo', 9584, 2868],
+    ['nidvaldo', 8752, 2627],
+    ['uri', 7976, 2005],
+    ['glarona', 5902, 1225],
+    ['vallese', 26966, 12382],
+  ] as const;
+
+  it.each(transitions)('accepts the measured %s-it transition (%s -> %s)', (section, prev, next) => {
+    expect(checkShrinkAck({ section, locale: 'it', prev, next, acks: SHIPPED }).acknowledged).toBe(true);
+  });
+});
+
 // If the mechanism were wrong, every one of these would go green — which is the
 // whole failure mode being guarded against.
 describe('checkShrinkAck — negative controls', () => {
@@ -68,11 +89,12 @@ describe('checkShrinkAck — negative controls', () => {
     expect(checkShrinkAck({ section: 'zurigo', locale: 'fr', prev: 353163, next: 10, acks: SHIPPED }).acknowledged).toBe(false);
   });
 
-  it('refuses a locale that was never acknowledged (giura/it published on its own)', () => {
-    // giura-it shrank 10249 -> 7065 (-31%), stayed under the threshold and
-    // pushed unaided. It must NOT inherit fr/en/de's acknowledgement.
-    expect(SHIPPED.giura.it).toBeUndefined();
-    expect(checkShrinkAck({ section: 'giura', locale: 'it', prev: 10249, next: 50, acks: SHIPPED }).acknowledged).toBe(false);
+  it('refuses a locale that was never acknowledged (vallese/fr)', () => {
+    // This issue acknowledges vallese-it only. Its sibling locale must not
+    // inherit the pin, even when it has the same old baseline.
+    expect(SHIPPED.vallese.it).toBeDefined();
+    expect(SHIPPED.vallese.fr).toBeUndefined();
+    expect(checkShrinkAck({ section: 'vallese', locale: 'fr', prev: 26966, next: 10, acks: SHIPPED }).acknowledged).toBe(false);
   });
 
   it('refuses non-integer counts rather than coercing them', () => {
