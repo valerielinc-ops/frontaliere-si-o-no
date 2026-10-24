@@ -214,8 +214,21 @@ const claimedOutputDescendants = new Map<string, string>();
 const sharedPathDeclarations: SharedPathDeclaration[] = [];
 let buildGeneration = 0;
 
-function assertOutputPathShapeAvailable(filePath: string): void {
+/**
+ * `path.resolve()` always allocates a fresh string, even for a path that is
+ * already absolute and normalized. The shape index retains one entry per
+ * emitted file (1.4M+ on a jobs-SEO leg), so keep the caller's string — the
+ * same object `pathHistory` already holds as its key — whenever the resolved
+ * form is identical. `path.dirname()` slices of it then share that storage
+ * instead of pinning a second copy (run 40057008446, leg de, rss-ceiling).
+ */
+function resolveRetainedPath(filePath: string): string {
   const resolved = path.resolve(filePath);
+  return resolved === filePath ? filePath : resolved;
+}
+
+function assertOutputPathShapeAvailable(filePath: string): void {
+  const resolved = resolveRetainedPath(filePath);
   let ancestor = path.dirname(resolved);
   while (ancestor !== resolved) {
     if (claimedOutputPaths.has(ancestor)) {
@@ -241,7 +254,7 @@ function assertOutputPathShapeAvailable(filePath: string): void {
 }
 
 function rememberOutputPathShape(filePath: string): void {
-  const resolved = path.resolve(filePath);
+  const resolved = resolveRetainedPath(filePath);
   if (claimedOutputPaths.has(resolved)) return;
 
   claimedOutputPaths.add(resolved);
@@ -271,6 +284,22 @@ const dumpedHashes = new Set<string>();
  */
 let dumpContentDir: string | null = null;
 let dumpDirMkdirDone = false;
+
+/**
+ * One `<lazy:${plugin}>` placeholder per plugin name. A template literal per
+ * claim allocated a new string on every first write and kept it in
+ * `pathHistory` for the whole build; the value is identical per plugin.
+ */
+const lazyCallSiteByPlugin = new Map<string, string>();
+
+function lazyCallSite(plugin: string): string {
+  let callSite = lazyCallSiteByPlugin.get(plugin);
+  if (callSite === undefined) {
+    callSite = `<lazy:${plugin}>`;
+    lazyCallSiteByPlugin.set(plugin, callSite);
+  }
+  return callSite;
+}
 
 /** Reference clock for {@link ClaimVersion.timestamp}. Reset by {@link reset}. */
 let buildStartMs = Date.now();
@@ -409,7 +438,7 @@ export function claim(claimPath: string, plugin: string, content: string): Claim
   // resolution for the few writes that actually clash.
   const newVersion = (): ClaimVersion => ({
     plugin,
-    callSite: `<lazy:${plugin}>`,
+    callSite: lazyCallSite(plugin),
     contentHash,
     size: Buffer.byteLength(content, 'utf-8'),
     timestamp: Date.now() - buildStartMs,

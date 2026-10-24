@@ -8609,6 +8609,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prezzi-pompa-non-calano-svizzera.title': 'Prix à la pompe stagnent en Suisse : raffinage et Rhin',
     'blog.article.prezzi-pompa-non-calano-svizzera.excerpt': 'Les flux en provenance d\'Ormuz restent inférieurs de 30-40 %.',
     'blog.article.prezzi-pompa-non-calano-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.successione-parmelin-otto-nomi.title': 'Conseil fédéral : huit noms en lice pour succéder à Parmelin',
+    'blog.article.successione-parmelin-otto-nomi.excerpt': 'La course à la succession de Parmelin atteint huit noms Graber et Ruppen se présentent à Berne Les candidatures cantonales arrivent à échéance vendredi à midi Le vote est',
+    'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
