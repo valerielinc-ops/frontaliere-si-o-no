@@ -1084,72 +1084,92 @@ jobs:
       - name: Prune to locale shard
         run: node scripts/ci/prune-locale-shard.mjs dist
 
-      # Hreflang index manifest (scripts/lib/hreflang-index-manifest.mjs):
-      # hreflang survives only between indexable, self-canonical, reciprocal
-      # pages. This leg's own locale is judged on THIS run's dist; the other
-      # three on the newest manifest another leg saved — possibly a sibling
-      # leg of this same run that got here first, otherwise the previous run.
-      # The restores sit here, not at job start, so they see the freshest
-      # sibling save. A missing manifest means "not judged" (the behaviour
-      # before this step) and is annotated, never silent.
-      - name: Restore hreflang index manifest (it)
-        if: matrix.locale != 'it'
-        continue-on-error: true
-        uses: actions/cache/restore@v6
-        with:
-          path: .cache/hreflang-index-manifest/it.json
-          key: hreflang-index-manifest-it-${{ github.run_id }}
-          restore-keys: |
-            hreflang-index-manifest-it-
-
-      - name: Restore hreflang index manifest (en)
-        if: matrix.locale != 'en'
-        continue-on-error: true
-        uses: actions/cache/restore@v6
-        with:
-          path: .cache/hreflang-index-manifest/en.json
-          key: hreflang-index-manifest-en-${{ github.run_id }}
-          restore-keys: |
-            hreflang-index-manifest-en-
-
-      - name: Restore hreflang index manifest (de)
-        if: matrix.locale != 'de'
-        continue-on-error: true
-        uses: actions/cache/restore@v6
-        with:
-          path: .cache/hreflang-index-manifest/de.json
-          key: hreflang-index-manifest-de-${{ github.run_id }}
-          restore-keys: |
-            hreflang-index-manifest-de-
-
-      - name: Restore hreflang index manifest (fr)
-        if: matrix.locale != 'fr'
-        continue-on-error: true
-        uses: actions/cache/restore@v6
-        with:
-          path: .cache/hreflang-index-manifest/fr.json
-          key: hreflang-index-manifest-fr-${{ github.run_id }}
-          restore-keys: |
-            hreflang-index-manifest-fr-
-
-      # Every decision is taken before the first write, so a failure while
-      # reading leaves dist/ exactly as the build emitted it: the step can be
-      # non-blocking without ever shipping a half-applied graph from a crash
-      # in the read passes. Revert trigger: wall time > 15 min on a leg or an
-      # OOM in this step on the first deploys after merge.
-      - name: Hreflang index manifest (keep only reciprocal indexable clusters)
-        id: hreflang-index-manifest
-        continue-on-error: true
+      # First publish only this leg's complete manifest. No leg rewrites HTML
+      # before all four same-run manifests exist; this is the barrier that
+      # prevents one matrix leg from judging a sibling against a different
+      # run/attempt snapshot.
+      - name: Hreflang index manifest (pre-barrier, no rewrite)
+        id: hreflang-index-manifest-pre
         timeout-minutes: 30
-        run: node scripts/ci/hreflang-index-manifest.mjs dist --manifest-dir .cache/hreflang-index-manifest
+        run: |
+          set -euo pipefail
+          rm -rf .cache/hreflang-index-manifest
+          mkdir -p .cache/hreflang-index-manifest
+          node scripts/ci/hreflang-index-manifest.mjs dist \
+            --manifest-dir .cache/hreflang-index-manifest \
+            --dry-run
 
       - name: Save hreflang index manifest (${{ matrix.locale }})
-        if: steps.hreflang-index-manifest.outcome == 'success'
-        continue-on-error: true
         uses: actions/cache/save@v6
         with:
           path: .cache/hreflang-index-manifest/${{ matrix.locale }}.json
           key: hreflang-index-manifest-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Wait for complete same-run hreflang manifest set
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          HREFlANG_RUN_ID: ${{ github.run_id }}
+          HREFlANG_RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          deadline=$((SECONDS + 900))
+          while :; do
+            complete=1
+            for locale in it en de fr; do
+              key="hreflang-index-manifest-${locale}-${HREFlANG_RUN_ID}-${HREFlANG_RUN_ATTEMPT}"
+              count="$(gh api -X GET "repos/${GH_REPO}/actions/caches?key=${key}" --jq '.total_count')"
+              if [ "${count:-0}" -lt 1 ]; then
+                complete=0
+                break
+              fi
+            done
+            if [ "$complete" -eq 1 ]; then
+              echo "✓ complete same-run hreflang manifest set is available"
+              break
+            fi
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::same-run hreflang manifest barrier timed out"
+              exit 1
+            fi
+            sleep 10
+          done
+
+      - name: Restore same-run hreflang index manifest (it)
+        if: matrix.locale != 'it'
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/hreflang-index-manifest/it.json
+          key: hreflang-index-manifest-it-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Restore same-run hreflang index manifest (en)
+        if: matrix.locale != 'en'
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/hreflang-index-manifest/en.json
+          key: hreflang-index-manifest-en-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Restore same-run hreflang index manifest (de)
+        if: matrix.locale != 'de'
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/hreflang-index-manifest/de.json
+          key: hreflang-index-manifest-de-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Restore same-run hreflang index manifest (fr)
+        if: matrix.locale != 'fr'
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/hreflang-index-manifest/fr.json
+          key: hreflang-index-manifest-fr-${{ github.run_id }}-${{ github.run_attempt }}
+
+      # Every decision is taken before the first rename. A read, write or
+      # rename failure aborts this leg before packing/publishing and the script
+      # restores any files moved before the failure.
+      - name: Hreflang index manifest (keep only reciprocal indexable clusters)
+        id: hreflang-index-manifest
+        timeout-minutes: 30
+        run: node scripts/ci/hreflang-index-manifest.mjs dist --manifest-dir .cache/hreflang-index-manifest
 
       - name: Validate locale shard output
         id: validate-locale-shard

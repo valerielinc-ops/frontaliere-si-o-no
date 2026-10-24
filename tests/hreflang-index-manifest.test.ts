@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -328,5 +328,43 @@ describe('runHreflangIndexManifest on a dist', () => {
     expect(summary.filesToRewrite).toBeGreaterThan(0);
     expect(summary.filesRewritten).toBe(0);
     expect(fs.existsSync(path.join(tmp, 'm', 'it.json'))).toBe(true);
+  });
+
+  it('rolls back every HTML file when a transaction rename fails', async () => {
+    const dist = path.join(tmp, 'dist');
+    const cluster = clusterFor({ it: 'rollback', en: 'rollback-en' });
+    write(dist, '/rollback/', page('/rollback/', cluster, { robots: 'noindex,follow' }));
+    write(dist, '/en/rollback-en/', page('/en/rollback-en/', cluster, { robots: 'noindex,follow' }));
+    const before = new Map([
+      ['/rollback/', read(dist, '/rollback/')],
+      ['/en/rollback-en/', read(dist, '/en/rollback-en/')],
+    ]);
+
+    const originalRename = fs.promises.rename.bind(fs.promises);
+    let renameCalls = 0;
+    const rename = vi.spyOn(fs.promises, 'rename').mockImplementation(async (...args) => {
+      renameCalls += 1;
+      if (renameCalls === 4) throw new Error('forced hreflang rename failure');
+      return originalRename(...args);
+    });
+    try {
+      await expect(runHreflangIndexManifest({ distDir: dist, manifestDir: path.join(tmp, 'm'), log: quiet }))
+        .rejects.toThrow('forced hreflang rename failure');
+    } finally {
+      rename.mockRestore();
+    }
+
+    expect(read(dist, '/rollback/')).toBe(before.get('/rollback/'));
+    expect(read(dist, '/en/rollback-en/')).toBe(before.get('/en/rollback-en/'));
+    expect(fs.readdirSync(path.join(dist, 'rollback')).some((name) => name.endsWith('.bak'))).toBe(false);
+    expect(fs.readdirSync(path.join(dist, 'en', 'rollback-en')).some((name) => name.endsWith('.bak'))).toBe(false);
+  });
+
+  it('fails before writing a complete manifest when a dist directory cannot be read', async () => {
+    const dist = path.join(tmp, 'missing-dist');
+    const manifestDir = path.join(tmp, 'm');
+    await expect(runHreflangIndexManifest({ distDir: dist, manifestDir, log: quiet }))
+      .rejects.toThrow(/cannot read HTML directory/);
+    expect(fs.existsSync(manifestDir)).toBe(false);
   });
 });

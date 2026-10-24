@@ -30,6 +30,7 @@
  *     [--base-url https://frontaliereticino.ch] [--concurrency 64]
  */
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readHeadOrAll } from '../lib/readHead.mjs';
@@ -59,8 +60,8 @@ function* walkHtml(dir) {
   let entries;
   try {
     entries = fs.readdirSync(dir, { withFileTypes: true });
-  } catch {
-    return;
+  } catch (error) {
+    throw new Error(`cannot read HTML directory ${dir}: ${error instanceof Error ? error.message : String(error)}`, { cause: error });
   }
   for (const entry of entries) {
     const p = path.join(dir, entry.name);
@@ -200,15 +201,48 @@ export async function runHreflangIndexManifest({
   // ── Pass 3: write ──────────────────────────────────────────────────────
   let filesRewritten = 0;
   if (!dryRun) {
-    await mapPool(changes, concurrency, async ({ file, decision }) => {
-      const html = await fs.promises.readFile(file, 'utf-8');
-      const next = applyHreflangDecision(html, decision);
-      if (next === null) return;
-      const tmp = `${file}.hreflang-tmp`;
-      await fs.promises.writeFile(tmp, next, 'utf-8');
-      await fs.promises.rename(tmp, file);
-      filesRewritten++;
-    });
+    // Stage every rewritten document before touching `dist/`. The commit phase
+    // keeps backups so a rename failure can restore every file already moved;
+    // a failed step therefore never leaves a half-rewritten hreflang graph.
+    const transactionDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'hreflang-index-'));
+    const staged = [];
+    try {
+      await mapPool(changes, concurrency, async ({ file, decision }, index) => {
+        const html = await fs.promises.readFile(file, 'utf-8');
+        const next = applyHreflangDecision(html, decision);
+        if (next === null) return;
+        const stagedFile = path.join(transactionDir, String(index));
+        await fs.promises.writeFile(stagedFile, next, 'utf-8');
+        staged.push({ file, stagedFile });
+      });
+
+      const transactionId = path.basename(transactionDir);
+      const moved = [];
+      try {
+        for (const item of staged) {
+          const backup = `${item.file}.${transactionId}.bak`;
+          await fs.promises.rename(item.file, backup);
+          const record = { ...item, backup, installed: false };
+          moved.push(record);
+          await fs.promises.rename(item.stagedFile, item.file);
+          record.installed = true;
+        }
+      } catch (error) {
+        for (const item of [...moved].reverse()) {
+          try {
+            if (item.installed) await fs.promises.rm(item.file, { force: true });
+            await fs.promises.rename(item.backup, item.file);
+          } catch {
+            // Preserve the original failure; the workflow remains fail-closed.
+          }
+        }
+        throw error;
+      }
+      for (const item of moved) await fs.promises.rm(item.backup, { force: true });
+      filesRewritten = moved.length;
+    } finally {
+      await fs.promises.rm(transactionDir, { recursive: true, force: true });
+    }
   }
 
   fs.mkdirSync(manifestDir, { recursive: true });
