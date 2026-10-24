@@ -173,7 +173,9 @@ export function mutationsTouchAutoAdLayer(records: readonly MutationRecord[], ca
  const target = record.target;
  if (target.nodeType !== 1) continue;
  const element = target as Element;
- if (element.matches(AUTO_AD_CANDIDATE_SELECTOR)) return true;
+ // The candidate itself, or a descendant of it (a creative wrapper whose
+ // class/style changes resizes or hides the anchor).
+ if (element.closest(AUTO_AD_CANDIDATE_SELECTOR)) return true;
  for (const candidate of candidates) if (element.contains(candidate)) return true;
  }
  return false;

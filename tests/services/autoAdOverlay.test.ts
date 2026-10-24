@@ -225,5 +225,8 @@ describe('autoAdOverlay', () => {
  const swappedChild = document.createElement('div');
  const insideCandidate = { type: 'childList', target: autoPlaced, addedNodes: [swappedChild], removedNodes: [] } as unknown as MutationRecord;
  expect(mutationsTouchAutoAdLayer([insideCandidate], [autoPlaced])).toBe(true);
+ const creativeChild = document.createElement('div');
+ autoPlaced.appendChild(creativeChild);
+ expect(mutationsTouchAutoAdLayer([attr(creativeChild)], [autoPlaced])).toBe(true);
  });
 });

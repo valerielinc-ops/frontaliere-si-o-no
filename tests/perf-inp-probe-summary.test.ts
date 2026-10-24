@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseRuns, pickInteractionEntry, summarizeInteraction } from '../scripts/perf/lib/inp-probe-summary.mjs';
+import { parseRuns, pickInteractionEntry, scenariosWithoutMeasurement, summarizeInteraction } from '../scripts/perf/lib/inp-probe-summary.mjs';
 
 const entry = (over: Record<string, number>) => ({ interactionId: 7, start: 100, duration: 96, inputDelay: 4, processing: 0, presentation: 92, ...over });
 
@@ -39,5 +39,21 @@ describe('inp probe summary', () => {
  expect(parseRuns('3')).toBe(3);
  expect(() => parseRuns('0')).toThrow();
  expect(() => parseRuns('abc')).toThrow();
+ });
+ it('fails a scenario whose runs never produced a finite INP', () => {
+ const results = [
+ { scenario: 'jobboard', ok: true, tap: { inp: null } },
+ { scenario: 'jobboard', ok: false },
+ { scenario: 'calculator', ok: true, tap: { inp: 48 } },
+ ];
+ expect(scenariosWithoutMeasurement(results, ['jobboard', 'calculator'])).toEqual(['jobboard']);
+ expect(scenariosWithoutMeasurement(results.slice(2), ['calculator'])).toEqual([]);
+ });
+
+ it('reports LoAF as unknown, not zero, when the browser cannot observe it', () => {
+ const out = summarizeInteraction({ events: [entry({})], loaf: [], loafSupported: false }, 0);
+ expect(out.inp).toBe(96);
+ expect(out.loafBlocking).toBeNull();
+ expect(out.forcedLayout).toBeNull();
  });
 });

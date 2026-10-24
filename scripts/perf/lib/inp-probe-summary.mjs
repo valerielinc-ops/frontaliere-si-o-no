@@ -25,6 +25,18 @@ export function summarizeInteraction(probe, since) {
  if (!entry) {
  return { inp: null, inputDelay: null, processing: null, presentation: null, loafBlocking: 0, forcedLayout: 0, topScripts: [] };
  }
+ // LoAF unsupported is not the same as "no long frame": report null.
+ if (probe.loafSupported === false) {
+ return {
+ inp: Math.round(entry.duration),
+ inputDelay: Math.round(entry.inputDelay),
+ processing: Math.round(entry.processing),
+ presentation: Math.round(entry.presentation),
+ loafBlocking: null,
+ forcedLayout: null,
+ topScripts: [],
+ };
+ }
  const end = entry.start + entry.duration;
  const frames = probe.loaf.filter((f) => f.start < end && f.start + f.duration > entry.start);
  const scripts = frames.flatMap((f) => f.scripts || []);
@@ -47,4 +59,18 @@ export function parseRuns(raw) {
  throw new Error(`--runs must be an integer between 1 and 20, got ${JSON.stringify(raw)}`);
  }
  return runs;
+}
+
+/** A run counts only when the tap produced a finite INP. */
+export function isValidRun(result) {
+ return Boolean(result?.ok) && Number.isFinite(result?.tap?.inp);
+}
+
+/**
+ * The probe succeeds only when EVERY scenario has at least one valid run: a
+ * scenario that never measured must fail the workflow, not vanish from the
+ * comparison. Returns the ids of the scenarios without a valid run.
+ */
+export function scenariosWithoutMeasurement(results, scenarioIds) {
+ return scenarioIds.filter((id) => !results.some((r) => r.scenario === id && isValidRun(r)));
 }

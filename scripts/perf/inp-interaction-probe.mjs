@@ -23,7 +23,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium, devices } from 'playwright';
-import { parseRuns, summarizeInteraction } from './lib/inp-probe-summary.mjs';
+import { isValidRun, parseRuns, scenariosWithoutMeasurement, summarizeInteraction } from './lib/inp-probe-summary.mjs';
 
 const args = process.argv.slice(2);
 const option = (name, fallback) => (args.includes(name) ? args[args.indexOf(name) + 1] : fallback);
@@ -47,7 +47,7 @@ const SCENARIOS = [
 ];
 
 function observeInit() {
- window.__inpProbe = { events: [], loaf: [] };
+ window.__inpProbe = { events: [], loaf: [], loafSupported: false };
  new PerformanceObserver((list) => {
  for (const e of list.getEntries()) {
  if (!e.interactionId) continue;
@@ -79,6 +79,7 @@ function observeInit() {
  });
  }
  }).observe({ type: 'long-animation-frame', buffered: true });
+ window.__inpProbe.loafSupported = (PerformanceObserver.supportedEntryTypes || []).includes('long-animation-frame');
  } catch {
  // LoAF is Chromium-only; the Event Timing numbers still stand.
  }
@@ -115,7 +116,8 @@ async function runScenario(browser, scenario) {
  await target.click({ timeout: 10000 });
  await page.waitForTimeout(AFTER_TAP_MS);
  const tap = summarizeInteraction(await page.evaluate(() => window.__inpProbe), since);
- return { scenario: scenario.id, ok: true, loadBlocking, consent, tap };
+ const ok = Number.isFinite(tap.inp);
+ return { scenario: scenario.id, ok, loadBlocking, consent, tap, ...(ok ? {} : { error: 'no Event Timing entry for the tap' }) };
  } catch (error) {
  return { scenario: scenario.id, ok: false, error: String(error?.message || error).slice(0, 300) };
  } finally {
@@ -142,7 +144,7 @@ try {
 
 const rows = [];
 for (const scenario of SCENARIOS) {
- const ok = results.filter((r) => r.scenario === scenario.id && r.ok);
+ const ok = results.filter((r) => r.scenario === scenario.id && isValidRun(r));
  const pick = (fn) => median(ok.map(fn));
  rows.push({
  interaction: scenario.id,
@@ -187,4 +189,8 @@ await fs.writeFile(path.join(outDir, 'inp-probe.json'), JSON.stringify({ origin,
 await fs.writeFile(path.join(outDir, 'inp-probe.md'), `${markdown}\n`);
 if (process.env.GITHUB_STEP_SUMMARY) await fs.appendFile(process.env.GITHUB_STEP_SUMMARY, `${markdown}\n`);
 console.log(markdown);
-if (!results.some((r) => r.ok)) process.exitCode = 1;
+const missing = scenariosWithoutMeasurement(results, SCENARIOS.map((s) => s.id));
+if (missing.length) {
+ console.error(`no valid INP measurement for: ${missing.join(', ')}`);
+ process.exitCode = 1;
+}
