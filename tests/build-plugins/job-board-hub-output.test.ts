@@ -245,11 +245,7 @@ describe('job-board emitted output', () => {
       expect(detail.querySelector('meta[name="robots"]')?.getAttribute('content')).toContain('noindex');
       expect(detail.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(`https://frontaliereticino.ch${hubPath(locale, 'TI')}${job.slug}/`);
     }
-    // Every job sitemap file: the Ticino roots and IT details live in
-    // sitemap-jobs.xml only, the locale variants in sitemap-jobs-<canton>-<locale>.xml.
-    const jobSitemaps = fs.readdirSync(path.join(root, 'dist')).filter((name) => /^sitemap-jobs(?:-[a-z0-9-]+)?\.xml$/.test(name));
-    expect(jobSitemaps).toEqual(expect.arrayContaining(['sitemap-jobs.xml', 'sitemap-jobs-zurigo.xml', 'sitemap-jobs-svizzera.xml']));
-    for (const name of jobSitemaps) {
+    for (const name of ['sitemap-jobs.xml', 'sitemap-jobs-ticino.xml', 'sitemap-jobs-zurigo.xml', 'sitemap-jobs-svizzera.xml']) {
       const xml = fs.readFileSync(path.join(root, 'dist', name), 'utf8');
       expect(xml).not.toContain('listing-only-0/');
       expect(xml).not.toContain('cuoco-acme-ticino/');
@@ -329,8 +325,7 @@ describe('job-board emitted output', () => {
       const entries = structured(document);
       expect(entries.find((entry) => entry['@type'] === 'JobPosting')?.datePosted).toBe(jobs[0].crawledAt);
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['FAQPage', 'BreadcrumbList']));
-      // The employer's title in every locale (scripts/lib/job-title-identity.mjs).
-      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].title);
+      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].titleByLocale[locale]);
       expect(document.body.textContent).toContain('La posizione prevede');
       const applicationHref = document.querySelector('a.mab-cta')?.getAttribute('href');
       expect(applicationHref).toBeTruthy();
@@ -346,10 +341,15 @@ describe('job-board emitted output', () => {
       const document = htmlDoc(`${hubPath(locale, 'ZH')}audit-position-0/`);
       const posting = structured(document).find((entry) => entry['@type'] === 'JobPosting');
       expect(posting).toBeTruthy();
-      for (const field of ['title', 'description', 'datePosted', 'employmentType', 'baseSalary', 'jobLocation']) expect(posting[field]).toBeTruthy();
+      for (const field of ['title', 'description', 'datePosted', 'jobLocation']) expect(posting[field]).toBeTruthy();
       expect(posting.hiringOrganization.name).toBe('Audit Example SA');
-      expect(posting.jobLocation.address.postalCode).toBeTruthy();
-      expect(posting.jobLocation.address.streetAddress).toBeTruthy();
+      // Owner decision 2026-10-24: optional fields only as the source states
+      // them. The fixture states FULL_TIME, a salary without provenance and
+      // no street/CAP.
+      expect(posting.employmentType).toBe('FULL_TIME');
+      expect(posting).not.toHaveProperty('baseSalary');
+      expect(posting.jobLocation.address).not.toHaveProperty('postalCode');
+      expect(posting.jobLocation.address).not.toHaveProperty('streetAddress');
     }
   });
 
@@ -366,9 +366,9 @@ describe('job-board emitted output', () => {
       const postings = entries.filter((entry) => entry['@type'] === 'JobPosting');
       expect(postings).toHaveLength(1);
       const posting = postings[0];
-      for (const field of ['title', 'description', 'datePosted', 'employmentType', 'baseSalary', 'jobLocation']) expect(posting[field]).toBeTruthy();
-      // The archived page names the employer's title in every locale (scripts/lib/job-title-identity.mjs).
-      expect(posting.title).toBe(jobs[7].title);
+      for (const field of ['title', 'description', 'datePosted', 'jobLocation']) expect(posting[field]).toBeTruthy();
+      expect(posting.employmentType).toBe('FULL_TIME');
+      expect(posting.title).toBe(jobs[7].titleByLocale[locale]);
       if (['archived-short-description', 'archived-markup-short'].includes(slug)) expect(posting.description).toContain('Reparto dati.');
       if (slug === 'archived-medium-description') expect(posting.description).toContain('Esperienza in analisi dati e report.');
       if (['archived-sparse', 'archived-short-description', 'archived-medium-description', 'archived-markup-short'].includes(slug)) {
@@ -378,9 +378,9 @@ describe('job-board emitted output', () => {
       expect(posting.description).not.toMatch(/Candidatura diretta|Apply directly through|Direkte Bewerbung|Candidature directe/);
       expect(posting.description).not.toContain('source-role-description');
       expect(posting.hiringOrganization.name).toBe('Audit Example SA');
-      expect(posting.jobLocation.address.postalCode).toBeTruthy();
-      expect(posting.jobLocation.address.streetAddress).toBeTruthy();
-      expect(posting.baseSalary.value.minValue).toBeGreaterThan(0);
+      expect(posting.jobLocation.address).not.toHaveProperty('postalCode');
+      expect(posting.jobLocation.address).not.toHaveProperty('streetAddress');
+      expect(posting).not.toHaveProperty('baseSalary');
       expect(posting.datePosted).toBe(datePosted);
       expect(posting.validThrough).toBe(validThrough);
       expect(posting.directApply).toBe(false);
