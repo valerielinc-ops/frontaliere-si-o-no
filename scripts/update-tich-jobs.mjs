@@ -693,6 +693,10 @@ export function buildTichFetchProxyHosts(
   { officialSucceeded = false } = {},
   inheritedProxyHosts = process.env.JOBS_CRAWLER_FETCH_PROXY,
 ) {
+  // The official listing is used only when both direct portal endpoints fail;
+  // that is the evidence that detail requests need alternate egress. Keeping
+  // the normal listing/RSS path direct avoids paying Jina's bounded retry cost
+  // on every detail page during a healthy portal run (#15059).
   const existingProxyHosts = String(inheritedProxyHosts || '')
     .split(',')
     .map((host) => host.trim())
