@@ -22,7 +22,8 @@ describe('article provenance static-to-SPA contract', () => {
     expect(staticSrc).toMatch(/const articleProvenance = resolvedAuthor\s+\?\s+resolvedAuthor\.provenance/);
     expect(staticSrc).toMatch(/buildArticleTransparencyAside\(locale, en\.authorName \|\| resolvedAuthor\?\.name, articleProvenance\)/);
     expect(overlaySrc).toMatch(/typeof entry\.aiAssisted === 'boolean' \? \{ aiAssisted: entry\.aiAssisted \}/);
-    expect(overlaySrc).toMatch(/authorName\?\.trim\(\)\s+\|\|\s+\(authorSlug \? getAuthorBySlug\(authorSlug\)\?\.name/);
+    expect(overlaySrc).toMatch(/typeof entry\.authorName === 'string' \? entry\.authorName\.trim\(\) : ''/);
+    expect(overlaySrc).toMatch(/authorSlug \? getAuthorBySlug\(authorSlug\)\?\.name/);
     expect(spaSrc).toMatch(/provenance: resolveArticleProvenance\(article, bylineAuthor\)/);
     expect(spaSrc).toMatch(/shouldRenderHumanDisclosure\(resolvedAuthor\.provenance, effectiveAuthorName\)/);
   });

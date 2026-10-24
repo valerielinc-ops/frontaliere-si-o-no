@@ -73,8 +73,9 @@ export function articleFromOverlay(entry: OverlayArticle): Article {
   const category = ARTICLE_CATEGORIES.has(entry.category as Article['category'])
     ? entry.category as Article['category']
     : 'novita';
-  const authorSlug = entry.authorSlug?.trim() || undefined;
-  const authorName = entry.authorName?.trim()
+  const authorSlug = typeof entry.authorSlug === 'string' ? entry.authorSlug.trim() || undefined : undefined;
+  const declaredAuthorName = typeof entry.authorName === 'string' ? entry.authorName.trim() : '';
+  const authorName = declaredAuthorName
     || (authorSlug ? getAuthorBySlug(authorSlug)?.name : undefined);
   return {
     id: entry.id,
