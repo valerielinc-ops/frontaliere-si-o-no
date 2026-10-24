@@ -211,6 +211,52 @@ export function matchesAutomationLanguageSignature(ua: string): boolean {
 }
 
 /**
+ * Square-screen fleet, measured on GA4 2026-09-26 → 10-23 (28 days, Direct):
+ * 11,292 sessions with a 1600x1600 screen, Windows 10, Chrome, `zh-cn` UI,
+ * from China (Urumqi or no city), 6% engagement, ~1 s per session, 100% new
+ * users, 140-690 sessions every day and still running. EVERY one of them on
+ * Chrome 99.0.4844.51 — a March 2022 build that real Chrome auto-updated past
+ * years ago; the same 1600x1600 screen elsewhere (~170 sessions from Hong
+ * Kong/Japan) runs Chrome 133 with an English UI and is left alone. A square
+ * 1600x1600 CSS screen is not a shipping display either. The time zone is not
+ * needed (and not measured: GA4 does not expose it): the pinned four-year-old
+ * Chrome major already excludes any visitor on an updating browser.
+ */
+export const SQUARE_SCREEN_FLEET_WIDTH = 1600;
+export const SQUARE_SCREEN_FLEET_HEIGHT = 1600;
+export const SQUARE_SCREEN_FLEET_LANGUAGE = 'zh-cn';
+export const SQUARE_SCREEN_FLEET_CHROME_MAJORS: readonly number[] = [99];
+
+/**
+ * Conservative match for that fleet. ALL of these must hold:
+ *  - screen exactly 1600x1600 CSS px;
+ *  - a Windows desktop Chrome UA (`windows nt` + `chrome/`, no `mobile`,
+ *    `edg/` or `opr/` token) on a pinned major (`SQUARE_SCREEN_FLEET_CHROME_MAJORS`);
+ *  - `navigator.language` exactly `zh-CN`.
+ * If the fleet ever updates its browser the rule fails open (stops matching)
+ * instead of widening. `ua` is the lowercased user agent, as in `isLikelyBot()`.
+ */
+export function matchesSquareScreenFleetSignature(ua: string): boolean {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return false;
+  const screen = window.screen;
+  if (!screen || screen.width !== SQUARE_SCREEN_FLEET_WIDTH || screen.height !== SQUARE_SCREEN_FLEET_HEIGHT) return false;
+  if (!ua.includes('windows nt') || !ua.includes('chrome/') || ua.includes('mobile')) return false;
+  if (AUTOMATION_LANGUAGE_NON_CHROME_UA_TOKENS.some((token) => ua.includes(token))) return false;
+  if (!SQUARE_SCREEN_FLEET_CHROME_MAJORS.includes(Number.parseInt(ua.split('chrome/')[1] || '', 10))) return false;
+  return String(navigator.language || '').toLowerCase() === SQUARE_SCREEN_FLEET_LANGUAGE;
+}
+
+/**
+ * Lowercase UA tokens of handsets whose model name contains `bot`, so the bare
+ * `bot` token of the declared-crawler pattern (`CRAWLER_UA_RE` in
+ * functions/src/lib/returnVisit.js) would misread a person as a crawler — e.g.
+ * `Mozilla/5.0 (Linux; Android 12; CUBOT P50) ... Mobile Safari/537.36`.
+ * Consumed only by the GA4 gate (services/analyticsBotGate.ts and its inline
+ * twin `GA4_BOT_GATE_FN`), which is the one surface that adds that pattern.
+ */
+export const CRAWLER_UA_DEVICE_EXCEPTIONS: readonly string[] = ['cubot'];
+
+/**
  * Layered bot detection. Each layer cuts a different population:
  *  1. SSR / no UA      — never an ad-eligible session.
  *  2. webdriver flag   — Playwright/Selenium/Puppeteer base.
@@ -225,6 +271,8 @@ export function matchesAutomationLanguageSignature(ua: string): boolean {
  *  7. Automation language signature — the zh-CN desktop Chrome fleet on its
  *     pinned Chrome majors and one of its four observed clocks
  *     (`matchesAutomationLanguageSignature`).
+ *  8. Square-screen signature — the 1600x1600 zh-CN Windows fleet pinned on
+ *     Chrome 99 (`matchesSquareScreenFleetSignature`).
  *
  * On purpose NOT here: WebGL renderer / canvas fingerprint / TLS JA3.
  * Those add weight but are bypassable by `puppeteer-extra-plugin-stealth`
@@ -276,6 +324,7 @@ export function isLikelyBot(): boolean {
 
   if (matchesAutomationScreenSignature(ua)) return true;
   if (matchesAutomationLanguageSignature(ua)) return true;
+  if (matchesSquareScreenFleetSignature(ua)) return true;
 
   return false;
 }
