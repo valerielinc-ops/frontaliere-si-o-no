@@ -628,6 +628,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'orderMopupJobsByTraffic',
       'orderMopupRequestsTitleFirst',
       'overwriteQueueBudget',
+      'queueableMopupSlots',
       'readOverwriteRollback',
       'recordOverwriteRollback',
       'rescueMopupRejects',

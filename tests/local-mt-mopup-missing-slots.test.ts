@@ -5,6 +5,8 @@ import {
   missingSlots,
   negativeMopupCacheKey,
   opusMtRescueEnabled,
+  orderMopupJobsByTraffic,
+  queueableMopupSlots,
   rescueMopupRejects,
 } from '../scripts/local-mt-mopup.mjs';
 
@@ -132,6 +134,63 @@ describe('local-mt-mopup missingSlots()', () => {
       field: 'description',
       rawText: source.replace(/ /g, '\n  '),
     }).decision).toBe('skip:source-copy');
+  });
+
+  it('does not let a negative-cached source-copy job consume the mopup cap', () => {
+    const source = 'The authoritative source description contains enough operational detail for this translation repair. '.repeat(3);
+    const translated = 'La descrizione tradotta contiene dettagli operativi sufficienti per questa riparazione della traduzione. '.repeat(3);
+    const base = {
+      sourceLang: 'en',
+      titleByLocale: {
+        en: 'Senior operations specialist',
+        it: 'Specialista senior delle operazioni',
+        de: 'Senior Operationsspezialist',
+        fr: 'Spécialiste senior des opérations',
+      },
+      descriptionByLocale: {
+        en: source,
+        de: translated,
+        fr: translated,
+      },
+    };
+    const stale = {
+      ...base,
+      slug: 'stale',
+      descriptionByLocale: { ...base.descriptionByLocale, it: source },
+    };
+    const actionable = {
+      ...base,
+      slug: 'actionable',
+      descriptionByLocale: { ...base.descriptionByLocale, it: '' },
+    };
+    const staleKey = negativeMopupCacheKey({
+      text: source.trim(),
+      from: 'en',
+      to: 'it',
+      field: 'description',
+      existing: source.trim(),
+    });
+    const negativeCache = {
+      entries: {
+        [staleKey]: { expiresAt: new Date(Date.now() + 60_000).toISOString() },
+      },
+    };
+    const staleSlots = missingSlots(stale);
+    const actionableSlots = missingSlots(actionable);
+
+    expect(queueableMopupSlots(stale, staleSlots, negativeCache)).toEqual([]);
+    expect(queueableMopupSlots(actionable, actionableSlots, negativeCache))
+      .toContainEqual({ locale: 'it', field: 'description' });
+
+    const candidates = [stale, actionable].filter((job) =>
+      queueableMopupSlots(job, missingSlots(job), negativeCache).length > 0);
+    const { selected } = orderMopupJobsByTraffic(
+      candidates,
+      { stale: 1, actionable: 500 },
+      1,
+    );
+
+    expect(selected.map((job: any) => job.slug)).toEqual(['actionable']);
   });
 });
 

@@ -774,6 +774,43 @@ export function shouldQueueArgosSlot(job, { locale, field }) {
 }
 
 /**
+ * Apply the request-level admission filters before assigning a job to the
+ * source-copy priority lane. A cached or title-lane handoff slot is still a
+ * `missingSlot()`, but it cannot produce an Argos request and must not make
+ * its job consume the bounded selection cap.
+ */
+export function queueableMopupSlots(job, slots, negativeCache, now = Date.now()) {
+  if (!Array.isArray(slots)) return [];
+  const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
+  const tbl = job.titleByLocale || {};
+  const dbl = job.descriptionByLocale || {};
+  const sourceTitle = sourceLocaleTextForTranslation(job, 'title', MIN_TITLE_CHARS);
+  const sourceDesc = sourceLocaleTextForTranslation(job, 'description', MIN_DESC_CHARS);
+  const cache = negativeCache && typeof negativeCache === 'object' && negativeCache.entries
+    && typeof negativeCache.entries === 'object'
+    ? negativeCache
+    : { entries: {} };
+
+  return slots.filter(({ locale, field }) => {
+    const text = field === 'title' ? sourceTitle : sourceDesc;
+    if (!text) return false;
+    const normalizedText = normalizeArgosText(text, srcLang, field);
+    const existing = field === 'title'
+      ? String(tbl[locale] || '').trim()
+      : String(dbl[locale] || '').trim();
+    const negativeCacheKey = negativeMopupCacheKey({
+      text: normalizedText,
+      from: srcLang,
+      to: locale,
+      field,
+      existing,
+    });
+    if (negativeCacheHas(cache, negativeCacheKey, now)) return false;
+    return shouldQueueArgosSlot(job, { locale, field });
+  });
+}
+
+/**
  * How many overwrite slots this pass hands to Argos.
  *
  * WHY. On the corpus run 37272320066 (2026-10-05) Phase 2a translated 4166
@@ -1486,7 +1523,9 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
       freshMeter.observe(job, { inScope: true, slotCount: slots.length });
       if (slots.length === 0) continue;
 
-      const sourceCopyDescription = slots.some((slot) => isSourceCopyDescriptionSlot(job, slot));
+      const queueableSlots = queueableMopupSlots(job, slots, negativeCache);
+      if (queueableSlots.length === 0) continue;
+      const sourceCopyDescription = queueableSlots.some((slot) => isSourceCopyDescriptionSlot(job, slot));
       candidates.push({ file, jobIdx, job, slots, sourceCopyDescription });
     }
   }
