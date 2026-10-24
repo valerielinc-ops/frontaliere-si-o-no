@@ -1745,12 +1745,12 @@
     },
     {
       "id": "nestle-1447534933",
-      "slug": "r-d-nutritionist-nestle-ch",
+      "slug": "r-d-nutrizionista-nestle-orbe",
       "slugByLocale": {
         "en": "r-d-nutritionist-nestle-ch",
-        "it": "r-d-nutritionist-nestle-ch",
-        "de": "r-d-nutritionist-nestle-ch",
-        "fr": "r-d-nutritionist-nestle-ch"
+        "it": "r-d-nutrizionista-nestle-orbe",
+        "de": "r-d-ernahrungsberater-nestle-orbe",
+        "fr": "r-d-nutritionniste-nestle-orbe"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1808,14 +1808,28 @@
       },
       "postalCode": "1350",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-23T21:33:40.691Z"
+      "firstSeenAt": "2026-10-23T21:33:40.691Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-nutritionist-nestle-ch"
+        ],
+        "de": [
+          "r-d-nutritionist-nestle-ch"
+        ],
+        "fr": [
+          "r-d-nutritionist-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "r-d-nutritionist-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1450722233",
-      "slug": "senior-specialiste-automation-nestle-ch",
+      "slug": "specialista-di-automazione-senior-nestle-orbe",
       "slugByLocale": {
         "fr": "senior-specialiste-automation-nestle-ch",
-        "it": "senior-specialiste-automation-nestle-ch",
+        "it": "specialista-di-automazione-senior-nestle-orbe",
         "en": "senior-specialiste-automation-nestle-ch",
         "de": "senior-specialiste-automation-nestle-ch"
       },
@@ -1875,7 +1889,15 @@
       },
       "postalCode": "1350",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-23T21:33:39.970Z"
+      "firstSeenAt": "2026-10-23T21:33:39.970Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-specialiste-automation-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-specialiste-automation-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1447579933",
@@ -3150,7 +3172,7 @@
       "slugByLocale": {
         "it": "ingenieur-e-digitale-e-performance-nestle-henniez-ch",
         "en": "automaticien-ne-specialiste-digital-nestle-ch",
-        "de": "automatician-ne-digital-spezialist-nestle-henniez",
+        "de": "automatiker-in-und-digitalspezialist-in-nestle-henniez",
         "fr": "ingenieur-e-digital-performance-nestle-ch"
       },
       "company": "Nestlé",
@@ -3201,13 +3223,13 @@
         ],
         "de": [
           "automaticien-ne-specialiste-digital-nestle-henniez",
-          "automatiker-in-und-digitalspezialist-in-nestle-henniez"
+          "automatician-ne-digital-spezialist-nestle-henniez"
         ]
       },
       "previousSlugs": [
         "automaticien-ne-specialiste-digital-nestle-ch",
         "automaticien-ne-specialiste-digital-nestle-henniez",
-        "automatiker-in-und-digitalspezialist-in-nestle-henniez"
+        "automatician-ne-digital-spezialist-nestle-henniez"
       ],
       "firstSeenAt": "2026-05-25T13:33:29.386Z",
       "salaryMin": 60500,
@@ -3390,7 +3412,7 @@
       "slugByLocale": {
         "it": "pianificatore-di-domanda-e-di-alimentazione-nestle-henniez",
         "en": "demand-supply-planner-nestle-ch",
-        "de": "nachfrage-und-versorgungsplan-nestle-henniez",
+        "de": "demand-supply-planer-nestle-henniez",
         "fr": "demande-planificateur-de-l-offre-nestle-henniez"
       },
       "company": "Nestlé",
@@ -3438,7 +3460,7 @@
         "demand-supply-planner-business-growth-solutions-nestle-ch",
         "demande-planificateur-de-l-offre-nestle-la-tour-de-peilz-ch",
         "demand-supply-planner-nestle-henniez",
-        "demand-supply-planer-nestle-henniez"
+        "nachfrage-und-versorgungsplan-nestle-henniez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3448,7 +3470,7 @@
           "demande-planificateur-de-l-offre-nestle-la-tour-de-peilz-ch"
         ],
         "de": [
-          "demand-supply-planer-nestle-henniez"
+          "nachfrage-und-versorgungsplan-nestle-henniez"
         ],
         "fr": [
           "demand-supply-planner-nestle-henniez"
@@ -4384,7 +4406,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
         "en": "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "de": "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe",
+        "de": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
         "fr": "gestionnaire-de-projet-pour-les-systemes-de-boissons-hors-maison-nestle-orbe"
       },
       "company": "Nestlé",
@@ -4428,12 +4450,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "project-manager-for-out-of-home-beverage-systems-nestle-orbe"
+        "project-manager-for-out-of-home-beverage-systems-nestle-orbe",
+        "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-for-out-of-home-beverage-systems-nestle-ch",
           "project-manager-for-out-of-home-beverage-systems-nestle-orbe"
+        ],
+        "de": [
+          "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe"
         ]
       },
       "firstSeenAt": "2026-10-12T09:45:30.943Z",
@@ -7415,7 +7441,7 @@
       "slugByLocale": {
         "it": "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch",
         "en": "apprenti-e-brassage-and-beverage-technologist-nestle-henniez-ch",
-        "de": "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez",
+        "de": "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch",
         "fr": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
       },
       "company": "Nestlé",
@@ -7459,14 +7485,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
-        "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch"
+        "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
         ],
         "de": [
-          "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch"
+          "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez"
         ]
       },
       "firstSeenAt": "2026-10-12T09:45:59.851Z",

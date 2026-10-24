@@ -108,7 +108,7 @@
         "it": "apprendista-tecnico-di-laboratorio-fisico-a-empa-thun",
         "en": "apprentice-physics-laboratory-technician-a-empa-thun",
         "de": "lernende-r-physiklaborant-in-a-empa-thun",
-        "fr": "lernende-r-physiklaborant-in-a-empa-thun"
+        "fr": "laboratoire-d-apprentissage-de-physique-a-empa-thun"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -189,8 +189,7 @@
         "apprentice-physiklaborant-in-a-empa-thun-fb5508",
         "apprentissage-laboratoire-de-physique-en-a-empa-thun",
         "laboratoire-d-apprentissage-et-de-physique-a-empa-thun",
-        "lernende-r-physiklaborant-in-a-empa-thun",
-        "laboratoire-d-apprentissage-de-physique-a-empa-thun"
+        "lernende-r-physiklaborant-in-a-empa-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -206,7 +205,7 @@
           "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
           "apprentissage-laboratoire-de-physique-en-a-empa-thun",
           "laboratoire-d-apprentissage-et-de-physique-a-empa-thun",
-          "laboratoire-d-apprentissage-de-physique-a-empa-thun"
+          "lernende-r-physiklaborant-in-a-empa-thun"
         ]
       },
       "firstSeenAt": "2026-07-07T22:14:30.867Z",
@@ -1678,12 +1677,12 @@
     },
     {
       "id": "empa-5a71867b80d9",
-      "slug": "fachspezialist-in-im-bereich-korrosion-e-werkstoffintegritat-von-metallischen-werkstoffen-im-hoch-e-genio-civile-a-empa-dubendorf",
+      "slug": "specialista-nel-settore-della-corrosione-e-dell-integrita-dei-materiali-metallici-nell-edilizia-e-nel-genio-civile-a",
       "slugByLocale": {
         "de": "fachspezialist-in-im-bereich-korrosion-und-werkstoffintegritat-von-metallischen",
-        "it": "fachspezialist-in-im-bereich-korrosion-e-werkstoffintegritat-von-metallischen-werkstoffen-im-hoch-e-genio-civile-a-empa-dubendorf",
-        "en": "fachspezialist-in-im-bereich-korrosion-und-werkstoffintegritat-von-metallischen",
-        "fr": "fachspezialist-in-im-bereich-korrosion-und-werkstoffintegritat-von-metallischen"
+        "it": "specialista-nel-settore-della-corrosione-e-dell-integrita-dei-materiali-metallici-nell-edilizia-e-nel-genio-civile-a",
+        "en": "specialist-in-the-field-of-corrosion-and-material-integrity-of-metallic-materials-in-building-and-civil-engineering-a",
+        "fr": "specialiste-dans-le-domaine-de-la-corrosion-et-de-l-integrite-des-materiaux-metalliques-dans-le-batiment-et-le-genie"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -1733,11 +1732,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-in-im-bereich-korrosion-und-werkstoffintegritat-von-metallischen",
+          "fachspezialist-in-im-bereich-korrosion-e-werkstoffintegritat-von-metallischen-werkstoffen-im-hoch-e-genio-civile-a-empa-dubendorf"
+        ],
+        "en": [
+          "fachspezialist-in-im-bereich-korrosion-und-werkstoffintegritat-von-metallischen"
+        ],
+        "fr": [
           "fachspezialist-in-im-bereich-korrosion-und-werkstoffintegritat-von-metallischen"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-im-bereich-korrosion-und-werkstoffintegritat-von-metallischen"
+        "fachspezialist-in-im-bereich-korrosion-und-werkstoffintegritat-von-metallischen",
+        "fachspezialist-in-im-bereich-korrosion-e-werkstoffintegritat-von-metallischen-werkstoffen-im-hoch-e-genio-civile-a-empa-dubendorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

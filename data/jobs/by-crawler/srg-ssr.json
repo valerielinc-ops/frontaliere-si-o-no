@@ -2995,7 +2995,7 @@
         "it": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano",
         "en": "a-a-specialist-in-research-and-analysis-of-audience-data-srg-ssr-lugano",
         "de": "a-ein-spezialist-fur-forschung-und-analyse-von-publikumsdaten-srg-ssr-lugano",
-        "fr": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano"
+        "fr": "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3053,14 +3053,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-10-22T09:14:31.160Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-      ],
       "salaryMin": 50500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -3177,12 +3169,12 @@
     },
     {
       "id": "srg-ssr-a386e2fe59eb",
-      "slug": "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
+      "slug": "consiglio-di-amministrazione-srg-deutschschweiz-srg-ssr-zurich",
       "slugByLocale": {
         "de": "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
-        "it": "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
-        "en": "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
-        "fr": "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+        "it": "consiglio-di-amministrazione-srg-deutschschweiz-srg-ssr-zurich",
+        "en": "chair-of-the-srg-german-speaking-switzerland-audience-council-srg-ssr-zurich",
+        "fr": "presidence-du-conseil-du-public-srg-suisse-alemanique-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3259,16 +3251,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-23T21:10:49.732Z"
+      "firstSeenAt": "2026-10-23T21:10:49.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+        ],
+        "en": [
+          "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+        ],
+        "fr": [
+          "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "prasidium-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-beee0d8d7731",
-      "slug": "ordentliches-mitglied-leitungsteam-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
+      "slug": "consiglio-pubblico-srg-svizzera-di-lingua-tedesca-srg-ssr-zurich",
       "slugByLocale": {
         "de": "ordentliches-mitglied-leitungsteam-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
-        "it": "ordentliches-mitglied-leitungsteam-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
-        "en": "ordentliches-mitglied-leitungsteam-publikumsrat-srg-deutschschweiz-srg-ssr-zurich",
-        "fr": "ordentliches-mitglied-leitungsteam-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+        "it": "consiglio-pubblico-srg-svizzera-di-lingua-tedesca-srg-ssr-zurich",
+        "en": "ordinary-member-management-team-public-council-srg-german-speaking-switzerland-srg-ssr-zurich",
+        "fr": "membre-ordinaire-equipe-de-direction-conseil-public-srg-suisse-germanophone-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3345,7 +3351,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-23T21:10:49.197Z"
+      "firstSeenAt": "2026-10-23T21:10:49.197Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ordentliches-mitglied-leitungsteam-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+        ],
+        "en": [
+          "ordentliches-mitglied-leitungsteam-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+        ],
+        "fr": [
+          "ordentliches-mitglied-leitungsteam-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ordentliches-mitglied-leitungsteam-publikumsrat-srg-deutschschweiz-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-3a18f1edcfcc",
@@ -3438,12 +3458,12 @@
     },
     {
       "id": "srg-ssr-b36b39e991f0",
-      "slug": "responsable-vente-sponsoring-fr-ch-srg-ssr-zurich",
+      "slug": "responsabile-vendite-sponsoring-en-ch-srg-ssr-zurich",
       "slugByLocale": {
         "fr": "responsable-vente-sponsoring-fr-ch-srg-ssr-zurich",
-        "it": "responsable-vente-sponsoring-fr-ch-srg-ssr-zurich",
-        "en": "responsable-vente-sponsoring-fr-ch-srg-ssr-zurich",
-        "de": "responsable-vente-sponsoring-fr-ch-srg-ssr-zurich"
+        "it": "responsabile-vendite-sponsoring-en-ch-srg-ssr-zurich",
+        "en": "head-of-sales-sponsoring-en-ch-srg-ssr-zurich",
+        "de": "leiter-sales-sponsoring-en-ch-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3523,7 +3543,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-23T21:10:48.079Z"
+      "firstSeenAt": "2026-10-23T21:10:48.079Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-vente-sponsoring-fr-ch-srg-ssr-zurich"
+        ],
+        "en": [
+          "responsable-vente-sponsoring-fr-ch-srg-ssr-zurich"
+        ],
+        "de": [
+          "responsable-vente-sponsoring-fr-ch-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-vente-sponsoring-fr-ch-srg-ssr-zurich"
+      ]
     }
   ]
 }

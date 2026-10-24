@@ -283,7 +283,7 @@
       "slug": "capo-infermieristica-a-klinik-lengg-zurich",
       "slugByLocale": {
         "it": "capo-infermieristica-a-klinik-lengg-zurich",
-        "en": "chief-nursing-officer-a-klinik-lengg-zurich",
+        "en": "care-service-a-klinik-lengg-zurich",
         "de": "chief-nursing-officer-a-klinik-lengg-zurich",
         "fr": "chef-des-soins-infirmiers-a-klinik-lengg-zurich"
       },
@@ -330,15 +330,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chief-nursing-officer-a-klinik-lengg-zurich",
-        "care-service-a-klinik-lengg-zurich"
+        "chief-nursing-officer-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chief-nursing-officer-a-klinik-lengg-zurich"
         ],
         "en": [
-          "care-service-a-klinik-lengg-zurich"
+          "chief-nursing-officer-a-klinik-lengg-zurich"
         ],
         "fr": [
           "chief-nursing-officer-a-klinik-lengg-zurich"
@@ -1177,12 +1176,12 @@
     },
     {
       "id": "klinik-lengg-5cde957d1b91",
-      "slug": "psychotherapeut-in-stationar-e-ambulant-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-zurich",
+      "slug": "psicoterapeuta-in-regime-stazionario-e-ambulatoriale-con-specializzazione-in-neuropsicosomatica-a-klinik-lengg-zurich",
       "slugByLocale": {
         "de": "psychotherapeut-in-stationar-und-ambulant-mit-schwerpunkt-neuropsychosomatik-a-klinik",
-        "it": "psychotherapeut-in-stationar-e-ambulant-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-zurich",
-        "en": "psychotherapeut-in-stationar-und-ambulant-mit-schwerpunkt-neuropsychosomatik-a-klinik",
-        "fr": "psychotherapeut-in-stationar-und-ambulant-mit-schwerpunkt-neuropsychosomatik-a-klinik"
+        "it": "psicoterapeuta-in-regime-stazionario-e-ambulatoriale-con-specializzazione-in-neuropsicosomatica-a-klinik-lengg-zurich",
+        "en": "inpatient-and-outpatient-psychotherapist-specializing-in-neuropsychosomatics-a-klinik-lengg-zurich",
+        "fr": "psychotherapeute-hospitalise-et-ambulatoire-avec-un-accent-sur-la-neuropsychosomatique-a-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1230,11 +1229,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "psychotherapeut-in-stationar-und-ambulant-mit-schwerpunkt-neuropsychosomatik-a-klinik",
+          "psychotherapeut-in-stationar-e-ambulant-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-zurich"
+        ],
+        "en": [
+          "psychotherapeut-in-stationar-und-ambulant-mit-schwerpunkt-neuropsychosomatik-a-klinik"
+        ],
+        "fr": [
           "psychotherapeut-in-stationar-und-ambulant-mit-schwerpunkt-neuropsychosomatik-a-klinik"
         ]
       },
       "previousSlugs": [
-        "psychotherapeut-in-stationar-und-ambulant-mit-schwerpunkt-neuropsychosomatik-a-klinik"
+        "psychotherapeut-in-stationar-und-ambulant-mit-schwerpunkt-neuropsychosomatik-a-klinik",
+        "psychotherapeut-in-stationar-e-ambulant-con-schwerpunkt-neuropsychosomatik-a-klinik-lengg-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

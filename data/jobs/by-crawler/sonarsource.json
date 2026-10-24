@@ -1906,12 +1906,12 @@
     },
     {
       "id": "sonarsource-d1741fee2610",
-      "slug": "account-executive-sonarsource-ch",
+      "slug": "account-esecutivo-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "account-executive-sonarsource-ch",
-        "it": "account-executive-sonarsource-ch",
-        "de": "account-executive-sonarsource-ch",
-        "fr": "account-executive-sonarsource-ch"
+        "it": "account-esecutivo-sonarsource-sonar-geneva",
+        "de": "kontoleitung-sonarsource-sonar-geneva",
+        "fr": "administrateur-de-compte-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1969,7 +1969,21 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-23T21:32:43.701Z"
+      "firstSeenAt": "2026-10-23T21:32:43.701Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-executive-sonarsource-ch"
+        ],
+        "de": [
+          "account-executive-sonarsource-ch"
+        ],
+        "fr": [
+          "account-executive-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "account-executive-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-fa61009f7838",

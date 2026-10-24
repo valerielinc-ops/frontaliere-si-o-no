@@ -4566,12 +4566,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-9dc162171ac1",
-      "slug": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
+      "slug": "dipl-expert-expert-emergency-care-nds-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
-        "it": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
+        "it": "dipl-expert-expert-emergency-care-nds-hf-spitaler-schaffhausen-schaffhausen",
         "en": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+        "fr": "dipl-expert-expert-soins-d-urgence-nds-hf-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4630,7 +4630,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:28:06.904Z"
+      "firstSeenAt": "2026-10-23T21:28:06.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-5e70fdb10555",

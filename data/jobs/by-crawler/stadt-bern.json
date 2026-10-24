@@ -3168,12 +3168,12 @@
     },
     {
       "id": "stadt-bern-e4dc9843f879",
-      "slug": "sozialpadagog-in-stadt-bern-bern",
+      "slug": "educatore-trice-sociale-stadt-bern-bern",
       "slugByLocale": {
         "de": "sozialpadagog-in-stadt-bern-bern",
-        "it": "sozialpadagog-in-stadt-bern-bern",
-        "en": "sozialpadagog-in-stadt-bern-bern",
-        "fr": "sozialpadagog-in-stadt-bern-bern"
+        "it": "educatore-trice-sociale-stadt-bern-bern",
+        "en": "social-pedagogue-stadt-bern-bern",
+        "fr": "educateur-trice-social-e-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -3232,7 +3232,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:20:48.210Z"
+      "firstSeenAt": "2026-10-23T21:20:48.210Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagog-in-stadt-bern-bern"
+        ],
+        "en": [
+          "sozialpadagog-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "sozialpadagog-in-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagog-in-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-6817dd12e5d1",
@@ -3240,8 +3254,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern",
         "it": "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-sportanlagen-stadt-bern-bern-f7b5e08051",
-        "en": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern",
-        "fr": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern"
+        "en": "apprenticeship-as-an-expert-expert-in-operating-maintenance-efz-focusing-on-sports-facilities-stadt-bern-bern",
+        "fr": "apprentissage-en-tant-qu-expert-expert-en-maintenance-operationnelle-efz-axe-sur-les-installations-sportives-stadt-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -3291,6 +3305,12 @@
         "it": [
           "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern",
           "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-sportanlagen-stadt-bern"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern"
+        ],
+        "fr": [
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen-stadt-bern"
         ]
       },
       "previousSlugs": [

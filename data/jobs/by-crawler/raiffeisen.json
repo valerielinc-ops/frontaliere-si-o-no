@@ -10,7 +10,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -56,11 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -444,7 +444,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -503,7 +503,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -526,7 +526,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -705,7 +705,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -755,7 +755,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -765,7 +765,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -876,7 +876,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -926,14 +926,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -1273,7 +1271,7 @@
         "it": "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach",
         "en": "employee-credit-administration-m-f-d-raiffeisen-egnach",
         "de": "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "fr": "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+        "fr": "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -1331,14 +1329,14 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
       ],
       "firstSeenAt": "2026-10-22T09:33:25.776Z",
       "salaryMin": 110500,
@@ -11913,12 +11911,12 @@
     },
     {
       "id": "raiffeisen-2cf8ae3d69b1",
-      "slug": "hr-verantwortliche-r-raiffeisen-nottwil",
+      "slug": "responsabile-hr-raiffeisen-nottwil",
       "slugByLocale": {
         "de": "hr-verantwortliche-r-raiffeisen-nottwil",
-        "it": "hr-verantwortliche-r-raiffeisen-nottwil",
-        "en": "hr-verantwortliche-r-raiffeisen-nottwil",
-        "fr": "hr-verantwortliche-r-raiffeisen-nottwil"
+        "it": "responsabile-hr-raiffeisen-nottwil",
+        "en": "hr-manager-raiffeisen-nottwil",
+        "fr": "responsable-rh-raiffeisen-nottwil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11977,16 +11975,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:19:52.233Z"
+      "firstSeenAt": "2026-10-23T21:19:52.233Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-verantwortliche-r-raiffeisen-nottwil"
+        ],
+        "en": [
+          "hr-verantwortliche-r-raiffeisen-nottwil"
+        ],
+        "fr": [
+          "hr-verantwortliche-r-raiffeisen-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "hr-verantwortliche-r-raiffeisen-nottwil"
+      ]
     },
     {
       "id": "raiffeisen-65abb699b2ec",
-      "slug": "kmu-firmenkundenberater-in-raiffeisen-wattwil",
+      "slug": "consulente-per-le-pmi-i-clienti-aziendali-raiffeisen-wattwil",
       "slugByLocale": {
         "de": "kmu-firmenkundenberater-in-raiffeisen-wattwil",
-        "it": "kmu-firmenkundenberater-in-raiffeisen-wattwil",
-        "en": "kmu-firmenkundenberater-in-raiffeisen-wattwil",
-        "fr": "kmu-firmenkundenberater-in-raiffeisen-wattwil"
+        "it": "consulente-per-le-pmi-i-clienti-aziendali-raiffeisen-wattwil",
+        "en": "sme-corporate-client-advisor-raiffeisen-wattwil",
+        "fr": "conseiller-ere-pme-clientele-entreprises-raiffeisen-wattwil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12045,7 +12057,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:19:52.212Z"
+      "firstSeenAt": "2026-10-23T21:19:52.212Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kmu-firmenkundenberater-in-raiffeisen-wattwil"
+        ],
+        "en": [
+          "kmu-firmenkundenberater-in-raiffeisen-wattwil"
+        ],
+        "fr": [
+          "kmu-firmenkundenberater-in-raiffeisen-wattwil"
+        ]
+      },
+      "previousSlugs": [
+        "kmu-firmenkundenberater-in-raiffeisen-wattwil"
+      ]
     },
     {
       "id": "raiffeisen-50cd083cb973",

@@ -1181,9 +1181,9 @@
     },
     {
       "id": "kanton-solothurn-b4b35a90748c",
-      "slug": "jurist-in-80-100-kanton-solothurn-solothurn",
+      "slug": "giurista-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "jurist-in-80-100-kanton-solothurn-solothurn",
+        "it": "giurista-80-100-kanton-solothurn-solothurn",
         "en": "lawyer-80-100-kanton-solothurn-solothurn",
         "de": "jurist-in-80-100-kanton-solothurn-solothurn",
         "fr": "juriste-80-100-kanton-solothurn-solothurn"
@@ -1231,11 +1231,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "giurista-80-100-kanton-solothurn-solothurn"
+        "jurist-in-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "giurista-80-100-kanton-solothurn-solothurn"
+          "jurist-in-80-100-kanton-solothurn-solothurn"
         ]
       },
       "firstSeenAt": "2026-10-19T09:23:18.512Z",
@@ -1746,12 +1746,12 @@
     },
     {
       "id": "kanton-solothurn-d041640b2348",
-      "slug": "collaboratore-trice-in-betriebe-come-fachperson-arbeitsagogik-100-kanton-solothurn",
+      "slug": "collaboratore-trice-del-settore-aziende-in-qualita-di-specialista-in-agogia-del-lavoro-100-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik-100-kanton-solothurn-solothurn",
-        "it": "collaboratore-trice-in-betriebe-come-fachperson-arbeitsagogik-100-kanton-solothurn",
-        "en": "mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik-100-kanton-solothurn-solothurn",
-        "fr": "mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik-100-kanton-solothurn-solothurn"
+        "it": "collaboratore-trice-del-settore-aziende-in-qualita-di-specialista-in-agogia-del-lavoro-100-kanton-solothurn-solothurn",
+        "en": "employee-in-operations-as-a-specialist-in-work-agogics-100-kanton-solothurn-solothurn",
+        "fr": "collaborateur-rice-des-entreprises-en-tant-que-specialiste-en-agogique-du-travail-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1799,11 +1799,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik-100-kanton-solothurn-solothurn",
+          "collaboratore-trice-in-betriebe-come-fachperson-arbeitsagogik-100-kanton-solothurn"
+        ],
+        "en": [
+          "mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik-100-kanton-solothurn-solothurn"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik-100-kanton-solothurn-solothurn"
+        "mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik-100-kanton-solothurn-solothurn",
+        "collaboratore-trice-in-betriebe-come-fachperson-arbeitsagogik-100-kanton-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
