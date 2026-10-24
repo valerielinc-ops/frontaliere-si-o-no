@@ -6,7 +6,7 @@ import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18n
 import { fetchArticleOverlay, mergeOverlay, type OverlayArticle } from '@/services/articlesOverlay';
 import { articleCoverImageLd, creditedStaticImageObject, fetchImageCredit, fetchImageCredits } from '@/services/imageCredits';
 import type { ImageCreditRecord } from '@/packages/articles/engine/shared/imageCredits.mjs';
-import { ARTICLE_TRANSPARENCY, CORRECTIONS_PAGE_PATHS, METHODOLOGY_PAGE_PATHS, disclosureLocale } from '@/packages/articles/engine/shared/aiDisclosure';
+import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from '@/packages/articles/engine/shared/aiDisclosure';
 import ImageCreditLine from '@/components/community/ImageCreditLine';
 import { fuelPriceVariantForArticle, shouldShowFuelTableAfterSingleSegment } from '@/components/blog/fuelArticleContext';
 import { runtimeArticleRecords, recoverArticleBodyParts, publishRuntimeArticleBody, publishedSlugsForIds } from '@/services/runtimeArticleResolution';
@@ -3161,7 +3161,7 @@ function BlogArticlesContent({
  </p>
  <p className="text-xs">
  <a
- href={METHODOLOGY_PAGE_PATHS[transparencyLocale]}
+ href={DISCLOSURE_ROUTE_CONTRACT[transparencyLocale].methodology}
  className="text-accent hover:underline"
  onClick={(e) => { e.preventDefault(); nav.navigateTo('metodologia' as any); }}
  >
@@ -3169,7 +3169,7 @@ function BlogArticlesContent({
  </a>
  {' · '}
  <a
- href={CORRECTIONS_PAGE_PATHS[transparencyLocale]}
+ href={DISCLOSURE_ROUTE_CONTRACT[transparencyLocale].corrections}
  className="text-accent hover:underline"
  onClick={(e) => { e.preventDefault(); nav.navigateTo('correzioni' as any); }}
  >

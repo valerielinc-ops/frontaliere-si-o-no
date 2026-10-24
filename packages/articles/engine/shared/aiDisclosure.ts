@@ -24,6 +24,23 @@
 
 export type DisclosureLocale = 'it' | 'en' | 'de' | 'fr';
 
+export interface DisclosureRoutePaths {
+  readonly methodology: string;
+  readonly corrections: string;
+}
+
+/**
+ * The canonical trust-page URLs shared by the article engine and the host
+ * router. The host derives its localized route slugs from this contract so a
+ * disclosure link cannot silently drift from the route it resolves to.
+ */
+export const DISCLOSURE_ROUTE_CONTRACT: Readonly<Record<DisclosureLocale, DisclosureRoutePaths>> = Object.freeze({
+  it: Object.freeze({ methodology: '/metodologia/', corrections: '/correzioni/' }),
+  en: Object.freeze({ methodology: '/en/methodology/', corrections: '/en/corrections/' }),
+  de: Object.freeze({ methodology: '/de/methodik/', corrections: '/de/korrekturen/' }),
+  fr: Object.freeze({ methodology: '/fr/methodologie/', corrections: '/fr/corrections/' }),
+});
+
 /** The site-wide AI statement (about pages, methodology summary). */
 export const AI_USE_STATEMENT: Readonly<Record<DisclosureLocale, string>> = Object.freeze({
   it: 'Usiamo strumenti di IA generativa per bozze e traduzioni, con controlli automatici e possibili correzioni redazionali. Non garantiamo una revisione umana preventiva di ogni articolo.',
@@ -32,14 +49,20 @@ export const AI_USE_STATEMENT: Readonly<Record<DisclosureLocale, string>> = Obje
   fr: 'Nous utilisons des outils d’IA générative pour les brouillons et les traductions, avec des contrôles automatiques et d’éventuelles corrections rédactionnelles. Nous ne garantissons pas une relecture humaine de chaque article avant publication.',
 });
 
-/** Editorial methodology page per locale (mirrors `METHODOLOGY_PATHS`). */
+/** @deprecated Read `DISCLOSURE_ROUTE_CONTRACT[locale].methodology` instead. */
 export const METHODOLOGY_PAGE_PATHS: Readonly<Record<DisclosureLocale, string>> = Object.freeze({
-  it: '/metodologia/', en: '/en/methodology/', de: '/de/methodik/', fr: '/fr/methodologie/',
+  it: DISCLOSURE_ROUTE_CONTRACT.it.methodology,
+  en: DISCLOSURE_ROUTE_CONTRACT.en.methodology,
+  de: DISCLOSURE_ROUTE_CONTRACT.de.methodology,
+  fr: DISCLOSURE_ROUTE_CONTRACT.fr.methodology,
 });
 
-/** Public corrections register per locale (mirrors `CORRECTIONS_PATHS`). */
+/** @deprecated Read `DISCLOSURE_ROUTE_CONTRACT[locale].corrections` instead. */
 export const CORRECTIONS_PAGE_PATHS: Readonly<Record<DisclosureLocale, string>> = Object.freeze({
-  it: '/correzioni/', en: '/en/corrections/', de: '/de/korrekturen/', fr: '/fr/corrections/',
+  it: DISCLOSURE_ROUTE_CONTRACT.it.corrections,
+  en: DISCLOSURE_ROUTE_CONTRACT.en.corrections,
+  de: DISCLOSURE_ROUTE_CONTRACT.de.corrections,
+  fr: DISCLOSURE_ROUTE_CONTRACT.fr.corrections,
 });
 
 export interface ArticleTransparencyCopy {
