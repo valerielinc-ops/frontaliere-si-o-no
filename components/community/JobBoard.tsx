@@ -143,6 +143,7 @@ import { normalizeJobAlertLocationValue } from '@/services/jobAlertLocations';
 import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
+import { fetchEmployerHubCounts } from '@/hooks/useEmployerHub';
 import PopularSearchChips from '@/components/community/PopularSearchChips';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
@@ -2752,7 +2753,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
  useEffect(() => {
- isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
+ isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => setLinkedInAvailable(false));
+ // The employer-hub CTA renders above the gate's description only once its
+ // count map has loaded; fetched from the detail render it landed ~1.5s after
+ // the gate and shifted it (CLS). Start it at mount on slug routes instead.
+ if (initialJobSlug) void fetchEmployerHubCounts();
+ // eslint-disable-next-line react-hooks/exhaustive-deps
  }, []);
  // Bridge-page guard (see readBridgeTargetSlug): on a job bridge page the URL
  // segment is the job's OLD slug, not a search keyword. 13 historic slugs start
@@ -2834,7 +2840,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [filtersExpanded, setFiltersExpanded] = useState(false);
  const searchInputRef = useRef<HTMLInputElement>(null);
  const searchDebounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
- const [linkedInAvailable, setLinkedInAvailable] = useState(false);
+ // null = Remote Config not answered yet. The button's box is held (invisible,
+ // inert) until then, so the answer arriving ~2s after the gate painted does
+ // not push the email form, the consent notice and the ad below it by 56px.
+ const [linkedInAvailable, setLinkedInAvailable] = useState<boolean | null>(null);
  const modalGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const authUnlockCandidateRef = useRef<string | null>(null);
@@ -8653,9 +8662,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  <div className="space-y-3">
- <div className="space-y-2">
- <div ref={modalGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
+ {/* One fixed 44px slot for the Google control (CLS). GIS re-renders its
+     iframe at ~80px before settling at 44px, and the fallback used to be
+     stacked UNDER the GIS container and removed on readiness: both moved
+     everything below the gate by 36-52px. The fallback now overlays the
+     GIS container inside the same box, so readiness swaps pixels only. */}
+ <div className="relative h-[44px]" data-google-signin-slot>
+ <div ref={modalGoogleButtonRef} className="absolute inset-0 flex w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!modalGoogleButtonReady && (
+ <div className="absolute inset-0">
  <button
  type="button"
  onClick={() => {
@@ -8693,14 +8708,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {t('newsletter.popup.googleSignIn')}
  </button>
+ </div>
  )}
  </div>
 
  {/* LinkedIn Sign-In Button (conditional on Remote Config) */}
- {linkedInAvailable && (
+ {linkedInAvailable !== false && (
  <button
  type="button"
- disabled={authBusy !== null}
+ disabled={authBusy !== null || !linkedInAvailable}
+ aria-hidden={linkedInAvailable ? undefined : true}
+ tabIndex={linkedInAvailable ? undefined : -1}
  onClick={() => {
  const job = pendingJob || selectedJob;
  if (job) {
@@ -8744,7 +8762,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  signInWithLinkedIn().catch(() => setAuthBusy(null));
  }
  }}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ className={`w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors${linkedInAvailable ? '' : ' invisible'}`}
  >
  {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -10162,9 +10180,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const gateActions = (
  <div className={gateSkin.actionsFirst ? 'space-y-3' : 'mt-4 space-y-3'}>
- <div className="space-y-2">
- <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
+ {/* One fixed 44px slot for the Google control (CLS). GIS re-renders its
+     iframe at ~80px before settling at 44px, and the fallback used to be
+     stacked UNDER the GIS container and removed on readiness: both moved
+     everything below the gate by 36-52px. The fallback now overlays the
+     GIS container inside the same box, so readiness swaps pixels only. */}
+ <div className="relative h-[44px]" data-google-signin-slot>
+ <div ref={inlineGoogleButtonRef} className="absolute inset-0 flex w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!inlineGoogleButtonReady && (
+ <div className="absolute inset-0">
  <button
  type="button"
  onClick={() => {
@@ -10201,12 +10225,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {t('newsletter.popup.googleSignIn')}
  </button>
+ </div>
  )}
  </div>
- {linkedInAvailable && (
+ {linkedInAvailable !== false && (
  <button
  type="button"
- disabled={authBusy !== null}
+ disabled={authBusy !== null || !linkedInAvailable}
+ aria-hidden={linkedInAvailable ? undefined : true}
+ tabIndex={linkedInAvailable ? undefined : -1}
  onClick={() => {
  const job = selectedJob;
  if (job) {
@@ -10250,7 +10277,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  signInWithLinkedIn().catch(() => setAuthBusy(null));
  }
  }}
- className={gateSkin.linkedInButton}
+ className={linkedInAvailable ? gateSkin.linkedInButton : `${gateSkin.linkedInButton} invisible`}
  >
  {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className={gateSkin.linkedInIcon ? `w-4 h-4 ${gateSkin.linkedInIcon}` : 'w-4 h-4'} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
