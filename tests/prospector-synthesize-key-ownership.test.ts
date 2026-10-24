@@ -11,8 +11,8 @@ const state = vi.hoisted(() => ({
 }));
 
 vi.mock('../scripts/lib/prospector/config.mjs', () => ({
-  ROOT: state.root,
-  PROSPECTOR_DIR: state.prospectorDir,
+  get ROOT() { return state.root; },
+  get PROSPECTOR_DIR() { return state.prospectorDir; },
 }));
 
 vi.mock('../scripts/lib/prospector/coverage.mjs', () => ({
