@@ -16,7 +16,9 @@
  * section prefixes, `{ it: '/cerca-lavoro-zurigo', en: '/en/find-jobs-zurich',
  * de: '/de/jobs-in-zurich', fr: '/fr/trouver-emploi-zurich' }`; the consumer
  * (Worker / 404.html) picks the prefix matching the REQUEST's locale and rebuilds
- * the URL as `${prefix}/${slug}/`. Locale-keyed because the slug segment is
+ * the URL as `${prefix}/${slug}/`. A key whose en/de/fr registry path ends in
+ * a different slug also carries `alias: { <loc>: '<full localized path>' }`
+ * (see the alias pass below). Locale-keyed because the slug segment is
  * IDENTICAL across all 4 locales (only the section prefix is localized): a single
  * flat `{slug: prefix}` value collapsed to whichever locale wrote first (it), so
  * the en/de/fr Worker 301'd every orphan to the ITALIAN page — a permanent
@@ -38,6 +40,8 @@ import type { Plugin } from 'vite';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 
 const OUT_SUBDIR = 'job-canon';
+/** Locales whose legacy URLs carried the Italian registry key (see the alias pass). */
+const ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 
 function shardKey(slug: string): string {
   const s = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
@@ -72,7 +76,9 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
       // shard → { slug: { it, en, de, fr } } — per-locale section prefixes. The
       // slug segment is identical across locales, so a flat {slug: prefix} would
       // collapse to whichever locale wrote first; keep each locale's own prefix.
-      type LocalePrefixes = Partial<Record<'it' | 'en' | 'de' | 'fr', string>>;
+      type LocalePrefixes = Partial<Record<'it' | 'en' | 'de' | 'fr', string>> & {
+        alias?: Partial<Record<'en' | 'de' | 'fr', string>>;
+      };
       const shards = new Map<string, Record<string, LocalePrefixes>>();
       let entries = 0;
       for (const key of Object.keys(tracking)) {
@@ -95,6 +101,37 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           if (!(loc in perLocale)) perLocale[loc] = prefix;
         }
       }
+
+      // Registry aliases (en/de/fr). Before the cathedral every locale path was
+      // `/<locale>/<TI section>/<registry key>`, i.e. the Italian slug under a
+      // localized section; the build kept those URLs alive with a 200 copy whose
+      // canonical named another page (911k canonicalMismatch advisories on the
+      // full-corpus replay). It no longer does, so the Worker must be able to
+      // 301 them — but when this locale's registry path ends in a DIFFERENT
+      // slug, `${prefix}/${key}/` would be a URL that does not exist. For those
+      // keys record the full localized path instead (`alias`). An exact prefix
+      // for the key — some registry path in this locale really ends in it —
+      // always wins, so an alias never shadows a real page.
+      let aliases = 0;
+      for (const key of Object.keys(tracking)) {
+        const e = tracking[key];
+        if (!e) continue;
+        for (const loc of ALIAS_LOCALES) {
+          const p = e[loc];
+          if (!p) continue;
+          const target = p.replace(/\/+$/, '');
+          const seg = target.split('/').pop();
+          if (!seg || seg === key || !sectionPrefix(target)) continue;
+          const sk = shardKey(key);
+          let bucket = shards.get(sk);
+          if (!bucket) { bucket = {}; shards.set(sk, bucket); }
+          let perLocale = bucket[key];
+          if (!perLocale) { perLocale = {}; bucket[key] = perLocale; entries++; }
+          if (loc in perLocale) continue;
+          const alias = (perLocale.alias ??= {});
+          if (!(loc in alias)) { alias[loc] = target; aliases++; }
+        }
+      }
       if (shards.size === 0) return;
 
       const outDir = path.join(distDir, OUT_SUBDIR);
@@ -103,7 +140,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         fs.writeFileSync(path.join(outDir, `${sk}.json`), JSON.stringify(bucket), 'utf-8');
       }
       console.log(
-        `\x1b[36m[job-canon-redirect-map]\x1b[0m Emitted ${shards.size} shards, ${entries} slug→canonical entries for 404-page canton-drift recovery.`,
+        `\x1b[36m[job-canon-redirect-map]\x1b[0m Emitted ${shards.size} shards, ${entries} slug→canonical entries (${aliases} localized-slug aliases) for 404-page canton-drift recovery.`,
       );
     },
   };
