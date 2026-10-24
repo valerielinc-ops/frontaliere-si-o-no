@@ -65,6 +65,8 @@
 import { PHARMACY_DUTY_CITY_REDIRECTS } from '../../scripts/lib/pharmacySections.mjs';
 import { legacyTicinoTreeBucket, ticinoTreeBucket } from './ticino-tree-bucket.js';
 import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
+import { EDGE_LEGACY_STUB_REDIRECTS } from './legacy-stub-redirects.generated.mjs';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 // Named export for the same reason SECTION_ROUTES below carries one: the
 // Workers runtime only ever uses the default export, but scripts/lib/cf-worker-routes.mjs
@@ -1976,6 +1978,91 @@ export function apexLegacyResponse(url) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
+// LEGACY REDIRECT STUBS → REAL 301 (legacyRedirectsPlugin static map)
+// ────────────────────────────────────────────────────────────────────────────
+//
+// legacyRedirectsPlugin answers ~900 legacy URLs (its hand-authored literal,
+// the border-wait and Lugano-competition maps and data/article-redirects.json)
+// with a 200 "Pagina spostata" page: noindex,follow + a 0-second meta-refresh.
+// That is a fake page, not a redirect — Google keeps the URL as a soft
+// duplicate instead of transferring it. Only the ~50 paths of
+// EDGE_LEGACY_REDIRECTS above were real 301s.
+//
+// EDGE_LEGACY_STUB_REDIRECTS is GENERATED from that same plugin table
+// (build-plugins/shared/edgeLegacyStubRedirects.ts; tests/edge-legacy-stub-
+// redirects.test.ts fails on any drift), so this file never carries a second
+// hand-kept copy of it.
+//
+// ORIGIN FIRST, THEN 301. The plugin never overwrites a page another plugin
+// emitted at the same path, so a table entry does not prove the path is dead.
+// The upgrade therefore runs on the RESPONSE: only a 200 whose body carries
+// REDIRECT_STUB_MARKER (the comment buildCanonicalBridgePage writes into every
+// bridge <head>) becomes a 301. A live page at a listed path is served as is.
+// Only listed paths pay the body read; every other response passes untouched,
+// and nothing is tee'd (single consumer, see the Cache API note in the header).
+// HEAD has no body to inspect, so a listed HEAD is answered from a GET of the
+// same URL through the same router.
+const LEGACY_STUB_MAX_BYTES = 256 * 1024;
+
+export function legacyStubTarget(pathname) {
+  return lookupLegacyTable(pathname, EDGE_LEGACY_STUB_REDIRECTS);
+}
+
+function legacyStubMoved(url, target) {
+  return new Response(null, {
+    status: 301,
+    headers: {
+      Location: target + url.search + url.hash,
+      'Cache-Control': RETIRED_MOVED_CACHE_CONTROL,
+    },
+  });
+}
+
+function isLegacyStubCandidate(response) {
+  if (!response || response.status !== 200) return false;
+  const length = Number(response.headers.get('Content-Length') || 0);
+  if (length > LEGACY_STUB_MAX_BYTES) return false;
+  const type = response.headers.get('Content-Type') || '';
+  return type === '' || /^text\/html\b/i.test(type);
+}
+
+/**
+ * Upgrade the origin's legacy redirect stub to a 301 for the paths listed in
+ * EDGE_LEGACY_STUB_REDIRECTS. `refetchAsGet` re-runs the router for a HEAD.
+ * Fail-open: any error returns a response equivalent to the one received.
+ */
+export async function upgradeLegacyStub(request, response, refetchAsGet) {
+  if (request.method !== 'GET' && request.method !== 'HEAD') return response;
+  const url = new URL(request.url);
+  const target = legacyStubTarget(url.pathname);
+  if (target === undefined || !isLegacyStubCandidate(response)) return response;
+
+  if (request.method === 'HEAD') {
+    try {
+      const probe = await refetchAsGet();
+      if (!isLegacyStubCandidate(probe)) return response;
+      const text = await probe.text();
+      return text.includes(REDIRECT_STUB_MARKER) ? legacyStubMoved(url, target) : response;
+    } catch {
+      return response;
+    }
+  }
+
+  let text;
+  try {
+    text = await response.text();
+  } catch {
+    return new Response('Origin unavailable', { status: 503, headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' } });
+  }
+  if (text.includes(REDIRECT_STUB_MARKER)) return legacyStubMoved(url, target);
+  // A live page at a listed path: hand back the same document. The body was
+  // decoded by text(), so the encoded length no longer applies.
+  const headers = new Headers(response.headers);
+  headers.delete('Content-Length');
+  return new Response(text, { status: response.status, statusText: response.statusText, headers });
+}
+
+// ────────────────────────────────────────────────────────────────────────────
 // CORPUS-OWNED ARTICLE SECTIONS (piano «sezioni articoli per cantone», S2)
 // ────────────────────────────────────────────────────────────────────────────
 //
@@ -3221,6 +3308,11 @@ const router = {
 
 export default {
   async fetch(request, env, ctx) {
-    return stripStaleAssetIntegrity(request, await router.fetch(request, env, ctx));
+    const response = await upgradeLegacyStub(
+      request,
+      await router.fetch(request, env, ctx),
+      () => router.fetch(new Request(request, { method: 'GET' }), env, ctx),
+    );
+    return stripStaleAssetIntegrity(request, response);
   },
 };
