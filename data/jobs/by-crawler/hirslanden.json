@@ -613,10 +613,10 @@
     {
       "id": "hirslanden-b0535c7bb478",
       "externalId": "1441952333",
-      "slug": "leiterin-leiter-rezeption-hirslanden-bern-a-100-hirslanden-klinik-hirslanden-salem-spital",
+      "slug": "capo-della-reception-hirslanden-bern-a-100-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "leiterin-leiter-rezeption-hirslanden-bern-a-100-hirslanden-hirslanden-salem-spital",
-        "it": "leiterin-leiter-rezeption-hirslanden-bern-a-100-hirslanden-klinik-hirslanden-salem-spital",
+        "it": "capo-della-reception-hirslanden-bern-a-100-hirslanden-klinik-hirslanden-salem-spital",
         "en": "head-of-reception-hirslanden-bern-a-100-hirslanden-klinik-hirslanden-salem-spital",
         "fr": "chef-de-la-reception-hirslanden-bern-a-100-hirslanden-klinik-hirslanden-salem-spital"
       },
@@ -662,11 +662,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiterin-leiter-rezeption-hirslanden-bern-a-100-hirslanden-hirslanden-salem-spital"
+        "leiterin-leiter-rezeption-hirslanden-bern-a-100-hirslanden-hirslanden-salem-spital",
+        "leiterin-leiter-rezeption-hirslanden-bern-a-100-hirslanden-klinik-hirslanden-salem-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiterin-leiter-rezeption-hirslanden-bern-a-100-hirslanden-hirslanden-salem-spital"
+          "leiterin-leiter-rezeption-hirslanden-bern-a-100-hirslanden-hirslanden-salem-spital",
+          "leiterin-leiter-rezeption-hirslanden-bern-a-100-hirslanden-klinik-hirslanden-salem-spital"
         ],
         "en": [
           "leiterin-leiter-rezeption-hirslanden-bern-a-100-hirslanden-hirslanden-salem-spital"
@@ -19547,12 +19549,12 @@
     {
       "id": "hirslanden-84c919f7e13b",
       "externalId": "1435850533",
-      "slug": "it-supporterin-it-supporter-a-klinik-hirslanden-100-hirslanden-hirslanden-corporate-office",
+      "slug": "it-supporterin-it-supporter-a-klinik-hirslanden-100-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "it-supporterin-supporter-a-klinik-hirslanden-100-hirslanden-hirslanden-corporate-office",
         "fr": "supporteur-informatique-a-klinik-hirslanden-100-hirslanden-klinik-hirslanden-corporate-office",
-        "it": "it-supporterin-it-supporter-a-klinik-hirslanden-100-hirslanden-hirslanden-corporate-office",
-        "en": "it-supporterin-it-supporter-a-klinik-hirslanden-100-hirslanden-hirslanden-corporate-office"
+        "it": "it-supporterin-it-supporter-a-klinik-hirslanden-100-hirslanden-klinik-hirslanden-corporate-office",
+        "en": "it-supporterin-it-supporter-a-klinik-hirslanden-100-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -19608,7 +19610,18 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-supporterin-it-supporter-a-klinik-hirslanden-100-hirslanden-hirslanden-corporate-office"
+        ],
+        "en": [
+          "it-supporterin-it-supporter-a-klinik-hirslanden-100-hirslanden-hirslanden-corporate-office"
+        ]
+      },
+      "previousSlugs": [
+        "it-supporterin-it-supporter-a-klinik-hirslanden-100-hirslanden-hirslanden-corporate-office"
+      ]
     },
     {
       "id": "hirslanden-e732e67b473b",

@@ -8,7 +8,7 @@
       "slug": "mechanical-maintenance-supervisor-imerys-ch",
       "slugByLocale": {
         "it": "mechanical-maintenance-supervisor-imerys-ch",
-        "en": "maintenance-supervisor-imerys-bodio",
+        "en": "mechanical-maintenance-supervisor-imerys-bodio",
         "de": "mechanical-maintenance-vorgesetzter-imerys-bodio",
         "fr": "mechanical-maintenance-superviseur-imerys-bodio"
       },
@@ -68,7 +68,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6743"
+      "postalCode": "6743",
+      "previousSlugsByLocale": {
+        "en": [
+          "maintenance-supervisor-imerys-bodio"
+        ]
+      },
+      "previousSlugs": [
+        "maintenance-supervisor-imerys-bodio"
+      ]
     },
     {
       "id": "imerys-8439520cd59e",

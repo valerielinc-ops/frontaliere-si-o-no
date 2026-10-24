@@ -218,7 +218,7 @@
       },
       "slugByLocale": {
         "it": "electrical-software-engineer-m-f-d-mikron",
-        "en": "m-f-d-mikron-group-agno",
+        "en": "electrical-software-engineer-m-f-d-mikron-group-agno",
         "de": "elektro-und-softwareingenieur-m-w-d-mikron-group-agno",
         "fr": "ingenieur-electrique-et-logiciel-h-f-d-mikron-group-agno"
       },
@@ -253,7 +253,15 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "m-f-d-mikron-group-agno"
+        ]
+      },
+      "previousSlugs": [
+        "m-f-d-mikron-group-agno"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/polymecanic-team-leader",

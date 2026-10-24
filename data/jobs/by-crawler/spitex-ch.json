@@ -1515,12 +1515,12 @@
     },
     {
       "id": "spitex-ch-2aa7f8d12a14",
-      "slug": "dipl-pflegefachperson-hf-come-ausbildner-in-per-hf-studierende-spitex-stiftung-drei-tannen-wald-zh",
+      "slug": "infermiere-a-diplomato-a-hf-come-formatore-trice-per-studenti-hf-spitex-stiftung-drei-tannen-wald-zh",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-als-ausbildner-in-fur-hf-studierende-spitex-spitex-ch-wald-zh",
-        "it": "dipl-pflegefachperson-hf-come-ausbildner-in-per-hf-studierende-spitex-stiftung-drei-tannen-wald-zh",
-        "en": "dipl-pflegefachperson-hf-als-ausbildner-in-fur-hf-studierende-spitex-spitex-ch-wald-zh",
-        "fr": "dipl-pflegefachperson-hf-als-ausbildner-in-fur-hf-studierende-spitex-spitex-ch-wald-zh"
+        "it": "infermiere-a-diplomato-a-hf-come-formatore-trice-per-studenti-hf-spitex-stiftung-drei-tannen-wald-zh",
+        "en": "dipl-nursing-professional-hf-as-a-trainer-for-hf-students-spitex-stiftung-drei-tannen-wald-zh",
+        "fr": "infirmier-ere-diplome-e-es-en-tant-que-formateur-rice-pour-les-etudiant-es-es-en-soins-a-domicile-stiftung-drei-tannen"
       },
       "company": "Stiftung Drei Tannen",
       "companyKey": "spitex-ch",
@@ -1568,11 +1568,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-als-ausbildner-in-fur-hf-studierende-spitex-spitex-ch-wald-zh",
+          "dipl-pflegefachperson-hf-come-ausbildner-in-per-hf-studierende-spitex-stiftung-drei-tannen-wald-zh"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-als-ausbildner-in-fur-hf-studierende-spitex-spitex-ch-wald-zh"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-als-ausbildner-in-fur-hf-studierende-spitex-spitex-ch-wald-zh"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-als-ausbildner-in-fur-hf-studierende-spitex-spitex-ch-wald-zh"
+        "dipl-pflegefachperson-hf-als-ausbildner-in-fur-hf-studierende-spitex-spitex-ch-wald-zh",
+        "dipl-pflegefachperson-hf-come-ausbildner-in-per-hf-studierende-spitex-stiftung-drei-tannen-wald-zh"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

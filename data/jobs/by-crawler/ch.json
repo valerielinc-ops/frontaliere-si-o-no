@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "ch-9e72d8e76c62",
-      "slug": "kundenberater-m-w-d-mit-vbv-iaf-abschluss-zurich-zurich-ch-ch",
+      "slug": "consulente-clienti-m-f-d-con-diploma-vbv-iaf-global-sana-zurich-zurich",
       "slugByLocale": {
         "de": "kundenberater-m-w-d-mit-vbv-iaf-abschluss-zurich-zurich-ch-ch",
-        "it": "kundenberater-m-w-d-mit-vbv-iaf-abschluss-zurich-zurich-ch-ch",
-        "en": "kundenberater-m-w-d-mit-vbv-iaf-abschluss-zurich-zurich-ch-ch",
-        "fr": "kundenberater-m-w-d-mit-vbv-iaf-abschluss-zurich-zurich-ch-ch"
+        "it": "consulente-clienti-m-f-d-con-diploma-vbv-iaf-global-sana-zurich-zurich",
+        "en": "customer-advisor-m-f-d-with-vbv-iaf-degree-global-sana-zurich-zurich",
+        "fr": "conseiller-client-h-f-d-avec-vbv-iaf-degre-global-sana-zurich-zurich"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -68,7 +68,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-24T21:27:08.936Z"
+      "firstSeenAt": "2026-10-24T21:27:08.936Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-m-w-d-mit-vbv-iaf-abschluss-zurich-zurich-ch-ch"
+        ],
+        "en": [
+          "kundenberater-m-w-d-mit-vbv-iaf-abschluss-zurich-zurich-ch-ch"
+        ],
+        "fr": [
+          "kundenberater-m-w-d-mit-vbv-iaf-abschluss-zurich-zurich-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-m-w-d-mit-vbv-iaf-abschluss-zurich-zurich-ch-ch"
+      ]
     }
   ]
 }

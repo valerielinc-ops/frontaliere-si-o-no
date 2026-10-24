@@ -765,10 +765,10 @@
     },
     {
       "id": "hilcona-e1d067fe81da",
-      "slug": "in-100-eisberg-ag-dallikon",
+      "slug": "einkaeufer-in-100-eisberg-ag-dallikon",
       "slugByLocale": {
-        "it": "in-100-eisberg-ag-dallikon",
-        "en": "in-100-eisberg-ag-dallikon",
+        "it": "einkaeufer-in-100-eisberg-ag-dallikon",
+        "en": "einkaeufer-in-100-eisberg-ag-dallikon",
         "de": "einkaeufer-in-100-hilcona-dallikon",
         "fr": "dans-100-eisberg-ag-dallikon"
       },
@@ -809,14 +809,17 @@
       "crawledAt": "2026-10-24T21:22:21.963Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "einkaeufer-in-100-hilcona-dallikon"
+        "einkaeufer-in-100-hilcona-dallikon",
+        "in-100-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einkaeufer-in-100-hilcona-dallikon"
+          "einkaeufer-in-100-hilcona-dallikon",
+          "in-100-eisberg-ag-dallikon"
         ],
         "en": [
-          "einkaeufer-in-100-hilcona-dallikon"
+          "einkaeufer-in-100-hilcona-dallikon",
+          "in-100-eisberg-ag-dallikon"
         ],
         "fr": [
           "einkaeufer-in-100-hilcona-dallikon"
@@ -3669,7 +3672,7 @@
         "it": "laboratorio-in-60-80-eisberg-ag-dallikon",
         "en": "laboratory-in-60-80-eisberg-ag-dallikon",
         "de": "laborant-in-60-80-hilcona-dallikon",
-        "fr": "laborant-in-60-80-eisberg-ag-dallikon"
+        "fr": "laboratoire-en-60-80-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -3709,7 +3712,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "laborant-in-60-80-hilcona-dallikon",
-        "laboratoire-en-60-80-eisberg-ag-dallikon"
+        "laborant-in-60-80-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3719,7 +3722,7 @@
           "laborant-in-60-80-hilcona-dallikon"
         ],
         "fr": [
-          "laboratoire-en-60-80-eisberg-ag-dallikon"
+          "laborant-in-60-80-eisberg-ag-dallikon"
         ]
       },
       "firstSeenAt": "2026-09-26T14:05:29.008Z",

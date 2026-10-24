@@ -3695,9 +3695,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3748,17 +3748,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -3781,8 +3782,8 @@
       "slug": "aspirant-e-gerant-e-otto-s-ag-biel",
       "slugByLocale": {
         "it": "aspirant-e-gerant-e-otto-s-ag-biel",
-        "en": "aspirant-e-otto-s-ag-biel",
-        "de": "aspirant-e-otto-s-ag-biel",
+        "en": "aspirant-e-gerant-e-otto-s-ag-biel",
+        "de": "aspirant-e-gerant-e-otto-s-ag-biel",
         "fr": "aspirant-e-gerant-e-ottos-biel"
       },
       "company": "OTTO'S AG",
@@ -3832,17 +3833,20 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "aspirant-e-gerant-e-ottos-biel"
+        "aspirant-e-gerant-e-ottos-biel",
+        "aspirant-e-otto-s-ag-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aspirant-e-gerant-e-ottos-biel"
         ],
         "en": [
-          "aspirant-e-gerant-e-ottos-biel"
+          "aspirant-e-gerant-e-ottos-biel",
+          "aspirant-e-otto-s-ag-biel"
         ],
         "de": [
-          "aspirant-e-gerant-e-ottos-biel"
+          "aspirant-e-gerant-e-ottos-biel",
+          "aspirant-e-otto-s-ag-biel"
         ]
       },
       "firstSeenAt": "2026-10-19T10:00:09.999Z",

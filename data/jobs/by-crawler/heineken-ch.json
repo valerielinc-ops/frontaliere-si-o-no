@@ -6,10 +6,10 @@
     {
       "id": "heineken-ch-a716028f91b3",
       "jobReqId": "149312",
-      "slug": "c-c-e-heineken-switzerland-fahrweid",
+      "slug": "chauffeur-c-e-heineken-switzerland-fahrweid",
       "slugByLocale": {
-        "it": "c-c-e-heineken-switzerland-fahrweid",
-        "en": "c-c-e-heineken-switzerland-fahrweid",
+        "it": "chauffeur-c-e-heineken-switzerland-fahrweid",
+        "en": "driver-c-e-heineken-switzerland-fahrweid",
         "de": "chauffeur-c-e-heineken-ch-fahrweid",
         "fr": "c-c-e-heineken-switzerland-fahrweid"
       },
@@ -53,11 +53,16 @@
       "sourceLang": "de",
       "crawledAt": "2026-10-24T21:42:25.936Z",
       "previousSlugs": [
-        "chauffeur-c-e-heineken-ch-fahrweid"
+        "chauffeur-c-e-heineken-ch-fahrweid",
+        "c-c-e-heineken-switzerland-fahrweid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-c-e-heineken-ch-fahrweid"
+          "chauffeur-c-e-heineken-ch-fahrweid",
+          "c-c-e-heineken-switzerland-fahrweid"
+        ],
+        "en": [
+          "c-c-e-heineken-switzerland-fahrweid"
         ]
       },
       "needsRetranslation": true,

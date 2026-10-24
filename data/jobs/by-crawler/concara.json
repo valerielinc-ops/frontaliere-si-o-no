@@ -2260,7 +2260,7 @@
       "slug": "apn-infermiera-practitioner-60-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "it": "apn-infermiera-practitioner-60-100-concara-domicil-spitex-bern-bern",
-        "en": "apn-nurse-practitioner-60-100-concara-domicil-spitex-bern-bern",
+        "en": "pflegeexpert-in-apn-nurse-practitioner-60-100-concara-domicil-spitex-bern-bern",
         "de": "pflegeexpert-in-apn-nurse-practitioner-60-100-concara-bern",
         "fr": "apn-infirmiere-praticienne-60-100-concara-domicil-spitex-bern-bern"
       },
@@ -2308,11 +2308,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegeexpert-in-apn-nurse-practitioner-60-100-concara-bern"
+        "pflegeexpert-in-apn-nurse-practitioner-60-100-concara-bern",
+        "apn-nurse-practitioner-60-100-concara-domicil-spitex-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegeexpert-in-apn-nurse-practitioner-60-100-concara-bern"
+        ],
+        "en": [
+          "apn-nurse-practitioner-60-100-concara-domicil-spitex-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-07T23:30:20.907Z",
