@@ -1,21 +1,22 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-23T21:18:15.378Z",
+  "generatedAt": "2026-10-24T09:18:11.657Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 2840,
-  "avgDurationMs": 2840,
+  "durationMs": 3074,
+  "avgDurationMs": 3074,
   "durationHistory": [
-    2840
+    3074
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "GTM Campaign & Marketing Coordinator",
-      "slug": "gtm-campaign-marketing-coordinator-guess-europe-sagl-bioggio-switzerland",
+      "slug": "gtm-campaign-marketing-coordinatore-guess-europe-sagl-bioggio",
       "url": "https://apply.workable.com/guess-europe-sagl/j/809974A177/",
       "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/809974A177/apply/",
       "company": "Guess Europe Sagl",
@@ -45,23 +46,20 @@
         "Discount on our products both online and in stores"
       ],
       "id": "guess-europe-33e9c7e71040",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6934",
       "firstSeenAt": "2026-10-23T21:18:07.241Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Sales Associate - Zurich Area (Hourly Paid Contract)",
       "slug": "sales-associate-zona-di-zurigo-contratto-a-pagamento-guess-europe-sagl-zurich",
@@ -468,5 +466,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

@@ -10,6 +10,17 @@
     "jsonld"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/326ed6af-0105-4d2f-81f9-9d4db12d2569": {
+      "location": "Steg-Hohtenn",
+      "canton": "VS",
+      "title": "Schreinermonteur:in Küchen & Bäder",
+      "sourceId": "10237552",
+      "company": "Fust",
+      "contract": "A tempo indeterminato",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
     "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-und-baeder/795e85ba-abb5-41cb-98e5-e6e7f66da623": {
       "location": "Burgdorf",
       "canton": "BE",
@@ -977,44 +988,12 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown"
-    },
-    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/e8b31768-d827-4eab-9f2c-61f32b9ccfd4": {
-      "location": "Region Oberwallis",
-      "canton": "VS",
-      "title": "Servicetechniker:in Heimservice",
-      "sourceId": "10202381",
-      "company": "Fust",
-      "contract": "A tempo indeterminato",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
-    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/cf95e26b-8c44-4e97-8e6d-eed87011f882": {
-      "location": "Region Luzern",
-      "canton": "LU",
-      "title": "Servicetechniker:in Heimservice",
-      "sourceId": "10203053",
-      "company": "Fust",
-      "contract": "A tempo indeterminato",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
-    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/25254fd5-a7d0-4335-9c67-eb0a0d87d8a1": {
-      "location": "Stadt Bern",
-      "canton": "BE",
-      "title": "Servicetechniker:in Heimservice",
-      "sourceId": "10203051",
-      "company": "Fust",
-      "contract": "A tempo indeterminato",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
     }
   },
   "notes": "Fust (Coop Group) — CH-wide discovery across all 26 cantons via Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch expose JSON-LD JobPosting and source workplace metadata.",
-  "updatedAt": "2026-10-23T21:31:13.069Z",
+  "updatedAt": "2026-10-24T09:32:53.588Z",
   "seedDetailUrls": [
+    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/326ed6af-0105-4d2f-81f9-9d4db12d2569",
     "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-und-baeder/795e85ba-abb5-41cb-98e5-e6e7f66da623",
     "https://jobs.fust.ch/offene-stellen/hr-recruiting-specialist/2f6f306b-7bd0-40b1-8777-970f51d3f8f1",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/6dd80a3b-fab8-42dd-b49f-a8516a7729f2",
@@ -1102,9 +1081,6 @@
     "https://jobs.fust.ch/offene-stellen/logistiker-in-eba/63ff361b-f3bc-49aa-8492-e684739f9fa1",
     "https://jobs.fust.ch/offene-stellen/stellvertretung-leitung-wareneingang/9df03370-99c6-4592-bf7d-47eca4cec8e8",
     "https://jobs.fust.ch/offene-stellen/bauleiter-in/90b981e7-5b5c-487e-bb13-0e3b2cdcd9d8",
-    "https://jobs.fust.ch/offene-stellen/bauleiter-in/cf066114-7a54-426d-8b3e-c22eefbabb5b",
-    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/e8b31768-d827-4eab-9f2c-61f32b9ccfd4",
-    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/cf95e26b-8c44-4e97-8e6d-eed87011f882",
-    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/25254fd5-a7d0-4335-9c67-eb0a0d87d8a1"
+    "https://jobs.fust.ch/offene-stellen/bauleiter-in/cf066114-7a54-426d-8b3e-c22eefbabb5b"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "_comment": "Acknowledged INTENTIONAL section-shard shrinks, pinned to one exact transition. Read by scripts/lib/shrink-ack-check.mjs, which push-section-shard.sh consults ONLY when its shrink guard has already tripped. Why this exists instead of the bare SHARD_SHRINK_GUARD_OVERRIDE_<SECTION>_<LOCALE>=true env var: that boolean disables the guard for as long as it is set, so the run that legitimises one correction also blinds the shard to every later collapse — and nothing forces anyone to take it back out. An entry here is pinned to `from` (the shard's CURRENT .shard-filecount) so it goes inert the moment the acknowledged push lands and the counter moves: the next deploy compares against the NEW baseline and no ack matches. `min_new` is a floor, not a target — an upward drift never needs a new ack (a smaller shrink simply stops tripping the guard), while a genuine collapse to a near-empty tree stays refused. Adding an entry is a claim that a HUMAN verified the shrink against the shard's real content; put the evidence in `reason` and the issue in `issue`.",
+  "_comment": "Acknowledged INTENTIONAL section-shard shrinks, pinned to one exact transition. Read by scripts/lib/shrink-ack-check.mjs, which push-section-shard.sh consults ONLY when its shrink guard has already tripped. Why this exists instead of the bare SHARD_SHRINK_GUARD_OVERRIDE_<SECTION>_<LOCALE>=true env var: that boolean disables the guard for as long as it is set, so the run that legitimises one correction also blinds the shard to every later collapse — and nothing forces anyone to take it back out. An entry here is pinned to `from` (the shard's CURRENT .shard-filecount) so it goes inert the moment the acknowledged push lands and the counter moves: the next deploy compares against the NEW baseline and no ack matches. `min_new` is a floor, not a target — an upward drift never needs a new ack (a smaller shrink simply stops tripping the guard), while a genuine collapse to a near-empty tree stays refused. Adding an entry is a claim that a HUMAN verified the shrink against the shard's real content; put the evidence in `reason` and the issue in `issue`. Optional `from_max` turns the exact pin into a band [from, from_max] (from_max <= 2*from, enforced) for a shard whose counter moves on every deploy while the change waits for merge: it still self-expires, because a shrink that trips the guard at prev <= from_max lands below from_max/2 <= from.",
 
   "giura": {
     "fr": {
@@ -19,6 +19,29 @@
       "min_new": 780,
       "issue": 5222,
       "reason": "Same correction as giura/fr — see that entry. Build emits 1125 files."
+    }
+  },
+  "ticino": {
+    "fr": {
+      "from": 650000,
+      "from_max": 900000,
+      "min_new": 200000,
+      "issue": 14979,
+      "reason": "The build stops writing the 200 legacy-TI copy of every expired non-TI soft-landing under /fr/trouver-emploi-tessin/<slug>/ (its canonical named the native canton page: 911,071 canonicalMismatch advisories on the full-corpus validate:page-seo replay) and the noindex active cross-canton copy; both URLs now 404 at the shard origin and the locale-router Worker 301s them via /job-canon. Measured on the fr build of deploy 39917633944: '(+ 375766 legacy slug bridges)' and 31406 active-job-cross-canton-legacy emits, against a shard of 712136 files (prev 693636); a sample of _tree bucket 07 (2768 entries) classified 1828 entries as registry slugs whose fr page lives in another canton, 330 as real TI pages. Expected after: ~280-310k files. Band, not exact pin, because the shard grows ~18k files per deploy (several deploys a day); it self-expires because the post-shrink count is far below `from`."
+    },
+    "en": {
+      "from": 650000,
+      "from_max": 900000,
+      "min_new": 200000,
+      "issue": 14979,
+      "reason": "Same change as ticino/fr — see that entry. en build of deploy 39917633944: '(+ 373115 legacy slug bridges)', 31463 active cross-canton emits, shard 715704 files."
+    },
+    "de": {
+      "from": 650000,
+      "from_max": 900000,
+      "min_new": 200000,
+      "issue": 14979,
+      "reason": "Same change as ticino/fr — see that entry. de build of deploy 39917633944: '(+ 372933 legacy slug bridges)', 30549 active cross-canton emits, shard 712044 files."
     }
   }
 }

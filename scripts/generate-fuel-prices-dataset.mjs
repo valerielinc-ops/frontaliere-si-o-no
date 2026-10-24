@@ -418,6 +418,7 @@ export function buildDataset({
   swissStations,
   italyByMunicipality,
   exchangeRate,
+  italyStatus = null,
 }) {
   const municipalityRows = municipalities.map((municipality) => {
     const italyStations = italyByMunicipality.get(`${municipality.name}:${municipality.province}`) || [];
@@ -531,6 +532,11 @@ export function buildDataset({
         priceSnapshotDate: italyExtractedAt,
         stationsUrl: ITALY_STATIONS_URL,
         pricesUrl: ITALY_PRICES_URL,
+        // `live` when this run read MIMIT; otherwise the Italian rows are the
+        // previous snapshot (`carried-over`) or absent (`unavailable`), and
+        // `priceSnapshotDate` keeps the date of the cut actually shown.
+        status: italyStatus?.status ?? 'live',
+        ...(italyStatus?.reason ? { unavailableReason: italyStatus.reason } : {}),
       },
       switzerland: {
         provider: 'TCS Benzinpreis',
@@ -567,6 +573,59 @@ export function buildDataset({
     },
     municipalities: municipalityRows,
   };
+}
+
+function readPreviousDataset() {
+  try {
+    return JSON.parse(fs.readFileSync(DATA_OUT, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Rebuild the per-municipality Italian station map from a previously
+ * published dataset. `summarizeItalyStations` keeps the full sorted station
+ * list, so the rows round-trip without a new MIMIT read.
+ */
+export function italyByMunicipalityFromDataset(dataset) {
+  const map = new Map();
+  for (const row of dataset?.municipalities ?? []) {
+    const stations = row?.italy?.stations;
+    if (!Array.isArray(stations) || stations.length === 0) continue;
+    map.set(`${row.municipality}:${row.province}`, stations.map((station) => ({ ...station })));
+  }
+  return map;
+}
+
+/**
+ * Decide which Italian rows this run publishes. A live MIMIT read wins; on a
+ * failed read the previous snapshot is carried over with its own date, so
+ * every Italian price stays labelled with the day it was reported and the
+ * Swiss half can still be refreshed.
+ */
+export function resolveItalySource({ italyResult, municipalities, previousDataset }) {
+  if (italyResult?.ok) {
+    const prices = parseDelimited(italyResult.pricesText);
+    const stations = parseDelimited(italyResult.stationsText);
+    return {
+      status: 'live',
+      reason: null,
+      extractedAt: prices.extractedAt,
+      italyByMunicipality: buildItalyStations(municipalities, stations.rows, prices.rows),
+    };
+  }
+  const reason = italyResult?.error instanceof Error ? italyResult.error.message : String(italyResult?.error ?? 'unknown error');
+  const carried = italyByMunicipalityFromDataset(previousDataset);
+  if (carried.size > 0) {
+    return {
+      status: 'carried-over',
+      reason,
+      extractedAt: previousDataset?.sources?.italy?.priceSnapshotDate ?? null,
+      italyByMunicipality: carried,
+    };
+  }
+  return { status: 'unavailable', reason, extractedAt: null, italyByMunicipality: new Map() };
 }
 
 /**
@@ -662,17 +721,32 @@ async function main() {
   const cantonsInputOut = cantonsInputFlag >= 0 ? process.argv[cantonsInputFlag + 1] : null;
 
   try {
-    const [pricesText, stationsText, ecbXml, swissDocs] = await Promise.all([
-      fetchText(ITALY_PRICES_URL),
-      fetchText(ITALY_STATIONS_URL),
+    // MIMIT is fetched apart from TCS/ECB: from 2026-10-17 its host stopped
+    // answering the runners (`fetch failed` on every daily run), and because
+    // the four requests shared one Promise.all the Swiss TCS prices — the
+    // only source of the /prezzi-*/oggi/ pages — were thrown away with it.
+    // An Italian outage now degrades the Italian half only (see
+    // `resolveItalySource`); TCS/ECB failures keep the old skip behaviour.
+    const italyFetch = Promise.all([fetchText(ITALY_PRICES_URL), fetchText(ITALY_STATIONS_URL)])
+      .then(([pricesText, stationsText]) => ({ ok: true, pricesText, stationsText }))
+      .catch((error) => ({ ok: false, error }));
+    const [italyResult, ecbXml, swissDocs] = await Promise.all([
+      italyFetch,
       fetchText(ECB_DAILY_URL),
       fetchSwissStations(),
     ]);
 
-    const prices = parseDelimited(pricesText);
-    const stations = parseDelimited(stationsText);
     const exchangeRate = extractEcbRate(ecbXml);
-    const italyByMunicipality = buildItalyStations(municipalities, stations.rows, prices.rows);
+    const italySource = resolveItalySource({
+      italyResult,
+      municipalities,
+      previousDataset: readPreviousDataset(),
+    });
+    if (italySource.status !== 'live') {
+      console.warn(`::warning::[fuel] MIMIT unavailable (${italySource.reason}) — Swiss TCS prices refreshed, Italian prices ${italySource.status === 'carried-over' ? `carried over from the ${italySource.extractedAt} snapshot` : 'omitted (no previous snapshot)'}`);
+    }
+    const italyByMunicipality = italySource.italyByMunicipality;
+    const prices = { extractedAt: italySource.extractedAt };
 
     // AE-9 — collapse duplicate TCS records (same name + address, drifted
     // coords) before geo-filtering so every downstream consumer sees one
@@ -690,6 +764,7 @@ async function main() {
       swissStations,
       italyByMunicipality,
       exchangeRate,
+      italyStatus: italySource.status === 'live' ? null : { status: italySource.status, reason: italySource.reason },
     });
 
     // Retry Firestore write — transient 503/UNAVAILABLE errors happen
@@ -711,11 +786,16 @@ async function main() {
     }
 
     if (cantonsInputOut) {
+      // A carried-over Italian snapshot stays out of the canton hand-off: the
+      // canton builder dates IT records by the fetch, and an old MIMIT cut
+      // there would read as today's. Without it the builder reports IT
+      // `failed`, which is the truth for this run.
+      const liveItaly = italySource.status === 'live';
       writeJson(cantonsInputOut, buildFuelCantonsInput({
         generatedAt: payload.generatedAt,
-        italyExtractedAt: prices.extractedAt,
+        italyExtractedAt: liveItaly ? prices.extractedAt : null,
         swissStations,
-        italyByMunicipality,
+        italyByMunicipality: liveItaly ? italyByMunicipality : new Map(),
         exchangeRate,
       }));
       console.log(`💾 Canton dataset hand-off written to ${cantonsInputOut}`);

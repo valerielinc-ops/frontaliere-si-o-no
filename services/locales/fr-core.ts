@@ -3243,8 +3243,6 @@ Règles :
 
  'seoContent.calculator.title': 'Calculateur Salaire Frontalier Suisse 2026',
  'seoContent.calculator.subtitle': 'Outils de simulation fiscale précis pour frontaliers : calculez salaire net, fiche de paie, retraite AVS/LPP et déductions fiscales.',
- 'seoContent.calculator.expertQuote': 'Le calcul du salaire net d\'un frontalier nécessite la prise en compte d\'au moins 7 variables fiscales entre impôt à la source, AVS, AC et LPP — une erreur courante est d\'oublier les cotisations du deuxième pilier.',
- 'seoContent.calculator.expertName': 'Dr. Elena Colombo, Comptable fiscale internationale',
  'seoContent.calculator.feature1.title': 'Salaire net frontalier',
  'seoContent.calculator.feature1.desc': 'Calcul précis avec impôt à la source, AVS, AC, LPP et cotisations sociales.',
  'seoContent.calculator.feature2.title': 'Simulateur fiche de paie',
@@ -3277,8 +3275,6 @@ Règles :
 
  'seoContent.fisco.title': 'Impôts et Fiscalité pour Frontaliers Suisse-Italie',
  'seoContent.fisco.subtitle': 'Selon les données du Canton du Tessin (DFE, 2026) et de l\'Agenzia delle Entrate (Circulaire 25/E, 2024) : fiscalité frontalière, nouvel accord, déclaration d\'impôts, échéances fiscales et déductions applicables.',
- 'seoContent.fisco.expertQuote': 'Avec le Nouvel Accord 2020, les frontaliers embauchés après le 17 juillet 2023 paient à la fois l\'impôt à la source suisse et l\'IRPEF italien avec une franchise de 10 000 € — il est essentiel de comprendre quel régime s\'applique.',
- 'seoContent.fisco.expertName': 'Avv. Marco Bernasconi, Avocat fiscaliste transfrontalier',
  'seoContent.fisco.feature1.title': 'Déclaration d\'impôts',
  'seoContent.fisco.feature1.desc': 'Guide étape par étape pour remplir votre déclaration fiscale italienne.',
  'seoContent.fisco.feature2.title': 'Calendrier fiscal',
@@ -3295,8 +3291,6 @@ Règles :
 
  'seoContent.guida.title': 'Guide Complet pour Frontaliers Suisses',
  'seoContent.guida.subtitle': 'De A à Z selon le SEM (Secrétariat d\'État aux migrations, 2026) : permis, premier jour, contrats, glossaire et tout ce qu\'il faut pour travailler en Suisse depuis l\'Italie.',
- 'seoContent.guida.expertQuote': 'Le permis G est un droit découlant des Accords bilatéraux Suisse-UE — pas une concession. Le frontalier a les mêmes droits de travail qu\'un résident suisse, y compris la protection contre le licenciement.',
- 'seoContent.guida.expertName': 'Prof. Roberto Bentivoglio, Professeur de droit du travail, Università della Svizzera italiana (USI)',
  'seoContent.guida.feature1.title': 'Comparaison permis',
  'seoContent.guida.feature1.desc': 'Permis G vs B : lequel choisir et pourquoi.',
  'seoContent.guida.feature2.title': 'Premier jour',
@@ -3313,8 +3307,6 @@ Règles :
 
  'seoContent.vita.title': 'Vie Quotidienne du Frontalier',
  'seoContent.vita.subtitle': 'Conseils pratiques basés sur les données OFS (Office fédéral de la statistique, 2025) et OFSP : courses, transports, opérateurs mobiles, coût de la vie et communauté frontalière.',
- 'seoContent.vita.expertQuote': 'La planification de la retraite est le sujet le plus sous-estimé par les frontaliers : qui travaille 30 ans en Suisse accumule AVS, LPP et peut cotiser au 3e pilier — sans coordination, risque de lacunes contributives en Italie.',
- 'seoContent.vita.expertName': 'Dr. Andrea Fiorini, Consultant en prévoyance retraite CH-IT',
  'seoContent.vita.feature1.title': 'Coût de la vie CH vs IT',
  'seoContent.vita.feature1.desc': 'Comparez loyer, courses, transports entre les deux pays.',
  'seoContent.vita.feature2.title': 'Opérateurs mobiles',
@@ -3331,8 +3323,6 @@ Règles :
 
  'seoContent.stats.title': 'Statistiques et Données Frontalières',
  'seoContent.stats.subtitle': 'Données OFS (Grenzgängerstatistik, T4 2025) et OFS sur la communauté frontalière : trafic aux frontières, salaires moyens, tendances du change CHF-EUR.',
- 'seoContent.stats.expertQuote': 'Les 79 000 frontaliers italiens au Tessin représentent 28% de la main-d\'œuvre cantonale — un chiffre qui fait de cette communauté un facteur macroéconomique déterminant pour les deux pays.',
- 'seoContent.stats.expertName': 'Prof. Roberto Bentivoglio, Professeur de droit du travail, USI',
  'seoContent.stats.feature1.title': 'Trafic frontalier',
  'seoContent.stats.feature1.desc': 'Suivi en temps réel des principaux postes-frontière.',
  'seoContent.stats.feature2.title': 'Salaires moyens',
@@ -3516,8 +3506,6 @@ Règles :
  'whatsNew.v3440.title': 'Optimisation SEO IA et Nouveaux Articles Piliers',
  'whatsNew.v3440.pillarArticles.title': '4 Guides Approfondis pour Frontaliers',
  'whatsNew.v3440.pillarArticles.desc': 'Nouveaux articles piliers : Permis G avantages/inconvénients, LAMal vs SSN, Trouver un emploi au Tessin et Guide complet pour devenir frontalier.',
- 'whatsNew.v3440.expertQuotes.title': 'Citations d\'Experts dans les FAQ',
- 'whatsNew.v3440.expertQuotes.desc': 'Ajout de citations de spécialistes fiscaux, de prévoyance et d\'assurance pour renforcer l\'autorité de nos réponses FAQ.',
  'whatsNew.v3440.enAiReference.title': 'Document de Référence IA en Anglais',
  'whatsNew.v3440.enAiReference.desc': 'Création d\'un document de référence complet en anglais pour améliorer la visibilité dans les moteurs de recherche IA internationaux.',
  'whatsNew.v3430.title': 'Améliorations et Nouvelles Fonctionnalités pour une Meilleure Expérience',
@@ -4086,7 +4074,7 @@ Règles :
  'seo.toolOfWeek.description': 'L\'outil de la semaine pour frontaliers : chaque semaine nous mettons en avant un calculateur ou comparateur différent à essayer et à partager sur les réseaux.',
  'seo.feedback.description': 'Aidez-nous à améliorer Frontaliere Ticino : signalez une erreur ou proposez une fonctionnalité sur GitHub et participez au simulateur fiscal pour frontaliers.',
  'seo.forum.description': 'Forum de la communauté des frontaliers : posez vos questions sur les impôts, permis, assurances, retraite et transports et obtenez des réponses d\'initiés.',
- 'seo.dashboard.description': 'Tableau de bord personnel pour frontaliers : enregistrez vos simulations fiscales, comparez les résultats dans le temps et exportez des rapports PDF de suivi.',
+ 'seo.dashboard.description': 'Espace personnel du frontalier : profil et échéance du permis, estimation du salaire net, candidatures et offres sauvegardées, export de vos données.',
  'seo.gamification.description': 'Système de gamification pour frontaliers : gagnez des points XP en explorant le simulateur fiscal, relevez des défis et débloquez des niveaux en vous amusant.',
  'seo.privacy.description': 'Politique de confidentialité de Frontaliere Ticino : traitement des données personnelles, cookies, analytics et droits des utilisateurs, conforme RGPD et LPD.',
 

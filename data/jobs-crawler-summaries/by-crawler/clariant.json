@@ -1,7 +1,7 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-10-23T21:23:18.799Z",
+  "generatedAt": "2026-10-24T09:17:11.532Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,16 +12,19 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 5157,
-  "avgDurationMs": 5157,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 4659,
+  "avgDurationMs": 4659,
   "durationHistory": [
-    5157
+    4659
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "clariant-54bb0ed27fcc",
       "slug": "funzione-testa-esha-igsm-clariant-pratteln",
@@ -34,7 +37,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Head-of-ESHA-&-IGSM/1450668933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:23:02.624Z",
+      "crawledAt": "2026-10-24T09:16:55.209Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -65,51 +68,5 @@
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "clariant-54bb0ed27fcc",
-      "slug": "funzione-testa-esha-igsm-clariant-pratteln",
-      "company": "Clariant",
-      "companyKey": "clariant",
-      "companyDomain": "clariant.com",
-      "title": "Function Head ESHA & IGSM",
-      "location": "Pratteln",
-      "canton": "BL",
-      "url": "https://careers.clariant.com/job/Pratteln-Function-Head-ESHA-&-IGSM/1450668933/",
-      "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-23T09:17:57.656Z",
-      "addressLocality": "Pratteln",
-      "addressRegion": "Basel-Landschaft",
-      "streetAddress": "Rothausstrasse 61",
-      "postalCode": "4133",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "finance",
-      "contract": "internship",
-      "employmentType": "FULL_TIME",
-      "sector": "Chimica Speciale",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T00:00:00Z",
-      "postedDate": "2026-10-23T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.clariant.com/job/Pratteln-Function-Head-ESHA-&-IGSM/1450668933/",
-      "jobReqId": "41975",
-      "salaryMin": 178000,
-      "salaryMax": 313000,
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-23T09:17:57.656Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

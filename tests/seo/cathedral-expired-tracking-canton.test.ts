@@ -49,6 +49,21 @@ describe('Phase 8c — expired-tracking is canton-aware', () => {
     expect(region).not.toMatch(/sectionByLocale\[locale\]/);
   });
 
+  it('source: expired soft-landings do not materialise legacy-TI copies', () => {
+    const src = fs.readFileSync(PLUGIN_PATH, 'utf8');
+    const writeStart = src.indexOf('const __tEjpWrite = phaseTimer();');
+    const writeEnd = src.indexOf("recordPhase('ejp:write'", writeStart);
+    expect(writeStart).toBeGreaterThan(-1);
+    expect(writeEnd).toBeGreaterThan(writeStart);
+    const writeRegion = src.slice(writeStart, writeEnd);
+
+    expect(writeRegion).toContain('writeSoftLandingPage(relPath.slice(1), softLandingHtml);');
+    expect(writeRegion).not.toContain('writeSoftLandingPage(legacyRel');
+    expect(writeRegion).not.toContain('expired-soft-landing-legacy-locale');
+    expect(writeRegion).not.toContain("'legacy-slug-bridge'");
+    expect(src).not.toContain('legacyCount');
+  });
+
   it.skipIf(SKIP_LIVE_DATA)('data: non-TI tracking entries no longer reference the TI section path', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     expect(knownSlugsStoreExists(REPO_ROOT), 'the live slug store must be present in the data monitor').toBe(true);
     const jobs = readJobsDataset<{

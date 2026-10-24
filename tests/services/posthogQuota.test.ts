@@ -34,8 +34,16 @@ describe('PostHog quota sampling', () => {
     expect(shouldCapturePostHogEvent(event('session-a'), 0)).toBe(false);
   });
 
+  it('keeps page views at zero analytics sampling but not the rest of the page lifecycle', () => {
+    // PostHog recorded no $pageview from 2026-09-16: the hard stop dropped it too.
+    expect(shouldCapturePostHogEvent(event('session-a', '$pageview'), 0)).toBe(true);
+    expect(shouldCapturePostHogEvent({ event: '$pageview', properties: {} }, 0)).toBe(true);
+    expect(shouldCapturePostHogEvent(event('session-a', '$pageleave'), 0)).toBe(false);
+    expect(createPostHogQuotaFilter()(event('session-a', '$pageview'))).not.toBeNull();
+  });
+
   it('makes one stable decision for every event in the same session', () => {
-    const decisions = ['$pageview', 'funnel_step', 'simulation_complete'].map((name) =>
+    const decisions = ['funnel_step', 'simulation_complete', 'cta_click'].map((name) =>
       shouldCapturePostHogEvent(event('session-stable', name)),
     );
 
