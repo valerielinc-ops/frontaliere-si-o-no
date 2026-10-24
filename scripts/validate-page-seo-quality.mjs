@@ -5,6 +5,7 @@ import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
 import { readAllAttr, readAttr, readMetaContent, scanStartTags } from './lib/html-attr.mjs';
 import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
+import { PHARMACY_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { pathToFileURL } from 'node:url';
 
 /**
@@ -19,7 +20,7 @@ import { pathToFileURL } from 'node:url';
  *  5. Title tag: must be present and non-empty
  *  6. Meta description: must be present and non-empty
  *  7. Meta robots: must NOT contain "noindex" (except 404.html, search pages,
- *     and explicitly marked intentional job-board targets)
+ *     and explicitly marked intentional job-board and pharmacy targets)
  *  8. Meta refresh: must NOT exist (indicates redirect shell, not real content)
  *  9. Best-practice advisory checks: self-canonical, Open Graph, partial
  *     Twitter cards, meta description length, and image alt attributes
@@ -377,6 +378,14 @@ function isIntentionalJobBoardNoindexPage(html) {
     && hasNoindex(html);
 }
 
+// pharmacyDirectoryPagesPlugin declares its deliberate noindex families
+// (duty-city aliases, closed weeks, unreleased duty data); marker AND noindex
+// are both required, so a stray marker never hides an indexable page's defect.
+function isIntentionalPharmacyNoindexPage(html) {
+  return String(html || '').includes(PHARMACY_NOINDEX_TARGET_MARKER)
+    && hasNoindex(html);
+}
+
 // Check for <meta http-equiv="refresh"> (not inside <noscript>)
 function hasMetaRefresh(html) {
   const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
@@ -581,6 +590,8 @@ function main() {
   };
   let warningCount = 0;
   let errorCount = 0;
+  // Noindex pages whose producer declared the noindex (printed, never silent).
+  const declaredNoindex = { jobBoard: 0, pharmacy: 0 };
 
   for (const page of pagesToCheck) {
     const html = readFileSync(page.filePath, 'utf-8');
@@ -646,9 +657,12 @@ function main() {
     // 7. Meta robots noindex (skip 404.html and search/combo landing pages which are intentionally noindex)
     const isSearchPage = /\/(ricerca-|suche-|search-|recherche-)/.test('/' + page.pagePath);
     const isIntentionalJobBoardNoindex = isIntentionalJobBoardNoindexPage(html);
-    if (page.pagePath !== '404.html' && !isSearchPage && !isIntentionalJobBoardNoindex && hasNoindex(html)) {
+    const isIntentionalPharmacyNoindex = isIntentionalPharmacyNoindexPage(html);
+    if (page.pagePath !== '404.html' && !isSearchPage && !isIntentionalJobBoardNoindex && !isIntentionalPharmacyNoindex && hasNoindex(html)) {
       errors.hasNoindex.push(page.pagePath || '/');
       errorCount++;
+    } else if (isIntentionalJobBoardNoindex || isIntentionalPharmacyNoindex) {
+      declaredNoindex[isIntentionalPharmacyNoindex ? 'pharmacy' : 'jobBoard']++;
     }
 
     // 8. Meta refresh (outside noscript)
@@ -688,6 +702,7 @@ function main() {
   console.log(`  WITH ERRORS: ${pagesToCheck.length - passedCount}`);
   console.log(`  TOTAL ISSUES: ${errorCount}`);
   console.log(`  ADVISORY WARNINGS: ${warningCount}`);
+  console.log(`  DECLARED NOINDEX (producer marker, not errors): job-board ${declaredNoindex.jobBoard}, pharmacy ${declaredNoindex.pharmacy}`);
   console.log('='.repeat(60));
   console.log();
 
@@ -864,6 +879,7 @@ export {
   hasMetaRefresh,
   isIntentionalRedirectPage,
   isIntentionalJobBoardNoindexPage,
+  isIntentionalPharmacyNoindexPage,
 };
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

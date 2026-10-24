@@ -4,7 +4,10 @@
  *
  * Checks:
  *   1. Italian description length (error if < 100 chars)
- *   2. Untranslated Italian slugs (warning — German/French words in IT slug)
+ *   2. Untranslated Italian slugs (German/French words in the IT slug). Split
+ *      in two by what the IT TITLE says today (see classifySourceSlug):
+ *      warning when the IT title is still in the source language; otherwise
+ *      an explicitly intentional frozen slug, printed and counted apart.
  *   3. Missing baseSalary in generated rich-result pages (error)
  *
  * Exit 1 on errors, exit 0 on warnings only.
@@ -68,6 +71,24 @@ function extractTitleSlug(fullSlug, job) {
   return titleSlug || fullSlug;
 }
 
+/**
+ * Why an IT slug carries German/French words. `slugByLocale.it` is the job's
+ * canonical slug — the URL identity minted when the job first entered the
+ * dataset, often before translate-pending translated the title — and it is
+ * never re-minted: crawlers preserve the previous slug (AGENTS.md, «Crawler
+ * dedicati»), because re-slugging a live job moves its URL (new crawl, 301
+ * chain, lost signals) for a cosmetic gain. Measured on jobs-master-39917633944
+ * (32,585 jobs): every flagged IT slug equals `job.slug`, and of the 1,456
+ * flagged 1,322 (91%) already have an Italian IT title. Those are intentional
+ * by construction. The rest — IT title still in the source language — are the
+ * real defect, a translation backlog the job-title-locale report tracks.
+ */
+function classifySourceSlug(job, wordsRe) {
+  const itTitleSlug = slugifySimple(job.titleByLocale?.it || '');
+  if (!itTitleSlug || wordsRe.test(itTitleSlug)) return 'untranslated-title';
+  return 'frozen-canonical-slug';
+}
+
 function slugifySimple(str) {
   return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -79,6 +100,7 @@ async function run() {
   const jobs = JSON.parse(fs.readFileSync(dataJobs, 'utf-8'));
   const errors = [];
   const warnings = [];
+  const intentional = [];
 
   for (const job of jobs) {
     // Mirror the assemble-jobs-dataset boilerplate-guard fallback chain
@@ -127,20 +149,26 @@ async function run() {
     // Check 2: Untranslated Italian slug (warning-only; fix upstream without blocking deploys)
     if (itSlug.length > 20) {
       const titlePart = extractTitleSlug(itSlug, job);
-      if (GERMAN_SLUG_WORDS.test(titlePart)) {
-        warnings.push({
-          slug: id,
-          company: job.company,
-          issue: 'german_slug_in_it',
-          detail: `Italian slug contains German words: ${itSlug.substring(0, 80)}`,
-        });
-      } else if (FRENCH_SLUG_WORDS.test(titlePart)) {
-        warnings.push({
-          slug: id,
-          company: job.company,
-          issue: 'french_slug_in_it',
-          detail: `Italian slug contains French words: ${itSlug.substring(0, 80)}`,
-        });
+      const lang = GERMAN_SLUG_WORDS.test(titlePart) ? 'german'
+        : FRENCH_SLUG_WORDS.test(titlePart) ? 'french' : null;
+      if (lang) {
+        const wordsRe = lang === 'german' ? GERMAN_SLUG_WORDS : FRENCH_SLUG_WORDS;
+        const Lang = lang === 'german' ? 'German' : 'French';
+        if (classifySourceSlug(job, wordsRe) === 'untranslated-title') {
+          warnings.push({
+            slug: id,
+            company: job.company,
+            issue: `${lang}_slug_in_it`,
+            detail: `Italian slug AND Italian title still ${Lang}: ${itSlug.substring(0, 80)} — "${String(job.titleByLocale?.it || '').substring(0, 60)}"`,
+          });
+        } else {
+          intentional.push({
+            slug: id,
+            company: job.company,
+            issue: `frozen_${lang}_canonical_slug`,
+            detail: `${itSlug.substring(0, 80)} — IT title since translated: "${String(job.titleByLocale?.it || '').substring(0, 60)}"`,
+          });
+        }
       }
     }
 
@@ -163,7 +191,15 @@ async function run() {
   // Summary
   console.log('=== Job Quality Audit ===');
   console.log(`Jobs checked: ${jobs.length}`);
-  console.log(`Errors: ${errors.length} | Warnings: ${warnings.length}`);
+  console.log(`Errors: ${errors.length} | Warnings: ${warnings.length} | Intentional (classified): ${intentional.length}`);
+
+  if (intentional.length > 0) {
+    const byIssue = {};
+    for (const i of intentional) byIssue[i.issue] = (byIssue[i.issue] || 0) + 1;
+    console.log('\nℹ️  Intentional, not warnings — canonical slug frozen at first emission, IT title translated since (re-slugging would move live URLs):');
+    for (const [issue, count] of Object.entries(byIssue)) console.log(`  ${issue}: ${count}`);
+    intentional.slice(0, 3).forEach((i) => console.log(`  - ${i.company}: ${i.detail}`));
+  }
 
   if (warnings.length > 0) {
     console.log('\n⚠️  Warnings (non-blocking):');
@@ -212,7 +248,7 @@ async function run() {
       })),
       byFeature: _byIssue,
       sampleRate: 1,
-      extra: { totalJobs: jobs.length, warnings: warnings.length },
+      extra: { totalJobs: jobs.length, warnings: warnings.length, intentional: intentional.length },
     });
     process.exit(1);
   }
@@ -224,7 +260,7 @@ async function run() {
     threshold: { metric: 'errorCount', value: 0, comparator: '<=' },
     offenders: [],
     sampleRate: 1,
-    extra: { totalJobs: jobs.length, warnings: warnings.length },
+    extra: { totalJobs: jobs.length, warnings: warnings.length, intentional: intentional.length },
   });
 }
 
