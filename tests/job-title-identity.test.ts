@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import {
   dedupeAdjacentTitleWords,
   jobDisplayTitle,
+  jobSearchTitleText,
   localeTitleDropsSourceWords,
   originalJobTitle,
 } from '../scripts/lib/job-title-identity.mjs';
@@ -62,6 +63,12 @@ describe('jobDisplayTitle — the employer title survives every locale variant',
     expect(jobDisplayTitle({ title: 'Legale  legale Servizio Legale (80-100%)' })).toBe('Legale Servizio Legale (80-100%)');
     // Trailing punctuation of the dropped twin is kept.
     expect(dedupeAdjacentTitleWords('Giurista Giurista, Servizio legale')).toBe('Giurista, Servizio legale');
+    expect(dedupeAdjacentTitleWords('Legale (Legale)')).toBe('Legale (Legale)');
+  });
+
+  it('keeps localized title slots as search aliases', () => {
+    expect(jobSearchTitleText({ title: 'Macchinista', titleByLocale: { de: 'Maschinist', fr: 'Conducteur' } }))
+      .toContain('Maschinist');
   });
 
   it('leaves intentional repeats alone', () => {

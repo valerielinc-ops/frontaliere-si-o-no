@@ -1,5 +1,5 @@
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
-import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
+import { jobDisplayTitle, jobSearchTitleText } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
@@ -2160,10 +2160,11 @@ function queryMatchesJob(job: JobListing, query: string, locale: Locale): boolea
  if (queryTokens.length === 0) return true;
  const description = job.descriptionByLocale?.[locale] ?? job.description;
  const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
+ const searchTitle = sanitizeJobTitle(jobSearchTitleText(job));
  // Profession-taxonomy synonyms (it/de/fr/en) so a query in one language
  // matches a job title written in another (e.g. "nurse" ↔ "Infermiera").
  const synonyms = professionSynonymText(localizedTitle);
- const haystack = normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`);
+ const haystack = normalizeSearchText(`${searchTitle} ${job.company} ${job.location} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`);
  return queryTokens.every((token) => haystack.includes(token));
 }
 
@@ -4830,13 +4831,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const job = sortedJobs[i];
  const description = job.descriptionByLocale?.[locale] ?? job.description;
  const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
+ const searchTitle = sanitizeJobTitle(jobSearchTitleText(job));
  // Stemmed + space-padded haystack so query matching tolerates Italian
  // plural/feminine variants (pulizie ↔ pulizia, infermieri ↔ infermiera)
  // while still requiring word-boundary alignment (cas ≠ cassa).
  // Also folds in profession-taxonomy synonyms (it/de/fr/en) so a query
  // like "nurse" or "Pflegefachfrau" surfaces a job titled "Infermiera".
  const synonyms = professionSynonymText(localizedTitle);
- map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`));
+ map.set(job, buildStemmedHaystack(`${searchTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`));
  ids.add(job.id);
  addJobSearchLocationTokens(locationTokens, job);
  i++;

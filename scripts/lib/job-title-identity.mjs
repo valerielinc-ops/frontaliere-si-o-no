@@ -54,7 +54,7 @@ export function dedupeAdjacentTitleWords(title) {
     if (prev !== undefined) {
       const key = wordKey(token);
       const prevEndsInWord = /[\p{L}\p{N}]$/u.test(prev);
-      if (prevEndsInWord && key.length >= 2 && /\p{L}/u.test(key) && key === wordKey(prev)) {
+      if (prevEndsInWord && /^[\p{L}\p{N}]/u.test(token) && key.length >= 2 && /\p{L}/u.test(key) && key === wordKey(prev)) {
         // Keep the trailing punctuation of the dropped twin ("Legale Legale," → "Legale,").
         const tail = token.match(/[^\p{L}\p{N}]+$/u)?.[0] || '';
         if (tail) out[out.length - 1] = `${prev}${tail}`;
@@ -103,6 +103,22 @@ export function originalJobTitle(job) {
  */
 export function jobDisplayTitle(job) {
   return dedupeAdjacentTitleWords(originalJobTitle(job));
+}
+
+/**
+ * Search text for a job title. The employer title is what the UI displays,
+ * while every localized slot remains a search alias so a query in the locale's
+ * language still finds the job.
+ *
+ * @param {unknown} job
+ * @returns {string}
+ */
+export function jobSearchTitleText(job) {
+  const display = jobDisplayTitle(job);
+  if (!job || typeof job !== 'object') return display;
+  const byLocale = job.titleByLocale && typeof job.titleByLocale === 'object' ? job.titleByLocale : {};
+  const aliases = Object.values(byLocale).filter((value) => typeof value === 'string' && value.trim());
+  return [display, ...aliases].filter(Boolean).join(' ');
 }
 
 /**
