@@ -908,7 +908,18 @@ jobs:
         # Only the monolith / variant compare jobs consume this manifest; on
         # plain variant benches it cost ~5.5 min of sha256 over 1.5M files.
         if: inputs.compare_monolith == true || inputs.compare_variants == true
-        run: node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${{ matrix.locale }}.txt"
+        env:
+          COMPARE_VARIANTS: ${{ inputs.compare_variants }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${{ matrix.locale }}.txt"
+          # Variants run in series, hours apart: wall-clock date-times differ
+          # by construction (bench run 40080692388: 174,631 raw mismatches).
+          # The masked manifest is what the variant gate judges; the raw one
+          # is reported next to it.
+          if [ "$COMPARE_VARIANTS" = 'true' ]; then
+            node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${{ matrix.locale }}.masked.txt" --mask-timestamps
+          fi
       - name: Upload build manifest
         if: inputs.compare_monolith == true
         uses: actions/upload-artifact@v7
@@ -921,7 +932,9 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: variant-manifest-${{ matrix.locale }}-${{ matrix.variant }}
-          path: /tmp/manifest-${{ matrix.locale }}.txt
+          path: |
+            /tmp/manifest-${{ matrix.locale }}.txt
+            /tmp/manifest-${{ matrix.locale }}.masked.txt
           retention-days: 7
 
       - name: Extract build markers
@@ -1189,7 +1202,9 @@ jobs:
   # ── Byte-identity between variants: every variant of a locale === `base` ──
   # The legs share the prep snapshot and DEPLOY_BUILD_ID, so a flag that only
   # changes HOW the build runs (timing, GC, worker counts) must leave every
-  # dist file sha256-identical. The reference is the variant named `base`.
+  # dist file sha256-identical once wall-clock date-times are masked (the legs
+  # run in series, hours apart). The masked comparison is the gate; the raw
+  # one is printed for the record. The reference is the variant named `base`.
   compare-variants:
     needs: [matrix-setup, build-locale]
     if: >-
@@ -1223,19 +1238,31 @@ jobs:
             [ -d "$base_dir" ] || continue
             prefix="${base_dir%-base}"
             locale="${prefix##*/variant-manifest-}"
-            base_file="$(find "$base_dir" -type f -name '*.txt' | head -1)"
             for other_dir in "$prefix"-*; do
               [ "$other_dir" = "$base_dir" ] && continue
               variant="${other_dir##"$prefix"-}"
-              other_file="$(find "$other_dir" -type f -name '*.txt' | head -1)"
-              echo "::group::${locale}: base vs ${variant}"
-              if node scripts/ci/compare-dist-manifests.mjs "$base_file" "$other_file"; then
-                echo "[compare-variants] locale=${locale} variant=${variant} identical=true files=$(wc -l < "$base_file")"
-              else
-                echo "[compare-variants] locale=${locale} variant=${variant} identical=false"
-                status=1
-              fi
-              echo "::endgroup::"
+              for kind in raw masked; do
+                name="manifest-${locale}.txt"
+                [ "$kind" = masked ] && name="manifest-${locale}.masked.txt"
+                base_file="$(find "$base_dir" -type f -name "$name" | head -1)"
+                other_file="$(find "$other_dir" -type f -name "$name" | head -1)"
+                if [ -z "$base_file" ] || [ -z "$other_file" ]; then
+                  echo "::error::${locale}/${variant}: missing ${kind} manifest"
+                  status=1
+                  continue
+                fi
+                echo "::group::${locale}: base vs ${variant} (${kind})"
+                if node scripts/ci/compare-dist-manifests.mjs "$base_file" "$other_file"; then
+                  identical=true
+                else
+                  identical=false
+                  # Only the masked comparison gates: raw differences between
+                  # legs hours apart are wall-clock instants by construction.
+                  [ "$kind" = masked ] && status=1
+                fi
+                echo "::endgroup::"
+                echo "[compare-variants] locale=${locale} variant=${variant} kind=${kind} identical=${identical} files=$(wc -l < "$base_file")"
+              done
               compared=$((compared + 1))
             done
           done

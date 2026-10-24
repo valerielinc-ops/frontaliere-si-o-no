@@ -866,16 +866,6 @@ jobs:
         id: build_step
         shell: bash
         env:
-          # Skip the per-plugin `last-resort` GC after a plugin that grew
-          # neither heapUsed nor RSS by 256 MB since the last forced GC
-          # (build-plugins/profilePlugin.ts). Each of those calls cost
-          # 5.8-8.4 s on a 6.4-7.6 GB live heap even after a 0.01 s plugin:
-          # 8.4 min of the IT step and 9.4 of the FR one in deploy 39917633944.
-          # Bench numbers and the byte-identity proof are in the PR body.
-          # Revert trigger: a leg that breaches the memory guard or is
-          # host-killed between two plugins (last `[profile-mem]` line with
-          # `gc=skipped`) → drop this line, the code path reverts to GC-always.
-          PROFILE_GC_MIN_GROWTH_MB: '256'
           # Redundant with the job-level `MALLOC_ARENA_MAX` above, which has
           # been in place since 2026-07-27 — kept only so this step is
           # self-contained if it is ever lifted out. It is NOT the fix for the
