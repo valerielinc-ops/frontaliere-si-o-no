@@ -67,6 +67,7 @@ import {
  jobsSeoHtmlCacheKey,
 } from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
+import { isExpiredJobDemandIndexable } from './shared/expiredJobIndexPolicy';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
@@ -1308,6 +1309,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // to 'full' on any missing input: zero behavior change until a pattern
  // is approved. See build-plugins/shared/trafficEvidenceFilter.ts.
  const trafficFilter = getTrafficEvidenceFilter(rootDir);
+ // P1 noindex plan: Search Console demand evidence (90 d page impressions).
+ const gscDemand = trafficFilter.gscDemand();
+ // Day-granular clock for the expired-job grace window, so every
+ // BUILD_LOCALE shard of one deploy reaches the same verdict for a job.
+ const p1TodayMs = Date.parse(`${new Date().toISOString().slice(0, 10)}T00:00:00Z`);
+ let expiredDemandNoindexCount = 0;
  let bridgeFullCount = 0;
  let bridgeThinCount = 0;
  let softLandingFullCount = 0;
@@ -13703,6 +13710,21 @@ ${staticAnalyticsHtml}
 
  // Track IT page word count for sitemap inclusion decision
  let itBodyWordCount = 0;
+ // P1 noindex plan (shared/expiredJobIndexPolicy.ts): one verdict per job,
+ // shared by every locale page and the sitemap entry. Probes every locale's
+ // tracked path plus each locale's legacy-section path, the same family of
+ // URLs the traffic gates below already probe.
+ const __slDemandPaths: string[] = [];
+ for (const __l of localeList) {
+  if (paths?.[__l]) __slDemandPaths.push(paths[__l]);
+  __slDemandPaths.push(`/${localePrefix[__l]}/${sectionByLocale[__l]}/${slug}`.replace(/\/+/g, '/'));
+ }
+ const expiredDemandIndexable = isExpiredJobDemandIndexable(
+  { expiredAt: (expiredBySlug.get(slug) ?? expiredSliceOverflow.get(slug))?.expiredAt, paths: __slDemandPaths },
+  gscDemand,
+  p1TodayMs,
+ );
+ if (!expiredDemandIndexable) expiredDemandNoindexCount++;
 
  // ── Per-slug invariants (hoisted out of the per-locale loop) ──
  // These values depend only on the slug, not on the locale. Computing
@@ -14005,6 +14027,7 @@ ${staticAnalyticsHtml}
    prosePaths: __slProsePaths,
    keepProse: __slKeepProse,
    action: __slAction,
+   demandIndexable: expiredDemandIndexable,
    expiredPayloadJson: expiredWindowData,
    postalCode: ejData?.postalCode || slugInfo?.postalCode || '',
    hreflangHtml: hreflangLinks,
@@ -14193,6 +14216,11 @@ ${staticAnalyticsHtml}
  let expiredRobotsTag: string;
  if (!hasRealTitle) {
  expiredRobotsTag = ROBOTS_NOINDEX_FOLLOW;
+ } else if (!expiredDemandIndexable) {
+ // P1: expired > 30 days and no Search Console impression in 90 days.
+ // Robots only — the page, its links and its JSON-LD are unchanged.
+ expiredRobotsTag = ROBOTS_NOINDEX_FOLLOW;
+ if (locale === 'it') itBodyWordCount = countHtmlBodyWords(staticBody);
  } else if (locale === 'it') {
  itBodyWordCount = countHtmlBodyWords(staticBody);
  expiredRobotsTag = itBodyWordCount >= MIN_INDEXABLE_WORDS ? ROBOTS_INDEX_ENHANCED : ROBOTS_NOINDEX_FOLLOW;
@@ -14420,7 +14448,7 @@ ${staticAnalyticsHtml}
  const itPath = paths.it ? withSlash(paths.it) : '';
  const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
  const itPageOverwritten = itPageFile && pathWasClaimed(itPageFile);
- if (itPath && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten && !bridgeClaimedPaths.has(paths.it)) {
+ if (itPath && expiredDemandIndexable && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten && !bridgeClaimedPaths.has(paths.it)) {
  // The same cluster decision that governs HTML also governs sitemap
  // alternates. `unclaimedLocales` is captured BEFORE this cluster claims its
  // own paths, so an active path (or an earlier expired winner) can never leak
@@ -14526,6 +14554,7 @@ ${staticAnalyticsHtml}
 
  if (expiredCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P1 expired-job demand gate ${gscDemand.active ? 'active' : 'DORMANT'}: ${expiredDemandNoindexCount} job(s) noindex,follow (expired > 30 d, no GSC impression in 90 d)`);
  // Backpressure between expired-soft-landing (~150k pages) and the
  // next big emit (previousSlugs full-content ~65k pages).
  await collector.awaitDrainSlot(2);
