@@ -1,14 +1,33 @@
 name: Monitor GSC Job Indexation
 
+# Daily since 2026-10-24: monitor (indexation + job rich results guard), then
+# Google Indexing API notifications for job pages, starting from the pages the
+# monitor just found WITHOUT a "Job Postings" rich result.
+# 08:20 UTC is after the Indexing API quota reset (midnight America/Los_Angeles,
+# 07:00 UTC in summer, 08:00 UTC in winter), so this run opens the quota day.
 on:
   schedule:
-    # Weekly: Sunday 15:00 UTC (after sync-gsc-orphans)
-    - cron: '0 15 * * 0'
-  workflow_dispatch: {}
+    - cron: '20 8 * * *'
+  workflow_dispatch:
+    inputs:
+      indexing_max:
+        description: 'Max Indexing API notifications this run (default 130 of the 160/day job budget; the rest stays for post-deploy new jobs)'
+        required: false
+        default: '130'
+        type: string
+      dry_run:
+        description: 'Dry run (no issues, no Indexing API notifications)'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
-  group: monitor-gsc-seo
-  cancel-in-progress: true
+  # Shared with post-deploy-publish.yml: both callers restore/save the same
+  # ledger and must never read the same counter concurrently.
+  group: frontaliere-indexing-api-ledger
+  # false: a cancelled run would drop the Indexing API ledger (actions/cache
+  # saves only when the job completes), re-spending quota on the same URLs.
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -19,7 +38,7 @@ permissions:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -59,7 +78,34 @@ jobs:
           # only honors GH_TOKEN/GITHUB_TOKEN, never GITHUB_PAT — without this the
           # monitor's issue-creation path was always a silent no-op (PR #3322 review).
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/monitor-gsc-job-indexation.mjs
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          ARGS=(--rich-missing-out /tmp/job-rich-missing.json)
+          if [ "$INPUT_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          node scripts/monitor-gsc-job-indexation.mjs "${ARGS[@]}"
+
+      # Same ledger as post-deploy-publish.yml (key prefix and branch scope):
+      # both callers share ONE daily Indexing API budget.
+      - name: Restore Indexing API job ledger
+        uses: actions/cache@v6
+        with:
+          path: /tmp/indexing-api-jobs-ledger.json
+          key: indexing-api-jobs-ledger-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            indexing-api-jobs-ledger-
+
+      - name: Notify job pages to Google Indexing API
+        # GSC_CLIENT_ID/SECRET/REFRESH_TOKEN come from Remote Config (step
+        # above): the owner OAuth identity, used when the service account is
+        # not a Search Console Owner. Always exits 0.
+        env:
+          INPUT_MAX: ${{ inputs.indexing_max || '130' }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          case "$INPUT_MAX" in ''|*[!0-9]*) echo "::error::indexing_max must be an integer"; exit 1 ;; esac
+          ARGS=(--max "$INPUT_MAX" --ledger /tmp/indexing-api-jobs-ledger.json --priority-file /tmp/job-rich-missing.json)
+          if [ "$INPUT_DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          node scripts/submit-google-indexing-jobs.js "${ARGS[@]}"
 
       - name: Cleanup credentials
         if: always()
