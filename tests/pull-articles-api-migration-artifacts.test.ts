@@ -1091,6 +1091,50 @@ describe('pull-articles-api: sitemap-news candidates', () => {
     expect(readPub(dir, 'sitemap-news.xml')).not.toContain(LOC_B);
   });
 
+  it('keeps every locale page of a listed article and drops a de-listed one in any locale', async () => {
+    // Since 2026-10-24 the corpus emits one <url> per published locale page, so
+    // the de-listing check has to recognise the localized section prefixes too:
+    // an EN/DE/FR entry whose article left the registry must not linger until
+    // the window ages it out.
+    const EN_LIVE = 'https://frontaliereticino.ch/en/cross-border-articles/fresh-a-en/';
+    const DE_LIVE = 'https://frontaliereticino.ch/de/grenzgaenger-artikel/fresh-a-de/';
+    const EN_GONE = 'https://frontaliereticino.ch/en/cross-border-articles/gone-en/';
+    const FR_SWISS_GONE = 'https://frontaliereticino.ch/fr/articles-suisse/gone-ch-fr/';
+    const FR_SWISS_LIVE = 'https://frontaliereticino.ch/fr/articles-suisse/live-ch-fr/';
+    routes = {
+      ...baseRoutes(),
+      'sitemap-news-candidates.xml': urlset([newsUrlBlock(EN_LIVE, hoursAgo(1)), newsUrlBlock(FR_SWISS_LIVE, hoursAgo(1))]),
+    };
+    const dir = makeCheckout({
+      newsEntries: [
+        newsUrlBlock(LOC_A, hoursAgo(2)),
+        newsUrlBlock(DE_LIVE, hoursAgo(2)),
+        newsUrlBlock(EN_GONE, hoursAgo(2)),
+        newsUrlBlock(FR_SWISS_GONE, hoursAgo(2)),
+      ],
+    });
+    const content = path.join(dir, 'packages', 'articles', 'content');
+    fs.mkdirSync(content, { recursive: true });
+    fs.writeFileSync(
+      path.join(content, 'routerBlogData.ts'),
+      "export const BLOG_SLUGS = { 'a': { it: 'fresh-a', en: 'fresh-a-en', de: 'fresh-a-de', fr: 'fresh-a-fr' } };\n",
+    );
+    fs.writeFileSync(
+      path.join(content, 'routerSwissData.ts'),
+      "export const SWISS_SLUGS = { 'c': { it: 'live-ch', en: 'live-ch-en', de: 'live-ch-de', fr: 'live-ch-fr' } };\n",
+    );
+
+    const { code, out } = await run(dir);
+
+    expect(code, out).toBe(0);
+    const news = readPub(dir, 'sitemap-news.xml');
+    for (const live of [LOC_A, EN_LIVE, DE_LIVE, FR_SWISS_LIVE]) expect(news).toContain(live);
+    for (const gone of [EN_GONE, FR_SWISS_GONE]) {
+      expect(news).not.toContain(gone);
+      expect(out).toContain(`dropping ${gone} — no longer in the slug registry`);
+    }
+  });
+
   it('takes the window from data/news-sitemap-whitelist.ts, not a hardcoded 48', async () => {
     routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([]) };
     // A 6h window makes a 10h-old entry stale — under a hardcoded 48 it would survive.
