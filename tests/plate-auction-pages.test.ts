@@ -6,6 +6,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { loadPlateAuctionContext, plateAuctionsPagesPlugin, renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
 import { allPlateAuctionCantonCodes, buildPlateAuctionPath, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
 import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
+import { _resetForTests as resetTrafficEvidence, GSC_DEMAND_MIN_IMPRESSED_PATHS, GSC_DEMAND_WINDOW_DAYS } from '../build-plugins/shared/trafficEvidenceFilter';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 import { extractVisibleText } from '../scripts/audit-text-html-ratio.mjs';
@@ -473,6 +474,39 @@ describe('plate-auction static pages', () => {
       expect(historyHtml).toContain('ft-plate-auction-top-ad');
     }
     expect(expectedDetailUrls.size).toBe(164);
+  });
+
+  it('ships plate details without Search Console demand as noindex,follow and keeps them out of the sitemap (P1)', async () => {
+    const rootDir = fixtureRoot({ auctionCount: 41, withDist: true });
+    // GR8 was shown by Search Console on its DE URL only: the whole hreflang
+    // group must stay indexable. Every other plate has no impression.
+    const shownDetail = buildPlateAuctionPath({ locale: 'de', view: 'detail', canton: 'GR', plate: 'GR8' });
+    const pages: Record<string, number> = { [shownDetail]: 3 };
+    for (let index = 0; index < GSC_DEMAND_MIN_IMPRESSED_PATHS; index++) pages[`/fixture-impressed-${index}/`] = 1;
+    writeFileSync(join(rootDir, 'data', 'evidence-index.json'), JSON.stringify({ windowDays: GSC_DEMAND_WINDOW_DAYS, gsc: { pages } }), 'utf8');
+    resetTrafficEvidence();
+    try {
+      const closeBundle = plateAuctionsPagesPlugin(rootDir).closeBundle;
+      if (typeof closeBundle !== 'function') throw new Error('plate-auction plugin has no closeBundle hook');
+      await closeBundle();
+    } finally {
+      resetTrafficEvidence();
+    }
+    const sitemap = readFileSync(join(rootDir, 'dist', 'sitemap-plate-auctions.xml'), 'utf8');
+    const robotsAt = (urlPath: string) => readFileSync(join(rootDir, 'dist', urlPath.slice(1), 'index.html'), 'utf8')
+      .match(/<meta[^>]*\bname=["']?robots["']?[^>]*\bcontent=["']?([^"'>]+)/i)?.[1]?.replace(/\s+/g, '');
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const shown = buildPlateAuctionPath({ locale, view: 'detail', canton: 'GR', plate: 'GR8' });
+      const silent = buildPlateAuctionPath({ locale, view: 'detail', canton: 'GR', plate: 'GR9' });
+      expect(robotsAt(shown), shown).not.toMatch(/noindex/);
+      expect(sitemap).toContain(`<loc>https://frontaliereticino.ch${shown}</loc>`);
+      expect(robotsAt(silent), silent).toBe('noindex,follow');
+      expect(sitemap).not.toContain(`<loc>https://frontaliereticino.ch${silent}</loc>`);
+      // Listing pages are never gated on demand.
+      const cantonPath = buildPlateAuctionPath({ locale, view: 'canton', canton: 'GR' });
+      expect(robotsAt(cantonPath), cantonPath).not.toMatch(/noindex/);
+      expect(sitemap).toContain(`<loc>https://frontaliereticino.ch${cantonPath}</loc>`);
+    }
   });
 
   it('removes stale detail namespaces and numbered sitemaps before regenerating', async () => {

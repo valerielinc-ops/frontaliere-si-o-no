@@ -17,6 +17,7 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { buildSitemapIndexXml, discoverSitemapFiles } from './sitemapAliasPlugin';
 import { cleanNamespaces } from './shared/distNamespaceCleanup';
+import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { buildPlateAuctionPath, allPlateAuctionCantonCodes, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
 import { paginationRobots } from './shared/paginationIndexPolicy';
@@ -334,7 +335,7 @@ const DETAIL_GUIDE: Record<PlateLocale, { heading: string; fields: string; verif
   },
 };
 
-export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehicleType, rootDir, distDir, context }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'directory' | 'detail'; canton?: string; page?: number; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string; context?: PlateAuctionContext }): { urlPath: string; html: string } {
+export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehicleType, rootDir, distDir, context, detailIndexable = true }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'directory' | 'detail'; canton?: string; page?: number; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string; context?: PlateAuctionContext; /** P1 noindex plan: false ships a single-plate page as `noindex,follow` (200, links unchanged). Ignored for every other view. */ detailIndexable?: boolean }): { urlPath: string; html: string } {
   const copy = COPY[locale];
   const { snapshot, coverage, auctionRows, detailRows, detailRowsByPlate, publishedDetailRowsByLocaleAndCanton, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
   const pageNumber = Number.isSafeInteger(page) && page >= 2 ? page : undefined;
@@ -491,10 +492,40 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   }
   breadcrumbItems.push({ '@type': 'ListItem', position: breadcrumbItems.length + 1, name: title, item: canonicalUrl });
   const breadcrumbJsonLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbItems });
+  // P1 noindex plan (2026-10-24): a single plate shares ~100% of its text
+  // with its locale siblings and with every other plate of the canton. The
+  // hub, rankings, canton and directory pages stay indexable; a detail page
+  // only while Search Console has shown it (see plateDetailIndexability()).
   // P1 noindex plan: deep pages of a canton listing (page 11+) stay 200 and
   // crawlable but leave the index; see shared/paginationIndexPolicy.ts.
-  const robots = view === 'canton' && pageNumber ? paginationRobots(pageNumber) : 'index,follow';
+  const robots = view === 'detail'
+    ? (detailIndexable ? 'index,follow' : 'noindex,follow')
+    : view === 'canton' && pageNumber
+      ? paginationRobots(pageNumber)
+      : 'index,follow';
   return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType, pageNumber), bodyHtml: staticBody, jsonLdScripts: [jsonLd, breadcrumbJsonLd], robots, distDir, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content plate-auction-static' }) };
+}
+
+/**
+ * Which single-plate pages stay indexable (P1 noindex plan, 2026-10-24).
+ *
+ * A plate is decided ONCE for its four locale URLs: if Search Console showed
+ * any of them in the last 90 days (`gsc.pages` in data/evidence-index.json,
+ * read through TrafficEvidenceFilter.gscDemand()) the whole hreflang group
+ * stays `index,follow`; otherwise every locale ships `noindex,follow` and
+ * leaves the sitemap. Deciding per group keeps the alternates of an indexable
+ * page pointing at indexable pages.
+ *
+ * Fail-safe: with the demand gate dormant (evidence missing, truncated or not
+ * a 90-day window) every plate keeps its pre-P1 `index,follow`.
+ *
+ * Measured on the live sitemaps of 2026-10-23: 73 762 detail URLs, 162 with
+ * an impression in 90 days, 0 clicks on the rest.
+ */
+function plateDetailIndexability(rootDir: string): (row: SnapshotRow) => boolean {
+  const demand = getTrafficEvidenceFilter(rootDir).gscDemand();
+  if (!demand.active) return () => true;
+  return (row) => demand.hasImpressions(LOCALES.map((locale) => detailPathForRow(row, locale)));
 }
 
 export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
@@ -526,6 +557,7 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     const directoryCantons = new Set(detailRows.map((row) => String(row.sourceKey || row.platePrefix).toUpperCase()));
     const publishedRowsFor = (canton: string, locale: PlateLocale) =>
       publishedDetailRowsByLocaleAndCanton.get(locale)?.get(canton) || [];
+    const detailIndexable = plateDetailIndexability(rootDir);
     let written = 0;
     for (const locale of LOCALES) {
       for (const view of ['hub', 'rankings'] as const) {
@@ -546,7 +578,7 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
         }
       }
       for (const row of detailRows) {
-        const rendered = renderPlateAuctionPage({ locale, view: 'detail', canton: row.sourceKey || row.platePrefix, plate: row.normalizedPlate, vehicleType: row.vehicleType, rootDir, distDir, context });
+        const rendered = renderPlateAuctionPage({ locale, view: 'detail', canton: row.sourceKey || row.platePrefix, plate: row.normalizedPlate, vehicleType: row.vehicleType, rootDir, distDir, context, detailIndexable: detailIndexable(row) });
         const out = np.join(distDir, rendered.urlPath, 'index.html'); fs.mkdirSync(np.dirname(out), { recursive: true }); fs.writeFileSync(out, rendered.html, 'utf8'); written++;
       }
     }
@@ -556,7 +588,9 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
         // it stays reachable through the canton page's own pager.
         return [pathFor(locale, 'canton', code), ...(directoryCantons.has(code) ? [pathFor(locale, 'directory', code)] : [])];
       });
-      return [pathFor(locale, 'hub'), pathFor(locale, 'rankings'), ...cantonPaths, ...detailRows.map((row) => detailPathForRow(row, locale))];
+      // A noindex detail stays 200 and linked from its directory page, but is
+      // not advertised: a sitemap must only list indexable URLs.
+      return [pathFor(locale, 'hub'), pathFor(locale, 'rankings'), ...cantonPaths, ...detailRows.filter(detailIndexable).map((row) => detailPathForRow(row, locale))];
     });
     const sitemapShardCount = Math.max(1, Math.ceil(sitemapUrls.length / SITEMAP_SHARD_CAP));
     for (let shardIndex = 0; shardIndex < sitemapShardCount; shardIndex++) {
@@ -570,6 +604,6 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     // omitted when Rollup orders two post closeBundle hooks by declaration.
     const discovered = await discoverSitemapFiles(distDir);
     fs.writeFileSync(np.join(distDir, 'sitemap.xml'), buildSitemapIndexXml(discovered, BASE_URL), 'utf8');
-    console.log(`[plate-auction-pages] Generated ${written} pages`);
+    console.log(`[plate-auction-pages] Generated ${written} pages (${detailRows.filter(detailIndexable).length}/${detailRows.length} plate details indexable)`);
   } };
 }
