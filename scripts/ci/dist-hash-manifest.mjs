@@ -9,6 +9,7 @@
  *
  * Usage: node scripts/ci/dist-hash-manifest.mjs <distDir> <outFile>
  *                                               [--deploy-artifact-perimeter]
+ *                                               [--mask-timestamps]
  *
  * Uses `find | xargs sha256sum` for speed on ~1M-file trees, then applies the
  * exclude filter + stable sort in JS so the exclude list stays maintainable.
@@ -51,6 +52,13 @@
  * feeds. What moves out of scope: the CDN-served binary/bundle trees, which the
  * artifact does not carry at all and which no byte comparison against it could
  * ever have covered.
+ *
+ * `--mask-timestamps` is retained as a compatibility switch for older bench
+ * invocations. It may normalize only fields explicitly listed in
+ * `BUILD_CLOCK_TIMESTAMP_ALLOWLIST` below; it must never treat every ISO date
+ * in a published text file as build metadata. The current build has no
+ * published ISO date-time that is pure build-clock data: `build-id.txt` is
+ * already excluded, while page, sitemap and JSON timestamps are semantic.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -64,6 +72,17 @@ const positional = argv.filter((a) => !a.startsWith('--'));
 const distDir = path.resolve(positional[0] || 'dist');
 const outFile = positional[1] || 'dist-manifest.txt';
 const deployPerimeter = flags.has('--deploy-artifact-perimeter');
+const maskTimestamps = flags.has('--mask-timestamps');
+
+/**
+ * Exact allowlist for any future pure build-clock timestamp fields.
+ *
+ * Deliberately empty: the only pure build marker is `build-id.txt`, which is
+ * excluded by EXCLUDE before text normalization. Adding a rule requires the
+ * producer path and field to be proven build-clock-only plus a regression test;
+ * never replace this with a generic ISO-date regular expression.
+ */
+const BUILD_CLOCK_TIMESTAMP_ALLOWLIST = Object.freeze([]);
 
 if (!fs.existsSync(distDir)) {
   console.error(`[dist-hash-manifest] dist dir not found: ${distDir}`);
@@ -154,6 +173,19 @@ function excluded(rel) {
   return false;
 }
 
+function normalizeAllowlistedBuildClockTimestamps(rel, text) {
+  let normalized = text;
+  let masked = 0;
+  for (const rule of BUILD_CLOCK_TIMESTAMP_ALLOWLIST) {
+    if (!rule.path.test(rel)) continue;
+    normalized = normalized.replace(rule.pattern, () => {
+      masked++;
+      return rule.replacement;
+    });
+  }
+  return { normalized, masked };
+}
+
 // `find . -type f -print0 | xargs -0 sha256sum` from inside distDir → paths are
 // `./relpath`. Parallelism via xargs -P for speed.
 let raw;
@@ -208,6 +240,26 @@ if (deployPerimeter) {
   }
 }
 
+let masked = 0;
+if (maskTimestamps && BUILD_CLOCK_TIMESTAMP_ALLOWLIST.length > 0) {
+  const { createHash } = await import('node:crypto');
+  for (const e of entries) {
+    if (!TEXT_EXT.test(e.rel)) continue;
+    let text;
+    try {
+      text = fs.readFileSync(path.join(distDir, e.rel), 'utf-8');
+    } catch {
+      continue; // vanished between walk and read — keep the bulk hash
+    }
+    let normalized = text;
+    if (deployPerimeter) normalized = normalized.replace(CDN_BASE_RX, '/').replace(CDN_DATA_INJECT_RX, '');
+    const result = normalizeAllowlistedBuildClockTimestamps(e.rel, normalized);
+    if (result.normalized === normalized) continue;
+    e.hash = createHash('sha256').update(result.normalized).digest('hex');
+    masked += result.masked;
+  }
+}
+
 const lines = entries.map((e) => `${e.hash}  ${e.rel}`);
 // Stable sort by relpath (the part after the 2-space separator).
 lines.sort((a, b) => {
@@ -218,6 +270,12 @@ lines.sort((a, b) => {
 
 fs.writeFileSync(outFile, lines.join('\n') + '\n');
 console.log(`[dist-hash-manifest] ${lines.length} files hashed → ${outFile} (excluded build-id/commit-hash/collision/manifest)`);
+if (maskTimestamps) {
+  console.log(
+    `[dist-hash-manifest] mask-timestamps requested: normalized ${masked} explicitly allowlisted build-clock timestamp field(s); ` +
+    'all other text timestamps remain hash-sensitive',
+  );
+}
 if (deployPerimeter) {
   console.log(
     `[dist-hash-manifest] deploy-artifact perimeter ON: skipped ${DEPLOY_OFFLOADED.length} CDN-offloaded tree pattern(s); ` +
