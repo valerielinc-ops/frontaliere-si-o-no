@@ -159,6 +159,23 @@ describe('edge HTTP contract', () => {
     }
   });
 
+  it('a live page re-served after the body check carries no stale encoding headers', async () => {
+    // The Workers runtime hands text() the decoded body but keeps the origin's
+    // Content-Encoding/Content-Length; re-labelling decoded bytes as gzip would
+    // make the page undecodable for the client.
+    const listed = ownPaths[0];
+    const origin = new Response(LIVE_HTML, {
+      status: 200,
+      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Content-Encoding': 'gzip', 'Content-Length': '123', 'Cache-Control': 'public, max-age=60' },
+    });
+    const out = await upgradeLegacyStub(new Request(`${APEX}${listed}`), origin, async () => origin);
+    expect(out.status).toBe(200);
+    expect(out.headers.get('Content-Encoding')).toBeNull();
+    expect(out.headers.get('Content-Length')).toBeNull();
+    expect(out.headers.get('Cache-Control')).toBe('public, max-age=60');
+    expect(await out.text()).toBe(LIVE_HTML);
+  });
+
   it('does not touch unlisted paths, non-200 answers or other methods', async () => {
     const stub = () => new Response(stubHtml('/'), { status: 200, headers: { 'Content-Type': 'text/html' } });
     const listed = ownPaths[0];

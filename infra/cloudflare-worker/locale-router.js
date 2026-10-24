@@ -2055,10 +2055,14 @@ export async function upgradeLegacyStub(request, response, refetchAsGet) {
     return new Response('Origin unavailable', { status: 503, headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' } });
   }
   if (text.includes(REDIRECT_STUB_MARKER)) return legacyStubMoved(url, target);
-  // A live page at a listed path: hand back the same document. The body was
-  // decoded by text(), so the encoded length no longer applies.
+  // A live page at a listed path: hand back the same document. text() returned
+  // the DECODED body (the Workers runtime transparently decompresses origin
+  // responses but keeps their Content-Encoding header), so neither the encoded
+  // length nor the encoding label describes these bytes any more: drop both and
+  // let the edge compress the response on the way out.
   const headers = new Headers(response.headers);
   headers.delete('Content-Length');
+  headers.delete('Content-Encoding');
   return new Response(text, { status: response.status, statusText: response.statusText, headers });
 }
 
