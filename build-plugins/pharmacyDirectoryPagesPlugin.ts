@@ -47,6 +47,7 @@ import {
   DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
   DECISION_MOMENT_SURFACE_ATTRIBUTE,
 } from '../services/decisionMomentTelemetry';
+import { PHARMACY_NOINDEX_TARGET_MARKER } from './shared/pharmacyNoindexTargetMarker.mjs';
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
@@ -465,7 +466,25 @@ function renderCompactPharmacyListItem(pharmacy: Pharmacy, locale: Locale): stri
   const copy = COPY[locale];
   const detailPath = pharmacyPath(pharmacy, locale);
   const source = '<a href="' + esc(pharmacy.sourceUrl) + '" rel="nofollow noopener">' + esc(copy.sourceLink) + '</a>';
-  return '<li class="pharmacy-static-list-item"><a href="' + esc(buildPharmacyPath(detailPath, locale)) + '">' + esc(pharmacy.name) + '</a><span> — ' + esc(pharmacy.address) + ', ' + esc(pharmacy.postalCode) + ' ' + esc(pharmacy.city) + '</span><span> · ' + source + '</span></li>';
+  // The town links to its city page, as renderPharmacyCard does: the area page
+  // is the only page that lists an Italian province, and without this link its
+  // 290 city pages per locale were reachable only from a detail breadcrumb —
+  // depth 5 from /xx/, the sitemap-farmacie BFS warning of replay 39927368320.
+  const cityUrl = cityPath('IT', locale, pharmacyCitySlug(pharmacy.city), ITALY_BORDER_PROVINCES.find((area) => area.code === pharmacy.province)?.slug);
+  return '<li class="pharmacy-static-list-item"><a href="' + esc(buildPharmacyPath(detailPath, locale)) + '">' + esc(pharmacy.name) + '</a><span> — ' + esc(pharmacy.address) + ', ' + href(cityUrl, `${pharmacy.postalCode} ${pharmacy.city}`) + '</span><span> · ' + source + '</span></li>';
+}
+
+/**
+ * Detail links of one Ticino town, nested under its entry on the canton page:
+ * canton (depth 3 from /xx/) → town (4) → pharmacy (5) left every Swiss
+ * detail page one hop past the crawl-depth budget in en/de/fr.
+ */
+function renderCantonCityPharmacyLinks(cityName: string, locale: Locale, emittedPaths: ReadonlySet<string>): string {
+  const links = pharmaciesForCity(cityName)
+    .map((pharmacy) => ({ pharmacy, pathValue: pharmacyPath(pharmacy, locale) }))
+    .filter(({ pathValue }) => emittedPaths.has(buildPharmacyPath(pathValue, locale)))
+    .map(({ pharmacy, pathValue }) => '<li>' + href(pathValue, pharmacy.name) + '</li>');
+  return links.length > 0 ? '<ul>' + links.join('') + '</ul>' : '';
 }
 
 function renderHours(pharmacy: Pharmacy, locale: Locale): string {
@@ -598,7 +617,10 @@ function renderDutyCoverageMatrix(
   const decisionMomentAttributes = matrix.releaseReady && matrix.regions.some((region) => region.duties.length > 0)
     ? ` ${DECISION_MOMENT_COMPLETED_ATTRIBUTE}="true" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="pharmacy" ${DECISION_MOMENT_ID_ATTRIBUTE}="duty_lookup"`
     : '';
-  return `<section data-coverage-matrix="true" data-release-ready="${String(matrix.releaseReady)}" data-italy-release-ready="${String(matrix.italy.publishable)}" data-italy-indexable="${String(matrix.italy.indexable)}" data-italy-release-state="${esc(matrix.italy.state)}"${decisionMomentAttributes}><h2 style="${H2_STYLE}">${esc(copy.heading)}</h2><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><section><h2 style="${H2_STYLE}">${esc(copy.ticinoHeading)}</h2><p style="${BODY_STYLE}" role="status">${esc(notice)}</p>${regions}</section>${operationalSection}${italy}<section><h2 style="${H2_STYLE}">${esc(copy.sourceOnlyHeading(matrix.sourceOnlyCantons.length))}</h2><p style="${LEDE_STYLE}">${esc(copy.sourceOnlyLede)}</p><ul>${sourceOnly}</ul></section></section>`;
+  const currentWeek = currentDutyWeekStart(now);
+  const currentWeekPath: PharmacyPath = { kind: 'duty-week', locale, weekStart: currentWeek };
+  const currentWeekLink = `<p style="${BODY_STYLE}">${href(currentWeekPath, pageTitle('duty-week', locale, { kind: 'duty-week', weekStart: currentWeek }))}</p>`;
+  return `<section data-coverage-matrix="true" data-release-ready="${String(matrix.releaseReady)}" data-italy-release-ready="${String(matrix.italy.publishable)}" data-italy-indexable="${String(matrix.italy.indexable)}" data-italy-release-state="${esc(matrix.italy.state)}"${decisionMomentAttributes}><h2 style="${H2_STYLE}">${esc(copy.heading)}</h2><p style="${LEDE_STYLE}">${esc(copy.lede)}</p>${currentWeekLink}<section><h2 style="${H2_STYLE}">${esc(copy.ticinoHeading)}</h2><p style="${BODY_STYLE}" role="status">${esc(notice)}</p>${regions}</section>${operationalSection}${italy}<section><h2 style="${H2_STYLE}">${esc(copy.sourceOnlyHeading(matrix.sourceOnlyCantons.length))}</h2><p style="${LEDE_STYLE}">${esc(copy.sourceOnlyLede)}</p><ul>${sourceOnly}</ul></section></section>`;
 }
 
 function dutyWeekCollectionJsonLd(pathValue: PharmacyPath, title: string, model: DutyWeekModel): string {
@@ -927,7 +949,7 @@ function renderBody(
     sections = `<section><h2 style="${H2_STYLE}">${esc(copy.duties)}</h2>${esc(copy.dutyCityLede)}${duties.length > 0 ? `<div class="s-XENO3U">${duties.map((duty) => renderDuty(duty, locale)).join('')}</div>` : `<p style="${BODY_STYLE}">${esc(copy.noDuty)}</p>`}</section>`;
   } else if (descriptor.kind === 'canton') {
     const cities = cantonCityEntries(locale, emittedPaths);
-    sections = '<section><h2 style="' + H2_STYLE + '">' + esc(copy.directoryHeading) + '</h2><nav aria-label="' + esc(copy.directoryHeading) + '"><ul style="' + BODY_STYLE + '">' + cities.map((city) => '<li>' + href(city.path, city.name) + ' — ' + esc(copy.provinceCount(city.count)) + '</li>').join('') + '</ul></nav>' + cantonSourceSummary(locale) + '<p style="' + BODY_STYLE + '">' + esc(copy.locarneseNote) + '</p></section>';
+    sections = '<section><h2 style="' + H2_STYLE + '">' + esc(copy.directoryHeading) + '</h2><nav aria-label="' + esc(copy.directoryHeading) + '"><ul style="' + BODY_STYLE + '">' + cities.map((city) => '<li>' + href(city.path, city.name) + ' — ' + esc(copy.provinceCount(city.count)) + renderCantonCityPharmacyLinks(city.name, locale, emittedPaths) + '</li>').join('') + '</ul></nav>' + cantonSourceSummary(locale) + '<p style="' + BODY_STYLE + '">' + esc(copy.locarneseNote) + '</p></section>';
   } else if (descriptor.kind === 'country') {
     const provinces = ITALY_BORDER_PROVINCES.map((area) => {
       const count = pharmaciesForProvince(area.code).length;
@@ -1205,11 +1227,14 @@ function buildPage(
   const pathValue = descriptorPath(descriptor, locale);
   const description = pageDescription(descriptor, locale);
   const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable, contentHtml: body })}`;
+  const html = buildSeoPageHtml({ locale, title: emittedTitle, description, canonicalUrl: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`, hreflangHtml: hreflang(descriptor), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(descriptor, locale, dataset, now, emittedPaths, indexable), bodyHtml, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content', distDir });
   return {
     path: buildPharmacyPath(pathValue, locale),
     wordCount,
     indexable,
-    html: buildSeoPageHtml({ locale, title: emittedTitle, description, canonicalUrl: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`, hreflangHtml: hreflang(descriptor), robots: indexable ? 'index,follow' : 'noindex,follow', jsonLdScripts: jsonLd(descriptor, locale, dataset, now, emittedPaths, indexable), bodyHtml, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content', distDir }),
+    // A noindex here is a decision of this plugin (see the marker module):
+    // declare it, so validate-page-seo can tell it from an accidental one.
+    html: indexable ? html : html.replace('</head>', ` ${PHARMACY_NOINDEX_TARGET_MARKER}\n </head>`),
   };
 }
 

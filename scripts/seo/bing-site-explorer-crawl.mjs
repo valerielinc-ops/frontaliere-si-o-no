@@ -24,6 +24,7 @@ import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
+import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
@@ -305,6 +306,21 @@ export function isJobBoardDetailPath(value) {
 export function isDeclaredJobBoardTarget({ url, html }) {
   return String(html || '').includes(JOB_BOARD_NOINDEX_TARGET_MARKER)
     && isJobBoardDetailPath(url);
+}
+
+// Pharmacy directory and duty roots in every locale (services/pharmacies).
+const PHARMACY_ROUTE_RE = /^\/(?:(?:en|de|fr)\/)?(?:farmacie|pharmacies|apotheken|farmacie-di-turno|on-duty-pharmacies|notdienst-apotheken|pharmacies-de-garde)\//;
+
+/**
+ * Same contract as isDeclaredJobBoardTarget for pharmacyDirectoryPagesPlugin's
+ * deliberate noindex families (build-plugins/shared/pharmacyNoindexTargetMarker.mjs):
+ * marker AND a pharmacy route are both required.
+ */
+export function isDeclaredPharmacyTarget({ url, html }) {
+  let pathname = '';
+  try { pathname = new URL(url, 'https://frontaliereticino.ch').pathname; } catch { return false; }
+  return String(html || '').includes(PHARMACY_NOINDEX_TARGET_MARKER)
+    && PHARMACY_ROUTE_RE.test(pathname.endsWith('/') ? pathname : `${pathname}/`);
 }
 
 export function scopeForManifest(manifest) {
@@ -894,12 +910,17 @@ export function classifyDocument({
     && isDeclaredCompanyCantonBridge({ url: finalUrl || url, canonical, html })
     ? 'company-canton-bridge'
     : null;
-  const declaredJobBoardTarget = isFrontier
+  const declaredNoindexTarget = isFrontier
     && noindex
     && followableNoindex
     && isDeclaredJobBoardTarget({ url: finalUrl || url, html })
     ? 'job-board-target'
-    : null;
+    : isFrontier
+      && noindex
+      && followableNoindex
+      && isDeclaredPharmacyTarget({ url: finalUrl || url, html })
+      ? 'pharmacy-target'
+      : null;
   const weeklyEmployersArchiveExemption = isFrontier
     && noindex
     && followableNoindex
@@ -919,11 +940,13 @@ export function classifyDocument({
     || weeklyEmployersArchiveExemption
     || editorialBridgeExemption;
   if (noindex) {
-    const isDeclaredBridge = isFrontier && followableNoindex && (canonicalExemption || declaredJobBoardTarget);
+    const isDeclaredBridge = isFrontier && followableNoindex && (canonicalExemption || declaredNoindexTarget);
     const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
     const detail = isDeclaredBridge
-      ? declaredJobBoardTarget && !canonicalExemption
-        ? `Pagina nella frontiera interna dichiarata target job board: noindex/follow sulla route job-detail (${canonical || 'canonical assente'}).`
+      ? declaredNoindexTarget && !canonicalExemption
+        ? declaredNoindexTarget === 'pharmacy-target'
+          ? `Pagina nella frontiera interna dichiarata noindex dal plugin farmacie: noindex/follow sulla route farmacie (${canonical || 'canonical assente'}).`
+          : `Pagina nella frontiera interna dichiarata target job board: noindex/follow sulla route job-detail (${canonical || 'canonical assente'}).`
         : `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${canonicalExemption}).`
       : isFrontier
         ? 'La pagina raggiunta da un link interno dichiara noindex senza un bridge canonical riconosciuto.'
