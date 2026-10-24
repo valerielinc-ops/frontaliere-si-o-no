@@ -53,6 +53,46 @@ export function publicHeroUrl(heroPath) {
   return m ? `${CDN_BLOG_BASE}/${m[1]}` : `${SITE_ORIGIN}${heroPath}`;
 }
 
+/** Read only the prefix needed by the intrinsic-size parser. */
+async function readResponsePrefix(res, maxBytes) {
+  const body = res.body;
+  if (!body?.getReader) return Buffer.alloc(0);
+
+  let reader;
+  let byob = true;
+  try {
+    // Fetch responses expose a byte stream in Node, so BYOB prevents a single
+    // oversized chunk from making us consume more than the requested prefix.
+    reader = body.getReader({ mode: 'byob' });
+  } catch {
+    // Keep compatibility with generic ReadableStreams supplied by tests/tools.
+    byob = false;
+    reader = body.getReader();
+  }
+
+  const chunks = [];
+  let total = 0;
+  try {
+    while (total < maxBytes) {
+      const remaining = maxBytes - total;
+      const { done, value } = byob ? await reader.read(new Uint8Array(remaining)) : await reader.read();
+      if (done) break;
+      const chunk = value ? Buffer.from(value) : Buffer.alloc(0);
+      if (!chunk.length) continue;
+      const take = Math.min(chunk.length, remaining);
+      chunks.push(chunk.subarray(0, take));
+      total += take;
+      if (take < chunk.length || total >= maxBytes) {
+        await reader.cancel();
+        break;
+      }
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  return Buffer.concat(chunks, total);
+}
+
 async function measureOne(url, { fetchImpl, timeoutMs }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -64,8 +104,7 @@ async function measureOne(url, { fetchImpl, timeoutMs }) {
     if (res.status !== 200 && res.status !== 206) return { ok: false, reason: `HTTP ${res.status}` };
     const type = String(res.headers?.get?.('content-type') ?? '');
     if (type && !/^image\//i.test(type)) return { ok: false, reason: `content-type ${type}` };
-    const buf = Buffer.from(await res.arrayBuffer());
-    const size = intrinsicSizeFromBuffer(buf.subarray(0, HERO_HEADER_BYTES));
+    const size = intrinsicSizeFromBuffer(await readResponsePrefix(res, HERO_HEADER_BYTES));
     return size ? { ok: true, size } : { ok: false, reason: 'unparsable header' };
   } catch (err) {
     return { ok: false, reason: err instanceof Error ? err.message : String(err) };

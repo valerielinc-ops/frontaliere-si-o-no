@@ -96,6 +96,30 @@ describe('remote hero sizes for sparse article re-renders', () => {
       fs.rmSync(publicDir, { recursive: true, force: true });
     }
   });
+
+  it('does not materialize a full 200 response when only the header is needed', async () => {
+    const publicDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hero-prefix-'));
+    try {
+      const payload = Buffer.concat([webpHeader(1920, 1080), Buffer.alloc(200_000)]);
+      const fetchImpl = async () => {
+        const response = new Response(payload, { status: 200, headers: { 'content-type': 'image/webp' } });
+        Object.defineProperty(response, 'arrayBuffer', {
+          value: () => Promise.reject(new Error('full response materialized')),
+        });
+        return response;
+      };
+
+      const result = await probeRemoteHeroSizes(['/images/blog/large.webp'], {
+        publicDir,
+        fetchImpl: fetchImpl as unknown as typeof fetch,
+      });
+
+      expect(result.sizes).toEqual({ '/images/blog/large.webp': { width: 1920, height: 1080 } });
+      expect(result.failed).toEqual([]);
+    } finally {
+      fs.rmSync(publicDir, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('article image postcondition', () => {
