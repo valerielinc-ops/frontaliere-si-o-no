@@ -66,6 +66,7 @@ import {
  jobsSeoHtmlCacheKey,
 } from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
+import { hasClusterStopwordLead } from './shared/searchSlugStopwords';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
@@ -10069,6 +10070,26 @@ ${staticAnalyticsHtml}
  // locale before that locale gets a page. Named because it now ALSO decides
  // the hreflang alternate set (issue #5114) — the two must never drift.
  const KEYWORD_LANDING_MIN_JOBS = 3;
+ // P1 noindex plan (2026-10-24): the three GSC search-landing families below
+ // (keyword-config, search-stats leaders, combos) were indexable by
+ // construction. They now follow the same rule as the related-search
+ // clusters: indexable only with a Search Console impression in the last 90
+ // days on ANY locale variant (one hreflang group, one verdict), at least
+ // KEYWORD_LANDING_MIN_JOBS matching jobs, and no stop-word lead token
+ // (shared/searchSlugStopwords.ts). Otherwise 200 + `noindex,follow` and no
+ // sitemap entry. Dormant evidence → pre-P1 behaviour (indexable).
+ // Measured on the live sitemap-jobs* of 2026-10-23: 221 search-landing URLs,
+ // 73 with an impression in 90 days (65 with a click).
+ const searchLandingDemand = trafficFilter.gscDemand();
+ let searchLandingDemandNoindexCount = 0;
+ const isSearchLandingDemandIndexable = (slugKey: string, groupPaths: readonly string[], jobCount: number): boolean => {
+ if (!searchLandingDemand.active) return true;
+ if (hasClusterStopwordLead(slugKey)) return false;
+ if (jobCount < KEYWORD_LANDING_MIN_JOBS) return false;
+ return searchLandingDemand.hasImpressions(groupPaths);
+ };
+ const searchLandingGroupPaths = (key: string): string[] => localeList.map((l) =>
+ withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${searchRoutePrefix[l]}-${key}`.replace(/\/+/g, '/')));
  let keywordPageCount = 0;
  const keywordSitemapEntries: string[] = [];
  const kwConfigPath = np.resolve(rootDir, 'data/keyword-pages-config.json');
@@ -10133,6 +10154,15 @@ ${staticAnalyticsHtml}
  if (n >= KEYWORD_LANDING_MIN_JOBS) kwEligibleLocales.add(l);
  }
  }
+ // P1: one verdict for the whole keyword group (robots of every locale page
+ // AND the sitemap block below). Every eligible locale already cleared
+ // KEYWORD_LANDING_MIN_JOBS above.
+ const kwDemandIndexable = isSearchLandingDemandIndexable(
+ kwSlug,
+ searchLandingGroupPaths(kwSlug),
+ kwEligibleLocales.size > 0 ? KEYWORD_LANDING_MIN_JOBS : 0,
+ );
+ if (!kwDemandIndexable) searchLandingDemandNoindexCount++;
  const kwHrefFor = (al: AlternateLocale): string =>
  `${BASE_URL}${withSlash(`${localePrefix[al]}/${sectionByLocale[al]}/${searchRoutePrefix[al]}-${kwSlug}`.replace(/\/+/g, '/'))}`;
  // Locales for which the loop below ACTUALLY wrote a keyword landing.
@@ -10327,6 +10357,7 @@ ${staticAnalyticsHtml}
  title: kwTitle,
  description: kwDesc,
  canonicalUrl: kwCanonicalUrl,
+ robots: kwDemandIndexable ? 'index,follow' : 'noindex,follow',
  ogLocale: localeOg[locale],
  hreflangHtml: kwAlternates,
  jsonLdScripts: [kwBreadcrumbLd, kwCollLd],
@@ -10374,6 +10405,7 @@ ${staticAnalyticsHtml}
  //      build that actually publishes this file `it` always takes branch 2.
  const kwSitemapLocales = new Set<typeof localeList[number]>();
  for (const l of localeList) {
+ if (!kwDemandIndexable) break; // P1: a noindex group has no sitemap entry
  if (!kwEligibleLocales.has(l)) continue;
  if (shouldEmitLocale(l)) {
  if (!kwEmittedLocales.has(l)) continue;
@@ -10456,6 +10488,10 @@ ${staticAnalyticsHtml}
  (l) => matchingJobsByLocale[l].length > 0 || fallbackMatchingJobs.length > 0,
  ),
  );
+ // P1: one verdict per leader key — robots of every locale page and the
+ // sitemap gate below (which already required fallbackMatchingJobs ≥ 3).
+ const ssDemandIndexable = isSearchLandingDemandIndexable(key, searchLandingGroupPaths(key), fallbackMatchingJobs.length);
+ if (!ssDemandIndexable) searchLandingDemandNoindexCount++;
 
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -10605,7 +10641,12 @@ ${staticAnalyticsHtml}
  // already enforced by the page-body MIN_INDEXABLE_WORDS check downstream
  // (these pages embed ~250 words of editorial + commuter-context regardless
  // of listing count, so the body always passes the gate).
- robots: 'index,follow',
+ // P1 (2026-10-24): no longer unconditional — `ssDemandIndexable`. A
+ // noindex page here that collides with a cluster loc is removed from the
+ // cluster sitemap by that plugin's dist-truth passes (dropOverwrittenLocs
+ // + the final sitemapAlias re-check), which did not exist when this was
+ // made unconditional.
+ robots: ssDemandIndexable ? 'index,follow' : 'noindex,follow',
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
  jsonLdScripts: [searchBreadcrumbLd],
@@ -10628,8 +10669,8 @@ ${staticAnalyticsHtml}
  recordEmit('search-stats-landing', __tSearchStats);
  }
 
- // Add indexable search pages (>=3 jobs) to sitemap
- if (fallbackMatchingJobs.length >= 3) {
+ // Add indexable search pages (>=3 jobs, P1 demand) to sitemap
+ if (fallbackMatchingJobs.length >= 3 && ssDemandIndexable) {
  const sItSlug = `${searchRoutePrefix.it}-${key}`;
  const sItPath = withSlash(`/${sectionByLocale.it}/${sItSlug}`.replace(/\/+/g, '/'));
  const sItUrl = `${BASE_URL}${sItPath}`;
@@ -10684,6 +10725,9 @@ ${staticAnalyticsHtml}
  const _comboEligibleLocales = new Set<string>(
  localeList.filter(() => matchingJobs.length > 0),
  );
+ // P1: `matchingJobs` is locale-agnostic, so one verdict covers the group.
+ const cmDemandIndexable = isSearchLandingDemandIndexable(comboKey, searchLandingGroupPaths(comboKey), matchingJobs.length);
+ if (!cmDemandIndexable) searchLandingDemandNoindexCount++;
 
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -10811,6 +10855,7 @@ ${staticAnalyticsHtml}
  title: comboTitle,
  description,
  canonicalUrl,
+ robots: cmDemandIndexable ? 'index,follow' : 'noindex,follow',
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
  // Preserve OG image override; append thin-shell signal when applicable.
@@ -10836,8 +10881,8 @@ ${staticAnalyticsHtml}
  recordEmit('search-combo-landing', __tSearchCombo);
  }
 
- // Add qualifying combo pages to sitemap for discovery
- if (matchingJobs.length >= 3) {
+ // Add qualifying combo pages to sitemap for discovery (P1: demand too)
+ if (matchingJobs.length >= 3 && cmDemandIndexable) {
  const cItSlug = `${searchRoutePrefix.it}-${comboKey}`;
  const cItPath = withSlash(`/${sectionByLocale.it}/${cItSlug}`.replace(/\/+/g, '/'));
  const cItUrl = `${BASE_URL}${cItPath}`;
@@ -11065,6 +11110,7 @@ ${staticAnalyticsHtml}
  searchEntries = [editorialEntries, searchSitemapEntries.join('\n')].filter(Boolean).join('\n');
  if (searchPageCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${searchPageCount} search landing pages (stats + combos)`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P1 search-landing demand gate ${searchLandingDemand.active ? 'active' : 'DORMANT'}: ${searchLandingDemandNoindexCount} landing group(s) noindex,follow (keyword + stats + combo)`);
  }
  } else {
  searchEntries = editorialEntries;
