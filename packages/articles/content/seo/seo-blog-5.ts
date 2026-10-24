@@ -42003,7 +42003,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Paola Nurnberg, vertenza chiusa: la RSI paga 4 mesi di salario",
-      "description": "La vertenza tra RSI e Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese avanzate. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per",
+      "description": "Paola Nurnberg, licenziata dalla RSI nel 2023 dopo un post su Twitter: vertenza chiusa, la RSI ha pagato tutte le pretese avanzate secondo Unia.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -47391,7 +47391,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "CU 2026 per frontalieri: modelli ufficiali e credito d'imposta",
-      "description": "Disponibili i Modelli Ufficiali della Certificazione Unica 2026. Guida pratica per i frontalieri su come dichiarare i redditi svizzeri in Italia, evitare la",
+      "description": "Certificazione Unica 2026: modelli ufficiali per i redditi 2025 e come i frontalieri dichiarano in Italia lo stipendio svizzero col credito d'imposta.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -51797,7 +51797,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Tecnico di radiologia in Ticino: quanto guadagna e requisiti",
-      "description": "Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo",
+      "description": "Quanto guadagna un tecnico di radiologia in Ticino: stipendio medio di CHF 80.000 l'anno, requisiti, riconoscimento del titolo di studio e permesso G.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
