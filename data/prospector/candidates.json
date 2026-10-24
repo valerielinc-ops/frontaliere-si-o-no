@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-24T11:13:27.541Z",
+  "updatedAt": "2026-10-24T11:14:54.680Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -364623,12 +364623,12 @@
     },
     "elvetino.ch": {
       "key": "elvetino.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-23T04:15:59.708Z",
-      "updatedAt": "2026-10-23T11:24:52.629Z",
+      "updatedAt": "2026-10-24T11:14:54.596Z",
       "name": "elvetino",
       "domain": "elvetino.ch",
       "careersUrl": "https://company.sbb.ch/de/home.html",
@@ -365036,7 +365036,13 @@
         "https://company.sbb.ch/de/jobs-karriere/arbeitgeberin/gesundheit.html"
       ],
       "promotionPr": "14880",
-      "promotionBranch": "prospector/promote-2026-10-23"
+      "promotionBranch": "prospector/promote-2026-10-23",
+      "promotedAt": "2026-10-23T17:10:18Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-24T09:28:18.709Z",
+      "firstCrawlerJobCount": 1
     },
     "elvetino@zurich": {
       "key": "elvetino@zurich",
@@ -1073764,12 +1073770,12 @@
     },
     "servicekuhn.ch": {
       "key": "servicekuhn.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-22T04:10:02.875Z",
-      "updatedAt": "2026-10-23T11:24:52.629Z",
+      "updatedAt": "2026-10-24T11:14:54.597Z",
       "name": "servicekuhn",
       "domain": "servicekuhn.ch",
       "careersUrl": "https://servicekuhn.ch/jobs/",
@@ -1073977,7 +1073983,13 @@
         }
       ],
       "promotionPr": "14880",
-      "promotionBranch": "prospector/promote-2026-10-23"
+      "promotionBranch": "prospector/promote-2026-10-23",
+      "promotedAt": "2026-10-23T17:10:18Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-24T09:35:29.737Z",
+      "firstCrawlerJobCount": 1
     },
     "serviceplus-suisse.ch": {
       "key": "serviceplus-suisse.ch",
