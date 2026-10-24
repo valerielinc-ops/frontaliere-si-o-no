@@ -3400,18 +3400,18 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  dashboard: {
- title: 'Dashboard Personale | Storico Simulazioni Frontaliere',
- description: 'Dashboard personale per frontalieri: salva le tue simulazioni fiscali, confronta risultati nel tempo, esporta report PDF. Tieni traccia del tuo percorso da.',
+ title: 'Dashboard Personale | Profilo e Permesso del Frontaliere',
+ description: 'Area personale del frontaliere: salva profilo e scadenza del permesso, stima il netto, segui candidature e offerte salvate, esporta i tuoi dati.',
  keywords: 'dashboard frontaliere, storico simulazioni, confronto simulazioni fiscali, report PDF frontaliere, salva simulazione frontaliere',
  ogTitle: 'Dashboard Personale Frontaliere',
- ogDescription: '📊 Salva, confronta e esporta le tue simulazioni fiscali. Dashboard personale per frontalieri.',
+ ogDescription: '📊 Profilo, scadenza del permesso, stima del netto, candidature e offerte salvate: la tua area personale da frontaliere.',
  canonicalPath: '/profilo/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "WebPage",
  "name": "Dashboard Personale Frontaliere",
  "url": `${BASE_URL}/profilo/`,
- "description": "Dashboard personale per frontalieri: salva simulazioni fiscali, confronta risultati nel tempo, esporta PDF",
+ "description": "Area personale del frontaliere: profilo, scadenza del permesso, stima del netto, candidature e offerte di lavoro salvate, esportazione dei dati",
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },

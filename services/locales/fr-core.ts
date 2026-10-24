@@ -4086,7 +4086,7 @@ Règles :
  'seo.toolOfWeek.description': 'L\'outil de la semaine pour frontaliers : chaque semaine nous mettons en avant un calculateur ou comparateur différent à essayer et à partager sur les réseaux.',
  'seo.feedback.description': 'Aidez-nous à améliorer Frontaliere Ticino : signalez une erreur ou proposez une fonctionnalité sur GitHub et participez au simulateur fiscal pour frontaliers.',
  'seo.forum.description': 'Forum de la communauté des frontaliers : posez vos questions sur les impôts, permis, assurances, retraite et transports et obtenez des réponses d\'initiés.',
- 'seo.dashboard.description': 'Tableau de bord personnel pour frontaliers : enregistrez vos simulations fiscales, comparez les résultats dans le temps et exportez des rapports PDF de suivi.',
+ 'seo.dashboard.description': 'Espace personnel du frontalier : profil et échéance du permis, estimation du salaire net, candidatures et offres sauvegardées, export de vos données.',
  'seo.gamification.description': 'Système de gamification pour frontaliers : gagnez des points XP en explorant le simulateur fiscal, relevez des défis et débloquez des niveaux en vous amusant.',
  'seo.privacy.description': 'Politique de confidentialité de Frontaliere Ticino : traitement des données personnelles, cookies, analytics et droits des utilisateurs, conforme RGPD et LPD.',
 
