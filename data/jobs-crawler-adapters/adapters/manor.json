@@ -36,7 +36,6 @@
     "https://positions.manor.ch/job/Lausanne-Floor-Manager-100/1372971755/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28Parfumerie%29-80/1373150155/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28Parfumerie%29-100/1373150955/",
-    "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Kasse-60/1373316955/",
     "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Kasse-60/1373317455/",
     "https://positions.manor.ch/job/Pf%C3%A4ffikon-Mitarbeiterin-Verkauf-%28Lingerie%29-40/1373315055/",
     "https://positions.manor.ch/job/Basel-KochK%C3%B6chin-20/1373298755/",
@@ -345,10 +344,11 @@
     "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362292455/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-service-%28Manora%29-80/1368647655/",
     "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-80/1370475955/",
-    "https://positions.manor.ch/job/Biel-Mitarbeiterin-Verkauf-%28Parf%C3%BCmerie%29-50/1370030955/"
+    "https://positions.manor.ch/job/Biel-Mitarbeiterin-Verkauf-%28Parf%C3%BCmerie%29-50/1370030955/",
+    "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Kasse-60/1373316955/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-10-24T09:43:14.565Z",
+  "updatedAt": "2026-10-24T21:37:10.184Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/St_-Gallen-Detailhandelsfachmannfrau-Herrenkonfektion-100/1369885955/": {
       "company": "Manor AG",
@@ -459,10 +459,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28Parfumerie%29-100/1373150955/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Kasse-60/1373316955/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -1699,6 +1695,10 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Biel-Mitarbeiterin-Verkauf-%28Parf%C3%BCmerie%29-50/1370030955/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Kasse-60/1373316955/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }

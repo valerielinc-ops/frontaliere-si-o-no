@@ -1,16 +1,16 @@
 {
   "key": "axa-svizzera",
   "label": "AXA Svizzera",
-  "generatedAt": "2026-10-24T09:51:08.915Z",
+  "generatedAt": "2026-10-24T21:39:20.110Z",
   "total": 177,
   "newCount": 0,
   "updatedCount": 30,
   "removedCount": 0,
   "unchangedCount": 147,
-  "durationMs": 1056895,
-  "avgDurationMs": 1056895,
+  "durationMs": 1068119,
+  "avgDurationMs": 1068119,
   "durationHistory": [
-    1056895
+    1068119
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1395,48 +1395,6 @@
       }
     },
     {
-      "title": "Vorsorgeberater:in für die Generalagentur Vorsorge & Vermögen Basel. Quereinsteigende willkommen!",
-      "slug": "vorsorgeberater-in-per-la-agenzia-generale-previdenza-patrimonio-basel-quereinsteigende-willkommen-axa-svizzera-basel",
-      "url": "https://careers.axa.com/careers-home/jobs/23350?lang=de-de",
-      "applyUrl": "https://careers-de-axa.icims.com/jobs/23350/login",
-      "company": "AXA Svizzera",
-      "companyKey": "axa-svizzera",
-      "companyDomain": "axa.ch",
-      "location": "Basel",
-      "addressLocality": "Basel",
-      "postalCode": "4001",
-      "streetAddress": "Henric Petri Strasse 6",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "canton": "BS",
-      "country": "CH",
-      "category": "marketing",
-      "sector": "assicurazioni",
-      "source": "axa-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-25T05:47:00+00:00",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "workload": "100%",
-      "validThrough": "",
-      "id": "axa-svizzera-720be1ce2693",
-      "salaryMin": 63000,
-      "salaryMax": 112000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-30T21:35:50.428Z",
-      "sourceIdentity": "url:https://careers.axa.com/careers-home/jobs/23350?lang=de-de",
-      "datePosted": "2026-09-25T05:47:00+00:00",
-      "postingDateSource": "reported",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Versicherungsberater:in für die Hauptagentur Seuzach",
       "slug": "consulente-assicurativo-a-per-l-agenzia-principale-di-seuzach-axa-svizzera-seuzach",
       "url": "https://careers.axa.com/careers-home/jobs/26370?lang=de-de",
@@ -1469,6 +1427,48 @@
       "firstSeenAt": "2026-09-30T21:35:50.428Z",
       "sourceIdentity": "url:https://careers.axa.com/careers-home/jobs/26370?lang=de-de",
       "datePosted": "2026-09-14T07:08:00+00:00",
+      "postingDateSource": "reported",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Vorsorgeberater:in für die Generalagentur Vorsorge & Vermögen Basel. Quereinsteigende willkommen!",
+      "slug": "vorsorgeberater-in-per-la-agenzia-generale-previdenza-patrimonio-basel-quereinsteigende-willkommen-axa-svizzera-basel",
+      "url": "https://careers.axa.com/careers-home/jobs/23350?lang=de-de",
+      "applyUrl": "https://careers-de-axa.icims.com/jobs/23350/login",
+      "company": "AXA Svizzera",
+      "companyKey": "axa-svizzera",
+      "companyDomain": "axa.ch",
+      "location": "Basel",
+      "addressLocality": "Basel",
+      "postalCode": "4001",
+      "streetAddress": "Henric Petri Strasse 6",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "canton": "BS",
+      "country": "CH",
+      "category": "marketing",
+      "sector": "assicurazioni",
+      "source": "axa-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-25T05:47:00+00:00",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "workload": "100%",
+      "validThrough": "",
+      "id": "axa-svizzera-720be1ce2693",
+      "salaryMin": 63000,
+      "salaryMax": 112000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-30T21:35:50.428Z",
+      "sourceIdentity": "url:https://careers.axa.com/careers-home/jobs/23350?lang=de-de",
+      "datePosted": "2026-09-25T05:47:00+00:00",
       "postingDateSource": "reported",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -2519,5 +2519,5 @@
       }
     }
   ],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }

@@ -1,14 +1,14 @@
 {
   "crawlerKey": "kanton-st-gallen",
-  "assembledAt": "2026-10-24T09:31:08.263Z",
-  "runId": "40081070594",
+  "assembledAt": "2026-10-24T21:19:25.070Z",
+  "runId": "40133199231",
   "jobs": [
     {
       "id": "kanton-st-gallen-4af0842ce224",
       "slug": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
         "it": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-        "en": "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil",
+        "en": "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
         "fr": "contremaitre-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
@@ -35,7 +35,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/5496/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:31:03.426Z",
+      "crawledAt": "2026-10-24T21:19:18.906Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -58,7 +58,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-        "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
+        "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,7 +66,7 @@
         ],
         "en": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-          "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
+          "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch"
@@ -119,7 +119,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3931/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:31:02.884Z",
+      "crawledAt": "2026-10-24T21:19:18.051Z",
       "addressLocality": "Region Bodensee-Rheintal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -200,7 +200,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3932/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:31:02.006Z",
+      "crawledAt": "2026-10-24T21:19:17.216Z",
       "addressLocality": "Region Bodensee-Rheintal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -284,7 +284,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3935/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:31:01.146Z",
+      "crawledAt": "2026-10-24T21:19:16.388Z",
       "addressLocality": "Region Werdenberg-Sarganserland",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -365,7 +365,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3936/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:31:00.254Z",
+      "crawledAt": "2026-10-24T21:19:15.477Z",
       "addressLocality": "Region Werdenberg-Sarganserland",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -447,7 +447,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3937/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:59.411Z",
+      "crawledAt": "2026-10-24T21:19:14.612Z",
       "addressLocality": "Region Linthgebiet-Toggenburg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -528,7 +528,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3938/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:58.537Z",
+      "crawledAt": "2026-10-24T21:19:13.740Z",
       "addressLocality": "Region Linthgebiet-Toggenburg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -604,12 +604,13 @@
         "de": "Die Kantonspolizei St.Gallen sorgt rund um die Uhr für Ruhe, Sicherheit und Ordnung im Kanton St.Gallen. Sie klärt Straftaten auf und überwacht die Einhaltung der geltenden Gesetze. Bei der Arbeit auf einer Polizeistation nehmen Sie Tatbestände (Anzeigen) entgegen und rücken zu abwechslungsreichen sowie spannenden Einsätzen aus und stehen dem Bürger mit Rat zur Seite.\n\nWas Sie erwartet:\n\n• Als Mitarbeitende einer Polizeistation gehen Sie einer abwechslungsreichen, spannenden und verantwortungsvollen Arbeit nach\n• Sie sorgen für Ruhe, Ordnung und Sicherheit und verhindern Straftaten durch sichtbare Präsenz\n• Sie pflegen Kontakte zu Bürgern, Amtsstellen und Partnerorganisationen sowie zur örtlichen Verwaltung\n• Zu Ihren Aufgaben zählen das Ahnden von Gesetzesverstössen, selbständiges Erfassen, Bearbeiten sowie das Aufdecken von Straftaten und Fahnden nach der Täterschaft\n• Die umfassende schriftliche Berichterstattung rundet diese Tätigkeit ab\n\nWas Sie auszeichnet:\n\n• Sie verfügen über den eidgenössischen Fachausweis Polizist/in\n• Für dieses Tätigkeitsgebiet suchen wir motivierte, flexible und belastbare Mitarbeitende, die selbständig arbeiten sowie verantwortungsbewusst und teamfähig sind\n• Sie sind dabei offen und freundlich gegenüber anderen Kulturen und Menschen\n• In schwierigen Situationen behalten Sie einen kühlen Kopf und verfügen über Fachkenntnisse in der allgemeinen Polizeiarbeit\n• Sie leisten Nacht-, Wochenend- und Sonderdienste im Rahmen des Dienstbetriebs\n\nWas wir bieten:\n\n• Eine spannende und herausfordernde Tätigkeit in einem dynamischen Team\n• Weiterbildungsmöglichkeiten\n• Modernste Arbeitsgeräte wie Laptop und Mobiltelefon werden Ihnen zur Verfügung gestellt\n• Situatives mobiles Arbeiten (work anywhere)\n• Flexible Arbeitsmodelle mit 5-10 zusätzlichen Freitagen sowie gleitende Arbeitszeiten",
         "fr": "La police cantonale de Saint-Gall assure la paix, la sécurité et l'ordre dans le canton de Saint-Gall 24 heures sur 24. Elle enquête sur les crimes et veille au respect des lois applicables. Lorsque vous travaillez dans un poste de police, vous recevez des faits (annonces) et faites des missions variées et passionnantes et vous tenez à l'écoute du citoyen.\n\nÀ quoi s'attendre :\n\n• En tant qu'employé d'un poste de police, vous poursuivez un travail varié, passionnant et responsable\n• Ils assurent la paix, l'ordre et la sécurité et préviennent les crimes par une présence visible\n• Ils entretiennent des contacts avec les citoyens, les bureaux et les organisations partenaires ainsi qu'avec l'administration locale\n• Leur tâche consiste notamment à sanctionner les violations de la loi, à enregistrer, traiter et détecter les infractions et à rechercher les auteurs.\n• Des rapports écrits complets complètent cette activité\n\nCe qui le distingue:\n\n• Vous avez l'officier de police de la carte professionnelle fédérale\n• Dans ce domaine d'activité, nous recherchons des employés motivés, flexibles et résilients qui travaillent de façon indépendante et qui sont responsables et capables de travailler en équipe.\n• Ils sont ouverts et amis aux autres cultures et aux autres peuples.\n• Dans les situations difficiles, garder une tête froide et avoir une expertise en matière de police générale\n• Ils offrent des services de nuit, de fin de semaine et spéciaux dans le cadre des opérations de service.\n\nCe que nous offrons:\n\n• Un travail passionnant et stimulant dans une équipe dynamique\n• Possibilités de formation\n• Des appareils de pointe comme l'ordinateur portable et le téléphone mobile vous sont fournis.\n• Travail mobile (travaillez n'importe où)\n• Modèles de travail flexibles avec 5-10 vendredis supplémentaires et horaires de travail flexibles"
       },
+      "needsRetranslation": true,
       "location": "Region Fürstenland-Neckertal",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3939/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:57.644Z",
+      "crawledAt": "2026-10-24T21:19:12.884Z",
       "addressLocality": "Region Fürstenland-Neckertal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -657,8 +658,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kanton-st-gallen-c26b0f453224",
@@ -686,12 +686,13 @@
         "de": "Die Kantonspolizei St.Gallen sorgt rund um die Uhr für Ruhe, Sicherheit und Ordnung im Kanton St.Gallen. Sie klärt Straftaten auf und überwacht die Einhaltung der geltenden Gesetze. Die Mobile Polizei ist für die polizeiliche Grundversorgung der Bevölkerung im 24-Stunden Betrieb zuständig und somit erste Interventionsstelle.\n\nWas Sie erwartet:\n\n• Mitarbeitende der Mobilen Polizei leisten Einsätze im sicherheits-, verkehrs- und kriminalpolizeilichen Bereich und leiten im Rahmen aller polizeilichen Einsätze vor Ort die erforderlichen Massnahmen ein\n• Zu diesen spannenden Hauptaufgaben der Mobilen Polizei bildet die Unfallsachbearbeitung und der Vollzug des Strassenverkehrsrechtes ein Schwerpunkt\n• Sie leisten Nacht-, Wochenend- und Sonderdienste im Rahmen des Schichtbetriebs\n\nWas Sie auszeichnet:\n\n• Sie verfügen über den eidgenössischen Fachausweis Polizist/in\n• Für dieses Tätigkeitsgebiet suchen wir motivierte, flexible und belastbare Mitarbeitende, die selbständig arbeiten sowie verantwortungsbewusst und teamfähig sind\n• Sie sind dabei offen und freundlich gegenüber anderen Kulturen und Menschen\n• In schwierigen Situationen behalten Sie einen kühlen Kopf und verfügen über Fachkenntnisse in der allgemeinen Polizeiarbeit\n\nWas wir bieten:\n\n• Eine spannende und herausfordernde Tätigkeit in einem dynamischen Team\n• Weiterbildungsmöglichkeiten\n• Modernste Arbeitsgeräte wie Laptop und Mobiltelefon werden Ihnen zur Verfügung gestellt\n• Situatives mobiles Arbeiten (work anywhere)\n• Flexible Arbeitsmodelle mit 5-10 zusätzlichen Freitagen sowie gleitenden Arbeitszeiten",
         "fr": "La police cantonale de St.Gallen assure la paix, la sécurité et l'ordre dans le canton de St.Gallen 24 heures sur 24. Elle enquête sur les crimes et veille au respect des lois applicables. La police mobile est responsable des soins de base de la population 24 heures sur 24 et donc du premier organisme d'intervention.\n\nÀ quoi s'attendre :\n\n• Le personnel de police mobile effectue des missions dans les secteurs de la sécurité, de la circulation et de la police criminelle et prend les mesures nécessaires dans le cadre de toutes les missions de police sur place\n• Parmi ces principales tâches passionnantes de la police mobile, le traitement des accidents et l'application de la loi sur la circulation routière sont au centre des préoccupations\n• Ils fournissent des services de nuit, de week-end et spéciaux dans le cadre d'opérations par équipes\n\nCe qui le distingue:\n\n• Vous avez l'agent de police de carte de spécialiste fédéral\n• Dans ce domaine d'activité, nous recherchons des employés motivés, flexibles et résilients qui travaillent de façon indépendante et qui sont responsables et capables de travailler en équipe.\n• Ils sont ouverts et amis aux autres cultures et aux autres peuples.\n• Dans les situations difficiles, garder une tête froide et avoir une expertise en matière de police générale\n\nCe que nous offrons:\n\n• Un travail passionnant et stimulant dans une équipe dynamique\n• Possibilités de formation\n• Des appareils de travail de pointe tels que l'ordinateur portable et le téléphone mobile vous sont fournis\n• Travail mobile (travaillez n'importe où)\n• Modèles de travail flexibles avec 5-10 vendredis supplémentaires et horaires de travail mobiles"
       },
+      "needsRetranslation": true,
       "location": "Region Fürstenland-Neckertal",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3940/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:56.701Z",
+      "crawledAt": "2026-10-24T21:19:11.961Z",
       "addressLocality": "Region Fürstenland-Neckertal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -739,17 +740,16 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kanton-st-gallen-55fa5a628ff3",
       "slug": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
-        "it": "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
-        "en": "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
+        "it": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
+        "en": "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+        "fr": "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -773,7 +773,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6211/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:55.842Z",
+      "crawledAt": "2026-10-24T21:19:11.090Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -797,20 +797,22 @@
       "previousSlugs": [
         "forstwart-in-m-w-d-kanton-st-gallen-ch",
         "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-        "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
-        "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
+        "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
+        "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
+        "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil"
+          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
+          "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil"
         ],
         "en": [
-          "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil"
+          "forest-manager-m-f-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
+          "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:09:13.851Z",
@@ -860,7 +862,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6299/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:54.934Z",
+      "crawledAt": "2026-10-24T21:19:10.190Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -942,7 +944,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6317/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:54.074Z",
+      "crawledAt": "2026-10-24T21:19:09.284Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1036,7 +1038,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6325/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:53.229Z",
+      "crawledAt": "2026-10-24T21:19:08.434Z",
       "addressLocality": "9607 Mosnang",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1117,7 +1119,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6360/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:52.363Z",
+      "crawledAt": "2026-10-24T21:19:07.535Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1199,7 +1201,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6371/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:51.497Z",
+      "crawledAt": "2026-10-24T21:19:06.626Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1281,7 +1283,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6400/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:50.612Z",
+      "crawledAt": "2026-10-24T21:19:05.736Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1363,7 +1365,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6412/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:49.714Z",
+      "crawledAt": "2026-10-24T21:19:04.866Z",
       "addressLocality": "9607 Mosnang",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1449,7 +1451,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6209/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:48.854Z",
+      "crawledAt": "2026-10-24T21:19:03.998Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1530,7 +1532,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6441/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:47.958Z",
+      "crawledAt": "2026-10-24T21:19:03.164Z",
       "addressLocality": "Rorschach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1614,7 +1616,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6350/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:47.077Z",
+      "crawledAt": "2026-10-24T21:19:02.318Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1701,7 +1703,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6437/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:46.191Z",
+      "crawledAt": "2026-10-24T21:19:01.349Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1787,7 +1789,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6459/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:45.303Z",
+      "crawledAt": "2026-10-24T21:19:00.456Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1891,7 +1893,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6347/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:44.372Z",
+      "crawledAt": "2026-10-24T21:18:59.578Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1982,7 +1984,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6465/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:43.510Z",
+      "crawledAt": "2026-10-24T21:18:58.691Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2070,7 +2072,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6475/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:42.626Z",
+      "crawledAt": "2026-10-24T21:18:57.818Z",
       "addressLocality": "Grossschlachthöfe im Kanton St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2156,7 +2158,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6463/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:41.778Z",
+      "crawledAt": "2026-10-24T21:18:56.933Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2238,7 +2240,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6472/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:40.890Z",
+      "crawledAt": "2026-10-24T21:18:56.080Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2321,7 +2323,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6462/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:39.962Z",
+      "crawledAt": "2026-10-24T21:18:55.158Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2403,7 +2405,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6480/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:39.051Z",
+      "crawledAt": "2026-10-24T21:18:54.279Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2485,7 +2487,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6440/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:38.165Z",
+      "crawledAt": "2026-10-24T21:18:53.426Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2567,7 +2569,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6485/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:37.297Z",
+      "crawledAt": "2026-10-24T21:18:52.550Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2622,7 +2624,7 @@
       "slug": "insegnante-sportivo-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "it": "insegnante-sportivo-m-f-d-kanton-st-gallen-st-gallen",
-        "en": "sports-teacher-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "sportlehrperson-m-w-d-kanton-st-gallen",
         "de": "sportlehrperson-m-w-d-kanton-st-gallen-ch",
         "fr": "professeur-de-sport-h-f-d-kanton-st-gallen-st-gallen"
       },
@@ -2648,7 +2650,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6489/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:36.426Z",
+      "crawledAt": "2026-10-24T21:18:51.671Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2672,7 +2674,7 @@
       "previousSlugs": [
         "sportlehrperson-m-w-d-kanton-st-gallen-ch",
         "professeur-de-sport-m-f-d-kanton-st-gallen-st-gallen-und-rheineck",
-        "sportlehrperson-m-w-d-kanton-st-gallen"
+        "sports-teacher-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2681,7 +2683,7 @@
         ],
         "en": [
           "sportlehrperson-m-w-d-kanton-st-gallen-ch",
-          "sportlehrperson-m-w-d-kanton-st-gallen"
+          "sports-teacher-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "fr": [
           "sportlehrperson-m-w-d-kanton-st-gallen-ch"
@@ -2734,7 +2736,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6488/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:35.570Z",
+      "crawledAt": "2026-10-24T21:18:50.700Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2818,7 +2820,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6445/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:34.722Z",
+      "crawledAt": "2026-10-24T21:18:49.807Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2900,7 +2902,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6495/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:33.823Z",
+      "crawledAt": "2026-10-24T21:18:48.914Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2982,7 +2984,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6490/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:33.015Z",
+      "crawledAt": "2026-10-24T21:18:48.044Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3064,7 +3066,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6477/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:32.099Z",
+      "crawledAt": "2026-10-24T21:18:47.189Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3118,7 +3120,7 @@
       "id": "kanton-st-gallen-3ef9c351b1a6",
       "slug": "jurist-in-m-w-d-kanton-st-gallen",
       "slugByLocale": {
-        "it": "avvocato-m-f-d-kanton-st-gallen-st-gallen",
+        "it": "jurist-in-m-w-d-kanton-st-gallen",
         "en": "lawyer-m-f-d-kanton-st-gallen-st-gallen",
         "de": "jurist-in-m-w-d-kanton-st-gallen-ch",
         "fr": "avocat-h-f-d-kanton-st-gallen-st-gallen"
@@ -3145,7 +3147,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6508/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:31.202Z",
+      "crawledAt": "2026-10-24T21:18:46.277Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3167,11 +3169,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "jurist-in-m-w-d-kanton-st-gallen-ch"
+        "jurist-in-m-w-d-kanton-st-gallen-ch",
+        "avvocato-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-m-w-d-kanton-st-gallen-ch"
+          "jurist-in-m-w-d-kanton-st-gallen-ch",
+          "avvocato-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "jurist-in-m-w-d-kanton-st-gallen-ch"
@@ -3227,7 +3231,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6483/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:30.304Z",
+      "crawledAt": "2026-10-24T21:18:45.314Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3309,7 +3313,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6510/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:29.472Z",
+      "crawledAt": "2026-10-24T21:18:44.459Z",
       "addressLocality": "Kanton St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3391,7 +3395,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6511/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:28.637Z",
+      "crawledAt": "2026-10-24T21:18:43.585Z",
       "addressLocality": "Rheineck",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3475,7 +3479,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6478/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:27.771Z",
+      "crawledAt": "2026-10-24T21:18:42.751Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3559,7 +3563,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6513/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:26.898Z",
+      "crawledAt": "2026-10-24T21:18:41.893Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3643,7 +3647,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6438/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:26.044Z",
+      "crawledAt": "2026-10-24T21:18:40.970Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3725,7 +3729,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6530/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:25.157Z",
+      "crawledAt": "2026-10-24T21:18:40.026Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3807,7 +3811,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6525/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:24.294Z",
+      "crawledAt": "2026-10-24T21:18:39.194Z",
       "addressLocality": "9607 Mosnang",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3889,7 +3893,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6534/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:23.410Z",
+      "crawledAt": "2026-10-24T21:18:38.325Z",
       "addressLocality": "Lichtensteig",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3971,7 +3975,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6532/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:22.555Z",
+      "crawledAt": "2026-10-24T21:18:37.458Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4053,7 +4057,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6522/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:21.659Z",
+      "crawledAt": "2026-10-24T21:18:36.598Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4135,7 +4139,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6504/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:20.787Z",
+      "crawledAt": "2026-10-24T21:18:35.777Z",
       "addressLocality": "Amden",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4217,7 +4221,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6537/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:19.864Z",
+      "crawledAt": "2026-10-24T21:18:34.897Z",
       "addressLocality": "Weesen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4299,7 +4303,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6536/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:19.009Z",
+      "crawledAt": "2026-10-24T21:18:34.061Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4381,7 +4385,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6540/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:18.128Z",
+      "crawledAt": "2026-10-24T21:18:33.166Z",
       "addressLocality": "Widnau",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4463,7 +4467,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6541/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:17.233Z",
+      "crawledAt": "2026-10-24T21:18:32.246Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4545,7 +4549,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6538/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:16.367Z",
+      "crawledAt": "2026-10-24T21:18:31.407Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4627,7 +4631,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6484/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:15.486Z",
+      "crawledAt": "2026-10-24T21:18:30.515Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4709,7 +4713,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6542/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:14.568Z",
+      "crawledAt": "2026-10-24T21:18:29.618Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4795,7 +4799,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6546/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:13.657Z",
+      "crawledAt": "2026-10-24T21:18:28.725Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4877,7 +4881,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6548/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:12.740Z",
+      "crawledAt": "2026-10-24T21:18:27.877Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4958,7 +4962,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/5803/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:11.855Z",
+      "crawledAt": "2026-10-24T21:18:26.987Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5040,7 +5044,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6549/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:11.020Z",
+      "crawledAt": "2026-10-24T21:18:26.097Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5122,7 +5126,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6551/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:10.517Z",
+      "crawledAt": "2026-10-24T21:18:25.216Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5203,7 +5207,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6516/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:09.540Z",
+      "crawledAt": "2026-10-24T21:18:24.312Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5285,7 +5289,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6528/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:09.003Z",
+      "crawledAt": "2026-10-24T21:18:23.477Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5367,7 +5371,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6411/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:08.133Z",
+      "crawledAt": "2026-10-24T21:18:22.572Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5449,7 +5453,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6497/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:07.251Z",
+      "crawledAt": "2026-10-24T21:18:21.653Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5527,7 +5531,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6550/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:06.416Z",
+      "crawledAt": "2026-10-24T21:18:20.753Z",
       "addressLocality": "St. Gallen und Unterterzen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5609,7 +5613,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6547/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:05.565Z",
+      "crawledAt": "2026-10-24T21:18:19.858Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5691,7 +5695,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6539/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:04.665Z",
+      "crawledAt": "2026-10-24T21:18:18.969Z",
       "addressLocality": "Müllheim",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5773,7 +5777,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6327/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:03.810Z",
+      "crawledAt": "2026-10-24T21:18:18.045Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5854,7 +5858,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6556/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:02.923Z",
+      "crawledAt": "2026-10-24T21:18:17.161Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5936,7 +5940,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6557/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:02.071Z",
+      "crawledAt": "2026-10-24T21:18:16.302Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6018,7 +6022,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6500/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:01.258Z",
+      "crawledAt": "2026-10-24T21:18:15.394Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6100,7 +6104,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6555/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:30:00.393Z",
+      "crawledAt": "2026-10-24T21:18:14.525Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6182,7 +6186,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6301/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:29:59.498Z",
+      "crawledAt": "2026-10-24T21:18:13.647Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6264,7 +6268,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6563/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:29:58.623Z",
+      "crawledAt": "2026-10-24T21:18:12.735Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6346,7 +6350,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6558/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:29:58.117Z",
+      "crawledAt": "2026-10-24T21:18:11.817Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6428,7 +6432,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6562/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:29:57.215Z",
+      "crawledAt": "2026-10-24T21:18:10.916Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6509,7 +6513,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6561/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:29:56.330Z",
+      "crawledAt": "2026-10-24T21:18:10.016Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6591,7 +6595,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6564/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:29:55.457Z",
+      "crawledAt": "2026-10-24T21:18:09.123Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6673,7 +6677,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6399/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:29:54.595Z",
+      "crawledAt": "2026-10-24T21:18:08.203Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6756,7 +6760,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6567/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:29:53.744Z",
+      "crawledAt": "2026-10-24T21:18:07.353Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6842,7 +6846,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6527/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:29:52.890Z",
+      "crawledAt": "2026-10-24T21:18:06.450Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6891,254 +6895,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "kanton-st-gallen-21687941ab17",
-      "slug": "responsabile-infrastruktur-kanton-st-gallen-buchs",
-      "slugByLocale": {
-        "it": "responsabile-infrastruktur-kanton-st-gallen-buchs",
-        "en": "head-of-infrastructure-kanton-st-gallen-buchs",
-        "de": "leiter-in-infrastruktur-kanton-st-gallen-ch",
-        "fr": "chef-des-infrastructures-kanton-st-gallen-buchs"
-      },
-      "company": "Kanton St. Gallen",
-      "companyKey": "kanton-st-gallen",
-      "companyDomain": "sg.ch",
-      "title": "Leiter/in Infrastruktur",
-      "titleByLocale": {
-        "it": "Responsabile Infrastruktur",
-        "en": "Head of Infrastructure",
-        "de": "Leiter/in Infrastruktur",
-        "fr": "Chef des infrastructures"
-      },
-      "description": "Das Berufs- und Weiterbildungszentrum Buchs Sargans (BZBS) bildet jährlich 3'000 Lernende in über 20 Berufen aus und wird in der Weiterbildung von rund 2'000 Erwachsenen besucht. Es unterrichten über 200 Lehrpersonen in der Grundbildung sowie etwa 170 Dozierende in Voll- und Teilzeitpensen in der Weiterbildung.\n\nWas dich erwartet:\n\n• Führung des Bereichs Infrastruktur mit sechs Hauswarten und zwanzig Raumpflegerinnen an den Standorten Buchs und Sargans. Sicherstellung eines geordneten Betriebes und verantwortlich für die finanzielle Planung und Kostenkontrolle im Bereich\n• Planung, Begleitung und Überwachung der regelmässigen, fachgerechten Unterhaltsarbeiten im Rahmen des festgelegten Budgets\n• Mitgestaltung und –entwicklung der Infrastruktur, teilweise in Zusammenarbeit mit dem kantonalen Hochbauamt. Leitung eigener kleineren Umbauten und Beschaffungsprojekten inklusive Kostenkontrolle\n• Verantwortlich für die Bewirtschaftung von Raumnutzungen durch Externe\n• Wahrnehmung der Aufgaben als Beauftragter für die bauliche Sicherheit\n• Verantwortlich für die Ausbildung der/des eigenen Lernenden im Betriebsunterhalt\n\nWas dich auszeichnet:\n\n• Technische/handwerkliche Grundausbildung mit EFZ und langjährige Berufserfahrung in der technischen Instandhaltung\n• Ausbildung zum eidg. Hauswart mit FA, idealerweise erweitert mit einer Weiterbildung als Leiter Facility Management oder Hausmeister HFP\n• Ausgewiesene Führungserfahrung\n• hohe Dienstleistungsorientierung, vernetztes Denken, sicheres Auftreten, belastbar und flexibel\n• Gute Informatik-Anwenderkenntnisse, v.a. Microsoft-Programme (Word, PowerPoint, Excel, Microsoft 365/Teams)\n\nWas wir bieten:\n\n• Abwechslungsreiche und verantwortungsvolle Tätigkeit mit Gestaltungsmöglichkeiten\n• Angenehmes Arbeitsklima und gute Anstellungsbedingungen\n• Interessante Entwicklungs- und Weiterbildungsmöglichkeiten\n• Hervorragende Infrastruktur\n\nKontakt: Marco Thoma, Leiter Abteilung Verwaltung, 058 228 22 20, marco.thoma@bzbs.ch",
-      "descriptionByLocale": {
-        "it": "Il Buchs Sargans Vocational and Training Centre (BZBS) forma 3.000 apprendisti in oltre 20 professioni ogni anno e frequenta circa 2.000 adulti. Insegna più di 200 insegnanti nell'istruzione di base e circa 170 docenti nel lavoro a tempo pieno e a tempo parziale nell'ulteriore istruzione.\n\nCosa aspettarsi:\n\n• Gestione della divisione infrastrutture con sei governatori e venti governatori presso i siti Buchs e Sargans. Garantire un funzionamento ordinato e responsabile della pianificazione finanziaria e del controllo dei costi nell'area\n• Pianificazione, monitoraggio e monitoraggio dei lavori di manutenzione regolari e professionali all'interno del bilancio definito\n• Partecipazione alla progettazione e allo sviluppo dell'infrastruttura, in parte in collaborazione con l'ufficio edilizio cantonale. Gestione delle proprie piccole conversioni e progetti di approvvigionamento, compreso il controllo dei costi\n• Responsabile per la gestione dell'uso del suolo esterno\n• Esercizio dei compiti come ufficiale di sicurezza dell'ingegneria civile\n• Responsabile per la formazione del proprio studente nella manutenzione aziendale\n\nCosa ti distingue:\n\n• Formazione tecnica/artigianato di base con EFZ e molti anni di esperienza professionale nella manutenzione tecnica\n• Formazione per lo Stato federale. Housekeeper con FA, idealmente esteso con ulteriore formazione come capo della gestione impianti o caretaker HFP\n• Esperienza di leadership designata\n• alto orientamento di servizio, pensiero in rete, aspetto sicuro, resiliente e flessibile\n• Buona conoscenza dell'utente di scienza del computer, in particolare programmi Microsoft (Word, PowerPoint, Excel, Microsoft 365 / Teams)\n\nCosa offriamo:\n\n• Attività varie e responsabili con possibilità di progettazione\n• Piacevole atmosfera di lavoro e buone condizioni di lavoro\n• Sviluppo interessante e ulteriori opportunità di istruzione\n• Eccellente infrastruttura\n\nContatto: Marco Thoma, Responsabile Amministrazione, 058 228 22 20, marco.thoma@bzbs.ch",
-        "en": "The Buchs Sargans Vocational and Training Centre (BZBS) trains 3,000 apprentices in more than 20 professions every year and is attended by around 2,000 adults. It teaches more than 200 teachers in basic education and about 170 lecturers in full and part-time work in further education.\n\nWhat to expect:\n\n• Management of the infrastructure division with six housekeepers and twenty roomkeepers at the Buchs and Sargans sites. Ensuring an orderly operation and responsible for financial planning and cost control in the area\n• Planning, monitoring and monitoring of regular, professional maintenance work within the defined budget\n• Participation in the design and development of the infrastructure, partly in cooperation with the cantonal building construction office. Management of own smaller conversions and procurement projects including cost control\n• Responsible for external land use management\n• Exercise of tasks as civil engineering security officer\n• Responsible for the training of the own learner in company maintenance\n\nWhat distinguishes you:\n\n• Basic technical/craft training with EFZ and many years of professional experience in technical maintenance\n• Training for the Federal State. Housekeeper with FA, ideally extended with further training as head of facility management or caretaker HFP\n• Designated leadership experience\n• high service orientation, networked thinking, secure appearance, resilient and flexible\n• Good computer science user knowledge, especially Microsoft programs (Word, PowerPoint, Excel, Microsoft 365 / Teams)\n\nWhat we offer:\n\n• Varied and responsible activity with design possibilities\n• Pleasant working atmosphere and good employment conditions\n• Interesting development and further education opportunities\n• Excellent infrastructure\n\nContact: Marco Thoma, Head of Administration, 058 228 22 20, marco.thoma@bzbs.ch",
-        "de": "Das Berufs- und Weiterbildungszentrum Buchs Sargans (BZBS) bildet jährlich 3'000 Lernende in über 20 Berufen aus und wird in der Weiterbildung von rund 2'000 Erwachsenen besucht. Es unterrichten über 200 Lehrpersonen in der Grundbildung sowie etwa 170 Dozierende in Voll- und Teilzeitpensen in der Weiterbildung.\n\nWas dich erwartet:\n\n• Führung des Bereichs Infrastruktur mit sechs Hauswarten und zwanzig Raumpflegerinnen an den Standorten Buchs und Sargans. Sicherstellung eines geordneten Betriebes und verantwortlich für die finanzielle Planung und Kostenkontrolle im Bereich\n• Planung, Begleitung und Überwachung der regelmässigen, fachgerechten Unterhaltsarbeiten im Rahmen des festgelegten Budgets\n• Mitgestaltung und –entwicklung der Infrastruktur, teilweise in Zusammenarbeit mit dem kantonalen Hochbauamt. Leitung eigener kleineren Umbauten und Beschaffungsprojekten inklusive Kostenkontrolle\n• Verantwortlich für die Bewirtschaftung von Raumnutzungen durch Externe\n• Wahrnehmung der Aufgaben als Beauftragter für die bauliche Sicherheit\n• Verantwortlich für die Ausbildung der/des eigenen Lernenden im Betriebsunterhalt\n\nWas dich auszeichnet:\n\n• Technische/handwerkliche Grundausbildung mit EFZ und langjährige Berufserfahrung in der technischen Instandhaltung\n• Ausbildung zum eidg. Hauswart mit FA, idealerweise erweitert mit einer Weiterbildung als Leiter Facility Management oder Hausmeister HFP\n• Ausgewiesene Führungserfahrung\n• hohe Dienstleistungsorientierung, vernetztes Denken, sicheres Auftreten, belastbar und flexibel\n• Gute Informatik-Anwenderkenntnisse, v.a. Microsoft-Programme (Word, PowerPoint, Excel, Microsoft 365/Teams)\n\nWas wir bieten:\n\n• Abwechslungsreiche und verantwortungsvolle Tätigkeit mit Gestaltungsmöglichkeiten\n• Angenehmes Arbeitsklima und gute Anstellungsbedingungen\n• Interessante Entwicklungs- und Weiterbildungsmöglichkeiten\n• Hervorragende Infrastruktur\n\nKontakt: Marco Thoma, Leiter Abteilung Verwaltung, 058 228 22 20, marco.thoma@bzbs.ch",
-        "fr": "Le Buchs Sargans Vocational and Training Centre (BZBS) forme 3 000 apprentis dans plus de 20 professions chaque année et accueille environ 2 000 adultes. Il enseigne plus de 200 enseignants dans l'enseignement de base et environ 170 professeurs dans le travail à temps plein et à temps partiel dans l'enseignement supérieur.\n\nÀ quoi s'attendre :\n\n• Gestion de la division infrastructure avec six ménagères et vingt ménagères sur les sites de Buchs et Sargans. Assurer un fonctionnement ordonné et responsable de la planification financière et du contrôle des coûts dans la région\n• Planification, suivi et suivi des travaux de maintenance réguliers et professionnels dans le cadre du budget défini\n• Participation à la conception et au développement de l'infrastructure, en partie en coopération avec le bureau cantonal de la construction. Gestion de petits projets de conversion et d ' achat, y compris contrôle des coûts\n• Responsable de la gestion externe de l ' utilisation des sols\n• Exercice des fonctions d ' agent de sécurité du génie civil\n• Responsable de la formation de l'apprenant en maintenance d'entreprise\n\nCe qui vous distingue :\n\n• Formation technique de base avec EFZ et de nombreuses années d'expérience professionnelle en maintenance technique\n• Formation pour l'Etat fédéral. Ménage avec FA, idéalement étendu avec formation continue en tant que chef de la gestion de l'établissement ou gardien HFP\n• Expérience de leadership désignée\n• orientation de service élevée, pensée en réseau, apparence sûre, résilient et flexible\n• Bonne connaissance des utilisateurs d'informatique, en particulier les programmes Microsoft (Word, PowerPoint, Excel, Microsoft 365 / Équipes)\n\nCe que nous offrons:\n\n• Activité variée et responsable avec des possibilités de conception\n• Ambiance de travail agréable et bonnes conditions d'emploi\n• Possibilités de développement et d'éducation continue intéressantes\n• Excellente infrastructure\n\nPersonne-ressource : Marco Thoma, chef de l'administration, 058 228 22 20, marco.thoma@bzbs.ch"
-      },
-      "needsRetranslation": false,
-      "location": "Buchs",
-      "canton": "SG",
-      "url": "https://recruitingapp-2800.umantis.com/Vacancies/6501/Description/1",
-      "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:21:14.168Z",
-      "addressLocality": "Buchs",
-      "addressRegion": "SG",
-      "streetAddress": "Lämmlisbrunnenstrasse 54",
-      "postalCode": "9470",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "workload": "100%",
-      "experienceLevel": "senior",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6501/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiter-in-infrastruktur-kanton-st-gallen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-infrastruktur-kanton-st-gallen-ch"
-        ],
-        "en": [
-          "leiter-in-infrastruktur-kanton-st-gallen-ch"
-        ],
-        "fr": [
-          "leiter-in-infrastruktur-kanton-st-gallen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:56:53.992Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "kanton-st-gallen-cf12775401fb",
-      "slug": "presidenza-del-consiglio-di-lokremise-m-f-d-kanton-st-gallen-st-gallen",
-      "slugByLocale": {
-        "it": "presidenza-del-consiglio-di-lokremise-m-f-d-kanton-st-gallen-st-gallen",
-        "en": "lokremise-board-chairmanship-m-f-d-kanton-st-gallen-st-gallen",
-        "de": "stiftungsratsprasidium-lokremise-m-w-d-kanton-st-gallen-ch",
-        "fr": "president-du-conseil-d-administration-de-lokremise-h-f-d-kanton-st-gallen-st-gallen"
-      },
-      "company": "Kanton St. Gallen",
-      "companyKey": "kanton-st-gallen",
-      "companyDomain": "sg.ch",
-      "title": "Stiftungsratspräsidium Lokremise (m/w/d)",
-      "titleByLocale": {
-        "it": "Presidenza del Consiglio di Lokremise (m/f/d)",
-        "en": "Lokremise Board Chairmanship (m/f/d)",
-        "de": "Stiftungsratspräsidium Lokremise (m/w/d)",
-        "fr": "Président du conseil d'administration de Lokremise (h/f/d)"
-      },
-      "description": "Die Lokremise ist St.Gallens pulsierender Kulturort mit Theater, Kino, Kunst und Gastronomie. Die Stiftung Lokremise fördert die strategische Weiterentwicklung und koordiniert den Betrieb im spartenübergreifenden Kulturzentrum und stellt sicher, dass die Lokremise ein lebendiger Ort der Begegnung und des künstlerischen Austauschs ist. Die Lokremise ist einer von fünf kantonalen Kulturstandorten; als Eigentümer ist der Kanton für den laufenden Unterhalt des denkmalgeschützten Gebäudes zuständig. Im zehnköpfigen Stiftungsrat haben drei Vertretungen des Kantons Einsitz; das Präsidium wird durch die Regierung des Kantons St.Gallen bestimmt.\n\nWas Sie erwartet:\nDas Präsidium des Stiftungsrats der Lokremise umfasst im Wesentlichen folgende Aufgaben:\n• Strategische Leitung und Weiterentwicklung der Stiftung Lokremise gemeinsam mit dem Stiftungsrat;\n• Vorsitz und Leitung von vier ordentlichen Stiftungsratssitzungen pro Jahr sowie punktuelle Mitarbeit in Arbeitsgruppen;\n• Direkte/r Vorgesetzte/r der Geschäftsführung der Lokremise.\n\nWas Sie auszeichnet:\n\n• Sie haben grosses Interesse an Kunst und Kultur sowie Verständnis für die Anliegen von Kulturschaffenden und -Veranstaltenden.\n• Sie haben strategische Führungserfahrung, idealerweise in einer Nonprofit-Organisation, und sind mit dem politischen und kulturellen Umfeld kultureller Organisationen vertraut.\n• Sie sind ein/e zielorientierte/r Teamplayer/in und sich gewohnt, Lösungen unter Einbezug der Betroffenen zu entwickeln.\n• Es macht Ihnen Freude, die Interessen der Stiftung Lokremise gegen aussen zu vertreten.\n• Sie sind bereit, Verantwortung auch ehrenamtlich zu übernehmen (Spesen und die Teilnahme an Sitzungen werden vergütet).\n\nWas wir bieten:\nMit dieser spannenden Position bieten wir Ihnen die Möglichkeit, aktiv einen Teil der Kulturlandschaft von Stadt und Kanton St.Gallen mitzugestalten.\n\nKontakt: Falls Sie Fragen haben zur Tätigkeit des Stiftungsrats steht Ihnen Sabina Brunnschweiler, Co-Leiterin Amt für Kultur und Vize-Präsidentin Stiftung Lokremise, sabina.brunnschweiler@sg.ch , 058 229 21 50, zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Il Lokremise è il vivace luogo culturale di San Gallo con teatro, cinema, arte e gastronomia. La Fondazione Lokremise promuove lo sviluppo strategico e coordina il funzionamento del centro culturale interdisciplinare e assicura che il Lokremise sia un luogo vivace di incontro e di scambio artistico. Il Lokremise è uno dei cinque siti culturali cantonali; Come proprietario, il cantone è responsabile per la manutenzione in corso dell'edificio elencato. Il consiglio di amministrazione di dieci membri ha tre rappresentanti del cantone; il Presidium è nominato dal governo del Cantone di San Gallo.\n\nCosa aspettarsi:\nIl Presidio del Consiglio di Amministrazione di Lokremise comprende essenzialmente i seguenti compiti:\n• Gestione strategica e ulteriore sviluppo della Fondazione Lokremise insieme al Consiglio di fondazione;\n• Sedia e presidente quattro riunioni regolari del Consiglio di fiduciari all'anno, nonché la partecipazione specifica ai gruppi di lavoro;\n• Direttore della direzione di Lokremise.\n\nCosa lo distingue:\n\n• Hanno un grande interesse per l'arte e la cultura, nonché una comprensione delle preoccupazioni dei creatori e degli organizzatori culturali.\n• Hanno esperienza di leadership strategica, idealmente in un'organizzazione senza scopo di lucro, e hanno familiarità con l'ambiente politico e culturale delle organizzazioni culturali.\n• Sei un giocatore di squadra orientato agli obiettivi e abituato a sviluppare soluzioni con il coinvolgimento di coloro che sono interessati.\n• Vi dà il piacere di rappresentare gli interessi della Fondazione Lokremise contro l'esterno.\n• Siete disposti ad assumervi la responsabilità anche su base volontaria (le spese e la partecipazione alle riunioni sono pagate).\n\nCosa offriamo:\nCon questa posizione emozionante, vi offriamo l'opportunità di plasmare attivamente parte del paesaggio culturale della città e cantone di St.Gallen.\n\nSe avete domande sulle attività del Consiglio di fiducia, Sabina Brunnschweiler, Co-Head dell'Ufficio della Cultura e Vice Presidente della Fondazione Lokremise, sabina.brunnschweiler@sg.ch, 058 229 21 50, è a vostra disposizione.",
-        "en": "The Lokremise is St. Gallen's vibrant cultural place with theatre, cinema, art and gastronomy. The Lokremise Foundation promotes strategic development and coordinates the operation of the interdisciplinary cultural center and ensures that the Lokremise is a lively place of encounter and artistic exchange. The Lokremise is one of five cantonal cultural sites; As owner, the canton is responsible for the ongoing maintenance of the listed building. The ten-member Board of Trustees has three representatives of the canton; the Presidium shall be appointed by the Government of the Canton of St.Gallen.\n\nWhat to expect:\nThe Presidium of the Lokremise Board of Trustees essentially comprises the following tasks:\n• Strategic management and further development of the Lokremise Foundation together with the Foundation Board;\n• Chair and chair four regular meetings of the Board of Trustees per year as well as specific participation in working groups;\n• Direct manager of the management of Lokremise.\n\nWhat sets it apart:\n\n• They have a great interest in art and culture as well as an understanding of the concerns of cultural creators and organisers.\n• They have strategic leadership experience, ideally in a nonprofit organization, and are familiar with the political and cultural environment of cultural organizations.\n• You are a goal-oriented team player and accustomed to developing solutions with the involvement of those affected.\n• It gives you pleasure to represent the interests of the Lokremise Foundation against the outside.\n• You are willing to take on responsibility also on a voluntary basis (expenses and participation in meetings are paid).\n\nWhat we offer:\nWith this exciting position, we offer you the opportunity to actively shape part of the cultural landscape of the city and canton of St.Gallen.\n\nIf you have any questions about the activities of the Board of Trustees, Sabina Brunnschweiler, Co-Head of the Office of Culture and Vice-President of the Lokremise Foundation, sabina.brunnschweiler@sg.ch, 058 229 21 50, is at your disposal.",
-        "de": "Die Lokremise ist St.Gallens pulsierender Kulturort mit Theater, Kino, Kunst und Gastronomie. Die Stiftung Lokremise fördert die strategische Weiterentwicklung und koordiniert den Betrieb im spartenübergreifenden Kulturzentrum und stellt sicher, dass die Lokremise ein lebendiger Ort der Begegnung und des künstlerischen Austauschs ist. Die Lokremise ist einer von fünf kantonalen Kulturstandorten; als Eigentümer ist der Kanton für den laufenden Unterhalt des denkmalgeschützten Gebäudes zuständig. Im zehnköpfigen Stiftungsrat haben drei Vertretungen des Kantons Einsitz; das Präsidium wird durch die Regierung des Kantons St.Gallen bestimmt.\n\nWas Sie erwartet:\nDas Präsidium des Stiftungsrats der Lokremise umfasst im Wesentlichen folgende Aufgaben:\n• Strategische Leitung und Weiterentwicklung der Stiftung Lokremise gemeinsam mit dem Stiftungsrat;\n• Vorsitz und Leitung von vier ordentlichen Stiftungsratssitzungen pro Jahr sowie punktuelle Mitarbeit in Arbeitsgruppen;\n• Direkte/r Vorgesetzte/r der Geschäftsführung der Lokremise.\n\nWas Sie auszeichnet:\n\n• Sie haben grosses Interesse an Kunst und Kultur sowie Verständnis für die Anliegen von Kulturschaffenden und -Veranstaltenden.\n• Sie haben strategische Führungserfahrung, idealerweise in einer Nonprofit-Organisation, und sind mit dem politischen und kulturellen Umfeld kultureller Organisationen vertraut.\n• Sie sind ein/e zielorientierte/r Teamplayer/in und sich gewohnt, Lösungen unter Einbezug der Betroffenen zu entwickeln.\n• Es macht Ihnen Freude, die Interessen der Stiftung Lokremise gegen aussen zu vertreten.\n• Sie sind bereit, Verantwortung auch ehrenamtlich zu übernehmen (Spesen und die Teilnahme an Sitzungen werden vergütet).\n\nWas wir bieten:\nMit dieser spannenden Position bieten wir Ihnen die Möglichkeit, aktiv einen Teil der Kulturlandschaft von Stadt und Kanton St.Gallen mitzugestalten.\n\nKontakt: Falls Sie Fragen haben zur Tätigkeit des Stiftungsrats steht Ihnen Sabina Brunnschweiler, Co-Leiterin Amt für Kultur und Vize-Präsidentin Stiftung Lokremise, sabina.brunnschweiler@sg.ch , 058 229 21 50, zur Verfügung.",
-        "fr": "Le Lokremise est le lieu culturel dynamique de St. Gallen avec le théâtre, le cinéma, l'art et la gastronomie. La Fondation Lokremise promeut le développement stratégique et coordonne le fonctionnement du centre culturel interdisciplinaire et veille à ce que le Lokremise soit un lieu de rencontre et d'échange artistique animé. Le Lokremise est l'un des cinq sites culturels cantonaux; En tant que propriétaire, le canton est responsable de l'entretien continu du bâtiment. Le conseil d'administration de dix membres est composé de trois représentants du canton; le présidium est nommé par le gouvernement du canton de Saint-Gall.\n\nÀ quoi s'attendre :\nLe présidium du conseil d'administration de Lokremise comprend essentiellement les tâches suivantes:\n• Gestion stratégique et développement de la Fondation Lokremise en collaboration avec le Conseil de fondation;\n• Président et président de quatre réunions régulières du Conseil d ' administration par an, ainsi que participation spécifique aux groupes de travail;\n• Directeur de la direction de Lokremise.\n\nCe qui le distingue:\n\n• Ils s'intéressent beaucoup à l'art et à la culture ainsi qu'à la compréhension des préoccupations des créateurs et organisateurs culturels.\n• Ils ont une expérience de leadership stratégique, idéalement dans un organisme sans but lucratif, et ils connaissent l'environnement politique et culturel des organisations culturelles.\n• Vous êtes un joueur d'équipe orienté vers l'objectif et habitué à développer des solutions avec la participation des personnes touchées.\n• Il vous donne le plaisir de représenter les intérêts de la Fondation Lokremise contre l'extérieur.\n• Vous êtes prêt à assumer la responsabilité également sur une base volontaire (les frais et la participation aux réunions sont payés).\n\nCe que nous offrons:\nAvec cette position passionnante, nous vous offrons la possibilité de façonner activement une partie du paysage culturel de la ville et du canton de Saint-Gall.\n\nSi vous avez des questions sur les activités du Conseil d'administration, Sabina Brunnschweiler, Co-Chef du Bureau de la Culture et Vice-Présidente de la Fondation Lokremise, sabina.brunnschweiler@sg.ch, 058 229 21 50, est à votre disposition."
-      },
-      "needsRetranslation": false,
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://recruitingapp-2800.umantis.com/Vacancies/6512/Description/1",
-      "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:21:09.003Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "streetAddress": "Lämmlisbrunnenstrasse 54",
-      "postalCode": "9000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6512/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stiftungsratsprasidium-lokremise-m-w-d-kanton-st-gallen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stiftungsratsprasidium-lokremise-m-w-d-kanton-st-gallen-ch"
-        ],
-        "en": [
-          "stiftungsratsprasidium-lokremise-m-w-d-kanton-st-gallen-ch"
-        ],
-        "fr": [
-          "stiftungsratsprasidium-lokremise-m-w-d-kanton-st-gallen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:42:48.166Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "kanton-st-gallen-c7bba119f0e4",
-      "slug": "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-e-waschereilogistik-m-w-d-kanton-st-gallen-9465-salez",
-      "slugByLocale": {
-        "it": "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-e-waschereilogistik-m-w-d-kanton-st-gallen-9465-salez",
-        "en": "maintenance-centre-foreman-focus-on-building-maintenance-and-laundry-logistics-m-f-d-kanton-st-gallen-9465-salez",
-        "de": "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d",
-        "fr": "maitre-d-uvre-centre-d-entretien-specialisation-entretien-du-batiment-et-logistique-de-blanchisserie-h-f-d-kanton-st"
-      },
-      "company": "Kanton St. Gallen",
-      "companyKey": "kanton-st-gallen",
-      "companyDomain": "sg.ch",
-      "title": "Werkmeister/in Unterhaltszentrum, Schwerpunkt Gebäudeunterhalt und Wäschereilogistik (m/w/d)",
-      "titleByLocale": {
-        "it": "Capocantiere/a centro di manutenzione, focus sulla manutenzione degli edifici e sulla logistica della lavanderia (m/f/d)",
-        "en": "Maintenance centre foreman, focus on building maintenance and laundry logistics (m/f/d)",
-        "de": "Werkmeister/in Unterhaltszentrum, Schwerpunkt Gebäudeunterhalt und Wäschereilogistik (m/w/d)",
-        "fr": "Maître d'œuvre Centre d'entretien, spécialisation Entretien du bâtiment et logistique de blanchisserie (h/f/d)"
-      },
-      "description": "Wir schaffen für Menschen Perspektiven in ein eigenverantwortliches Leben ausserhalb der Kriminalität und leisten damit einen wichtigen Beitrag für eine sichere Gesellschaft. Das Amt für Justizvollzug des Sicherheits- und Justizdepartements beschäftigt rund 260 Mitarbeitende in verschiedenen Berufsfeldern. Die Strafanstalt Saxerriet ist eine offene Justizvollzugsanstalt für Männer mit insgesamt 135 Plätzen. Sie verfügt über differenzierte Vollzugskonzepte und ein vielseitiges Angebot an Arbeitsplätzen.\n\nWas Sie erwartet:\n\n• Sie leiten die eingewiesenen Personen in den Bereichen der internen Gebäudereinigung (Liegenschaftspflege) und der Wäscherei praxisnah an und fördern deren berufliche sowie persönliche Entwicklung\n• Gemeinsam mit Ihrem Team stellen Sie den werterhaltenden, sauberen Zustand der anstaltsinternen Gebäude sowie eine termingerechte und qualitativ einwandfreie Textilpflege sicher\n• Bei Abwesenheit des Hauswarts übernehmen Sie dessen Stellvertretung. Sie überwachen die haustechnischen Anlagen, führen kleinere Reparaturen sowie Unterhaltsarbeiten selbstständig aus und sichern die Betriebsbereitschaft der Infrastruktur\n• Sie nutzen die täglichen Arbeitsabläufe in der Hauswirtschaft als Lernfeld, um die Selbstständigkeit, Eigenverantwortung und Zuverlässigkeit der eingewiesenen Personen mit Blick auf deren Reintegration zu stärken\n• Sie planen und strukturieren die Arbeitsabläufe in der Reinigung und Wäscherei effizient\n\nWas Sie auszeichnet:\n\n• Sie verfügen über eine abgeschlossene handwerkliche, technische oder hauswirtschaftliche Ausbildung (EFZ)\n• Gutes technisches Wissen im Bereich Haustechnik und Gebäudeunterhalt sowie handwerkliches Geschick für Reparatur- und Wartungsarbeiten\n• Sie haben ein hohes Mass an Sozialkompetenz, Durchsetzungsvermögen und Empathie\n• Sie begegnen Menschen auf Augenhöhe und bringen das nötige Fingerspitzengefühl für die Arbeit im Justizvollzug mit\n• Sie behalten auch in lebhaften Situationen den Überblick\n• Sie haben von Vorteil bereits mit Menschen in speziellen Lebenslagen gearbeitet\n• Sie sind eine teamfähige und engagierte Persönlichkeit mit einem hohen Dienstleistungsbewusstsein\n• Sie besitzen den Führerausweis Kat. B\n• Sie sind mindestens 30 Jahre alt\n\nWas wir bieten:\n\n• Eine spannende und herausfordernde Tätigkeiten in fortschrittlichem und vielseitigem Betrieb mit viel Selbständigkeit\n• Ein professionelles und motiviertes Team\n• Interessante Aus- und Weiterbildungen (Bsp. Fachmann/Fachfrau Justizvollzug)\n• Eine sinnstiftende Aufgabe in gesellschaftlich wichtigem Kontext\n\nKontakt: Für weitere Auskünfte steht Ihnen der Teamleiter Unterhaltszentrum, Ruedi Koller, Telefon 058 228 29 62 gerne zur Verfügung. Weitere Informationen zu unserer Institution finden Sie unter: www.saxerriet.sg.ch",
-      "descriptionByLocale": {
-        "it": "Creiamo prospettive per le persone in una vita responsabile al di fuori del crimine e di conseguenza un contributo importante per una società sicura. L'Ufficio per l'Imprigione di Giustizia del Dipartimento di Sicurezza e Giustizia impiega circa 260 persone in vari settori professionali. Saxerriet è una prigione aperta per gli uomini con un totale di 135 posti. Ha diversi concetti di implementazione e una vasta gamma di luoghi di lavoro.\n\nCosa aspettarsi:\n\n• Essi forniscono una guida pratica per le persone istruite nelle aree di pulizia interna degli edifici (assistenza tecnica) e lavanderia e promuovere il loro sviluppo professionale e personale\n• Insieme al vostro team, assicurate la conservazione del valore, la condizione pulita degli edifici interni così come la cura tessile tempestiva e impeccabile.\n• In assenza della governante, si occupa del suo vice. Monitorano gli impianti tecnici, effettuano riparazioni minori e lavori di manutenzione in modo indipendente e garantiscono la disponibilità operativa dell'infrastruttura\n• Essi utilizzano i processi di lavoro quotidiani nel settore domestico come campo di apprendimento al fine di rafforzare l'indipendenza, la responsabilità personale e l'affidabilità delle persone istruite in vista della loro reintegrazione.\n• Pianifica e struttura i processi di lavoro nella pulizia e nella lavanderia in modo efficiente\n\nCosa lo distingue:\n\n• Hai completato la formazione artigianale, tecnica o domestica (EFZ)\n• Buona conoscenza tecnica nel campo della tecnologia edile e della manutenzione, nonché l'artigianato per lavori di riparazione e manutenzione\n• Hanno un alto livello di competenze sociali, assertività ed empatia\n• Si incontrano persone a livello degli occhi e portano con loro la sensibilità necessaria per lavorare nel sistema carcerario\n• Tengono una panoramica anche in situazioni vivaci\n• Hai già lavorato con persone in situazioni particolari\n• Sei un team capace e impegnato personalità con un alto senso di servizio\n• Hai la patente di guida Cat. B.\n• Hai almeno 30 anni\n\nCosa offriamo:\n\n• Un'attività emozionante e impegnativa nel funzionamento avanzato e versatile con molta indipendenza\n• Un team professionale e motivato\n• Formazione interessante e formazione ulteriore (ad esempio esperto / ufficiale del carcere professionale)\n• Un compito significativo in un contesto socialmente importante\n\nContatto: Per ulteriori informazioni, il team leader centro di manutenzione, Ruedi Koller, telefono 058 228 29 62 è a vostra disposizione. Ulteriori informazioni sulla nostra istituzione sono disponibili su: www.saxerriet.sg.ch",
-        "en": "We create perspectives for people in a responsible life outside of crime and thus make an important contribution to a safe society. The Office for the Imprisonment of Justice of the Department of Security and Justice employs around 260 people in various professional fields. Saxerriet is an open prison for men with a total of 135 seats. It has differentiated implementation concepts and a wide range of workplaces.\n\nWhat to expect:\n\n• They provide practical guidance to the instructed persons in the areas of internal building cleaning (property care) and laundry and promote their professional and personal development\n• Together with your team, you ensure the value-preserving, clean condition of the in-house buildings as well as timely and impeccable textile care.\n• In the absence of the housekeeper, you take over his deputy. They monitor the technical installations, carry out minor repairs and maintenance work independently and ensure the operational readiness of the infrastructure\n• They use the daily work processes in the household sector as a learning field in order to strengthen the independence, personal responsibility and reliability of the instructed persons with a view to their reintegration.\n• You plan and structure the work processes in the cleaning and laundry efficiently\n\nWhat sets it apart:\n\n• You have completed craft, technical or domestic training (EFZ)\n• Good technical knowledge in the field of building technology and maintenance as well as craftsmanship for repair and maintenance work\n• They have a high level of social skills, assertiveness and empathy\n• They meet people at eye level and bring with them the necessary sensitivity for working in the prison system\n• They keep an overview even in lively situations\n• You have already worked with people in special situations\n• You are a team capable and committed personality with a high sense of service\n• You have the driving license Cat. B\n• You are at least 30 years old\n\nWhat we offer:\n\n• An exciting and challenging activity in advanced and versatile operation with a lot of independence\n• A professional and motivated team\n• Interesting training and further education (e.g. expert / professional prison officer)\n• A meaningful task in a socially important context\n\nContact: For further information, the team leader maintenance center, Ruedi Koller, telephone 058 228 29 62 is at your disposal. Further information about our institution can be found at: www.saxerriet.sg.ch",
-        "de": "Wir schaffen für Menschen Perspektiven in ein eigenverantwortliches Leben ausserhalb der Kriminalität und leisten damit einen wichtigen Beitrag für eine sichere Gesellschaft. Das Amt für Justizvollzug des Sicherheits- und Justizdepartements beschäftigt rund 260 Mitarbeitende in verschiedenen Berufsfeldern. Die Strafanstalt Saxerriet ist eine offene Justizvollzugsanstalt für Männer mit insgesamt 135 Plätzen. Sie verfügt über differenzierte Vollzugskonzepte und ein vielseitiges Angebot an Arbeitsplätzen.\n\nWas Sie erwartet:\n\n• Sie leiten die eingewiesenen Personen in den Bereichen der internen Gebäudereinigung (Liegenschaftspflege) und der Wäscherei praxisnah an und fördern deren berufliche sowie persönliche Entwicklung\n• Gemeinsam mit Ihrem Team stellen Sie den werterhaltenden, sauberen Zustand der anstaltsinternen Gebäude sowie eine termingerechte und qualitativ einwandfreie Textilpflege sicher\n• Bei Abwesenheit des Hauswarts übernehmen Sie dessen Stellvertretung. Sie überwachen die haustechnischen Anlagen, führen kleinere Reparaturen sowie Unterhaltsarbeiten selbstständig aus und sichern die Betriebsbereitschaft der Infrastruktur\n• Sie nutzen die täglichen Arbeitsabläufe in der Hauswirtschaft als Lernfeld, um die Selbstständigkeit, Eigenverantwortung und Zuverlässigkeit der eingewiesenen Personen mit Blick auf deren Reintegration zu stärken\n• Sie planen und strukturieren die Arbeitsabläufe in der Reinigung und Wäscherei effizient\n\nWas Sie auszeichnet:\n\n• Sie verfügen über eine abgeschlossene handwerkliche, technische oder hauswirtschaftliche Ausbildung (EFZ)\n• Gutes technisches Wissen im Bereich Haustechnik und Gebäudeunterhalt sowie handwerkliches Geschick für Reparatur- und Wartungsarbeiten\n• Sie haben ein hohes Mass an Sozialkompetenz, Durchsetzungsvermögen und Empathie\n• Sie begegnen Menschen auf Augenhöhe und bringen das nötige Fingerspitzengefühl für die Arbeit im Justizvollzug mit\n• Sie behalten auch in lebhaften Situationen den Überblick\n• Sie haben von Vorteil bereits mit Menschen in speziellen Lebenslagen gearbeitet\n• Sie sind eine teamfähige und engagierte Persönlichkeit mit einem hohen Dienstleistungsbewusstsein\n• Sie besitzen den Führerausweis Kat. B\n• Sie sind mindestens 30 Jahre alt\n\nWas wir bieten:\n\n• Eine spannende und herausfordernde Tätigkeiten in fortschrittlichem und vielseitigem Betrieb mit viel Selbständigkeit\n• Ein professionelles und motiviertes Team\n• Interessante Aus- und Weiterbildungen (Bsp. Fachmann/Fachfrau Justizvollzug)\n• Eine sinnstiftende Aufgabe in gesellschaftlich wichtigem Kontext\n\nKontakt: Für weitere Auskünfte steht Ihnen der Teamleiter Unterhaltszentrum, Ruedi Koller, Telefon 058 228 29 62 gerne zur Verfügung. Weitere Informationen zu unserer Institution finden Sie unter: www.saxerriet.sg.ch",
-        "fr": "Nous créons des perspectives pour les gens dans une vie responsable en dehors du crime et ainsi apporter une contribution importante à une société sûre. Le Bureau de la justice du Département de la sécurité et de la justice emploie environ 260 personnes dans divers domaines professionnels. Saxerriet est une prison ouverte pour hommes avec un total de 135 places. Il a des concepts de mise en œuvre différenciés et un large éventail de lieux de travail.\n\nÀ quoi s'attendre :\n\n• Ils fournissent des conseils pratiques aux personnes instruites dans les domaines du nettoyage interne des bâtiments (entretien des propriétés) et de la lessive et favorisent leur développement professionnel et personnel\n• Avec votre équipe, vous assurez la préservation de la valeur, l'état propre des bâtiments internes ainsi que des soins textiles opportuns et impeccables.\n• En l'absence de la femme de ménage, vous prenez son adjoint. Ils surveillent les installations techniques, effectuent des travaux de réparation et d'entretien mineurs indépendamment et assurent la disponibilité opérationnelle de l'infrastructure.\n• Ils utilisent le travail quotidien dans le secteur des ménages comme un domaine d'apprentissage afin de renforcer l'indépendance, la responsabilité personnelle et la fiabilité des personnes instruites en vue de leur réinsertion.\n• Vous planifiez et structurez les processus de travail dans le nettoyage et le linge efficacement\n\nCe qui le distingue:\n\n• Vous avez suivi une formation artisanale, technique ou domestique (EFZ)\n• Bonnes connaissances techniques dans le domaine de la technologie et de l'entretien du bâtiment ainsi que de l'artisanat pour les travaux de réparation et d'entretien\n• Ils ont un niveau élevé de compétences sociales, d'affirmation et d'empathie\n• Ils rencontrent les gens au niveau des yeux et apportent avec eux la sensibilité nécessaire pour travailler dans le système pénitentiaire\n• Ils gardent un aperçu même dans des situations animées\n• Vous avez déjà travaillé avec des gens dans des situations spéciales\n• Vous êtes une équipe capable et engagée avec un sens élevé du service\n• Vous avez le permis de conduire Cat. B\n• Vous avez au moins 30 ans.\n\nCe que nous offrons:\n\n• Une activité passionnante et stimulante en opération avancée et polyvalente avec beaucoup d'indépendance\n• Une équipe professionnelle et motivée\n• Formation et perfectionnement intéressants (par exemple expert/agent pénitentiaire professionnel)\n• Une tâche significative dans un contexte socialement important\n\nContact: Pour plus d'informations, le centre d'entretien de l'équipe, Ruedi Koller, téléphone 058 228 29 62 est à votre disposition. Pour de plus amples renseignements sur notre institution, veuillez consulter le site www.saxerriet.sg.ch"
-      },
-      "needsRetranslation": false,
-      "location": "9465 Salez",
-      "canton": "SG",
-      "url": "https://recruitingapp-2800.umantis.com/Vacancies/6503/Description/1",
-      "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-23T09:21:04.694Z",
-      "addressLocality": "9465 Salez",
-      "addressRegion": "SG",
-      "streetAddress": "Lämmlisbrunnenstrasse 54",
-      "postalCode": "9465",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "workload": "100%",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6503/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d"
-        ],
-        "en": [
-          "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d"
-        ],
-        "fr": [
-          "werkmeister-in-unterhaltszentrum-schwerpunkt-gebaudeunterhalt-und-waschereilogistik-m-w-d"
-        ]
-      },
-      "firstSeenAt": "2026-09-25T14:44:38.399Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
