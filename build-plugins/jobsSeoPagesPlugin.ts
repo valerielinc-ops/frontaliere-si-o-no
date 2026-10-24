@@ -981,6 +981,16 @@ export function activeJobSourceValidThrough(job: unknown): string | null {
  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
 }
 
+function omitJsonLdStringField(script: string, field: string): string {
+ const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+ const value = '(?:"(?:\\\\.|[^"\\\\])*"|null)';
+ const nonFirst = new RegExp(`,\\s*"${escapedField}"\\s*:\\s*${value}`);
+ const withoutNonFirst = script.replace(nonFirst, '');
+ if (withoutNonFirst !== script) return withoutNonFirst;
+ const first = new RegExp(`\\{(\\s*)"${escapedField}"\\s*:\\s*${value}\\s*(?:,)?`);
+ return script.replace(first, '{$1');
+}
+
 export function replaceActiveJobPostingDates(
  fragment: string,
  datePosted: string,
@@ -996,10 +1006,11 @@ export function replaceActiveJobPostingDates(
  if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
  let script = scriptMatch[0];
  const fields: Array<[string, string]> = [['datePosted', datePosted]];
- // validThrough comes from the source only: it is part of the reuse input,
- // so a cached fragment already carries the current value (or none). It is
- // rewritten when present, never manufactured when absent.
+ // validThrough comes from the source only. When the current source has no
+ // deadline, remove any legacy synthetic deadline from the cached fragment;
+ // otherwise a cache hit can resurrect a value the source never stated.
  if (validThrough) fields.push(['validThrough', validThrough]);
+ else script = omitJsonLdStringField(script, 'validThrough');
  // Keep the third field optional for legacy callers/tests. The production
  // active-page rewrite supplies null when the current source has no heartbeat;
  // fail closed instead of manufacturing an empty field or serving a stale one.

@@ -173,6 +173,13 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(result).not.toContain('validThrough');
   });
 
+ it('removes a stale cached validThrough when the source deadline is absent', () => {
+  const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"2030-01-01T00:00:00.000Z"}</script>';
+  const result = replaceActiveJobPostingDates(fragment, '2026-01-02T00:00:00.000Z', null);
+  expect(result).toContain('"datePosted":"2026-01-02T00:00:00.000Z"');
+  expect(result).not.toContain('validThrough');
+ });
+
   it('reads the active validThrough from the source deadline only', () => {
     expect(activeJobSourceValidThrough({ validThrough: '2026-11-07' })).toBe('2026-11-07T00:00:00.000Z');
     expect(activeJobSourceValidThrough({ crawledAt: '2026-10-01T00:00:00.000Z' })).toBeNull();

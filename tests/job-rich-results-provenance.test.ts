@@ -125,4 +125,17 @@ describe('rich-result eligibility validation', () => {
     expect(result.status).toBe(1);
     expect(result.stdout).toContain('baseSalary:reported_salary_dropped');
   });
+
+ it('rejects coherent source address values dropped from the markup', () => {
+  const schemaWithoutStreetOrPostal = {
+   ...posting,
+   jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI' } },
+  };
+  const result = validate('reported', schemaWithoutStreetOrPostal, {
+   job: { ...SOURCE_FIELDS, streetAddress: 'Via Nassa 1', postalCode: '6900' },
+  });
+  expect(result.status).toBe(1);
+  expect(result.stdout).toContain('streetAddress:source_value_dropped');
+  expect(result.stdout).toContain('postalCode:source_value_dropped');
+ });
 });

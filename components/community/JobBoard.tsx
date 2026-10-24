@@ -10639,6 +10639,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  streetAddress: selectedJob.streetAddress,
  postingDateSource: selectedJob.postingDateSource,
  datePosted: selectedJob.datePosted,
+ validThrough: selectedJob.validThrough,
  postedDate: selectedJob.postedDate,
  firstSeenAt: selectedJob.firstSeenAt,
  crawledAt: selectedJob.crawledAt,

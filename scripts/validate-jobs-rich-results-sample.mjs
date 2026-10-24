@@ -6,7 +6,7 @@ import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 import { COMPANY_HQ_ADDRESSES } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { resolveJobEmploymentTypes } from './lib/job-employment-type.mjs';
-import { isSalaryReportedBySource } from './lib/jobposting-field-provenance.mjs';
+import { isSalaryReportedBySource, isSourceStreetAddress } from './lib/jobposting-field-provenance.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -176,15 +176,24 @@ function validateFieldProvenance(jobPosting, job) {
 
   const address = jobPosting?.jobLocation?.address || {};
   const hq = COMPANY_HQ_ADDRESSES[String(job?.companyKey || '').toLowerCase().trim()] || null;
+  const sourceLocality = address.addressLocality || job?.addressLocality || job?.location;
+  const sourceStreet = String(job?.streetAddress ?? '').trim();
+  const sourceStreetCanEmit = isSourceStreetAddress(sourceStreet, sourceLocality);
+  const sourcePostalCode = String(job?.postalCode ?? '').trim();
+  const sourcePostalCanEmit = /^\d{4}$/.test(sourcePostalCode);
   const fromSourceOrHq = (value, sourceValue, hqValue) => {
     const v = String(value ?? '').trim();
     return v === String(sourceValue ?? '').trim() || (hqValue !== undefined && v === String(hqValue ?? '').trim());
   };
   if (address.streetAddress !== undefined && !fromSourceOrHq(address.streetAddress, job?.streetAddress, hq?.streetAddress)) {
     errors.push('streetAddress:not_from_source');
+  } else if (address.streetAddress === undefined && sourceStreetCanEmit) {
+    errors.push('streetAddress:source_value_dropped');
   }
   if (address.postalCode !== undefined && !fromSourceOrHq(address.postalCode, job?.postalCode, hq?.postalCode)) {
     errors.push('postalCode:not_from_source');
+  } else if (address.postalCode === undefined && sourcePostalCanEmit) {
+    errors.push('postalCode:source_value_dropped');
   }
   return errors;
 }
