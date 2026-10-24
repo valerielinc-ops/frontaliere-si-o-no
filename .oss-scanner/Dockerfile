@@ -1,3 +1,12 @@
+# --- OSS-SCANNER-ENROLLMENT v1 ---
+# approval-kind: written
+# approval-ref: github:valerielinc-ops/frontaliere-si-o-no/issues/14549
+# image-contract: sha256:45573bb38a673a7112a1811111452ce4366ece773091e843733e1f0c217c2bee
+# image-ref: dockerfile:.oss-scanner/Dockerfile
+# scanner: anthropic-oss-scanner
+# source-contract: exact-commit
+# --- END OSS-SCANNER-ENROLLMENT ---
+
 FROM node:22-bookworm
 
 # The OSS Scanner builder exposes about 16 GiB RAM plus 3 GiB swap. The normal
