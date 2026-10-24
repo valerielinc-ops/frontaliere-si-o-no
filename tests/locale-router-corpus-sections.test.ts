@@ -102,14 +102,21 @@ function mockFetch(plan: FetchPlan) {
 
 const cdnFetches = () => fetched.filter((u) => u.startsWith(CDN));
 const registryFetches = () => fetched.filter((u) => u === REGISTRY_URL);
-const get = (p: string, init?: RequestInit) => worker.fetch(new Request(`${APEX}${p}`, init), {}, ctx);
+let requestStart = 0; // index in `fetched` where the latest get() began
+const get = (p: string, init?: RequestInit) => {
+  requestStart = fetched.length;
+  return worker.fetch(new Request(`${APEX}${p}`, init), {}, ctx);
+};
 // Which origin served the request. A shard 404 on an en/de/fr document (or on a
 // job-detail path) carries the Worker's localized 404 page instead of the
-// origin body, so the host is read from the first upstream fetch instead.
+// origin body, so the host is read from the first shard/apex fetch of the
+// latest get() instead (CDN objects and the registry are lookups; the shard is
+// always fetched before any recovery subrequest).
 const answeredBy = async (res: Response) => {
   const body = await res.text();
   if (body.startsWith('origin:')) return body.slice('origin:'.length);
-  return res.status === 404 && fetched.length ? new URL(fetched[0]).hostname : body;
+  const origin = fetched.slice(requestStart).find((u) => u !== REGISTRY_URL && !u.startsWith(CDN));
+  return res.status === 404 && origin ? new URL(origin).hostname : body;
 };
 
 beforeEach(() => {
