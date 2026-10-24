@@ -5156,7 +5156,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  description: 'Scopri i dati e le analisi sul mercato del lavoro in Ticino nel primo trimestre 2026, con focus su frontalieri e trend occupazionali (dati USTAT Q1 2026).',
  keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, dati, trend',
  ogTitle: 'Mercato lavoro Ticino Q1 2026 | Frontaliere Ticino',
- ogDescription: 'Analisi dettagliata sul mercato del lavoro ticinese nel Q1 2026 (dati USTAT), con dati su frontalieri, salari e permessi di lavoro.',
+ ogDescription: 'Analisi dettagliata sul mercato del lavoro ticinese nel Q1 2026, sulla base dei dati USTAT, con dati su frontalieri, salari e permessi di lavoro.',
  canonicalPath: '/articoli-frontaliere/mercato-lavoro-ticino-q4-2025/',
  structuredData: {
  "@context": "https://schema.org",
