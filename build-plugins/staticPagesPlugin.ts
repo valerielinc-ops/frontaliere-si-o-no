@@ -257,7 +257,7 @@ import {
   type GlossaryDetailLocale,
 } from './shared/glossaryTermDetail';
 import { renderBorderCrossingGuideDetail, type CrossingGuideLocale } from './shared/borderCrossingGuideDetail';
-import { AI_USE_STATEMENT, CORRECTIONS_PAGE_PATHS, METHODOLOGY_PAGE_PATHS } from '../packages/articles/engine/shared/aiDisclosure';
+import { AI_USE_STATEMENT, DISCLOSURE_ROUTE_CONTRACT } from '../packages/articles/engine/shared/aiDisclosure';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
 
 const GLOSSARY_SECTION_SLUGS = new Set([
@@ -5316,7 +5316,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // this paragraph used to describe an expert newsroom, which
  // contradicted the React page and the published methodology.
  `<h2 class="s-o3IET6">Come lavoriamo e uso dell'IA</h2>`,
- `${AI_USE_STATEMENT.it} Seguiamo le comunicazioni dell'Amministrazione federale delle contribuzioni (AFC/ESTV), dell'Agenzia delle Entrate, della SECO e dell'INPS e colleghiamo le fonti nei testi. Il processo e i suoi limiti sono descritti nella <a class="s-OsohZU" href="${METHODOLOGY_PAGE_PATHS.it}">Metodologia</a>; gli errori corretti sono tracciati nel <a class="s-OsohZU" href="${CORRECTIONS_PAGE_PATHS.it}">registro pubblico delle correzioni</a>.`,
+ `${AI_USE_STATEMENT.it} Seguiamo le comunicazioni dell'Amministrazione federale delle contribuzioni (AFC/ESTV), dell'Agenzia delle Entrate, della SECO e dell'INPS e colleghiamo le fonti nei testi. Il processo e i suoi limiti sono descritti nella <a class="s-OsohZU" href="${DISCLOSURE_ROUTE_CONTRACT.it.methodology}">Metodologia</a>; gli errori corretti sono tracciati nel <a class="s-OsohZU" href="${DISCLOSURE_ROUTE_CONTRACT.it.corrections}">registro pubblico delle correzioni</a>.`,
  `<h2 class="s-o3IET6">La nostra missione</h2>`,
  `La missione di Frontaliere Ticino è rendere accessibili e comprensibili le complessità fiscali e amministrative del lavoro transfrontaliero. I nostri simulatori calcolano il netto in busta paga con i parametri reali delle tabelle fiscali svizzere e italiane 2026, i comparatori confrontano assicurazioni sanitarie LAMal, costi della vita e opzioni di trasporto, e il motore di ricerca lavoro aggrega oltre 1.500 posizioni attive da più di 100 aziende ticinesi.`,
  `<h2 class="s-o3IET6">Fonti e indipendenza</h2>`,
@@ -5349,7 +5349,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">About Us — The Frontaliere Ticino Team</h2>`,
  `Frontaliere Ticino is an independent information platform for Italian cross-border workers employed in Canton Ticino, Switzerland, aiming to provide clear and impartial information on taxation, social security, work permits, and daily life.`,
- `${AI_USE_STATEMENT.en} We follow communications from the Federal Tax Administration (FTA/ESTV), the Italian Revenue Agency (Agenzia delle Entrate), SECO and INPS and link the sources in the text. The process and its limits are described in our <a href="${METHODOLOGY_PAGE_PATHS.en}">methodology</a>; corrected errors are recorded in the <a href="${CORRECTIONS_PAGE_PATHS.en}">public corrections log</a>.`,
+ `${AI_USE_STATEMENT.en} We follow communications from the Federal Tax Administration (FTA/ESTV), the Italian Revenue Agency (Agenzia delle Entrate), SECO and INPS and link the sources in the text. The process and its limits are described in our <a href="${DISCLOSURE_ROUTE_CONTRACT.en.methodology}">methodology</a>; corrected errors are recorded in the <a href="${DISCLOSURE_ROUTE_CONTRACT.en.corrections}">public corrections log</a>.`,
  `<h2 class="s-o3IET6">Our Mission</h2>`,
  `Frontaliere Ticino's mission is to make the fiscal and administrative complexities of cross-border work accessible and understandable. Our simulators calculate net salary using actual 2026 Swiss and Italian tax tables, our comparators benchmark LAMal health insurance, cost of living, and transport options, and our job search engine aggregates over 1,500 active positions from more than 100 Ticino-based companies.`,
  `<h2 class="s-o3IET6">Sources and Independence</h2>`,

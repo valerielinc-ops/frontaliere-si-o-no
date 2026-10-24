@@ -10,6 +10,23 @@
  * cheap to import from anywhere, including plain Node scripts. See #4315.
  */
 import type { Locale } from './i18n';
+import { DISCLOSURE_ROUTE_CONTRACT } from '../packages/articles/engine/shared/aiDisclosure';
+
+type DisclosureRouteKey = keyof typeof DISCLOSURE_ROUTE_CONTRACT.it;
+
+/** Derive a host route segment from the canonical localized disclosure URL. */
+function disclosureRouteSegment(locale: Locale, route: DisclosureRouteKey): string {
+ const path = DISCLOSURE_ROUTE_CONTRACT[locale][route];
+ const prefix = locale === 'it' ? '/' : `/${locale}/`;
+ if (!path.startsWith(prefix) || !path.endsWith('/')) {
+  throw new Error(`Disclosure route ${route} has an invalid ${locale} path: ${path}`);
+ }
+ const segment = path.slice(prefix.length, -1);
+ if (!segment || segment.includes('/')) {
+  throw new Error(`Disclosure route ${route} must contain one ${locale} route segment: ${path}`);
+ }
+ return segment;
+}
 
 export interface SlugTable {
  // top-level section slugs
@@ -258,9 +275,9 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  followedCompanies: 'aziende-seguite',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'chi-siamo',
- correzioni: 'correzioni',
+ correzioni: disclosureRouteSegment('it', 'corrections'),
  subscribe: 'abbonamento',
- metodologia: 'metodologia',
+ metodologia: disclosureRouteSegment('it', 'methodology'),
  costs: 'costi-pendolarismo',
  salarySurvey: 'sondaggio-stipendi',
  comparatori: 'comparatori',
@@ -364,9 +381,9 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  followedCompanies: 'followed-companies',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'about-us',
- correzioni: 'corrections',
+ correzioni: disclosureRouteSegment('en', 'corrections'),
  subscribe: 'subscribe',
- metodologia: 'methodology',
+ metodologia: disclosureRouteSegment('en', 'methodology'),
  sindacati: 'trade-unions-cross-border-workers',
  guidaCompleta: 'complete-guide-cross-border-work-switzerland-2026',
  tassazioneHub: 'cross-border-taxation-guide-2026',
@@ -473,9 +490,9 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  followedCompanies: 'gefolgte-unternehmen',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'ueber-uns',
- correzioni: 'korrekturen',
+ correzioni: disclosureRouteSegment('de', 'corrections'),
  subscribe: 'abonnement',
- metodologia: 'methodik',
+ metodologia: disclosureRouteSegment('de', 'methodology'),
  sindacati: 'gewerkschaften-grenzgaenger',
  guidaCompleta: 'komplettanleitung-grenzgaenger-arbeit-schweiz-2026',
  tassazioneHub: 'grenzgaenger-besteuerung-leitfaden-2026',
@@ -582,9 +599,9 @@ export const SLUG_TABLES: Record<Locale, SlugTable> = {
  followedCompanies: 'entreprises-suivies',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'a-propos',
- correzioni: 'corrections',
+ correzioni: disclosureRouteSegment('fr', 'corrections'),
  subscribe: 'abonnement',
- metodologia: 'methodologie',
+ metodologia: disclosureRouteSegment('fr', 'methodology'),
  sindacati: 'syndicats-frontaliers',
  guidaCompleta: 'guide-complet-travail-frontalier-suisse-2026',
  tassazioneHub: 'guide-imposition-frontaliers-2026',
