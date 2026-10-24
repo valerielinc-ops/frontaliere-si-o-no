@@ -2386,7 +2386,11 @@ function BlogArticlesContent({
  // per-article provenance question — see services/articleProvenance.ts.
  const bylineAuthor = (effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined) as { uid?: string } | undefined;
  const resolvedAuthor = {
-  provenance: resolveArticleProvenance(article, bylineAuthor),
+  // The generated article registry intentionally omits the optional
+  // provenance field when the corpus has no per-article declaration. Keep the
+  // consumer's structural contract explicit so syncs do not make this call
+  // ill-typed while the runtime inference fallback remains unchanged.
+  provenance: resolveArticleProvenance(article as Article & { aiAssisted?: boolean }, bylineAuthor),
  };
  const isHumanContributor = !resolvedAuthor.provenance.aiAssisted && Boolean(effectiveAuthorName);
  // One AI statement site-wide (packages/articles/engine/shared/aiDisclosure.ts),
