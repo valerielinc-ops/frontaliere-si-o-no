@@ -1,7 +1,7 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-10-24T09:30:33.808Z",
+  "generatedAt": "2026-10-24T21:34:49.390Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -11,12 +11,12 @@
   "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4931,
-  "avgDurationMs": 4931,
+  "durationMs": 4750,
+  "avgDurationMs": 4750,
   "durationHistory": [
-    4931
+    4750
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +41,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-24T09:30:19.658Z",
+      "crawledAt": "2026-10-24T21:34:35.570Z",
       "id": "pkb-private-bank-861a521add1e",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-23T09:46:10.994Z",
@@ -61,48 +61,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Risk Officer",
-      "company": "PKB Private Bank SA",
-      "companyKey": "pkb-private-bank",
-      "companyDomain": "pkb.ch",
-      "url": "https://careers.pkb.ch/job/view-job.php?id=30-risk-officer-lugano&language=it",
-      "slug": "risk-officer-pkb-private-bank-lugano",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Serafino Balestra 1",
-      "datePosted": "2026-08-17",
-      "postedDate": "2026-08-17",
-      "postingDateSource": "reported",
-      "validThrough": "",
-      "sector": "Banca e servizi finanziari",
-      "role": "Altro",
-      "employmentType": "FULL_TIME",
-      "source": "PKB Dedicated Parser (Arca24)",
-      "sourceLang": "it",
-      "crawledAt": "2026-10-19T21:37:01.101Z",
-      "id": "pkb-private-bank-0b868337e255",
-      "firstSeenAt": "2026-08-18T10:07:39.850Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "applyUrl": "https://careers.pkb.ch/job/view-job.php?id=30-risk-officer-lugano&language=it",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
