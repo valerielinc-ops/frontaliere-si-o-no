@@ -46,7 +46,7 @@ function getWeeklyFact(locale = 'it') {
  ],
  de: [
   { text: 'In der Schweiz liegt der Medianlohn bei rund 6.665 CHF pro Monat (2022).', source: 'BFS' },
-  { text: '\u00dcber 78.000 Grenzg\u00e4nger pendeln in den Kanton Tessin.', source: 'USTAT' },
+  { text: 'Rund 79.000 Grenzg\u00e4nger pendeln in den Kanton Tessin.', source: 'USTAT' },
   { text: 'Der Freibetrag f\u00fcr neue Grenzg\u00e4nger ab 2024 betr\u00e4gt \u20ac10.000.', source: 'Neues Steuerabkommen' },
   { text: 'Die Arbeitslosenquote im Tessin liegt bei etwa 2,3%.', source: 'SECO' },
   { text: 'Die AHV (1. S\u00e4ule) deckt rund 40% des Vorruhestandseinkommens.', source: 'BSV' },

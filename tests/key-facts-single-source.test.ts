@@ -70,8 +70,8 @@ const surfaces = (): [string, string][] => [
 // "<qualifier> NN.000 frontalieri" in the four languages, 60-99 thousand: a
 // statement of the cantonal headcount. City-level figures (e.g. ~30.000 in
 // Lugano) are a different fact and stay out of the pattern.
-const HEADCOUNT_RE = /\b(?:circa|oltre|about|over|approximately|around|roughly|rund|etwa|über|environ|plus de)\s+([6-9]\d)[.,'’  ]000\s+(?:lavoratori\s+)?(?:frontalier|cross-border|Grenzg|travailleurs frontaliers)/giu;
-const SHARE_RE = /(\d{2})\s?%\s+(?:della forza lavoro|of the (?:cantonal |Ticino |Canton Ticino )?workforce|der (?:kantonalen )?Arbeitskräfte|de la main-d)/giu;
+const HEADCOUNT_RE = /(?:circa|oltre|about|over|more than|approximately|around|roughly|rund|etwa|über|ueber|\\u00fcber|\\u00dcber|environ|plus de)\s+([6-9]\d)[.,'’  ]000\s+(?:active\s+|aktive\s+|aktiven\s+|lavoratori\s+)?(?:G-permit\s+|G-)?(?:frontalier|cross-border|Grenzg|Grenzpendl|travailleurs frontaliers)/giu;
+const SHARE_RE = /(\d{2})\s?%\s+(?:della forza lavoro|degli occupati|of the (?:cantonal |Ticino |Canton Ticino )?workforce|of employed|der (?:kantonalen |Tessiner )?(?:Arbeitskräfte|Erwerbsbevoelkerung|Erwerbsbevölkerung|Erwerbstätigen)|de la main-d|de la population active|des personnes actives)/giu;
 const GROWTH_RE = /cresce del 2[-–]3|grows? by 2[-–]3|grown steadily|wächst jährlich um 2|waechst jaehrlich um 2|augmente de 2[-–]3|croit de 2[-–]3|Crescita annua/iu;
 
 describe('key facts: one source', () => {

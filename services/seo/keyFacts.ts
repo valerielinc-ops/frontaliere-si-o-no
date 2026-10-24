@@ -47,6 +47,6 @@ export const FOUNDING_YEAR = ORGANIZATION_FOUNDING_DATE;
 export function formatCrossBorderWorkers(locale: KeyFactsLocale): string {
   const n = TICINO_CROSS_BORDER_WORKERS_ROUNDED;
   if (locale === 'en') return n.toLocaleString('en-US');
-  if (locale === 'fr') return n.toLocaleString('en-US').replace(',', ' ');
-  return n.toLocaleString('en-US').replace(',', '.');
+  if (locale === 'fr') return n.toLocaleString('en-US').replace(/,/g, ' ');
+  return n.toLocaleString('en-US').replace(/,/g, '.');
 }

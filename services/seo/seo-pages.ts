@@ -1352,7 +1352,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
  "temporalCoverage": "2024/2026",
  "variableMeasured": [
- { "@type": "PropertyValue", "name": "Numero frontalieri", "value": "~79.000 (2025)" },
+ { "@type": "PropertyValue", "name": "Numero frontalieri (USTAT, I trimestre 2026)", "value": "78561" },
  { "@type": "PropertyValue", "name": "Offerte lavoro attive", "value": "Aggiornate quotidianamente" },
  { "@type": "PropertyValue", "name": "Aziende attive", "value": "100+ aziende ticinesi" },
  { "@type": "PropertyValue", "name": "Trend offerte", "value": "Variazione giornaliera annunci" }

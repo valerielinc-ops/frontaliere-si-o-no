@@ -2634,15 +2634,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanti frontalieri lavorano in Canton Ticino?": {
  en: {
  q: "How many cross-border workers work in Canton Ticino?",
- a: "About 79,000 cross-border workers commute daily from Italy to Canton Ticino (BFS 2025 data). Ticino is the Swiss canton with the highest concentration of cross-border workers, representing about 32% of the cantonal workforce. Over the last two years the number has edged down (-0.5% year on year in Q1 2026, USTAT). Main sectors are manufacturing, construction, finance, healthcare, hospitality, and IT."
+ a: "About 79,000 cross-border workers commute daily from Italy to Canton Ticino (USTAT, Q1 2026). Ticino is the Swiss canton with the highest concentration of cross-border workers, representing about 32% of the cantonal workforce. Over the last two years the number has edged down (-0.5% year on year in Q1 2026, USTAT). Main sectors are manufacturing, construction, finance, healthcare, hospitality, and IT."
  },
  de: {
  q: "Wie viele Grenzgänger arbeiten im Kanton Tessin?",
- a: "Rund 79.000 Grenzgänger pendeln täglich von Italien in den Kanton Tessin (BFS-Daten 2025). Das Tessin ist der Schweizer Kanton mit der höchsten Grenzgängerkonzentration, die rund 32 % der kantonalen Arbeitskräfte ausmachen. In den letzten zwei Jahren ist die Zahl leicht gesunken (-0,5 % gegenüber dem Vorjahr im 1. Quartal 2026, USTAT). Hauptsektoren sind Fertigung, Bau, Finanzen, Gesundheitswesen, Gastgewerbe und IT."
+ a: "Rund 79.000 Grenzgänger pendeln täglich von Italien in den Kanton Tessin (USTAT, 1. Quartal 2026). Das Tessin ist der Schweizer Kanton mit der höchsten Grenzgängerkonzentration, die rund 32 % der kantonalen Arbeitskräfte ausmachen. In den letzten zwei Jahren ist die Zahl leicht gesunken (-0,5 % gegenüber dem Vorjahr im 1. Quartal 2026, USTAT). Hauptsektoren sind Fertigung, Bau, Finanzen, Gesundheitswesen, Gastgewerbe und IT."
  },
  fr: {
  q: "Combien de frontaliers travaillent au Canton du Tessin ?",
- a: "Environ 79 000 travailleurs frontaliers font la navette quotidiennement de l'Italie au Canton du Tessin (données OFS 2025). Le Tessin est le canton suisse avec la plus forte concentration de frontaliers, représentant environ 32 % de la main-d'oeuvre cantonale. Ces deux dernières années, le nombre a légèrement baissé (-0,5 % sur un an au 1er trimestre 2026, USTAT). Les principaux secteurs sont l'industrie, la construction, la finance, la santé, l'hôtellerie et l'informatique."
+ a: "Environ 79 000 travailleurs frontaliers font la navette quotidiennement de l'Italie au Canton du Tessin (USTAT, 1er trimestre 2026). Le Tessin est le canton suisse avec la plus forte concentration de frontaliers, représentant environ 32 % de la main-d'oeuvre cantonale. Ces deux dernières années, le nombre a légèrement baissé (-0,5 % sur un an au 1er trimestre 2026, USTAT). Les principaux secteurs sont l'industrie, la construction, la finance, la santé, l'hôtellerie et l'informatique."
  }
  },
 
@@ -3059,15 +3059,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanti frontalieri lavorano in Canton Ticino nel 2026?": {
  en: {
  q: "How many cross-border workers work in Canton Ticino in 2026?",
- a: "About 79,000 cross-border workers commute daily from Italy to Canton Ticino (BFS 2025 data). Ticino is the canton with the highest concentration of cross-border workers, about 32% of the cantonal workforce."
+ a: "About 79,000 cross-border workers commute daily from Italy to Canton Ticino (USTAT, Q1 2026). Ticino is the canton with the highest concentration of cross-border workers, about 32% of the cantonal workforce."
  },
  de: {
  q: "Wie viele Grenzgaenger arbeiten 2026 im Kanton Tessin?",
- a: "Rund 79.000 Grenzgaenger pendeln taeglich aus Italien in den Kanton Tessin (Daten BFS 2025). Das Tessin ist der Kanton mit der hoechsten Grenzgaengerdichte, rund 30 % der kantonalen Erwerbsbevoelkerung."
+ a: "Rund 79.000 Grenzgaenger pendeln taeglich aus Italien in den Kanton Tessin (USTAT, 1. Quartal 2026). Das Tessin ist der Kanton mit der hoechsten Grenzgaengerdichte, rund 32 % der kantonalen Erwerbsbevoelkerung."
  },
  fr: {
  q: "Combien de frontaliers travaillent dans le canton du Tessin en 2026 ?",
- a: "Environ 79 000 travailleurs frontaliers font quotidiennement la navette depuis l'Italie vers le canton du Tessin (donnees OFS 2025). Le Tessin est le canton avec la plus forte concentration de frontaliers, environ 32 % de la main-d'oeuvre cantonale."
+ a: "Environ 79 000 travailleurs frontaliers font quotidiennement la navette depuis l'Italie vers le canton du Tessin (USTAT, 1er trimestre 2026). Le Tessin est le canton avec la plus forte concentration de frontaliers, environ 32 % de la main-d'oeuvre cantonale."
  }
  },
 
@@ -3543,7 +3543,7 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  },
  de: {
  q: "Wie viele Grenzgaenger arbeiten im Kanton Tessin und wie viel verdienen sie?",
- a: "Rund 79.000 Grenzgaenger pendeln taeglich aus Italien in den Kanton Tessin (USTAT, 1. Quartal 2026), rund 30 % der kantonalen Erwerbsbevoelkerung. Der Medianbruttolohn im Tessin liegt bei rund CHF 5.200/Monat (CHF 62.400/Jahr). Hauptbranchen sind Industrie, Bauwesen, Finanzen, Gesundheitswesen, Gastgewerbe und IT. In den letzten zwei Jahren ist die Zahl leicht gesunken (-0,5 % gegenueber dem Vorjahr im 1. Quartal 2026, USTAT)."
+ a: "Rund 79.000 Grenzgaenger pendeln taeglich aus Italien in den Kanton Tessin (USTAT, 1. Quartal 2026), rund 32 % der kantonalen Erwerbsbevoelkerung. Der Medianbruttolohn im Tessin liegt bei rund CHF 5.200/Monat (CHF 62.400/Jahr). Hauptbranchen sind Industrie, Bauwesen, Finanzen, Gesundheitswesen, Gastgewerbe und IT. In den letzten zwei Jahren ist die Zahl leicht gesunken (-0,5 % gegenueber dem Vorjahr im 1. Quartal 2026, USTAT)."
  },
  fr: {
  q: "Combien de frontaliers travaillent dans le canton du Tessin et combien gagnent-ils ?",
@@ -4470,8 +4470,8 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
 
  "Aziende in Canton Ticino: quante sono e dove cercarle nel 2026?": {
  en: { q: "How many companies are based in Canton Ticino and where can I find them in 2026?", a: "About 36,700 active companies are registered in Canton Ticino (source: [USTAT — 2024 company census](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)), of which more than 5,300 have at least 10 employees. 52% are based in the Lugano district, 22% in the Mendrisiotto, 11% in Luganese-Malcantone and 15% in Bellinzonese-Locarnese. Where to find them: Register of Commerce (zefix.ch) for official data, Orell-Fuessli for balance sheets, Moneyhouse for corporate networks, SUPSI Alumni for direct contacts. Corporate job openings are aggregated on JobUp, JobScout24 and our [Frontaliere Ticino — Job Board](/cerca-lavoro-ticino). Italian cross-border workers (about 79,000 according to USTAT) make up about 32% of the Ticino workforce." },
- de: { q: "Wie viele Firmen gibt es im Kanton Tessin und wo findet man sie 2026?", a: "Im Kanton Tessin sind rund 36'700 aktive Unternehmen registriert (Quelle: [USTAT — Unternehmenszaehlung 2024](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)), davon ueber 5'300 mit mindestens 10 Mitarbeitenden. 52 % sind im Bezirk Lugano ansaessig, 22 % im Mendrisiotto, 11 % im Luganese-Malcantone und 15 % im Bellinzonese-Locarnese. Wo suchen: Handelsregister (zefix.ch) fuer offizielle Daten, Orell Fuessli fuer Bilanzen, Moneyhouse fuer Firmennetzwerke, SUPSI Alumni fuer Direktkontakte. Stellenangebote der Unternehmen laufen auf JobUp, JobScout24 und auf unserem [Frontaliere Ticino — Job Board](/cerca-lavoro-ticino). Die italienischen Grenzgaenger (ueber 74'000 laut BFS) stellen fast 30 % der Tessiner Erwerbsbevoelkerung." },
- fr: { q: "Entreprises au Canton du Tessin : combien sont-elles et ou les chercher en 2026 ?", a: "Environ 36 700 entreprises actives sont enregistrees au Canton du Tessin (source : [USTAT — Recensement des entreprises 2024](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)), dont plus de 5 300 comptent au moins 10 salaries. 52 % sont dans le district de Lugano, 22 % dans le Mendrisiotto, 11 % dans le Luganese-Malcantone et 15 % dans le Bellinzonese-Locarnese. Ou les chercher : Registre du commerce (zefix.ch) pour les donnees officielles, Orell Fuessli pour les bilans, Moneyhouse pour les reseaux d'entreprises, SUPSI Alumni pour les contacts directs. Les offres d'emploi des entreprises sont agregees sur JobUp, JobScout24 et sur notre [Frontaliere Ticino — Job Board](/cerca-lavoro-ticino). Les frontaliers italiens (plus de 74 000 selon l'OFS) representent pres de 30 % de la population active tessinoise." }
+ de: { q: "Wie viele Firmen gibt es im Kanton Tessin und wo findet man sie 2026?", a: "Im Kanton Tessin sind rund 36'700 aktive Unternehmen registriert (Quelle: [USTAT — Unternehmenszaehlung 2024](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)), davon ueber 5'300 mit mindestens 10 Mitarbeitenden. 52 % sind im Bezirk Lugano ansaessig, 22 % im Mendrisiotto, 11 % im Luganese-Malcantone und 15 % im Bellinzonese-Locarnese. Wo suchen: Handelsregister (zefix.ch) fuer offizielle Daten, Orell Fuessli fuer Bilanzen, Moneyhouse fuer Firmennetzwerke, SUPSI Alumni fuer Direktkontakte. Stellenangebote der Unternehmen laufen auf JobUp, JobScout24 und auf unserem [Frontaliere Ticino — Job Board](/cerca-lavoro-ticino). Die italienischen Grenzgaenger (rund 79'000 laut USTAT) stellen rund 32 % der Tessiner Erwerbsbevoelkerung." },
+ fr: { q: "Entreprises au Canton du Tessin : combien sont-elles et ou les chercher en 2026 ?", a: "Environ 36 700 entreprises actives sont enregistrees au Canton du Tessin (source : [USTAT — Recensement des entreprises 2024](https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28)), dont plus de 5 300 comptent au moins 10 salaries. 52 % sont dans le district de Lugano, 22 % dans le Mendrisiotto, 11 % dans le Luganese-Malcantone et 15 % dans le Bellinzonese-Locarnese. Ou les chercher : Registre du commerce (zefix.ch) pour les donnees officielles, Orell Fuessli pour les bilans, Moneyhouse pour les reseaux d'entreprises, SUPSI Alumni pour les contacts directs. Les offres d'emploi des entreprises sont agregees sur JobUp, JobScout24 et sur notre [Frontaliere Ticino — Job Board](/cerca-lavoro-ticino). Les frontaliers italiens (environ 79 000 selon l'USTAT) representent environ 32 % de la population active tessinoise." }
  },
 
  "Come candidarsi alle aziende svizzero-italiane che assumono frontalieri?": {
