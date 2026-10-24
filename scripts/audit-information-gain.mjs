@@ -178,6 +178,9 @@ const KNOWN_LOW_GAIN_COHORTS = new Map([
 
   // ── Le 37 coorti del 2026-09-01, run 33460354951 (issue #6975 → #7382) ────
   //
+  // 35 restano: `de:~4c9404` e `fr:~9706c6` sono risalite sopra il floor e
+  // sono state tolte il 2026-10-24 (vedi la nota nel blocco dei valichi).
+  //
   // Cinque famiglie, 22 + 4 + 4 + 4 + 3, che coprono TUTTI gli offender di
   // quella run: la tabella per coorte sta in `docs/INFORMATION-GAIN.md`
   // («I 37 offender del 2026-09-01, scomposti»). Il valore di ogni riga è la
@@ -246,8 +249,13 @@ const KNOWN_LOW_GAIN_COHORTS = new Map([
   // è l'identità del template (`<h1>` mascherato), non il path.
   ['it:~1fd95f', 0],
   ['en:~bdfe66', 0],
-  ['de:~4c9404', 0],
-  ['fr:~9706c6', 0],
+  // `de:~4c9404` e `fr:~9706c6` tolte il 2026-10-24: il loro skeletonHash è
+  // quello di un `<h1>` di due parole interamente mascherate, quindi oggi la
+  // coorte è fatta delle pagine statiche EN/DE/FR a titolo di due parole, non
+  // più dei valichi. L'audit full-corpus del 2026-10-24 le dava già in
+  // `recoveredCohorts` (de 68 %, fr 73 %), e dopo il fix dell'editoriale di
+  // ripiego (chiave '/' solo per la home, indici di sezione con la loro copia)
+  // il campione live ricomposto le misura a 50 % (de) e 39,7 % (fr).
   //
   // Premi cassa malati — 4 coorti, un cantone × una fascia d'età, con il premio
   // mensile come payload.

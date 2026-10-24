@@ -32,6 +32,7 @@ import {
   type CantonSeoLocale,
 } from './shared/cantonSeoProse';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
+import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import {
   NATIONAL_MEDIAN_MONTHLY,
   cantonMonthlyMedianChf,
@@ -73,6 +74,26 @@ interface ComparisonCopy {
   practical: (canton: string, peer: string) => string;
   application: (canton: string, peer: string) => string;
   caution: (canton: string, peer: string) => string;
+}
+
+/**
+ * Contextual link from each canton salary page to the same canton's job hub
+ * (`/stipendi-ticino/` → `/cerca-lavoro-ticino/`, `/stipendi-zurigo/` →
+ * `/cerca-lavoro-zurigo/`, locale twins alike). Someone reading the median
+ * salary of a canton is one step from "lavoro <canton>": the salary family
+ * (26 cantons × 4 locales) linked the calculator but never the job board.
+ */
+const JOB_HUB_LINK_COPY: Record<SalaryStatsLocale, (canton: string) => { before: string; anchor: string; after: string }> = {
+  it: (c) => ({ before: `Cerchi lavoro nel Canton ${c}? Confronta lo stipendio con le `, anchor: `offerte di lavoro nel Canton ${c}`, after: ', aggiornate ogni giorno.' }),
+  en: (c) => ({ before: `Looking for work in Canton ${c}? Compare these salaries with the `, anchor: `job openings in ${c}`, after: ', updated daily.' }),
+  de: (c) => ({ before: `Auf Stellensuche im Kanton ${c}? Vergleichen Sie die Löhne mit den `, anchor: `Stellenangeboten im Kanton ${c}`, after: ', täglich aktualisiert.' }),
+  fr: (c) => ({ before: `Vous cherchez un emploi dans le canton ${c} ? Comparez ces salaires avec les `, anchor: `offres d’emploi dans le canton ${c}`, after: ', mises à jour chaque jour.' }),
+};
+
+/** Locale-prefixed, trailing-slash canton job-hub path (`/cerca-lavoro-zurigo/`). */
+export function salaryStatsJobHubHref(locale: SalaryStatsLocale, cantonKey: string): string {
+  const prefix = locale === 'it' ? '' : `/${locale}`;
+  return `${prefix}/${resolveCantonSection(locale as CantonLocale, cantonKey)}/`;
 }
 
 /**
@@ -384,6 +405,8 @@ export function renderSalaryStatsPage(opts: {
   });
 
   const cta = `<p class="my-4"><a href="${esc(calcHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta)} →</a></p>`;
+  const jobLink = JOB_HUB_LINK_COPY[locale](cantonName);
+  const jobHubLink = `<p style="${BODY_STYLE}">${esc(jobLink.before)}<a href="${esc(salaryStatsJobHubHref(locale, cantonKey))}">${esc(jobLink.anchor)}</a>${esc(jobLink.after)}</p>`;
 
   // Reuse the canton-aware SEO prose (already carries per-canton salary copy +
   // FAQ) so the page comfortably clears the indexable-words gate and shares one
@@ -414,6 +437,7 @@ ${sectorTable}
 ${netBlock}
 ${salaryStatsInlineAd}
 ${cta}
+${jobHubLink}
 ${comparisonBlock}
 ${methodology}
 ${sourcesBlock}

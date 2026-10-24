@@ -3266,8 +3266,6 @@ Rules:
 
  'seoContent.calculator.title': 'Swiss Cross-Border Salary Calculator 2026',
  'seoContent.calculator.subtitle': 'Precise fiscal simulation tools for cross-border workers: calculate net salary, payslip, AVS/LPP pension and tax deductions.',
- 'seoContent.calculator.expertQuote': 'Calculating net salary for a cross-border worker requires considering at least 7 different tax variables between withholding tax, AVS, AC and LPP — a common mistake is forgetting second-pillar contributions.',
- 'seoContent.calculator.expertName': 'Dr. Elena Colombo, International Tax Accountant',
  'seoContent.calculator.feature1.title': 'Net cross-border salary',
  'seoContent.calculator.feature1.desc': 'Precise calculation with withholding tax, AVS, AC, LPP and social contributions.',
  'seoContent.calculator.feature2.title': 'Payslip simulator',
@@ -3300,8 +3298,6 @@ Rules:
 
  'seoContent.fisco.title': 'Taxes and Fiscal Topics for Cross-Border Workers',
  'seoContent.fisco.subtitle': 'Based on Canton Ticino tax data (DFE, 2026) and Italian Revenue Agency (Circular 25/E, 2024): cross-border taxation, 2026 new agreement, tax returns, fiscal deadlines and applicable deductions.',
- 'seoContent.fisco.expertQuote': 'Under the 2020 New Agreement, cross-border workers hired after July 17, 2023 pay both Swiss withholding tax and Italian IRPEF with a €10,000 exemption — it\'s essential to understand which regime applies to you.',
- 'seoContent.fisco.expertName': 'Avv. Marco Bernasconi, Cross-Border Tax Attorney',
  'seoContent.fisco.feature1.title': 'Tax return',
  'seoContent.fisco.feature1.desc': 'Step-by-step guide to filing your Italian income tax return.',
  'seoContent.fisco.feature2.title': 'Tax calendar',
@@ -3318,8 +3314,6 @@ Rules:
 
  'seoContent.guida.title': 'Complete Guide for Swiss Cross-Border Workers',
  'seoContent.guida.subtitle': 'From A to Z per SEM (State Secretariat for Migration, 2026): permits, first day, contracts, glossary and everything you need to work in Switzerland from Italy.',
- 'seoContent.guida.expertQuote': 'The G permit is a right derived from the Switzerland-EU Bilateral Agreements — not a concession. Cross-border workers have the same employment rights as Swiss residents, including dismissal protection.',
- 'seoContent.guida.expertName': 'Prof. Roberto Bentivoglio, Professor of Labour Law, Università della Svizzera italiana (USI)',
  'seoContent.guida.feature1.title': 'Permit comparison',
  'seoContent.guida.feature1.desc': 'G Permit vs B Permit: which to choose and why.',
  'seoContent.guida.feature2.title': 'First day',
@@ -3336,8 +3330,6 @@ Rules:
 
  'seoContent.vita.title': 'Daily Life as a Cross-Border Worker',
  'seoContent.vita.subtitle': 'Practical tips based on BFS (Swiss Federal Statistical Office, 2025) and FOPH data: groceries, transport, mobile operators, cost of living and cross-border community.',
- 'seoContent.vita.expertQuote': 'Pension planning is the most underestimated topic for cross-border workers: someone working 30 years in Switzerland accumulates AVS, LPP and can contribute to the 3rd pillar — but without coordination, risks contribution gaps in Italy.',
- 'seoContent.vita.expertName': 'Dr. Andrea Fiorini, Pension Planning Consultant specializing in CH-IT systems',
  'seoContent.vita.feature1.title': 'CH vs IT cost of living',
  'seoContent.vita.feature1.desc': 'Compare rent, groceries, transport prices between the two countries.',
  'seoContent.vita.feature2.title': 'Mobile operators',
@@ -3354,8 +3346,6 @@ Rules:
 
  'seoContent.stats.title': 'Cross-Border Statistics and Data',
  'seoContent.stats.subtitle': 'BFS data (Grenzgängerstatistik, Q4 2025) and FSO on the cross-border community: border traffic, average salaries, CHF-EUR exchange trends.',
- 'seoContent.stats.expertQuote': 'The 79,000 Italian cross-border workers in Ticino represent 28% of the cantonal workforce — a figure that makes this community a decisive macroeconomic factor for both countries.',
- 'seoContent.stats.expertName': 'Prof. Roberto Bentivoglio, Professor of Labour Law, USI',
  'seoContent.stats.feature1.title': 'Border traffic',
  'seoContent.stats.feature1.desc': 'Real-time monitoring of major border crossings.',
  'seoContent.stats.feature2.title': 'Average salaries',
@@ -3539,8 +3529,6 @@ Rules:
  'whatsNew.v3440.title': 'AI SEO Optimization & New Pillar Articles',
  'whatsNew.v3440.pillarArticles.title': '4 In-Depth Guides for Cross-Border Workers',
  'whatsNew.v3440.pillarArticles.desc': 'New pillar articles: G Permit pros/cons, LAMal vs SSN, Finding work in Ticino, and Complete guide to becoming a cross-border worker.',
- 'whatsNew.v3440.expertQuotes.title': 'Expert Quotes in FAQs',
- 'whatsNew.v3440.expertQuotes.desc': 'Added quotes from tax, pension, and insurance specialists to strengthen the authority of our FAQ answers.',
  'whatsNew.v3440.enAiReference.title': 'English AI Reference Document',
  'whatsNew.v3440.enAiReference.desc': 'Created a comprehensive English reference document to improve visibility in international AI search engines.',
  'whatsNew.v3430.title': 'Improvements and New Features for a Better Experience',
@@ -4109,7 +4097,7 @@ Rules:
  'seo.toolOfWeek.description': 'The tool of the week for cross-border workers: each week we spotlight a different calculator or comparator for you to try out and share on social media.',
  'seo.feedback.description': 'Help us improve Frontaliere Ticino: report a bug or suggest a new feature on GitHub and help shape the tax simulator built for cross-border workers.',
  'seo.forum.description': 'Cross-border workers community forum: ask questions on taxes, permits, insurance, pensions and transport and get answers from people with hands-on experience.',
- 'seo.dashboard.description': 'Personal dashboard for cross-border workers: save your tax simulations, compare results over time and export PDF reports to track your cross-border journey.',
+ 'seo.dashboard.description': 'Personal area for cross-border workers: save your profile and permit expiry, estimate your net salary, follow applications and saved jobs, export your data.',
  'seo.gamification.description': 'Gamification system for cross-border workers: earn XP by exploring the tax simulator, complete challenges and unlock levels while learning and having fun.',
  'seo.privacy.description': 'Frontaliere Ticino privacy policy: how we handle personal data, cookies, analytics and user rights, in compliance with the GDPR and the Swiss FADP rules.',
  'seo.petition.description': 'Petition about the speed bump between Gaggiolo and Stabio: traffic reports, official data and a request for a safe technical review.',

@@ -1,22 +1,22 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-10-23T21:32:28.141Z",
-  "total": 2,
+  "generatedAt": "2026-10-24T09:30:33.808Z",
+  "total": 1,
   "discovered": 1,
   "parsed": 1,
   "lastFetchOutcome": "ok",
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5316,
-  "avgDurationMs": 5316,
+  "durationMs": 4931,
+  "avgDurationMs": 4931,
   "durationHistory": [
-    5316
+    4931
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +41,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-23T21:32:08.727Z",
+      "crawledAt": "2026-10-24T09:30:19.658Z",
       "id": "pkb-private-bank-861a521add1e",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-23T09:46:10.994Z",
@@ -59,7 +59,9 @@
         "translation": 23,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Risk Officer",
       "company": "PKB Private Bank SA",
@@ -101,7 +103,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

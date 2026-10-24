@@ -1459,7 +1459,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano e il Lago di Lugano',
-    'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Permesso G per frontalieri: procedura e obblighi in Ticino',
+    'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Richiesta permesso G in Ticino: procedura, documenti e costi',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Guida pratica alla richiesta del nuovo permesso G per frontalieri in Ticino: documenti, obblighi di notifica e tasse di procedura aggiornate.',
     'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Edificio amministrativo in Ticino',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea',

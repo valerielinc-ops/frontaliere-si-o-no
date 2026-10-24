@@ -3269,8 +3269,6 @@ Regeln:
 
  'seoContent.calculator.title': 'Schweizer Grenzgänger-Lohnrechner 2026',
  'seoContent.calculator.subtitle': 'Präzise Steuer-Simulationstools für Grenzgänger: Nettolohn, Lohnabrechnung, AHV/BVG-Rente und Steuerabzüge berechnen.',
- 'seoContent.calculator.expertQuote': 'Die Nettolohnberechnung für Grenzgänger erfordert mindestens 7 verschiedene Steuervariablen — ein häufiger Fehler ist das Vergessen der Beiträge zur zweiten Säule.',
- 'seoContent.calculator.expertName': 'Dr. Elena Colombo, Internationale Steuerberaterin',
  'seoContent.calculator.feature1.title': 'Nettolohn Grenzgänger',
  'seoContent.calculator.feature1.desc': 'Präzise Berechnung mit Quellensteuer, AHV, ALV, BVG und Sozialabzügen.',
  'seoContent.calculator.feature2.title': 'Lohnabrechnung-Simulator',
@@ -3303,8 +3301,6 @@ Regeln:
 
  'seoContent.fisco.title': 'Steuern und Fiskales für Grenzgänger Schweiz-Italien',
  'seoContent.fisco.subtitle': 'Gemäss Daten des Kantons Tessin (DFE, 2026) und der Agenzia delle Entrate (Rundschreiben 25/E, 2024): Grenzgängerbesteuerung, neues Abkommen, Steuererklärung, Fristen und anwendbare Abzüge.',
- 'seoContent.fisco.expertQuote': 'Nach dem Neuen Abkommen 2020 zahlen Grenzgänger, die nach dem 17. Juli 2023 eingestellt wurden, sowohl die Schweizer Quellensteuer als auch die italienische IRPEF mit einem Freibetrag von €10.000.',
- 'seoContent.fisco.expertName': 'Avv. Marco Bernasconi, Steueranwalt für grenzüberschreitende Besteuerung',
  'seoContent.fisco.feature1.title': 'Steuererklärung',
  'seoContent.fisco.feature1.desc': 'Schritt-für-Schritt-Anleitung zur italienischen Einkommensteuererklärung.',
  'seoContent.fisco.feature2.title': 'Steuerkalender',
@@ -3321,8 +3317,6 @@ Regeln:
 
  'seoContent.guida.title': 'Vollständige Anleitung für Schweizer Grenzgänger',
  'seoContent.guida.subtitle': 'Von A bis Z gemäss SEM (Staatssekretariat für Migration, 2026): Bewilligungen, erster Tag, Verträge, Glossar und alles, was Sie brauchen, um von Italien aus in der Schweiz zu arbeiten.',
- 'seoContent.guida.expertQuote': 'Die Grenzgängerbewilligung G ist ein Recht aus den bilateralen Abkommen Schweiz-EU — keine Konzession. Grenzgänger haben die gleichen Arbeitsrechte wie Schweizer Einwohner, einschliesslich Kündigungsschutz.',
- 'seoContent.guida.expertName': 'Prof. Roberto Bentivoglio, Professor für Arbeitsrecht, Università della Svizzera italiana (USI)',
  'seoContent.guida.feature1.title': 'Bewilligungsvergleich',
  'seoContent.guida.feature1.desc': 'G-Bewilligung vs B-Bewilligung: welche wählen und warum.',
  'seoContent.guida.feature2.title': 'Erster Tag',
@@ -3339,8 +3333,6 @@ Regeln:
 
  'seoContent.vita.title': 'Alltag als Grenzgänger',
  'seoContent.vita.subtitle': 'Praktische Tipps basierend auf BFS-Daten (Bundesamt für Statistik, 2025) und BAG: Einkauf, Transport, Mobilfunk, Lebenshaltungskosten und Grenzgänger-Gemeinschaft.',
- 'seoContent.vita.expertQuote': 'Die Vorsorgeplanung ist das am meisten unterschätzte Thema für Grenzgänger: Wer 30 Jahre in der Schweiz arbeitet, sammelt AHV, BVG und kann in die 3. Säule einzahlen — ohne Koordination drohen Beitragslücken in Italien.',
- 'seoContent.vita.expertName': 'Dr. Andrea Fiorini, Vorsorgeberater für CH-IT Rentensysteme',
  'seoContent.vita.feature1.title': 'Lebenshaltungskosten CH vs IT',
  'seoContent.vita.feature1.desc': 'Vergleichen Sie Miete, Einkauf, Transport zwischen beiden Ländern.',
  'seoContent.vita.feature2.title': 'Mobilfunkanbieter',
@@ -3357,8 +3349,6 @@ Regeln:
 
  'seoContent.stats.title': 'Grenzgänger-Statistiken und Daten',
  'seoContent.stats.subtitle': 'BFS-Daten (Grenzgängerstatistik, Q4 2025) und BFS über die Grenzgänger-Gemeinschaft: Grenzverkehr, Durchschnittslöhne, CHF-EUR Kursentwicklung.',
- 'seoContent.stats.expertQuote': 'Die 79.000 italienischen Grenzgänger im Tessin stellen 28% der kantonalen Arbeitskräfte dar — eine Zahl, die diese Gemeinschaft zu einem entscheidenden makroökonomischen Faktor für beide Länder macht.',
- 'seoContent.stats.expertName': 'Prof. Roberto Bentivoglio, Professor für Arbeitsrecht, USI',
  'seoContent.stats.feature1.title': 'Grenzverkehr',
  'seoContent.stats.feature1.desc': 'Echtzeit-Überwachung der wichtigsten Grenzübergänge.',
  'seoContent.stats.feature2.title': 'Durchschnittslöhne',
@@ -3542,8 +3532,6 @@ Regeln:
  'whatsNew.v3440.title': 'AI-SEO-Optimierung und Neue Pillar-Artikel',
  'whatsNew.v3440.pillarArticles.title': '4 Ausführliche Ratgeber für Grenzgänger',
  'whatsNew.v3440.pillarArticles.desc': 'Neue Pillar-Artikel: G-Bewilligung Vor-/Nachteile, KVG vs SSN, Arbeit im Tessin finden und Kompletter Leitfaden für Grenzgänger.',
- 'whatsNew.v3440.expertQuotes.title': 'Expertenzitate in den FAQ',
- 'whatsNew.v3440.expertQuotes.desc': 'Zitate von Steuer-, Vorsorge- und Versicherungsspezialisten hinzugefügt, um die Autorität unserer FAQ-Antworten zu stärken.',
  'whatsNew.v3440.enAiReference.title': 'Englisches AI-Referenzdokument',
  'whatsNew.v3440.enAiReference.desc': 'Umfassendes englisches Referenzdokument erstellt, um die Sichtbarkeit in internationalen KI-Suchmaschinen zu verbessern.',
  'whatsNew.v3430.title': 'Verbesserungen und neue Funktionen für eine bessere Erfahrung',
@@ -4112,7 +4100,7 @@ Regeln:
  'seo.toolOfWeek.description': 'Das Tool der Woche für Grenzgänger: jede Woche heben wir einen anderen Rechner oder Vergleich hervor, den du ausprobieren und teilen kannst. Jetzt entdecken.',
  'seo.feedback.description': 'Hilf uns, Frontaliere Ticino zu verbessern: melde einen Fehler oder schlage eine neue Funktion auf GitHub vor und gestalte den Steuersimulator für Grenzgänger.',
  'seo.forum.description': 'Community-Forum der Grenzgänger: stelle Fragen zu Steuern, Bewilligungen, Versicherungen, Rente und Verkehr und erhalte Antworten von erfahrenen Grenzgängern.',
- 'seo.dashboard.description': 'Persönliches Dashboard für Grenzgänger: speichere deine Steuersimulationen, vergleiche Ergebnisse über die Zeit und exportiere PDF-Berichte zur Übersicht.',
+ 'seo.dashboard.description': 'Persönlicher Bereich für Grenzgänger: Profil und Bewilligungsablauf speichern, Nettolohn schätzen, Bewerbungen und Stellen verfolgen, Daten exportieren.',
  'seo.gamification.description': 'Gamification für Grenzgänger: sammle XP-Punkte beim Erkunden des Steuersimulators, erfülle Ziele und schalte Stufen frei, während du lernst und Spass hast.',
  'seo.privacy.description': 'Datenschutzerklärung von Frontaliere Ticino: Umgang mit personenbezogenen Daten, Cookies, Analytics und Nutzerrechte, konform mit DSGVO und Schweizer DSG.',
  'seo.petition.description': 'Petition zur Schwelle zwischen Gaggiolo und Stabio: Verkehrsmeldungen, offizielle Daten und die Forderung nach einer sicheren technischen Prüfung.',
