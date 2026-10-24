@@ -18680,16 +18680,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-permesso-frontaliere-g-procedura-ticino': {
-    title: 'Permesso G per frontalieri: procedura e obblighi in Ticino',
-    description: 'Scopri come richiedere il permesso G per frontalieri in Ticino: procedura, obblighi di notifica, costi e documenti necessari per lavorare in Svizzera.',
+    title: 'Richiesta permesso G in Ticino: procedura, documenti e costi',
+    description: 'Come fare la richiesta del permesso G in Ticino: notifica all\'Ufficio della migrazione prima di iniziare, documenti, dati biometrici e costi.',
     keywords: 'frontalieri, ticino, svizzera, italia, permesso, procedura, obblighi, pratica',
-    ogTitle: 'Permesso G frontaliere: guida alla richiesta in Ticino',
-    ogDescription: 'Guida pratica alla richiesta del permesso G per frontalieri in Ticino: documenti, obblighi e procedura ufficiale.',
+    ogTitle: 'Richiesta permesso G in Ticino: procedura, documenti e costi',
+    ogDescription: 'Come fare la richiesta del permesso G in Ticino: notifica all\'Ufficio della migrazione prima di iniziare, documenti, dati biometrici e costi.',
     canonicalPath: '/articoli-svizzera/permesso-frontaliere-g-procedura-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Permesso G per frontalieri: procedura e obblighi in Ticino",
+      "headline": "Richiesta permesso G in Ticino: procedura, documenti e costi",
       "description": "Scopri come richiedere il permesso G per frontalieri in Ticino: procedura, obblighi di notifica, costi e documenti necessari per lavorare in Svizzera.",
       "image": {
         "@type": "ImageObject",
