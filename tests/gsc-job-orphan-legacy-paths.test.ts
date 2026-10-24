@@ -11,7 +11,7 @@ import {
   isAllowedGscOrphanUrl,
   mergeGscOrphanRecords,
 } from '../scripts/lib/gsc-orphan-snapshot.mjs';
-import { sectionPathFromOrphan } from '../build-plugins/jobOrphanBridgePlugin';
+import { jobOrphanBridgePlugin, sectionPathFromOrphan } from '../build-plugins/jobOrphanBridgePlugin';
 import { legacyAliasPlugin } from '../build-plugins/legacyAliasPlugin';
 
 const jobSections = {
@@ -264,5 +264,34 @@ describe('GSC job-orphan paths', () => {
       kind: 'expired' as const,
     };
     expect(sectionPathFromOrphan(entry)).toBe(canonicalPath);
+  });
+});
+
+// An expired GSC orphan used to get an index,follow page whose canonical was the
+// section HUB (/cerca-lavoro-ticino/): indexable while naming another URL as
+// canonical, i.e. a soft-404 signal. It now gets no page, so the shard origin
+// 404s and the locale-router Worker 301s it (canton page via /job-canon, else
+// the section root).
+describe('jobOrphanBridgePlugin — expired orphans are left to the Worker 301', () => {
+  it.each(['expired', 'expired-tracked'] as const)('writes nothing for a %s orphan', async (kind) => {
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'job-orphan-expired-'));
+    try {
+      fs.mkdirSync(path.join(rootDir, 'dist'), { recursive: true });
+      fs.mkdirSync(path.join(rootDir, 'data'), { recursive: true });
+      const slug = 'vendeur-en-salaire-horaire-denner-grosswangen';
+      fs.writeFileSync(path.join(rootDir, 'data', 'gsc-job-orphans.json'), JSON.stringify({
+        generatedAt: '2026-10-24T00:00:00.000Z',
+        sources: ['test'],
+        counts: { [kind]: 1 },
+        orphans: [{ locale: 'it', slug, url: `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}/`, kind }],
+      }));
+      const plugin = jobOrphanBridgePlugin(rootDir);
+      const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
+      await closeBundle.handler();
+      expect(fs.existsSync(path.join(rootDir, 'dist', 'cerca-lavoro-ticino', slug, 'index.html'))).toBe(false);
+      expect(fs.existsSync(path.join(rootDir, 'dist', 'cerca-lavoro-ticino', `${slug}.html`))).toBe(false);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
   });
 });
