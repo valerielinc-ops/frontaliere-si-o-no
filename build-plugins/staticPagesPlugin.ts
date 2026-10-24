@@ -432,7 +432,7 @@ function toHubLocale(locale: string): HubLocale {
 }
 
 /**
- * Read FAQ Q&A pairs from a locale file at build time.
+ * Read FAQ Q&A pairs from the locale files at build time.
  * Parses the TypeScript source as text and extracts translation keys matching
  * `faq.questions.{category}.q{n}` and `faq.questions.{category}.a{n}`.
  */
@@ -442,13 +442,20 @@ function readFaqFromLocaleFile(
  rootDir: string,
  locale: string,
 ): Array<{ category: string; question: string; answer: string }> {
- const localeFile = np.resolve(rootDir, 'services', 'locales', `${locale}-core.ts`);
- let content: string;
+ // The FAQ copy is the on-demand "faq" namespace (`<locale>-ns-faq.ts`); the
+ // permit questions the work-permits guide also renders stay in `<locale>-core.ts`.
+ const localeFiles = [`${locale}-core.ts`, `${locale}-ns-faq.ts`]
+ .map(file => np.resolve(rootDir, 'services', 'locales', file));
+ let content = '';
+ for (const localeFile of localeFiles) {
  try {
- content = fs.readFileSync(localeFile, 'utf-8');
- } catch {
- return [];
+ content += fs.readFileSync(localeFile, 'utf-8') + '\n';
+ } catch (error) {
+ const reason = error instanceof Error ? `: ${error.message}` : '';
+ throw new Error(`Unable to read FAQ locale source ${localeFile}${reason}`);
  }
+ }
+ if (!content) return [];
 
  const results: Array<{ category: string; question: string; answer: string }> = [];
 
