@@ -1,7 +1,87 @@
 # robots.txt for Frontaliere Ticino - frontaliereticino.ch
 # Allow all search engines and AI crawlers to crawl
 
+# ─── One shared group for every crawler we welcome ───────────────────────
+# RFC 9309 §2.2.1: a crawler obeys ONLY the most specific group that names it
+# and then ignores `User-agent: *`. Until 2026-10 every welcomed bot had its own
+# `User-agent: X` + `Allow: /` group, which silently cancelled every Disallow
+# written for `*` (`/cerca-lavoro-ticino/?q=infermiere` was crawlable by
+# Googlebot, Bingbot, GPTBot, ClaudeBot…). So every welcomed agent is a
+# `User-agent:` line of THIS group and shares its rules. To welcome a new bot,
+# add a `User-agent:` line here — never a separate `Allow: /` group — and keep
+# the group free of blank lines. Guarded by tests/robots-txt-groups.test.ts.
 User-agent: *
+# Search engines
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Bingbot
+User-agent: msnbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+User-agent: facebot
+User-agent: ia_archiver
+# AI crawlers & LLM agents. We explicitly welcome AI crawlers to index and cite
+# our authoritative content on Swiss-Italian cross-border worker taxation,
+# pensions, health insurance, and practical guides.
+# OpenAI
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+# Google AI
+User-agent: Google-Extended
+User-agent: GoogleOther
+# Anthropic
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+# Perplexity
+User-agent: PerplexityBot
+# Apple
+User-agent: Applebot
+User-agent: Applebot-Extended
+# Cohere
+User-agent: cohere-ai
+# Meta
+User-agent: meta-externalagent
+User-agent: FacebookBot
+# You.com
+User-agent: YouBot
+# Common Crawl (training data for many LLMs)
+User-agent: CCBot
+# DeepSeek
+User-agent: DeepSeekBot
+# Mistral
+User-agent: MistralBot
+# Microsoft Copilot
+User-agent: CopilotBot
+# Brave Search AI
+User-agent: BraveBot
+# Qwen / Alibaba
+User-agent: Qwenbot
+# xAI / Grok
+User-agent: GrokBot
+# Neeva / Snowflake
+User-agent: NeevaBot
+# Phind (developer AI search)
+User-agent: PhindBot
+# Exa.ai (AI search API)
+User-agent: ExaBot
+# Diffbot (knowledge graph extraction)
+User-agent: Diffbot
+# iask.ai
+User-agent: iaskBot
+# Kagi AI Search
+User-agent: KagiBot
+# SemrushBot — unblocked 2026-07-22 (owner decision). robots.txt has no IP
+# concept, so this directive can't be scoped the way the Cloudflare firewall
+# rule is: real enforcement stays at the CF layer (scripts/
+# cf-locale-failover-setup.mjs, TRUSTED_CRAWLER_IP_RANGES), which only lets
+# through Semrush's published Site Audit crawler range (85.208.98.128/25) —
+# any other client sending a "SemrushBot" UA still gets 403'd there. Listing it
+# here only stops Semrush's own compliant crawler from self-throttling.
+User-agent: SemrushBot
 Allow: /
 Disallow: /api/
 Disallow: /data/jobs.json
@@ -19,101 +99,15 @@ Disallow: /*?status=*
 # Internal job search query strings — handled by canonical + noindex meta runtime
 Disallow: /*?q=*
 Disallow: /*&q=*
-
-# Canonical host (www → non-www redirect)
-Host: https://frontaliereticino.ch
-
-# Sitemap locations. The index enumerates every sub-sitemap (pages, blog,
-# glossario, jobs, guides, and 60+ other template families) — those are NOT
-# listed individually here: crawlers follow the index fine, and a
-# hand-maintained per-shard list drifts stale as new template families ship
-# (issue #4413 — the list had 7 lines vs 73 sub-sitemaps in the actual
-# index). sitemap-news.xml stays explicit: Google News discovery is a
-# separate mechanism from regular sitemap-index crawling and expects its own
-# `Sitemap:` line (see tests/sitemap-news-canonical.test.ts, "A4 Google News
-# compliance" — do not remove without updating that test's requirement too).
-Sitemap: https://frontaliereticino.ch/sitemap.xml
-Sitemap: https://frontaliereticino.ch/sitemap-news.xml
-# Canton article sections, published by the article corpus (not by this
-# site's build) and served by the edge Worker. A second index, because sitemap
-# indexes cannot nest and sitemap.xml is fixed at build time. Answers 404 until
-# the corpus publishes its first live canton section.
-Sitemap: https://frontaliereticino.ch/sitemap-cantons.xml
-
 # AI-readable content files (llmstxt.org standard)
 # /llms.txt — structured site summary for AI systems
 # /llms-full.txt — comprehensive domain knowledge for citation
 # /.well-known/llms.txt — alternative discovery path for AI systems
+Allow: /llms.txt
+Allow: /llms-full.txt
 Allow: /.well-known/llms.txt
 
-# ─── Search Engines ───────────────────────────────────────────────────────
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: msnbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: facebot
-Allow: /
-
-User-agent: ia_archiver
-Allow: /
-
-# ─── AI Crawlers & LLM Agents ────────────────────────────────────────────
-# We explicitly welcome AI crawlers to index and cite our authoritative
-# content on Swiss-Italian cross-border worker taxation, pensions,
-# health insurance, and practical guides. Our articles and tools are
-# factual and regularly updated with current 2026 regulations.
-
-# OpenAI
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-# Google AI
-User-agent: Google-Extended
-Allow: /
-
-User-agent: GoogleOther
-Allow: /
-
-# Anthropic
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-# Perplexity
-User-agent: PerplexityBot
-Allow: /
+# ─── Blocked crawlers ─────────────────────────────────────────────────────
 
 # Amazon / Alexa (Rufus) — blocked. Not an organic-search, AI-search, or
 # referral channel for an Italian cross-border-worker audience: brings no SEO
@@ -128,13 +122,6 @@ Allow: /
 User-agent: Amazonbot
 Disallow: /
 
-# Apple
-User-agent: Applebot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
 # Bytedance (TikTok / Doubao) — blocked. Training/scraper crawler with no
 # organic-search, AI-search, or referral visibility for this audience: no SEO
 # traffic, no clicks, no monetizable traffic. Bytespider commonly ignores
@@ -143,73 +130,6 @@ Allow: /
 # (scripts/cf-locale-failover-setup.mjs).
 User-agent: Bytespider
 Disallow: /
-
-# Cohere
-User-agent: cohere-ai
-Allow: /
-
-# Meta
-User-agent: meta-externalagent
-Allow: /
-
-User-agent: FacebookBot
-Allow: /
-
-# You.com
-User-agent: YouBot
-Allow: /
-
-# Common Crawl (training data for many LLMs)
-User-agent: CCBot
-Allow: /
-
-# DeepSeek
-User-agent: DeepSeekBot
-Allow: /
-
-# Mistral
-User-agent: MistralBot
-Allow: /
-
-# Microsoft Copilot
-User-agent: CopilotBot
-Allow: /
-
-# Brave Search AI
-User-agent: BraveBot
-Allow: /
-
-# Qwen / Alibaba
-User-agent: Qwenbot
-Allow: /
-
-# xAI / Grok
-User-agent: GrokBot
-Allow: /
-
-# Neeva / Snowflake
-User-agent: NeevaBot
-Allow: /
-
-# Phind (developer AI search)
-User-agent: PhindBot
-Allow: /
-
-# Exa.ai (AI search API)
-User-agent: ExaBot
-Allow: /
-
-# Diffbot (knowledge graph extraction)
-User-agent: Diffbot
-Allow: /
-
-# iask.ai
-User-agent: iaskBot
-Allow: /
-
-# Kagi AI Search
-User-agent: KagiBot
-Allow: /
 
 # ─── SEO-tool crawlers — blocked ──────────────────────────────────────────
 # Backlink/keyword-tool crawlers bring zero search or AI visibility and no
@@ -222,16 +142,6 @@ Allow: /
 
 User-agent: AhrefsBot
 Disallow: /
-
-# SemrushBot — unblocked 2026-07-22 (owner decision). robots.txt has no IP
-# concept, so this directive can't be scoped the way the Cloudflare firewall
-# rule is: real enforcement stays at the CF layer (scripts/
-# cf-locale-failover-setup.mjs, TRUSTED_CRAWLER_IP_RANGES), which only lets
-# through Semrush's published Site Audit crawler range (85.208.98.128/25) —
-# any other client sending a "SemrushBot" UA still gets 403'd there. This
-# Allow only stops Semrush's own compliant crawler from self-throttling.
-User-agent: SemrushBot
-Allow: /
 
 User-agent: DotBot
 Disallow: /
@@ -247,3 +157,26 @@ Disallow: /
 
 User-agent: serpstatbot
 Disallow: /
+
+# ─── Sitemaps ─────────────────────────────────────────────────────────────
+# `Sitemap:` is a non-group record (RFC 9309 §2.2.4): it applies to the whole
+# file wherever it sits. No `Host:` line: it is a Yandex-only extension that
+# Google and Bing ignore; the www → non-www canonical host is enforced by the
+# edge 301, not here.
+#
+# The index enumerates every sub-sitemap (pages, blog, glossario, jobs, guides,
+# and 60+ other template families) — those are NOT listed individually here:
+# crawlers follow the index fine, and a hand-maintained per-shard list drifts
+# stale as new template families ship (issue #4413 — the list had 7 lines vs 73
+# sub-sitemaps in the actual index). sitemap-news.xml stays explicit: Google
+# News discovery is a separate mechanism from regular sitemap-index crawling
+# and expects its own `Sitemap:` line (see tests/sitemap-news-canonical.test.ts,
+# "A4 Google News compliance" — do not remove without updating that test's
+# requirement too).
+Sitemap: https://frontaliereticino.ch/sitemap.xml
+Sitemap: https://frontaliereticino.ch/sitemap-news.xml
+# Canton article sections, published by the article corpus (not by this
+# site's build) and served by the edge Worker. A second index, because sitemap
+# indexes cannot nest and sitemap.xml is fixed at build time. Answers 404 until
+# the corpus publishes its first live canton section.
+Sitemap: https://frontaliereticino.ch/sitemap-cantons.xml
