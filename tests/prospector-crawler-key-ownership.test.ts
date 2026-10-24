@@ -110,6 +110,33 @@ describe('requeueMiskeyedCandidate', () => {
   });
 });
 
+describe('rekey batch ownership', () => {
+  it('leaves candidates beyond synthesisLimit eligible for the next run', () => {
+    const candidates = Array.from({ length: 26 }, (_, index) => ({
+      key: `employer-${index}.ch`,
+      status: 'promoted',
+      crawlerKey: 'my',
+      tenantHost: 'my.jobalino.ch',
+      name: `Employer ${index}`,
+      domain: `employer-${index}.ch`,
+    }));
+    const hits = findMiskeyedCandidates(candidates, {
+      productionKeys: new Set(['my']),
+      specFor: () => ({ companyName: 'Vendor label' }),
+    });
+    expect(hits).toHaveLength(26);
+    const firstBatch = hits.slice(0, 25);
+    const deferred = hits.slice(25);
+    expect(firstBatch).toHaveLength(25);
+    expect(deferred[0].candidate.status).toBe('promoted');
+    expect(deferred[0].candidate.crawlerKey).toBe('my');
+    expect(findMiskeyedCandidates(deferred.map(({ candidate }) => candidate), {
+      productionKeys: new Set(['my']),
+      specFor: () => ({ companyName: 'Vendor label' }),
+    })).toHaveLength(1);
+  });
+});
+
 describe('promotion gate', () => {
   const good = (at: string) => ({
     at,

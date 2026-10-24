@@ -82,7 +82,7 @@ const readSpec = (key) => {
 const rekeyed = onlyKey ? [] : findMiskeyedCandidates(Object.values(store.candidates), {
   productionKeys,
   specFor: readSpec,
-}).filter(({ candidate, from, to }) => {
+}).slice(0, synthesisLimit).filter(({ candidate, from, to }) => {
   if (!requeueMiskeyedCandidate(store, candidate.key, { from, to }, dryRun ? null : undefined)) return false;
   if (keyOwners.get(from) === candidate.key) keyOwners.delete(from);
   return true;
@@ -106,8 +106,7 @@ const tracedQueue = onlyKey
     && !legacyRecoveryKeys.has(candidate.key)
     && !rekeyedKeys.has(candidate.key));
 const rekeyedQueue = rekeyed.map(({ candidate }) => store.candidates[candidate.key])
-  .filter(Boolean)
-  .slice(0, synthesisLimit);
+  .filter(Boolean);
 const queue = onlyKey
   ? [store.candidates[resolveCandidateKey(store, onlyKey)]].filter(Boolean)
   : [
