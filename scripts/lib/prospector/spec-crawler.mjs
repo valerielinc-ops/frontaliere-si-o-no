@@ -68,6 +68,43 @@ const BROWSER_RESCUE_USER_AGENT =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
   + '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
+function browserAbortReason(signal, message) {
+  if (signal?.reason) return signal.reason;
+  const error = new Error(message);
+  error.name = 'AbortError';
+  return error;
+}
+
+function raceBrowserOperation(promise, signal, message, onLateValue) {
+  if (!signal) return promise;
+  if (signal.aborted) return Promise.reject(browserAbortReason(signal, message));
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const cleanup = () => signal.removeEventListener('abort', onAbort);
+    const onAbort = () => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(browserAbortReason(signal, message));
+    };
+    signal.addEventListener('abort', onAbort, { once: true });
+    Promise.resolve(promise).then((value) => {
+      if (settled) {
+        Promise.resolve(onLateValue?.(value)).catch(() => {});
+        return;
+      }
+      settled = true;
+      cleanup();
+      resolve(value);
+    }, (error) => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(error);
+    });
+  });
+}
+
 /**
  * Fetch a source page through a real browser after direct transport and the
  * clean-IP proxy have both hit the source's anti-bot wall. The caller still
@@ -76,33 +113,64 @@ const BROWSER_RESCUE_USER_AGENT =
  * vacancy extractor as an empty page.
  *
  * @param {string} url
- * @param {{ timeoutMs?: number, attempts?: number }} [options]
+ * @param {{ timeoutMs?: number, attempts?: number, signal?: AbortSignal }} [options]
  * @returns {Promise<string|null>}
  */
-export async function fetchHtmlViaBrowser(url, { timeoutMs = 45000, attempts = 3 } = {}) {
+export async function fetchHtmlViaBrowser(
+  url,
+  { timeoutMs = 45000, attempts = 3, signal } = {},
+) {
   let browser;
   try {
-    browser = await launchChromium({
-      headless: true,
-      args: ['--disable-blink-features=AutomationControlled'],
-    });
-    const context = await browser.newContext({
+    if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
+    browser = await raceBrowserOperation(
+      launchChromium({
+        headless: true,
+        args: ['--disable-blink-features=AutomationControlled'],
+      }),
+      signal,
+      `browser rescue launch aborted for ${url}`,
+      (lateBrowser) => lateBrowser?.close?.(),
+    );
+    const context = await raceBrowserOperation(browser.newContext({
       userAgent: BROWSER_RESCUE_USER_AGENT,
       locale: 'de-CH',
       viewport: { width: 1280, height: 720 },
-    });
-    const page = await context.newPage();
+    }), signal, `browser rescue context aborted for ${url}`, (lateContext) => lateContext?.close?.());
+    const page = await raceBrowserOperation(
+      context.newPage(),
+      signal,
+      `browser rescue page creation aborted for ${url}`,
+      (latePage) => latePage?.close?.(),
+    );
     let lastReason = 'unknown browser failure';
     for (let attempt = 1; attempt <= attempts; attempt += 1) {
       try {
-        const response = await page.goto(url, {
+        const response = await raceBrowserOperation(page.goto(url, {
           waitUntil: 'domcontentloaded',
           timeout: Math.max(Number(timeoutMs) || 0, 45000),
-        });
-        await page.waitForTimeout(attempt === 1 ? 2500 : 4500);
-        const title = await page.title().catch(() => '');
-        const bodyText = await page.locator('body').textContent().catch(() => '');
-        const html = await page.content();
+        }), signal, `browser rescue navigation aborted for ${url}`);
+        await raceBrowserOperation(
+          page.waitForTimeout(attempt === 1 ? 2500 : 4500),
+          signal,
+          `browser rescue settle wait aborted for ${url}`,
+        );
+        const title = await raceBrowserOperation(
+          Promise.resolve(page.title()).catch(() => ''),
+          signal,
+          `browser rescue title read aborted for ${url}`,
+        );
+        const bodyText = await raceBrowserOperation(
+          Promise.resolve(page.locator('body').textContent()).catch(() => ''),
+          signal,
+          `browser rescue body read aborted for ${url}`,
+        );
+        const html = await raceBrowserOperation(
+          page.content(),
+          signal,
+          `browser rescue content read aborted for ${url}`,
+        );
+        if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
         if (!looksLikeAntiBotChallenge(`${title}\n${bodyText}\n${html}`)) {
           return html;
         }
@@ -110,13 +178,22 @@ export async function fetchHtmlViaBrowser(url, { timeoutMs = 45000, attempts = 3
           ? `HTTP ${response?.status?.() ?? 'no response'} with browser challenge marker`
           : 'browser challenge marker';
       } catch (error) {
+        if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
         lastReason = error?.message || String(error);
       }
-      if (attempt < attempts) await page.waitForTimeout(2500 * attempt);
+      if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
+      if (attempt < attempts) {
+        await raceBrowserOperation(
+          page.waitForTimeout(2500 * attempt),
+          signal,
+          `browser rescue retry wait aborted for ${url}`,
+        );
+      }
     }
     console.warn(`⚠️ Browser rescue exhausted for ${url} (${lastReason}).`);
     return null;
   } catch (error) {
+    if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
     console.warn(`⚠️ Browser rescue unavailable for ${url}: ${error?.message || error}.`);
     return null;
   } finally {

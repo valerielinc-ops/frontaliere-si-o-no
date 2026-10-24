@@ -6500,7 +6500,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // (e.g., slim index loaded first without description), preserve the
  // static HTML's JobPosting injected by the build plugin. The full data
  // will load shortly and re-trigger this effect with a valid schema.
- if (selectedJob && jobPostings.length === 0 && resolveRolloutPostingDate(selectedJob, () => '')) {
+ // Unconditional (2026-10-24): the static page always carries JobPosting,
+ // whatever the provenance of its date, so the SPA must never strip it —
+ // Googlebot renders this effect.
+ if (selectedJob && jobPostings.length === 0) {
  return;
  }
 
