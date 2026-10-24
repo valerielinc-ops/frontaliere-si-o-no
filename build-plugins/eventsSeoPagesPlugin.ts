@@ -64,6 +64,7 @@ import {
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
+import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
 import { retainPublishedPastEvents } from '../scripts/assemble-events-dataset.mjs';
 // Shared with the crawler + assembler + tests (AGENTS.md §6 — one source of truth).
 import {
@@ -482,12 +483,19 @@ function isIndexableWordCount(wordCount: number): boolean {
   return wordCount >= MIN_INDEXABLE_WORDS;
 }
 
-/** Page numbers whose rendered bodies pass the same gate used by `robots`. */
+/**
+ * Ladder page numbers that may be listed in `sitemap-eventi.xml`: the ones
+ * whose rendered bodies pass the same gate used by `robots`, AND that the
+ * pagination policy allows in a sitemap. Since the P1 noindex plan
+ * (paginationIndexPolicy, 2026-10-24) no page 2+ of a listing is advertised,
+ * so a ladder — which starts at page 2 — contributes nothing; its pages stay
+ * reachable through the bucket page's pills.
+ */
 export function indexableLadderPages(
   renderedPages: ReadonlyArray<{ page: number; wordCount: number }>,
 ): number[] {
   return renderedPages
-    .filter(({ page, wordCount }) => page >= 2 && isIndexableWordCount(wordCount))
+    .filter(({ page, wordCount }) => page >= 2 && isIndexableWordCount(wordCount) && isPaginationSitemapEligible(page))
     .map(({ page }) => page);
 }
 
@@ -3438,7 +3446,9 @@ export function renderOverflowLadderPage(params: {
     description: oCopy.ladderDesc(label, page, pageCount),
     canonicalUrl,
     hreflangHtml: buildLadderAlternates(canton, comune, page),
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    // P1 noindex plan (paginationIndexPolicy): page 11+ of a ladder stays 200
+    // and linked but leaves the index. Ads follow content quality (`indexable`).
+    robots: indexable && !isPaginationNoindex(page) ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [breadcrumbLd],

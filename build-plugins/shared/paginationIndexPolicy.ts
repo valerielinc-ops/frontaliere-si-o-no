@@ -36,3 +36,15 @@ export function paginationRobots(page: number): 'index,follow' | 'noindex,follow
 export function isPaginationSitemapEligible(page: number): boolean {
   return !(Number.isFinite(page) && page >= 2);
 }
+
+const PAGINATED_PATH_RE = /\/(?:page|pagina|seite)-(\d+)\/?$/;
+
+/**
+ * Page number of a listing URL path (`/x/page-7/` → 7, `/x/` → 1), for the
+ * emitters that only hold the path when they write the sitemap. Accepts every
+ * pagination segment the site emits (`page-N`, `pagina-N`, `seite-N`).
+ */
+export function paginationPageFromPath(urlPath: string): number {
+  const match = PAGINATED_PATH_RE.exec(urlPath);
+  return match ? Number(match[1]) : 1;
+}
