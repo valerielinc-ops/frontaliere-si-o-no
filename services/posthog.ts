@@ -53,10 +53,9 @@ async function ensurePostHog(): Promise<any> {
  autocapture: false, // Explicit events only, reduces noise
  // Sample 5% of sessions for replay to stay under the free-tier 5k/mo cap.
  session_recording: { sampleRate: POSTHOG_SESSION_REPLAY_SAMPLE_RATE },
- // The current PostHog free period is already over its event allowance.
- // Keep ordinary client events off until reset; GA4 still receives the
- // complete event stream through analytics.ts, while identity/replay/error
- // events remain available through the quota filter.
+ // Ordinary client events stay off (quota); GA4 still receives the complete
+ // event stream through analytics.ts. Page views, identity, replay and error
+ // events pass the quota filter (POSTHOG_QUOTA_EXEMPT_EVENTS).
  // Filter benign noise from exception tracking so real errors stay visible.
  // Patterns + rationale: services/posthog-error-filter.ts. The minimal
  // event shape in posthog-error-filter is a subset of posthog-js's
