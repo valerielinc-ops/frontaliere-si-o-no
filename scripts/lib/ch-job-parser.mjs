@@ -28,6 +28,7 @@ export const CH_COMPANY_NAME = 'Global Sana';
 export const CH_COMPANY_DOMAIN = 'ch.talent.com';
 
 const CAREER_URL = 'https://ch.talent.com/view?id=554547064889945322';
+const CH_SOURCE_JOB_ID = new URL(CAREER_URL).searchParams.get('id');
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -37,6 +38,18 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isGlobalSanaSourceUrl(rawUrl = '') {
+  try {
+    const parsed = new URL(String(rawUrl || '').trim());
+    return parsed.protocol === 'https:'
+      && parsed.hostname.toLowerCase() === CH_COMPANY_DOMAIN
+      && parsed.pathname === '/view'
+      && parsed.searchParams.get('id') === CH_SOURCE_JOB_ID;
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -52,13 +65,13 @@ export function isChJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
+  const explicitCompanyIdentity = Boolean(String(job?.companyKey || job?.company || '').trim());
 
   return (
     key === CH_KEY ||
     key.startsWith('ch-') ||
     company.includes('global sana') ||
-    url.includes('ch.talent.com')
+    (!explicitCompanyIdentity && isGlobalSanaSourceUrl(job?.url))
   );
 }
 

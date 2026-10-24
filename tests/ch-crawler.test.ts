@@ -24,8 +24,26 @@ describe('Global Sana crawler parser', () => {
       expect(isChJob({ company: 'Global Sana' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isChJob({ url: 'https://ch.talent.com/jobs/123' })).toBe(true);
+    it('matches the verified Global Sana source URL without an explicit identity', () => {
+      expect(isChJob({ url: 'https://ch.talent.com/view?id=554547064889945322' })).toBe(true);
+    });
+
+    it('does not claim another employer on the shared Talent.com host', () => {
+      expect(isChJob({
+        companyKey: 'other',
+        company: 'Other employer',
+        url: 'https://ch.talent.com/view?id=other',
+      })).toBe(false);
+      expect(isChJob({ url: 'https://ch.talent.com/view?id=other' })).toBe(false);
+      expect(isChJob({ url: 'https://ch.talent.com/jobs/123' })).toBe(false);
+    });
+
+    it('does not let a verified URL override a conflicting company identity', () => {
+      expect(isChJob({
+        companyKey: 'other',
+        company: 'Other employer',
+        url: 'https://ch.talent.com/view?id=554547064889945322',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
