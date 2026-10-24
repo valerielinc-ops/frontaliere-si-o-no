@@ -33,7 +33,7 @@ import { pathToFileURL } from 'node:url';
  * Exit code 0 if only warnings or all pass.
  */
 
-import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
+import { readFileSync, existsSync, readdirSync, statSync, mkdirSync, writeFileSync } from 'fs';
 import { join, relative } from 'path';
 
 const DIST = 'dist';
@@ -771,6 +771,8 @@ function main() {
     if (entries.length > 0) printWarningGroup(warningLabels[type], entries, 20);
   }
 
+  writeFamilyBreakdown(errors, warnings);
+
   if (errorCount > 0) {
     console.log(`\n\u274C DEPLOY BLOCKED: ${errorCount} SEO issue(s) found across ${pagesToCheck.length - passedCount} page(s).`);
     process.exit(1);
@@ -783,8 +785,59 @@ function main() {
   }
 }
 
+/**
+ * URL family of a dist-relative page path: the first two path segments plus
+ * the depth, e.g. `fr/pharmacies/…(5)`. The groups below print only 20 paths
+ * each, which on the reassembled corpus (858 noindex, 911k canonical
+ * mismatches) named one family and hid the rest — so every group also gets a
+ * per-family count, printed and written to dist/audit-reports.
+ */
+function pageFamily(p) {
+  const segs = String(p).replace(/\/index\.html$/, '').replace(/\.html$/, '').split('/').filter(Boolean);
+  if (segs.length <= 1) return segs.join('/') || '/';
+  return `${segs.slice(0, 2).join('/')}/…(${segs.length})`;
+}
+
+function familyCounts(items, examplesPerFamily = 5) {
+  const byFamily = new Map();
+  for (const item of items) {
+    const p = typeof item === 'string' ? item : item.path;
+    const fam = pageFamily(p);
+    const entry = byFamily.get(fam) ?? { count: 0, examples: [] };
+    entry.count++;
+    if (entry.examples.length < examplesPerFamily) entry.examples.push(typeof item === "string" || !item.detail ? p : `${p} — ${item.detail}`);
+    byFamily.set(fam, entry);
+  }
+  return Object.fromEntries([...byFamily.entries()].sort((a, b) => b[1].count - a[1].count));
+}
+
+function printFamilies(families, limit = 40) {
+  const rows = Object.entries(families);
+  if (rows.length <= 1) return;
+  console.log(`   by URL family (${rows.length}):`);
+  for (const [fam, { count }] of rows.slice(0, limit)) console.log(`     ${String(count).padStart(8)}  ${fam}`);
+  if (rows.length > limit) console.log(`     ... and ${rows.length - limit} more families`);
+}
+
+function writeFamilyBreakdown(errors, warnings) {
+  const out = { generatedAt: new Date().toISOString(), errors: {}, warnings: {} };
+  for (const [type, items] of Object.entries(errors)) {
+    if (items.length > 0) out.errors[type] = { total: items.length, families: familyCounts(items) };
+  }
+  for (const [type, items] of Object.entries(warnings)) {
+    if (items.length > 0) out.warnings[type] = { total: items.length, families: familyCounts(items) };
+  }
+  try {
+    mkdirSync(join(DIST, 'audit-reports'), { recursive: true });
+    writeFileSync(join(DIST, 'audit-reports', 'validate-page-seo-families.json'), JSON.stringify(out, null, 2));
+  } catch (err) {
+    console.log(`[validate-page-seo] could not write family breakdown: ${err.message}`);
+  }
+}
+
 function printErrorGroup(label, paths, limit) {
   console.log(`\u274C ${paths.length} page(s) with ${label} (BLOCKING):`);
+  printFamilies(familyCounts(paths, 0));
   for (const p of paths.slice(0, limit)) {
     console.log(`   /${p}`);
   }
@@ -794,6 +847,7 @@ function printErrorGroup(label, paths, limit) {
 
 function printWarningGroup(label, entries, limit) {
   console.log(`\u26a0\ufe0f ${entries.length} page-level advisory finding(s): ${label}`);
+  printFamilies(familyCounts(entries, 0));
   for (const { path, detail } of entries.slice(0, limit)) {
     console.log(`   ${path === '/' ? '/' : `/${path}`}: ${detail}`);
   }
