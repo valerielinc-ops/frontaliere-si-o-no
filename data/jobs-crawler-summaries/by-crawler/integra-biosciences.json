@@ -1,7 +1,7 @@
 {
   "key": "integra-biosciences",
   "label": "INTEGRA Biosciences",
-  "generatedAt": "2026-10-24T09:46:22.596Z",
+  "generatedAt": "2026-10-24T21:40:00.965Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 17792,
-  "avgDurationMs": 17792,
+  "durationMs": 20128,
+  "avgDurationMs": 20128,
   "durationHistory": [
-    17792
+    20128
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/346/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:46:05.190Z",
+      "crawledAt": "2026-10-24T21:39:48.700Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -81,7 +81,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:46:03.712Z",
+      "crawledAt": "2026-10-24T21:39:46.914Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -127,7 +127,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/344/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:46:02.206Z",
+      "crawledAt": "2026-10-24T21:39:42.169Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -173,7 +173,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/343/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:46:00.259Z",
+      "crawledAt": "2026-10-24T21:39:40.227Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -219,7 +219,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/331/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:45:56.837Z",
+      "crawledAt": "2026-10-24T21:39:37.349Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -266,7 +266,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/330/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:45:54.965Z",
+      "crawledAt": "2026-10-24T21:39:35.548Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -301,55 +301,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "integra-biosciences-81194ef73195",
-      "slug": "business-analista-erp-m-f-d-100-integra-biosciences-zizers",
-      "company": "INTEGRA Biosciences",
-      "companyKey": "integra-biosciences",
-      "companyDomain": "integra-biosciences.com",
-      "title": "Business Analyst ERP (m/f/d | 100%)",
-      "location": "Zizers",
-      "canton": "GR",
-      "url": "https://jobs.integra-biosciences.com/Vacancies/329/Description/2?lang=eng",
-      "source": "INTEGRA Biosciences Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:43:38.704Z",
-      "addressLocality": "Zizers",
-      "postalCode": "7205",
-      "streetAddress": "Tardisstrasse 201",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Scienze della Vita / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20",
-      "postedDate": "2026-08-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.integra-biosciences.com/Vacancies/329/Description/2?lang=eng",
-      "department": "IT",
-      "pensum": "100%",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "firstSeenAt": "2026-10-03T09:31:23.765Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "integra-biosciences-eab8fd2b0d66",
@@ -363,7 +315,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/347/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-24T09:46:06.781Z",
+      "crawledAt": "2026-10-24T21:39:50.260Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -409,7 +361,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/341/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:45:58.658Z",
+      "crawledAt": "2026-10-24T21:39:38.783Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -444,5 +396,5 @@
       }
     }
   ],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
