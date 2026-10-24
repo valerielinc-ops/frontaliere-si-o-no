@@ -1,65 +1,19 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-24T09:18:11.657Z",
+  "generatedAt": "2026-10-24T21:19:37.991Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 3074,
-  "avgDurationMs": 3074,
+  "unchangedCount": 9,
+  "durationMs": 3158,
+  "avgDurationMs": 3158,
   "durationHistory": [
-    3074
+    3158
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "GTM Campaign & Marketing Coordinator",
-      "slug": "gtm-campaign-marketing-coordinatore-guess-europe-sagl-bioggio",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/809974A177/",
-      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/809974A177/apply/",
-      "company": "Guess Europe Sagl",
-      "companyKey": "guess-europe",
-      "companyDomain": "guess.eu",
-      "location": "Bioggio",
-      "addressLocality": "Bioggio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "sales",
-      "sector": "Lusso & Moda",
-      "source": "guess-europe-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "2026-10-23T00:00:00.000Z",
-      "postedDate": "2026-10-23T00:00:00.000Z",
-      "postingDateSource": "reported",
-      "validThrough": "",
-      "benefits": [
-        "An International, fresh and dynamic working environment",
-        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares",
-        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
-        "Training & Development platform and paths",
-        "Discount on our products both online and in stores"
-      ],
-      "id": "guess-europe-33e9c7e71040",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "6934",
-      "firstSeenAt": "2026-10-23T21:18:07.241Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
     {
       "title": "Sales Associate - Zurich Area (Hourly Paid Contract)",
       "slug": "sales-associate-zona-di-zurigo-contratto-a-pagamento-guess-europe-sagl-zurich",
@@ -234,6 +188,52 @@
       "datePosted": "2026-07-30T00:00:00.000Z",
       "postingDateSource": "reported",
       "postalCode": "6934",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "GTM Campaign & Marketing Coordinator",
+      "slug": "gtm-campaign-marketing-coordinatore-guess-europe-sagl-bioggio",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/809974A177/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/809974A177/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-23T00:00:00.000Z",
+      "postedDate": "2026-10-23T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares",
+        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-33e9c7e71040",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6934",
+      "firstSeenAt": "2026-10-23T21:18:07.241Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -466,5 +466,5 @@
       }
     }
   ],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
