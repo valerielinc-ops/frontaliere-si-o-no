@@ -324,10 +324,15 @@ describe('BLOG_CONTEXTUAL_LINKS — config integrity', () => {
     }
   });
 
-  it('no locale links to /traffico-dogane/ yet (F8 not shipped)', () => {
+  // F8 shipped: /traffico-dogane/<valico>/oggi/ is live (200, sitemap-border-wait.xml).
+  // Links may target only the crossings listed here, so a rule cannot point
+  // articles at a crossing page that does not exist; the localized
+  // border-wait paths stay unlinked until a rule names them explicitly.
+  it('links to /traffico-dogane/ only for shipped crossing pages', () => {
+    const SHIPPED = new Set(['/traffico-dogane/chiasso-strada/oggi/']);
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       for (const rule of BLOG_CONTEXTUAL_LINKS[locale]) {
-        expect(rule.targetUrl.includes('traffico-dogane')).toBe(false);
+        if (rule.targetUrl.includes('traffico-dogane')) expect(SHIPPED.has(rule.targetUrl), rule.id).toBe(true);
         expect(rule.targetUrl.includes('border-wait')).toBe(false);
       }
     }
