@@ -9,7 +9,7 @@ const DailyDialectPhrase: React.FC = () => {
  const { t } = useTranslation();
  // The phrase lives in the on-demand "dialect" namespace: until it lands the
  // component keeps rendering its fixed-height placeholder below (no shift).
- useTranslationNamespace('dialect');
+ const dialectReady = useTranslationNamespace('dialect');
  const nav = useNavigationOptional();
  const phraseOfDay = useMemo(() => getDialectPhraseOfDay(), []);
 
@@ -18,7 +18,7 @@ const DailyDialectPhrase: React.FC = () => {
 
  const phrase = t(phraseKey);
 
- if (phrase === phraseKey) return <div className="min-h-[34px]" />;
+ if (!dialectReady || phrase === phraseKey) return <div className="min-h-[34px]" />;
 
  return (
  <a

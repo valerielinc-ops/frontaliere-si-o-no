@@ -946,6 +946,7 @@ for (const [file, loader] of Object.entries(splitNamespaceModules)) {
 }
 const loadedNamespaces = new Set<string>(); // "namespace:locale"
 const namespacePromises = new Map<string, Promise<boolean>>();
+const namespaceRetryDelayMs = 1_000;
 
 function loadNamespaceLocale(namespace: TranslationNamespace, locale: Locale): Promise<boolean> {
  const key = `${namespace}:${locale}`;
@@ -1006,6 +1007,7 @@ export async function loadNamespaceTranslations(namespace: TranslationNamespace)
 export function useTranslationNamespace(namespace: TranslationNamespace, enabled = true): boolean {
  const [locale] = useLocale();
  const [ready, setReady] = useState(() => isNamespaceLoaded(namespace));
+ const [retryToken, setRetryToken] = useState(0);
  useEffect(() => {
  if (!enabled) return;
  if (isNamespaceLoaded(namespace)) {
@@ -1014,11 +1016,25 @@ export function useTranslationNamespace(namespace: TranslationNamespace, enabled
  }
  setReady(false);
  let cancelled = false;
+  let retryTimer: ReturnType<typeof setTimeout> | undefined;
+  const scheduleRetry = () => {
+   retryTimer = setTimeout(() => {
+    if (!cancelled) setRetryToken(token => token + 1);
+   }, namespaceRetryDelayMs);
+  };
  loadNamespaceTranslations(namespace).then(() => {
- if (!cancelled) setReady(isNamespaceLoaded(namespace));
- }).catch(swallowBackgroundLoadError);
- return () => { cancelled = true; };
- }, [namespace, enabled, locale]);
+  if (cancelled) return;
+  const loaded = isNamespaceLoaded(namespace);
+  setReady(loaded);
+  if (!loaded) scheduleRetry();
+  }).catch(() => {
+   if (!cancelled) scheduleRetry();
+  });
+  return () => {
+   cancelled = true;
+   if (retryTimer) clearTimeout(retryTimer);
+  };
+ }, [namespace, enabled, locale, retryToken]);
  return ready;
 }
 
