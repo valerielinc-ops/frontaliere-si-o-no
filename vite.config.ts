@@ -132,6 +132,7 @@ import { bfsSalaryLandingsPlugin } from './build-plugins/bfsSalaryLandingsPlugin
 import { bfsSalaryLinksPlugin } from './build-plugins/bfsSalaryLinksPlugin';
 import { minimumWageLandingsPlugin } from './build-plugins/minimumWageLandingsPlugin';
 import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
+import { sectionPagesEnabled } from './build-plugins/shared/sectionPageOwnership';
 import { plateAuctionsPagesPlugin } from './build-plugins/plateAuctionsPagesPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
 import { localeTableCompletenessPlugin } from './build-plugins/localeTableCompletenessPlugin';
@@ -318,7 +319,9 @@ export default defineConfig(({ mode }) => {
  // C3 — Google News compliance section pages: 7 topic areas × 4 locales = 28
  // static HTML aggregator pages listing the latest 20 matching blog
  // articles per section. Static-only (no SPA route, no nav-tab impact).
- ...(process.env.SKIP_SECTION_PAGES !== '1' ? [sectionPagesPlugin()] : []),
+ // Same predicate staticPagesPlugin reads to leave these 28 paths alone
+ // (shared/sectionPageOwnership.ts): registered here ⇔ owned there.
+ ...(sectionPagesEnabled() ? [sectionPagesPlugin()] : []),
  plateAuctionsPagesPlugin(__dirname),
  orphanQueryLandingPlugin(__dirname),
  // staticPagesPlugin emits the section-landing index.html files

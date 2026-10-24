@@ -163,6 +163,23 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     }
   });
 
+  it('keeps automatic page-view capture on for static pages', () => {
+    // Static pages have no router: posthog-js's own capture_pageview is the
+    // only producer of their $pageview.
+    lookLikeRealChrome();
+    delete (window as unknown as { posthog?: unknown }).posthog;
+    new Function(POSTHOG_INIT_CONTENT)();
+    const opts = (window as unknown as { posthog?: { _i?: Array<[string, CapturedInit]> } }).posthog?._i?.[0]?.[1];
+    expect(opts?.capture_pageview).toBe(true);
+  });
+
+  it('lets the automatic static $pageview through the zero-rate hard stop (no page view since 2026-09-16)', () => {
+    expect(POSTHOG_QUOTA_EXEMPT_EVENTS).toContain('$pageview');
+    const pageview = { event: '$pageview', properties: { $session_id: 'sampled-out' } };
+    expect(beforeSend(pageview)).toBe(pageview);
+    expect(beforeSend({ event: '$pageleave', properties: { $session_id: 'sampled-out' } })).toBeNull();
+  });
+
   it('matches the SPA sampler for deterministic session decisions', () => {
     for (let i = 0; i < 40; i += 1) {
       const event = { event: 'custom_event', properties: { $session_id: `parity-${i}` } };
