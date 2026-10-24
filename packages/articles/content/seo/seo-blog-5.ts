@@ -43236,7 +43236,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Imposta alla fonte frontalieri: come funziona in Ticino",
-      "description": "Scopri come funziona l'imposta alla fonte per i frontalieri in Ticino, le aliquote e gli adempimenti fiscali necessari per la gestione del salario.",
+      "description": "Imposta alla fonte in Ticino 2026: come la trattiene il datore di lavoro, da cosa dipendono le aliquote e cosa cambia per i nuovi frontalieri.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/imposta-fonte-frontalieri-ticino-dettagli.webp`,

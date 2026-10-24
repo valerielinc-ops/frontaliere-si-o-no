@@ -120,7 +120,9 @@ const SPA_ANALYTICS_SNIPPET = `${GTAG_SNIPPET}
 // Node ESM.
 import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { parseArticleRegistryEntries } from '../packages/articles/engine/shared/articleRegistryEntries.ts';
-import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
+import { LOCALE_EDITORIAL, SECTION_EDITORIAL, findSectionEditorialKey } from './editorialContent';
+import { isSectionPageOwnedPath } from './shared/sectionPageOwnership';
+import { renderSpaTabEditorial, resolveSpaTabStaticPage, spaTabLocaleSeo } from './shared/spaTabStaticContent';
 import { renderCorrectionsEditorial } from './shared/correctionsEditorial';
 import { buildCorrezioniSeo } from '../services/seo/seo-correzioni';
 import type { CorrectionsLocale } from '../services/editorialCorrections';
@@ -197,6 +199,7 @@ import {
   countFrontaliereArticleArchivePages,
 } from './shared/articleArchiveUnion';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
+import { TI_HUB_LATEST_JOBS_SLOT } from './shared/tiHubLatestJobs';
 import { buildSalaryLandingBody } from './shared/salaryLandingShell';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
@@ -1838,6 +1841,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  _writtenPaths.add(filePath);
  collector.add(filePath, content);
  }
+ // A page another plugin owns still gets its flat `<path>.html` twin, copied
+ // from the owner's index.html when that is already on disk (the owner's
+ // closeBundle ran earlier) — never a page of our own at that URL.
+ function ensureFlatCopyOfOwnedPage(urlPath: string) {
+ const flatFile = np.join(distDir, urlPath.replace(/\/+$/, '') + '.html');
+ const indexFile = np.join(distDir, urlPath, 'index.html');
+ if (!fs.existsSync(flatFile) && fs.existsSync(indexFile)) {
+ const existingIndexHtml = fs.readFileSync(indexFile, 'utf-8');
+ _qw(flatFile, existingIndexHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
+ }
+ }
 
  /* ── 0pre. Build set of blog article paths owned by ogPagesPlugin ── */
  // ogPagesPlugin generates full-content pages for these paths. Because closeBundle
@@ -3308,6 +3322,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const title = `${copy.title} | Frontaliere Ticino`;
  return { title, desc: copy.description, ogT: title, ogD: copy.description, sd: localizeMethodologyStructuredData(italianSeo.sd, locale as MethodologyLocale, JSON_LD_SCRIPT_SEPARATOR) };
  }
+ // SPA tabs without an SEO entry of their own in EN/DE/FR (support,
+ // community, gamification, profile, newsletter confirmation, consulting):
+ // the slug fallback below named them «Assistance | Frontaliere Ticino» with
+ // the generic «outils gratuits…» description, identical in shape on all of
+ // them. Their translated title/H1/description live with their editorial in
+ // shared/spaTabStaticContent.ts.
+ const spaTab = resolveSpaTabStaticPage(sourcePath);
+ if (spaTab && (locale === 'en' || locale === 'de' || locale === 'fr')) {
+ const copy = spaTabLocaleSeo(spaTab, locale);
+ const title = buildTitleWithBrand(copy.title);
+ return { title, desc: copy.desc, ogT: title, ogD: copy.desc, h1: copy.h1, sd: italianSeo.sd };
+ }
 
  // Fox Town has one Italian source page but three translated routes. The
  // generic slug fallback used the same English title for DE and EN, which
@@ -3492,39 +3518,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  return { title, desc, ogT: title, ogD: desc, sd: italianSeo.sd };
  };
 
- // ── Locale-aware editorial fallback ───────────────────────
- const LOCALE_EDITORIAL: Record<string, string[]> = {
- en: [
- 'This page is part of Frontaliere Ticino, the reference platform for cross-border workers between Switzerland (Canton Ticino) and Italy. Find practical tools, updated data, and verified information.',
- 'Content is designed to help cross-border workers make informed decisions about taxation, pensions, transportation, cost of living, and administrative procedures.',
- 'All tools and data are updated for the 2026 fiscal year, reflecting the New Bilateral Tax Agreement between Switzerland and Italy, current AVS/LPP contribution rates, and Canton Ticino withholding tax tables.',
- 'The platform covers the complete cross-border worker lifecycle: from obtaining your G or B permit and opening a Swiss bank account, to filing your annual tax returns in both countries, planning your AVS and LPP pension, and comparing the cost of living on both sides of the border.',
- 'All calculators and comparators use real, verifiable data from official Swiss and Italian sources — Federal Statistical Office, SECO, USTAT, INPS, and the Italian Revenue Agency — so you can trust the results to support real financial decisions.',
- 'Cross-border workers benefit from Switzerland\'s high salaries while potentially maintaining a lower cost of living in Italy. The key financial factors include withholding tax rates, social security contributions, health insurance choices, and currency exchange rates — all of which vary based on your personal situation and work permit type.',
- 'Whether you hold a G permit (cross-border commuter) or a B permit (Swiss resident), understanding the tax implications of the Italy–Switzerland tax agreement is essential. Tax status depends on the agreement conditions and qualifying frontier work between 31 December 2018 and 17 July 2023, rather than the hiring date alone.',
- 'This platform provides free, no-registration-required tools built by domain experts. Every calculation follows official Swiss and Italian tax parameters, and results are presented in both CHF and EUR for immediate practical use.',
- ],
- de: [
- 'Diese Seite ist Teil von Frontaliere Ticino, der Referenzplattform für Grenzgänger zwischen der Schweiz (Kanton Tessin) und Italien. Hier finden Sie praktische Tools, aktuelle Daten und verifizierte Informationen.',
- 'Die Inhalte helfen Grenzgängern, fundierte Entscheidungen zu Besteuerung, Vorsorge, Transport, Lebenshaltungskosten und Verwaltungsverfahren zu treffen.',
- 'Alle Tools und Daten sind für das Steuerjahr 2026 aktualisiert und berücksichtigen das Neue Bilaterale Steuerabkommen zwischen der Schweiz und Italien, aktuelle AHV/BVG-Beitragssätze und Tessiner Quellensteuertabellen.',
- 'Die Plattform deckt den vollständigen Grenzgänger-Lebenszyklus ab: von der Beantragung des G- oder B-Ausweises und der Eröffnung eines Schweizer Bankkontos bis zur jährlichen Steuererklärung in beiden Ländern, der AHV/BVG-Vorsorgeplanung und dem Lebenshaltungskostenvergleich beider Seiten.',
- 'Alle Rechner und Vergleicher nutzen verifizierbare Daten aus offiziellen Schweizer und italienischen Quellen — BFS, SECO, USTAT, INPS und die italienische Steuerbehörde — damit Sie sich bei echten Finanzentscheidungen auf die Ergebnisse verlassen können.',
- 'Grenzgänger profitieren von den hohen Schweizer Gehältern bei potenziell niedrigeren Lebenshaltungskosten in Italien. Die wichtigsten finanziellen Faktoren umfassen Quellensteuersätze, Sozialversicherungsbeiträge, Krankenversicherungswahl und Wechselkurse — die alle von Ihrer persönlichen Situation und Aufenthaltsgenehmigung abhängen.',
- 'Ob Sie eine G-Bewilligung (Grenzgänger) oder eine B-Bewilligung (Schweizer Aufenthalt) besitzen, das Verständnis der steuerlichen Auswirkungen des Steuerabkommens Italien–Schweiz ist entscheidend. Das Steuerregime hängt von den Abkommensbedingungen und qualifizierter Grenzgängertätigkeit zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 ab, nicht allein vom Anstellungsdatum.',
- 'Diese Plattform bietet kostenlose Tools ohne Registrierung, entwickelt von Fachexperten. Jede Berechnung folgt den offiziellen Schweizer und italienischen Steuerparametern, und die Ergebnisse werden sowohl in CHF als auch in EUR für den sofortigen praktischen Gebrauch dargestellt.',
- ],
- fr: [
- 'Cette page fait partie de Frontaliere Ticino, la plateforme de référence pour les travailleurs frontaliers entre la Suisse (Canton du Tessin) et l\'Italie. Trouvez des outils pratiques, des données actualisées et des informations vérifiées.',
- 'Le contenu aide les frontaliers à prendre des décisions éclairées sur la fiscalité, la prévoyance, les transports, le coût de la vie et les procédures administratives.',
- 'Tous les outils et données sont mis à jour pour l\'année fiscale 2026, reflétant le Nouvel Accord Fiscal Bilatéral entre la Suisse et l\'Italie, les taux de cotisation AVS/LPP actuels et les barèmes d\'impôt à la source du Canton du Tessin.',
- 'La plateforme couvre le cycle de vie complet du frontalier : de l\'obtention du permis G ou B et l\'ouverture d\'un compte bancaire suisse, aux déclarations fiscales annuelles dans les deux pays, la planification de la retraite AVS/LPP, et la comparaison du coût de la vie des deux côtés de la frontière.',
- 'Tous les calculateurs et comparateurs utilisent des données réelles et vérifiables de sources officielles suisses et italiennes — OFS, SECO, USTAT, INPS et l\'Agence des revenus italienne — pour des résultats dignes de confiance dans vos décisions financières.',
- 'Les travailleurs frontaliers bénéficient des salaires élevés suisses tout en maintenant potentiellement un coût de la vie inférieur en Italie. Les facteurs financiers clés incluent les taux d\'impôt à la source, les cotisations sociales, le choix de l\'assurance maladie et les taux de change — qui varient selon votre situation personnelle et votre type de permis.',
- 'Que vous déteniez un permis G (frontalier) ou un permis B (résident suisse), comprendre les implications fiscales de l’accord fiscal Italie–Suisse est essentiel. Le régime fiscal dépend des conditions de l’accord et d’une activité frontalière qualifiée entre le 31 décembre 2018 et le 17 juillet 2023, et non de la seule date d’embauche.',
- 'Cette plateforme offre des outils gratuits sans inscription, développés par des experts du domaine. Chaque calcul suit les paramètres fiscaux officiels suisses et italiens, et les résultats sont présentés en CHF et en EUR pour une utilisation pratique immédiate.',
- ],
- };
+ // ── Locale-aware editorial fallback: LOCALE_EDITORIAL (editorialContent.ts) ──
 
  // ── Locale-aware "related" heading ────────────────────────
  const RELATED_HEADING: Record<string, string> = {
@@ -3613,7 +3607,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Do not replace its full corpus with the generic legacy FAQ template.
  if (FAQ_HUB_ROUTES.includes(`${normalizedPath}/`)) continue;
  const filePath = np.join(distDir, url.path, 'index.html');
- const italianPageExists = ogPagesPaths.has(normalizedPath) || fs.existsSync(filePath);
+ // The 28 topic section pages (/fisco/, /dogana/, … and their EN/DE/FR
+ // variants) belong to sectionPagesPlugin: decided from the shared path
+ // table, not from whether its file happens to be on disk yet.
+ const italianPageExists = ogPagesPaths.has(normalizedPath)
+ || isSectionPageOwnedPath(url.path)
+ || fs.existsSync(filePath);
 
  // Look up SEO data — fall back to URL-derived title if no explicit entry
  let seo: SeoEntry | undefined = resolveLegalStaticSeo(url.path, /^\/privacy-policy\/?$/.test(url.path) ? 'en' : 'it') ?? resolveAuthorStaticSeo(url.path, 'it', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(url.path));
@@ -3641,7 +3640,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // + fire emoji into title/description. Keeps existing structured data.
  if (isJobBoardLandingPath(url.path)) {
  const dyn = buildJobBoardSeo('it', jobBoardCounts.it, jobBoardYear);
- seo = { ...seo, title: dyn.title, desc: dyn.desc, ogT: dyn.ogT, ogD: dyn.ogD };
+ seo = { ...seo, title: dyn.title, desc: dyn.desc, ogT: dyn.ogT, ogD: dyn.ogD, h1: dyn.h1 };
  }
 
  // Detect locale from path
@@ -3915,9 +3914,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const italianPath = sourcePathForContent; // e.g. '/tasse-e-pensione/credito-imposta'
  // Check SECTION_EDITORIAL for ALL locales (including Italian).
  // If the entry has an 'it' key, use it instead of the inline chain below.
- const sectionKey = SECTION_EDITORIAL_KEYS
- .find(prefix => italianPath.startsWith(prefix));
+ const sectionKey = findSectionEditorialKey(italianPath, locale);
  const legalPage = resolveLegalPage(sourcePathForContent);
+ // SPA tabs whose page has no editorial of its own (support, community,
+ // gamification, profile, newsletter confirmation): their own facts in all
+ // four locales instead of the generic fallback. Consulting resolves to null
+ // here and keeps its SECTION_EDITORIAL entry.
+ const spaTabId = resolveSpaTabStaticPage(sourcePathForContent);
+ const spaTabEditorial = spaTabId && (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr')
+ ? renderSpaTabEditorial(spaTabId, locale)
+ : null;
  const authorEditorial = renderAuthorEditorial(sourcePathForContent, locale as 'it' | 'en' | 'de' | 'fr');
  if (legalPage) {
  editorialBlocks.push(...renderLegalEditorial(legalPage, locale as 'it' | 'en' | 'de' | 'fr'));
@@ -3927,6 +3933,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(...renderCorrectionsEditorial(locale as CorrectionsLocale));
  } else if (italianPath.replace(/\/+$/, '') === '/metodologia') {
  editorialBlocks.push(...buildMethodologyEditorial(locale as MethodologyLocale, esc));
+ } else if (spaTabEditorial) {
+ editorialBlocks.push(...spaTabEditorial);
  } else if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
  editorialBlocks.push(...SECTION_EDITORIAL[sectionKey][locale]);
  // SECTION_EDITORIAL short-circuits the `else if` chain that would
@@ -4833,6 +4841,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // helper's locale-specific count keeps emitted navigation aligned with the
  // archive pages available in this locale.
  const leadingCount = archiveNavigablePages > 1 ? 3 : 2;
+ // Data area first (AGENTS.md landing order): an empty slot right under the
+ // H1/lede that tiHubLatestJobsPlugin fills with the live stat tiles + the
+ // 12 latest active Ticino job cards once jobsSeoPagesPlugin has decided
+ // which detail URLs are active. The hub used to ship zero job links.
+ editorialBlocks.push(TI_HUB_LATEST_JOBS_SLOT);
  for (const block of tiHubBlocks.slice(0, leadingCount)) editorialBlocks.push(block);
  // Cathedral canton navigator \u2014 closes the +909 sitemap-jobs.xml offenders
  // (audit-max-bfs-depth) by linking every cathedral canton hub + per-canton
@@ -6292,14 +6305,7 @@ ${hrefTags}
  }
  // Even if the directory index.html exists, ensure flat .html exists too.
  // ogPagesPlugin closeBundle runs in parallel — flat .html may not exist yet.
- if (url.path !== '/') {
- const flatFile = np.join(distDir, url.path + '.html');
- const indexFile = np.join(distDir, url.path, 'index.html');
- if (!fs.existsSync(flatFile) && fs.existsSync(indexFile)) {
- const existingIndexHtml = fs.readFileSync(indexFile, 'utf-8');
- _qw(flatFile, existingIndexHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
- }
- }
+ if (url.path !== '/') ensureFlatCopyOfOwnedPage(url.path);
  skipped++;
  }
 
@@ -6346,6 +6352,20 @@ ${hrefTags}
  // locales are skipped by faqHubPlugin rather than emitted as noindex pages,
  // so they are deliberately not admitted to this backfill's emit ledger.
  if (FAQ_HUB_ROUTES.includes(`${locNormalized}/`)) continue;
+ // Topic section pages (/en/customs/, /de/zoll/, /fr/douane/, …) have one
+ // HTML owner: sectionPagesPlugin, which writes the real page (own h1, lede,
+ // latest-article list) before this hook runs. Regenerating them here
+ // replaced all 21 EN/DE/FR section pages with the slug-derived fallback
+ // («Douane (guide frontalier)» + homepage editorial), the identical body
+ // that put fr:/fr/~83248f and de:/de/~5b78c1 at a 0 % information-gain
+ // median. The variant still enters the #5110 <loc> backfill ledger — the
+ // page IS emitted, just not by this plugin — and gets its flat twin
+ // copied from the owner's file, as the Italian path already did.
+ if (isSectionPageOwnedPath(locNormalized)) {
+ emittedLocaleVariants.add(locNormalized);
+ ensureFlatCopyOfOwnedPage(locPath);
+ continue;
+ }
  // Rendered by this plugin → it needs a <url><loc> of its own (#5110).
  // Recorded BEFORE `_qw`, not after: the WriteCollector drops writes whose
  // locale is outside BUILD_LOCALE on a per-locale shard build, so anything
@@ -6353,8 +6373,10 @@ ${hrefTags}
  // shard and strip the very annotations this backfill exists to keep.
  emittedLocaleVariants.add(locNormalized);
  // NOTE: previously skipped when fs.existsSync(locFile), but that blocked schema
- // re-translation on incremental builds. staticPagesPlugin owns all non-ogPages locale
- // variants, so always regenerate so JSON-LD reflects current translations.
+ // re-translation on incremental builds. staticPagesPlugin owns every locale
+ // variant that is not ogPages-, FAQ-hub- or section-pages-owned (the three
+ // deterministic skips above), so always regenerate those so JSON-LD reflects
+ // current translations.
 
  // Look up locale-specific SEO or derive locale-appropriate metadata
  const locSeo: SeoEntry = resolveLegalStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr') ?? resolveAuthorStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
@@ -6373,6 +6395,7 @@ ${hrefTags}
  locSeo.desc = dyn.desc;
  locSeo.ogT = dyn.ogT;
  locSeo.ogD = dyn.ogD;
+ locSeo.h1 = dyn.h1;
  }
 
  // Localize JSON-LD structured data for non-IT locale variants: the one pass

@@ -1,18 +1,18 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-10-23T21:22:01.881Z",
-  "total": 10,
+  "generatedAt": "2026-10-24T09:20:48.565Z",
+  "total": 9,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 5402,
-  "avgDurationMs": 5402,
+  "removedCount": 1,
+  "unchangedCount": 7,
+  "durationMs": 2983,
+  "avgDurationMs": 2983,
   "durationHistory": [
-    5402
+    2983
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -103,7 +103,51 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Küche, 80%",
+      "slug": "cucina-80-berit-klinik-speicher",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter__in_k_che_80__34254277e3.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
+      "_meta": {
+        "sourceFilename": "stelleninserat_mitarbeiter__in_k_che_80__34254277e3.pdf"
+      },
+      "id": "berit-klinik-9b99dfa4a945",
+      "firstSeenAt": "2026-10-06T21:26:06.481Z",
+      "salaryMin": 64800,
+      "salaryMax": 90400,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Zur Dipl. Pflegefachperson Hf",
@@ -398,50 +442,7 @@
         "translation": 25,
         "completeness": 20
       }
-    },
-    {
-      "title": "Küche, 80%",
-      "slug": "cucina-80-berit-klinik-speicher",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter__in_k_che_80__34254277e3.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Speicher",
-      "addressLocality": "Speicher",
-      "addressRegion": "AR",
-      "postalCode": "9042",
-      "addressCountry": "CH",
-      "canton": "AR",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "",
-      "_meta": {
-        "sourceFilename": "stelleninserat_mitarbeiter__in_k_che_80__34254277e3.pdf"
-      },
-      "id": "berit-klinik-9b99dfa4a945",
-      "firstSeenAt": "2026-10-06T21:26:06.481Z",
-      "salaryMin": 64800,
-      "salaryMax": 90400,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

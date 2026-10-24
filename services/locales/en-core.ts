@@ -4097,7 +4097,7 @@ Rules:
  'seo.toolOfWeek.description': 'The tool of the week for cross-border workers: each week we spotlight a different calculator or comparator for you to try out and share on social media.',
  'seo.feedback.description': 'Help us improve Frontaliere Ticino: report a bug or suggest a new feature on GitHub and help shape the tax simulator built for cross-border workers.',
  'seo.forum.description': 'Cross-border workers community forum: ask questions on taxes, permits, insurance, pensions and transport and get answers from people with hands-on experience.',
- 'seo.dashboard.description': 'Personal dashboard for cross-border workers: save your tax simulations, compare results over time and export PDF reports to track your cross-border journey.',
+ 'seo.dashboard.description': 'Personal area for cross-border workers: save your profile and permit expiry, estimate your net salary, follow applications and saved jobs, export your data.',
  'seo.gamification.description': 'Gamification system for cross-border workers: earn XP by exploring the tax simulator, complete challenges and unlock levels while learning and having fun.',
  'seo.privacy.description': 'Frontaliere Ticino privacy policy: how we handle personal data, cookies, analytics and user rights, in compliance with the GDPR and the Swiss FADP rules.',
  'seo.petition.description': 'Petition about the speed bump between Gaggiolo and Stabio: traffic reports, official data and a request for a safe technical review.',

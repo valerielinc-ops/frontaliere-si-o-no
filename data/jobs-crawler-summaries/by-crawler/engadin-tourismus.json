@@ -1,7 +1,7 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-10-23T21:26:12.375Z",
+  "generatedAt": "2026-10-24T09:43:54.029Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3849,
-  "avgDurationMs": 3849,
+  "durationMs": 4028,
+  "avgDurationMs": 4028,
   "durationHistory": [
-    3849
+    4028
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/praktikantin-tourismus-100-m-w-d",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:25:56.547Z",
+      "crawledAt": "2026-10-24T09:43:39.145Z",
       "firstSeenAt": "2026-10-15T21:23:05.663Z",
       "salaryMin": 49500,
       "salaryMax": 62000,
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

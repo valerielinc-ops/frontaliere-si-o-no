@@ -46,9 +46,13 @@ import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
 import {
+  CLUSTER_SLUG_LEAD_STOPWORDS_BY_LANG,
+  clusterSlugLeadToken,
   decideClusterEmission,
+  hasClusterStopwordLead,
   hasUsableEnrichedIntro,
   isClusterBelowFloor,
+  type ClusterDemandEvidence,
   type ClusterTrafficFilter,
 } from '../build-plugins/relatedSearchClustersPlugin';
 
@@ -110,6 +114,20 @@ function stubFilter(answer: Record<string, unknown>): ClusterTrafficFilter & {
 }
 
 const NO_MIRRORS = new Map<string, string[]>();
+/** Dormant demand evidence: the pre-P1 behaviour, isolates the other reasons. */
+const DORMANT_DEMAND: ClusterDemandEvidence = { active: false, hasImpressions: () => false };
+/** Active demand evidence that knows exactly `impressed`. */
+const demandWith = (...impressed: string[]): ClusterDemandEvidence & { asked: string[][] } => {
+  const asked: string[][] = [];
+  return {
+    asked,
+    active: true,
+    hasImpressions(paths) {
+      asked.push([...paths]);
+      return paths.some((p) => impressed.includes(p));
+    },
+  };
+};
 const INDEXABLE_INTRO = Array.from({ length: 50 }, (_, i) => `parola-${i}`).join(' ');
 
 function decide(
@@ -117,6 +135,7 @@ function decide(
   answer: Record<string, unknown>,
   enriched?: unknown,
   locale: 'it' | 'en' | 'de' | 'fr' = 'it',
+  demand: ClusterDemandEvidence = DORMANT_DEMAND,
 ) {
   return decideClusterEmission({
     ctx: makeCtx(over),
@@ -124,6 +143,7 @@ function decide(
     enriched: enriched as any,
     indexedClusterUrlsByKey: NO_MIRRORS,
     trafficFilter: stubFilter(answer),
+    demand,
   });
 }
 
@@ -158,7 +178,7 @@ describe('decideClusterEmission — sitemap membership derives from noindex', ()
       for (const noindex of [true, false]) {
         const em = decide({ matchingJobs }, { action: 'thin', reason: 'p', noindex });
         expect(em.sitemapEligible).toBe(!em.noindex);
-        expect(em.noindex).toBe(em.belowFloor || em.inertBand);
+        expect(em.noindex).toBe(em.belowFloor || em.inertBand || em.insufficientDemand);
       }
     }
   });
@@ -171,6 +191,7 @@ describe('decideClusterEmission — sitemap membership derives from noindex', ()
       enriched: undefined,
       indexedClusterUrlsByKey: NO_MIRRORS,
       trafficFilter: filter,
+      demand: DORMANT_DEMAND,
     });
     expect(filter.calls).toHaveLength(1);
     expect(filter.calls[0].primaryPath).toBe(em.urlPath);
@@ -193,6 +214,97 @@ describe('decideClusterEmission — sitemap membership derives from noindex', ()
       expect(a.loc).toBe(b.loc);
       expect(a.sitemapEligible).toBe(b.sitemapEligible);
       expect(a.sitemapEligible).toBe(false);
+    }
+  });
+});
+
+// ── 1b. The P1 demand gate ──────────────────────────────────────────────────
+
+describe('decideClusterEmission — P1 demand gate (default noindex)', () => {
+  const CANONICAL = '/cerca-lavoro-svizzera/ricerca-single-source/';
+  const TI_MIRROR = '/cerca-lavoro-ticino/ricerca-single-source/';
+  const INDEXABLE = { action: 'thin', reason: 'p' };
+
+  it('dormant evidence keeps the pre-P1 verdict (a broken pull de-indexes nothing)', () => {
+    const em = decide({}, INDEXABLE, undefined, 'it', DORMANT_DEMAND);
+    expect(em.insufficientDemand).toBe(false);
+    expect(em.sitemapEligible).toBe(true);
+  });
+
+  it('no impression in 90 days → noindex and out of the sitemap', () => {
+    const em = decide({}, INDEXABLE, undefined, 'it', demandWith());
+    expect(em.demandReason).toBe('no-gsc-impressions-90d');
+    expect(em.noindex).toBe(true);
+    expect(em.sitemapEligible).toBe(false);
+    // The page is still a self-canonical page, not a bridge: robots rewrite only.
+    expect(em.belowFloor).toBe(false);
+  });
+
+  it('an impression on the canonical keeps a ≥3-job cluster indexable', () => {
+    const em = decide({}, INDEXABLE, undefined, 'it', demandWith(CANONICAL));
+    expect(em.insufficientDemand).toBe(false);
+    expect(em.sitemapEligible).toBe(true);
+  });
+
+  it('an impression on a same-locale legacy mirror counts, a cross-locale probe does not', () => {
+    const viaMirror = demandWith(TI_MIRROR);
+    expect(decide({}, INDEXABLE, undefined, 'it', viaMirror).sitemapEligible).toBe(true);
+    expect(viaMirror.asked[0]).toContain(TI_MIRROR);
+    const viaOtherLocale = demandWith('/en/find-jobs-ticino/ricerca-single-source/');
+    const em = decide({}, INDEXABLE, undefined, 'it', viaOtherLocale);
+    expect(em.demandReason).toBe('no-gsc-impressions-90d');
+    expect(viaOtherLocale.asked[0].some((p) => p.startsWith('/en/'))).toBe(false);
+  });
+
+  it('the AI-intro exemption does not buy indexation: <3 real jobs → noindex even with impressions', () => {
+    const real = { slug: 's', locale: 'it', intro: INDEXABLE_INTRO, faqs: [] } as any;
+    const em = decide(
+      { matchingJobs: [job('a')] },
+      INDEXABLE,
+      real,
+      'it',
+      demandWith(CANONICAL),
+    );
+    // Not a bridge (the intro still exempts it from the floor) …
+    expect(em.belowFloor).toBe(false);
+    // … but no longer indexable.
+    expect(em.demandReason).toBe('below-demand-min-jobs');
+    expect(em.sitemapEligible).toBe(false);
+  });
+
+  it('a stop-word lead token is noindex even with impressions and jobs', () => {
+    const em = decide(
+      { candidate: { slug: 'suche-auch-sion', locale: 'de', jobCount: 3, sampleTerms: [], editorialCollision: null } },
+      INDEXABLE,
+      undefined,
+      'de',
+      demandWith('/de/jobs-in-schweiz/suche-auch-sion/'),
+    );
+    expect(em.demandReason).toBe('stopword-lead');
+    expect(em.sitemapEligible).toBe(false);
+  });
+});
+
+describe('cluster slug stop-words', () => {
+  it('reads the token after the search-route prefix, in every locale', () => {
+    expect(clusterSlugLeadToken('suche-auch-sion')).toBe('auch');
+    expect(clusterSlugLeadToken('search-member-chur')).toBe('member');
+    expect(clusterSlugLeadToken('recherche-etes-basel')).toBe('etes');
+    expect(clusterSlugLeadToken('ricerca-offerte-lugano')).toBe('offerte');
+  });
+
+  it('flags the plan examples and keeps real job queries', () => {
+    for (const slug of ['suche-auch-sion', 'search-member-bern', 'search-future-zurich', 'search-station-baden', 'search-offer-luzern', 'recherche-avez-zurich']) {
+      expect(hasClusterStopwordLead(slug), slug).toBe(true);
+    }
+    for (const slug of ['ricerca-offerte-lugano', 'ricerca-stipendio-infermiere', 'search-part-time-nurse', 'recherche-travail-zurich', 'suche-arbeit-bern', 'ricerca-stage-lugano']) {
+      expect(hasClusterStopwordLead(slug), slug).toBe(false);
+    }
+  });
+
+  it('every listed token is slug-normalised (lowercase ASCII, no separator)', () => {
+    for (const tokens of Object.values(CLUSTER_SLUG_LEAD_STOPWORDS_BY_LANG)) {
+      for (const t of tokens) expect(t).toMatch(/^[a-z]+$/);
     }
   });
 });

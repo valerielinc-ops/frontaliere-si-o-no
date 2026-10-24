@@ -3563,3 +3563,69 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  */
 export const SECTION_EDITORIAL_KEYS: string[] = Object.keys(SECTION_EDITORIAL)
  .sort((a, b) => b.length - a.length);
+
+/**
+ * The SECTION_EDITORIAL entry for an Italian source path, for `locale`.
+ *
+ * 1. The longest key the path starts with — except the homepage key '/',
+ *    which is the homepage's own copy and matches only '/'. As a prefix it
+ *    matched EVERY path, so each EN/DE/FR page without a more specific key
+ *    shipped the three homepage paragraphs («Sur la page d'accueil, vous
+ *    trouverez…») padded with LOCALE_EDITORIAL: the identical body that
+ *    audit:information-gain scored 0 % on the fr:/fr/~83248f and
+ *    de:/de/~5b78c1 cohorts (2026-10-24).
+ * 2. A section INDEX: source paths carry no trailing slash ('/statistiche')
+ *    while the section keys do ('/statistiche/'), so /en/statistics/,
+ *    /de/grenzgaenger-ratgeber/, /fr/calculer-salaire/ … never matched their
+ *    own section copy («The statistics section presents…») and fell through
+ *    to the homepage key. They now get it — EN/DE/FR only: the Italian index
+ *    pages are owned by the inline chain of staticPagesPlugin, unchanged.
+ */
+export function findSectionEditorialKey(italianPath: string, locale?: string): string | undefined {
+ const direct = SECTION_EDITORIAL_KEYS.find((key) => key !== '/' && italianPath.startsWith(key));
+ if (direct) return direct;
+ if (italianPath === '/') return Object.hasOwn(SECTION_EDITORIAL, '/') ? '/' : undefined;
+ if (!locale || locale === 'it' || italianPath.endsWith('/')) return undefined;
+ const asIndex = `${italianPath}/`;
+ return SECTION_EDITORIAL_KEYS.find((key) => key !== '/' && asIndex.startsWith(key) && Boolean(SECTION_EDITORIAL[key]?.[locale]?.length));
+}
+
+/**
+ * Site-wide EN/DE/FR editorial for static pages that have no section-specific
+ * copy (and the padding that tops a short SECTION_EDITORIAL entry up to seven
+ * paragraphs). Identical on every page that uses it: it is the fallback, not
+ * page content. Moved here from staticPagesPlugin.ts so tests can compose the
+ * fallback body the plugin emits (tests/spa-tab-static-content.test.ts).
+ */
+export const LOCALE_EDITORIAL: Record<string, string[]> = {
+ en: [
+ 'This page is part of Frontaliere Ticino, the reference platform for cross-border workers between Switzerland (Canton Ticino) and Italy. Find practical tools, updated data, and verified information.',
+ 'Content is designed to help cross-border workers make informed decisions about taxation, pensions, transportation, cost of living, and administrative procedures.',
+ 'All tools and data are updated for the 2026 fiscal year, reflecting the New Bilateral Tax Agreement between Switzerland and Italy, current AVS/LPP contribution rates, and Canton Ticino withholding tax tables.',
+ 'The platform covers the complete cross-border worker lifecycle: from obtaining your G or B permit and opening a Swiss bank account, to filing your annual tax returns in both countries, planning your AVS and LPP pension, and comparing the cost of living on both sides of the border.',
+ 'All calculators and comparators use real, verifiable data from official Swiss and Italian sources — Federal Statistical Office, SECO, USTAT, INPS, and the Italian Revenue Agency — so you can trust the results to support real financial decisions.',
+ 'Cross-border workers benefit from Switzerland\'s high salaries while potentially maintaining a lower cost of living in Italy. The key financial factors include withholding tax rates, social security contributions, health insurance choices, and currency exchange rates — all of which vary based on your personal situation and work permit type.',
+ 'Whether you hold a G permit (cross-border commuter) or a B permit (Swiss resident), understanding the tax implications of the Italy–Switzerland tax agreement is essential. Tax status depends on the agreement conditions and qualifying frontier work between 31 December 2018 and 17 July 2023, rather than the hiring date alone.',
+ 'This platform provides free, no-registration-required tools built by domain experts. Every calculation follows official Swiss and Italian tax parameters, and results are presented in both CHF and EUR for immediate practical use.',
+ ],
+ de: [
+ 'Diese Seite ist Teil von Frontaliere Ticino, der Referenzplattform für Grenzgänger zwischen der Schweiz (Kanton Tessin) und Italien. Hier finden Sie praktische Tools, aktuelle Daten und verifizierte Informationen.',
+ 'Die Inhalte helfen Grenzgängern, fundierte Entscheidungen zu Besteuerung, Vorsorge, Transport, Lebenshaltungskosten und Verwaltungsverfahren zu treffen.',
+ 'Alle Tools und Daten sind für das Steuerjahr 2026 aktualisiert und berücksichtigen das Neue Bilaterale Steuerabkommen zwischen der Schweiz und Italien, aktuelle AHV/BVG-Beitragssätze und Tessiner Quellensteuertabellen.',
+ 'Die Plattform deckt den vollständigen Grenzgänger-Lebenszyklus ab: von der Beantragung des G- oder B-Ausweises und der Eröffnung eines Schweizer Bankkontos bis zur jährlichen Steuererklärung in beiden Ländern, der AHV/BVG-Vorsorgeplanung und dem Lebenshaltungskostenvergleich beider Seiten.',
+ 'Alle Rechner und Vergleicher nutzen verifizierbare Daten aus offiziellen Schweizer und italienischen Quellen — BFS, SECO, USTAT, INPS und die italienische Steuerbehörde — damit Sie sich bei echten Finanzentscheidungen auf die Ergebnisse verlassen können.',
+ 'Grenzgänger profitieren von den hohen Schweizer Gehältern bei potenziell niedrigeren Lebenshaltungskosten in Italien. Die wichtigsten finanziellen Faktoren umfassen Quellensteuersätze, Sozialversicherungsbeiträge, Krankenversicherungswahl und Wechselkurse — die alle von Ihrer persönlichen Situation und Aufenthaltsgenehmigung abhängen.',
+ 'Ob Sie eine G-Bewilligung (Grenzgänger) oder eine B-Bewilligung (Schweizer Aufenthalt) besitzen, das Verständnis der steuerlichen Auswirkungen des Steuerabkommens Italien–Schweiz ist entscheidend. Das Steuerregime hängt von den Abkommensbedingungen und qualifizierter Grenzgängertätigkeit zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 ab, nicht allein vom Anstellungsdatum.',
+ 'Diese Plattform bietet kostenlose Tools ohne Registrierung, entwickelt von Fachexperten. Jede Berechnung folgt den offiziellen Schweizer und italienischen Steuerparametern, und die Ergebnisse werden sowohl in CHF als auch in EUR für den sofortigen praktischen Gebrauch dargestellt.',
+ ],
+ fr: [
+ 'Cette page fait partie de Frontaliere Ticino, la plateforme de référence pour les travailleurs frontaliers entre la Suisse (Canton du Tessin) et l\'Italie. Trouvez des outils pratiques, des données actualisées et des informations vérifiées.',
+ 'Le contenu aide les frontaliers à prendre des décisions éclairées sur la fiscalité, la prévoyance, les transports, le coût de la vie et les procédures administratives.',
+ 'Tous les outils et données sont mis à jour pour l\'année fiscale 2026, reflétant le Nouvel Accord Fiscal Bilatéral entre la Suisse et l\'Italie, les taux de cotisation AVS/LPP actuels et les barèmes d\'impôt à la source du Canton du Tessin.',
+ 'La plateforme couvre le cycle de vie complet du frontalier : de l\'obtention du permis G ou B et l\'ouverture d\'un compte bancaire suisse, aux déclarations fiscales annuelles dans les deux pays, la planification de la retraite AVS/LPP, et la comparaison du coût de la vie des deux côtés de la frontière.',
+ 'Tous les calculateurs et comparateurs utilisent des données réelles et vérifiables de sources officielles suisses et italiennes — OFS, SECO, USTAT, INPS et l\'Agence des revenus italienne — pour des résultats dignes de confiance dans vos décisions financières.',
+ 'Les travailleurs frontaliers bénéficient des salaires élevés suisses tout en maintenant potentiellement un coût de la vie inférieur en Italie. Les facteurs financiers clés incluent les taux d\'impôt à la source, les cotisations sociales, le choix de l\'assurance maladie et les taux de change — qui varient selon votre situation personnelle et votre type de permis.',
+ 'Que vous déteniez un permis G (frontalier) ou un permis B (résident suisse), comprendre les implications fiscales de l’accord fiscal Italie–Suisse est essentiel. Le régime fiscal dépend des conditions de l’accord et d’une activité frontalière qualifiée entre le 31 décembre 2018 et le 17 juillet 2023, et non de la seule date d’embauche.',
+ 'Cette plateforme offre des outils gratuits sans inscription, développés par des experts du domaine. Chaque calcul suit les paramètres fiscaux officiels suisses et italiens, et les résultats sont présentés en CHF et en EUR pour une utilisation pratique immédiate.',
+ ],
+ };

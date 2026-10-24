@@ -4710,7 +4710,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Vivere in Svizzera o Italia: confronto reale per frontalieri",
- "description": "Permesso B o Permesso G? Confronto dettagliato su costi, tasse, sanità, qualità della vita con esempi pratici 2026.",
+ "description": "Conviene fare il frontaliere o trasferirsi in Svizzera? Affitti, tasse, LAMal e trasporti a confronto: con il Permesso G 12.100 euro l'anno in più.",
  "image": { "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/locarno.webp`, "width": 1344, "height": 756, "caption": "Vista panoramica del confine italo-svizzero con il lago di Lugano e i tetti di un villaggio italiano" },
  "datePublished": "2026-03-15T20:02:00+01:00",
  "dateModified": "2026-03-15T20:02:00+01:00",
