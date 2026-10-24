@@ -101,6 +101,9 @@ export function parseArgs(argv) {
  * 08:20 schedule or a deploy-triggered run gets there first.
  */
 export function runBudgetFor(args, spent) {
+  // An explicit --max 0 (e.g. indexing_max=0 on dispatch) is a hard stop:
+  // the first-run share must never turn "send nothing" into 130 requests.
+  if (!(args.max > 0)) return 0;
   const cap = spent === 0 && args.maxFirstRun > args.max ? args.maxFirstRun : args.max;
   return Math.max(0, Math.min(cap, DAILY_BUDGET - spent));
 }

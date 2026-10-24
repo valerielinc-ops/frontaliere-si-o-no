@@ -211,4 +211,9 @@ describe('submit-google-indexing-jobs CLI', () => {
     expect(runBudgetFor(args, 159)).toBe(1);
     expect(runBudgetFor(args, DAILY_BUDGET)).toBe(0);
   });
+
+  it('an explicit --max 0 is a hard cap, even on the first run of the quota day', () => {
+    expect(runBudgetFor({ max: 0, maxFirstRun: 130 }, 0)).toBe(0);
+    expect(runBudgetFor(parseArgs(['--max', '0', '--max-first-run', '130']), 0)).toBe(0);
+  });
 });
