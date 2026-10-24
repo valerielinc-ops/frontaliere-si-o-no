@@ -121,6 +121,7 @@ const BASE_URL = 'https://frontaliereticino.ch';
 export { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
 import { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
 import { EDITORIAL_TEAM_ID, ORGANIZATION_LD } from './seo/organizationLd';
+import { applyCanonicalHref, applyHreflangEntries, hasAuthoritativeStaticHead, resolveRobotsDirective } from './seo/staticHeadAuthority';
 
 /**
  * E-E-A-T Author & Publisher Schema for YMYL content.
@@ -2060,7 +2061,9 @@ export async function updateMetaTags(section: string): Promise<void> {
  : articleBodyHasPromptPlaceholder || articleBodyUnavailable
  ? 'noindex, follow'
  : pharmacyMetadata?.robots ?? ROBOTS_INDEX_ENHANCED_CONTENT;
- updateOrCreateMetaTag('name', 'robots', robotsDirective);
+ // The static head is authoritative (services/seo/staticHeadAuthority.ts):
+ // the SPA may add a noindex here, never lift the one the HTML shipped.
+ updateOrCreateMetaTag('name', 'robots', resolveRobotsDirective(robotsDirective));
 
  // Update Open Graph tags (used by Bing, Facebook, LinkedIn)
  updateOrCreateMetaTag('property', 'og:title', metaOgTitle);
@@ -2302,8 +2305,12 @@ function updateHreflangTags(
  // uses `window.location.pathname` for staticOverlay routes.
  if (route.staticOverlay) return;
 
- // Remove existing hreflang tags
- document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
+ // A path served with its own HTML keeps the build-emitted block: only the
+ // build knows which locale twins exist and are indexable.
+ if (hasAuthoritativeStaticHead()) {
+  applyHreflangEntries([]);
+  return;
+ }
 
  // Get locale-specific paths from the router
  const paths = pathResolver
@@ -2322,20 +2329,11 @@ function updateHreflangTags(
  .map((lang) => ({ lang, url: paths[lang] ? `${BASE_URL}${withTrailingSlashPath(paths[lang])}${querySuffix}` : '' }))
  .filter((h) => h.lang && h.lang.length > 0 && h.url && h.url.length > 0);
 
- hreflangEntries.forEach(({ lang, url }) => {
- const link = document.createElement('link');
- link.rel = 'alternate';
- link.hreflang = lang;
- link.href = url;
- document.head.appendChild(link);
- });
-
- // Add x-default (Italian as default)
- const xDefault = document.createElement('link');
- xDefault.rel = 'alternate';
- xDefault.setAttribute('hreflang', 'x-default');
- xDefault.href = `${BASE_URL}${withTrailingSlashPath(paths.it)}${querySuffix}`;
- document.head.appendChild(xDefault);
+ applyHreflangEntries([
+  ...hreflangEntries.map(({ lang, url }) => ({ lang, href: url })),
+  // x-default (Italian as default)
+  { lang: 'x-default', href: `${BASE_URL}${withTrailingSlashPath(paths.it)}${querySuffix}` },
+ ]);
 }
 
 function withTrailingSlashPath(path: string): string {
@@ -2363,15 +2361,8 @@ function updateOrCreateMetaTag(attrName: string, attrValue: string, content: str
  * Update canonical link
  */
 function updateCanonicalLink(url: string): void {
- let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-
- if (!canonical) {
- canonical = document.createElement('link');
- canonical.rel = 'canonical';
- document.head.appendChild(canonical);
- }
-
- canonical.href = url;
+ // Restores the static canonical instead when the HTML owns it.
+ applyCanonicalHref(url);
 }
 
 const PHARMACY_SCHEMA_PATH = /\/(?:farmacie|pharmacies|apotheken)(?:\/|$)/i;
@@ -2469,7 +2460,7 @@ export function applyNotFoundSeo(path: string): void {
  const notFoundTitle = 'Pagina non trovata — Frontaliere Ticino';
 
  // Set noindex to prevent Google from indexing this soft-404
- updateOrCreateMetaTag('name', 'robots', 'noindex');
+ updateOrCreateMetaTag('name', 'robots', resolveRobotsDirective('noindex'));
 
  // Set 404-specific title
  document.title = notFoundTitle;
@@ -2483,7 +2474,8 @@ export function applyNotFoundSeo(path: string): void {
  updateOrCreateMetaTag('property', 'og:url', selfCanonical);
 
  // Remove hreflang tags — no alternate locale versions for a 404 page
- document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
+ // (a path with its own static HTML keeps the build-emitted block).
+ applyHreflangEntries([]);
 
  // Remove dynamically-injected structured data — no schema for 404 pages
  document.querySelectorAll('script[type="application/ld+json"][data-dynamic-ld]').forEach(el => el.remove());
