@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useTranslation, getLocale } from '@/services/i18n';
+import { useTranslation, getLocale, useTranslationNamespace } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import {
  Languages,
@@ -185,6 +185,7 @@ const CATEGORY_ICONS: Record<DialectCategory, string> = {
 
 const TicineseDialect: React.FC = () => {
  const { t } = useTranslation();
+ const dialectReady = useTranslationNamespace('dialect');
  const [searchTerm, setSearchTerm] = useState('');
  const [selectedCategory, setSelectedCategory] = useState<DialectCategory | 'all'>('all');
  const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
@@ -318,8 +319,7 @@ const TicineseDialect: React.FC = () => {
  Analytics.trackUIInteraction('dialect', 'community', 'user_phrase', 'submit');
  };
 
- return (
- <div className="space-y-6">
+ const header = (
  <div className="bg-warning rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <Languages size={28} />
@@ -327,6 +327,22 @@ const TicineseDialect: React.FC = () => {
  </div>
  <p className="text-on-accent text-sm">{tt('dialect.subtitle', 'Scopri il dialetto del territorio di frontiera')}</p>
  </div>
+ );
+
+ // Terms, categories and page copy are the on-demand "dialect" namespace
+ // (services/locales/<locale>-ns-dialect.ts); title and subtitle stay in core.
+ if (!dialectReady) {
+ return (
+ <div className="space-y-6">
+ {header}
+ <p className="text-center text-muted py-12" role="status" aria-live="polite" data-testid="dialect-loading">{t('common.loading')}</p>
+ </div>
+ );
+ }
+
+ return (
+ <div className="space-y-6">
+ {header}
 
  {!phraseOfDayDismissed && (
  <div className="bg-gradient-to-r from-warning-subtle to-warning-subtle border border-warning-border rounded-xl p-4">

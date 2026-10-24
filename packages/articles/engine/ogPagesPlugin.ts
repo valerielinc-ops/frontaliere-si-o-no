@@ -36,6 +36,7 @@ import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath,
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from './shared/aiDisclosure';
+import { resolveArticleProvenance, type ArticleProvenance } from './shared/articleProvenance';
 
 /**
  * Rich author identity supplied by the site shell at runtime. The package
@@ -50,6 +51,10 @@ type ArticleAuthorIdentity = ArticleAuthor & {
   social?: { linkedin?: string; twitter?: string; mastodon?: string; wikidataId?: string };
   uid?: string;
   cvPath?: string;
+};
+
+type ResolvedArticleAuthor = ArticleAuthorIdentity & {
+  provenance: ArticleProvenance;
 };
 
 function isRealArticleAuthor(author: ArticleAuthorIdentity | undefined): boolean {
@@ -557,6 +562,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // entry in SECTION.registry, resolved against data/authors.ts below.
  const articleAuthorSlugById: Record<string, string> = {};
  const articleAuthorNameById: Record<string, string> = {};
+ const articleAiAssistedById: Record<string, boolean> = {};
  try {
  const articleDataSrc = fs.readFileSync(np.resolve(rootDir, SECTION.registry), 'utf-8');
  for (const article of readArticleRegistryMetadata(articleDataSrc)) {
@@ -565,6 +571,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (article.updatedAt !== undefined) articleUpdatedAtById[article.id] = article.updatedAt;
  if (article.authorSlug !== undefined) articleAuthorSlugById[article.id] = article.authorSlug;
  if (article.authorName !== undefined) articleAuthorNameById[article.id] = article.authorName;
+ if (article.aiAssisted !== undefined) articleAiAssistedById[article.id] = article.aiAssisted;
  }
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
@@ -760,6 +767,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  /** Real per-article author slug/name from SECTION.registry (data/authors.ts key), empty when unset */
  authorSlug: string;
  authorName: string;
+ aiAssisted?: boolean;
  }
  const entries: Entry[] = [];
 
@@ -841,7 +849,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (cp.startsWith(SECTION.canonicalPrefix)) {
  const authorSlug = articleAuthorSlugById[articleId] || '';
  const authorName = articleAuthorNameById[articleId] || '';
- entries.push({ key, articleId, title, desc, keywords, ogT, ogD, path: cp, img: im, imgW: imSize.width, imgH: imSize.height, datePub, dateMod, sdType, sdAuthorHasId, sdBlock, authorSlug, authorName });
+ const aiAssisted = articleAiAssistedById[articleId];
+ entries.push({ key, articleId, title, desc, keywords, ogT, ogD, path: cp, img: im, imgW: imSize.width, imgH: imSize.height, datePub, dateMod, sdType, sdAuthorHasId, sdBlock, authorSlug, authorName, aiAssisted });
  }
  }
 
@@ -1165,13 +1174,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   return `<nav class="ft-static-legal-links" aria-label="${links.aria}">${links.about} | ${methodology} | ${corrections} | ${links.contact} | ${links.privacy}</nav>`;
  };
  // Same disclosure the hydrated article renders (BlogArticles.tsx), from the
- // same copy. Provenance is inferred like resolveArticleProvenance(): a byline
- // with a Firebase identity is a human contribution, everything else is
- // machine-drafted.
- const buildArticleTransparencyAside = (locale: string, author: { uid?: string; name?: string } | undefined): string => {
+ // same copy. Provenance is resolved like resolveArticleProvenance(): an
+ // explicit per-article declaration wins, with the Firebase identity kept as
+ // the legacy default for records that predate that declaration.
+ const buildArticleTransparencyAside = (locale: string, authorName: string | undefined, provenance: ArticleProvenance): string => {
   const dl = disclosureLocale(locale);
   const tr = ARTICLE_TRANSPARENCY[dl];
-  const statement = author?.uid && author.name ? tr.human(author.name) : tr.aiAssisted;
+  const statement = !provenance.aiAssisted && authorName ? tr.human(authorName) : tr.aiAssisted;
   return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)} ${esc(tr.sources)}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
  };
 
@@ -1506,7 +1515,16 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // + JSON-LD in components/community/BlogArticles.tsx (~1331-1351) and the
  // visible byline below, so static build + client hydration match (was:
  // hardcoded to a single author for every article, all sections).
- const resolvedAuthor = (en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined) as ArticleAuthorIdentity | undefined;
+ const authorProfile = (en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined) as ArticleAuthorIdentity | undefined;
+ const resolvedAuthor: ResolvedArticleAuthor | undefined = authorProfile
+  ? {
+   ...authorProfile,
+   provenance: resolveArticleProvenance({ aiAssisted: en.aiAssisted }, authorProfile),
+  }
+  : undefined;
+ const articleProvenance = resolvedAuthor
+  ? resolvedAuthor.provenance
+  : resolveArticleProvenance({ aiAssisted: en.aiAssisted }, undefined);
  // The one author surface #author-eeat left behind: `article:author` below
  // stayed hardcoded to /chi-siamo/ while byline, JSON-LD and hreflang all
  // moved to the per-article editorial profile. Every OG consumer (Facebook,
@@ -1985,7 +2003,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, resolvedAuthor)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, en.authorName || resolvedAuthor?.name, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

@@ -1134,6 +1134,7 @@ function articleFromOverlay(entry: OverlayArticle): Article {
   hasCalculator: entry.hasCalculator === true,
   ...(entry.articleType ? { articleType: entry.articleType } : {}),
   ...(entry.authorSlug ? { authorSlug: entry.authorSlug } : {}),
+  ...(typeof entry.aiAssisted === 'boolean' ? { aiAssisted: entry.aiAssisted } : {}),
   ...(entry.canton ? { canton: entry.canton } : {}),
  };
 }
@@ -2383,7 +2384,10 @@ function BlogArticlesContent({
  // declaration exists because a registry entry alone cannot answer a
  // per-article provenance question — see services/articleProvenance.ts.
  const bylineAuthor = (effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined) as { uid?: string } | undefined;
- const isHumanContributor = !resolveArticleProvenance(article as Article & { aiAssisted?: boolean }, bylineAuthor).aiAssisted;
+ const resolvedAuthor = {
+  provenance: resolveArticleProvenance(article, bylineAuthor),
+ };
+ const isHumanContributor = !resolvedAuthor.provenance.aiAssisted && Boolean(effectiveAuthorName);
  // One AI statement site-wide (packages/articles/engine/shared/aiDisclosure.ts),
  // localized — the static article HTML renders the same copy.
  const transparencyLocale = disclosureLocale(locale);

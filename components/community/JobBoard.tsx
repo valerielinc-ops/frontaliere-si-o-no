@@ -143,6 +143,7 @@ import { normalizeJobAlertLocationValue } from '@/services/jobAlertLocations';
 import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
+import { fetchEmployerHubCounts } from '@/hooks/useEmployerHub';
 import PopularSearchChips from '@/components/community/PopularSearchChips';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
@@ -234,7 +235,8 @@ import {
 } from '@/services/adExperiment';
 import type { InfeedAdVariant } from '@/services/adExperiment';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import {
  parseJobDescription,
  type Block as JobDescBlock,
@@ -323,6 +325,7 @@ import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarket
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/shared/healthPremiumsPaths';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { isJobBoardSectionPathname } from '../../scripts/lib/jobBoardSections.mjs';
+import JobBoardQuickFilterChips from './JobBoardQuickFilterChips';
 import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
@@ -2752,7 +2755,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
  useEffect(() => {
- isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
+ // The employer-hub CTA renders above the gate's description only once its
+ // count map has loaded; fetched from the detail render it landed ~1.5s after
+ // the gate and shifted it (CLS). Start it at mount on slug routes instead.
+ if (initialJobSlug) void fetchEmployerHubCounts();
+ // eslint-disable-next-line react-hooks/exhaustive-deps
  }, []);
  // Bridge-page guard (see readBridgeTargetSlug): on a job bridge page the URL
  // segment is the job's OLD slug, not a search keyword. 13 historic slugs start
@@ -2770,11 +2777,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // writers (chips, clear button, autocomplete, URL sync) go through
  // `applySearchQuery` so a stale pending debounce can't clobber their change; the
  // sync effect below reflects any of these back into the input's DOM value.
+ // Latest query requested by a non-typing writer, ahead of the transition
+ // commit: a second tap on a search chip while the first transition is still
+ // pending must toggle against what the user asked for, not the stale state.
+ const latestSearchQueryRef = useRef(searchQuery);
+ useEffect(() => {
+ latestSearchQueryRef.current = searchQuery;
+ }, [searchQuery]);
  const applySearchQuery = useCallback((value: React.SetStateAction<string>) => {
  if (searchDebounceTimerRef.current) {
  clearTimeout(searchDebounceTimerRef.current);
  searchDebounceTimerRef.current = null;
  }
+ if (typeof value === 'string') latestSearchQueryRef.current = value;
  startTransition(() => setSearchQuery(value));
  }, []);
  useEffect(() => {
@@ -2834,7 +2849,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [filtersExpanded, setFiltersExpanded] = useState(false);
  const searchInputRef = useRef<HTMLInputElement>(null);
  const searchDebounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
- const [linkedInAvailable, setLinkedInAvailable] = useState(false);
+ // null until Remote Config answers; the button's box is held invisible
+ // meanwhile (CLS: +56px under the gate otherwise). See the hook.
+ const linkedInAvailable = useLinkedInSignInAvailable();
  const modalGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const authUnlockCandidateRef = useRef<string | null>(null);
@@ -8653,9 +8670,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  <div className="space-y-3">
- <div className="space-y-2">
- <div ref={modalGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
+ {/* One fixed 44px slot for the Google control (CLS). GIS re-renders its
+     iframe at ~80px before settling at 44px, and the fallback used to be
+     stacked UNDER the GIS container and removed on readiness: both moved
+     everything below the gate by 36-52px. The fallback now overlays the
+     GIS container inside the same box, so readiness swaps pixels only. */}
+ <div className="relative h-[44px]" data-google-signin-slot>
+ <div ref={modalGoogleButtonRef} className="absolute inset-0 flex w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!modalGoogleButtonReady && (
+ <div className="absolute inset-0">
  <button
  type="button"
  onClick={() => {
@@ -8693,11 +8716,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {t('newsletter.popup.googleSignIn')}
  </button>
+ </div>
  )}
  </div>
 
  {/* LinkedIn Sign-In Button (conditional on Remote Config) */}
- {linkedInAvailable && (
+ {linkedInAvailable !== false && (
  <button
  type="button"
  disabled={authBusy !== null}
@@ -8744,7 +8768,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  signInWithLinkedIn().catch(() => setAuthBusy(null));
  }
  }}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ className={`w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors${linkedInPendingClass(linkedInAvailable)}`}
  >
  {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -10162,9 +10186,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const gateActions = (
  <div className={gateSkin.actionsFirst ? 'space-y-3' : 'mt-4 space-y-3'}>
- <div className="space-y-2">
- <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
+ {/* One fixed 44px slot for the Google control (CLS). GIS re-renders its
+     iframe at ~80px before settling at 44px, and the fallback used to be
+     stacked UNDER the GIS container and removed on readiness: both moved
+     everything below the gate by 36-52px. The fallback now overlays the
+     GIS container inside the same box, so readiness swaps pixels only. */}
+ <div className="relative h-[44px]" data-google-signin-slot>
+ <div ref={inlineGoogleButtonRef} className="absolute inset-0 flex w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!inlineGoogleButtonReady && (
+ <div className="absolute inset-0">
  <button
  type="button"
  onClick={() => {
@@ -10201,9 +10231,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {t('newsletter.popup.googleSignIn')}
  </button>
+ </div>
  )}
  </div>
- {linkedInAvailable && (
+ {linkedInAvailable !== false && (
  <button
  type="button"
  disabled={authBusy !== null}
@@ -10250,7 +10281,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  signInWithLinkedIn().catch(() => setAuthBusy(null));
  }
  }}
- className={gateSkin.linkedInButton}
+ className={`${gateSkin.linkedInButton}${linkedInPendingClass(linkedInAvailable)}`}
  >
  {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className={gateSkin.linkedInIcon ? `w-4 h-4 ${gateSkin.linkedInIcon}` : 'w-4 h-4'} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -11471,29 +11502,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Role/category shortcuts are useful after users have seen real inventory,
      but no longer push the first result below the mobile fold. */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide" role="group" aria-label={t('jobBoard.quickFilters.label')}>
- {([
- { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health'); } },
- { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time'); } },
- { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship'); } },
- ] as const).map(chip => (
- <button
- key={chip.id}
- type="button"
- onClick={chip.action}
- className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 min-h-11 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
- chip.active
- ? 'bg-accent-strong border-accent text-on-accent shadow-sm shadow-accent/20'
- : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
- }`}
- aria-pressed={chip.active}
- >
- <chip.icon className="w-3 h-3" />
- {chip.label}
- </button>
- ))}
+ <JobBoardQuickFilterChips chips={[
+ { id: 'nurse', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(latestSearchQueryRef.current.toLowerCase() === term ? '' : term); } },
+ { id: 'engineer', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(latestSearchQueryRef.current.toLowerCase() === term ? '' : term); } },
+ { id: 'driver', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(latestSearchQueryRef.current.toLowerCase() === term ? '' : term); } },
+ { id: 'health', group: 'category', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedCategory((prev) => (prev === 'health' ? 'all' : 'health')); } },
+ { id: 'parttime', group: 'contract', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract((prev) => (prev === 'part-time' ? 'all' : 'part-time')); } },
+ { id: 'apprentice', group: 'contract', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract((prev) => (prev === 'internship' ? 'all' : 'internship')); } },
+ ]} />
  </div>
 
  {/* Single search-utility mount remains the 0-results alert scroll target. */}
@@ -11677,31 +11693,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div role="group" aria-label={t('jobBoard.quickFilters.label')}>
  {/* Time & Location */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
- {([
- { id: 'today', icon: Clock, label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '24h' ? 'all' : '24h'); } },
- { id: '3days', icon: Clock, label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '3d' ? 'all' : '3d'); } },
- { id: '7days', icon: Clock, label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '7d' ? 'all' : '7d'); } },
- { id: 'lugano', icon: MapPin, label: 'Lugano', active: selectedLocation === 'lugano', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'lugano' ? 'all' : 'lugano'); } },
- { id: 'mendrisio', icon: MapPin, label: 'Mendrisio', active: selectedLocation === 'mendrisio', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'mendrisio' ? 'all' : 'mendrisio'); } },
- { id: 'bellinzona', icon: MapPin, label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'bellinzona' ? 'all' : 'bellinzona'); } },
- { id: 'locarno', icon: MapPin, label: 'Locarno', active: selectedLocation === 'locarno', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'locarno' ? 'all' : 'locarno'); } },
- { id: 'chiasso', icon: MapPin, label: 'Chiasso', active: selectedLocation === 'chiasso', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'chiasso' ? 'all' : 'chiasso'); } },
- ] as const).map(chip => (
- <button
- key={chip.id}
- type="button"
- onClick={chip.action}
- className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 min-h-11 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
- chip.active
- ? 'bg-accent-strong border-accent text-on-accent shadow-sm shadow-accent/20'
- : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
- }`}
- aria-pressed={chip.active}
- >
- <chip.icon className="w-3 h-3" />
- {chip.label}
- </button>
- ))}
+ <JobBoardQuickFilterChips chips={[
+ { id: 'today', group: 'date', icon: Clock, label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange((prev) => (prev === '24h' ? 'all' : '24h')); } },
+ { id: '3days', group: 'date', icon: Clock, label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange((prev) => (prev === '3d' ? 'all' : '3d')); } },
+ { id: '7days', group: 'date', icon: Clock, label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange((prev) => (prev === '7d' ? 'all' : '7d')); } },
+ { id: 'lugano', group: 'location', icon: MapPin, label: 'Lugano', active: selectedLocation === 'lugano', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'lugano' ? 'all' : 'lugano')); } },
+ { id: 'mendrisio', group: 'location', icon: MapPin, label: 'Mendrisio', active: selectedLocation === 'mendrisio', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'mendrisio' ? 'all' : 'mendrisio')); } },
+ { id: 'bellinzona', group: 'location', icon: MapPin, label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'bellinzona' ? 'all' : 'bellinzona')); } },
+ { id: 'locarno', group: 'location', icon: MapPin, label: 'Locarno', active: selectedLocation === 'locarno', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'locarno' ? 'all' : 'locarno')); } },
+ { id: 'chiasso', group: 'location', icon: MapPin, label: 'Chiasso', active: selectedLocation === 'chiasso', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'chiasso' ? 'all' : 'chiasso')); } },
+ ]} />
  </div>
  </div>
 

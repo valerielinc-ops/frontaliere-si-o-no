@@ -1,12 +1,15 @@
 import React, { useMemo } from 'react';
 import { Sparkles, BookOpen } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, useTranslationNamespace } from '@/services/i18n';
 import { getDialectPhraseOfDay } from '@/services/dialectService';
 import { buildPath } from '@/services/router';
 import { useNavigationOptional } from '@/services/NavigationContext';
 
 const DailyDialectPhrase: React.FC = () => {
  const { t } = useTranslation();
+ // The phrase lives in the on-demand "dialect" namespace: until it lands the
+ // component keeps rendering its fixed-height placeholder below (no shift).
+ useTranslationNamespace('dialect');
  const nav = useNavigationOptional();
  const phraseOfDay = useMemo(() => getDialectPhraseOfDay(), []);
 

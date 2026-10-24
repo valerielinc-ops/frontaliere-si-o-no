@@ -218,7 +218,10 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
       className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} right-4 sm:right-6 z-[60] animate-toast-in pointer-events-auto`}
       style={{
         '--bottom-prompt-ad-clearance': `${autoAdClearance}px`,
-        bottom: `calc(var(--bottom-prompt-offset) + ${statusToastStackOffset}px)`,
+        // Stacking above another status toast goes through the class's
+        // translate (index.css .above-mobile-nav), not `bottom`, so it is not a
+        // layout shift; the total stays var(--bottom-prompt-offset).
+        '--bottom-prompt-stack': `${statusToastStackOffset}px`,
       } as CSSProperties}
     >
       <div className="bg-warning-strong text-on-accent rounded-xl shadow-lg px-4 py-2.5 flex items-center gap-2.5 max-w-xs">
