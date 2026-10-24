@@ -98,6 +98,10 @@ scripts/lib/ai-meta-response.mjs
 scripts/lib/prospector/entities.mjs
 scripts/lib/haversine.mjs
 scripts/lib/html-attr.mjs
+# Added 2026-10-24: html-attr.mjs reads the opt-in build-performance flag at
+# module load; carry its pure helper so the transported extractor resolves the
+# top-level import before main().
+scripts/lib/mid-plugins-flag.mjs
 scripts/lib/it-text-similarity.mjs
 scripts/lib/itLanguageCheck.mjs
 scripts/lib/llm-json-repair.mjs
