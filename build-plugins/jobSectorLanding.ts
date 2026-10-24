@@ -776,7 +776,15 @@ export function jobMatchesSector(
   locale?: JobBoardLocale,
 ): boolean {
   if (jobMatchesSectorCanonical(job, sector)) return true;
+  return jobMatchesSectorLocaleSignal(job, sector, locale);
+}
 
+/** The locale-scoped half of {@link jobMatchesSector}, after the canonical test. */
+function jobMatchesSectorLocaleSignal(
+  job: SectorCountableJob,
+  sector: SectorHubKey,
+  locale?: JobBoardLocale,
+): boolean {
   const pattern = SECTOR_MATCHERS[sector];
 
   if (job.titleByLocale) {
@@ -806,6 +814,60 @@ export function jobMatchesSector(
     }
   }
   return false;
+}
+
+const SECTOR_MATCH_MEMO_LOCALES: readonly JobBoardLocale[] = ['it', 'en', 'de', 'fr'];
+// Slot 0: canonical half; 1-4: full result per locale; 5: full result without locale.
+const SECTOR_MATCH_MEMO_SLOTS = SECTOR_MATCH_MEMO_LOCALES.length + 2;
+
+/**
+ * A {@link jobMatchesSector} with a per-job memo, for one build pass over an
+ * immutable job corpus. The jobs SEO emitter asks the same (job, sector,
+ * locale) question from several loops — sector hub buckets test every job ×
+ * sector × locale, the canton index real-data block re-tests the whole canton
+ * pool for every page — and each answer re-runs long multilingual regexes
+ * over title and description (192 s on the `de` leg, run 40070147721). The
+ * answer is a pure function of the job's text fields, so caching it per job
+ * object returns the same booleans. Storage is one byte per (sector, slot) and
+ * lives in a WeakMap, so it dies with the jobs (or with the memo itself).
+ *
+ * The caller owns the lifetime and must not mutate a job's text fields while
+ * the memo is alive.
+ */
+export function createJobSectorMatchMemo(): (
+  job: SectorCountableJob,
+  sector: SectorHubKey,
+  locale?: JobBoardLocale,
+) => boolean {
+  const sectorIndex = new Map<SectorHubKey, number>(SECTOR_HUB_KEYS.map((key, index) => [key, index]));
+  const memo = new WeakMap<object, Uint8Array>();
+  const UNKNOWN = 0;
+  const FALSE = 1;
+  const TRUE = 2;
+  return (job, sector, locale) => {
+    const index = sectorIndex.get(sector);
+    const localeIndex = locale === undefined ? SECTOR_MATCH_MEMO_LOCALES.length : SECTOR_MATCH_MEMO_LOCALES.indexOf(locale);
+    if (index === undefined || localeIndex < 0 || job === null || typeof job !== 'object') {
+      return jobMatchesSector(job, sector, locale);
+    }
+    let slots = memo.get(job);
+    if (!slots) {
+      slots = new Uint8Array(SECTOR_HUB_KEYS.length * SECTOR_MATCH_MEMO_SLOTS);
+      memo.set(job, slots);
+    }
+    const base = index * SECTOR_MATCH_MEMO_SLOTS;
+    const fullSlot = base + 1 + localeIndex;
+    const known = slots[fullSlot];
+    if (known !== UNKNOWN) return known === TRUE;
+    let canonical = slots[base];
+    if (canonical === UNKNOWN) {
+      canonical = jobMatchesSectorCanonical(job, sector) ? TRUE : FALSE;
+      slots[base] = canonical;
+    }
+    const result = canonical === TRUE || jobMatchesSectorLocaleSignal(job, sector, locale);
+    slots[fullSlot] = result ? TRUE : FALSE;
+    return result;
+  };
 }
 
 /** Count active jobs by (locale, sector). Returns a 4 × {SECTOR_HUB_KEYS.length} matrix. */
