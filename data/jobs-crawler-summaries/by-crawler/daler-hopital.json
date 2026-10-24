@@ -1,7 +1,7 @@
 {
   "key": "daler-hopital",
   "label": "Hôpital Daler",
-  "generatedAt": "2026-10-24T09:33:26.279Z",
+  "generatedAt": "2026-10-24T21:20:19.163Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 7733,
-  "avgDurationMs": 7733,
+  "durationMs": 11923,
+  "avgDurationMs": 11923,
   "durationHistory": [
-    7733
+    11923
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://daler.ch/emplois#offer/4530/apprentissage-assc-cfc-assistante-en-soins-et-sante-communautaire",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:33:11.872Z",
+      "crawledAt": "2026-10-24T21:19:56.863Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://daler.ch/emplois#offer/4529/apprentissage-cuisinierere-cfc",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:33:11.315Z",
+      "crawledAt": "2026-10-24T21:19:56.321Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://daler.ch/emplois#offer/4528/apprentissage-gestionnaire-en-hotellerie-intendance-cfc",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:33:10.747Z",
+      "crawledAt": "2026-10-24T21:19:55.764Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "url": "https://daler.ch/emplois#offer/4526/apprentissage-agente-dexploitation-cfc",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:33:10.193Z",
+      "crawledAt": "2026-10-24T21:19:55.181Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://daler.ch/emplois#offer/4231/gestionnaire-en-intendance",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:33:09.628Z",
+      "crawledAt": "2026-10-24T21:19:54.631Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
       "url": "https://daler.ch/emplois#offer/4638/sage-femme",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:33:09.069Z",
+      "crawledAt": "2026-10-24T21:19:53.300Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://daler.ch/emplois#offer/4611/agente-dexploitation",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:33:08.515Z",
+      "crawledAt": "2026-10-24T21:19:52.745Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -324,5 +324,5 @@
       }
     }
   ],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
