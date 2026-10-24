@@ -253,15 +253,33 @@ describe('snapshotWebcamsForOg', () => {
     }
   });
 
-  it('a crossing missing from the replay dir is skipped like a failed fetch', async () => {
-    const res = await snapshotWebcamsForOg({
-      crossings: [CROSSING_WITH_WEBCAM],
-      outDir: path.join(tmp, 'out'),
-      replayDir: path.join(tmp, 'empty'),
-      log: () => {},
-    });
-    expect(res).toMatchObject({ snapshotted: 0, skipped: 1, total: 1 });
-    expect(readdirSync(path.join(tmp, 'out'))).toEqual([]);
+  it('fails closed when a crossing is missing from the replay dir', async () => {
+    const out = path.join(tmp, 'out');
+    await expect(
+      snapshotWebcamsForOg({
+        crossings: [CROSSING_WITH_WEBCAM],
+        outDir: out,
+        replayDir: path.join(tmp, 'empty'),
+        log: () => {},
+      }),
+    ).rejects.toThrow(/Replay input incomplete.*chiasso-brogeda/);
+    expect(readdirSync(out)).toEqual([]);
+  });
+
+  it('fails closed when a replay image has no metadata sidecar', async () => {
+    const replay = path.join(tmp, 'replay');
+    mkdirSync(replay, { recursive: true });
+    writeFileSync(path.join(replay, 'chiasso-brogeda.jpg'), await makeFakeJpeg());
+    const out = path.join(tmp, 'out');
+    await expect(
+      snapshotWebcamsForOg({
+        crossings: [CROSSING_WITH_WEBCAM],
+        outDir: out,
+        replayDir: replay,
+        log: () => {},
+      }),
+    ).rejects.toThrow(/Replay input incomplete.*chiasso-brogeda/);
+    expect(readdirSync(out)).toEqual([]);
   });
 
   it('an explicit fetchFn wins over OG_WEBCAM_REPLAY_DIR', async () => {

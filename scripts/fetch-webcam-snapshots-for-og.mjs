@@ -180,9 +180,15 @@ async function replayWebcamSnapshots({ crossings, outDir, replayDir, logger }) {
       snapshotted++;
       results.push({ slug, ok: true });
     } catch (err) {
-      // Same outcome as a failed live fetch: no file, default og image.
-      skipped++;
-      results.push({ slug, ok: false, error: err?.code ?? String(err) });
+      // Replay inputs are captured once for every matrix leg, so a missing or
+      // unreadable source would make the byte comparison invalid. Fail closed
+      // instead of silently comparing a fallback OG image.
+      await fs.rm(path.join(outDir, `${slug}.jpg`), { force: true });
+      await fs.rm(path.join(outDir, `${slug}.jpg.meta.json`), { force: true });
+      throw new Error(
+        `Replay input incomplete for ${slug} in ${replayDir}: ${err?.code ?? String(err)}`,
+        { cause: err },
+      );
     }
   }
   logger(
