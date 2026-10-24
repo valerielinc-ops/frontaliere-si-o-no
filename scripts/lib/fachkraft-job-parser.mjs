@@ -403,9 +403,15 @@ async function fetchFachkraftPage(
     && Boolean(result.transportError);
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
   const antiBotResponse = directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status));
+  // A timeout means this source request did not answer within the crawler's
+  // bounded deadline. Replaying it through Jina/browser would multiply the
+  // deadline cost without distinguishing a slow origin from a blocked egress;
+  // keep the standard connection-level soft-exit for it, but reserve rescue
+  // attempts for transport failures that a clean route can actually change.
+  const routeRescueEligible = connectionLevelFailure && result.transportError !== 'timeout';
   const rescueEligible = !result.policyBlocked
     && !result.blockedByRobots
-    && (connectionLevelFailure || antiBotResponse);
+    && (routeRescueEligible || antiBotResponse);
 
   if (rescueEligible) {
     try {
