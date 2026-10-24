@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-10-24T09:35:46.691Z",
+  "generatedAt": "2026-10-24T21:28:08.359Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 79716,
-  "avgDurationMs": 79716,
+  "durationMs": 70247,
+  "avgDurationMs": 70247,
   "durationHistory": [
-    79716
+    70247
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-24T09:35:17.268Z",
+      "crawledAt": "2026-10-24T21:27:42.601Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -81,7 +81,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-24T09:35:17.268Z",
+      "crawledAt": "2026-10-24T21:27:42.601Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "country": "CH",
       "sourceLang": "it",
@@ -125,7 +125,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-24T09:35:17.268Z",
+      "crawledAt": "2026-10-24T21:27:42.601Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -173,7 +173,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-24T09:35:17.268Z",
+      "crawledAt": "2026-10-24T21:27:42.601Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "country": "CH",
       "sourceLang": "it",
@@ -218,7 +218,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-24T09:35:17.268Z",
+      "crawledAt": "2026-10-24T21:27:42.601Z",
       "firstSeenAt": "2026-10-20T09:36:21.726Z",
       "country": "CH",
       "sourceLang": "it",
@@ -242,5 +242,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
