@@ -617,7 +617,10 @@ function renderDutyCoverageMatrix(
   const decisionMomentAttributes = matrix.releaseReady && matrix.regions.some((region) => region.duties.length > 0)
     ? ` ${DECISION_MOMENT_COMPLETED_ATTRIBUTE}="true" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="pharmacy" ${DECISION_MOMENT_ID_ATTRIBUTE}="duty_lookup"`
     : '';
-  return `<section data-coverage-matrix="true" data-release-ready="${String(matrix.releaseReady)}" data-italy-release-ready="${String(matrix.italy.publishable)}" data-italy-indexable="${String(matrix.italy.indexable)}" data-italy-release-state="${esc(matrix.italy.state)}"${decisionMomentAttributes}><h2 style="${H2_STYLE}">${esc(copy.heading)}</h2><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><section><h2 style="${H2_STYLE}">${esc(copy.ticinoHeading)}</h2><p style="${BODY_STYLE}" role="status">${esc(notice)}</p>${regions}</section>${operationalSection}${italy}<section><h2 style="${H2_STYLE}">${esc(copy.sourceOnlyHeading(matrix.sourceOnlyCantons.length))}</h2><p style="${LEDE_STYLE}">${esc(copy.sourceOnlyLede)}</p><ul>${sourceOnly}</ul></section></section>`;
+  const currentWeek = currentDutyWeekStart(now);
+  const currentWeekPath: PharmacyPath = { kind: 'duty-week', locale, weekStart: currentWeek };
+  const currentWeekLink = `<p style="${BODY_STYLE}">${href(currentWeekPath, pageTitle('duty-week', locale, { kind: 'duty-week', weekStart: currentWeek }))}</p>`;
+  return `<section data-coverage-matrix="true" data-release-ready="${String(matrix.releaseReady)}" data-italy-release-ready="${String(matrix.italy.publishable)}" data-italy-indexable="${String(matrix.italy.indexable)}" data-italy-release-state="${esc(matrix.italy.state)}"${decisionMomentAttributes}><h2 style="${H2_STYLE}">${esc(copy.heading)}</h2><p style="${LEDE_STYLE}">${esc(copy.lede)}</p>${currentWeekLink}<section><h2 style="${H2_STYLE}">${esc(copy.ticinoHeading)}</h2><p style="${BODY_STYLE}" role="status">${esc(notice)}</p>${regions}</section>${operationalSection}${italy}<section><h2 style="${H2_STYLE}">${esc(copy.sourceOnlyHeading(matrix.sourceOnlyCantons.length))}</h2><p style="${LEDE_STYLE}">${esc(copy.sourceOnlyLede)}</p><ul>${sourceOnly}</ul></section></section>`;
 }
 
 function dutyWeekCollectionJsonLd(pathValue: PharmacyPath, title: string, model: DutyWeekModel): string {

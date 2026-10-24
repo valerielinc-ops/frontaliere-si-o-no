@@ -11,6 +11,7 @@ import {
   crawlPartition,
   extractInternalLinks,
   folderFor,
+  isDeclaredPharmacyTarget,
   isDeclaredJobBoardTarget,
   isJobBoardDetailPath,
   normalizeUrl,
@@ -35,6 +36,7 @@ import { BING_TEMPLATE_TABLE, templateIndexFor } from '../../scripts/seo/bing-te
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
+import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
 import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
@@ -391,6 +393,27 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(isJobBoardDetailPath(`${BASE}/en/find-jobs-geneva/`)).toBe(false);
     expect(isJobBoardDetailPath(`${BASE}/en/find-jobs-geneva/job-slug/details/`)).toBe(false);
     expect(isDeclaredJobBoardTarget({ url: detailUrl, html: '<meta name="robots" content="noindex,follow">' })).toBe(false);
+  });
+
+  it('recognizes only marked pharmacy noindex targets on pharmacy routes', () => {
+    const routes = [
+      `${BASE}/farmacie/ticino/lugano/`,
+      `${BASE}/fr/pharmacies-de-garde/semaine/2026-09-14/`,
+      `${BASE}/de/apotheken/ticino/lugano/`,
+    ];
+    for (const url of routes) {
+      const marked = `${PHARMACY_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`;
+      expect(isDeclaredPharmacyTarget({ url, html: marked })).toBe(true);
+      expect(isDeclaredPharmacyTarget({ url, html: '<meta name="robots" content="noindex,follow">' })).toBe(false);
+    }
+    expect(isDeclaredPharmacyTarget({
+      url: `${BASE}/farmacie/ticino/lugano/`,
+      html: `${PHARMACY_NOINDEX_TARGET_MARKER}<meta name="robots" content="index,follow">`,
+    })).toBe(true);
+    expect(isDeclaredPharmacyTarget({
+      url: `${BASE}/en/find-jobs-geneva/lugano/`,
+      html: `${PHARMACY_NOINDEX_TARGET_MARKER}<meta name="robots" content="noindex,follow">`,
+    })).toBe(false);
   });
 
   it('keeps an undeclared job-detail noindex target actionable', () => {

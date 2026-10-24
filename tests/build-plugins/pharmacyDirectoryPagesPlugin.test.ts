@@ -64,6 +64,20 @@ describe('pharmacy directory page matrix', () => {
     const page = buildPharmacyDirectoryPage(canton!, locale, '');
     const nav = page.html.match(/<nav\b[^>]*>[\s\S]*?<\/nav>/)?.[0] || '';
     const hrefs = [...nav.matchAll(/<a href="([^"]+)"/g)].map((match) => match[1]);
+    const cityPathSet = new Set(expectedCityPaths);
+    const cityHrefs = hrefs.filter((href) => cityPathSet.has(href));
+    const expectedDetailPaths = new Set(
+      descriptors
+        .filter((descriptor) => descriptor.kind === 'pharmacy' && descriptor.country === 'CH')
+        .map((descriptor) => buildPharmacyPath({
+          kind: 'pharmacy',
+          country: 'CH',
+          locale,
+          citySlug: pharmacyCitySlug(descriptor.pharmacy!.city),
+          pharmacySlug: descriptor.pharmacy!.slug,
+        }, locale)),
+    );
+    const detailHrefs = hrefs.filter((href) => !cityPathSet.has(href));
     const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
     const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
 
@@ -71,8 +85,10 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(true);
     expect(page.wordCount).toBeGreaterThanOrEqual(50);
     expect(page.html).not.toMatch(/<article\b/);
-    expect(hrefs).toEqual(expectedCityPaths);
-    expect(hrefs.every((cityPath) => cityDescriptors.some((descriptor) => buildPharmacyPath({ kind: 'city', locale, citySlug: descriptor.citySlug }, locale) === cityPath))).toBe(true);
+    expect(cityHrefs).toEqual(expectedCityPaths);
+    expect(cityHrefs.every((cityPath) => cityDescriptors.some((descriptor) => buildPharmacyPath({ kind: 'city', locale, citySlug: descriptor.citySlug }, locale) === cityPath))).toBe(true);
+    expect(detailHrefs.length).toBeGreaterThan(0);
+    expect(detailHrefs.every((detailPath) => expectedDetailPaths.has(detailPath))).toBe(true);
     expect(page.html).toContain(TICINO_PHARMACIES[0].sourceUrl);
     expect(page.html).toContain(latestLabel);
     expect(page.html).toContain(locale === 'it' ? 'Verifica' : locale === 'en' ? 'Check' : locale === 'de' ? 'prüfen' : 'Vérifiez');
