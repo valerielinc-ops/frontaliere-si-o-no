@@ -28,6 +28,7 @@ import {
  CF_BEACON_SNIPPET,
  GA4_MEASUREMENT_ID,
  ANALYTICS_EMISSION_ID_FACTORY_JS,
+ GA4_BOT_GATE_FN,
  GTAG_LOADER_SNIPPET,
  PARTNERIZE_TAG_SNIPPET,
  POSTHOG_SNIPPET,
@@ -127,6 +128,7 @@ if(document.readyState!=='loading')patch();else document.addEventListener('DOMCo
 var u=${JSON.stringify(targetUrl)};
 ${pubrefRewriteJs}var redirected=false;
 function go(){if(redirected)return;redirected=true;window.location.replace(u);}
+if((${GA4_BOT_GATE_FN})()){go();return;}
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());

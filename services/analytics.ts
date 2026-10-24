@@ -2483,6 +2483,15 @@ export const Analytics = {
    step_index: 0,
    ...safeDetails,
   });
+  // GA4 recommended `login`: the single-purpose twin of auth_success, so the
+  // GA4 key event counts logins without the 92% of gate_view in the same
+  // event (scripts/ga4-key-events.mjs, docs/analytics/ga4-misura-affidabile.md).
+  if (action === 'auth_success') {
+   logFirebaseOnly('login', {
+    method: truncate(details?.method || 'unknown', 40),
+    surface: details?.surface,
+   });
+  }
  },
 
  /**
@@ -2532,6 +2541,15 @@ export const Analytics = {
    // (empty object for every other CTA or when the experiment is off).
    ...jobGateNewsletterTags(context.sourceCta),
   });
+  // Single-purpose twin of `newsletter` action=subscribe: `newsletter` also
+  // carries confirm/error/subscribe_attempt, so it cannot be a GA4 key event
+  // (scripts/ga4-key-events.mjs, docs/analytics/ga4-misura-affidabile.md).
+  if (action === 'subscribe') {
+   logFirebaseOnly('newsletter_subscribe', {
+    source_cta: truncate(context.sourceCta || 'newsletter', 80),
+    ...(context.sourceChannel ? { source_channel: truncate(context.sourceChannel, 60) } : {}),
+   });
+  }
 
   // `source_channel`/`source_cta` were historically emitted as free-form
   // params, but they are not registered GA4 dimensions. Mirror the source

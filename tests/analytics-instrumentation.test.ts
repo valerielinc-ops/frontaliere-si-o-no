@@ -357,6 +357,23 @@ describe('analytics.ts — job_auth funnel aliasing', () => {
   });
 });
 
+describe('analytics.ts — single-purpose GA4 key-event twins', () => {
+  // `newsletter` and `job_auth_funnel` are multi-action events, so GA4 cannot
+  // mark them as key events (scripts/ga4-key-events.mjs). Each value moment
+  // gets its own event name, emitted only for the value action.
+  it('emits newsletter_subscribe only for action=subscribe', () => {
+    const block = analyticsSrc.match(/trackNewsletter:[\s\S]*?\n \},\n\n trackNewsletterEvent:/);
+    expect(block).not.toBeNull();
+    expect(block![0]).toMatch(/if \(action === 'subscribe'\) \{\s*logFirebaseOnly\('newsletter_subscribe'/);
+  });
+
+  it('emits the GA4 recommended login only for auth_success', () => {
+    const block = analyticsSrc.match(/trackJobAuthFunnel: \([\s\S]*?\n \/\*\*\n \* Job comparator/);
+    expect(block).not.toBeNull();
+    expect(block![0]).toMatch(/if \(action === 'auth_success'\) \{\s*logFirebaseOnly\('login'/);
+  });
+});
+
 describe('analytics.ts — GA4 job gate contract', () => {
   it('uses registered GA4 dimensions and keeps the historical PostHog payload separate', () => {
     const block = analyticsSrc.match(/trackJobAuthGate:[\s\S]*?emitClarityEvent\('job_auth_gate'\);/);

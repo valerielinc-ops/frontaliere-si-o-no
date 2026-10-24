@@ -17,6 +17,7 @@ import { isIndexedDbError } from './benignErrorPatterns';
 import { isRecaptchaClientReady, type RecaptchaLikeWindow } from './recaptchaReady';
 import { setFirebaseApiKey } from './firebaseAuthPersistence';
 import { openIndexedDbWithSchema } from './indexedDbSchema';
+import { isAutomatedAnalyticsVisitor } from './analyticsBotGate';
 
 const firebaseConfig = {
  // Use the default Firebase auth domain (frontaliere-ticino.firebaseapp.com), NOT the
@@ -346,6 +347,15 @@ async function getAnalyticsInstance(): Promise<FirebaseAnalytics | null> {
  if (_analyticsLoading) return _analyticsLoading;
  _analyticsLoading = (async () => {
  try {
+ // Bot gate shared with AdSense/PostHog/static gtag-init.js: an automated
+ // visitor never initialises GA4, so none of its events reach the property.
+ // Permanent for the session, like an ad blocker.
+ if (await isAutomatedAnalyticsVisitor()) {
+  _analyticsBlocked = true;
+  _analytics = null;
+  _analyticsLoading = null;
+  return null;
+ }
  const installationsStoreReady = await prepareFirebaseInstallationsStore();
  if (!installationsStoreReady) {
   // Analytics is non-critical; leave the app usable when a different tab
