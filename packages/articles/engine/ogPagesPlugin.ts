@@ -1174,9 +1174,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   return `<nav class="ft-static-legal-links" aria-label="${links.aria}">${links.about} | ${methodology} | ${corrections} | ${links.contact} | ${links.privacy}</nav>`;
  };
  // Same disclosure the hydrated article renders (BlogArticles.tsx), from the
- // same copy. Provenance is inferred like resolveArticleProvenance(): a byline
- // with a Firebase identity is a human contribution, everything else is
- // machine-drafted.
+ // same copy. Provenance is resolved like resolveArticleProvenance(): an
+ // explicit per-article declaration wins, with the Firebase identity kept as
+ // the legacy default for records that predate that declaration.
  const buildArticleTransparencyAside = (locale: string, authorName: string | undefined, provenance: ArticleProvenance): string => {
   const dl = disclosureLocale(locale);
   const tr = ARTICLE_TRANSPARENCY[dl];
