@@ -176,7 +176,7 @@ describe('decideHreflangBlock', () => {
     const d = decideHreflangBlock(self, (l) => (l === 'it' ? eligibleAll() : { status: 'unknown' as const, reason: `no-manifest-${l}` }));
     expect(d.action).toBe('keep');
     expect(d.unknown.sort()).toEqual(['no-manifest-de', 'no-manifest-en', 'no-manifest-fr']);
-    const article = clusterFor({ it: 'a', en: 'a-en' });
+    const article = clusterFor({ it: 'a', en: 'a-en', de: 'a-de', fr: 'a-fr' });
     article.it = '/articoli-frontaliere/a/';
     const bridge = classifyHreflangPage(page('/en/a-en/', article), '/en/a-en');
     expect(decideHreflangBlock(bridge, () => ({ status: 'absent' as const })).unknown).toEqual(['externally-served']);
