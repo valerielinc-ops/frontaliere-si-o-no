@@ -3633,6 +3633,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_addressRegion = deriveCanton(job);
  const perJob_addressLocality = deriveJobAddressLocality(job, perJob_addressRegion);
  const perJob_addressCountry = String(job.addressCountry || 'CH');
+ // Keep the locality-derived CAP for visible page metadata, but pass only
+ // the crawler's own source CAP to the canonical JobPosting builder. The
+ // builder treats every value it receives as source evidence; feeding it the
+ // derived Zurich/Ticino fallback would therefore publish an invented
+ // postalCode in JSON-LD (owner decision 2026-10-24).
+ const perJob_sourcePostalCode = String(job.postalCode || '').trim();
  const perJob_postalCode = deriveJobPostalCode(job);
  const perJob_streetAddress = deriveJobStreetAddress(job, perJob_addressLocality);
  // NOTE: `isRemote` is intentionally NOT hoisted here. The original test
@@ -4117,7 +4123,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  addressLocality,
  addressRegion,
  addressCountry,
- postalCode,
+  postalCode: perJob_sourcePostalCode,
  streetAddress,
  postingDateSource: job.postingDateSource,
  datePosted: job.datePosted,
