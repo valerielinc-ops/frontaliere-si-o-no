@@ -1,73 +1,73 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-24T21:16:30.000Z",
+  "generatedAt": "2026-10-24T23:47:15.912Z",
   "sources": [
     {
       "id": "astra-datex2",
       "status": "ok",
-      "count": 607,
-      "coverage": 90.3,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "count": 610,
+      "coverage": 90.4,
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "ne-mobilite",
       "status": "ok",
       "count": 1,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "ne-territoire",
       "status": "ok",
       "count": 0,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "fr-mobilite",
       "status": "ok",
       "count": 1,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "fr-police",
       "status": "ok",
       "count": 1,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "ge-police",
       "status": "ok",
       "count": 0,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "ge-mobilite",
       "status": "ok",
       "count": 4,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "vd-police",
       "status": "ok",
       "count": 3,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "vd-mobilis",
       "status": "ok",
       "count": 0,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "basilea-bvb",
       "status": "ok",
       "count": 2,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "appenzello-polizei",
       "status": "ok",
       "count": 1,
-      "lastSuccessAt": "2026-10-24T21:16:30.000Z"
+      "lastSuccessAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "ti-polizia",
@@ -92,7 +92,7 @@
       "validTo": "2026-10-29T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661210.1",
@@ -109,7 +109,7 @@
       "validTo": "2026-11-10T16:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661099.1",
@@ -126,7 +126,7 @@
       "validTo": "2026-11-20T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656789.1",
@@ -143,7 +143,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656419.1",
@@ -160,7 +160,7 @@
       "validTo": "2026-11-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656109.1",
@@ -177,7 +177,7 @@
       "validTo": "2026-10-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655872.1",
@@ -194,7 +194,7 @@
       "validTo": "2026-11-04T16:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601298.1",
@@ -211,7 +211,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.652945.1",
@@ -228,7 +228,7 @@
       "validTo": "2026-11-06T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661083.1",
@@ -245,7 +245,7 @@
       "validTo": "2026-11-09T00:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661217.1",
@@ -262,7 +262,7 @@
       "validTo": "2026-11-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661278.1",
@@ -279,7 +279,7 @@
       "validTo": "2026-10-29T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661101.1",
@@ -296,7 +296,7 @@
       "validTo": "2026-10-30T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660489.1",
@@ -313,7 +313,7 @@
       "validTo": "2027-02-05T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660353.1",
@@ -330,7 +330,7 @@
       "validTo": "2026-11-06T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660225.1",
@@ -347,7 +347,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659210.1",
@@ -364,7 +364,7 @@
       "validTo": "2026-10-26T10:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659254.1",
@@ -381,7 +381,7 @@
       "validTo": "2026-11-05T22:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658436.1",
@@ -398,7 +398,7 @@
       "validTo": "2026-11-12T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658411.1",
@@ -415,7 +415,7 @@
       "validTo": "2026-11-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658413.1",
@@ -432,7 +432,7 @@
       "validTo": "2026-11-10T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658414.1",
@@ -449,7 +449,7 @@
       "validTo": "2026-10-29T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656739.1",
@@ -466,7 +466,7 @@
       "validTo": "2026-10-28T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656740.1",
@@ -483,7 +483,7 @@
       "validTo": "2026-10-28T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655231.1",
@@ -500,7 +500,7 @@
       "validTo": "2026-11-04T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.600152.1",
@@ -517,7 +517,7 @@
       "validTo": "2026-11-06T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654922.1",
@@ -534,7 +534,7 @@
       "validTo": "2026-11-18T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654338.1",
@@ -551,7 +551,7 @@
       "validTo": "2026-10-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654386.1",
@@ -568,7 +568,7 @@
       "validTo": "2026-11-13T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651175.1",
@@ -585,7 +585,7 @@
       "validTo": "2026-11-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651177.1",
@@ -602,7 +602,7 @@
       "validTo": "2026-11-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651180.1",
@@ -619,7 +619,7 @@
       "validTo": "2026-11-05T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.650870.1",
@@ -636,7 +636,7 @@
       "validTo": "2026-10-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644193.1",
@@ -653,7 +653,7 @@
       "validTo": "2026-11-05T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.608739.1",
@@ -670,7 +670,7 @@
       "validTo": "2026-10-28T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.608168.1",
@@ -687,7 +687,7 @@
       "validTo": "2027-08-31T21:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601299.1",
@@ -704,7 +704,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.591167.1",
@@ -721,7 +721,7 @@
       "validTo": "2026-11-20T13:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.576577.1",
@@ -738,7 +738,7 @@
       "validTo": "2027-07-01T21:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.536060.1",
@@ -755,7 +755,41 @@
       "validTo": "2027-04-30T00:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
+    },
+    {
+      "id": "astra-datex2:situation.661737.1",
+      "canton": "AG",
+      "type": "traffico",
+      "title": "A1 Zürich -> Bern tra Svincolo autostradale Aarau Ost E Svincolo autostradale Aarau West Situazione: pericolo Causa: incidente Limitazione del traffico: corsia bloccata ridotta su una corsia",
+      "titleByLocale": {
+        "it": "A1 Zürich -> Bern tra Svincolo autostradale Aarau Ost E Svincolo autostradale Aarau West Situazione: pericolo Causa: incidente Limitazione del traffico: corsia bloccata ridotta su una corsia",
+        "de": "A1 Zürich -> Bern zwischen Anschluss Aarau-Ost und Anschluss Aarau-West Sachlage: Gefahr Ursache: Unfall Verkehrsführung: Fahrstreifen blockiert auf einen Fahrstreifen verengt",
+        "fr": "A1 Zurich -> Berne entre Jonction autoroutière Aarau-Est et Jonction autoroutière Aarau-Ouest Situation: danger Raison: accident Gestion du trafic: voie bloquée sur une voie de circulation"
+      },
+      "url": null,
+      "validFrom": "2026-10-24T23:25:00.000Z",
+      "validTo": null,
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-10-24T23:47:15.912Z"
+    },
+    {
+      "id": "astra-datex2:situation.661736.1",
+      "canton": "AG",
+      "type": "traffico",
+      "title": "A1 Zürich -> Bern tra Svincolo autostradale Lenzburg E Svincolo autostradale Aarau Ost Situazione: problemi di traffico Causa: incidente Limitazione del traffico: corsia bloccata ridotta su una corsia",
+      "titleByLocale": {
+        "it": "A1 Zürich -> Bern tra Svincolo autostradale Lenzburg E Svincolo autostradale Aarau Ost Situazione: problemi di traffico Causa: incidente Limitazione del traffico: corsia bloccata ridotta su una corsia",
+        "de": "A1 Zürich -> Bern zwischen Anschluss Lenzburg und Anschluss Aarau-Ost Sachlage: Verkehrsbehinderung Ursache: Unfall Verkehrsführung: Fahrstreifen blockiert auf einen Fahrstreifen verengt",
+        "fr": "A1 Zurich -> Berne entre Jonction autoroutière Lenzburg et Jonction autoroutière Aarau-Est Situation: trafic perturbé Raison: accident Gestion du trafic: voie bloquée sur une voie de circulation"
+      },
+      "url": null,
+      "validFrom": "2026-10-24T22:58:00.000Z",
+      "validTo": null,
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657451.1",
@@ -772,7 +806,7 @@
       "validTo": "2026-11-13T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "appenzello-polizei:https://www.ai.ch/themen/sicherheit/kantonspolizei/polizeimeldungen/betrugsversuche-mit-missbraeuchlich-verwendeten-logos",
@@ -784,7 +818,7 @@
       "validTo": null,
       "publishedAt": "2026-10-06T12:40:00.000Z",
       "source": "appenzello-polizei",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661249.1",
@@ -801,7 +835,7 @@
       "validTo": "2026-11-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661247.1",
@@ -818,7 +852,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661245.1",
@@ -835,7 +869,7 @@
       "validTo": "2026-11-16T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661241.1",
@@ -852,7 +886,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661240.1",
@@ -869,7 +903,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661239.1",
@@ -886,7 +920,7 @@
       "validTo": "2026-10-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659255.1",
@@ -903,7 +937,7 @@
       "validTo": "2026-11-26T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658260.1",
@@ -920,7 +954,7 @@
       "validTo": "2026-11-16T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654828.1",
@@ -937,7 +971,7 @@
       "validTo": "2026-11-02T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.638189.1",
@@ -954,7 +988,7 @@
       "validTo": "2026-11-03T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601306.1",
@@ -971,7 +1005,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601315.1",
@@ -988,7 +1022,7 @@
       "validTo": "2026-11-12T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601301.1",
@@ -1005,7 +1039,7 @@
       "validTo": "2026-11-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601292.1",
@@ -1022,7 +1056,7 @@
       "validTo": "2026-11-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601283.1",
@@ -1039,7 +1073,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601266.1",
@@ -1056,7 +1090,7 @@
       "validTo": "2026-11-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601264.1",
@@ -1073,7 +1107,7 @@
       "validTo": "2026-11-05T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601257.1",
@@ -1090,7 +1124,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656418.1",
@@ -1107,7 +1141,7 @@
       "validTo": "2026-11-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656423.1",
@@ -1124,7 +1158,7 @@
       "validTo": "2026-11-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656416.1",
@@ -1141,7 +1175,7 @@
       "validTo": "2026-11-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656422.1",
@@ -1158,7 +1192,7 @@
       "validTo": "2026-11-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661218.1",
@@ -1175,7 +1209,7 @@
       "validTo": "2026-11-30T22:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661214.1",
@@ -1192,7 +1226,7 @@
       "validTo": "2026-11-12T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661080.1",
@@ -1209,7 +1243,7 @@
       "validTo": "2026-12-01T02:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660703.1",
@@ -1226,7 +1260,7 @@
       "validTo": "2026-11-09T20:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660585.1",
@@ -1243,7 +1277,7 @@
       "validTo": "2026-11-08T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660351.1",
@@ -1260,7 +1294,7 @@
       "validTo": "2026-11-03T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659852.1",
@@ -1277,7 +1311,7 @@
       "validTo": "2026-11-11T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659623.1",
@@ -1294,7 +1328,7 @@
       "validTo": "2026-11-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659621.1",
@@ -1311,7 +1345,7 @@
       "validTo": "2026-11-02T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659240.1",
@@ -1328,7 +1362,7 @@
       "validTo": "2026-11-11T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659243.1",
@@ -1345,7 +1379,7 @@
       "validTo": "2026-11-23T21:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659166.1",
@@ -1362,7 +1396,7 @@
       "validTo": "2026-10-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659159.1",
@@ -1379,7 +1413,7 @@
       "validTo": "2026-11-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658837.1",
@@ -1396,7 +1430,7 @@
       "validTo": "2026-10-27T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660488.1",
@@ -1413,7 +1447,7 @@
       "validTo": "2026-10-26T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658258.1",
@@ -1430,7 +1464,7 @@
       "validTo": "2026-11-09T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658207.1",
@@ -1447,7 +1481,7 @@
       "validTo": "2026-11-02T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "basilea-bvb:https://www.bvb.ch/de/2026/10/08/haltestelle-dreispitz-in-richtung-st-jakob-verschoben/",
@@ -1459,7 +1493,7 @@
       "validTo": null,
       "publishedAt": "2026-10-08T03:00:30.000Z",
       "source": "basilea-bvb",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657403.1",
@@ -1476,7 +1510,7 @@
       "validTo": "2026-11-10T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655952.1",
@@ -1493,7 +1527,7 @@
       "validTo": "2026-11-02T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655354.1",
@@ -1510,7 +1544,7 @@
       "validTo": "2026-11-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655226.1",
@@ -1527,7 +1561,7 @@
       "validTo": "2026-11-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654751.1",
@@ -1544,7 +1578,7 @@
       "validTo": "2026-12-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651233.1",
@@ -1561,7 +1595,7 @@
       "validTo": "2026-11-02T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.649701.1",
@@ -1578,7 +1612,7 @@
       "validTo": "2026-11-02T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.647963.1",
@@ -1595,7 +1629,7 @@
       "validTo": "2026-10-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.647964.1",
@@ -1612,7 +1646,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644368.1",
@@ -1629,7 +1663,7 @@
       "validTo": "2026-11-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644371.1",
@@ -1646,7 +1680,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644117.1",
@@ -1663,7 +1697,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644116.1",
@@ -1680,7 +1714,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.638998.1",
@@ -1697,7 +1731,7 @@
       "validTo": "2026-11-27T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.599857.1",
@@ -1714,7 +1748,7 @@
       "validTo": "2026-12-18T21:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.605399.1",
@@ -1731,7 +1765,7 @@
       "validTo": "2026-11-12T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.605394.1",
@@ -1748,7 +1782,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601310.1",
@@ -1765,7 +1799,7 @@
       "validTo": "2026-11-12T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601218.1",
@@ -1782,7 +1816,7 @@
       "validTo": "2026-12-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.600379.1",
@@ -1799,7 +1833,7 @@
       "validTo": "2026-11-19T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "basilea-bvb:https://www.bvb.ch/de/2026/10/19/im-alter-mobil-bleiben-dank-tram-dem-6/",
@@ -1811,7 +1845,7 @@
       "validTo": null,
       "publishedAt": "2026-10-19T09:21:34.000Z",
       "source": "basilea-bvb",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658439.1",
@@ -1828,7 +1862,7 @@
       "validTo": "2026-11-03T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661434.1",
@@ -1845,7 +1879,7 @@
       "validTo": "2026-11-01T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658437.1",
@@ -1862,7 +1896,7 @@
       "validTo": "2026-10-27T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661456.1",
@@ -1879,7 +1913,7 @@
       "validTo": "2026-10-30T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659181.1",
@@ -1896,7 +1930,7 @@
       "validTo": "2027-03-26T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661490.1",
@@ -1913,7 +1947,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661480.1",
@@ -1930,7 +1964,7 @@
       "validTo": "2026-11-13T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660887.1",
@@ -1947,7 +1981,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659899.1",
@@ -1964,7 +1998,7 @@
       "validTo": "2026-10-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658972.1",
@@ -1981,7 +2015,7 @@
       "validTo": "2026-11-25T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656168.1",
@@ -1998,7 +2032,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654625.1",
@@ -2015,7 +2049,7 @@
       "validTo": "2027-06-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655165.1",
@@ -2032,7 +2066,7 @@
       "validTo": "2026-10-25T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.652635.1",
@@ -2049,7 +2083,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.648721.1",
@@ -2066,7 +2100,7 @@
       "validTo": "2026-11-12T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644547.1",
@@ -2083,7 +2117,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.641634.1",
@@ -2100,7 +2134,7 @@
       "validTo": "2026-11-12T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.638213.1",
@@ -2117,7 +2151,7 @@
       "validTo": "2026-11-06T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.632657.1",
@@ -2134,7 +2168,7 @@
       "validTo": "2026-11-30T14:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.538659.1",
@@ -2151,7 +2185,7 @@
       "validTo": "2026-11-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.518543.1",
@@ -2168,7 +2202,7 @@
       "validTo": "2027-08-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.498960.1",
@@ -2185,10 +2219,31 @@
       "validTo": "2027-08-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.9,
         "lng": 7.24
+      }
+    },
+    {
+      "id": "astra-datex2:situation.661735.1",
+      "canton": "BE",
+      "type": "cantiere",
+      "title": "Belpberg, Belp in tutte le direzioni Situazione: problemi di traffico Causa: lavori di costruzione Limitazione del traffico: Regolazione semaforica del traffico Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.0",
+      "titleByLocale": {
+        "it": "Belpberg, Belp in tutte le direzioni Situazione: problemi di traffico Causa: lavori di costruzione Limitazione del traffico: Regolazione semaforica del traffico Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.0",
+        "de": "Belpberg, Belp in beide Richtungen Sachlage: Verkehrsbehinderung Ursache: Bauarbeiten Verkehrsführung: Verkehrsregelung mit Lichtsignalanlage Zusatz 1: vorübergehende Begrenzung der Breite Fahrbahnbreite [m] 3.0",
+        "fr": "Belpberg, Belp dans les deux sens Situation: trafic perturbé Raison: travaux de construction Gestion du trafic: Régulation de la circulation par de la signalisation lumineuse Complément 1: limitation temporaire de largeur largeur de la voie"
+      },
+      "url": null,
+      "validFrom": "2026-11-02T06:00:00.000Z",
+      "validTo": "2026-11-30T15:00:00.000Z",
+      "publishedAt": null,
+      "source": "astra-datex2",
+      "observedAt": "2026-10-24T23:47:15.912Z",
+      "geo": {
+        "lat": 46.87,
+        "lng": 7.52
       }
     },
     {
@@ -2206,7 +2261,7 @@
       "validTo": "2027-08-06T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.95,
         "lng": 7.45
@@ -2227,7 +2282,7 @@
       "validTo": "2026-11-06T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659832.1",
@@ -2244,7 +2299,7 @@
       "validTo": "2026-11-13T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660552.1",
@@ -2261,7 +2316,7 @@
       "validTo": "2026-10-29T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658500.1",
@@ -2278,7 +2333,7 @@
       "validTo": "2026-11-05T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659877.1",
@@ -2295,7 +2350,7 @@
       "validTo": "2026-11-11T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659878.1",
@@ -2312,7 +2367,7 @@
       "validTo": "2027-05-28T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658098.1",
@@ -2329,7 +2384,7 @@
       "validTo": "2026-11-06T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660355.1",
@@ -2346,7 +2401,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661479.1",
@@ -2363,7 +2418,7 @@
       "validTo": "2026-10-30T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661411.1",
@@ -2380,7 +2435,7 @@
       "validTo": "2026-10-26T18:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660599.1",
@@ -2397,7 +2452,7 @@
       "validTo": "2026-11-06T18:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660565.1",
@@ -2414,7 +2469,7 @@
       "validTo": "2026-11-04T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659232.1",
@@ -2431,7 +2486,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.94,
         "lng": 7.4
@@ -2452,7 +2507,7 @@
       "validTo": "2026-11-13T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659475.1",
@@ -2469,7 +2524,7 @@
       "validTo": "2026-11-13T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.69,
         "lng": 7.9
@@ -2490,7 +2545,7 @@
       "validTo": "2026-12-23T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659676.1",
@@ -2507,7 +2562,7 @@
       "validTo": "2026-11-13T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659664.1",
@@ -2524,7 +2579,7 @@
       "validTo": "2026-12-11T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655882.1",
@@ -2541,7 +2596,7 @@
       "validTo": "2026-12-18T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658097.1",
@@ -2558,7 +2613,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655911.1",
@@ -2575,7 +2630,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656364.1",
@@ -2592,7 +2647,7 @@
       "validTo": "2026-11-20T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656076.1",
@@ -2609,7 +2664,7 @@
       "validTo": "2026-11-02T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655991.1",
@@ -2626,7 +2681,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654317.1",
@@ -2643,7 +2698,7 @@
       "validTo": "2026-11-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658095.1",
@@ -2660,7 +2715,7 @@
       "validTo": "2026-11-13T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657448.1",
@@ -2677,7 +2732,7 @@
       "validTo": "2026-11-13T22:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654273.1",
@@ -2694,7 +2749,7 @@
       "validTo": "2028-01-28T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651924.1",
@@ -2711,7 +2766,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.652085.1",
@@ -2728,7 +2783,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653238.1",
@@ -2745,7 +2800,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.93,
         "lng": 7.42
@@ -2766,7 +2821,7 @@
       "validTo": "2026-10-30T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651589.1",
@@ -2783,7 +2838,7 @@
       "validTo": "2026-12-23T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.9,
         "lng": 7.25
@@ -2804,7 +2859,7 @@
       "validTo": "2026-11-22T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651569.1",
@@ -2821,7 +2876,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.47,
         "lng": 7.29
@@ -2842,7 +2897,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.648056.1",
@@ -2859,7 +2914,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.93,
         "lng": 7.82
@@ -2880,7 +2935,7 @@
       "validTo": "2027-06-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.650404.1",
@@ -2897,7 +2952,7 @@
       "validTo": "2027-05-31T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.647965.1",
@@ -2914,7 +2969,7 @@
       "validTo": "2026-12-23T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.647322.1",
@@ -2931,7 +2986,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.8,
         "lng": 7.57
@@ -2952,7 +3007,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 47.21,
         "lng": 7.74
@@ -2973,7 +3028,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.646331.1",
@@ -2990,7 +3045,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.643622.1",
@@ -3007,7 +3062,7 @@
       "validTo": "2026-11-13T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.643646.1",
@@ -3024,7 +3079,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.643496.1",
@@ -3041,7 +3096,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644640.1",
@@ -3058,7 +3113,7 @@
       "validTo": "2026-12-11T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.73,
         "lng": 8.18
@@ -3079,7 +3134,7 @@
       "validTo": "2026-12-31T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.642458.1",
@@ -3096,7 +3151,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.639992.1",
@@ -3113,7 +3168,7 @@
       "validTo": "2027-04-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.642197.1",
@@ -3130,7 +3185,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.641223.1",
@@ -3147,7 +3202,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.640833.1",
@@ -3164,7 +3219,7 @@
       "validTo": "2027-07-30T13:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.640638.1",
@@ -3181,7 +3236,7 @@
       "validTo": "2026-11-09T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.638192.1",
@@ -3198,7 +3253,7 @@
       "validTo": "2026-11-13T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.637642.1",
@@ -3215,7 +3270,7 @@
       "validTo": "2026-12-31T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661121.1",
@@ -3232,7 +3287,7 @@
       "validTo": "2026-11-20T19:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.635014.1",
@@ -3249,7 +3304,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.631377.1",
@@ -3266,7 +3321,7 @@
       "validTo": "2026-10-30T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660852.1",
@@ -3283,7 +3338,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.622923.1",
@@ -3300,7 +3355,7 @@
       "validTo": "2029-05-01T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.598025.1",
@@ -3317,7 +3372,7 @@
       "validTo": "2026-11-15T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.620438.1",
@@ -3334,7 +3389,7 @@
       "validTo": "2026-10-31T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.617602.1",
@@ -3351,7 +3406,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.618175.1",
@@ -3368,7 +3423,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 47.21,
         "lng": 7.06
@@ -3389,7 +3444,7 @@
       "validTo": "2026-11-01T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.613763.1",
@@ -3406,7 +3461,7 @@
       "validTo": "2026-11-06T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.613768.1",
@@ -3423,7 +3478,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.613971.1",
@@ -3440,7 +3495,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.615075.1",
@@ -3457,7 +3512,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.55,
         "lng": 7.6
@@ -3478,7 +3533,7 @@
       "validTo": "2029-07-31T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.610137.1",
@@ -3495,7 +3550,7 @@
       "validTo": "2026-12-16T10:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.609203.1",
@@ -3512,7 +3567,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.612525.1",
@@ -3529,7 +3584,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.77,
         "lng": 7.51
@@ -3550,7 +3605,7 @@
       "validTo": "2026-11-20T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.609136.1",
@@ -3567,7 +3622,7 @@
       "validTo": "2026-10-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.605945.1",
@@ -3584,7 +3639,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.605209.1",
@@ -3601,7 +3656,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.603913.1",
@@ -3618,7 +3673,7 @@
       "validTo": "2026-12-31T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.599259.1",
@@ -3635,7 +3690,7 @@
       "validTo": "2026-12-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.75,
         "lng": 7.57
@@ -3656,7 +3711,7 @@
       "validTo": "2026-11-13T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.69,
         "lng": 7.68
@@ -3677,7 +3732,7 @@
       "validTo": "2027-09-24T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.598009.1",
@@ -3694,7 +3749,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.595467.1",
@@ -3711,7 +3766,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.571859.1",
@@ -3728,7 +3783,7 @@
       "validTo": "2027-09-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.559339.1",
@@ -3745,7 +3800,7 @@
       "validTo": "2026-11-30T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.545571.1",
@@ -3762,7 +3817,7 @@
       "validTo": "2026-12-20T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.475683.1",
@@ -3779,7 +3834,7 @@
       "validTo": "2026-11-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656070.1",
@@ -3796,7 +3851,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651223.1",
@@ -3813,7 +3868,7 @@
       "validTo": "2026-10-25T18:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661618.1",
@@ -3830,7 +3885,7 @@
       "validTo": "2026-11-17T22:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654848.1",
@@ -3847,7 +3902,7 @@
       "validTo": "2026-12-18T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661508.1",
@@ -3864,7 +3919,7 @@
       "validTo": "2026-10-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661251.1",
@@ -3881,7 +3936,7 @@
       "validTo": "2026-10-29T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.81,
         "lng": 7.16
@@ -3902,7 +3957,7 @@
       "validTo": "2026-10-30T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.54,
         "lng": 7.09
@@ -3923,7 +3978,7 @@
       "validTo": "2026-11-06T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.59,
         "lng": 6.84
@@ -3944,7 +3999,7 @@
       "validTo": "2026-10-31T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659669.1",
@@ -3961,7 +4016,7 @@
       "validTo": "2026-11-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659668.1",
@@ -3978,7 +4033,7 @@
       "validTo": "2026-10-25T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659809.1",
@@ -3995,7 +4050,7 @@
       "validTo": "2026-11-06T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.93,
         "lng": 7.15
@@ -4016,7 +4071,7 @@
       "validTo": "2026-12-12T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.78,
         "lng": 7.14
@@ -4037,7 +4092,7 @@
       "validTo": "2026-11-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.89,
         "lng": 7.17
@@ -4058,7 +4113,7 @@
       "validTo": "2026-10-27T06:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.61,
         "lng": 7.11
@@ -4079,7 +4134,7 @@
       "validTo": "2026-11-13T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.78,
         "lng": 7.23
@@ -4100,7 +4155,7 @@
       "validTo": "2026-10-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655125.1",
@@ -4117,7 +4172,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.8,
         "lng": 7.14
@@ -4138,7 +4193,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.59,
         "lng": 6.9
@@ -4159,7 +4214,7 @@
       "validTo": "2026-10-30T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.82,
         "lng": 7.15
@@ -4180,7 +4235,7 @@
       "validTo": "2026-12-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.8,
         "lng": 7.16
@@ -4201,7 +4256,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.77,
         "lng": 7.06
@@ -4222,7 +4277,7 @@
       "validTo": "2026-10-30T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.62,
         "lng": 7.03
@@ -4243,7 +4298,7 @@
       "validTo": "2026-10-26T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661423.1",
@@ -4260,7 +4315,7 @@
       "validTo": "2026-11-21T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661554.1",
@@ -4277,7 +4332,7 @@
       "validTo": "2026-10-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659686.1",
@@ -4294,7 +4349,7 @@
       "validTo": "2026-10-27T19:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.81,
         "lng": 7.18
@@ -4315,7 +4370,7 @@
       "validTo": "2027-03-30T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.53,
         "lng": 6.9
@@ -4336,7 +4391,7 @@
       "validTo": "2026-10-30T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.77,
         "lng": 7.08
@@ -4357,7 +4412,7 @@
       "validTo": "2027-07-31T21:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.509946.1",
@@ -4374,7 +4429,7 @@
       "validTo": "2027-09-30T21:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.495106.1",
@@ -4391,7 +4446,7 @@
       "validTo": "2027-08-31T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659881.1",
@@ -4408,7 +4463,7 @@
       "validTo": "2027-03-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.79,
         "lng": 7.12
@@ -4429,7 +4484,7 @@
       "validTo": "2026-11-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.81,
         "lng": 7.14
@@ -4450,7 +4505,7 @@
       "validTo": "2026-11-02T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.7,
         "lng": 7.15
@@ -4466,7 +4521,7 @@
       "validTo": null,
       "publishedAt": "2026-10-08T09:52:25.000Z",
       "source": "fr-police",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "fr-mobilite:https://www.fr.ch/mobilite-et-transport/mobilite-douce/plan-du-reseau-cantonal-des-voies-cyclables-velo-au-quotidien",
@@ -4478,7 +4533,7 @@
       "validTo": null,
       "publishedAt": "2026-10-05T11:50:45.000Z",
       "source": "fr-mobilite",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656230.1",
@@ -4495,7 +4550,7 @@
       "validTo": "2027-06-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.93,
         "lng": 7.14
@@ -4516,7 +4571,7 @@
       "validTo": "2026-12-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.81,
         "lng": 7.16
@@ -4537,7 +4592,7 @@
       "validTo": "2026-11-05T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658925.1",
@@ -4554,7 +4609,7 @@
       "validTo": "2026-11-04T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658946.1",
@@ -4571,7 +4626,7 @@
       "validTo": "2026-11-03T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660818.1",
@@ -4588,7 +4643,7 @@
       "validTo": "2026-11-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655164.1",
@@ -4605,7 +4660,7 @@
       "validTo": "2026-10-27T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658953.1",
@@ -4622,7 +4677,7 @@
       "validTo": "2026-11-06T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658951.1",
@@ -4639,7 +4694,7 @@
       "validTo": "2026-11-05T04:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658950.1",
@@ -4656,7 +4711,7 @@
       "validTo": "2026-11-04T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658949.1",
@@ -4673,7 +4728,7 @@
       "validTo": "2026-11-06T04:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658952.1",
@@ -4690,7 +4745,7 @@
       "validTo": "2026-11-05T04:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655171.1",
@@ -4707,7 +4762,7 @@
       "validTo": "2026-10-28T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655169.1",
@@ -4724,7 +4779,7 @@
       "validTo": "2026-10-28T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655168.1",
@@ -4741,7 +4796,7 @@
       "validTo": "2026-10-29T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655166.1",
@@ -4758,7 +4813,7 @@
       "validTo": "2026-10-29T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655154.1",
@@ -4775,7 +4830,7 @@
       "validTo": "2026-10-29T03:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "ge-mobilite:https://www.ge.ch/node/45273",
@@ -4787,7 +4842,7 @@
       "validTo": null,
       "publishedAt": "2026-10-22T08:33:12.000Z",
       "source": "ge-mobilite",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660646.1",
@@ -4804,7 +4859,7 @@
       "validTo": "2026-11-03T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "ge-mobilite:https://www.ge.ch/node/45210",
@@ -4816,7 +4871,7 @@
       "validTo": null,
       "publishedAt": "2026-10-15T08:59:57.000Z",
       "source": "ge-mobilite",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "ge-mobilite:https://www.ge.ch/node/45130",
@@ -4828,7 +4883,7 @@
       "validTo": null,
       "publishedAt": "2026-10-08T08:59:12.000Z",
       "source": "ge-mobilite",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "ge-mobilite:https://www.ge.ch/node/45208",
@@ -4840,7 +4895,7 @@
       "validTo": null,
       "publishedAt": "2026-10-13T14:35:12.000Z",
       "source": "ge-mobilite",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660312.1",
@@ -4857,7 +4912,7 @@
       "validTo": "2026-11-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653547.1",
@@ -4874,7 +4929,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653571.1",
@@ -4891,7 +4946,7 @@
       "validTo": "2026-11-19T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653572.1",
@@ -4908,7 +4963,7 @@
       "validTo": "2026-11-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653574.1",
@@ -4925,7 +4980,7 @@
       "validTo": "2026-11-19T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653578.1",
@@ -4942,7 +4997,7 @@
       "validTo": "2026-11-17T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653580.1",
@@ -4959,7 +5014,7 @@
       "validTo": "2026-11-17T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.643055.1",
@@ -4976,7 +5031,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.641315.1",
@@ -4993,7 +5048,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659961.1",
@@ -5010,7 +5065,7 @@
       "validTo": "2026-11-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657742.1",
@@ -5027,7 +5082,7 @@
       "validTo": "2028-11-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657739.1",
@@ -5044,7 +5099,7 @@
       "validTo": "2027-10-22T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657023.1",
@@ -5061,7 +5116,7 @@
       "validTo": "2026-10-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655323.1",
@@ -5078,7 +5133,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654845.1",
@@ -5095,7 +5150,7 @@
       "validTo": "2026-10-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653546.1",
@@ -5112,7 +5167,7 @@
       "validTo": "2026-11-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.652943.1",
@@ -5129,7 +5184,7 @@
       "validTo": "2026-10-26T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.642004.1",
@@ -5146,7 +5201,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.642003.1",
@@ -5163,7 +5218,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654844.1",
@@ -5180,7 +5235,7 @@
       "validTo": "2027-05-31T21:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.631245.1",
@@ -5197,7 +5252,7 @@
       "validTo": "2028-08-31T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656842.1",
@@ -5214,7 +5269,7 @@
       "validTo": "2026-10-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661617.1",
@@ -5231,7 +5286,7 @@
       "validTo": "2026-11-17T22:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659164.1",
@@ -5248,7 +5303,7 @@
       "validTo": "2026-11-05T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661090.1",
@@ -5265,7 +5320,7 @@
       "validTo": "2026-11-26T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660308.1",
@@ -5282,7 +5337,7 @@
       "validTo": "2026-11-08T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658262.1",
@@ -5299,7 +5354,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659622.1",
@@ -5316,7 +5371,7 @@
       "validTo": "2026-11-23T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659241.1",
@@ -5333,7 +5388,7 @@
       "validTo": "2026-11-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659133.1",
@@ -5350,7 +5405,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659152.1",
@@ -5367,7 +5422,7 @@
       "validTo": "2026-12-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658974.1",
@@ -5384,7 +5439,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657981.1",
@@ -5401,7 +5456,7 @@
       "validTo": "2026-10-28T12:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657944.1",
@@ -5418,7 +5473,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657452.1",
@@ -5435,7 +5490,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655081.1",
@@ -5452,7 +5507,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.652890.1",
@@ -5469,7 +5524,7 @@
       "validTo": "2026-12-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.652885.1",
@@ -5486,7 +5541,7 @@
       "validTo": "2026-12-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.652886.1",
@@ -5503,7 +5558,7 @@
       "validTo": "2026-12-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.650852.1",
@@ -5520,7 +5575,7 @@
       "validTo": "2026-10-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.605402.1",
@@ -5537,7 +5592,7 @@
       "validTo": "2026-11-16T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601308.1",
@@ -5554,7 +5609,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601268.1",
@@ -5571,7 +5626,7 @@
       "validTo": "2026-11-12T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.590332.1",
@@ -5588,7 +5643,7 @@
       "validTo": "2026-12-11T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.539792.1",
@@ -5605,7 +5660,7 @@
       "validTo": "2027-06-30T21:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.538142.1",
@@ -5622,7 +5677,7 @@
       "validTo": "2027-12-31T22:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.497377.1",
@@ -5639,7 +5694,7 @@
       "validTo": "2027-12-17T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659901.1",
@@ -5656,7 +5711,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659902.1",
@@ -5673,7 +5728,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659197.1",
@@ -5690,7 +5745,7 @@
       "validTo": "2026-11-06T14:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657404.1",
@@ -5707,7 +5762,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 47,
         "lng": 6.94
@@ -5728,7 +5783,7 @@
       "validTo": "2026-10-31T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655438.1",
@@ -5745,7 +5800,7 @@
       "validTo": "2026-10-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.609559.1",
@@ -5762,7 +5817,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.609558.1",
@@ -5779,7 +5834,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "ne-mobilite:https://www.ne.ch/communiques-de-presse/gare-du-locle-une-etape-importante-vers-des-transports-publics-accessibles-toutes-et-tous",
@@ -5791,7 +5846,7 @@
       "validTo": null,
       "publishedAt": "2026-10-21T14:23:48.000Z",
       "source": "ne-mobilite",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659196.1",
@@ -5808,7 +5863,7 @@
       "validTo": "2027-05-31T21:45:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655443.1",
@@ -5825,7 +5880,7 @@
       "validTo": "2026-10-29T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.536379.1",
@@ -5842,7 +5897,7 @@
       "validTo": "2027-04-30T21:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.494518.1",
@@ -5859,7 +5914,7 @@
       "validTo": "2026-12-31T22:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661148.1",
@@ -5876,7 +5931,7 @@
       "validTo": "2026-11-09T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659419.1",
@@ -5893,7 +5948,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659416.1",
@@ -5910,7 +5965,7 @@
       "validTo": "2026-11-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658434.1",
@@ -5927,7 +5982,7 @@
       "validTo": "2026-10-29T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654587.1",
@@ -5944,7 +5999,7 @@
       "validTo": "2026-11-06T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644833.1",
@@ -5961,7 +6016,7 @@
       "validTo": "2026-10-25T13:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661205.1",
@@ -5978,7 +6033,7 @@
       "validTo": "2026-10-29T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660503.1",
@@ -5995,7 +6050,7 @@
       "validTo": "2026-11-09T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660242.1",
@@ -6012,7 +6067,7 @@
       "validTo": "2026-10-28T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659148.1",
@@ -6029,7 +6084,7 @@
       "validTo": "2026-12-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657653.1",
@@ -6046,7 +6101,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655085.1",
@@ -6063,7 +6118,7 @@
       "validTo": "2026-11-06T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661160.1",
@@ -6080,7 +6135,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661159.1",
@@ -6097,7 +6152,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661147.1",
@@ -6114,7 +6169,7 @@
       "validTo": "2026-11-09T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654282.1",
@@ -6131,7 +6186,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661201.1",
@@ -6148,7 +6203,7 @@
       "validTo": "2026-10-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.650005.1",
@@ -6165,7 +6220,7 @@
       "validTo": "2027-04-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657035.1",
@@ -6182,7 +6237,7 @@
       "validTo": "2026-11-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.652985.1",
@@ -6199,7 +6254,7 @@
       "validTo": "2026-11-15T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.637948.1",
@@ -6216,7 +6271,7 @@
       "validTo": "2026-11-13T05:15:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.636339.1",
@@ -6233,7 +6288,7 @@
       "validTo": "2026-11-13T05:15:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.597298.1",
@@ -6250,7 +6305,7 @@
       "validTo": "2027-05-01T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.597276.1",
@@ -6267,7 +6322,7 @@
       "validTo": "2027-04-30T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657036.1",
@@ -6284,7 +6339,7 @@
       "validTo": "2026-11-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660573.1",
@@ -6301,7 +6356,7 @@
       "validTo": "2026-11-17T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660574.1",
@@ -6318,7 +6373,7 @@
       "validTo": "2026-11-17T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659258.1",
@@ -6335,7 +6390,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659229.1",
@@ -6352,7 +6407,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657034.1",
@@ -6369,7 +6424,7 @@
       "validTo": "2026-10-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656962.1",
@@ -6386,7 +6441,7 @@
       "validTo": "2026-10-31T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656958.1",
@@ -6403,7 +6458,7 @@
       "validTo": "2026-11-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656954.1",
@@ -6420,7 +6475,7 @@
       "validTo": "2026-11-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657032.1",
@@ -6437,7 +6492,7 @@
       "validTo": "2026-11-29T23:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.641892.1",
@@ -6454,7 +6509,7 @@
       "validTo": "2026-11-16T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.632667.1",
@@ -6471,7 +6526,7 @@
       "validTo": "2026-12-18T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.632649.1",
@@ -6488,7 +6543,7 @@
       "validTo": "2026-12-14T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.616648.1",
@@ -6505,7 +6560,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.616615.1",
@@ -6522,7 +6577,7 @@
       "validTo": "2026-11-13T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661215.1",
@@ -6539,7 +6594,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661216.1",
@@ -6556,7 +6611,7 @@
       "validTo": "2026-11-19T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659417.1",
@@ -6573,7 +6628,7 @@
       "validTo": "2026-11-05T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656939.1",
@@ -6590,7 +6645,7 @@
       "validTo": "2026-11-12T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.629215.1",
@@ -6607,7 +6662,7 @@
       "validTo": "2026-10-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.601294.1",
@@ -6624,7 +6679,7 @@
       "validTo": "2026-11-03T05:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.538650.1",
@@ -6641,7 +6696,7 @@
       "validTo": "2026-11-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660960.1",
@@ -6658,7 +6713,7 @@
       "validTo": "2026-11-09T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656498.1",
@@ -6675,7 +6730,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656336.1",
@@ -6692,7 +6747,7 @@
       "validTo": "2026-11-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656297.1",
@@ -6709,7 +6764,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653476.1",
@@ -6726,7 +6781,7 @@
       "validTo": "2026-10-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.652087.1",
@@ -6743,7 +6798,7 @@
       "validTo": "2026-12-18T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.650273.1",
@@ -6760,7 +6815,7 @@
       "validTo": "2026-10-26T11:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.646374.1",
@@ -6777,7 +6832,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.641685.1",
@@ -6794,7 +6849,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.641684.1",
@@ -6811,7 +6866,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.641683.1",
@@ -6828,7 +6883,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.638834.1",
@@ -6845,7 +6900,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.605398.1",
@@ -6862,7 +6917,7 @@
       "validTo": "2026-11-02T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.537229.1",
@@ -6879,7 +6934,7 @@
       "validTo": "2027-07-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.518096.1",
@@ -6896,7 +6951,7 @@
       "validTo": "2029-12-31T22:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.518090.1",
@@ -6913,7 +6968,7 @@
       "validTo": "2028-12-31T22:59:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661503.1",
@@ -6930,7 +6985,7 @@
       "validTo": "2027-02-04T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654289.1",
@@ -6947,7 +7002,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661442.1",
@@ -6964,7 +7019,7 @@
       "validTo": "2026-11-11T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659636.1",
@@ -6981,7 +7036,7 @@
       "validTo": "2026-10-28T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658538.1",
@@ -6998,7 +7053,7 @@
       "validTo": "2026-10-30T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660527.1",
@@ -7015,7 +7070,7 @@
       "validTo": "2026-11-13T05:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655494.1",
@@ -7032,7 +7087,7 @@
       "validTo": "2026-11-06T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651829.1",
@@ -7049,7 +7104,7 @@
       "validTo": "2026-10-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655516.1",
@@ -7066,7 +7121,7 @@
       "validTo": "2026-10-29T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659882.1",
@@ -7083,7 +7138,7 @@
       "validTo": "2026-10-31T04:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659826.1",
@@ -7100,7 +7155,7 @@
       "validTo": "2026-10-28T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654418.1",
@@ -7117,7 +7172,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661158.1",
@@ -7134,7 +7189,7 @@
       "validTo": "2026-11-10T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660973.1",
@@ -7151,7 +7206,7 @@
       "validTo": "2026-11-11T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660945.1",
@@ -7168,7 +7223,7 @@
       "validTo": "2026-11-10T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660910.1",
@@ -7185,7 +7240,7 @@
       "validTo": "2026-11-04T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660848.1",
@@ -7202,7 +7257,7 @@
       "validTo": "2026-11-04T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660843.1",
@@ -7219,7 +7274,7 @@
       "validTo": "2026-11-03T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660608.1",
@@ -7236,7 +7291,7 @@
       "validTo": "2026-10-30T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660605.1",
@@ -7253,7 +7308,7 @@
       "validTo": "2026-10-27T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660607.1",
@@ -7270,7 +7325,7 @@
       "validTo": "2026-10-26T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659720.1",
@@ -7287,7 +7342,7 @@
       "validTo": "2026-11-03T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659719.1",
@@ -7304,7 +7359,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658513.1",
@@ -7321,7 +7376,7 @@
       "validTo": "2026-10-30T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658512.1",
@@ -7338,7 +7393,7 @@
       "validTo": "2026-10-27T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656845.1",
@@ -7355,7 +7410,7 @@
       "validTo": "2026-10-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656718.1",
@@ -7372,7 +7427,7 @@
       "validTo": "2026-11-02T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656719.1",
@@ -7389,7 +7444,7 @@
       "validTo": "2026-11-03T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656705.1",
@@ -7406,7 +7461,7 @@
       "validTo": "2026-10-28T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654635.1",
@@ -7423,7 +7478,7 @@
       "validTo": "2026-10-29T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654620.1",
@@ -7440,7 +7495,7 @@
       "validTo": "2026-10-29T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654420.1",
@@ -7457,7 +7512,7 @@
       "validTo": "2026-11-20T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654433.1",
@@ -7474,7 +7529,7 @@
       "validTo": "2026-11-16T19:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653500.1",
@@ -7491,7 +7546,7 @@
       "validTo": "2026-11-13T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.648204.1",
@@ -7508,7 +7563,7 @@
       "validTo": "2026-11-20T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.648201.1",
@@ -7525,7 +7580,7 @@
       "validTo": "2026-11-20T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644867.1",
@@ -7542,7 +7597,7 @@
       "validTo": "2026-10-30T04:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644865.1",
@@ -7559,7 +7614,7 @@
       "validTo": "2026-10-26T04:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644864.1",
@@ -7576,7 +7631,7 @@
       "validTo": "2026-10-29T04:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.643209.1",
@@ -7593,7 +7648,7 @@
       "validTo": "2026-10-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.642897.1",
@@ -7610,7 +7665,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.638526.1",
@@ -7627,7 +7682,7 @@
       "validTo": "2026-10-25T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.634677.1",
@@ -7644,7 +7699,7 @@
       "validTo": "2026-10-28T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.626453.1",
@@ -7661,7 +7716,7 @@
       "validTo": "2026-11-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.535065.1",
@@ -7678,7 +7733,7 @@
       "validTo": "2027-03-24T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.509979.1",
@@ -7695,7 +7750,7 @@
       "validTo": "2028-06-28T06:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.342097.1",
@@ -7712,7 +7767,7 @@
       "validTo": "2028-12-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.287191.1",
@@ -7729,7 +7784,7 @@
       "validTo": "2028-12-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654584.1",
@@ -7746,7 +7801,7 @@
       "validTo": "2026-11-10T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654582.1",
@@ -7763,7 +7818,7 @@
       "validTo": "2026-11-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654320.1",
@@ -7780,7 +7835,7 @@
       "validTo": "2026-11-04T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651545.1",
@@ -7797,7 +7852,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661677.1",
@@ -7814,7 +7869,7 @@
       "validTo": "2026-10-25T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659643.1",
@@ -7831,7 +7886,7 @@
       "validTo": "2026-10-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659641.1",
@@ -7848,7 +7903,7 @@
       "validTo": "2026-10-28T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659638.1",
@@ -7865,7 +7920,7 @@
       "validTo": "2026-10-29T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657714.1",
@@ -7882,7 +7937,7 @@
       "validTo": "2026-12-04T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654586.1",
@@ -7899,7 +7954,7 @@
       "validTo": "2026-11-12T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654288.1",
@@ -7916,24 +7971,24 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654287.1",
       "canton": "UR",
       "type": "cantiere",
-      "title": "A2 S. Gottardo <-> Luzern Galleria Galleria Seelisberg Situazione: problemi di traffico lunghezza [km] 9.5 Causa: lavori di costruzione Limitazione del traffico: circolazione bidirezionale Aggiunta 1: limite temporaneo larghezza Larghezza c",
+      "title": "A2 S. Gottardo <-> Luzern Galleria Galleria Seelisberg Situazione: problemi di traffico lunghezza [km] 9.5, cantiere Limitazione del traffico: circolazione bidirezionale Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.0",
       "titleByLocale": {
-        "it": "A2 S. Gottardo <-> Luzern Galleria Galleria Seelisberg Situazione: problemi di traffico lunghezza [km] 9.5 Causa: lavori di costruzione Limitazione del traffico: circolazione bidirezionale Aggiunta 1: limite temporaneo larghezza Larghezza c",
-        "de": "A2 Gotthard <-> Luzern Tunnel Seelisberg-Tunnel Sachlage: Verkehrsbehinderung Länge [km] 9.5 Ursache: Bauarbeiten Verkehrsführung: Verkehr wird über die Gegenfahrbahn geleitet Zusatz 1: vorübergehende Begrenzung der Breite Fahrbahnbreite [m",
-        "fr": "A2 St-Gothard <-> Lucerne Tunnel Tunnel du Seelisberg Situation: trafic perturbé longueur [km] 9.5 Raison: travaux de construction Gestion du trafic: trafic bidirectionnel Complément 1: limitation temporaire de largeur largeur de la voie [m"
+        "it": "A2 S. Gottardo <-> Luzern Galleria Galleria Seelisberg Situazione: problemi di traffico lunghezza [km] 9.5, cantiere Limitazione del traffico: circolazione bidirezionale Aggiunta 1: limite temporaneo larghezza Larghezza carreggiata [m] 3.0",
+        "de": "A2 Gotthard <-> Luzern Tunnel Seelisberg-Tunnel Sachlage: Verkehrsbehinderung Länge [km] 9.5, Baustelle Verkehrsführung: Verkehr wird über die Gegenfahrbahn geleitet Zusatz 1: vorübergehende Begrenzung der Breite Fahrbahnbreite [m] 3.0",
+        "fr": "A2 St-Gothard <-> Lucerne Tunnel Tunnel du Seelisberg Situation: trafic perturbé longueur [km] 9.5, travaux Gestion du trafic: trafic bidirectionnel Complément 1: limitation temporaire de largeur largeur de la voie [m] 3.0"
       },
       "url": null,
       "validFrom": "2026-09-21T06:52:00.000Z",
       "validTo": "2026-10-31T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.654285.1",
@@ -7950,7 +8005,7 @@
       "validTo": "2026-11-11T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.596108.1",
@@ -7967,7 +8022,7 @@
       "validTo": "2026-12-31T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658932.1",
@@ -7984,7 +8039,7 @@
       "validTo": "2026-11-05T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659661.1",
@@ -8001,7 +8056,7 @@
       "validTo": "2026-11-04T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660589.1",
@@ -8018,7 +8073,7 @@
       "validTo": "2026-10-30T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660593.1",
@@ -8035,7 +8090,7 @@
       "validTo": "2026-10-28T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660588.1",
@@ -8052,7 +8107,7 @@
       "validTo": "2026-11-03T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659874.1",
@@ -8069,7 +8124,7 @@
       "validTo": "2026-10-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659653.1",
@@ -8086,7 +8141,7 @@
       "validTo": "2026-11-06T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659217.1",
@@ -8103,7 +8158,7 @@
       "validTo": "2026-10-29T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653310.1",
@@ -8120,7 +8175,7 @@
       "validTo": "2027-07-09T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653311.1",
@@ -8137,7 +8192,7 @@
       "validTo": "2027-07-08T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653306.1",
@@ -8154,7 +8209,7 @@
       "validTo": "2027-07-06T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653309.1",
@@ -8171,7 +8226,7 @@
       "validTo": "2027-07-07T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653304.1",
@@ -8188,7 +8243,7 @@
       "validTo": "2027-10-26T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653299.1",
@@ -8205,7 +8260,7 @@
       "validTo": "2027-10-29T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.648730.1",
@@ -8222,7 +8277,7 @@
       "validTo": "2026-11-21T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.580687.1",
@@ -8239,7 +8294,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.580681.1",
@@ -8256,7 +8311,7 @@
       "validTo": "2026-10-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658190.1",
@@ -8273,7 +8328,7 @@
       "validTo": "2026-10-29T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660545.1",
@@ -8290,7 +8345,7 @@
       "validTo": "2026-10-27T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660592.1",
@@ -8307,7 +8362,7 @@
       "validTo": "2026-10-27T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660587.1",
@@ -8324,7 +8379,7 @@
       "validTo": "2026-11-03T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659454.1",
@@ -8341,7 +8396,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660591.1",
@@ -8358,7 +8413,7 @@
       "validTo": "2026-10-30T14:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659873.1",
@@ -8375,7 +8430,7 @@
       "validTo": "2026-10-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659660.1",
@@ -8392,7 +8447,7 @@
       "validTo": "2026-11-03T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658948.1",
@@ -8409,7 +8464,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658947.1",
@@ -8426,7 +8481,7 @@
       "validTo": "2026-10-31T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656977.1",
@@ -8443,7 +8498,7 @@
       "validTo": "2026-10-27T14:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655442.1",
@@ -8460,7 +8515,7 @@
       "validTo": "2026-10-31T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.637726.1",
@@ -8477,7 +8532,7 @@
       "validTo": "2026-11-20T21:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.632554.1",
@@ -8494,7 +8549,7 @@
       "validTo": "2026-10-26T23:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.609519.1",
@@ -8511,7 +8566,7 @@
       "validTo": "2026-10-31T19:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.603528.1",
@@ -8528,7 +8583,7 @@
       "validTo": "2026-10-31T19:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.603567.1",
@@ -8545,7 +8600,7 @@
       "validTo": "2026-10-31T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.603094.1",
@@ -8562,7 +8617,7 @@
       "validTo": "2026-12-12T09:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.602143.1",
@@ -8579,7 +8634,7 @@
       "validTo": "2026-12-04T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660114.1",
@@ -8596,7 +8651,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.59,
         "lng": 6.61
@@ -8612,7 +8667,7 @@
       "validTo": null,
       "publishedAt": "2026-10-09T11:07:01.000Z",
       "source": "vd-police",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "vd-police:https://www.vd.ch/actualites/actualite/news/26696-accident-mortel-de-la-circulation-a-aigle",
@@ -8624,7 +8679,7 @@
       "validTo": null,
       "publishedAt": "2026-10-08T15:25:48.000Z",
       "source": "vd-police",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "vd-police:https://www.vd.ch/actualites/actualite/news/26693-accident-mortel-de-la-circulation-a-montricher-appel-a-temoin",
@@ -8636,7 +8691,7 @@
       "validTo": null,
       "publishedAt": "2026-10-08T12:18:13.000Z",
       "source": "vd-police",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660571.1",
@@ -8653,7 +8708,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661558.1",
@@ -8670,7 +8725,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.2,
         "lng": 6.82
@@ -8691,7 +8746,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.04,
         "lng": 7.96
@@ -8712,7 +8767,7 @@
       "validTo": "2026-11-04T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.96,
         "lng": 7.11
@@ -8733,7 +8788,7 @@
       "validTo": "2026-11-03T18:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.37,
         "lng": 8.09
@@ -8754,7 +8809,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.38,
         "lng": 8.15
@@ -8775,7 +8830,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658498.1",
@@ -8792,7 +8847,7 @@
       "validTo": "2026-10-29T15:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659851.1",
@@ -8809,7 +8864,7 @@
       "validTo": null,
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.2,
         "lng": 7.29
@@ -8830,7 +8885,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656766.1",
@@ -8847,7 +8902,7 @@
       "validTo": "2026-10-28T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.59,
         "lng": 7.09
@@ -8868,7 +8923,7 @@
       "validTo": "2026-12-18T15:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.2,
         "lng": 7.01
@@ -8889,7 +8944,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651408.1",
@@ -8906,7 +8961,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.648073.1",
@@ -8923,7 +8978,7 @@
       "validTo": "2026-11-20T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.648491.1",
@@ -8940,7 +8995,7 @@
       "validTo": "2026-11-15T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z",
+      "observedAt": "2026-10-24T23:47:15.912Z",
       "geo": {
         "lat": 46.18,
         "lng": 7.01
@@ -8961,7 +9016,7 @@
       "validTo": "2026-10-30T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660658.1",
@@ -8978,7 +9033,7 @@
       "validTo": "2026-10-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657042.1",
@@ -8995,7 +9050,7 @@
       "validTo": "2026-10-28T19:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661256.1",
@@ -9012,7 +9067,7 @@
       "validTo": "2026-10-27T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659492.1",
@@ -9029,7 +9084,7 @@
       "validTo": "2026-10-29T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660838.1",
@@ -9046,7 +9101,7 @@
       "validTo": "2026-10-27T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660548.1",
@@ -9063,7 +9118,7 @@
       "validTo": "2026-10-29T16:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659673.1",
@@ -9080,7 +9135,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657050.1",
@@ -9097,7 +9152,7 @@
       "validTo": "2026-10-31T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657051.1",
@@ -9114,7 +9169,7 @@
       "validTo": "2026-11-11T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656979.1",
@@ -9131,7 +9186,7 @@
       "validTo": "2026-11-05T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656970.1",
@@ -9148,7 +9203,7 @@
       "validTo": "2026-11-04T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.657053.1",
@@ -9165,7 +9220,7 @@
       "validTo": "2026-11-17T17:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.656174.1",
@@ -9182,7 +9237,7 @@
       "validTo": "2026-10-26T16:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.650963.1",
@@ -9199,7 +9254,7 @@
       "validTo": "2026-10-31T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.653181.1",
@@ -9216,7 +9271,7 @@
       "validTo": "2026-11-06T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.647288.1",
@@ -9233,7 +9288,7 @@
       "validTo": "2026-10-30T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.646176.1",
@@ -9250,7 +9305,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.645053.1",
@@ -9267,7 +9322,7 @@
       "validTo": "2026-10-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.644933.1",
@@ -9284,7 +9339,7 @@
       "validTo": "2026-11-26T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.635142.1",
@@ -9301,7 +9356,7 @@
       "validTo": "2026-11-30T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.612724.1",
@@ -9318,7 +9373,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.522352.1",
@@ -9335,7 +9390,7 @@
       "validTo": "2026-12-18T16:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655874.1",
@@ -9352,7 +9407,7 @@
       "validTo": "2026-10-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661476.1",
@@ -9369,7 +9424,7 @@
       "validTo": "2026-12-01T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661179.1",
@@ -9386,7 +9441,7 @@
       "validTo": "2026-10-29T15:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660857.1",
@@ -9403,7 +9458,7 @@
       "validTo": "2026-11-11T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660823.1",
@@ -9420,7 +9475,7 @@
       "validTo": "2026-11-16T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660824.1",
@@ -9437,7 +9492,7 @@
       "validTo": "2026-11-18T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660561.1",
@@ -9454,7 +9509,7 @@
       "validTo": "2026-11-12T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661347.1",
@@ -9471,7 +9526,7 @@
       "validTo": "2026-11-09T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661365.1",
@@ -9488,7 +9543,7 @@
       "validTo": "2026-11-02T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661346.1",
@@ -9505,7 +9560,7 @@
       "validTo": "2026-11-09T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661342.1",
@@ -9522,7 +9577,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660925.1",
@@ -9539,7 +9594,7 @@
       "validTo": "2026-11-16T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660920.1",
@@ -9556,7 +9611,7 @@
       "validTo": "2026-10-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660809.1",
@@ -9573,7 +9628,7 @@
       "validTo": "2026-10-30T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660711.1",
@@ -9590,7 +9645,7 @@
       "validTo": "2026-10-27T13:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660710.1",
@@ -9607,7 +9662,7 @@
       "validTo": "2026-10-26T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660556.1",
@@ -9624,7 +9679,7 @@
       "validTo": "2026-11-09T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659695.1",
@@ -9641,7 +9696,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659694.1",
@@ -9658,7 +9713,7 @@
       "validTo": "2026-10-30T04:15:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659451.1",
@@ -9675,7 +9730,7 @@
       "validTo": "2026-11-13T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659449.1",
@@ -9692,7 +9747,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.652980.1",
@@ -9709,7 +9764,7 @@
       "validTo": "2026-10-29T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651279.1",
@@ -9726,7 +9781,7 @@
       "validTo": "2026-11-05T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.661230.1",
@@ -9743,7 +9798,7 @@
       "validTo": "2026-10-26T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660727.1",
@@ -9760,7 +9815,7 @@
       "validTo": "2026-10-27T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660796.1",
@@ -9777,7 +9832,7 @@
       "validTo": "2026-10-29T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660804.1",
@@ -9794,7 +9849,7 @@
       "validTo": "2026-10-30T03:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.660324.1",
@@ -9811,7 +9866,7 @@
       "validTo": "2026-10-30T14:30:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659665.1",
@@ -9828,7 +9883,7 @@
       "validTo": "2026-11-27T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659450.1",
@@ -9845,7 +9900,7 @@
       "validTo": "2026-11-09T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.659448.1",
@@ -9862,7 +9917,7 @@
       "validTo": "2026-10-28T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.658271.1",
@@ -9879,7 +9934,7 @@
       "validTo": "2026-10-30T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655390.1",
@@ -9896,7 +9951,7 @@
       "validTo": "2026-11-24T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655389.1",
@@ -9913,7 +9968,7 @@
       "validTo": "2026-11-25T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.655384.1",
@@ -9930,7 +9985,7 @@
       "validTo": "2026-10-26T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.651281.1",
@@ -9947,7 +10002,7 @@
       "validTo": "2026-11-05T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.650380.1",
@@ -9964,7 +10019,7 @@
       "validTo": "2026-11-06T04:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.641875.1",
@@ -9981,7 +10036,7 @@
       "validTo": "2026-10-30T23:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.626106.1",
@@ -9998,7 +10053,7 @@
       "validTo": "2027-06-29T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.626178.1",
@@ -10015,7 +10070,7 @@
       "validTo": "2027-06-29T22:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.548420.1",
@@ -10032,7 +10087,7 @@
       "validTo": "2027-05-31T03:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     },
     {
       "id": "astra-datex2:situation.540298.1",
@@ -10049,7 +10104,7 @@
       "validTo": "2027-06-30T14:00:00.000Z",
       "publishedAt": null,
       "source": "astra-datex2",
-      "observedAt": "2026-10-24T21:16:30.000Z"
+      "observedAt": "2026-10-24T23:47:15.912Z"
     }
   ]
 }
