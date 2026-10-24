@@ -75,11 +75,13 @@ describe('AI disclosure: single source', () => {
 
   it('static and hydrated article both render the shared disclosure and the trust links', () => {
     const og = read('packages/articles/engine/ogPagesPlugin.ts');
-    // The provenance-aware renderer adds display-name/provenance arguments;
-    // retain compatibility with older stacked branch snapshots.
-    expect(og).toMatch(/\$\{buildArticleTransparencyAside\(locale, (?:resolvedAuthor|en\.authorName \|\| resolvedAuthor\?\.name)/);
+    // The provenance-aware renderer feeds a normalized name and one shared
+    // statement resolver to the static and hydrated consumers.
+    expect(og).toMatch(/const articleTransparencyAuthorName = en\.authorName\.trim\(\) \|\| resolvedAuthor\?\.name/);
+    expect(og).toMatch(/\$\{buildArticleTransparencyAside\(locale, articleTransparencyAuthorName, articleProvenance\)/);
     expect(og).toMatch(/links\.about\} \| \$\{methodology\} \| \$\{corrections\}/);
     const spa = read('components/community/BlogArticles.tsx');
+    expect(spa).toContain('resolveArticleTransparencyStatement(');
     expect(spa).toContain('ARTICLE_TRANSPARENCY[transparencyLocale]');
     expect(spa).toContain('DISCLOSURE_ROUTE_CONTRACT[transparencyLocale].methodology');
     expect(spa).toContain('DISCLOSURE_ROUTE_CONTRACT[transparencyLocale].corrections');

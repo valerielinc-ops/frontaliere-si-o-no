@@ -59,7 +59,8 @@ describe('article provenance static-to-SPA contract', () => {
 
     expect(staticSrc).toMatch(/resolveArticleProvenance\(\{ aiAssisted: en\.aiAssisted \}, authorProfile\)/);
     expect(staticSrc).toMatch(/const articleProvenance = resolvedAuthor\s+\?\s+resolvedAuthor\.provenance/);
-    expect(staticSrc).toMatch(/buildArticleTransparencyAside\(locale, en\.authorName \|\| resolvedAuthor\?\.name, articleProvenance\)/);
+    expect(staticSrc).toMatch(/const articleTransparencyAuthorName = en\.authorName\.trim\(\) \|\| resolvedAuthor\?\.name/);
+    expect(staticSrc).toMatch(/buildArticleTransparencyAside\(locale, articleTransparencyAuthorName, articleProvenance\)/);
     expect(staticSrc).toMatch(/resolveArticleTransparencyStatement\(locale, provenance, authorName\)/);
     expect(overlaySrc).toMatch(/typeof entry\.aiAssisted === 'boolean' \? \{ aiAssisted: entry\.aiAssisted \}/);
     expect(overlaySrc).toMatch(/typeof entry\.authorName === 'string' \? entry\.authorName\.trim\(\) : ''/);
