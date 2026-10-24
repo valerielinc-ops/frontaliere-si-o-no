@@ -144,7 +144,8 @@ describe('jobDetailHtml emitters — output regression', () => {
       expect(html).toContain('class="mab-cta"');
       expect(html).toContain('Vai alla candidatura');
       expect(html).toContain('Lugano');
-      expect(html).toContain('full-time');
+      // Same resolution as the JobPosting employmentType, localized.
+      expect(html).toContain('<dd>Tempo pieno</dd>');
       expect(html).toContain('mab-salary');
       // 1-day-ago fixture → "Ieri" in Italian
       expect(html).toContain('Ieri');

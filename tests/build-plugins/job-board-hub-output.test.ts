@@ -341,10 +341,15 @@ describe('job-board emitted output', () => {
       const document = htmlDoc(`${hubPath(locale, 'ZH')}audit-position-0/`);
       const posting = structured(document).find((entry) => entry['@type'] === 'JobPosting');
       expect(posting).toBeTruthy();
-      for (const field of ['title', 'description', 'datePosted', 'employmentType', 'baseSalary', 'jobLocation']) expect(posting[field]).toBeTruthy();
+      for (const field of ['title', 'description', 'datePosted', 'jobLocation']) expect(posting[field]).toBeTruthy();
       expect(posting.hiringOrganization.name).toBe('Audit Example SA');
-      expect(posting.jobLocation.address.postalCode).toBeTruthy();
-      expect(posting.jobLocation.address.streetAddress).toBeTruthy();
+      // Owner decision 2026-10-24: optional fields only as the source states
+      // them. The fixture states FULL_TIME, a salary without provenance and
+      // no street/CAP.
+      expect(posting.employmentType).toBe('FULL_TIME');
+      expect(posting).not.toHaveProperty('baseSalary');
+      expect(posting.jobLocation.address).not.toHaveProperty('postalCode');
+      expect(posting.jobLocation.address).not.toHaveProperty('streetAddress');
     }
   });
 
@@ -361,7 +366,8 @@ describe('job-board emitted output', () => {
       const postings = entries.filter((entry) => entry['@type'] === 'JobPosting');
       expect(postings).toHaveLength(1);
       const posting = postings[0];
-      for (const field of ['title', 'description', 'datePosted', 'employmentType', 'baseSalary', 'jobLocation']) expect(posting[field]).toBeTruthy();
+      for (const field of ['title', 'description', 'datePosted', 'jobLocation']) expect(posting[field]).toBeTruthy();
+      expect(posting.employmentType).toBe('FULL_TIME');
       expect(posting.title).toBe(jobs[7].titleByLocale[locale]);
       if (['archived-short-description', 'archived-markup-short'].includes(slug)) expect(posting.description).toContain('Reparto dati.');
       if (slug === 'archived-medium-description') expect(posting.description).toContain('Esperienza in analisi dati e report.');
@@ -372,9 +378,9 @@ describe('job-board emitted output', () => {
       expect(posting.description).not.toMatch(/Candidatura diretta|Apply directly through|Direkte Bewerbung|Candidature directe/);
       expect(posting.description).not.toContain('source-role-description');
       expect(posting.hiringOrganization.name).toBe('Audit Example SA');
-      expect(posting.jobLocation.address.postalCode).toBeTruthy();
-      expect(posting.jobLocation.address.streetAddress).toBeTruthy();
-      expect(posting.baseSalary.value.minValue).toBeGreaterThan(0);
+      expect(posting.jobLocation.address).not.toHaveProperty('postalCode');
+      expect(posting.jobLocation.address).not.toHaveProperty('streetAddress');
+      expect(posting).not.toHaveProperty('baseSalary');
       expect(posting.datePosted).toBe(datePosted);
       expect(posting.validThrough).toBe(validThrough);
       expect(posting.directApply).toBe(false);
