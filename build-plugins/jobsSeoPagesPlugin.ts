@@ -13380,7 +13380,6 @@ ${staticAnalyticsHtml}
  };
 
  let expiredCount = 0;
- let legacyCount = 0;
  const expiredSitemapEntries: string[] = [];
 
  // Pre-compute invariant HTML fragments for soft-landing pages (~69K pages).
@@ -13555,6 +13554,9 @@ ${staticAnalyticsHtml}
  // keep only a bounded chunk of HTML in memory. Once a chunk is flushed, its
  // cache entries are read back from dist/ by the later reconciliation pass.
  const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512;
+ // One sampled-only memory line every 64 chunks (~32k slugs, ~20 per leg):
+ // the sweep runs ~40 min and had no milestone between its two ends.
+ const EXPIRED_MEM_MILESTONE_EVERY_CHUNKS = 64;
  const expiredHtmlCacheOnDisk = new Set<string>();
  const expiredHtmlCachePaths = new Map<string, string>();
  let expiredHtmlCachePeakEntries = 0;
@@ -13915,9 +13917,9 @@ ${staticAnalyticsHtml}
  // memory — is bounded. Grace/no-traffic pages stay stripped + thin-shelled.
  //
  // Two gates, two DELIBERATELY DIFFERENT path-sets — built from ONE shared base
- // (the candidate builder, hoisted above the body) so the per-locale legacy-bridge
- // idiom lives in exactly one place (no drift by construction):
- //   • Thin-shell gate (__slDecision, emission block below) probes __slCandidatePaths:
+ // (the candidate builder, hoisted above the body) so the per-locale legacy-path
+ // evidence idiom lives in exactly one place (no drift by construction):
+ //   • Thin-shell gate (__slDecision) probes __slCandidatePaths:
  //     relPath + the current locale's own legacy bridge (only when locale!=='it',
  //     because the IT legacy section IS the canonical relPath for a TI IT page) +
  //     every OTHER locale's legacy section path.
@@ -13936,8 +13938,9 @@ ${staticAnalyticsHtml}
  // so the THIN gate's set stays byte-identical to its prior behaviour (widening it
  // would flip some IT canton-aware pages thin→full, changing the emitted shell +
  // build footprint — out of scope here).
- // PR #743 lesson: non-IT locales also emit a legacy-locale bridge at legacyRel,
- // so traffic may land there — probe relPath + every locale variant.
+ // PR #743 lesson: non-IT locale legacy paths remain valid traffic candidates
+ // because old requests are redirected by the edge — probe relPath + every
+ // locale variant without materialising another expired page here.
  const __slCandidatePaths: string[] = [relPath];
  if (locale !== 'it') {
  const __slLegacyRel = `/${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
@@ -14354,10 +14357,6 @@ ${staticAnalyticsHtml}
    registerIncrementalPage(locale, relPath, 'expired-soft-landing', softLandingManifestInput);
   }
  }
- const softLandingReuseHash = incrementalManifests?.get(locale)?.getReuseHash(
-  relPath,
-  'expired-soft-landing',
- ) ?? null;
  const cacheKey = jobsSeoHtmlCacheKey(locale, relPath);
  if (expiredCacheKeys.has(cacheKey)) {
   expiredSoftLandingCache.set(cacheKey, softLandingHtml);
@@ -14373,45 +14372,6 @@ ${staticAnalyticsHtml}
   expiredHtmlCachePeakEntries = Math.max(expiredHtmlCachePeakEntries, expiredSoftLandingCache.size);
  }
  expiredCount++;
-
- // Legacy slug bridge (Italian slug in non-IT locale path)
- if (locale !== 'it') {
- const legacyRel = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/').replace(/^\//, '');
- const trackedRel = relPath.replace(/^\//, '');
- if (legacyRel !== trackedRel && !claimedJobPaths.has(legacyRel.replace(/\/+$/, ''))) {
- claimedJobPaths.add(legacyRel.replace(/\/+$/, ''));
- const legacySoftLandingReuseInput = incrementalManifests
-  ? {
-   bridgeType: 'expired-soft-landing-legacy-locale',
-   source: 'expired-soft-landing',
-   sourceInputHash: softLandingReuseHash,
-   jobId: stableJobId(ejData || { slug }),
-   sourcePath: relPath,
-   targetPath: legacyRel,
-   legacySlug: slug,
-  }
-  : null;
- const legacySoftLandingReuse = jobsSeoReuse?.lookup(
-  locale,
-  legacyRel,
-  'legacy-slug-bridge',
-  legacySoftLandingReuseInput,
-  'previous-slug-legacy',
-  jobsSeoProbeShapeHints(ejData),
- );
- const legacySoftLandingHtml = legacySoftLandingReuse?.hit && !jobsSeoReuse?.shouldRender(legacySoftLandingReuse)
-  ? jobsSeoReuse.reusedHtml(legacySoftLandingReuse, STATIC_PAGE_BUILD_ID) || legacySoftLandingReuse.html
-  : softLandingHtml;
- jobsSeoReuse?.finish(legacySoftLandingReuse, legacySoftLandingHtml);
- const wroteLegacySoftLanding = writeSoftLandingPage(legacyRel, legacySoftLandingHtml);
- if (wroteLegacySoftLanding) {
-  if (incrementalManifests) {
-   registerIncrementalPage(locale, legacyRel, 'legacy-slug-bridge', legacySoftLandingReuseInput);
-  }
- }
- legacyCount++;
- }
- }
  recordPhase('ejp:write', __tEjpWrite);
  recordEmit('expired-soft-landing', __tExpiredSoftLanding);
  }
@@ -14474,17 +14434,34 @@ ${staticAnalyticsHtml}
  await collector.awaitDrainSlot(2);
  if ((expiredSlugIndex + 1) % EXPIRED_HTML_CACHE_CHUNK_SIZE === 0) {
   await releaseExpiredHtmlCacheChunk();
+  // This ~940k-page sweep is the jobs-SEO memory peak on a zero-reuse
+  // build (run 40057008446, leg de: rss-ceiling at 19 539 MB, mid-sweep),
+  // yet it was the only large emit without the 1 GB last-resort GC that
+  // the active and hub phases already run at their flush boundaries.
+  // The chunk boundary is the cheap point: the collector has just drained
+  // and the released HTML chunk is garbage.
+  maybeForceJobsSeoHtmlGc();
+  if ((expiredSlugIndex + 1) % (EXPIRED_HTML_CACHE_CHUNK_SIZE * EXPIRED_MEM_MILESTONE_EVERY_CHUNKS) === 0) {
+   logJobsSeoMem('expired-sweep-progress', {
+    expiredSlugIndex: expiredSlugIndex + 1,
+    expiredSlugs: expiredSlugs.length,
+    expiredCount,
+    expiredHtmlCacheChunks,
+    jobsSeoHtmlGcRuns,
+   });
+  }
  }
  }
 
  // Release the final partial chunk before the retained-set checkpoint. The
  // cross-locale pass below will read these pages from disk as needed.
  await releaseExpiredHtmlCacheChunk();
+ maybeForceJobsSeoHtmlGc();
 
  jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntries.length;
  logJobsSeoMem('after-expired-cache-population', {
   expiredCount,
-  legacyCount,
+  jobsSeoHtmlGcRuns,
   expiredCacheKeys: expiredCacheKeys.size,
   expiredCacheEntries: expiredSoftLandingCache.size,
   expiredHtmlCachePeakEntries,
@@ -14515,7 +14492,7 @@ ${staticAnalyticsHtml}
  }
 
  if (expiredCount > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs`);
  // Backpressure between expired-soft-landing (~150k pages) and the
  // next big emit (previousSlugs full-content ~65k pages).
  await collector.awaitDrainSlot(2);
@@ -14525,7 +14502,6 @@ ${staticAnalyticsHtml}
  jobsSeoMemContext.sitemap.entries = expiredSitemapEntries.length;
  logJobsSeoMem('after-expired-softlandings', {
   expiredCount,
-  legacyCount,
   expiredSitemapEntries: expiredSitemapEntries.length,
   sitemapEntries: expiredSitemapEntries.length,
  });

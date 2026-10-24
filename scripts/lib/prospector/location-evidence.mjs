@@ -7,6 +7,7 @@ import {
   isLiechtensteinPostalCode,
   normalizeSwissCantonCode,
   normalizeSwissTargetLocationText,
+  swissCityFromLocationField,
   swissMunicipalityCantons,
 } from '../target-swiss-locations.mjs';
 import {
@@ -362,9 +363,46 @@ export function sourceBackedSwissGeographyFields(value, resolved = null) {
   const geography = resolved || resolveSourceBackedSwissGeography(value);
   if (!geography) return null;
   const evidence = value && typeof value === 'object' ? /** @type {any} */ (value) : {};
-  const addressLocality = String(
-    evidence.addressLocality || String(geography.location || '').split(/[,;/|]/)[0],
-  ).replace(/\s+/g, ' ').trim();
+  const rawAddressLocality = String(evidence.addressLocality || '')
+    .replace(/\s+/g, ' ').trim();
+  const sourceLocationParts = String(geography.location || '')
+    .split(/[,;/|]/)
+    .map((part) => part.replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+  const rawLocalityIsInResolvedCanton = rawAddressLocality
+    && isKnownSwissMunicipalityInCanton(rawAddressLocality, geography.canton, {
+      allowOfficialLocality: true,
+    });
+  // Multi-area source labels can carry a locality from another canton, an
+  // ambiguous municipality, or a translated canton name in addressLocality.
+  // When the resolver has already established the target canton, select a
+  // concrete municipality from the source location parts in that canton. Do
+  // not reinterpret a concrete locality already verified in that canton or
+  // invent one from a broad single-area label.
+  const sourceBackedLocality = sourceLocationParts
+    .map((part) => {
+      // Keep an exact source-backed official locality (for example
+      // `Seewis Dorf`) before canonicalising municipality aliases. The
+      // official locality is the stronger address evidence and may carry a
+      // distinct postal locality from its parent municipality.
+      if (isKnownSwissMunicipalityInCanton(part, geography.canton, {
+        allowOfficialLocality: true,
+      })) return part;
+      return swissCityFromLocationField(part, geography.canton);
+    })
+    .find((candidate) => candidate
+      && isKnownSwissMunicipalityInCanton(candidate, geography.canton, {
+        allowOfficialLocality: true,
+      })) || '';
+  const isMultiArea = sourceLocationParts.length > 1;
+  const addressLocality = rawAddressLocality
+    && !(isMultiArea && !rawLocalityIsInResolvedCanton)
+    ? rawAddressLocality
+    : sourceBackedLocality
+      // A multi-area source is not evidence for the first arbitrary token.
+      // If none of its parts resolves in the verified canton, fail closed
+      // instead of publishing a foreign locality with a Swiss canton.
+      || (isMultiArea ? '' : rawAddressLocality || sourceLocationParts[0] || '');
   const addressCountry = String(
     geography.addressCountry || evidence.addressCountry || evidence.country || '',
   ).replace(/\s+/g, ' ').trim();

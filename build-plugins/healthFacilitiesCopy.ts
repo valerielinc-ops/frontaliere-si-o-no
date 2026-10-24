@@ -11,6 +11,12 @@
 import type { HealthFacilityLocale } from './healthFacilitiesData';
 import type { HealthFacilityCategory } from './healthFacilitiesMatch';
 import type { HealthcareRole } from './healthFacilitiesMatch';
+import {
+  GROSSREGION_IN,
+  GROSSREGION_LABEL,
+  HEALTH_SECTOR_WAGE_SOURCE,
+  type HealthSectorWageBenchmark,
+} from './shared/healthSectorWageBenchmark';
 
 // ── Category + role labels ──────────────────────────────────────────────────
 
@@ -51,6 +57,8 @@ export interface FacilityCopyInput {
   readonly healthcareCount: number;
   readonly fresh30Count: number;
   readonly medianSalaryChf: number | null;
+  /** BFS LSE healthcare-sector reference, used when the reported sample is too thin. */
+  readonly sectorBenchmark: HealthSectorWageBenchmark;
   readonly siteCount: number;
   readonly topRoles: readonly { role: HealthcareRole; count: number }[];
   readonly commuterLabel: string; // pre-formatted, e.g. "Como e Varese" (may be '')
@@ -69,8 +77,10 @@ export interface FacilityComposedCopy {
   readonly metaDesc: string;
   readonly tileOpenings: string;
   readonly tileMedian: string;
+  readonly tileMedianValue: string;
   readonly tileFresh: string;
-  readonly noSalary: string;
+  /** Provenance of the BFS fallback; '' when the reported median is shown. */
+  readonly benchmarkNote: string;
   readonly ctaJobsLabel: string;
   readonly featuredTitle: string;
   readonly featuredEmpty: string;
@@ -94,6 +104,17 @@ export function buildFacilityCopy(
 ): FacilityComposedCopy {
   const cat = CATEGORY_LABEL[locale][f.category];
   const median = f.medianSalaryChf ? `CHF ${fmtChf(f.medianSalaryChf, locale)}` : '';
+  // Below the reported-sample floor the tile carries the BFS sector median
+  // for the facility's Grossregion instead of an empty "insufficient sample".
+  const b = f.sectorBenchmark;
+  const region = GROSSREGION_LABEL[locale][b.region];
+  const regionIn = GROSSREGION_IN[locale][b.region];
+  const year = b.waveYear;
+  const bench = `CHF ${fmtChf(b.annualMedianChf, locale)}`;
+  const benchMonthly = `CHF ${fmtChf(b.monthly.median, locale)}`;
+  const benchP25 = `CHF ${fmtChf(b.annualP25Chf, locale)}`;
+  const benchP75 = `CHF ${fmtChf(b.annualP75Chf, locale)}`;
+  const cube = HEALTH_SECTOR_WAGE_SOURCE.cube;
   const rolesText = f.topRoles.map((r) => ROLE_LABEL[locale][r.role].toLowerCase()).slice(0, 3).join(', ');
 
   switch (locale) {
@@ -105,9 +126,10 @@ export function buildFacilityCopy(
         metaTitle: `${f.name} jobs — open positions & salaries`,
         metaDesc: `${f.liveCount} open jobs at ${f.name} (${cat}, ${f.cantonName}). Nursing and healthcare roles${median ? `, median reported range ${median}` : ''}. Apply as a cross-border worker.`,
         tileOpenings: 'Open positions',
-        tileMedian: 'Median of reported ranges',
+        tileMedian: median ? 'Median of reported ranges' : `Healthcare sector median (BFS ${year})`,
+        tileMedianValue: median || bench,
         tileFresh: 'New in 30 days',
-        noSalary: 'Insufficient sample',
+        benchmarkNote: median ? '' : `Sector benchmark: BFS Swiss Earnings Structure Survey ${year} (STAT-TAB ${cube}), healthcare division NOGA 86, ${region}, all positions. Standardised full-time gross wage (40 h × 4⅓ weeks) including 1/12 of the 13th salary, private and public sector; annual figure = monthly × 12. Shown because fewer than 5 listings at ${f.name} report a salary range. It is not this facility's pay scale.`,
         ctaJobsLabel: `See all ${f.name} jobs`,
         featuredTitle: 'All active openings',
         featuredEmpty: 'No live openings right now — check back soon or browse the job board.',
@@ -119,7 +141,7 @@ export function buildFacilityCopy(
         prose: [
           { title: `Working at ${f.name}`, paragraphs: [
             `${f.name} is ${enArticle(cat)} in ${f.city || f.cantonName}${f.siteCount > 1 ? `, operating ${f.siteCount} sites` : ''}. It regularly hires nurses, care assistants and clinical staff${rolesText ? ` — currently ${rolesText}` : ''}, and is a realistic employer for Italian cross-border workers commuting into ${f.cantonName}.`,
-            `This page tracks the ${f.liveCount} openings currently indexed for ${f.name} and refreshes as new positions are crawled. ${median ? `The median of reported ranges in its healthcare sample is around ${median} per year.` : 'Insufficient reported salary sample; check each original offer.'}`,
+            `This page tracks the ${f.liveCount} openings currently indexed for ${f.name} and refreshes as new positions are crawled. ${median ? `The median of reported ranges in its healthcare sample is around ${median} per year.` : `Its listings rarely publish a salary range, too few for a facility median. The official reference is the BFS Swiss Earnings Structure Survey ${year}: in the healthcare sector ${regionIn} the median standardised gross wage is ${bench} a year (${benchMonthly} a month, 13th salary included), and half of positions fall between ${benchP25} and ${benchP75}. Check the pay class in each original listing.`}`,
           ] },
           { title: 'How to apply as a cross-border worker', paragraphs: [
             `Swiss healthcare employers hire cross-border workers with a G permit. You will typically need recognition of your qualification (SRK/MEBEKO for regulated roles) and, for patient-facing jobs, a working command of the local language. Use the salary calculator to estimate your net cross-border pay before applying.`,
@@ -140,9 +162,10 @@ export function buildFacilityCopy(
         metaTitle: `${f.name} Jobs — offene Stellen & Löhne`,
         metaDesc: `${f.liveCount} offene Stellen bei ${f.name} (${cat}, ${f.cantonName}). Pflege- und Gesundheitsberufe${median ? `, Median gemeldeter Lohnspannen ${median}` : ''}. Bewerbung als Grenzgänger.`,
         tileOpenings: 'Offene Stellen',
-        tileMedian: 'Median gemeldeter Lohnspannen',
+        tileMedian: median ? 'Median gemeldeter Lohnspannen' : `Median Gesundheitswesen (BFS ${year})`,
+        tileMedianValue: median || bench,
         tileFresh: 'Neu in 30 Tagen',
-        noSalary: 'Unzureichende Stichprobe',
+        benchmarkNote: median ? '' : `Branchenreferenz: BFS Schweizerische Lohnstrukturerhebung ${year} (STAT-TAB ${cube}), Wirtschaftsabteilung NOGA 86 Gesundheitswesen, ${region}, alle Stellungen. Standardisierter Vollzeit-Bruttolohn (40 Std. × 4⅓ Wochen) inkl. 1/12 des 13. Monatslohns, privater und öffentlicher Sektor; Jahreswert = Monatswert × 12. Angezeigt, weil weniger als 5 Anzeigen von ${f.name} eine Lohnspanne nennen. Keine Lohnskala dieser Einrichtung.`,
         ctaJobsLabel: `Alle Stellen bei ${f.name}`,
         featuredTitle: 'Alle offenen Stellen',
         featuredEmpty: 'Aktuell keine offenen Stellen — bald wieder vorbeischauen oder die Jobbörse durchsuchen.',
@@ -154,7 +177,7 @@ export function buildFacilityCopy(
         prose: [
           { title: `Arbeiten bei ${f.name}`, paragraphs: [
             `${f.name} ist ${deArticle(cat)} in ${f.city || f.cantonName}${f.siteCount > 1 ? ` mit ${f.siteCount} Standorten` : ''}. Die Einrichtung stellt regelmässig Pflegefachpersonen, Betreuungs- und klinisches Personal ein${rolesText ? ` — aktuell ${rolesText}` : ''} und ist ein realistischer Arbeitgeber für italienische Grenzgänger im Kanton ${f.cantonName}.`,
-            `Diese Seite verfolgt die ${f.liveCount} aktuell indexierten Stellen bei ${f.name} und wird laufend aktualisiert. ${median ? `Der Median gemeldeter Lohnspannen in der Gesundheitsberufe-Stichprobe liegt bei rund ${median} pro Jahr.` : 'Unzureichende gemeldete Lohnstichprobe; Originalanzeigen prüfen.'}`,
+            `Diese Seite verfolgt die ${f.liveCount} aktuell indexierten Stellen bei ${f.name} und wird laufend aktualisiert. ${median ? `Der Median gemeldeter Lohnspannen in der Gesundheitsberufe-Stichprobe liegt bei rund ${median} pro Jahr.` : `Die Anzeigen nennen selten eine Lohnspanne, zu wenige für einen eigenen Median. Die amtliche Referenz ist die BFS-Lohnstrukturerhebung ${year}: Im Gesundheitswesen ${regionIn} liegt der standardisierte Median-Bruttolohn bei ${bench} pro Jahr (${benchMonthly} pro Monat, inkl. 13. Monatslohn); die Hälfte der Stellen liegt zwischen ${benchP25} und ${benchP75}. Die Lohnklasse in der Originalanzeige prüfen.`}`,
           ] },
           { title: 'Bewerbung als Grenzgänger', paragraphs: [
             `Schweizer Gesundheitsarbeitgeber stellen Grenzgänger mit G-Bewilligung ein. In der Regel benötigen Sie die Anerkennung Ihres Abschlusses (SRK/MEBEKO für regulierte Berufe) und für patientennahe Stellen ausreichende Sprachkenntnisse. Nutzen Sie den Lohnrechner, um Ihren Netto-Grenzgängerlohn abzuschätzen.`,
@@ -175,9 +198,10 @@ export function buildFacilityCopy(
         metaTitle: `${f.name} emplois — postes ouverts & salaires`,
         metaDesc: `${f.liveCount} postes ouverts chez ${f.name} (${cat}, ${f.cantonName}). Métiers infirmiers et de la santé${median ? `, médiane des fourchettes déclarées ${median}` : ''}. Candidature comme frontalier.`,
         tileOpenings: 'Postes ouverts',
-        tileMedian: 'Médiane des fourchettes déclarées',
+        tileMedian: median ? 'Médiane des fourchettes déclarées' : `Médiane secteur santé (OFS ${year})`,
+        tileMedianValue: median || bench,
         tileFresh: 'Nouveaux en 30 jours',
-        noSalary: 'Échantillon insuffisant',
+        benchmarkNote: median ? '' : `Référence sectorielle : OFS, Enquête suisse sur la structure des salaires ${year} (STAT-TAB ${cube}), division NOGA 86 santé, ${region}, toutes positions. Salaire brut standardisé à plein temps (40 h × 4⅓ semaines), 1/12 du 13e salaire compris, secteurs privé et public ; montant annuel = mensuel × 12. Affichée car moins de 5 annonces de ${f.name} indiquent une fourchette. Ce n’est pas la grille salariale de l’établissement.`,
         ctaJobsLabel: `Voir tous les emplois chez ${f.name}`,
         featuredTitle: 'Tous les postes ouverts',
         featuredEmpty: 'Aucun poste ouvert pour le moment — revenez bientôt ou parcourez les offres.',
@@ -189,7 +213,7 @@ export function buildFacilityCopy(
         prose: [
           { title: `Travailler chez ${f.name}`, paragraphs: [
             `${f.name} est ${frArticle(cat)} à ${f.city || f.cantonName}${f.siteCount > 1 ? `, avec ${f.siteCount} sites` : ''}. L'établissement recrute régulièrement des infirmiers, des assistants en soins et du personnel clinique${rolesText ? ` — actuellement ${rolesText}` : ''}, et constitue un employeur réaliste pour les frontaliers italiens au canton ${f.cantonName}.`,
-            `Cette page suit les ${f.liveCount} postes actuellement indexés chez ${f.name} et se met à jour au fil des annonces. ${median ? `La médiane des fourchettes déclarées de l’échantillon sanitaire y est d'environ ${median} par an.` : 'Échantillon salarial déclaré insuffisant ; consultez chaque annonce originale.'}`,
+            `Cette page suit les ${f.liveCount} postes actuellement indexés chez ${f.name} et se met à jour au fil des annonces. ${median ? `La médiane des fourchettes déclarées de l’échantillon sanitaire y est d'environ ${median} par an.` : `Ses annonces indiquent rarement une fourchette, trop peu pour une médiane propre. La référence officielle est l’enquête OFS sur la structure des salaires ${year} : ${regionIn}, le salaire brut médian standardisé du secteur de la santé est de ${bench} par an (${benchMonthly} par mois, 13e salaire compris), et la moitié des postes se situe entre ${benchP25} et ${benchP75}. Vérifiez la classe salariale dans chaque annonce originale.`}`,
           ] },
           { title: 'Comment postuler en tant que frontalier', paragraphs: [
             `Les employeurs de santé suisses recrutent des frontaliers avec un permis G. Il faut généralement la reconnaissance de votre diplôme (CRS/MEBEKO pour les métiers réglementés) et, pour les postes au contact des patients, une bonne maîtrise de la langue. Utilisez le calculateur pour estimer votre salaire net de frontalier.`,
@@ -211,9 +235,10 @@ export function buildFacilityCopy(
         metaTitle: `${f.name}: offerte di lavoro e stipendi`,
         metaDesc: `${f.liveCount} offerte di lavoro presso ${f.name} (${cat}, ${f.cantonName}). Ruoli sanitari e infermieristici${median ? `, mediana delle fasce dichiarate ${median}` : ''}. Candidati come frontaliere.`,
         tileOpenings: 'Posizioni aperte',
-        tileMedian: 'Mediana delle fasce dichiarate',
+        tileMedian: median ? 'Mediana delle fasce dichiarate' : `Mediana settore sanitario (UST ${year})`,
+        tileMedianValue: median || bench,
         tileFresh: 'Nuove in 30 giorni',
-        noSalary: 'Campione insufficiente',
+        benchmarkNote: median ? '' : `Riferimento di settore: UST, Rilevazione svizzera della struttura dei salari ${year} (STAT-TAB ${cube}), divisione NOGA 86 sanità, ${region}, tutte le posizioni. Salario lordo standardizzato a tempo pieno (40 ore × 4⅓ settimane), compreso 1/12 della tredicesima, settore privato e pubblico; valore annuo = mensile × 12. Mostrato perché meno di 5 annunci di ${f.name} dichiarano una fascia salariale. Non è la scala salariale della struttura.`,
         ctaJobsLabel: `Vedi tutte le offerte di ${f.name}`,
         featuredTitle: 'Tutte le offerte attive',
         featuredEmpty: 'Nessuna posizione aperta al momento — riprova presto o sfoglia la bacheca offerte.',
@@ -225,7 +250,7 @@ export function buildFacilityCopy(
         prose: [
           { title: `Lavorare presso ${f.name}`, paragraphs: [
             `${f.name} è ${itArticle(cat)} a ${f.city || f.cantonName}${f.siteCount > 1 ? `, con ${f.siteCount} sedi` : ''}. La struttura assume regolarmente infermieri, operatori socio-sanitari e personale clinico${rolesText ? ` — attualmente ${rolesText}` : ''}, ed è un datore di lavoro concreto per i frontalieri italiani che lavorano nel Cantone ${f.cantonName}.`,
-            `Questa pagina segue le ${f.liveCount} offerte attualmente indicizzate per ${f.name} e si aggiorna man mano che vengono pubblicate nuove posizioni. ${median ? `La mediana delle fasce dichiarate nel campione sanitario è di circa ${median} all'anno.` : 'Campione salariale dichiarato insufficiente; verifica ogni annuncio originale.'}`,
+            `Questa pagina segue le ${f.liveCount} offerte attualmente indicizzate per ${f.name} e si aggiorna man mano che vengono pubblicate nuove posizioni. ${median ? `La mediana delle fasce dichiarate nel campione sanitario è di circa ${median} all'anno.` : `I suoi annunci dichiarano raramente una fascia salariale, troppo pochi per una mediana propria. Il riferimento ufficiale è la Rilevazione della struttura dei salari UST ${year}: ${regionIn} il salario lordo mediano standardizzato del settore sanitario è di ${bench} all'anno (${benchMonthly} al mese, tredicesima compresa) e metà delle posizioni si colloca tra ${benchP25} e ${benchP75}. Verifica la classe salariale in ogni annuncio originale.`}`,
           ] },
           { title: 'Come candidarsi da frontaliere', paragraphs: [
             `I datori di lavoro sanitari svizzeri assumono frontalieri con permesso G. In genere serve il riconoscimento del titolo (SRK/MEBEKO per le professioni regolamentate) e, per i ruoli a contatto con i pazienti, una buona padronanza della lingua. Usa il calcolatore per stimare lo stipendio netto da frontaliere prima di candidarti.`,
