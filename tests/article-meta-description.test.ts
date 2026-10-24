@@ -52,6 +52,14 @@ describe('composeArticleMetaDescription', () => {
     expect(composeArticleMetaDescription(lede, [], { max: MAX })).toBe(lede);
   });
 
+  it('keeps a complete prefix even when it is shorter than the floor', () => {
+    const lede = 'Una frase completa di circa cento caratteri che termina prima del limite. Una seconda frase che fa superare il budget massimo dello snippet.';
+    const out = composeArticleMetaDescription(lede, [], { max: 120, min: 120 });
+    expect(out).toBe('Una frase completa di circa cento caratteri che termina prima del limite.');
+    expect(out.length).toBeLessThan(120);
+    expect(out).toMatch(/[.!?…]$/);
+  });
+
   it('returns the lede unchanged when the body has nothing usable', () => {
     const lede = 'Breve descrizione.';
     expect(composeArticleMetaDescription(lede, ['## Titolo', '| a | b |', '- **Voce**: valore'], { max: MAX })).toBe(lede);
@@ -67,6 +75,17 @@ describe('composeArticleMetaDescription', () => {
     expect(splitSentences('Massimo €1.584,70 al mese. Dal 2026 cambia. ok')).toEqual(['Massimo €1.584,70 al mese.', 'Dal 2026 cambia. ok']);
     expect(bodySentenceCandidates(['- Requires 13 weeks of contributions in the last four years'])).toEqual([
       'Requires 13 weeks of contributions in the last four years.',
+    ]);
+  });
+
+  it('keeps closing punctuation attached to a sentence boundary', () => {
+    expect(splitSentences('Una frase tra parentesi (completa). Seconda frase!')).toEqual([
+      'Una frase tra parentesi (completa).',
+      'Seconda frase!',
+    ]);
+    expect(splitSentences('Una frase tra virgolette "completa." Terza frase.')).toEqual([
+      'Una frase tra virgolette "completa."',
+      'Terza frase.',
     ]);
   });
 });
