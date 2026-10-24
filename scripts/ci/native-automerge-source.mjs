@@ -26,6 +26,7 @@ export const NATIVE_AUTOMERGE_SOURCE_CHECKOUT_DIR = 'native-automerge-main';
 export const NATIVE_AUTOMERGE_HELPER_FILES = Object.freeze([
   'scripts/ci/native-automerge-gate.mjs',
   'scripts/ci/review-test-policy.mjs',
+  'scripts/ci/prefetch-review-diff.mjs',
   'scripts/ci/lib/automation-risk-policy.mjs',
   'scripts/ci/lib/fetchPrFiles.mjs',
   'scripts/ci/lib/vitestCheck.mjs',

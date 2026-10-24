@@ -25,8 +25,7 @@
  *   npm run validate:jobposting-schema
  */
 
-import { readdirSync, statSync } from 'node:fs';
-import { readFile } from 'node:fs/promises';
+import { readdir, readFile, stat } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import {
   isNonEmptyString,
@@ -36,26 +35,91 @@ import {
 const DIST = join(process.cwd(), 'dist');
 const MAX_ERRORS = 60;
 
-// ── Filesystem walk ─────────────────────────────────────────────────────────
-function walkHtml(dir, out = []) {
-  let entries;
-  try {
-    entries = readdirSync(dir);
-  } catch {
-    return out;
-  }
-  for (const name of entries) {
-    const full = join(dir, name);
-    let st;
+// ── Filesystem walk + read: bounded concurrency, sequential order ──────────
+// Until 2026-10 this walk was `readdirSync` + one `statSync` per entry, and the
+// reads were awaited one at a time: on the rehydrated production dist (millions
+// of one-directory-per-page HTML files) the gate issued every syscall strictly
+// in series, and on deploy 39946751902 it alone took 4404 s — the last 73 min
+// of validate-dist, one Node process on a 4 vCPU runner, run after every other
+// walker by design (FULL-DIST SERIAL PHASE). Overlapping the syscalls is the
+// lever `scripts/audit-spa-bundle-injection.mjs` (#5432) already proved.
+//
+// PURE I/O SCHEDULING — COVERAGE AND VERDICT ARE UNCHANGED:
+//   • same file set: every entry whose stat() (which follows symlinks, as the
+//     old statSync did) is a regular file named *.html, at any depth, no
+//     directory skipped; unreadable directories/entries/files are skipped
+//     exactly as before;
+//   • same counters and the same per-posting checks;
+//   • same OUTPUT ORDER: each file carries its position in the sequential
+//     depth-first walk (the index path of its readdir entries), and failures
+//     are reported sorted by it — the very order the old loop produced them.
+// SCAN_CONCURRENCY bounds the syscalls in flight; libuv's fs pool (4 threads
+// by default) is the real ceiling, the surplus keeps it saturated.
+const SCAN_CONCURRENCY = Math.max(1, Number(process.env.JOBPOSTING_SCAN_CONCURRENCY) || 32);
+
+function createLimiter(max) {
+  let active = 0;
+  const queue = [];
+  const next = () => {
+    if (active >= max || queue.length === 0) return;
+    active++;
+    const { fn, resolve, reject } = queue.shift();
+    fn().then(resolve, reject).finally(() => { active--; next(); });
+  };
+  return (fn) => new Promise((resolve, reject) => { queue.push({ fn, resolve, reject }); next(); });
+}
+
+/** Lexicographic comparison of two walk-order index paths. */
+function compareOrder(a, b) {
+  const n = Math.min(a.length, b.length);
+  for (let i = 0; i < n; i++) if (a[i] !== b[i]) return a[i] - b[i];
+  return a.length - b.length;
+}
+
+/**
+ * Visit every HTML file under `root` with `onFile(full, html, order)`.
+ * Returns the number of HTML files found (read or not, like the old list).
+ */
+async function scanHtml(root, onFile) {
+  const limit = createLimiter(SCAN_CONCURRENCY);
+  let found = 0;
+  const visitDir = async (dir, order) => {
+    let entries;
     try {
-      st = statSync(full);
+      entries = await limit(() => readdir(dir));
     } catch {
-      continue;
+      return;
     }
-    if (st.isDirectory()) walkHtml(full, out);
-    else if (st.isFile() && full.endsWith('.html')) out.push(full);
-  }
-  return out;
+    // Batches keep the in-flight promise count bounded on 100k-entry dirs.
+    const BATCH = 256;
+    for (let start = 0; start < entries.length; start += BATCH) {
+      const slice = entries.slice(start, start + BATCH);
+      await Promise.all(slice.map(async (name, k) => {
+        const full = join(dir, name);
+        const childOrder = [...order, start + k];
+        let st;
+        try {
+          st = await limit(() => stat(full));
+        } catch {
+          return;
+        }
+        if (st.isDirectory()) {
+          await visitDir(full, childOrder);
+        } else if (st.isFile() && full.endsWith('.html')) {
+          found++;
+          let html;
+          try {
+            html = await limit(() => readFile(full, 'utf8'));
+          } catch {
+            return;
+          }
+          onFile(full, html, childOrder);
+        }
+      }));
+    }
+  };
+  await visitDir(root, []);
+  return found;
 }
 
 // ── JSON-LD extraction ──────────────────────────────────────────────────────
@@ -116,44 +180,37 @@ function checkJobPostingAddressDetails(schema) {
 
 // ── Main ────────────────────────────────────────────────────────────────────
 async function main() {
-  const files = walkHtml(DIST);
-  if (files.length === 0) {
-    console.log(`[validate-jobposting-schema] No HTML files under ${DIST} — nothing to check.`);
-    process.exit(0);
-  }
-
   let pagesWithJobPosting = 0;
   let schemaCount = 0;
   const failures = [];
 
-  for (const file of files) {
-    let html;
-    try {
-      html = await readFile(file, 'utf8');
-    } catch {
-      continue;
-    }
-    if (!html.includes('"JobPosting"') && !html.includes("'JobPosting'")) continue;
+  const fileCount = await scanHtml(DIST, (file, html, order) => {
+    if (!html.includes('"JobPosting"') && !html.includes("'JobPosting'")) return;
 
     const blocks = flattenBlocks(extractJsonLdBlocks(html));
     const postings = blocks.filter((b) => b && b['@type'] === 'JobPosting');
-    if (postings.length === 0) continue;
+    if (postings.length === 0) return;
 
     pagesWithJobPosting++;
-    for (const posting of postings) {
+    postings.forEach((posting, k) => {
       schemaCount++;
       const errors = [
         ...validateMandatoryJobPostingFields(posting).map(({ message }) => message),
         ...checkJobPostingAddressDetails(posting),
       ];
       if (errors.length > 0) {
-        failures.push({ file: relative(process.cwd(), file), errors });
+        failures.push({ file: relative(process.cwd(), file), errors, order: [...order, k] });
       }
-    }
+    });
+  });
+  if (fileCount === 0) {
+    console.log(`[validate-jobposting-schema] No HTML files under ${DIST} — nothing to check.`);
+    process.exit(0);
   }
+  failures.sort((x, y) => compareOrder(x.order, y.order));
 
   console.log(
-    `[validate-jobposting-schema] Scanned ${files.length} HTML files — ` +
+    `[validate-jobposting-schema] Scanned ${fileCount} HTML files — ` +
     `${pagesWithJobPosting} pages carry ${schemaCount} JobPosting schemas.`,
   );
 

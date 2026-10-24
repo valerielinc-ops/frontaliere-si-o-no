@@ -126,7 +126,11 @@ function useAutoAdOverlayClearance(): number {
 
 const ALIGN_CLASS: Record<'right' | 'center', string> = {
   right: 'right-4',
-  center: 'left-1/2 -translate-x-1/2',
+  // Not `left-1/2 -translate-x-1/2`: the base class moves the box with the
+  // `translate` property (CLS-safe anchor clearance), which a Tailwind
+  // translate utility would overwrite. The box has a definite width
+  // (w-[calc(100%-2rem)] capped by max-w-*), so auto margins centre it.
+  center: 'inset-x-0 mx-auto',
 };
 
 const WIDTH_CLASS: Record<'sm' | 'md', string> = {

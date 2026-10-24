@@ -21,6 +21,7 @@ import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendatio
 // staticPagesPlugin): le hero card venivano drenate prima di essere registrate.
 import fs from 'node:fs';
 import { renderSitemapLastmod } from './shared/sitemapLastmod';
+import { jobSitemapLastmodDay, renderJobSitemapLastmod } from './shared/jobSitemapLastmod';
 import { decodeHtmlText } from '../packages/articles/engine/shared/htmlEntities';
 import { parseArticleRegistryEntries } from '../packages/articles/engine/shared/articleRegistryEntries';
 import { parseArticleUrlSlugs } from '../packages/articles/engine/shared/articleReaderSource.mjs';
@@ -66,6 +67,7 @@ import {
  jobsSeoHtmlCacheKey,
 } from './shared/jobsSeoHtmlCache';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
+import { isExpiredJobDemandIndexable } from './shared/expiredJobIndexPolicy';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
@@ -290,7 +292,7 @@ import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
-import { setActiveJobSitemapLocs, setTiHubLatestJobsBlocks } from './shared/buildSignals';
+import { setActiveJobSitemapLocs, setJobSitemapAllowlist, setTiHubLatestJobsBlocks } from './shared/buildSignals';
 import { renderTiHubLatestJobsBlock, summarizeTiHubInventory, TI_HUB_LATEST_JOBS_LIMIT } from './shared/tiHubLatestJobs';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
 import type { EmittedEmployerProfile } from './shared/buildSignals';
@@ -1307,6 +1309,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // to 'full' on any missing input: zero behavior change until a pattern
  // is approved. See build-plugins/shared/trafficEvidenceFilter.ts.
  const trafficFilter = getTrafficEvidenceFilter(rootDir);
+ // P1 noindex plan: Search Console demand evidence (90 d page impressions).
+ const gscDemand = trafficFilter.gscDemand();
+ // Day-granular clock for the expired-job grace window, so every
+ // BUILD_LOCALE shard of one deploy reaches the same verdict for a job.
+ const p1TodayMs = Date.parse(`${new Date().toISOString().slice(0, 10)}T00:00:00Z`);
+ let expiredDemandNoindexCount = 0;
  let bridgeFullCount = 0;
  let bridgeThinCount = 0;
  let softLandingFullCount = 0;
@@ -2229,6 +2237,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // bridge HTML to flush, so resolving now is correct: the consumer proceeds
  // with an empty/jobless sitemap instead of awaiting writes that never run.
  setActiveJobSitemapLocs(new Set());
+ setJobSitemapAllowlist(new Set());
  resolveJobsSeoPagesFlushed();
  return;
  }
@@ -3305,6 +3314,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
  const sitemapEligibleJobs = validJobs.filter(isSitemapEligibleJob);
  const activeJobSitemapLocs = new Set<string>();
+ // URL → the single job that owns it (first claim of its (canton, locale,
+ // slug) tuple, the active emitter's own rule), for every locale regardless
+ // of BUILD_LOCALE. The sitemap writes each job's hreflang group only from
+ // URLs this job owns, so a same-id or duplicate record can never push a
+ // second copy of a locale <loc> (review #15110).
+ const jobSitemapLocOwner = new Map<string, unknown>();
  const claimedActiveJobPaths = new Set<string>();
  for (const job of validJobs) {
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
@@ -3317,13 +3332,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    if (claimedActiveJobPaths.has(key)) continue;
    claimedActiveJobPaths.add(key);
    if (!isSitemapEligibleJob(job)) continue;
-   if (!shouldEmitLocale(locale)) continue;
    const localeUrl = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCanton)}`;
    if (resolveCanonicalUrl(slug, localeUrl) !== localeUrl) continue;
+   // The sitemap lists every locale (the IT build writes it for all four;
+   // the EN/DE/FR pages live on their own locale shard). Internal links stay
+   // limited to the locales this build renders (#14380).
+   if (!jobSitemapLocOwner.has(localeUrl)) jobSitemapLocOwner.set(localeUrl, job);
+   if (!shouldEmitLocale(locale)) continue;
    activeJobSitemapLocs.add(localeUrl);
   }
  }
  setActiveJobSitemapLocs(activeJobSitemapLocs);
+ setJobSitemapAllowlist(new Set(jobSitemapLocOwner.keys()));
  const activeCanonicalJobHref = (
   job: any,
   locale: 'it' | 'en' | 'de' | 'fr',
@@ -11101,6 +11121,12 @@ ${staticAnalyticsHtml}
  // registry; the final dist pass consumes it after all shards are assembled.
  // `activeJobSitemapLocs` was populated before the active emitter so the
  // same allowlist also gates every internal job-detail target.
+ const jobSitemapHreflangGroups: Array<{
+  canton: string;
+  lastmod: string | undefined;
+  alternates: Array<{ hreflang: string; href: string }>;
+  localeUrls: Array<{ locale: typeof localeList[number]; loc: string }>;
+ }> = [];
  const jobEntries = sitemapEligibleJobs.map((job) => {
  const perLocaleSlugMap = {
  it: localizedSlug(job, 'it'),
@@ -11134,8 +11160,11 @@ ${staticAnalyticsHtml}
  // it as an hreflang target in that case creates a sitemap URL that is either
  // missing or points at a different page.
  if (resolveCanonicalUrl(perLocaleSlugMap[l], localeUrl) !== localeUrl) continue;
- if (!emittedActiveJobPaths.has(`${jobCantonForSitemap}:${l}:${perLocaleSlugMap[l]}`)) continue;
- if (!activeJobSitemapLocs.has(localeUrl)) continue;
+ // Ownership, not mere existence: only the job that won this (canton,
+ // locale, slug) tuple lists it. The registry is source-level and covers
+ // every locale, so the IT build also lists the EN/DE/FR pages that live on
+ // the other locale shards.
+ if (jobSitemapLocOwner.get(localeUrl) !== job) continue;
  sitemapLocalePaths.set(l, localePath);
  }
  if (!sitemapLocalePaths.has('it')) return '';
@@ -11143,7 +11172,24 @@ ${staticAnalyticsHtml}
  ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${p}" />`,
  ).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
- return ` <url>\n <loc>${itUrl}</loc>\n${alternateLinks}\n${xDefault}\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`;
+ // Real listing date (reported publication / first observation), never the
+ // crawl heartbeat or the build clock — see shared/jobSitemapLastmod.ts.
+ const jobLastmod = renderJobSitemapLastmod(job);
+ // The EN/DE/FR members of this hreflang group are listed in the per-canton,
+ // per-locale shards below with the SAME group, so the reciprocity sanitizer
+ // keeps the annotations on both sides.
+ jobSitemapHreflangGroups.push({
+  canton: jobCantonForSitemap,
+  lastmod: jobSitemapLastmodDay(job),
+  alternates: [
+   ...[...sitemapLocalePaths.entries()].map(([l, p]) => ({ hreflang: l, href: `${BASE_URL}${p}` })),
+   { hreflang: 'x-default', href: `${BASE_URL}${itPath}` },
+  ],
+  localeUrls: [...sitemapLocalePaths.entries()]
+   .filter(([l]) => l !== 'it')
+   .map(([l, p]) => ({ locale: l, loc: `${BASE_URL}${p}` })),
+ });
+ return ` <url>\n <loc>${itUrl}</loc>\n${alternateLinks}\n${xDefault}\n${jobLastmod ? ` ${jobLastmod}\n` : ''} <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`;
  }).filter((s) => s.length > 0).join('\n');
 
  // FRO-SEO / seo/sitemap-crawl-budget: previousSlugs bridge pages are NOT
@@ -11252,6 +11298,14 @@ ${staticAnalyticsHtml}
  const sitemapJobs = dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}${keywordSitemap}\n</urlset>\n`);
  const sitemapJobsPath = np.join(distDir, 'sitemap-jobs.xml');
  fs.writeFileSync(sitemapJobsPath, sitemapJobs, 'utf-8');
+ // Every <loc> of sitemap-jobs.xml. The canton shards below must not repeat
+ // any of them: 22,384 of the 22,480 shard URLs were the same IT job details
+ // already listed here (measured live 2026-10-24). sitemap-jobs.xml keeps
+ // them because relatedSearchClustersPlugin rebuilds the active-job allowlist
+ // from this file on a cache-hit path; the shards keep only what this file
+ // does not list (canton roots, and locale variants when they qualify).
+ const legacyJobSitemapLocs = new Set<string>();
+ for (const m of sitemapJobs.matchAll(/<loc>([^<]+)<\/loc>/g)) legacyJobSitemapLocs.add(m[1]);
 
  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
  if (fs.existsSync(sitemapIndexPath)) {
@@ -11287,19 +11341,13 @@ ${staticAnalyticsHtml}
   * P1.11 — Canton-aware additive emission
   * ───────────────────────────────────────────────────────────────────
   *
-  *   sitemapEligibleJobs (already filtered: ≥50 IT words, no needsRetranslation)
-  *        │
-  *        ├─► applyCantonQuorumGate(job)  ──► { canton, cantonConfidence }
-  *        │       low / reject  →  AGGREGATE_KEY
-  *        │       high          →  job.canton
-  *        │
-  *        ├─► groupByDedupKey  ──► one canonical URL per (title|company|identity)
-  *        │       jobLocation[]  collects every locality across the group
-  *        │
+  *   jobSitemapHreflangGroups (one per IT job entry of sitemap-jobs.xml)
+  *        │   EN/DE/FR variants, same hreflang group, same real <lastmod>
   *        ▼
-  *   urls = [{ loc, lastmod, ... }]   (one per group × 4 locales)
+  *   urls = [{ loc, lastmod, alternates, ... }] + canton roots
   *        │
-  *        ├─► splitToShards(shardKey = canton) ──► sitemap-jobs-{slug}.xml
+  *        ├─► drop every <loc> sitemap-jobs.xml already lists (one sitemap per URL)
+  *        ├─► splitToShards(shardKey = canton[-locale]) ──► sitemap-jobs-{slug}[-{locale}].xml
   *        ├─► emitSitemapXml(per-shard)        ──► written to dist/
   *        └─► emitSitemapIndex(all shards)     ──► dist/sitemap-index.xml
   *
@@ -11308,89 +11356,20 @@ ${staticAnalyticsHtml}
   *   The TI ones are NOT re-emitted — staticPagesPlugin already owns those.
   *
   * Sibling agents (jobMarketSnapshot, weeklyEmployers) are not touched.
-  * The legacy sitemap-jobs.xml above stays untouched for backward compat —
-  * the new shards are ADDITIVE; downstream (ci/audit:orphan-sitemap-pages)
-  * will read both via the patched sitemap.xml index.
+  * sitemap-jobs.xml above keeps every IT job detail (relatedSearchClustersPlugin
+  * rebuilds the cache-hit allowlist from it); the shards hold only what it does
+  * not list. Both are discovered through the sitemap.xml index.
   */
  try {
    // Resolve absolute paths to the .mjs helpers — relative imports from a Vite
    // plugin .ts can break depending on how Vite bundles the plugin chain. The
    // helpers ship as plain ESM under scripts/lib/ and are loaded at build time.
    const { pathToFileURL } = await import('node:url');
-   const cantonGateUrl = pathToFileURL(np.resolve(rootDir, 'scripts/lib/canton-quorum-gate.mjs')).href;
    const sitemapShardUrl = pathToFileURL(np.resolve(rootDir, 'scripts/lib/sitemap-shard.mjs')).href;
-   const { applyCantonQuorumGate } = await import(cantonGateUrl) as {
-     applyCantonQuorumGate: (j: unknown) => { canton: string; confidence: 'high'|'low'|'reject'; cantonConfidence: 'high'|'low'|'reject' };
-   };
    const { splitToShards, writeShardsToDist } = await import(sitemapShardUrl) as {
      splitToShards: (urls: Array<{ loc: string; lastmod?: string; changefreq?: string; priority?: number; _shardKey?: string }>, opts?: { capPerShard?: number; shardKey?: (u: any) => string; filenamePrefix?: string }) => Array<{ filename: string; urls: any[] }>;
      writeShardsToDist: (shards: any[], distDir: string, baseUrl: string) => Promise<{ shardPaths: string[]; indexPath: string | null }>;
    };
-
-   /**
-    * Per-job canton classification: applies the quorum gate, returns either a
-    * concrete canton code or AGGREGATE_KEY for low-confidence / rejected jobs
-    * (E11 — uncertain jobs land on /cerca-lavoro-svizzera/, not on a per-canton
-    * landing). Pure function — never mutates the input job.
-    */
-   const classifyCantonForUrl = (job: any): string => {
-     try {
-       const r = applyCantonQuorumGate({
-         title: job?.title,
-         description: job?.description ?? job?.descriptionByLocale?.it,
-         addressLocality: job?.addressLocality ?? job?.location,
-         addressRegion: job?.addressRegion,
-         addressCountry: job?.addressCountry ?? 'CH',
-         postalCode: job?.postalCode,
-         canton: job?.canton,
-       });
-       // Half-canton merge: BFS may return 'AI'/'AR'/'BL'/'BS' but the
-       // URL/shard layer treats them as 'APPENZELLO'/'BASILEA'.
-       if (r.cantonConfidence === 'high' && r.canton) {
-         return resolveCantonGroup(r.canton.toUpperCase());
-       }
-       return AGGREGATE_KEY;
-     } catch {
-       return AGGREGATE_KEY;
-     }
-   };
-
-   /**
-    * Dedup-key for E8 multi-canton same-job grouping. Mirrors the heuristic
-    * in scripts/lib/dedicated-crawler-common.mjs (dedupHeuristicKey) but
-    * scoped to fields we already have on validJobs. Two jobs with the same
-    * key are considered the same vacancy posted across multiple locations.
-    */
-   const dedupKey = (job: any): string => {
-     const id = String(job?.id || '').trim();
-     if (id) return `id|${id}`;
-     const title = String(job?.title || '').toLowerCase().replace(/\s+/g, ' ').trim();
-     const company = String(job?.company || '').toLowerCase().replace(/\s+/g, ' ').trim();
-     return `tc|${title}|${company}`;
-   };
-
-   // Build group → canonical-job + jobLocation[] (E8). The canonical job is
-   // the most recent (validJobs is already DESC-sorted by recency). All
-   // member localities are collected so the JobPosting schema can list them.
-   type GroupEntry = { canonical: any; canton: string; locations: string[] };
-   const groups = new Map<string, GroupEntry>();
-   for (const job of sitemapEligibleJobs) {
-     const k = dedupKey(job);
-     const canton = classifyCantonForUrl(job);
-     const loc = String(job.location || job.addressLocality || '').trim();
-     const existing = groups.get(k);
-     if (!existing) {
-       groups.set(k, { canonical: job, canton, locations: loc ? [loc] : [] });
-       continue;
-     }
-     // Already grouped — record the additional locality if distinct.
-     if (loc && !existing.locations.includes(loc)) existing.locations.push(loc);
-     // If existing canton was AGGREGATE but new entry has a concrete canton,
-     // upgrade — the canonical URL stays on the most recent entry though.
-     if (existing.canton === AGGREGATE_KEY && canton !== AGGREGATE_KEY) {
-       existing.canton = canton;
-     }
-   }
 
    // Counts describe the listing inventory, not the smaller set of jobs whose
    // translated details qualify for sitemap indexation.
@@ -11398,66 +11377,26 @@ ${staticAnalyticsHtml}
    const archiveSnapshot = readJobsData(fs, path, rootDir);
    let cantonIndexIndexable = 0;
 
-   // Build the URL list for the sharded sitemap. One entry per (group, locale)
-   // = 4 × group-count entries. Detail URLs use the same canton-aware path
-   // helper as the active allowlist — slug-registry is honored verbatim. The
-   // shardKey is the canton, so high-confidence jobs cluster into per-canton
-   // shards while AGGREGATE jobs land in sitemap-jobs-svizzera.xml.
-   //
-   // NOTE: this mirrors `jobEntries` above. We build a fresh list so the
-   // legacy `<urlset>` and the new sharded index are byte-for-byte
-   // independent — no shared mutation, no surprise across plugins.
-   type ShardUrl = { loc: string; changefreq: string; priority: number; _canton: string; alternates?: Array<{ hreflang: string; href: string }> };
+   // Sharded job sitemap: the EN/DE/FR variants of every job detail listed in
+   // sitemap-jobs.xml (the IT detail itself stays there only — one sitemap
+   // per URL). Each variant carries the same hreflang group as its IT entry,
+   // so the reciprocity sanitizer keeps both sides, and the same real
+   // <lastmod>. Shards are keyed by canton AND locale
+   // (sitemap-jobs-zurigo-de.xml): ~67k variants would not fit the 50,000-URL
+   // cap of a per-canton file, and splitToShards still caps every key at
+   // SITEMAP_SHARD_CAP. Canton roots (below) keep the plain canton shard.
+   type ShardUrl = { loc: string; lastmod?: string; changefreq: string; priority: number; _canton: string; _locale?: string; alternates?: Array<{ hreflang: string; href: string }> };
    const shardUrls: ShardUrl[] = [];
-   for (const [, group] of groups) {
-     const job = group.canonical;
-     const perLocaleSlugMap: Record<CantonLocale, string> = {
-       it: localizedSlug(job, 'it'),
-       en: localizedSlug(job, 'en'),
-       de: localizedSlug(job, 'de'),
-       fr: localizedSlug(job, 'fr'),
-     };
-     // P1-C: shard partition must match the URL actually emitted by the
-     // per-job loop above (Task 1.2). That loop routes via
-     // `sharedResolveJobCanton(job)` which uses job.canton + city → canton
-     // lookup with TI fallback. `group.canton` (from BFS classification) can
-     // diverge (e.g. AGGREGATE) and would mis-shard a URL that lives at
-     // /cerca-lavoro-zurigo/ into sitemap-jobs-svizzera.xml. Use the same
-     // resolver here so the sitemap shard mirrors the URL path 1:1.
-     const groupJobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
-     // canonical-overrides: same gate as legacy sitemap. Skip if the job
-     // self-canonicalizes elsewhere (otherwise Semrush flags non-canonical).
-     const itPathLegacy = buildCanonicalJobDetailPath('it', job, perLocaleSlugMap.it, groupJobCanton);
-     const itUrlLegacy = `${BASE_URL}${itPathLegacy}`;
-     if (resolveCanonicalUrl(perLocaleSlugMap.it, itUrlLegacy) !== itUrlLegacy) continue;
-     for (const locale of localeList) {
-       // This is the same canton-aware path admitted to
-       // activeJobSitemapLocs above. For TI jobs the shared resolver retains
-       // the frozen legacy section; non-TI jobs stay in their own canton.
-       const localeUrl = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, perLocaleSlugMap[locale], groupJobCanton)}`;
-       // Per-locale canonical-override gate. canonicalOverrides is keyed by
-       // per-locale slug (e.g. `expediter-casale-sa-lugano` for EN,
-       // `beschleuniger-…` for DE) — an entry can target a single locale
-       // even when the IT sibling self-canonicalizes. Without this guard the
-       // EN/DE locale URL gets advertised in sitemap-jobs-{canton}.xml while
-       // its rendered HTML carries `<link rel="canonical">` pointing at the
-       // brand hub — audit:sitemap-canonicals fails.
-       if (resolveCanonicalUrl(perLocaleSlugMap[locale], localeUrl) !== localeUrl) continue;
-       // P2-emit-consistency: the per-job emit loop dedups by
-       // (canton, locale, perLocaleSlug). When two jobs share the SAME
-       // (canton, locale, slug) tuple only the most-recent wins and emits
-       // HTML; the loser's URL never materializes. If we still pushed the
-       // loser here, validate-sitemap-pages would flag it as missing-html.
-       // Gate on the same set the per-job emit populated. Phase 8a unified
-       // this key with `emittedActiveJobPaths` — same shape, same delimiter.
-       const emittedKey = `${groupJobCanton}:${locale}:${perLocaleSlugMap[locale]}`;
-       if (!emittedActiveJobPaths.has(emittedKey)) continue;
-       if (!activeJobSitemapLocs.has(localeUrl)) continue;
+   for (const group of jobSitemapHreflangGroups) {
+     for (const { locale, loc } of group.localeUrls) {
        shardUrls.push({
-         loc: localeUrl,
+         loc,
+         lastmod: group.lastmod,
          changefreq: 'weekly',
          priority: 0.6,
-         _canton: groupJobCanton,
+         _canton: group.canton,
+         _locale: locale,
+         alternates: group.alternates,
        });
      }
    }
@@ -12438,8 +12377,10 @@ ${staticAnalyticsHtml}
    // sitemap-index entries human-readable and consistent with the canonical
    // page graph.
    const shardKeyForUrl = (u: ShardUrl): string => {
-     if (u._canton === AGGREGATE_KEY) return getCantonUrlSlugLocal(AGGREGATE_KEY, 'it'); // 'svizzera'
-     return getCantonUrlSlugLocal(u._canton, 'it'); // e.g. 'ZH' → 'zurigo'
+     const canton = u._canton === AGGREGATE_KEY
+       ? getCantonUrlSlugLocal(AGGREGATE_KEY, 'it') // 'svizzera'
+       : getCantonUrlSlugLocal(u._canton, 'it'); // e.g. 'ZH' → 'zurigo'
+     return u._locale ? `${canton}-${u._locale}` : canton; // 'zurigo-de'
    };
    // Sitemap coverage (#3518, TI half): the localized Ticino hub roots
    // (/en/find-jobs-ticino/, /de/jobs-im-tessin/, /fr/...) are emitted by
@@ -12452,7 +12393,11 @@ ${staticAnalyticsHtml}
        alternates: buildLocaleAlternateEntries({ eligibleLocales: localeList, hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}`.replace(/\/+/g, '/'))}` }),
      });
    }
-   const shards = splitToShards(shardUrls, { shardKey: shardKeyForUrl });
+   // One sitemap per URL: anything sitemap-jobs.xml already lists (the IT job
+   // details and the four Ticino roots of its landing group) stays there only.
+   // With no other URL, the Ticino shard is simply not written this build.
+   const shardUrlsOutsideLegacy = shardUrls.filter((u) => !legacyJobSitemapLocs.has(u.loc));
+   const shards = splitToShards(shardUrlsOutsideLegacy, { shardKey: shardKeyForUrl });
    // writeShardsToDist writes each `sitemap-jobs-{italian-slug}.xml` to the
    // top-level dist/ directory + emits dist/sitemap-index.xml referencing
    // every shard. Confirmed top-level (not under any subpath) per
@@ -13765,6 +13710,21 @@ ${staticAnalyticsHtml}
 
  // Track IT page word count for sitemap inclusion decision
  let itBodyWordCount = 0;
+ // P1 noindex plan (shared/expiredJobIndexPolicy.ts): one verdict per job,
+ // shared by every locale page and the sitemap entry. Probes every locale's
+ // tracked path plus each locale's legacy-section path, the same family of
+ // URLs the traffic gates below already probe.
+ const __slDemandPaths: string[] = [];
+ for (const __l of localeList) {
+  if (paths?.[__l]) __slDemandPaths.push(paths[__l]);
+  __slDemandPaths.push(`/${localePrefix[__l]}/${sectionByLocale[__l]}/${slug}`.replace(/\/+/g, '/'));
+ }
+ const expiredDemandIndexable = isExpiredJobDemandIndexable(
+  { expiredAt: (expiredBySlug.get(slug) ?? expiredSliceOverflow.get(slug))?.expiredAt, paths: __slDemandPaths },
+  gscDemand,
+  p1TodayMs,
+ );
+ if (!expiredDemandIndexable) expiredDemandNoindexCount++;
 
  // ── Per-slug invariants (hoisted out of the per-locale loop) ──
  // These values depend only on the slug, not on the locale. Computing
@@ -14067,6 +14027,7 @@ ${staticAnalyticsHtml}
    prosePaths: __slProsePaths,
    keepProse: __slKeepProse,
    action: __slAction,
+   demandIndexable: expiredDemandIndexable,
    expiredPayloadJson: expiredWindowData,
    postalCode: ejData?.postalCode || slugInfo?.postalCode || '',
    hreflangHtml: hreflangLinks,
@@ -14255,6 +14216,11 @@ ${staticAnalyticsHtml}
  let expiredRobotsTag: string;
  if (!hasRealTitle) {
  expiredRobotsTag = ROBOTS_NOINDEX_FOLLOW;
+ } else if (!expiredDemandIndexable) {
+ // P1: expired > 30 days and no Search Console impression in 90 days.
+ // Robots only — the page, its links and its JSON-LD are unchanged.
+ expiredRobotsTag = ROBOTS_NOINDEX_FOLLOW;
+ if (locale === 'it') itBodyWordCount = countHtmlBodyWords(staticBody);
  } else if (locale === 'it') {
  itBodyWordCount = countHtmlBodyWords(staticBody);
  expiredRobotsTag = itBodyWordCount >= MIN_INDEXABLE_WORDS ? ROBOTS_INDEX_ENHANCED : ROBOTS_NOINDEX_FOLLOW;
@@ -14482,7 +14448,7 @@ ${staticAnalyticsHtml}
  const itPath = paths.it ? withSlash(paths.it) : '';
  const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
  const itPageOverwritten = itPageFile && pathWasClaimed(itPageFile);
- if (itPath && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten && !bridgeClaimedPaths.has(paths.it)) {
+ if (itPath && expiredDemandIndexable && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten && !bridgeClaimedPaths.has(paths.it)) {
  // The same cluster decision that governs HTML also governs sitemap
  // alternates. `unclaimedLocales` is captured BEFORE this cluster claims its
  // own paths, so an active path (or an earlier expired winner) can never leak
@@ -14588,6 +14554,7 @@ ${staticAnalyticsHtml}
 
  if (expiredCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P1 expired-job demand gate ${gscDemand.active ? 'active' : 'DORMANT'}: ${expiredDemandNoindexCount} job(s) noindex,follow (expired > 30 d, no GSC impression in 90 d)`);
  // Backpressure between expired-soft-landing (~150k pages) and the
  // next big emit (previousSlugs full-content ~65k pages).
  await collector.awaitDrainSlot(2);

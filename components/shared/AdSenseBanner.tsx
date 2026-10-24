@@ -541,8 +541,13 @@ function AdSenseBannerInstance({
  // Reserve space via minHeight — keep it even after ad loads to prevent CLS
  // when the actual ad is shorter than the placeholder (FRO-299)
  minHeight: isCollapsed ? 0 : placeholderMinHeight,
- // Cap collapsed state to 0
- maxHeight: isCollapsed ? 0 : undefined,
+ // Cap collapsed state to 0. Before a creative is confirmed the box is also
+ // capped at its reserve: Google sizes the <ins> of a multiplex before
+ // answering (1790px measured live on `/`, 2026-10-24) and an `unfilled`
+ // answer may follow, so an uncapped box grew 400->1790px of invisible space
+ // and pushed the page down for nothing. The <ins> keeps its own size (only
+ // the wrapper clips it) and the cap lifts the moment the state is `filled`.
+ maxHeight: isCollapsed ? 0 : (!isVisible && placeholderMinHeight ? placeholderMinHeight : undefined),
  opacity: isVisible ? 1 : 0,
  overflow: 'hidden',
  ...(isVisible ? {} : { pointerEvents: 'none' as const }),

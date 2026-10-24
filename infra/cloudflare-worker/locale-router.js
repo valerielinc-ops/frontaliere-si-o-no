@@ -65,6 +65,8 @@
 import { PHARMACY_DUTY_CITY_REDIRECTS } from '../../scripts/lib/pharmacySections.mjs';
 import { legacyTicinoTreeBucket, ticinoTreeBucket } from './ticino-tree-bucket.js';
 import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
+import { EDGE_LEGACY_STUB_REDIRECTS } from './legacy-stub-redirects.generated.mjs';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 // Named export for the same reason SECTION_ROUTES below carries one: the
 // Workers runtime only ever uses the default export, but scripts/lib/cf-worker-routes.mjs
@@ -696,18 +698,18 @@ const COMPANY_PREFIX_RE = /^(?:azienda|company|unternehmen|entreprise)-(.+)$/;
 const COMPANY_HUB_RE =
   /^(\/(?:en|de|fr)\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+)\/([^/]+)\/?$/;
 
-// Generative fallback for legacy related-search CLUSTER orphans (last segment is
-// a search-action slug `ricerca-/search-/suche-/recherche-…`). These came from an
-// old per-canton slug format (`/cerca-lavoro-<canton>/ricerca-<role>-svizzera/`)
-// that was migrated to `/cerca-lavoro-svizzera/ricerca-<role>-<city>/`. The KNOWN
-// ones (from the GSC snapshot) are already recovered as 200 compat-bridge pages,
-// but Google indexed many more than our snapshot captured, so the long tail still
-// soft-404s. We cannot enumerate the unknown ones for a SPECIFIC target, so we
-// 301 them to the locale's NATIONAL job board — always a live 200 page, never a
-// 301→404 (a canton-section root would 404 on an odd/fake canton slug). The board
-// is the nationalized cluster's natural home and keeps the job-search intent.
-const SEARCH_CLUSTER_PREFIX_RE = /^(?:ricerca|search|suche|recherche)-/;
+// Legacy related-search CLUSTER orphans (last segment `ricerca-/search-/suche-/
+// recherche-…`, the old per-canton cluster format migrated to
+// `/cerca-lavoro-svizzera/ricerca-<role>-<city>/`). The KNOWN ones are listed in
+// data/search-cluster-301-map.json and are served by the origin itself
+// (searchConsoleCompat bridges), so they never reach the 404 chain below. The
+// Worker used to 301 every OTHER `ricerca-*` slug to the national board; that
+// generative redirect turned any invented cluster URL into a 301 to a listing,
+// which Google classifies as a soft 404. An unknown cluster slug now stays a
+// real 404 (with the localized page from renderNotFoundPage). The national
+// boards remain the primary link of that page.
 const NATIONAL_BOARD_BY_LOCALE = {
+  it: '/cerca-lavoro-svizzera/',
   en: '/en/find-jobs-switzerland/',
   de: '/de/jobs-in-schweiz/',
   fr: '/fr/trouver-emploi-suisse/',
@@ -743,10 +745,8 @@ const LEGACY_PAGINATION_RE =
 // upgrading to a real 301 is a pure link-equity win IF the target is live.
 //
 // Unlike the map-verified recoverCantonDriftOrphan (the map only contains
-// slugs confirmed live at build time) or recoverLegacySearchCluster's fixed
-// per-locale NATIONAL_BOARD literal (never derived from the request, so it
-// cannot dead-end), the section-root path here is DERIVED from free-form URL
-// segments ([a-z-]+ in both COMPANY_HUB_RE and JOB_DETAIL_RE has no canton
+// slugs confirmed live at build time), the section-root path here is DERIVED
+// from free-form URL segments ([a-z-]+ in both COMPANY_HUB_RE and JOB_DETAIL_RE has no canton
 // allowlist) with no prior verification — a garbage/fake canton segment would
 // 301 into a dead end. So: verify with a subrequest before redirecting; a
 // miss/non-200/timeout returns false and the caller falls through to the
@@ -1976,6 +1976,95 @@ export function apexLegacyResponse(url) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
+// LEGACY REDIRECT STUBS → REAL 301 (legacyRedirectsPlugin static map)
+// ────────────────────────────────────────────────────────────────────────────
+//
+// legacyRedirectsPlugin answers ~900 legacy URLs (its hand-authored literal,
+// the border-wait and Lugano-competition maps and data/article-redirects.json)
+// with a 200 "Pagina spostata" page: noindex,follow + a 0-second meta-refresh.
+// That is a fake page, not a redirect — Google keeps the URL as a soft
+// duplicate instead of transferring it. Only the ~50 paths of
+// EDGE_LEGACY_REDIRECTS above were real 301s.
+//
+// EDGE_LEGACY_STUB_REDIRECTS is GENERATED from that same plugin table
+// (build-plugins/shared/edgeLegacyStubRedirects.ts; tests/edge-legacy-stub-
+// redirects.test.ts fails on any drift), so this file never carries a second
+// hand-kept copy of it.
+//
+// ORIGIN FIRST, THEN 301. The plugin never overwrites a page another plugin
+// emitted at the same path, so a table entry does not prove the path is dead.
+// The upgrade therefore runs on the RESPONSE: only a 200 whose body carries
+// REDIRECT_STUB_MARKER (the comment buildCanonicalBridgePage writes into every
+// bridge <head>) becomes a 301. A live page at a listed path is served as is.
+// Only listed paths pay the body read; every other response passes untouched,
+// and nothing is tee'd (single consumer, see the Cache API note in the header).
+// HEAD has no body to inspect, so a listed HEAD is answered from a GET of the
+// same URL through the same router.
+const LEGACY_STUB_MAX_BYTES = 256 * 1024;
+
+export function legacyStubTarget(pathname) {
+  return lookupLegacyTable(pathname, EDGE_LEGACY_STUB_REDIRECTS);
+}
+
+function legacyStubMoved(url, target) {
+  return new Response(null, {
+    status: 301,
+    headers: {
+      Location: target + url.search + url.hash,
+      'Cache-Control': RETIRED_MOVED_CACHE_CONTROL,
+    },
+  });
+}
+
+function isLegacyStubCandidate(response) {
+  if (!response || response.status !== 200) return false;
+  const length = Number(response.headers.get('Content-Length') || 0);
+  if (length > LEGACY_STUB_MAX_BYTES) return false;
+  const type = response.headers.get('Content-Type') || '';
+  return type === '' || /^text\/html\b/i.test(type);
+}
+
+/**
+ * Upgrade the origin's legacy redirect stub to a 301 for the paths listed in
+ * EDGE_LEGACY_STUB_REDIRECTS. `refetchAsGet` re-runs the router for a HEAD.
+ * Fail-open: any error returns a response equivalent to the one received.
+ */
+export async function upgradeLegacyStub(request, response, refetchAsGet) {
+  if (request.method !== 'GET' && request.method !== 'HEAD') return response;
+  const url = new URL(request.url);
+  const target = legacyStubTarget(url.pathname);
+  if (target === undefined || !isLegacyStubCandidate(response)) return response;
+
+  if (request.method === 'HEAD') {
+    try {
+      const probe = await refetchAsGet();
+      if (!isLegacyStubCandidate(probe)) return response;
+      const text = await probe.text();
+      return text.includes(REDIRECT_STUB_MARKER) ? legacyStubMoved(url, target) : response;
+    } catch {
+      return response;
+    }
+  }
+
+  let text;
+  try {
+    text = await response.text();
+  } catch {
+    return new Response('Origin unavailable', { status: 503, headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' } });
+  }
+  if (text.includes(REDIRECT_STUB_MARKER)) return legacyStubMoved(url, target);
+  // A live page at a listed path: hand back the same document. text() returned
+  // the DECODED body (the Workers runtime transparently decompresses origin
+  // responses but keeps their Content-Encoding header), so neither the encoded
+  // length nor the encoding label describes these bytes any more: drop both and
+  // let the edge compress the response on the way out.
+  const headers = new Headers(response.headers);
+  headers.delete('Content-Length');
+  headers.delete('Content-Encoding');
+  return new Response(text, { status: response.status, statusText: response.statusText, headers });
+}
+
+// ────────────────────────────────────────────────────────────────────────────
 // CORPUS-OWNED ARTICLE SECTIONS (piano «sezioni articoli per cantone», S2)
 // ────────────────────────────────────────────────────────────────────────────
 //
@@ -2624,32 +2713,6 @@ async function recoverPrunedCompanyHub(url, locale, origin) {
   });
 }
 
-// Returns a within-locale 301 Response to the locale's national job board when
-// the requested path is a legacy related-search cluster orphan (last path segment
-// starts with a search-action prefix — see SEARCH_CLUSTER_PREFIX_RE), otherwise
-// null. Synchronous (no map/subrequest): the target is a fixed per-locale board.
-// The caller runs this ONLY after the canton-drift map miss and the company-prefix
-// miss, so a real job-detail slug (which lives in /job-canon) is never hijacked —
-// and real job slugs do not start with `ricerca-/search-/suche-/recherche-`. The
-// national board is always a live 200, so this never produces a 301→404.
-function recoverLegacySearchCluster(url, locale) {
-  const board = NATIONAL_BOARD_BY_LOCALE[locale];
-  if (!board) return null;
-  const m = url.pathname.match(JOB_DETAIL_RE);
-  // A numeric suffix is a vacancy alias only with registry/live evidence;
-  // it must not enter this registry-free legacy search fallback.
-  if (!m || m[2]) return null;
-  const lastSeg = lowerSegment(m[1]);
-  if (!SEARCH_CLUSTER_PREFIX_RE.test(lastSeg)) return null;
-  // Already on the national board (loop guard — the board path has no extra segment).
-  if (url.pathname.replace(/\/+$/, '') + '/' === board) return null;
-  const location = board + url.search + url.hash;
-  return new Response(null, {
-    status: 301,
-    headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
-  });
-}
-
 // Returns a 301 Response to the canton section root when the requested path is a
 // legacy listing-pagination URL (`/<section>-<canton>/<filter>/page-<N>/` — see
 // LEGACY_PAGINATION_RE), otherwise null. Synchronous (no map/subrequest): the
@@ -2668,18 +2731,47 @@ function recoverLegacyPagination(url) {
   });
 }
 
+// Whether `slug` is a job the registry has ever tracked: the /job-canon shard is
+// built from the all-known-job-slugs registry (an accumulator keeping every slug,
+// including pruned/expired vacancies). Same URL and cache options as
+// recoverCantonDriftOrphan, so on the 404 chain this is an edge-cache hit.
+// 'unknown' = the shard is absent or has no row for the slug; 'unavailable' =
+// the registry could not be read, which must not be mistaken for absence.
+async function jobCanonSlugState(slug) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
+  try {
+    const mapUrl = new URL(`/job-canon/${jobCanonShardKey(slug)}.json`, CDN_BASE);
+    const resp = await fetch(mapUrl.toString(), {
+      signal: controller.signal,
+      cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
+    });
+    if (resp.status === 404 || resp.status === 410) return 'unknown';
+    if (!resp.ok) return 'unavailable';
+    const map = await resp.json();
+    if (!isPlainObject(map)) return 'unavailable';
+    return Object.prototype.hasOwnProperty.call(map, slug) && isPlainObject(map[slug])
+      ? 'known'
+      : 'unknown';
+  } catch {
+    return 'unavailable';
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 // Returns a 301 Response to the canton section root when the requested path is a
-// job-detail 404 whose slug is genuinely expired — NOT a canton-drift (the slug
-// is simply absent from /job-canon, unlike recoverCantonDriftOrphan's known-slug
-// case) — and none of the more specific recoveries above matched either (#3015
-// follow-up of #3001). Mirrors public/404.html's JS last-resort `sectionRoot`
-// fallback (its `.then`/`.catch` branches after the map lookup fails), upgrading
-// it to a real 301 for en/de/fr shard traffic. Guarded by redirectTargetIsLive
-// for the same reason as recoverPrunedCompanyHub: the canton segment is
-// free-form, so an invalid/garbage section must fall through to the existing
-// soft-404 instead of a 301 dead end. Runs LAST in the 404 chain — JOB_DETAIL_RE
-// also matches company-hub and search-cluster shaped slugs, both already handled
-// (and are more specific) above.
+// job-detail 404 for a slug the registry KNOWS (an expired/pruned vacancy whose
+// page is gone and that has no other canonical — recoverCantonDriftOrphan above
+// already handled the known slug WITH a live successor URL). This is the
+// pre-existing behaviour for expired jobs (#3015) and is kept unchanged.
+//
+// An UNKNOWN slug (never tracked: a typo, an invented URL, a scanner probe) no
+// longer gets this redirect: a 301 from any invented job URL to a listing is a
+// soft 404 for Google. It falls through to a real 404 with the localized page
+// (renderNotFoundPage). Guarded by redirectTargetIsLive because the canton
+// segment is free-form. Runs LAST in the 404 chain — JOB_DETAIL_RE also matches
+// company-hub shaped slugs, handled (more specifically) above.
 async function recoverExpiredJobToCantonRoot(url, origin) {
   const m = url.pathname.match(JOB_DETAIL_RE);
   // Numeric-suffix aliases require a registry-confirmed vacancy above; an
@@ -2690,7 +2782,10 @@ async function recoverExpiredJobToCantonRoot(url, origin) {
   // Loop guard (unreachable: JOB_DETAIL_RE always leaves a trailing slug segment
   // beyond the section root), kept for parity with the sibling recoveries.
   if (url.pathname.replace(/\/+$/, '') + '/' === sectionRoot) return null;
-  if (!(await redirectTargetIsLive(sectionRoot, origin))) return null; // unverified → soft 404
+  const slugState = await jobCanonSlugState(lowerSegment(m[1]));
+  if (slugState === 'unavailable') return aliasVerificationUnavailable();
+  if (slugState !== 'known') return null; // unknown slug → real 404, not a soft one
+  if (!(await redirectTargetIsLive(sectionRoot, origin))) return null; // unverified → 404
   const location = sectionRoot + url.search + url.hash;
   return new Response(null, {
     status: 301,
@@ -2824,6 +2919,111 @@ async function serveStaleOnError(url, reason) {
 // canonical path for race-safe rollout. Applies the full shard pipeline:
 // tiered edge cache + one retry,
 // stale-if-error from the apex-keyed Cache API, origin→apex Location rewrite,
+// ── Localized 404 page ──────────────────────────────────────────────────────
+// Every shard origin serves the same Italian public/404.html, so /en/x/ answered
+// a 404 titled «Pagina non trovata». For the requests this Worker serves from a
+// shard it renders the 404 body itself, in the request's locale:
+//   - job-detail shaped paths (JOB_DETAIL_RE, every locale): a plain 404 page
+//     with links to the section listing and the national board. No client-side
+//     redirect: an unknown job slug is a real 404, and the 404.html JS that
+//     location.replace()d it to the listing was the soft-404 in the browser;
+//   - any other en/de/fr document path: the same page plus the 404.html SPA
+//     fallback (save the URL, hand off to `/`), unchanged in behaviour.
+// IT non-job paths keep the origin body: it is already Italian and carries the
+// full 404.html recovery script.
+const NOT_FOUND_COPY = {
+  it: {
+    lang: 'it', title: 'Pagina non trovata', jobTitle: 'Offerta non trovata',
+    lede: 'La pagina che stai cercando non esiste o è stata spostata.',
+    jobLede: "Questo annuncio non esiste o non è più disponibile. Le offerte attive sono negli elenchi qui sotto.",
+    section: 'Offerte di lavoro di questa sezione', board: 'Tutte le offerte di lavoro in Svizzera',
+    calculator: 'Calcola lo stipendio netto', sitemap: 'Mappa del sito', home: 'Torna alla home',
+    links: { home: '/', calculator: '/calcola-stipendio/', sitemap: '/mappa-del-sito/' },
+  },
+  en: {
+    lang: 'en', title: 'Page not found', jobTitle: 'Job not found',
+    lede: 'The page you are looking for does not exist or has been moved.',
+    jobLede: 'This job posting does not exist or is no longer available. Current openings are in the lists below.',
+    section: 'Jobs in this section', board: 'All jobs in Switzerland',
+    calculator: 'Net salary calculator', sitemap: 'Site map', home: 'Back to the home page',
+    links: { home: '/en/', calculator: '/en/calculate-salary/', sitemap: '/en/site-map/' },
+  },
+  de: {
+    lang: 'de', title: 'Seite nicht gefunden', jobTitle: 'Stelle nicht gefunden',
+    lede: 'Die gesuchte Seite existiert nicht oder wurde verschoben.',
+    jobLede: 'Diese Stellenanzeige existiert nicht oder ist nicht mehr verfügbar. Aktuelle Stellen finden Sie in den Listen unten.',
+    section: 'Stellen in diesem Bereich', board: 'Alle Stellen in der Schweiz',
+    calculator: 'Nettolohnrechner', sitemap: 'Seitenplan', home: 'Zur Startseite',
+    links: { home: '/de/', calculator: '/de/gehalt-berechnen/', sitemap: '/de/seitenplan/' },
+  },
+  fr: {
+    lang: 'fr', title: 'Page introuvable', jobTitle: 'Offre introuvable',
+    lede: "La page que vous cherchez n'existe pas ou a été déplacée.",
+    jobLede: "Cette offre d'emploi n'existe pas ou n'est plus disponible. Les offres actuelles se trouvent dans les listes ci-dessous.",
+    section: 'Offres de cette section', board: 'Toutes les offres en Suisse',
+    calculator: 'Calculateur de salaire net', sitemap: 'Plan du site', home: "Retour à l'accueil",
+    links: { home: '/fr/', calculator: '/fr/calculer-salaire/', sitemap: '/fr/plan-du-site/' },
+  },
+};
+
+function escapeHtmlText(value) {
+  return String(value).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]);
+}
+
+// Same contract as public/404.html's spaRedirect(): static assets never
+// redirect; everything else saves the URL and lets the SPA at `/` route it.
+const NOT_FOUND_SPA_FALLBACK_SCRIPT = '<script>(function(){var p=location.pathname;'
+  + 'if(/\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff2?|ttf|json|xml|txt|map|webmanifest)$/i.test(p))return;'
+  + "try{sessionStorage.redirect=location.href.replace('://www.frontaliereticino.ch','://frontaliereticino.ch');}catch(e){return;}"
+  + "location.replace('/');})();</script>";
+
+// Returns the localized 404 HTML for `pathname`, or null when the origin body
+// should be kept (IT non-job paths, non-document paths). `sectionRoute` is the
+// SECTION_ROUTES entry serveShard was called with (else looked up from the path).
+export function renderNotFoundPage(pathname, locale, sectionRoute = null) {
+  const copy = NOT_FOUND_COPY[locale];
+  if (!copy) return null;
+  const isJob = JOB_DETAIL_RE.test(pathname);
+  if (!isJob && (locale === 'it' || !isDocumentPath(pathname))) return null;
+  const links = [];
+  const route = sectionRoute || matchSection(pathname);
+  // Only a section the router knows: a free-form canton segment could 404.
+  const sectionHref = route && route.locale === locale ? `${route.prefix}/` : null;
+  if (isJob && sectionHref) links.push([sectionHref, copy.section]);
+  links.push([NATIONAL_BOARD_BY_LOCALE[locale], copy.board]);
+  links.push([copy.links.calculator, copy.calculator]);
+  links.push([copy.links.sitemap, copy.sitemap]);
+  const seen = new Set();
+  const items = links
+    .filter(([href]) => (seen.has(href) ? false : (seen.add(href), true)))
+    .map(([href, label]) => `<li><a href="${escapeHtmlText(href)}">${escapeHtmlText(label)}</a></li>`)
+    .join('');
+  const title = isJob ? copy.jobTitle : copy.title;
+  return '<!DOCTYPE html>'
+    + `<html lang="${copy.lang}"><head><meta charset="utf-8">`
+    + '<meta name="viewport" content="width=device-width, initial-scale=1">'
+    + `<title>${escapeHtmlText(title)} — Frontaliere Ticino</title>`
+    + '<meta name="robots" content="noindex">'
+    + '<link rel="icon" type="image/svg+xml" href="/favicon.svg">'
+    + (isJob ? '' : NOT_FOUND_SPA_FALLBACK_SCRIPT)
+    + '<style>'
+    + ':root{--bg:#f8fafc;--card:#fff;--text:#0f172a;--muted:#475569;--link-bg:#f1f5f9;--accent:#4338ca}'
+    + '@media (prefers-color-scheme:dark){:root{--bg:#020617;--card:#1e293b;--text:#f1f5f9;--muted:#cbd5e1;--link-bg:#334155;--accent:#a5b4fc}}'
+    + '*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}'
+    + 'main{background:var(--card);border-radius:16px;padding:32px 24px;max-width:560px;width:100%}'
+    + '.code{font-size:56px;font-weight:800;color:var(--accent);margin:0}h1{font-size:24px;margin:8px 0 12px}p{color:var(--muted);line-height:1.6;margin:0 0 20px}'
+    + 'ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}'
+    + 'ul a{display:block;padding:12px 16px;min-height:44px;border-radius:10px;background:var(--link-bg);color:var(--text);text-decoration:none;font-weight:500}'
+    + '.home{display:inline-block;margin-top:20px;color:var(--accent);font-weight:600}'
+    + '</style></head><body><main>'
+    + '<p class="code">404</p>'
+    + `<h1>${escapeHtmlText(title)}</h1>`
+    + `<p>${escapeHtmlText(isJob ? copy.jobLede : copy.lede)}</p>`
+    + `<ul>${items}</ul>`
+    + `<a class="home" href="${escapeHtmlText(copy.links.home)}">${escapeHtmlText(copy.home)}</a>`
+    + '</main></body></html>';
+}
+
 // Cache-Control stamping, apex-keyed fail-open warmup on 200s, and the job-orphan
 // 301 recoveries on 404s. `recoveryLocale` (it|en|de|fr) selects which
 // within-locale recovery map/board to use — for an IT section subtree it is
@@ -2974,13 +3174,11 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     // guarded (redirectTargetIsLive) 301 to the canton section root.
     const prunedHubRedirect = await recoverPrunedCompanyHub(url, recoveryLocale, origin);
     if (prunedHubRedirect) return prunedHubRedirect;
-    const clusterRedirect = recoverLegacySearchCluster(url, recoveryLocale);
-    if (clusterRedirect) return clusterRedirect;
     const paginationRedirect = recoverLegacyPagination(url);
     if (paginationRedirect) return paginationRedirect;
-    // #3015: last-resort — a genuinely expired job-detail slug (not a canton
-    // drift, not a company/cluster/pagination shape) — guarded 301 to the
-    // canton section root, mirroring public/404.html's final sectionRoot fallback.
+    // #3015: last-resort — a registry-known expired job-detail slug (not a
+    // canton drift, not a company/pagination shape) — guarded 301 to the canton
+    // section root. Unknown slugs (and unknown `ricerca-*` clusters) stay 404.
     const expiredJobRedirect = await recoverExpiredJobToCantonRoot(url, origin);
     if (expiredJobRedirect) return expiredJobRedirect;
   }
@@ -2988,6 +3186,19 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   // Stamp Cache-Control on 404s too so crawler re-fetches of dead URLs are
   // absorbed by the edge instead of re-invoking the Worker.
   if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
+    // Localized body (see renderNotFoundPage). Fresh headers: the origin's
+    // Content-Length/ETag describe the Italian 404.html, not this document.
+    const page = renderNotFoundPage(url.pathname, recoveryLocale, sectionRoute);
+    if (page !== null) {
+      return new Response(request.method === 'HEAD' ? null : page, {
+        status: 404,
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Content-Language': recoveryLocale,
+          'Cache-Control': NOT_FOUND_CACHE_CONTROL,
+        },
+      });
+    }
     const headers = new Headers(resp.headers);
     headers.set('Cache-Control', NOT_FOUND_CACHE_CONTROL);
     return new Response(resp.body, { status: 404, statusText: resp.statusText, headers });
@@ -3221,6 +3432,11 @@ const router = {
 
 export default {
   async fetch(request, env, ctx) {
-    return stripStaleAssetIntegrity(request, await router.fetch(request, env, ctx));
+    const response = await upgradeLegacyStub(
+      request,
+      await router.fetch(request, env, ctx),
+      () => router.fetch(new Request(request, { method: 'GET' }), env, ctx),
+    );
+    return stripStaleAssetIntegrity(request, response);
   },
 };

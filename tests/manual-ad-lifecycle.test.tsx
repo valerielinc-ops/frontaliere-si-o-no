@@ -74,6 +74,27 @@ describe('manual ad lifecycle shared by SPA and static', () => {
     expect(states).toHaveBeenLastCalledWith('collapsed', reason);
     expect(events.mock.calls.filter(([event]) => event === 'ad_collapsed')).toHaveLength(1);
   });
+  it('never collapses a box the reader already scrolled past; waits until it is below the viewport', async () => {
+    // Collapsing ABOVE the viewport pulls the visible page up by the box height:
+    // a single 1.0 layout shift measured live on `/` on 2026-10-24.
+    const { el, states, lifecycle } = setup();
+    lifecycle.request();
+    top = -2000; await status(el, 'unfilled');
+    intersect(0, 0);
+    expect(states).not.toHaveBeenCalledWith('collapsed', 'unfilled');
+    top = 100; intersect(0, 1);
+    expect(states).not.toHaveBeenCalledWith('collapsed', 'unfilled');
+    top = 1200; intersect(0, 0);
+    expect(states).toHaveBeenLastCalledWith('collapsed', 'unfilled');
+  });
+  it('without IntersectionObserver a scroll that leaves the box above does not collapse it either', () => {
+    vi.stubGlobal('IntersectionObserver', undefined);
+    const { states, lifecycle } = setup(); lifecycle.fail('script_failed');
+    top = -2000; window.dispatchEvent(new Event('scroll'));
+    expect(states).not.toHaveBeenCalledWith('collapsed', 'script_failed');
+    top = 1200; window.dispatchEvent(new Event('scroll'));
+    expect(states).toHaveBeenLastCalledWith('collapsed', 'script_failed');
+  });
   it('recovers a late fill after failure and cancels the deferred collapse', async () => {
     const { el, states, lifecycle } = setup();
     lifecycle.fail('script_failed'); await status(el, 'filled');
