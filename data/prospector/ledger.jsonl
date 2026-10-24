@@ -21954,3 +21954,4 @@
 {"eventType":"candidate_transition","key":"servicekuhn.ch","from":"promoting","to":"awaiting_first_crawl","at":"2026-10-24T11:14:54.567Z","runId":"40077140129","runAttempt":1,"phase":"promote","eventId":"9657106b4538207da980b27f"}
 {"eventType":"candidate_transition","key":"elvetino.ch","from":"awaiting_first_crawl","to":"production","at":"2026-10-24T11:14:54.596Z","runId":"40077140129","runAttempt":1,"phase":"promote","eventId":"0744d70d449eb431efb6e41b"}
 {"eventType":"candidate_transition","key":"servicekuhn.ch","from":"awaiting_first_crawl","to":"production","at":"2026-10-24T11:14:54.597Z","runId":"40077140129","runAttempt":1,"phase":"promote","eventId":"0ec9e79153b385ff5f51503c"}
+{"eventType":"candidate_transition","key":"globalsana.ch","from":"promoted","to":"promoting","at":"2026-10-24T11:15:27.069Z","runId":"40077140129","runAttempt":1,"phase":"promote","eventId":"7f1ae3e03061b9a3b40c3b17"}

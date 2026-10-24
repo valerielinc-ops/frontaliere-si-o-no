@@ -18690,7 +18690,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Richiesta permesso G in Ticino: procedura, documenti e costi",
-      "description": "Come fare la richiesta del permesso G in Ticino: notifica all'Ufficio della migrazione prima di iniziare, documenti, dati biometrici e costi.",
+      "description": "Scopri come richiedere il permesso G per frontalieri in Ticino: procedura, obblighi di notifica, costi e documenti necessari per lavorare in Svizzera.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",

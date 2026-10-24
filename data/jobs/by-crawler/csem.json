@@ -400,12 +400,12 @@
     },
     {
       "id": "csem-fe297e230970",
-      "slug": "group-leader-medical-ai-solutions-iomt-f-m-d-100-bern-neuchatel-csem-ch",
+      "slug": "leader-di-gruppo-soluzioni-di-ai-mediche-iomt-m-f-d-100-csem-landquart-bern-neuchatel",
       "slugByLocale": {
         "en": "group-leader-medical-ai-solutions-iomt-f-m-d-100-bern-neuchatel-csem-ch",
-        "it": "group-leader-medical-ai-solutions-iomt-f-m-d-100-bern-neuchatel-csem-ch",
+        "it": "leader-di-gruppo-soluzioni-di-ai-mediche-iomt-m-f-d-100-csem-landquart-bern-neuchatel",
         "de": "group-leader-medical-ai-solutions-iomt-f-m-d-100-bern-neuchatel-csem-ch",
-        "fr": "group-leader-medical-ai-solutions-iomt-f-m-d-100-csem-landquart-neuchatel"
+        "fr": "chef-de-groupe-solutions-d-ia-medicale-et-iomt-h-f-d-100-csem-landquart-bern-neuchatel"
       },
       "company": "CSEM Landquart",
       "companyKey": "csem",
@@ -463,7 +463,19 @@
         }
       },
       "postalCode": "2000",
-      "firstSeenAt": "2026-10-24T09:37:42.821Z"
+      "firstSeenAt": "2026-10-24T09:37:42.821Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-leader-medical-ai-solutions-iomt-f-m-d-100-bern-neuchatel-csem-ch"
+        ],
+        "fr": [
+          "group-leader-medical-ai-solutions-iomt-f-m-d-100-csem-landquart-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "group-leader-medical-ai-solutions-iomt-f-m-d-100-bern-neuchatel-csem-ch",
+        "group-leader-medical-ai-solutions-iomt-f-m-d-100-csem-landquart-neuchatel"
+      ]
     },
     {
       "id": "csem-ca683d47aa1d",

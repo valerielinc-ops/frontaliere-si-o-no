@@ -1,7 +1,6 @@
 {
   "crawlerKey": "ksbl",
   "assembledAt": "2026-10-24T09:32:20.916Z",
-  "runId": "40081697922",
   "jobs": [
     {
       "id": "ksbl-461de2f9be97",
@@ -3025,7 +3024,7 @@
       "slug": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
       "slugByLocale": {
         "it": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
-        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
         "de": "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
         "fr": "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal-f0acea"
       },
@@ -3077,7 +3076,7 @@
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
         "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3087,7 +3086,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "de": [
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g"
@@ -8134,5 +8133,6 @@
         }
       }
     }
-  ]
+  ],
+  "runId": "40081697922"
 }

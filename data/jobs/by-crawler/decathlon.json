@@ -4344,12 +4344,12 @@
     },
     {
       "id": "decathlon-9d9cad264fb8",
-      "slug": "conseiller-ere-ski-location-h-f-cdd-60-neuchatel-decathlon-ch",
+      "slug": "consultant-ski-rental-m-f-csd-60-neuchatel-decathlon-marin-epagnier",
       "slugByLocale": {
         "fr": "conseiller-ere-ski-location-h-f-cdd-60-neuchatel-decathlon-ch",
-        "it": "conseiller-ere-ski-location-h-f-cdd-60-neuchatel-decathlon-ch",
+        "it": "consultant-ski-rental-m-f-csd-60-neuchatel-decathlon-marin-epagnier",
         "en": "conseiller-ere-ski-location-h-f-cdd-60-neuchatel-decathlon-ch",
-        "de": "conseiller-ere-ski-location-h-f-cdd-60-neuchatel-decathlon-ch"
+        "de": "berater-skivermietung-m-w-csd-60-neuenburg-decathlon-marin-epagnier"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4406,7 +4406,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-24T09:28:13.453Z"
+      "firstSeenAt": "2026-10-24T09:28:13.453Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-ski-location-h-f-cdd-60-neuchatel-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-ski-location-h-f-cdd-60-neuchatel-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-ski-location-h-f-cdd-60-neuchatel-decathlon-ch"
+      ]
     }
   ]
 }

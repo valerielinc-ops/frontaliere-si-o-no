@@ -2173,7 +2173,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Permesso G 2026: rinnovo, costi e obblighi per frontalieri",
-      "description": "Permesso G 2026: validità 5 anni, rinnovo automatico se il contratto continua, costi in Ticino, rientro settimanale, telelavoro e imposta alla fonte.",
+      "description": "Guida operativa al Permesso G nel 2026: requisiti, richiesta, rinnovo, costi, rientro settimanale, telelavoro 25% e 45 giorni, imposta alla fonte in Ticino.",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/lac-lugano.webp`,
         "width": 1200,

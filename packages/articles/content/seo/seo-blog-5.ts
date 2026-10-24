@@ -42003,7 +42003,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Paola Nurnberg, vertenza chiusa: la RSI paga 4 mesi di salario",
-      "description": "Paola Nurnberg, licenziata dalla RSI nel 2023 dopo un post su Twitter: vertenza chiusa, la RSI ha pagato tutte le pretese avanzate secondo Unia.",
+      "description": "La vertenza tra RSI e Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese avanzate. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -43236,7 +43236,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Imposta alla fonte frontalieri: come funziona in Ticino",
-      "description": "Imposta alla fonte in Ticino 2026: come la trattiene il datore di lavoro, da cosa dipendono le aliquote e cosa cambia per i nuovi frontalieri.",
+      "description": "Scopri come funziona l'imposta alla fonte per i frontalieri in Ticino, le aliquote e gli adempimenti fiscali necessari per la gestione del salario.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/imposta-fonte-frontalieri-ticino-dettagli.webp`,
@@ -47391,7 +47391,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "CU 2026 per frontalieri: modelli ufficiali e credito d'imposta",
-      "description": "Certificazione Unica 2026: modelli ufficiali per i redditi 2025 e come i frontalieri dichiarano in Italia lo stipendio svizzero col credito d'imposta.",
+      "description": "Disponibili i Modelli Ufficiali della Certificazione Unica 2026. Guida pratica per i frontalieri su come dichiarare i redditi svizzeri in Italia, evitare la",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -51797,7 +51797,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Tecnico di radiologia in Ticino: quanto guadagna e requisiti",
-      "description": "Quanto guadagna un tecnico di radiologia in Ticino: stipendio medio di CHF 80.000 l'anno, requisiti, riconoscimento del titolo di studio e permesso G.",
+      "description": "Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -66283,7 +66283,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Multe stradali in Svizzera: importi, termini e pagamento",
-      "description": "Multe stradali in Svizzera: da 40 CHF per le infrazioni lievi a oltre 1.000 CHF per quelle gravi, pagamento entro 30 giorni dalla notifica.",
+      "description": "Come funzionano le multe stradali svizzere per i residenti italiani. Implicazioni e procedure per il pagamento. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -75182,7 +75182,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Multe dalla Svizzera con targa italiana: pagamento e ricorso",
-      "description": "Multa dalla Svizzera con targa italiana: come arriva la notifica, come pagarla o fare ricorso entro la scadenza e cosa succede se non la paghi.",
+      "description": "Procedura completa per il pagamento di una multa stradale ricevuta in Svizzera da residente italiano: notifica, pagamento, ricorsi e conseguenze.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -88614,7 +88614,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Premi cassa malati 2027: aumento di quasi il 5%, picchi al 20%",
-      "description": "Premi cassa malati 2027: per bonus.ch l'aumento medio LAMal sarà di quasi il 5%, dopo il 4,4% del 2026, con picchi fino al 20% per alcuni assicurati.",
+      "description": "Premi cassa malati aumenteranno il 5% nel 2027. Scopri come l'aumento LAMal impacta la busta paga e come comparare le casse malati. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -113109,6 +113109,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanitari-italiani-fuga-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-10-24': {
+    title: 'Frontalieri: i dati verificati di oggi — 24 ottobre 2026',
+    description: 'Bollettino frontalieri 24 ottobre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Frontalieri: i dati verificati di oggi — 24 ottobre 2026',
+    ogDescription: 'I numeri del 24 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti annunci di lavoro attivi sono presenti sul nostro job board in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-10-24/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: i dati verificati di oggi — 24 ottobre 2026",
+      "description": "Bollettino frontalieri 24 ottobre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-bollettino-frontaliere-2026-10-24.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-24T09:37:11+00:00",
+      "dateModified": "2026-10-24T09:37:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-10-24/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

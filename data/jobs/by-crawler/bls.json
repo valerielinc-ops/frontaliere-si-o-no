@@ -2280,22 +2280,6 @@
           "Gutes Seh- und Hörvermögen für sicheres Arbeiten im Gleisbereich"
         ]
       },
-      "previousSlugs": [
-        "quereinstieg-gleisbau-bls-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "quereinstieg-gleisbau-bls-ch"
-        ],
-        "en": [
-          "quereinstieg-gleisbau-bls-ch"
-        ],
-        "fr": [
-          "quereinstieg-gleisbau-bls-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-23T21:21:03.878Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2309,7 +2293,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-10-23T21:21:03.878Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-gleisbau-bls-ch"
+        ],
+        "en": [
+          "quereinstieg-gleisbau-bls-ch"
+        ],
+        "fr": [
+          "quereinstieg-gleisbau-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-gleisbau-bls-ch"
+      ]
     }
   ]
 }
