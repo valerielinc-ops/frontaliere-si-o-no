@@ -12,6 +12,12 @@ const root = path.resolve(__dirname, '..');
 const read = (relPath: string) => fs.readFileSync(path.resolve(root, relPath), 'utf-8');
 
 describe('route-slugs anti-drift guard (#4315)', () => {
+  it('keeps the runtime dependency extension explicit for direct Node ESM senders', () => {
+    expect(read('services/routeSlugs.data.ts')).toMatch(
+      /from '\.\.\/packages\/articles\/engine\/shared\/aiDisclosure\.ts'/,
+    );
+  });
+
   it('router.ts no longer defines SLUG_TABLES locally and imports the shared module', () => {
     const src = read('services/router.ts');
     expect(src).not.toMatch(/^const SLUG_TABLES/m);

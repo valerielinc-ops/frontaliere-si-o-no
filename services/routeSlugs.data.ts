@@ -10,7 +10,7 @@
  * cheap to import from anywhere, including plain Node scripts. See #4315.
  */
 import type { Locale } from './i18n';
-import { DISCLOSURE_ROUTE_CONTRACT } from '../packages/articles/engine/shared/aiDisclosure';
+import { DISCLOSURE_ROUTE_CONTRACT } from '../packages/articles/engine/shared/aiDisclosure.ts';
 
 type DisclosureRouteKey = keyof typeof DISCLOSURE_ROUTE_CONTRACT.it;
 
