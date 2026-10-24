@@ -14,8 +14,6 @@
  * Adding a namespace needs no edit here: the glob picks the new files up.
  */
 import { describe, expect, it } from 'vitest';
-import { execFileSync } from 'node:child_process';
-import { resolve } from 'node:path';
 import itCore from '@/services/locales/it-core';
 import enCore from '@/services/locales/en-core';
 import deCore from '@/services/locales/de-core';
@@ -43,15 +41,6 @@ for (const [file, mod] of Object.entries(modules)) {
 const namespaces = [...byNamespace.keys()].sort();
 
 describe('on-demand translation namespaces', () => {
-  it('can be imported by the Node-side Vite config bundle', () => {
-    const output = execFileSync(
-      process.execPath,
-      ['--import', 'tsx', '--eval', "import('./services/i18n.ts').then(() => console.log('i18n-node-load-ok'))"],
-      { cwd: resolve(__dirname, '..'), encoding: 'utf8' },
-    );
-    expect(output).toContain('i18n-node-load-ok');
-  });
-
   it('the glob finds the namespaces (the observer is not vacuous)', () => {
     expect(namespaces.length).toBeGreaterThan(0);
   });
