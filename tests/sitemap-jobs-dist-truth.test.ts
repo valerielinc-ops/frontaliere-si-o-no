@@ -507,6 +507,7 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
     const previousBuildLocale = process.env.BUILD_LOCALE;
     const opendirSpy = vi.spyOn(fs.promises, 'opendir');
     const lstatSpy = vi.spyOn(fs.promises, 'lstat');
+    const statSpy = vi.spyOn(fs.promises, 'stat');
     process.env.BUILD_LOCALE = 'it';
     try {
       vi.resetModules();
