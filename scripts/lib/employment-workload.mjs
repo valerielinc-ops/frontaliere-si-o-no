@@ -25,6 +25,28 @@ export function workloadPercent(text) {
 /** Below this workload a Swiss ad is part-time (`normalizeContract`'s rule). */
 export const PART_TIME_MAX_WORKLOAD = 90;
 
+const EXPLICIT_WORKLOAD_CONTEXT = /^(?:pensum|workload|part[- ]?time|partiel|tempo\s+parziale|temps\s+partiel|beschäftigungsgrad|arbeitsgrad|fte)\b/i;
+
+function hasWorkloadContextAfterPercent(text, end) {
+  const suffix = text.slice(end).trim();
+  if (!suffix) return true;
+  const punctuationOnly = suffix.replace(/[)\]},.;:!?]+$/g, '').trim();
+  return !punctuationOnly || EXPLICIT_WORKLOAD_CONTEXT.test(punctuationOnly);
+}
+
+function contextualWorkloadPercent(text) {
+  const value = String(text ?? '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+  const range = value.match(/\b(\d{1,3})\s*%?\s*[-–—]\s*(\d{1,3})\s*%/);
+  if (range && hasWorkloadContextAfterPercent(value, range.index + range[0].length)) {
+    return Math.max(Number(range[1]), Number(range[2]));
+  }
+  const single = value.match(/\b(\d{1,3})\s*%/);
+  if (single && hasWorkloadContextAfterPercent(value, single.index + single[0].length)) {
+    return Number(single[1]);
+  }
+  return NaN;
+}
+
 /**
  * True when the text states a part-time workload ("60%", "20-40 %").
  *
@@ -32,6 +54,9 @@ export const PART_TIME_MAX_WORKLOAD = 90;
  * @returns {boolean}
  */
 export function isPartTimeWorkload(text) {
-  const percent = workloadPercent(text);
+  // A percentage in a title is a workload only at the end of the title or
+  // next to an explicit workload word. Qualifiers such as "50% travel" are
+  // job requirements, not employment scope.
+  const percent = contextualWorkloadPercent(text);
   return Number.isFinite(percent) && percent > 0 && percent < PART_TIME_MAX_WORKLOAD;
 }

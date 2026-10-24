@@ -50,4 +50,9 @@ describe('employment-workload', () => {
     expect(workloadPercent('Pflege 70% - 100%')).toBe(100);
     expect(Number.isNaN(workloadPercent('Koch'))).toBe(true);
   });
+
+  it('does not treat a qualifier percentage as employment workload', () => {
+    expect(isPartTimeWorkload('Sales Manager 50% travel')).toBe(false);
+    expect(isPartTimeWorkload('Night Watch 20-40 %')).toBe(true);
+  });
 });
