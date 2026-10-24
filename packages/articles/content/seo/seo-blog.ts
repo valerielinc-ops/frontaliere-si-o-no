@@ -2646,7 +2646,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Costo della Vita a Lugano per Frontalieri 2026",
- "description": "Quanto costa vivere a Lugano nel 2026: affitto, LAMal, tasse, trasporti e spesa. Budget mensile per chi valuta il trasferimento in Ticino.",
+ "description": "Quanto costa vivere a Lugano nel 2026: affitto da 1.400 CHF, LAMal da 450 CHF, trasporti e tasse, con il budget mensile di chi si trasferisce.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/costo-vivere-lugano-trasferirsi.webp`,
  "width": 1344,
@@ -4804,7 +4804,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Dichiarazione redditi Ticino 2026",
- "description": "Scopri come compilare la dichiarazione dei redditi 2026 in Ticino. Guida completa, scadenze fiscali e vantaggi di eTax.",
+ "description": "eTax 2025 in Ticino: come compilare online la dichiarazione d'imposta 2025, scadenza 30 aprile 2026, proroga online e chi è tassato alla fonte.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/dichiarazione-redditi-ticino-2026.webp`,
  "width": 1344,
