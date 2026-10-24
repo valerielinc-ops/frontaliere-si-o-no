@@ -167,6 +167,11 @@ describe('decideHreflangBlock', () => {
     expect(d).toMatchObject({ action: 'strip', reason: 'member-not-reciprocal' });
   });
 
+  it('strips a reciprocal block that does not contain exactly the four supported locales', () => {
+    const partial = classifyHreflangPage(page('/a/', clusterFor({ it: 'a', en: 'a-en', de: 'a-de' })), '/a');
+    expect(decideHreflangBlock(partial, eligibleAll)).toMatchObject({ action: 'strip', reason: 'incomplete-locale-set' });
+  });
+
   it('does not judge members without a manifest or served outside this build', () => {
     const d = decideHreflangBlock(self, (l) => (l === 'it' ? eligibleAll() : { status: 'unknown' as const, reason: `no-manifest-${l}` }));
     expect(d.action).toBe('keep');
@@ -328,6 +333,21 @@ describe('runHreflangIndexManifest on a dist', () => {
     expect(summary.filesToRewrite).toBeGreaterThan(0);
     expect(summary.filesRewritten).toBe(0);
     expect(fs.existsSync(path.join(tmp, 'm', 'it.json'))).toBe(true);
+  });
+
+  it('fails closed after the barrier when a foreign manifest is missing', async () => {
+    const dist = path.join(tmp, 'dist');
+    emitCorpus(dist);
+    const before = read(dist, '/good/');
+    await expect(runHreflangIndexManifest({
+      distDir: dist,
+      manifestDir: path.join(tmp, 'missing-manifests'),
+      ownedLocales: ['it'],
+      requireForeignManifests: true,
+      log: quiet,
+    })).rejects.toThrow(/required foreign hreflang manifests/);
+    expect(read(dist, '/good/')).toBe(before);
+    expect(fs.existsSync(path.join(tmp, 'missing-manifests', 'it.json'))).toBe(false);
   });
 
   it('rolls back every HTML file when a transaction rename fails', async () => {

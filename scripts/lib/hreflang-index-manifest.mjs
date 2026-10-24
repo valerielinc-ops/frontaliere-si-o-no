@@ -232,6 +232,9 @@ export function decideHreflangBlock(page, lookup) {
     }
     seenCodes.set(code, member.path ?? member.href);
   }
+  if (seenCodes.size !== MANIFEST_LOCALES.length || MANIFEST_LOCALES.some((locale) => !seenCodes.has(locale))) {
+    return { action: 'strip', reason: 'incomplete-locale-set', xDefault: null, unknown };
+  }
   for (const member of page.members) {
     if (member.path === page.path) continue;
     if (member.path === null) {

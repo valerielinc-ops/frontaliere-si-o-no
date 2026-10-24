@@ -27,6 +27,7 @@
  * Usage:
  *   node scripts/ci/hreflang-index-manifest.mjs [distDir]
  *     [--manifest-dir .cache/hreflang-index-manifest] [--dry-run]
+ *     [--require-foreign-manifests]
  *     [--base-url https://frontaliereticino.ch] [--concurrency 64]
  */
 import fs from 'node:fs';
@@ -98,6 +99,7 @@ export async function runHreflangIndexManifest({
   ownedLocales = MANIFEST_LOCALES.slice(),
   baseUrl = DEFAULT_BASE_URL,
   dryRun = false,
+  requireForeignManifests = false,
   concurrency = 64,
   runId = process.env.GITHUB_RUN_ID || '',
   log = (line) => console.log(line),
@@ -150,6 +152,7 @@ export async function runHreflangIndexManifest({
   // ── Manifests of the locales this leg does not own ───────────────────────
   const foreign = new Map();
   const manifestSources = {};
+  const foreignManifestFailures = [];
   for (const locale of MANIFEST_LOCALES) {
     if (owned.has(locale)) {
       manifestSources[locale] = 'this-run';
@@ -158,15 +161,20 @@ export async function runHreflangIndexManifest({
     const file = path.join(manifestDir, `${locale}.json`);
     if (!fs.existsSync(file)) {
       manifestSources[locale] = 'missing';
+      foreignManifestFailures.push(`${locale}: missing`);
       continue;
     }
     const parsed = parseHreflangManifest(fs.readFileSync(file, 'utf-8'), locale);
     if ('error' in parsed) {
       manifestSources[locale] = `invalid: ${parsed.error}`;
+      foreignManifestFailures.push(`${locale}: ${parsed.error}`);
       continue;
     }
     foreign.set(locale, parsed.entries);
     manifestSources[locale] = `run ${parsed.runId || '?'} (${parsed.entries.size} entries)`;
+  }
+  if (requireForeignManifests && foreignManifestFailures.length > 0) {
+    throw new Error(`required foreign hreflang manifests missing or invalid after barrier: ${foreignManifestFailures.join(', ')}`);
   }
 
   const lookup = (locale, urlPath) => {
@@ -279,11 +287,12 @@ export async function runHreflangIndexManifest({
 }
 
 function parseArgs(argv) {
-  const args = { distDir: 'dist', manifestDir: '.cache/hreflang-index-manifest', dryRun: false, baseUrl: DEFAULT_BASE_URL, concurrency: 64 };
+  const args = { distDir: 'dist', manifestDir: '.cache/hreflang-index-manifest', dryRun: false, requireForeignManifests: false, baseUrl: DEFAULT_BASE_URL, concurrency: 64 };
   const rest = [];
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--dry-run') args.dryRun = true;
+    else if (a === '--require-foreign-manifests') args.requireForeignManifests = true;
     else if (a === '--manifest-dir') args.manifestDir = argv[++i];
     else if (a === '--base-url') args.baseUrl = argv[++i];
     else if (a === '--concurrency') args.concurrency = Number(argv[++i]) || 64;
@@ -313,6 +322,7 @@ if (invokedDirectly) {
     ownedLocales: ownedLocalesFromEnv(),
     baseUrl: args.baseUrl,
     dryRun: args.dryRun,
+    requireForeignManifests: args.requireForeignManifests,
     concurrency: args.concurrency,
   }).catch((error) => {
     console.error(`[hreflang-index-manifest] failed: ${error instanceof Error ? error.stack : String(error)}`);
