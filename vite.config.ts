@@ -113,6 +113,7 @@ import { professionCantonLandingsLinksPlugin } from './build-plugins/professionC
 import { salaryProfessionCantonLinksPlugin } from './build-plugins/salaryProfessionCantonLinksPlugin';
 import { salaryHubIndexLinkPlugin } from './build-plugins/salaryHubIndexLinkPlugin';
 import { sectorHubLinksPlugin } from './build-plugins/sectorHubLinksPlugin';
+import { tiHubLatestJobsPlugin } from './build-plugins/tiHubLatestJobsPlugin';
 import { autoSectorHubPagesPlugin } from './build-plugins/autoSectorHubPagesPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
@@ -551,6 +552,12 @@ export default defineConfig(({ mode }) => {
  // sector landings) to avoid the parallel-flush race. Idempotent via the
  // `data-sector-hub-links` marker — coexists with the AE-3 profession block.
  sectorHubLinksPlugin(__dirname),
+ // Ticino hub data area — swap the empty slot staticPagesPlugin leaves under
+ // the /cerca-lavoro-ticino/ H1 (+ 3 locale twins) for live stat tiles and the
+ // 12 latest active job cards rendered by jobsSeoPagesPlugin. Awaits
+ // staticPagesFlushed + jobsSeoPagesFlushed; registered before the sequential
+ // postWalkCoordinator so the patch lands before the shared HTML walk.
+ tiHubLatestJobsPlugin(__dirname),
  llmsTxtPlugin(__dirname),
  webpPlugin(__dirname),
  pdfWhitepapersPlugin(__dirname),

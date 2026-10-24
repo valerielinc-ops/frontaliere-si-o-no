@@ -256,6 +256,8 @@ import type { CantonRealDataSectorRow, CantonRealDataEmployer } from './shared/c
 import {
  buildEmployerHubTitle,
  buildCantonLandingTitle,
+ buildCantonHubH1,
+ frenchCantonTitlePlace,
  buildRoleHubTitle,
 } from '../services/seo/job-board-titles';
 import {
@@ -287,7 +289,8 @@ import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
-import { setActiveJobSitemapLocs } from './shared/buildSignals';
+import { setActiveJobSitemapLocs, setTiHubLatestJobsBlocks } from './shared/buildSignals';
+import { renderTiHubLatestJobsBlock, summarizeTiHubInventory, TI_HUB_LATEST_JOBS_LIMIT } from './shared/tiHubLatestJobs';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
 import type { EmittedEmployerProfile } from './shared/buildSignals';
 import { employerTitleCandidates, type EmployerProfileLocale } from './employerProfilePagesPlugin';
@@ -3313,6 +3316,36 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   const href = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCanton)}`;
   return activeJobSitemapLocs.has(href) ? href : null;
  };
+ // Ticino hub data area. /cerca-lavoro-ticino/ (+ locale twins) is emitted by
+ // staticPagesPlugin, which has no view of the active-detail registry above,
+ // so its HTML linked zero job details. Render the stat tiles + 12 latest
+ // active TI cards here (same pool, recency order and self-canonical href
+ // rule as the canton hubs' "latest jobs" grid) and hand the per-locale HTML
+ // to tiHubLatestJobsPlugin through buildSignals. ~48 small strings; the
+ // pool is a filtered view of validJobs, not a copy of the dataset.
+ {
+  const tiPool = selectJobBoardInventory(validJobs, 'TI');
+  const tiStats = summarizeTiHubInventory(tiPool);
+  const tiRecent = [...tiPool].sort((a, b) => _jobRecency(b) - _jobRecency(a));
+  const tiBlocks: Record<string, string> = {};
+  for (const locale of localeList) {
+   const linkable: Array<{ job: any; href: string }> = [];
+   for (const job of tiRecent) {
+    if (linkable.length >= TI_HUB_LATEST_JOBS_LIMIT) break;
+    const href = activeCanonicalJobHref(job, locale);
+    if (href) linkable.push({ job, href });
+   }
+   const tiSectionPath = withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}`.replace(/\/+/g, '/'));
+   tiBlocks[locale] = renderTiHubLatestJobsBlock({
+    locale,
+    jobs: linkable,
+    stats: tiStats,
+    todayHref: `${tiSectionPath}${getJobTodayLandingSlug(locale, 'TI')}/`,
+    allHref: hubSlugFor('TI', locale, 'tutti'),
+   });
+  }
+  setTiHubLatestJobsBlocks(tiBlocks);
+ }
  // Shared with the expired soft-landing sweep below: an active localized
  // path must reserve its cluster slot before any BUILD_LOCALE filter.
  const claimedJobPaths = new Set<string>();
@@ -11433,19 +11466,25 @@ ${staticAnalyticsHtml}
      display: string,
      count: number,
      year: number,
-   ): { title: string; lede: string; ctaLabel: string } => {
+   ): { title: string; h1: string; lede: string; ctaLabel: string } => {
      const title = buildCantonLandingTitle({ locale, cantonDisplay: display, count, year });
+     // The H1 used to be the bare canton name ("Zurigo"): it now carries the
+     // searched shape ("Lavoro Zurigo", "Jobs in Zurich", "Emploi … Genève")
+     // and the live count, like the Ticino hub (services/seo/job-board-titles).
+     const h1 = buildCantonHubH1({ locale, cantonDisplay: display, count });
      switch (locale) {
        case 'it':
          return {
           title,
-          lede: `Offerte di lavoro aggiornate ogni giorno: ${display}.`,
+          h1,
+          lede: `Annunci di lavoro attivi ${display === 'Svizzera' ? 'in Svizzera' : `nel Canton ${display}`}, aggiornati ogni giorno con sede, azienda e data di pubblicazione.`,
           ctaLabel: `Vedi tutte le offerte`,
         };
        case 'en':
          return {
           title,
-          lede: `Current job openings in ${display}, updated daily.`,
+          h1,
+          lede: `Active job listings in ${display}, updated daily with location, employer and posting date.`,
           ctaLabel: `View all listings`,
         };
        case 'de':
@@ -11465,6 +11504,7 @@ ${staticAnalyticsHtml}
          // the generic "job board index" framing.
          return {
           title,
+          h1,
           lede: `Aktuelle Stellenangebote für Grenzgänger ${germanCantonPrep(display)} — täglich aktualisiert.`,
           ctaLabel: `Alle Stellen anzeigen`,
         };
@@ -11472,7 +11512,8 @@ ${staticAnalyticsHtml}
        default:
          return {
           title,
-          lede: `Offres d’emploi actualisées chaque jour : ${display}.`,
+          h1,
+          lede: `Offres d’emploi actives ${frenchCantonTitlePlace(display)}, mises à jour chaque jour avec lieu, employeur et date de publication.`,
           ctaLabel: `Voir toutes les offres`,
         };
      }
@@ -12255,7 +12296,7 @@ ${staticAnalyticsHtml}
        // staticOverlay handoff preserved).
        `<div class="s-LFxJYv">`,
        `<nav class="s-ZVaIKh"><a class="s-t_pXue" href="/">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
-       `<header class="s-TYF4UK"><h1 class="s-Wb8ho2">${esc(display)}</h1><p class="s-b7cYUf">${esc(labels.lede)}</p></header>`,
+       `<header class="s-TYF4UK"><h1 class="s-Wb8ho2">${esc(labels.h1)}</h1><p class="s-b7cYUf">${esc(labels.lede)}</p></header>`,
        tileGrid,
        `<p class="s-ziawP1"><a class="s-yy370N" data-primary-cta href="${legacyJobBoardHref}">${esc(labels.ctaLabel)}</a></p>`,
        subPageNav,

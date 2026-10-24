@@ -197,6 +197,7 @@ import {
   countFrontaliereArticleArchivePages,
 } from './shared/articleArchiveUnion';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
+import { TI_HUB_LATEST_JOBS_SLOT } from './shared/tiHubLatestJobs';
 import { buildSalaryLandingBody } from './shared/salaryLandingShell';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
@@ -3643,7 +3644,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // + fire emoji into title/description. Keeps existing structured data.
  if (isJobBoardLandingPath(url.path)) {
  const dyn = buildJobBoardSeo('it', jobBoardCounts.it, jobBoardYear);
- seo = { ...seo, title: dyn.title, desc: dyn.desc, ogT: dyn.ogT, ogD: dyn.ogD };
+ seo = { ...seo, title: dyn.title, desc: dyn.desc, ogT: dyn.ogT, ogD: dyn.ogD, h1: dyn.h1 };
  }
 
  // Detect locale from path
@@ -4835,6 +4836,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // helper's locale-specific count keeps emitted navigation aligned with the
  // archive pages available in this locale.
  const leadingCount = archiveNavigablePages > 1 ? 3 : 2;
+ // Data area first (AGENTS.md landing order): an empty slot right under the
+ // H1/lede that tiHubLatestJobsPlugin fills with the live stat tiles + the
+ // 12 latest active Ticino job cards once jobsSeoPagesPlugin has decided
+ // which detail URLs are active. The hub used to ship zero job links.
+ editorialBlocks.push(TI_HUB_LATEST_JOBS_SLOT);
  for (const block of tiHubBlocks.slice(0, leadingCount)) editorialBlocks.push(block);
  // Cathedral canton navigator \u2014 closes the +909 sitemap-jobs.xml offenders
  // (audit-max-bfs-depth) by linking every cathedral canton hub + per-canton
@@ -6371,6 +6377,7 @@ ${hrefTags}
  locSeo.desc = dyn.desc;
  locSeo.ogT = dyn.ogT;
  locSeo.ogD = dyn.ogD;
+ locSeo.h1 = dyn.h1;
  }
 
  // Localize JSON-LD structured data for non-IT locale variants: the one pass
