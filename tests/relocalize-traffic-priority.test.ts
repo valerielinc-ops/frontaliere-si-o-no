@@ -134,6 +134,22 @@ describe('priorita per traffico — e davvero funzione del traffico', () => {
     expect(order.map((j: any) => j.slug)).toEqual(['hot', 'warm', 'cold']);
   });
 
+  it('il mopup puo riservare la coda vecchia source-copy prima del traffico generale', () => {
+    const pending = [
+      job('cold', daysAgo(10)),
+      job('copy', daysAgo(30), { sourceCopyDescription: true }),
+      job('hot', daysAgo(10)),
+    ];
+    const { selected } = buildTrafficPriority(pending, popularity, {
+      now: NOW,
+      cap: 2,
+      lane: MOPUP_TRAFFIC_LANE,
+      priorityOf: (candidate: any) => candidate.sourceCopyDescription === true,
+    });
+
+    expect(selected.map((candidate: any) => candidate.slug)).toEqual(['copy', 'hot']);
+  });
+
   it('il traffico si legge anche dagli slug localizzati, e si prende il MAX', () => {
     const j = { slug: 'nope', slugByLocale: { it: 'nope', de: 'hot' } };
     expect(jobTrafficScore(j, popularity)).toBe(500);

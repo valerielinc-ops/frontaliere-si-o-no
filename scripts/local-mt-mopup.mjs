@@ -313,6 +313,19 @@ export function needsWork(job) {
 }
 
 /**
+ * The free mopup's starvation-priority class: a non-source locale description
+ * that still serves one of the job's canonical source representations. Keep
+ * this predicate beside missingSlots() so the queue lane and the request lane
+ * cannot disagree about which slot is a source-copy repair.
+ */
+function isSourceCopyDescriptionSlot(job, { locale, field }) {
+  if (field !== 'description') return false;
+  const existing = String((job.descriptionByLocale || {})[locale] || '').trim();
+  return sourceLocaleTextCandidates(job, 'description').some((source) =>
+    source.length >= MIN_DESC_CHARS && isDescriptionSourceCopy(existing, source));
+}
+
+/**
  * For a job in scope, return the list of { locale, field } slots that are
  * actually missing/inadequate and should be (re)translated from the source
  * locale. Mirrors the per-locale "missing or too short" / "source copy" checks
@@ -1472,12 +1485,7 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
       freshMeter.observe(job, { inScope: true, slotCount: slots.length });
       if (slots.length === 0) continue;
 
-      const sourceCopyDescription = slots.some(({ locale, field }) => {
-        if (field !== 'description') return false;
-        const existing = String((job.descriptionByLocale || {})[locale] || '').trim();
-        return sourceLocaleTextCandidates(job, 'description').some((source) =>
-          source.length >= MIN_DESC_CHARS && isDescriptionSourceCopy(existing, source));
-      });
+      const sourceCopyDescription = slots.some((slot) => isSourceCopyDescriptionSlot(job, slot));
       candidates.push({ file, jobIdx, job, slots, sourceCopyDescription });
     }
   }
@@ -1530,7 +1538,6 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
     const dbl = job.descriptionByLocale || {};
     const sourceTitle = sourceLocaleTextForTranslation(job, 'title', MIN_TITLE_CHARS);
     const sourceDesc = sourceLocaleTextForTranslation(job, 'description', MIN_DESC_CHARS);
-    const sourceDescCandidates = sourceLocaleTextCandidates(job, 'description');
 
     let queued = 0;
     for (const { locale, field } of slots) {
@@ -1551,8 +1558,7 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
         negativeCacheHits++;
         continue;
       }
-      const sourceCopyDescription = field === 'description' && sourceDescCandidates.some((source) =>
-        source.length >= MIN_DESC_CHARS && isDescriptionSourceCopy(existing, source));
+      const sourceCopyDescription = isSourceCopyDescriptionSlot(job, { locale, field });
       const overwrite = isOverwriteSlot(job, { locale, field });
       if (!shouldQueueArgosSlot(job, { locale, field })) {
         overwriteTitleHandoff++;
