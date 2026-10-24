@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-24T09:15:11.418Z",
-  "runId": "40080582034",
+  "assembledAt": "2026-10-24T21:20:50.409Z",
+  "runId": "40132656500",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.402Z",
+      "crawledAt": "2026-10-24T21:20:42.702Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -111,7 +111,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.401Z",
+      "crawledAt": "2026-10-24T21:20:42.701Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -186,7 +186,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.400Z",
+      "crawledAt": "2026-10-24T21:20:42.700Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -216,92 +216,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:50.426Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-77288cd4a877",
-      "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
-      "slugByLocale": {
-        "it": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
-        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
-        "de": "sap-full-stack-entwickler-abap-fiori-btp-talan-geneva",
-        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
-      "titleByLocale": {
-        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
-        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
-        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
-        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
-      },
-      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
-      "descriptionByLocale": {
-        "it": "Svolgi un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa tua missione mira a:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progetta, esponi e proteggi i servizi OData o le API SAP.\n\n• Sviluppa estensioni su SAP BTP (Extension Suite).\n\n• Partecipare alle scelte dell'architettura tecnica delle applicazioni SAP.\n\n• Garantire la qualità degli sviluppi, attraverso best practice, revisioni del codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architetti su progetti SAP.\n\nCerchiamo una persona esperta in:\n\n• Sviluppo ABAP / ABAP OO e S/4HANA\n\n• Visualizzazioni CDS\n\n• SAPFiori/SAPUI5\n\n• API OData/SAP\n\n• Solide basi su SAP BTP\n⭐ I vantaggi:\n\n• CAP (Node.js o Java) e RAP\n\n• Suite di integrazione SAP/Mesh di eventi\n\n• Git, CI / CD, GCTS\n\n• Consapevolezza dell'intelligenza artificiale nell'ecosistema SAP (Joule, AI Core)\n\n• Conoscenza funzionale (FI, CO, MM, SD, ecc.)\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh, ecc.).\n\n• Ambiente stimolante, che incoraggia lo sviluppo delle competenze e l'iniziativa.\n\n• Accesso ai corsi di formazione avanzata SAP (BTP, Fiori, CAP, IA, ecc.).\n\n• Comunità SAP interna dinamica, scambi regolari con esperti.\n\n• Possibilità di avanzamento a Tech Lead, SAP Architect o Construction Expert.",
-        "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission aims to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData services or SAP APIs.\n\n• Develop extensions on SAP BTP (Extension Suite).\n\n• Participate in the technical architecture choices of SAP applications.\n\n• Guarantee the quality of developments, through best practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architect teams on SAP projects.\n\nWe are looking for someone who is proficient in:\n\n• ABAP / ABAP OO and S/4HANA development\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / SAP APIs\n\n• Solid foundations on SAP BTP\n⭐ The pluses:\n\n• CAP (Node.js or Java) and RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• AI awareness in the SAP ecosystem (Joule, AI Core)\n\n• Functional knowledge (FI, CO, MM, SD, etc.)\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Stimulating environment, encouraging skills development and initiative.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA, etc.).\n\n• Dynamic internal SAP community, regular exchanges with experts.\n\n• Possibilities for advancement to Tech Lead, SAP Architect, or Construction Expert.",
-        "de": "Sie spielen eine Schlüsselrolle bei der Konzeption und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission zielt darauf ab:\n\n• Entwerfen und entwickeln Sie technische Lösungen für SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP-Fiori-/SAPUI5-Anwendungen.\n\n• Entwerfen, verfügbar machen und sichern Sie OData-Dienste oder SAP-APIs.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der technischen Architekturauswahl von SAP-Anwendungen.\n\n• Garantieren Sie die Qualität der Entwicklungen durch Best Practices, Codeüberprüfungen und Dokumentation.\n\n• Arbeiten Sie mit Funktions-, Technik-, Cloud- und Architektenteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der Folgendes beherrscht:\n\n• ABAP / ABAP OO und S/4HANA-Entwicklung\n\n• CDS-Views\n\n• SAP Fiori / SAPUI5\n\n• OData/SAP-APIs\n\n• Solide Grundlagen auf SAP BTP\n⭐ Die Pluspunkte:\n\n• CAP (Node.js oder Java) und RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, ci / CD, gCTS\n\n• KI-Bewusstsein im SAP-Ökosystem (Joule, AI Core)\n\n• Fachwissen (FI, CO, MM, SD, etc.)\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Anregendes Umfeld, das die Entwicklung von Fähigkeiten und Initiative fördert.\n\n• Zugang zu weiterführenden SAP-Schulungen (BTP, Fiori, CAP, IA usw.).\n\n• Dynamische interne SAP-Community, regelmäßiger Austausch mit Experten.\n\n• Aufstiegsmöglichkeiten zum Tech Lead, SAP Architect oder Construction Expert.",
-        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.399Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T13:56:14.338Z",
-      "postedDate": "2026-10-02T13:56:14.338Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "jobReqId": "744000153192441",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-        ],
-        "fr": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T22:55:58.539Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -347,7 +261,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.399Z",
+      "crawledAt": "2026-10-24T21:20:42.699Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -377,94 +291,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:35:44.207Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-827097ba6739",
-      "slug": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
-      "slugByLocale": {
-        "it": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
-        "en": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland",
-        "de": "ai-platform-ingenieur-plugins-marketplace-talan-geneva",
-        "fr": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "AI Platform Engineer — Plugins & Marketplace",
-      "titleByLocale": {
-        "it": "AI Platform Ingegnere — Plugins & Marketplace",
-        "en": "AI Platform Engineer — Plugins & Marketplace",
-        "de": "AI Platform Ingenieur — Plugins & Marketplace",
-        "fr": "AI Platform Ingénieur — Plugins & Marketplace"
-      },
-      "description": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\n Pour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\n Vos missions principales\n 1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n 2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n 3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n 4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique.",
-      "descriptionByLocale": {
-        "it": "Come parte della massiccia distribuzione dell'IA generale all'interno di ambienti aziendali complessi, strutturamo il mercato interno dei plugin basati sull'ecosistema Claude / Antropico. Questa piattaforma è destinata a essere messa a disposizione di tutti i dipendenti a livello di una grande organizzazione.\nPer sostenere questa ambizione, stiamo cercando un AI Platform Engineer. Il vostro ruolo sarà quello di progettare, adattare e industrializzare plug-in trasversali robusti, accompagnando allo sviluppo operativo e tecnico di questo mercato ai team aziendali.\nLe vostre principali missioni\n1. Sviluppo di plugin e competenze trasversali\n\n• Progettare e sviluppare i plugin strategici del mercato:\n• Enterprise Search: un motore di ricerca interno che cerca i dati e i documenti dell'organizzazione direttamente via Claude.\n\n• Data Plugin: Generazione di analisi interattive e dashboard collegati alle piattaforme analitiche dell'azienda e ai Data Lakes.\n\n• roadmap evolutiva di nuovi plugin in base alle esigenze aziendali identificate.\n\n• Costruire sull'ecosistema antropico (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugin di terze parti \"3P\") e adattare i mattoni esistenti ai vincoli di architettura e sicurezza dell'azienda.\n2. Integrazione dell'ecosistema Microsoft Office\n\n• Componenti aggiuntivi dell'ufficio di distribuzione (Excel, PowerPoint, Outlook) collegati al mercato interno nella prova di concetto (PoC)\n\n• Lavorare a stretto contatto con il team Packaging per garantire l'industrializzazione e la distribuzione su larga scala.\n3. Controllo dei consumi\n\n• Disegno token monitoraggio dei consumi dashboard per manager e sponsor.\n\n• Migrare FinOps monitoraggio al nuovo fatturazione / costi per modello utente.\n\n• Impostare un sistema di allarme automatico in caso di sovratensioni delle quote.\n4. Evoluzione dell'accesso & IAM\n\n• Definire e implementare V2 del flusso di accesso sul mercato interno in coordinamento con i team IAM, Supply e Packaging.\n\n• Permettere ai manager di personalizzare l'ambiente delle loro squadre (assegnando quote token, selezionando modelli accessibili, ecc.).\n\n• Formazione & Esperienza: Bac+5 (Master o Engineering School) specializzato in AI / Informatica, o esperienza equivalente\n\n• Esperienza professionale: da 3 a 7 anni\n\n• Esperienza antropica: padronanza pratica e operativa degli strumenti antropi: Claude, Claude Code, Claude Agent SDK, nonché lo sviluppo e l'adattamento dei server/plugins MCP.\n\n• Principali competenze tecniche:\n• Buona conoscenza nell'integrazione degli ambienti Modern Data Stack / Data Lakehouse (accoglienza, molto utile per il plugin Data).\n\n• Esperienza di successo nella distribuzione di componenti aggiuntivi Microsoft Office nell'ambiente aziendale.\n\n• Visione e Trasversalità del prodotto: Capacità di interagire con i vari stakeholder (Security Teams, IAM, Packaging, Business Managers) e tradurre una necessità di business in funzionalità realizzabili.\n\n• Lingue: Inglese attuale e francese.\n\n• Impatto diretto: Un ruolo chiave nel cuore della trasformazione AI all'interno di una grande organizzazione.\n\n• Ambiente avanzato: Accesso diretto alle ultime innovazioni dell'ecosistema antropico (MCP, Cowork, plugin aziendali).\n\n• Autonomia: Un team dedicato all'innovazione AI con grande libertà di iniziativa tecnica.",
-        "en": "As part of the massive deployment of the general AI within complex business environments, we structure the internal marketplace of plugins based on the Claude / Anthropic ecosystem. This platform is intended to be made available to all employees at the level of a large organization.\nTo support this ambition, we are looking for an AI Platform Engineer. Your role will be to design, adapt and industrialize robust transverse plugins, while accompanying the operational and technical deployment of this marketplace to the business teams.\nYour main missions\n1. Development of transverse plugins & skills\n\n• Design and develop the strategic plugins of the marketplace:\n• Enterprise Search: an internal search engine that searches the organization's data and documents directly via Claude.\n\n• Data Plugin: Generation of interactive analysis and dashboards connected to the company's analytical data platforms and Data Lakes.\n\n• Evolutionary roadmap of new plugins according to the business needs identified.\n\n• Building on the Anthropic ecosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, third-party plugins \"3P\") and adapting existing bricks to the constraints of architecture and security of the company.\n2. Microsoft Office ecosystem integration\n\n• Deploy Office add-ins (Excel, PowerPoint, Outlook) connected to Internal Marketplace in Proof of Concept (PoC)\n\n• Work closely with the Packaging team to ensure large scale industrialization and deployment.\n3. FinOps & consumption control\n\n• Design token consumption monitoring dashboards for managers and sponsors.\n\n• Migrate FinOps tracking to the new billing/costs per user model.\n\n• Set up an automatic alert system in case of quota overruns.\n4. Evolution of access & IAM\n\n• Define and implement V2 of the Internal Marketplace access stream in coordination with IAM, Supply and Packaging teams.\n\n• Allow managers to customize the environment of their teams (assigning token quotas, selecting accessible models, etc.).\n\n• Training & Experience: Bac+5 (Master or Engineering School) specialized in AI / Computer Science, or equivalent experience\n\n• Professional experience: 3 to 7 years\n\n• Anthropic experience: Practical and operational mastery of Anthropic tools: Claude, Claude Code, Claude Agent SDK, as well as the development and adaptation of MCP servers/plugins.\n\n• Key Technical Skills:\n• Good knowledge in integration of Modern Data Stack / Data Lakehouse environments (welcome, very useful for the Data plugin).\n\n• Successful experience in deploying Microsoft Office add-ins in the business environment.\n\n• Product Vision & Transversality: Ability to interact with various stakeholders (Security Teams, IAM, Packaging, Business Managers) and translate a business need into deliverable functionality.\n\n• Languages: Current English & French.\n\n• Direct impact: A key role at the heart of AI transformation within a large organization.\n\n• Advanced environment: Direct access to the latest innovations of the Anthropic ecosystem (MCP, Cowork, corporate plugins).\n\n• Autonomy: A team dedicated to innovation AI with great freedom of technical initiative.",
-        "de": "Im Rahmen des massiven Einsatzes der allgemeinen KI in komplexen Geschäftsumgebungen strukturieren wir den internen Marktplatz von Plugins auf Basis des Claude / Anthropic Ökosystems. Diese Plattform soll allen Mitarbeitern auf der Ebene einer großen Organisation zur Verfügung gestellt werden.\nUm dieses Ziel zu unterstützen, suchen wir einen AI Platform Engineer. Ihre Aufgabe wird es sein, robuste transversale Plugins zu entwerfen, anzupassen und zu industrialisieren, während Sie den operativen und technischen Einsatz dieses Marktplatzes für die Geschäftsteams begleiten.\nIhre wichtigsten Missionen\n1. Entwicklung von transversalen Plugins & Skills\n\n• Design und Entwicklung der strategischen Plugins des Marktplatzes:\n• Enterprise Search: Eine interne Suchmaschine, die die Daten und Dokumente der Organisation direkt über Claude durchsucht.\n\n• Data Plugin: Erstellung von interaktiven Analysen und Dashboards, die mit den analytischen Datenplattformen des Unternehmens und Data Lakes verbunden sind.\n\n• Evolutionäre Roadmap neuer Plugins entsprechend den identifizierten Geschäftsanforderungen.\n\n• Aufbauend auf dem anthropischen Ökosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, Drittanbieter-Plugins \"3P\") und Anpassung bestehender Bausteine an die Einschränkungen der Architektur und Sicherheit des Unternehmens.\n2. Microsoft Office-Ökosystemintegration\n\n• Bereitstellen von Office-Add-Ins (Excel, PowerPoint, Outlook) verbunden mit Internal Marketplace in Proof of Concept (PoC)\n\n• Arbeiten Sie eng mit dem Packaging-Team zusammen, um eine groß angelegte Industrialisierung und Bereitstellung sicherzustellen.\n3. FinOps & Verbrauchskontrolle\n\n• Design token consumption monitoring dashboards für manager und sponsoren.\n\n• Migrieren Sie das FinOps-Tracking auf die neue Abrechnung / Kosten pro Benutzermodell.\n\n• Einrichtung eines automatischen Warnsystems bei Quotenüberschreitungen.\n4. Evolution von Access & IAM\n\n• Definieren und implementieren Sie V2 des Internal Marketplace Access Stream in Abstimmung mit IAM, Supply und Packaging Teams.\n\n• Ermöglichen Sie es Managern, die Umgebung ihrer Teams anzupassen (Zuweisung von Token-Quoten, Auswahl zugänglicher Modelle usw.).\n\n• Training & Erfahrung: Bac + 5 (Master oder Engineering School) spezialisiert auf AI / Informatik, oder gleichwertige Erfahrung\n\n• Berufserfahrung: 3 bis 7 Jahre\n\n• Anthropische Erfahrung: Praktische und operative Beherrschung von Anthropischen Tools: Claude, Claude Code, Claude Agent SDK, sowie die Entwicklung und Anpassung von MCP-Servern / Plugins.\n\n• Technische Schlüsselkompetenzen:\n• Gute Kenntnisse in der Integration von Modern Data Stack / Data Lakehouse Umgebungen (willkommen, sehr nützlich für das Data Plugin).\n\n• Erfolgreiche Erfahrung in der Bereitstellung von Microsoft Office-Add-Ins in der Geschäftsumgebung.\n\n• Produktvision & Transversalität: Fähigkeit, mit verschiedenen Stakeholdern (Sicherheitsteams, IAM, Packaging, Business Manager) zu interagieren und einen Geschäftsbedarf in zu liefernde Funktionen zu übersetzen.\n\n• Sprachen: Aktuelles Englisch & Französisch.\n\n• Direkte Auswirkungen: Eine Schlüsselrolle im Herzen der KI-Transformation innerhalb einer großen Organisation.\n\n• Erweiterte Umgebung: Direkter Zugang zu den neuesten Innovationen des anthropischen Ökosystems (MCP, Cowork, Corporate Plugins).\n\n• Autonomie: Ein Team, das sich der Innovations-KI mit großer Freiheit der technischen Initiative widmet.",
-        "fr": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\nPour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\nVos missions principales\n1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.398Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T14:26:22.869Z",
-      "postedDate": "2026-09-25T14:26:22.869Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
-      "jobReqId": "744000151870429",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
-        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
-        "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland",
-        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
-        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
-        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
-          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
-        ],
-        "en": [
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
-          "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T22:55:58.547Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -511,7 +337,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.397Z",
+      "crawledAt": "2026-10-24T21:20:42.698Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -572,6 +398,169 @@
       }
     },
     {
+      "id": "talan-827097ba6739",
+      "slug": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
+      "slugByLocale": {
+        "it": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
+        "en": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland",
+        "de": "ai-platform-ingenieur-plugins-marketplace-talan-geneva",
+        "fr": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "AI Platform Engineer — Plugins & Marketplace",
+      "titleByLocale": {
+        "it": "AI Platform Ingegnere — Plugins & Marketplace",
+        "en": "AI Platform Engineer — Plugins & Marketplace",
+        "de": "AI Platform Ingenieur — Plugins & Marketplace",
+        "fr": "AI Platform Ingénieur — Plugins & Marketplace"
+      },
+      "description": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\n Pour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\n Vos missions principales\n 1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n 2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n 3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n 4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique.",
+      "descriptionByLocale": {
+        "it": "Come parte della massiccia distribuzione dell'IA generale all'interno di ambienti aziendali complessi, strutturamo il mercato interno dei plugin basati sull'ecosistema Claude / Antropico. Questa piattaforma è destinata a essere messa a disposizione di tutti i dipendenti a livello di una grande organizzazione.\nPer sostenere questa ambizione, stiamo cercando un AI Platform Engineer. Il vostro ruolo sarà quello di progettare, adattare e industrializzare plug-in trasversali robusti, accompagnando allo sviluppo operativo e tecnico di questo mercato ai team aziendali.\nLe vostre principali missioni\n1. Sviluppo di plugin e competenze trasversali\n\n• Progettare e sviluppare i plugin strategici del mercato:\n• Enterprise Search: un motore di ricerca interno che cerca i dati e i documenti dell'organizzazione direttamente via Claude.\n\n• Data Plugin: Generazione di analisi interattive e dashboard collegati alle piattaforme analitiche dell'azienda e ai Data Lakes.\n\n• roadmap evolutiva di nuovi plugin in base alle esigenze aziendali identificate.\n\n• Costruire sull'ecosistema antropico (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugin di terze parti \"3P\") e adattare i mattoni esistenti ai vincoli di architettura e sicurezza dell'azienda.\n2. Integrazione dell'ecosistema Microsoft Office\n\n• Componenti aggiuntivi dell'ufficio di distribuzione (Excel, PowerPoint, Outlook) collegati al mercato interno nella prova di concetto (PoC)\n\n• Lavorare a stretto contatto con il team Packaging per garantire l'industrializzazione e la distribuzione su larga scala.\n3. Controllo dei consumi\n\n• Disegno token monitoraggio dei consumi dashboard per manager e sponsor.\n\n• Migrare FinOps monitoraggio al nuovo fatturazione / costi per modello utente.\n\n• Impostare un sistema di allarme automatico in caso di sovratensioni delle quote.\n4. Evoluzione dell'accesso & IAM\n\n• Definire e implementare V2 del flusso di accesso sul mercato interno in coordinamento con i team IAM, Supply e Packaging.\n\n• Permettere ai manager di personalizzare l'ambiente delle loro squadre (assegnando quote token, selezionando modelli accessibili, ecc.).\n\n• Formazione & Esperienza: Bac+5 (Master o Engineering School) specializzato in AI / Informatica, o esperienza equivalente\n\n• Esperienza professionale: da 3 a 7 anni\n\n• Esperienza antropica: padronanza pratica e operativa degli strumenti antropi: Claude, Claude Code, Claude Agent SDK, nonché lo sviluppo e l'adattamento dei server/plugins MCP.\n\n• Principali competenze tecniche:\n• Buona conoscenza nell'integrazione degli ambienti Modern Data Stack / Data Lakehouse (accoglienza, molto utile per il plugin Data).\n\n• Esperienza di successo nella distribuzione di componenti aggiuntivi Microsoft Office nell'ambiente aziendale.\n\n• Visione e Trasversalità del prodotto: Capacità di interagire con i vari stakeholder (Security Teams, IAM, Packaging, Business Managers) e tradurre una necessità di business in funzionalità realizzabili.\n\n• Lingue: Inglese attuale e francese.\n\n• Impatto diretto: Un ruolo chiave nel cuore della trasformazione AI all'interno di una grande organizzazione.\n\n• Ambiente avanzato: Accesso diretto alle ultime innovazioni dell'ecosistema antropico (MCP, Cowork, plugin aziendali).\n\n• Autonomia: Un team dedicato all'innovazione AI con grande libertà di iniziativa tecnica.",
+        "en": "As part of the massive deployment of the general AI within complex business environments, we structure the internal marketplace of plugins based on the Claude / Anthropic ecosystem. This platform is intended to be made available to all employees at the level of a large organization.\nTo support this ambition, we are looking for an AI Platform Engineer. Your role will be to design, adapt and industrialize robust transverse plugins, while accompanying the operational and technical deployment of this marketplace to the business teams.\nYour main missions\n1. Development of transverse plugins & skills\n\n• Design and develop the strategic plugins of the marketplace:\n• Enterprise Search: an internal search engine that searches the organization's data and documents directly via Claude.\n\n• Data Plugin: Generation of interactive analysis and dashboards connected to the company's analytical data platforms and Data Lakes.\n\n• Evolutionary roadmap of new plugins according to the business needs identified.\n\n• Building on the Anthropic ecosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, third-party plugins \"3P\") and adapting existing bricks to the constraints of architecture and security of the company.\n2. Microsoft Office ecosystem integration\n\n• Deploy Office add-ins (Excel, PowerPoint, Outlook) connected to Internal Marketplace in Proof of Concept (PoC)\n\n• Work closely with the Packaging team to ensure large scale industrialization and deployment.\n3. FinOps & consumption control\n\n• Design token consumption monitoring dashboards for managers and sponsors.\n\n• Migrate FinOps tracking to the new billing/costs per user model.\n\n• Set up an automatic alert system in case of quota overruns.\n4. Evolution of access & IAM\n\n• Define and implement V2 of the Internal Marketplace access stream in coordination with IAM, Supply and Packaging teams.\n\n• Allow managers to customize the environment of their teams (assigning token quotas, selecting accessible models, etc.).\n\n• Training & Experience: Bac+5 (Master or Engineering School) specialized in AI / Computer Science, or equivalent experience\n\n• Professional experience: 3 to 7 years\n\n• Anthropic experience: Practical and operational mastery of Anthropic tools: Claude, Claude Code, Claude Agent SDK, as well as the development and adaptation of MCP servers/plugins.\n\n• Key Technical Skills:\n• Good knowledge in integration of Modern Data Stack / Data Lakehouse environments (welcome, very useful for the Data plugin).\n\n• Successful experience in deploying Microsoft Office add-ins in the business environment.\n\n• Product Vision & Transversality: Ability to interact with various stakeholders (Security Teams, IAM, Packaging, Business Managers) and translate a business need into deliverable functionality.\n\n• Languages: Current English & French.\n\n• Direct impact: A key role at the heart of AI transformation within a large organization.\n\n• Advanced environment: Direct access to the latest innovations of the Anthropic ecosystem (MCP, Cowork, corporate plugins).\n\n• Autonomy: A team dedicated to innovation AI with great freedom of technical initiative.",
+        "de": "Im Rahmen des massiven Einsatzes der allgemeinen KI in komplexen Geschäftsumgebungen strukturieren wir den internen Marktplatz von Plugins auf Basis des Claude / Anthropic Ökosystems. Diese Plattform soll allen Mitarbeitern auf der Ebene einer großen Organisation zur Verfügung gestellt werden.\nUm dieses Ziel zu unterstützen, suchen wir einen AI Platform Engineer. Ihre Aufgabe wird es sein, robuste transversale Plugins zu entwerfen, anzupassen und zu industrialisieren, während Sie den operativen und technischen Einsatz dieses Marktplatzes für die Geschäftsteams begleiten.\nIhre wichtigsten Missionen\n1. Entwicklung von transversalen Plugins & Skills\n\n• Design und Entwicklung der strategischen Plugins des Marktplatzes:\n• Enterprise Search: Eine interne Suchmaschine, die die Daten und Dokumente der Organisation direkt über Claude durchsucht.\n\n• Data Plugin: Erstellung von interaktiven Analysen und Dashboards, die mit den analytischen Datenplattformen des Unternehmens und Data Lakes verbunden sind.\n\n• Evolutionäre Roadmap neuer Plugins entsprechend den identifizierten Geschäftsanforderungen.\n\n• Aufbauend auf dem anthropischen Ökosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, Drittanbieter-Plugins \"3P\") und Anpassung bestehender Bausteine an die Einschränkungen der Architektur und Sicherheit des Unternehmens.\n2. Microsoft Office-Ökosystemintegration\n\n• Bereitstellen von Office-Add-Ins (Excel, PowerPoint, Outlook) verbunden mit Internal Marketplace in Proof of Concept (PoC)\n\n• Arbeiten Sie eng mit dem Packaging-Team zusammen, um eine groß angelegte Industrialisierung und Bereitstellung sicherzustellen.\n3. FinOps & Verbrauchskontrolle\n\n• Design token consumption monitoring dashboards für manager und sponsoren.\n\n• Migrieren Sie das FinOps-Tracking auf die neue Abrechnung / Kosten pro Benutzermodell.\n\n• Einrichtung eines automatischen Warnsystems bei Quotenüberschreitungen.\n4. Evolution von Access & IAM\n\n• Definieren und implementieren Sie V2 des Internal Marketplace Access Stream in Abstimmung mit IAM, Supply und Packaging Teams.\n\n• Ermöglichen Sie es Managern, die Umgebung ihrer Teams anzupassen (Zuweisung von Token-Quoten, Auswahl zugänglicher Modelle usw.).\n\n• Training & Erfahrung: Bac + 5 (Master oder Engineering School) spezialisiert auf AI / Informatik, oder gleichwertige Erfahrung\n\n• Berufserfahrung: 3 bis 7 Jahre\n\n• Anthropische Erfahrung: Praktische und operative Beherrschung von Anthropischen Tools: Claude, Claude Code, Claude Agent SDK, sowie die Entwicklung und Anpassung von MCP-Servern / Plugins.\n\n• Technische Schlüsselkompetenzen:\n• Gute Kenntnisse in der Integration von Modern Data Stack / Data Lakehouse Umgebungen (willkommen, sehr nützlich für das Data Plugin).\n\n• Erfolgreiche Erfahrung in der Bereitstellung von Microsoft Office-Add-Ins in der Geschäftsumgebung.\n\n• Produktvision & Transversalität: Fähigkeit, mit verschiedenen Stakeholdern (Sicherheitsteams, IAM, Packaging, Business Manager) zu interagieren und einen Geschäftsbedarf in zu liefernde Funktionen zu übersetzen.\n\n• Sprachen: Aktuelles Englisch & Französisch.\n\n• Direkte Auswirkungen: Eine Schlüsselrolle im Herzen der KI-Transformation innerhalb einer großen Organisation.\n\n• Erweiterte Umgebung: Direkter Zugang zu den neuesten Innovationen des anthropischen Ökosystems (MCP, Cowork, Corporate Plugins).\n\n• Autonomie: Ein Team, das sich der Innovations-KI mit großer Freiheit der technischen Initiative widmet.",
+        "fr": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\nPour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\nVos missions principales\n1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-24T21:20:42.696Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-25T14:26:22.869Z",
+      "postedDate": "2026-09-25T14:26:22.869Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
+      "jobReqId": "744000151870429",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+        "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland",
+        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+        ],
+        "en": [
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+          "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T22:55:58.547Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-61c9acf4f11b",
+      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
+        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
+        "de": "berater-expert-sap-crm-f-h-talan-geneva",
+        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Expert SAP CRM F/H",
+      "titleByLocale": {
+        "it": "Consulente Expert SAP CRM F/H",
+        "en": "Consultant Expert SAP CRM M/F",
+        "de": "Berater Expert SAP CRM F/H",
+        "fr": "Consultant Expert SAP CRM F/H"
+      },
+      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
+        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
+        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
+        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-24T21:20:42.693Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T09:11:46.418Z",
+      "postedDate": "2026-10-02T09:11:46.418Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "jobReqId": "744000153133249",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:10:26.715Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-9addce44f74f",
       "slug": "consulente-sap-basis-talan-geneva",
       "slugByLocale": {
@@ -603,7 +592,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.396Z",
+      "crawledAt": "2026-10-24T21:20:42.691Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -651,6 +640,92 @@
       }
     },
     {
+      "id": "talan-77288cd4a877",
+      "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+      "slugByLocale": {
+        "it": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
+        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
+        "de": "sap-full-stack-entwickler-abap-fiori-btp-talan-geneva",
+        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
+      "titleByLocale": {
+        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
+        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
+        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
+        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
+      },
+      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
+      "descriptionByLocale": {
+        "it": "Svolgi un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa tua missione mira a:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progetta, esponi e proteggi i servizi OData o le API SAP.\n\n• Sviluppa estensioni su SAP BTP (Extension Suite).\n\n• Partecipare alle scelte dell'architettura tecnica delle applicazioni SAP.\n\n• Garantire la qualità degli sviluppi, attraverso best practice, revisioni del codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architetti su progetti SAP.\n\nCerchiamo una persona esperta in:\n\n• Sviluppo ABAP / ABAP OO e S/4HANA\n\n• Visualizzazioni CDS\n\n• SAPFiori/SAPUI5\n\n• API OData/SAP\n\n• Solide basi su SAP BTP\n⭐ I vantaggi:\n\n• CAP (Node.js o Java) e RAP\n\n• Suite di integrazione SAP/Mesh di eventi\n\n• Git, CI / CD, GCTS\n\n• Consapevolezza dell'intelligenza artificiale nell'ecosistema SAP (Joule, AI Core)\n\n• Conoscenza funzionale (FI, CO, MM, SD, ecc.)\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh, ecc.).\n\n• Ambiente stimolante, che incoraggia lo sviluppo delle competenze e l'iniziativa.\n\n• Accesso ai corsi di formazione avanzata SAP (BTP, Fiori, CAP, IA, ecc.).\n\n• Comunità SAP interna dinamica, scambi regolari con esperti.\n\n• Possibilità di avanzamento a Tech Lead, SAP Architect o Construction Expert.",
+        "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission aims to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData services or SAP APIs.\n\n• Develop extensions on SAP BTP (Extension Suite).\n\n• Participate in the technical architecture choices of SAP applications.\n\n• Guarantee the quality of developments, through best practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architect teams on SAP projects.\n\nWe are looking for someone who is proficient in:\n\n• ABAP / ABAP OO and S/4HANA development\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / SAP APIs\n\n• Solid foundations on SAP BTP\n⭐ The pluses:\n\n• CAP (Node.js or Java) and RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• AI awareness in the SAP ecosystem (Joule, AI Core)\n\n• Functional knowledge (FI, CO, MM, SD, etc.)\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Stimulating environment, encouraging skills development and initiative.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA, etc.).\n\n• Dynamic internal SAP community, regular exchanges with experts.\n\n• Possibilities for advancement to Tech Lead, SAP Architect, or Construction Expert.",
+        "de": "Sie spielen eine Schlüsselrolle bei der Konzeption und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission zielt darauf ab:\n\n• Entwerfen und entwickeln Sie technische Lösungen für SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP-Fiori-/SAPUI5-Anwendungen.\n\n• Entwerfen, verfügbar machen und sichern Sie OData-Dienste oder SAP-APIs.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der technischen Architekturauswahl von SAP-Anwendungen.\n\n• Garantieren Sie die Qualität der Entwicklungen durch Best Practices, Codeüberprüfungen und Dokumentation.\n\n• Arbeiten Sie mit Funktions-, Technik-, Cloud- und Architektenteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der Folgendes beherrscht:\n\n• ABAP / ABAP OO und S/4HANA-Entwicklung\n\n• CDS-Views\n\n• SAP Fiori / SAPUI5\n\n• OData/SAP-APIs\n\n• Solide Grundlagen auf SAP BTP\n⭐ Die Pluspunkte:\n\n• CAP (Node.js oder Java) und RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, ci / CD, gCTS\n\n• KI-Bewusstsein im SAP-Ökosystem (Joule, AI Core)\n\n• Fachwissen (FI, CO, MM, SD, etc.)\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh, etc.).\n\n• Anregendes Umfeld, das die Entwicklung von Fähigkeiten und Initiative fördert.\n\n• Zugang zu weiterführenden SAP-Schulungen (BTP, Fiori, CAP, IA usw.).\n\n• Dynamische interne SAP-Community, regelmäßiger Austausch mit Experten.\n\n• Aufstiegsmöglichkeiten zum Tech Lead, SAP Architect oder Construction Expert.",
+        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-24T21:20:42.689Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T13:56:14.338Z",
+      "postedDate": "2026-10-02T13:56:14.338Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "jobReqId": "744000153192441",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40",
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+        ],
+        "fr": [
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T22:55:58.539Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-c97255b5c406",
       "slug": "piattaforma-dati-ms-fabric-databricks-talan-geneve-switzerland",
       "slugByLocale": {
@@ -682,7 +757,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.395Z",
+      "crawledAt": "2026-10-24T21:20:42.687Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -730,81 +805,6 @@
       }
     },
     {
-      "id": "talan-61c9acf4f11b",
-      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
-        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
-        "de": "berater-expert-sap-crm-f-h-talan-geneva",
-        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Expert SAP CRM F/H",
-      "titleByLocale": {
-        "it": "Consulente Expert SAP CRM F/H",
-        "en": "Consultant Expert SAP CRM M/F",
-        "de": "Berater Expert SAP CRM F/H",
-        "fr": "Consultant Expert SAP CRM F/H"
-      },
-      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
-        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
-        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
-        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.395Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T09:11:46.418Z",
-      "postedDate": "2026-10-02T09:11:46.418Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "jobReqId": "744000153133249",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:10:26.715Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-031a85eb2771",
       "slug": "piombo-di-trasformazione-sdlc-agente-talan-meyrin-switzerland",
       "slugByLocale": {
@@ -835,7 +835,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.394Z",
+      "crawledAt": "2026-10-24T21:20:42.686Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "postalCode": "1217",
@@ -914,7 +914,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155789639-chef-de-projet-metier?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.392Z",
+      "crawledAt": "2026-10-24T21:20:42.683Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -965,6 +965,88 @@
       }
     },
     {
+      "id": "talan-9a6c7f90c0b3",
+      "slug": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
+      "slugByLocale": {
+        "it": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
+        "en": "technical-project-leader-talan-lausanne-vd-switzerland",
+        "de": "technischer-projektleiter-talan-lausanne-vd-switzerland",
+        "fr": "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Chef·fe de projet technique",
+      "titleByLocale": {
+        "it": "Leader del progetto tecnico",
+        "en": "Technical Project Leader",
+        "de": "Technischer Projektleiter",
+        "fr": "Chef·fe de projet technique"
+      },
+      "description": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\n Mission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\n Responsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n.",
+      "descriptionByLocale": {
+        "it": "Contesto\n\nAll'interno della divisione Infrastructure, Data e DevOps dello stesso ISD, il volume dei progetti tecnici sta aumentando costantemente. Il team sta cercando un profilo confermato, specializzato nel pilotare progetti tecnici.\nMissione\n\n• Eseguire uno o più progetti tecnici end-to-end: infrastrutture, piattaforme, dati, cloud, cybersecurity, servizi tecnici.\n\n• Coordinare tutte le parti interessate in materia di qualità, prestazioni, sicurezza, disponibilità, costi e scadenze.\n\n• Assicurare la coerenza delle soluzioni con l'architettura SI, gli standard tecnici e la strategia organizzativa.\nresponsabilità\n\n• Gestione dei progetti\n• Pianificare, organizzare e gestire progetti.\n\n• Coordinare i team interni (infra, reti, sistemi, sicurezza, database, funzionamento, supporto) e i fornitori esterni.\n\n• Definire compiti, pietre miliari, risorse, competenze, interfacce tecniche e budget.\n\n• Gestire i rischi tecnici, le dipendenze e gli impatti sul resto dell'IS.\n\n• Gestione finanziaria.\n\n• Fornire secondo gli impegni.\n\n• Produce documentazione HERMES e documentazione tecnica, e mantenere lo strumento PMO.\n\n• Incontra gli standard PMO, architettura e sicurezza.\n\n• Distribuzione\n• Pianificare e supervisionare la produzione.\n\n• Coordinare le migrazioni, il rocking e il ritorno inverso.\n\n• Organizza le validazioni tecniche prima della produzione.\n\n• Assicurare la transizione allo sfruttamento.\n\n• Assicurare la documentazione completa dello sfruttamento e organizzare il trasferimento della conoscenza.\n\n• Configura il supporto di livello 3.\n\n• perimetro di arbitrato, costo, tempo e qualità\n• Ricette tecniche pilota.\n\n• Assicurare disponibilità, prestazioni, resilienza e continuità di servizio.\n\n• Analizzare le richieste di cambiamento, compreso il loro impatto sull'architettura.\n\n• Preparate gli arbitrati.\n\n• Seguire gli indicatori: progresso, costi, rischi, qualità e prestazioni delle soluzioni.\n\n• Formazione informatica avanzata (Master, Bachelor o equivalente) con almeno 5-8 anni di esperienza nel pilotare grandi progetti tecnici (Infrastrutture, Dati, Cloud, Cybersecurity).\n\n• Ottima comprensione delle questioni infrastrutturali (rete, sistemi, banche dati, sicurezza, virtualizzazione/cloud) per dialogare efficacemente con esperti, anticipare i rischi architettonici e garantire la continuità del servizio.\n\n• Pratica comprovata della metodologia HERMES (certificazione desiderata) e adesione ai quadri metodologici PMO/ITIL.\n\n• Esperienza pratica nella gestione di start-up complessi (migrazioni, piani rock, roll-back, trasferimento a squadre operative e supporto N3).\n\n• Capacità di guidare le parti interessate esterne e partecipare alla redazione o valutazione dei componenti tecnici dell'offerta pubblica.\n\n.",
+        "en": "Background\n\nWithin the Infrastructure, Data and DevOps division of the same ISD, the volume of technical projects is steadily increasing. The team is looking for a confirmed profile, specialized in piloting technical projects.\nMission\n\n• Carry out one or more end-to-end technical projects: infrastructure, platforms, data, cloud, cybersecurity, technical services.\n\n• Coordinate all stakeholders with respect to quality, performance, safety, availability, costs and deadlines.\n\n• Ensure consistency of solutions with SI architecture, technical standards and organizational strategy.\nResponsibilities\n\n• Project management\n• Plan, organize and manage projects.\n\n• Coordinate internal teams (infra, networks, systems, security, databases, operation, support) and external providers.\n\n• Define tasks, milestones, resources, skills, technical interfaces and budget.\n\n• Manage technical risks, dependencies and impacts on the rest of the IS.\n\n• Financial management.\n\n• Deliver in accordance with commitments.\n\n• Produce HERMES documentation and technical documentation, and maintain the PMO tool.\n\n• Meet PMO, architecture and security standards.\n\n• Deployment\n• Plan and supervise production.\n\n• Coordinate migrations, rocking and reverse returns.\n\n• Organize technical validations prior to production.\n\n• Ensure the transition to exploitation.\n\n• Ensure complete exploitation documentation and organize knowledge transfer.\n\n• Set up Level 3 support.\n\n• Arbitrage perimeter, cost, time and quality\n• Pilot technical recipes.\n\n• Ensure availability, performance, resilience and continuity of service.\n\n• Analyze requests for change, including their impact on architecture.\n\n• Prepare arbitrations.\n\n• Follow the indicators: progress, costs, risks, quality and performance of solutions.\n\n• Advanced computer training (Master, Bachelor or equivalent) with at least 5 to 8 years experience in piloting major technical projects (Infrastructure, Data, Cloud, Cybersecurity).\n\n• Excellent understanding of infrastructure issues (networks, systems, databases, security, virtualization/cloud) to effectively dialogue with experts, anticipate architectural risks and ensure continuity of service.\n\n• Proven practice of HERMES methodology (desired certification) and adherence to PMO/ITIL methodological frameworks.\n\n• Practical experience in managing complex start-ups (migrations, rocking, roll-back plans, transfer to operating teams and N3 support).\n\n• Ability to lead external stakeholders and participate in the drafting or evaluation of technical public tendering components.\n\n.",
+        "de": "Hintergrund\n\nInnerhalb der Division Infrastructure, Data und DevOps derselben ISD nimmt das Volumen technischer Projekte stetig zu. Das Team sucht ein bestätigtes Profil, spezialisiert auf die Pilotierung technischer Projekte.\nMission\n\n• Durchführung eines oder mehrerer durchgängiger technischer Projekte: Infrastruktur, Plattformen, Daten, Cloud, Cybersicherheit, technische Dienste.\n\n• Koordination aller Stakeholder in Bezug auf Qualität, Leistung, Sicherheit, Verfügbarkeit, Kosten und Fristen.\n\n• Gewährleistung der Konsistenz der Lösungen mit der SI-Architektur, den technischen Standards und der Organisationsstrategie.\nZuständigkeiten\n\n• Projektmanagement\n• Planen, organisieren und verwalten Sie Projekte.\n\n• Koordinieren Sie interne Teams (Infrastruktur, Netzwerke, Systeme, Sicherheit, Datenbanken, Betrieb, Support) und externe Anbieter.\n\n• Definieren Sie Aufgaben, Meilensteine, Ressourcen, Fähigkeiten, technische Schnittstellen und Budget.\n\n• Management technischer Risiken, Abhängigkeiten und Auswirkungen auf den Rest des IS.\n\n• Finanzmanagement.\n\n• Erfüllung der Verpflichtungen.\n\n• Erstellen Sie HERMES Dokumentation und technische Dokumentation und pflegen Sie das PMO-Tool.\n\n• PMO, Architektur und Sicherheitsstandards erfüllen.\n\n• Einsatz\n• Planung und Überwachung der Produktion.\n\n• Koordinieren Sie Migrationen, Rocking und Reverse Returns.\n\n• Organisieren Sie technische Validierungen vor der Produktion.\n\n• Gewährleistung des Übergangs zur Nutzung.\n\n• Gewährleistung einer vollständigen Dokumentation der Nutzung und Organisation des Wissenstransfers.\n\n• Einrichten von Level 3 Support.\n\n• Arbitrage Perimeter, Kosten, Zeit und Qualität\n• Technische Pilotrezepturen.\n\n• Gewährleistung von Verfügbarkeit, Leistung, Widerstandsfähigkeit und Kontinuität des Dienstes.\n\n• Analysieren Sie Änderungswünsche, einschließlich ihrer Auswirkungen auf die Architektur.\n\n• Vorbereitung von Schiedsverfahren.\n\n• Folgen Sie den Indikatoren: Fortschritt, Kosten, Risiken, Qualität und Leistung der Lösungen.\n\n• Fortgeschrittene Computerausbildung (Master, Bachelor oder gleichwertig) mit mindestens 5 bis 8 Jahren Erfahrung in der Pilotierung großer technischer Projekte (Infrastruktur, Daten, Cloud, Cybersecurity).\n\n• Ausgezeichnetes Verständnis von Infrastrukturproblemen (Netzwerke, Systeme, Datenbanken, Sicherheit, Virtualisierung / Cloud), um effektiv mit Experten zu kommunizieren, architektonische Risiken zu antizipieren und die Kontinuität des Dienstes zu gewährleisten.\n\n• Bewährte Praxis der HERMES-Methodik (gewünschte Zertifizierung) und Einhaltung der methodischen Rahmenbedingungen von PMO/ITIL.\n\n• Praktische Erfahrung im Management komplexer Start-ups (Migrationen, Rocking, Rollback-Pläne, Transfer zu operativen Teams und N3-Support).\n\n• Fähigkeit, externe Interessengruppen zu leiten und an der Ausarbeitung oder Bewertung von technischen öffentlichen Ausschreibungskomponenten teilzunehmen.\n\n.",
+        "fr": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\nMission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\nResponsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n."
+      },
+      "needsRetranslation": false,
+      "location": "Lausanne, VD, Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-24T21:20:42.682Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "1003",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-15T15:36:32.821Z",
+      "postedDate": "2026-10-15T15:36:32.821Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
+      "jobReqId": "744000155789143",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+        ],
+        "en": [
+          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+        ],
+        "de": [
+          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-15T21:16:17.872Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-af6c08192f75",
       "slug": "business-analista-talan-lausanne-vd-switzerland",
       "slugByLocale": {
@@ -995,7 +1077,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155794329--business-analyst?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.391Z",
+      "crawledAt": "2026-10-24T21:20:42.680Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1073,7 +1155,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155806134-consultant-e-technico-fonctionnel-sap-crm-senior?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.390Z",
+      "crawledAt": "2026-10-24T21:20:42.678Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1121,166 +1203,6 @@
       }
     },
     {
-      "id": "talan-9a6c7f90c0b3",
-      "slug": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
-      "slugByLocale": {
-        "it": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
-        "en": "technical-project-leader-talan-lausanne-vd-switzerland",
-        "de": "technischer-projektleiter-talan-lausanne-vd-switzerland",
-        "fr": "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Chef·fe de projet technique",
-      "titleByLocale": {
-        "it": "Leader del progetto tecnico",
-        "en": "Technical Project Leader",
-        "de": "Technischer Projektleiter",
-        "fr": "Chef·fe de projet technique"
-      },
-      "description": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\n Mission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\n Responsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n.",
-      "descriptionByLocale": {
-        "it": "Contesto\n\nAll'interno della divisione Infrastructure, Data e DevOps dello stesso ISD, il volume dei progetti tecnici sta aumentando costantemente. Il team sta cercando un profilo confermato, specializzato nel pilotare progetti tecnici.\nMissione\n\n• Eseguire uno o più progetti tecnici end-to-end: infrastrutture, piattaforme, dati, cloud, cybersecurity, servizi tecnici.\n\n• Coordinare tutte le parti interessate in materia di qualità, prestazioni, sicurezza, disponibilità, costi e scadenze.\n\n• Assicurare la coerenza delle soluzioni con l'architettura SI, gli standard tecnici e la strategia organizzativa.\nresponsabilità\n\n• Gestione dei progetti\n• Pianificare, organizzare e gestire progetti.\n\n• Coordinare i team interni (infra, reti, sistemi, sicurezza, database, funzionamento, supporto) e i fornitori esterni.\n\n• Definire compiti, pietre miliari, risorse, competenze, interfacce tecniche e budget.\n\n• Gestire i rischi tecnici, le dipendenze e gli impatti sul resto dell'IS.\n\n• Gestione finanziaria.\n\n• Fornire secondo gli impegni.\n\n• Produce documentazione HERMES e documentazione tecnica, e mantenere lo strumento PMO.\n\n• Incontra gli standard PMO, architettura e sicurezza.\n\n• Distribuzione\n• Pianificare e supervisionare la produzione.\n\n• Coordinare le migrazioni, il rocking e il ritorno inverso.\n\n• Organizza le validazioni tecniche prima della produzione.\n\n• Assicurare la transizione allo sfruttamento.\n\n• Assicurare la documentazione completa dello sfruttamento e organizzare il trasferimento della conoscenza.\n\n• Configura il supporto di livello 3.\n\n• perimetro di arbitrato, costo, tempo e qualità\n• Ricette tecniche pilota.\n\n• Assicurare disponibilità, prestazioni, resilienza e continuità di servizio.\n\n• Analizzare le richieste di cambiamento, compreso il loro impatto sull'architettura.\n\n• Preparate gli arbitrati.\n\n• Seguire gli indicatori: progresso, costi, rischi, qualità e prestazioni delle soluzioni.\n\n• Formazione informatica avanzata (Master, Bachelor o equivalente) con almeno 5-8 anni di esperienza nel pilotare grandi progetti tecnici (Infrastrutture, Dati, Cloud, Cybersecurity).\n\n• Ottima comprensione delle questioni infrastrutturali (rete, sistemi, banche dati, sicurezza, virtualizzazione/cloud) per dialogare efficacemente con esperti, anticipare i rischi architettonici e garantire la continuità del servizio.\n\n• Pratica comprovata della metodologia HERMES (certificazione desiderata) e adesione ai quadri metodologici PMO/ITIL.\n\n• Esperienza pratica nella gestione di start-up complessi (migrazioni, piani rock, roll-back, trasferimento a squadre operative e supporto N3).\n\n• Capacità di guidare le parti interessate esterne e partecipare alla redazione o valutazione dei componenti tecnici dell'offerta pubblica.\n\n.",
-        "en": "Background\n\nWithin the Infrastructure, Data and DevOps division of the same ISD, the volume of technical projects is steadily increasing. The team is looking for a confirmed profile, specialized in piloting technical projects.\nMission\n\n• Carry out one or more end-to-end technical projects: infrastructure, platforms, data, cloud, cybersecurity, technical services.\n\n• Coordinate all stakeholders with respect to quality, performance, safety, availability, costs and deadlines.\n\n• Ensure consistency of solutions with SI architecture, technical standards and organizational strategy.\nResponsibilities\n\n• Project management\n• Plan, organize and manage projects.\n\n• Coordinate internal teams (infra, networks, systems, security, databases, operation, support) and external providers.\n\n• Define tasks, milestones, resources, skills, technical interfaces and budget.\n\n• Manage technical risks, dependencies and impacts on the rest of the IS.\n\n• Financial management.\n\n• Deliver in accordance with commitments.\n\n• Produce HERMES documentation and technical documentation, and maintain the PMO tool.\n\n• Meet PMO, architecture and security standards.\n\n• Deployment\n• Plan and supervise production.\n\n• Coordinate migrations, rocking and reverse returns.\n\n• Organize technical validations prior to production.\n\n• Ensure the transition to exploitation.\n\n• Ensure complete exploitation documentation and organize knowledge transfer.\n\n• Set up Level 3 support.\n\n• Arbitrage perimeter, cost, time and quality\n• Pilot technical recipes.\n\n• Ensure availability, performance, resilience and continuity of service.\n\n• Analyze requests for change, including their impact on architecture.\n\n• Prepare arbitrations.\n\n• Follow the indicators: progress, costs, risks, quality and performance of solutions.\n\n• Advanced computer training (Master, Bachelor or equivalent) with at least 5 to 8 years experience in piloting major technical projects (Infrastructure, Data, Cloud, Cybersecurity).\n\n• Excellent understanding of infrastructure issues (networks, systems, databases, security, virtualization/cloud) to effectively dialogue with experts, anticipate architectural risks and ensure continuity of service.\n\n• Proven practice of HERMES methodology (desired certification) and adherence to PMO/ITIL methodological frameworks.\n\n• Practical experience in managing complex start-ups (migrations, rocking, roll-back plans, transfer to operating teams and N3 support).\n\n• Ability to lead external stakeholders and participate in the drafting or evaluation of technical public tendering components.\n\n.",
-        "de": "Hintergrund\n\nInnerhalb der Division Infrastructure, Data und DevOps derselben ISD nimmt das Volumen technischer Projekte stetig zu. Das Team sucht ein bestätigtes Profil, spezialisiert auf die Pilotierung technischer Projekte.\nMission\n\n• Durchführung eines oder mehrerer durchgängiger technischer Projekte: Infrastruktur, Plattformen, Daten, Cloud, Cybersicherheit, technische Dienste.\n\n• Koordination aller Stakeholder in Bezug auf Qualität, Leistung, Sicherheit, Verfügbarkeit, Kosten und Fristen.\n\n• Gewährleistung der Konsistenz der Lösungen mit der SI-Architektur, den technischen Standards und der Organisationsstrategie.\nZuständigkeiten\n\n• Projektmanagement\n• Planen, organisieren und verwalten Sie Projekte.\n\n• Koordinieren Sie interne Teams (Infrastruktur, Netzwerke, Systeme, Sicherheit, Datenbanken, Betrieb, Support) und externe Anbieter.\n\n• Definieren Sie Aufgaben, Meilensteine, Ressourcen, Fähigkeiten, technische Schnittstellen und Budget.\n\n• Management technischer Risiken, Abhängigkeiten und Auswirkungen auf den Rest des IS.\n\n• Finanzmanagement.\n\n• Erfüllung der Verpflichtungen.\n\n• Erstellen Sie HERMES Dokumentation und technische Dokumentation und pflegen Sie das PMO-Tool.\n\n• PMO, Architektur und Sicherheitsstandards erfüllen.\n\n• Einsatz\n• Planung und Überwachung der Produktion.\n\n• Koordinieren Sie Migrationen, Rocking und Reverse Returns.\n\n• Organisieren Sie technische Validierungen vor der Produktion.\n\n• Gewährleistung des Übergangs zur Nutzung.\n\n• Gewährleistung einer vollständigen Dokumentation der Nutzung und Organisation des Wissenstransfers.\n\n• Einrichten von Level 3 Support.\n\n• Arbitrage Perimeter, Kosten, Zeit und Qualität\n• Technische Pilotrezepturen.\n\n• Gewährleistung von Verfügbarkeit, Leistung, Widerstandsfähigkeit und Kontinuität des Dienstes.\n\n• Analysieren Sie Änderungswünsche, einschließlich ihrer Auswirkungen auf die Architektur.\n\n• Vorbereitung von Schiedsverfahren.\n\n• Folgen Sie den Indikatoren: Fortschritt, Kosten, Risiken, Qualität und Leistung der Lösungen.\n\n• Fortgeschrittene Computerausbildung (Master, Bachelor oder gleichwertig) mit mindestens 5 bis 8 Jahren Erfahrung in der Pilotierung großer technischer Projekte (Infrastruktur, Daten, Cloud, Cybersecurity).\n\n• Ausgezeichnetes Verständnis von Infrastrukturproblemen (Netzwerke, Systeme, Datenbanken, Sicherheit, Virtualisierung / Cloud), um effektiv mit Experten zu kommunizieren, architektonische Risiken zu antizipieren und die Kontinuität des Dienstes zu gewährleisten.\n\n• Bewährte Praxis der HERMES-Methodik (gewünschte Zertifizierung) und Einhaltung der methodischen Rahmenbedingungen von PMO/ITIL.\n\n• Praktische Erfahrung im Management komplexer Start-ups (Migrationen, Rocking, Rollback-Pläne, Transfer zu operativen Teams und N3-Support).\n\n• Fähigkeit, externe Interessengruppen zu leiten und an der Ausarbeitung oder Bewertung von technischen öffentlichen Ausschreibungskomponenten teilzunehmen.\n\n.",
-        "fr": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\nMission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\nResponsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n."
-      },
-      "needsRetranslation": false,
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.390Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T15:36:32.821Z",
-      "postedDate": "2026-10-15T15:36:32.821Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
-      "jobReqId": "744000155789143",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-        ],
-        "en": [
-          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-        ],
-        "de": [
-          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-15T21:16:17.872Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-9f5be93106bb",
-      "slug": "senior-integration-ingegnere-talan-geneve",
-      "slugByLocale": {
-        "it": "senior-integration-ingegnere-talan-geneve",
-        "en": "senior-integration-engineer-talan-geneve-switzerland",
-        "de": "senior-integration-ingenieur-talan-geneve",
-        "fr": "senior-integration-engineer-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Senior Integration Engineer",
-      "titleByLocale": {
-        "it": "Senior Integration Ingegnere",
-        "en": "Senior Integration Engineer",
-        "de": "Senior Integration Ingenieur",
-        "fr": "Senior Integration Ingénieur"
-      },
-      "description": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\n Vous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\n Atouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\n Formation : Bachelor ou Master en informatique ou dans un domaine équivalent.\n Environnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un Senior Integration Engineer per rafforzare un'integrazione delle applicazioni e il team API.\nInterverrete nella progettazione, sviluppo e manutenzione di soluzioni di integrazione robuste, sicure e scalabili, consentendo lo scambio fluido di dati tra diverse applicazioni e piattaforme.\n\n• Progettazione, sviluppo e manutenzione di soluzioni di integrazione in Python, Java e SQL Server.\n\n• Sviluppare e gestire le API, in particolare con FastAPI, e contribuire alla loro governance tramite una piattaforma di gestione d Royalty.\n\n• Implementare flussi di dati in tempo reale con Kafka e eventi e architetture orientate ai microservizi.\n\n• Distribuire e mantenere i componenti di integrazione in ambienti OpenShift.\n\n• Assicurare affidabilità, sicurezza, prestazioni e disponibilità di servizi critici.\n\n• Partecipa a una risoluzione complessa degli incidenti e a un continuo miglioramento delle soluzioni esistenti.\n\n• Utilizzare strumenti generici AI per accelerare lo sviluppo, il test, l'analisi dei registri e la documentazione, convalidando la qualità dei risultati prodotti.\n\n• Collaborare con team tecnici e funzionali e garantire la documentazione delle soluzioni implementate.\n\n• Minimo 5 anni di esperienza nell'integrazione delle applicazioni.\n\n• Ottima padronanza di Python e Java, così come SQL Server.\n\n• Esperienza pratica di sviluppo di aPI con FastAPI.\n\n• Buon controllo di Kafka e meccanismi di streaming e messaggistica.\n\n• Esperienza di una piattaforma API Management, idealmente Gravitee.\n\n• Comodo per ambienti OpenShift e containerizzati.\n\n• Competenza in microservizi architettura, architettura degli eventi e modelli di integrazione aziendale.\n\n• Conoscenza dei processi ETL/ELT e dei problemi di trasformazione e scambio dei dati.\n\n• Esperienza pratica del Modello Context Protocol (MCP) e la sua integrazione in complesse architetture applicative.\n\n• Utilizzando gli assistenti IA per lo sviluppo e l'automazione, con la capacità di valutare criticamente il codice generato.\n\n• Capacità di progettare e mantenere servizi critici, sicuri e in evoluzione.\n\n• Eccellente capacità di analisi, problem solving e comunicazione.\nUlteriori vantaggi: la conoscenza di Talend BSE, Apache Camel o altri strumenti di integrazione.\nFormazione: Bachelor o Master in Informatica o equivalente.\nAmbiente tecnico: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP e d",
-        "en": "We are looking for a Senior Integration Engineer to strengthen an application integration and API team.\nYou will intervene in the design, development and maintenance of robust, secure and scalable integration solutions, allowing for fluid exchange of data between different applications and platforms.\n\n• Design, develop and maintain integration solutions in Python, Java and SQL Server.\n\n• Develop and manage APIs, particularly with FastAPI, and contribute to their governance via a d的API Management platform.\n\n• Implement real-time data streams with Kafka and events and microservices-oriented architectures.\n\n• Deploy and maintain integration components in OpenShift environments.\n\n• Ensure reliability, security, performance and availability of critical services.\n\n• Participate in complex incident resolution and continuous improvement of existing solutions.\n\n• Use generic AI tools to accelerate development, testing, log analysis and documentation, while validating the quality of the results produced.\n\n• Collaborate with technical and functional teams and ensure documentation of implemented solutions.\n\n• Minimum 5 years of experience in application integration.\n\n• Very good mastery of Python and Java, as well as SQL Server.\n\n• Practical experience of developing aPI with FastAPI.\n\n• Good control of Kafka and streaming and messaging mechanisms.\n\n• Experience of an API Management platform, ideally Gravitee.\n\n• Convenient to OpenShift and containerized environments.\n\n• Expertise in microservices architecture, event architecture and Enterprise Integration Patterns.\n\n• Knowledge of ETL/ELT processes and data transformation and exchange issues.\n\n• Practical experience of the Model Context Protocol (MCP) and its integration into complex application architectures.\n\n• Using IA assistants for development and automation, with a capacity to critically evaluate the generated code.\n\n• Ability to design and maintain critical, secure and evolving services.\n\n• Excellent analytical, problem-solving and communication capabilities.\nAdditional benefits: knowledge of Talend BSE, Apache Camel or other integration tools.\nTraining: Bachelor or Master in Computer Science or equivalent.\nTechnical environment: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP and d",
-        "de": "Wir suchen einen Senior Integration Engineer, um ein Application Integration und API Team zu stärken.\nSie werden in das Design, die Entwicklung und die Wartung robuster, sicherer und skalierbarer Integrationslösungen eingreifen, die einen flüssigen Datenaustausch zwischen verschiedenen Anwendungen und Plattformen ermöglichen.\n\n• Design, Entwicklung und Wartung von Integrationslösungen in Python, Java und SQL Server.\n\n• Entwickeln und verwalten Sie APIs, insbesondere mit FastAPI, und tragen Sie über eine duousAPI Management-Plattform zu ihrer Governance bei.\n\n• Implementieren Sie Echtzeit-Datenströme mit Kafka und Events sowie Microservices-orientierten Architekturen.\n\n• Bereitstellung und Pflege von Integrationskomponenten in OpenShift-Umgebungen.\n\n• Gewährleistung von Zuverlässigkeit, Sicherheit, Leistung und Verfügbarkeit kritischer Dienste.\n\n• Beteiligen Sie sich an der Lösung komplexer Vorfälle und der kontinuierlichen Verbesserung bestehender Lösungen.\n\n• Verwenden Sie generische KI-Tools, um Entwicklung, Tests, Protokollanalyse und Dokumentation zu beschleunigen und gleichzeitig die Qualität der erzielten Ergebnisse zu validieren.\n\n• Arbeiten Sie mit technischen und funktionalen Teams zusammen und gewährleisten Sie die Dokumentation der implementierten Lösungen.\n\n• Mindestens 5 Jahre Erfahrung in der Anwendungsintegration.\n\n• Sehr gute Beherrschung von Python und Java sowie SQL Server.\n\n• Praktische Erfahrung in der Entwicklung von aPI mit FastAPI.\n\n• Gute Kontrolle über Kafka und Streaming- und Messaging-Mechanismen.\n\n• Erfahrung mit einer API Management Plattform, idealerweise Gravitee.\n\n• Bequem für OpenShift und containerisierte Umgebungen.\n\n• Expertise in Microservices-Architektur, Event-Architektur und Enterprise Integration Patterns.\n\n• Kenntnisse über ETL/ELT-Prozesse und Datentransformations- und -austauschfragen.\n\n• Praktische Erfahrungen mit dem Model Context Protocol (MCP) und dessen Integration in komplexe Anwendungsarchitekturen.\n\n• Verwendung von IA-Assistenten für Entwicklung und Automatisierung, mit der Fähigkeit, den generierten Code kritisch zu bewerten.\n\n• Fähigkeit, kritische, sichere und sich entwickelnde Dienste zu entwerfen und zu pflegen.\n\n• Hervorragende Analyse-, Problemlösungs- und Kommunikationsfähigkeiten.\nZusätzliche Vorteile: Kenntnisse über Talend BSE, Apache Camel oder andere Integrationswerkzeuge.\nAusbildung: Bachelor oder Master in Informatik oder gleichwertig.\nTechnische Umgebung: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP und d",
-        "fr": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\nVous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\nAtouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\nFormation : Bachelor ou Master en informatique ou dans un domaine équivalent.\nEnvironnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.389Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T11:59:18.670Z",
-      "postedDate": "2026-10-23T11:59:18.670Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
-      "jobReqId": "744000157455639",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-23T21:11:18.479Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-integration-engineer-talan-geneve-switzerland"
-        ],
-        "de": [
-          "senior-integration-engineer-talan-geneve-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "senior-integration-engineer-talan-geneve-switzerland"
-      ],
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-c069f012c467",
       "slug": "lead-business-analista-talan-lausanne",
       "slugByLocale": {
@@ -1311,7 +1233,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155930739-lead-business-analyst?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.387Z",
+      "crawledAt": "2026-10-24T21:20:42.676Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1341,84 +1263,6 @@
         ]
       },
       "firstSeenAt": "2026-10-09T21:16:06.901Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-40d16a2b9320",
-      "slug": "change-manager-cybersecurity-talan-geneva",
-      "slugByLocale": {
-        "it": "change-manager-cybersecurity-talan-geneva",
-        "en": "change-manager-cybersecurity-talan-geneva",
-        "de": "change-manager-cybersecurite-talan-geneva-ge-switzerland",
-        "fr": "change-manager-cybersecurite-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Change Manager Cybersécurité",
-      "titleByLocale": {
-        "it": "Change Manager Cybersecurity",
-        "en": "Change Manager Cybersecurity",
-        "de": "Change Manager Cybersecurity",
-        "fr": "Change Manager Cybersécurité"
-      },
-      "description": "Dans le cadre d’un programme de transformation IT international, nous recherchons un.e Change Manager IT pour piloter la conduite du changement autour de projets liés à la cybersécurité, à la gestion des identités et des accès (IAM) et à l’approche Zero Trust.\n Vous accompagnerez les utilisateurs dans l’adoption de nouvelles solutions et de nouveaux processus, en coordonnant les actions de communication, de formation et de suivi avec les équipes métiers, IT et sécurité.\n Vos responsabilités\n\n• Définir et piloter la stratégie de conduite du changement en cohérence avec la feuille de route du programme.\n\n• Analyser les impacts des évolutions sur les différentes populations et élaborer des plans d’accompagnement adaptés.\n\n• Concevoir et déployer les communications, supports de formation, guides utilisateurs et webinaires, en français et en anglais.\n\n• Accompagner le déploiement de nouvelles solutions d’authentification, notamment Windows Hello for Business, ainsi que l’évolution des modèles de gestion des accès.\n\n• Coordonner les parties prenantes et préparer les équipes métiers, les responsables applicatifs et le support IT aux changements.\n\n• Suivre les indicateurs d’adoption, identifier les risques et mettre en place les actions correctives nécessaires.\n\n• Assurer le reporting auprès des responsables du programme et organiser le transfert des activités aux équipes opérationnelles.\n\n• Plus de 5 ans d’expérience en conduite du changement sur des programmes IT transverses de grande envergure.\n\n• Certification Prosci ou équivalente obligatoire.\n\n• Formation universitaire (Bachelor ou Master) en management, communication, ressources humaines, systèmes d’information ou domaine équivalent.Expérience dans un environnement international et multiculturel, avec des équipes réparties géographiquement.\n\n• Une expérience sur des projets IAM, MFA, SSO, cybersécurité ou Zero Trust constitue un réel atout.\n\n• Excellente maîtrise du français et de l’anglais, à l’oral comme à l’écrit.\n\n• Bonne maîtrise des outils collaboratifs Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomie, excellentes capacités de communication, pragmatisme et aptitude à fédérer des interlocuteurs variés.",
-      "descriptionByLocale": {
-        "it": "Come parte di un programma di trasformazione IT internazionale, stiamo cercando un Change Manager IT per guidare il cambiamento intorno alla sicurezza informatica, identità e gestione degli accessi (IAM) e Zero Trust progetti.\nSosterrai gli utenti nell'adottare nuove soluzioni e processi, coordinando le azioni di comunicazione, formazione e follow-up con i team di commercio, IT e sicurezza.\nLe tue responsabilità\n\n• Definire e gestire la strategia di gestione dei cambiamenti in linea con la roadmap del programma.\n\n• Per analizzare l'impatto degli sviluppi sulle diverse popolazioni e sviluppare piani di accompagnamento adeguati.\n\n• Progettazione e distribuzione di comunicazioni, materiali di formazione, guide utente e webinar, in francese e inglese.\n\n• Supporta l'implementazione di nuove soluzioni di autenticazione, tra cui Windows Hello for Business, nonché l'evoluzione dei modelli di gestione degli accessi.\n\n• Coordinare le parti interessate e preparare i team aziendali, i responsabili delle applicazioni e il supporto IT per il cambiamento.\n\n• Monitorare gli indicatori di adozione, identificare i rischi e implementare azioni correttive.\n\n• Assicurare la segnalazione ai responsabili del programma e organizzare il trasferimento delle attività ai team operativi.\n\n• Più di 5 anni di esperienza nel cambiamento di primo piano sui programmi IT trasversale su larga scala.\n\n• Certificazione Prosci o equivalente obbligatorio.\n\n• Formazione universitaria (Bachelor o Master) in gestione, comunicazione, risorse umane, sistemi informativi o campo equivalente. Esperienza in un ambiente internazionale e multiculturale, con team distribuiti geograficamente.\n\n• L'esperienza sui progetti IAM, MFA, SSO, cybersecurity o Zero Trust è una risorsa reale.\n\n• Ottima padronanza di francese e inglese, sia orale che scritta.\n\n• Buona padronanza degli strumenti collaborativi Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomia, eccellenti capacità comunicative, pragmatismo e la capacità di riunire diversi interlocutori.",
-        "en": "As part of an international IT transformation program, we are looking for a Change Manager IT to drive change around cybersecurity, identity and access management (IAM) and Zero Trust projects.\nYou will support users in adopting new solutions and processes, coordinating communication, training and follow-up actions with trades, IT and security teams.\nYour responsibilities\n\n• Define and manage the change management strategy in line with the programme roadmap.\n\n• To analyse the impact of developments on different populations and develop appropriate accompanying plans.\n\n• Design and deploy communications, training materials, user guides and webinars, in French and English.\n\n• Support the deployment of new authentication solutions, including Windows Hello for Business, as well as the evolution of access management models.\n\n• Coordinate stakeholders and prepare business teams, application managers and IT support for change.\n\n• Monitor adoption indicators, identify risks and implement corrective actions.\n\n• Ensure reporting to programme managers and organize the transfer of activities to operational teams.\n\n• More than 5 years of experience in leading change on large-scale transverse IT programs.\n\n• Prosci certification or mandatory equivalent.\n\n• University training (Bachelor or Master) in management, communication, human resources, information systems or equivalent field. Experience in an international and multicultural environment, with geographically distributed teams.\n\n• Experience on IAM, MFA, SSO, cybersecurity or Zero Trust projects is a real asset.\n\n• Excellent mastery of French and English, both oral and written.\n\n• Good mastery of Microsoft 365 collaborative tools (Teams, SharePoint, Viva Engage).\n\n• Autonomy, excellent communication skills, pragmatism and the ability to bring together diverse interlocutors.",
-        "de": "Im Rahmen eines internationalen IT-Transformationsprogramms suchen wir nach einer Change Manager IT, um den Wandel in den Bereichen Cybersicherheit, Identitäts- und Zugriffsmanagement (IAM) und Zero Trust-Projekte voranzutreiben.\nSie unterstützen die Benutzer bei der Einführung neuer Lösungen und Prozesse und koordinieren Kommunikation, Schulungen und Folgemaßnahmen mit Trades, IT und Sicherheitsteams.\nIhre Verantwortung\n\n• Definieren und verwalten Sie die Change Management Strategie im Einklang mit der Programm-Roadmap.\n\n• Analyse der Auswirkungen von Entwicklungen auf verschiedene Populationen und Entwicklung geeigneter Begleitpläne.\n\n• Entwerfen und Bereitstellen von Kommunikation, Schulungsmaterialien, Benutzerhandbüchern und Webinaren in Französisch und Englisch.\n\n• Unterstützen Sie die Bereitstellung neuer Authentifizierungslösungen, einschließlich Windows Hello for Business, sowie die Entwicklung von Zugriffsmanagementmodellen.\n\n• Koordinieren Sie Stakeholder und bereiten Sie Geschäftsteams, Anwendungsmanager und IT-Support auf Veränderungen vor.\n\n• Überwachung von Adoptionsindikatoren, Ermittlung von Risiken und Umsetzung von Korrekturmaßnahmen.\n\n• Gewährleistung der Berichterstattung an die Programmmanager und Organisation der Übertragung von Aktivitäten an die operativen Teams.\n\n• Mehr als 5 Jahre Erfahrung in führenden Veränderungen bei großen transversalen IT-Programmen.\n\n• Prosci-Zertifizierung oder obligatorisches Äquivalent.\n\n• Universitätsausbildung (Bachelor oder Master) in Management, Kommunikation, Personal, Informationssystemen oder einem gleichwertigen Bereich. Erfahrung in einem internationalen und multikulturellen Umfeld mit geografisch verteilten Teams.\n\n• Erfahrung in IAM-, MFA-, SSO-, Cybersicherheits- oder Zero Trust-Projekten ist eine echte Bereicherung.\n\n• Hervorragende Beherrschung von Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Gute Beherrschung von Microsoft 365 kollaborativen Tools (Teams, SharePoint, Viva Engage).\n\n• Autonomie, ausgezeichnete Kommunikationsfähigkeiten, Pragmatismus und die Fähigkeit, verschiedene Gesprächspartner zusammenzubringen.",
-        "fr": "Dans le cadre d’un programme de transformation IT international, nous recherchons un.e Change Manager IT pour piloter la conduite du changement autour de projets liés à la cybersécurité, à la gestion des identités et des accès (IAM) et à l’approche Zero Trust.\nVous accompagnerez les utilisateurs dans l’adoption de nouvelles solutions et de nouveaux processus, en coordonnant les actions de communication, de formation et de suivi avec les équipes métiers, IT et sécurité.\nVos responsabilités\n\n• Définir et piloter la stratégie de conduite du changement en cohérence avec la feuille de route du programme.\n\n• Analyser les impacts des évolutions sur les différentes populations et élaborer des plans d’accompagnement adaptés.\n\n• Concevoir et déployer les communications, supports de formation, guides utilisateurs et webinaires, en français et en anglais.\n\n• Accompagner le déploiement de nouvelles solutions d’authentification, notamment Windows Hello for Business, ainsi que l’évolution des modèles de gestion des accès.\n\n• Coordonner les parties prenantes et préparer les équipes métiers, les responsables applicatifs et le support IT aux changements.\n\n• Suivre les indicateurs d’adoption, identifier les risques et mettre en place les actions correctives nécessaires.\n\n• Assurer le reporting auprès des responsables du programme et organiser le transfert des activités aux équipes opérationnelles.\n\n• Plus de 5 ans d’expérience en conduite du changement sur des programmes IT transverses de grande envergure.\n\n• Certification Prosci ou équivalente obligatoire.\n\n• Formation universitaire (Bachelor ou Master) en management, communication, ressources humaines, systèmes d’information ou domaine équivalent.Expérience dans un environnement international et multiculturel, avec des équipes réparties géographiquement.\n\n• Une expérience sur des projets IAM, MFA, SSO, cybersécurité ou Zero Trust constitue un réel atout.\n\n• Excellente maîtrise du français et de l’anglais, à l’oral comme à l’écrit.\n\n• Bonne maîtrise des outils collaboratifs Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomie, excellentes capacités de communication, pragmatisme et aptitude à fédérer des interlocuteurs variés."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155941719-change-manager-cybersecurite?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.386Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-16T08:40:23.687Z",
-      "postedDate": "2026-10-16T08:40:23.687Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155941719-change-manager-cybersecurite?oga=true",
-      "jobReqId": "744000155941719",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "change-manager-cybersecurite-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "change-manager-cybersecurite-talan-geneva-ge-switzerland"
-        ],
-        "en": [
-          "change-manager-cybersecurite-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-16T09:14:05.404Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -1465,7 +1309,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000156838401-solution-architect?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.385Z",
+      "crawledAt": "2026-10-24T21:20:42.675Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1513,6 +1357,162 @@
       }
     },
     {
+      "id": "talan-40d16a2b9320",
+      "slug": "change-manager-cybersecurity-talan-geneva",
+      "slugByLocale": {
+        "it": "change-manager-cybersecurity-talan-geneva",
+        "en": "change-manager-cybersecurity-talan-geneva",
+        "de": "change-manager-cybersecurite-talan-geneva-ge-switzerland",
+        "fr": "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Change Manager Cybersécurité",
+      "titleByLocale": {
+        "it": "Change Manager Cybersecurity",
+        "en": "Change Manager Cybersecurity",
+        "de": "Change Manager Cybersecurity",
+        "fr": "Change Manager Cybersécurité"
+      },
+      "description": "Dans le cadre d’un programme de transformation IT international, nous recherchons un.e Change Manager IT pour piloter la conduite du changement autour de projets liés à la cybersécurité, à la gestion des identités et des accès (IAM) et à l’approche Zero Trust.\n Vous accompagnerez les utilisateurs dans l’adoption de nouvelles solutions et de nouveaux processus, en coordonnant les actions de communication, de formation et de suivi avec les équipes métiers, IT et sécurité.\n Vos responsabilités\n\n• Définir et piloter la stratégie de conduite du changement en cohérence avec la feuille de route du programme.\n\n• Analyser les impacts des évolutions sur les différentes populations et élaborer des plans d’accompagnement adaptés.\n\n• Concevoir et déployer les communications, supports de formation, guides utilisateurs et webinaires, en français et en anglais.\n\n• Accompagner le déploiement de nouvelles solutions d’authentification, notamment Windows Hello for Business, ainsi que l’évolution des modèles de gestion des accès.\n\n• Coordonner les parties prenantes et préparer les équipes métiers, les responsables applicatifs et le support IT aux changements.\n\n• Suivre les indicateurs d’adoption, identifier les risques et mettre en place les actions correctives nécessaires.\n\n• Assurer le reporting auprès des responsables du programme et organiser le transfert des activités aux équipes opérationnelles.\n\n• Plus de 5 ans d’expérience en conduite du changement sur des programmes IT transverses de grande envergure.\n\n• Certification Prosci ou équivalente obligatoire.\n\n• Formation universitaire (Bachelor ou Master) en management, communication, ressources humaines, systèmes d’information ou domaine équivalent.Expérience dans un environnement international et multiculturel, avec des équipes réparties géographiquement.\n\n• Une expérience sur des projets IAM, MFA, SSO, cybersécurité ou Zero Trust constitue un réel atout.\n\n• Excellente maîtrise du français et de l’anglais, à l’oral comme à l’écrit.\n\n• Bonne maîtrise des outils collaboratifs Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomie, excellentes capacités de communication, pragmatisme et aptitude à fédérer des interlocuteurs variés.",
+      "descriptionByLocale": {
+        "it": "Come parte di un programma di trasformazione IT internazionale, stiamo cercando un Change Manager IT per guidare il cambiamento intorno alla sicurezza informatica, identità e gestione degli accessi (IAM) e Zero Trust progetti.\nSosterrai gli utenti nell'adottare nuove soluzioni e processi, coordinando le azioni di comunicazione, formazione e follow-up con i team di commercio, IT e sicurezza.\nLe tue responsabilità\n\n• Definire e gestire la strategia di gestione dei cambiamenti in linea con la roadmap del programma.\n\n• Per analizzare l'impatto degli sviluppi sulle diverse popolazioni e sviluppare piani di accompagnamento adeguati.\n\n• Progettazione e distribuzione di comunicazioni, materiali di formazione, guide utente e webinar, in francese e inglese.\n\n• Supporta l'implementazione di nuove soluzioni di autenticazione, tra cui Windows Hello for Business, nonché l'evoluzione dei modelli di gestione degli accessi.\n\n• Coordinare le parti interessate e preparare i team aziendali, i responsabili delle applicazioni e il supporto IT per il cambiamento.\n\n• Monitorare gli indicatori di adozione, identificare i rischi e implementare azioni correttive.\n\n• Assicurare la segnalazione ai responsabili del programma e organizzare il trasferimento delle attività ai team operativi.\n\n• Più di 5 anni di esperienza nel cambiamento di primo piano sui programmi IT trasversale su larga scala.\n\n• Certificazione Prosci o equivalente obbligatorio.\n\n• Formazione universitaria (Bachelor o Master) in gestione, comunicazione, risorse umane, sistemi informativi o campo equivalente. Esperienza in un ambiente internazionale e multiculturale, con team distribuiti geograficamente.\n\n• L'esperienza sui progetti IAM, MFA, SSO, cybersecurity o Zero Trust è una risorsa reale.\n\n• Ottima padronanza di francese e inglese, sia orale che scritta.\n\n• Buona padronanza degli strumenti collaborativi Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomia, eccellenti capacità comunicative, pragmatismo e la capacità di riunire diversi interlocutori.",
+        "en": "As part of an international IT transformation program, we are looking for a Change Manager IT to drive change around cybersecurity, identity and access management (IAM) and Zero Trust projects.\nYou will support users in adopting new solutions and processes, coordinating communication, training and follow-up actions with trades, IT and security teams.\nYour responsibilities\n\n• Define and manage the change management strategy in line with the programme roadmap.\n\n• To analyse the impact of developments on different populations and develop appropriate accompanying plans.\n\n• Design and deploy communications, training materials, user guides and webinars, in French and English.\n\n• Support the deployment of new authentication solutions, including Windows Hello for Business, as well as the evolution of access management models.\n\n• Coordinate stakeholders and prepare business teams, application managers and IT support for change.\n\n• Monitor adoption indicators, identify risks and implement corrective actions.\n\n• Ensure reporting to programme managers and organize the transfer of activities to operational teams.\n\n• More than 5 years of experience in leading change on large-scale transverse IT programs.\n\n• Prosci certification or mandatory equivalent.\n\n• University training (Bachelor or Master) in management, communication, human resources, information systems or equivalent field. Experience in an international and multicultural environment, with geographically distributed teams.\n\n• Experience on IAM, MFA, SSO, cybersecurity or Zero Trust projects is a real asset.\n\n• Excellent mastery of French and English, both oral and written.\n\n• Good mastery of Microsoft 365 collaborative tools (Teams, SharePoint, Viva Engage).\n\n• Autonomy, excellent communication skills, pragmatism and the ability to bring together diverse interlocutors.",
+        "de": "Im Rahmen eines internationalen IT-Transformationsprogramms suchen wir nach einer Change Manager IT, um den Wandel in den Bereichen Cybersicherheit, Identitäts- und Zugriffsmanagement (IAM) und Zero Trust-Projekte voranzutreiben.\nSie unterstützen die Benutzer bei der Einführung neuer Lösungen und Prozesse und koordinieren Kommunikation, Schulungen und Folgemaßnahmen mit Trades, IT und Sicherheitsteams.\nIhre Verantwortung\n\n• Definieren und verwalten Sie die Change Management Strategie im Einklang mit der Programm-Roadmap.\n\n• Analyse der Auswirkungen von Entwicklungen auf verschiedene Populationen und Entwicklung geeigneter Begleitpläne.\n\n• Entwerfen und Bereitstellen von Kommunikation, Schulungsmaterialien, Benutzerhandbüchern und Webinaren in Französisch und Englisch.\n\n• Unterstützen Sie die Bereitstellung neuer Authentifizierungslösungen, einschließlich Windows Hello for Business, sowie die Entwicklung von Zugriffsmanagementmodellen.\n\n• Koordinieren Sie Stakeholder und bereiten Sie Geschäftsteams, Anwendungsmanager und IT-Support auf Veränderungen vor.\n\n• Überwachung von Adoptionsindikatoren, Ermittlung von Risiken und Umsetzung von Korrekturmaßnahmen.\n\n• Gewährleistung der Berichterstattung an die Programmmanager und Organisation der Übertragung von Aktivitäten an die operativen Teams.\n\n• Mehr als 5 Jahre Erfahrung in führenden Veränderungen bei großen transversalen IT-Programmen.\n\n• Prosci-Zertifizierung oder obligatorisches Äquivalent.\n\n• Universitätsausbildung (Bachelor oder Master) in Management, Kommunikation, Personal, Informationssystemen oder einem gleichwertigen Bereich. Erfahrung in einem internationalen und multikulturellen Umfeld mit geografisch verteilten Teams.\n\n• Erfahrung in IAM-, MFA-, SSO-, Cybersicherheits- oder Zero Trust-Projekten ist eine echte Bereicherung.\n\n• Hervorragende Beherrschung von Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Gute Beherrschung von Microsoft 365 kollaborativen Tools (Teams, SharePoint, Viva Engage).\n\n• Autonomie, ausgezeichnete Kommunikationsfähigkeiten, Pragmatismus und die Fähigkeit, verschiedene Gesprächspartner zusammenzubringen.",
+        "fr": "Dans le cadre d’un programme de transformation IT international, nous recherchons un.e Change Manager IT pour piloter la conduite du changement autour de projets liés à la cybersécurité, à la gestion des identités et des accès (IAM) et à l’approche Zero Trust.\nVous accompagnerez les utilisateurs dans l’adoption de nouvelles solutions et de nouveaux processus, en coordonnant les actions de communication, de formation et de suivi avec les équipes métiers, IT et sécurité.\nVos responsabilités\n\n• Définir et piloter la stratégie de conduite du changement en cohérence avec la feuille de route du programme.\n\n• Analyser les impacts des évolutions sur les différentes populations et élaborer des plans d’accompagnement adaptés.\n\n• Concevoir et déployer les communications, supports de formation, guides utilisateurs et webinaires, en français et en anglais.\n\n• Accompagner le déploiement de nouvelles solutions d’authentification, notamment Windows Hello for Business, ainsi que l’évolution des modèles de gestion des accès.\n\n• Coordonner les parties prenantes et préparer les équipes métiers, les responsables applicatifs et le support IT aux changements.\n\n• Suivre les indicateurs d’adoption, identifier les risques et mettre en place les actions correctives nécessaires.\n\n• Assurer le reporting auprès des responsables du programme et organiser le transfert des activités aux équipes opérationnelles.\n\n• Plus de 5 ans d’expérience en conduite du changement sur des programmes IT transverses de grande envergure.\n\n• Certification Prosci ou équivalente obligatoire.\n\n• Formation universitaire (Bachelor ou Master) en management, communication, ressources humaines, systèmes d’information ou domaine équivalent.Expérience dans un environnement international et multiculturel, avec des équipes réparties géographiquement.\n\n• Une expérience sur des projets IAM, MFA, SSO, cybersécurité ou Zero Trust constitue un réel atout.\n\n• Excellente maîtrise du français et de l’anglais, à l’oral comme à l’écrit.\n\n• Bonne maîtrise des outils collaboratifs Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomie, excellentes capacités de communication, pragmatisme et aptitude à fédérer des interlocuteurs variés."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000155941719-change-manager-cybersecurite?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-24T21:20:42.673Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-16T08:40:23.687Z",
+      "postedDate": "2026-10-16T08:40:23.687Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155941719-change-manager-cybersecurite?oga=true",
+      "jobReqId": "744000155941719",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+        ],
+        "en": [
+          "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-16T09:14:05.404Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-9f5be93106bb",
+      "slug": "senior-integration-ingegnere-talan-geneve",
+      "slugByLocale": {
+        "it": "senior-integration-ingegnere-talan-geneve",
+        "en": "senior-integration-engineer-talan-geneve-switzerland",
+        "de": "senior-integration-ingenieur-talan-geneve",
+        "fr": "senior-integration-engineer-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Senior Integration Engineer",
+      "titleByLocale": {
+        "it": "Senior Integration Ingegnere",
+        "en": "Senior Integration Engineer",
+        "de": "Senior Integration Ingenieur",
+        "fr": "Senior Integration Ingénieur"
+      },
+      "description": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\n Vous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\n Atouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\n Formation : Bachelor ou Master en informatique ou dans un domaine équivalent.\n Environnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un Senior Integration Engineer per rafforzare un'integrazione delle applicazioni e il team API.\nInterverrete nella progettazione, sviluppo e manutenzione di soluzioni di integrazione robuste, sicure e scalabili, consentendo lo scambio fluido di dati tra diverse applicazioni e piattaforme.\n\n• Progettazione, sviluppo e manutenzione di soluzioni di integrazione in Python, Java e SQL Server.\n\n• Sviluppare e gestire le API, in particolare con FastAPI, e contribuire alla loro governance tramite una piattaforma di gestione d Royalty.\n\n• Implementare flussi di dati in tempo reale con Kafka e eventi e architetture orientate ai microservizi.\n\n• Distribuire e mantenere i componenti di integrazione in ambienti OpenShift.\n\n• Assicurare affidabilità, sicurezza, prestazioni e disponibilità di servizi critici.\n\n• Partecipa a una risoluzione complessa degli incidenti e a un continuo miglioramento delle soluzioni esistenti.\n\n• Utilizzare strumenti generici AI per accelerare lo sviluppo, il test, l'analisi dei registri e la documentazione, convalidando la qualità dei risultati prodotti.\n\n• Collaborare con team tecnici e funzionali e garantire la documentazione delle soluzioni implementate.\n\n• Minimo 5 anni di esperienza nell'integrazione delle applicazioni.\n\n• Ottima padronanza di Python e Java, così come SQL Server.\n\n• Esperienza pratica di sviluppo di aPI con FastAPI.\n\n• Buon controllo di Kafka e meccanismi di streaming e messaggistica.\n\n• Esperienza di una piattaforma API Management, idealmente Gravitee.\n\n• Comodo per ambienti OpenShift e containerizzati.\n\n• Competenza in microservizi architettura, architettura degli eventi e modelli di integrazione aziendale.\n\n• Conoscenza dei processi ETL/ELT e dei problemi di trasformazione e scambio dei dati.\n\n• Esperienza pratica del Modello Context Protocol (MCP) e la sua integrazione in complesse architetture applicative.\n\n• Utilizzando gli assistenti IA per lo sviluppo e l'automazione, con la capacità di valutare criticamente il codice generato.\n\n• Capacità di progettare e mantenere servizi critici, sicuri e in evoluzione.\n\n• Eccellente capacità di analisi, problem solving e comunicazione.\nUlteriori vantaggi: la conoscenza di Talend BSE, Apache Camel o altri strumenti di integrazione.\nFormazione: Bachelor o Master in Informatica o equivalente.\nAmbiente tecnico: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP e d",
+        "en": "We are looking for a Senior Integration Engineer to strengthen an application integration and API team.\nYou will intervene in the design, development and maintenance of robust, secure and scalable integration solutions, allowing for fluid exchange of data between different applications and platforms.\n\n• Design, develop and maintain integration solutions in Python, Java and SQL Server.\n\n• Develop and manage APIs, particularly with FastAPI, and contribute to their governance via a d的API Management platform.\n\n• Implement real-time data streams with Kafka and events and microservices-oriented architectures.\n\n• Deploy and maintain integration components in OpenShift environments.\n\n• Ensure reliability, security, performance and availability of critical services.\n\n• Participate in complex incident resolution and continuous improvement of existing solutions.\n\n• Use generic AI tools to accelerate development, testing, log analysis and documentation, while validating the quality of the results produced.\n\n• Collaborate with technical and functional teams and ensure documentation of implemented solutions.\n\n• Minimum 5 years of experience in application integration.\n\n• Very good mastery of Python and Java, as well as SQL Server.\n\n• Practical experience of developing aPI with FastAPI.\n\n• Good control of Kafka and streaming and messaging mechanisms.\n\n• Experience of an API Management platform, ideally Gravitee.\n\n• Convenient to OpenShift and containerized environments.\n\n• Expertise in microservices architecture, event architecture and Enterprise Integration Patterns.\n\n• Knowledge of ETL/ELT processes and data transformation and exchange issues.\n\n• Practical experience of the Model Context Protocol (MCP) and its integration into complex application architectures.\n\n• Using IA assistants for development and automation, with a capacity to critically evaluate the generated code.\n\n• Ability to design and maintain critical, secure and evolving services.\n\n• Excellent analytical, problem-solving and communication capabilities.\nAdditional benefits: knowledge of Talend BSE, Apache Camel or other integration tools.\nTraining: Bachelor or Master in Computer Science or equivalent.\nTechnical environment: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP and d",
+        "de": "Wir suchen einen Senior Integration Engineer, um ein Application Integration und API Team zu stärken.\nSie werden in das Design, die Entwicklung und die Wartung robuster, sicherer und skalierbarer Integrationslösungen eingreifen, die einen flüssigen Datenaustausch zwischen verschiedenen Anwendungen und Plattformen ermöglichen.\n\n• Design, Entwicklung und Wartung von Integrationslösungen in Python, Java und SQL Server.\n\n• Entwickeln und verwalten Sie APIs, insbesondere mit FastAPI, und tragen Sie über eine duousAPI Management-Plattform zu ihrer Governance bei.\n\n• Implementieren Sie Echtzeit-Datenströme mit Kafka und Events sowie Microservices-orientierten Architekturen.\n\n• Bereitstellung und Pflege von Integrationskomponenten in OpenShift-Umgebungen.\n\n• Gewährleistung von Zuverlässigkeit, Sicherheit, Leistung und Verfügbarkeit kritischer Dienste.\n\n• Beteiligen Sie sich an der Lösung komplexer Vorfälle und der kontinuierlichen Verbesserung bestehender Lösungen.\n\n• Verwenden Sie generische KI-Tools, um Entwicklung, Tests, Protokollanalyse und Dokumentation zu beschleunigen und gleichzeitig die Qualität der erzielten Ergebnisse zu validieren.\n\n• Arbeiten Sie mit technischen und funktionalen Teams zusammen und gewährleisten Sie die Dokumentation der implementierten Lösungen.\n\n• Mindestens 5 Jahre Erfahrung in der Anwendungsintegration.\n\n• Sehr gute Beherrschung von Python und Java sowie SQL Server.\n\n• Praktische Erfahrung in der Entwicklung von aPI mit FastAPI.\n\n• Gute Kontrolle über Kafka und Streaming- und Messaging-Mechanismen.\n\n• Erfahrung mit einer API Management Plattform, idealerweise Gravitee.\n\n• Bequem für OpenShift und containerisierte Umgebungen.\n\n• Expertise in Microservices-Architektur, Event-Architektur und Enterprise Integration Patterns.\n\n• Kenntnisse über ETL/ELT-Prozesse und Datentransformations- und -austauschfragen.\n\n• Praktische Erfahrungen mit dem Model Context Protocol (MCP) und dessen Integration in komplexe Anwendungsarchitekturen.\n\n• Verwendung von IA-Assistenten für Entwicklung und Automatisierung, mit der Fähigkeit, den generierten Code kritisch zu bewerten.\n\n• Fähigkeit, kritische, sichere und sich entwickelnde Dienste zu entwerfen und zu pflegen.\n\n• Hervorragende Analyse-, Problemlösungs- und Kommunikationsfähigkeiten.\nZusätzliche Vorteile: Kenntnisse über Talend BSE, Apache Camel oder andere Integrationswerkzeuge.\nAusbildung: Bachelor oder Master in Informatik oder gleichwertig.\nTechnische Umgebung: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP und d",
+        "fr": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\nVous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\nAtouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\nFormation : Bachelor ou Master en informatique ou dans un domaine équivalent.\nEnvironnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-24T21:20:42.671Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T11:59:18.670Z",
+      "postedDate": "2026-10-23T11:59:18.670Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
+      "jobReqId": "744000157455639",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-integration-engineer-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-integration-engineer-talan-geneve-switzerland"
+        ],
+        "de": [
+          "senior-integration-engineer-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T21:11:18.479Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-dbc24b5b3f3c",
       "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
       "slugByLocale": {
@@ -1543,7 +1543,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:15:05.382Z",
+      "crawledAt": "2026-10-24T21:20:42.665Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",

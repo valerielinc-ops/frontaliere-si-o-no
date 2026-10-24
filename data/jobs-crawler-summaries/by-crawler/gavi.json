@@ -1,7 +1,7 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-10-24T09:13:44.873Z",
+  "generatedAt": "2026-10-24T21:20:21.380Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
@@ -14,60 +14,16 @@
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1320,
-  "avgDurationMs": 1320,
+  "durationMs": 1271,
+  "avgDurationMs": 1271,
   "durationHistory": [
-    1320
+    1271
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "gavi-ee86033d5ad4",
-      "slug": "senior-manager-previsioni-sui-vaccini-gavi-the-vaccine-alliance-le-grand-saconnex",
-      "company": "Gavi, the Vaccine Alliance",
-      "companyKey": "gavi",
-      "companyDomain": "gavi.org",
-      "title": "Senior Manager, Vaccine Forecasting",
-      "location": "Le Grand-Saconnex",
-      "canton": "GE",
-      "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2541&portal=Global",
-      "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:11:03.443Z",
-      "addressLocality": "Le Grand-Saconnex",
-      "addressRegion": "GE",
-      "streetAddress": "Chemin du Pommier 40",
-      "postalCode": "1218",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Salute globale / Organizzazioni internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2541&portal=Global",
-      "jobReqId": "VN2541",
-      "firstSeenAt": "2026-10-08T21:15:57.742Z",
-      "salaryMin": 116500,
-      "salaryMax": 162500,
-      "salarySource": "estimated",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
