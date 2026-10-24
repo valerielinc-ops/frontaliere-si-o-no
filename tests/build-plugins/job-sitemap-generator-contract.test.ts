@@ -10,13 +10,10 @@
  *  - the nested shard index references exactly the shard files on disk;
  *  - every file respects the sitemaps.org limits (50,000 URLs, 50 MB).
  */
-import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { jobsSeoPagesPlugin } from '../../build-plugins/jobsSeoPagesPlugin';
-import { employerProfilePagesPlugin } from '../../build-plugins/employerProfilePagesPlugin';
-import { localeJobsSplitPlugin } from '../../build-plugins/localeJobsSplitPlugin';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
 const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
@@ -51,6 +48,10 @@ const jobs = fixtures.map((f, i) => ({
   ...f.dates,
 }));
 
+// An older record of the same vacancy (same id and slugs): only the most
+// recent one may own the URLs, so every locale <loc> must appear exactly once.
+const olderDuplicate = { ...jobs[0], firstSeenAt: daysAgo(40), datePosted: daysAgo(40), postedDate: daysAgo(40) };
+
 let root: string;
 let dist: string;
 
@@ -69,23 +70,39 @@ function urlBlocks(file: string): UrlBlock[] {
   }));
 }
 
-beforeAll(async () => {
-  root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-sitemap-contract-'));
-  dist = path.join(root, 'dist');
-  fs.mkdirSync(path.join(root, 'data'), { recursive: true });
-  fs.mkdirSync(dist, { recursive: true });
-  fs.symlinkSync(path.resolve('scripts'), path.join(root, 'scripts'), 'dir');
-  fs.writeFileSync(path.join(dist, 'index.html'), '<!doctype html><html><head><script type="module" src="/assets/index-test.js"></script></head><body><div id="root"></div></body></html>');
-  fs.copyFileSync(path.resolve('data/canton-url-slugs.json'), path.join(root, 'data/canton-url-slugs.json'));
-  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify(jobs));
-  await (employerProfilePagesPlugin(root).closeBundle as () => Promise<void>)();
-  (localeJobsSplitPlugin(root).closeBundle as () => void)();
-  await (jobsSeoPagesPlugin(root).closeBundle as () => Promise<void>)();
-}, 300_000);
+async function runGenerator(buildLocale: string | undefined): Promise<void> {
+  const previous = process.env.BUILD_LOCALE;
+  if (buildLocale === undefined) delete process.env.BUILD_LOCALE;
+  else process.env.BUILD_LOCALE = buildLocale;
+  try {
+    // shouldEmitLocale reads BUILD_LOCALE at module load.
+    vi.resetModules();
+    const { jobsSeoPagesPlugin } = await import('../../build-plugins/jobsSeoPagesPlugin');
+    const { employerProfilePagesPlugin } = await import('../../build-plugins/employerProfilePagesPlugin');
+    const { localeJobsSplitPlugin } = await import('../../build-plugins/localeJobsSplitPlugin');
+    root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-sitemap-contract-'));
+    dist = path.join(root, 'dist');
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    fs.mkdirSync(dist, { recursive: true });
+    fs.symlinkSync(path.resolve('scripts'), path.join(root, 'scripts'), 'dir');
+    fs.writeFileSync(path.join(dist, 'index.html'), '<!doctype html><html><head><script type="module" src="/assets/index-test.js"></script></head><body><div id="root"></div></body></html>');
+    fs.copyFileSync(path.resolve('data/canton-url-slugs.json'), path.join(root, 'data/canton-url-slugs.json'));
+    fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, olderDuplicate]));
+    await (employerProfilePagesPlugin(root).closeBundle as () => Promise<void>)();
+    (localeJobsSplitPlugin(root).closeBundle as () => void)();
+    await (jobsSeoPagesPlugin(root).closeBundle as () => Promise<void>)();
+  } finally {
+    if (previous === undefined) delete process.env.BUILD_LOCALE;
+    else process.env.BUILD_LOCALE = previous;
+  }
+}
 
-afterAll(() => { if (root) fs.rmSync(root, { recursive: true, force: true }); });
+// `undefined` = monolithic build (all locales); 'it' = the production IT leg,
+// which renders only IT pages but writes the sitemaps for all four locales.
+describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD_LOCALE=%s)', (buildLocale) => {
+  beforeAll(() => runGenerator(buildLocale), 300_000);
+  afterAll(() => { if (root) fs.rmSync(root, { recursive: true, force: true }); }, 120_000);
 
-describe('job sitemap generator contract', () => {
   it('gives every job detail the listing date as <lastmod>, never the crawl heartbeat', () => {
     const blocks = sitemapFiles().filter((f) => f.startsWith('sitemap-jobs')).flatMap(urlBlocks);
     for (const fixture of fixtures) {
@@ -121,13 +138,13 @@ describe('job sitemap generator contract', () => {
     expect(stamped.map((b) => `${b.file} ${b.loc}`)).toEqual([]);
   });
 
-  it('lists every URL in exactly one sitemap file', () => {
+  it('lists every URL exactly once across all sitemap files', () => {
     const owner = new Map<string, string>();
     const duplicates: string[] = [];
     for (const file of sitemapFiles()) {
       for (const { loc } of urlBlocks(file)) {
         const previous = owner.get(loc);
-        if (previous && previous !== file) duplicates.push(`${loc} in ${previous} and ${file}`);
+        if (previous) duplicates.push(`${loc} in ${previous} and ${file}`);
         else owner.set(loc, file);
       }
     }

@@ -3307,7 +3307,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
  const sitemapEligibleJobs = validJobs.filter(isSitemapEligibleJob);
  const activeJobSitemapLocs = new Set<string>();
- const jobSitemapAllLocaleLocs = new Set<string>();
+ // URL → the single job that owns it (first claim of its (canton, locale,
+ // slug) tuple, the active emitter's own rule), for every locale regardless
+ // of BUILD_LOCALE. The sitemap writes each job's hreflang group only from
+ // URLs this job owns, so a same-id or duplicate record can never push a
+ // second copy of a locale <loc> (review #15110).
+ const jobSitemapLocOwner = new Map<string, unknown>();
  const claimedActiveJobPaths = new Set<string>();
  for (const job of validJobs) {
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
@@ -3325,13 +3330,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    // The sitemap lists every locale (the IT build writes it for all four;
    // the EN/DE/FR pages live on their own locale shard). Internal links stay
    // limited to the locales this build renders (#14380).
-   jobSitemapAllLocaleLocs.add(localeUrl);
+   if (!jobSitemapLocOwner.has(localeUrl)) jobSitemapLocOwner.set(localeUrl, job);
    if (!shouldEmitLocale(locale)) continue;
    activeJobSitemapLocs.add(localeUrl);
   }
  }
  setActiveJobSitemapLocs(activeJobSitemapLocs);
- setJobSitemapAllowlist(jobSitemapAllLocaleLocs);
+ setJobSitemapAllowlist(new Set(jobSitemapLocOwner.keys()));
  const activeCanonicalJobHref = (
   job: any,
   locale: 'it' | 'en' | 'de' | 'fr',
@@ -11148,8 +11153,11 @@ ${staticAnalyticsHtml}
  // it as an hreflang target in that case creates a sitemap URL that is either
  // missing or points at a different page.
  if (resolveCanonicalUrl(perLocaleSlugMap[l], localeUrl) !== localeUrl) continue;
- if (!emittedActiveJobPaths.has(`${jobCantonForSitemap}:${l}:${perLocaleSlugMap[l]}`)) continue;
- if (!jobSitemapAllLocaleLocs.has(localeUrl)) continue;
+ // Ownership, not mere existence: only the job that won this (canton,
+ // locale, slug) tuple lists it. The registry is source-level and covers
+ // every locale, so the IT build also lists the EN/DE/FR pages that live on
+ // the other locale shards.
+ if (jobSitemapLocOwner.get(localeUrl) !== job) continue;
  sitemapLocalePaths.set(l, localePath);
  }
  if (!sitemapLocalePaths.has('it')) return '';
