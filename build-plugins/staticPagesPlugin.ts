@@ -253,6 +253,7 @@ import {
   type GlossaryDetailLocale,
 } from './shared/glossaryTermDetail';
 import { renderBorderCrossingGuideDetail, type CrossingGuideLocale } from './shared/borderCrossingGuideDetail';
+import { AI_USE_STATEMENT, CORRECTIONS_PAGE_PATHS, METHODOLOGY_PAGE_PATHS } from '../packages/articles/engine/shared/aiDisclosure';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
 
 const GLOSSARY_SECTION_SLUGS = new Set([
@@ -5299,14 +5300,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(...svBody);
  } else if (canonicalPath === '/chi-siamo' || canonicalPath === '/chi-siamo/') {
  editorialBlocks.push(
- `<h2 class="s-o3IET6">Chi siamo — Il team di Frontaliere Ticino</h2>`,
- `Frontaliere Ticino è la piattaforma informativa indipendente di riferimento per i lavoratori frontalieri italiani che lavorano nel Canton Ticino, Svizzera. Fondata nel 2024, nasce dall'esigenza concreta di oltre 80.000 frontalieri che ogni giorno attraversano la frontiera italo-svizzera e necessitano di informazioni chiare, aggiornate e imparziali su fiscalità, previdenza, permessi di lavoro e vita quotidiana.`,
- `La redazione è composta da esperti in fiscalità transfrontaliera, previdenza sociale svizzera e italiana, e diritto del lavoro internazionale. Il team monitora quotidianamente le normative di entrambi i paesi — dall'Amministrazione federale delle contribuzioni (AFC/ESTV) all'Agenzia delle Entrate italiana, dalla SECO all'INPS — per garantire che ogni dato, aliquota e procedura pubblicata sia accurata e aggiornata.`,
+ `<h2 class="s-o3IET6">Chi siamo — La redazione di Frontaliere Ticino</h2>`,
+ `Frontaliere Ticino è una piattaforma informativa indipendente per i lavoratori frontalieri italiani che lavorano nel Canton Ticino, Svizzera: strumenti di calcolo, informazioni fiscali, offerte di lavoro e notizie sul confine italo-svizzero, con l'obiettivo di offrire informazioni chiare e imparziali su fiscalità, previdenza, permessi di lavoro e vita quotidiana.`,
+ // The one AI statement (packages/articles/engine/shared/aiDisclosure.ts) —
+ // this paragraph used to describe an expert newsroom, which
+ // contradicted the React page and the published methodology.
+ `<h2 class="s-o3IET6">Come lavoriamo e uso dell'IA</h2>`,
+ `${AI_USE_STATEMENT.it} Seguiamo le comunicazioni dell'Amministrazione federale delle contribuzioni (AFC/ESTV), dell'Agenzia delle Entrate, della SECO e dell'INPS e colleghiamo le fonti nei testi. Il processo e i suoi limiti sono descritti nella <a class="s-OsohZU" href="${METHODOLOGY_PAGE_PATHS.it}">Metodologia</a>; gli errori corretti sono tracciati nel <a class="s-OsohZU" href="${CORRECTIONS_PAGE_PATHS.it}">registro pubblico delle correzioni</a>.`,
  `<h2 class="s-o3IET6">La nostra missione</h2>`,
  `La missione di Frontaliere Ticino è rendere accessibili e comprensibili le complessità fiscali e amministrative del lavoro transfrontaliero. I nostri simulatori calcolano il netto in busta paga con i parametri reali delle tabelle fiscali svizzere e italiane 2026, i comparatori confrontano assicurazioni sanitarie LAMal, costi della vita e opzioni di trasporto, e il motore di ricerca lavoro aggrega oltre 1.500 posizioni attive da più di 100 aziende ticinesi.`,
- `<h2 class="s-o3IET6">Competenza e indipendenza</h2>`,
- `Tutti i contenuti sono basati esclusivamente su fonti ufficiali: tabelle fiscali dell'AFC, parametri contributivi UFAS/BSV, dati statistici dell'Ufficio federale di statistica (UST/BFS), normative SECO e pubblicazioni dell'Agenzia delle Entrate. La piattaforma è completamente indipendente da banche, assicurazioni e datori di lavoro — le informazioni fornite sono imparziali e verificabili.`,
- `Il sito è disponibile in quattro lingue (italiano, inglese, tedesco, francese) e viene aggiornato quotidianamente con le ultime novità legislative, offerte di lavoro verificate e dati di mercato. Oltre 700 articoli di approfondimento coprono ogni aspetto della vita del frontaliere, dalla prima assunzione alla pianificazione pensionistica.`,
+ `<h2 class="s-o3IET6">Fonti e indipendenza</h2>`,
+ `I calcolatori usano parametri tratti da fonti ufficiali: tabelle fiscali dell'AFC, parametri contributivi UFAS/BSV, dati statistici dell'Ufficio federale di statistica (UST/BFS), normative SECO e pubblicazioni dell'Agenzia delle Entrate. Le notizie possono basarsi anche su fonti giornalistiche o comunicati di organizzazioni, attribuiti e collegati nel testo. La piattaforma è indipendente da banche, assicurazioni e datori di lavoro.`,
+ `Il sito è disponibile in quattro lingue (italiano, inglese, tedesco, francese) e viene aggiornato quotidianamente con novità legislative, offerte di lavoro raccolte dai siti dei datori di lavoro e dati di mercato. Gli articoli di approfondimento coprono la vita del frontaliere, dalla prima assunzione alla pianificazione pensionistica.`,
  `<h2 class="s-o3IET6">Le firme della redazione</h2>`,
  // Derived from data/authors.ts: the hand-copied list missed samuele-valente
  // and kept the superseded expertise text after the registry was corrected.
@@ -5333,13 +5338,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  } else if (canonicalPath === '/about' || canonicalPath === '/about/') {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">About Us — The Frontaliere Ticino Team</h2>`,
- `Frontaliere Ticino is the leading independent information platform for Italian cross-border workers employed in Canton Ticino, Switzerland. Founded in 2024, it was created to serve the over 80,000 frontalieri who cross the Swiss-Italian border daily and need clear, up-to-date, and impartial information on taxation, social security, work permits, and daily life.`,
- `Our editorial team consists of experts in cross-border taxation, Swiss and Italian social security systems, and international labour law. The team monitors regulations from both countries daily — from the Federal Tax Administration (FTA/ESTV) to the Italian Revenue Agency (Agenzia delle Entrate), from SECO to INPS — to ensure every rate, procedure, and data point published is accurate and current.`,
+ `Frontaliere Ticino is an independent information platform for Italian cross-border workers employed in Canton Ticino, Switzerland, aiming to provide clear and impartial information on taxation, social security, work permits, and daily life.`,
+ `${AI_USE_STATEMENT.en} We follow communications from the Federal Tax Administration (FTA/ESTV), the Italian Revenue Agency (Agenzia delle Entrate), SECO and INPS and link the sources in the text. The process and its limits are described in our <a href="${METHODOLOGY_PAGE_PATHS.en}">methodology</a>; corrected errors are recorded in the <a href="${CORRECTIONS_PAGE_PATHS.en}">public corrections log</a>.`,
  `<h2 class="s-o3IET6">Our Mission</h2>`,
  `Frontaliere Ticino's mission is to make the fiscal and administrative complexities of cross-border work accessible and understandable. Our simulators calculate net salary using actual 2026 Swiss and Italian tax tables, our comparators benchmark LAMal health insurance, cost of living, and transport options, and our job search engine aggregates over 1,500 active positions from more than 100 Ticino-based companies.`,
- `<h2 class="s-o3IET6">Expertise and Independence</h2>`,
- `All content is based exclusively on official sources: FTA tax tables, FSIO/BSV contribution parameters, FSO/BFS statistical data, SECO regulations, and Italian Revenue Agency publications. The platform is completely independent from banks, insurance companies, and employers — the information provided is impartial and verifiable.`,
- `The site is available in four languages (Italian, English, German, French) and is updated daily with the latest legislative developments, verified job offers, and market data. Over 700 in-depth articles cover every aspect of the cross-border worker's life, from first employment to retirement planning.`,
+ `<h2 class="s-o3IET6">Sources and Independence</h2>`,
+ `Calculators use parameters from official sources: FTA tax tables, FSIO/BSV contribution parameters, FSO/BFS statistical data, SECO regulations, and Italian Revenue Agency publications. News may also rely on journalistic sources or statements from organisations, attributed and linked in the text. The platform is independent from banks, insurance companies, and employers.`,
+ `The site is available in four languages (Italian, English, German, French) and is updated daily with legislative developments, job offers collected from employers' websites, and market data. In-depth articles cover the cross-border worker's life, from first employment to retirement planning.`,
  `<h2 class="s-o3IET6">Platform Features</h2>`,
  `Key features include a comprehensive fiscal simulator comparing Permit B (Swiss resident) and Permit G (cross-border commuter) scenarios, a pension planner covering AVS/AHV first pillar and LPP/BVG second pillar projections, a health insurance comparator with real LAMal premiums from 14 Swiss insurers across 7 cantons, a currency exchange tracker with live CHF-EUR rates, and a border crossing traffic monitor providing real-time wait estimates for all Ticino-Italy crossings.`,
  `<h2 class="s-o3IET6">Contact and Community</h2>`,
