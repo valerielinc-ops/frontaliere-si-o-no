@@ -780,7 +780,7 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         sleepImpl: () => new Promise(() => {}),
         fetchImpl,
         existingJobs: [],
-      })).rejects.toThrow(/listing failed|authoritative snapshot exceeded its whole-run deadline/i);
+      })).rejects.toThrow(/listing failed|authoritative snapshot exceeded \d+ms/i);
 
       expect(Date.now() - startedAt).toBeLessThan(300);
     });
