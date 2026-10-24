@@ -22,6 +22,7 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { infeedAdListItemHtml, infeedAdGridBlockHtml, endOfContentMultiplexHtml } from '../../build-plugins/lib/adSlotHtml';
+import { buildSeoPageHtml } from '../../build-plugins/shared/seoPageShell';
 import { AD_SLOTS } from '../../services/adsenseSlots';
 import { ADSENSE_MIN_CHARS_PER_AD_SLOT } from '../../scripts/adsense-prereview-thresholds.mjs';
 import { renderProfessionBelowFloorBridge } from '../../build-plugins/shared/professionJobsFloor';
@@ -97,6 +98,26 @@ function extractFunctionBody(source: string, fnName: string): string {
 }
 
 describe('SEO static-page ad slots — regression guard', () => {
+  it('prunes trailing job-list slots when the completed body cannot support the cadence', () => {
+    const body = [
+      `<p>${'visible '.repeat(137)}</p>`,
+      infeedAdListItemHtml(),
+      infeedAdGridBlockHtml(),
+      infeedAdListItemHtml(),
+    ].join('');
+    const html = buildSeoPageHtml({
+      locale: 'en',
+      title: 'Finance jobs',
+      description: 'Finance jobs in Ticino',
+      canonicalUrl: 'https://frontaliereticino.ch/en/find-jobs-ticino/sector/finance/',
+      bodyHtml: body,
+    });
+
+    const slotCount = html.match(new RegExp(`data-ad-slot="${AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}"`, 'g'))?.length ?? 0;
+    expect(slotCount).toBe(2);
+    expect(html).toContain('adsbygoogle.js');
+  });
+
   for (const spec of SPECS) {
     it(`${spec.file} :: ${spec.fn} contains exactly one adSlotHtml('${spec.expectedSlot}') call`, () => {
       const filePath = path.join(ROOT, spec.file);
