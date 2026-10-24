@@ -16,7 +16,6 @@
  * Keep `name`/`url`/`logo` in sync with the index.html Organization block.
  */
 
-import { FOUNDING_YEAR } from './keyFacts';
 import {
   canonicalizeSiteOrganizationCreator,
   imageObjectLd,
@@ -290,12 +289,14 @@ export const ORGANIZATION_LD = {
 } as const;
 
 /**
- * Founding year. ONE value, from `keyFacts.ts`: `index.html` said 2023 while
- * /chi-siamo/ (static and React, four locales) said 2024 under the same
- * `@id`. The visible copy wins — structured data must describe the page —
- * and `tests/key-facts-single-source.test.ts` holds every surface to it.
+ * Founding year. ONE value: `index.html` said 2023 while /chi-siamo/ (static
+ * and React, four locales) said 2024 under the same `@id`. The visible copy
+ * wins — structured data must describe the page. `keyFacts.ts` re-exports it
+ * as `FOUNDING_YEAR` (this file is an `identical` twin of the corpus and must
+ * not import site-only modules) and `tests/key-facts-single-source.test.ts`
+ * holds every surface to it.
  */
-export const ORGANIZATION_FOUNDING_DATE = FOUNDING_YEAR;
+export const ORGANIZATION_FOUNDING_DATE = '2024';
 
 /**
  * The FULL entity — identity plus the publisher-transparency block.

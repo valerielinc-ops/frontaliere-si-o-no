@@ -16,6 +16,8 @@
  * it is stated as an approximation.
  */
 
+import { ORGANIZATION_FOUNDING_DATE } from './organizationLd';
+
 export type KeyFactsLocale = 'it' | 'en' | 'de' | 'fr';
 
 export const KEY_FACTS_SOURCE = Object.freeze({
@@ -39,7 +41,7 @@ export const TICINO_CROSS_BORDER_WORKERS_ROUNDED = Math.round(TICINO_CROSS_BORDE
 export const TICINO_CROSS_BORDER_SHARE_PERCENT = Math.round((TICINO_CROSS_BORDER_WORKERS / TICINO_EMPLOYED_DOMESTIC) * 100); // 32
 
 /** Founding year of Frontaliere Ticino, as stated on /chi-siamo/ and in Organization JSON-LD. */
-export const FOUNDING_YEAR = '2024';
+export const FOUNDING_YEAR = ORGANIZATION_FOUNDING_DATE;
 
 /** Locale-formatted headcount ("79.000", "79,000", "79 000"). */
 export function formatCrossBorderWorkers(locale: KeyFactsLocale): string {
