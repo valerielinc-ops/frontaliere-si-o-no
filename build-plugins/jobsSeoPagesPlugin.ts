@@ -310,6 +310,7 @@ import {
  companyCityCompanyHubHeading,
  companyCityLinksForCompany,
  companyCityLinksForJobs,
+ releaseCompanyCityPlan,
  renderCompanyCityLinks,
  type CompanyCityKeyDeps,
 } from './shared/companyCityHubPlan';
@@ -9935,6 +9936,24 @@ ${staticAnalyticsHtml}
  : companyCityEntriesJoined;
  }
  }
+
+ // Phase 3.4 is the final reader of companyCityPlan. Its buckets contain
+ // references to the active corpus; keeping them alive until closeBundle
+ // returns defeats the corpus release below and leaves the next closeBundle
+ // plugin to compete with this otherwise dead graph. Release the nested
+ // containers now, and expose the released cardinalities in the memory log.
+ const releasedCompanyCityPlan = releaseCompanyCityPlan(companyCityPlan);
+ maybeForceJobsSeoHtmlGc();
+ logJobsSeoMem('after company-city-plan-release', {
+  companyCityPlanCantons: companyCityPlan.size,
+  companyCityPlanCompanies: 0,
+  companyCityPlanCities: 0,
+  companyCityPlanJobRefs: 0,
+  releasedCompanyCityPlanCantons: releasedCompanyCityPlan.cantons,
+  releasedCompanyCityPlanCompanies: releasedCompanyCityPlan.companies,
+  releasedCompanyCityPlanCities: releasedCompanyCityPlan.cities,
+  releasedCompanyCityPlanJobRefs: releasedCompanyCityPlan.jobRefs,
+ });
 
  /* ── GSC-driven keyword landing pages ──────────────────────── */
  // Anti-doorway floor (CLAUDE.md non-negotiable #4 — no thin indexed

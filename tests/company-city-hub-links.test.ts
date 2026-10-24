@@ -21,6 +21,7 @@ import {
   companyCityLinksForJobs,
   companyCityRawLocation,
   isEmittedCompanyCityHub,
+  releaseCompanyCityPlan,
   renderCompanyCityLinks,
   type CompanyCityKeyDeps,
 } from '../build-plugins/shared/companyCityHubPlan';
@@ -77,6 +78,19 @@ describe('buildCompanyCityPlan', () => {
   it('usa il testo prima di "," o "(" come località', () => {
     expect(companyCityRawLocation('Winterthur (ZH)')).toBe('Winterthur');
     expect(companyCityRawLocation('Zürich, ZH')).toBe('Zürich');
+  });
+
+  it('rilascia i bucket e le reference ai job dopo l\'ultimo reader', () => {
+    const plan = buildCompanyCityPlan(JOBS, deps);
+
+    expect(releaseCompanyCityPlan(plan)).toEqual({
+      cantons: 1,
+      companies: 3,
+      cities: 4,
+      jobRefs: 8,
+    });
+    expect(plan.size).toBe(0);
+    expect(companyCityLinksForCompany(plan, 'ZH', 'coop-genossenschaft')).toEqual([]);
   });
 });
 
@@ -177,5 +191,12 @@ describe('cablaggio in jobsSeoPagesPlugin', () => {
     const phase33 = src.slice(at('/* ── Per-canton company hubs (Phase 3.3)'), at('/* ── Per-canton company × city hubs (Phase 3.4)'));
     expect(phase33).toContain('companyCityLinksForCompany(companyCityPlan, canton, cSlug)');
     expect(phase33).toContain('${companyLocationsHtml}');
+  });
+
+  it('rilascia il piano solo dopo l\'ultima lettura della Phase 3.4', () => {
+    const release = at('const releasedCompanyCityPlan = releaseCompanyCityPlan(companyCityPlan);');
+    expect(release).toBeGreaterThan(at('companyCityLinksForCompany(companyCityPlan, canton, cSlug)'));
+    expect(release).toBeGreaterThan(at('companyCityLinksForJobs(companyCityPlan, cityJobs, companyCityDeps)'));
+    expect(src.slice(release)).toContain("logJobsSeoMem('after company-city-plan-release'");
   });
 });

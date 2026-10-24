@@ -98,6 +98,49 @@ export function buildCompanyCityPlan<J>(jobs: Iterable<J>, deps: CompanyCityKeyD
   return plan;
 }
 
+export interface CompanyCityPlanMemoryStats {
+  cantons: number;
+  companies: number;
+  cities: number;
+  jobRefs: number;
+}
+
+/**
+ * Release the plan after its final reader has emitted the company × city hubs.
+ *
+ * The plan is deliberately built from references to the active job corpus, so
+ * leaving it alive until closeBundle returns keeps those jobs reachable even
+ * after the main `validJobs` array is cleared. Clear the nested containers
+ * explicitly: this makes the ownership boundary true immediately, and keeps
+ * the release auditable in a memory checkpoint rather than relying on a later
+ * function-return GC.
+ */
+export function releaseCompanyCityPlan<J>(plan: CompanyCityPlan<J>): CompanyCityPlanMemoryStats {
+  let companies = 0;
+  let cities = 0;
+  let jobRefs = 0;
+  for (const byCompany of plan.values()) {
+    companies += byCompany.size;
+    for (const byCity of byCompany.values()) {
+      cities += byCity.size;
+      for (const bucket of byCity.values()) {
+        jobRefs += bucket.jobs.length;
+        bucket.jobs.length = 0;
+      }
+      byCity.clear();
+    }
+    byCompany.clear();
+  }
+  const stats: CompanyCityPlanMemoryStats = {
+    cantons: plan.size,
+    companies,
+    cities,
+    jobRefs,
+  };
+  plan.clear();
+  return stats;
+}
+
 /** True when the pair renders a real (indexable) hub rather than a bridge. */
 export function isEmittedCompanyCityHub<J>(bucket: CompanyCityBucket<J> | undefined): boolean {
   return !!bucket && bucket.jobs.length >= MIN_JOBS_PER_CANTON_COMPANY_CITY;
