@@ -1,3 +1,4 @@
+import { isPaginationSitemapEligible, paginationRobots } from './shared/paginationIndexPolicy';
 import { CALC_HREF } from './shared/calcHref';
 import { buildSalaryAnswer, searchSalaryMedian, hasSalaryIntent } from './shared/searchSalaryAnswer';
 import {
@@ -4079,7 +4080,8 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     title,
     description: copy.hubDescription,
     canonicalUrl,
-    robots: 'index,follow',
+    // P1 noindex plan: hub pages 11+ stay 200 + crawlable but leave the index.
+    robots: paginationRobots(page),
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: page === 1 ? renderHubRootHreflang() : '',
@@ -6324,7 +6326,9 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           collector.add(flatPath, buildFlatBridgeFromSibling(out.html, out.loc));
           emittedFiles.push(path.relative(distDir, indexPath));
           emittedFiles.push(path.relative(distDir, flatPath));
-          sitemapLocs.push(out.loc);
+          // Only page 1 of the hub is advertised (paginationIndexPolicy); the
+          // rest is reached through its own page navigator.
+          if (isPaginationSitemapEligible(page)) sitemapLocs.push(out.loc);
           profileRecord('render-hub-page', __tRenderHub);
         }
 
