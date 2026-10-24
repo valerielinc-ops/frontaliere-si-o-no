@@ -17,7 +17,7 @@ vi.mock('../scripts/jobs-url-helper.mjs', () => ({
   getCrawlerElapsedMs: vi.fn(() => 0),
 }));
 
-const { fetchTichJobDetailUrls } = await import('../scripts/update-tich-jobs.mjs');
+const { buildTichFetchProxyHosts, fetchTichJobDetailUrls } = await import('../scripts/update-tich-jobs.mjs');
 
 const LISTING_URL = 'https://www.concorsi.ti.ch/';
 const RSS_URL = 'https://www.concorsi.ti.ch/rss_generator-rss0.php?unit=act&lang=it';
@@ -75,6 +75,7 @@ describe('fetchTichJobDetailUrls', () => {
 
     expect(result.listingSucceeded).toBe(true);
     expect(result.rssSucceeded).toBe(true);
+    expect(result.officialSucceeded).toBe(false);
     expect(result.urls).toEqual([
       "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4101",
     ]);
@@ -102,5 +103,17 @@ describe('fetchTichJobDetailUrls', () => {
       "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
     ]);
     expect(fetchImpl).toHaveBeenCalledWith(OFFICIAL_LISTING_URL, expect.anything());
+  });
+});
+
+describe('buildTichFetchProxyHosts', () => {
+  it('keeps normal listing/RSS discovery on the inherited direct-fetch path', () => {
+    expect(buildTichFetchProxyHosts({ officialSucceeded: false }, 'other.example')).toBe('other.example');
+  });
+
+  it('adds the egress proxy only when the official listing supplied the URLs', () => {
+    expect(buildTichFetchProxyHosts({ officialSucceeded: true }, 'other.example')).toBe(
+      'other.example,www.concorsi.ti.ch',
+    );
   });
 });
