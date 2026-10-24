@@ -240,7 +240,8 @@ import {
  SECTOR_HUB_SLUG,
  buildSectorHubPath,
  buildSectorHubSeo,
- jobMatchesSector,
+ jobMatchesSector as jobMatchesSectorUncached,
+ createJobSectorMatchMemo,
  assertSectorHubTablesComplete,
  type SectorHubKey,
 } from './jobSectorLanding';
@@ -1181,6 +1182,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  async closeBundle() {
  let expiredSliceOverflow: ExpiredSliceOverflow<any> | undefined;
  try {
+ // JOBS_SEO_SECTOR_MEMO=1: one memo per closeBundle over the immutable job
+ // corpus — same booleans, without re-running the sector regexes for every
+ // repeated (job, sector, locale) question (see createJobSectorMatchMemo).
+ const jobMatchesSector = process.env.JOBS_SEO_SECTOR_MEMO === '1'
+  ? createJobSectorMatchMemo()
+  : jobMatchesSectorUncached;
  const jobsSeoSample = resolveJobsSeoSample();
  resetIncrementalManifestInputCache(rootDir);
  // Fail the build loudly (follow-up #3608 item 2) instead of silently
@@ -13292,6 +13299,28 @@ ${staticAnalyticsHtml}
   (a, b) => b[0].length - a[0].length,
  );
 
+ // JOBS_SEO_SLUG_INFO_FAST=1: same matches, without the per-call work. The
+ // historical loop compiled one RegExp per company for EVERY slug (thousands
+ // of companies × every orphan slug: 168 s self + its garbage on the `de`
+ // leg, run 40070147721) and concatenated `'-' + loc.slug` per location. The
+ // fast path compiles each company pattern once, skips the regex when the
+ // literal slug is not even a substring (a necessary condition of the
+ // bounded pattern), and reads precomputed location probes. The loop order,
+ // the first-match `break`s and every replacement are unchanged.
+ const SLUG_INFO_FAST = process.env.JOBS_SEO_SLUG_INFO_FAST === '1';
+ const companySlugRegexCache = new Map<string, RegExp>();
+ const companySlugRegex = (companySlug: string): RegExp => {
+  let re = companySlugRegexCache.get(companySlug);
+  if (!re) {
+   const escaped = companySlug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+   re = new RegExp(`(?:^|-)${escaped}(?:-|$)`);
+   companySlugRegexCache.set(companySlug, re);
+  }
+  return re;
+ };
+ const locationMidProbes = SLUG_INFO_FAST
+  ? locationSlugPairs.map((loc) => `-${loc.slug}-`)
+  : [];
  const extractInfoFromSlug = (slug: string): { title: string; company: string; companyKey: string; location: string; postalCode: string } => {
  let remaining = slug;
  let company = '';
@@ -13303,8 +13332,14 @@ ${staticAnalyticsHtml}
  // Use regex with hyphen/start/end boundaries to prevent false positives
  // e.g. "a-group" must not match inside "prada-group"
  for (const c of companySlugMap) {
+ let re: RegExp;
+ if (SLUG_INFO_FAST) {
+  if (!remaining.includes(c.slug)) continue;
+  re = companySlugRegex(c.slug);
+ } else {
  const escaped = c.slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
- const re = new RegExp(`(?:^|-)${escaped}(?:-|$)`);
+ re = new RegExp(`(?:^|-)${escaped}(?:-|$)`);
+ }
  if (re.test(remaining)) {
  company = c.name;
  companyKey = c.slug;
@@ -13314,15 +13349,18 @@ ${staticAnalyticsHtml}
  }
 
  // 2. Match location (longest name match first, at end of slug preferred)
- for (const loc of locationSlugPairs) {
- if (remaining.endsWith(loc.slug) || remaining.endsWith('-' + loc.slug)) {
+ for (let locIndex = 0; locIndex < locationSlugPairs.length; locIndex++) {
+ const loc = locationSlugPairs[locIndex];
+ // `endsWith('-' + x)` implies `endsWith(x)`: the fast path tests only the
+ // weaker condition, which is the whole disjunction.
+ if (SLUG_INFO_FAST ? remaining.endsWith(loc.slug) : (remaining.endsWith(loc.slug) || remaining.endsWith('-' + loc.slug))) {
  location = loc.name.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
  postalCode = loc.postalCode;
  remaining = remaining.replace(new RegExp('-?' + loc.slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$'), '');
  break;
  }
  // Also check if location appears mid-slug (common for e.g. "coop-mezzovico")
- if (!location && remaining.includes('-' + loc.slug + '-')) {
+ if (!location && remaining.includes(SLUG_INFO_FAST ? locationMidProbes[locIndex] : '-' + loc.slug + '-')) {
  location = loc.name.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
  postalCode = loc.postalCode;
  remaining = remaining.replace('-' + loc.slug + '-', '-').replace(/^-+|-+$/g, '');
