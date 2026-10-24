@@ -214,8 +214,18 @@ const claimedOutputDescendants = new Map<string, string>();
 const sharedPathDeclarations: SharedPathDeclaration[] = [];
 let buildGeneration = 0;
 
-function assertOutputPathShapeAvailable(filePath: string): void {
+/**
+ * `path.resolve()` allocates a fresh string even when the caller already
+ * supplied an absolute, normalized path. Retain the caller's string in that
+ * common case so the shape index does not pin a duplicate for every output.
+ */
+function resolveRetainedPath(filePath: string): string {
   const resolved = path.resolve(filePath);
+  return resolved === filePath ? filePath : resolved;
+}
+
+function assertOutputPathShapeAvailable(filePath: string): void {
+  const resolved = resolveRetainedPath(filePath);
   let ancestor = path.dirname(resolved);
   while (ancestor !== resolved) {
     if (claimedOutputPaths.has(ancestor)) {
@@ -241,7 +251,7 @@ function assertOutputPathShapeAvailable(filePath: string): void {
 }
 
 function rememberOutputPathShape(filePath: string): void {
-  const resolved = path.resolve(filePath);
+  const resolved = resolveRetainedPath(filePath);
   if (claimedOutputPaths.has(resolved)) return;
 
   claimedOutputPaths.add(resolved);
@@ -261,6 +271,18 @@ function rememberOutputPathShape(filePath: string): void {
  * at most once (the dump dir is content-addressed: filename = `${hash}.html`).
  */
 const dumpedHashes = new Set<string>();
+
+/** One retained lazy diagnostic placeholder per plugin name. */
+const lazyCallSiteByPlugin = new Map<string, string>();
+
+function lazyCallSite(plugin: string): string {
+  let callSite = lazyCallSiteByPlugin.get(plugin);
+  if (callSite === undefined) {
+    callSite = `<lazy:${plugin}>`;
+    lazyCallSiteByPlugin.set(plugin, callSite);
+  }
+  return callSite;
+}
 
 /**
  * Optional directory where every claim()'d content is dumped to disk for
@@ -400,7 +422,7 @@ export function claim(claimPath: string, plugin: string, content: string): Claim
   // diagnostic needs it.
   const newVersion = (): ClaimVersion => ({
     plugin,
-    callSite: `<lazy:${plugin}>`,
+    callSite: lazyCallSite(plugin),
     contentHash,
     size: Buffer.byteLength(content, 'utf-8'),
     timestamp: Date.now() - buildStartMs,
