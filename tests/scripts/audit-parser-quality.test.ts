@@ -478,6 +478,19 @@ describe('source-detail fidelity checks', () => {
     expect(extractSourceLocationObservation(html, 'https://jobs.example.test/v2/offene-stellen/tecnico/uuid').location).toBe('Bern, Bern');
   });
 
+  it('accepts the inline SBB start-marker summary before the headquarters JSON-LD', () => {
+    const html = `<html><head>
+      <meta name="twitter:description" content="Olten, ab sofort oder nach Vereinbarung, 60-100%">
+      <script type="application/ld+json">{"@type":"JobPosting","title":"Automatiker:in",
+        "jobLocation":{"address":{"addressLocality":"Bern","addressRegion":"Bern","addressCountry":"CH"}}}</script>
+      </head><body><h1>Automatiker:in</h1></body></html>`;
+
+    expect(extractSourceLocationObservation(
+      html,
+      'https://jobs.sbb.ch/v2/offene-stellen/automatiker/uuid',
+    )).toEqual({ location: 'Olten', evidence: 'job-summary' });
+  });
+
   it('does not attribute stale single-record schema to a visibly different vacancy', async () => {
     const pageUrl = 'https://giardino.example/talents/en/job-spa-therapist.html';
     const description = 'Deliver tailored spa treatments and advise hotel guests with care and professionalism. '.repeat(8);

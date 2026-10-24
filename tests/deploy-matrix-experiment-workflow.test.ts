@@ -77,7 +77,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     ]));
     expect(WORKFLOW_TEXT).not.toMatch(/hashFiles\([^)]*(?:incremental-html|dist)\/\*\*/u);
     expect(WORKFLOW_TEXT).not.toMatch(/uses:\s*actions\/cache@/u);
-    expect(WORKFLOW.concurrency.group).toBe('deploy-matrix-experiment');
+    expect(WORKFLOW.concurrency.group).toBe('deploy-matrix-experiment-${{ github.ref_name }}');
     expect(String(WORKFLOW.concurrency.group)).not.toBe('pages-build-run');
   });
 
@@ -89,8 +89,11 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     it('serializza i dispatch con un gruppo di concorrenza STABILE', () => {
       // `github.run_id` è unico per run: un gruppo che lo contiene non può
       // serializzare nulla ed è ciò che permetteva 6 run vivi insieme.
+      // Stabile PER REF (campagna 2026-10-24): un gruppo globale faceva
+      // scartare a due branch della stessa campagna il run pendente l'uno
+      // dell'altro; per ref resta comunque un solo run vivo per branch.
       const group = String(WORKFLOW.concurrency.group);
-      expect(group).toBe('deploy-matrix-experiment');
+      expect(group).toBe('deploy-matrix-experiment-${{ github.ref_name }}');
       expect(group).not.toMatch(/github\.run_id|github\.run_number|github\.sha/u);
       // Un run già partito non va ucciso a metà misura.
       expect(WORKFLOW.concurrency['cancel-in-progress']).toBe(false);
@@ -153,7 +156,8 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
           groups.set(group, [...(groups.get(group) ?? []), name]);
         }
       }
-      for (const group of ['deploy-matrix-experiment', 'cluster-pages-experiment', 'matrix-equivalence', 'post-build-matrix-test']) {
+      expect(groups.get('deploy-matrix-experiment-${{ github.ref_name }}')).toEqual(['deploy-matrix-experiment.yml']);
+      for (const group of ['cluster-pages-experiment', 'matrix-equivalence', 'post-build-matrix-test']) {
         expect(groups.get(group), group).toEqual([`${group === 'matrix-equivalence' ? 'matrix-equivalence-check' : group}.yml`]);
       }
     });

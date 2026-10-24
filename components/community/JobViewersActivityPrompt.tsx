@@ -121,12 +121,58 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
       // Session storage is optional; the prompt still works without it.
     }
 
-    const timer = window.setTimeout(() => {
+    let timer: number | null = null;
+    let gateObserver: MutationObserver | null = null;
+    const showPrompt = () => {
       setCount(getSessionViewerCount(jobId));
       setVisible(true);
-    }, DISPLAY_DELAY_MS);
+    };
+    const schedule = () => {
+      if (timer !== null) return;
+      const gate = document.getElementById('job-auth-gate');
+      if (gate?.dataset.viewerPromptJobId !== jobId) return;
+      const gateVisibleAt = Number(gate.dataset.viewerPromptVisibleAt);
+      if (!Number.isFinite(gateVisibleAt)) return;
+      const elapsedSinceGate = Number.isFinite(gateVisibleAt)
+        ? Math.max(0, Date.now() - gateVisibleAt)
+        : 0;
+      timer = window.setTimeout(showPrompt, Math.max(0, DISPLAY_DELAY_MS - elapsedSinceGate));
+    };
+    const scheduleFallback = () => {
+      if (timer !== null) return;
+      timer = window.setTimeout(showPrompt, DISPLAY_DELAY_MS);
+    };
+    const gate = document.getElementById('job-auth-gate');
+    if (
+      gate?.dataset.viewerPromptJobId === jobId
+      && gate.dataset.viewerPromptVisibleAt
+    ) {
+      schedule();
+    } else if (gate && typeof MutationObserver !== 'undefined') {
+      gateObserver = new MutationObserver(() => {
+        if (
+          gate.dataset.viewerPromptJobId !== jobId
+          || !gate.dataset.viewerPromptVisibleAt
+        ) return;
+        gateObserver?.disconnect();
+        gateObserver = null;
+        schedule();
+      });
+      gateObserver.observe(gate, {
+        attributes: true,
+        attributeFilter: [
+          'data-viewer-prompt-job-id',
+          'data-viewer-prompt-visible-at',
+        ],
+      });
+    } else {
+      scheduleFallback();
+    }
 
-    return () => window.clearTimeout(timer);
+    return () => {
+      gateObserver?.disconnect();
+      if (timer !== null) window.clearTimeout(timer);
+    };
   }, [jobId]);
 
   const close = useCallback(() => {

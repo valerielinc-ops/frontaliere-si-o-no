@@ -32,6 +32,7 @@ import { politeFetch } from './polite-fetch.mjs';
 import { normalizeHost } from './registrable.mjs';
 import {
   resolveDetailOrListingSwissGeography,
+  sourceBackedSwissGeographyFields,
 } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
@@ -262,9 +263,17 @@ export function geographyFieldsForDecision(decision = {}, options = {}) {
   // duplicateCandidates, which is a diagnostic collision trace and must not
   // enter a persisted vacancy or grow on a later evidence fold.
   const candidate = decision.candidate || {};
-  const addressLocality = String(candidate.addressLocality || '').trim()
+  // Keep the generic prospector runtime on the same source-backed projection
+  // as dedicated parsers. A multi-area source label can carry a translated
+  // canton or an ambiguous locality in the candidate; the verified canton and
+  // source parts are the only safe context for selecting a municipality.
+  const projectedAddress = sourceBackedSwissGeographyFields({
+    ...candidate,
+    location: geography.location,
+  }, geography);
+  const addressLocality = String(projectedAddress?.addressLocality || '').trim()
     || String(geography.location || '').split(/[,;/|]/)[0].trim();
-  const addressRegion = String(candidate.addressRegion || '').trim() || geography.canton;
+  const addressRegion = String(projectedAddress?.addressRegion || geography.canton).trim();
   const addressCountry = String(
     candidate.addressCountry
       || candidate.country
