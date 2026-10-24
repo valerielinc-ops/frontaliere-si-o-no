@@ -4443,7 +4443,28 @@ function inspectHeadFacts(html: string): HeadVerdictFacts {
   return { noindex, metaRefresh, canonicalHref };
 }
 
+// Origine del sito in forma «host gia' minuscolo»: base del percorso rapido di
+// `normalizeLocForCanonicalCmp` (puro: stesso risultato di `new URL()` per le
+// URL fatte solo di caratteri non riservati e senza segmenti punto).
+const SITE_ORIGIN_FOR_CMP = (() => {
+  try {
+    const parsed = new URL(BASE_URL);
+    return `${parsed.protocol}//${parsed.host.toLowerCase()}`;
+  } catch {
+    return null;
+  }
+})();
+const PLAIN_SITE_PATH = /^(?:\/[A-Za-z0-9._~-]+)*\/?$/;
+
 function normalizeLocForCanonicalCmp(u: string): string {
+  if (MID_PLUGINS_FAST && SITE_ORIGIN_FOR_CMP && u.startsWith(SITE_ORIGIN_FOR_CMP)) {
+    const rest = u.slice(SITE_ORIGIN_FOR_CMP.length);
+    if (PLAIN_SITE_PATH.test(rest) && !/(?:^|\/)\.{1,2}(?:\/|$)/.test(rest)) {
+      let p = rest === '' ? '/' : rest;
+      if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+      return `${SITE_ORIGIN_FOR_CMP}${p}`;
+    }
+  }
   try {
     const parsed = new URL(u, BASE_URL);
     let p = parsed.pathname;
@@ -4970,12 +4991,30 @@ export async function dropOverwrittenLocs(
  * form, so trailing-slash/host-case differences don't matter). Exported for
  * unit testing — no filesystem access here.
  */
+// `dropUrlBlocksByLoc` viene chiamata una volta per file di sitemap con la STESSA
+// lista di loc (fino a ~440k): rinormalizzarla a ogni chiamata costava ~15 s a
+// riconciliazione. La cache e' per riferimento + lunghezza dell'array.
+let lastDropSource: ReadonlyArray<string> | null = null;
+let lastDropSourceLength = -1;
+let lastDropSet: Set<string> | null = null;
+function normalizedDropSet(mirrorLocs: ReadonlyArray<string>): Set<string> {
+  if (!MID_PLUGINS_FAST) return new Set(mirrorLocs.map(normalizeLocForCanonicalCmp));
+  if (lastDropSet && lastDropSource === mirrorLocs && lastDropSourceLength === mirrorLocs.length) {
+    return lastDropSet;
+  }
+  const set = new Set(mirrorLocs.map(normalizeLocForCanonicalCmp));
+  lastDropSource = mirrorLocs;
+  lastDropSourceLength = mirrorLocs.length;
+  lastDropSet = set;
+  return set;
+}
+
 export function dropUrlBlocksByLoc(
   xml: string,
   mirrorLocs: ReadonlyArray<string>,
 ): { xml: string; dropped: number } {
   if (mirrorLocs.length === 0) return { xml, dropped: 0 };
-  const dropSet = new Set(mirrorLocs.map(normalizeLocForCanonicalCmp));
+  const dropSet = normalizedDropSet(mirrorLocs);
   const LOC_RE = /<loc>([^<]+)<\/loc>/;
   let dropped = 0;
   const patched = xml.replace(/[ \t]*<url>[\s\S]*?<\/url>\n?/g, (block) => {

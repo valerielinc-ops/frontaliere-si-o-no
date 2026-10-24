@@ -131,3 +131,36 @@ describe('seo-hubs hasEmittedJobDetailPage: fast == legacy, memo only inside its
     }
   });
 });
+
+describe('dropUrlBlocksByLoc: fast normalisation + cached drop set == legacy', () => {
+  it('drops exactly the same blocks for fuzzed loc shapes', async () => {
+    const fast = await loadWithFlag('1', () => import('../build-plugins/relatedSearchClustersPlugin'));
+    const legacy = await loadWithFlag('0', () => import('../build-plugins/relatedSearchClustersPlugin'));
+    const O = 'https://frontaliereticino.ch';
+    const shapes = [
+      (n: number) => `${O}/a-${n}/`, (n: number) => `${O}/a-${n}`, (n: number) => `${O}/a-${n}/b/`,
+      (n: number) => `${O}`, (n: number) => `${O}/`, (n: number) => `${O}//a-${n}/`,
+      (n: number) => `${O}/a-${n}/./b/`, (n: number) => `${O}/a-${n}/../b/`, (n: number) => `${O}/a b-${n}/`,
+      (n: number) => `${O}/è-${n}/`, (n: number) => `${O}/a-${n}/?q=1`, (n: number) => `${O}/a-${n}/#x`,
+      (n: number) => `HTTPS://FRONTALIERETICINO.CH/a-${n}/`, (n: number) => `${O}:443/a-${n}/`,
+      (n: number) => `${O}.evil.test/a-${n}/`, (n: number) => `http://frontaliereticino.ch/a-${n}/`,
+      (n: number) => `/a-${n}/`, (n: number) => `${O}/a%20b-${n}/`, (n: number) => `${O}/..${n}/`,
+    ];
+    const rand = rng(7);
+    const locs: string[] = [];
+    for (let i = 0; i < 400; i++) locs.push(shapes[Math.floor(rand() * shapes.length)](Math.floor(rand() * 30)));
+    const xml = locs.map((l) => `  <url>\n    <loc>${l}</loc>\n  </url>\n`).join('');
+    for (let round = 0; round < 6; round++) {
+      const drop: string[] = [];
+      for (let i = 0; i < 120; i++) drop.push(shapes[Math.floor(rand() * shapes.length)](Math.floor(rand() * 30)));
+      const a = fast.dropUrlBlocksByLoc(xml, drop);
+      const b = legacy.dropUrlBlocksByLoc(xml, drop);
+      expect(a.dropped).toBe(b.dropped);
+      expect(a.xml).toBe(b.xml);
+      // seconda chiamata con lo STESSO array (cache) e con l'array mutato
+      expect(fast.dropUrlBlocksByLoc(xml, drop).xml).toBe(b.xml);
+      drop.push(`${O}/a-1/`);
+      expect(fast.dropUrlBlocksByLoc(xml, drop).xml).toBe(legacy.dropUrlBlocksByLoc(xml, drop).xml);
+    }
+  });
+});
