@@ -827,6 +827,13 @@ const CONTRACT_TO_EMPLOYMENT_TYPE: Record<ContractType, string> = {
  contract: 'CONTRACTOR',
 };
 
+/** Keep optional JobPosting values source-owned while normalizing API records. */
+function normalizeOptionalSourceText(value: unknown): string | undefined {
+ if (typeof value !== 'string') return undefined;
+ const normalized = value.trim();
+ return normalized || undefined;
+}
+
 /** Append UTM referral parameters to the effective application destination. */
 function buildReferralUrl(job: JobListing): string {
  const raw = resolveJobApplicationUrl(job);
@@ -901,6 +908,12 @@ export function normalizeIncomingJob(raw: any): JobListing {
  category: normalizeJobCategory(raw?.category, `${title} ${String(raw?.department || '')}`) as JobCategory,
  contract: normalizeJobContract(raw?.contract, title, description) as ContractType,
  sourceContract: String(raw?.contract || '').trim() || undefined,
+ // These values are source-owned JobPosting fields. Keep them explicit in the
+ // normalized listing so the selected-job SPA schema receives the same values
+ // as the static builder, instead of relying on the raw object spread above.
+ employmentType: normalizeOptionalSourceText(raw?.employmentType),
+ contractType: normalizeOptionalSourceText(raw?.contractType),
+ validThrough: normalizeOptionalSourceText(raw?.validThrough),
  currency: String(raw?.currency || '').toUpperCase() === 'EUR' ? 'EUR' : 'CHF',
  description,
  requirements: Array.isArray(raw?.requirements)
