@@ -1,3 +1,5 @@
+import { isSpontaneousApplicationTitle } from '../spontaneous-application.mjs';
+
 const GENERIC_VACANCY_TITLES = new Set([
   'header', 'home', 'menu', 'navigation', 'search', 'job search', 'jobs search',
   'job', 'jobs', 'career', 'careers', 'vacancy', 'vacancies', 'open jobs',
@@ -106,9 +108,16 @@ function normalizedTitle(value) {
     .replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-/** @param {unknown} value */
+/**
+ * A title that names no opening: page chrome ("Header", "Jobs") or a standing
+ * spontaneous-application container. Measured 2026-10-24 in production:
+ * `my` published "Spontanbewerbung / 5%" and `fisba` "Spontaneous /
+ * unsolicited application" as vacancies, with JobPosting markup.
+ *
+ * @param {unknown} value
+ */
 export function isGenericVacancyTitle(value) {
-  return GENERIC_VACANCY_TITLES.has(normalizedTitle(value));
+  return GENERIC_VACANCY_TITLES.has(normalizedTitle(value)) || isSpontaneousApplicationTitle(value);
 }
 
 /**

@@ -916,9 +916,21 @@ export async function loadLocalePageChunk(locale: Locale, page: string): Promise
 // (see useTranslationNamespace below); nothing preloads it in the background.
 // Italian is always merged too, because t() falls back to Italian for a key a
 // non-IT chunk lacks.
-export type TranslationNamespace = 'whatsnew';
+//
+// Two shapes: the What's New release notes (`<locale>-whatsnew.ts`, explicit
+// loaders below) and every key family split out of core afterwards, which is
+// just a set of files `services/locales/<locale>-ns-<name>.ts` picked up by the
+// glob — adding a namespace never touches this file, so one PR per family can
+// land in parallel. The flat `<locale>-ns-<name>` basename is deliberate: the
+// build keeps stable chunk names, and per-namespace directories of `it.ts`
+// files would collide into counter-suffixed chunk names.
+// tests/i18n-namespaces.test.ts keeps each family out of the core chunks.
+export type TranslationNamespace = 'whatsnew' | (string & {});
 
-const namespaceLoaders: Record<TranslationNamespace, Record<Locale, () => Promise<{ default: Translations }>>> = {
+type NamespaceModuleLoader = () => Promise<{ default: Translations }>;
+const splitNamespaceModules = import.meta.glob<{ default: Translations }>('./locales/*-ns-*.ts');
+
+const namespaceLoaders: Record<string, Partial<Record<Locale, NamespaceModuleLoader>>> = {
  whatsnew: {
  it: () => import('./locales/it-whatsnew'),
  en: () => import('./locales/en-whatsnew'),
@@ -926,6 +938,12 @@ const namespaceLoaders: Record<TranslationNamespace, Record<Locale, () => Promis
  fr: () => import('./locales/fr-whatsnew'),
  },
 };
+for (const [file, loader] of Object.entries(splitNamespaceModules)) {
+ const match = /\/(it|en|de|fr)-ns-([a-z0-9-]+)\.ts$/.exec(file);
+ if (!match) continue;
+ const [, locale, namespace] = match;
+ (namespaceLoaders[namespace] ??= {})[locale as Locale] = loader;
+}
 const loadedNamespaces = new Set<string>(); // "namespace:locale"
 const namespacePromises = new Map<string, Promise<boolean>>();
 
@@ -934,7 +952,14 @@ function loadNamespaceLocale(namespace: TranslationNamespace, locale: Locale): P
  if (loadedNamespaces.has(key)) return Promise.resolve(true);
  const existing = namespacePromises.get(key);
  if (existing) return existing;
- const promise = namespaceLoaders[namespace][locale]()
+ const loader = namespaceLoaders[namespace]?.[locale];
+ if (!loader) {
+ if (locale === 'it') return Promise.resolve(false);
+ // No file for this locale: t() falls back to the Italian strings.
+ loadedNamespaces.add(key);
+ return Promise.resolve(true);
+ }
+ const promise = loader()
  .then(m => {
  if (locale === 'it') mergeItTranslations(m.default);
  else mergeLocaleTranslations(locale, m.default);

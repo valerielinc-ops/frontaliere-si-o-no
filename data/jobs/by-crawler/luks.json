@@ -926,7 +926,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -973,7 +973,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -981,7 +981,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -9711,7 +9711,7 @@
       "id": "luks-5e1f8ddfed0d",
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
+        "it": "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "en": "nursing-specialist-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
         "fr": "specialiste-des-soins-infirmiers-hf-fh-urogynecologie-60-luzerner-kantonsspital-luks-luzern"
@@ -9759,13 +9759,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-        "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-          "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
@@ -15058,9 +15056,9 @@
     },
     {
       "id": "luks-5d80ee6615cc",
-      "slug": "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern",
+      "slug": "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern",
+        "it": "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern",
         "en": "medical-secretary-medical-secretary-gastroenterology-hepatology-80-90-luzerner-kantonsspital-luks-luzern",
         "de": "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
         "fr": "secretaire-medical-secretaire-medical-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
@@ -15109,12 +15107,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
-        "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern"
+        "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
-          "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern"
+          "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern"
@@ -15304,12 +15302,12 @@
     },
     {
       "id": "luks-e18d1451b69b",
-      "slug": "mitarbeiterin-collaboratore-trice-diatkuche-70-luzerner-kantonsspital-luks-luzern",
+      "slug": "addetta-addetto-alla-cucina-dietetica-70-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern",
-        "it": "mitarbeiterin-collaboratore-trice-diatkuche-70-luzerner-kantonsspital-luks-luzern",
-        "en": "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern",
-        "fr": "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern"
+        "it": "addetta-addetto-alla-cucina-dietetica-70-luzerner-kantonsspital-luks-luzern",
+        "en": "employee-employee-diet-kitchen-70-luzerner-kantonsspital-luks-luzern",
+        "fr": "employe-employe-cuisine-de-regime-70-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -15328,7 +15326,6 @@
         "en": "The Lucerne Canton Hospital with its locations in Lucerne, Sursee and Wolhusen is a company of the LUKS Group and thus belongs to one of the leading hospital groups in Switzerland. The more than 8,500 employees are there with warmth, competence and commitment around the clock for the well-being of patients. The clinics and institutes of the LUKS Group offer medical services of the highest quality. <br/><br/ >For our team we are looking for temporarily from 1 November 2026 to 31 October 2027 with option for extension, reinforcement.\n\nTasks:\n• They assist in the diet kitchen in the preparation, preparation, preparation and the attractive presentation of menu components and thus contribute to a smooth kitchen process.\n\n• They independently provide food, dishes and required work materials and ensure a structured and efficient work environment.\n\n• Through your active support on the food distribution line you ensure a fast, friendly and service-oriented process of food distribution\n\n• They take over the cleaning of work equipment, dishes and work areas in compliance with the applicable hygiene and quality standards\n\nRequirements\n• Independent and clean working methods shape your daily actions and enable an efficient and high-quality workflow\n\n• Flexibility and a sense of responsibility characterize your personality, which allows you to keep track even in dynamic situations\n\n• You have good oral and written German skills\n\n• Advantageously, you have completed training as a kitchen employee or a comparable qualification\n\nWe offer:\n• In addition to our attractive employment conditions, you benefit from numerous interesting employee offers\n\n• Regulated working hours ensure reliable planning security and actively promote your work-life balance\n\n• Our exciting, dynamic company with varied tasks and development opportunities offers you an inspiring working environment\n\n• They benefit from very good social benefits and attractive employment conditions. You will find this and more information at the following link: www.luks.ch/employment conditions",
         "fr": "L'Hôpital cantonal de Lucerne avec ses emplacements à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient donc à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 500 employés sont là avec chaleur, compétence et engagement 24h/24 pour le bien-être des patients. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. <br/><br/ > Pour notre équipe, nous recherchons temporairement du 1er novembre 2026 au 31 octobre 2027 avec option d'extension, de renforcement.\n\nTâches :\n• Ils aident dans la cuisine de régime dans la préparation, la préparation, la préparation et la présentation attrayante des composants de menu et contribuent ainsi à un processus de cuisine lisse.\n\n• Ils fournissent indépendamment des aliments, des plats et des matériaux de travail nécessaires et assurent un environnement de travail structuré et efficace.\n\n• Grâce à votre soutien actif sur la ligne de distribution des aliments, vous assurer un processus rapide, amical et axé sur le service de distribution des aliments\n\n• Ils prennent en charge le nettoyage des équipements, des vaisselles et des zones de travail conformément aux normes d'hygiène et de qualité applicables\n\nExigences\n• Des méthodes de travail indépendantes et propres façonnent vos actions quotidiennes et permettent un workflow efficace et de haute qualité\n\n• La flexibilité et le sens des responsabilités caractérisent votre personnalité, ce qui vous permet de garder la trace même dans des situations dynamiques\n\n• Vous avez de bonnes compétences orales et écrites en allemand\n\n• Avantageusement, vous avez terminé la formation en tant qu'employé de cuisine ou une qualification comparable\n\nNous offrons:\n• En plus de nos conditions d'emploi attrayantes, vous bénéficiez de nombreuses offres d'emploi intéressantes\n\n• Des heures de travail réglementées assurent une planification fiable et favorisent activement votre équilibre entre le travail et la vie personnelle\n\n• Notre entreprise passionnante et dynamique avec des tâches variées et des possibilités de développement vous offre un environnement de travail inspirant\n\n• Ils bénéficient de très bons avantages sociaux et de conditions d'emploi attrayantes. Vous trouverez cette information et d'autres sur le lien suivant: www.luks.ch/conditions d'emploi"
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/mitarbeiterin-mitarbeiter-diaetkueche/c96b67ad-a53c-492b-aa21-d420fd5dddc1",
@@ -15358,11 +15355,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern",
+          "mitarbeiterin-collaboratore-trice-diatkuche-70-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern"
+        "mitarbeiterin-mitarbeiter-diatkuche-70-luks-luzern",
+        "mitarbeiterin-collaboratore-trice-diatkuche-70-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 60500,
       "salaryMax": 84400,

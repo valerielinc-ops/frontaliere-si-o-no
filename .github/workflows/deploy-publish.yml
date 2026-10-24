@@ -467,11 +467,27 @@ jobs:
         run: |
           set -euo pipefail
           fail() { echo "::error title=Non-IT source artifact::$1"; exit 1; }
-          source_tar="$(find "$RUNNER_TEMP/locale-shard-source" -type f -name '*.tar' -print -quit 2>/dev/null || true)"
-          [ -n "$source_tar" ] || fail "no .tar in the downloaded locale-shard-source artifact"
+          # One archive (historical) or the N parts of deploy.yml's
+          # LOCALE_SOURCE_TAR_PARTS (scripts/lib/parallel-tar.sh), plain or
+          # zstd: every part is extracted, concurrently. Inline rather than
+          # sourced: this workflow can run against a source SHA that predates
+          # the helper.
+          mapfile -t source_parts < <(find "$RUNNER_TEMP/locale-shard-source" -type f \( -name '*.tar' -o -name '*.tar.zst' \) 2>/dev/null | sort)
+          [ "${#source_parts[@]}" -gt 0 ] || fail "no .tar in the downloaded locale-shard-source artifact"
           rm -rf dist
           mkdir -p dist
-          tar -C dist -xf "$source_tar"
+          extract_pids=()
+          for part in "${source_parts[@]}"; do
+            case "$part" in
+              *.tar.zst) ( set -o pipefail; zstd -q -dc -- "$part" | tar -C dist -xf - ) & ;;
+              *) tar -C dist -xf "$part" & ;;
+            esac
+            extract_pids+=("$!")
+          done
+          extract_rc=0
+          for pid in "${extract_pids[@]}"; do wait "$pid" || extract_rc=1; done
+          [ "$extract_rc" -eq 0 ] || fail "extracting ${#source_parts[@]} source archive part(s) failed"
+          rm -f "${source_parts[@]}"
           [ -s dist/build-id.txt ] || fail "dist/build-id.txt missing or empty"
           [ "$(cat dist/build-id.txt)" = "$DEPLOY_BUILD_ID" ] || fail "build id $(cat dist/build-id.txt) != $DEPLOY_BUILD_ID"
           [ -s "dist/${BUILD_LOCALE}/index.html" ] || fail "dist/${BUILD_LOCALE}/index.html missing or empty"
@@ -666,6 +682,13 @@ jobs:
           # scripts/lib/shard-cdn-rewrite.sh. Off = byte-identical to before.
           SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == 'changed' && 'changed' || '' }}
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
+          # Bench run 40074671144 (ticino-it staged copy, 270'838 files): the
+          # CDN rewrite 377.8 s single-thread → 162.5 s on 4 worker threads,
+          # tree sha identical; the stage `rm -rf` (165 s) leaves the slot.
+          # See scripts/offload-generated-images-cdn.mjs (OFFLOAD_CDN_WORKERS)
+          # and scripts/lib/push-section-shard.sh (SHARD_STAGE_RM_ASYNC).
+          OFFLOAD_CDN_WORKERS: '4'
+          SHARD_STAGE_RM_ASYNC: '1'
           # The source build's commit for the shard commit messages. Not
           # GITHUB_SHA: GitHub ignores env assignments to default GITHUB_* vars,
           # and this dispatch run's default SHA is not the source build SHA.
@@ -1071,6 +1094,9 @@ jobs:
         # completes before validate-dist/validate-live.
         env:
           CDN_BASE: 'https://cdn.frontaliereticino.ch'
+          # Same per-file rewrite on 4 worker threads (bench run 40074671144:
+          # 2.3x, byte-identical tree); ignored by a source SHA without it.
+          OFFLOAD_CDN_WORKERS: '4'
         run: node scripts/offload-generated-images-cdn.mjs
 
       # Same-run shard-dist artifact for post-deploy-validate-dist rehydrate.

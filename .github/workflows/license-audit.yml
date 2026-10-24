@@ -85,6 +85,8 @@ jobs:
             /services/
             /infra/cloudflare-worker/locale-router.js
             /infra/cloudflare-worker/ticino-tree-bucket.js
+            /infra/cloudflare-worker/legacy-stub-redirects.generated.mjs
+            /build-plugins/shared/redirectStubMarker.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js

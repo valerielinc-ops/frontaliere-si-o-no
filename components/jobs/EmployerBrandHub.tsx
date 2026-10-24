@@ -14,6 +14,7 @@
  * (Lidl, Aldi, Manor, McDonald's, LIS…) without duplicating logic.
  */
 
+import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { useMemo } from 'react';
 import type { Locale } from '@/services/i18n';
 import type { EmployerBrand } from '@/services/employerBrands';
@@ -53,8 +54,9 @@ export interface EmployerBrandHubProps {
 
 const SITE_URL = 'https://frontaliereticino.ch';
 
-function localizedJobTitle(job: EmployerBrandJob, locale: Locale): string {
-  return String(job.titleByLocale?.[locale] || job.title || '').trim();
+function localizedJobTitle(job: EmployerBrandJob): string {
+  // Employer's own title in every locale (scripts/lib/job-title-identity.mjs).
+  return jobDisplayTitle(job);
 }
 
 function escapeForJsonLd(value: unknown): unknown {
@@ -110,7 +112,7 @@ export function buildEmployerBrandStructuredData(input: StructuredDataInput): {
       '@type': 'ListItem',
       position: index + 1,
       url: buildJobHref(job, locale),
-      name: localizedJobTitle(job, locale),
+      name: localizedJobTitle(job),
     })),
   };
 
@@ -212,7 +214,7 @@ export function EmployerBrandHub({
           <ul className="mt-4 space-y-2">
             {topJobs.map((job) => {
               const href = buildJobHref(job, locale);
-              const title = localizedJobTitle(job, locale);
+              const title = localizedJobTitle(job);
               const salary = formatSalary(job, locale);
               return (
                 <li key={job.id}>

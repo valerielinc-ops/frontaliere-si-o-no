@@ -184,8 +184,13 @@ describe('TicineseDialect — expanded editorial content', () => {
     const { default: TicineseDialect } = await import('@/components/vita/TicineseDialect');
     const { container } = render(<TicineseDialect />);
 
+    // Terms and page copy are the on-demand "dialect" namespace: the page shows
+    // its header and a loading status (never raw keys) until the chunk lands.
+    expect(screen.getByTestId('dialect-loading')).toBeDefined();
+    expect(container.textContent).not.toMatch(/dialect\.[a-z]/);
+
     expect(
-      screen.getByText(/Le 10 espressioni in dialetto più usate al lavoro in Ticino/i),
+      await screen.findByText(/Le 10 espressioni in dialetto più usate al lavoro in Ticino/i),
     ).toBeDefined();
     expect(
       screen.getByText(/Differenze tra dialetto ticinese e italiano standard/i),

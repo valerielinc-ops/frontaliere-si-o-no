@@ -71,6 +71,7 @@ const professionLandingsSignal = makeSignal();
 const salaryHubSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
 let activeJobSitemapLocs: ReadonlySet<string> | null = null;
+let jobSitemapAllowlist: ReadonlySet<string> | null = null;
 let tiHubLatestJobsBlocks: Readonly<Record<string, string>> | null = null;
 const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
@@ -176,6 +177,23 @@ export function setActiveJobSitemapLocs(paths: ReadonlySet<string> | null): void
 
 export function getActiveJobSitemapLocs(): ReadonlySet<string> | null {
   return activeJobSitemapLocs;
+}
+
+/**
+ * Every job-detail URL the jobs sitemap lists, in EVERY locale — unlike
+ * {@link getActiveJobSitemapLocs}, which the per-locale build (BUILD_LOCALE)
+ * narrows to the locales it renders because it also gates internal links
+ * (#14380). The sitemap is written by the IT build for all four locales, so
+ * the stale-shard guard must compare against this wider set, otherwise the
+ * EN/DE/FR variants (whose HTML lives on another locale shard by design)
+ * look stale and are dropped. `null` = producer has not decided yet.
+ */
+export function setJobSitemapAllowlist(paths: ReadonlySet<string> | null): void {
+  jobSitemapAllowlist = paths;
+}
+
+export function getJobSitemapAllowlist(): ReadonlySet<string> | null {
+  return jobSitemapAllowlist;
 }
 
 /**

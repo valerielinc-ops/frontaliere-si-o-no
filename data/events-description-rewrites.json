@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-24T13:20:56.213Z",
+  "generatedAt": "2026-10-24T14:20:52.506Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -56033,6 +56033,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T13:10:01.327Z"
+    },
+    "myswitzerland:0e417cd324784f3898d2c94b02931a9b::922dbabd3abbd89ec3f4018de2d88136b0d217911b05452fb359fd40f5853dda": {
+      "id": "myswitzerland:0e417cd324784f3898d2c94b02931a9b",
+      "sourceDescriptionHash": "922dbabd3abbd89ec3f4018de2d88136b0d217911b05452fb359fd40f5853dda",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: ZKO-Haus; comune: Zürich; cantone: ZH; categoria: Music; organizzatore: MySwitzerland; partecipante: Swiss chocolate, cheese; data: 2027-03-13; ora: 20:00; prezzo: http://schema.org/InStock. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: ZKO-Haus; comune: Zürich; cantone: ZH; categoria: Music; organizzatore: MySwitzerland; partecipante: Swiss chocolate, cheese; data: 2027-03-13; ora: 20:00; prezzo: http://schema.org/InStock. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: ZKO-Haus; municipality: Zürich; canton: ZH; category: Music; organiser: MySwitzerland; participant: Swiss chocolate, cheese; date: 2027-03-13; time: 20:00; price: http://schema.org/InStock. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: ZKO-Haus; gemeinde: Zürich; kanton: ZH; kategorie: Music; veranstalter: MySwitzerland; mitwirkender: Swiss chocolate, cheese; datum: 2027-03-13; uhrzeit: 20:00; preis: http://schema.org/InStock. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: ZKO-Haus; commune: Zürich; canton: ZH; catégorie: Music; organisateur: MySwitzerland; participant: Swiss chocolate, cheese; date: 2027-03-13; heure: 20:00; prix: http://schema.org/InStock. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-24T14:15:32.030Z"
     },
     "myswitzerland:0e471e51b7124433b5fa3e16e854379e::24e054962e5781d80bf1c9b46c9b159457afd5d1909ae642e4a6e05595c16e79": {
       "id": "myswitzerland:0e471e51b7124433b5fa3e16e854379e",
@@ -172057,15 +172071,6 @@
       "code": "sentence-count",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T18:48:38.528Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:0e417cd324784f3898d2c94b02931a9b::922dbabd3abbd89ec3f4018de2d88136b0d217911b05452fb359fd40f5853dda": {
-      "id": "myswitzerland:0e417cd324784f3898d2c94b02931a9b",
-      "sourceDescriptionHash": "922dbabd3abbd89ec3f4018de2d88136b0d217911b05452fb359fd40f5853dda",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T21:24:33.391Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

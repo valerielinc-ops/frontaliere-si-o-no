@@ -1,4 +1,5 @@
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { jobDisplayTitle, jobSearchTitleText } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
@@ -143,6 +144,7 @@ import { normalizeJobAlertLocationValue } from '@/services/jobAlertLocations';
 import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
+import { fetchEmployerHubCounts } from '@/hooks/useEmployerHub';
 import PopularSearchChips from '@/components/community/PopularSearchChips';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
@@ -234,7 +236,8 @@ import {
 } from '@/services/adExperiment';
 import type { InfeedAdVariant } from '@/services/adExperiment';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import {
  parseJobDescription,
  type Block as JobDescBlock,
@@ -323,6 +326,7 @@ import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarket
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/shared/healthPremiumsPaths';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { isJobBoardSectionPathname } from '../../scripts/lib/jobBoardSections.mjs';
+import JobBoardQuickFilterChips from './JobBoardQuickFilterChips';
 import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
@@ -1473,7 +1477,7 @@ export function isLikelyPhone(value: string): boolean {
 
 function buildContactMailto(email: string, job: JobListing, locale: Locale, jobUrl: string): string {
  const copy = getMailtoCopy(locale);
- const jobTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const jobTitle = sanitizeJobTitle(jobDisplayTitle(job));
  const subject = copy.subject(jobTitle, job.company);
  const body = [
  copy.intro(jobTitle, job.company),
@@ -2170,11 +2174,12 @@ function queryMatchesJob(job: JobListing, query: string, locale: Locale): boolea
  const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean);
  if (queryTokens.length === 0) return true;
  const description = job.descriptionByLocale?.[locale] ?? job.description;
- const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
+ const searchTitle = sanitizeJobTitle(jobSearchTitleText(job));
  // Profession-taxonomy synonyms (it/de/fr/en) so a query in one language
  // matches a job title written in another (e.g. "nurse" ↔ "Infermiera").
  const synonyms = professionSynonymText(localizedTitle);
- const haystack = normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`);
+ const haystack = normalizeSearchText(`${searchTitle} ${job.company} ${job.location} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`);
  return queryTokens.every((token) => haystack.includes(token));
 }
 
@@ -2283,7 +2288,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  </div>
  <div className="min-w-0 flex-1 pr-9">
  <h2 className="text-sm sm:text-base font-bold font-display text-heading leading-tight">
- {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
+ {sanitizeJobTitle(jobDisplayTitle(job))}
  {job.featured && <Star className="inline-block w-3.5 h-3.5 ml-1.5 text-warning fill-warning" />}
  {job.featured && (
  <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-accent-subtle text-link align-middle">
@@ -2764,7 +2769,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
  useEffect(() => {
- isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
+ // The employer-hub CTA renders above the gate's description only once its
+ // count map has loaded; fetched from the detail render it landed ~1.5s after
+ // the gate and shifted it (CLS). Start it at mount on slug routes instead.
+ if (initialJobSlug) void fetchEmployerHubCounts();
+ // eslint-disable-next-line react-hooks/exhaustive-deps
  }, []);
  // Bridge-page guard (see readBridgeTargetSlug): on a job bridge page the URL
  // segment is the job's OLD slug, not a search keyword. 13 historic slugs start
@@ -2782,11 +2791,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // writers (chips, clear button, autocomplete, URL sync) go through
  // `applySearchQuery` so a stale pending debounce can't clobber their change; the
  // sync effect below reflects any of these back into the input's DOM value.
+ // Latest query requested by a non-typing writer, ahead of the transition
+ // commit: a second tap on a search chip while the first transition is still
+ // pending must toggle against what the user asked for, not the stale state.
+ const latestSearchQueryRef = useRef(searchQuery);
+ useEffect(() => {
+ latestSearchQueryRef.current = searchQuery;
+ }, [searchQuery]);
  const applySearchQuery = useCallback((value: React.SetStateAction<string>) => {
  if (searchDebounceTimerRef.current) {
  clearTimeout(searchDebounceTimerRef.current);
  searchDebounceTimerRef.current = null;
  }
+ if (typeof value === 'string') latestSearchQueryRef.current = value;
  startTransition(() => setSearchQuery(value));
  }, []);
  useEffect(() => {
@@ -2846,7 +2863,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [filtersExpanded, setFiltersExpanded] = useState(false);
  const searchInputRef = useRef<HTMLInputElement>(null);
  const searchDebounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
- const [linkedInAvailable, setLinkedInAvailable] = useState(false);
+ // null until Remote Config answers; the button's box is held invisible
+ // meanwhile (CLS: +56px under the gate otherwise). See the hook.
+ const linkedInAvailable = useLinkedInSignInAvailable();
  const modalGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const authUnlockCandidateRef = useRef<string | null>(null);
@@ -4840,14 +4859,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  while (i < sortedJobs.length) {
  const job = sortedJobs[i];
  const description = job.descriptionByLocale?.[locale] ?? job.description;
- const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
+ const searchTitle = sanitizeJobTitle(jobSearchTitleText(job));
  // Stemmed + space-padded haystack so query matching tolerates Italian
  // plural/feminine variants (pulizie ↔ pulizia, infermieri ↔ infermiera)
  // while still requiring word-boundary alignment (cas ≠ cassa).
  // Also folds in profession-taxonomy synonyms (it/de/fr/en) so a query
  // like "nurse" or "Pflegefachfrau" surfaces a job titled "Infermiera".
  const synonyms = professionSynonymText(localizedTitle);
- map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`));
+ map.set(job, buildStemmedHaystack(`${searchTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`));
  ids.add(job.id);
  addJobSearchLocationTokens(locationTokens, job);
  i++;
@@ -6387,7 +6407,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return normalizeParagraphs(detailDescription);
  }, [detailDescription]);
 
- const selectedJobTitle = selectedJob ? sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title) : '';
+ const selectedJobTitle = selectedJob ? sanitizeJobTitle(jobDisplayTitle(selectedJob)) : '';
 
  useEffect(() => {
  // Archived job slugs can share a search/location prefix. Preserve their
@@ -6434,7 +6454,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  job.description ||
  ''
  ).trim();
- const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
  const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
  `${localizedTitle} ${description || ''} ${job.location || ''}`
  );
@@ -6597,7 +6617,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!slug) return null;
  const href = buildPath({ activeTab: 'job-board' as any, jobSlug: slug }, locale);
  const url = `${origin}${href}`;
- const localizedTitle = job.titleByLocale?.[locale] || job.title || '';
+ const localizedTitle = jobDisplayTitle(job);
  const cleanTitle = sanitizeJobTitle(localizedTitle);
  const name = job.company
  ? `${cleanTitle} — ${job.company}`
@@ -6760,7 +6780,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // points to the current slug via bridge page mechanism).
  // Still update title/description for user experience.
  const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
- const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(selectedJob));
  // Prefer the offer LOCATION over the brand suffix: the city rides in the
  // headline and " | Frontaliere Ticino" is dropped first when over the cap.
  const prevSlugCity = isMultiLocation(selectedJob.location) ? '' : String(selectedJob.location || '').trim();
@@ -6788,7 +6808,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (selectedJob) {
  const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
- const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(selectedJob));
  // Prefer the offer LOCATION over the brand suffix: the city rides inside the
  // headline ("{role} — {company} a {city}") and " | Frontaliere Ticino" is the
  // first thing dropped when the title exceeds the SERP cap. Mirrors the static
@@ -6888,7 +6908,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  saveAuthJobContext({
  slug: focusedJob.slug || null,
  company: focusedJob.company || null,
- title: sanitizeJobTitle(focusedJob.titleByLocale?.[locale] ?? focusedJob.title),
+ title: sanitizeJobTitle(jobDisplayTitle(focusedJob)),
  location: focusedJob.location || focusedJob.addressLocality || null,
   category: focusedJob.category || null,
   searchQuery: searchQuery.trim() || null,
@@ -7448,7 +7468,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  /** Build tracking context for a job to enrich analytics events */
  const buildJobTrackingContext = (job: JobListing) => {
- const title = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const title = sanitizeJobTitle(jobDisplayTitle(job));
  const category = normalizeJobCategory(job);
  const location = job.location || '';
  // Extract up to 5 short keywords from title + category
@@ -7501,7 +7521,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ? {
  slug: focusedJob.slug || null,
  company: focusedJob.company || null,
- title: sanitizeJobTitle(focusedJob.titleByLocale?.[locale] ?? focusedJob.title) || null,
+ title: sanitizeJobTitle(jobDisplayTitle(focusedJob)) || null,
  location: focusedJob.location || null,
  category: normalizeJobCategory(focusedJob.category, focusedJob.title) || null,
  searchQuery: searchQuery.trim() || null,
@@ -7646,7 +7666,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     slug: job.slug,
     slugByLocale: job.slugByLocale,
     companyKey: job.companyKey,
-    title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+    title: sanitizeJobTitle(jobDisplayTitle(job)),
    },
    applicationMode,
    origin: typeof window !== 'undefined' ? window.location.pathname : '/',
@@ -7911,7 +7931,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyId: String(job.companyKey || job.company || 'unknown'),
     jobUrl: String(job.url || job.applyUrl || ''),
     companyName: String(job.company || ''),
-    jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+    jobTitle: sanitizeJobTitle(jobDisplayTitle(job)),
     companyLogo: assistedApplicationCompanyLogo(job),
     companyKey: String(job.companyKey || '').trim() || null,
     location: String(job.location || job.addressLocality || '').trim() || null,
@@ -8173,7 +8193,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleShare = async (job: JobListing) => {
  const url = `${window.location.origin}${buildJobPath(job)}`;
- const title = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const title = sanitizeJobTitle(jobDisplayTitle(job));
  try {
  if (navigator.share) {
  await navigator.share({ title, text: `${title} — ${job.company}`, url });
@@ -8568,7 +8588,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobId={String(assistedApplicationJob.id)}
     companyId={String(assistedApplicationJob.companyKey || assistedApplicationJob.company || 'unknown')}
     companyName={assistedApplicationJob.company}
-    jobTitle={sanitizeJobTitle(assistedApplicationJob.titleByLocale?.[locale] ?? assistedApplicationJob.title)}
+    jobTitle={sanitizeJobTitle(jobDisplayTitle(assistedApplicationJob))}
     variant={assistedApplicationVariant}
     copyVariant={assistedApplicationCopyVariant}
     onChooseExternal={handleAssistedExternal}
@@ -8591,7 +8611,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobId={String(rewardedApplicationJob.id)}
     companyId={String(rewardedApplicationJob.companyKey || rewardedApplicationJob.company || 'unknown')}
     companyName={rewardedApplicationJob.company}
-    jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
+    jobTitle={sanitizeJobTitle(jobDisplayTitle(rewardedApplicationJob))}
     copyVariant={assistedApplicationCopyVariant}
     onContinue={handleRewardedApplicationContinue}
     onUnavailable={handleRewardedApplicationUnavailable}
@@ -8641,7 +8661,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center gap-3 p-3 rounded-stripe bg-surface-alt border border-edge">
  <Briefcase size={16} className="text-accent flex-shrink-0" />
  <div className="min-w-0">
- <p className="text-sm font-semibold text-heading line-clamp-2">{sanitizeJobTitle(pendingJob.titleByLocale?.[locale] ?? pendingJob.title)}</p>
+ <p className="text-sm font-semibold text-heading line-clamp-2">{sanitizeJobTitle(jobDisplayTitle(pendingJob))}</p>
  <p className="text-sm text-muted line-clamp-2">{pendingJob.company}{pendingJob.location ? ` — ${pendingJob.location}` : ''}</p>
  </div>
  </div>
@@ -8669,9 +8689,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  <div className="space-y-3">
- <div className="space-y-2">
- <div ref={modalGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
+ {/* One fixed 44px slot for the Google control (CLS). GIS re-renders its
+     iframe at ~80px before settling at 44px, and the fallback used to be
+     stacked UNDER the GIS container and removed on readiness: both moved
+     everything below the gate by 36-52px. The fallback now overlays the
+     GIS container inside the same box, so readiness swaps pixels only. */}
+ <div className="relative h-[44px]" data-google-signin-slot>
+ <div ref={modalGoogleButtonRef} className="absolute inset-0 flex w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!modalGoogleButtonReady && (
+ <div className="absolute inset-0">
  <button
  type="button"
  onClick={() => {
@@ -8709,11 +8735,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {t('newsletter.popup.googleSignIn')}
  </button>
+ </div>
  )}
  </div>
 
  {/* LinkedIn Sign-In Button (conditional on Remote Config) */}
- {linkedInAvailable && (
+ {linkedInAvailable !== false && (
  <button
  type="button"
  disabled={authBusy !== null}
@@ -8742,7 +8769,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  saveAuthJobContext({
   slug: job.slug,
   company: job.company,
-  title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+  title: sanitizeJobTitle(jobDisplayTitle(job)),
   location: job.location,
   category: job.category,
   searchQuery: searchQuery.trim() || null,
@@ -8760,7 +8787,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  signInWithLinkedIn().catch(() => setAuthBusy(null));
  }
  }}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ className={`w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors${linkedInPendingClass(linkedInAvailable)}`}
  >
  {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -9892,7 +9919,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return <SkeletonJobDetail />;
  }
  if (!hasAccess) {
- const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
+ const localizedTitle = sanitizeJobTitle(jobDisplayTitle(selectedJob));
  const companyName = selectedJob.company;
  const jobLocation = selectedJob.location || '';
  const jobCategory = selectedJob.category || '';
@@ -10178,9 +10205,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const gateActions = (
  <div className={gateSkin.actionsFirst ? 'space-y-3' : 'mt-4 space-y-3'}>
- <div className="space-y-2">
- <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
+ {/* One fixed 44px slot for the Google control (CLS). GIS re-renders its
+     iframe at ~80px before settling at 44px, and the fallback used to be
+     stacked UNDER the GIS container and removed on readiness: both moved
+     everything below the gate by 36-52px. The fallback now overlays the
+     GIS container inside the same box, so readiness swaps pixels only. */}
+ <div className="relative h-[44px]" data-google-signin-slot>
+ <div ref={inlineGoogleButtonRef} className="absolute inset-0 flex w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!inlineGoogleButtonReady && (
+ <div className="absolute inset-0">
  <button
  type="button"
  onClick={() => {
@@ -10217,9 +10250,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {t('newsletter.popup.googleSignIn')}
  </button>
+ </div>
  )}
  </div>
- {linkedInAvailable && (
+ {linkedInAvailable !== false && (
  <button
  type="button"
  disabled={authBusy !== null}
@@ -10248,7 +10282,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  saveAuthJobContext({
   slug: job.slug,
   company: job.company,
-  title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+  title: sanitizeJobTitle(jobDisplayTitle(job)),
   location: job.location,
   category: job.category,
   searchQuery: searchQuery.trim() || null,
@@ -10266,7 +10300,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  signInWithLinkedIn().catch(() => setAuthBusy(null));
  }
  }}
- className={gateSkin.linkedInButton}
+ className={`${gateSkin.linkedInButton}${linkedInPendingClass(linkedInAvailable)}`}
  >
  {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
  <svg className={gateSkin.linkedInIcon ? `w-4 h-4 ${gateSkin.linkedInIcon}` : 'w-4 h-4'} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -10431,7 +10465,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  <div className="min-w-0 flex-1">
  <h3 className="text-sm sm:text-base font-bold text-heading leading-tight">
- {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
+ {sanitizeJobTitle(jobDisplayTitle(job))}
  </h3>
  <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
  {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : formatJobLocation(job.location, job.canton)}
@@ -11337,7 +11371,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  <div className="min-w-0">
  <div className="text-sm font-bold text-heading line-clamp-2">
- {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
+ {sanitizeJobTitle(jobDisplayTitle(job))}
  </div>
  <div className="text-sm text-subtle mt-0.5">
  {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : job.location}
@@ -11491,29 +11525,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Role/category shortcuts are useful after users have seen real inventory,
      but no longer push the first result below the mobile fold. */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide" role="group" aria-label={t('jobBoard.quickFilters.label')}>
- {([
- { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health'); } },
- { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time'); } },
- { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship'); } },
- ] as const).map(chip => (
- <button
- key={chip.id}
- type="button"
- onClick={chip.action}
- className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 min-h-11 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
- chip.active
- ? 'bg-accent-strong border-accent text-on-accent shadow-sm shadow-accent/20'
- : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
- }`}
- aria-pressed={chip.active}
- >
- <chip.icon className="w-3 h-3" />
- {chip.label}
- </button>
- ))}
+ <JobBoardQuickFilterChips chips={[
+ { id: 'nurse', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(latestSearchQueryRef.current.toLowerCase() === term ? '' : term); } },
+ { id: 'engineer', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(latestSearchQueryRef.current.toLowerCase() === term ? '' : term); } },
+ { id: 'driver', group: 'search', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(latestSearchQueryRef.current.toLowerCase() === term ? '' : term); } },
+ { id: 'health', group: 'category', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedCategory((prev) => (prev === 'health' ? 'all' : 'health')); } },
+ { id: 'parttime', group: 'contract', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract((prev) => (prev === 'part-time' ? 'all' : 'part-time')); } },
+ { id: 'apprentice', group: 'contract', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract((prev) => (prev === 'internship' ? 'all' : 'internship')); } },
+ ]} />
  </div>
 
  {/* Single search-utility mount remains the 0-results alert scroll target. */}
@@ -11697,31 +11716,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div role="group" aria-label={t('jobBoard.quickFilters.label')}>
  {/* Time & Location */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
- {([
- { id: 'today', icon: Clock, label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '24h' ? 'all' : '24h'); } },
- { id: '3days', icon: Clock, label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '3d' ? 'all' : '3d'); } },
- { id: '7days', icon: Clock, label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '7d' ? 'all' : '7d'); } },
- { id: 'lugano', icon: MapPin, label: 'Lugano', active: selectedLocation === 'lugano', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'lugano' ? 'all' : 'lugano'); } },
- { id: 'mendrisio', icon: MapPin, label: 'Mendrisio', active: selectedLocation === 'mendrisio', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'mendrisio' ? 'all' : 'mendrisio'); } },
- { id: 'bellinzona', icon: MapPin, label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'bellinzona' ? 'all' : 'bellinzona'); } },
- { id: 'locarno', icon: MapPin, label: 'Locarno', active: selectedLocation === 'locarno', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'locarno' ? 'all' : 'locarno'); } },
- { id: 'chiasso', icon: MapPin, label: 'Chiasso', active: selectedLocation === 'chiasso', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'chiasso' ? 'all' : 'chiasso'); } },
- ] as const).map(chip => (
- <button
- key={chip.id}
- type="button"
- onClick={chip.action}
- className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 min-h-11 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
- chip.active
- ? 'bg-accent-strong border-accent text-on-accent shadow-sm shadow-accent/20'
- : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
- }`}
- aria-pressed={chip.active}
- >
- <chip.icon className="w-3 h-3" />
- {chip.label}
- </button>
- ))}
+ <JobBoardQuickFilterChips chips={[
+ { id: 'today', group: 'date', icon: Clock, label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange((prev) => (prev === '24h' ? 'all' : '24h')); } },
+ { id: '3days', group: 'date', icon: Clock, label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange((prev) => (prev === '3d' ? 'all' : '3d')); } },
+ { id: '7days', group: 'date', icon: Clock, label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange((prev) => (prev === '7d' ? 'all' : '7d')); } },
+ { id: 'lugano', group: 'location', icon: MapPin, label: 'Lugano', active: selectedLocation === 'lugano', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'lugano' ? 'all' : 'lugano')); } },
+ { id: 'mendrisio', group: 'location', icon: MapPin, label: 'Mendrisio', active: selectedLocation === 'mendrisio', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'mendrisio' ? 'all' : 'mendrisio')); } },
+ { id: 'bellinzona', group: 'location', icon: MapPin, label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'bellinzona' ? 'all' : 'bellinzona')); } },
+ { id: 'locarno', group: 'location', icon: MapPin, label: 'Locarno', active: selectedLocation === 'locarno', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'locarno' ? 'all' : 'locarno')); } },
+ { id: 'chiasso', group: 'location', icon: MapPin, label: 'Chiasso', active: selectedLocation === 'chiasso', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation((prev) => (prev === 'chiasso' ? 'all' : 'chiasso')); } },
+ ]} />
  </div>
  </div>
 
