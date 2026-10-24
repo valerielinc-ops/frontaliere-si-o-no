@@ -53,7 +53,12 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID, ga4DateRange } from './lib/ga4-service-account.mjs';
+import { sleep, fetchRetry as rawFetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID, ga4DateRange } from './lib/ga4-service-account.mjs';
+import { withAutomationFleetExclusionForFetch, AUTOMATION_FLEET_EXCLUSION_NOTE } from './lib/ga4-automation-fleet.mjs';
+// Every GA4 Data API runReport/batchRunReport this report sends excludes the
+// measured automation fleets (scripts/lib/ga4-automation-fleet.mjs); Search
+// Console, PageSpeed and Admin API calls pass through untouched.
+const fetchRetry = (url, options, ...rest) => rawFetchRetry(url, withAutomationFleetExclusionForFetch(url, options), ...rest);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = resolve(__dirname, '..', 'data', 'user-value-report.json');
@@ -674,6 +679,7 @@ async function main() {
   const report = {
     generatedAt: new Date().toISOString(),
     ga4PropertyId: propertyId,
+    excludedSegment: AUTOMATION_FLEET_EXCLUSION_NOTE,
     period: null,
     customDimensionRegistration: null,
     locale: null,
