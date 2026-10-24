@@ -310,6 +310,9 @@ describe('locale-shard shared matching summary', () => {
           enriched: undefined,
           indexedClusterUrlsByKey: indexedCantonMirrors,
           trafficFilter: stableTrafficFilter,
+          // Active and permissive: equivalence must hold for the demand gate's
+          // job-count and stop-word branches too, not only while it is dormant.
+          demand: { active: true, hasImpressions: () => true },
         });
         return {
           key: `${context.candidate.locale}::${context.candidate.slug}`,
