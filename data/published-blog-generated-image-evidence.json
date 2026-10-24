@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "97162c886cba3421879b45b8480852e6bf93b244",
+  "commit": "a55e5366a0a22310377df9764b5504b79f56822f",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -36601,6 +36601,92 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic urban illustration with no visible people, logos, readable text, or event-specific cues."
+      }
+    },
+    "/images/blog/article-bollettino-frontaliere-2026-10-24.webp": {
+      "schema": 1,
+      "assetId": "article-bollettino-frontaliere-2026-10-24",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "da8061498286f6f67475705a69145e30e7f90ecc974382c786e3394a4f9a0963",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "7d211b3a62540f26858af92f4c8f73cf60d3e3b38d566646675d96b573438cda",
+      "bytes": 147798,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-24T09:36:47.289Z",
+      "verifiedAt": "2026-10-24T09:37:09.821Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-10-24.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic editorial illustration of a regional commuter train at a Ticino-like mountain station; no readable text, logos, recognizable faces, or foreground people."
+      }
+    },
+    "/images/blog/article-lotteriefonds-89-progetti-cantone.webp": {
+      "schema": 1,
+      "assetId": "article-lotteriefonds-89-progetti-cantone",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "c7ae2572825e1bbd2f6dc270150111b8fb902e6485313ce073f4b7c5a7ad1879",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "f0f93e3e62ec6a9a700d3798bc66cd34fa07cffce4b7d3d9ce1f68907214a4cf",
+      "bytes": 187400,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-24T10:01:42.170Z",
+      "verifiedAt": "2026-10-24T10:01:49.943Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-lotteriefonds-89-progetti-cantone.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic autumn cultural-market scene; no readable text, logos, identifiable faces, or recognizable foreground people."
       }
     },
     "/images/places/lugano-view.webp": {
