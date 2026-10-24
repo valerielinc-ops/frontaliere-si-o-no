@@ -1,3 +1,4 @@
+import { resetStaticHeadAuthorityForTests } from '../services/seo/staticHeadAuthority';
 
 // Tests that opt-in to `// @vitest-environment node` (e.g. build-plugin
 // utilities that need to call `esbuild` directly — esbuild requires a real
@@ -260,6 +261,9 @@ beforeEach(() => {
   document.documentElement.classList.remove('dark');
   // Clear localStorage so badge/seen-state tests start clean.
   localStorage.clear();
+  // The static-head snapshot is module state and the registry is shared
+  // across files: each test's first SPA head write captures its own fixture.
+  resetStaticHeadAuthorityForTests();
 });
 
 afterEach(() => {
