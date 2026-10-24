@@ -149,7 +149,7 @@ describe('editorial transparency disclosure matches how the article was produced
     // with a property of the person, so a guest journalist's AI-assisted
     // piece would carry the "no AI assistance" claim.
     expect(src).toMatch(
-      /const isHumanContributor = !resolvedAuthor\.provenance\.aiAssisted\s+&&\s+Boolean\(effectiveAuthorName\)/,
+      /const isHumanContributor = shouldRenderHumanDisclosure\(resolvedAuthor\.provenance, effectiveAuthorName\)/,
     );
     expect(src).not.toMatch(/isHumanContributor\s*=\s*Boolean\(bylineAuthor\?\.uid\)/);
   });
