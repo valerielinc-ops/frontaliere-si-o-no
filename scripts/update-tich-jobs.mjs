@@ -689,12 +689,20 @@ export function ensureAdapterSeedUrls(
 // Base crawler invocation
 // ──────────────────────────────────────────────────────────────
 
-function runBaseCrawler() {
-  const existingProxyHosts = String(process.env.JOBS_CRAWLER_FETCH_PROXY || '')
+export function buildTichFetchProxyHosts(
+  { officialSucceeded = false } = {},
+  inheritedProxyHosts = process.env.JOBS_CRAWLER_FETCH_PROXY,
+) {
+  const existingProxyHosts = String(inheritedProxyHosts || '')
     .split(',')
     .map((host) => host.trim())
     .filter(Boolean);
-  const proxyHosts = [...new Set([...existingProxyHosts, 'www.concorsi.ti.ch'])].join(',');
+  if (!officialSucceeded) return existingProxyHosts.join(',');
+  return [...new Set([...existingProxyHosts, 'www.concorsi.ti.ch'])].join(',');
+}
+
+function runBaseCrawler({ officialSucceeded = false } = {}) {
+  const proxyHosts = buildTichFetchProxyHosts({ officialSucceeded });
   return runDedicatedBaseCrawler({
     root: ROOT,
     companyKeys: TICH_KEY,
@@ -891,7 +899,7 @@ async function main() {
 
   // Step 3: Run the base crawler which fetches each detail page
   // and parses the HTML content
-  await runBaseCrawler();
+  await runBaseCrawler({ officialSucceeded: discovery.officialSucceeded });
 
   // Step 3b: normalize Ti.CH company + clean legacy noisy descriptions
   postProcessTichJobs();
