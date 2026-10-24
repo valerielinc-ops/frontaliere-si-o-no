@@ -397,38 +397,51 @@ async function fetchFachkraftPage(
     ),
   };
 
+  const rescueWithJina = async (reason) => {
+    try {
+      console.warn(`⚠️ fachkraft ${label} returned ${reason} — trying Jina egress rescue`);
+      const rescued = await fetchJinaImpl(url, jinaOptions);
+      return rescued != null && !looksLikeAntiBotChallenge(rescued) ? rescued : null;
+    } catch (error) {
+      console.warn(`⚠️ fachkraft ${label} Jina rescue failed: ${error?.message || error}`);
+      return null;
+    }
+  };
+
   const connectionLevelFailure = !result.policyBlocked
     && !result.blockedByRobots
     && !result.status
     && Boolean(result.transportError);
-  const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
-  const antiBotResponse = directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status));
+  const hardWafResponse = WAF_IP_BLOCK_STATUS.has(Number(result.status));
   // A timeout means this source request did not answer within the crawler's
   // bounded deadline. Replaying it through Jina/browser would multiply the
   // deadline cost without distinguishing a slow origin from a blocked egress;
   // keep the standard connection-level soft-exit for it, but reserve rescue
   // attempts for transport failures that a clean route can actually change.
   const routeRescueEligible = connectionLevelFailure && result.transportError !== 'timeout';
-  const rescueEligible = !result.policyBlocked
+  const routeRescueEligibleWithPolicy = !result.policyBlocked
     && !result.blockedByRobots
-    && (routeRescueEligible || antiBotResponse);
-
-  if (rescueEligible) {
-    try {
-      const reason = connectionLevelFailure
-        ? `transport ${result.transportError || 'other'}`
-        : (result.status ? `HTTP ${result.status}` : 'anti-bot challenge');
-      console.warn(`⚠️ fachkraft ${label} returned ${reason} — trying Jina egress rescue`);
-      const rescued = await fetchJinaImpl(url, jinaOptions);
-      if (rescued != null && !looksLikeAntiBotChallenge(rescued)) {
-        return { ...result, ok: true, body: rescued, status: 200, proxiedBy: 'jina' };
-      }
-    } catch (error) {
-      console.warn(`⚠️ fachkraft ${label} Jina rescue failed: ${error?.message || error}`);
-    }
+    && (routeRescueEligible || hardWafResponse);
+  let rescuedBody = null;
+  if (routeRescueEligibleWithPolicy) {
+    const reason = connectionLevelFailure
+      ? `transport ${result.transportError || 'other'}`
+      : `HTTP ${result.status}`;
+    rescuedBody = await rescueWithJina(reason);
   }
 
-  if (rescueEligible && typeof fetchBrowserImpl === 'function') {
+  const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
+  const antiBotResponse = directChallenge || hardWafResponse;
+  if (!rescuedBody && directChallenge) rescuedBody = await rescueWithJina('anti-bot challenge');
+
+  if (rescuedBody) {
+    return { ...result, ok: true, body: rescuedBody, status: 200, proxiedBy: 'jina' };
+  }
+
+  const browserRescueEligible = !result.policyBlocked
+    && !result.blockedByRobots
+    && (routeRescueEligible || antiBotResponse);
+  if (browserRescueEligible && typeof fetchBrowserImpl === 'function') {
     try {
       const rendered = await fetchBrowserImpl(url, { timeoutMs: transport.requestTimeoutMs });
       if (typeof rendered === 'string' && rendered.trim() && !looksLikeAntiBotChallenge(rendered)) {
