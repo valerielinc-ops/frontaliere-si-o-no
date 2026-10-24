@@ -10,7 +10,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -56,11 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -444,7 +444,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -503,7 +503,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -526,7 +526,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -705,7 +705,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -755,7 +755,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -765,7 +765,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -876,7 +876,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -926,14 +926,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -1273,7 +1271,7 @@
         "it": "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach",
         "en": "employee-credit-administration-m-f-d-raiffeisen-egnach",
         "de": "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "fr": "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+        "fr": "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -1331,14 +1329,14 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
       ],
       "firstSeenAt": "2026-10-22T09:33:25.776Z",
       "salaryMin": 110500,
@@ -1844,7 +1842,7 @@
         "it": "specialista-bi-nella-gestione-dei-dati-di-rischio-m-f-d-raiffeisen-st-gallen",
         "en": "bi-specialist-in-risk-data-management-m-f-d-raiffeisen-st-gallen",
         "de": "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen",
-        "fr": "business-intelligence-spezialist-risk-management-m-w-d-raiffeisen-st-gallen"
+        "fr": "specialiste-bi-en-gestion-des-donnees-de-risque-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -1897,13 +1895,13 @@
           "business-intelligence-spezialist-risk-management-w-m-d-raiffeisen-st-gallen"
         ],
         "fr": [
-          "specialiste-bi-en-gestion-des-donnees-de-risque-h-f-d-raiffeisen-st-gallen"
+          "business-intelligence-spezialist-risk-management-m-w-d-raiffeisen-st-gallen"
         ]
       },
       "previousSlugs": [
         "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen",
         "business-intelligence-spezialist-risk-management-w-m-d-raiffeisen-st-gallen",
-        "specialiste-bi-en-gestion-des-donnees-de-risque-h-f-d-raiffeisen-st-gallen"
+        "business-intelligence-spezialist-risk-management-m-w-d-raiffeisen-st-gallen"
       ],
       "firstSeenAt": "2026-08-31T17:14:36.238Z",
       "salaryMin": 81500,
@@ -11787,7 +11785,6 @@
         "de": "23.10.2026\nBern\n\n## Werden Sie Teil unseres Teams!\nFür die Raiffeisenbank Bern, eine erfolgreiche und lokal ausgerichtete Bank mit Geschäftsstellen am Waisenhausplatz und in Muri b. Bern, suchen wir eine engagierte, verkaufs- und dienstleistungsorientierte Persönlichkeit als Kundenberater (w/m/d) 60-100%.\n\n## Was erwartet Sie?\n• Gesamtheitliche Beratung und Betreuung der Kunden in den Basisprodukten \"Zahlen, Sparen, Anlegen, Vorsorgen\"\n• Erkennen und Ausschöpfen des Kundenpotenzials durch aktive und kontinuierliche Betreuung des Teamkundenportefeuilles sowie Akquisition von Neukunden\n• Erarbeitung von bedürfnisgerechten Lösungen unter Einbezug der individuellen Wünsche, Ziele und Lebenssituationen der Kunden\n• Mitarbeit bei Marktbearbeitungsmassnahmen wie Kontaktkampagnen und/oder Anlässen\n• Bewirtschaftung der Geldein- und Ausgabegeräte\n• ein tolles Arbeitsumfeld\n\n## Was bringen Sie mit?\n• Abgeschlossene Bankausbildung\n• Erfahrung im Finanzdienstleistungssektor\n• Verkäuferisches Flair und sympathisches, gewinnendes Auftreten\n• Freude am proaktiven Kundenkontakt mit ausgeprägter Kundenorientierung\n• Sehr gute Deutschkenntnisse, Französischkenntnisse von Vorteil\n\"Unsere Kundinnen und Kunden stehen im Mittelpunkt. Wir beraten persönlich, kompetent und mit Leidenschaft.\"\nRay Lenz\nTeamleiter Privatkundenberatung\nWarum Raiffeisen?\n\n## Wir pflegen ein familiäres Umfeld\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.\n\n## Wir leben Vielfalt und Chancengleichheit\nWir fördern die unterschiedlichen Perspektiven, Erfahrungen und Kompetenzen in unseren Teams. Denn diese Vielfalt macht uns besonders und trägt entscheidend zu unserem Erfolg bei.\n\n## Wir fördern persönliche und berufliche Entwicklung\nLebenslanges Lernen ist Teil unserer Kultur. Wir schaffen Raum für individuelle fachliche und persönliche Entwicklung und unterstützen unsere Mitarbeitenden gezielt – mit einem vielfältigen internen Bildungsangebot sowie einer Kostenbeteiligung für externe Weiterbildungen.\n\n## Wir bieten attraktive Konditionen und Sozialleistungen\nUnsere Mitarbeitenden profitieren von exklusiven Vorteilen bei Bankprodukten, diversen Einkaufsvergünstigungen bei Dritten sowie einer überdurchschnittlichen Altersvorsorge.\n\n## Möchten Sie mehr über uns erfahren?\nRaiffeisenbank Bern Karriere\n• Raiffeisen Jobbörse",
         "fr": "24.09.2026\nBelgique\n\n## Faites partie de notre équipe!\nPour Raiffeisenbank Bern, une banque réussie et orientée localement avec des bureaux à l'Orphanage Square et à Muri b. Bern, nous recherchons une personnalité engagée, orientée ventes et service en tant que conseiller client (h/f/d) 60-100%.\n\n## Qu'attendez-vous?\n• Conseils et soutien complets des clients dans les produits de base \"Payez, économisez, investissez, fournissez\"\n• Reconnaître et exploiter le potentiel des clients grâce au soutien actif et continu du portefeuille client de l'équipe ainsi qu'à l'acquisition de nouveaux clients\n• Développement de solutions basées sur les besoins tenant compte des souhaits, objectifs et situations de vie individuels des clients\n• Coopération dans les mesures de développement du marché telles que les campagnes de contact et/ou les manifestations\n• Gestion du matériel d'entrée et de sortie\n• Un excellent environnement de travail\n\n## Qu'est-ce que tu apportes?\n• Formation bancaire terminée\n• Expérience dans le secteur des services financiers\n• L'aspect de vente et sympathique, l'apparence gagnante\n• Profitez d'un contact client proactif avec une forte orientation client\n• Très bonne connaissance de l'allemand, connaissance du français avantageux\nNos clients avec leurs besoins et objectifs sont au centre. Nous les conseillons avec compétence, exhaustivité et passion.\nJasmine Fuhrer\nChef d'équipe conseil client privé\nPourquoi Raiffeisen?\n\n## Nous maintenons un environnement familial\nLes valeurs coopératives sont nos piliers fondamentaux: l'unité. Pour l'autre. Ils façonnent notre coopération et notre interaction. La culture Du crée une proximité personnelle et un niveau oculaire à tous les niveaux fonctionnels.\n\n## Nous vivons la diversité et l'égalité des chances\nNous promouvons les différentes perspectives, expériences et compétences de nos équipes. Parce que cette diversité nous rend spéciaux et contribue de façon décisive à notre succès.\n\n## Nous favorisons le développement personnel et professionnel\nL'apprentissage tout au long de la vie fait partie de notre culture. Nous créons un espace pour le développement professionnel et personnel individuel et soutenons nos employés de manière ciblée – avec une large gamme de possibilités de formation interne et une part des coûts pour la formation externe.\n\n## Nous offrons des conditions attrayantes et des avantages sociaux\nNos employés bénéficient d'avantages exclusifs dans les produits bancaires, de divers rabais d'achat à des tiers et d'une disposition de retraite supérieure à la moyenne.\n\n## Vous voulez en savoir plus sur nous?\nRaiffeisenbank Bern Carrière\n• Raiffeisen Jobbörse"
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-bank-w-m-d/2154915c-c5b9-4b3d-b834-3143fcdd6287",
@@ -11914,12 +11911,12 @@
     },
     {
       "id": "raiffeisen-2cf8ae3d69b1",
-      "slug": "hr-verantwortliche-r-raiffeisen-nottwil",
+      "slug": "responsabile-hr-raiffeisen-nottwil",
       "slugByLocale": {
         "de": "hr-verantwortliche-r-raiffeisen-nottwil",
-        "it": "hr-verantwortliche-r-raiffeisen-nottwil",
-        "en": "hr-verantwortliche-r-raiffeisen-nottwil",
-        "fr": "hr-verantwortliche-r-raiffeisen-nottwil"
+        "it": "responsabile-hr-raiffeisen-nottwil",
+        "en": "hr-manager-raiffeisen-nottwil",
+        "fr": "responsable-rh-raiffeisen-nottwil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11938,7 +11935,6 @@
         "en": "23.10.2026\nNottwil\n\n## Become part of our team!\nFor Raiffeisenbank Sempachersee-Rottal Süd, a successful and locally oriented consulting bank with offices in Buttisholz, Hildisrieden, Neuenkirch, Nottwil, Ruswil and St. Erhard, we are looking for an independent, committed and service-oriented personality as HR manager (80 - 100 %).\nIn this versatile key position, you are responsible for the entire HR management for our bank with around 50 employees and actively shape the further development of our corporate culture.\n\n## What awaits you?\n• Overall responsibility for human resources management and its ongoing development\n• Responsibility for wage accounting and payment of wages\n• Responsibility for administrative activities in connection with the staff (management of personnel dossiers, working time management, maintenance of the employment relationship and the personnel regulations, issuing of employment confirmations and certificates, handling of training and further education, etc.)\n• Responsibility for the entire recruitment process from job advertisement to successful onboarding (job advertisement, applicant management, recruitment interviews, references, employment conditions incl. Salary offers in consultation with the bank management, drafting of contracts, design of familiarisation, probationary time talk, etc.\n• Coordination and organizational design of the onboarding of new employees in cooperation with the responsible managers\n• Planning, coordination and monitoring of annual HR processes such as target agreements, performance dialogues and qualitative personnel planning\n• Contact person for employees and managers in all HR processes and in the personnel system\n• High design freedom, short decision-making paths and direct cooperation with the bank management\n• Contemporary working conditions in a newly designed, modern working environment\n\n## What do you bring?\n• Commercial basic education as well as further education as an HR specialist with federal law. Professional certificate or equivalent qualification\n• Several years of experience in a broadly based HR generalist function with high personal responsibility\n• Experience in advising executives on employment law and personnel issues\n• In-depth knowledge of Swiss labour law and social insurance\n• Strong assertive, service-oriented and analytical personality with high resilience\n• High social skills and strong communication – empathetic and confidence-building\n• Structured, precise and independent working method\n• Enjoy taking responsibility and advancing HR topics pragmatically and solution-oriented\nWith this function, you play a key role in our bank. You accompany our employees throughout the entire employee lifecycle and actively shape the further development of our corporate culture. If you want to take responsibility and make a difference, I look forward to meeting you.\nMarcel Lüscher\nChairman of the Bank Management\nWhy Raiffeisen?\n\n## We maintain a family environment\nCooperative values are our fundamental pillars: togetherness. For each other. They shape our cooperation and our interaction with each other. The Du culture creates personal closeness and eye level across all functional levels.\n\n## We live diversity and equal opportunities\nWe promote the different perspectives, experiences and competencies in our teams. Because this diversity makes us special and contributes decisively to our success.\n\n## We promote personal and professional development\nLifelong learning is part of our culture. We create space for individual professional and personal development and support our employees in a targeted manner – with a wide range of internal training opportunities and a cost share for external further education.\n\n## We offer attractive conditions and social benefits\nOur employees benefit from exclusive advantages in banking products, various purchase discounts at third parties and an above-average retirement provision.\n\n## Would you like to know more about us?\nRaiffeisenbank Sempachersee-Rottal Süd Karriere\n• Raiffeisen Jobbörse",
         "fr": "23.10.2026\nPastwil\n\n## Faites partie de notre équipe !\nPour Raiffeisenbank Sempachersee-Rottal Süd, banque de conseil à succès et orientée localement avec des bureaux à Buttisholz, Hildisrieden, Neuenkirch, Nottwil, Ruswil et St. Erhard, nous recherchons une personnalité indépendante, engagée et orientée vers le service en tant que gestionnaire RH (80 - 100 %).\nDans ce poste clé polyvalent, vous êtes responsable de l'ensemble de la gestion des RH pour notre banque avec environ 50 employés et façonnez activement le développement de notre culture d'entreprise.\n\n## Qu'est-ce qui vous attend ?\n• Responsabilité générale de la gestion des ressources humaines et de son développement\n• Responsabilité en matière de comptabilité des salaires et de paiement des salaires\n• Responsabilité des activités administratives concernant le personnel (gestion des dossiers du personnel, gestion du temps de travail, maintien de la relation de travail et du statut du personnel, délivrance de confirmations et de certificats d'emploi, traitement de la formation et de la formation continue, etc.)\n• Responsabilité de l'ensemble du processus de recrutement, de l'annonce d'emploi à la réussite à bord (annonce d'emploi, gestion des candidats, entrevues de recrutement, références, conditions d'emploi, y compris Les offres salariales en consultation avec la direction de la banque, la rédaction des contrats, la conception de la familiarisation, la discussion probatoire, etc.\n• Coordination et organisation de l'embarquement des nouveaux employés en coopération avec les gestionnaires responsables\n• Planification, coordination et suivi des processus annuels en matière de RH, tels que les ententes ciblées, les dialogues sur le rendement et la planification qualitative du personnel\n• Personne-ressource pour les employés et les gestionnaires dans tous les processus de RH et dans le système du personnel\n• Haute liberté de conception, courts processus décisionnels et coopération directe avec la direction de la banque\n• Les conditions de travail contemporaines dans un environnement de travail moderne et nouvellement conçu\n\n## Qu'est-ce que tu apportes ?\n• L'éducation de base commerciale ainsi que la formation continue en tant que spécialiste des ressources humaines en droit fédéral. Certificat professionnel ou qualification équivalente\n• Plusieurs années d'expérience dans une fonction généraliste des RH largement basée avec une haute responsabilité personnelle\n• Expérience en conseillant les cadres sur les questions de droit du travail et de personnel\n• Connaissance approfondie du droit du travail et de l'assurance sociale suisse\n• Une forte personnalité affirmée, orientée vers le service et analytique avec une grande résilience\n• Hautes compétences sociales et communication forte – empathie et renforcement de la confiance\n• Méthode de travail structurée, précise et indépendante\n• Profitez de la prise de responsabilité et de l'avancement des questions de RH pragmatiquement et orientées vers la solution\nAvec cette fonction, vous jouez un rôle clé dans notre banque. Vous accompagnez nos employés tout au long du cycle de vie et façonnez activement le développement de notre culture d'entreprise. Si vous voulez prendre des responsabilités et faire une différence, j'ai hâte de vous rencontrer.\nMarcel Lüscher\nPrésident de la direction de la Banque\nPourquoi Raiffeisen ?\n\n## Nous maintenons un environnement familial\nLes valeurs coopératives sont nos piliers fondamentaux : l'unité. Pour l'autre. Ils façonnent notre coopération et notre interaction. La culture Du crée la proximité personnelle et le niveau des yeux à tous les niveaux fonctionnels.\n\n## Nous vivons la diversité et l'égalité des chances\nNous promouvons les différentes perspectives, expériences et compétences de nos équipes. Parce que cette diversité nous rend spéciaux et contribue de façon décisive à notre succès.\n\n## Nous favorisons le développement personnel et professionnel\nL'apprentissage tout au long de la vie fait partie de notre culture. Nous créons un espace pour le développement professionnel et personnel individuel et soutenons nos employés de manière ciblée – avec une large gamme de possibilités de formation interne et une part des coûts pour la formation externe.\n\n## Nous offrons des conditions attrayantes et des avantages sociaux\nNos employés bénéficient d'avantages exclusifs dans les produits bancaires, de divers rabais d'achat auprès de tiers et d'une disposition de retraite supérieure à la moyenne.\n\n## Vous voulez en savoir plus sur nous ?\nRaiffeisenbank Sempachersee-Rottal Süd Karriere\n• Raiffeisen Jobbörse"
       },
-      "needsRetranslation": true,
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://jobs.raiffeisen.ch/offene-stellen/hr-verantwortliche-r/a22940fc-8118-42ea-bebf-2ae13b3e8ecf",
@@ -11979,16 +11975,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:19:52.233Z"
+      "firstSeenAt": "2026-10-23T21:19:52.233Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-verantwortliche-r-raiffeisen-nottwil"
+        ],
+        "en": [
+          "hr-verantwortliche-r-raiffeisen-nottwil"
+        ],
+        "fr": [
+          "hr-verantwortliche-r-raiffeisen-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "hr-verantwortliche-r-raiffeisen-nottwil"
+      ]
     },
     {
       "id": "raiffeisen-65abb699b2ec",
-      "slug": "kmu-firmenkundenberater-in-raiffeisen-wattwil",
+      "slug": "consulente-per-le-pmi-i-clienti-aziendali-raiffeisen-wattwil",
       "slugByLocale": {
         "de": "kmu-firmenkundenberater-in-raiffeisen-wattwil",
-        "it": "kmu-firmenkundenberater-in-raiffeisen-wattwil",
-        "en": "kmu-firmenkundenberater-in-raiffeisen-wattwil",
-        "fr": "kmu-firmenkundenberater-in-raiffeisen-wattwil"
+        "it": "consulente-per-le-pmi-i-clienti-aziendali-raiffeisen-wattwil",
+        "en": "sme-corporate-client-advisor-raiffeisen-wattwil",
+        "fr": "conseiller-ere-pme-clientele-entreprises-raiffeisen-wattwil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12007,7 +12017,6 @@
         "en": "23.10.2026\nWattwil\n\n## Become part of our team!\nRaiffeisenbank Mittleres Toggenburg is looking for a strong personality for SMEs and corporate client consulting. You actively participate, make decisions in short ways and work closely with the bank management.\n\n## What awaits you?\n• Support and targeted further development of an established corporate client portfolio\n• Comprehensive advice to your customers on financing issues, succession planning and on investing and paying\n• Active market development and representation of the bank in the region\n• Strategic and operational development of your department\n• Close cooperation with the bank management and active participation in the corporate client strategy\n• Acting responsibly within the framework of your competences with short decision-making paths\n\n## What do you bring?\n• Completed banking education with further training in banking or finance\n• Sound and practical know-how in the lending business\n• Several years of experience in corporate banking with focus on financing\n• Safe, entrepreneurial thinking and joy of responsibility\n• Delight in daily customer contact and a convincing appearance\n• Motivation to make a difference and actively develop your own area\n“Short decision-making paths, great freedom of design: You bring your ideas and implement them directly.” That's what makes the difference.\nUrban Koller\nChairman of the Bank Management\nWhy Raiffeisen?\n\n## We maintain a family environment\nCooperative values are our fundamental pillars: togetherness. For each other. They shape our cooperation and our interaction with each other. The Du culture creates personal closeness and eye level across all functional levels.\n\n## We live diversity and equal opportunities\nWe promote the different perspectives, experiences and competencies in our teams. Because this diversity makes us special and contributes decisively to our success.\n\n## We promote personal and professional development\nLifelong learning is part of our culture. We create space for individual professional and personal development and support our employees in a targeted manner – with a wide range of internal training opportunities and a cost share for external further education.\n\n## We offer attractive conditions and social benefits\nOur employees benefit from exclusive advantages in banking products, various purchase discounts at third parties and an above-average retirement provision.\n\n## Would you like to know more about us?\nRaiffeisenbank Mittels Toggenburg Career\n• Raiffeisen Jobbörse",
         "fr": "23.10.2026\nWattwil\n\n## Faites partie de notre équipe !\nRaiffeisenbank Mittleres Toggenburg est à la recherche d'une forte personnalité pour les PME et les conseils clients d'entreprise. Vous participez activement, prenez des décisions de courte durée et travaillez en étroite collaboration avec la direction de la banque.\n\n## Qu'est-ce qui vous attend ?\n• Appuyer et cibler le développement d'un portefeuille de clients bien établi\n• Conseils complets à vos clients sur les questions de financement, la planification de la relève et l'investissement et le paiement\n• Développement actif du marché et représentation de la banque dans la région\n• Développement stratégique et opérationnel de votre ministère\n• Coopération étroite avec la direction de la banque et participation active à la stratégie de l'entreprise cliente\n• Agir de manière responsable dans le cadre de vos compétences avec de courtes voies de décision\n\n## Qu'est-ce que tu apportes ?\n• Études bancaires terminées avec une formation complémentaire dans le domaine bancaire ou financier\n• Savoir-faire solide et pratique dans l'activité de prêt\n• Plusieurs années d'expérience dans le domaine des banques d'entreprises avec un accent sur le financement\n• Pensée sûre, entrepreneuriale et joie de la responsabilité\n• Délice dans le contact quotidien avec le client et une apparence convaincante\n• Motivation pour faire la différence et développer activement votre propre domaine\nLes voies de décision courtes, grande liberté de conception: Vous apportez vos idées et les implémentez directement. C'est ce qui fait la différence.\nKoller urbain\nPrésident de la direction de la Banque\nPourquoi Raiffeisen ?\n\n## Nous maintenons un environnement familial\nLes valeurs coopératives sont nos piliers fondamentaux : l'unité. Pour l'autre. Ils façonnent notre coopération et notre interaction. La culture Du crée la proximité personnelle et le niveau des yeux à tous les niveaux fonctionnels.\n\n## Nous vivons la diversité et l'égalité des chances\nNous promouvons les différentes perspectives, expériences et compétences de nos équipes. Parce que cette diversité nous rend spéciaux et contribue de façon décisive à notre succès.\n\n## Nous favorisons le développement personnel et professionnel\nL'apprentissage tout au long de la vie fait partie de notre culture. Nous créons un espace pour le développement professionnel et personnel individuel et soutenons nos employés de manière ciblée – avec une large gamme de possibilités de formation interne et une part des coûts pour la formation externe.\n\n## Nous offrons des conditions attrayantes et des avantages sociaux\nNos employés bénéficient d'avantages exclusifs dans les produits bancaires, de divers rabais d'achat auprès de tiers et d'une disposition de retraite supérieure à la moyenne.\n\n## Vous voulez en savoir plus sur nous ?\nRaiffeisenbank Mittels Toggenburg Carrière\n• Raiffeisen Jobbörse"
       },
-      "needsRetranslation": true,
       "location": "Wattwil",
       "canton": "SG",
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kmu-firmenkundenberater-in/9239fb21-af5a-44fc-a5f4-4da44c163ff9",
@@ -12048,7 +12057,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T21:19:52.212Z"
+      "firstSeenAt": "2026-10-23T21:19:52.212Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kmu-firmenkundenberater-in-raiffeisen-wattwil"
+        ],
+        "en": [
+          "kmu-firmenkundenberater-in-raiffeisen-wattwil"
+        ],
+        "fr": [
+          "kmu-firmenkundenberater-in-raiffeisen-wattwil"
+        ]
+      },
+      "previousSlugs": [
+        "kmu-firmenkundenberater-in-raiffeisen-wattwil"
+      ]
     },
     {
       "id": "raiffeisen-50cd083cb973",
@@ -12298,7 +12321,7 @@
       "id": "raiffeisen-a24f0aa06558",
       "slug": "servizio-clienti-banca-m-f-d-raiffeisen-bern-cdd78da193",
       "slugByLocale": {
-        "it": "servizio-clienti-banca-m-f-d-raiffeisen-bern-cdd78da193",
+        "it": "servizio-clienti-banca-m-f-d-raiffeisen-bern",
         "en": "customer-service-bank-m-f-d-raiffeisen-bern",
         "de": "kundenberater-bank-w-m-d-raiffeisen-bern",
         "fr": "banque-de-service-a-la-clientele-h-f-d-raiffeisen-bern"
@@ -12349,15 +12372,13 @@
       "previousSlugs": [
         "servizio-clienti-banca-m-f-d-raiffeisen-bern-gy97kd",
         "kundenberater-bank-w-m-d-raiffeisen-bern-gy97kd",
-        "kundenberater-bank-w-m-d-raiffeisen-bern",
-        "servizio-clienti-banca-m-f-d-raiffeisen-bern"
+        "kundenberater-bank-w-m-d-raiffeisen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servizio-clienti-banca-m-f-d-raiffeisen-bern-gy97kd",
           "kundenberater-bank-w-m-d-raiffeisen-bern-gy97kd",
-          "kundenberater-bank-w-m-d-raiffeisen-bern",
-          "servizio-clienti-banca-m-f-d-raiffeisen-bern"
+          "kundenberater-bank-w-m-d-raiffeisen-bern"
         ]
       },
       "firstSeenAt": "2026-09-23T23:45:49.174Z",

@@ -1021,7 +1021,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-ikea-aubonne",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -1068,7 +1068,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-aubonne",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "mitarbeiter-logistikmanager-60-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1076,7 +1076,7 @@
           "collaborateur-trice-logistique-60-ikea-aubonne"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "mitarbeiter-logistikmanager-60-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",
@@ -2620,7 +2620,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kundenservice-70-ikea-ch"
@@ -2732,8 +2731,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-kinderabteilung-80-ikea-ch",
         "it": "addetto-a-alle-vendite-kinderabteilung-80-ikea-spreitenbach",
-        "en": "mitarbeiter-in-verkauf-kinderabteilung-80-ikea-ch",
-        "fr": "mitarbeiter-in-verkauf-kinderabteilung-80-ikea-ch"
+        "en": "sales-associate-children-s-department-80-ikea-spreitenbach-aargau",
+        "fr": "collaborateur-trice-de-vente-au-rayon-enfants-80-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2778,9 +2777,14 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-kinderabteilung-80-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-kinderabteilung-80-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-kinderabteilung-80-ikea-ch"
         ]
       },

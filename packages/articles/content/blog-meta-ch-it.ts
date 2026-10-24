@@ -8609,6 +8609,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prezzi-pompa-non-calano-svizzera.title': 'Prezzi pompa non calano in Svizzera: vincoli raffinazione e Reno',
     'blog.article.prezzi-pompa-non-calano-svizzera.excerpt': 'I flussi da Hormuz restano inferiori del 30-40%.',
     'blog.article.prezzi-pompa-non-calano-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.successione-parmelin-otto-nomi.title': 'Consiglio federale: in corsa Parmelin per otto nomi',
+    'blog.article.successione-parmelin-otto-nomi.excerpt': 'La corsa alla successione di Parmelin arriva a otto nomi Graber e Ruppen si presentano a Berna Le candidature cantonali scadono venerdì a mezzogiorno Il voto è',
+    'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

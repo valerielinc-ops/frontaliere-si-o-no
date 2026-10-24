@@ -339,7 +339,7 @@
       "slug": "steuerungstechniker-in-anlagentechniker-in-support-m-w-d-sfs-group-hallau",
       "slugByLocale": {
         "de": "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau",
-        "it": "steuerungstechniker-in-anlagentechniker-in-support-m-w-d-sfs-group-hallau",
+        "it": "tecnico-di-controllo-tecnico-d-impianto-supporto-m-f-d-sfs-group-hallau",
         "en": "control-technician-system-technician-support-m-f-d-sfs-group-hallau",
         "fr": "technicien-ne-de-commande-technicien-ne-d-installation-support-h-f-d-sfs-group-hallau"
       },
@@ -389,16 +389,13 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau",
-          "tecnico-di-controllo-tecnico-d-impianto-supporto-m-f-d-sfs-group-hallau"
+          "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau"
         ]
       },
       "previousSlugs": [
-        "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau",
-        "tecnico-di-controllo-tecnico-d-impianto-supporto-m-f-d-sfs-group-hallau"
+        "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -582,7 +579,7 @@
         "it": "responsabile-prodotto-parapioggia-m-f-d-80-sfs-group-heerbrugg",
         "en": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
         "de": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
-        "fr": "responsable-produit-facades-ventilees-m-w-d-80-sfs-group-heerbrugg"
+        "fr": "gestionnaire-de-produits-rainscreen-h-f-d-80-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -630,14 +627,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
-        "gestionnaire-de-produits-rainscreen-h-f-d-80-sfs-group-heerbrugg"
+        "responsable-produit-facades-ventilees-m-w-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
         ],
         "fr": [
-          "gestionnaire-de-produits-rainscreen-h-f-d-80-sfs-group-heerbrugg"
+          "responsable-produit-facades-ventilees-m-w-d-80-sfs-group-heerbrugg"
         ]
       },
       "needsRetranslation": true,
@@ -844,8 +841,8 @@
       "slugByLocale": {
         "de": "messtechniker-in-m-f-d-sfs-group-hallau",
         "it": "tecnico-di-misura-m-f-d-sfs-group-hallau",
-        "en": "messtechniker-in-m-w-d-sfs-group-hallau",
-        "fr": "messtechniker-in-m-w-d-sfs-group-hallau"
+        "en": "measuring-technician-m-f-d-sfs-group-hallau",
+        "fr": "technicien-de-mesure-h-f-d-sfs-group-hallau"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -893,22 +890,20 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "messtechniker-in-m-f-d-sfs-group-hallau"
         ],
         "en": [
-          "measuring-technician-m-f-d-sfs-group-hallau"
+          "messtechniker-in-m-w-d-sfs-group-hallau"
         ],
         "fr": [
-          "technicien-de-mesure-h-f-d-sfs-group-hallau"
+          "messtechniker-in-m-w-d-sfs-group-hallau"
         ]
       },
       "previousSlugs": [
         "messtechniker-in-m-f-d-sfs-group-hallau",
-        "measuring-technician-m-f-d-sfs-group-hallau",
-        "technicien-de-mesure-h-f-d-sfs-group-hallau"
+        "messtechniker-in-m-w-d-sfs-group-hallau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1250,8 +1245,8 @@
       "slugByLocale": {
         "de": "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
         "it": "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau",
-        "en": "kunststofftechnologe-in-m-w-d-sfs-group-hallau",
-        "fr": "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
+        "en": "plastics-technologist-m-f-d-sfs-group-hallau",
+        "fr": "technologue-en-matieres-plastiques-m-f-d-sfs-group-hallau"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -1299,22 +1294,20 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
         ],
         "en": [
-          "plastics-technologist-m-f-d-sfs-group-hallau"
+          "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
         ],
         "fr": [
-          "technologue-en-matieres-plastiques-m-f-d-sfs-group-hallau"
+          "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
         ]
       },
       "previousSlugs": [
         "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
-        "plastics-technologist-m-f-d-sfs-group-hallau",
-        "technologue-en-matieres-plastiques-m-f-d-sfs-group-hallau"
+        "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
