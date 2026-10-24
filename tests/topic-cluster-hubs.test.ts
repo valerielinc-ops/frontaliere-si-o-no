@@ -554,7 +554,9 @@ describe('topic hubs — non annunciare una sezione che il build non spedisce', 
     // accodato — quindi saltare la sezione salta anche la sua sitemap, e nel
     // loop del build non esiste piu' un punto in cui scriverne una per una
     // sezione non renderizzata.
-    expect(src).toMatch(/const indexable = emitted\.filter\(\(e\) => e\.indexable\);/);
+    // `listed` (P1 noindex plan): page 2+ of a topic hub is written and
+    // indexable but not announced — still one claim, derived from `emitted`.
+    expect(src).toMatch(/const indexable = emitted\.filter\(\(e\) => e\.indexable && e\.listed !== false\);/);
     expect(src).toMatch(/if \(indexable\.length > 0\) \{[\s\S]{0,300}?topicSitemapFileName\(section\)/);
     // E il loop del build non deve poter scrivere una sitemap da solo.
     const loop = src.indexOf('for (const section of TOPIC_HUB_SECTIONS)');
