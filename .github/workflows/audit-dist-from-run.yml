@@ -267,7 +267,7 @@ jobs:
           touch "$prov"
           echo "Provenienza dei sottoalberi reidratati:"
           cut -f2 "$prov" | sort | uniq -c | sed 's/^/  /'
-          mixed="$(awk -F'\t' '$2 ~ /^clone/ && $3 !~ /^frontaliere-articoli(frontaliere|svizzera)-/' "$prov")"
+          mixed="$(awk -F'\t' '$2 ~ /^clone/ && $3 !~ /^frontaliere-articoli-(frontaliere|svizzera)(@|$)/' "$prov")"
           if [ -z "$mixed" ]; then
             echo "✅ ogni sottoalbero viene dal trunk o dagli artifact del build/publish (articoli: clone per costruzione)"
             exit 0

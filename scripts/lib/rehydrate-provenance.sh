@@ -21,7 +21,7 @@
 
 rehydrate_provenance() {
   [ -n "${REHYDRATE_PROVENANCE_FILE:-}" ] || return 0
-  printf '%s\t%s\t%s\n' "$1" "$2" "${3:-}" >> "$REHYDRATE_PROVENANCE_FILE" 2>/dev/null || true
+  printf '%s\t%s\t%s\n' "$1" "$2" "${3:-}" >> "$REHYDRATE_PROVENANCE_FILE"
 }
 
 # Run that holds the en/de/fr shard artifacts. Locales can be published by

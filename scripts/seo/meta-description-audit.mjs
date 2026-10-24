@@ -38,13 +38,26 @@ import { realpathSync } from 'node:fs';
  * time from frames of directory NAMES; duplicates are keyed by a 72-bit hash of
  * the description, holding the first url for singletons and a count plus at
  * most MAX_DUP_URLS urls per duplicated group; issues are COUNTED in full and
- * kept as a bounded sample per kind. Same pages, same flags, same totals.
+ * kept as a bounded sample per kind. Duplicate occurrences are written to a
+ * sharded temporary index and reduced one shard at a time, so the scan keeps
+ * no process-wide singleton Map. Same pages, same flags, same totals.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, openSync, writeSync, closeSync } from 'node:fs';
+import {
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  existsSync,
+  openSync,
+  writeSync,
+  closeSync,
+  mkdtempSync,
+  rmSync,
+} from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { tmpdir } from 'node:os';
 import { extractMetaDescription } from '../lib/meta-description-extract.mjs';
 import { walkHtml } from './lib/walk-html.mjs';
 
@@ -82,6 +95,89 @@ function parseArgs(argv) {
 /** 72-bit digest of a description: the Map key instead of the text itself. */
 function descKey(desc) {
   return createHash('sha1').update(desc).digest('base64').slice(0, 12);
+}
+
+/**
+ * Keep the duplicate index on disk while the corpus is being walked.
+ *
+ * A singleton needs only its first URL until a second occurrence turns it into
+ * a reportable group.  Keeping those singletons in a process-wide Map was the
+ * remaining 4 GB failure after the JSON writer became streaming: a 6.3M-page
+ * replay still retained one URL for every distinct description.  The index is
+ * sharded by the digest prefix so finalisation only holds one bounded shard in
+ * memory at a time; duplicate groups are the only data retained for the report.
+ */
+class DiskDuplicateIndex {
+  constructor() {
+    this.root = mkdtempSync(join(tmpdir(), 'meta-description-index-'));
+    this.buffers = new Map();
+    this.fds = new Map();
+    this.shards = new Set();
+  }
+
+  add(key, desc, url) {
+    const shard = key.slice(0, 2).replaceAll('/', '_').replaceAll('+', '-');
+    this.shards.add(shard);
+    const line = `${JSON.stringify({ key, desc, url })}\n`;
+    const buffered = `${this.buffers.get(shard) ?? ''}${line}`;
+    if (buffered.length >= 1024 * 1024) {
+      this.buffers.set(shard, buffered);
+      this.flush(shard);
+    } else {
+      this.buffers.set(shard, buffered);
+    }
+  }
+
+  flush(shard) {
+    const data = this.buffers.get(shard);
+    if (!data) return;
+    const file = join(this.root, `${shard}.jsonl`);
+    const fd = this.fds.get(shard) ?? openSync(file, 'a');
+    this.fds.set(shard, fd);
+    writeSync(fd, data);
+    this.buffers.set(shard, '');
+  }
+
+  close() {
+    for (const shard of this.shards) this.flush(shard);
+    for (const fd of this.fds.values()) closeSync(fd);
+    this.fds.clear();
+  }
+
+  collectGroups() {
+    this.close();
+    const duplicateGroups = [];
+    let duplicatePages = 0;
+
+    for (const shard of this.shards) {
+      const file = join(this.root, `${shard}.jsonl`);
+      const byKey = new Map();
+      const lines = readFileSync(file, 'utf8').split('\n');
+      for (const line of lines) {
+        if (!line) continue;
+        const { key, desc, url } = JSON.parse(line);
+        const seen = byKey.get(key);
+        if (seen === undefined) {
+          byKey.set(key, { desc, count: 1, urls: [url] });
+        } else {
+          seen.count++;
+          if (seen.urls.length < MAX_DUP_URLS) seen.urls.push(url);
+        }
+      }
+      for (const group of byKey.values()) {
+        if (group.count > 1) {
+          duplicateGroups.push(group);
+          duplicatePages += group.count;
+        }
+      }
+    }
+
+    return { duplicateGroups, duplicateCount: duplicateGroups.length, duplicatePages };
+  }
+
+  cleanup() {
+    rmSync(this.root, { recursive: true, force: true });
+  }
 }
 
 function fileToUrlPath(filePath, distRoot) {
@@ -146,10 +242,7 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   if (!existsSync(args.dist)) { writeStubReport(args, `dist-missing (${args.dist})`); return; }
 
-  // key -> first url (string) while the description is unique on the site,
-  // -> { desc, count, urls[<=MAX_DUP_URLS] } from its second occurrence on.
-  const byDesc = new Map();
-  const duplicateGroups = [];
+  const duplicateIndex = new DiskDuplicateIndex();
   const samples = { 'missing-description': [], 'too-short': [], 'too-long': [], 'missing-keyword': [] };
   let pages = 0;
   let withDescription = 0;
@@ -175,17 +268,7 @@ function main() {
     }
     withDescription++;
     const key = descKey(desc);
-    const seen = byDesc.get(key);
-    if (seen === undefined) {
-      byDesc.set(key, url);
-    } else if (typeof seen === 'string') {
-      const group = { desc, count: 2, urls: [seen, url] };
-      byDesc.set(key, group);
-      duplicateGroups.push(group);
-    } else {
-      seen.count++;
-      if (seen.urls.length < MAX_DUP_URLS) seen.urls.push(url);
-    }
+    duplicateIndex.add(key, desc, url);
 
     const length = desc.length;
     const flags = [];
@@ -210,10 +293,12 @@ function main() {
       }
     }
   }
-  if (pages === 0) { writeStubReport(args, 'dist-empty'); return; }
-  byDesc.clear();
-
-  const duplicateCount = duplicateGroups.length;
+  if (pages === 0) {
+    duplicateIndex.cleanup();
+    writeStubReport(args, 'dist-empty');
+    return;
+  }
+  const { duplicateGroups, duplicateCount, duplicatePages } = duplicateIndex.collectGroups();
 
   mkdirSync(args.out, { recursive: true });
   const today = isoDate();
@@ -228,7 +313,7 @@ function main() {
       withDescription,
       missing,
       duplicates: duplicateCount,
-      duplicatePages: duplicateGroups.reduce((n, g) => n + g.count, 0),
+      duplicatePages,
       tooShort, tooLong, missingKeyword,
       flaggedPages,
     },
@@ -274,6 +359,7 @@ function main() {
   if (missing > 20) {
     console.log(`[meta-description-audit] … +${missing - 20} altre URL senza description (campione nel JSON)`);
   }
+  duplicateIndex.cleanup();
 }
 
 const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
