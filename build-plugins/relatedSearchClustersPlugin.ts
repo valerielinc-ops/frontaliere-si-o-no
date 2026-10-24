@@ -4769,7 +4769,7 @@ export async function dropOverwrittenLocs(
     label?: string;
   } = {},
 ): Promise<string[]> {
-  const __truthStartedAt = Date.now();
+  const __truthStartedAt = performance.now();
   let __truthPassedToHtml = 0;
   const KEEP = 1;
   const DROP_NOINDEX = 2;
@@ -4955,7 +4955,7 @@ export async function dropOverwrittenLocs(
   }
   console.log(
     `[sitemap-truth] ${options.label ?? 'unlabelled'} locs=${locs.length} kept=${out.length} ` +
-      `html_inspected=${__truthPassedToHtml} wall_s=${((Date.now() - __truthStartedAt) / 1000).toFixed(1)}`,
+      `html_inspected=${__truthPassedToHtml} wall_s=${((performance.now() - __truthStartedAt) / 1000).toFixed(1)}`,
   );
   if (droppedNoindex > 0 || droppedNonCanonical > 0 || droppedRedirect > 0 || droppedMissingCanonical > 0) {
     console.log(

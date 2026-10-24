@@ -528,11 +528,11 @@ export async function reconcileFinalSitemapsWithDist(
   // Tempi per famiglia (`[sitemap-alias-detail]`): sono la sola attribuzione
   // possibile dei ~9-11 minuti del plugin senza un secondo run profilato.
   const __detail = async <T>(step: string, run: () => Promise<T> | T): Promise<T> => {
-    const startedAt = Date.now();
+    const startedAt = performance.now();
     try {
       return await run();
     } finally {
-      console.log(`[sitemap-alias-detail] ${step} wall_s=${((Date.now() - startedAt) / 1000).toFixed(1)}`);
+      console.log(`[sitemap-alias-detail] ${step} wall_s=${((performance.now() - startedAt) / 1000).toFixed(1)}`);
     }
   };
   const foreignDirectoryIndex = await __detail('foreign-candidates', () => createForeignDirectoryIndex(
@@ -616,9 +616,9 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
           );
         }
 
-        const __tSanitize = Date.now();
+        const __tSanitize = performance.now();
         const sanitized = sanitizeSitemapHreflangReciprocity(sitemapFiles);
-        console.log(`[sitemap-alias-detail] hreflang-sanitize wall_s=${((Date.now() - __tSanitize) / 1000).toFixed(1)} files=${sitemapFiles.length}`);
+        console.log(`[sitemap-alias-detail] hreflang-sanitize wall_s=${((performance.now() - __tSanitize) / 1000).toFixed(1)} files=${sitemapFiles.length}`);
         for (const [file, xml] of sanitized) {
           fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
         }

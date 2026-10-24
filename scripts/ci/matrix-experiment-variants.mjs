@@ -38,10 +38,8 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   // plugin that grew heap/RSS by less than this many MB.
   'PROFILE_GC_MIN_GROWTH_MB',
   // Campagna «durata del deploy»: profilo CPU per fase dei plugin medi
-  // (build-plugins/shared/phaseInstrument.ts) e manifest sha256 del dist per
-  // la prova di byte-identita' fra varianti dello stesso run.
+  // (build-plugins/shared/phaseInstrument.ts).
   'PHASE_CPU_PROFILE',
-  'DIST_HASH_MANIFEST',
   // Scansione blog-image condivisa col post-walk coordinator (blogImageFold.ts).
   'BLOG_IMAGE_CDN_FOLD',
   // Riduzioni di lavoro dei plugin medi, output identico (midPluginFlags.ts).

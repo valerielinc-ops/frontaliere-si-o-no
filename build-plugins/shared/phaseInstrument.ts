@@ -15,6 +15,9 @@
  *     5000 us): un profilo di processo intero su una build da 2,5 h sarebbe
  *     di centinaia di MB, quello di una fase da 5-10 minuti sta in pochi MB.
  *
+ * I tempi usano `performance.now()`: il clock congelato del banco
+ * (freeze_clock/compare_variants) blocca `Date.now()` e li azzererebbe.
+ *
  * Senza env il wrapper e' l'identita' sul comportamento: non cambia ordine,
  * `order`/`sequential` dell'hook, ne' l'output del build.
  */
@@ -66,7 +69,7 @@ async function startCpuProfile(label: string): Promise<(() => Promise<void>) | n
 /** Esegue `run` loggando `[phase-io]` ed eventualmente profilando la CPU. */
 export async function runInstrumentedPhase<T>(label: string, run: () => Promise<T> | T): Promise<T> {
   const stopProfile = await startCpuProfile(label);
-  const wall0 = Date.now();
+  const wall0 = performance.now();
   const cpu0 = process.cpuUsage();
   const io0 = process.resourceUsage();
   try {
@@ -75,7 +78,7 @@ export async function runInstrumentedPhase<T>(label: string, run: () => Promise<
     const cpu = process.cpuUsage(cpu0);
     const io1 = process.resourceUsage();
     console.log(
-      `[phase-io] ${label.padEnd(28)} wall_s=${((Date.now() - wall0) / 1000).toFixed(1)} ` +
+      `[phase-io] ${label.padEnd(28)} wall_s=${((performance.now() - wall0) / 1000).toFixed(1)} ` +
         `cpu_user_s=${(cpu.user / 1e6).toFixed(1)} cpu_sys_s=${(cpu.system / 1e6).toFixed(1)} ` +
         `fs_read_ops=${io1.fsRead - io0.fsRead} fs_write_ops=${io1.fsWrite - io0.fsWrite} ` +
         `max_rss_mb=${Math.round(io1.maxRSS / 1024)}`,
