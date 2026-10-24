@@ -4,7 +4,7 @@ import { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, Sus
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams, getLocale, t as translate } from '@/services/i18n';
-import { fetchArticleOverlay, mergeOverlay, type OverlayArticle } from '@/services/articlesOverlay';
+import { articleFromOverlay, fetchArticleOverlay, mergeOverlay, type OverlayArticle } from '@/services/articlesOverlay';
 import { articleCoverImageLd, creditedStaticImageObject, fetchImageCredit, fetchImageCredits } from '@/services/imageCredits';
 import type { ImageCreditRecord } from '@/packages/articles/engine/shared/imageCredits.mjs';
 import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from '@/packages/articles/engine/shared/aiDisclosure';
@@ -40,6 +40,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { getAuthorBySlug } from '@/data/authors';
 import { resolveArticleProvenance } from '@/services/articleProvenance';
+import { shouldRenderHumanDisclosure } from '@/packages/articles/engine/shared/articleProvenance';
 import { articleSourceDate, articleSchemaDates, compareArticleSourceDates } from '@/services/articleSourceDates';
 import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, AD_ELIGIBLE_MIN_WORDS, AD_ELIGIBLE_MIN_CHARS, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
 import { collectArticleBodySegments, countArticleBodyChars, countArticleBodyWords } from '@/services/articleBodySegments';
@@ -1118,27 +1119,6 @@ function getRelatedJobsForArticle(articleId: string, jobs: JobPreview[], locale:
 import { ARTICLES } from '@/data/blog-articles-data';
 
 export { ARTICLES };
-
-const ARTICLE_CATEGORIES = new Set<Article['category']>(['fiscale', 'pratico', 'novita', 'pensione']);
-
-/** Convert the corpus' runtime index row into the shape used by the shared UI. */
-function articleFromOverlay(entry: OverlayArticle): Article {
- const category = ARTICLE_CATEGORIES.has(entry.category as Article['category'])
-  ? entry.category as Article['category']
-  : 'novita';
- return {
-  id: entry.id,
-  category,
-  date: entry.date || '',
-  ...(entry.updatedAt ? { updatedAt: entry.updatedAt } : {}),
-  image: entry.image || '/images/places/lugano.webp',
-  hasCalculator: entry.hasCalculator === true,
-  ...(entry.articleType ? { articleType: entry.articleType } : {}),
-  ...(entry.authorSlug ? { authorSlug: entry.authorSlug } : {}),
-  ...(typeof entry.aiAssisted === 'boolean' ? { aiAssisted: entry.aiAssisted } : {}),
-  ...(entry.canton ? { canton: entry.canton } : {}),
- };
-}
 
 function mergeArticleRecords(primary: readonly Article[], additions: readonly Article[]): Article[] {
  const known = new Set(primary.map(article => article.id));
@@ -2388,7 +2368,7 @@ function BlogArticlesContent({
  const resolvedAuthor = {
   provenance: resolveArticleProvenance(article, bylineAuthor),
  };
- const isHumanContributor = !resolvedAuthor.provenance.aiAssisted && Boolean(effectiveAuthorName);
+ const isHumanContributor = shouldRenderHumanDisclosure(resolvedAuthor.provenance, effectiveAuthorName);
  // One AI statement site-wide (packages/articles/engine/shared/aiDisclosure.ts),
  // localized — the static article HTML renders the same copy.
  const transparencyLocale = disclosureLocale(locale);

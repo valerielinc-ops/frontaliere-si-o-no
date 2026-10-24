@@ -27,6 +27,8 @@ import { cdnDataUrl, cdnFreshUrl } from '@/services/cdnDataBase';
 import { mergeArticleMetaOverlay } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import type { ArticleSection } from '@/services/articleSections';
+import { getAuthorBySlug } from '@/data/authors';
+import type { Article } from '@/packages/articles/content/blog-articles-data';
 
 /** Mirrors one entry of the published index; every field beyond id/title optional. */
 export interface OverlayArticle {
@@ -39,6 +41,8 @@ export interface OverlayArticle {
   image?: string;
   hasCalculator?: boolean;
   authorSlug?: string;
+  /** Per-article display name; falls back to the local author registry by slug. */
+  authorName?: string;
   /**
    * Provenance of this article's draft, when the publisher declares it. The
    * articles this overlay adds are exactly the ones this build does NOT ship,
@@ -61,6 +65,32 @@ export interface OverlayArticle {
 }
 
 export type OverlaySection = ArticleSection;
+
+const ARTICLE_CATEGORIES = new Set<Article['category']>(['fiscale', 'pratico', 'novita', 'pensione']);
+
+/** Convert a published overlay row into the article shape consumed by the SPA. */
+export function articleFromOverlay(entry: OverlayArticle): Article {
+  const category = ARTICLE_CATEGORIES.has(entry.category as Article['category'])
+    ? entry.category as Article['category']
+    : 'novita';
+  const authorSlug = typeof entry.authorSlug === 'string' ? entry.authorSlug.trim() || undefined : undefined;
+  const declaredAuthorName = typeof entry.authorName === 'string' ? entry.authorName.trim() : '';
+  const authorName = declaredAuthorName
+    || (authorSlug ? getAuthorBySlug(authorSlug)?.name : undefined);
+  return {
+    id: entry.id,
+    category,
+    date: entry.date || '',
+    ...(entry.updatedAt ? { updatedAt: entry.updatedAt } : {}),
+    image: entry.image || '/images/places/lugano.webp',
+    hasCalculator: entry.hasCalculator === true,
+    ...(entry.articleType ? { articleType: entry.articleType } : {}),
+    ...(authorSlug ? { authorSlug } : {}),
+    ...(authorName ? { authorName } : {}),
+    ...(typeof entry.aiAssisted === 'boolean' ? { aiAssisted: entry.aiAssisted } : {}),
+    ...(entry.canton ? { canton: entry.canton } : {}),
+  };
+}
 
 /** Beyond this the fetch is abandoned — a blog list must not wait on it. */
 const TIMEOUT_MS = 4000;

@@ -21,6 +21,19 @@ export interface ArticleProvenance {
   basis: ProvenanceBasis;
 }
 
+/**
+ * Whether the disclosure may name a human contributor.
+ *
+ * Keep this decision beside the provenance resolver so the static renderer and
+ * the hydrated article cannot diverge on the final, display-facing predicate.
+ */
+export function shouldRenderHumanDisclosure(
+  provenance: ArticleProvenance,
+  authorName: string | undefined,
+): authorName is string {
+  return !provenance.aiAssisted && Boolean(authorName);
+}
+
 /** The article-side shape this needs; anything wider is accepted. */
 export interface ProvenanceDeclaringArticle {
   aiAssisted?: boolean;

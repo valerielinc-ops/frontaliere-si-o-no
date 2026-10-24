@@ -3,8 +3,10 @@
 // entirely about failure: it must ADD what the bundle lacks and must never
 // change or lose what the bundle has, whatever the network returns.
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { mergeOverlay, fetchArticleOverlay } from '../services/articlesOverlay';
+import { articleFromOverlay, mergeOverlay, fetchArticleOverlay } from '../services/articlesOverlay';
 import { t } from '../services/i18n';
+import { getAuthorBySlug } from '../data/authors';
+import { resolveArticleProvenance, shouldRenderHumanDisclosure } from '../packages/articles/engine/shared/articleProvenance';
 
 const bundled = [{ id: 'vecchio-1' }, { id: 'vecchio-2' }];
 
@@ -31,6 +33,34 @@ describe('mergeOverlay', () => {
     const r = mergeOverlay(bundled, [], 'it');
     expect(r.added).toBe(0);
     expect(r.articles).toBe(bundled);
+  });
+});
+
+describe('article overlay hydration contract', () => {
+  it('keeps static and hydrated disclosure decisions identical', () => {
+    // The published index may carry the slug and declaration without a
+    // duplicated display name. The SPA must recover that name from the same
+    // author registry the static renderer uses.
+    const overlay = {
+      id: 'guest-authored-without-ai',
+      title: 'Titolo pubblicato',
+      authorSlug: 'samuele-valente',
+      aiAssisted: false,
+    } as const;
+    const staticAuthor = getAuthorBySlug(overlay.authorSlug);
+    const staticProvenance = resolveArticleProvenance(overlay, staticAuthor);
+    const hydrated = articleFromOverlay(overlay);
+    const hydratedAuthor = hydrated.authorSlug ? getAuthorBySlug(hydrated.authorSlug) : undefined;
+    const hydratedProvenance = resolveArticleProvenance(hydrated, hydratedAuthor);
+
+    expect(hydrated).toMatchObject({
+      authorSlug: overlay.authorSlug,
+      authorName: staticAuthor?.name,
+      aiAssisted: overlay.aiAssisted,
+    });
+    expect(hydratedProvenance).toEqual(staticProvenance);
+    expect(shouldRenderHumanDisclosure(staticProvenance, staticAuthor?.name))
+      .toBe(shouldRenderHumanDisclosure(hydratedProvenance, hydrated.authorName));
   });
 });
 
