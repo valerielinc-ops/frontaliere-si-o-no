@@ -87,7 +87,6 @@ const CSC_NCORE_BOARD_URL = 'https://app.ncoreplat.com/jobboard/filters/4321/csc
 // UA for direct responses and use the same UA for the bounded DOM-rendering
 // fallback below when the initial shell exposes no positions.
 const CSC_NCORE_BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
-const CSC_NCORE_DETAIL_ROUTE_RE = /\/jobposition\/[1-9]\d*\//i;
 const CSC_NCORE_EMPTY_BOARD_RE = /\b(?:non ci sono|nessun[ao]?|non sono presenti)\b.{0,100}\b(?:offert[ae]|posizion[ei]|lavor[oi])\b|\b(?:there are no|no)\b.{0,100}\b(?:open )?(?:jobs?|positions?|vacancies)\b/i;
 const CSC_NCORE_CAPTURE_HOST_RE = /(?:^|\.)ncoreplat\.com$/i;
 const CSC_NCORE_CAPTURE_CONTENT_TYPE_RE = /(?:application|text)\/(?:json|xhtml\+xml|html|javascript|x-javascript|plain)/i;
@@ -323,18 +322,15 @@ async function collectCscNcoreBoardMarkup(page, responseBodies = []) {
 }
 
 function cscNcoreBoardMarkupReady(markup) {
-  const probeMarkup = String(markup || '')
-    .replace(/\\u002f/gi, '/')
-    .replace(/\\\//g, '/')
-    .replace(/%2f/gi, '/');
-  if (CSC_NCORE_DETAIL_ROUTE_RE.test(probeMarkup)) return true;
   try {
-    if (parseNcoreListingPage(markup).length > 0) return true;
+    const parsed = parseCscNcoreBoardPage(markup);
+    if (parsed.urls.length > 0 || parsed.authoritativeEmpty) return true;
   } catch {
     // The response may be a partial JSON/HTML payload while the SPA is still
-    // hydrating; keep polling until a complete payload or empty marker exists.
+    // hydrating, or may contain another NCore tenant. Keep polling until the
+    // CSC trust contract sees a complete payload or empty marker.
   }
-  return CSC_NCORE_EMPTY_BOARD_RE.test(cscPlainText(markup));
+  return false;
 }
 
 async function waitForCscNcoreBoardMarkup(page, responseBodies, timeoutMs) {
