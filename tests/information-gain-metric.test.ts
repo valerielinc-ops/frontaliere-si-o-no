@@ -561,8 +561,13 @@ describe("information-gain: le chiavi di identità-template risolvono ogni etich
   };
   const inventory = INFORMATION_GAIN_GATE.KNOWN_LOW_GAIN_COHORTS;
 
-  it('le 37 coorti della run 33460354951 sono tutte inventariate', () => {
-    expect(fixture.templates).toHaveLength(37);
+  it('le 37 coorti della run 33460354951 sono inventariate, meno le 2 risalite sopra il floor', () => {
+    // `de:~4c9404` e `fr:~9706c6` tolte il 2026-10-24 (recoveredCohorts del
+    // full-corpus: 68 % / 73 %); vedi la nota in scripts/audit-information-gain.mjs.
+    expect(fixture.templates).toHaveLength(35);
+    for (const recovered of ['de:~4c9404', 'fr:~9706c6']) {
+      expect(INFORMATION_GAIN_GATE.KNOWN_LOW_GAIN_COHORTS.has(recovered), recovered).toBe(false);
+    }
   });
 
   for (const template of fixture.templates) {

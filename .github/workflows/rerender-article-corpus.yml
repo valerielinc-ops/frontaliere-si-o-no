@@ -150,6 +150,7 @@ on:
       - 'scripts/rerender-article-corpus.mjs'
       - 'scripts/lib/article-corpus-overlay.mjs'
       - 'scripts/lib/article-image-postcondition.mjs'
+      - 'scripts/lib/remote-hero-sizes.mjs'
       - 'scripts/lib/corpus-canton-exclusion.mjs'
       - 'scripts/lib/corpus-local-preserve.mjs'
       - 'scripts/lib/install-article-renderer-runtime-deps.sh'
