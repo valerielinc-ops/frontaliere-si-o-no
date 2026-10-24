@@ -1192,10 +1192,27 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         emittedPathsByLocale.set(locale, emittedPaths);
       }
       let excludedNoindexRoutes = 0;
+      const italianSitemapIndexability = new Map<PageDescriptor, boolean>();
       for (const locale of LOCALES) {
+        // Locale shards must not render pages they will discard. The Italian
+        // shard still owns the shared sitemap, so it reuses the indexability
+        // already computed for the Italian page when adding the other locale
+        // paths; their descriptor, release model and content floor are the
+        // same contract, while rendering them again would only waste the
+        // shard's build budget.
+        if (!shouldEmitLocale(locale)) {
+          if (shouldEmitLocale('it')) {
+            for (const descriptor of allDescriptors) {
+              if (!italianSitemapIndexability.get(descriptor)) continue;
+              urls.push(buildPharmacyPath(descriptorPath(descriptor, locale), locale));
+            }
+          }
+          continue;
+        }
         for (const descriptor of allDescriptors) {
           const built = buildPage(descriptor, locale, distDir, dutiesDataset, buildNow, emittedPathsByLocale.get(locale)!);
           collector.add(path.join(distDir, `${built.path.replace(/^\/+/, '').replace(/\/+$/, '')}/index.html`), built.html);
+          if (locale === 'it') italianSitemapIndexability.set(descriptor, built.indexable);
           // The IT/main shard owns the shared sitemap and must list every
           // locale URL, even though its collector writes only its own pages.
           if (built.indexable) urls.push(built.path);
