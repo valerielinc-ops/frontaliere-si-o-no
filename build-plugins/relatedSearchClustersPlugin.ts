@@ -4980,7 +4980,7 @@ function deriveActiveJobSitemapLocs(
   return active;
 }
 
-function ensureActiveJobSitemapLocs(
+function ensureJobSitemapAllowlist(
   files: ReadonlyArray<{ file: string; xml: string }>,
 ): ReadonlySet<string> {
   // The all-locale sitemap allowlist, not the link registry: on a
@@ -5207,8 +5207,10 @@ export async function reconcileSitemapJobsWithDist(
   // A cache HIT can reach this reconciler after the jobs producer's normal
   // allowlist population was skipped. Recover the current decision before
   // filtering historical shards; a null registry must never disable this
-  // stale-detail guard.
-  const sourceStale = staleJobShardLocs(sitemapFiles, ensureActiveJobSitemapLocs(sitemapFiles));
+  // stale-detail guard. The allowlist is the all-locale one
+  // (getJobSitemapAllowlist), so EN/DE/FR shard URLs are never mistaken for
+  // stale on the IT build.
+  const sourceStale = staleJobShardLocs(sitemapFiles, ensureJobSitemapAllowlist(sitemapFiles));
   const dropLocs = [...new Set([...unserved, ...mirrorLocs, ...sourceStale])];
   // One sitemap per URL. A shard restored from an earlier artifact (or written
   // by a pre-dedupe producer) can still repeat sitemap-jobs.xml entries; the
