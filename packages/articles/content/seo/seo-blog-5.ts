@@ -42003,7 +42003,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Paola Nurnberg, vertenza chiusa: la RSI paga 4 mesi di salario",
-      "description": "Paola Nurnberg, licenziata dalla RSI nel 2023 dopo un post su Twitter: vertenza chiusa, la RSI ha pagato tutte le pretese avanzate secondo Unia.",
+      "description": "Paola Nurnberg, licenziata dalla RSI nel 2023 dopo un post su Twitter: vertenza chiusa, la RSI ha pagato tutte le pretese avanzate secondo Unia. La chiusura è stata confermata da Unia.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -47391,7 +47391,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "CU 2026 per frontalieri: modelli ufficiali e credito d'imposta",
-      "description": "Certificazione Unica 2026: modelli ufficiali per i redditi 2025 e come i frontalieri dichiarano in Italia lo stipendio svizzero col credito d'imposta.",
+      "description": "Certificazione Unica 2026: modelli ufficiali per i redditi 2025 e come i frontalieri dichiarano in Italia lo stipendio svizzero col credito d'imposta. La guida chiarisce gli adempimenti per i lavoratori transfrontalieri.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -51797,7 +51797,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Tecnico di radiologia in Ticino: quanto guadagna e requisiti",
-      "description": "Quanto guadagna un tecnico di radiologia in Ticino: stipendio medio di CHF 80.000 l'anno, requisiti, riconoscimento del titolo di studio e permesso G.",
+      "description": "Quanto guadagna un tecnico di radiologia in Ticino: stipendio medio di CHF 80.000 l'anno, requisiti, riconoscimento del titolo di studio e permesso G. La guida riassume i passaggi per esercitare la professione in Svizzera.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
