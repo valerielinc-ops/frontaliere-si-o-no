@@ -79,6 +79,10 @@ vi.mock('@/services/petitionRoute', () => ({
   buildStabioDossoPetitionPath: () => '/petizione-dosso-stabio/',
 }));
 vi.mock('@/services/i18n', () => ({
+  // The page renders behind its on-demand "petition" namespace; the stubbed
+  // t() below already carries every string, so the namespace is "loaded".
+  loadNamespaceTranslations: () => Promise.resolve(true),
+  useTranslationNamespace: () => true,
   useTranslation: () => ({
     locale: 'it',
     t: (key: string) => ({
