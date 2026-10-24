@@ -241,7 +241,7 @@ if (deployPerimeter) {
 }
 
 let masked = 0;
-if (maskTimestamps) {
+if (maskTimestamps && BUILD_CLOCK_TIMESTAMP_ALLOWLIST.length > 0) {
   const { createHash } = await import('node:crypto');
   for (const e of entries) {
     if (!TEXT_EXT.test(e.rel)) continue;
