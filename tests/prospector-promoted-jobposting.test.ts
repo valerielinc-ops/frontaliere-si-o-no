@@ -30,7 +30,7 @@ import { fetchAllPremiumpflege24Jobs } from '../scripts/lib/premiumpflege24-job-
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
-describe('promoted Prospector parsers — JobPosting mandatory fields', () => {
+describe('promoted Prospector parsers — JobPosting required fields', () => {
   it.each([
     ['christinavassalli', fetchAllChristinavassalliJobs],
     ['premiumpflege24', fetchAllPremiumpflege24Jobs],
@@ -61,9 +61,13 @@ describe('promoted Prospector parsers — JobPosting mandatory fields', () => {
       });
       expect(verified).not.toBeNull();
       expect(verified?.datePosted).toBe(sourceDate);
-      expect(verified?.baseSalary.value.minValue).toBeGreaterThan(0);
-      expect(verified?.jobLocation.address.postalCode).toBeTruthy();
-      expect(verified?.jobLocation.address.streetAddress).toBeTruthy();
+      // Owner decision 2026-10-24: optional fields only as the source states
+      // them. The parser emits no street/CAP, and its baseSalary reaches the
+      // markup only when the record marks it as reported.
+      expect(verified?.jobLocation.address).not.toHaveProperty('postalCode');
+      expect(verified?.jobLocation.address).not.toHaveProperty('streetAddress');
+      if (job.salarySource === 'reported') expect(verified?.baseSalary?.value.minValue).toBeGreaterThan(0);
+      else expect(verified).not.toHaveProperty('baseSalary');
     }
   });
 });
