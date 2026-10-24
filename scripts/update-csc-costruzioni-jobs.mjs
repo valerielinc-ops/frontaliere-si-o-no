@@ -303,44 +303,90 @@ function appendCscNcoreMarkup(parts, value, state) {
 /**
  * The filter board can keep its data in a child frame or in a same-vendor
  * JSON response without copying the detail anchors into the top document.
- * Collect both representations, bounded, and let the existing NCore parser
- * plus the CSC tenant allowlist decide what is trusted.
+ * Collect frame markup plus tenant-validated URL markup from responses, bounded,
+ * and let the existing NCore parser decide what is trusted.
  */
-async function collectCscNcoreBoardMarkup(page, responseBodies = []) {
-  const parts = [];
+async function collectCscNcoreBoardMarkup(page, responseUrlMarkups = []) {
+  const frameParts = [];
+  const responseParts = [];
   const state = { remaining: CSC_NCORE_CAPTURE_MAX_CHARS };
   for (const frame of page.frames()) {
     try {
-      appendCscNcoreMarkup(parts, await frame.content(), state);
+      appendCscNcoreMarkup(frameParts, await frame.content(), state);
     } catch {
       // A frame may disappear while the SPA is replacing its document. The
       // remaining frames/responses are still valid candidates for parsing.
     }
   }
-  for (const body of responseBodies) appendCscNcoreMarkup(parts, body, state);
-  return parts.join('\n');
+  for (const urlMarkup of responseUrlMarkups) appendCscNcoreMarkup(responseParts, urlMarkup, state);
+  const frameMarkup = frameParts.join('\n');
+  const responseMarkup = responseParts.join('\n');
+  return {
+    frameMarkup,
+    markup: [frameMarkup, responseMarkup].filter(Boolean).join('\n'),
+  };
 }
 
-function cscNcoreBoardMarkupReady(markup) {
+function cscNcoreBoardMarkupReady({ frameMarkup, markup }) {
   try {
     const parsed = parseCscNcoreBoardPage(markup);
-    if (parsed.urls.length > 0 || parsed.authoritativeEmpty) return true;
+    // Response bodies are URL candidates only. Their text must never be able
+    // to turn an unrelated diagnostic/localisation into an authoritative empty
+    // board before a later response containing the actual listing arrives.
+    if (parsed.urls.length > 0) return true;
   } catch {
     // The response may be a partial JSON/HTML payload while the SPA is still
     // hydrating, or may contain another NCore tenant. Keep polling until the
     // CSC trust contract sees a complete payload or empty marker.
   }
-  return false;
+  try {
+    return parseCscNcoreBoardPage(frameMarkup).authoritativeEmpty;
+  } catch {
+    return false;
+  }
 }
 
-async function waitForCscNcoreBoardMarkup(page, responseBodies, timeoutMs) {
+function readCscNcoreResponseText(response, deadline) {
+  const remaining = deadline - Date.now();
+  if (remaining <= 0) return Promise.resolve(null);
+
+  return new Promise((resolve) => {
+    let settled = false;
+    let timer;
+    const finish = (value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve(value);
+    };
+    timer = setTimeout(() => finish(null), remaining);
+    Promise.resolve()
+      .then(() => response.text())
+      .then(finish, () => finish(null));
+  });
+}
+
+function extractCscNcoreResponseUrlMarkup(body) {
+  // Do not retain the complete response body. Parse only the shared capture
+  // budget and keep the tenant-validated URLs, never response diagnostics or
+  // empty-state text, in the renderer's aggregate.
+  const boundedBody = String(body || '').slice(0, CSC_NCORE_CAPTURE_MAX_CHARS);
+  if (!boundedBody) return '';
+  try {
+    return parseCscNcoreBoardPage(boundedBody).urls.join('\n');
+  } catch {
+    return '';
+  }
+}
+
+async function waitForCscNcoreBoardMarkup(page, responseUrlMarkups, timeoutMs) {
   const deadline = Date.now() + timeoutMs;
-  let markup = '';
+  let capture = { frameMarkup: '', markup: '' };
   while (true) {
-    markup = await collectCscNcoreBoardMarkup(page, responseBodies);
-    if (cscNcoreBoardMarkupReady(markup)) return markup;
+    capture = await collectCscNcoreBoardMarkup(page, responseUrlMarkups);
+    if (cscNcoreBoardMarkupReady(capture)) return capture;
     const remaining = deadline - Date.now();
-    if (remaining <= 0) return markup;
+    if (remaining <= 0) return capture;
     const delay = Math.min(250, remaining);
     if (typeof page.waitForTimeout === 'function') await page.waitForTimeout(delay);
     else await new Promise((resolve) => setTimeout(resolve, delay));
@@ -362,8 +408,10 @@ export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = 
       viewport: { width: 1280, height: 720 },
     });
     const page = await context.newPage();
-    const responseBodies = [];
+    const responseUrlMarkups = [];
+    const responseCaptureState = { remaining: CSC_NCORE_CAPTURE_MAX_CHARS };
     const pendingResponseBodies = [];
+    const deadline = Date.now() + timeoutMs;
     page.on('response', (response) => {
       let responseUrl;
       try {
@@ -374,9 +422,11 @@ export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = 
       if (!CSC_NCORE_CAPTURE_HOST_RE.test(responseUrl.hostname)) return;
       const contentType = response.headers()?.['content-type'] || '';
       if (!CSC_NCORE_CAPTURE_CONTENT_TYPE_RE.test(contentType)) return;
-      const pending = response.text()
-        .then((body) => { if (body) responseBodies.push(body); })
-        .catch(() => {});
+      const pending = readCscNcoreResponseText(response, deadline)
+        .then((body) => {
+          const urlMarkup = extractCscNcoreResponseUrlMarkup(body);
+          appendCscNcoreMarkup(responseUrlMarkups, urlMarkup, responseCaptureState);
+        });
       pendingResponseBodies.push(pending);
     });
     const response = await page.goto(boardUrl, {
@@ -391,12 +441,15 @@ export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = 
     // and same-vendor responses, not an arbitrary delay. If the board is
     // genuinely empty, the authoritative marker lets the parser finish; an
     // unknown shell remains fail-closed.
-    await waitForCscNcoreBoardMarkup(page, responseBodies, timeoutMs);
+    await waitForCscNcoreBoardMarkup(page, responseUrlMarkups, timeoutMs);
     await Promise.allSettled(pendingResponseBodies);
-    const html = await collectCscNcoreBoardMarkup(page, responseBodies);
+    const capture = await collectCscNcoreBoardMarkup(page, responseUrlMarkups);
+    if (!cscNcoreBoardMarkupReady(capture)) {
+      throw new Error('CSC discovery degraded: NCore board rendering timed out before a verified payload was available.');
+    }
 
     return {
-      html,
+      html: capture.markup,
       responseUrl: page.url().trim(),
     };
   } finally {
