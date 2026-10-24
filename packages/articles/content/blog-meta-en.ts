@@ -13584,6 +13584,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sanitari-italiani-fuga-svizzera.title': 'Cross-border healthcare workers: Como is gasping for air',
     'blog.article.sanitari-italiani-fuga-svizzera.excerpt': 'Approximately 5,000 Italian border workers in Ticino health Up to 12% in public hospitals Up to 30% in the private sector Health tax from 3% to 6%',
     'blog.article.sanitari-italiani-fuga-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.bollettino-frontaliere-2026-10-24.title': 'Cross-border workers: today\'s verified readings — October 24, 2026',
+    'blog.article.bollettino-frontaliere-2026-10-24.excerpt': 'Today\'s numbers, October 24, 2026, for cross-border commuters: the latest crossing waits, cheapest fuel municipalities, the franc-euro rate and active Swiss job listings on our job board. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-24.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.bollettino-frontaliere-2026-10-24.seoDescription': 'Cross-border daily brief for workers, October 24, 2026: latest waits, fuel prices, CHF/EUR rate and active jobs in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-10-24.ogDescription': 'Daily figures for cross-border commuters, October 24, 2026: measured waits at each crossing, where fuel costs least, the latest franc-euro rate and active Swiss job listings on our board, with links to live pages.',
 };
 
 export default blogMetaEn;

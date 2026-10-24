@@ -13586,6 +13586,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sanitari-italiani-fuga-svizzera.title': 'Professionnels de santé frontaliers : Côme suffoque',
     'blog.article.sanitari-italiani-fuga-svizzera.excerpt': 'Environ 5\'000 frontaliers italiens dans le secteur de la santé tessinois Jusqu\'à 12% dans les hôpitaux publics Jusqu\'à 30% dans le secteur privé Taxe santé de 3% à 6%',
     'blog.article.sanitari-italiani-fuga-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bollettino-frontaliere-2026-10-24.title': 'Frontaliers : les relevés disponibles aujourd’hui — 24 octobre 2026',
+    'blog.article.bollettino-frontaliere-2026-10-24.excerpt': 'Les chiffres du jour, 24 octobre 2026, pour les frontaliers : les dernières attentes aux douanes, les communes où le carburant coûte le moins cher, le taux franc-euro et les offres d\'emploi actives en Suisse sur notre job board. Relevés quotidiens de notre suivi.',
+    'blog.article.bollettino-frontaliere-2026-10-24.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bollettino-frontaliere-2026-10-24.seoDescription': 'Bulletin frontalier 24 octobre 2026 : attentes aux douanes, prix du carburant, taux CHF/EUR et offres d\'emploi actives en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-10-24.ogDescription': 'Les chiffres du 24 octobre 2026 pour les frontaliers : attentes aux douanes, communes où le carburant coûte le moins cher, dernier taux CHF/EUR et offres d\'emploi actives sur notre job board suisse au quotidien.',
 };
 
 export default blogMetaFr;
