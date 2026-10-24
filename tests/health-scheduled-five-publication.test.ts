@@ -13,7 +13,7 @@ const body = 'La nostra clinica cerca personale qualificato per assistere i pazi
 const ld = (raw: unknown) => `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', datePosted: raw, validThrough: past, dateModified: past, jobStartDate: past })}</script>`;
 const cases: ReadonlyArray<readonly [string, unknown, string]> = [['reported', past, past], ['missing', undefined, ''], ['invalid', 'bad', ''], ['future', future, ''], ['invalid calendar', `${now.getUTCFullYear() - 1}-02-30`, '']];
 const sources = [['osc', fetchAllCantonTicinoOscJobs], ['cds', fetchAllCdsSavogninJobs], ['cereneo', fetchAllCereneoJobs]] as const;
-afterEach(() => { vi.unstubAllGlobals(); vi.useRealTimers(); });
+afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); vi.useRealTimers(); });
 for (const [source, producer] of sources) describe(`${source} same-detail publication`, () => {
   it.each(cases)('%s preserves source record without clock inference', async (_name, raw, expected) => {
     vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(now);
@@ -33,6 +33,46 @@ for (const [source, producer] of sources) describe(`${source} same-detail public
     expect(job.url).toMatch(/^https:\/\//); expect(job.applyUrl).toMatch(/^https:\/\//);
     expect(Date.parse(job.crawledAt)).toBe(now.getTime()); expect(transport).toHaveBeenCalledTimes(2);
     if (source === 'cereneo') expect(job.description).toContain('ab sofort');
+  });
+});
+
+describe('OSC official listing transport fallback', () => {
+  it('recovers OSC detail ids from the official Canton Ticino page after a portal connection failure', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubEnv('JOBS_JINA_RETRIES', '0');
+    vi.stubEnv('JOBS_JINA_RETRY_BASE_MS', '0');
+    const officialUrl = 'https://www4.ti.ch/index.php?id=147427';
+    const officialHtml = `
+      <h1>Concorsi generali nell'Amministrazione cantonale</h1>
+      <p>www.concorsi.ti.ch</p>
+      <div class="ce-bodytext">
+        <p>no. 1/26</p>
+        <p><strong>Concorso generale Infermiere presso Organizzazione Sociopsichiatrica Cantonale (OSC), Mendrisio</strong></p>
+        <p>Scadenza: 31.12.2026</p>
+        <a href="https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=1">Vai al concorso</a>
+      </div>`;
+    const transport = vi.fn(async (input: RequestInfo | URL) => {
+      const url = input instanceof Request ? input.url : String(input);
+      if (url === 'https://www.concorsi.ti.ch/') {
+        const error = new TypeError('fetch failed');
+        error.cause = { code: 'ENOTFOUND' };
+        throw error;
+      }
+      if (url.startsWith('https://r.jina.ai/')) return new Response('', { status: 502 });
+      if (url === officialUrl) return new Response(officialHtml, { status: 200 });
+      if (url.includes("offerte-d'impieghi.html?yid=1")) {
+        return new Response(`${ld(past)}<h2>Dipartimento della sanità e della socialità</h2><h2>1/26</h2><h2>Infermiere OSC Mendrisio</h2><p>${body}</p><h2>Scadenza</h2><p>${past}</p>`, { status: 200 });
+      }
+      return new Response('', { status: 404 });
+    });
+    vi.stubGlobal('fetch', transport);
+
+    const jobs = await fetchAllCantonTicinoOscJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ companyKey: 'canton-ticino-osc', title: 'Infermiere OSC Mendrisio' });
+    expect(transport.mock.calls.some(([url]) => String(url) === officialUrl)).toBe(true);
   });
 });
 

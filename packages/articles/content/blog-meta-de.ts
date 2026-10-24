@@ -13583,6 +13583,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sanitari-italiani-fuga-svizzera.title': 'Grenzgänger im Gesundheitswesen: Como ringt nach Luft',
     'blog.article.sanitari-italiani-fuga-svizzera.excerpt': 'Etwa 5\'000 italienische Grenzgänger im Tessiner Gesundheitswesen Bis zu 12% in öffentlichen Krankenhäusern Bis zu 30% im privaten Sektor Gesundheitssteuer von 3% bis 6%',
     'blog.article.sanitari-italiani-fuga-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-10-24.title': 'Grenzgänger: die verfügbaren Messwerte von heute — 24. Oktober 2026',
+    'blog.article.bollettino-frontaliere-2026-10-24.excerpt': 'Die Zahlen von heute, 24. Oktober 2026, für Grenzgänger: die zuletzt gemeldeten Wartezeiten an den Übergängen, die günstigsten Benzinpreise, der Franken-Euro-Kurs und aktive Stellenanzeigen in der Schweiz auf unserem Job-Board. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-24.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-10-24.seoDescription': 'Grenzgänger-Bulletin am 24. Oktober 2026: aktuelle Wartezeiten, Benzinpreise, CHF/EUR-Kurs und offene Stellen in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-10-24.ogDescription': 'Die Zahlen vom 24. Oktober 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, wo das Benzin am günstigsten ist, der aktuelle Franken-Euro-Kurs und die Zahl aktiver Stellenanzeigen auf unserem Job-Board in der Schweiz.',
 };
 
 export default blogMetaDe;
