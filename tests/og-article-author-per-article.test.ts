@@ -139,17 +139,18 @@ describe('editorial transparency disclosure matches how the article was produced
     // disclosure copy (packages/articles/engine/shared/aiDisclosure.ts).
     expect(ARTICLE_TRANSPARENCY.it.aiAssisted).toContain('IA generativa');
 
-    // ...and it sits in the false branch of the human-contributor check.
+    // ...and it sits in the AI branch of the shared transparency statement.
     expect(src).toMatch(
-      /isHumanContributor\s*\?[^:]+:\s*transparencyCopy\.aiAssisted/,
+      /const transparencyStatement = resolvedAuthor\.provenance\.aiAssisted\s*\?\s*transparencyCopy\.aiAssisted/,
     );
+    expect(src).toMatch(/transparencyCopy\.humanWithoutName/);
     // ...and the gate reads the article's provenance, not the author's `uid`
     // directly. A bare `Boolean(bylineAuthor?.uid)` here is the assumption
     // this module exists to remove: it answers "how was THIS article made"
     // with a property of the person, so a guest journalist's AI-assisted
     // piece would carry the "no AI assistance" claim.
     expect(src).toMatch(
-      /const isHumanContributor = shouldRenderHumanDisclosure\(resolvedAuthor\.provenance, effectiveAuthorName\)/,
+      /const isHumanContributor = shouldRenderHumanDisclosure\(resolvedAuthor\.provenance, normalizedAuthorName\)/,
     );
     expect(src).not.toMatch(/isHumanContributor\s*=\s*Boolean\(bylineAuthor\?\.uid\)/);
   });

@@ -31,7 +31,7 @@ export function shouldRenderHumanDisclosure(
   provenance: ArticleProvenance,
   authorName: string | undefined,
 ): authorName is string {
-  return !provenance.aiAssisted && Boolean(authorName);
+  return !provenance.aiAssisted && Boolean(authorName?.trim());
 }
 
 /** The article-side shape this needs; anything wider is accepted. */
