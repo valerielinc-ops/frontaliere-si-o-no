@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, type MouseEvent, type CSSProperties } from 'react';
 import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper, Trophy, Flame, CheckCircle2 } from 'lucide-react';
-import { useTranslation, useLocale } from '@/services/i18n';
+import { useTranslation, useLocale, useTranslationNamespace } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { buildPath, type AppRoute } from '@/services/router';
 import { buildPharmacyPath, parsePharmacyRoute } from '@/services/pharmacies/routePaths';
@@ -1164,11 +1164,6 @@ export const RELEASES: Release[] = [
  titleKey: 'whatsNew.v3440.pillarArticles.title',
  descKey: 'whatsNew.v3440.pillarArticles.desc',
  link: { tab: 'blog' },
- },
- {
- type: 'feature',
- titleKey: 'whatsNew.v3440.expertQuotes.title',
- descKey: 'whatsNew.v3440.expertQuotes.desc',
  },
  {
  type: 'feature',
@@ -2922,6 +2917,9 @@ interface WhatsNewModalProps {
 export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  const { t, locale } = useTranslation();
  const nav = useNavigationOptional();
+ // Release-note strings live in services/locales/<locale>-whatsnew.ts, loaded
+ // only when the modal opens (they used to be ~22% of every core chunk).
+ const notesReady = useTranslationNamespace('whatsnew', open);
 
  // Mark as read when modal opens
  useEffect(() => {
@@ -3004,6 +3002,10 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  {RELEASES.length === 0 ? (
  <p className="text-center text-muted py-8">
  {t('whatsNew.noUpdates')}
+ </p>
+ ) : !notesReady ? (
+ <p className="text-center text-muted py-8" role="status" aria-live="polite" data-testid="whats-new-loading">
+ {t('common.loading')}
  </p>
  ) : (
  RELEASES.map((release) => (

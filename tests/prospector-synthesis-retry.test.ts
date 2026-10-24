@@ -10,6 +10,10 @@ vi.mock('../scripts/lib/prospector/polite-fetch.mjs', async (importOriginal) => 
 import { synthesizeSpec } from '../scripts/lib/prospector/synthesize.mjs';
 import { scheduleSynthesisRetry } from '../scripts/lib/prospector/candidate-store.mjs';
 import { parseSynthesisLimit } from '../scripts/lib/prospector/synthesis-schedule.mjs';
+import {
+  normalizeSpecPagination,
+  readDeclaredListingTotal,
+} from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('Prospector synthesis transient source failures', () => {
   beforeEach(() => politeFetch.mockReset());
@@ -199,6 +203,40 @@ describe('Prospector synthesis transient source failures', () => {
       'https://employer.example/jobs',
     ]);
     expect(result.spec).toMatchObject({ seedUrls: ['https://employer.example/jobs'] });
+  });
+
+  it('emits the bounded Brefis pagination contract from the source index', async () => {
+    const jobPosting = {
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'Sanitärinstallateur/in EFZ',
+      description: 'Wir suchen eine zuverlässige Fachperson für die Installation und Wartung von Sanitäranlagen in einem erfahrenen Team.',
+      url: 'https://brefis.ch/Vacancyboard/Detail/46980',
+    };
+    politeFetch.mockResolvedValue({
+      ok: true,
+      url: 'https://brefis.ch/Vacancyboard/',
+      body: '<html><body><h1>Offene Stellen <span class="count">48</span></h1>'
+        + `<script type="application/ld+json">${JSON.stringify(jobPosting)}</script>`
+        + '</body></html>',
+    });
+
+    const result = await synthesizeSpec({
+      careersUrl: 'https://brefis.ch/Vacancyboard/',
+      tenantHost: 'brefis.ch',
+      domain: 'brefis.ch',
+      name: 'brefis personal ag',
+    });
+
+    expect(result.spec).toMatchObject({
+      pagination: { maxPages: 10, minCoverage: 0.95 },
+    });
+    const pagination = normalizeSpecPagination(result.spec);
+    expect(readDeclaredListingTotal(
+      '<h1>Offene Stellen <span class="count">48</span></h1>',
+      pagination,
+      result.spec,
+    )).toBe(48);
   });
 
   it('does not refetch a supplied career seed when the discovered link only adds a fragment', async () => {

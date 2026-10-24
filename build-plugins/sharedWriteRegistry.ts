@@ -215,12 +215,9 @@ const sharedPathDeclarations: SharedPathDeclaration[] = [];
 let buildGeneration = 0;
 
 /**
- * `path.resolve()` always allocates a fresh string, even for a path that is
- * already absolute and normalized. The shape index retains one entry per
- * emitted file (1.4M+ on a jobs-SEO leg), so keep the caller's string — the
- * same object `pathHistory` already holds as its key — whenever the resolved
- * form is identical. `path.dirname()` slices of it then share that storage
- * instead of pinning a second copy (run 40057008446, leg de, rss-ceiling).
+ * `path.resolve()` allocates a fresh string even when the caller already
+ * supplied an absolute, normalized path. Retain the caller's string in that
+ * common case so the shape index does not pin a duplicate for every output.
  */
 function resolveRetainedPath(filePath: string): string {
   const resolved = path.resolve(filePath);
@@ -275,21 +272,7 @@ function rememberOutputPathShape(filePath: string): void {
  */
 const dumpedHashes = new Set<string>();
 
-/**
- * Optional directory where every claim()'d content is dumped to disk for
- * end-of-build analysis. When `null`, no dump is performed (the default
- * for unit tests and ad-hoc runs). CI sets it via {@link configureDumpDir}
- * to enable post-mortem inspection of every version that ever competed for
- * a colliding path.
- */
-let dumpContentDir: string | null = null;
-let dumpDirMkdirDone = false;
-
-/**
- * One `<lazy:${plugin}>` placeholder per plugin name. A template literal per
- * claim allocated a new string on every first write and kept it in
- * `pathHistory` for the whole build; the value is identical per plugin.
- */
+/** One retained lazy diagnostic placeholder per plugin name. */
 const lazyCallSiteByPlugin = new Map<string, string>();
 
 function lazyCallSite(plugin: string): string {
@@ -300,6 +283,16 @@ function lazyCallSite(plugin: string): string {
   }
   return callSite;
 }
+
+/**
+ * Optional directory where every claim()'d content is dumped to disk for
+ * end-of-build analysis. When `null`, no dump is performed (the default
+ * for unit tests and ad-hoc runs). CI sets it via {@link configureDumpDir}
+ * to enable post-mortem inspection of every version that ever competed for
+ * a colliding path.
+ */
+let dumpContentDir: string | null = null;
+let dumpDirMkdirDone = false;
 
 /** Reference clock for {@link ClaimVersion.timestamp}. Reset by {@link reset}. */
 let buildStartMs = Date.now();
@@ -320,10 +313,9 @@ export function hashContent(content: string): string {
 /**
  * Format an Error stack into the first frame that names the actual plugin
  * call site (skipping this module, batchWrite, node internals, node_modules).
- * Only invoked from the collision branch in `claim()` — the common-path
- * first-claim records use a `<lazy:${plugin}>` placeholder to keep both
- * CPU (Error.stack format ~50-200 μs each) and memory (frame-data
- * retention across the whole build, ~500 MB at 200k+ writes) bounded.
+ * Only invoked from the collision branch in `claim()` — common-path claims use
+ * a `<lazy:${plugin}>` placeholder, while the conflicting attempt keeps the
+ * concrete caller frame needed for the diagnostic.
  */
 function extractCallSiteFromError(err: Error): string {
   const stack = String(err.stack || '');
@@ -425,17 +417,9 @@ export function claim(claimPath: string, plugin: string, content: string): Claim
 
   const contentHash = hashContent(content);
   const versions = pathHistory.get(claimPath);
-  // detectCallSite() (Error stack walk) is the dominant cost in this hot
-  // path: ~50-200 μs per call × 200k+ claims/build ≈ 20-40 s of CPU on the
-  // closeBundle thread, paid for diagnostic information consumed only by
-  // collision reports (~330 collisions / 200k+ writes per build). Using a
-  // plugin-name placeholder for the FIRST claim trims that cost without
-  // OOM risk: storing Error objects on the version (the prior lazy
-  // approach in commit 3934ad65d1) leaked ~500 MB of stack-frame data
-  // across the build and crashed the cluster plugin's render+emit phase
-  // (run 25611119479, exit 143). Real call-site is still captured eagerly
-  // on the collision branch below, so collision diagnostics keep their
-  // resolution for the few writes that actually clash.
+  // Avoid retaining a stack frame for every ordinary claim. The concrete
+  // caller is still captured on the collision branch below, where the
+  // diagnostic needs it.
   const newVersion = (): ClaimVersion => ({
     plugin,
     callSite: lazyCallSite(plugin),

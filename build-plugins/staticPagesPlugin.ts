@@ -120,7 +120,9 @@ const SPA_ANALYTICS_SNIPPET = `${GTAG_SNIPPET}
 // Node ESM.
 import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { parseArticleRegistryEntries } from '../packages/articles/engine/shared/articleRegistryEntries.ts';
-import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
+import { LOCALE_EDITORIAL, SECTION_EDITORIAL, findSectionEditorialKey } from './editorialContent';
+import { isSectionPageOwnedPath } from './shared/sectionPageOwnership';
+import { renderSpaTabEditorial, resolveSpaTabStaticPage, spaTabLocaleSeo } from './shared/spaTabStaticContent';
 import { renderCorrectionsEditorial } from './shared/correctionsEditorial';
 import { buildCorrezioniSeo } from '../services/seo/seo-correzioni';
 import type { CorrectionsLocale } from '../services/editorialCorrections';
@@ -197,6 +199,7 @@ import {
   countFrontaliereArticleArchivePages,
 } from './shared/articleArchiveUnion';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
+import { TI_HUB_LATEST_JOBS_SLOT } from './shared/tiHubLatestJobs';
 import { buildSalaryLandingBody } from './shared/salaryLandingShell';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
@@ -1838,6 +1841,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  _writtenPaths.add(filePath);
  collector.add(filePath, content);
  }
+ // A page another plugin owns still gets its flat `<path>.html` twin, copied
+ // from the owner's index.html when that is already on disk (the owner's
+ // closeBundle ran earlier) — never a page of our own at that URL.
+ function ensureFlatCopyOfOwnedPage(urlPath: string) {
+ const flatFile = np.join(distDir, urlPath.replace(/\/+$/, '') + '.html');
+ const indexFile = np.join(distDir, urlPath, 'index.html');
+ if (!fs.existsSync(flatFile) && fs.existsSync(indexFile)) {
+ const existingIndexHtml = fs.readFileSync(indexFile, 'utf-8');
+ _qw(flatFile, existingIndexHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
+ }
+ }
 
  /* ── 0pre. Build set of blog article paths owned by ogPagesPlugin ── */
  // ogPagesPlugin generates full-content pages for these paths. Because closeBundle
@@ -3308,6 +3322,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const title = `${copy.title} | Frontaliere Ticino`;
  return { title, desc: copy.description, ogT: title, ogD: copy.description, sd: localizeMethodologyStructuredData(italianSeo.sd, locale as MethodologyLocale, JSON_LD_SCRIPT_SEPARATOR) };
  }
+ // SPA tabs without an SEO entry of their own in EN/DE/FR (support,
+ // community, gamification, profile, newsletter confirmation, consulting):
+ // the slug fallback below named them «Assistance | Frontaliere Ticino» with
+ // the generic «outils gratuits…» description, identical in shape on all of
+ // them. Their translated title/H1/description live with their editorial in
+ // shared/spaTabStaticContent.ts.
+ const spaTab = resolveSpaTabStaticPage(sourcePath);
+ if (spaTab && (locale === 'en' || locale === 'de' || locale === 'fr')) {
+ const copy = spaTabLocaleSeo(spaTab, locale);
+ const title = buildTitleWithBrand(copy.title);
+ return { title, desc: copy.desc, ogT: title, ogD: copy.desc, h1: copy.h1, sd: italianSeo.sd };
+ }
 
  // Fox Town has one Italian source page but three translated routes. The
  // generic slug fallback used the same English title for DE and EN, which
@@ -3492,39 +3518,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  return { title, desc, ogT: title, ogD: desc, sd: italianSeo.sd };
  };
 
- // ── Locale-aware editorial fallback ───────────────────────
- const LOCALE_EDITORIAL: Record<string, string[]> = {
- en: [
- 'This page is part of Frontaliere Ticino, the reference platform for cross-border workers between Switzerland (Canton Ticino) and Italy. Find practical tools, updated data, and verified information.',
- 'Content is designed to help cross-border workers make informed decisions about taxation, pensions, transportation, cost of living, and administrative procedures.',
- 'All tools and data are updated for the 2026 fiscal year, reflecting the New Bilateral Tax Agreement between Switzerland and Italy, current AVS/LPP contribution rates, and Canton Ticino withholding tax tables.',
- 'The platform covers the complete cross-border worker lifecycle: from obtaining your G or B permit and opening a Swiss bank account, to filing your annual tax returns in both countries, planning your AVS and LPP pension, and comparing the cost of living on both sides of the border.',
- 'All calculators and comparators use real, verifiable data from official Swiss and Italian sources — Federal Statistical Office, SECO, USTAT, INPS, and the Italian Revenue Agency — so you can trust the results to support real financial decisions.',
- 'Cross-border workers benefit from Switzerland\'s high salaries while potentially maintaining a lower cost of living in Italy. The key financial factors include withholding tax rates, social security contributions, health insurance choices, and currency exchange rates — all of which vary based on your personal situation and work permit type.',
- 'Whether you hold a G permit (cross-border commuter) or a B permit (Swiss resident), understanding the tax implications of the Italy–Switzerland tax agreement is essential. Tax status depends on the agreement conditions and qualifying frontier work between 31 December 2018 and 17 July 2023, rather than the hiring date alone.',
- 'This platform provides free, no-registration-required tools built by domain experts. Every calculation follows official Swiss and Italian tax parameters, and results are presented in both CHF and EUR for immediate practical use.',
- ],
- de: [
- 'Diese Seite ist Teil von Frontaliere Ticino, der Referenzplattform für Grenzgänger zwischen der Schweiz (Kanton Tessin) und Italien. Hier finden Sie praktische Tools, aktuelle Daten und verifizierte Informationen.',
- 'Die Inhalte helfen Grenzgängern, fundierte Entscheidungen zu Besteuerung, Vorsorge, Transport, Lebenshaltungskosten und Verwaltungsverfahren zu treffen.',
- 'Alle Tools und Daten sind für das Steuerjahr 2026 aktualisiert und berücksichtigen das Neue Bilaterale Steuerabkommen zwischen der Schweiz und Italien, aktuelle AHV/BVG-Beitragssätze und Tessiner Quellensteuertabellen.',
- 'Die Plattform deckt den vollständigen Grenzgänger-Lebenszyklus ab: von der Beantragung des G- oder B-Ausweises und der Eröffnung eines Schweizer Bankkontos bis zur jährlichen Steuererklärung in beiden Ländern, der AHV/BVG-Vorsorgeplanung und dem Lebenshaltungskostenvergleich beider Seiten.',
- 'Alle Rechner und Vergleicher nutzen verifizierbare Daten aus offiziellen Schweizer und italienischen Quellen — BFS, SECO, USTAT, INPS und die italienische Steuerbehörde — damit Sie sich bei echten Finanzentscheidungen auf die Ergebnisse verlassen können.',
- 'Grenzgänger profitieren von den hohen Schweizer Gehältern bei potenziell niedrigeren Lebenshaltungskosten in Italien. Die wichtigsten finanziellen Faktoren umfassen Quellensteuersätze, Sozialversicherungsbeiträge, Krankenversicherungswahl und Wechselkurse — die alle von Ihrer persönlichen Situation und Aufenthaltsgenehmigung abhängen.',
- 'Ob Sie eine G-Bewilligung (Grenzgänger) oder eine B-Bewilligung (Schweizer Aufenthalt) besitzen, das Verständnis der steuerlichen Auswirkungen des Steuerabkommens Italien–Schweiz ist entscheidend. Das Steuerregime hängt von den Abkommensbedingungen und qualifizierter Grenzgängertätigkeit zwischen dem 31. Dezember 2018 und dem 17. Juli 2023 ab, nicht allein vom Anstellungsdatum.',
- 'Diese Plattform bietet kostenlose Tools ohne Registrierung, entwickelt von Fachexperten. Jede Berechnung folgt den offiziellen Schweizer und italienischen Steuerparametern, und die Ergebnisse werden sowohl in CHF als auch in EUR für den sofortigen praktischen Gebrauch dargestellt.',
- ],
- fr: [
- 'Cette page fait partie de Frontaliere Ticino, la plateforme de référence pour les travailleurs frontaliers entre la Suisse (Canton du Tessin) et l\'Italie. Trouvez des outils pratiques, des données actualisées et des informations vérifiées.',
- 'Le contenu aide les frontaliers à prendre des décisions éclairées sur la fiscalité, la prévoyance, les transports, le coût de la vie et les procédures administratives.',
- 'Tous les outils et données sont mis à jour pour l\'année fiscale 2026, reflétant le Nouvel Accord Fiscal Bilatéral entre la Suisse et l\'Italie, les taux de cotisation AVS/LPP actuels et les barèmes d\'impôt à la source du Canton du Tessin.',
- 'La plateforme couvre le cycle de vie complet du frontalier : de l\'obtention du permis G ou B et l\'ouverture d\'un compte bancaire suisse, aux déclarations fiscales annuelles dans les deux pays, la planification de la retraite AVS/LPP, et la comparaison du coût de la vie des deux côtés de la frontière.',
- 'Tous les calculateurs et comparateurs utilisent des données réelles et vérifiables de sources officielles suisses et italiennes — OFS, SECO, USTAT, INPS et l\'Agence des revenus italienne — pour des résultats dignes de confiance dans vos décisions financières.',
- 'Les travailleurs frontaliers bénéficient des salaires élevés suisses tout en maintenant potentiellement un coût de la vie inférieur en Italie. Les facteurs financiers clés incluent les taux d\'impôt à la source, les cotisations sociales, le choix de l\'assurance maladie et les taux de change — qui varient selon votre situation personnelle et votre type de permis.',
- 'Que vous déteniez un permis G (frontalier) ou un permis B (résident suisse), comprendre les implications fiscales de l’accord fiscal Italie–Suisse est essentiel. Le régime fiscal dépend des conditions de l’accord et d’une activité frontalière qualifiée entre le 31 décembre 2018 et le 17 juillet 2023, et non de la seule date d’embauche.',
- 'Cette plateforme offre des outils gratuits sans inscription, développés par des experts du domaine. Chaque calcul suit les paramètres fiscaux officiels suisses et italiens, et les résultats sont présentés en CHF et en EUR pour une utilisation pratique immédiate.',
- ],
- };
+ // ── Locale-aware editorial fallback: LOCALE_EDITORIAL (editorialContent.ts) ──
 
  // ── Locale-aware "related" heading ────────────────────────
  const RELATED_HEADING: Record<string, string> = {
@@ -3613,7 +3607,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Do not replace its full corpus with the generic legacy FAQ template.
  if (FAQ_HUB_ROUTES.includes(`${normalizedPath}/`)) continue;
  const filePath = np.join(distDir, url.path, 'index.html');
- const italianPageExists = ogPagesPaths.has(normalizedPath) || fs.existsSync(filePath);
+ // The 28 topic section pages (/fisco/, /dogana/, … and their EN/DE/FR
+ // variants) belong to sectionPagesPlugin: decided from the shared path
+ // table, not from whether its file happens to be on disk yet.
+ const italianPageExists = ogPagesPaths.has(normalizedPath)
+ || isSectionPageOwnedPath(url.path)
+ || fs.existsSync(filePath);
 
  // Look up SEO data — fall back to URL-derived title if no explicit entry
  let seo: SeoEntry | undefined = resolveLegalStaticSeo(url.path, /^\/privacy-policy\/?$/.test(url.path) ? 'en' : 'it') ?? resolveAuthorStaticSeo(url.path, 'it', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(url.path));
@@ -3641,7 +3640,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // + fire emoji into title/description. Keeps existing structured data.
  if (isJobBoardLandingPath(url.path)) {
  const dyn = buildJobBoardSeo('it', jobBoardCounts.it, jobBoardYear);
- seo = { ...seo, title: dyn.title, desc: dyn.desc, ogT: dyn.ogT, ogD: dyn.ogD };
+ seo = { ...seo, title: dyn.title, desc: dyn.desc, ogT: dyn.ogT, ogD: dyn.ogD, h1: dyn.h1 };
  }
 
  // Detect locale from path
@@ -3915,9 +3914,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const italianPath = sourcePathForContent; // e.g. '/tasse-e-pensione/credito-imposta'
  // Check SECTION_EDITORIAL for ALL locales (including Italian).
  // If the entry has an 'it' key, use it instead of the inline chain below.
- const sectionKey = SECTION_EDITORIAL_KEYS
- .find(prefix => italianPath.startsWith(prefix));
+ const sectionKey = findSectionEditorialKey(italianPath, locale);
  const legalPage = resolveLegalPage(sourcePathForContent);
+ // SPA tabs whose page has no editorial of its own (support, community,
+ // gamification, profile, newsletter confirmation): their own facts in all
+ // four locales instead of the generic fallback. Consulting resolves to null
+ // here and keeps its SECTION_EDITORIAL entry.
+ const spaTabId = resolveSpaTabStaticPage(sourcePathForContent);
+ const spaTabEditorial = spaTabId && (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr')
+ ? renderSpaTabEditorial(spaTabId, locale)
+ : null;
  const authorEditorial = renderAuthorEditorial(sourcePathForContent, locale as 'it' | 'en' | 'de' | 'fr');
  if (legalPage) {
  editorialBlocks.push(...renderLegalEditorial(legalPage, locale as 'it' | 'en' | 'de' | 'fr'));
@@ -3927,6 +3933,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(...renderCorrectionsEditorial(locale as CorrectionsLocale));
  } else if (italianPath.replace(/\/+$/, '') === '/metodologia') {
  editorialBlocks.push(...buildMethodologyEditorial(locale as MethodologyLocale, esc));
+ } else if (spaTabEditorial) {
+ editorialBlocks.push(...spaTabEditorial);
  } else if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
  editorialBlocks.push(...SECTION_EDITORIAL[sectionKey][locale]);
  // SECTION_EDITORIAL short-circuits the `else if` chain that would
@@ -4183,26 +4191,26 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  } else if (canonicalPath.startsWith('/tasse-e-pensione/festivita-ticino')) {
  editorialBlocks.push(
  `<h2 class="s-lEEXLG">Festività Ticino 2026: calendario ufficiale completo</h2>`,
- `Il Canton Ticino osserva 15 giorni festivi ufficiali all'anno, il calendario cantonale più ricco della Svizzera. Si tratta dei 9 festivi nazionali svizzeri (Capodanno, Giovedì Santo, Venerdì Santo, Pasqua, Lunedì dell'Angelo, Ascensione, Pentecoste, Festa Nazionale del 1° agosto e Natale) più 6 festivi cantonali ticinesi legati alla tradizione cattolica della Svizzera italiana (Epifania, San Giuseppe, SS. Pietro e Paolo, Assunzione, Ognissanti e Santo Stefano). Per chi lavora oltre frontiera, questi giorni incidono direttamente sul calcolo degli straordinari, sulla retribuzione dei giorni festivi lavorati e sul numero di ore utili per la <a class="s-U9K6Vf" href="https://frontaliereticino.ch/calcolo-tredicesima-frontaliere/">tredicesima svizzera del frontaliere</a>. Usa il <a class="s-U9K6Vf" href="https://frontaliereticino.ch/calcola-stipendio/">calcolatore stipendio frontaliere</a> per stimare l'impatto dei festivi lavorati sul netto mensile.`,
+ `Il Canton Ticino osserva 15 giorni festivi ufficiali all'anno, fissati dalla Legge concernente i giorni festivi ufficiali nel Cantone Ticino del 15 dicembre 2009: Capodanno, Epifania, San Giuseppe, Lunedì di Pasqua, Festa del Lavoro, Ascensione, Lunedì di Pentecoste, Corpus Domini, SS. Pietro e Paolo, Festa nazionale del 1° agosto, Assunzione, Ognissanti, Immacolata, Natale e Santo Stefano. Il 1° agosto è l'unico festivo fissato dalla legge federale; il Venerdì Santo e il 2 gennaio (San Berchtoldo), festivi in molti cantoni d'oltralpe, in Ticino sono giorni lavorativi. Per chi lavora oltre frontiera, questi giorni incidono direttamente sul calcolo degli straordinari, sulla retribuzione dei giorni festivi lavorati e sul numero di ore utili per la <a class="s-U9K6Vf" href="https://frontaliereticino.ch/calcolo-tredicesima-frontaliere/">tredicesima svizzera del frontaliere</a>. Usa il <a class="s-U9K6Vf" href="https://frontaliereticino.ch/calcola-stipendio/">calcolatore stipendio frontaliere</a> per stimare l'impatto dei festivi lavorati sul netto mensile.`,
  `<h2 class="s-FoMhWG">Calendario festività Ticino 2026</h2>`,
- `<div class="s-Tzz0X_"><table class="s-bzA9D0"><thead><tr class="s-3WzZY3"><th class="s-oF89cR">Data</th><th class="s-oF89cR">Giorno</th><th class="s-oF89cR">Festività</th><th class="s-oF89cR">Tipologia</th></tr></thead><tbody><tr><td class="s-z725d5">Gio 1 gen 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">Capodanno</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Ven 2 gen 2026</td><td class="s-z725d5">Venerdì</td><td class="s-z725d5">San Berchtoldo</td><td class="s-z725d5">Cantonale parziale</td></tr><tr><td class="s-z725d5">Mar 6 gen 2026</td><td class="s-z725d5">Martedì</td><td class="s-z725d5">Epifania</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Gio 19 mar 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">San Giuseppe</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Ven 3 apr 2026</td><td class="s-z725d5">Venerdì</td><td class="s-z725d5">Venerdì Santo</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Lun 6 apr 2026</td><td class="s-z725d5">Lunedì</td><td class="s-z725d5">Lunedì dell'Angelo (Pasquetta)</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Ven 1 mag 2026</td><td class="s-z725d5">Venerdì</td><td class="s-z725d5">Festa del Lavoro</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Gio 14 mag 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">Ascensione</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Lun 25 mag 2026</td><td class="s-z725d5">Lunedì</td><td class="s-z725d5">Lunedì di Pentecoste</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Gio 4 giu 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">Corpus Domini</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Lun 29 giu 2026</td><td class="s-z725d5">Lunedì</td><td class="s-z725d5">SS. Pietro e Paolo</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr class="s-ATnCqo"><td class="s-z725d5"><strong>Sab 1 ago 2026</strong></td><td class="s-z725d5">Sabato</td><td class="s-z725d5">Festa Nazionale Svizzera</td><td class="s-z725d5">Federale</td></tr><tr class="s-ATnCqo"><td class="s-z725d5"><strong>Sab 15 ago 2026</strong></td><td class="s-z725d5">Sabato</td><td class="s-z725d5">Assunzione</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Dom 1 nov 2026</td><td class="s-z725d5">Domenica</td><td class="s-z725d5">Ognissanti (Tutti i Santi)</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Mar 8 dic 2026</td><td class="s-z725d5">Martedì</td><td class="s-z725d5">Immacolata Concezione</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Ven 25 dic 2026</td><td class="s-z725d5">Venerdì</td><td class="s-z725d5">Natale</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Sab 26 dic 2026</td><td class="s-z725d5">Sabato</td><td class="s-z725d5">Santo Stefano</td><td class="s-z725d5">Cantonale (TI)</td></tr></tbody></table></div>`,
- `<p class="s-3DDKBR">Nel 2026 due festivi principali cadono di sabato (1° agosto e 15 agosto) e uno di domenica (1° novembre). La legge svizzera non prevede il recupero automatico come in Italia: il frontaliere non ha diritto a un giorno libero aggiuntivo salvo che il CCL (Contratto Collettivo di Lavoro) applicato lo preveda esplicitamente.</p>`,
+ `<div class="s-Tzz0X_"><table class="s-bzA9D0"><thead><tr class="s-3WzZY3"><th class="s-oF89cR">Data</th><th class="s-oF89cR">Giorno</th><th class="s-oF89cR">Festività</th><th class="s-oF89cR">Tipologia</th></tr></thead><tbody><tr><td class="s-z725d5">Gio 1 gen 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">Capodanno</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Mar 6 gen 2026</td><td class="s-z725d5">Martedì</td><td class="s-z725d5">Epifania</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Gio 19 mar 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">San Giuseppe</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Lun 6 apr 2026</td><td class="s-z725d5">Lunedì</td><td class="s-z725d5">Lunedì dell'Angelo (Pasquetta)</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Ven 1 mag 2026</td><td class="s-z725d5">Venerdì</td><td class="s-z725d5">Festa del Lavoro</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Gio 14 mag 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">Ascensione</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Lun 25 mag 2026</td><td class="s-z725d5">Lunedì</td><td class="s-z725d5">Lunedì di Pentecoste</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Gio 4 giu 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">Corpus Domini</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Lun 29 giu 2026</td><td class="s-z725d5">Lunedì</td><td class="s-z725d5">SS. Pietro e Paolo</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr class="s-ATnCqo"><td class="s-z725d5"><strong>Sab 1 ago 2026</strong></td><td class="s-z725d5">Sabato</td><td class="s-z725d5">Festa Nazionale Svizzera</td><td class="s-z725d5">Federale</td></tr><tr class="s-ATnCqo"><td class="s-z725d5"><strong>Sab 15 ago 2026</strong></td><td class="s-z725d5">Sabato</td><td class="s-z725d5">Assunzione</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Dom 1 nov 2026</td><td class="s-z725d5">Domenica</td><td class="s-z725d5">Ognissanti (Tutti i Santi)</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Mar 8 dic 2026</td><td class="s-z725d5">Martedì</td><td class="s-z725d5">Immacolata Concezione</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Ven 25 dic 2026</td><td class="s-z725d5">Venerdì</td><td class="s-z725d5">Natale</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Sab 26 dic 2026</td><td class="s-z725d5">Sabato</td><td class="s-z725d5">Santo Stefano</td><td class="s-z725d5">Cantonale (TI)</td></tr></tbody></table></div>`,
+ `<p class="s-3DDKBR">Nel 2026 tre festivi cadono di sabato (1° agosto, 15 agosto e 26 dicembre) e uno di domenica (1° novembre). La legge svizzera non prevede il recupero automatico come in Italia: il frontaliere non ha diritto a un giorno libero aggiuntivo salvo che il CCL (Contratto Collettivo di Lavoro) applicato lo preveda esplicitamente.</p>`,
  `<h2 class="s-FoMhWG">Ticino vs resto della Svizzera: quali festività sono diverse</h2>`,
  `<div class="s-Tzz0X_"><table class="s-bzA9D0"><thead><tr class="s-3WzZY3"><th class="s-oF89cR">Festività</th><th class="s-xatC0t">Ticino</th><th class="s-xatC0t">Zurigo / Berna</th><th class="s-xatC0t">Ginevra / Vaud</th></tr></thead><tbody><tr><td class="s-z725d5">Epifania (6 gen)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">San Giuseppe (19 mar)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">Festa del Lavoro (1 mag)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">Parziale</td><td class="s-OogV4_">Sì</td></tr><tr><td class="s-z725d5">Corpus Domini</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">SS. Pietro e Paolo (29 giu)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">Assunzione (15 ago)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">Ognissanti (1 nov)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">Immacolata (8 dic)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">Santo Stefano (26 dic)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td></tr></tbody></table></div>`,
- `Il Canton Ticino, per ragioni di tradizione cattolica e di confine con l'Italia, ha il calendario festivo più ricco della Svizzera: 15 giorni festivi pagati contro i 9 nazionali. Questo è un vantaggio concreto per i frontalieri rispetto a chi lavora a Zurigo o Basilea, che perdono mediamente 5-6 giorni di festività cantonali all'anno. Un lavoratore in Ticino con salario mensile pieno di CHF 6.000 beneficia quindi di circa CHF 1.400 in più all'anno in termini di giorni pagati non lavorati rispetto al collega zurighese.`,
+ `Il Canton Ticino, per ragioni di tradizione cattolica e di confine con l'Italia, ha il calendario festivo più ricco della Svizzera: 15 giorni festivi ufficiali contro i 9-10 di cantoni come Zurigo o Basilea Città. Questo è un vantaggio concreto per i frontalieri rispetto a chi lavora a Zurigo o Basilea, che perdono mediamente 5-6 giorni di festività cantonali all'anno. Un lavoratore in Ticino con salario mensile pieno di CHF 6.000 beneficia quindi di circa CHF 1.400 in più all'anno in termini di giorni pagati non lavorati rispetto al collega zurighese.`,
  `<h2 class="s-FoMhWG">Cosa succede se il festivo cade di sabato o domenica?</h2>`,
- `Questa è una delle domande più frequenti sulle festività Ticino 2026, e la risposta sorprende chi viene dall'Italia. A differenza del diritto italiano, la legge svizzera non prevede il recupero automatico dei giorni festivi che cadono nel weekend: se il festivo coincide con sabato o domenica, il lavoratore perde semplicemente il beneficio del giorno libero. Nel 2026 questa regola penalizza i frontalieri in modo concreto: il 1° agosto (Festa Nazionale Svizzera) cade di sabato, il 15 agosto (Assunzione) anche e il 1° novembre (Ognissanti) cade di domenica. Sono quindi tre festività potenzialmente "perse" sul calendario 2026.`,
+ `Questa è una delle domande più frequenti sulle festività Ticino 2026, e la risposta sorprende chi viene dall'Italia. A differenza del diritto italiano, la legge svizzera non prevede il recupero automatico dei giorni festivi che cadono nel weekend: se il festivo coincide con sabato o domenica, il lavoratore perde semplicemente il beneficio del giorno libero. Nel 2026 questa regola penalizza i frontalieri in modo concreto: il 1° agosto (Festa Nazionale Svizzera), il 15 agosto (Assunzione) e il 26 dicembre (Santo Stefano) cadono di sabato e il 1° novembre (Ognissanti) cade di domenica. Sono quindi quattro festività potenzialmente "perse" sul calendario 2026.`,
  `Alcuni CCL settoriali prevedono però la compensazione con un giorno di ferie aggiuntivo. È il caso, ad esempio, del CCL dell'industria MEM (metalmeccanica), del CCL delle costruzioni, del CCL del commercio al dettaglio e di diversi CCL sanitari. Il frontaliere deve verificare il proprio <a class="s-U9K6Vf" href="https://frontaliereticino.ch/contratti-lavoro-svizzera/">CCL di categoria</a> per capire se ha diritto a recuperare il festivo domenicale o se perde il giorno. Nei contratti individuali privi di CCL prevale il Codice delle Obbligazioni (CO art. 110 ss.), che non impone recuperi.`,
  `<h2 class="s-FoMhWG">Differenze tra festività svizzere e italiane: cosa cambia per il frontaliere</h2>`,
  `Il frontaliere italiano che lavora in Ticino deve seguire il calendario festivo svizzero in base al principio lex loci laboris (la legge del luogo di lavoro regola il rapporto): non ha automaticamente diritto a restare a casa nei giorni festivi italiani non riconosciuti in Svizzera. Festività italiane come il 25 aprile (Festa della Liberazione), il 2 giugno (Festa della Repubblica) e le feste patronali locali (ad esempio Sant'Abbondio a Como il 31 agosto) non sono giorni non lavorativi in Ticino. Per assentarsi, il frontaliere deve usare giorni di ferie ordinarie o chiedere un permesso non retribuito.`,
- `Al contrario, alcune festività ticinesi cadono in giorni in cui in Italia si lavora: è il caso dell'Ascensione (giovedì), del Corpus Domini (giovedì) e dei lunedì di Pentecoste. Per le famiglie con figli iscritti in scuole italiane questo crea un disallineamento di calendario importante, che richiede pianificazione di babysitter, nonni o asili estivi. Pasqua, Natale e Capodanno sono invece allineati tra i due paesi, con il Ticino che aggiunge il Lunedì dell'Angelo (Pasquetta) come festivo federale.`,
+ `Al contrario, alcune festività ticinesi cadono in giorni in cui in Italia si lavora: è il caso dell'Ascensione (giovedì), del Corpus Domini (giovedì) e dei lunedì di Pentecoste. Per le famiglie con figli iscritti in scuole italiane questo crea un disallineamento di calendario importante, che richiede pianificazione di babysitter, nonni o asili estivi. Capodanno, Epifania, Lunedì dell'Angelo (Pasquetta), 1° maggio, Assunzione, Ognissanti, Immacolata, Natale e Santo Stefano sono invece festivi in entrambi i paesi.`,
  `<h2 class="s-FoMhWG">Retribuzione, straordinari e maggiorazioni nei festivi lavorati</h2>`,
  `I festivi che cadono in giorni feriali riducono il numero di giorni lavorativi del mese e possono influenzare il calcolo del salario proporzionale, l'accantonamento dei giorni di vacanza e la distribuzione della <a class="s-U9K6Vf" href="https://frontaliereticino.ch/calcolo-tredicesima-frontaliere/">tredicesima mensilità del frontaliere</a> nel corso dell'anno. La legge svizzera (CO art. 329) prevede che il datore di lavoro paghi il giorno festivo anche in caso di assenza del lavoratore dipendente con salario mensile, salvo eccezioni contrattuali per il personale pagato ad ore (Stundenlohn).`,
  `Chi lavora durante un giorno festivo riconosciuto dal Canton Ticino ha generalmente diritto a una maggiorazione tra il 50% e il 100% della paga oraria ordinaria, oppure a un giorno di compensazione da usufruire entro 14 settimane. Le condizioni esatte sono stabilite dal CCL di categoria: il CCL MEM prevede +50%, il CCL della costruzione +50% con giorno di recupero obbligatorio, il CCL della sanità può arrivare a +100% per il lavoro domenicale festivo, il CCL dell'ospitalità (Gastrosuisse) prevede maggiorazioni tra 25% e 50% con compensazione in tempo. In assenza di CCL si applica il Codice delle Obbligazioni (CO art. 321-329) e la Legge sul Lavoro cantonale (RL 5.1.1.1). Vedi il dettaglio completo nei <a class="s-U9K6Vf" href="https://frontaliereticino.ch/contratti-lavoro-svizzera/">contratti collettivi di lavoro svizzeri</a>.`,
  `<h2 class="s-FoMhWG">Ponti migliori del calendario festività Ticino 2026</h2>`,
- `Il calendario 2026 offre diversi ponti interessanti per i frontalieri che vogliono ottimizzare i giorni di ferie. I migliori sono: (1) Pasqua — Venerdì Santo 3 aprile + Pasquetta 6 aprile: bastano zero giorni di ferie per ottenere 4 giorni consecutivi. (2) Ascensione — giovedì 14 maggio, ponte con un giorno di ferie venerdì 15 maggio per 4 giorni consecutivi. (3) Corpus Domini — giovedì 4 giugno, ponte con venerdì 5 giugno per 4 giorni. (4) SS. Pietro e Paolo — lunedì 29 giugno, weekend lungo di 3 giorni senza usare ferie. (5) Immacolata — martedì 8 dicembre, ponte con lunedì 7 dicembre per 4 giorni consecutivi. Pianificando anticipatamente le ferie (rispettando il preavviso del CCL, generalmente 2 mesi per ferie estive) un frontaliere può ottenere fino a 25-28 giorni di vacanza effettiva usando solo 15-17 giorni del monte ferie.`,
+ `Il calendario 2026 offre diversi ponti interessanti per i frontalieri che vogliono ottimizzare i giorni di ferie. I migliori sono: (1) San Giuseppe — giovedì 19 marzo, ponte con un giorno di ferie venerdì 20 marzo per 4 giorni consecutivi. (2) Pasqua — da sabato 4 a lunedì 6 aprile (Pasquetta): 3 giorni senza ferie; il Venerdì Santo in Ticino è lavorativo. (3) Ascensione — giovedì 14 maggio, ponte con un giorno di ferie venerdì 15 maggio per 4 giorni consecutivi. (4) Corpus Domini — giovedì 4 giugno, ponte con venerdì 5 giugno per 4 giorni. (5) SS. Pietro e Paolo — lunedì 29 giugno, weekend lungo di 3 giorni senza usare ferie. (6) Immacolata — martedì 8 dicembre, ponte con lunedì 7 dicembre per 4 giorni consecutivi. Pianificando anticipatamente le ferie (rispettando il preavviso del CCL, generalmente 2 mesi per ferie estive) un frontaliere può ottenere fino a 25-28 giorni di vacanza effettiva usando solo 15-17 giorni del monte ferie.`,
  `<h2 class="s-FoMhWG">Giorni di ferie e festività: come si sommano?</h2>`,
- `Per il diritto svizzero (CO art. 329a) il minimo legale di ferie è 4 settimane (20 giorni lavorativi) all'anno per lavoratori adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL ticinesi prevedono 5 settimane dopo una certa anzianità (5-10 anni) e 6 settimane per over 50. I giorni festivi ticinesi NON rientrano nel conteggio delle ferie: si aggiungono ai 20 giorni di ferie minime. Un frontaliere con contratto MEM e 10 anni di anzianità ha quindi 25 giorni di ferie + circa 13 giorni festivi lavorativi (i 15 festivi meno quelli che nel 2026 cadono nel weekend) = 38 giorni pagati non lavorati all'anno. I frontalieri devono anche tenere presente che i festivi italiani non si applicano automaticamente in Svizzera: chi lavora in Ticino è soggetto al calendario svizzero e deve eventualmente concordare per iscritto con il datore di lavoro la possibilità di fruire dei festivi nazionali italiani (25 aprile, 2 giugno, Immacolata italiana) come giorni di ferie retribuite.`,
+ `Per il diritto svizzero (CO art. 329a) il minimo legale di ferie è 4 settimane (20 giorni lavorativi) all'anno per lavoratori adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL ticinesi prevedono 5 settimane dopo una certa anzianità (5-10 anni) e 6 settimane per over 50. I giorni festivi ticinesi NON rientrano nel conteggio delle ferie: si aggiungono ai 20 giorni di ferie minime. Un frontaliere con contratto MEM e 10 anni di anzianità ha quindi 25 giorni di ferie + 11 giorni festivi feriali (nel 2026 i 15 festivi meno i 4 che cadono nel weekend) = 36 giorni pagati non lavorati all'anno. I frontalieri devono anche tenere presente che i festivi italiani non si applicano automaticamente in Svizzera: chi lavora in Ticino è soggetto al calendario svizzero e deve eventualmente concordare per iscritto con il datore di lavoro la possibilità di fruire dei festivi nazionali italiani (25 aprile, 2 giugno, santo patrono locale) come giorni di ferie retribuite.`,
  `<p class="s-JBVO9H">Fonte: <a class="s-OsohZU" href="https://www4.ti.ch/dfe/dipartimento/" rel="noopener">Dipartimento finanze ed economia Canton Ticino</a> · <a class="s-OsohZU" href="${secoHomeUrl}" rel="noopener">SECO</a> · Legge cantonale sui giorni festivi ufficiali del Canton Ticino (RL 10.1.1.5) · Codice delle Obbligazioni svizzero (CO art. 110, 321, 329, 329a)</p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri')) {
@@ -4833,6 +4841,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // helper's locale-specific count keeps emitted navigation aligned with the
  // archive pages available in this locale.
  const leadingCount = archiveNavigablePages > 1 ? 3 : 2;
+ // Data area first (AGENTS.md landing order): an empty slot right under the
+ // H1/lede that tiHubLatestJobsPlugin fills with the live stat tiles + the
+ // 12 latest active Ticino job cards once jobsSeoPagesPlugin has decided
+ // which detail URLs are active. The hub used to ship zero job links.
+ editorialBlocks.push(TI_HUB_LATEST_JOBS_SLOT);
  for (const block of tiHubBlocks.slice(0, leadingCount)) editorialBlocks.push(block);
  // Cathedral canton navigator \u2014 closes the +909 sitemap-jobs.xml offenders
  // (audit-max-bfs-depth) by linking every cathedral canton hub + per-canton
@@ -6292,14 +6305,7 @@ ${hrefTags}
  }
  // Even if the directory index.html exists, ensure flat .html exists too.
  // ogPagesPlugin closeBundle runs in parallel — flat .html may not exist yet.
- if (url.path !== '/') {
- const flatFile = np.join(distDir, url.path + '.html');
- const indexFile = np.join(distDir, url.path, 'index.html');
- if (!fs.existsSync(flatFile) && fs.existsSync(indexFile)) {
- const existingIndexHtml = fs.readFileSync(indexFile, 'utf-8');
- _qw(flatFile, existingIndexHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
- }
- }
+ if (url.path !== '/') ensureFlatCopyOfOwnedPage(url.path);
  skipped++;
  }
 
@@ -6346,6 +6352,20 @@ ${hrefTags}
  // locales are skipped by faqHubPlugin rather than emitted as noindex pages,
  // so they are deliberately not admitted to this backfill's emit ledger.
  if (FAQ_HUB_ROUTES.includes(`${locNormalized}/`)) continue;
+ // Topic section pages (/en/customs/, /de/zoll/, /fr/douane/, …) have one
+ // HTML owner: sectionPagesPlugin, which writes the real page (own h1, lede,
+ // latest-article list) before this hook runs. Regenerating them here
+ // replaced all 21 EN/DE/FR section pages with the slug-derived fallback
+ // («Douane (guide frontalier)» + homepage editorial), the identical body
+ // that put fr:/fr/~83248f and de:/de/~5b78c1 at a 0 % information-gain
+ // median. The variant still enters the #5110 <loc> backfill ledger — the
+ // page IS emitted, just not by this plugin — and gets its flat twin
+ // copied from the owner's file, as the Italian path already did.
+ if (isSectionPageOwnedPath(locNormalized)) {
+ emittedLocaleVariants.add(locNormalized);
+ ensureFlatCopyOfOwnedPage(locPath);
+ continue;
+ }
  // Rendered by this plugin → it needs a <url><loc> of its own (#5110).
  // Recorded BEFORE `_qw`, not after: the WriteCollector drops writes whose
  // locale is outside BUILD_LOCALE on a per-locale shard build, so anything
@@ -6353,8 +6373,10 @@ ${hrefTags}
  // shard and strip the very annotations this backfill exists to keep.
  emittedLocaleVariants.add(locNormalized);
  // NOTE: previously skipped when fs.existsSync(locFile), but that blocked schema
- // re-translation on incremental builds. staticPagesPlugin owns all non-ogPages locale
- // variants, so always regenerate so JSON-LD reflects current translations.
+ // re-translation on incremental builds. staticPagesPlugin owns every locale
+ // variant that is not ogPages-, FAQ-hub- or section-pages-owned (the three
+ // deterministic skips above), so always regenerate those so JSON-LD reflects
+ // current translations.
 
  // Look up locale-specific SEO or derive locale-appropriate metadata
  const locSeo: SeoEntry = resolveLegalStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr') ?? resolveAuthorStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
@@ -6373,6 +6395,7 @@ ${hrefTags}
  locSeo.desc = dyn.desc;
  locSeo.ogT = dyn.ogT;
  locSeo.ogD = dyn.ogD;
+ locSeo.h1 = dyn.h1;
  }
 
  // Localize JSON-LD structured data for non-IT locale variants: the one pass

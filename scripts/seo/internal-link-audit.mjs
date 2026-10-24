@@ -24,9 +24,10 @@ import { realpathSync } from 'node:fs';
  *   node scripts/seo/internal-link-audit.mjs --dist=./dist --out=./reports
  */
 
-import { readdirSync, readFileSync, statSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, relative, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { walkHtml } from './lib/walk-html.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = resolve(__dirname, '..', '..');
@@ -50,31 +51,6 @@ function isoDate(d = new Date()) {
   return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`;
 }
 
-function walkHtml(dir) {
-  const out = [];
-  if (!existsSync(dir)) return out;
-  const stack = [dir];
-  while (stack.length) {
-    const cur = stack.pop();
-    let entries;
-    try {
-      entries = readdirSync(cur, { withFileTypes: true });
-    } catch {
-      continue;
-    }
-    for (const e of entries) {
-      const full = join(cur, e.name);
-      if (e.isDirectory()) {
-        // Skip asset-only subdirs (safe to keep, but pointless).
-        if (e.name === 'assets') continue;
-        stack.push(full);
-      } else if (e.isFile() && e.name.endsWith('.html')) {
-        out.push(full);
-      }
-    }
-  }
-  return out;
-}
 
 /**
  * Turn a file-system path into a canonical site URL path.
@@ -262,7 +238,7 @@ function main() {
     writeStubReport(args, `dist-missing (${args.dist})`);
     return;
   }
-  const files = walkHtml(args.dist);
+  const files = [...walkHtml(args.dist)];
   if (files.length === 0) {
     writeStubReport(args, 'dist-empty');
     return;

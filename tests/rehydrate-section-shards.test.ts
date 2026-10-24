@@ -121,7 +121,9 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(downloadIdx).toBeGreaterThan(resolveIdx);
     expect(cloneIdx).toBeGreaterThan(downloadIdx);
     expect(script.slice(resolveIdx - 30, resolveIdx)).toContain('timeout 30');
-    expect(script.slice(downloadIdx - 120, downloadIdx)).toContain('timeout 150 gh api');
+    expect(script.slice(downloadIdx - 120, downloadIdx)).toContain('timeout "$zip_timeout" gh api');
+    // Same 150 s default as before; replays that must not mix raise it.
+    expect(script).toContain('local zip_timeout="${REHYDRATE_ZIP_TIMEOUT:-150}"');
     expect(script.slice(cloneIdx - 30, cloneIdx)).toContain('timeout 300');
     // #7392: an expired artifact stays listed and would only fail on the zip.
     expect(script).toContain('select(.expired == false)');
@@ -130,8 +132,9 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(script).toMatch(/batch_download_ok=1[\s\S]*for attempt in 1 2; do/);
     expect(script).toMatch(/clone_ok=1[\s\S]*for attempt in 1 2; do/);
     // The losing workers must wait for both bounded download attempts before
-    // paying for a duplicate clone themselves.
-    expect(script).toContain('[ "$waited" -lt 390 ]');
+    // paying for a duplicate clone themselves: 2 × download + 90 s, i.e. the
+    // historical 390 s at the default 150 s (asserted next to the timeout).
+    expect(script).toContain('[ "$waited" -lt $((2 * zip_timeout + 90)) ]');
   });
 
   it('does NOT use partial clone / sparse-checkout for the network fallback (proven not to help, see the test above)', () => {
@@ -289,7 +292,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     const root = mkdtempSync(join(tmpdir(), 'rehydrate-zip-'));
     const lib = join(root, 'scripts', 'lib');
     mkdirSync(lib, { recursive: true });
-    for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh', 'ticino-tree-fanout.sh']) {
+    for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh', 'ticino-tree-fanout.sh', 'rehydrate-provenance.sh']) {
       copyFileSync(resolve('scripts/lib', f), join(lib, f));
     }
     const slugs: Record<string, Record<string, string>> = {};
@@ -398,6 +401,26 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
       .filter((d) => d.isFile())
       .map((d) => join(d.parentPath ?? (d as any).path, d.name));
   };
+
+  it('records where every subtree came from, for the replay coherence check', () => {
+    // audit-dist-from-run.yml fails a replay whose shards came from a clone of
+    // TODAY's shard repos instead of the build's artifacts (replay
+    // 39952023039): that verdict needs the provenance of every subtree.
+    const fx = buildFixture({ s1: 1, s2: 1 }, ['s2']);
+    const prov = join(fx.root, 'provenance.tsv');
+    process.env.REHYDRATE_PROVENANCE_FILE = prov;
+    try {
+      const { status, output } = run(fx, ['s1', 's2']);
+      expect(status, output).toBe(0);
+      const rows = readFileSync(prov, 'utf8').trim().split('\n').map((l) => l.split('\t'));
+      expect(rows).toContainEqual(['sez-s1', 'artifact', 'shard-batch-1-dist-it']);
+      expect(rows).toContainEqual(['sez-s2', 'trunk', '42']);
+      expect(rows.some((r) => r[1].startsWith('clone'))).toBe(false);
+    } finally {
+      delete process.env.REHYDRATE_PROVENANCE_FILE;
+      rmSync(fx.root, { recursive: true, force: true });
+    }
+  });
 
   it('streams every section out of one zip per batch and releases each zip after its last reader', () => {
     // s1+s2 read batch 1; s3 reads batch 2 and s4 — its last reader — only

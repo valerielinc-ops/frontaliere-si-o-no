@@ -14,15 +14,8 @@ function* objects(value: unknown): Generator<Record<string, unknown>> {
 const nodes = [...objects(pages)];
 
 describe('registry publication provenance', () => {
-  it('does not attribute unverified source/effective dates to original claims, including the three already undated', () => {
-    const claims = nodes.filter(node => node['@type'] === 'Claim');
-    // cron-count-ok: authored Claim registry cardinality, independent of imported exchange-rate data.
-    expect(claims).toHaveLength(33);
-    for (const claim of claims) {
-      expect(claim).not.toHaveProperty('datePublished');
-      expect(claim.author).toBeTruthy();
-      expect(claim.appearance).toMatchObject({ '@type': 'CreativeWork', url: expect.any(String) });
-    }
+  it('ships no self-reviewed Claim nodes (removed with the in-house ClaimReview markup)', () => {
+    expect(nodes.filter(node => node['@type'] === 'Claim')).toHaveLength(0);
   });
 
   it('keeps dataset coverage and distribution without invented publication/update events', () => {
@@ -39,15 +32,9 @@ describe('registry publication provenance', () => {
     }
   });
 
-  it('preserves independently maintained review and article publication dates and review evidence', () => {
-    const reviews = nodes.filter(node => node['@type'] === 'ClaimReview');
-    // cron-count-ok: authored review registry cardinality, independent of cron snapshots.
-    expect(reviews).toHaveLength(33);
-    for (const review of reviews) {
-      expect(review.datePublished).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-      expect(review.claimReviewed).toEqual(expect.any(String));
-      expect(review.reviewRating).toBeTruthy();
-    }
+  it('preserves independently maintained article publication dates', () => {
+    // Self-authored ClaimReview nodes were removed (E-E-A-T P0): none may return.
+    expect(nodes.filter(node => node['@type'] === 'ClaimReview')).toHaveLength(0);
     const articles = nodes.filter(node => ['Article', 'NewsArticle'].includes(String(node['@type'])));
     const datedArticles = articles.filter(article => Object.hasOwn(article, 'datePublished'));
     // cron-count-ok: authored article publication metadata, not imported corpus counts.

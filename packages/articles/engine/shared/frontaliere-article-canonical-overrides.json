@@ -1,5 +1,5 @@
 {
-  "_doc": "Per-slug canonical override map for frontaliere-section blog articles. Same shape, same loader and same semantics as data/swiss-article-canonical-overrides.json (issue #3010 item 1) — the mechanism was hardwired to the svizzera section in ogPagesPlugin.ts and is now driven per section by shared/canonicalOverrideFiles.mjs. Key = page slug (last URL segment, no leading slash) of the shadowed (lower-authority) variant, one entry per locale. Value = absolute canonical URL of the authoritative/winner variant in the SAME locale. Both pages stay live (no removal, no noindex, no redirect — repo anti-cut rule): only the shadowed variant's <link rel=\"canonical\"> and og:url point at the winner, and the shadowed URL is not advertised in a sitemap (a sitemap <loc> whose page canonicalises elsewhere is a hard CI gate failure — scripts/audit-sitemap-canonicals.mjs, scripts/validate-sitemap-pages.mjs). RSS is NOT touched, same as the svizzera precedent. This file lives inside packages/articles/engine/ on purpose: mirror-articles-engine.yml carries engine/** to the corpus repo that renders article pages, while scripts/pull-articles-corpus.mjs would delete a site-only file placed under packages/articles/content/. Source: three near-duplicate piastrellista guides published 2026-08-09 (11:30, 15:44 and 16:08 UTC); winner chosen by the owner. Second family added 2026-08-14 (#5510): six near-duplicate educatore-infanzia guides in this section, winner frontaliere-educatore-ticino-stipendio-requisiti (2026-07-23, the newest and the only one following the frontaliere-<mestiere>-ticino-stipendio-requisiti shape the owner already picked as the piastrellista winner). All six answer 200 and stay live. The three educatore guides in the SVIZZERA section are deliberately NOT pulled in here: they are governed by data/swiss-article-canonical-overrides.json, where lavorare-educatore-infanzia-ticino is already a settled winner, and consolidating across sections would move canonicals that issue #3010 item 1 already decided.",
+  "_doc": "Per-slug canonical override map for frontaliere-section blog articles. Same shape, same loader and same semantics as data/swiss-article-canonical-overrides.json (issue #3010 item 1) — the mechanism was hardwired to the svizzera section in ogPagesPlugin.ts and is now driven per section by shared/canonicalOverrideFiles.mjs. Key = page slug (last URL segment, no leading slash) of the shadowed (lower-authority) variant, one entry per locale. Value = absolute canonical URL of the authoritative/winner variant in the SAME locale. Both pages stay live (no removal, no noindex, no redirect — repo anti-cut rule): only the shadowed variant's <link rel=\"canonical\"> and og:url point at the winner, and the shadowed URL is not advertised in a sitemap (a sitemap <loc> whose page canonicalises elsewhere is a hard CI gate failure — scripts/audit-sitemap-canonicals.mjs, scripts/validate-sitemap-pages.mjs). RSS is NOT touched, same as the svizzera precedent. This file lives inside packages/articles/engine/ on purpose: mirror-articles-engine.yml carries engine/** to the corpus repo that renders article pages, while scripts/pull-articles-corpus.mjs would delete a site-only file placed under packages/articles/content/. Source: three near-duplicate piastrellista guides published 2026-08-09 (11:30, 15:44 and 16:08 UTC); winner chosen by the owner. Second family added 2026-08-14 (#5510): six near-duplicate educatore-infanzia guides in this section, winner frontaliere-educatore-ticino-stipendio-requisiti (2026-07-23, the newest and the only one following the frontaliere-<mestiere>-ticino-stipendio-requisiti shape the owner already picked as the piastrellista winner). All six answer 200 and stay live. The three educatore guides in the SVIZZERA section are deliberately NOT pulled in here: they are governed by data/swiss-article-canonical-overrides.json, where lavorare-educatore-infanzia-ticino is already a settled winner, and consolidating across sections would move canonicals that issue #3010 item 1 already decided. Third and fourth families added 2026-10-24 (Search Console cannibalization, 28 days to 2026-10-21): the two 9-10 October Sementina landslide reports (query 'frana sementina' split 354/130 impressions; winner frana-sementina-h13-gudo, the complete H13/Gudo report) and the two 29-30 May reports of the closed RSI-Nurnberg dispute (query 'paola nurnberg stipendio' split 362/67; winner caso-nurnberg-risolto-rsi-paga-pretese, ranked at 2.2).",
   "_groupsDoc": "One entry per near-duplicate family. `winner` and `shadowed` are ARTICLE IDS (the it slug), not per-locale slugs: the locale slugs live in `overrides` and are derived from the registry. tests/frontaliere-article-canonical-overrides.test.ts reads THIS map to build its cases, so a family added here is automatically held to every invariant — the winner keeps its sitemap entry, each shadowed id resolves onto the winner in all four locales, and no member is removed, redirected or noindexed. Adding a family without adding its 4 x N override rows fails there rather than shipping half-wired.",
   "_groups": {
     "piastrellista": {
@@ -15,6 +15,14 @@
         "educatore-infanzia-ticino-stipendi-requisiti",
         "educatore-infanzia-ticino-stipendio"
       ]
+    },
+    "sementina": {
+      "winner": "frana-sementina-h13-gudo",
+      "shadowed": ["smottamento-sementina-code"]
+    },
+    "nurnberg": {
+      "winner": "caso-nurnberg-risolto-rsi-paga-pretese",
+      "shadowed": ["licenziamento-nurnberg-rsi"]
     }
   },
   "overrides": {
@@ -51,6 +59,16 @@
     "educatore-infanzia-ticino-stipendio": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti/",
     "work-educator-ticino": "https://frontaliereticino.ch/en/cross-border-articles/frontalier-educator-ticino-salary-requirements/",
     "arbeiten-erzieher-tessin": "https://frontaliereticino.ch/de/grenzgaenger-artikel/frontalier-lehrer-tessin-grosses-netto-anforderungen/",
-    "travailler-educateur-tessin": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-educateur-tessin-salaire-requis/"
+    "travailler-educateur-tessin": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-educateur-tessin-salaire-requis/",
+
+    "smottamento-sementina-code": "https://frontaliereticino.ch/articoli-frontaliere/frana-sementina-h13-gudo/",
+    "landslide-sementina-traffic": "https://frontaliereticino.ch/en/cross-border-articles/sementina-gudo-h13-landslide/",
+    "erdrutsch-sementina-verkehr": "https://frontaliereticino.ch/de/grenzgaenger-artikel/erdrutsch-sementina-h13-gudo/",
+    "glissement-sementina-circulation": "https://frontaliereticino.ch/fr/articles-frontalier/glissement-sementina-h13-gudo/",
+
+    "licenziamento-nurnberg-rsi": "https://frontaliereticino.ch/articoli-frontaliere/caso-nurnberg-risolto-rsi-paga-pretese/",
+    "nurnberg-rsi-termination": "https://frontaliereticino.ch/en/cross-border-articles/nurnberg-case-resolved-rsi-pays-claims/",
+    "nurnberg-rsi-kuendigung": "https://frontaliereticino.ch/de/grenzgaenger-artikel/nurnberg-fall-geklart-rsi-zahlt-forderungen/",
+    "licenciement-nurnberg-rsi": "https://frontaliereticino.ch/fr/articles-frontalier/cas-nurnberg-resolu-rsi-paye-les-revendications/"
   }
 }

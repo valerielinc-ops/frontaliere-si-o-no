@@ -39,18 +39,14 @@
  *       and renders the full job detail.
  *     - body: forward-framed lede + "loading the latest version" prose.
  *
- *   `expired*` orphans:
- *     - canonical → section landing (`/cerca-lavoro-ticino/`, `/en/find-
- *       jobs-ticino/`, etc.). DO NOT canonical-redirect (no replaceState)
- *       — the orphan page must stay visible so the section search UX has
- *       the orphan as entry-point context.
- *     - body: "Annuncio scaduto" heading + extracted company hint (from
- *       slug trailing tokens) + a `<noscript>` fallback link to the
- *       section landing.
+ *   `expired*` orphans: NO page. They used to get an index,follow page whose
+ *     canonical was the section HUB — indexable while naming another URL as
+ *     canonical, a soft-404 signal. The shard origin now 404s and the
+ *     locale-router Worker 301s the URL: to the job's canton page when
+ *     /job-canon knows the slug, otherwise to the section root.
  *
- * Both kinds emit `robots: 'index,follow'` (per the
- * `never_noindex_without_approval` policy). Google de-duplicates via the
- * canonical signal; if a page genuinely should be dropped, Google decides.
+ * `matched` pages emit `robots: 'index,follow'` (per the
+ * `never_noindex_without_approval` policy).
  *
  * Plugin contract (CLAUDE.md non-negotiable #14)
  * ----------------------------------------------
@@ -134,10 +130,6 @@ interface BridgeCopy {
   readonly matchedDescription: string;
   readonly matchedH1: string;
   readonly matchedLede: string;
-  readonly expiredTitle: string;
-  readonly expiredDescription: string;
-  readonly expiredH1: (companyHint: string | null) => string;
-  readonly expiredLede: string;
   readonly browseAllLabel: string;
 }
 
@@ -147,10 +139,6 @@ const COPY: Record<Locale, BridgeCopy> = {
     matchedDescription: 'L\'annuncio che cerchi è stato aggiornato. Apri la versione corrente per leggere mansioni, requisiti, sede e candidarti direttamente.',
     matchedH1: 'Annuncio aggiornato',
     matchedLede: 'Questo annuncio è ancora aperto, ma il suo indirizzo è cambiato. Ti stiamo portando alla versione corrente — sede, requisiti e modulo di candidatura sono già pronti. Se la pagina non si apre, usa il link in fondo per tornare al job board e ritrovare l\'annuncio.',
-    expiredTitle: 'Annuncio non più disponibile — alternative aggiornate ogni giorno',
-    expiredDescription: 'Questa offerta di lavoro non è più online. Trova alternative simili nel Ticino con il nostro job board aggiornato ogni giorno: oltre 2000 annunci frontalieri attivi.',
-    expiredH1: (hint) => hint ? `Annuncio scaduto — vedi le offerte recenti di ${hint}` : 'Annuncio scaduto — vedi le offerte recenti',
-    expiredLede: 'L\'annuncio che cercavi è stato rimosso dall\'azienda inserzionista. Sul job board frontaliere trovi ogni giorno offerte simili filtrabili per ruolo, città, tipologia di contratto e azienda. Per chi vive in Italia e lavora in Svizzera, ogni risultato riporta il calcolo automatico dello stipendio netto Permit G vs Permit B, le tabelle di pendolarismo e le agevolazioni fiscali del Nuovo Accordo bilaterale 2026.',
     browseAllLabel: 'Sfoglia tutti gli annunci attivi',
   },
   en: {
@@ -158,10 +146,6 @@ const COPY: Record<Locale, BridgeCopy> = {
     matchedDescription: 'The listing you were looking for has been updated. We are taking you to the current version with the latest role description, location and application form.',
     matchedH1: 'Listing updated',
     matchedLede: 'This listing is still live but its URL has changed. We are taking you to the current version — role description, requirements, location and apply button are all there. If the page does not open, use the link below to browse the latest cross-border openings.',
-    expiredTitle: 'Listing no longer available — similar openings updated daily',
-    expiredDescription: 'This job posting is no longer online. Find similar Ticino-based openings on our cross-border job board, updated daily — over 2000 active listings.',
-    expiredH1: (hint) => hint ? `Listing closed — see recent openings from ${hint}` : 'Listing closed — see recent openings',
-    expiredLede: 'The listing you were looking for has been removed by the employer. Our cross-border job board refreshes daily with new openings filtered by role, city, contract type and employer. Each result includes the automatic net-salary calculation under Permit G vs Permit B, commute timetables and the 2026 New Bilateral Agreement tax adjustments for Italian-Swiss frontalieri.',
     browseAllLabel: 'Browse all active listings',
   },
   de: {
@@ -169,10 +153,6 @@ const COPY: Record<Locale, BridgeCopy> = {
     matchedDescription: 'Die gesuchte Stellenanzeige wurde aktualisiert. Wir leiten Sie zur aktuellen Version mit Tätigkeitsbeschreibung, Anforderungen und Bewerbungsformular weiter.',
     matchedH1: 'Anzeige aktualisiert',
     matchedLede: 'Diese Stelle ist weiterhin offen, ihre URL hat sich aber geändert. Wir leiten Sie zur aktuellen Version weiter — Tätigkeit, Anforderungen, Standort und Bewerbungsformular finden Sie dort. Falls die Seite nicht öffnet, nutzen Sie den Link unten, um zum Job-Board zurückzukehren.',
-    expiredTitle: 'Anzeige nicht mehr verfügbar — täglich aktualisierte Alternativen',
-    expiredDescription: 'Diese Stellenanzeige ist nicht mehr online. Finden Sie ähnliche Stellen im Tessin auf unserem Grenzgänger-Job-Board — täglich aktualisiert, über 2000 offene Stellen.',
-    expiredH1: (hint) => hint ? `Anzeige geschlossen — aktuelle Stellen von ${hint}` : 'Anzeige geschlossen — aktuelle Stellen',
-    expiredLede: 'Die gesuchte Stellenanzeige wurde vom Arbeitgeber entfernt. Unser Grenzgänger-Job-Board wird täglich aktualisiert und lässt sich nach Rolle, Stadt, Vertragsart und Unternehmen filtern. Jedes Ergebnis enthält die automatische Nettolohn-Berechnung unter Permit G vs Permit B, Pendlerfahrpläne und die steuerlichen Anpassungen des neuen bilateralen Abkommens 2026 für italienisch-schweizerische Grenzgänger.',
     browseAllLabel: 'Alle aktiven Stellen ansehen',
   },
   fr: {
@@ -180,10 +160,6 @@ const COPY: Record<Locale, BridgeCopy> = {
     matchedDescription: 'L\'annonce que vous cherchiez a été mise à jour. Nous vous dirigeons vers la version actuelle avec la description du poste, le lieu et le formulaire de candidature.',
     matchedH1: 'Annonce mise à jour',
     matchedLede: 'Cette annonce est toujours active, mais son adresse a changé. Nous vous dirigeons vers la version actuelle — description, exigences, lieu et formulaire de candidature y sont. Si la page ne s\'ouvre pas, utilisez le lien ci-dessous pour parcourir les annonces frontalières les plus récentes.',
-    expiredTitle: 'Annonce non disponible — alternatives mises à jour quotidiennement',
-    expiredDescription: 'Cette offre d\'emploi n\'est plus en ligne. Trouvez des alternatives similaires au Tessin sur notre job board frontalier — mis à jour quotidiennement, plus de 2000 annonces actives.',
-    expiredH1: (hint) => hint ? `Annonce fermée — offres récentes de ${hint}` : 'Annonce fermée — offres récentes',
-    expiredLede: 'L\'annonce que vous recherchiez a été retirée par l\'employeur. Notre job board frontalier s\'actualise quotidiennement avec de nouvelles offres filtrables par rôle, ville, type de contrat et entreprise. Chaque résultat inclut le calcul automatique du salaire net Permit G vs Permit B, les horaires de transport frontalier et les ajustements fiscaux du Nouvel Accord bilatéral 2026 pour les frontaliers italo-suisses.',
     browseAllLabel: 'Parcourir toutes les annonces actives',
   },
 };
@@ -194,18 +170,6 @@ function esc(value: string): string {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
-}
-
-/** Convert a slug fragment like "lonza-visp" or "guess-europe-sagl-bioggio"
- *  back to a human label like "Lonza Visp" / "Guess Europe Sagl Bioggio". */
-function humanizeCompanyHint(hint: string | null | undefined): string | null {
-  if (!hint) return null;
-  return hint
-    .split('-')
-    .filter(Boolean)
-    .map((t) => t.charAt(0).toUpperCase() + t.slice(1))
-    .join(' ')
-    .trim() || null;
 }
 
 function withLeadingTrailingSlash(pathname: string): string {
@@ -349,57 +313,6 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
   });
 }
 
-function renderExpiredPage(entry: OrphanEntry, distDir: string): string {
-  const locale = entry.locale;
-  const copy = COPY[locale];
-  const companyHint = humanizeCompanyHint(entry.company);
-  // Canonical points to the section landing that actually contained the
-  // orphan URL. Slug→canton inference is unreliable for expired unknowns,
-  // while the GSC URL already carries the user's section context.
-  const sectionPath = sectionPathFromOrphan(entry);
-  const canonicalUrl = `${BASE_URL}${sectionPath}`.replace(/(?<!:)\/+/g, '/');
-  const orphanAbsoluteUrl = `${BASE_URL}${buildOrphanPath(entry)}`;
-
-  // Same shared bridge-page prose appended after the CTA. The
-  // bridgeKind 'job-expired' wording differs from 'job-matched' so
-  // active vs closed listings never share the same opener (which would
-  // raise a duplicate-content flag at scale).
-  const bridgeProse = renderBridgePageProse({ locale, bridgeKind: 'job-expired' });
-
-  const bodyHtml = `<main class="cluster-seo-prose s-zry6VY">
-    <header class="s-v0ohjg">
-      <h1 class="s-hiC5FI">${esc(copy.expiredH1(companyHint))}</h1>
-    </header>
-    <p class="s-cbFAda">${esc(copy.expiredLede)}</p>
-    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(canonicalUrl)}">${esc(copy.browseAllLabel)} →</a></p>
-    ${bridgeProse}
-  </main>`;
-
-  const breadcrumbLd = buildBridgeBreadcrumbLd({
-    locale,
-    baseUrl: BASE_URL,
-    sectionLabel: JOBS_SECTION_LABEL[locale],
-    sectionPath,
-    pageLabel: copy.expiredH1(companyHint),
-    canonicalUrl: orphanAbsoluteUrl,
-  });
-
-  return buildSeoPageHtml({
-    locale,
-    title: copy.expiredTitle,
-    description: copy.expiredDescription,
-    canonicalUrl,
-    robots: 'index,follow',
-    ogType: 'website',
-    ogLocale: OG_LOCALE[locale],
-    hreflangHtml: '',
-    jsonLdScripts: [breadcrumbLd],
-    bodyHtml,
-    distDir,
-    seoMainClass: 'cluster-seo-prose',
-  });
-}
-
 export function jobOrphanBridgePlugin(rootDir: string): Plugin {
   return {
     name: 'job-orphan-bridge',
@@ -443,11 +356,24 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
       let emitted = 0;
       let skippedCollision = 0;
       let skippedNamespaceGuard = 0;
+      let skippedExpiredToWorker = 0;
       let skippedFilesystemLimitPaths = 0;
       let skippedUnsafeDistPaths = 0;
       const start = Date.now();
 
       for (const entry of file.orphans) {
+        // Expired orphans get no page. They used to be index,follow with the
+        // canonical on the section HUB (/cerca-lavoro-ticino/ …): an indexable
+        // URL that declares another page as canonical is a soft-404 signal
+        // (replay of run 40071128198). Every job section is behind the
+        // locale-router Worker (IT ticino via the apex wildcard), which turns
+        // the origin 404 into a 301 to the job's canton page when /job-canon
+        // knows the slug (recoverCantonDriftOrphan) and otherwise to the
+        // section root (recoverExpiredJobToCantonRoot).
+        if (entry.kind !== 'matched') {
+          skippedExpiredToWorker++;
+          continue;
+        }
         // Reserved company-hub namespace guard (issue #2976, 5th call site) —
         // must run before path/collision checks: it depends on entry.slug /
         // entry.kind, not on dist/ state.
@@ -479,9 +405,7 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
           continue;
         }
 
-        const html = entry.kind === 'matched'
-          ? renderMatchedPage(entry, distDir)
-          : renderExpiredPage(entry, distDir);
+        const html = renderMatchedPage(entry, distDir);
 
         try {
           fs.mkdirSync(path.dirname(indexTarget), { recursive: true });
@@ -495,7 +419,7 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
 
       const dur = ((Date.now() - start) / 1000).toFixed(1);
       console.log(
-        `\x1b[36m[job-orphan-bridge]\x1b[0m emitted ${emitted} bridge files (${file.orphans.length - skippedCollision - skippedNamespaceGuard - skippedFilesystemLimitPaths - skippedUnsafeDistPaths} pages, ${skippedCollision} skipped due to live-page collision, ${skippedNamespaceGuard} skipped due to reserved company-hub namespace) in ${dur}s`,
+        `\x1b[36m[job-orphan-bridge]\x1b[0m emitted ${emitted} bridge files (${file.orphans.length - skippedExpiredToWorker - skippedCollision - skippedNamespaceGuard - skippedFilesystemLimitPaths - skippedUnsafeDistPaths} pages, ${skippedExpiredToWorker} expired left to the Worker 301, ${skippedCollision} skipped due to live-page collision, ${skippedNamespaceGuard} skipped due to reserved company-hub namespace) in ${dur}s`,
       );
       if (skippedFilesystemLimitPaths > 0) {
         console.warn(`[job-orphan-bridge] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);
