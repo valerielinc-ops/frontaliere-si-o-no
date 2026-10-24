@@ -41993,16 +41993,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-caso-nurnberg-risolto-rsi-paga-pretese': {
-    title: 'Caso Nurnberg risolto: RSI paga tutte le pretese avanzate',
-    description: 'La vertenza tra RSI e Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese avanzate. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per',
+    title: 'Paola Nurnberg, vertenza chiusa: la RSI paga 4 mesi di salario',
+    description: 'Paola Nurnberg, licenziata dalla RSI nel 2023 dopo un post su Twitter: vertenza chiusa, la RSI ha pagato tutte le pretese avanzate secondo Unia.',
     keywords: 'frontalieri, ticino, svizzera, italia, caso, nurnberg, risolto, paga',
-    ogTitle: 'Caso Nurnberg risolto: RSI paga tutte le pretese avanzate',
-    ogDescription: 'La vertenza tra RSI e Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese avanzate. Scopri di più su Frontaliere Ticino.',
+    ogTitle: 'Paola Nurnberg, vertenza chiusa: la RSI paga 4 mesi di salario',
+    ogDescription: 'Paola Nurnberg, licenziata dalla RSI nel 2023 dopo un post su Twitter: vertenza chiusa, la RSI ha pagato tutte le pretese avanzate secondo Unia.',
     canonicalPath: '/articoli-frontaliere/caso-nurnberg-risolto-rsi-paga-pretese',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Caso Nurnberg risolto: RSI paga tutte le pretese avanzate",
+      "headline": "Paola Nurnberg, vertenza chiusa: la RSI paga 4 mesi di salario",
       "description": "La vertenza tra RSI e Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese avanzate. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -43227,10 +43227,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-imposta-fonte-frontalieri-ticino-dettagli': {
     title: 'Imposta alla fonte frontalieri: come funziona in Ticino',
-    description: 'Scopri come funziona l\'imposta alla fonte per i frontalieri in Ticino, le aliquote e gli adempimenti fiscali necessari per la gestione del salario.',
+    description: 'Imposta alla fonte in Ticino 2026: come la trattiene il datore di lavoro, da cosa dipendono le aliquote e cosa cambia per i nuovi frontalieri.',
     keywords: 'frontalieri, ticino, svizzera, italia, imposta, alla, fonte, funziona',
     ogTitle: 'Imposta alla fonte frontalieri Ticino: guida e calcolo',
-    ogDescription: 'Guida pratica all\'imposta alla fonte per frontalieri in Ticino: calcoli e adempimenti.',
+    ogDescription: 'Imposta alla fonte in Ticino 2026: come la trattiene il datore di lavoro, da cosa dipendono le aliquote e cosa cambia per i nuovi frontalieri.',
     canonicalPath: '/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli',
     structuredData: {
       "@context": "https://schema.org",
@@ -47381,16 +47381,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-modelli-cu-2026-frontalieri': {
-    title: 'Certificazione unica 2026: modelli ufficiali | Frontaliere Ticino',
-    description: 'Disponibili i Modelli Ufficiali della Certificazione Unica 2026. Guida pratica per i frontalieri su come dichiarare i redditi svizzeri in Italia, evitare la',
+    title: 'CU 2026 per frontalieri: modelli ufficiali e credito d\'imposta',
+    description: 'Certificazione Unica 2026: modelli ufficiali per i redditi 2025 e come i frontalieri dichiarano in Italia lo stipendio svizzero col credito d\'imposta.',
     keywords: 'frontalieri, ticino, svizzera, italia, certificazione, unica, modelli, ufficiali',
-    ogTitle: 'Certificazione Unica 2026: Modelli Ufficiali per Frontalieri',
-    ogDescription: 'Approfondimento sulla Certificazione Unica 2026 e le sue implicazioni per i frontalieri, con focus sulla dichiarazione dei redditi in Italia e il credito',
+    ogTitle: 'CU 2026 per frontalieri: modelli ufficiali e credito d\'imposta',
+    ogDescription: 'Certificazione Unica 2026: modelli ufficiali per i redditi 2025 e come i frontalieri dichiarano in Italia lo stipendio svizzero col credito d\'imposta.',
     canonicalPath: '/articoli-frontaliere/modelli-cu-2026-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Certificazione unica 2026: modelli ufficiali",
+      "headline": "CU 2026 per frontalieri: modelli ufficiali e credito d'imposta",
       "description": "Disponibili i Modelli Ufficiali della Certificazione Unica 2026. Guida pratica per i frontalieri su come dichiarare i redditi svizzeri in Italia, evitare la",
       "image": {
         "@type": "ImageObject",
@@ -51787,16 +51787,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-tecnico-radiologia-ticino-stipendio-requisiti': {
-    title: 'Tecnico di radiologia in Ticino: stipendio, requisiti e permesso G',
-    description: 'Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo',
+    title: 'Tecnico di radiologia in Ticino: quanto guadagna e requisiti',
+    description: 'Quanto guadagna un tecnico di radiologia in Ticino: stipendio medio di CHF 80.000 l\'anno, requisiti, riconoscimento del titolo di studio e permesso G.',
     keywords: 'frontalieri, ticino, svizzera, italia, tecnico, radiologia, stipendio, requisiti',
-    ogTitle: 'Lavorare come tecnico di radiologia in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
-    ogDescription: 'Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo',
+    ogTitle: 'Tecnico di radiologia in Ticino: quanto guadagna e requisiti',
+    ogDescription: 'Quanto guadagna un tecnico di radiologia in Ticino: stipendio medio di CHF 80.000 l\'anno, requisiti, riconoscimento del titolo di studio e permesso G.',
     canonicalPath: '/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Tecnico di radiologia in Ticino: stipendio, requisiti e permesso G",
+      "headline": "Tecnico di radiologia in Ticino: quanto guadagna e requisiti",
       "description": "Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo",
       "image": {
         "@type": "ImageObject",
@@ -66273,16 +66273,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-multe-stradali-svizzere': {
-    title: 'Multa stradale svizzera | Frontaliere Ticino',
-    description: 'Come funzionano le multe stradali svizzere per i residenti italiani. Implicazioni e procedure per il pagamento. Dati aggiornati 2026 per frontalieri in Ticino.',
+    title: 'Multe stradali in Svizzera: importi, termini e pagamento',
+    description: 'Multe stradali in Svizzera: da 40 CHF per le infrazioni lievi a oltre 1.000 CHF per quelle gravi, pagamento entro 30 giorni dalla notifica.',
     keywords: 'frontalieri, ticino, svizzera, italia, multa, stradale, funzionano, multe',
-    ogTitle: 'Multa stradale svizzera',
-    ogDescription: 'Informazioni sulla multa stradale svizzera e sulla procedura per il pagamento. Risposte alle domande più frequenti.',
+    ogTitle: 'Multe stradali in Svizzera: importi, termini e pagamento',
+    ogDescription: 'Multe stradali in Svizzera: da 40 CHF per le infrazioni lievi a oltre 1.000 CHF per quelle gravi, pagamento entro 30 giorni dalla notifica.',
     canonicalPath: '/articoli-frontaliere/multe-stradali-svizzere',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Multa stradale svizzera",
+      "headline": "Multe stradali in Svizzera: importi, termini e pagamento",
       "description": "Come funzionano le multe stradali svizzere per i residenti italiani. Implicazioni e procedure per il pagamento. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -75172,16 +75172,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-pagamento-multa-stradale-svizzera': {
-    title: 'Multa stradale svizzera: procedura per residenti italiani',
-    description: 'Procedura completa per il pagamento di una multa stradale ricevuta in Svizzera da residente italiano: notifica, pagamento, ricorsi e conseguenze.',
+    title: 'Multe dalla Svizzera con targa italiana: pagamento e ricorso',
+    description: 'Multa dalla Svizzera con targa italiana: come arriva la notifica, come pagarla o fare ricorso entro la scadenza e cosa succede se non la paghi.',
     keywords: 'frontalieri, ticino, svizzera, italia, multa, stradale, procedura, residenti',
-    ogTitle: 'Multa stradale svizzera: come pagarla da italiano',
-    ogDescription: 'Ricevi una multa stradale in Svizzera? Scopri come funziona il pagamento, i termini per ricorrere, le conseguenze del mancato saldo sulla vignetta e assicurazione italiana, e come contestarla.',
+    ogTitle: 'Multe dalla Svizzera con targa italiana: pagamento e ricorso',
+    ogDescription: 'Multa dalla Svizzera con targa italiana: come arriva la notifica, come pagarla o fare ricorso entro la scadenza e cosa succede se non la paghi.',
     canonicalPath: '/articoli-frontaliere/pagamento-multa-stradale-svizzera',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Multa stradale svizzera: procedura per residenti italiani",
+      "headline": "Multe dalla Svizzera con targa italiana: pagamento e ricorso",
       "description": "Procedura completa per il pagamento di una multa stradale ricevuta in Svizzera da residente italiano: notifica, pagamento, ricorsi e conseguenze.",
       "image": {
         "@type": "ImageObject",
@@ -88604,16 +88604,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-cassa-malati-rincari-2027': {
-    title: 'Premi cassa malati: +5% nel 2027 | Frontaliere Ticino',
-    description: 'Premi cassa malati aumenteranno il 5% nel 2027. Scopri come l\'aumento LAMal impacta la busta paga e come comparare le casse malati. Dati aggiornati 2026',
+    title: 'Premi cassa malati 2027: aumento di quasi il 5%, picchi al 20%',
+    description: 'Premi cassa malati 2027: per bonus.ch l\'aumento medio LAMal sarà di quasi il 5%, dopo il 4,4% del 2026, con picchi fino al 20% per alcuni assicurati.',
     keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, secondo',
-    ogTitle: 'Premi cassa malati: +5% nel 2027',
-    ogDescription: 'L\'aumento dei premi LAMal nel 2027 sarà quasi il 5%, con picchi fino al 20%. Ecco come frontalieri possono pianificare il budget 2027.',
+    ogTitle: 'Premi cassa malati 2027: aumento di quasi il 5%, picchi al 20%',
+    ogDescription: 'Premi cassa malati 2027: per bonus.ch l\'aumento medio LAMal sarà di quasi il 5%, dopo il 4,4% del 2026, con picchi fino al 20% per alcuni assicurati.',
     canonicalPath: '/articoli-frontaliere/cassa-malati-rincari-2027',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Premi cassa malati: +5% nel 2027",
+      "headline": "Premi cassa malati 2027: aumento di quasi il 5%, picchi al 20%",
       "description": "Premi cassa malati aumenteranno il 5% nel 2027. Scopri come l'aumento LAMal impacta la busta paga e come comparare le casse malati. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",

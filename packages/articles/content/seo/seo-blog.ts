@@ -2637,10 +2637,10 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
  'blog-costo-vivere-lugano-trasferirsi': {
  title: 'Quanto Costa Vivere a Lugano nel 2026',
- description: 'Quanto costa vivere a Lugano nel 2026: affitto, LAMal, tasse, trasporti e spesa. Budget mensile per chi valuta il trasferimento in Ticino.',
+ description: 'Quanto costa vivere a Lugano nel 2026: affitto da 1.400 CHF, LAMal da 450 CHF, trasporti e tasse, con il budget mensile di chi si trasferisce.',
  keywords: 'costo vita lugano, vivere a lugano, frontaliere trasferimento ticino, affitti lugano, lamal costo, tasse residenti ticino, budget mensile svizzera',
  ogTitle: 'Quanto Costa Vivere a Lugano nel 2026',
- ogDescription: 'Quanto costa vivere a Lugano da frontaliere: affitto, LAMal, tasse, trasporti e spesa — budget mensile reale 2026.',
+ ogDescription: 'Quanto costa vivere a Lugano nel 2026: affitto da 1.400 CHF, LAMal da 450 CHF, trasporti e tasse, con il budget mensile di chi si trasferisce.',
  canonicalPath: '/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026/',
  structuredData: {
  "@context": "https://schema.org",
@@ -4794,11 +4794,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  // blog-naspi-ex-frontalieri-2026 (legacy 301 via legacyRedirectsPlugin).
 
  'blog-dichiarazione-redditi-ticino-2026': {
- title: 'Dichiarazione dei redditi Ticino 2026 | Frontaliere Ticino',
- description: 'Scopri come compilare la dichiarazione dei redditi 2026 in Ticino. Guida completa, scadenze fiscali e vantaggi di eTax.',
+ title: 'eTax 2025 Ticino: dichiarazione d\'imposta entro il 30 aprile 2026',
+ description: 'eTax 2025 in Ticino: come compilare online la dichiarazione d\'imposta 2025, scadenza 30 aprile 2026, proroga online e chi è tassato alla fonte.',
  keywords: 'dichiarazione dei redditi, ticino, frontalieri, tasse, eTax 2025, proroga scadenza, imposte svizzera',
- ogTitle: 'Dichiarazione dei redditi Ticino 2026: tutto quello che devi sapere',
- ogDescription: 'Moduli dichiarazione d\'imposta 2025 in Ticino: scadenze, istruzioni e vantaggi di eTax. Guida pratica per frontalieri.',
+ ogTitle: 'eTax 2025 Ticino: dichiarazione d\'imposta entro il 30 aprile 2026',
+ ogDescription: 'eTax 2025 in Ticino: come compilare online la dichiarazione d\'imposta 2025, scadenza 30 aprile 2026, proroga online e chi è tassato alla fonte.',
  canonicalPath: '/articoli-frontaliere/dichiarazione-redditi-ticino-2026/',
  structuredData: {
  "@context": "https://schema.org",
