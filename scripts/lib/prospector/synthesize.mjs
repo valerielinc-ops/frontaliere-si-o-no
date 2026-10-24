@@ -23,6 +23,7 @@ import { KNOWN_AGGREGATOR_DOMAINS } from '../known-aggregator-domains.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractUmantisListingEvidence, umantisVacancyIdentity } from './umantis-detail.mjs';
 import { listingEvidenceFields } from './detail-extract.mjs';
+import { BREFISPERSONAL_PAGINATION } from './brefispersonal-contract.mjs';
 
 const MAX_SYNTHESIS_FETCHES = 5;
 const CAREER_LINK_RX = /(?:^|[\/_-])(?:jobs?|careers?|vacancies|karriere|stellen(?:angebote)?|offene-stellen|emplois?|carrieres?|offres-d-emploi|lavora|carriere|posizioni-aperte|offerte-di-lavoro|posti-vacanti)(?:[/?#._-]|$)/i;
@@ -173,15 +174,6 @@ const GENERIC_TENANT_LABELS = new Set([
   'jobboard', 'job-boards', 'jobs', 'karriere', 'link', 'my', 'portal',
   'recruiting', 'recruitingapp', 'stellen', 'www',
 ]);
-
-// The Brefis vacancy index exposes a bounded multi-page listing and a declared
-// total. Keep this source contract in the generator: the cron rewrites the
-// promoted spec, so editing the generated JSON would only fix one run.
-const BREFISPERSONAL_PAGINATION = Object.freeze({
-  maxPages: 10,
-  declaredTotalPattern: "Offene\\s+Stellen(?:\\s|&nbsp;|<[^>]+>)*([\\d'’.,]+)",
-  minCoverage: 0.95,
-});
 
 /**
  * Lowercase alphanumerics only, so `CH Media`, `chmedia` and `ch-media`
