@@ -378,11 +378,28 @@ function isIntentionalJobBoardNoindexPage(html) {
     && hasNoindex(html);
 }
 
+const PHARMACY_ROUTE_PREFIXES = [
+  'farmacie',
+  'en/pharmacies',
+  'de/apotheken',
+  'fr/pharmacies',
+];
+
+function isPharmacyRoutePage(pagePath) {
+  const normalizedPath = String(pagePath || '').replace(/^\/+/, '');
+  return PHARMACY_ROUTE_PREFIXES.some((prefix) => (
+    normalizedPath === prefix || normalizedPath.startsWith(`${prefix}/`)
+  ));
+}
+
 // pharmacyDirectoryPagesPlugin declares its deliberate noindex families
 // (duty-city aliases, closed weeks, unreleased duty data); marker AND noindex
-// are both required, so a stray marker never hides an indexable page's defect.
-function isIntentionalPharmacyNoindexPage(html) {
-  return String(html || '').includes(PHARMACY_NOINDEX_TARGET_MARKER)
+// are both required, so a copied marker on an unrelated page never hides an
+// indexable page's defect. The path check is intentionally based on the
+// generated dist-relative route, not on page markup that could be copied.
+function isIntentionalPharmacyNoindexPage(pagePath, html) {
+  return isPharmacyRoutePage(pagePath)
+    && String(html || '').includes(PHARMACY_NOINDEX_TARGET_MARKER)
     && hasNoindex(html);
 }
 
@@ -657,7 +674,7 @@ function main() {
     // 7. Meta robots noindex (skip 404.html and search/combo landing pages which are intentionally noindex)
     const isSearchPage = /\/(ricerca-|suche-|search-|recherche-)/.test('/' + page.pagePath);
     const isIntentionalJobBoardNoindex = isIntentionalJobBoardNoindexPage(html);
-    const isIntentionalPharmacyNoindex = isIntentionalPharmacyNoindexPage(html);
+    const isIntentionalPharmacyNoindex = isIntentionalPharmacyNoindexPage(page.pagePath, html);
     if (page.pagePath !== '404.html' && !isSearchPage && !isIntentionalJobBoardNoindex && !isIntentionalPharmacyNoindex && hasNoindex(html)) {
       errors.hasNoindex.push(page.pagePath || '/');
       errorCount++;
@@ -879,6 +896,7 @@ export {
   hasMetaRefresh,
   isIntentionalRedirectPage,
   isIntentionalJobBoardNoindexPage,
+  isPharmacyRoutePage,
   isIntentionalPharmacyNoindexPage,
 };
 

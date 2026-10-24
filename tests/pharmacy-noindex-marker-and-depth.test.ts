@@ -50,8 +50,14 @@ describe.each(['it', 'fr'] as const)('pharmacy directory (%s)', (locale) => {
     expect(noindex.length).toBeGreaterThan(0);
     for (const p of built) {
       expect(p.html.includes(PHARMACY_NOINDEX_TARGET_MARKER), p.path).toBe(!p.indexable);
-      expect(isIntentionalPharmacyNoindexPage(p.html), p.path).toBe(!p.indexable);
+      expect(isIntentionalPharmacyNoindexPage(p.path, p.html), p.path).toBe(!p.indexable);
     }
+  });
+
+  it('does not let a copied pharmacy marker exempt an unrelated page', () => {
+    const markedNoindex = `${PHARMACY_NOINDEX_TARGET_MARKER}\n<meta name="robots" content="noindex">`;
+    expect(isIntentionalPharmacyNoindexPage('jobs/example.html', markedNoindex)).toBe(false);
+    expect(isIntentionalPharmacyNoindexPage('farmacie/example/index.html', markedNoindex)).toBe(true);
   });
 
   it('reaches every indexable page within the crawl-depth budget of audit:max-bfs-depth', { timeout: 120_000 }, () => {
