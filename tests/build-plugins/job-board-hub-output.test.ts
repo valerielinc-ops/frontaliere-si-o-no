@@ -363,7 +363,8 @@ describe('job-board emitted output', () => {
       expect(postings).toHaveLength(1);
       const posting = postings[0];
       for (const field of ['title', 'description', 'datePosted', 'employmentType', 'baseSalary', 'jobLocation']) expect(posting[field]).toBeTruthy();
-      expect(posting.title).toBe(jobs[7].titleByLocale[locale]);
+      // The archived page names the employer's title in every locale (scripts/lib/job-title-identity.mjs).
+      expect(posting.title).toBe(jobs[7].title);
       if (['archived-short-description', 'archived-markup-short'].includes(slug)) expect(posting.description).toContain('Reparto dati.');
       if (slug === 'archived-medium-description') expect(posting.description).toContain('Esperienza in analisi dati e report.');
       if (['archived-sparse', 'archived-short-description', 'archived-medium-description', 'archived-markup-short'].includes(slug)) {
