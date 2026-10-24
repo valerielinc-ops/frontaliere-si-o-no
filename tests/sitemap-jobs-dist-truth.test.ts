@@ -399,6 +399,7 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     const previousBuildLocale = process.env.BUILD_LOCALE;
     const opendirSpy = vi.spyOn(fs.promises, 'opendir');
     const lstatSpy = vi.spyOn(fs.promises, 'lstat');
+    const statSpy = vi.spyOn(fs.promises, 'stat');
     process.env.BUILD_LOCALE = 'it';
     try {
       vi.resetModules();
@@ -520,15 +521,17 @@ describe('reconcileSitemapJobsWithDist on a locale shard', () => {
       const expectedProbePaths = new Set(
         [EN, DE, FR].flatMap((loc) => {
           const routePath = path.join(dist, new URL(loc).pathname.replace(/\/+$/, ''));
-          return [routePath, path.join(routePath, 'index.html'), `${routePath}.html`];
+          return [routePath, `${routePath}.html`];
         }).map((filePath) => path.resolve(filePath)),
       );
       const actualProbePaths = new Set(
         lstatSpy.mock.calls.map(([filePath]) => path.resolve(String(filePath))),
       );
       expect(actualProbePaths).toEqual(expectedProbePaths);
+      expect(statSpy).not.toHaveBeenCalled();
       expect(shard.extractSitemapLocs(readSitemap())).toEqual([EN, DE, FR]);
     } finally {
+      statSpy.mockRestore();
       lstatSpy.mockRestore();
       opendirSpy.mockRestore();
       if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
