@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 823,
+      "5": 824,
       "6": 5054
     },
-    "publishedCovers": 7560,
+    "publishedCovers": 7561,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207866,6 +207866,39 @@
         "provider": "openai-codex",
         "assetId": "article-successione-parmelin-otto-nomi",
         "imageUrl": "/images/blog/article-successione-parmelin-otto-nomi.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rolex-acquisisce-cpautomation": {
+      "cover": "/images/blog/article-rolex-acquisisce-cpautomation.webp",
+      "hash": "8cd1423f4c45a236737d2ca271183707998690032177dd331a3bda6f19745818",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "rolex-acquisisce-cpautomation",
+          "category": "novita",
+          "date": "2026-10-24T06:40:18.212Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rolex-acquisisce-cpautomation.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-24",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rolex-acquisisce-cpautomation",
+        "imageUrl": "/images/blog/article-rolex-acquisisce-cpautomation.webp",
         "evidence": "generated-engine-record"
       }
     }
