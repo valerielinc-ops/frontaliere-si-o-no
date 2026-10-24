@@ -65,7 +65,7 @@ export interface Article {
  authorSlug?: string;
  /** A2 — full display name for the byline. Mirrors `data/authors.ts`. */
  authorName?: string;
- /** Per-article editorial provenance; omitted legacy entries use the author default. */
+ /** Optional per-article editorial provenance consumed by runtime overlays; omitted legacy entries use the author default. */
  aiAssisted?: boolean;
 }
 
