@@ -2,7 +2,7 @@ name: Monitor SEO CTR by Template
 
 on:
   schedule:
-    # Weekly: Sunday 16:00 UTC (after monitor-gsc-seo.yml @ 15:00)
+    # Weekly: Sunday 16:00 UTC (monitor-gsc-seo.yml runs daily at 08:20 since 2026-10-24)
     - cron: '0 16 * * 0'
   workflow_dispatch:
     inputs:
