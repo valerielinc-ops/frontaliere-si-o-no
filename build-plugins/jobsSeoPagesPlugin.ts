@@ -4784,7 +4784,18 @@ ${staticAnalyticsHtml}
  const __tCrossCantonLegacy = startTimer();
  const legacyTIRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const legacyTIKey = legacyTIRel.replace(/\/+$/, '');
- if (!activeJobDirs.has(legacyTIKey)) {
+ if (locale !== 'it' && !activeJobDirs.has(legacyTIKey)) {
+ // en/de/fr: no copy. The legacy TI URL of a non-TI job is left to the
+ // shard origin's 404, which the locale-router Worker turns into a 301 to
+ // the canton-aware page via /job-canon (recoverCantonDriftOrphan): a 200
+ // noindex copy here is exactly what stops that 301 from firing (same
+ // decision as the expired soft-landing loop and cfHot404BridgePlugin).
+ // The path is still CLAIMED, so the canton-blind previousSlug TI mirror
+ // below cannot put another job's stale alias on it (#2545). IT is
+ // unchanged by choice: its copy is noindex (no canonical mismatch) and
+ // the expired soft-landing loop never emitted an IT legacy copy either.
+ legacyTiBridgeDirs.add(legacyTIKey);
+ } else if (!activeJobDirs.has(legacyTIKey)) {
  const legacyTIReuseInput = incrementalManifests
   ? {
    bridgeType: 'legacy-ti',
@@ -14372,6 +14383,22 @@ ${staticAnalyticsHtml}
   expiredHtmlCachePeakEntries = Math.max(expiredHtmlCachePeakEntries, expiredSoftLandingCache.size);
  }
  expiredCount++;
+
+ // No legacy-TI copy of this soft-landing (Italian slug under the legacy TI
+ // section of a non-IT locale, e.g. /fr/trouver-emploi-tessin/<slug>/).
+ // After the cathedral `relPath` is canton-aware, so that copy was a 200
+ // page whose canonical pointed at another URL: for every expired non-TI
+ // job (~373k per locale, `(+ N legacy slug bridges)` in the deploy log of
+ // run 39917633944) it was an indexable duplicate whose canonical named the
+ // native canton page — 911k `canonicalMismatch` advisories on the
+ // full-corpus validate:page-seo replay — and for the ~6.6k TI aliases
+ // (localized slug != registry key) the same mismatch inside TI. The URL
+ // now 404s at the shard origin and the locale-router Worker 301s it
+ // (`recoverCantonDriftOrphan`, /job-canon/*.json): to `${prefix}/${slug}/`
+ // when the slug segment is the same in this locale, and to the registry's
+ // localized path (`alias`, jobCanonRedirectMapPlugin) when it is not. IT
+ // never emitted this copy. See cfHot404BridgePlugin: for en/de/fr the
+ // Worker 301 is strictly better than a duplicate 200.
  recordPhase('ejp:write', __tEjpWrite);
  recordEmit('expired-soft-landing', __tExpiredSoftLanding);
  }
@@ -14539,6 +14566,21 @@ ${staticAnalyticsHtml}
  // e.g. `/cerca-lavoro-ticino/<slug-fr>` renders soft-landing content in
  // Italian instead of a 404. Canonical (inherited from the cached HTML)
  // already points to the base locale's tracked slug URL.
+ // en/de/fr URL `/<loc>/<TI legacy section>/<slug>/` that the locale-router
+ // Worker recovers by itself: the registry knows `slug` in this locale at a
+ // DIFFERENT path, so /job-canon carries either the exact prefix (same slug
+ // segment) or the `alias` (localized slug) for it, and every registry path
+ // is emitted (soft-landing / self-healing). Writing a 200 copy here instead
+ // only stops that 301 from firing — the class the expired soft-landing loop
+ // and the active cross-canton bridge no longer emit. The cross-locale and
+ // previousSlug-TI mirrors below must not re-fill those paths now that the
+ // removed copies no longer claim them; paths the Worker cannot resolve keep
+ // their noindex page.
+ const legacyTiPathRecoveredByWorker = (locale: 'it' | 'en' | 'de' | 'fr', slug: string, relPath: string): boolean => {
+  if (locale === 'it') return false;
+  const registryPath = tracking[slug]?.[locale];
+  return Boolean(registryPath) && localePathClaimKey(registryPath) !== localePathClaimKey(relPath);
+ };
  let crossLocaleExpiredCount = 0;
  for (const ej of expiredJobsData) {
  const slugByLocale = (ej && ej.slugByLocale) as Record<string, string> | undefined;
@@ -14600,6 +14642,8 @@ ${staticAnalyticsHtml}
  const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  // Active job wins if a live page already occupies this path.
  if (activeJobDirs.has(relPathKey)) continue;
+ // The locale-router Worker 301s it (see legacyTiPathRecoveredByWorker).
+ if (legacyTiPathRecoveredByWorker(baseLocale, foreignSlug, relPath)) continue;
  const outDir = safeTargets.directoryPath;
  const indexFile = safeTargets.indexPath;
  // Skip if any earlier phase (active, bridge, soft-landing) already wrote here.
@@ -15091,7 +15135,10 @@ ${staticAnalyticsHtml}
  // to whichever job happened to write last (#2545).
  if (
  !activeJobDirs.has(legacyTIKey) &&
- !legacyTiBridgeDirs.has(legacyTIKey)
+ !legacyTiBridgeDirs.has(legacyTIKey) &&
+ // en/de/fr: when the registry knows `oldSlug` in this locale the Worker
+ // 301s this URL to that page, which a 200 mirror here would block.
+ !legacyTiPathRecoveredByWorker(locale, oldSlug, legacyTIRelPath)
  ) {
  legacyTiBridgeDirs.add(legacyTIKey);
  const __tPrevSlugLegacyTIBridge = startTimer();
@@ -15361,6 +15408,8 @@ ${staticAnalyticsHtml}
  // `buildCantonAwareSection(locale, 'TI')` early-returns — hence the
  // 'TI' canton in the key.
  if (emittedActiveJobPaths.has(`TI:${baseLocale}:${foreignSlug}`)) continue;
+ // The locale-router Worker 301s it (see legacyTiPathRecoveredByWorker).
+ if (legacyTiPathRecoveredByWorker(baseLocale, foreignSlug, relPath)) continue;
  const outDir = safeTargets.directoryPath;
  const indexFile = safeTargets.indexPath;
  // Skip if a previousSlugs bridge already covered this path for

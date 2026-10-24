@@ -150,6 +150,16 @@
               ? entry[locale]
               : (typeof entry === 'string' && locale === 'it' ? entry : null);
             var canon = prefix ? (prefix + '/' + slug + '/') : null;
+            // Registry alias (mirrors jobCanonTarget in the Worker): this locale's
+            // page has a DIFFERENT slug, e.g. /fr/trouver-emploi-tessin/<it-slug>/
+            // whose French page is /fr/trouver-emploi-zurich/<fr-slug>/. Only
+            // inside the request's own locale prefix — never cross-locale.
+            var alias = !canon && entry && typeof entry === 'object' && entry.alias && typeof entry.alias === 'object'
+              ? entry.alias[locale] : null;
+            if (typeof alias === 'string' && locale !== 'it' && alias.indexOf('/' + locale + '/') === 0
+                && alias.indexOf('//') === -1 && alias.indexOf('?') === -1 && alias.indexOf('#') === -1) {
+              canon = alias.replace(/\/+$/, '') + '/';
+            }
             // Exact canonical page when the slug is known AND it differs from the
             // requested (orphaned) path; else the cross-locale company hub when the
             // slug is a wrong-prefix hub; else the national board for a legacy

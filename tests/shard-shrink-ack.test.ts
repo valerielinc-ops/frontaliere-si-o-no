@@ -64,7 +64,8 @@ describe('checkShrinkAck — negative controls', () => {
   });
 
   it('refuses a section with no acknowledgement at all', () => {
-    expect(checkShrinkAck({ section: 'ticino', locale: 'fr', prev: 353163, next: 10, acks: SHIPPED }).acknowledged).toBe(false);
+    expect(SHIPPED.zurigo).toBeUndefined();
+    expect(checkShrinkAck({ section: 'zurigo', locale: 'fr', prev: 353163, next: 10, acks: SHIPPED }).acknowledged).toBe(false);
   });
 
   it('refuses a locale that was never acknowledged (giura/it published on its own)', () => {
@@ -82,6 +83,53 @@ describe('checkShrinkAck — negative controls', () => {
   it('refuses an entry missing its floor instead of treating it as unbounded', () => {
     const acks = { s: { l: { from: 100 } } };
     expect(checkShrinkAck({ section: 's', locale: 'l', prev: 100, next: 1, acks }).acknowledged).toBe(false);
+  });
+});
+
+// ticino en/de/fr: the build stops writing the legacy-TI copies of non-TI jobs
+// (~373k expired + ~31k active per locale), a ~57% drop. The shard grows ~18k
+// files per deploy and deploys several times a day, so the ack is a BAND.
+describe('checkShrinkAck — self-expiring band (ticino en/de/fr)', () => {
+  it.each(['en', 'de', 'fr'])('accepts the measured %s transition and its growth before merge', (locale) => {
+    expect(checkShrinkAck({ section: 'ticino', locale, prev: 712136, next: 305000, acks: SHIPPED }).acknowledged).toBe(true);
+    expect(checkShrinkAck({ section: 'ticino', locale, prev: 790000, next: 330000, acks: SHIPPED }).acknowledged).toBe(true);
+  });
+
+  it('SELF-EXPIRES: the count the acknowledged push leaves behind is outside the band', () => {
+    // After landing, prev is ~305k: a further collapse must be refused.
+    const r = checkShrinkAck({ section: 'ticino', locale: 'fr', prev: 305000, next: 100000, acks: SHIPPED });
+    expect(r.acknowledged).toBe(false);
+    expect(r.reason).toMatch(/pinned to from=650000\.\.900000/);
+  });
+
+  it('still refuses a drop below the floor inside the band', () => {
+    const r = checkShrinkAck({ section: 'ticino', locale: 'fr', prev: 712136, next: 40000, acks: SHIPPED });
+    expect(r.acknowledged).toBe(false);
+    expect(r.reason).toMatch(/below the acknowledged floor/);
+  });
+
+  it('does not extend to the IT shard, which this change does not shrink', () => {
+    expect(SHIPPED.ticino.it).toBeUndefined();
+    expect(checkShrinkAck({ section: 'ticino', locale: 'it', prev: 700000, next: 300000, acks: SHIPPED }).acknowledged).toBe(false);
+  });
+
+  it('refuses a band too wide to self-expire, or malformed', () => {
+    const wide = { s: { l: { from: 100, from_max: 201, min_new: 10 } } };
+    expect(checkShrinkAck({ section: 's', locale: 'l', prev: 150, next: 50, acks: wide }).acknowledged).toBe(false);
+    const inverted = { s: { l: { from: 200, from_max: 100, min_new: 10 } } };
+    expect(checkShrinkAck({ section: 's', locale: 'l', prev: 150, next: 50, acks: inverted }).acknowledged).toBe(false);
+  });
+
+  it('every shipped band satisfies from <= from_max <= 2*from', () => {
+    for (const [section, locales] of Object.entries(SHIPPED)) {
+      if (section.startsWith('_')) continue;
+      for (const ack of Object.values(locales as Record<string, { from: number; from_max?: number; min_new: number }>)) {
+        if (ack.from_max === undefined) continue;
+        expect(ack.from_max).toBeGreaterThanOrEqual(ack.from);
+        expect(ack.from_max).toBeLessThanOrEqual(2 * ack.from);
+        expect(ack.min_new).toBeLessThan(ack.from);
+      }
+    }
   });
 });
 
