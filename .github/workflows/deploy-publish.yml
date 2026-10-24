@@ -2132,6 +2132,7 @@ jobs:
       audit_all_audits: >-
         text-html-ratio,title-length,title-no-disambig-hash,
         h1-title-duplicates,content-duplicates,faqpage-validity,
+        image-object-license,
         no-literal-markdown,breadcrumb-coverage,single-h1-per-page,
         duplicate-structured-data,link-anchor-text,duplicate-meta-description,
         information-gain,page-weight,salary-landing-template
