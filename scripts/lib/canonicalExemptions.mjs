@@ -39,6 +39,7 @@
  * instead of re-deriving it, so the three cannot drift apart again.
  */
 
+import { readFileSync } from 'node:fs';
 import { getJobBoardSectionPrefix } from './jobBoardSections.mjs';
 
 /**
@@ -188,4 +189,36 @@ export function classifyCanonicalMismatch({ url, canonical, html }) {
   if (isLegitLegacyAliasCanonicalization(url, canonical)) return 'legacy-alias';
   if (isLegitJobCanonicalConsolidation(url, canonical)) return 'job-consolidation';
   return null;
+}
+
+/**
+ * Owner-decided article consolidation: a near-duplicate article whose
+ * canonical points at the family winner chosen by the owner, both pages kept
+ * live by the repo's anti-cut rule (`_doc` of the two override maps below).
+ * Exact pair match only — key = last path segment of the shadowed page,
+ * value = the absolute winner URL — so a canonical drifting anywhere else is
+ * still a mismatch. Deliberately NOT part of classifyCanonicalMismatch: that
+ * classifier also feeds scripts/audit-sitemap-canonicals.mjs, where a
+ * shadowed article reaching a sitemap must stay a hard failure.
+ */
+let articleOverrides = null;
+function loadArticleOverrides() {
+  if (articleOverrides) return articleOverrides;
+  articleOverrides = new Map();
+  for (const rel of [
+    '../../packages/articles/engine/shared/frontaliere-article-canonical-overrides.json',
+    '../../data/swiss-article-canonical-overrides.json',
+  ]) {
+    try {
+      const { overrides = {} } = JSON.parse(readFileSync(new URL(rel, import.meta.url), 'utf8'));
+      for (const [slug, winner] of Object.entries(overrides)) articleOverrides.set(slug, toPath(winner));
+    } catch { /* map absent in a sparse checkout: no exemption, the mismatch stays visible */ }
+  }
+  return articleOverrides;
+}
+
+export function isOwnerArticleConsolidation(url, canonical) {
+  const slug = toPath(url).split('/').filter(Boolean).at(-1);
+  const winner = slug ? loadArticleOverrides().get(slug) : undefined;
+  return winner !== undefined && toPath(canonical) === winner;
 }

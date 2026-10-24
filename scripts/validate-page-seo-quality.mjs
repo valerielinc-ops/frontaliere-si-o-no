@@ -6,6 +6,10 @@ import { readAllAttr, readAttr, readMetaContent, scanStartTags } from './lib/htm
 import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
+import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
+import { classifyCanonicalMismatch, isOwnerArticleConsolidation } from './lib/canonicalExemptions.mjs';
+// eslint-disable-next-line import/no-relative-parent-imports
+import { lookupRetired } from '../infra/cloudflare-worker/locale-router.js';
 import { pathToFileURL } from 'node:url';
 
 /**
@@ -407,6 +411,13 @@ function isIntentionalPharmacyNoindexPage(pagePath, html) {
     && hasNoindex(html);
 }
 
+// eventsSeoPagesPlugin declares its municipal event archives (past events,
+// kept out of search on purpose). Same two-part contract as above.
+function isIntentionalEventArchiveNoindexPage(html) {
+  return String(html || '').includes(EVENT_ARCHIVE_NOINDEX_TARGET_MARKER)
+    && hasNoindex(html);
+}
+
 // Check for <meta http-equiv="refresh"> (not inside <noscript>)
 function hasMetaRefresh(html) {
   const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
@@ -483,7 +494,14 @@ function validateBestPracticeSeo(html, pagePath) {
         issues.push({ type: 'canonicalMissingTrailingSlash', detail: `canonical=${canonicalUrl.href}` });
       }
       if (urlIdentity(canonicalUrl) !== urlIdentity(pageUrl)) {
-        issues.push({ type: 'canonicalMismatch', detail: `canonical=${canonicalUrl.href} vs page=${pageUrl.href}` });
+        // The cross-URL canonicals the other canonical gates already accept
+        // (shared classifier) plus the owner's article consolidations are a
+        // declared decision, counted apart — not "does not match".
+        const declared = classifyCanonicalMismatch({ url: pageUrl.href, canonical: canonicalUrl.href, html })
+          || (isOwnerArticleConsolidation(pageUrl.href, canonicalUrl.href) ? 'article-consolidation' : null);
+        issues.push(declared
+          ? { type: 'declaredCanonical', detail: declared }
+          : { type: 'canonicalMismatch', detail: `canonical=${canonicalUrl.href} vs page=${pageUrl.href}` });
       }
     } catch {
       issues.push({ type: 'invalidCanonical', detail: `canonical=${canonicalHref}` });
@@ -612,13 +630,19 @@ function main() {
   let warningCount = 0;
   let errorCount = 0;
   // Noindex pages whose producer declared the noindex (printed, never silent).
-  const declaredNoindex = { jobBoard: 0, pharmacy: 0 };
+  const declaredNoindex = { jobBoard: 0, pharmacy: 0, eventArchive: 0 };
+  const declaredCanonical = {};
+  // Pages the edge answers 301/410 (EDGE_RETIRED_PATHS): the reassembled dist
+  // still holds their bytes because article shards are append-only
+  // (scripts/retire-article.mjs), but no client is ever served them.
+  let edgeRetired = 0;
 
   for (const page of pagesToCheck) {
     const html = readFileSync(page.filePath, 'utf-8');
     const locale = detectLocale(page.pagePath);
 
     if (isIntentionalRedirectPage(html)) continue;
+    if (lookupRetired(`/${page.pagePath ? `${page.pagePath}/` : ''}`) !== undefined) { edgeRetired++; continue; }
 
     // 1. H1 validation
     const h1Tags = extractH1Tags(html);
@@ -679,11 +703,15 @@ function main() {
     const isSearchPage = /\/(ricerca-|suche-|search-|recherche-)/.test('/' + page.pagePath);
     const isIntentionalJobBoardNoindex = isIntentionalJobBoardNoindexPage(html);
     const isIntentionalPharmacyNoindex = isIntentionalPharmacyNoindexPage(page.pagePath, html);
-    if (page.pagePath !== '404.html' && !isSearchPage && !isIntentionalJobBoardNoindex && !isIntentionalPharmacyNoindex && hasNoindex(html)) {
+    const isIntentionalEventArchiveNoindex = isIntentionalEventArchiveNoindexPage(html);
+    const declaredNoindexKind = isIntentionalJobBoardNoindex ? 'jobBoard'
+      : isIntentionalPharmacyNoindex ? 'pharmacy'
+        : isIntentionalEventArchiveNoindex ? 'eventArchive' : null;
+    if (page.pagePath !== '404.html' && !isSearchPage && !declaredNoindexKind && hasNoindex(html)) {
       errors.hasNoindex.push(page.pagePath || '/');
       errorCount++;
-    } else if (isIntentionalJobBoardNoindex || isIntentionalPharmacyNoindex) {
-      declaredNoindex[isIntentionalPharmacyNoindex ? 'pharmacy' : 'jobBoard']++;
+    } else if (declaredNoindexKind) {
+      declaredNoindex[declaredNoindexKind]++;
     }
 
     // 8. Meta refresh (outside noscript)
@@ -696,6 +724,10 @@ function main() {
     // canonical/social metadata and decorative-image choices need signal first
     // across the full generated corpus before any blocking promotion.
     for (const issue of validateBestPracticeSeo(html, page.pagePath)) {
+      if (issue.type === 'declaredCanonical') {
+        declaredCanonical[issue.detail] = (declaredCanonical[issue.detail] || 0) + 1;
+        continue;
+      }
       warnings[issue.type].push({ path: page.pagePath || '/', detail: issue.detail });
       warningCount++;
     }
@@ -723,7 +755,9 @@ function main() {
   console.log(`  WITH ERRORS: ${pagesToCheck.length - passedCount}`);
   console.log(`  TOTAL ISSUES: ${errorCount}`);
   console.log(`  ADVISORY WARNINGS: ${warningCount}`);
-  console.log(`  DECLARED NOINDEX (producer marker, not errors): job-board ${declaredNoindex.jobBoard}, pharmacy ${declaredNoindex.pharmacy}`);
+  console.log(`  DECLARED NOINDEX (producer marker, not errors): job-board ${declaredNoindex.jobBoard}, pharmacy ${declaredNoindex.pharmacy}, event archive ${declaredNoindex.eventArchive}`);
+  console.log(`  DECLARED CROSS-URL CANONICAL (classified, not warnings): ${Object.entries(declaredCanonical).map(([k, v]) => `${k} ${v}`).join(', ') || 'none'}`);
+  console.log(`  EDGE-RETIRED (301/410 at the Worker, not served): ${edgeRetired}`);
   console.log('='.repeat(60));
   console.log();
 
@@ -902,6 +936,7 @@ export {
   isIntentionalJobBoardNoindexPage,
   isPharmacyRoutePage,
   isIntentionalPharmacyNoindexPage,
+  isIntentionalEventArchiveNoindexPage,
 };
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

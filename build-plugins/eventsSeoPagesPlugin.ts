@@ -110,6 +110,7 @@ import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shar
 import { fillEventPeopleDefaults, normalizeEventPeople } from '../scripts/lib/event-metadata.mjs';
 import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
 import { LICENSED_PHOTO_PROVIDERS } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from './shared/eventArchiveNoindexTargetMarker.mjs';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type EventEntity = { '@type'?: string; name: string; url?: string };
@@ -2940,7 +2941,11 @@ export function renderHistoricalEventsArchivePage(params: {
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
   });
-  return { urlPath: canonicalPath, html, wordCount };
+  // Declare the deliberate municipal noindex (see the marker module).
+  const declaredHtml = municipality && !indexable
+    ? html.replace('</head>', ` ${EVENT_ARCHIVE_NOINDEX_TARGET_MARKER}\n </head>`)
+    : html;
+  return { urlPath: canonicalPath, html: declaredHtml, wordCount };
 }
 
 export function renderComunePage(params: {

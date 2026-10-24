@@ -25,6 +25,7 @@ import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
 import { COMPANY_CANTON_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/companyCantonBridgeMarker.mjs';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
+import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
@@ -321,6 +322,18 @@ export function isDeclaredPharmacyTarget({ url, html }) {
   try { pathname = new URL(url, 'https://frontaliereticino.ch').pathname; } catch { return false; }
   return String(html || '').includes(PHARMACY_NOINDEX_TARGET_MARKER)
     && PHARMACY_ROUTE_RE.test(pathname.endsWith('/') ? pathname : `${pathname}/`);
+}
+
+/**
+ * eventsSeoPagesPlugin's municipal event archives (past events, noindex on
+ * purpose — build-plugins/shared/eventArchiveNoindexTargetMarker.mjs): marker
+ * AND an events route are both required.
+ */
+export function isDeclaredEventArchiveTarget({ url, html }) {
+  let pathname = '';
+  try { pathname = new URL(url, 'https://frontaliereticino.ch').pathname; } catch { return false; }
+  return String(html || '').includes(EVENT_ARCHIVE_NOINDEX_TARGET_MARKER)
+    && /^\/(?:(?:en|de|fr)\/)?(?:eventi|events|veranstaltungen|evenements)\//.test(pathname);
 }
 
 export function scopeForManifest(manifest) {
@@ -920,7 +933,12 @@ export function classifyDocument({
       && followableNoindex
       && isDeclaredPharmacyTarget({ url: finalUrl || url, html })
       ? 'pharmacy-target'
-      : null;
+      : isFrontier
+        && noindex
+        && followableNoindex
+        && isDeclaredEventArchiveTarget({ url: finalUrl || url, html })
+        ? 'event-archive-target'
+        : null;
   const weeklyEmployersArchiveExemption = isFrontier
     && noindex
     && followableNoindex
@@ -944,8 +962,8 @@ export function classifyDocument({
     const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
     const detail = isDeclaredBridge
       ? declaredNoindexTarget && !canonicalExemption
-        ? declaredNoindexTarget === 'pharmacy-target'
-          ? `Pagina nella frontiera interna dichiarata noindex dal plugin farmacie: noindex/follow sulla route farmacie (${canonical || 'canonical assente'}).`
+        ? declaredNoindexTarget === 'pharmacy-target' || declaredNoindexTarget === 'event-archive-target'
+          ? `Pagina nella frontiera interna dichiarata noindex dal suo plugin (${declaredNoindexTarget}): noindex/follow (${canonical || 'canonical assente'}).`
           : `Pagina nella frontiera interna dichiarata target job board: noindex/follow sulla route job-detail (${canonical || 'canonical assente'}).`
         : `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${canonicalExemption}).`
       : isFrontier
