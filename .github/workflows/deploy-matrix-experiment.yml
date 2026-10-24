@@ -122,6 +122,11 @@ on:
         type: boolean
         required: false
         default: false
+      freeze_clock:
+        description: 'Freeze the build wall clock at the run build id in every leg (identity runs for compare_variants; per-plugin timings read 0)'
+        type: boolean
+        required: false
+        default: false
       prep_compare:
         description: 'In prep, also run the previous related-search summary and gzip pack, and compare bytes and wall time'
         type: boolean
@@ -426,6 +431,10 @@ jobs:
       DEPLOY_BUILD_ID: ${{ needs.prep.outputs.build_id }}
       BUILD_STOP_AFTER: ${{ inputs.stop_after_jobs_seo == true && 'jobsSeoPages' || '' }}
       CPU_PROFILE: ${{ inputs.cpu_profile == true && '1' || '' }}
+      # Same preload and variable as the jobs-seo bench work (agent A, commit
+      # 0595e0979f0): scripts/ci/bench-frozen-clock.mjs freezes Date.now()
+      # and argument-less new Date() at the run's build id.
+      BENCH_FROZEN_CLOCK_MS: ${{ inputs.freeze_clock == true && needs.prep.outputs.build_id || '' }}
     steps:
       # Copied minimally from deploy.yml's build-locale job, whose source of
       # truth is the production cleanup step in this same repository.
@@ -439,13 +448,13 @@ jobs:
           echo "::endgroup::"
           rm -f /tmp/free-disk.done
           nohup bash -c '
-            sudo rm -rf /usr/local/lib/android &
-            sudo rm -rf /usr/share/dotnet &
-            sudo rm -rf /opt/ghc &
-            sudo rm -rf /usr/local/share/boost &
-            sudo rm -rf /opt/hostedtoolcache/CodeQL &
-            sudo rm -rf /usr/share/swift &
-            wait
+            pids=()
+            for d in /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/share/boost /opt/hostedtoolcache/CodeQL /usr/share/swift; do
+              sudo rm -rf "$d" & pids+=("$!")
+            done
+            rc=0
+            for p in "${pids[@]}"; do wait "$p" || rc=1; done
+            echo "rm_rc=$rc"
             date +%s > /tmp/free-disk.done
           ' < /dev/null > /tmp/free-disk.log 2>&1 &
           date +%s > /tmp/free-disk.started
@@ -650,6 +659,12 @@ jobs:
             echo "::error::disk cleanup did not finish within 900 s"
             exit 1
           fi
+          # Best-effort like the foreground step it replaces (whose bare `wait`
+          # never failed it), but a failed removal is now visible here instead
+          # of only as a later ENOSPC.
+          if ! grep -q '^rm_rc=0$' /tmp/free-disk.log 2>/dev/null; then
+            echo "::warning::disk cleanup: at least one toolchain removal failed (see the log above)"
+          fi
           echo "[free-disk] cleanup wall_s=$(( $(cat /tmp/free-disk.done) - $(cat /tmp/free-disk.started) )) waited_after_start_s=$(( $(date +%s) - $(cat /tmp/free-disk.started) ))"
           echo "::group::Disk usage AFTER cleanup"
           df -h /
@@ -704,6 +719,14 @@ jobs:
           BUILD_LOCALE_FOR_LOG="${BUILD_LOCALE:-all}"
           BUILD_LOG="/tmp/build-${BUILD_LOCALE_FOR_LOG}.log"
           BUILD_NODE_OPTIONS='--max-old-space-size=14336 --expose-gc'
+          # freeze_clock: every variant sees the same "now" (the run build id),
+          # so wall-clock instants printed into pages cannot differ between
+          # variants built hours apart and compare_variants stays a RAW
+          # sha256 comparison, with nothing masked.
+          if [ -n "${BENCH_FROZEN_CLOCK_MS:-}" ]; then
+            BUILD_NODE_OPTIONS="$BUILD_NODE_OPTIONS --import=${GITHUB_WORKSPACE}/scripts/ci/bench-frozen-clock.mjs"
+            echo "[frozen-clock] Date.now()=${BENCH_FROZEN_CLOCK_MS} ($(date -u -d "@$((BENCH_FROZEN_CLOCK_MS / 1000))" +%FT%TZ))"
+          fi
           if [ "${CPU_PROFILE:-}" = '1' ]; then
             mkdir -p /tmp/cpuprof
             rm -f /tmp/cpuprof/*.cpuprofile
@@ -715,8 +738,8 @@ jobs:
             export NODE_OPTIONS="$BUILD_NODE_OPTIONS"
             ./node_modules/.bin/vite build --minify esbuild 2>&1 | tee "$BUILD_LOG"
             build_exit="${PIPESTATUS[0]}"
-          elif [ "${CPU_PROFILE:-}" = '1' ]; then
-            echo '[cpu-profile] using direct Vite invocation so NODE_OPTIONS is not overwritten by build:ci'
+          elif [ "${CPU_PROFILE:-}" = '1' ] || [ -n "${BENCH_FROZEN_CLOCK_MS:-}" ]; then
+            echo '[cpu-profile/freeze-clock] using direct Vite invocation so NODE_OPTIONS is not overwritten by build:ci'
             export NODE_OPTIONS="$BUILD_NODE_OPTIONS"
             set +e
             ./node_modules/.bin/vite build --minify esbuild 2>&1 | tee "$BUILD_LOG"
@@ -908,18 +931,7 @@ jobs:
         # Only the monolith / variant compare jobs consume this manifest; on
         # plain variant benches it cost ~5.5 min of sha256 over 1.5M files.
         if: inputs.compare_monolith == true || inputs.compare_variants == true
-        env:
-          COMPARE_VARIANTS: ${{ inputs.compare_variants }}
-        run: |
-          set -euo pipefail
-          node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${{ matrix.locale }}.txt"
-          # Variants run in series, hours apart: wall-clock date-times differ
-          # by construction (bench run 40080692388: 174,631 raw mismatches).
-          # The masked manifest is what the variant gate judges; the raw one
-          # is reported next to it.
-          if [ "$COMPARE_VARIANTS" = 'true' ]; then
-            node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${{ matrix.locale }}.masked.txt" --mask-timestamps
-          fi
+        run: node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${{ matrix.locale }}.txt"
       - name: Upload build manifest
         if: inputs.compare_monolith == true
         uses: actions/upload-artifact@v7
@@ -932,9 +944,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: variant-manifest-${{ matrix.locale }}-${{ matrix.variant }}
-          path: |
-            /tmp/manifest-${{ matrix.locale }}.txt
-            /tmp/manifest-${{ matrix.locale }}.masked.txt
+          path: /tmp/manifest-${{ matrix.locale }}.txt
           retention-days: 7
 
       - name: Extract build markers
@@ -1202,9 +1212,10 @@ jobs:
   # ── Byte-identity between variants: every variant of a locale === `base` ──
   # The legs share the prep snapshot and DEPLOY_BUILD_ID, so a flag that only
   # changes HOW the build runs (timing, GC, worker counts) must leave every
-  # dist file sha256-identical once wall-clock date-times are masked (the legs
-  # run in series, hours apart). The masked comparison is the gate; the raw
-  # one is printed for the record. The reference is the variant named `base`.
+  # dist file sha256-identical. The legs run in series, hours apart, so the
+  # comparison means something only with `freeze_clock` (bench run
+  # 40080692388, clock not frozen: 174,631 of 1,554,241 files differed by
+  # wall-clock instants alone). The reference is the variant named `base`.
   compare-variants:
     needs: [matrix-setup, build-locale]
     if: >-
@@ -1229,6 +1240,8 @@ jobs:
           pattern: variant-manifest-*
           merge-multiple: false
       - name: Compare every variant against base
+        env:
+          FREEZE_CLOCK_INPUT: ${{ inputs.freeze_clock }}
         run: |
           set -euo pipefail
           root=/tmp/variant-manifests
@@ -1241,28 +1254,22 @@ jobs:
             for other_dir in "$prefix"-*; do
               [ "$other_dir" = "$base_dir" ] && continue
               variant="${other_dir##"$prefix"-}"
-              for kind in raw masked; do
-                name="manifest-${locale}.txt"
-                [ "$kind" = masked ] && name="manifest-${locale}.masked.txt"
-                base_file="$(find "$base_dir" -type f -name "$name" | head -1)"
-                other_file="$(find "$other_dir" -type f -name "$name" | head -1)"
-                if [ -z "$base_file" ] || [ -z "$other_file" ]; then
-                  echo "::error::${locale}/${variant}: missing ${kind} manifest"
-                  status=1
-                  continue
-                fi
-                echo "::group::${locale}: base vs ${variant} (${kind})"
-                if node scripts/ci/compare-dist-manifests.mjs "$base_file" "$other_file"; then
-                  identical=true
-                else
-                  identical=false
-                  # Only the masked comparison gates: raw differences between
-                  # legs hours apart are wall-clock instants by construction.
-                  [ "$kind" = masked ] && status=1
-                fi
-                echo "::endgroup::"
-                echo "[compare-variants] locale=${locale} variant=${variant} kind=${kind} identical=${identical} files=$(wc -l < "$base_file")"
-              done
+              base_file="$(find "$base_dir" -type f -name '*.txt' | head -1)"
+              other_file="$(find "$other_dir" -type f -name '*.txt' | head -1)"
+              if [ -z "$base_file" ] || [ -z "$other_file" ]; then
+                echo "::error::${locale}/${variant}: missing manifest"
+                status=1
+                continue
+              fi
+              echo "::group::${locale}: base vs ${variant}"
+              if node scripts/ci/compare-dist-manifests.mjs "$base_file" "$other_file"; then
+                identical=true
+              else
+                identical=false
+                status=1
+              fi
+              echo "::endgroup::"
+              echo "[compare-variants] locale=${locale} variant=${variant} freeze_clock=${FREEZE_CLOCK_INPUT} identical=${identical} files=$(wc -l < "$base_file")"
               compared=$((compared + 1))
             done
           done

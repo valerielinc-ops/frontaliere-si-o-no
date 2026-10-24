@@ -50,18 +50,7 @@
  * (including the 4-locale `xhtml:link` alternates), every hreflang block, robots,
  * feeds. What moves out of scope: the CDN-served binary/bundle trees, which the
  * artifact does not carry at all and which no byte comparison against it could
- * ever have covered. *
- * ── `--mask-timestamps` (bench `compare_variants`) ──────────────────────────
- * Two builds of the same commit and snapshot that run hours apart differ in
- * every ISO date-TIME the emitters derive from the wall clock — e.g. the
- * `validThrough` floor `now + 30 d` in jobsSeoPagesPlugin's toValidThrough(),
- * printed to the millisecond. Measured on bench run 40080692388: 174,631 of
- * 1,554,241 files differed between two variants built 2 h 20 min apart. This
- * flag replaces every ISO date-time (`YYYY-MM-DDTHH:MM[:SS[.fff]][Z|±HH:MM]`)
- * with a fixed token in text files before hashing, on BOTH sides, so what is
- * left is every difference that is NOT a wall-clock instant. Calendar dates
- * (`YYYY-MM-DD`) are NOT masked: within one day they must still match.
- * Combine with a raw manifest of the same tree to see both numbers.
+ * ever have covered.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -75,9 +64,6 @@ const positional = argv.filter((a) => !a.startsWith('--'));
 const distDir = path.resolve(positional[0] || 'dist');
 const outFile = positional[1] || 'dist-manifest.txt';
 const deployPerimeter = flags.has('--deploy-artifact-perimeter');
-const maskTimestamps = flags.has('--mask-timestamps');
-/** ISO-8601 date-time with at least hours:minutes (calendar dates stay). */
-const ISO_DATETIME_RX = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,9})?)?(?:Z|[+-]\d{2}:?\d{2})?/g;
 
 if (!fs.existsSync(distDir)) {
   console.error(`[dist-hash-manifest] dist dir not found: ${distDir}`);
@@ -222,26 +208,6 @@ if (deployPerimeter) {
   }
 }
 
-let masked = 0;
-if (maskTimestamps) {
-  const { createHash } = await import('node:crypto');
-  for (const e of entries) {
-    if (!TEXT_EXT.test(e.rel)) continue;
-    let text;
-    try {
-      text = fs.readFileSync(path.join(distDir, e.rel), 'utf-8');
-    } catch {
-      continue; // vanished between walk and read — keep the bulk hash
-    }
-    let normalized = text;
-    if (deployPerimeter) normalized = normalized.replace(CDN_BASE_RX, '/').replace(CDN_DATA_INJECT_RX, '');
-    const out = normalized.replace(ISO_DATETIME_RX, '<iso-datetime>');
-    if (out === normalized && normalized === text) continue;
-    e.hash = createHash('sha256').update(out).digest('hex');
-    if (out !== normalized) masked++;
-  }
-}
-
 const lines = entries.map((e) => `${e.hash}  ${e.rel}`);
 // Stable sort by relpath (the part after the 2-space separator).
 lines.sort((a, b) => {
@@ -252,9 +218,6 @@ lines.sort((a, b) => {
 
 fs.writeFileSync(outFile, lines.join('\n') + '\n');
 console.log(`[dist-hash-manifest] ${lines.length} files hashed → ${outFile} (excluded build-id/commit-hash/collision/manifest)`);
-if (maskTimestamps) {
-  console.log(`[dist-hash-manifest] mask-timestamps ON: ISO date-times replaced before hashing in ${masked} text file(s)`);
-}
 if (deployPerimeter) {
   console.log(
     `[dist-hash-manifest] deploy-artifact perimeter ON: skipped ${DEPLOY_OFFLOADED.length} CDN-offloaded tree pattern(s); ` +

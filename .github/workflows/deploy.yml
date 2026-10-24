@@ -584,13 +584,13 @@ jobs:
           echo "::endgroup::"
           rm -f /tmp/free-disk.done
           nohup bash -c '
-            sudo rm -rf /usr/local/lib/android &
-            sudo rm -rf /usr/share/dotnet &
-            sudo rm -rf /opt/ghc &
-            sudo rm -rf /usr/local/share/boost &
-            sudo rm -rf /opt/hostedtoolcache/CodeQL &
-            sudo rm -rf /usr/share/swift &
-            wait
+            pids=()
+            for d in /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/share/boost /opt/hostedtoolcache/CodeQL /usr/share/swift; do
+              sudo rm -rf "$d" & pids+=("$!")
+            done
+            rc=0
+            for p in "${pids[@]}"; do wait "$p" || rc=1; done
+            echo "rm_rc=$rc"
             date +%s > /tmp/free-disk.done
           ' < /dev/null > /tmp/free-disk.log 2>&1 &
           date +%s > /tmp/free-disk.started
@@ -856,6 +856,12 @@ jobs:
           if [ ! -f /tmp/free-disk.done ]; then
             echo "::error::disk cleanup did not finish within 900 s"
             exit 1
+          fi
+          # Best-effort like the foreground step it replaces (whose bare `wait`
+          # never failed it), but a failed removal is now visible here instead
+          # of only as a later ENOSPC.
+          if ! grep -q '^rm_rc=0$' /tmp/free-disk.log 2>/dev/null; then
+            echo "::warning::disk cleanup: at least one toolchain removal failed (see the log above)"
           fi
           echo "[free-disk] cleanup wall_s=$(( $(cat /tmp/free-disk.done) - $(cat /tmp/free-disk.started) )) waited_after_start_s=$(( $(date +%s) - $(cat /tmp/free-disk.started) ))"
           echo "::group::Disk usage AFTER cleanup"

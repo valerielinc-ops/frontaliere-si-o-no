@@ -67,6 +67,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(inputs.compare_monolith).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.compare_variants).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.prep_compare).toMatchObject({ type: 'boolean', default: false });
+    expect(inputs.freeze_clock).toMatchObject({ type: 'boolean', default: false });
   });
 
   it('pins one build id per run and compares variants against base only when asked', () => {
@@ -81,6 +82,13 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     const run = String((job.steps as Array<Record<string, any>>).at(-1)?.run);
     expect(run).toContain('variant-manifest-*-base');
     expect(run).toContain('compare-dist-manifests.mjs');
+    // Identity is judged on RAW hashes: the clock is frozen, nothing is masked.
+    expect(WORKFLOW_TEXT).not.toContain('--mask-timestamps');
+    const build = (WORKFLOW.jobs['build-locale'].steps as Array<Record<string, any>>)
+      .find((step) => String(step.name).startsWith('Build ('));
+    expect(String(build?.run)).toContain('--import=${GITHUB_WORKSPACE}/scripts/ci/bench-frozen-clock.mjs');
+    expect(WORKFLOW.jobs['build-locale'].env.BENCH_FROZEN_CLOCK_MS)
+      .toBe("${{ inputs.freeze_clock == true && needs.prep.outputs.build_id || '' }}");
     // A run with nothing to compare must not read as a pass.
     expect(run).toMatch(/compared" -eq 0[\s\S]*exit 1/u);
   });
