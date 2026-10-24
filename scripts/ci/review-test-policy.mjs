@@ -1,5 +1,6 @@
 import { realpathSync } from 'node:fs';
 /** Owner policy: tests run in CI, but are excluded from model review. */
+import { TEST_DIFF_EXCLUSIONS, TEST_EXTENSIONS } from './prefetch-review-diff.mjs';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -240,14 +241,9 @@ export function isReviewBodyComplete(body) {
   return closes.ok && !MULTI_CLOSE_RE.test(stripBodyNonContent(body));
 }
 
-const TEST_EXTENSIONS = ['js', 'jsx', 'ts', 'tsx', 'mjs', 'cjs', 'mts', 'cts', 'd.ts', 'd.mts', 'd.cts'];
 export const TEST_PATH_RE = new RegExp('(?:^|/)(?:tests|__tests__)/|\\.(?:test|spec)\\.(?:'
   + TEST_EXTENSIONS.map(ext => ext.replaceAll('.', '\\.')).join('|') + ')$');
-export const TEST_DIFF_EXCLUSIONS = [
-  ':(glob,exclude)**/tests/**', ':(glob,exclude)**/__tests__/**',
-  ...TEST_EXTENSIONS.flatMap(ext =>
-    ['test', 'spec'].map(kind => `:(glob,exclude)**/*.${kind}.${ext}`)),
-];
+export { TEST_DIFF_EXCLUSIONS };
 export const isReviewTestPath = path => typeof path === 'string' && TEST_PATH_RE.test(path);
 function trustedGhBin() {
   const value = String(process.env.TRUSTED_GH_BIN || '').trim();
