@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 652,
+  "crawlerCount": 653,
   "groups": {
     "10": [
       "atec-personal",
@@ -41,6 +41,7 @@
       "ardentis",
       "axpo-group",
       "bls",
+      "ch",
       "clienia-ag",
       "cnp",
       "crr-suva-sion",
@@ -808,6 +809,7 @@
     "cerbios-pharma": "data/jobs/by-crawler/cerbios-pharma.json",
     "cereneo": "data/jobs/by-crawler/cereneo.json",
     "cern": "data/jobs/by-crawler/cern.json",
+    "ch": "data/jobs/by-crawler/ch.json",
     "cham-swiss-properties": "data/jobs/by-crawler/cham-swiss-properties.json",
     "chicco-doro": "data/jobs/by-crawler/chicco-doro.json",
     "chopard": "data/jobs/by-crawler/chopard.json",
@@ -1358,5 +1360,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:0b185eda62f75daddfa82baa4ba398ba7735410bee9d1f5703231938d8e0de4a"
+  "digest": "sha256:8054fd0f76cd48472f50937239a57be7d72ac8024a8320d41201aa50ec75d109"
 }
