@@ -1,7 +1,7 @@
 # --- OSS-SCANNER-ENROLLMENT v1 ---
 # approval-kind: written
 # approval-ref: github:valerielinc-ops/frontaliere-si-o-no/issues/14549
-# image-contract: sha256:45573bb38a673a7112a1811111452ce4366ece773091e843733e1f0c217c2bee
+# image-contract: sha256:d3362e4125542dd571039cff103a53d2d94302cf2151a7908a92a3ae97b469af
 # image-ref: dockerfile:.oss-scanner/Dockerfile
 # scanner: anthropic-oss-scanner
 # source-contract: exact-commit
