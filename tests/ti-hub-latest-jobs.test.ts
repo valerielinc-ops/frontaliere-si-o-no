@@ -10,7 +10,8 @@ import {
   TI_HUB_LATEST_JOBS_MARKER,
   TI_HUB_LATEST_JOBS_SLOT,
 } from '../build-plugins/shared/tiHubLatestJobs';
-import { patchTiHubFile } from '../build-plugins/tiHubLatestJobsPlugin';
+import { patchTiHubFile, tiHubIndexPath, tiHubLatestJobsPlugin } from '../build-plugins/tiHubLatestJobsPlugin';
+import { resolveStaticPagesFlushed } from '../build-plugins/shared/buildSignals';
 import {
   buildCantonHubH1,
   buildListingHubH1,
@@ -159,5 +160,46 @@ describe('salary page → canton job hub link', () => {
     expect(salaryStatsJobHubHref('it', 'ZH')).toBe('/cerca-lavoro-zurigo/');
     expect(salaryStatsJobHubHref('fr', 'GE')).toBe('/fr/trouver-emploi-geneve/');
     expect(salaryStatsJobHubHref('de', 'TI')).toBe('/de/jobs-im-tessin/');
+  });
+});
+
+describe('tiHubLatestJobsPlugin closeBundle', () => {
+  const run = async (rootDir: string) => {
+    const prev = process.env.FAST_BUILD;
+    process.env.FAST_BUILD = '1'; // no jobsSeo producer: blocks stay null → slot cleared
+    resolveStaticPagesFlushed();
+    try {
+      const plugin = tiHubLatestJobsPlugin(rootDir) as { closeBundle: () => Promise<void> };
+      await plugin.closeBundle();
+    } finally {
+      if (prev === undefined) delete process.env.FAST_BUILD;
+      else process.env.FAST_BUILD = prev;
+    }
+  };
+
+  it('fails the build when an emitted hub is missing or lost its slot', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ti-hub-plugin-'));
+    const dist = path.join(root, 'dist');
+    fs.mkdirSync(dist);
+    for (const locale of ['it', 'en', 'de'] as const) {
+      fs.mkdirSync(path.dirname(tiHubIndexPath(dist, locale)), { recursive: true });
+      fs.writeFileSync(tiHubIndexPath(dist, locale), `<h1>x</h1>${locale === 'de' ? '' : TI_HUB_LATEST_JOBS_SLOT}`);
+    }
+    await expect(run(root)).rejects.toThrow(/de=no-slot, fr=missing-file/);
+    fs.rmSync(root, { recursive: true, force: true });
+  });
+
+  it('clears the slot on every hub when there is no producer block', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ti-hub-plugin-'));
+    const dist = path.join(root, 'dist');
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      fs.mkdirSync(path.dirname(tiHubIndexPath(dist, locale)), { recursive: true });
+      fs.writeFileSync(tiHubIndexPath(dist, locale), `<h1>x</h1>${TI_HUB_LATEST_JOBS_SLOT}`);
+    }
+    await run(root);
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      expect(fs.readFileSync(tiHubIndexPath(dist, locale), 'utf-8')).toBe('<h1>x</h1>');
+    }
+    fs.rmSync(root, { recursive: true, force: true });
   });
 });

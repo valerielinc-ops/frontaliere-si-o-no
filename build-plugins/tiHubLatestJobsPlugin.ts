@@ -11,6 +11,7 @@
  * with the other hub patchers. See build-plugins/shared/tiHubLatestJobs.ts.
  *
  * FAST_BUILD omits jobsSeoPagesPlugin: there the slot is simply removed.
+ * A missing hub or slot for an emitted locale fails the build (see below).
  */
 
 import fs from 'node:fs';
@@ -61,15 +62,18 @@ export function tiHubLatestJobsPlugin(rootDir: string): Plugin {
       }));
       const summary = results.map((r) => `${r.locale}=${r.outcome}`).join(' ');
       console.log(`\x1b[36m[ti-hub-latest-jobs]\x1b[0m ${summary}${blocks ? '' : ' (no producer block: slot cleared)'}`);
-      // A hub that exists without the slot means staticPagesPlugin stopped
-      // emitting it (e.g. a pre-existing index.html took the inject-only
-      // path): surface it as a CI annotation. Not a hard failure — this block
-      // is a ranking improvement, and a missing listing must not block a deploy.
-      const noSlot = results.filter((r) => r.outcome === 'no-slot');
-      if (noSlot.length > 0) {
-        console.warn(
-          `::warning::[ti-hub-latest-jobs] slot missing in ${noSlot.map((r) => r.locale).join(', ')} hub(s): ` +
-            'staticPagesPlugin must emit TI_HUB_LATEST_JOBS_SLOT under the job-board hub H1.',
+      // Same contract as sectorHubLinksPlugin: every hub this build emits
+      // (BUILD_LOCALE already filtered above) must exist after the producer
+      // signals AND carry the slot. A missing file is a producer race; a
+      // missing slot means staticPagesPlugin stopped emitting it (e.g. the
+      // inject-only path for a pre-existing index.html). Either would ship
+      // the hub without its job links again, so the build fails.
+      const failures = results.filter((r) => r.outcome === 'missing-file' || r.outcome === 'no-slot');
+      if (failures.length > 0) {
+        throw new Error(
+          `[ti-hub-latest-jobs] ${failures.map((r) => `${r.locale}=${r.outcome}`).join(', ')}: ` +
+            'staticPagesPlugin must write each emitted Ticino job-board hub with TI_HUB_LATEST_JOBS_SLOT under the H1 ' +
+            'before resolving staticPagesFlushed (build-plugins/shared/tiHubLatestJobs.ts).',
         );
       }
     },
