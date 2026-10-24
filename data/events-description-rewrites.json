@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-24T18:12:21.457Z",
+  "generatedAt": "2026-10-24T19:21:14.057Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -141700,6 +141700,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T21:15:30.616Z"
     },
+    "myswitzerland:d219cac5a9304079acdf658e54f390ea::79b4a29522ffd74d8af3ec47c7dc28d3ce087678e7cb85401e74f9e4252a1997": {
+      "id": "myswitzerland:d219cac5a9304079acdf658e54f390ea",
+      "sourceDescriptionHash": "79b4a29522ffd74d8af3ec47c7dc28d3ce087678e7cb85401e74f9e4252a1997",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: 6433 Stoos SZ; comune: Morschach; cantone: SZ; categoria: Sports; data: 2027-03-13; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: 6433 Stoos SZ; comune: Morschach; cantone: SZ; categoria: Sports; data: 2027-03-13; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: 6433 Stoos SZ; municipality: Morschach; canton: SZ; category: Sports; date: 2027-03-13; time: 00:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: 6433 Stoos SZ; gemeinde: Morschach; kanton: SZ; kategorie: Sports; datum: 2027-03-13; uhrzeit: 00:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: 6433 Stoos SZ; commune: Morschach; canton: SZ; catégorie: Sports; date: 2027-03-13; heure: 00:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-24T19:16:55.313Z"
+    },
     "myswitzerland:d2244ae590dc4538bc9d690e894ad7b1::ba118af5988d87ad45affc126632826bf9da5bcf70ca76564381285825ad5dee": {
       "id": "myswitzerland:d2244ae590dc4538bc9d690e894ad7b1",
       "sourceDescriptionHash": "ba118af5988d87ad45affc126632826bf9da5bcf70ca76564381285825ad5dee",
@@ -175919,15 +175933,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-08T20:35:13.346Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:d219cac5a9304079acdf658e54f390ea::79b4a29522ffd74d8af3ec47c7dc28d3ce087678e7cb85401e74f9e4252a1997": {
-      "id": "myswitzerland:d219cac5a9304079acdf658e54f390ea",
-      "sourceDescriptionHash": "79b4a29522ffd74d8af3ec47c7dc28d3ce087678e7cb85401e74f9e4252a1997",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T21:23:29.616Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
