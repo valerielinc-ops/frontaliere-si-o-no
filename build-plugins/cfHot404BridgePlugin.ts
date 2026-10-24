@@ -29,6 +29,7 @@ import { createHash } from 'node:crypto';
 import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
+import { withPhaseInstrument } from './shared/phaseInstrument';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
@@ -96,6 +97,10 @@ interface HotPath {
 }
 
 export function cfHot404BridgePlugin(rootDir: string): Plugin {
+  return withPhaseInstrument('cf-hot-404-bridge', buildCfHot404BridgePlugin(rootDir));
+}
+
+function buildCfHot404BridgePlugin(rootDir: string): Plugin {
   return {
     name: 'cf-hot-404-bridge',
     apply: 'build',

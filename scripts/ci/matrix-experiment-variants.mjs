@@ -37,6 +37,11 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   // build-plugins/profilePlugin.ts: skip the per-plugin forced GC after a
   // plugin that grew heap/RSS by less than this many MB.
   'PROFILE_GC_MIN_GROWTH_MB',
+  // Campagna «durata del deploy»: profilo CPU per fase dei plugin medi
+  // (build-plugins/shared/phaseInstrument.ts) e manifest sha256 del dist per
+  // la prova di byte-identita' fra varianti dello stesso run.
+  'PHASE_CPU_PROFILE',
+  'DIST_HASH_MANIFEST',
 ]);
 
 const ALLOWED_ENV_KEY_SET = new Set(ALLOWED_ENV_KEYS);

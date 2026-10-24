@@ -7,6 +7,7 @@ import { LEGACY_LUGANO_COMPETITION_REDIRECTS } from './shared/legacyLuganoCompet
 import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
+import { withPhaseInstrument } from './shared/phaseInstrument';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
 import { WEBSITE_ID } from '../services/seo/organizationLd';
 import {
@@ -93,6 +94,10 @@ function pruneRedirectedPageSitemap(sitemapPath: string, redirectedPaths: Set<st
 }
 
 export function legacyRedirectsPlugin(rootDir: string): Plugin {
+  return withPhaseInstrument('legacy-redirects', buildLegacyRedirectsPlugin(rootDir));
+}
+
+function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  // The hand-authored redirect map. `data/article-redirects.json` is merged into
  // it at closeBundle time (issue #5352) — a `from` declared here wins, and
  // tests/article-rename-redirects.test.ts fails on any key declared twice.

@@ -929,6 +929,23 @@ jobs:
         if: matrix.all_locales != true && steps.build_step.outputs.stop_after == ''
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
+      # Byte-identita' fra varianti dello STESSO run: una variante con
+      # DIST_HASH_MANIFEST=1 produce il manifest sha256 del dist gia' potato al
+      # solo locale di competenza (lo stesso che parte verso lo shard); i
+      # manifest di `base` e `new` si confrontano a mano con
+      # scripts/ci/compare-dist-manifests.mjs. Costa ~5 min di sha256 a gamba.
+      - name: Hash-manifest the dist (variant byte-identity)
+        if: matrix.all_locales != true && steps.build_step.outputs.stop_after == '' && contains(matrix.env_json, '"DIST_HASH_MANIFEST":"1"')
+        run: node scripts/ci/dist-hash-manifest.mjs dist "/tmp/dist-manifest-${{ matrix.locale }}-${{ matrix.variant }}.txt"
+      - name: Upload variant dist manifest
+        if: matrix.all_locales != true && steps.build_step.outputs.stop_after == '' && contains(matrix.env_json, '"DIST_HASH_MANIFEST":"1"')
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist-manifest-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}
+          path: /tmp/dist-manifest-${{ matrix.locale }}-${{ matrix.variant }}.txt
+          retention-days: 7
+          if-no-files-found: error
+
       - name: Hash-manifest the dist (equivalence check)
         # Only the monolith / variant compare jobs consume this manifest; on
         # plain variant benches it cost ~5.5 min of sha256 over 1.5M files.
@@ -978,7 +995,7 @@ jobs:
           if-no-files-found: error
 
       - name: Upload CPU profile
-        if: always() && (inputs.cpu_profile == true || contains(matrix.env_json, '"CPU_PROFILE":"1"'))
+        if: always() && (inputs.cpu_profile == true || contains(matrix.env_json, '"CPU_PROFILE":"1"') || contains(matrix.env_json, '"PHASE_CPU_PROFILE"'))
         uses: actions/upload-artifact@v7
         with:
           name: cpu-profile-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}

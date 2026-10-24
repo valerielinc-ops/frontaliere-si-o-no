@@ -58,6 +58,7 @@ import crypto from 'node:crypto';
 import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
+import { withPhaseInstrument } from './shared/phaseInstrument';
 
 import { WriteCollector } from './batchWrite';
 import {
@@ -4705,8 +4706,12 @@ export async function dropOverwrittenLocs(
     keepMissing?: boolean;
     preserveCanonicalExemptions?: boolean;
     foreignDirectoryIndex?: ForeignDirectoryIndex;
+    /** Etichetta del chiamante, solo per la riga `[sitemap-truth]` di diagnosi. */
+    label?: string;
   } = {},
 ): Promise<string[]> {
+  const __truthStartedAt = Date.now();
+  let __truthPassedToHtml = 0;
   const KEEP = 1;
   const DROP_NOINDEX = 2;
   const DROP_NONCANON = 3;
@@ -4841,6 +4846,7 @@ export async function dropOverwrittenLocs(
           }
         }
       }
+      __truthPassedToHtml++;
       if (hasNoindex(html)) {
         flags[i] = DROP_NOINDEX;
         continue;
@@ -4887,6 +4893,10 @@ export async function dropOverwrittenLocs(
     else if (f === DROP_REDIRECT) droppedRedirect++;
     else if (f === DROP_MISSING_CANONICAL) droppedMissingCanonical++;
   }
+  console.log(
+    `[sitemap-truth] ${options.label ?? 'unlabelled'} locs=${locs.length} kept=${out.length} ` +
+      `html_inspected=${__truthPassedToHtml} wall_s=${((Date.now() - __truthStartedAt) / 1000).toFixed(1)}`,
+  );
   if (droppedNoindex > 0 || droppedNonCanonical > 0 || droppedRedirect > 0 || droppedMissingCanonical > 0) {
     console.log(
       `\x1b[33m[related-search-clusters]\x1b[0m dropped ${droppedNoindex} noindex + ${droppedNonCanonical} non-self-canonical + ${droppedRedirect} redirect + ${droppedMissingCanonical} missing-canonical URL(s) from sitemap (cross-plugin overwrite races)`,
@@ -5082,7 +5092,7 @@ export async function reconcileSitemapSearchClustersWithDist(distDir: string): P
   const advertised = files.flatMap(({ xml }) => extractSitemapLocs(xml));
   if (advertised.length === 0) return 0;
   const kept = new Set(
-    (await dropOverwrittenLocs(distDir, advertised, { preserveCanonicalExemptions: true }))
+    (await dropOverwrittenLocs(distDir, advertised, { preserveCanonicalExemptions: true, label: 'alias-clusters' }))
       .map(normalizeLocForCanonicalCmp),
   );
   const droppedLocs = advertised.filter((loc) => !kept.has(normalizeLocForCanonicalCmp(loc)));
@@ -5201,6 +5211,7 @@ export async function reconcileSitemapJobsWithDist(
           inspectForeignPresent: true,
           preserveCanonicalExemptions: true,
           foreignDirectoryIndex: options.foreignDirectoryIndex,
+          label: 'jobs',
         }))
           .map(normalizeLocForCanonicalCmp),
       )
@@ -5274,6 +5285,7 @@ async function writeSitemap(
   const __tDrop = profileStart();
   const locs = await dropOverwrittenLocs(distDir, allLocs, {
     preserveCanonicalExemptions: true,
+    label: 'cluster-sitemap-write',
   });
   profileRecord('sw:drop-overwritten', __tDrop);
   if (locs.length === 0) return [];
@@ -5357,6 +5369,10 @@ function patchMasterSitemap(distDir: string, dateStamp: string, shardFiles: Read
 // ── Plugin entry ────────────────────────────────────────────────────────
 
 export function relatedSearchClustersPlugin(rootDir: string): Plugin {
+  return withPhaseInstrument('related-search-clusters', buildRelatedSearchClustersPlugin(rootDir));
+}
+
+function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
   return {
     name: 'related-search-clusters',
     apply: 'build',

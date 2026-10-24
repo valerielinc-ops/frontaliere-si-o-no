@@ -71,6 +71,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
+import { withPhaseInstrument } from './shared/phaseInstrument';
 
 import {
   injectContextualLinks,
@@ -581,6 +582,13 @@ function mergeResultInto(acc: WorkerResult, result: WorkerResult): void {
 }
 
 export function postWalkCoordinatorPlugin(
+  rootDir: string,
+  opts: CoordinatorOptions,
+): Plugin {
+  return withPhaseInstrument('post-walk-coordinator', buildPostWalkCoordinatorPlugin(rootDir, opts));
+}
+
+function buildPostWalkCoordinatorPlugin(
   rootDir: string,
   opts: CoordinatorOptions,
 ): Plugin {

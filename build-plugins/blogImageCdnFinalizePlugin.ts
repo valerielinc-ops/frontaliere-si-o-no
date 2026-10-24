@@ -24,6 +24,7 @@
 // the <img> error fallback).
 
 import type { Plugin } from 'vite';
+import { withPhaseInstrument } from './shared/phaseInstrument';
 import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
@@ -235,6 +236,10 @@ export async function sweepDistBlogImageRefs(
 }
 
 export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
+  return withPhaseInstrument('blog-image-cdn-finalize', buildBlogImageCdnFinalizePlugin(rootDir));
+}
+
+function buildBlogImageCdnFinalizePlugin(rootDir: string): Plugin {
   return {
     name: 'blog-image-cdn-finalize',
     apply: 'build',

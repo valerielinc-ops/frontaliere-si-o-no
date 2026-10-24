@@ -11,6 +11,7 @@ import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from '.
  */
 
 import type { Plugin } from 'vite';
+import { withPhaseInstrument } from './shared/phaseInstrument';
 import { renderAuthorEditorial, renderAuthorRosterItems, resolveAuthorStaticSeo } from './shared/authorEditorial';
 import { localizeStaticPageStructuredData } from './shared/localeStaticStructuredData';
 import { editorialModifiedDate, synchronizeSitemapLastmods } from './shared/editorialDates';
@@ -1804,6 +1805,10 @@ const STATIC_ONLY_PATHS = new Set([
 ]);
 
 export function staticPagesPlugin(rootDir: string): Plugin {
+  return withPhaseInstrument('static-pages', buildStaticPagesPlugin(rootDir));
+}
+
+function buildStaticPagesPlugin(rootDir: string): Plugin {
  return {
  name: 'static-pages',
  apply: 'build',
