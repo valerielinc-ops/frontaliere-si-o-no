@@ -28,7 +28,11 @@ import {
 import { app } from '@/services/firebase';
 import { signStabioDossoPetition } from '@/services/petition';
 import { buildStabioDossoPetitionPath } from '@/services/petitionRoute';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, loadNamespaceTranslations } from '@/services/i18n';
+import { TranslationNamespaceGate } from '@/components/shared/TranslationNamespaceGate';
+
+// Start the namespace request as soon as this lazy module is evaluated.
+void loadNamespaceTranslations('petition');
 
 const PENDING_EMAIL_KEY = 'stabio_petition_pending_email';
 const AUTH_INTENT_KEY = 'stabio_petition_auth_intent';
@@ -110,7 +114,16 @@ function sourceLink(source: Source, children: React.ReactNode) {
   );
 }
 
+// Its copy is the on-demand "petition" namespace (services/locales/<locale>-ns-petition.ts).
 export function StabioDossoPetitionPage() {
+  return (
+    <TranslationNamespaceGate namespace="petition">
+      <StabioDossoPetitionPageContent />
+    </TranslationNamespaceGate>
+  );
+}
+
+function StabioDossoPetitionPageContent() {
   const { t, locale } = useTranslation();
   const { user, loading: authLoading } = useAuth();
   const [email, setEmail] = useState('');
