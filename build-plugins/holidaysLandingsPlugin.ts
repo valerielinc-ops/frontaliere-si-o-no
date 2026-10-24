@@ -116,7 +116,7 @@ function datasetFor(dateStamp: string): { ds: HolidaysDataset; focus: number; ot
   const years = holidayYearsFor(now);
   const focus = holidayFocusYear(now);
   const other = years.find((y) => y !== focus) ?? focus;
-  return { ds: buildHolidaysDataset(years, dateStamp) as HolidaysDataset, focus, other };
+  return { ds: buildHolidaysDataset(years, dateStamp) as unknown as HolidaysDataset, focus, other };
 }
 
 function formatDate(iso: string, locale: HolidayLocale): string {
