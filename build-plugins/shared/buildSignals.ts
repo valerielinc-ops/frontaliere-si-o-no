@@ -71,6 +71,7 @@ const professionLandingsSignal = makeSignal();
 const salaryHubSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
 let activeJobSitemapLocs: ReadonlySet<string> | null = null;
+let tiHubLatestJobsBlocks: Readonly<Record<string, string>> | null = null;
 const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
 const professionCitiesSignal = makeValueSignal<readonly string[]>();
@@ -175,6 +176,21 @@ export function setActiveJobSitemapLocs(paths: ReadonlySet<string> | null): void
 
 export function getActiveJobSitemapLocs(): ReadonlySet<string> | null {
   return activeJobSitemapLocs;
+}
+
+/**
+ * Per-locale HTML of the Ticino job-board hub data area (stat tiles + latest
+ * active job cards), rendered by jobsSeoPagesPlugin — the owner of the
+ * active-detail registry — and consumed by tiHubLatestJobsPlugin after
+ * `jobsSeoPagesFlushed`. `null` = the producer has not run (FAST_BUILD or no
+ * jobs.json); a locale mapped to '' = no linkable job in that locale.
+ */
+export function setTiHubLatestJobsBlocks(blocks: Readonly<Record<string, string>> | null): void {
+  tiHubLatestJobsBlocks = blocks;
+}
+
+export function getTiHubLatestJobsBlocks(): Readonly<Record<string, string>> | null {
+  return tiHubLatestJobsBlocks;
 }
 
 /**

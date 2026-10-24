@@ -221,6 +221,25 @@ export function isConnectionLevelFetchError(err) {
 }
 
 /**
+ * Whether a polite-fetch result proves that no HTTP response was received.
+ *
+ * `politeFetch()` returns transport failures instead of throwing, while the
+ * higher-level crawler turns the same failures into errors. Keep the two
+ * gates identical so a declarative seed fallback cannot accidentally run for
+ * a source that answered with an HTTP status or a policy/robots decision.
+ *
+ * @param {unknown} result
+ * @returns {boolean}
+ */
+export function isConnectionLevelFetchResult(result) {
+  return Boolean(result
+    && !result.policyBlocked
+    && !result.blockedByRobots
+    && !result.status
+    && result.transportError);
+}
+
+/**
  * Mark a terminal retry error without assuming third-party errors are
  * extensible. Frozen errors are cloned with their prototype and own property
  * descriptors intact, so callers still receive an Error-shaped value with the

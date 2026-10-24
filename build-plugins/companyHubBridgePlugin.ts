@@ -544,46 +544,55 @@ export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
       if (!isSliceFile(file)) continue;
       try {
         const raw = JSON.parse(fs.readFileSync(path.join(crawlerDir, file), 'utf-8'));
-        const jobs: Array<{ company?: string; companyKey?: string }> = Array.isArray(raw?.jobs)
+        const jobs: Array<{ company?: unknown; companyKey?: unknown }> = Array.isArray(raw?.jobs)
           ? raw.jobs
           : [];
-        const sample = jobs.find((j) => j?.company);
-        if (!sample?.company) continue;
-        const slug = slugifyCompanyName(sample.company);
-        if (!slug) continue;
-        displayNameByItSlug.set(slug, sample.company);
-        const seedSlug = (candidateSlug: string): void => {
-          for (const locale of Object.keys(LOCALE_PREFIX) as Locale[]) {
-            const key = `${locale}::${candidateSlug}`;
-            if (!seen.has(key)) {
-              seen.set(key, {
-                locale,
-                companySlug: candidateSlug,
-                url: `${BASE_URL}${buildHubPath(locale, candidateSlug)}`,
-                kind: 'unmatched',
-                displayName: sample.company as string,
-                jobCount: 0,
-              });
+        // A crawler slice is not guaranteed to be single-employer: dedicated
+        // sources can retain multiple display identities for one stable key.
+        // Register every valid company record; sampling the first one leaves
+        // later identities without a bridge and turns their locale links into
+        // origin 404s when the specialised SSG emitter has no active row.
+        for (const job of jobs) {
+          const company = typeof job?.company === 'string' ? job.company.trim() : '';
+          if (!company) continue;
+          const slug = slugifyCompanyName(company);
+          if (!slug) continue;
+          displayNameByItSlug.set(slug, company);
+          const seedSlug = (candidateSlug: string): void => {
+            for (const locale of Object.keys(LOCALE_PREFIX) as Locale[]) {
+              const key = `${locale}::${candidateSlug}`;
+              if (!seen.has(key)) {
+                seen.set(key, {
+                  locale,
+                  companySlug: candidateSlug,
+                  url: `${BASE_URL}${buildHubPath(locale, candidateSlug)}`,
+                  kind: 'unmatched',
+                  displayName: company,
+                  jobCount: 0,
+                });
+              }
             }
-          }
-        };
-        seedSlug(slug);
-        // ALSO seed the crawler's stable `companyKey` slug when it differs
-        // from the display-name slug (issue: hub-bridge slug drift). Almost
-        // half the crawler universe (204/414 companies) has a companyKey
-        // that diverges from slugifyCompanyName(company) — e.g. company
-        // "Ostschweizer Kinderspital" / companyKey "kispi-sg" — because
-        // companyKey is often a shorter/older stable id (sometimes the
-        // literal legacy URL slug that got indexed/linked before the
-        // company's display name changed or before brand-alias folding was
-        // introduced), while the display name alone slugifies to something
-        // else entirely ("ostschweizer-kinderspital"). Without this, any
-        // historically-indexed `azienda-{companyKey}` URL for such a company
-        // never gets a bridge candidate from the crawler-universe source and
-        // dead-ends at the origin unless GSC/orphan-audit happens to have
-        // recorded it separately.
-        const keySlug = slugifyCompanyName(sample.companyKey || '');
-        if (keySlug && keySlug !== slug) seedSlug(keySlug);
+          };
+          seedSlug(slug);
+          // ALSO seed the crawler's stable `companyKey` slug when it differs
+          // from the display-name slug (issue: hub-bridge slug drift). Almost
+          // half the crawler universe (204/414 companies) has a companyKey
+          // that diverges from slugifyCompanyName(company) — e.g. company
+          // "Ostschweizer Kinderspital" / companyKey "kispi-sg" — because
+          // companyKey is often a shorter/older stable id (sometimes the
+          // literal legacy URL slug that got indexed/linked before the
+          // company's display name changed or before brand-alias folding was
+          // introduced), while the display name alone slugifies to something
+          // else entirely ("ostschweizer-kinderspital"). Without this, any
+          // historically-indexed `azienda-{companyKey}` URL for such a company
+          // never gets a bridge candidate from the crawler-universe source and
+          // dead-ends at the origin unless GSC/orphan-audit happens to have
+          // recorded it separately.
+          const keySlug = typeof job?.companyKey === 'string'
+            ? slugifyCompanyName(job.companyKey)
+            : '';
+          if (keySlug && keySlug !== slug) seedSlug(keySlug);
+        }
       } catch { /* skip malformed crawler file */ }
     }
   }

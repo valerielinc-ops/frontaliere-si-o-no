@@ -234,3 +234,50 @@ describe('cfHot404BridgePlugin robots regex (quote-flexible, issue #2707)', () =
     expect(robotsCount(out)).toBe(1);
   });
 });
+
+// A canton-moved orphan (same job, now under another canton) must get NO page:
+// the shard origin 404s and the locale-router Worker 301s it via /job-canon. The
+// IT full-content copy this plugin used to write (noindex,follow, canonical to
+// the canton, no job-board marker) was counted as 512 blocking noindex pages by
+// the validate:page-seo replay of run 40071128198, and any 200 here blocks the 301.
+describe('cfHot404BridgePlugin — canton-moved orphans are left to the Worker 301', () => {
+  let tmp: string;
+  const slug = 'zugverkehrsleiter-in-zweitausbildung-bls-ag-spiez';
+
+  beforeAll(async () => {
+    tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'cf-hot-moved-'));
+    fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(tmp, 'data', 'cf-hot-404s.json'), JSON.stringify({
+      generatedAt: '2026-10-24T00:00:00.000Z',
+      source: 'cloudflare',
+      paths: [
+        { path: `/cerca-lavoro-ticino/${slug}`, hits: 9 },
+        { path: `/fr/trouver-emploi-tessin/${slug}`, hits: 5 },
+      ],
+    }));
+    const { writeAllKnownJobSlugs } = await import('../scripts/lib/all-known-job-slugs-store.mjs');
+    writeAllKnownJobSlugs({
+      [slug]: { it: `/cerca-lavoro-berna/${slug}`, fr: `/fr/trouver-emploi-berne/${slug}` },
+    }, tmp);
+    for (const target of [`cerca-lavoro-berna/${slug}`, `fr/trouver-emploi-berne/${slug}`]) {
+      fs.mkdirSync(path.join(tmp, 'dist', target), { recursive: true });
+      fs.writeFileSync(path.join(tmp, 'dist', target, 'index.html'), '<html>CANTON PAGE</html>');
+    }
+    const plugin = cfHot404BridgePlugin(tmp);
+    const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
+    await closeBundle.handler.call({} as never);
+  });
+
+  afterAll(() => {
+    if (tmp) fs.rmSync(tmp, { recursive: true, force: true });
+  });
+
+  it.each([`cerca-lavoro-ticino/${slug}`, `fr/trouver-emploi-tessin/${slug}`])('writes nothing at %s', (legacy) => {
+    expect(fs.existsSync(path.join(tmp, 'dist', legacy, 'index.html'))).toBe(false);
+    expect(fs.existsSync(path.join(tmp, 'dist', `${legacy}.html`))).toBe(false);
+  });
+
+  it('leaves the canton page untouched', () => {
+    expect(fs.readFileSync(path.join(tmp, 'dist', `cerca-lavoro-berna/${slug}`, 'index.html'), 'utf8')).toBe('<html>CANTON PAGE</html>');
+  });
+});

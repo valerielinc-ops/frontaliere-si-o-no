@@ -77,7 +77,7 @@ describe('JobBoard date filters', () => {
     expect(normalized.postedDate).toBe('bad');
     expect(normalized.displayPostingDate).toBe('2026-01-01T00:00:00Z');
     expect(resolveReportedPostingDate(normalized, now)).toBeNull();
-    expect(resolveRolloutSchemaPostingDate(normalized, now, 'https://frontaliereticino.ch/jobs/example/')).toEqual({
+    expect(resolveRolloutSchemaPostingDate(normalized, now)).toEqual({
       value: '2026-01-01T00:00:00Z',
       provenance: 'first-seen',
     });

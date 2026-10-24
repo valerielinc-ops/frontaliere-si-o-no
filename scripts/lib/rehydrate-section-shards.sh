@@ -4,6 +4,8 @@ set -uo pipefail
 # shellcheck source=scripts/lib/rehydrate-trunk-guard.sh
 . "$(dirname "${BASH_SOURCE[0]}")/rehydrate-trunk-guard.sh"
 . "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"
+# shellcheck source=scripts/lib/rehydrate-provenance.sh
+. "$(dirname "${BASH_SOURCE[0]}")/rehydrate-provenance.sh"
 
 # Mirrors post-deploy-validate-dist.yml's rehydrate_section(): sections write
 # disjoint dist/ subtrees, but their workers are deliberately bounded. Each
@@ -67,8 +69,9 @@ set -uo pipefail
 # of it (`unzip -p … | tar -x`), so the transient cost of a batch is its
 # compressed zip, released by batch_zip_release() once the last live section
 # of the batch has read it. Each attempt keeps the old 180-second budget
-# (30 s resolve + 150 s download), so the 390-second loser wait below still
-# covers both attempts.
+# (30 s resolve + REHYDRATE_ZIP_TIMEOUT, default 150 s, download), and the
+# loser wait below is derived from the same value (2 × download + 90 s, i.e.
+# 390 s by default) so it still covers both attempts.
 BATCH_ZIP="batch.zip"
 ensure_batch_downloaded() {
   local batch="$1" loc="$2"
@@ -77,11 +80,17 @@ ensure_batch_downloaded() {
   local done="$dl.done"
   local artifact_run_id="$DEPLOY_RUN_ID"
   case "$loc" in
-    en|de|fr) artifact_run_id="${SHARD_ARTIFACT_RUN_ID:-$DEPLOY_RUN_ID}" ;;
+    en|de|fr) artifact_run_id="$(rehydrate_artifact_run_id "$loc")" ;;
   esac
   local name="shard-batch-$batch-dist-$loc-$artifact_run_id"
   local repo="${GH_REPO:-${GITHUB_REPOSITORY:-}}"
   local id members
+  # 150 s fits the publish run, where the batch zips are fresh and the runner
+  # is next to the artifact store; a ticino-sized IT batch (~10 GB) read by a
+  # later replay took longer and fell back to a clone of TODAY's shard
+  # (replay 39952023039, batch 5). Replays that must not mix raise it.
+  local zip_timeout="${REHYDRATE_ZIP_TIMEOUT:-150}"
+  case "$zip_timeout" in ''|*[!0-9]*) zip_timeout=150 ;; esac
   if [ -f "$done" ]; then
     return 0
   fi
@@ -101,7 +110,7 @@ ensure_batch_downloaded() {
       # zip (#9361). `unzip -Z1` reads the central directory, so a truncated
       # download fails here and takes the retry.
       if [ -n "$id" ] \
-          && timeout 150 gh api -H "Accept: application/vnd.github+json" \
+          && timeout "$zip_timeout" gh api -H "Accept: application/vnd.github+json" \
                "repos/$repo/actions/artifacts/$id/zip" > "$dl/$BATCH_ZIP" 2>/dev/null \
           && members="$(unzip -Z1 "$dl/$BATCH_ZIP" 2>/dev/null)" \
           && grep -q -- "-dist-$loc\.tar$" <<< "$members"; then
@@ -129,7 +138,7 @@ ensure_batch_downloaded() {
   # The owner gets two 180-second attempts plus the five-second backoff above;
   # wait long enough for that bounded operation to finish before starting a
   # duplicate clone from a losing worker.
-  while [ ! -f "$done" ] && [ "$waited" -lt 390 ]; do
+  while [ ! -f "$done" ] && [ "$waited" -lt $((2 * zip_timeout + 90)) ]; do
     sleep 1
     waited=$((waited + 1))
   done
@@ -210,6 +219,7 @@ rehydrate_section() {
     # completeness signal a bare `-d` check is not.
     if [ -s "dist/$sub/index.html" ]; then
       echo "$section $loc ($sub) present in artifact — skip rehydrate"
+      rehydrate_provenance "$sub" trunk "$DEPLOY_RUN_ID"
       batch_zip_release "$batch" "$loc" "$section"
       continue
     fi
@@ -269,6 +279,7 @@ rehydrate_section() {
       # pass, forcing the git-clone fallback below.
       if [ "${unzip_rc:-2}" -le 1 ] && [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+        rehydrate_provenance "$sub" artifact "shard-batch-$batch-dist-$loc"
         trunk_replace_end "$section-$loc"
         continue
       fi
@@ -305,6 +316,7 @@ rehydrate_section() {
       trunk_replace_begin "$section-$loc" "$sub"
       cp -r "$SHARD_CLONE_CACHE_DIR/$section-$loc/$sub" "dist/$sub"
       echo "rehydrated $section $loc from cross-job clone cache: $(find "dist/$sub" -type f | wc -l) files"
+      rehydrate_provenance "$sub" clone-cache "frontaliere-$section-$loc"
       trunk_replace_end "$section-$loc"
       continue
     fi
@@ -364,6 +376,7 @@ rehydrate_section() {
       # path (a ticino-sized shard is ~10 GB per locale).
       mv "$tmp/$sub" "dist/$sub"
       echo "rehydrated $section $loc from frontaliere-$section-$loc: $(find "dist/$sub" -type f | wc -l) files"
+      rehydrate_provenance "$sub" clone "frontaliere-$section-$loc@$(git -C "$tmp" rev-parse --short HEAD 2>/dev/null || echo unknown)"
       if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]; then
         mkdir -p "$SHARD_CLONE_CACHE_DIR/$section-$loc/$(dirname "$sub")" 2>/dev/null \
           && cp -r "dist/$sub" "$SHARD_CLONE_CACHE_DIR/$section-$loc/$sub" 2>/dev/null || true

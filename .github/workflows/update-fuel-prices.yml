@@ -166,6 +166,43 @@ jobs:
             --title "chore(data): refresh fuel prices" \
             --body-file "$body"
 
+      # Freshness gate: the generator exits 0 when a source is unreachable,
+      # so a green run can still publish a week-old cache (2026-10-17..23,
+      # MIMIT down: every /prezzi-*/oggi/ title kept «TCS 16.10.2026»).
+      # Runs after the PR step so a stale source never blocks publishing the
+      # sources that did refresh; its failure opens one stable-title issue.
+      - name: Check fuel data freshness (max 48h)
+        id: fuel_freshness
+        if: steps.schedule.outputs.daily == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        run: node scripts/check-fuel-freshness.mjs --max-age-hours 48
+
+      - name: Report stale fuel data
+        if: steps.fuel_freshness.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Dati carburante più vecchi di 48 ore (update-fuel-prices)" \
+            --description "## Dati carburante non aggiornati
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Lo step \`Check fuel data freshness (max 48h)\` ha trovato almeno una fonte (TCS, MIMIT o dataset per cantone) più vecchia di 48 ore: titoli e H1 delle pagine \`/prezzi-*/oggi/\` mostrano la data dell'ultima rilevazione invece di quella del giorno. Il log dello step stampa l'età misurata di ogni fonte." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      - name: Resolve stale fuel data issue
+        if: steps.fuel_freshness.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Dati carburante più vecchi di 48 ore (update-fuel-prices)" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       - name: Report cantonal fuel dataset failure
         if: steps.fuel_cantons.outcome == 'failure'
         continue-on-error: true

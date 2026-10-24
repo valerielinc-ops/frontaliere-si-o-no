@@ -16,6 +16,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { BREFISPERSONAL_PAGINATION } from './prospector/brefispersonal-contract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -129,8 +130,16 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
+export function normalizeBrefispersonalSpec(spec) {
+  if (!spec || typeof spec !== 'object' || spec.pagination !== undefined) return spec;
+  return {
+    ...spec,
+    pagination: { ...BREFISPERSONAL_PAGINATION },
+  };
+}
+
 async function fetchJobListings() {
-  const spec = loadSpec(BREFISPERSONAL_KEY);
+  const spec = normalizeBrefispersonalSpec(loadSpec(BREFISPERSONAL_KEY));
   return runSpecInProduction(spec);
 }
 

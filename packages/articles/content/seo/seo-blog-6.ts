@@ -2163,16 +2163,16 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-g-bewilligung-leitfaden-grenzgaenger-2026': {
-    title: 'Permesso G 2026: guida completa per frontalieri',
-    description: 'Guida operativa al Permesso G 2026: requisiti, richiesta, rinnovo, costi, rientro settimanale, telelavoro 25% e 45 giorni, imposta alla fonte in Ticino.',
+    title: 'Permesso G 2026: rinnovo, costi e obblighi per frontalieri',
+    description: 'Permesso G 2026: validità 5 anni, rinnovo automatico se il contratto continua, costi in Ticino, rientro settimanale, telelavoro e imposta alla fonte.',
     keywords: 'permesso g, frontalieri, ticino, 2026, rientro settimanale, 25 telelavoro, 45 giorni, imposta alla fonte, guida permesso g, permesso g vs permesso b',
-    ogTitle: 'Permesso G 2026: la guida definitiva per frontalieri',
-    ogDescription: 'Tutto quello che serve al frontaliere sul Permesso G: procedura, costi, rinnovo, rientro settimanale, telelavoro e fiscalità nel 2026.',
+    ogTitle: 'Permesso G 2026: rinnovo, costi e obblighi per frontalieri',
+    ogDescription: 'Permesso G 2026: validità 5 anni, rinnovo automatico se il contratto continua, costi in Ticino, rientro settimanale, telelavoro e imposta alla fonte.',
     canonicalPath: '/articoli-frontaliere/permesso-g-guida-frontalieri-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Permesso G 2026: guida completa per frontalieri",
+      "headline": "Permesso G 2026: rinnovo, costi e obblighi per frontalieri",
       "description": "Guida operativa al Permesso G nel 2026: requisiti, richiesta, rinnovo, costi, rientro settimanale, telelavoro 25% e 45 giorni, imposta alla fonte in Ticino.",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/places/lac-lugano.webp`,

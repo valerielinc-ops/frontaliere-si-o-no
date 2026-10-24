@@ -222,11 +222,12 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
 });
 
 describe('buildJobPostingSchema — missing publication under different build clocks', () => {
-  it('never turns a build date into an employer publication date', () => {
+  it('emits a schema while keeping the build date distinct from employer evidence', () => {
     const job: JobInput = { title: 'Operatore amministrativo', company: 'Fixture SA', city: 'Lugano', postingDateSource: 'unknown' };
     const now = new Date();
-    expect(buildRawJobPostingSchema(job, { ...OPTS, now })).toBeNull();
-    expect(buildRawJobPostingSchema(job, { ...OPTS, now: new Date(now.getTime() + 86400000) })).toBeNull();
+    expect(buildRawJobPostingSchema(job, { ...OPTS, now }).datePosted).toBe(now.toISOString().slice(0, 10));
+    const tomorrow = new Date(now.getTime() + 86400000);
+    expect(buildRawJobPostingSchema(job, { ...OPTS, now: tomorrow }).datePosted).toBe(tomorrow.toISOString().slice(0, 10));
   });
 });
 

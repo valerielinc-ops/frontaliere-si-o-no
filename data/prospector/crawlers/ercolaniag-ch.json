@@ -1,0 +1,20 @@
+{
+  "companyKey": "ercolaniag-ch",
+  "companyName": "ercolaniag",
+  "companyHost": "yousty.ch",
+  "platform": "yousty.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/firmen/2227535-ercolani-autospenglerei-malerei-ag"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/profile/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Carrosserielackierer/in EFZ, Kriens",
+    "Carrosseriespengler/in EFZ, Kriens"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-24T10:46:52.668Z"
+}

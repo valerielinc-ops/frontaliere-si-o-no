@@ -3050,7 +3050,11 @@ function renderStationPage(opts: {
   const copy = STATION_COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = FUEL_ZONE_DISPLAY[ctx.zone];
-  const dateStamp = today.toISOString().slice(0, 10);
+  // TCS observation day of this fuel's price, never the build clock (same
+  // rule as the zone /oggi/ pages and the Italian station pages).
+  const observedAtRaw = fuel === 'diesel' ? ctx.station.dieselUpdatedAt ?? ctx.station.updatedAt : ctx.station.updatedAt;
+  const observedAtMs = typeof observedAtRaw === 'string' ? Date.parse(observedAtRaw) : Number.NaN;
+  const dateStamp = Number.isFinite(observedAtMs) ? new Date(observedAtMs).toISOString().slice(0, 10) : '';
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
   const price = ctx.prices[fuel];
@@ -3173,7 +3177,7 @@ function renderStationPage(opts: {
   // trimmed to ~60 elsewhere; the dated suffix and brand suffix are clamped
   // separately so the date-stamp survives even when the brand has to drop.
   const titleBudget = 60;
-  const dateBadge = ` (${dateStamp})`;
+  const dateBadge = dateStamp ? ` (${dateStamp})` : '';
   const trimmedH1 = h1.length <= titleBudget
     ? h1
     : (() => {
@@ -3265,7 +3269,7 @@ function renderStationPage(opts: {
     <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
   </nav>
   <header class="s-S1RSUf">
-    <p class="s-eyb">${esc(dateStamp)}</p>
+    ${dateStamp ? `<p class="s-eyb">${esc(dateStamp)}</p>` : ''}
     <h1 class="s-h1">${esc(h1)}</h1>
     <p class="s-lede">${esc(stationTaglineByLocale[locale])}</p>
   </header>
@@ -3718,9 +3722,49 @@ function fitHeadingToTitleBudget(
         // Shared peel — a word-boundary cut still stops mid-clause.
         return peelDanglingClauseTail(base);
       })();
+  if (!dateStamp) return trimmedH1;
   const dated = `${trimmedH1} (${dateStamp})`;
   return dated.length <= budget ? dated : trimmedH1;
 }
+
+/** Freshness window of a "today" fuel page: past it, the page says so. */
+export const FUEL_OBSERVATION_STALE_HOURS = 48;
+
+/**
+ * The newest MIMIT reporting date (YYYY-MM-DD) among the given stations for
+ * this fuel, or null when none is dated. Titles and eyebrows print this date
+ * instead of the build clock: a page rebuilt today from a snapshot of last
+ * week must not claim today's date (observed 2026-10-23, when MIMIT stopped
+ * answering and every Italian title still read the build day).
+ */
+export function latestItalianObservationDay(
+  stations: readonly ItalianCityStation[],
+  fuel: FuelType,
+): string | null {
+  let latest: number | null = null;
+  for (const station of stations) {
+    const value = italianStationObservationAt(station, fuel);
+    if (!value) continue;
+    const ms = Date.parse(value.length === 10 ? `${value}T12:00:00.000Z` : value);
+    if (Number.isFinite(ms) && (latest === null || ms > latest)) latest = ms;
+  }
+  return latest === null ? null : new Date(latest).toISOString().slice(0, 10);
+}
+
+/** True when the dated observation is older than the freshness window (or missing). */
+export function isFuelObservationStale(observationDay: string | null, today: Date): boolean {
+  if (!observationDay) return true;
+  // A date-only MIMIT stamp covers the whole reporting day: measure from its end.
+  const endOfDay = Date.parse(`${observationDay}T23:59:59.999Z`);
+  return !Number.isFinite(endOfDay) || today.getTime() - endOfDay > FUEL_OBSERVATION_STALE_HOURS * 3_600_000;
+}
+
+const ITALIAN_STALE_NOTE: Record<FuelDailyLocale, (day: string) => string> = {
+  it: (day) => `Ultimo dato MIMIT disponibile: ${day}. Non è un prezzo di oggi: verifica alla pompa prima del rifornimento.`,
+  en: (day) => `Latest MIMIT data available: ${day}. This is not today's price: check at the pump before refuelling.`,
+  de: (day) => `Letzte verfügbare MIMIT-Daten: ${day}. Das ist kein heutiger Preis: vor dem Tanken an der Zapfsäule prüfen.`,
+  fr: (day) => `Dernière donnée MIMIT disponible : ${day}. Ce n’est pas le prix du jour : vérifiez à la pompe avant le plein.`,
+};
 
 function renderItalianCityPage(opts: {
   entry: ItalianCityEntry;
@@ -3753,12 +3797,17 @@ function renderItalianCityPage(opts: {
   const copy = IT_CITY_COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const dateStamp = today.toISOString().slice(0, 10);
 
   const sortedStations = [...stations]
     .filter((s) => typeof s.priceEur === 'number')
     .sort((a, b) => (a.priceEur ?? Infinity) - (b.priceEur ?? Infinity))
     .slice(0, 10);
+  // Date of the data shown, not of the build: see latestItalianObservationDay.
+  const observationDay = latestItalianObservationDay(sortedStations, fuel);
+  const dateStamp = observationDay ?? '';
+  const staleNote = isFuelObservationStale(observationDay, today) && observationDay
+    ? ITALIAN_STALE_NOTE[locale](observationDay)
+    : '';
   const minPrice = sortedStations[0]?.priceEur ?? null;
   const minPriceFmt = minPrice !== null ? formatPrice(minPrice, locale) : '—';
   const nearestZoneLabel = FUEL_ZONE_DISPLAY[entry.nearestZone];
@@ -3985,9 +4034,10 @@ function renderItalianCityPage(opts: {
     <span>${esc(entry.display)}</span>
   </nav>
   <header class="s-Nv0GaD">
-    <p class="s-eyb">${esc(dateStamp)}</p>
+    ${dateStamp ? `<p class="s-eyb">${esc(dateStamp)}</p>` : ''}
     <h1 class="s-h1">${esc(h1)}</h1>
     <p class="s-lede">${esc(italianCityTaglineByLocale[locale])}</p>
+    ${staleNote ? `<p role="note" class="text-sm text-warning">${esc(staleNote)}</p>` : ''}
   </header>
   <section class="s-gfdc7T">
     <div class="s-tacc">
@@ -4875,7 +4925,14 @@ function renderItalianStationPage(opts: {
   const redesignLabels = STATION_REDESIGN[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const cityName = ctx.cityEntry.display;
-  const dateStamp = today.toISOString().slice(0, 10);
+  // Build day stays on the explicit "page generated" line; title and eyebrow
+  // carry the MIMIT reporting day of this station's price.
+  const generationStamp = today.toISOString().slice(0, 10);
+  const observationDay = latestItalianObservationDay([ctx.station], fuel);
+  const dateStamp = observationDay ?? '';
+  const staleNote = isFuelObservationStale(observationDay, today) && observationDay
+    ? ITALIAN_STALE_NOTE[locale](observationDay)
+    : '';
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
   const price = ctx.priceEur;
@@ -5048,7 +5105,7 @@ function renderItalianStationPage(opts: {
         lng: ctx.station.lng as number,
       })
     : '';
-  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(dateStamp, locale))}</p>`;
+  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(generationStamp, locale))}</p>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav aria-label="Breadcrumb" class="s-bcr">
@@ -5061,9 +5118,10 @@ function renderItalianStationPage(opts: {
     <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
   </nav>
   <header class="s-S1RSUf">
-    <p class="s-eyb">${esc(dateStamp)}</p>
+    ${dateStamp ? `<p class="s-eyb">${esc(dateStamp)}</p>` : ''}
     <h1 class="s-h1">${esc(h1)}</h1>
     <p class="s-lede">${esc(italianStationTaglineByLocale[locale])}</p>
+    ${staleNote ? `<p role="note" class="text-sm text-warning">${esc(staleNote)}</p>` : ''}
   </header>
   ${heroHtml}
   ${adviceHtml}

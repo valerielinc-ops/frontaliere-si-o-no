@@ -1,4 +1,5 @@
 import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
+import { isPartTimeWorkload } from '../../scripts/lib/employment-workload.mjs';
 /**
  * Canonical `JobPosting` structured-data builder.
  *
@@ -10,7 +11,7 @@ import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-d
  *   3. streetAddress (nested inside `jobLocation.address`)
  *   4. title
  *   5. description (≥ 50 chars)
- *   6. datePosted (ISO 8601, date-only or date-time; reported or first-seen fallback)
+ *   6. datePosted (ISO 8601; reported -> first-seen -> observed -> build-date chain)
  *   7. hiringOrganization.name
  *   8. jobLocation (Place + PostalAddress with addressCountry 'CH')
  *   9. employmentType (schema.org token)
@@ -322,11 +323,28 @@ const EMPLOYMENT_TYPE_MAP: Record<string, EmploymentType> = {
   per_diem: 'PER_DIEM',
 };
 
-/** Normalise a contract/employment-type string to a schema.org token. */
-function normaliseEmploymentType(raw: string | null | undefined): EmploymentType {
-  if (!raw) return 'FULL_TIME';
-  const key = String(raw).toLowerCase().trim().replace(/\s+/g, '_');
-  return EMPLOYMENT_TYPE_MAP[key] || 'FULL_TIME';
+/**
+ * Normalise a job's contract/employment-type fields to a schema.org token.
+ *
+ * The first field that names a known type wins. A crawler that cannot read
+ * the type writes `OTHER` (the scaffolded parsers recognise only the words
+ * Teilzeit/Vollzeit, never "60%"), and every unknown value used to become
+ * FULL_TIME: measured 2026-10-24 on the prospected crawlers, 1,440 of 1,448
+ * jobs were `OTHER`, so "Spontanbewerbung / 5%" and "Night Watch 20-40 %"
+ * were published as full-time. The workload in the title now decides with the
+ * crawlers' own rule (`normalizeContract`), and FULL_TIME stays the default.
+ */
+function normaliseEmploymentType(
+  values: ReadonlyArray<string | null | undefined>,
+  title?: string | null,
+): EmploymentType {
+  for (const raw of values) {
+    if (!raw) continue;
+    const key = String(raw).toLowerCase().trim().replace(/\s+/g, '_');
+    const mapped = EMPLOYMENT_TYPE_MAP[key];
+    if (mapped) return mapped;
+  }
+  return isPartTimeWorkload(title) ? 'PART_TIME' : 'FULL_TIME';
 }
 
 /**
@@ -839,9 +857,10 @@ export function buildJobPostingFacts(
   opts: BuildJobPostingFactsOptions = {},
 ): JobPostingFacts {
   const companyName = resolveCompanyName(job, locale);
+  const title = resolveTitle(job, locale);
   return {
     baseSalary: resolveBaseSalary(job),
-    employmentType: normaliseEmploymentType(job.employmentType || job.contractType || job.contract),
+    employmentType: normaliseEmploymentType([job.employmentType, job.contractType, job.contract], title),
     hiringOrganization: buildCompanyOrganization(job, {
       locale,
       baseUrl: opts.baseUrl || CANONICAL_ORIGIN,
@@ -853,21 +872,23 @@ export function buildJobPostingFacts(
 }
 
 /**
- * Build a JobPosting with an employer date when reported, otherwise with the
- * explicit first-seen fallback. The six exact canonical URLs tracked by issue
- * #12937 still use the stable schema-only sentinel when neither is available.
+ * Build a JobPosting for an active job. Never returns null (owner decision
+ * 2026-10-24: an active job ALWAYS emits JobPosting). `datePosted` follows the
+ * provenance chain of resolveSchemaPostingDate(): reported source date ->
+ * first-seen -> earliest crawler observation -> build date. The return type is
+ * non-nullable so a future "withhold the schema" branch fails type-checking at
+ * every caller instead of silently dropping Google for Jobs eligibility (the
+ * 2026-10-04 regression of PR 11394).
  */
 export function buildJobPostingSchema(
   job: JobInput,
   opts: BuildJobPostingOptions,
-): JobPostingSchema | null {
+): JobPostingSchema {
   if (!opts || !opts.locale || !opts.url) {
     throw new Error('buildJobPostingSchema: opts.locale and opts.url are required');
   }
 
-  const resolvedDate = resolveRolloutSchemaPostingDate(job, opts.now, opts.url);
-  if (!resolvedDate) return null;
-  const { value: datePosted } = resolvedDate;
+  const { value: datePosted } = resolveRolloutSchemaPostingDate(job, opts.now);
 
   const companyName = resolveCompanyName(job, opts.locale);
   const title = resolveTitle(job, opts.locale);
@@ -886,7 +907,8 @@ export function buildJobPostingSchema(
     opts.now,
   );
   const employmentType = normaliseEmploymentType(
-    job.employmentType || job.contractType || job.contract,
+    [job.employmentType, job.contractType, job.contract],
+    title,
   );
   const baseSalary = resolveBaseSalary(job);
   const industry = resolveIndustry(job);

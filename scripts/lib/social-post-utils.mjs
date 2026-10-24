@@ -225,7 +225,7 @@ export function recencyTs(job) {
 
 /**
  * Filter never-posted jobs from `jobs`, sort by recency descending, take
- * top `limit`. Mirrors the selection rule of submit-google-indexing-jobs.
+ * top `limit`.
  *
  * @param {Array<object>} jobs
  * @param {Set<string>} postedSet — set of jobIds already posted

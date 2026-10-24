@@ -1,7 +1,7 @@
 {
   "key": "guggerbach",
   "label": "Bistro Guggerzyt",
-  "generatedAt": "2026-10-23T21:16:18.296Z",
+  "generatedAt": "2026-10-24T09:19:36.228Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 9155,
-  "avgDurationMs": 9155,
+  "durationMs": 8183,
+  "avgDurationMs": 8183,
   "durationHistory": [
-    9155
+    8183
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,9 +37,9 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:16:02.318Z",
+      "crawledAt": "2026-10-24T09:19:25.070Z",
       "addressLocality": "Davos Platz",
-      "addressRegion": "Graubünden",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7270",
@@ -80,9 +80,9 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:16:02.318Z",
+      "crawledAt": "2026-10-24T09:19:25.070Z",
       "addressLocality": "Davos Platz",
-      "addressRegion": "Graubünden",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7270",
@@ -123,9 +123,9 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:16:02.317Z",
+      "crawledAt": "2026-10-24T09:19:25.069Z",
       "addressLocality": "Davos Platz",
-      "addressRegion": "Graubünden",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7270",
@@ -165,9 +165,9 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:16:02.314Z",
+      "crawledAt": "2026-10-24T09:19:25.067Z",
       "addressLocality": "Davos Platz",
-      "addressRegion": "Graubünden",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7270",
@@ -196,5 +196,5 @@
       }
     }
   ],
-  "codeCommit": "936f9814922e073ec04851b97fb8216d718e744d"
+  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
 }

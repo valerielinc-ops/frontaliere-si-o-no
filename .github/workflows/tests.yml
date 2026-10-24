@@ -1223,6 +1223,9 @@ jobs:
           download_main scripts/ci/lib/constants.mjs "$policy_root/scripts/ci/lib/constants.mjs"
           download_main scripts/ci/lib/pr-review-admission.mjs "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
           download_main scripts/ci/lib/review-input-revision.mjs "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          download_main scripts/ci/lib/false-positive-declaration.mjs "$policy_root/scripts/ci/lib/false-positive-declaration.mjs"
+          download_main scripts/lib/pr-body-closes-check.mjs "$policy_root/scripts/lib/pr-body-closes-check.mjs"
+          download_main scripts/lib/pr-body-sections-check.mjs "$policy_root/scripts/lib/pr-body-sections-check.mjs"
           download_main scripts/lib/loop-fleet-contract.mjs "$policy_root/scripts/lib/loop-fleet-contract.mjs"
           download_main scripts/ci/mint-app-token.mjs "$policy_root/scripts/ci/mint-app-token.mjs"
           download_main scripts/lib/githubApiHeaders.mjs "$policy_root/scripts/lib/githubApiHeaders.mjs"
@@ -3618,6 +3621,9 @@ jobs:
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/constants.mjs \
+            scripts/ci/lib/false-positive-declaration.mjs \
+            scripts/lib/pr-body-closes-check.mjs \
+            scripts/lib/pr-body-sections-check.mjs \
             scripts/lib/loop-fleet-contract.mjs \
             scripts/lib/githubApiHeaders.mjs \
             functions/src/githubApiHeaders.js; do
@@ -4706,7 +4712,10 @@ jobs:
             /scripts/ci/lib/constants.mjs
             /scripts/ci/lib/pr-review-admission.mjs
             /scripts/ci/lib/review-input-revision.mjs
+            /scripts/ci/lib/false-positive-declaration.mjs
             /scripts/lib/gh-exec-buffer.mjs
+            /scripts/lib/pr-body-closes-check.mjs
+            /scripts/lib/pr-body-sections-check.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /data/loop-fleet/loop-registry.json
           sparse-checkout-cone-mode: false

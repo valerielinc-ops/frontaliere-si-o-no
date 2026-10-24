@@ -32,7 +32,10 @@ export const NATIVE_AUTOMERGE_HELPER_FILES = Object.freeze([
   'scripts/ci/lib/constants.mjs',
   'scripts/ci/lib/pr-review-admission.mjs',
   'scripts/ci/lib/review-input-revision.mjs',
+  'scripts/ci/lib/false-positive-declaration.mjs',
   'scripts/lib/gh-exec-buffer.mjs',
+  'scripts/lib/pr-body-closes-check.mjs',
+  'scripts/lib/pr-body-sections-check.mjs',
   'scripts/lib/loop-fleet-contract.mjs',
 ]);
 

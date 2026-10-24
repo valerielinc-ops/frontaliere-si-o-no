@@ -1459,7 +1459,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano e il Lago di Lugano',
-    'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Permesso G per frontalieri: procedura e obblighi in Ticino',
+    'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Richiesta permesso G in Ticino: procedura, documenti e costi',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Guida pratica alla richiesta del nuovo permesso G per frontalieri in Ticino: documenti, obblighi di notifica e tasse di procedura aggiornate.',
     'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Edificio amministrativo in Ticino',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea',
@@ -8612,6 +8612,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.successione-parmelin-otto-nomi.title': 'Consiglio federale: in corsa Parmelin per otto nomi',
     'blog.article.successione-parmelin-otto-nomi.excerpt': 'La corsa alla successione di Parmelin arriva a otto nomi Graber e Ruppen si presentano a Berna Le candidature cantonali scadono venerdì a mezzogiorno Il voto è',
     'blog.article.successione-parmelin-otto-nomi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.telecom-358-licenziamenti.title': '358 licenziamenti confermati: prima ipotesi 450 impieghi',
+    'blog.article.telecom-358-licenziamenti.excerpt': 'Sunrise annuncia 358 licenziamenti La prima ipotesi indicava 450 impieghi La consultazione con Syndicom è terminata Piano sociale e uscita volontaria per alcuni',
+    'blog.article.telecom-358-licenziamenti.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

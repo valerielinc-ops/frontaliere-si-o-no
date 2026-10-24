@@ -204,6 +204,16 @@ describe('pharmacy directory static pages', () => {
         const indexable = robotsOf(html).replace(/\s+/g, '').toLowerCase() === 'index,follow';
         expect(sitemapRoutes.has(route), route).toBe(indexable);
       }
+
+      // The Italian shard writes the shared sitemap while non-Italian shards
+      // only provide their own pages. Its entries must still use each locale's
+      // word-count/release decision, not the Italian page's decision.
+      for (const file of pageFiles(path.join(frenchRoot, 'dist')).filter((entry) => entry.startsWith('fr/'))) {
+        const route = routeForPageFile(file);
+        const html = fs.readFileSync(path.join(frenchRoot, 'dist', file), 'utf8');
+        const indexable = robotsOf(html).replace(/\s+/g, '').toLowerCase() === 'index,follow';
+        expect(sitemapRoutes.has(route), route).toBe(indexable);
+      }
     } finally {
       vi.useRealTimers();
       vi.unstubAllEnvs();

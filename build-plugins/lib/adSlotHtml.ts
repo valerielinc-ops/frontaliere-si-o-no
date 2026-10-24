@@ -91,6 +91,39 @@ export function infeedAdGridBlockHtml(opts?: { experimentVariant?: InfeedAdVaria
   return `<div class="ft-infeed-ad my-3 sm:col-span-2 lg:col-span-3" role="presentation"${experimentAttrs}>${infeedAdInnerHtml()}</div>`;
 }
 
+/**
+ * Remove only unsupported static job-list in-feed placements from a completed
+ * page body. The listing renderers share a fixed cadence, but the AdSense
+ * checklist measures the whole page's visible text against every static slot;
+ * a short category/listing page can therefore fail even when the cadence cap
+ * is respected. Pruning from the end preserves the earliest value-bearing
+ * placements and keeps the shared 500-character-per-slot contract intact.
+ *
+ * This never touches the Auto Ads loader or any other ad mechanism. It only
+ * removes a manual `JOBLIST_INFEED_DESKTOP` wrapper when the completed body
+ * cannot support all of its declared static slots.
+ */
+export function pruneStaticInfeedAdsToContentRatio(contentHtml = ''): string {
+  let output = String(contentHtml || '');
+  const slot = String(AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot);
+  const escapedSlot = slot.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const placementRe = new RegExp(
+    `<(li|div)\\b[^>]*\\bclass\\s*=\\s*["'][^"']*\\bft-infeed-ad\\b[^"']*["'][^>]*>`
+      + `[\\s\\S]*?<ins\\b[^>]*\\bdata-ad-slot\\s*=\\s*["']?${escapedSlot}["']?(?=[\\s>])[^>]*><\\/ins>`
+      + `[\\s\\S]*?<\\/\\1>`,
+    'gi',
+  );
+
+  while (!hasEnoughContentForStaticAd(output, 0)) {
+    const placements = [...output.matchAll(placementRe)];
+    const last = placements.at(-1);
+    if (!last || last.index === undefined) break;
+    output = `${output.slice(0, last.index)}${output.slice(last.index + last[0].length)}`;
+  }
+
+  return output;
+}
+
 function escapeAdLabel(value: string): string {
   return String(value)
     .replace(/&/g, '&amp;')

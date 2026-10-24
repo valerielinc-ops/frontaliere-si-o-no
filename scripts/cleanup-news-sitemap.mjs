@@ -1,18 +1,23 @@
 #!/usr/bin/env node
 /**
- * News Sitemap Whitelist Cleanup (Google News C1).
+ * News Sitemap Window Cleanup (Google News).
  *
  * Filters `dist/sitemap-news.xml` and the source `public/sitemap-news.xml`
- * (unless --dry-run is passed) to keep only articles that:
- *   1. Were published in the last 48 hours (Google News window).
- *   2. Match the topic whitelist in `data/news-sitemap-whitelist.ts`
- *      (5 + 1 macro-themes: fisco, AVS/LPP, LAMal, dogana/lavoro, FX,
- *      trasporti). Case-insensitive substring match.
+ * (unless --dry-run is passed) to keep only the entries published in the last
+ * 48 hours — Google News' own rule, `isWithinNewsWindow` in
+ * `data/news-sitemap-whitelist.ts`. Every locale (it/en/de/fr) and every
+ * article section is kept on the same terms: the <loc> is never parsed.
  *
- * The build pipeline (`scripts/create-article.mjs` + `htmlTemplate` copy of
- * public/* into dist/) already integrates the whitelist inline at emit-time
- * via the same module — this script is the verification + cleanup fallback
- * for legacy entries already in the sitemap.
+ * Until 2026-10-24 this script ALSO dropped every entry that did not match the
+ * topic whitelist of that module. That filter, together with the corpus
+ * emitter's, had narrowed the live news sitemap to 7 Italian URLs on a corpus
+ * that publishes in four languages every day, so it is gone: topic is not a
+ * Google News criterion.
+ *
+ * The producer (frontaliere-articles `scripts/build-api.mjs` →
+ * sitemap-news-candidates.xml, merged by `scripts/pull-articles-api.mjs`)
+ * already applies the window — this script is the verification + cleanup
+ * fallback for entries that aged out between two syncs.
  *
  * Usage:
  *   node scripts/cleanup-news-sitemap.mjs              # default: rewrite both public/ and dist/
@@ -63,49 +68,30 @@ function resolveTargets() {
   return [existsSync(DIST_PATH) ? DIST_PATH : PUBLIC_PATH].filter(existsSync);
 }
 
-/** Dynamically import the TS whitelist via tsx if available, else fall back to a JS shim.
+/** Dynamically import the TS module via tsx if available, else fall back to a JS shim.
  *  tsx is already a dev dep used by other scripts in scripts/. */
-async function loadWhitelist() {
+async function loadWindow() {
   const tsPath = resolve(REPO_ROOT, 'data', 'news-sitemap-whitelist.ts');
-  // Prefer tsx, which is how every other script in this repo imports TS modules.
   try {
     const { register } = await import('tsx/esm/api');
     register();
     const mod = await import(pathToFileURL(tsPath).href);
-    return mod;
+    return { isWithinNewsWindow: mod.isWithinNewsWindow, NEWS_SITEMAP_WINDOW_HOURS: mod.NEWS_SITEMAP_WINDOW_HOURS };
   } catch {
-    // Fallback: parse the .ts file with a regex to extract the whitelist array.
+    // Fallback: read the window from the .ts file and re-state the predicate.
     const src = readFileSync(tsPath, 'utf-8');
-    const match = src.match(/NEWS_SITEMAP_WHITELIST[^=]*=\s*Object\.freeze\(\s*\[([\s\S]*?)\]\s*\)/);
-    if (!match) throw new Error('Could not parse NEWS_SITEMAP_WHITELIST from .ts file');
-    const tokens = [...match[1].matchAll(/'([^']+)'|"([^"]+)"/g)].map((m) => m[1] || m[2]);
-    const NEWS_SITEMAP_WHITELIST = tokens;
-    const NEWS_SITEMAP_WINDOW_HOURS = 48;
-    /** @param {{slug?:string,title?:string,articleSection?:string,tags?:string[],keywords?:string,publishedAt?:string|Date}} a */
-    function isArticleNewsEligible(a, now = Date.now()) {
-      if (a.publishedAt !== undefined) {
-        const ts = a.publishedAt instanceof Date
-          ? a.publishedAt.getTime()
-          : new Date(a.publishedAt).getTime();
-        if (Number.isNaN(ts)) return false;
-        const age = now - ts;
-        if (age < 0 || age > NEWS_SITEMAP_WINDOW_HOURS * 3600_000) return false;
-      }
-      const lower = (v) => (v == null ? '' : String(v).toLowerCase());
-      const hay = [
-        lower(a.slug), lower(a.title), lower(a.articleSection), lower(a.keywords),
-        ...(a.tags ?? []).map(lower),
-      ].join('  ');
-      return NEWS_SITEMAP_WHITELIST.some((t) => hay.includes(t.toLowerCase()));
+    const m = src.match(/NEWS_SITEMAP_WINDOW_HOURS\s*=\s*(\d+)/);
+    if (!m) throw new Error('Could not parse NEWS_SITEMAP_WINDOW_HOURS from .ts file');
+    const NEWS_SITEMAP_WINDOW_HOURS = Number(m[1]);
+    function isWithinNewsWindow(publishedAt, now = Date.now()) {
+      if (publishedAt === undefined || publishedAt === null || publishedAt === '') return false;
+      const ts = publishedAt instanceof Date ? publishedAt.getTime() : new Date(publishedAt).getTime();
+      if (Number.isNaN(ts)) return false;
+      const age = now - ts;
+      return age >= 0 && age <= NEWS_SITEMAP_WINDOW_HOURS * 3600_000;
     }
-    return { NEWS_SITEMAP_WHITELIST, NEWS_SITEMAP_WINDOW_HOURS, isArticleNewsEligible };
+    return { isWithinNewsWindow, NEWS_SITEMAP_WINDOW_HOURS };
   }
-}
-
-/** Extract slug from a `<loc>` URL like `.../articoli-frontaliere/<slug>/`. */
-function slugFromLoc(loc) {
-  const m = loc.match(/\/articoli-frontaliere\/([^/?#]+)/);
-  return m ? m[1] : '';
 }
 
 /** Parse a single <url>...</url> block into a structured record. */
@@ -113,14 +99,13 @@ function parseUrlBlock(block) {
   const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1] || '';
   const date = block.match(/<news:publication_date>([^<]+)<\/news:publication_date>/)?.[1];
   const title = block.match(/<news:title>([^<]+)<\/news:title>/)?.[1];
-  const keywordsTag = block.match(/<news:keywords>([^<]+)<\/news:keywords>/)?.[1];
+  const language = block.match(/<news:language>([^<]+)<\/news:language>/)?.[1];
   return {
     block,
     loc,
-    slug: slugFromLoc(loc),
+    language,
     title: title ? decodeXml(title) : undefined,
     publishedAt: date,
-    keywords: keywordsTag,
   };
 }
 
@@ -129,61 +114,29 @@ function decodeXml(s) {
     .replace(/&quot;/g, '"').replace(/&apos;/g, "'");
 }
 
-/** Read SEO metadata for a slug from services/seo/seo-blog.ts (best-effort regex parse). */
-function loadSeoBySlug() {
-  const seoPath = resolve(REPO_ROOT, 'services', 'seo', 'seo-blog.ts');
-  if (!existsSync(seoPath)) return new Map();
-  const src = readFileSync(seoPath, 'utf-8');
-  const map = new Map();
-  // Per-entry: 'blog-<id>': { ... canonicalPath: '/articoli-frontaliere/<slug>' ... articleSection: 'X' ... keywords: '...' }
-  const entryRe = /'(blog-[^']+)':\s*\{([\s\S]*?)\n\s*\},?\s*\n/g;
-  for (const m of src.matchAll(entryRe)) {
-    const body = m[2];
-    const canonical = body.match(/canonicalPath:\s*'([^']+)'/)?.[1] || '';
-    const slug = canonical.split('/articoli-frontaliere/')[1]?.replace(/\/$/, '') || '';
-    if (!slug) continue;
-    const keywords = body.match(/keywords:\s*'([^']*)'/)?.[1];
-    const articleSection = body.match(/"articleSection":\s*"([^"]*)"/)?.[1];
-    map.set(slug, { keywords, articleSection });
-  }
-  return map;
-}
-
 async function processFile(filePath, ctx) {
   const src = readFileSync(filePath, 'utf-8');
   const urlBlocks = [...src.matchAll(/<url>[\s\S]*?<\/url>/g)].map((m) => m[0]);
 
-  const seoBySlug = ctx.seoBySlug;
   const kept = [];
   const removed = [];
 
   for (const block of urlBlocks) {
     const parsed = parseUrlBlock(block);
-    const seo = seoBySlug.get(parsed.slug) || {};
-    const article = {
-      slug: parsed.slug,
-      title: parsed.title,
-      keywords: seo.keywords,
-      articleSection: seo.articleSection,
-      publishedAt: parsed.publishedAt,
-    };
-    const eligible = ctx.isArticleNewsEligible(article);
-    if (eligible) {
+    if (ctx.isWithinNewsWindow(parsed.publishedAt)) {
       kept.push(parsed);
-    } else {
-      // Determine reason: stale window vs off-topic.
-      const ts = parsed.publishedAt ? new Date(parsed.publishedAt).getTime() : NaN;
-      const age = Number.isNaN(ts) ? null : (Date.now() - ts) / 3600_000;
-      const stale = age != null && age > ctx.NEWS_SITEMAP_WINDOW_HOURS;
-      removed.push({
-        slug: parsed.slug,
-        loc: parsed.loc,
-        title: parsed.title,
-        publishedAt: parsed.publishedAt,
-        ageHours: age != null ? Math.round(age * 10) / 10 : null,
-        reason: stale ? 'stale-48h-window' : 'off-topic-not-in-whitelist',
-      });
+      continue;
     }
+    const ts = parsed.publishedAt ? new Date(parsed.publishedAt).getTime() : NaN;
+    const age = Number.isNaN(ts) ? null : (Date.now() - ts) / 3600_000;
+    removed.push({
+      loc: parsed.loc,
+      language: parsed.language,
+      title: parsed.title,
+      publishedAt: parsed.publishedAt,
+      ageHours: age != null ? Math.round(age * 10) / 10 : null,
+      reason: age == null ? 'missing-or-invalid-date' : age < 0 ? 'future-dated' : 'stale-48h-window',
+    });
   }
 
   return { filePath, kept, removed, originalCount: urlBlocks.length };
@@ -214,18 +167,12 @@ async function main() {
     process.exit(0);
   }
 
-  const wl = await loadWhitelist();
-  const seoBySlug = loadSeoBySlug();
-  const ctx = {
-    isArticleNewsEligible: wl.isArticleNewsEligible,
-    NEWS_SITEMAP_WINDOW_HOURS: wl.NEWS_SITEMAP_WINDOW_HOURS,
-    seoBySlug,
-  };
+  const ctx = await loadWindow();
 
   const report = {
     timestamp: new Date().toISOString(),
     mode: APPLY ? 'apply' : 'dry-run',
-    whitelistTokens: wl.NEWS_SITEMAP_WHITELIST.length,
+    windowHours: ctx.NEWS_SITEMAP_WINDOW_HOURS,
     files: [],
   };
 
@@ -245,9 +192,9 @@ async function main() {
     console.log(`  kept:     ${fileReport.keptCount}`);
     console.log(`  removed:  ${fileReport.removedCount}`);
     const stale = result.removed.filter((r) => r.reason === 'stale-48h-window').length;
-    const off = result.removed.filter((r) => r.reason === 'off-topic-not-in-whitelist').length;
-    if (stale) console.log(`    - stale (>48h):  ${stale}`);
-    if (off) console.log(`    - off-topic:     ${off}`);
+    const bad = result.removed.length - stale;
+    if (stale) console.log(`    - stale (>48h):        ${stale}`);
+    if (bad) console.log(`    - bad/future date:     ${bad}`);
 
     if (APPLY && result.removed.length > 0) {
       rewriteFile(filePath, result.kept);
@@ -284,7 +231,7 @@ async function main() {
     threshold: null,
     offenders: _flatOffenders,
     byFeature: _byFile,
-    extra: { mode: report.mode, whitelistTokens: report.whitelistTokens },
+    extra: { mode: report.mode, windowHours: report.windowHours },
   });
 }
 

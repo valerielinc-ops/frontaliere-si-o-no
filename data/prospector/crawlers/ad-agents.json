@@ -1,0 +1,19 @@
+{
+  "companyKey": "ad-agents",
+  "companyName": "ad-agents",
+  "companyHost": "adagents.jobs.personio.com",
+  "platform": "personio.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://adagents.jobs.personio.com/job/2732829"
+  ],
+  "detailTemplate": "/job/2732829",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Initiativbewerbung (m/w/d)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-24T10:47:11.109Z"
+}

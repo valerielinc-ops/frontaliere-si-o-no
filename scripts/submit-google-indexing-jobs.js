@@ -2,452 +2,327 @@
 /**
  * Google Indexing API (JobPosting only)
  *
- * Submits recently updated job posting URLs to the Indexing API.
- * Google only supports JobPosting / BroadcastEvent for this API.
+ * Notifies Google of job pages via the Indexing API, the official channel for
+ * JobPosting (Google accepts only JobPosting / BroadcastEvent pages here).
  *
- * Authentication (tried in order):
- *   1. Service Account via GOOGLE_APPLICATION_CREDENTIALS (preferred in CI)
- *      — The SA must be added as Owner in Google Search Console for the site
- *   2. OAuth2 user credentials via GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN
+ * Callers:
+ *   - post-deploy-publish.yml after every published deploy (small `--max`, so
+ *     new jobs reach Google the same day);
+ *   - monitor-gsc-seo.yml daily, right after the PT quota reset, with the
+ *     URLs the GSC monitor found WITHOUT a "Job Postings" rich result as
+ *     `--priority-file`, then the rest of the daily budget.
  *
- * Prerequisites:
- *   - "Web Search Indexing API" must be enabled in the GCP project:
- *     https://console.cloud.google.com/apis/library/indexing.googleapis.com
- *   - The authenticating identity (SA email or user) must be an Owner of the
- *     Search Console property for the site.
+ * Source of URLs: the LIVE job sitemaps (what Google is told exists), so the
+ * script needs neither a build nor jobs.json. What to send and in which order
+ * is decided by scripts/lib/indexing-jobs-planner.mjs against a persistent
+ * ledger (`--ledger`, restored/saved by actions/cache in the workflows) that
+ * also carries the per-day request counter shared by every caller.
+ * Every URL is fetched live before it is notified: URL_UPDATED only for a 200
+ * page carrying JobPosting without noindex, URL_DELETED only for 404/410 or
+ * noindex. Nothing that is not a job page is ever sent.
+ *
+ * Authentication — the first identity Google accepts as Search Console OWNER
+ * (checked with the read-only urlNotifications/metadata endpoint, which does
+ * not consume the publish quota):
+ *   1. Service account (GOOGLE_APPLICATION_CREDENTIALS / FIREBASE_SERVICE_ACCOUNT_JSON)
+ *   2. OAuth2 user (GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN, from
+ *      Remote Config via scripts/load-rc-env.mjs)
+ * Until 2026-10 the script stopped at the service account: that identity is
+ * only `siteFullUser` on sc-domain:frontaliereticino.ch, so every publish got
+ * 403 "Failed to verify the URL ownership" and no job URL was ever notified.
+ *
+ * Usage:
+ *   node scripts/submit-google-indexing-jobs.js [--max N] [--priority-file f.json]
+ *        [--ledger path] [--dry-run]
+ *
+ * Always exits 0: notification is best-effort and must not fail a deploy.
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { createSign } from 'node:crypto';
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
-import { intFromEnv } from './lib/int-from-env.mjs';
-import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { createJwtAssertion, exchangeAssertionForToken } from './lib/google-service-account-token.mjs';
+import {
+  quotaDayKey,
+  isJobDetailCandidate,
+  parseSitemapUrlset,
+  parseJobSitemapIndex,
+  loadLedger,
+  observeSitemap,
+  planSubmissions,
+  recordOutcome,
+  judgeLive,
+  spentOn,
+} from './lib/indexing-jobs-planner.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
-// Budget: 200 requests/day total. Reserve 40 for articles (10 articles × 4 locales).
-// Remaining 160 for job URLs, spread across deploys.
-const DAILY_BUDGET = 160;
-const MAX_PER_DEPLOY = Math.max(1, Math.min(30, intFromEnv('GSC_JOBS_INDEXING_MAX', 15)));
+// Google default quota: 200 publish requests/day per GCP project. 40 stay
+// reserved for scripts/notify-article-search-engines.mjs (10 articles × 4
+// locales), which shares the project when the service account is the owner.
+export const DAILY_BUDGET = 160;
+const DEFAULT_MAX = 15;
 const MAX_RETRIES = 2;
-const INDEXING_API = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
+const FETCH_TIMEOUT_MS = 20_000;
+const INDEXING_PUBLISH = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
+const INDEXING_METADATA = 'https://indexing.googleapis.com/v3/urlNotifications/metadata';
 const INDEXING_SCOPE = 'https://www.googleapis.com/auth/indexing';
 const TOKEN_URI = 'https://oauth2.googleapis.com/token';
-const SUBMITTED_URLS_PATH = '/tmp/indexing-api-submitted-today.json';
+const DEFAULT_LEDGER = '/tmp/indexing-api-jobs-ledger.json';
+const USER_AGENT = 'frontaliere-indexing-api/2.0 (+https://frontaliereticino.ch)';
 
-function sleep(ms) {
-  return new Promise((r) => setTimeout(r, ms));
+function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
+function log(prefix, msg) { console.log(`${prefix} ${msg}`); }
+
+function fetchWithTimeout(url, options = {}) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  return fetch(url, { ...options, signal: controller.signal }).finally(() => clearTimeout(timer));
 }
 
-function log(prefix, msg) {
-  console.log(`${prefix} ${msg}`);
+export function parseArgs(argv) {
+  const args = { max: DEFAULT_MAX, priorityFile: null, ledger: DEFAULT_LEDGER, dryRun: false };
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i];
+    if (a === '--dry-run') args.dryRun = true;
+    else if (a === '--max') args.max = Number(argv[++i]);
+    else if (a === '--priority-file') args.priorityFile = argv[++i];
+    else if (a === '--ledger') args.ledger = argv[++i];
+  }
+  const envMax = Number(process.env.GSC_JOBS_INDEXING_MAX);
+  if (!argv.includes('--max') && Number.isFinite(envMax) && envMax > 0) args.max = envMax;
+  args.max = Math.max(0, Math.min(DAILY_BUDGET, Math.floor(Number.isFinite(args.max) ? args.max : DEFAULT_MAX)));
+  return args;
 }
 
-// ── Service Account JWT auth ────────────────────────────────
-// Creates a self-signed JWT and exchanges it for an access token.
-// This avoids the need for OAuth2 client credentials entirely.
+// ── Credentials ─────────────────────────────────────────────
 
 function loadServiceAccount() {
+  const envJson = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
+  if (envJson) {
+    try { const sa = JSON.parse(envJson); if (sa.client_email && sa.private_key) return sa; } catch { /* next */ }
+  }
   const saPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
   if (!saPath || !existsSync(saPath)) return null;
   try {
     const sa = JSON.parse(readFileSync(saPath, 'utf-8'));
-    if (!sa.client_email || !sa.private_key) return null;
-    return sa;
-  } catch {
-    return null;
-  }
+    return sa.client_email && sa.private_key ? sa : null;
+  } catch { return null; }
 }
 
-function createJwt(sa) {
-  const now = Math.floor(Date.now() / 1000);
-  const header = { alg: 'RS256', typ: 'JWT' };
-  const payload = {
-    iss: sa.client_email,
-    scope: INDEXING_SCOPE,
-    aud: TOKEN_URI,
-    iat: now,
-    exp: now + 3600,
-  };
-
-  const b64 = (obj) => Buffer.from(JSON.stringify(obj)).toString('base64url');
-  const unsigned = `${b64(header)}.${b64(payload)}`;
-
-  const sign = createSign('RSA-SHA256');
-  sign.update(unsigned);
-  const signature = sign.sign(sa.private_key, 'base64url');
-
-  return `${unsigned}.${signature}`;
-}
-
-async function getAccessTokenFromSA(sa) {
-  const jwt = createJwt(sa);
-  const res = await fetch(TOKEN_URI, {
+async function oauthUserToken() {
+  const { GSC_CLIENT_ID: clientId, GSC_CLIENT_SECRET: clientSecret, GSC_REFRESH_TOKEN: refreshToken } = process.env;
+  if (!clientId || !clientSecret || !refreshToken) return null;
+  const res = await fetchWithTimeout(TOKEN_URI, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion: jwt,
-    }),
+    body: new URLSearchParams({ client_id: clientId, client_secret: clientSecret, refresh_token: refreshToken, grant_type: 'refresh_token' }),
   });
-
-  if (!res.ok) {
-    const text = await res.text().catch(() => '');
-    throw new Error(`SA token exchange failed (${res.status}): ${text.slice(0, 200)}`);
-  }
-
-  const data = await res.json();
-  return data.access_token;
+  if (!res.ok) throw new Error(`OAuth token refresh failed (${res.status})`);
+  return (await res.json()).access_token || null;
 }
 
-// ── OAuth2 user credentials auth (fallback) ─────────────────
-
-async function getAccessTokenFromOAuth(clientId, clientSecret, refreshToken) {
-  const res = await fetch(TOKEN_URI, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      client_id: clientId,
-      client_secret: clientSecret,
-      refresh_token: refreshToken,
-      grant_type: 'refresh_token',
-    }),
+/**
+ * Read-only ownership probe. 200 (already notified) and 404 (never notified)
+ * both prove Google accepts the identity as owner; 403 means it does not.
+ */
+async function probeOwnership(token, url) {
+  const res = await fetchWithTimeout(`${INDEXING_METADATA}?url=${encodeURIComponent(url)}`, {
+    headers: { Authorization: `Bearer ${token}` },
   });
-
-  if (!res.ok) {
-    const text = await res.text().catch(() => '');
-    throw new Error(`OAuth token refresh failed (${res.status}): ${text.slice(0, 200)}`);
-  }
-
-  const data = await res.json();
-  return data.access_token;
-}
-
-// ── Resolve access token (SA first, then OAuth2) ────────────
-
-async function resolveAccessToken() {
-  // 1. Try Service Account (preferred in CI — no user credentials needed)
-  const sa = loadServiceAccount();
-  if (sa) {
-    try {
-      const token = await getAccessTokenFromSA(sa);
-      log('🔑', `Authenticated via Service Account (${sa.client_email})`);
-      return { token, identity: sa.client_email };
-    } catch (err) {
-      log('⚠️', `SA auth failed: ${err.message}`);
-      log('ℹ️', 'Falling back to OAuth2 user credentials...');
-    }
-  }
-
-  // 2. Try OAuth2 user credentials
-  const clientId = process.env.GSC_CLIENT_ID;
-  const clientSecret = process.env.GSC_CLIENT_SECRET;
-  const refreshToken = process.env.GSC_REFRESH_TOKEN;
-
-  if (!clientId || !clientSecret || !refreshToken) {
-    return null;
-  }
-
-  const token = await getAccessTokenFromOAuth(clientId, clientSecret, refreshToken);
-  log('🔑', 'Authenticated via OAuth2 user credentials');
-  return { token, identity: 'OAuth2 user' };
-}
-
-// ── Pre-flight probe ────────────────────────────────────────
-// Submit a known URL to detect 403 "API not enabled" before
-// wasting time on the full batch.
-
-async function preflightProbe(accessToken, probeUrl) {
-  const res = await fetch(INDEXING_API, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ url: probeUrl, type: 'URL_UPDATED' }),
-  });
-
-  if (res.ok) return { ok: true };
-
+  if (res.status === 200 || res.status === 404) return { ok: true };
   const text = await res.text().catch(() => '');
-
-  if (res.status === 403) {
-    // Parse the error for actionable diagnostics
-    let parsed;
-    try { parsed = JSON.parse(text); } catch { /* not JSON */ }
-    const reason = parsed?.error?.message || text.slice(0, 300);
-
-    if (reason.includes('not been used') || reason.includes('not enabled') || reason.includes('API has not been')) {
-      log('❌', `Indexing API is NOT enabled in the GCP project.`);
-      log('💡', 'Fix: Enable "Web Search Indexing API" at:');
-      log('  ', ' https://console.cloud.google.com/apis/library/indexing.googleapis.com');
-      return { ok: false, fatal: true };
-    }
-
-    if (reason.includes('permission') || reason.includes('PERMISSION_DENIED') || reason.includes('not an owner')) {
-      log('❌', `Permission denied — the authenticated identity is not an Owner in Search Console.`);
-      log('💡', 'Fix: Add the identity as Owner in Google Search Console:');
-      log('  ', ' https://search.google.com/search-console/users');
-      return { ok: false, fatal: true };
-    }
-
-    if (reason.includes('insufficient authentication scopes')) {
-      log('❌', `OAuth token lacks the "indexing" scope.`);
-      log('💡', 'Fix: Re-run setup-google-oauth.mjs to regenerate the token with the indexing scope.');
-      return { ok: false, fatal: true };
-    }
-
-    log('⚠️', `Pre-flight 403: ${reason}`);
-    return { ok: false, fatal: true };
-  }
-
-  // 429 or 5xx on probe is transient — don't abort
-  if (res.status === 429 || res.status >= 500) {
-    log('⚠️', `Pre-flight got ${res.status} — proceeding with batch (may be transient)`);
-    return { ok: true };
-  }
-
-  return { ok: true };
+  let reason = text.slice(0, 200);
+  try { reason = JSON.parse(text)?.error?.message || reason; } catch { /* not JSON */ }
+  return { ok: false, status: res.status, reason };
 }
 
-// ── Job loading ─────────────────────────────────────────────
-
-function loadJobs() {
-  const __dirname = dirname(fileURLToPath(import.meta.url));
-  const filePath = resolve(__dirname, '..', 'public', 'data', 'jobs.json');
-  const raw = readFileSync(filePath, 'utf-8');
-  const jobs = JSON.parse(raw);
-  return Array.isArray(jobs) ? jobs : [];
-}
-
-// Derived from the canonical TI legacy section table — see cantonResolvers.mjs.
-const JOB_BOARD_PREFIX = Object.fromEntries(
-  Object.entries(SECTION_LEGACY_TI)
-    .map(([loc, section]) => [loc, `${loc === 'it' ? '' : `/${loc}`}/${section}/`]),
-);
-
-// First PARSEABLE date among the candidates → epoch ms (0 if none parse).
-// Local twin of build-plugins/shared/firstParsableDate.ts — this is a runtime
-// .js script and cannot import the .ts helper. Avoids a malformed postedDate
-// (e.g. "30/05/26") shadowing a valid crawledAt and sinking the URL in the
-// recency sort below (it would defer indexing under MAX_PER_DEPLOY).
-function firstParsableMs(...values) {
-  for (const v of values) {
-    if (v === null || v === undefined || v === '') continue;
-    const ts = new Date(v).getTime();
-    if (Number.isFinite(ts)) return ts;
+async function resolveOwnerToken(probeUrl) {
+  const identities = [
+    { name: 'service account', get: async () => {
+      const sa = loadServiceAccount();
+      return sa ? exchangeAssertionForToken(createJwtAssertion(sa, INDEXING_SCOPE)) : null;
+    } },
+    { name: 'OAuth2 user (GSC_*)', get: oauthUserToken },
+  ];
+  for (const id of identities) {
+    let token;
+    try { token = await id.get(); } catch (err) { log('⚠️', `${id.name}: ${err.message}`); continue; }
+    if (!token) { log('ℹ️', `${id.name}: no credentials`); continue; }
+    const probe = await probeOwnership(token, probeUrl);
+    if (probe.ok) { log('🔑', `Indexing API owner identity: ${id.name}`); return token; }
+    log('⚠️', `${id.name}: ownership probe ${probe.status} — ${probe.reason}`);
   }
-  return 0;
+  log('❌', 'No identity is a Search Console OWNER of sc-domain:frontaliereticino.ch.');
+  log('💡', 'Fix: add the service account as Owner at https://search.google.com/search-console/users');
+  return null;
 }
 
-function buildJobUrls(jobs) {
-  const urls = [];
-  for (const job of jobs) {
-    const dateMs = firstParsableMs(job?.postedDate, job?.crawledAt);
-    for (const [locale, prefix] of Object.entries(JOB_BOARD_PREFIX)) {
-      const slug = job?.slugByLocale?.[locale] || job?.slugByLocale?.it || job?.slug;
-      if (!slug) continue;
-      const url = `${SITE_URL}${prefix}${slug}/`;
-      urls.push({ url, dateMs });
+// ── Sitemaps ────────────────────────────────────────────────
+
+async function fetchText(url) {
+  let lastErr;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const res = await fetchWithTimeout(url, { headers: { 'User-Agent': USER_AGENT } });
+      if (res.ok) return await res.text();
+      lastErr = new Error(`HTTP ${res.status}`);
+    } catch (err) { lastErr = err; }
+    await sleep(1000 * attempt);
+  }
+  throw new Error(`${url}: ${lastErr?.message}`);
+}
+
+/** Every job-detail candidate across the live job sitemaps. Throws if any sitemap is unreadable. */
+async function loadLiveJobUrls() {
+  const index = await fetchText(`${SITE_URL}/sitemap.xml`);
+  const sitemaps = parseJobSitemapIndex(index);
+  if (sitemaps.length === 0) throw new Error('no job sitemap in the sitemap index');
+  const byUrl = new Map();
+  for (const sm of sitemaps) {
+    for (const entry of parseSitemapUrlset(await fetchText(sm))) {
+      if (!isJobDetailCandidate(entry.loc)) continue;
+      const prev = byUrl.get(entry.loc);
+      if (!prev || (entry.lastmod && (!prev.lastmod || entry.lastmod > prev.lastmod))) byUrl.set(entry.loc, entry);
     }
   }
-  return urls;
+  log('🗺️', `${byUrl.size} job-detail URLs in ${sitemaps.length} live job sitemaps`);
+  return [...byUrl.values()];
 }
 
-function sortAndLimit(urls, alreadySubmitted) {
-  const unique = new Map();
-  for (const item of urls) {
-    if (!unique.has(item.url)) unique.set(item.url, item);
-  }
-
-  const list = [...unique.values()];
-  // Prioritize never-submitted URLs, then by recency
-  list.sort((a, b) => {
-    const aSubmitted = alreadySubmitted.has(a.url) ? 1 : 0;
-    const bSubmitted = alreadySubmitted.has(b.url) ? 1 : 0;
-    if (aSubmitted !== bSubmitted) return aSubmitted - bSubmitted;
-    return (b.dateMs || 0) - (a.dateMs || 0);
-  });
-
-  // Filter out already-submitted URLs and cap to per-deploy max
-  const fresh = list.filter((item) => !alreadySubmitted.has(item.url));
-  return fresh.slice(0, MAX_PER_DEPLOY);
-}
-
-// ── Daily submission tracker ────────────────────────────────
-// Tracks which URLs were already submitted today to avoid burning quota
-// on the same URLs across multiple deploys per day.
-
-function loadSubmittedToday() {
+async function liveCheck(type, url) {
   try {
-    if (!existsSync(SUBMITTED_URLS_PATH)) return new Set();
-    const data = JSON.parse(readFileSync(SUBMITTED_URLS_PATH, 'utf-8'));
-    // Ignore stale data from a previous day
-    const today = new Date().toISOString().slice(0, 10);
-    if (data.date !== today) return new Set();
-    return new Set(data.urls || []);
+    const res = await fetchWithTimeout(url, { redirect: 'manual', headers: { 'User-Agent': USER_AGENT } });
+    const html = res.status === 200 ? await res.text() : '';
+    return judgeLive(type, { status: res.status, html });
   } catch {
-    return new Set();
+    // A timeout/transport rejection is not evidence that the page lacks a
+    // JobPosting. Keep it retryable; recordOutcome deliberately leaves the
+    // URL's not-job/gone markers untouched for this outcome.
+    return 'transient';
   }
 }
 
-function saveSubmittedToday(urls) {
-  try {
-    const today = new Date().toISOString().slice(0, 10);
-    const existing = loadSubmittedToday();
-    for (const u of urls) existing.add(u);
-    const payload = { date: today, urls: [...existing], count: existing.size };
-    writeFileSync(SUBMITTED_URLS_PATH, JSON.stringify(payload, null, 2));
-    log('💾', `Tracked ${existing.size} URLs submitted today`);
-  } catch (err) {
-    log('⚠️', `Failed to save submission tracker: ${err.message}`);
-  }
-}
+// ── Publish ─────────────────────────────────────────────────
 
-// ── Submit a single URL ─────────────────────────────────────
-
-async function submitUrl(accessToken, url, attempt = 1) {
+async function publish(token, url, type, attempt = 1) {
   try {
-    const res = await fetch(INDEXING_API, {
+    const res = await fetchWithTimeout(INDEXING_PUBLISH, {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ url, type: 'URL_UPDATED' }),
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url, type }),
     });
-
-    if (res.ok) return { ok: true };
-
-    if ((res.status === 429 || res.status >= 500) && attempt <= MAX_RETRIES) {
-      const delay = 500 * attempt;
-      log('⏳', `Indexing API ${res.status} — retry ${attempt}/${MAX_RETRIES} in ${delay}ms`);
-      await sleep(delay);
-      return submitUrl(accessToken, url, attempt + 1);
+    if (res.ok) return { ok: true, status: res.status };
+    if (res.status >= 500 && attempt <= MAX_RETRIES) {
+      await sleep(500 * attempt);
+      return publish(token, url, type, attempt + 1);
     }
-
     const text = await res.text().catch(() => '');
-
-    // Abort entire batch on 403 — no point retrying permission errors
-    if (res.status === 403) {
-      return { ok: false, status: res.status, body: text.slice(0, 200), fatal: true };
-    }
-
-    return { ok: false, status: res.status, body: text.slice(0, 200) };
+    return { ok: false, status: res.status, body: text.replace(/\s+/g, ' ').slice(0, 200) };
   } catch (err) {
-    if (attempt <= MAX_RETRIES) {
-      const delay = 500 * attempt;
-      log('⏳', `Network error — retry ${attempt}/${MAX_RETRIES} in ${delay}ms`);
-      await sleep(delay);
-      return submitUrl(accessToken, url, attempt + 1);
-    }
+    if (attempt <= MAX_RETRIES) { await sleep(500 * attempt); return publish(token, url, type, attempt + 1); }
     return { ok: false, status: 0, body: err.message };
   }
+}
+
+function readPriority(file) {
+  if (!file || !existsSync(file)) return [];
+  try {
+    const data = JSON.parse(readFileSync(file, 'utf-8'));
+    const list = Array.isArray(data) ? data : data.urls;
+    return Array.isArray(list) ? list.filter((u) => typeof u === 'string') : [];
+  } catch { return []; }
+}
+
+function summary(lines) {
+  if (!process.env.GITHUB_STEP_SUMMARY) return;
+  try { appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`); } catch { /* ignore */ }
 }
 
 // ── Main ────────────────────────────────────────────────────
 
 async function main() {
-  log('📨', 'Google Indexing API — JobPosting URL notifications');
+  const args = parseArgs(process.argv.slice(2));
+  const today = quotaDayKey();
+  log('📨', `Google Indexing API — JobPosting notifications (quota day ${today} PT${args.dryRun ? ', DRY RUN' : ''})`);
 
-  // 0. Check daily budget
-  const alreadySubmitted = loadSubmittedToday();
-  if (alreadySubmitted.size >= DAILY_BUDGET) {
-    log('ℹ️', `Daily budget reached (${alreadySubmitted.size}/${DAILY_BUDGET} URLs) — skipping`);
-    process.exit(0);
+  const ledger = loadLedger(existsSync(args.ledger) ? readFileSync(args.ledger, 'utf-8') : null, today);
+  const spent = spentOn(ledger, today);
+  const runBudget = Math.min(args.max, DAILY_BUDGET - spent);
+  log('📊', `Budget: ${spent}/${DAILY_BUDGET} used today, this run may send ${Math.max(0, runBudget)}`);
+
+  let entries;
+  try { entries = await loadLiveJobUrls(); } catch (err) {
+    log('⚠️', `Live sitemaps unreadable (${err.message}) — skipping, ledger untouched`);
+    return;
   }
+  observeSitemap(ledger, entries, today);
+  const save = () => { if (!args.dryRun) writeFileSync(args.ledger, JSON.stringify(ledger)); };
 
-  const remaining = DAILY_BUDGET - alreadySubmitted.size;
-  const deployMax = Math.min(MAX_PER_DEPLOY, remaining);
-  log('📊', `Budget: ${alreadySubmitted.size}/${DAILY_BUDGET} used today, ${remaining} remaining, max ${deployMax} this deploy`);
+  if (runBudget <= 0) { log('ℹ️', 'Daily budget reached — skipping'); save(); return; }
 
-  // 1. Authenticate
-  let auth;
-  try {
-    auth = await resolveAccessToken();
-  } catch (err) {
-    log('⚠️', `Authentication failed: ${err.message}`);
-    process.exit(0);
-  }
+  const priority = readPriority(args.priorityFile);
+  if (priority.length) log('🎯', `${priority.length} priority URL(s) from ${args.priorityFile}`);
+  const plan = planSubmissions(ledger, { today, max: runBudget, priority });
+  if (plan.length === 0) { log('ℹ️', 'Nothing to notify'); save(); return; }
 
-  if (!auth) {
-    log('ℹ️', 'No credentials available (GOOGLE_APPLICATION_CREDENTIALS or GSC_* env vars) — skipping');
-    process.exit(0);
-  }
+  const token = args.dryRun ? null : await resolveOwnerToken(plan[0].url);
+  if (!args.dryRun && !token) { save(); return; }
 
-  // 2. Load jobs
-  let jobs;
-  try {
-    jobs = loadJobs();
-  } catch (err) {
-    log('⚠️', `Unable to read jobs.json — ${err.message}`);
-    process.exit(0);
-  }
-
-  const allJobUrls = buildJobUrls(jobs);
-  const jobUrls = sortAndLimit(allJobUrls, alreadySubmitted).slice(0, deployMax);
-  if (jobUrls.length === 0) {
-    log('ℹ️', `No new job URLs to submit (${alreadySubmitted.size} already submitted today)`);
-    process.exit(0);
-  }
-
-  // 3. Pre-flight: probe with the first URL to catch config errors early
-  const probe = await preflightProbe(auth.token, jobUrls[0].url);
-  if (!probe.ok) {
-    log('🛑', 'Aborting batch — fix the configuration issue above and re-deploy.');
-    process.exit(0);
-  }
-
-  // 4. Submit batch (first URL already submitted by probe, start from index 1)
-  log('📨', `Submitting ${jobUrls.length} new JobPosting URLs to Indexing API (${alreadySubmitted.size} already submitted today)`);
-
-  const submitted = [jobUrls[0].url]; // probe URL counts
-  let ok = 1;
-  let fail = 0;
-
+  const counts = { sent: 0, skipped: 0, failed: 0 };
+  const byTier = {};
   let consecutive429 = 0;
-  for (let i = 1; i < jobUrls.length; i++) {
-    // Throttle: 200ms between requests to stay under Google's burst limit
-    if (i > 1) await sleep(200);
-
-    const item = jobUrls[i];
-    const result = await submitUrl(auth.token, item.url);
-
-    if (result.ok) {
-      ok += 1;
+  // Bound the live fetches: landing pages share the job-detail URL shape, and
+  // a backlog full of them must not turn one run into thousands of GETs.
+  const maxChecks = runBudget * 4;
+  let checks = 0;
+  for (const item of plan) {
+    if (counts.sent >= runBudget || checks++ >= maxChecks) break;
+    const verdict = await liveCheck(item.type, item.url);
+    if (verdict !== 'ok') {
+      counts.skipped += 1;
+      if (!args.dryRun) recordOutcome(ledger, item, verdict, today);
+      continue;
+    }
+    if (args.dryRun) {
+      counts.sent += 1;
+      byTier[item.tier] = (byTier[item.tier] || 0) + 1;
+      log('  ', `would ${item.type} [${item.tier}] ${item.url}`);
+      continue;
+    }
+    const res = await publish(token, item.url, item.type);
+    if (res.ok) {
+      counts.sent += 1;
       consecutive429 = 0;
-      submitted.push(item.url);
+      byTier[item.tier] = (byTier[item.tier] || 0) + 1;
+      recordOutcome(ledger, item, 'sent', today);
+      log('  ✅', `${item.type} [${item.tier}] ${item.url}`);
     } else {
-      fail += 1;
-      log('⚠️', `Failed (${result.status}): ${item.url} ${result.body || ''}`.trim());
-
-      // Abort on 403 — no point continuing
-      if (result.fatal) {
-        log('🛑', `Fatal error — aborting remaining ${jobUrls.length - i - 1} submissions`);
+      counts.failed += 1;
+      log('  ⚠️', `${item.type} ${res.status} ${item.url} ${res.body || ''}`.trim());
+      if (res.status === 403) { log('🛑', 'Permission error — aborting run'); break; }
+      if (res.status === 429 && ++consecutive429 >= 2) {
+        // Google's own counter is the truth: close the day so later callers skip.
+        ledger.days[today] = DAILY_BUDGET;
+        log('🛑', 'Quota exhausted (429) — closing the day');
         break;
       }
-
-      // Abort on sustained 429 — quota exhausted, stop wasting requests
-      if (result.status === 429) {
-        consecutive429++;
-        if (consecutive429 >= 3) {
-          log('🛑', `Quota exhausted (${consecutive429} consecutive 429s) — aborting remaining ${jobUrls.length - i - 1} submissions`);
-          break;
-        }
-      } else {
-        consecutive429 = 0;
-      }
     }
-    await sleep(120);
+    await sleep(150);
   }
-
-  // 5. Persist submitted URLs for dedup across deploys today
-  saveSubmittedToday(submitted);
-
-  log('📊', `Job indexing: ${ok} submitted, ${fail} failed (of ${jobUrls.length} total). Daily total: ${alreadySubmitted.size + submitted.length}/${DAILY_BUDGET}`);
+  save();
+  const tiers = Object.entries(byTier).map(([t, n]) => `${t}=${n}`).join(' ') || 'none';
+  log('📊', `Sent ${counts.sent}, skipped ${counts.skipped} (live check), failed ${counts.failed}; tiers: ${tiers}. Day total ${spentOn(ledger, today)}/${DAILY_BUDGET}`);
+  summary([
+    '## Google Indexing API — job pages',
+    '',
+    `| Sent | Skipped (live check) | Failed | Tiers | Day total |`,
+    `|---|---|---|---|---|`,
+    `| ${counts.sent} | ${counts.skipped} | ${counts.failed} | ${tiers} | ${spentOn(ledger, today)}/${DAILY_BUDGET} |`,
+  ]);
 }
 
-main().catch((err) => {
-  log('❌', `Unhandled error: ${err.message}`);
-  process.exit(0);
-});
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => {
+    log('❌', `Unhandled error: ${err.message}`);
+    process.exit(0);
+  });
+}

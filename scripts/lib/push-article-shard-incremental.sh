@@ -59,17 +59,18 @@
 #   SHARD_<SECTION_UPPER>_<LOCALE_UPPER>_DEPLOY_KEY — e.g.
 #     SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY. SSH-only write deploy key for
 #     frontaliere-<section>-<locale>. Read via indirect expansion.
-#     Missing → notice + exit 0 (silent no-op, matches the sibling).
+#     Missing → hard failure: the fast publisher must not report a push that
+#     published zero shard paths.
 # Optional env:
 #   RUNNER_TEMP — scratch dir; falls back to a mktemp dir if unset (logged).
 #
 # Exit codes:
-#   0 — pushed, or a clean no-op (identical content already live, or the
-#       deploy-key secret is not provisioned for this section+locale yet)
+#   0 — pushed, or a clean no-op (identical content already live)
 #   1 — bad usage, a source relpath is missing on disk, a rendered page still
 #       points at same-origin/missing/unverified CDN assets, the shard repo has
 #       no commits on main yet (needs push-section-shard.sh to seed it first),
-#       or the push failed after the bounded retry budget
+#       the owner/provisioning metadata is unavailable, or the push failed
+#       after the bounded retry budget
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 
@@ -91,7 +92,13 @@ case "$loc" in
   *) echo "::error::unsupported locale '$loc' (expected it|de|en|fr)" >&2; exit 1 ;;
 esac
 
-repo_root="$(pwd)"
+# Resolve repository-owned inputs from this script, not from the caller's cwd.
+# The fast-publish workflow invokes this file from the checkout today, but the
+# rerender drivers and local recovery tools may launch it from elsewhere. A
+# cwd-derived owner path can fail open to the historical default and publish to
+# the wrong shard repository.
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd -- "$script_dir/../.." && pwd)"
 owners_json="$repo_root/scripts/lib/section-shard-owners.json"
 cdn_asset_gate="$repo_root/scripts/ci/verify-cdn-asset-publish.mjs"
 SECTION_UPPER="$(echo "$section" | tr a-z A-Z)"
@@ -108,14 +115,15 @@ for rel in "${relpaths[@]}"; do
 done
 
 # Per-section-per-locale deploy key via indirect expansion (mirrors
-# push-section-shard.sh). Missing → skip, exit 0 — the caller (the fast-path
-# workflow) treats this the same as "fast path not provisioned yet" and lets
-# the article ride the next full deploy instead.
+# push-section-shard.sh). The incremental publisher is the source of the
+# workflow's "push confirmed" signal, so missing provisioning must be a hard
+# failure rather than a successful no-op that lets the caller announce a shard
+# which received no HTML.
 key_var="SHARD_${SECTION_UPPER}_${LOC_UPPER}_DEPLOY_KEY"
 key_val="${!key_var:-}"
 if [ -z "$key_val" ]; then
-  echo "no $key_var secret — skipping $loc $section article fast-path push (not provisioned)"
-  exit 0
+  echo "::error::no $key_var secret — cannot publish $loc $section article fast-path shard (not provisioned)" >&2
+  exit 1
 fi
 
 # A fast publisher renders current-main HTML without publishing the full
@@ -133,8 +141,14 @@ if ! node "$cdn_asset_gate" "${cdn_gate_args[@]}"; then
   exit 1
 fi
 
-SHARD_OWNER="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' "$owners_json" 2>/dev/null || echo valerielinc-ops)"
-if [ -z "$SHARD_OWNER" ] || [ "$SHARD_OWNER" = "null" ]; then SHARD_OWNER="valerielinc-ops"; fi
+if [ ! -r "$owners_json" ]; then
+  echo "::error::cannot resolve article shard owner: missing or unreadable $owners_json" >&2
+  exit 1
+fi
+if ! SHARD_OWNER="$(jq -er --arg s "$section" '.[$s] | select(type == "string" and length > 0)' "$owners_json" 2>/dev/null)"; then
+  echo "::error::cannot resolve article shard owner for section '$section' from $owners_json" >&2
+  exit 1
+fi
 SHARD_REPO="git@github.com:$SHARD_OWNER/frontaliere-$section-$loc.git"
 if [ -n "${SHARD_REPO_OVERRIDE:-}" ]; then
   SHARD_REPO="$SHARD_REPO_OVERRIDE"

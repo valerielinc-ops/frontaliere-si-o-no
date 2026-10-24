@@ -876,126 +876,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/`,
- "claimReviewed": "I frontalieri pagano le tasse due volte, sia in Svizzera che in Italia",
- "author": {
- "@type": "Organization",
- "name": "Frontaliere Ticino",
- "url": BASE_URL
- },
- "datePublished": "2026-04-01",
- "reviewRating": {
- "@type": "Rating",
- "ratingValue": "2",
- "bestRating": "5",
- "worstRating": "1",
- "alternateName": "Parzialmente falso"
- },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Opinione comune" },
- "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
- }
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/`,
- "claimReviewed": "Con il nuovo accordo 2026 i frontalieri pagano più tasse",
- "author": {
- "@type": "Organization",
- "name": "Frontaliere Ticino",
- "url": BASE_URL
- },
- "datePublished": "2026-04-01",
- "reviewRating": {
- "@type": "Rating",
- "ratingValue": "3",
- "bestRating": "5",
- "worstRating": "1",
- "alternateName": "Dipende"
- },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Opinione comune" },
- "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
- }
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/`,
- "claimReviewed": "Il Permesso G costa meno del Permesso B",
- "author": {
- "@type": "Organization",
- "name": "Frontaliere Ticino",
- "url": BASE_URL
- },
- "datePublished": "2026-04-01",
- "reviewRating": {
- "@type": "Rating",
- "ratingValue": "4",
- "bestRating": "5",
- "worstRating": "1",
- "alternateName": "Generalmente vero"
- },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Opinione comune" },
- "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
- }
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/`,
- "claimReviewed": "I frontalieri non hanno diritto alla pensione svizzera",
- "author": {
- "@type": "Organization",
- "name": "Frontaliere Ticino",
- "url": BASE_URL
- },
- "datePublished": "2026-04-01",
- "reviewRating": {
- "@type": "Rating",
- "ratingValue": "1",
- "bestRating": "5",
- "worstRating": "1",
- "alternateName": "Falso"
- },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Opinione comune" },
- "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
- }
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/`,
- "claimReviewed": "La franchigia di 10.000€ è per tutti i frontalieri",
- "author": {
- "@type": "Organization",
- "name": "Frontaliere Ticino",
- "url": BASE_URL
- },
- "datePublished": "2026-04-01",
- "reviewRating": {
- "@type": "Rating",
- "ratingValue": "2",
- "bestRating": "5",
- "worstRating": "1",
- "alternateName": "Parzialmente falso"
- },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Opinione comune" },
- "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione/` }
- }
  }
  ]
  },
@@ -1057,36 +937,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/`,
- "claimReviewed": "Nel Canton Ticino l'imposta alla fonte 2026 usa quattro tabelle A, B, C, H assegnate in base a stato civile e figli a carico.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "AFC Ticino — Divisione delle contribuzioni" },
- "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tabelle-e-aliquote/", "name": "AFC Ticino — Tabelle e aliquote imposta alla fonte 2026" }
- },
- "reviewBody": "Tabelle cantonali AFC Ticino 2026 (art. 33 LT): A single senza figli, B coniugati monoreddito, C coniugati bireddito, H genitori soli con figli."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/`,
- "claimReviewed": "La tabella di imposta alla fonte applicata al frontaliere dipende da stato civile e figli, non dal Comune italiano di residenza.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Legge tributaria cantonale (LT) Canton Ticino, art. 109" },
- "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/434", "name": "Canton Ticino — Legge tributaria (LT) art. 107-117 imposta alla fonte" }
- },
- "reviewBody": "La LT Ticino (art. 107-117) assegna la tabella in base a stato civile e figli dichiarati al datore; il Comune italiano di residenza è irrilevante per il calcolo svizzero (rileva solo per la fiscalità italiana)."
  }
  ]
  },
@@ -1436,7 +1286,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Come si calcola la pensione AVS per un frontaliere?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "La rendita AVS dipende dagli anni di contribuzione e dal reddito medio. Con 44 anni di contributi (scala 44) si ottiene la rendita completa: minima CHF 1.260/mese, massima CHF 2.520/mese (2026). Ogni anno mancante riduce la rendita di 1/44. Come sottolinea il Dott. Andrea Fiorini, consulente previdenziale: «Anche pochi anni di contributi AVS generano un diritto pensionistico grazie alla totalizzazione con i periodi INPS»."
+ "text": "La rendita AVS dipende dagli anni di contribuzione e dal reddito medio. Con 44 anni di contributi (scala 44) si ottiene la rendita completa: minima CHF 1.260/mese, massima CHF 2.520/mese (2026). Ogni anno mancante riduce la rendita di 1/44. Anche pochi anni di contributi AVS generano un diritto pensionistico grazie alla totalizzazione con i periodi INPS."
  }
  },
  {
@@ -1444,7 +1294,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Posso riscuotere il secondo pilastro LPP quando lascio la Svizzera?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I frontalieri UE possono riscuotere la parte sovraobbligatoria del 2° pilastro al momento della partenza. La parte obbligatoria resta in un conto di libero passaggio fino all'età pensionabile, salvo eccezioni (avvio attività indipendente, acquisto casa principale). Come consiglia il Dott. Andrea Fiorini, consulente previdenziale: «Prima del prelievo è fondamentale valutare la tassazione nel cantone di residenza della cassa pensione, che varia sensibilmente»."
+ "text": "I frontalieri UE possono riscuotere la parte sovraobbligatoria del 2° pilastro al momento della partenza. La parte obbligatoria resta in un conto di libero passaggio fino all'età pensionabile, salvo eccezioni (avvio attività indipendente, acquisto casa principale). Prima del prelievo è fondamentale valutare la tassazione nel cantone di residenza della cassa pensione, che varia sensibilmente."
  }
  },
  {
@@ -1472,51 +1322,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza/`,
- "claimReviewed": "La rendita AVS massima in Svizzera nel 2026 è CHF 2.520 al mese (CHF 30.240 annui) con la scala 44 di contribuzione completa.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Ufficio federale delle assicurazioni sociali (UFAS) — AVS 1° pilastro" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.bsv.admin.ch/it", "name": "UFAS — Assicurazione vecchiaia e superstiti (AVS) 2026" }
- },
- "reviewBody": "Rendite AVS/AI in vigore dal 1° gennaio 2025 e invariate nel 2026 (promemoria AVS/AI 3.01, stato al 1° gennaio 2026): rendita minima CHF 1.260/mese, rendita massima CHF 2.520/mese alla scala 44 (art. 34 LAVS)."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza/`,
- "claimReviewed": "Le aliquote LPP del 2° pilastro crescono con l'età: 7% (25-34), 10% (35-44), 15% (45-54), 18% (55-65) del salario assicurato.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Legge federale sulla previdenza professionale (LPP), art. 16" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/1983/797_797_797/it", "name": "Fedlex — LPP art. 16 (accrediti di vecchiaia)" }
- },
- "reviewBody": "Aliquote minime LPP definite dall'art. 16 LPP: 7/10/15/18% per fasce 25-34/35-44/45-54/55-65. Le casse pensione possono applicare aliquote superiori (piani sovraobbligatori)."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza/`,
- "claimReviewed": "Grazie alla totalizzazione bilaterale Italia-Svizzera i periodi contributivi AVS e INPS si sommano per raggiungere il diritto alla pensione in ciascun Paese (pro-rata).",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Accordo bilaterale sulla libera circolazione delle persone (ALC) — Regolamento (CE) 883/2004" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.50285.totalizzazione-internazionale-dei-periodi-assicurativi.html", "name": "INPS — Totalizzazione internazionale dei periodi assicurativi" }
- },
- "reviewBody": "Applicabile ai frontalieri italiani in Svizzera dall'entrata in vigore dell'ALC (1/6/2002) e confermato dal Regolamento (CE) 883/2004 e dalla decisione del Comitato misto CH-UE del 2012. Ogni Paese paga la quota pro-rata in base agli anni effettivi."
  }
  ]
  },
@@ -1817,38 +1622,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`,
- "claimReviewed": "Il permesso G UE/AELS riguarda chi risiede nell’UE/AELS, lavora in Svizzera e torna al domicilio estero almeno ogni settimana. Le zone di frontiera per questa autorizzazione sono abolite: il requisito fiscale dei 20 km è distinto.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-10-03",
- "dateModified": "2026-10-03",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Segreteria di Stato della migrazione (SEM) — Accordo UE-CH sulla libera circolazione" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html", "name": "SEM — Permesso G UE/AELS (frontalieri)" }
- },
- "reviewBody": "Il permesso G UE/AELS riguarda chi risiede nell’UE/AELS, lavora in Svizzera e torna al domicilio estero almeno ogni settimana. Le zone di frontiera per questa autorizzazione sono abolite: il requisito fiscale dei 20 km è distinto. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html"
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`,
- "claimReviewed": "Per cittadini UE/AELS, il G vale cinque anni con contratto indeterminato o superiore a un anno; per contratti inferiori a un anno la validità segue il contratto. Le attività fino a tre mesi per anno civile seguono la procedura di notifica. Il rinnovo richiede la procedura cantonale e la verifica delle condizioni.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-10-03",
- "dateModified": "2026-10-03",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Segreteria di Stato della migrazione (SEM)" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html", "name": "SEM — Permesso G UE/AELS (frontalieri)" }
- },
- "reviewBody": "Per cittadini UE/AELS, il G vale cinque anni con contratto indeterminato o superiore a un anno; per contratti inferiori a un anno la validità segue il contratto. Le attività fino a tre mesi per anno civile seguono la procedura di notifica. Il rinnovo richiede la procedura cantonale e la verifica delle condizioni. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html"
  }
  ]
  },
@@ -1917,37 +1690,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/simula-terzo-pilastro/`,
- "claimReviewed": "Il limite massimo di versamento annuo al pilastro 3a per lavoratori con 2° pilastro nel 2026 è CHF 7.258.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Ufficio federale delle assicurazioni sociali (UFAS) — OPP 3" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.bsv.admin.ch/it", "name": "UFAS — Previdenza individuale vincolata (pilastro 3a)" }
- },
- "reviewBody": "Limite deducibile 2026 fissato dall'art. 7 OPP 3: CHF 7.258 per affiliati LPP; 20% del reddito netto fino a CHF 36.288 per indipendenti senza 2° pilastro."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/simula-terzo-pilastro/`,
- "claimReviewed": "La deduzione svizzera dei versamenti 3a non è automatica per i frontalieri fiscali dell’accordo Italia–Svizzera: la FAQ 5.3 AFC esclude la tassazione ordinaria ulteriore.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-10-03",
- "dateModified": "2026-10-03",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Amministrazione federale delle contribuzioni (AFC)" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf", "name": "AFC — FAQ accordo frontalieri, punto 5.3" }
- },
- "reviewBody": "La deduzione svizzera dei versamenti 3a non è automatica per i frontalieri fiscali dell’accordo Italia–Svizzera: la FAQ 5.3 AFC esclude la tassazione ordinaria ulteriore."
  }
  ]
  },
@@ -2399,7 +2141,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Un frontaliere licenziato in Svizzera prende la disoccupazione in Italia o in Svizzera?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il frontaliere con permesso G che perde il lavoro in Svizzera riceve la disoccupazione in Italia (NASpI), non in Svizzera. Il regolamento UE 883/2004 prevede che i lavoratori frontalieri in disoccupazione totale siano a carico del Paese di residenza. Come chiarisce il Prof. Roberto Bentivoglio, docente di diritto del lavoro all'USI: «Il frontaliere deve richiedere immediatamente il formulario PD U1 in Svizzera per non perdere il diritto alla NASpI»."
+ "text": "Il frontaliere con permesso G che perde il lavoro in Svizzera riceve la disoccupazione in Italia (NASpI), non in Svizzera. Il regolamento UE 883/2004 prevede che i lavoratori frontalieri in disoccupazione totale siano a carico del Paese di residenza. Il frontaliere deve richiedere immediatamente il formulario PD U1 in Svizzera per non perdere il diritto alla NASpI."
  }
  },
  {
@@ -2479,7 +2221,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "Article",
  "headline": "Festività Ticino 2026: Calendario Completo dei Giorni Festivi del Canton Ticino",
  "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/`,
- "abstract": "Il Canton Ticino riconosce 15 giorni festivi ufficiali nel 2026: 4 festività federali svizzere più 11 festività cantonali cattoliche tipiche della Svizzera italiana. I frontalieri seguono il calendario svizzero (lex loci laboris), non quello italiano.",
+ "abstract": "Il Canton Ticino riconosce 15 giorni festivi ufficiali, fissati dalla Legge concernente i giorni festivi ufficiali del 15 dicembre 2009: tra questi San Giuseppe (19 marzo), mentre il Venerdì Santo è lavorativo. I frontalieri seguono il calendario svizzero (lex loci laboris), non quello italiano.",
  "description": "Festività Ticino 2026: tutti i 15 giorni festivi ufficiali del Canton Ticino con date, giorno della settimana, ponti, differenze con il resto della Svizzera e impatto sulla busta paga del frontaliere",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2496,71 +2238,41 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemListOrder": "https://schema.org/ItemListOrderAscending",
  "numberOfItems": 15,
  "itemListElement": [
- {"@type": "ListItem", "position": 1, "item": {"@type": "Schedule", "name": "Capodanno", "startDate": "2026-01-01", "endDate": "2026-01-01", "description": "Capodanno — giovedì 1 gennaio 2026. Festività federale svizzera, giorno non lavorativo in tutto il Ticino.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#1`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 2, "item": {"@type": "Schedule", "name": "San Berchtoldo (2 gennaio)", "startDate": "2026-01-02", "endDate": "2026-01-02", "description": "San Berchtoldo — venerdì 2 gennaio 2026. Festività facoltativa in alcuni comuni ticinesi, giorno di chiusura bancaria.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#2`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 3, "item": {"@type": "Schedule", "name": "Epifania", "startDate": "2026-01-06", "endDate": "2026-01-06", "description": "Epifania — martedì 6 gennaio 2026. Festività cantonale ticinese, riconosciuta anche in Italia.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#3`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 4, "item": {"@type": "Schedule", "name": "San Giuseppe", "startDate": "2026-03-19", "endDate": "2026-03-19", "description": "San Giuseppe — giovedì 19 marzo 2026. Festività cantonale ticinese, non riconosciuta nel resto della Svizzera.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#4`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 5, "item": {"@type": "Schedule", "name": "Venerdì Santo", "startDate": "2026-04-03", "endDate": "2026-04-03", "description": "Venerdì Santo — venerdì 3 aprile 2026. Festività cantonale ticinese; non è festivo federale ma è riconosciuto in Ticino.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#5`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 6, "item": {"@type": "Schedule", "name": "Lunedì dell'Angelo (Pasquetta)", "startDate": "2026-04-06", "endDate": "2026-04-06", "description": "Lunedì dell'Angelo (Pasquetta) — lunedì 6 aprile 2026. Festività federale svizzera, ottimo ponte con il weekend di Pasqua.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#6`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 7, "item": {"@type": "Schedule", "name": "Festa del Lavoro", "startDate": "2026-05-01", "endDate": "2026-05-01", "description": "Festa del Lavoro — venerdì 1 maggio 2026. Festività cantonale ticinese, non federale.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#7`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 8, "item": {"@type": "Schedule", "name": "Ascensione", "startDate": "2026-05-14", "endDate": "2026-05-14", "description": "Ascensione — giovedì 14 maggio 2026. Festività federale svizzera, cade sempre di giovedì (ottimo ponte).", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#8`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 9, "item": {"@type": "Schedule", "name": "Lunedì di Pentecoste", "startDate": "2026-05-25", "endDate": "2026-05-25", "description": "Lunedì di Pentecoste — lunedì 25 maggio 2026. Festività cantonale ticinese.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#9`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 10, "item": {"@type": "Schedule", "name": "Corpus Domini", "startDate": "2026-06-04", "endDate": "2026-06-04", "description": "Corpus Domini — giovedì 4 giugno 2026. Festività cantonale ticinese, cade sempre di giovedì (ottimo ponte).", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#10`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 11, "item": {"@type": "Schedule", "name": "SS. Pietro e Paolo", "startDate": "2026-06-29", "endDate": "2026-06-29", "description": "SS. Pietro e Paolo — lunedì 29 giugno 2026. Festività cantonale ticinese.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#11`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 12, "item": {"@type": "Schedule", "name": "Festa Nazionale Svizzera", "startDate": "2026-08-01", "endDate": "2026-08-01", "description": "Festa Nazionale Svizzera — sabato 1 agosto 2026. Festività federale, cade di sabato: non c'è recupero.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#12`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 13, "item": {"@type": "Schedule", "name": "Assunzione di Maria", "startDate": "2026-08-15", "endDate": "2026-08-15", "description": "Assunzione di Maria (Ferragosto) — sabato 15 agosto 2026. Festività cantonale ticinese, cade di sabato.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#13`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 14, "item": {"@type": "Schedule", "name": "Ognissanti", "startDate": "2026-11-01", "endDate": "2026-11-01", "description": "Ognissanti — domenica 1 novembre 2026. Festività cantonale ticinese, cade di domenica.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#14`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 15, "item": {"@type": "Schedule", "name": "Immacolata Concezione", "startDate": "2026-12-08", "endDate": "2026-12-08", "description": "Immacolata Concezione — martedì 8 dicembre 2026. Festività cantonale ticinese.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#15`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}}
+ {"@type": "ListItem", "position": 1, "item": {"@type": "Schedule", "name": "Capodanno", "startDate": "2026-01-01", "endDate": "2026-01-01", "description": "Capodanno — giovedì 1 gennaio 2026. Giorno festivo ufficiale in Ticino e in Italia.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#1`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 2, "item": {"@type": "Schedule", "name": "Epifania", "startDate": "2026-01-06", "endDate": "2026-01-06", "description": "Epifania — martedì 6 gennaio 2026. Giorno festivo ufficiale in Ticino, riconosciuto anche in Italia.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#2`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 3, "item": {"@type": "Schedule", "name": "San Giuseppe", "startDate": "2026-03-19", "endDate": "2026-03-19", "description": "San Giuseppe — giovedì 19 marzo 2026. Giorno festivo ufficiale in Ticino, lavorativo in Italia.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#3`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 4, "item": {"@type": "Schedule", "name": "Lunedì dell'Angelo (Pasquetta)", "startDate": "2026-04-06", "endDate": "2026-04-06", "description": "Lunedì dell'Angelo (Pasquetta) — lunedì 6 aprile 2026. Festivo in Ticino e in Italia; il Venerdì Santo (3 aprile) in Ticino è lavorativo.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#4`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 5, "item": {"@type": "Schedule", "name": "Festa del Lavoro", "startDate": "2026-05-01", "endDate": "2026-05-01", "description": "Festa del Lavoro — venerdì 1 maggio 2026. Giorno festivo ufficiale in Ticino e in Italia.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#5`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 6, "item": {"@type": "Schedule", "name": "Ascensione", "startDate": "2026-05-14", "endDate": "2026-05-14", "description": "Ascensione — giovedì 14 maggio 2026. Festivo in Ticino, lavorativo in Italia; cade sempre di giovedì (ponte).", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#6`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 7, "item": {"@type": "Schedule", "name": "Lunedì di Pentecoste", "startDate": "2026-05-25", "endDate": "2026-05-25", "description": "Lunedì di Pentecoste — lunedì 25 maggio 2026. Festivo in Ticino, lavorativo in Italia.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#7`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 8, "item": {"@type": "Schedule", "name": "Corpus Domini", "startDate": "2026-06-04", "endDate": "2026-06-04", "description": "Corpus Domini — giovedì 4 giugno 2026. Festivo in Ticino, lavorativo in Italia; cade sempre di giovedì (ponte).", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#8`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 9, "item": {"@type": "Schedule", "name": "SS. Pietro e Paolo", "startDate": "2026-06-29", "endDate": "2026-06-29", "description": "SS. Pietro e Paolo — lunedì 29 giugno 2026. Festivo in Ticino, lavorativo in Italia.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#9`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 10, "item": {"@type": "Schedule", "name": "Festa Nazionale Svizzera", "startDate": "2026-08-01", "endDate": "2026-08-01", "description": "Festa Nazionale Svizzera — sabato 1 agosto 2026. Unico festivo fissato dalla legge federale; nel 2026 cade di sabato: non c'è recupero.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#10`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 11, "item": {"@type": "Schedule", "name": "Assunzione di Maria", "startDate": "2026-08-15", "endDate": "2026-08-15", "description": "Assunzione di Maria (Ferragosto) — sabato 15 agosto 2026. Festivo in Ticino e in Italia, cade di sabato.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#11`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 12, "item": {"@type": "Schedule", "name": "Ognissanti", "startDate": "2026-11-01", "endDate": "2026-11-01", "description": "Ognissanti — domenica 1 novembre 2026. Festivo in Ticino e in Italia, cade di domenica.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#12`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 13, "item": {"@type": "Schedule", "name": "Immacolata Concezione", "startDate": "2026-12-08", "endDate": "2026-12-08", "description": "Immacolata Concezione — martedì 8 dicembre 2026. Festivo in Ticino e in Italia.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#13`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 14, "item": {"@type": "Schedule", "name": "Natale", "startDate": "2026-12-25", "endDate": "2026-12-25", "description": "Natale — venerdì 25 dicembre 2026. Festivo in Ticino e in Italia.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#14`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 15, "item": {"@type": "Schedule", "name": "Santo Stefano", "startDate": "2026-12-26", "endDate": "2026-12-26", "description": "Santo Stefano — sabato 26 dicembre 2026. Festivo in Ticino e in Italia, cade di sabato.", "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/#15`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}}
  ]
  },
  {
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Quanti giorni festivi ci sono in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il Canton Ticino riconosce 15 giorni festivi ufficiali nel 2026: 4 festività federali svizzere (Capodanno, Lunedì dell'Angelo, Ascensione, 1° Agosto, Natale, Santo Stefano) più le festività cantonali cattoliche tipiche della Svizzera italiana (Epifania, San Giuseppe, Venerdì Santo, Pentecoste, Corpus Domini, SS. Pietro e Paolo, Assunzione, Ognissanti, Immacolata)." } },
+ { "@type": "Question", "name": "Quanti giorni festivi ci sono in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il Canton Ticino riconosce 15 giorni festivi ufficiali (Legge concernente i giorni festivi ufficiali del 15 dicembre 2009): Capodanno, Epifania, San Giuseppe, Lunedì di Pasqua, Festa del Lavoro, Ascensione, Lunedì di Pentecoste, Corpus Domini, SS. Pietro e Paolo, Festa nazionale del 1° agosto, Assunzione, Ognissanti, Immacolata, Natale e Santo Stefano. Il Venerdì Santo, festivo in molti cantoni d'oltralpe, in Ticino è lavorativo." } },
  { "@type": "Question", "name": "Il 1° agosto 2026 è festivo in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, il 1° agosto 2026 è la Festa Nazionale Svizzera ed è un giorno festivo federale in tutto il Paese, Ticino incluso. Nel 2026 cade di sabato, quindi per chi non lavora il sabato non è previsto un giorno di recupero secondo il Codice delle Obbligazioni svizzero (art. 110 ss.): la maggior parte dei CCL ticinesi non prevede compensazione." } },
- { "@type": "Question", "name": "Cosa succede se un festivo cade di sabato o domenica in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "In Svizzera, a differenza dell'Italia, se un festivo cade di sabato o domenica NON viene recuperato: il lavoratore perde semplicemente il beneficio del giorno libero. Nel 2026 questo capita a due festività ticinesi importanti: il 1° agosto (sabato) e il 15 agosto - Assunzione (sabato). Solo alcuni CCL di settore prevedono un giorno di recupero." } },
+ { "@type": "Question", "name": "Cosa succede se un festivo cade di sabato o domenica in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "In Svizzera, a differenza dell'Italia, se un festivo cade di sabato o domenica NON viene recuperato: il lavoratore perde semplicemente il beneficio del giorno libero. Nel 2026 questo capita a quattro festività ticinesi: il 1° agosto e il 15 agosto - Assunzione (sabato), Ognissanti (domenica 1° novembre) e Santo Stefano (sabato 26 dicembre). Solo alcuni CCL di settore prevedono un giorno di recupero." } },
  { "@type": "Question", "name": "Quali festività sono riconosciute in Ticino ma NON nel resto della Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Il Ticino, come cantone storicamente cattolico, riconosce 7 festività cantonali aggiuntive rispetto ai cantoni protestanti: Epifania (6/1), San Giuseppe (19/3), Corpus Domini, SS. Pietro e Paolo (29/6), Assunzione (15/8), Ognissanti (1/11), Immacolata (8/12). Questo significa che un frontaliere in Ticino ha in media 3-5 giorni festivi in più rispetto a chi lavora a Zurigo o Basilea." } },
- { "@type": "Question", "name": "Le festività italiane (25 aprile, 2 giugno) valgono per il frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Il frontaliere segue il calendario festivo svizzero/ticinese perché il rapporto di lavoro è regolato dal diritto del lavoro svizzero (lex loci laboris). Le festività italiane (25 aprile Liberazione, 2 giugno Festa della Repubblica, santo patrono locale, 8 dicembre, ecc.) non sono riconosciute come giorni non lavorativi dal datore svizzero: per non andare al lavoro il frontaliere deve prendere un giorno di ferie ordinarie." } },
+ { "@type": "Question", "name": "Le festività italiane (25 aprile, 2 giugno) valgono per il frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Il frontaliere segue il calendario festivo svizzero/ticinese perché il rapporto di lavoro è regolato dal diritto del lavoro svizzero (lex loci laboris). Le festività italiane (25 aprile Liberazione, 2 giugno Festa della Repubblica, santo patrono locale, ecc.) non sono riconosciute come giorni non lavorativi dal datore svizzero: per non andare al lavoro il frontaliere deve prendere un giorno di ferie ordinarie." } },
  { "@type": "Question", "name": "Come viene pagato il frontaliere nei giorni festivi in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Il Codice delle Obbligazioni e la Legge sul Lavoro stabiliscono che il datore svizzero debba pagare i festivi che cadono in un giorno lavorativo anche se il lavoratore è assente. Il lavoratore in Stundenlohn (orario) riceve il compenso regolare, quello in salario mensile riceve lo stipendio pieno. Se il frontaliere lavora in un giorno festivo, la maggior parte dei CCL ticinesi prevede una maggiorazione del 50% o un giorno di recupero; alcuni settori (sanità, ospitalità, trasporti) arrivano al 100% di maggiorazione." } },
- { "@type": "Question", "name": "Quali sono i ponti migliori per frontalieri nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 i ponti più convenienti sono: Pasqua (Venerdì Santo 3 aprile + Pasquetta 6 aprile — già 4 giorni), Ascensione (giovedì 14 maggio, ponte con un giorno di ferie venerdì 15), Corpus Domini (giovedì 4 giugno, ponte con venerdì 5), SS. Pietro e Paolo (lunedì 29 giugno, weekend lungo). Meno fortunati i festivi 2026: il 1° agosto cade di sabato e il 15 agosto pure." } },
+ { "@type": "Question", "name": "Quali sono i ponti migliori per frontalieri nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 i ponti più convenienti sono: San Giuseppe (giovedì 19 marzo, ponte con un giorno di ferie venerdì 20), Pasqua (da sabato 4 a Pasquetta lunedì 6 aprile — 3 giorni; il Venerdì Santo in Ticino è lavorativo), Ascensione (giovedì 14 maggio, ponte con un giorno di ferie venerdì 15), Corpus Domini (giovedì 4 giugno, ponte con venerdì 5), SS. Pietro e Paolo (lunedì 29 giugno, weekend lungo). Meno fortunati i festivi 2026: il 1° agosto cade di sabato e il 15 agosto pure." } },
  { "@type": "Question", "name": "Quanti giorni di ferie ha un frontaliere in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Per legge svizzera (CO art. 329a) il minimo è 4 settimane (20 giorni lavorativi) all'anno per adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL ticinesi prevedono 5 settimane dopo una certa anzianità (5-10 anni) e 6 settimane per over 50. I giorni festivi NON rientrano nel conteggio delle ferie: si aggiungono ai 20 giorni di ferie minime." } },
  { "@type": "Question", "name": "Qual è la festa del Canton Ticino più sentita?", "acceptedAnswer": { "@type": "Answer", "text": "La festa del Canton Ticino più sentita è il 1° agosto (Festa Nazionale Svizzera) con falò sulle montagne di Lugano, Mendrisio, Chiasso e Bellinzona, più il Ferragosto (Assunzione, 15 agosto) con processioni nei borghi cattolici del Mendrisiotto e del Malcantone. Storicamente anche San Giuseppe (19 marzo) è festa patronale in diversi comuni ticinesi. Il Canton Ticino non ha una festa 'cantonale' unica analoga al Giura: la sua identità festiva combina calendario federale svizzero e tradizioni cattoliche italofone." } },
- { "@type": "Question", "name": "Quali sono i prossimi festivi in Ticino 2026?", "acceptedAnswer": { "@type": "Answer", "text": "I prossimi festivi in Ticino nel 2026 — partendo dalla metà dell'anno — sono: SS. Pietro e Paolo (lunedì 29 giugno), Festa Nazionale Svizzera (sabato 1 agosto), Assunzione (sabato 15 agosto), Ognissanti (domenica 1 novembre), Immacolata Concezione (martedì 8 dicembre), Natale (venerdì 25 dicembre) e Santo Stefano (sabato 26 dicembre). Tre di questi cadono nel weekend e non danno giorno di recupero nelle aziende ticinesi senza CCL migliorativo." } },
+ { "@type": "Question", "name": "Quali sono i prossimi festivi in Ticino 2026?", "acceptedAnswer": { "@type": "Answer", "text": "I prossimi festivi in Ticino nel 2026 — partendo dalla metà dell'anno — sono: SS. Pietro e Paolo (lunedì 29 giugno), Festa Nazionale Svizzera (sabato 1 agosto), Assunzione (sabato 15 agosto), Ognissanti (domenica 1 novembre), Immacolata Concezione (martedì 8 dicembre), Natale (venerdì 25 dicembre) e Santo Stefano (sabato 26 dicembre). Quattro di questi cadono nel weekend e non danno giorno di recupero nelle aziende ticinesi senza CCL migliorativo." } },
  { "@type": "Question", "name": "I festivi in Ticino sono uguali a quelli della Svizzera italiana?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: il Canton Ticino e le valli italofone del Canton Grigioni (Mesolcina, Calanca, Bregaglia, Poschiavo) condividono lo stesso calendario festivo cattolico, con Epifania, San Giuseppe, Corpus Domini, Assunzione, Ognissanti e Immacolata. La differenza emerge rispetto ai cantoni protestanti (Zurigo, Berna, Basilea Città) dove queste ricorrenze non sono giorni festivi ufficiali. Un frontaliere trasferito da Lugano a Zurigo perde in media 5-7 giorni festivi all'anno." } }
  ],
  "speakable": SPEAKABLE_SECTION
  },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/`,
- "claimReviewed": "Il Canton Ticino riconosce 15 giorni festivi ufficiali nel 2026: 4 festività federali svizzere più 11 festività cantonali cattoliche.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-24",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Cancelleria dello Stato del Canton Ticino — Legge sui giorni festivi (LGF)" },
- "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/254", "name": "Canton Ticino — Legge concernente i giorni festivi ufficiali (art. 1)" }
- },
- "reviewBody": "Elenco ufficiale dei giorni festivi cantonali stabilito dalla Legge cantonale sui giorni festivi (art. 1) + festività federali art. 110 CO: totale 15 giorni nel 2026."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino/`,
- "claimReviewed": "Il frontaliere italiano segue il calendario festivo svizzero (lex loci laboris), non quello italiano: le festività italiane non sono riconosciute come giorni non lavorativi dal datore svizzero.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-24",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Codice delle Obbligazioni svizzero (CO) art. 110 + Regolamento (CE) 883/2004" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/it#art_110", "name": "Fedlex — CO art. 110 (giorni festivi ufficiali)" }
- },
- "reviewBody": "Principio lex loci laboris del diritto internazionale del lavoro: rapporto di lavoro e festività regolati dalla legge del luogo di esecuzione (Svizzera/Ticino). Confermato art. 11 Reg. (CE) 883/2004 + dottrina SECO."
- }
  ]
  },
 
@@ -2578,7 +2290,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "Article",
  "headline": "Feiertage Tessin 2026: Vollständiger Kalender der Feiertage des Kantons Tessin",
  "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/`,
- "abstract": "Der Kanton Tessin anerkennt 2026 insgesamt 15 offizielle Feiertage: 4 nationale Schweizer Feiertage und 11 kantonale katholische Feiertage, die für die italienische Schweiz typisch sind. Grenzgänger folgen dem Schweizer Kalender (lex loci laboris), nicht dem italienischen.",
+ "abstract": "Der Kanton Tessin anerkennt 15 offizielle Feiertage, festgelegt im kantonalen Gesetz über die offiziellen Feiertage vom 15. Dezember 2009: darunter der Josefstag (19. März), während der Karfreitag ein Arbeitstag ist. Grenzgänger folgen dem Schweizer Kalender (lex loci laboris), nicht dem italienischen.",
  "description": "Feiertage Tessin 2026: alle 15 offiziellen Feiertage des Kantons Tessin mit Datum, Wochentag, Brückentagen, Unterschieden zur übrigen Schweiz und Auswirkungen auf den Lohn des Grenzgängers",
  "inLanguage": "de",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
@@ -2595,21 +2307,21 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "itemListOrder": "https://schema.org/ItemListOrderAscending",
  "numberOfItems": 15,
  "itemListElement": [
- {"@type": "ListItem", "position": 1, "item": {"@type": "Schedule", "name": "Neujahr", "startDate": "2026-01-01", "endDate": "2026-01-01", "description": "Neujahr — Donnerstag, 1. Januar 2026. Schweizer Bundesfeiertag, arbeitsfrei im gesamten Tessin.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#1`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 2, "item": {"@type": "Schedule", "name": "Berchtoldstag (2. Januar)", "startDate": "2026-01-02", "endDate": "2026-01-02", "description": "Berchtoldstag — Freitag, 2. Januar 2026. In einigen Tessiner Gemeinden fakultativer Feiertag, Banken bleiben geschlossen.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#2`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 3, "item": {"@type": "Schedule", "name": "Dreikönigstag", "startDate": "2026-01-06", "endDate": "2026-01-06", "description": "Dreikönigstag — Dienstag, 6. Januar 2026. Kantonaler Tessiner Feiertag, in Italien ebenfalls anerkannt.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#3`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 4, "item": {"@type": "Schedule", "name": "Josefstag", "startDate": "2026-03-19", "endDate": "2026-03-19", "description": "Josefstag — Donnerstag, 19. März 2026. Kantonaler Tessiner Feiertag, im übrigen Schweizer Gebiet nicht anerkannt.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#4`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 5, "item": {"@type": "Schedule", "name": "Karfreitag", "startDate": "2026-04-03", "endDate": "2026-04-03", "description": "Karfreitag — Freitag, 3. April 2026. Kantonaler Tessiner Feiertag; kein Bundesfeiertag, aber im Tessin anerkannt.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#5`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 6, "item": {"@type": "Schedule", "name": "Ostermontag", "startDate": "2026-04-06", "endDate": "2026-04-06", "description": "Ostermontag — Montag, 6. April 2026. Schweizer Bundesfeiertag, ergibt zusammen mit Karfreitag und Wochenende vier freie Tage in Folge.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#6`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 7, "item": {"@type": "Schedule", "name": "Tag der Arbeit", "startDate": "2026-05-01", "endDate": "2026-05-01", "description": "Tag der Arbeit — Freitag, 1. Mai 2026. Kantonaler Tessiner Feiertag, kein Bundesfeiertag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#7`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 8, "item": {"@type": "Schedule", "name": "Auffahrt", "startDate": "2026-05-14", "endDate": "2026-05-14", "description": "Auffahrt (Christi Himmelfahrt) — Donnerstag, 14. Mai 2026. Schweizer Bundesfeiertag, fällt immer auf einen Donnerstag (idealer Brückentag).", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#8`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 9, "item": {"@type": "Schedule", "name": "Pfingstmontag", "startDate": "2026-05-25", "endDate": "2026-05-25", "description": "Pfingstmontag — Montag, 25. Mai 2026. Kantonaler Tessiner Feiertag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#9`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 10, "item": {"@type": "Schedule", "name": "Fronleichnam", "startDate": "2026-06-04", "endDate": "2026-06-04", "description": "Fronleichnam — Donnerstag, 4. Juni 2026. Kantonaler Tessiner Feiertag, fällt immer auf einen Donnerstag (idealer Brückentag).", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#10`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 11, "item": {"@type": "Schedule", "name": "Peter und Paul", "startDate": "2026-06-29", "endDate": "2026-06-29", "description": "Peter und Paul — Montag, 29. Juni 2026. Kantonaler Tessiner Feiertag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#11`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 12, "item": {"@type": "Schedule", "name": "Schweizer Bundesfeier", "startDate": "2026-08-01", "endDate": "2026-08-01", "description": "Schweizer Bundesfeier (Nationalfeiertag) — Samstag, 1. August 2026. Bundesfeiertag, fällt auf einen Samstag: kein Nachholtag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#12`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 13, "item": {"@type": "Schedule", "name": "Mariä Himmelfahrt", "startDate": "2026-08-15", "endDate": "2026-08-15", "description": "Mariä Himmelfahrt (Ferragosto) — Samstag, 15. August 2026. Kantonaler Tessiner Feiertag, fällt auf einen Samstag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#13`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 14, "item": {"@type": "Schedule", "name": "Allerheiligen", "startDate": "2026-11-01", "endDate": "2026-11-01", "description": "Allerheiligen — Sonntag, 1. November 2026. Kantonaler Tessiner Feiertag, fällt auf einen Sonntag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#14`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
- {"@type": "ListItem", "position": 15, "item": {"@type": "Schedule", "name": "Mariä Empfängnis", "startDate": "2026-12-08", "endDate": "2026-12-08", "description": "Mariä Empfängnis (Immaculata) — Dienstag, 8. Dezember 2026. Kantonaler Tessiner Feiertag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#15`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}}
+ {"@type": "ListItem", "position": 1, "item": {"@type": "Schedule", "name": "Neujahr", "startDate": "2026-01-01", "endDate": "2026-01-01", "description": "Neujahr — Donnerstag, 1. Januar 2026. Offizieller Feiertag im Tessin und in Italien.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#1`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 2, "item": {"@type": "Schedule", "name": "Dreikönigstag", "startDate": "2026-01-06", "endDate": "2026-01-06", "description": "Dreikönigstag — Dienstag, 6. Januar 2026. Offizieller Tessiner Feiertag, in Italien ebenfalls anerkannt.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#2`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 3, "item": {"@type": "Schedule", "name": "Josefstag", "startDate": "2026-03-19", "endDate": "2026-03-19", "description": "Josefstag — Donnerstag, 19. März 2026. Offizieller Tessiner Feiertag, in Italien Arbeitstag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#3`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 4, "item": {"@type": "Schedule", "name": "Ostermontag", "startDate": "2026-04-06", "endDate": "2026-04-06", "description": "Ostermontag — Montag, 6. April 2026. Feiertag im Tessin und in Italien; der Karfreitag (3. April) ist im Tessin ein Arbeitstag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#4`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 5, "item": {"@type": "Schedule", "name": "Tag der Arbeit", "startDate": "2026-05-01", "endDate": "2026-05-01", "description": "Tag der Arbeit — Freitag, 1. Mai 2026. Offizieller Feiertag im Tessin und in Italien.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#5`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 6, "item": {"@type": "Schedule", "name": "Auffahrt", "startDate": "2026-05-14", "endDate": "2026-05-14", "description": "Auffahrt — Donnerstag, 14. Mai 2026. Feiertag im Tessin, Arbeitstag in Italien; fällt immer auf einen Donnerstag (Brückentag).", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#6`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 7, "item": {"@type": "Schedule", "name": "Pfingstmontag", "startDate": "2026-05-25", "endDate": "2026-05-25", "description": "Pfingstmontag — Montag, 25. Mai 2026. Feiertag im Tessin, Arbeitstag in Italien.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#7`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 8, "item": {"@type": "Schedule", "name": "Fronleichnam", "startDate": "2026-06-04", "endDate": "2026-06-04", "description": "Fronleichnam — Donnerstag, 4. Juni 2026. Feiertag im Tessin, Arbeitstag in Italien; fällt immer auf einen Donnerstag (Brückentag).", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#8`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 9, "item": {"@type": "Schedule", "name": "Peter und Paul", "startDate": "2026-06-29", "endDate": "2026-06-29", "description": "Peter und Paul — Montag, 29. Juni 2026. Feiertag im Tessin, Arbeitstag in Italien.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#9`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 10, "item": {"@type": "Schedule", "name": "Schweizer Bundesfeier", "startDate": "2026-08-01", "endDate": "2026-08-01", "description": "Schweizer Bundesfeier — Samstag, 1. August 2026. Einziger bundesrechtlich festgelegter Feiertag; 2026 ein Samstag: kein Nachholtag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#10`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 11, "item": {"@type": "Schedule", "name": "Mariä Himmelfahrt", "startDate": "2026-08-15", "endDate": "2026-08-15", "description": "Mariä Himmelfahrt (Ferragosto) — Samstag, 15. August 2026. Feiertag im Tessin und in Italien, fällt auf einen Samstag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#11`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 12, "item": {"@type": "Schedule", "name": "Allerheiligen", "startDate": "2026-11-01", "endDate": "2026-11-01", "description": "Allerheiligen — Sonntag, 1. November 2026. Feiertag im Tessin und in Italien, fällt auf einen Sonntag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#12`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 13, "item": {"@type": "Schedule", "name": "Mariä Empfängnis", "startDate": "2026-12-08", "endDate": "2026-12-08", "description": "Mariä Empfängnis — Dienstag, 8. Dezember 2026. Feiertag im Tessin und in Italien.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#13`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 14, "item": {"@type": "Schedule", "name": "Weihnachten", "startDate": "2026-12-25", "endDate": "2026-12-25", "description": "Weihnachten — Freitag, 25. Dezember 2026. Feiertag im Tessin und in Italien.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#14`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}},
+ {"@type": "ListItem", "position": 15, "item": {"@type": "Schedule", "name": "Stephanstag", "startDate": "2026-12-26", "endDate": "2026-12-26", "description": "Stephanstag — Samstag, 26. Dezember 2026. Feiertag im Tessin und in Italien, fällt auf einen Samstag.", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/#15`, "repeatFrequency": "P1Y", "repeatCount": 1, "scheduleTimezone": "Europe/Zurich"}}
  ]
  },
  {
@@ -2617,50 +2329,20 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "FAQPage",
  "inLanguage": "de",
  "mainEntity": [
- { "@type": "Question", "name": "Wie viele Feiertage gibt es im Kanton Tessin im Jahr 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Der Kanton Tessin anerkennt 2026 insgesamt 15 offizielle Feiertage: 4 Schweizer Bundesfeiertage (Neujahr, Ostermontag, Auffahrt, 1. August, Weihnachten, Stephanstag) plus die typisch katholischen Feiertage der italienischen Schweiz (Dreikönigstag, Josefstag, Karfreitag, Pfingsten, Fronleichnam, Peter und Paul, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis)." } },
+ { "@type": "Question", "name": "Wie viele Feiertage gibt es im Kanton Tessin im Jahr 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Der Kanton Tessin anerkennt 15 offizielle Feiertage (Gesetz über die offiziellen Feiertage vom 15. Dezember 2009): Neujahr, Dreikönigstag, Josefstag, Ostermontag, Tag der Arbeit, Auffahrt, Pfingstmontag, Fronleichnam, Peter und Paul, Bundesfeier am 1. August, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis, Weihnachten und Stephanstag. Der Karfreitag, in vielen Deutschschweizer Kantonen ein Feiertag, ist im Tessin ein Arbeitstag." } },
  { "@type": "Question", "name": "Ist der 1. August 2026 ein Feiertag im Tessin?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, der 1. August 2026 ist der Schweizer Nationalfeiertag und ein Bundesfeiertag, auch im Tessin. 2026 fällt er auf einen Samstag: Wer nicht samstags arbeitet, erhält gemäss Schweizer Obligationenrecht (Art. 110 ff.) keinen Nachholtag — die meisten Tessiner GAV sehen keine Kompensation vor." } },
- { "@type": "Question", "name": "Was passiert, wenn ein Feiertag in der Schweiz auf einen Samstag oder Sonntag fällt?", "acceptedAnswer": { "@type": "Answer", "text": "Anders als in Italien werden Feiertage in der Schweiz NICHT nachgeholt, wenn sie auf einen Samstag oder Sonntag fallen: Der freie Tag geht schlicht verloren. 2026 betrifft das zwei wichtige Tessiner Feiertage: den 1. August (Samstag) und den 15. August — Mariä Himmelfahrt (Samstag). Nur einige Branchen-GAV sehen einen Nachholtag vor." } },
+ { "@type": "Question", "name": "Was passiert, wenn ein Feiertag in der Schweiz auf einen Samstag oder Sonntag fällt?", "acceptedAnswer": { "@type": "Answer", "text": "Anders als in Italien werden Feiertage in der Schweiz NICHT nachgeholt, wenn sie auf einen Samstag oder Sonntag fallen: Der freie Tag geht schlicht verloren. 2026 betrifft das vier Tessiner Feiertage: den 1. August und den 15. August — Mariä Himmelfahrt (beide Samstag), Allerheiligen (Sonntag, 1. November) und den Stephanstag (Samstag, 26. Dezember). Nur einige Branchen-GAV sehen einen Nachholtag vor." } },
  { "@type": "Question", "name": "Welche Feiertage werden im Tessin anerkannt, im Rest der Schweiz aber NICHT?", "acceptedAnswer": { "@type": "Answer", "text": "Das Tessin als historisch katholischer Kanton anerkennt 7 zusätzliche kantonale Feiertage gegenüber den protestantischen Kantonen: Dreikönigstag (6.1.), Josefstag (19.3.), Fronleichnam, Peter und Paul (29.6.), Mariä Himmelfahrt (15.8.), Allerheiligen (1.11.) und Mariä Empfängnis (8.12.). Ein Grenzgänger im Tessin hat im Durchschnitt 3 bis 5 bezahlte Feiertage mehr als jemand in Zürich oder Basel." } },
- { "@type": "Question", "name": "Gelten italienische Feiertage (25. April, 2. Juni) auch für Grenzgänger?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. Grenzgänger richten sich nach dem Schweizer/Tessiner Feiertagskalender, weil das Arbeitsverhältnis dem Schweizer Arbeitsrecht unterliegt (lex loci laboris). Italienische Feiertage (25. April Befreiungstag, 2. Juni Tag der Republik, lokale Patronatsfeste, 8. Dezember etc.) gelten beim Schweizer Arbeitgeber nicht als arbeitsfreie Tage: Wer zu Hause bleiben möchte, muss reguläre Ferien nehmen." } },
+ { "@type": "Question", "name": "Gelten italienische Feiertage (25. April, 2. Juni) auch für Grenzgänger?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. Grenzgänger richten sich nach dem Schweizer/Tessiner Feiertagskalender, weil das Arbeitsverhältnis dem Schweizer Arbeitsrecht unterliegt (lex loci laboris). Italienische Feiertage (25. April Befreiungstag, 2. Juni Tag der Republik, lokale Patronatsfeste etc.) gelten beim Schweizer Arbeitgeber nicht als arbeitsfreie Tage: Wer zu Hause bleiben möchte, muss reguläre Ferien nehmen." } },
  { "@type": "Question", "name": "Wie wird ein Grenzgänger im Tessin an Feiertagen bezahlt?", "acceptedAnswer": { "@type": "Answer", "text": "Obligationenrecht und Arbeitsgesetz verpflichten den Schweizer Arbeitgeber, Feiertage, die auf einen Arbeitstag fallen, auch bei Abwesenheit des Arbeitnehmers zu bezahlen. Im Stundenlohn Beschäftigte erhalten den üblichen Lohn, Monatslohnempfänger den vollen Lohn. Wer an einem Feiertag arbeitet, erhält in den meisten Tessiner GAV einen Zuschlag von 50 % oder einen Kompensationstag; manche Branchen (Gesundheit, Gastgewerbe, Transport) zahlen bis zu 100 %." } },
- { "@type": "Question", "name": "Was sind die besten Brückentage für Grenzgänger 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Die besten Brückentage 2026 sind: Ostern (Karfreitag 3. April + Ostermontag 6. April — bereits 4 freie Tage), Auffahrt (Donnerstag 14. Mai, Brücke mit einem Ferientag am Freitag 15.5.), Fronleichnam (Donnerstag 4. Juni, Brücke mit Freitag 5.6.), Peter und Paul (Montag 29. Juni, langes Wochenende). Weniger glücklich: Der 1. August fällt 2026 auf einen Samstag, ebenso Mariä Himmelfahrt (15. August)." } },
+ { "@type": "Question", "name": "Was sind die besten Brückentage für Grenzgänger 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Die besten Brückentage 2026 sind: Josefstag (Donnerstag 19. März, Brücke mit einem Ferientag am Freitag 20.3.), Ostern (Samstag 4. bis Ostermontag 6. April — 3 freie Tage; der Karfreitag ist im Tessin ein Arbeitstag), Auffahrt (Donnerstag 14. Mai, Brücke mit einem Ferientag am Freitag 15.5.), Fronleichnam (Donnerstag 4. Juni, Brücke mit Freitag 5.6.), Peter und Paul (Montag 29. Juni, langes Wochenende). Weniger glücklich: Der 1. August fällt 2026 auf einen Samstag, ebenso Mariä Himmelfahrt (15. August)." } },
  { "@type": "Question", "name": "Wie viele Ferientage hat ein Grenzgänger in der Schweiz?", "acceptedAnswer": { "@type": "Answer", "text": "Nach Schweizer Recht (OR Art. 329a) beträgt das Minimum 4 Wochen (20 Arbeitstage) pro Jahr für Erwachsene und 5 Wochen für Arbeitnehmende unter 20 Jahren. Viele Tessiner GAV sehen nach einer gewissen Betriebszugehörigkeit (5–10 Jahre) 5 Wochen vor und 6 Wochen für Beschäftigte über 50. Feiertage zählen NICHT zur Ferienberechnung: sie kommen zu den Mindestferientagen hinzu." } },
  { "@type": "Question", "name": "Welcher ist der bedeutendste Feiertag im Kanton Tessin?", "acceptedAnswer": { "@type": "Answer", "text": "Der bedeutendste Feiertag im Tessin ist der 1. August (Schweizer Bundesfeier) mit Höhenfeuern auf den Bergen rund um Lugano, Mendrisio, Chiasso und Bellinzona, gefolgt von Mariä Himmelfahrt (15. August) mit Prozessionen in den katholischen Dörfern des Mendrisiotto und Malcantone. Auch der Josefstag (19. März) ist in mehreren Tessiner Gemeinden Patronatsfest. Das Tessin hat keinen einzigen 'Kantonsfeiertag' wie der Jura: Seine Festkultur kombiniert Schweizer Bundeskalender mit italienisch-katholischen Traditionen." } },
- { "@type": "Question", "name": "Welche sind die nächsten Feiertage im Tessin 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Die nächsten Feiertage im Tessin 2026 — ab Jahresmitte — sind: Peter und Paul (Montag 29. Juni), Schweizer Bundesfeier (Samstag 1. August), Mariä Himmelfahrt (Samstag 15. August), Allerheiligen (Sonntag 1. November), Mariä Empfängnis (Dienstag 8. Dezember), Weihnachten (Freitag 25. Dezember) und Stephanstag (Samstag 26. Dezember). Drei davon fallen aufs Wochenende und ergeben in Tessiner Betrieben ohne besseren GAV keinen Nachholtag." } },
+ { "@type": "Question", "name": "Welche sind die nächsten Feiertage im Tessin 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Die nächsten Feiertage im Tessin 2026 — ab Jahresmitte — sind: Peter und Paul (Montag 29. Juni), Schweizer Bundesfeier (Samstag 1. August), Mariä Himmelfahrt (Samstag 15. August), Allerheiligen (Sonntag 1. November), Mariä Empfängnis (Dienstag 8. Dezember), Weihnachten (Freitag 25. Dezember) und Stephanstag (Samstag 26. Dezember). Vier davon fallen aufs Wochenende und ergeben in Tessiner Betrieben ohne besseren GAV keinen Nachholtag." } },
  { "@type": "Question", "name": "Sind die Feiertage im Tessin gleich wie in der italienischen Schweiz?", "acceptedAnswer": { "@type": "Answer", "text": "Ja: Der Kanton Tessin und die italienischsprachigen Täler des Kantons Graubünden (Misox, Calanca, Bergell, Puschlav) teilen denselben katholischen Feiertagskalender mit Dreikönigstag, Josefstag, Fronleichnam, Mariä Himmelfahrt, Allerheiligen und Mariä Empfängnis. Der Unterschied zeigt sich gegenüber den protestantischen Kantonen (Zürich, Bern, Basel-Stadt), wo diese Tage keine offiziellen Feiertage sind. Ein Grenzgänger, der von Lugano nach Zürich versetzt wird, verliert im Schnitt 5–7 Feiertage pro Jahr." } }
  ],
  "speakable": SPEAKABLE_SECTION
  },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/`,
- "claimReviewed": "Der Kanton Tessin anerkennt 2026 insgesamt 15 offizielle Feiertage: 4 nationale Schweizer Feiertage und 11 kantonale katholische Feiertage.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-24",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Wahr" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Staatskanzlei Kanton Tessin — Gesetz über die offiziellen Feiertage (LGF)" },
- "appearance": { "@type": "CreativeWork", "url": "https://m3.ti.ch/CAN/RLeggi/public/index.php/raccolta-leggi/legge/num/254", "name": "Kanton Tessin — Gesetz über die offiziellen Feiertage (Art. 1)" }
- },
- "reviewBody": "Offizielle Liste der kantonalen Feiertage gemäss kantonalem Feiertagsgesetz (Art. 1) ergänzt durch Bundesfeiertage nach OR Art. 110: insgesamt 15 Tage im Jahr 2026."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage/`,
- "claimReviewed": "Der italienische Grenzgänger folgt dem Schweizer Feiertagskalender (lex loci laboris) und nicht dem italienischen: Italienische Feiertage werden vom Schweizer Arbeitgeber nicht als arbeitsfreie Tage anerkannt.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-24",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Wahr" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Schweizerisches Obligationenrecht (OR) Art. 110 + Verordnung (EG) 883/2004" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/de#art_110", "name": "Fedlex — OR Art. 110 (offizielle Feiertage)" }
- },
- "reviewBody": "Grundsatz lex loci laboris des internationalen Arbeitsrechts: Arbeitsverhältnis und Feiertage richten sich nach dem Recht des Arbeitsortes (Schweiz/Tessin). Bestätigt durch Art. 11 Verordnung (EG) 883/2004 + Lehrmeinung SECO."
- }
  ]
  },
 
@@ -3400,18 +3082,18 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  dashboard: {
- title: 'Dashboard Personale | Storico Simulazioni Frontaliere',
- description: 'Dashboard personale per frontalieri: salva le tue simulazioni fiscali, confronta risultati nel tempo, esporta report PDF. Tieni traccia del tuo percorso da.',
+ title: 'Dashboard Personale | Profilo e Permesso del Frontaliere',
+ description: 'Area personale del frontaliere: salva profilo e scadenza del permesso, stima il netto, segui candidature e offerte salvate, esporta i tuoi dati.',
  keywords: 'dashboard frontaliere, storico simulazioni, confronto simulazioni fiscali, report PDF frontaliere, salva simulazione frontaliere',
  ogTitle: 'Dashboard Personale Frontaliere',
- ogDescription: '📊 Salva, confronta e esporta le tue simulazioni fiscali. Dashboard personale per frontalieri.',
+ ogDescription: '📊 Profilo, scadenza del permesso, stima del netto, candidature e offerte salvate: la tua area personale da frontaliere.',
  canonicalPath: '/profilo/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "WebPage",
  "name": "Dashboard Personale Frontaliere",
  "url": `${BASE_URL}/profilo/`,
- "description": "Dashboard personale per frontalieri: salva simulazioni fiscali, confronta risultati nel tempo, esporta PDF",
+ "description": "Area personale del frontaliere: profilo, scadenza del permesso, stima del netto, candidature e offerte di lavoro salvate, esportazione dei dati",
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
@@ -3521,7 +3203,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Come funziona il credito d'imposta per frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il credito d'imposta evita la doppia imposizione: le tasse pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana nel quadro CE della dichiarazione dei redditi. Il credito è limitato alla quota di imposta italiana corrispondente al reddito estero. Secondo la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «È essenziale conservare il certificato di salario svizzero (Lohnausweis) come prova dell'imposta alla fonte pagata»."
+ "text": "Il credito d'imposta evita la doppia imposizione: le tasse pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana nel quadro CE della dichiarazione dei redditi. Il credito è limitato alla quota di imposta italiana corrispondente al reddito estero. È essenziale conservare il certificato di salario svizzero (Lohnausweis) come prova dell'imposta alla fonte pagata."
  }
  },
  {
@@ -4248,7 +3930,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Come funziona il credito d'imposta nel quadro CE?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Nel quadro CE si indica l'imposta alla fonte svizzera pagata, convertita in euro al cambio medio annuo. Il credito d'imposta riduce l'IRPEF dovuta fino a concorrenza: non può mai superare l'IRPEF italiana calcolata sul reddito estero. Secondo la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «L'eventuale eccedenza del credito può essere riportata nelle otto dichiarazioni successive»."
+ "text": "Nel quadro CE si indica l'imposta alla fonte svizzera pagata, convertita in euro al cambio medio annuo. Il credito d'imposta riduce l'IRPEF dovuta fino a concorrenza: non può mai superare l'IRPEF italiana calcolata sul reddito estero. L'eventuale eccedenza del credito può essere riportata nelle otto dichiarazioni successive."
  }
  },
  {
@@ -4690,36 +4372,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "PropertyValue", "name": "Risparmio potenziale", "value": "Differenza cambiando comune di residenza" }
  ],
  "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/health-premiums.json` }]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/statistiche/premi-malattia-comuni/`,
- "claimReviewed": "I premi LAMal variano sensibilmente tra cantoni e comuni svizzeri a parità di fascia d'età e modello assicurativo.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Ufficio federale della sanità pubblica (UFSP) — Premi dell'assicurazione malattie" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.priminfo.admin.ch/it/praemien", "name": "UFSP — Priminfo, confronto premi LAMal per regione" }
- },
- "reviewBody": "Dati ufficiali UFSP Priminfo 2026: variazione regionale documentata fino a +120% tra cantone con premio mediano più basso (Appenzello Interno) e più alto (Basilea Città), e differenze significative tra regioni di premio nello stesso cantone."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/statistiche/premi-malattia-comuni/`,
- "claimReviewed": "Il residente in Svizzera può risparmiare centinaia di franchi l'anno cambiando comune o regione di premio all'interno dello stesso cantone.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5", "worstRating": "1", "alternateName": "Generalmente vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Legge federale sull'assicurazione malattie (LAMal) art. 61 + OAMal art. 91" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.fedlex.admin.ch/eli/cc/1995/1328_1328_1328/it", "name": "Fedlex — LAMal art. 61 (fissazione dei premi per regione)" }
- },
- "reviewBody": "Art. 61 LAMal e art. 91 OAMal: le casse malati possono fissare premi diversi per regioni di premio riconosciute dall'UFSP. Esempio verificato 2026: in Canton Ticino passaggio Regione 1 (Lugano) → Regione 2 (comuni montani) comporta risparmio CHF 40-80/mese = CHF 500-1.000/anno per adulto."
  }
  ]
  },
@@ -7432,52 +7084,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Cosa succede se cambio datore di lavoro in Svizzera nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il cambio di datore non comporta automaticamente la perdita del regime dei vecchi frontalieri. Contano la precedente attività come frontaliere fiscale nel periodo 31 dicembre 2018–17 luglio 2023 e il rispetto delle condizioni applicabili. Verifica con il nuovo datore la documentazione per la tariffa corretta. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Come si recupera l'imposta alla fonte pagata in eccesso in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Occorre distinguere un errore nella trattenuta dalla tassazione ordinaria ulteriore (TOU). Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 dell’AFC esclude la TOU: superare CHF 120.000 non dà automaticamente accesso a questa procedura. Per una trattenuta errata verifica il conteggio con il datore e la procedura e i termini con l’autorità fiscale cantonale; non esiste un rimborso fisso garantito. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri/`,
- "claimReviewed": "L'imposta alla fonte in Canton Ticino per frontalieri varia dal 3% al 35% in base a reddito, stato civile e figli (2026).",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "AFC — Divisione delle contribuzioni Ticino" },
- "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/", "name": "AFC Ticino — Imposta alla fonte: tabelle A/B/C/H 2026" }
- },
- "reviewBody": "Tabelle cantonali AFC Ticino 2026: aliquote progressive dal 3% (redditi bassi, coniugati con figli) al 35% (redditi molto alti) per tabelle A, B, C, H."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri/`,
- "claimReviewed": "La franchigia IRPEF di 10.000 euro annui riguarda i redditi di lavoro dipendente frontaliero qualificati dalla normativa italiana; non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "dateModified": "2026-10-03",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Legge 13 giugno 2023 n. 83 — Ratifica Accordo Italia-Svizzera" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-06-13;83", "name": "Legge n. 83/2023 — Ratifica ed esecuzione dell'Accordo tra la Repubblica italiana e la Confederazione svizzera" }
- },
- "reviewBody": "L’articolo 4 della legge 83/2023 innalza a 10.000 euro la franchigia sui redditi di lavoro dipendente frontaliero qualificati dalla norma italiana, dal periodo di imposta 2024. La franchigia non è limitata ai soli comuni entro 20 km. Fonte: https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri/`,
- "claimReviewed": "Il credito d'imposta per frontalieri elimina la doppia imposizione fra Svizzera e Italia.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Convenzione Italia-Svizzera contro le doppie imposizioni (art. 15 e 24)" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.agenziaentrate.gov.it/portale/web/guest/schede/normativa/convenzione-per-evitare-le-doppie-imposizioni-italia-svizzera", "name": "Agenzia Entrate — Convenzione Italia-Svizzera contro le doppie imposizioni" }
- },
- "reviewBody": "L'art. 24 della Convenzione Italia-Svizzera 9/3/1976 (ratificata con L. 943/1978) prevede il credito d'imposta: l'imposta alla fonte pagata in Svizzera si detrae dall'IRPEF italiana sullo stesso reddito, evitando la doppia imposizione."
  }
  ]
  },
@@ -7516,36 +7122,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Serve il tedesco o il francese per lavorare a Lugano?", "acceptedAnswer": { "@type": "Answer", "text": "No, a Lugano l'italiano è lingua ufficiale del Cantone Ticino e copre oltre il 90% delle posizioni aperte ai frontalieri. L'inglese è richiesto nella finanza internazionale, nell'ICT e in alcune multinazionali farmaceutiche. Il tedesco è un plus per banche federali (UBS, ZKB) e per chi vuole crescere verso la Svizzera interna; il francese è raramente richiesto a Lugano tranne che in ruoli federali e nelle assicurazioni pan-svizzere." } },
  { "@type": "Question", "name": "Si può lavorare in smart working a Lugano come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, ma con limiti. L'accordo Italia-Svizzera del 23/12/2023 consente fino al 25% di telelavoro dall'Italia senza compromettere lo status fiscale di frontaliere. Oltre il 25% si perde la qualifica di frontaliere con conseguenze su imposta alla fonte, ristorni e residenza fiscale. I datori svizzeri a Lugano spesso offrono 1 giorno di smart working a settimana, compatibile con il limite del 25%." } }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/vita-in-ticino/lavoro-a-lugano/`,
- "claimReviewed": "Nel Canton Ticino lavorano oltre 74.000 frontalieri italiani (2025), con Lugano tra le principali piazze di destinazione.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Ufficio federale di statistica (UST) — Statistica dei frontalieri (STAF)" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.bfs.admin.ch/bfs/it/home/statistiche/lavoro-reddito/attivita-professionale-orario-lavoro.html", "name": "UST — Statistica dei lavoratori frontalieri stranieri (STAF)" }
- },
- "reviewBody": "Fonte ufficiale UST/BFS (Statistica STAF): il Canton Ticino conta oltre 74.000 frontalieri attivi nel 2° trimestre 2025, di cui circa il 90% italiani."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/vita-in-ticino/lavoro-a-lugano/`,
- "claimReviewed": "A Lugano i settori più attivi nell'assumere frontalieri sono banche/finanza, sanità pubblica e privata, logistica, ICT e retail di lusso.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5", "worstRating": "1", "alternateName": "Generalmente vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "USTAT — Ufficio di statistica del Canton Ticino, Mercato del lavoro" },
- "appearance": { "@type": "CreativeWork", "url": "https://www3.ti.ch/DFE/DR/USTAT/index.php?fuseaction=temi.dati&proID=28", "name": "USTAT — Lavoro e reddito in Canton Ticino" }
- },
- "reviewBody": "Dati USTAT e osservatorio mercato del lavoro cantonale: concentrazione di occupazione frontaliera nel terziario avanzato luganese (banche UBS/BancaStato/EFG, EOC, cliniche private, Rhenus/Planzer, SUPSI/ICT)."
  }
  ]
  },
@@ -7584,51 +7160,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Cambia qualcosa per la tredicesima e i bonus dei nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "No, la tredicesima e i bonus di risultato sono tassati come il resto del reddito lordo svizzero: imposta alla fonte al momento del pagamento e inclusi nella base IRPEF italiana del nuovo frontaliere. La franchigia di 10.000 euro si applica al reddito complessivo annuo (stipendio + tredicesima + bonus) e non può essere frazionata per singola voce. Nella dichiarazione 730/Redditi va indicato l'importo lordo totale percepito nell'anno." } },
  { "@type": "Question", "name": "I contributi LPP del 2° pilastro sono deducibili in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Distingui i contributi obbligatori LPP dai riscatti volontari e dai versamenti 3a. Per il trattamento italiano verifica le istruzioni vigenti con il certificato di salario; una deduzione svizzera non prova una deduzione italiana. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026/`,
- "claimReviewed": "Il Nuovo Accordo fiscale Italia-Svizzera è entrato in vigore il 17 luglio 2023 e ha introdotto il regime dei \"nuovi frontalieri\" pienamente applicato dal 2024.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Accordo Italia-Svizzera relativo all'imposizione dei lavoratori frontalieri, firmato 23/12/2020, in vigore 17/07/2023" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.esteri.it/wp-content/uploads/2021/01/ACCORDO-FRONTALIERI-ITALIA-SVIZZERA.pdf", "name": "Ministero degli Esteri — Accordo Italia-Svizzera sui lavoratori frontalieri (23/12/2020)" }
- },
- "reviewBody": "I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026/`,
- "claimReviewed": "I frontalieri possono lavorare in telelavoro dall'Italia fino al 25% del tempo senza perdere lo status fiscale di frontaliere.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Accordo amichevole Italia-Svizzera sul telelavoro dei frontalieri, 23/12/2023" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.finanze.gov.it/it/inevidenza/Accordo-amichevole-Italia-Svizzera-telelavoro-frontalieri/", "name": "MEF — Accordo amichevole Italia-Svizzera sul telelavoro dei lavoratori frontalieri (23/12/2023)" }
- },
- "reviewBody": "L'accordo amichevole Italia-Svizzera del 23/12/2023 consente fino al 25% di telelavoro dall'Italia senza compromettere lo status fiscale di frontaliere né l'applicazione dell'Accordo fiscale 2020."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/tasse-e-pensione/nuova-legge-frontalieri-2026/`,
- "claimReviewed": "I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Agenzia delle Entrate — Circolare n. 25/E del 2024" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.agenziaentrate.gov.it/portale/web/guest/-/circolare-n-25-e-del-18-luglio-2024", "name": "Agenzia Entrate — Circolare n. 25/E del 18 luglio 2024, nuovo regime frontalieri" }
- },
- "reviewBody": "I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  ]
  },
@@ -7667,36 +7198,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Quali sono le differenze tra OSS, ASSC e infermiere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "L'ASSC (Assistente socio-sanitario, equivalente all'OSS italiano) ha una formazione AFC di 3 anni e svolge mansioni di cura di base, igiene, mobilizzazione e somministrazione farmaci sotto supervisione. L'infermiere SSS (Scuola Specializzata Superiore, 3 anni post-AFC) o SUP-Bachelor (3 anni universitari) ha autonomia clinica, pianifica le cure, gestisce casi complessi. Gli stipendi sono progressivi: ASSC CHF 55-70k; infermiere SSS CHF 72-85k; infermiere SUP CHF 78-95k." } },
  { "@type": "Question", "name": "Quali turni lavorano gli OSS in Ticino e come sono retribuiti?", "acceptedAnswer": { "@type": "Answer", "text": "Gli ASSC/OSS in ospedale Ticino lavorano turni di 8-8,5 ore nei tre cicli mattino (6:30-15:00), pomeriggio (13:30-22:00) e notte (21:30-7:00). Il CCL Sanità Ticino prevede indennità del +25% per il turno notturno, +50% per festivi/domenicali, +15% per servizio di picchetto. Un ASSC con 3 turni notturni/settimana guadagna CHF 400-700 in più al mese. Il CCL garantisce inoltre almeno 11 ore di riposo tra turni e 2 week-end liberi al mese." } }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/vita-in-ticino/oss-svizzera/`,
- "claimReviewed": "Un OSS neoassunto in Ticino guadagna CHF 55.000-62.000 lordi annui, che salgono a CHF 65.000-75.000 con 5+ anni di esperienza.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "CCL Sanità Ticino 2024-2026 — Ente Ospedaliero Cantonale + OCST" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.eoc.ch/Lavorare-in-EOC.html", "name": "EOC — Condizioni di lavoro e grilles salariali Sanità Ticino" }
- },
- "reviewBody": "Conforme al CCL Sanità Ticino (EOC, OCST/VPOD/SCS, cliniche private). Classe salariale ASSC classe 7-8 a 13 mensilità."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/vita-in-ticino/oss-svizzera/`,
- "claimReviewed": "Il riconoscimento del titolo OSS italiano in Svizzera avviene tramite la Croce Rossa Svizzera (SRK) in 4-6 mesi con tassa di circa CHF 900-1.100.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Croce Rossa Svizzera (SRK/CRS) — Ufficio riconoscimento titoli" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.redcross.ch/it/offerta/riconoscimento-di-diplomi-esteri", "name": "Croce Rossa Svizzera — Riconoscimento di diplomi esteri in professioni sanitarie" }
- },
- "reviewBody": "Procedura ufficiale SRK per professioni sanitarie (Assistente di cura, FaGe/ASSC, infermiere): tassa 2026 CHF 800-1.200, tempi medi 4-6 mesi con documenti completi."
  }
  ]
  },
@@ -7734,51 +7235,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Quanto vale il potere d'acquisto reale dei salari svizzeri?", "acceptedAnswer": { "@type": "Answer", "text": "Considerando il costo della vita, il potere d'acquisto reale di un lordo svizzero CHF 80.000 per un frontaliere residente in Italia equivale a circa 55.000-58.000 € di potere d'acquisto italiano, cioè circa 1,7-1,8x un lordo italiano di 34.000 €. Per un residente ticinese (permesso B) il differenziale scende a 1,3-1,4x per l'impatto di affitti (CHF 1.600-2.200 per un trilocale a Lugano) e LAMal obbligatoria. Il vantaggio è massimo per chi mantiene la residenza italiana." } },
  { "@type": "Question", "name": "In quali ruoli non conviene diventare frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il frontalierato conviene meno per: ruoli base nella ristorazione e nel retail non specializzato (cameriere, addetto vendite, banconista), dove il differenziale lordo è +40-60% e viene eroso dai costi di pendolarismo (benzina CHF 200-400/mese, usura auto, assicurazione). Anche il lavoro interinale breve (<6 mesi) raramente conviene per i costi di attivazione permesso G, LAMal e la perdita di NASpI italiana. Ruoli full-remote o senior con stipendi italiani sopra €55k lordi possono avere un vantaggio marginale in Svizzera solo se accoppiati a un alto differenziale di settore." } }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/statistiche/stipendi-svizzera-vs-italia/`,
- "claimReviewed": "Il salario lordo mediano in Svizzera è circa 2-2,5 volte superiore a quello italiano per ruoli equivalenti.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "Ufficio federale di statistica (UST) — Rilevazione svizzera della struttura dei salari (RSS)" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.bfs.admin.ch/bfs/it/home/statistiche/lavoro-reddito.html", "name": "UST — Livello dei salari in Svizzera (RSS)" }
- },
- "reviewBody": "Incrocio fonti UST-RSS 2024 (salario lordo mediano CH CHF 6.788/mese = CHF 88.244/anno) e ISTAT \"Retribuzioni contrattuali\" 2024 (mediana IT €30.720): rapporto lordo 2,2-2,4x per ruoli equivalenti."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/statistiche/stipendi-svizzera-vs-italia/`,
- "claimReviewed": "Il costo della vita a Lugano è circa il 30-40% superiore a quello di Milano per affitti, ristoranti e servizi.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5", "worstRating": "1", "alternateName": "Generalmente vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "UST/IPC — Indice svizzero dei prezzi al consumo + ISTAT NIC Milano" },
- "appearance": { "@type": "CreativeWork", "url": "https://www.bfs.admin.ch/bfs/it/home/statistiche/prezzi/indice-nazionale-prezzi-consumo.html", "name": "UST — Indice svizzero dei prezzi al consumo (IPC)" }
- },
- "reviewBody": "Confronto IPC Lugano vs NIC Milano 2025 su panieri affitto, ristorazione e servizi: differenziale medio +32% (affitti +38%, ristorazione +35%, beni alimentari +25%)."
- },
- {
- "@context": "https://schema.org",
- "@type": "ClaimReview",
- "url": `${BASE_URL}/statistiche/stipendi-svizzera-vs-italia/`,
- "claimReviewed": "L'aliquota fiscale totale svizzera (imposta alla fonte + oneri sociali) per un frontaliere con CHF 80.000 lordi è circa il 18-22%.",
- "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
- "datePublished": "2026-04-23",
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
- "itemReviewed": {
- "@type": "Claim",
- "author": { "@type": "Organization", "name": "AFC Ticino — Divisione delle contribuzioni, Tabelle imposta alla fonte 2026" },
- "appearance": { "@type": "CreativeWork", "url": "https://www4.ti.ch/dfe/dc/imposta-alla-fonte/tabelle-e-aliquote/", "name": "AFC Ticino — Tabelle e aliquote imposta alla fonte 2026" }
- },
- "reviewBody": "Calcolo verificato per tabella A single, CHF 80.000 lordi: imposta alla fonte TI 11-13% + AVS/AI/IPG 5,3% + AD 1,1% + LAINF ~1% + LPP ~7% ≈ 25% totale deduzioni; il netto dell'imposta pura (escluso LPP che è previdenza) è 18-22%."
  }
  ]
  },

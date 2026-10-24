@@ -1,7 +1,7 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-10-23T21:22:43.599Z",
-  "runId": "40025738858",
+  "assembledAt": "2026-10-24T09:54:17.258Z",
+  "runId": "40081416098",
   "jobs": [
     {
       "id": "badrutts-palace-7fc4aec52ba7",
@@ -34,7 +34,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-23T21:22:36.950Z",
+      "crawledAt": "2026-10-24T09:54:11.622Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "slugByLocale": {
         "it": "ricevitore-di-cibo-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "food-receiver-m-f-d-badrutts-palace-ch",
-        "de": "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "recepteur-alimentaire-h-f-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
@@ -108,7 +108,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6165453-food-receiver-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:22:36.947Z",
+      "crawledAt": "2026-10-24T09:54:11.618Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -129,7 +129,7 @@
       "previousSlugs": [
         "food-receiver-m-f-d-badrutts-palace-ch",
         "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -137,7 +137,7 @@
         ],
         "de": [
           "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
-          "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "lebensmittelempfanger-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
           "food-receiver-m-f-d-badrutts-palace-ch"
@@ -190,7 +190,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:22:36.944Z",
+      "crawledAt": "2026-10-24T09:54:11.614Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -284,7 +284,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:22:36.940Z",
+      "crawledAt": "2026-10-24T09:54:11.610Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -341,7 +341,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "badrutts-palace-f6389a361791",
@@ -374,7 +376,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-23T21:22:36.926Z",
+      "crawledAt": "2026-10-24T09:54:11.597Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -477,166 +479,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T00:46:37.073Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "badrutts-palace-cb011856bc58",
-      "slug": "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "chef-de-partie-m-w-d-badrutts-palace-ch",
-        "de": "kuchenchef-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Chef de Partie (m/f/d)",
-      "titleByLocale": {
-        "it": "Capopartita (m/f/d)",
-        "en": "Chef de Partie (m/f/d)",
-        "de": "Chef de Partie (m/w/d)",
-        "fr": "Chef de Partie (h/f/d)"
-      },
-      "description": "<p><strong>Your key responsibilities</strong></p><p>As a Chef de Partie, you will play a key role in ensuring the highest culinary standards and delivering an exceptional dining experience. Your main responsibilities will include:</p><ul><li><p>Preparing, cooking, and presenting high-quality dishes within your assigned kitchen section.</p></li><li><p>Ensuring consistent quality through the careful selection, preparation, and handling of fresh ingredients.</p></li><li><p>Supporting the development of seasonal menus and contributing creative ideas to enhance our culinary offering.</p></li><li><p>Maintaining the highest standards of food hygiene, safety, and cleanliness in accordance with HACCP regulations.</p></li><li><p>Working closely with the Executive Chef, Sous Chefs, and the wider kitchen team to ensure a smooth and efficient operation.</p></li><li><p>Assisting in the training and support of junior kitchen team members when required.</p></li><li><p>Managing your section efficiently while maintaining excellent quality, organization, and attention to detail.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><ul><li><p>Completed professional training as a Chef or an equivalent qualification in the culinary field.</p></li><li><p>Previous experience as a Chef de Partie, ideally in a luxury hotel or fine dining environment.</p></li><li><p>Passion for high-quality cuisine with strong attention to detail and presentation.</p></li><li><p>Excellent organizational skills and the ability to work efficiently under pressure.</p></li><li><p>Sound knowledge of HACCP guidelines and food safety standards.</p></li><li><p>Strong communication skills and the ability to work effectively as part of a team.</p></li><li><p>Good command of Italian and English.</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from late November 2026 to early April 2027, with the opportunity to return for future seasons.</p></li><li><p>Average 5-day work week with 43.5 hours per week.</p></li><li><p>5 weeks of annual vacation and 6 public holidays per year.</p></li><li><p>13th-month salary from the start of employment (pro rata).</p></li><li><p>Accommodation available upon request in one of our modern staff residences.</p></li><li><p>Meals available in our new, modern staff restaurant.</p></li><li><p>An attractive working environment with excellent opportunities for professional growth and development.<br></p></li></ul><p>Are you passionate about culinary excellence and looking for an exciting opportunity as a Chef de Partie in a luxury hotel environment? We look forward to receiving your complete online application and to welcoming you to our team.<br><br><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-      "descriptionByLocale": {
-        "it": "<p><strong>Le tue responsabilità principali</strong></p><p>In qualità di Chef de Partie, svolgerai un ruolo chiave nel garantire i più alti standard culinari e offrire un'esperienza culinaria eccezionale. Le tue responsabilità principali includeranno:</p><ul><li><p>Preparare, cucinare e presentare piatti di alta qualità all'interno della sezione cucina assegnata.</p></li><li><p>Garantire una qualità costante attraverso l'attenta selezione, preparazione e manipolazione degli ingredienti freschi.</p></li><li><p>Supportare lo sviluppo di menu stagionali e contribuire con idee creative per migliorare la nostra offerta culinaria.</p></li><li><p>Mantenere i più alti standard di igiene, sicurezza e pulizia degli alimenti in conformità con le normative HACCP.</p></li><li><p>Lavorare a stretto contatto con l'Executive Chef, i Sous Chef e il team di cucina più ampio per garantire un funzionamento regolare ed efficiente.</p></li><li><p>Assistenza nella formazione e nel supporto dei membri junior del team di cucina quando richiesto.</p></li><li><p>Gestire la sezione in modo efficiente mantenendo qualità, organizzazione e attenzione ai dettagli eccellenti.</p></li></ul><p></p><p><strong>\n• Cosa porti al lavoro</strong></p><ul><li><p>Formazione professionale completata come Chef o qualifica equivalente nel campo culinario.</p></li><li><p>Precedente esperienza come Chef de Partie, idealmente in un hotel di lusso o in un ambiente raffinato.</p></li><li><p>Passione per la cucina di alta qualità con forte attenzione ai dettagli e alla presentazione.</p></li><li><p>Eccellenti capacità organizzative e capacità di lavorare in modo efficiente sotto pressione.</p></li><li><p>Buona conoscenza delle linee guida HACCP e degli standard di sicurezza alimentare.</p></li><li><p>Forti capacità di comunicazione e capacità di lavorare efficacemente come parte di un team.</p></li><li><p>Buona padronanza della lingua italiana e inglese.</p></li></ul><p></p><p><strong>La nostra offerta</strong></p><ul><li><p>Posizione stagionale a tempo determinato da fine novembre 2026 a inizio aprile 2027, con possibilità di rientro per le stagioni successive.</p></li><li><p>Settimana lavorativa media di 5 giorni con 43,5 ore settimanali.</p></li><li><p>5 settimane di ferie annuali e 6 giorni festivi all'anno.</p></li><li><p>13° mese di stipendio dall'inizio del rapporto di lavoro (pro rata).</p></li><li><p>Alloggio disponibile su richiesta in uno dei nostri moderni collaboratori residenze.</p></li><li><p>Pasti disponibili nel nostro nuovo e moderno ristorante per il personale.</p></li><li><p>Un ambiente di lavoro attraente con eccellenti opportunità di crescita e sviluppo professionale.<br></p></li></ul><p>Sei appassionato dell'eccellenza culinaria e stai cercando un'entusiasmante opportunità come Chef de Partie in un ambiente di hotel di lusso? Non vediamo l'ora di ricevere la tua candidatura online completa e di darti il ​​benvenuto nel nostro team.<br><br><span><strong><em>Avviso di frode nel reclutamento</em></strong></span></p><p><span><em>Badrutt's Palace Hotel non richiederà mai pagamenti o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali vengono inviate esclusivamente da indirizzi email che terminano con @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. Se ricevi richieste di pagamento o comunicazioni sospette, ignorale e contattaci direttamente tramite il nostro sito Web ufficiale.</em></span></p>",
-        "en": "<p><strong>Your key responsibilities</strong></p><p>As a Chef de Partie, you will play a key role in ensuring the highest culinary standards and delivering an exceptional dining experience. Your main responsibilities will include:</p><ul><li><p>Preparing, cooking, and presenting high-quality dishes within your assigned kitchen section.</p></li><li><p>Ensuring consistent quality through the careful selection, preparation, and handling of fresh ingredients.</p></li><li><p>Supporting the development of seasonal menus and contributing creative ideas to enhance our culinary offering.</p></li><li><p>Maintaining the highest standards of food hygiene, safety, and cleanliness in accordance with HACCP regulations.</p></li><li><p>Working closely with the Executive Chef, Sous Chefs, and the wider kitchen team to ensure a smooth and efficient operation.</p></li><li><p>Assisting in the training and support of junior kitchen team members when required.</p></li><li><p>Managing your section efficiently while maintaining excellent quality, organization, and attention to detail.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><ul><li><p>Completed professional training as a Chef or an equivalent qualification in the culinary field.</p></li><li><p>Previous experience as a Chef de Partie, ideally in a luxury hotel or fine dining environment.</p></li><li><p>Passion for high-quality cuisine with strong attention to detail and presentation.</p></li><li><p>Excellent organizational skills and the ability to work efficiently under pressure.</p></li><li><p>Sound knowledge of HACCP guidelines and food safety standards.</p></li><li><p>Strong communication skills and the ability to work effectively as part of a team.</p></li><li><p>Good command of Italian and English.</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from late November 2026 to early April 2027, with the opportunity to return for future seasons.</p></li><li><p>Average 5-day work week with 43.5 hours per week.</p></li><li><p>5 weeks of annual vacation and 6 public holidays per year.</p></li><li><p>13th-month salary from the start of employment (pro rata).</p></li><li><p>Accommodation available upon request in one of our modern staff residences.</p></li><li><p>Meals available in our new, modern staff restaurant.</p></li><li><p>An attractive working environment with excellent opportunities for professional growth and development.<br></p></li></ul><p>Are you passionate about culinary excellence and looking for an exciting opportunity as a Chef de Partie in a luxury hotel environment? We look forward to receiving your complete online application and to welcoming you to our team.<br><br><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-        "de": "<p><strong>Ihre Hauptaufgaben</strong></p><p>Als Chef de Partie spielen Sie eine Schlüsselrolle bei der Gewährleistung höchster kulinarischer Standards und der Bereitstellung eines außergewöhnlichen kulinarischen Erlebnisses. Zu Ihren Hauptaufgaben gehören:</p><ul><li><p>Zubereiten, Kochen und Präsentieren hochwertiger Gerichte in Ihrem zugewiesenen Küchenbereich.</p></li><li><p>Sicherstellung einer gleichbleibenden Qualität durch sorgfältige Auswahl, Zubereitung und Handhabung frischer Zutaten.</p></li><li><p>Unterstützung der Entwicklung saisonaler Menüs und Einbringen kreativer Ideen zur Verbesserung unseres kulinarischen Angebots.</p></li><li><p>Aufrechterhaltung höchster Standards in Bezug auf Lebensmittelhygiene, -sicherheit und -sicherheit Sauberkeit gemäß den HACCP-Vorschriften.</p></li><li><p>Enge Zusammenarbeit mit dem Küchenchef, den Sous Chefs und dem gesamten Küchenteam, um einen reibungslosen und effizienten Betrieb zu gewährleisten.</p></li><li><p>Bei Bedarf Unterstützung bei der Schulung und Unterstützung junger Küchenteammitglieder.</p></li><li><p>Effiziente Verwaltung Ihres Bereichs bei gleichzeitiger Aufrechterhaltung hervorragender Qualität, Organisation und Aufmerksamkeit Detail.</p></li></ul><p></p><p><strong>\n• Was Sie für den Job mitbringen</strong></p><ul><li><p>Abgeschlossene Berufsausbildung als Koch oder eine gleichwertige Qualifikation im kulinarischen Bereich.</p></li><li><p>Vorherige Erfahrung als Chef de Partie, idealerweise in einem Luxushotel oder einer gehobenen Gastronomieumgebung.</p></li><li><p>Leidenschaft für hochwertige Küche mit viel Liebe zum Detail und Präsentation.</p></li><li><p>Ausgezeichnete Organisationsfähigkeiten und die Fähigkeit, effizient zu arbeiten Druck.</p></li><li><p>Gute Kenntnisse der HACCP-Richtlinien und Lebensmittelsicherheitsstandards.</p></li><li><p>Ausgeprägte Kommunikationsfähigkeit und die Fähigkeit, effektiv im Team zu arbeiten.</p></li><li><p>Gute Italienisch- und Englischkenntnisse.</p></li></ul><p></p><p><strong>Unser Angebot</strong></p><ul><li><p>Befristete Saisonstelle von Ende November 2026 bis Anfang April 2027, mit der Möglichkeit, für zukünftige Saisons zurückzukehren.</p></li><li><p>Durchschnittliche 5-Tage-Woche mit 43,5 Stunden pro Woche.</p></li><li><p>5 Wochen Jahresurlaub und 6 Feiertage pro Jahr.</p></li><li><p>13. Monatsgehalt ab Beschäftigungsbeginn (anteilig).</p></li><li><p>Unterkunft auf Anfrage in einem unserer modernen Mitarbeiter möglich Residenzen.</p></li><li><p>Mahlzeiten in unserem neuen, modernen Mitarbeiterrestaurant verfügbar.</p></li><li><p>Ein attraktives Arbeitsumfeld mit hervorragenden Möglichkeiten zur beruflichen Weiterentwicklung und Weiterentwicklung.<br></p></li></ul><p>Haben Sie eine Leidenschaft für kulinarische Exzellenz und sind auf der Suche nach einer spannenden Gelegenheit als Chef de Partie in einer Luxushotelumgebung? Wir freuen uns darauf, Ihre vollständige Online-Bewerbung zu erhalten und Sie in unserem Team willkommen zu heißen.<br><br><span><strong><em>Warnung vor Einstellungsbetrug</em></strong></span></p><p><span><em>Badrutt's Palace Hotel wird während des Einstellungsprozesses niemals Zahlungs- oder Finanzinformationen anfordern. Die gesamte offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die auf @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em> enden. Wenn Sie eine Zahlungsaufforderung oder eine verdächtige Mitteilung erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></span></p>",
-        "fr": "<p><strong>Vos ​​principales responsabilités</strong></p><p>En tant que chef de partie, vous jouerez un rôle clé en garantissant les normes culinaires les plus élevées et en offrant une expérience culinaire exceptionnelle. Vos principales responsabilités comprendront :</p><ul><li><p>Préparer, cuisiner et présenter des plats de haute qualité au sein de la section de cuisine qui vous est assignée.</p></li><li><p>Assurer une qualité constante grâce à la sélection, à la préparation et à la manipulation minutieuses des ingrédients frais.</p></li><li><p>Soutenir l'élaboration de menus de saison et apporter des idées créatives pour améliorer notre offre culinaire.</p></li><li><p>Maintenir les normes les plus élevées d'hygiène, de sécurité et de propreté des aliments dans conformément aux réglementations HACCP.</p></li><li><p>Travailler en étroite collaboration avec le chef exécutif, les sous-chefs et l'ensemble de l'équipe de cuisine pour assurer un fonctionnement fluide et efficace.</p></li><li><p>Aider à la formation et au soutien des membres juniors de l'équipe de cuisine lorsque cela est nécessaire.</p></li><li><p>Gérer efficacement votre section tout en maintenant une excellente qualité, une organisation et une attention aux détails.</p></li></ul><p></p><p><strong>\n• Ce que vous apportez au poste</strong></p><ul><li><p>Formation professionnelle terminée en tant que chef ou qualification équivalente dans le domaine culinaire.</p></li><li><p>Expérience préalable en tant que chef de partie, idéalement dans un hôtel de luxe ou un restaurant gastronomique.</p></li><li><p>Passion pour une cuisine de haute qualité avec une grande attention aux détails et à la présentation.</p></li><li><p>Excellentes compétences organisationnelles et capacité à travailler efficacement sous pression.</p></li><li><p>Bonne connaissance des directives HACCP et des normes de sécurité alimentaire.</p></li><li><p>Fortes compétences en communication et capacité à travailler efficacement en équipe.</p></li><li><p>Bonne maîtrise de l'italien et de l'anglais.</p></li></ul><p></p><p><strong>Notre offre</strong></p><ul><li><p>Poste saisonnier à durée déterminée de fin novembre 2026 à début avril 2027, avec possibilité de revenir pour les saisons futures.</p></li><li><p>Semaine de travail moyenne de 5 jours à raison de 43,5 heures par semaine.</p></li><li><p>5 semaines de vacances annuelles et 6 jours fériés par an.</p></li><li><p>13ème mois de salaire à compter du début de l'emploi (au prorata).</p></li><li><p>Hébergement disponible sur demande dans l'un de nos collaborateurs modernes. résidences.</p></li><li><p>Repas disponibles dans notre nouveau restaurant du personnel moderne.</p></li><li><p>Un environnement de travail attrayant avec d'excellentes opportunités de croissance et de développement professionnel.<br></p></li></ul><p>Êtes-vous passionné par l'excellence culinaire et recherchez une opportunité passionnante en tant que chef de partie dans un environnement hôtelier de luxe ? Nous sommes impatients de recevoir votre candidature en ligne complète et de vous accueillir dans notre équipe.<br><br><span><strong><em>Avertissement de fraude au recrutement</em></strong></span></p><p><span><em>Le Badrutt's Palace Hotel ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toutes les communications officielles sont envoyées exclusivement à partir d'adresses e-mail se terminant par @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. Si vous recevez une demande de paiement ou une communication suspecte, veuillez ne pas en tenir compte et nous contacter directement via notre site officiel.</em></span></p>"
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/6412797-chef-de-partie-m-f-d",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:46:35.745Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2025-09-05T13:37:42+02:00",
-      "postedDate": "2025-09-05T13:37:42+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6412797-chef-de-partie-m-f-d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "chef-de-partie-m-f-d-badrutts-palace-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "chef-de-partie-m-f-d-badrutts-palace-ch"
-        ],
-        "de": [
-          "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ]
-      },
-      "firstSeenAt": "2026-06-24T10:50:10.926Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "badrutts-palace-db6029f5a8cc",
-      "slug": "del-pizzaiolo-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "del-pizzaiolo-badrutt-s-palace-hotel-st-moritz",
-        "en": "pizzaiolo-badrutts-palace-ch",
-        "de": "herstellen-aus-vormaterialien-jeder-position-ausgenommen-aus-vormaterialien-derselben-position-wie-die-hergestellte-ware",
-        "fr": "pizzerialo-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Pizzaiolo (m/f/d)",
-      "titleByLocale": {
-        "it": "Del Pizzaiolo . . . . . . . . .",
-        "en": "Pizzaiolo (m/f/d)",
-        "de": "Herstellen aus Vormaterialien jeder Position, ausgenommen aus Vormaterialien derselben Position wie die hergestellte Ware, ausgenommen aus Vormaterialien derselben Position wie die hergestellte Ware",
-        "fr": "Pizzerialo"
-      },
-      "description": "<p><span><strong>Your key responsibilities</strong></span></p><p>As part of our culinary team at Chesa Veglia, you will play an essential role in preparing our signature pizzas, which our guests highly appreciate and are central to what we are known for. <br>\n• Your responsibilities will include:</p><ul><li><p>Preparing high-quality pizzas, focaccia and other specialties according to our standards</p></li><li><p>Supporting the ordering and stock management process</p></li><li><p>Operating and maintaining the wood-fired oven</p></li><li><p>Ensuring compliance with kitchen hygiene and safety regulations (HACCP)</p></li><li><p>Maintaining consistently high product quality</p></li><li><p>Working efficiently and ensuring effective time management</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><p>To succeed in this position, you ideally bring:</p><ul><li><p>Completed professional training as a Chef or equivalent culinary qualification</p></li><li><p>Several years of professional experience as a Pizzaiolo</p></li><li><p>Good spoken Italian and English</p></li><li><p>Strong quality awareness and attention to detail</p></li><li><p>Ability to work under pressure and enjoy working as part of a team</p></li><li><p>High level of commitment, reliability and flexibility</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from the beginning of December 2026 until the end of March 2027, with the possibility of returning for future seasons</p></li><li><p>An average 5-day working week of 43.5 hours</p></li><li><p>5 weeks of holiday and 6 public holidays per year</p></li><li><p>13th-month salary from the start of employment (pro rata temporis)</p></li><li><p>Staff accommodation in one of our employee residences, subject to availability</p></li><li><p>Meals available in our modern staff restaurant</p></li><li><p>An attractive and international working environment with opportunities for professional development</p></li></ul><p><br>If you are looking for an interesting, challenging, and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</p><p><br><strong><em>Recruitment Fraud Warning</em></strong><br><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em><a target=\"_blank\" href=\"http://badruttspalace.com\"><em>badruttspalace.com</em></a><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></p>",
-      "descriptionByLocale": {
-        "it": "Come parte del nostro team culinario a Chesa Veglia, si svolgerà un ruolo essenziale nella preparazione delle nostre pizze firma, che i nostri ospiti apprezzano e sono centrali per quello che siamo conosciuti. >\n• La vostra responsabilità includerà: </p> < > > > > ι > > > > > > > > > ι > > > > ι > > > > ι > > > > > > ι > > > ι > ι > ι > > > ι > > > ι > > > ι > > > > > > > > ι > > > > > > > ι > > > > > > > > ι > > > > > ι > > > > > > ι > > > > > > > > > ι > > > > > > > > > > > ι > > > > > > > > >\n• > > > > > > > > > > > > > > > > > > > > < > > > > > < > > > > > > > > > > > > > > < > > > < > > > < > > > > > > > > > < > > > > > > > < > > > > > > > > > > > > > > > < > > > > > > > > > > < > > > > > > > > > > < > > > > > > > > > > > > > > > < < > > > > > Sistemazione personale in una delle nostre residenze dei dipendenti, soggetta a disponibilità Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali sono inviate esclusivamente da indirizzi e-mail che terminano in @ </em> > < < > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > Se ricevi una richiesta di pagamento o di comunicazione sospetta, ti preghiamo di ignorarla e di contattarci direttamente tramite il nostro sito ufficiale.",
-        "en": "<p><span><strong>Your key responsibilities</strong></span></p><p>As part of our culinary team at Chesa Veglia, you will play an essential role in preparing our signature pizzas, which our guests highly appreciate and are central to what we are known for. <br>\n• Your responsibilities will include:</p><ul><li><p>Preparing high-quality pizzas, focaccia and other specialties according to our standards</p></li><li><p>Supporting the ordering and stock management process</p></li><li><p>Operating and maintaining the wood-fired oven</p></li><li><p>Ensuring compliance with kitchen hygiene and safety regulations (HACCP)</p></li><li><p>Maintaining consistently high product quality</p></li><li><p>Working efficiently and ensuring effective time management</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><p>To succeed in this position, you ideally bring:</p><ul><li><p>Completed professional training as a Chef or equivalent culinary qualification</p></li><li><p>Several years of professional experience as a Pizzaiolo</p></li><li><p>Good spoken Italian and English</p></li><li><p>Strong quality awareness and attention to detail</p></li><li><p>Ability to work under pressure and enjoy working as part of a team</p></li><li><p>High level of commitment, reliability and flexibility</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from the beginning of December 2026 until the end of March 2027, with the possibility of returning for future seasons</p></li><li><p>An average 5-day working week of 43.5 hours</p></li><li><p>5 weeks of holiday and 6 public holidays per year</p></li><li><p>13th-month salary from the start of employment (pro rata temporis)</p></li><li><p>Staff accommodation in one of our employee residences, subject to availability</p></li><li><p>Meals available in our modern staff restaurant</p></li><li><p>An attractive and international working environment with opportunities for professional development</p></li></ul><p><br>If you are looking for an interesting, challenging, and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</p><p><br><strong><em>Recruitment Fraud Warning</em></strong><br><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em><a target=\"_blank\" href=\"http://badruttspalace.com\"><em>badruttspalace.com</em></a><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></p>",
-        "de": "<p><span><strong>Ihre Hauptaufgaben</strong></span></p><p><p>Als Teil unseres kulinarischen Teams bei Chesa Veglia spielen Sie eine wesentliche Rolle bei der Zubereitung unserer Signature-Pizza, die unsere Gäste sehr schätzen und für die wir bekannt sind. <br>\n• Ihre Aufgaben umfassen:</p><ul><li><p>Vorbereitung hochwertiger Pizzas, Facaccia und anderer Spezialitäten nach unseren Standards</p></li><li><p>Unterstützung des Bestell- und Lagerverwaltungsprozesses</p></li><li><p>Betrieb und Wartung des Holzofens</p></li><li><p>Gewährleistung der Einhaltung der Hygiene- und Sicherheitsvorschriften für die Küchen (HACCP)</p></li><li><p>Aufrechterhaltung einer konstant hohen Produktqualität</p></li><li><p>Effizientes und effektives Zeitmanagement</p></li></ul></p></p><span><strong>\n• Was Sie in den Job bringen</strong></li></p><p>Um in dieser Position erfolgreich zu sein, bringen Sie idealerweise mit:</p><ul><li><p>Abgeschlossene Berufsausbildung zum Koch oder gleichwertige kulinarische Qualifikation</p></li><li><p>Mehrjährige Berufserfahrung als Pizzaiolo</p></li><li><p>Gute gesprochene italienische und englische</p></li><p>Starkes Qualitätsbewusstsein und Liebe zum Detail</p></li><li><p>Hohes Engagement, Zuverlässigkeit und Flexibilität</p></li></p></p><p><strong>Unser Angebot</strong></p><ul><li><p><p><p><ul><li><p><p>eine durchschnittliche 5-Tage-Woche von 43,5 Stunden</p></li><li><p>5 Wochen Urlaub und 6 Feiertage pro Jahr</p></li>< Unterkunft in einem unserer Mitarbeiterwohnheime, je nach Verfügbarkeit</p></li><li><p>Mahlzeiten in unserem modernen Mitarbeiterrestaurant</p></li><li><p>Ein attraktives und internationales Arbeitsumfeld mit Möglichkeiten zur beruflichen Weiterentwicklung</p></li></ul><p><br>Wenn Sie eine interessante, herausfordernde und abwechslungsreiche Rolle in einem dynamischen Umfeld suchen und sich einem etablierten Team anschließen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p><br><strong><em>Recruitment Fraud Warning</em></strong><br><em> Badrutt's palace hotel wird während des rekrutierungsprozesses niemals zahlungs- oder finanzinformationen anfordern. Die gesamte offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die mit @</em><a target=\" blank\" href=\"http://badruttspalace.com\"><em>badruttspalace.com</em></a><em> enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
-        "fr": "<p><span><strong>Vos principales responsabilités</strong></span></p><p>Dans le cadre de notre équipe culinaire à Chesa Veglia, vous jouerez un rôle essentiel dans la préparation de nos pizzas phares, que nos invités apprécient hautement et sont au cœur de ce dont nous sommes connus. <br>\n• Vos responsabilités comprendront :</p><ul><li><p>Préparation de pizzas de haute qualité, de focaccia et d'autres spécialités selon nos normes</p></li><li><p>Soutenir le processus de commande et de gestion des stocks</p></li><li><p>Operating and maintaining the Wood-Filt four</p><li><li><p>Assurer la conformité aux règlements sur l'hygiène et la sécurité des cuisines (HACCP)</p></li><li><p>Maintaining systématiquement high product quality</p><li><p><p>Travailler efficacement et assurer une gestion efficace du temps</p></li></ul><p><p><p><span><strong>\n• Ce que vous apportez au travail</strong></span></p><p> Pour réussir dans ce poste, vous apportez idéalement :</p><ul><li><p>Formation professionnelle complète en tant que chef ou qualification culinaire équivalente</p></li><li><p><p>Plusieurs années d'expérience professionnelle en tant que Pizzaiolo</p><li><p><li><p>Bonne langue italienne et anglaise</p></li><li><li><p>Strong sensibilisation à la qualité et attention aux détails</p><li><li><p><p><strong>Notre offre</p></p><li><li><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p>< Hébergement du personnel dans l'une de nos résidences pour employés, sous réserve de disponibilité</p></li><li><p>Repas disponibles dans notre restaurant moderne pour employés</p></li><li><p>Un milieu de travail attrayant et international offrant des possibilités de perfectionnement professionnel</p></li></ul><p><br>Si vous cherchez un rôle intéressant, stimulant et varié dans un environnement dynamique et que vous souhaitez vous joindre à une équipe bien établie, nous sommes impatients de recevoir votre demande en ligne complète.</p><br><br><strong><em>Recrutement Fraude Warning</em></strong><br><em><br><br><br> Le Palace Hotel de Badrutt ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir des adresses électroniques se terminant par @</em><a cible=\" blank\" href=\"http://badruttspalace.com\"><em>badruttspalace.com</em></a><em>. Si vous recevez une demande de paiement ou de communication suspecte, veuillez l'ignorer et nous contacter directement via notre site Web officiel.</em></p>"
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8454502-pizzaiolo-m-f-d",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:32:12.107Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T11:28:04+02:00",
-      "postedDate": "2026-09-25T11:28:04+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8454502-pizzaiolo-m-f-d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "pizzaiolo-badrutt-s-palace-hotel-st-moritz",
-        "pizzaiolo-badrutts-palace-ch",
-        "pizzaiolo-m-f-d-badrutts-palace-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pizzaiolo-badrutts-palace-ch",
-          "pizzaiolo-m-f-d-badrutts-palace-ch"
-        ],
-        "en": [
-          "pizzaiolo-badrutt-s-palace-hotel-st-moritz"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:55:49.891Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",

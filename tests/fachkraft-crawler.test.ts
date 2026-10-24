@@ -780,7 +780,7 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         sleepImpl: () => new Promise(() => {}),
         fetchImpl,
         existingJobs: [],
-      })).rejects.toThrow(/listing failed/i);
+      })).rejects.toThrow(/listing failed|authoritative snapshot exceeded \d+ms/i);
 
       expect(Date.now() - startedAt).toBeLessThan(300);
     });
@@ -1035,7 +1035,8 @@ describe('Fachkraft publication provenance', () => {
     expect(jobs[0].postingDateSource).toBe(kind === 'past' ? 'reported' : 'unknown');
     expect(jobs[0].postedDate).toBe(kind === 'past' ? sourceDate : '');
     expect(jobs[0].datePosted).toBe(jobs[0].postedDate);
-      // Unknown provenance preserves the vacancy/FAQ, not invented JobPosting data.
+      // Unknown provenance still emits JobPosting; only datePosted falls back
+      // to the observation/build clock rather than claiming employer evidence.
       for (const locale of ['it', 'en', 'de', 'fr']) {
         const schema = buildJobPostingSchema(jobs[0], { locale, url: jobs[0].url });
         if (kind === 'past') {
@@ -1043,7 +1044,8 @@ describe('Fachkraft publication provenance', () => {
           expect(schema?.hiringOrganization.name).toBeTruthy();
           expect(schema?.datePosted).toBe(jobs[0].datePosted);
         } else {
-          expect(schema).toBeNull();
+          expect(schema).not.toBeNull();
+          expect(schema?.datePosted).toBeTruthy();
         }
         expect(buildJobPostingFacts(jobs[0], locale).hiringOrganization.name).toBeTruthy();
       }

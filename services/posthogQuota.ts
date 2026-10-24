@@ -7,9 +7,10 @@
  */
 
 /**
- * The current free billing period has already crossed the 1M event allowance
- * before this guard reached production. Keep ordinary client analytics off
- * until the period resets; identity and replay events remain available.
+ * Ordinary product events stay off: before the 2026-09-15 stop the client sent
+ * ~200k events/day (≈6M/month against the 1M free allowance), and GA4 already
+ * receives the complete stream through analytics.ts. Page views are the one
+ * exception, see `POSTHOG_QUOTA_EXEMPT_EVENTS`.
  */
 export const POSTHOG_EVENT_SAMPLE_RATE = 0;
 
@@ -63,6 +64,15 @@ export const POSTHOG_QUOTA_EXEMPT_EVENTS = Object.freeze([
   // even while ordinary product analytics are hard-stopped at zero.
   'decision_moment_completed',
   'decision_moment_next_action',
+  // Page views restored 2026-10-24. The zero rate above was meant to last
+  // "until the period resets" (PR 8752, 2026-09-15) but also dropped
+  // `$pageview`, so PostHog recorded no page view from 2026-09-16 on.
+  // Measured with HogQL: $pageview was ~10.5k/day before the stop (≈315k a
+  // month) and everything else that still passes is ~2k/day, together well
+  // under the 1M monthly allowance. Bots never get here (isLikelyBot() gate
+  // in services/posthog.ts and BOT_GATE_FN in the static initializer).
+  // Telemetry only: PostHog is not an experiment system (CLAUDE.md).
+  '$pageview',
 ] as const);
 
 const POSTHOG_UNSAMPLED_EVENTS = new Set([
