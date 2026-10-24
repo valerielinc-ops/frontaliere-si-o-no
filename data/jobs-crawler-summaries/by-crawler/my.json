@@ -1,28 +1,74 @@
 {
   "key": "my",
   "label": "Teo Jakob AG",
-  "generatedAt": "2026-10-24T09:35:38.753Z",
-  "total": 1,
+  "generatedAt": "2026-10-24T21:50:56.031Z",
+  "total": 2,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 2,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4312,
-  "avgDurationMs": 4312,
+  "unchangedCount": 1,
+  "durationMs": 4256,
+  "avgDurationMs": 4256,
   "durationHistory": [
-    4312
+    4256
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "my-cebdca56ae70",
+      "slug": "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-e-gesellschaft-60-80-teo-jakob-ag-reiden",
+      "company": "Teo Jakob AG",
+      "companyKey": "my",
+      "companyDomain": "my.jobalino.ch",
+      "title": "Sachbearbeiterin / Sachbearbeiter Abteilungen Dienste und Gesellschaft / 60% - 80%",
+      "location": "Reiden",
+      "canton": "LU",
+      "url": "https://my.jobalino.ch/job/c50bfaa76af2ccf18823f922c7c333ec/gemeinde-reiden/sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft",
+      "source": "Teo Jakob AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-24T21:50:43.241Z",
+      "addressLocality": "Reiden",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6260",
+      "streetAddress": "Grossmatte 1",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-14",
+      "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
+      "applyUrl": "https://my.jobalino.ch/job/c50bfaa76af2ccf18823f922c7c333ec/gemeinde-reiden/sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft",
+      "needsRetranslation": true,
+      "salaryMin": 55600,
+      "salaryMax": 84800,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-24T21:50:43.241Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 25
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "my-504c86923bce",
       "slug": "applicazione-spontanea-5-teo-jakob-ag-meiringen",
@@ -57,6 +103,7 @@
       "salaryMin": 3400,
       "salaryMax": 5200,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -66,7 +113,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "7e5a7ca15838db7aa669e1e100c60a096edd9672"
+  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
 }
