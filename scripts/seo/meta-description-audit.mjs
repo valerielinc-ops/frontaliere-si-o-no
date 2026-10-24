@@ -36,12 +36,14 @@ import { realpathSync } from 'node:fs';
  * ~1.6M pages exceeds V8's max string length and was caught into a stub report
  * with exit 0 — a crash reported as a PASS. Now: the walk yields one path at a
  * time from frames of directory NAMES; duplicates are keyed by a 72-bit hash of
- * the description, holding the first url for singletons and a count plus at
- * most MAX_DUP_URLS urls per duplicated group; issues are COUNTED in full and
+ * the description, holding only the page ordinal for singletons (their urls
+ * are spooled to a temp file, UrlSpool) and a count plus at most MAX_DUP_URLS
+ * urls per duplicated group; issues are COUNTED in full and
  * kept as a bounded sample per kind. Same pages, same flags, same totals.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, openSync, writeSync, closeSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, openSync, writeSync, readSync, closeSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -142,13 +144,55 @@ function writeReportJson(file, report, duplicateGroups) {
   }
 }
 
+/**
+ * Urls of every described page, on DISK: one line per page in a temp file,
+ * plus the byte offset of each line in an off-heap Float64Array. The dedup Map
+ * then holds only the page ORDINAL of a singleton (a small integer), and the
+ * first url is read back from the file only when a second page shares the
+ * description. The heap no longer grows with one url string per page.
+ */
+class UrlSpool {
+  constructor() {
+    this.dir = mkdtempSync(join(tmpdir(), 'meta-description-urls-'));
+    this.fd = openSync(join(this.dir, 'urls'), 'w+');
+    this.offsets = new Float64Array(1 << 20);
+    this.count = 0;
+    this.pos = 0;
+  }
+  push(url) {
+    if (this.count + 1 >= this.offsets.length) {
+      const grown = new Float64Array(this.offsets.length * 2);
+      grown.set(this.offsets);
+      this.offsets = grown;
+    }
+    const bytes = Buffer.from(url, 'utf8');
+    writeSync(this.fd, bytes, 0, bytes.length, this.pos);
+    this.offsets[this.count] = this.pos;
+    this.pos += bytes.length;
+    this.offsets[this.count + 1] = this.pos;
+    return this.count++;
+  }
+  get(ordinal) {
+    const start = this.offsets[ordinal];
+    const buf = Buffer.alloc(this.offsets[ordinal + 1] - start);
+    readSync(this.fd, buf, 0, buf.length, start);
+    return buf.toString('utf8');
+  }
+  close() {
+    closeSync(this.fd);
+    rmSync(this.dir, { recursive: true, force: true });
+  }
+}
+
 function main() {
   const args = parseArgs(process.argv.slice(2));
   if (!existsSync(args.dist)) { writeStubReport(args, `dist-missing (${args.dist})`); return; }
 
-  // key -> first url (string) while the description is unique on the site,
-  // -> { desc, count, urls[<=MAX_DUP_URLS] } from its second occurrence on.
+  // key -> ordinal of the first page in `spool` while the description is unique
+  // on the site, -> { desc, count, urls[<=MAX_DUP_URLS] } from its second
+  // occurrence on.
   const byDesc = new Map();
+  const spool = new UrlSpool();
   const duplicateGroups = [];
   const samples = { 'missing-description': [], 'too-short': [], 'too-long': [], 'missing-keyword': [] };
   let pages = 0;
@@ -177,9 +221,9 @@ function main() {
     const key = descKey(desc);
     const seen = byDesc.get(key);
     if (seen === undefined) {
-      byDesc.set(key, url);
-    } else if (typeof seen === 'string') {
-      const group = { desc, count: 2, urls: [seen, url] };
+      byDesc.set(key, spool.push(url));
+    } else if (typeof seen === 'number') {
+      const group = { desc, count: 2, urls: [spool.get(seen), url] };
       byDesc.set(key, group);
       duplicateGroups.push(group);
     } else {
@@ -210,8 +254,9 @@ function main() {
       }
     }
   }
-  if (pages === 0) { writeStubReport(args, 'dist-empty'); return; }
   byDesc.clear();
+  spool.close();
+  if (pages === 0) { writeStubReport(args, 'dist-empty'); return; }
 
   const duplicateCount = duplicateGroups.length;
 

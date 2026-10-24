@@ -261,13 +261,43 @@ jobs:
       - name: Assert the rehydrated shards are coherent with the build
         env:
           ALLOW_MIXED: ${{ inputs.allow_mixed_shards }}
+          REPO_VARS_JSON: ${{ toJSON(vars) }}
         run: |
           set -euo pipefail
           prov=/tmp/rehydrate-provenance.tsv
-          touch "$prov"
+          # Every subtree the rehydrate owns must have a recorded origin: an
+          # unrecorded one (a provenance write that failed in a fail-soft
+          # worker) would otherwise pass as coherent by omission.
+          eval "$(jq -r 'to_entries[] | select(.key | test("_SHARDS?_LIVE$")) | "export \(.key)=\(.value | @sh)"' <<< "$REPO_VARS_JSON")"
+          expected="$(
+            if [ "${LOCALE_SHARDS_LIVE:-}" = "true" ]; then printf '%s\n' en de fr; fi
+            jq -r 'to_entries[] | select(.key | startswith("_") | not) | "\(.key)\t\(.value.it)\t\(.value.en)\t\(.value.de)\t\(.value.fr)"' scripts/lib/section-shard-slugs.json \
+              | while IFS=$'\t' read -r section it en de fr; do
+                  live_var="$(printf '%s' "$section" | tr '[:lower:]' '[:upper:]')_SHARD_LIVE"
+                  [ "${!live_var:-}" = "true" ] || continue
+                  printf '%s\n' "$it" "en/$en" "de/$de" "fr/$fr"
+                done
+          )"
+          unrecorded="$(comm -23 <(printf '%s\n' "$expected" | grep . | sort -u) <(cut -f1 "$prov" 2>/dev/null | sort -u))"
+          if [ -n "$unrecorded" ]; then
+            echo "::error::$(printf '%s\n' "$unrecorded" | grep -c .) sottoalberi senza provenienza registrata: la coerenza non è dimostrabile"
+            printf '%s\n' "$unrecorded" | head -20 | sed 's/^/  /'
+            exit 1
+          fi
           echo "Provenienza dei sottoalberi reidratati:"
           cut -f2 "$prov" | sort | uniq -c | sed 's/^/  /'
-          mixed="$(awk -F'\t' '$2 ~ /^clone/ && $3 !~ /^frontaliere-articoli(frontaliere|svizzera)-/' "$prov")"
+          if [ ! -s "$prov" ]; then
+            # Sharding is live on every run this workflow replays: an empty
+            # provenance means the rehydrate could not record where its bytes
+            # came from, so coherence cannot be shown — never read as "clean".
+            echo "::error::provenienza del rehydrate assente o vuota ($prov): la coerenza del dist non è dimostrabile"
+            exit 1
+          fi
+          # Article shard repos are frontaliere-articolifrontaliere-<loc> and
+          # frontaliere-articolisvizzera-<loc> (hyphen-free section names, see
+          # scripts/lib/section-shard-slugs.json); accept a hyphenated spelling
+          # too, bounded by the locale suffix, `@<sha>` or the end.
+          mixed="$(awk -F'\t' '$2 ~ /^clone/ && $3 !~ /^frontaliere-articoli-?(frontaliere|svizzera)(-[a-z][a-z])?@/ && $3 !~ /^frontaliere-articoli-?(frontaliere|svizzera)(-[a-z][a-z])?$/' "$prov")"
           if [ -z "$mixed" ]; then
             echo "✅ ogni sottoalbero viene dal trunk o dagli artifact del build/publish (articoli: clone per costruzione)"
             exit 0

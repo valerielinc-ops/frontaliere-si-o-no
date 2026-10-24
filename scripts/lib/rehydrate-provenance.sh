@@ -21,7 +21,13 @@
 
 rehydrate_provenance() {
   [ -n "${REHYDRATE_PROVENANCE_FILE:-}" ] || return 0
-  printf '%s\t%s\t%s\n' "$1" "$2" "${3:-}" >> "$REHYDRATE_PROVENANCE_FILE" 2>/dev/null || true
+  # No fail-open: a row that cannot be written is a subtree whose origin the
+  # coherence step would never see. Say it, and let the caller's contract
+  # decide (the workflow fails on a missing or empty record).
+  if ! printf '%s\t%s\t%s\n' "$1" "$2" "${3:-}" >> "$REHYDRATE_PROVENANCE_FILE"; then
+    echo "::error::rehydrate provenance not recorded for $1 ($2) in $REHYDRATE_PROVENANCE_FILE"
+    return 1
+  fi
 }
 
 # Run that holds the en/de/fr shard artifacts. Locales can be published by
