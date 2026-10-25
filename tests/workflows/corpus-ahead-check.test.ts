@@ -5,6 +5,7 @@ import YAML from 'yaml';
 // @ts-expect-error — .mjs senza tipi, come gli altri script di scripts/ci.
 import {
   classify,
+  fetchRaw,
   localHash,
   needsDecisionHere,
   renderIssueBody,
@@ -53,6 +54,27 @@ const twin = (over: Record<string, unknown> = {}) => ({
 });
 
 const BASE = { site: 'aaaaaaaaaaaaaaaa', corpus: 'bbbbbbbbbbbbbbbb' };
+
+describe('fetchRaw ha una deadline bounded e abortisce il trasporto', () => {
+  it('interrompe una risposta che non arriva e conserva il contesto senza segreti', async () => {
+    let observedSignal: AbortSignal | undefined;
+    const fetchImpl = (_url: string, init: { signal: AbortSignal }) => new Promise<never>((_resolve, reject) => {
+      observedSignal = init.signal;
+      init.signal.addEventListener('abort', () => reject(init.signal.reason), { once: true });
+    });
+
+    await expect(fetchRaw('nanakokyobashi-rgb/frontaliere-articles', 'main', 'private/file.txt', {
+      fetchImpl,
+      timeoutMs: 10,
+    })).rejects.toMatchObject({
+      name: 'TimeoutError',
+      code: 'CORPUS_AHEAD_FETCH_TIMEOUT',
+      message: expect.stringContaining('nanakokyobashi-rgb/frontaliere-articles@main/private/file.txt'),
+    });
+    expect(observedSignal?.aborted).toBe(true);
+    expect(String(observedSignal?.reason?.message)).not.toMatch(/token|secret|authorization/i);
+  });
+});
 
 describe('il verdetto `corpus-ahead` arriva a questo repo, non solo al corpus', () => {
   it('il workflow ricevitore esiste', () => {
