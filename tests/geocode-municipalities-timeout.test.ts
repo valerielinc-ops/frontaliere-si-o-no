@@ -14,4 +14,10 @@ describe('municipality geocoder transport', () => {
     expect(source).toMatch(/fetch\(url,\s*\{\s*signal:\s*AbortSignal\.timeout\(GEOCODER_FETCH_TIMEOUT_MS\)/);
     expect(source).toMatch(/headers:\s*\{[^}]*['"]User-Agent['"]:[\s\S]*?\},\s*signal:\s*AbortSignal\.timeout\(GEOCODER_FETCH_TIMEOUT_MS\)/);
   });
+
+  it('falls back to the default after flooring sub-millisecond values', () => {
+    expect(source).toMatch(
+      /const floored = Number\.isFinite\(raw\) && raw > 0 \? Math\.floor\(raw\) : 0;\s*return floored > 0 \? Math\.min\(floored, 120_000\) : 30_000;/,
+    );
+  });
 });

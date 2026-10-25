@@ -69,9 +69,8 @@ const GOOGLE_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 const USE_GOOGLE = !!GOOGLE_API_KEY;
 const GEOCODER_FETCH_TIMEOUT_MS = (() => {
   const raw = Number(process.env.GEOCODER_FETCH_TIMEOUT_MS);
-  return Number.isFinite(raw) && raw > 0
-    ? Math.min(Math.floor(raw), 120_000)
-    : 30_000;
+  const floored = Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 0;
+  return floored > 0 ? Math.min(floored, 120_000) : 30_000;
 })();
 if (USE_GOOGLE) {
   console.log('🗺️  Using Google Maps Geocoding API (primary)');
