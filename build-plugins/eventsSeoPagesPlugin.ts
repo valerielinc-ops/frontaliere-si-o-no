@@ -4145,10 +4145,11 @@ export function renderEventDetailPage(params: {
    */
   isPast?: boolean;
   /**
-   * P1 noindex plan (2026-10-24): false when Search Console never showed this
-   * event and it is not an upcoming border-canton event (see
-   * eventDetailDemandGate()). Only the robots directive changes: the page
-   * stays 200, linked, and keeps its ad slots, which follow content quality.
+   * P1 noindex plan (2026-10-24): false when Search Console never showed an
+   * upcoming event and it is not in a border canton (see
+   * eventDetailDemandGate()). Past archive entries are exempt. Only the robots
+   * directive changes: a gated page stays 200, linked, and keeps its ad slots,
+   * which follow content quality.
    */
   demandIndexable?: boolean;
 }): { urlPath: string; html: string; wordCount: number } {
@@ -5000,27 +5001,28 @@ export function reserveLiveSiblingSlugs(
 
 /**
  * Cantons whose upcoming events stay indexable without Search Console demand
- * (P1 noindex plan, 2026-10-24): the border region the site is about. An
- * event elsewhere, or one that already took place, stays indexable only
- * while Search Console has shown one of its four locale URLs.
+ * (P1 noindex plan, 2026-10-24): the border region the site is about. Past
+ * events are a permanent archive and stay indexable regardless of current
+ * demand; the demand gate applies only to upcoming events outside this set.
  */
 const DEMAND_EXEMPT_EVENT_CANTONS: ReadonlySet<string> = new Set(['TI', 'GR', 'VS']);
 
 /**
  * The indexability of an event detail, decided ONCE for its four hreflang
- * URLs so the alternates of an indexable page are indexable too.
+ * URLs so the alternates of an indexable page are indexable too. Historical
+ * details are permanent archive entries and always pass this demand gate;
+ * only upcoming details are demand-qualified.
  *
  * Fail-safe: with the demand gate dormant (evidence missing, truncated or not
  * a 90-day window) every detail keeps its pre-P1 behaviour.
  *
- * Measured on the live sitemap-eventi.xml of 2026-10-23: 14 908 detail URLs,
- * 2 076 kept, 12 832 noindex — none of the 12 832 had an impression in 90 days.
  */
 function eventDetailDemandGate(rootDir: string): (entry: { canton: string; comune: string; slug: string }, isPast: boolean) => boolean {
   const demand = getTrafficEvidenceFilter(rootDir).gscDemand();
   if (!demand.active) return () => true;
   return ({ canton, comune, slug }, isPast) =>
-    (!isPast && DEMAND_EXEMPT_EVENT_CANTONS.has(canton.toUpperCase()))
+    isPast
+    || DEMAND_EXEMPT_EVENT_CANTONS.has(canton.toUpperCase())
     || demand.hasImpressions(LOCALES.map((locale) => pathForEventDetail(locale, comune, slug, canton)));
 }
 
@@ -5518,13 +5520,14 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         }
       }
 
-      // A demand-gated (noindex) detail stays 200 and linked from its listing
-      // and the archive, but a sitemap must only list indexable URLs.
+      // A demand-gated upcoming detail stays 200 and linked from its listing
+      // and the archive, but a sitemap must only list indexable URLs. Past
+      // archive details are exempt from the demand gate.
       const detailEntries = [
         ...[...detailSlugs.values()].filter((entry) => demandIndexable(entry, false)),
         ...historicalDetailEntries.filter((entry) => demandIndexable(entry, true)),
       ];
-      console.log(`[events-seo] detail pages indexable by demand: ${detailEntries.length}/${detailSlugs.size + historicalDetailEntries.length}`);
+      console.log(`[events-seo] detail pages indexable by demand/archive: ${detailEntries.length}/${detailSlugs.size + historicalDetailEntries.length}`);
       const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries, historicalArchivePageCount);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');

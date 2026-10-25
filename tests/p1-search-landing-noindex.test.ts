@@ -21,19 +21,19 @@ const SRC = fs.readFileSync(
 );
 
 describe('GSC search landings — P1 demand gate wiring', () => {
-  it('the predicate reads Search Console evidence, the job floor and the shared stop-words', () => {
+  it('the predicate reads Search Console evidence and shared stop-words, without an inventory veto', () => {
     expect(SRC).toMatch(/const searchLandingDemand = trafficFilter\.gscDemand\(\);/);
     expect(SRC).toMatch(/if \(!searchLandingDemand\.active\) return true;/);
     expect(SRC).toMatch(/if \(hasClusterStopwordLead\(slugKey\)\) return false;/);
-    expect(SRC).toMatch(/if \(jobCount < KEYWORD_LANDING_MIN_JOBS\) return false;/);
+    expect(SRC).not.toMatch(/jobCount < KEYWORD_LANDING_MIN_JOBS/);
     expect(SRC).toMatch(/return searchLandingDemand\.hasImpressions\(groupPaths\);/);
     expect(SRC).toMatch(/import \{ hasClusterStopwordLead \} from '\.\/shared\/searchSlugStopwords';/);
   });
 
   it.each([
     ['keyword-config', 'kwDemandIndexable', /if \(!kwDemandIndexable\) break; \/\/ P1/],
-    ['search-stats', 'ssDemandIndexable', /if \(fallbackMatchingJobs\.length >= 3 && ssDemandIndexable\) \{/],
-    ['combo', 'cmDemandIndexable', /if \(matchingJobs\.length >= 3 && cmDemandIndexable\) \{/],
+    ['search-stats', 'ssDemandIndexable', /if \(fallbackMatchingJobs\.length > 0 && ssDemandIndexable\) \{/],
+    ['combo', 'cmDemandIndexable', /if \(matchingJobs\.length > 0 && cmDemandIndexable\) \{/],
   ])('%s: robots and sitemap read the same verdict', (_family, verdict, sitemapGate) => {
     expect(SRC).toMatch(new RegExp(`const ${verdict} = isSearchLandingDemandIndexable\\(`));
     expect(SRC).toContain(`robots: ${verdict} ? 'index,follow' : 'noindex,follow',`);

@@ -10033,20 +10033,20 @@ ${staticAnalyticsHtml}
  const KEYWORD_LANDING_MIN_JOBS = 3;
  // P1 noindex plan (2026-10-24): the three GSC search-landing families below
  // (keyword-config, search-stats leaders, combos) were indexable by
- // construction. They now follow the same rule as the related-search
+ // construction. They now follow the same demand rule as the related-search
  // clusters: indexable only with a Search Console impression in the last 90
- // days on ANY locale variant (one hreflang group, one verdict), at least
- // KEYWORD_LANDING_MIN_JOBS matching jobs, and no stop-word lead token
- // (shared/searchSlugStopwords.ts). Otherwise 200 + `noindex,follow` and no
- // sitemap entry. Dormant evidence → pre-P1 behaviour (indexable).
+ // days on ANY locale variant (one hreflang group, one verdict) and no
+ // stop-word lead token (shared/searchSlugStopwords.ts). Inventory controls
+ // emission for keyword-config pages, but is not an additional robots veto.
+ // Otherwise 200 + `noindex,follow` and no sitemap entry. Dormant evidence →
+ // pre-P1 behaviour (indexable).
  // Measured on the live sitemap-jobs* of 2026-10-23: 221 search-landing URLs,
  // 73 with an impression in 90 days (65 with a click).
  const searchLandingDemand = trafficFilter.gscDemand();
  let searchLandingDemandNoindexCount = 0;
- const isSearchLandingDemandIndexable = (slugKey: string, groupPaths: readonly string[], jobCount: number): boolean => {
+ const isSearchLandingDemandIndexable = (slugKey: string, groupPaths: readonly string[]): boolean => {
  if (!searchLandingDemand.active) return true;
  if (hasClusterStopwordLead(slugKey)) return false;
- if (jobCount < KEYWORD_LANDING_MIN_JOBS) return false;
  return searchLandingDemand.hasImpressions(groupPaths);
  };
  const searchLandingGroupPaths = (key: string): string[] => localeList.map((l) =>
@@ -10121,7 +10121,6 @@ ${staticAnalyticsHtml}
  const kwDemandIndexable = isSearchLandingDemandIndexable(
  kwSlug,
  searchLandingGroupPaths(kwSlug),
- kwEligibleLocales.size > 0 ? KEYWORD_LANDING_MIN_JOBS : 0,
  );
  if (!kwDemandIndexable) searchLandingDemandNoindexCount++;
  const kwHrefFor = (al: AlternateLocale): string =>
@@ -10450,8 +10449,8 @@ ${staticAnalyticsHtml}
  ),
  );
  // P1: one verdict per leader key — robots of every locale page and the
- // sitemap gate below (which already required fallbackMatchingJobs ≥ 3).
- const ssDemandIndexable = isSearchLandingDemandIndexable(key, searchLandingGroupPaths(key), fallbackMatchingJobs.length);
+ // sitemap gate below.
+ const ssDemandIndexable = isSearchLandingDemandIndexable(key, searchLandingGroupPaths(key));
  if (!ssDemandIndexable) searchLandingDemandNoindexCount++;
 
  for (const locale of localeList) {
@@ -10630,8 +10629,8 @@ ${staticAnalyticsHtml}
  recordEmit('search-stats-landing', __tSearchStats);
  }
 
- // Add indexable search pages (>=3 jobs, P1 demand) to sitemap
- if (fallbackMatchingJobs.length >= 3 && ssDemandIndexable) {
+ // Add indexable search pages (the non-empty set above, plus P1 demand) to sitemap.
+ if (fallbackMatchingJobs.length > 0 && ssDemandIndexable) {
  const sItSlug = `${searchRoutePrefix.it}-${key}`;
  const sItPath = withSlash(`/${sectionByLocale.it}/${sItSlug}`.replace(/\/+/g, '/'));
  const sItUrl = `${BASE_URL}${sItPath}`;
@@ -10687,7 +10686,7 @@ ${staticAnalyticsHtml}
  localeList.filter(() => matchingJobs.length > 0),
  );
  // P1: `matchingJobs` is locale-agnostic, so one verdict covers the group.
- const cmDemandIndexable = isSearchLandingDemandIndexable(comboKey, searchLandingGroupPaths(comboKey), matchingJobs.length);
+ const cmDemandIndexable = isSearchLandingDemandIndexable(comboKey, searchLandingGroupPaths(comboKey));
  if (!cmDemandIndexable) searchLandingDemandNoindexCount++;
 
  for (const locale of localeList) {
@@ -10843,7 +10842,7 @@ ${staticAnalyticsHtml}
  }
 
  // Add qualifying combo pages to sitemap for discovery (P1: demand too)
- if (matchingJobs.length >= 3 && cmDemandIndexable) {
+ if (matchingJobs.length > 0 && cmDemandIndexable) {
  const cItSlug = `${searchRoutePrefix.it}-${comboKey}`;
  const cItPath = withSlash(`/${sectionByLocale.it}/${cItSlug}`.replace(/\/+/g, '/'));
  const cItUrl = `${BASE_URL}${cItPath}`;

@@ -242,31 +242,10 @@ const SVIZZERA_HUB_BRIDGE_LINK_COUNT = 60;
 // competing with the hub and real per-canton clusters for the same query.
 const MIN_JOBS_FOR_INDEXABLE_CLUSTER = 3;
 
-// CLUSTER_DEMAND_MIN_JOBS — P1 noindex plan (2026-10-24, "scaled content
-// abuse"). Since this date a cluster page is `noindex,follow` and out of the
-// sitemap BY DEFAULT; it stays indexable only when ALL of these hold:
-//   1. Search Console showed it (or one of its same-locale legacy mirrors) at
-//      least once in the last 90 days (`GscDemandEvidence`), AND
-//   2. it lists at least CLUSTER_DEMAND_MIN_JOBS real matching jobs — the
-//      AI-intro exemption of `isClusterBelowFloor` does NOT count here, AND
-//   3. the first slug token is not a stop-word (`CLUSTER_SLUG_LEAD_STOPWORDS`).
-//
-// Why N = 3 and not higher. Measured on 2026-10-23 on the 2 039 cluster URLs
-// of sitemap-search-clusters-* with a Search Console impression in 90 days
-// (job count read from the live page, capped at 30 by MAX_JOBS_PER_PAGE):
-//   0-2 jobs →   55 URLs,   22 with clicks,   36 clicks
-//   3-4 jobs →  281 URLs,  205 with clicks,  557 clicks
-//   5-9 jobs →  319 URLs,  235 with clicks,  947 clicks
-//   10+ jobs → 1384 URLs,  970 with clicks, 4564 clicks
-// N = 5 would de-index 205 pages that earn clicks — the opposite of a page
-// "without demand". N = 3 is the anti-doorway floor every other job landing
-// already uses (MIN_JOBS_FOR_INDEXABLE_CLUSTER, KEYWORD_LANDING_MIN_JOBS) and
-// removes only the 0-2-job pages kept indexable by the AI intro.
-//
-// The page is still emitted (200, crawlable, internal links unchanged): the
-// directive is a robots rewrite, never a 404 — same contract as the #5168
-// inert band.
-const CLUSTER_DEMAND_MIN_JOBS = MIN_JOBS_FOR_INDEXABLE_CLUSTER;
+// The P1 demand gate deliberately does not add another inventory threshold.
+// A substantive cluster that has Search Console demand can stay indexable with
+// one or two matching jobs; `isClusterBelowFloor` still protects genuinely
+// thin pages by rendering the existing same-URL canonical bridge.
 
 // Lead-token stop-words live in shared/searchSlugStopwords.ts: the keyword
 // landings of jobsSeoPagesPlugin apply the same list (P1 noindex plan).
@@ -2417,14 +2396,15 @@ export interface ClusterEmissionDecision {
   /** Traffic-evidence inert band (#5168) → robots meta rewritten. */
   readonly inertBand: boolean;
   /**
-   * P1 demand gate (see CLUSTER_DEMAND_MIN_JOBS): no Search Console impression
-   * in 90 days, fewer than CLUSTER_DEMAND_MIN_JOBS real jobs, or a stop-word
-   * lead token → robots meta rewritten. Always false while the evidence is
-   * dormant (`GscDemandEvidence.active === false`).
+   * P1 demand gate: no Search Console impression in 90 days or a stop-word
+   * lead token → robots meta rewritten. The live inventory count is not an
+   * additional demand veto; thin pages are handled by `belowFloor`.
+   * Always false while the evidence is dormant (`GscDemandEvidence.active ===
+   * false`).
    */
   readonly insufficientDemand: boolean;
   /** Which demand condition failed first, for build logs; '' when indexable. */
-  readonly demandReason: '' | 'stopword-lead' | 'below-demand-min-jobs' | 'no-gsc-impressions-90d';
+  readonly demandReason: '' | 'stopword-lead' | 'no-gsc-impressions-90d';
   /** The page ships a `noindex` robots directive, for ANY reason above. */
   readonly noindex: boolean;
   /** Derived from {@link noindex}: a noindex URL may never enter a sitemap. */
@@ -2573,7 +2553,6 @@ export function decideClusterDemand(
 ): ClusterEmissionDecision['demandReason'] {
   if (!demand.active) return '';
   if (hasClusterStopwordLead(ctx.candidate.slug)) return 'stopword-lead';
-  if (clusterMatchingJobCount(ctx) < CLUSTER_DEMAND_MIN_JOBS) return 'below-demand-min-jobs';
   if (!demand.hasImpressions(ownPaths)) return 'no-gsc-impressions-90d';
   return '';
 }

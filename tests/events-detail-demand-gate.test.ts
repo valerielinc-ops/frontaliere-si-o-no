@@ -1,9 +1,9 @@
 // @vitest-environment node
 //
-// P1 noindex plan (2026-10-24): an event detail stays indexable while Search
-// Console has shown one of its four locale URLs in 90 days, or while it is an
-// upcoming event of a border canton (TI/GR/VS). Every other detail ships
-// `noindex,follow` (still 200 and linked) and leaves sitemap-eventi.xml.
+// P1 noindex plan (2026-10-24): an upcoming event detail stays indexable while
+// Search Console has shown one of its four locale URLs in 90 days, or while it
+// belongs to a border canton (TI/GR/VS). Past details are the permanent event
+// archive and remain indexable regardless of demand.
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -87,7 +87,7 @@ describe('event detail demand gate (P1 noindex plan)', () => {
     for (const [key, { html }] of details) expect(robotsOf(html), key).not.toMatch(/noindex/);
   });
 
-  it('noindexes details without demand outside the upcoming border-canton set, and drops them from the sitemap', async () => {
+  it('noindexes upcoming details without demand, while keeping past archive entries indexable', async () => {
     const discovery = temporary();
     await emit(discovery);
     const shownIt = itDetails(path.join(discovery, 'dist')).get('ge-shown')!.urlPath;
@@ -110,9 +110,9 @@ describe('event detail demand gate (P1 noindex plan)', () => {
     const expected: Record<string, boolean> = {
       'ti-upcoming': true, // border canton, upcoming
       'ge-shown': true, // Search Console demand on one locale
-      'ti-past': false,
+      'ti-past': true, // historical archive is exempt from the demand gate
       'ge-upcoming': false,
-      'ge-past': false,
+      'ge-past': true, // historical archive is exempt from the demand gate
     };
     for (const [key, indexable] of Object.entries(expected)) {
       const detail = details.get(key);
