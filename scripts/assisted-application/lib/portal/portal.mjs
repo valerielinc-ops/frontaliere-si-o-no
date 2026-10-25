@@ -2635,6 +2635,21 @@ export const PREREAD_CHANNELS = new Set([
   'umantis', 'refline', 'jobs_ch', 'workday', 'successfactors',
 ]);
 
+// Solique exposes a public multi-step application form without an account.
+// Keep this an exact HTTPS host allowlist: an arbitrary employer site must not
+// be opened during drafting just because it happens to have an apply link.
+const SAFE_EMPLOYER_PREREAD_HOSTS = new Set(['live.solique.ch']);
+
+export function isSafeEmployerSitePreread(url) {
+  try {
+    const parsed = new URL(String(url || ''));
+    return parsed.protocol === 'https:'
+      && SAFE_EMPLOYER_PREREAD_HOSTS.has(parsed.hostname.toLowerCase());
+  } catch {
+    return false;
+  }
+}
+
 const CORE_DOCUMENT_LABEL_RE = /(?<![\p{L}\p{N}])(?:cv|resume|résumé|lebenslauf|curriculum(?: vitae)?|cover(?:ing)? letter|anschreiben|bewerbungsschreiben|motivations(?:schreiben|brief)|lettre de motivation|lettre de présentation|lettera di (?:motivazione|presentazione)|carta motivazionale)(?![\p{L}\p{N}])/iu;
 
 function portalDocumentId(field, label, context) {
@@ -2722,7 +2737,9 @@ export async function readPortalRequirements(ctx) {
   // posting route above proves that this is the matching application flow.
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
-  if ((!PREREAD_CHANNELS.has(channelType) && !verifiedJobs2WebEntry) || !ctx.applyUrl || !ctx.codex) {
+  const safeEmployerSite = channelType === 'employer_site' && isSafeEmployerSitePreread(entryUrl);
+  if ((!PREREAD_CHANNELS.has(channelType) && !verifiedJobs2WebEntry && !safeEmployerSite)
+    || !ctx.applyUrl || !ctx.codex) {
     return { questions: [], documents: [] };
   }
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
