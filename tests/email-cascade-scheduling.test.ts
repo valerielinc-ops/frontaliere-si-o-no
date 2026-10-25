@@ -342,6 +342,44 @@ describe('sendEmailCascade — maileroo scheduled send', () => {
       inline: false,
     }]);
   });
+
+  it('sends CC, BCC and a valid reference id in Maileroo API shape', async () => {
+    let sentBody: any = null;
+    globalThis.fetch = (async (url: string, opts?: any) => {
+      if (String(url).includes('smtp.maileroo.com') && opts?.method === 'POST') {
+        sentBody = JSON.parse(opts.body);
+        return {
+          ok: true, status: 200,
+          json: async () => ({ success: true, data: { reference_id: 'maileroo-ref-cc-bcc' } }),
+          text: async () => '{}',
+        } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const { sent, failed } = await sendEmailCascade(
+      [{
+        payload: {
+          from: 'Frontaliere <noreply@example.com>',
+          to: ['candidate@example.com'],
+          cc: ['HR <hr@example.com>'],
+          bcc: [{ address: 'audit@example.com', display_name: 'Audit' }],
+          referenceId: '0123456789abcdef01234567',
+          subject: 'Interview invitation',
+          html: '<p>See you soon.</p>',
+        },
+        recipient: { email: 'candidate@example.com' },
+        meta: {},
+      }],
+      { forceProvider: 'maileroo', delayMs: 0 },
+    );
+
+    expect(failed).toHaveLength(0);
+    expect(sent).toHaveLength(1);
+    expect(sentBody.cc).toEqual([{ address: 'hr@example.com', display_name: 'HR' }]);
+    expect(sentBody.bcc).toEqual([{ address: 'audit@example.com', display_name: 'Audit' }]);
+    expect(sentBody.reference_id).toBe('0123456789abcdef01234567');
+  });
 });
 
 /* ------------------------------------------------------------------ */

@@ -181,7 +181,7 @@ describe('fetchMailerooCycleUsage credential separation', () => {
     expect(calls).toBe(0);
   });
 
-  it('uses only the dedicated Account API key for statistics', async () => {
+  it('uses only the dedicated Account API key for account usage and statistics', async () => {
     process.env.MAILEROO_API_KEY = 'sending-key';
     process.env.MAILEROO_ACCOUNT_API_KEY = 'account-key';
     let authorization = '';
@@ -190,8 +190,48 @@ describe('fetchMailerooCycleUsage credential separation', () => {
       return { ok: true, json: async () => ({ data: { aggregate: { delivered: 4, bounced: 2 } } }) } as any;
     }) as any;
 
-    await expect(fetchMailerooCycleUsage()).resolves.toEqual({ count: 6, verified: true });
+    await expect(fetchMailerooCycleUsage()).resolves.toEqual({ count: 6, verified: true, source: 'statistics' });
     expect(authorization).toBe('Bearer account-key');
+  });
+
+  it('uses the live plan and outbound usage from the Account API when available', async () => {
+    process.env.MAILEROO_API_KEY = 'sending-key';
+    process.env.MAILEROO_ACCOUNT_API_KEY = 'account-key';
+    let calls = 0;
+    globalThis.fetch = (async (url, options) => {
+      calls += 1;
+      expect(String(url)).toBe('https://api.maileroo.com/v1/account');
+      expect(options.headers.Authorization).toBe('Bearer account-key');
+      return {
+        ok: true,
+        json: async () => ({
+          data: {
+            current_plan: { quantity: 250000 },
+            usage: [
+              { name: 'Hourly Outbound Usage', quantity: 10000, used: 7, available: 9993 },
+              { name: 'Monthly Outbound Usage', quantity: 250000, used: 123, available: 249877 },
+            ],
+            subscription: {
+              current_period_start: '2026-10-20T07:20:34Z',
+              current_period_end: '2026-11-20T07:20:34Z',
+            },
+          },
+        }),
+      } as any;
+    }) as any;
+
+    await expect(fetchMailerooCycleUsage()).resolves.toEqual({
+      count: 123,
+      verified: true,
+      monthlyLimit: 250000,
+      hourlyLimit: 10000,
+      hourlyUsed: 7,
+      hourlyAvailable: 9993,
+      billingPeriodStartMs: Date.parse('2026-10-20T07:20:34Z'),
+      billingPeriodEndMs: Date.parse('2026-11-20T07:20:34Z'),
+      source: 'account',
+    });
+    expect(calls).toBe(1);
   });
 });
 
