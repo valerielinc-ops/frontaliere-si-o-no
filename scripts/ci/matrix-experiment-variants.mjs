@@ -46,6 +46,9 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   'MID_PLUGINS_FAST',
   // Pool di thread libuv per le I/O asincrone del build (default Node: 4).
   'UV_THREADPOOL_SIZE',
+  // Salta border-wait-pages (webcam live): il banco di determinismo lo esclude
+  // quando la cattura degli input di replay e' incompleta.
+  'SKIP_BORDER_WAIT',
   // Opzioni V8 aggiuntive per `npm run build:ci` (es. --max-semi-space-size=64).
   'BUILD_EXTRA_NODE_OPTIONS',
   // Readdir paralleli nell'enumerazione del post-walk (richiede BLOG_IMAGE_CDN_FOLD=1).
