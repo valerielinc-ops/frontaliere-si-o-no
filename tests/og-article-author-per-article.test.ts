@@ -162,7 +162,7 @@ describe('editorial transparency disclosure matches how the article was produced
     expect(staticSrc).toMatch(/const articleTransparencyAuthorName = en\.authorName\.trim\(\) \|\| resolvedAuthor\?\.name/);
     expect(staticSrc).toMatch(/buildArticleTransparencyAside\(locale, articleTransparencyAuthorName, articleProvenance\)/);
     expect(overlaySrc).toMatch(/typeof entry\.aiAssisted === 'boolean' \? \{ aiAssisted: entry\.aiAssisted \}/);
-    expect(spaSrc).toMatch(/provenance: resolveArticleProvenance\(article, bylineAuthor\)/);
+    expect(spaSrc).toMatch(/provenance:\s*resolveArticleProvenance\(article,\s*canonicalAuthor\)/);
   });
 });
 
