@@ -1,8 +1,8 @@
 {
   "_source": "https://pharmageneve.swiss/pharmacie-de-garde/",
   "_sourceKey": "pharmageneve-garde-2026",
-  "_fetchedAt": null,
-  "_attemptedAt": "2026-10-25T12:26:47.897Z",
+  "_fetchedAt": "2026-10-25T16:47:16.678Z",
+  "_attemptedAt": "2026-10-25T16:47:16.678Z",
   "_timezone": "Europe/Zurich",
   "_scope": {
     "country": "CH",
@@ -12,25 +12,25 @@
     "validFrom": "2026-01-01",
     "validTo": "2026-12-31",
     "minimumCalendarDays": 365,
-    "observedCalendarDays": 0,
-    "uncoveredCalendarDays": 365,
-    "coverage": "not_published"
+    "observedCalendarDays": 365,
+    "uncoveredCalendarDays": 0,
+    "coverage": "covered"
   },
-  "_observedEntryCount": 0,
-  "_resolvedDutyCount": 0,
+  "_observedEntryCount": 3,
+  "_resolvedDutyCount": 379,
   "_unresolvedIdentities": [],
-  "_allSourcesFailed": true,
-  "_releaseReady": false,
-  "_state": "not_published",
-  "_errors": [
-    "pharmageneve-garde-2026: HTTP 429 for https://pharmageneve.swiss/pharmacie-de-garde/"
+  "_allSourcesFailed": false,
+  "_releaseReady": true,
+  "_state": "fresh",
+  "_errors": [],
+  "_warnings": [
+    "permanent 24/7 cards are expanded into explicit daily 24h duty intervals"
   ],
-  "_warnings": [],
   "_release": {
     "version": 1,
     "timezone": "Europe/Zurich",
-    "state": "not_published",
-    "evaluatedAt": "2026-10-25T12:26:47.897Z",
+    "state": "fresh",
+    "evaluatedAt": "2026-10-25T16:47:16.678Z",
     "scope": {
       "country": "CH",
       "canton": "GE"
@@ -43,22 +43,22 @@
       "validFrom": "2026-01-01",
       "validTo": "2026-12-31",
       "minimumCalendarDays": 365,
-      "observedCalendarDays": 0,
-      "uncoveredCalendarDays": 365,
-      "coverage": "not_published"
+      "observedCalendarDays": 365,
+      "uncoveredCalendarDays": 0,
+      "coverage": "covered"
     },
     "snapshots": {
       "duties": {
         "path": "data/pharmacy-duties-geneva.json",
-        "sha256": "cd59ee2ef39080f0ffcc587107ca55245742ce2ac16f3f55946594b95ef5073f",
-        "fetchedAt": null
+        "sha256": "02d6ab1366ae40c6838e4a0ee7b7c4b3f8cb161b7c6f4dad00ebbe6a8d535663",
+        "fetchedAt": "2026-10-25T16:47:16.678Z"
       },
       "status": {
         "path": "data/pharmacy-duties-geneva-status.json",
-        "sha256": "7b9f956384842f9f35946c25a7fd809420d5b72c7ee4b6500725cd031d9f26b2",
-        "fetchedAt": null
+        "sha256": "fe3999da88a2035805e1682600aafa7b93694de8903834da672627aafa2fc979",
+        "fetchedAt": "2026-10-25T16:47:16.678Z"
       }
     },
-    "releaseId": "pharmacy-geneva-v1-e4d5fb85ed0d75620cf0ecd48ac276f901b9e108eb7b541ced4dfdf5b26b7839"
+    "releaseId": "pharmacy-geneva-v1-fe99aff360e71b3bbd62ef489ffc27296f04d5c6a135e87b80b874275150e70c"
   }
 }
