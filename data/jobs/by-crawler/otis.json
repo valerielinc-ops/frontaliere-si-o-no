@@ -631,7 +631,7 @@
       "slugByLocale": {
         "it": "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-fribourg",
         "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg",
-        "de": "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg",
+        "de": "talentpool-servicetechniker-monteur-reparaturtechniker-otis-sa-fribourg",
         "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg"
       },
       "company": "Otis SA",
@@ -677,6 +677,9 @@
       "previousSlugsByLocale": {
         "it": [
           "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg"
+        ],
+        "de": [
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg"
         ]
       },
       "needsRetranslation": true,
@@ -703,7 +706,7 @@
       "slugByLocale": {
         "it": "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-martigny",
         "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny",
-        "de": "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny",
+        "de": "talentpool-servicetechniker-montagetechniker-reparaturtechniker-otis-sa-martigny",
         "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny"
       },
       "company": "Otis SA",
@@ -748,6 +751,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny"
+        ],
+        "de": [
           "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny"
         ]
       },
@@ -847,7 +853,7 @@
       "slugByLocale": {
         "it": "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-vernier",
         "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier",
-        "de": "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier",
+        "de": "talentpool-servicetechniker-monteur-reparaturtechniker-otis-sa-vernier",
         "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier"
       },
       "company": "Otis SA",
@@ -892,6 +898,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier"
+        ],
+        "de": [
           "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier"
         ]
       },
@@ -1301,7 +1310,7 @@
       "slugByLocale": {
         "it": "servicetechniker-m-w-d-otis-sa-wallisellen",
         "en": "servicetechniker-m-w-d-otis-wallisellen",
-        "de": "servicetechniker-m-w-d-otis-wallisellen",
+        "de": "wartungstechniker-m-w-d-otis-sa-wallisellen",
         "fr": "technicien-de-maintenance-h-f-d-otis-sa-wallisellen"
       },
       "company": "Otis SA",
@@ -1349,6 +1358,9 @@
           "servicetechniker-m-w-d-otis-wallisellen"
         ],
         "fr": [
+          "servicetechniker-m-w-d-otis-wallisellen"
+        ],
+        "de": [
           "servicetechniker-m-w-d-otis-wallisellen"
         ]
       },
