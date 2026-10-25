@@ -2,7 +2,8 @@
 /**
  * Post-build sanity check: confirms the two SPA entry files Vite is
  * configured to emit (`build-plugins/shared/spaEntryFilenames.ts`) actually
- * landed under `dist/assets/`.
+ * landed under `dist/assets/`, then validates every emitted JS import against
+ * the exports of its local target.
  *
  * Why this runs here and not mid-build
  * -------------------------------------
@@ -24,6 +25,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../build-plugins/shared/spaEntryFilenames.ts';
+import { formatBrokenLinks, verifyLocalModuleLinks } from './verify-spa-module-links.mjs';
 
 const distDir = path.resolve(process.cwd(), 'dist');
 const assetsDir = path.join(distDir, 'assets');
@@ -43,4 +45,21 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
+let moduleGraph;
+try {
+  moduleGraph = verifyLocalModuleLinks(assetsDir);
+} catch (error) {
+  console.error(`[verify-spa-module-links] unable to inspect ${assetsDir}: ${error.message}`);
+  process.exit(1);
+}
+
+if (moduleGraph.broken.length > 0) {
+  console.error(
+    `[verify-spa-module-links] ${moduleGraph.broken.length} broken module link(s) in ${assetsDir}:\n` +
+      formatBrokenLinks(moduleGraph.broken).join('\n'),
+  );
+  process.exit(1);
+}
+
+console.log(`[verify-spa-module-links] ok — ${moduleGraph.files.length} JavaScript asset(s) linked`);
 console.log(`[verify-spa-entry-assets] ok — ${SPA_ENTRY_JS_FILENAME}, ${SPA_ENTRY_CSS_FILENAME} present in ${assetsDir}`);

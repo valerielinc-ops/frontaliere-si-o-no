@@ -15,6 +15,7 @@ import {
   rotatingWindow,
 } from '../scripts/ci/cdn-chunk-graph.mjs';
 import { MAX_TARGETED_FILES } from '../scripts/lib/cf-purge-limits.mjs';
+import { buildLocalModuleGraph, formatBrokenLinks } from '../scripts/verify-spa-module-links.mjs';
 
 const A = (name: string) => `${CDN_ASSETS_BASE}${name}`;
 
@@ -182,6 +183,29 @@ describe('linkCheck', () => {
     expect(linkCheck(modules, served)).toEqual([
       { from: A('a.js'), to: A('lazy.js'), name: null, reason: 'missing_module' },
     ]);
+  });
+});
+
+describe('verify-spa-module-links', () => {
+  it('catches a named import that the emitted exporter does not provide', () => {
+    const graph = buildLocalModuleGraph(new Map([
+      ['seededExpiredJob.js', 'import{statedWorkloadPercent}from"./jobDataNormalization.js";'],
+      ['jobDataNormalization.js', 'export{formatJobLocation};'],
+    ]));
+
+    const broken = linkCheck(graph.modules, graph.served);
+    expect(formatBrokenLinks(broken)).toEqual([
+      "- seededExpiredJob.js → jobDataNormalization.js 'statedWorkloadPercent' (missing_export)",
+    ]);
+  });
+
+  it('accepts the compatibility exports used by the current SPA chunks', () => {
+    const graph = buildLocalModuleGraph(new Map([
+      ['seededExpiredJob.js', 'import{statedWorkloadPercent,PART_TIME_MAX_WORKLOAD,sameOrg}from"./jobDataNormalization.js";'],
+      ['jobDataNormalization.js', 'export{statedWorkloadPercent,PART_TIME_MAX_WORKLOAD,sameOrg};'],
+    ]));
+
+    expect(linkCheck(graph.modules, graph.served)).toEqual([]);
   });
 });
 

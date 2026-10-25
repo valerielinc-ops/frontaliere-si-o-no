@@ -1,12 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import {
   CRAWLED_COMPANY_LOGOS,
+  formatJobLocation,
   isMultiLocation,
   MAX_JOB_SLUG_LENGTH,
   normalizeJobCategory,
   normalizeJobContract,
   resolveCompanyLogoUrl,
   resolveCompanyWebsiteHost,
+ PART_TIME_MAX_WORKLOAD,
+  sameOrg,
+  statedWorkloadPercent,
   truncateJobSlug,
 } from '@/services/jobDataNormalization';
 import { resolveBrandLogoUrl } from '@/build-plugins/shared/seoContentTokens';
@@ -22,6 +26,13 @@ describe('jobDataNormalization', () => {
     expect(normalizeJobContract('permanent')).toBe('full-time');
     expect(normalizeJobContract('80%')).toBe('part-time');
     expect(normalizeJobContract('', 'Thesis R&D Orthopedics')).toBe('internship');
+  });
+
+  it('keeps shared workload, location, and organisation helpers available to cached SPA chunks', () => {
+    expect(PART_TIME_MAX_WORKLOAD).toBe(90);
+    expect(statedWorkloadPercent('Pensum 60%')).toBe(60);
+    expect(formatJobLocation('Lugano', 'TI')).toBe('Lugano (TI)');
+    expect(sameOrg('jobs.example.ch', 'careers.example.ch')).toBe(true);
   });
 
   it('does not misclassify full-time roles whose description merely contains "intern"/"stage" as a substring (issue: UBS M&A Business Strategist flagged as internship)', () => {
