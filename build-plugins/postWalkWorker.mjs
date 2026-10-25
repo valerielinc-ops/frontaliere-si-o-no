@@ -30,6 +30,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { parentPort, workerData } from 'node:worker_threads';
 import { createSharedHtmlPathIndexView } from './shared/htmlPathIndex.mjs';
+import { isSiblingSource, writeFileAtomic } from './shared/atomicWrite.mjs';
 
 if (!parentPort) {
   throw new Error('[postWalkWorker] must be spawned via worker_threads');
@@ -274,7 +275,8 @@ async function processFile(filePath) {
     }
     const __tWrite = profileStart();
     try {
-      await fs.promises.writeFile(filePath, html, 'utf-8');
+      if (isSiblingSource(filePath)) await writeFileAtomic(filePath, html);
+      else await fs.promises.writeFile(filePath, html, 'utf-8');
       totalWrites++;
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);

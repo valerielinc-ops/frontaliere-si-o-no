@@ -100,6 +100,7 @@ import {
   type PostWalkIndexedInventory,
 } from './shared/distHtmlWalk';
 import { buildSharedHtmlPathIndex } from './shared/htmlPathIndex.mjs';
+import { isSiblingSource, writeFileAtomicSync } from './shared/atomicWrite.mjs';
 import {
   BLOG_IMAGE_REF_MARKER,
   blogImageFoldEnabled,
@@ -450,7 +451,8 @@ function runSingleThreaded(
       const __tWrite = profileStart();
       if (writeFiles) {
         try {
-          fs.writeFileSync(filePath, html, 'utf-8');
+          if (isSiblingSource(filePath)) writeFileAtomicSync(filePath, html);
+          else fs.writeFileSync(filePath, html, 'utf-8');
           result.totalWrites++;
         } catch (err: unknown) {
           const msg = err instanceof Error ? err.message : String(err);
@@ -534,23 +536,6 @@ function isBridgeCandidate(
   const baseName = path.basename(filePath);
   if (baseName === 'index.html' || baseName.startsWith('.') || !baseName.endsWith('.html')) return false;
   return existingHtmlSet.has(path.join(filePath.slice(0, -'.html'.length), 'index.html'));
-}
-
-/**
- * Divide la lista di lavoro in «tutto cio' che non e' un bridge» e «bridge
- * flat». I secondi leggono il fratello `X/index.html` dal disco: vanno eseguiti
- * quando nessun altro lavoratore scrive piu' i fratelli. Esportata per i test.
- */
-export function partitionBridgesLast(
-  paths: readonly string[],
-  existingHtmlSet: ReadonlySet<string>,
-): { settledFirst: string[]; bridgesLast: string[] } {
-  const settledFirst: string[] = [];
-  const bridgesLast: string[] = [];
-  for (const candidate of paths) {
-    (isBridgeCandidate(candidate, existingHtmlSet) ? bridgesLast : settledFirst).push(candidate);
-  }
-  return { settledFirst, bridgesLast };
 }
 
 function derivedKindForPath(
@@ -1260,28 +1245,10 @@ function buildPostWalkCoordinatorPlugin(
         // ── Phase C: dispatch work ─────────────────────────────────
         const processPhaseStartedAt = Date.now();
         const workerCount = resolveWorkerCount(processHtmlPaths.length);
-        // Due fasi, per costruzione deterministiche. Un bridge flat (`X.html` con
-        // `X/index.html` accanto) viene derivato dal CONTENUTO del fratello letto
-        // dal disco; il fratello, nello stesso giro, puo' essere riscritto da un
-        // altro worker (link contestuali, hreflang, SRI) e una lettura durante
-        // `writeFile` (troncato poi riempito) vedeva una pagina a meta': il bridge
-        // perdeva titolo e og:* e cambiava da run a run. Prima tutto cio' che non
-        // e' un bridge, poi i bridge: al momento della lettura nessuno scrive piu'
-        // il fratello. L'insieme dei file elaborati e l'esito per file sono gli
-        // stessi, cambia solo l'ordine fra le due classi.
-        // `POST_WALK_BRIDGES_LAST=0` (solo banco, A/B del costo) torna a una fase sola.
-        const twoPhase = process.env.POST_WALK_BRIDGES_LAST !== '0';
-        const { settledFirst, bridgesLast } = twoPhase
-          ? partitionBridgesLast(processHtmlPaths, existingHtmlSet)
-          : { settledFirst: processHtmlPaths as string[], bridgesLast: [] as string[] };
-        const phases = [settledFirst, bridgesLast].filter((paths) => paths.length > 0);
-        const merged: WorkerResult = emptyWorkerResult();
-        if (workerCount <= 1) {
-          for (const phasePaths of phases) {
-            mergeResultInto(
-              merged,
-              runSingleThreaded(
-                phasePaths,
+        const merged: WorkerResult =
+          workerCount <= 1
+            ? runSingleThreaded(
+                processHtmlPaths,
                 existingHtmlSet,
                 blogIndexHtmlByPath,
                 distDir,
@@ -1291,46 +1258,44 @@ function buildPostWalkCoordinatorPlugin(
                 true,
                 false,
                 blogFold,
-              ),
-            );
-          }
-        } else {
-          const workerUrl = new URL('./postWalkWorker.mjs', import.meta.url);
-          const blogIndexEntries = Array.from(blogIndexHtmlByPath.entries());
-          const keywordLandingPlan = getKeywordLandingPlanSnapshot();
-          const __tHtmlIndex = profileStart();
-          const htmlPathIndex = buildSharedHtmlPathIndex(existingHtmlSet);
-          profileRecord('shared-html-path-index', __tHtmlIndex);
-          for (const phasePaths of phases) {
-            const __tChunk = profileStart();
-            const chunks = chunkRoundRobin(phasePaths, workerCount);
-            profileRecord('chunk-roundrobin', __tChunk);
-            const __tDispatch = profileStart();
-            await Promise.all(
-              chunks.map(async (assignedFiles) => {
-                const r = await runInWorker(workerUrl, {
-                  distDir,
-                  baseUrl,
-                  trimmedBase,
-                  blogIndexEntries,
-                  contextualLinkDefaults: contextualLinkDefaults(),
-                  assignedFiles,
-                  htmlPathIndex,
-                  keywordLandingPlan,
-                  assetIntegrityEntries,
-                  trackBlogMarkers: blogFold,
-                });
-                if (r.profilerBuckets && r.profilerBuckets.length > 0) {
-                  profileIngestBuckets(r.profilerBuckets);
-                }
-                const __tMerge = profileStart();
-                mergeResultInto(merged, r);
-                profileRecord('merge-results', __tMerge);
-              }),
-            );
-            profileRecord('worker-dispatch', __tDispatch);
-          }
-        }
+              )
+            : await (async () => {
+                const __tChunk = profileStart();
+                const chunks = chunkRoundRobin(processHtmlPaths, workerCount);
+                profileRecord('chunk-roundrobin', __tChunk);
+                const workerUrl = new URL('./postWalkWorker.mjs', import.meta.url);
+                const blogIndexEntries = Array.from(blogIndexHtmlByPath.entries());
+                const keywordLandingPlan = getKeywordLandingPlanSnapshot();
+                const __tHtmlIndex = profileStart();
+                const htmlPathIndex = buildSharedHtmlPathIndex(existingHtmlSet);
+                profileRecord('shared-html-path-index', __tHtmlIndex);
+                const __tDispatch = profileStart();
+                const finalMerged = emptyWorkerResult();
+                await Promise.all(
+                  chunks.map(async (assignedFiles) => {
+                    const r = await runInWorker(workerUrl, {
+                      distDir,
+                      baseUrl,
+                      trimmedBase,
+                      blogIndexEntries,
+                      contextualLinkDefaults: contextualLinkDefaults(),
+                      assignedFiles,
+                      htmlPathIndex,
+                      keywordLandingPlan,
+                      assetIntegrityEntries,
+                      trackBlogMarkers: blogFold,
+                    });
+                    if (r.profilerBuckets && r.profilerBuckets.length > 0) {
+                      profileIngestBuckets(r.profilerBuckets);
+                    }
+                    const __tMerge = profileStart();
+                    mergeResultInto(finalMerged, r);
+                    profileRecord('merge-results', __tMerge);
+                  }),
+                );
+                profileRecord('worker-dispatch', __tDispatch);
+                return finalMerged;
+              })();
         const processPhaseMs = Date.now() - processPhaseStartedAt;
 
         // Pubblica la scansione condivisa SOLO se ogni file della lista di
