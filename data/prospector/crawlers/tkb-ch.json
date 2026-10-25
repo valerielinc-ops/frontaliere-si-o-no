@@ -1,0 +1,21 @@
+{
+  "companyKey": "tkb-ch",
+  "companyName": "Thurgauer Kantonalbank",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/application-process/83d08d00-3da6-455f-b8e1-4d9c241621a1/f5a01ca6-b5e7-b218-5c15-6a74d3b71a6b"
+  ],
+  "detailTemplate": "/application-process/83d08d00-3da6-455f-b8e1-4d9c241621a1/f5a01ca6-b5e7-b218-5c15-6a74d3b71a6b",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung (nur für Rekrutierung)"
+  ],
+  "canton": "TG",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-25T10:56:22.562Z",
+  "candidateKey": "tkb.ch"
+}

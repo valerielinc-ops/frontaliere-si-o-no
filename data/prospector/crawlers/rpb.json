@@ -1,0 +1,20 @@
+{
+  "companyKey": "rpb",
+  "companyName": "rpb",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/application-process/7345db3e-6288-46a0-8435-a19aa9c3dc6a/27dd5d84-5c8e-c8d3-09b8-166b5759c802?jp=ABACUS"
+  ],
+  "detailTemplate": "/application-process/7345db3e-6288-46a0-8435-a19aa9c3dc6a/27dd5d84-5c8e-c8d3-09b8-166b5759c802",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Ernährungsberatung"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-10-25T11:05:14.785Z",
+  "candidateKey": "rpb.ch"
+}

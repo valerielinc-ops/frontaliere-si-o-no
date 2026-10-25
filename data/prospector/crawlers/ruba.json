@@ -1,0 +1,20 @@
+{
+  "companyKey": "ruba",
+  "companyName": "ruba",
+  "companyHost": "ruba.jobs.personio.de",
+  "platform": "personio.de",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://ruba.jobs.personio.de/job/2659749?language=de_CH"
+  ],
+  "detailTemplate": "/job/2659749",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Lehrstelle Zimmermann EFZ (m/w/d) 2027"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-25T11:05:19.691Z",
+  "candidateKey": "ruba.ch"
+}
