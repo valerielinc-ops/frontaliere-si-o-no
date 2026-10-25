@@ -29,6 +29,7 @@
 
 import http from 'node:http';
 import { URL } from 'node:url';
+import { fetchGoogleApi } from './lib/google-api-fetch.mjs';
 
 const REDIRECT_PORT = 3456;
 const REDIRECT_URI = `http://localhost:${REDIRECT_PORT}/callback`;
@@ -69,7 +70,7 @@ function buildAuthUrl() {
 
 // ── Exchange auth code for tokens ───────────────────────────
 async function exchangeCode(code) {
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchGoogleApi('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     signal: AbortSignal.timeout(TOKEN_EXCHANGE_TIMEOUT_MS),
