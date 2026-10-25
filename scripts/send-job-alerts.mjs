@@ -171,6 +171,12 @@ const ENGAGEMENT_SEND_PRIORITY = {
 // alerts into tomorrow's retry queue.
 const QUOTA_BUFFER_RATIO = 0.1;
 
+// Keep the full matched list only for a bounded number of alerts at a time.
+// Each match carries a copied job object until live-link checks and email
+// rendering finish; retaining every alert's list made the daily sender grow
+// beyond Node's heap as the audience and catch-up windows grew.
+export const JOB_ALERT_PLAN_BATCH_SIZE = 64;
+
 // Canonical title of the job-alert matcher monitor. Kept stable across the
 // change of measure (owner decision 2026-10-04, issue 9060) so the issue
 // history stays in one thread; the trigger is now the matcher-health probes of
@@ -465,6 +471,27 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
       return { queued: queue.length, pending: queue.length - head + active };
     },
   };
+}
+
+/**
+ * Run plan/build work in bounded batches so full match lists are released after
+ * each batch. The callback is awaited before the next slice is created; the
+ * sender uses this to keep its per-alert plan memory proportional to the batch
+ * size instead of to the whole audience.
+ */
+export async function forEachJobAlertPlanBatch(
+  alerts,
+  callback,
+  batchSize = JOB_ALERT_PLAN_BATCH_SIZE,
+) {
+  if (!Array.isArray(alerts)) return;
+  if (typeof callback !== 'function') throw new TypeError('callback must be a function');
+  const size = Number.isInteger(batchSize) && batchSize > 0
+    ? batchSize
+    : JOB_ALERT_PLAN_BATCH_SIZE;
+  for (let start = 0; start < alerts.length; start += size) {
+    await callback(alerts.slice(start, start + size));
+  }
 }
 
 // Brand logo lookup. Builds slug→filename map from public/images/brands/ at
@@ -2804,109 +2831,102 @@ async function main() {
     }
     return affinityContextByEmail.get(emailKey);
   };
-  const plans = [];
+  // Keep only lightweight diagnostics across batches. The full `matched` list
+  // stays inside one callback so its copied job objects can be collected before
+  // the next group of alerts is planned.
+  const planSummaries = [];
   const cursorReasons = {};
   let cursorCandidateCount = 0;
-  const planningStartedAt = Date.now();
-  for (const alert of alerts) {
-    const recipientProfile = jobAlertProfiles.get(alert.email.toLowerCase()) || {};
-    const candidateWindow = selectCandidateWindow({
-      recipientLastSentAt: recipientProfile.last_sent_at,
-      alertCreatedAt: alert.createdAt,
-      initialLookbackMs: MATCH_WINDOW_MS,
-    });
-    cursorReasons[candidateWindow.reason] = (cursorReasons[candidateWindow.reason] || 0) + 1;
-    cursorCandidateCount += candidateWindow.jobs.length;
-    const plan = planAlertMatch(alert, {
-      behaviorProfiles,
-      lastClickedUrlByEmail,
-      locationIndex,
-      cityToCanton,
-      subscriberProfiles,
-      applicationIntentAccountProfiles,
-      // `planAlertMatch` keeps its historical property name for the test
-      // oracle, but the value is now the recipient-aware candidate pool.
-      recentJobs: candidateWindow.jobs,
-      now,
-      featureCache,
-    });
-    const rankingVariant = assignJobRankingVariant({
-      subjectId: alert.email,
-      config: JOB_EMAIL_RANKING_CONFIG,
-    });
-    const subjectAssignment = assignJobAlertSubjectVariant({
-      email: alert.email,
-      alertId: alert.id,
-      periodId: JOB_ALERT_SUBJECT_PERIOD_ID,
-      config: JOB_ALERT_SUBJECT_CONFIG,
-    });
-    const { affinityProfile, affinityScorer } = affinityContextFor(alert.email);
-    const rankingOptions = {
-      variant: rankingVariant,
-      affinityScorer,
-      config: JOB_EMAIL_RANKING_CONFIG,
-    };
-    // Prefetch only the current ranking shortlist. If a page is dead,
-    // rankLiveJobsForEmail expands it one replacement at a time after the
-    // shared pool has drained.
-    const preflightRanked = plan.matched.length > 0
-      ? rankEmailJobs(plan.matched, { ...rankingOptions, limit: MAX_JOB_CARDS })
-      : [];
-    plans.push({
-      ...plan,
+  let planningMs = 0;
+  let prefetchDrainMs = 0;
+  await forEachJobAlertPlanBatch(alerts, async (alertBatch) => {
+    const batchPlans = [];
+    const batchPlanningStartedAt = Date.now();
+    for (const alert of alertBatch) {
+      const recipientProfile = jobAlertProfiles.get(alert.email.toLowerCase()) || {};
+      const candidateWindow = selectCandidateWindow({
+        recipientLastSentAt: recipientProfile.last_sent_at,
+        alertCreatedAt: alert.createdAt,
+        initialLookbackMs: MATCH_WINDOW_MS,
+      });
+      cursorReasons[candidateWindow.reason] = (cursorReasons[candidateWindow.reason] || 0) + 1;
+      cursorCandidateCount += candidateWindow.jobs.length;
+      const plan = planAlertMatch(alert, {
+        behaviorProfiles,
+        lastClickedUrlByEmail,
+        locationIndex,
+        cityToCanton,
+        subscriberProfiles,
+        applicationIntentAccountProfiles,
+        // `planAlertMatch` keeps its historical property name for the test
+        // oracle, but the value is now the recipient-aware candidate pool.
+        recentJobs: candidateWindow.jobs,
+        now,
+        featureCache,
+      });
+      const rankingVariant = assignJobRankingVariant({
+        subjectId: alert.email,
+        config: JOB_EMAIL_RANKING_CONFIG,
+      });
+      const subjectAssignment = assignJobAlertSubjectVariant({
+        email: alert.email,
+        alertId: alert.id,
+        periodId: JOB_ALERT_SUBJECT_PERIOD_ID,
+        config: JOB_ALERT_SUBJECT_CONFIG,
+      });
+      const { affinityProfile, affinityScorer } = affinityContextFor(alert.email);
+      const rankingOptions = {
+        variant: rankingVariant,
+        affinityScorer,
+        config: JOB_EMAIL_RANKING_CONFIG,
+      };
+      // Prefetch only the current ranking shortlist. If a page is dead,
+      // rankLiveJobsForEmail expands it one replacement at a time after the
+      // shared pool has drained.
+      const preflightRanked = plan.matched.length > 0
+        ? rankEmailJobs(plan.matched, { ...rankingOptions, limit: MAX_JOB_CARDS })
+        : [];
+      batchPlans.push({
+        ...plan,
+        rankingVariant,
+        rankingAffinityProfile: affinityProfile,
+        rankingOptions,
+        preflightRanked,
+        subjectAssignment,
+      });
+      if (preflightRanked.length > 0) livenessPrefetcher.enqueue(preflightRanked, nlNormLocale(alert.locale));
+      await new Promise((resolve) => setImmediate(resolve));
+    }
+    planningMs += Date.now() - batchPlanningStartedAt;
+
+    const batchDrainStartedAt = Date.now();
+    await livenessPrefetcher.drain();
+    prefetchDrainMs += Date.now() - batchDrainStartedAt;
+
+    // Build before the next batch is planned. This is the memory boundary:
+    // `batchPlans` contains the only full matched lists retained by the sender.
+    for (const {
+      alert,
+      candidateCount,
+      rankedCount,
+      zeroCause,
+      sentMap,
+      matched,
       rankingVariant,
-      rankingAffinityProfile: affinityProfile,
+      rankingAffinityProfile,
       rankingOptions,
       preflightRanked,
       subjectAssignment,
-    });
-    if (preflightRanked.length > 0) livenessPrefetcher.enqueue(preflightRanked, nlNormLocale(alert.locale));
-    await new Promise((resolve) => setImmediate(resolve));
-  }
-  // #9314: `Capacity check` → `Total` mixes CPU (planning) and network (the
-  // live-link prefetch the drain waits for). Log the split so a run shows
-  // which one bounds the matching step.
-  const planningMs = Date.now() - planningStartedAt;
-  const prefetchAfterPlanning = livenessPrefetcher.stats();
-  await livenessPrefetcher.drain();
-  const drainMs = Date.now() - planningStartedAt - planningMs;
-  console.log(`   ⏱️ Matching split: planning ${(planningMs / 1000).toFixed(1)} s for ${alerts.length} alerts; live-link prefetch ${prefetchAfterPlanning.queued} URL(s), ${prefetchAfterPlanning.pending} still pending after planning, drained in ${(drainMs / 1000).toFixed(1)} s`);
-  console.log(`   🧭 Recipient-aware candidate windows: ${JSON.stringify(cursorReasons)} (${cursorCandidateCount} candidate rows before matching)`);
-  {
-    const variantCounts = {};
-    let withProfile = 0;
-    for (const plan of plans) {
-      variantCounts[plan.rankingVariant] = (variantCounts[plan.rankingVariant] || 0) + 1;
-      if (plan.rankingAffinityProfile) withProfile++;
-    }
-    console.log(`   🎯 Job-email ranking: ${JSON.stringify(variantCounts)} alerts; ${withProfile} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
-  }
-  {
-    const subjectCounts = {};
-    let activeSubjectAssignments = 0;
-    for (const plan of plans) {
-      const assignment = plan.subjectAssignment;
-      const key = assignment?.variant || 'control';
-      subjectCounts[key] = (subjectCounts[key] || 0) + 1;
-      if (assignment?.inExperiment === true) activeSubjectAssignments++;
-    }
-    console.log(`   🧪 Job-alert subject test: ${JSON.stringify(subjectCounts)} planned alerts; ${activeSubjectAssignments} in experiment (enabled=${JOB_ALERT_SUBJECT_CONFIG.enabled}, rollout=${JOB_ALERT_SUBJECT_CONFIG.rollout}, variants=${JOB_ALERT_SUBJECT_CONFIG.variantIds.join(',')})`);
-  }
-  const zeroMatchSummary = summarizeZeroMatchPlans(plans);
+    } of batchPlans) {
+      planSummaries.push({
+        candidateCount,
+        rankedCount,
+        zeroCause,
+        rankingVariant,
+        rankingAffinityProfile,
+        subjectAssignment,
+      });
 
-  // 3b. Build, in the original alert order, with the same logs and counters.
-  for (const {
-    alert,
-    rankedCount,
-    zeroCause,
-    sentMap,
-    matched,
-    rankingVariant,
-    rankingAffinityProfile,
-    rankingOptions,
-    preflightRanked,
-    subjectAssignment,
-  } of plans) {
     if (rankedCount === 0) {
       console.log(`   ⏭️ Alert ${alert.id}: 0 matches (${zeroCause}) → skip`);
       continue;
@@ -3022,7 +3042,36 @@ async function main() {
     });
 
     console.log(`   📬 Alert ${alert.id}: ${matched.length} matches → ${alert.email}`);
+    }
+  });
+
+  // #9314: `Capacity check` → `Total` mixes CPU (planning) and network (the
+  // live-link prefetch drains). Log the split so a run shows which one bounds
+  // the matching step. The prefetch queue is drained at every memory boundary.
+  const prefetchAfterPlanning = livenessPrefetcher.stats();
+  console.log(`   ⏱️ Matching split: planning ${(planningMs / 1000).toFixed(1)} s for ${alerts.length} alerts; live-link prefetch ${prefetchAfterPlanning.queued} URL(s), ${prefetchAfterPlanning.pending} pending after the last batch, drained across batches in ${(prefetchDrainMs / 1000).toFixed(1)} s`);
+  console.log(`   🧭 Recipient-aware candidate windows: ${JSON.stringify(cursorReasons)} (${cursorCandidateCount} candidate rows before matching)`);
+  {
+    const variantCounts = {};
+    let withProfile = 0;
+    for (const plan of planSummaries) {
+      variantCounts[plan.rankingVariant] = (variantCounts[plan.rankingVariant] || 0) + 1;
+      if (plan.rankingAffinityProfile) withProfile++;
+    }
+    console.log(`   🎯 Job-email ranking: ${JSON.stringify(variantCounts)} alerts; ${withProfile} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
   }
+  {
+    const subjectCounts = {};
+    let activeSubjectAssignments = 0;
+    for (const plan of planSummaries) {
+      const assignment = plan.subjectAssignment;
+      const key = assignment?.variant || 'control';
+      subjectCounts[key] = (subjectCounts[key] || 0) + 1;
+      if (assignment?.inExperiment === true) activeSubjectAssignments++;
+    }
+    console.log(`   🧪 Job-alert subject test: ${JSON.stringify(subjectCounts)} planned alerts; ${activeSubjectAssignments} in experiment (enabled=${JOB_ALERT_SUBJECT_CONFIG.enabled}, rollout=${JOB_ALERT_SUBJECT_CONFIG.rollout}, variants=${JOB_ALERT_SUBJECT_CONFIG.variantIds.join(',')})`);
+  }
+  const zeroMatchSummary = summarizeZeroMatchPlans(planSummaries);
 
   // Most-engaged-first send order: if the shared cascade daily cap is hit
   // mid-run, the recipients who already got their email should be the ones
