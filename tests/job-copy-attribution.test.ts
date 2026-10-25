@@ -14,8 +14,9 @@ import {
 } from '../services/jobCopyAttribution';
 
 const LEAD = 'Annuncio completo e candidatura su Frontaliere Ticino:';
-const URL = 'https://frontaliereticino.ch/cerca-lavoro-ticino/radiologo-ospedale-x/';
-const ATTRIBUTED_URL = buildJobCopyAttributionUrl(URL);
+const JOB_URL = 'https://frontaliereticino.ch/cerca-lavoro-ticino/radiologo-ospedale-x/';
+const ATTRIBUTED_URL = buildJobCopyAttributionUrl(JOB_URL);
+const ATTRIBUTED_HTML_URL = ATTRIBUTED_URL.replace(/&/g, '&amp;');
 
 afterEach(() => {
   window.getSelection()?.removeAllRanges();
@@ -61,7 +62,7 @@ describe('buildJobCopyAttribution', () => {
       selectionText: 'Cerchiamo un radiologo esperto.',
       jobTitle: 'Radiologo/a',
       company: 'Ospedale X',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
     expect(text).toBe(
@@ -73,7 +74,7 @@ describe('buildJobCopyAttribution', () => {
     const { text, html } = buildJobCopyAttribution({
       selectionText: 'x'.repeat(30),
       jobTitle: 'Radiologo/a',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
     expect(text).toContain('\nRadiologo/a\n');
@@ -86,10 +87,10 @@ describe('buildJobCopyAttribution', () => {
       selectionText: 'Cerchiamo un radiologo esperto.',
       jobTitle: 'Radiologo/a',
       company: 'Ospedale X',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
-    expect(html).toContain(`<a href="${ATTRIBUTED_URL}">Radiologo/a – Ospedale X</a>`);
+    expect(html).toContain(`<a href="${ATTRIBUTED_HTML_URL}">Radiologo/a – Ospedale X</a>`);
     expect(html).toContain(LEAD);
   });
 
@@ -98,7 +99,7 @@ describe('buildJobCopyAttribution', () => {
       selectionText: 'plain fallback text here',
       selectionHtml: '<p>rich <strong>selection</strong></p>',
       jobTitle: 'Radiologo/a',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
     expect(html.startsWith('<p>rich <strong>selection</strong></p>')).toBe(true);
@@ -124,7 +125,7 @@ describe('buildJobCopyAttribution', () => {
     const { html } = buildJobCopyAttribution({
       selectionText: 'a <b> & c selection long enough',
       jobTitle: 'Radiologo/a',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
     expect(html.startsWith('a &lt;b&gt; &amp; c selection long enough<br><br>')).toBe(true);
@@ -133,7 +134,7 @@ describe('buildJobCopyAttribution', () => {
 
 describe('buildJobCopyAttributionUrl', () => {
   it('adds first-party UTM dimensions while preserving existing query parameters', () => {
-    const attributed = buildJobCopyAttributionUrl(`${URL}?source=search`);
+    const attributed = buildJobCopyAttributionUrl(`${JOB_URL}?source=search`);
     const parsed = new URL(attributed);
 
     expect(parsed.searchParams.get('source')).toBe('search');
@@ -168,7 +169,7 @@ describe('buildJobCopyAttributionFromSelection', () => {
     const clipboard = buildJobCopyAttributionFromSelection(selection, scope, {
       jobTitle: 'Radiologo/a',
       company: 'Ospedale X',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
 
@@ -192,7 +193,7 @@ describe('buildJobCopyAttributionFromSelection', () => {
     expect(
       buildJobCopyAttributionFromSelection(selection, scope, {
         jobTitle: 'Radiologo/a',
-        url: URL,
+        url: JOB_URL,
         lead: LEAD,
       }),
     ).toBeNull();
