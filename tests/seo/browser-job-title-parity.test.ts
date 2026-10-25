@@ -41,6 +41,8 @@ const NARRATIVES: ReadonlyArray<readonly [string, string]> = [
   ['Here is the title: **Foo** and some **Bar** notes', 'Foo'],
   ['Traduzione: **Titolo vero**. Ecco: **nota**', 'Titolo vero'],
   ['Die Übersetzung: **Verkaufsberater:in**', 'Verkaufsberater:in'],
+  ['Based on the context, **Draft title**. The title appears to be **Final title**', 'Final title'],
+  ['Here is the title: **Draft title**. Translation: **Final title**', 'Final title'],
 ];
 
 const PLAIN: readonly string[] = [
