@@ -668,53 +668,59 @@ describe('fuel-daily page generation — observation date', () => {
     expect(pages['/prezzi-benzina/chiasso/oggi/']).toContain('Dato non recente');
   });
 
-  it('does not call a stale observation today in the localized refuelling advice', () => {
-    const expected = {
-      it: 'confronta la rilevazione del 20.04.2026',
-      en: 'compare the 20.04.2026 observation',
-      de: 'Erhebung vom 20.04.2026',
-      fr: 'comparez le relevé du 20.04.2026',
+  it('keeps the refuelling advice dated or explicitly non-current in every locale', () => {
+    const expectedDatedAdvice = {
+      it: 'confronta il prezzo rilevato il 20.04.2026',
+      en: 'compare the price observed on 20.04.2026',
+      de: 'den am 20.04.2026 erhobenen Preis',
+      fr: 'comparez le prix relevé le 20.04.2026',
     } as const;
-    const paths = {
+    const stalePaths = {
       it: '/prezzi-benzina/chiasso/oggi/',
       en: '/en/gasoline-price-switzerland/chiasso/today/',
       de: '/de/benzinpreis-schweiz/chiasso/heute/',
       fr: '/fr/prix-essence-suisse/chiasso/aujourd-hui/',
     } as const;
-    const currentCopy = {
-      it: 'Prima del rifornimento, confronta il prezzo odierno con le stazioni vicine e verifica il listino alla pompa.',
-      en: "Before refuelling, compare today's price with nearby stations and check the pump display.",
-      de: 'Vergleichen Sie vor dem Tanken den heutigen Preis mit nahe gelegenen Tankstellen und prüfen Sie die Anzeige an der Zapfsäule.',
-      fr: "Avant de faire le plein, comparez le prix du jour avec les stations voisines et vérifiez l'affichage à la pompe.",
-    } as const;
-    for (const locale of Object.keys(paths) as Array<keyof typeof paths>) {
-      const html = pages[paths[locale]];
-      expect(html, locale).toContain(expected[locale]);
-      expect(html, locale).not.toContain(currentCopy[locale]);
-    }
-  });
+    const currentClaims = /oggi|today|heute|prix du jour/i;
 
-  it('labels an observation without a date as the latest available value', () => {
+    for (const locale of Object.keys(stalePaths) as Array<keyof typeof stalePaths>) {
+      const html = pages[stalePaths[locale]];
+      const descriptionMeta = html.match(/<meta\b(?=[^>]*\bname=(?:["']description["']|description)(?:\s|>))[^>]*>/i)?.[0];
+      expect(html, locale).toContain(expectedDatedAdvice[locale]);
+      expect(html.match(/<title>([^<]+)<\/title>/)?.[1], locale).not.toMatch(currentClaims);
+      expect(descriptionMeta, locale).toBeDefined();
+      expect(descriptionMeta, locale).not.toMatch(currentClaims);
+    }
+
+    const missingDateDataset = {
+      ...dataset,
+      generatedAt: undefined,
+      municipalities: [{
+        swiss: { nearbyStations: [{
+          id: 'undated', name: 'Undated Station', brand: 'TEST', address: 'Via Test 1, 6830 Chiasso', sp95PriceChf: 1.8,
+        }] },
+      }],
+    };
     const missingDatePages = generateFuelDailyPages({
-      rootDir: '/tmp/frontaliere-fuel-missing-observation-date',
-      dataset: { ...DATASET, generatedAt: 'not-a-date' },
+      rootDir: '/tmp/frontaliere-fuel-missing-date',
+      dataset: missingDateDataset,
       history: [],
       today: observedAt,
     });
-    const expected = {
-      it: 'considera questa l’ultima rilevazione disponibile',
-      en: 'treat this as the latest available observation',
-      de: 'diese Erhebung vor dem Tanken als die letzte verfügbare Angabe',
-      fr: 'considérez ce relevé comme la dernière donnée disponible',
+    const expectedUndatedAdvice = {
+      it: "confronta l'ultima rilevazione disponibile",
+      en: 'compare the latest available observation',
+      de: 'die letzte verfügbare Erhebung',
+      fr: 'comparez le prix du dernier relevé disponible',
     } as const;
-    const paths = {
-      it: '/prezzi-benzina/chiasso/oggi/',
-      en: '/en/gasoline-price-switzerland/chiasso/today/',
-      de: '/de/benzinpreis-schweiz/chiasso/heute/',
-      fr: '/fr/prix-essence-suisse/chiasso/aujourd-hui/',
-    } as const;
-    for (const locale of Object.keys(paths) as Array<keyof typeof paths>) {
-      expect(missingDatePages[paths[locale]], locale).toContain(expected[locale]);
+
+    for (const locale of Object.keys(stalePaths) as Array<keyof typeof stalePaths>) {
+      const html = missingDatePages[stalePaths[locale]];
+      const descriptionMeta = html.match(/<meta\b(?=[^>]*\bname=(?:["']description["']|description)(?:\s|>))[^>]*>/i)?.[0];
+      expect(html, locale).toContain(expectedUndatedAdvice[locale]);
+      expect(html.match(/<title>([^<]+)<\/title>/)?.[1], locale).not.toMatch(currentClaims);
+      expect(descriptionMeta, locale).toBeDefined();
+      expect(descriptionMeta, locale).not.toMatch(currentClaims);
     }
   });
 
