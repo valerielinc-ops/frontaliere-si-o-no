@@ -7,8 +7,25 @@ import {
   unlockAchievement,
   addXp,
 } from '@/services/gamificationService';
+import { canShowGamificationPopups } from '@/services/gamificationVisibility';
 
 const STORAGE_KEY = 'frontaliere_achievements';
+
+describe('gamification popup visibility', () => {
+  it('hides popups for visitors without a registered account', () => {
+    expect(canShowGamificationPopups(null)).toBe(false);
+    expect(canShowGamificationPopups({})).toBe(false);
+  });
+
+  it('hides popups for Firebase anonymous users', () => {
+    expect(canShowGamificationPopups({ uid: 'anonymous-uid', isAnonymous: true })).toBe(false);
+  });
+
+  it('shows popups for registered users', () => {
+    expect(canShowGamificationPopups({ uid: 'registered-uid' })).toBe(true);
+    expect(canShowGamificationPopups({ uid: 'registered-uid', isAnonymous: false })).toBe(true);
+  });
+});
 
 beforeEach(() => {
   localStorage.clear();

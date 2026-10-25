@@ -181,9 +181,8 @@ export const RC_TO_ENV = {
   MAILEROO_WEBHOOK_SECRET:        ['MAILEROO_WEBHOOK_SECRET'],
   // Separate Account API key (Maileroo dashboard "Applications" section) —
   // distinct from MAILEROO_API_KEY (a per-domain Sending Key), needed for
-  // account-level endpoints like statistics/summary (see
-  // fetchMailerooCycleUsage in functions/src/emailCascade.js). Not yet
-  // provisioned — optional, falls back safely when unset.
+  // account-level endpoints like /v1/account (see fetchMailerooCycleUsage in
+  // functions/src/emailCascade.js). Optional, falls back safely when unset.
   MAILEROO_ACCOUNT_API_KEY:       ['MAILEROO_ACCOUNT_API_KEY'],
   // Cloudflare Email Service (newsletter + job alerts). Dedicated token scoped to
   // Email Sending: Edit + Analytics Read; account id reuses CF_ACCOUNT_ID below.
@@ -384,6 +383,10 @@ export const RC_TO_ENV = {
 
   // Feature flags
   ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
+  // Deliverability ramp for the job-alert sender. Absent keeps the sender's
+  // safe 1,000-email/run default; the workflow also applies that default when
+  // Remote Config has no value.
+  JOB_ALERT_MAX_EMAILS_PER_RUN:   ['JOB_ALERT_MAX_EMAILS_PER_RUN'],
   // Site-owned static employer-profile ad test. Absent/control keeps the
   // extra unit off; the owner opts into the EOC treatment with `eoc_mid`.
   EMPLOYER_PROFILE_MID_AD_TEST_VARIANT: ['EMPLOYER_PROFILE_MID_AD_TEST_VARIANT'],

@@ -25,6 +25,9 @@ import {
   filterLiveJobs,
   forEachJobAlertPlanBatch,
   JOB_ALERT_PLAN_BATCH_SIZE,
+  DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN,
+  resolveJobAlertCapacity,
+  resolveJobAlertRunLimit,
   jobPageUrl,
   planAlertMatch,
 } from '../scripts/send-job-alerts.mjs';
@@ -178,24 +181,43 @@ describe('planAlertMatch', () => {
 });
 
 describe('job-alert plan batching', () => {
-  it('never hands the sender more than the bounded plan batch', async () => {
+  it('never hands the sender more than the bounded plan batch, and invokes batches sequentially', async () => {
+    const alertCount = 9449;
     const alerts = Array.from(
-      { length: JOB_ALERT_PLAN_BATCH_SIZE * 2 + 1 },
+      { length: alertCount },
       (_, index) => ({ id: `alert-${index}` }),
     );
     const batchSizes: number[] = [];
+    let activeCallbacks = 0;
+    let peakCallbacks = 0;
 
     await forEachJobAlertPlanBatch(alerts, async (batch) => {
+      activeCallbacks++;
+      peakCallbacks = Math.max(peakCallbacks, activeCallbacks);
       batchSizes.push(batch.length);
       await Promise.resolve();
+      activeCallbacks--;
     });
 
-    expect(batchSizes).toEqual([
-      JOB_ALERT_PLAN_BATCH_SIZE,
-      JOB_ALERT_PLAN_BATCH_SIZE,
-      1,
-    ]);
+    expect(batchSizes.length).toBe(Math.ceil(alertCount / JOB_ALERT_PLAN_BATCH_SIZE));
+    expect(batchSizes[0]).toBe(JOB_ALERT_PLAN_BATCH_SIZE);
+    expect(batchSizes.at(-1)).toBe(alertCount % JOB_ALERT_PLAN_BATCH_SIZE);
     expect(Math.max(...batchSizes)).toBeLessThanOrEqual(JOB_ALERT_PLAN_BATCH_SIZE);
+    expect(peakCallbacks).toBe(1);
+    expect(activeCallbacks).toBe(0);
+  });
+
+  it('keeps a 10k-alert catch-up under the run cap even with 250k cascade capacity', () => {
+    const capacity = resolveJobAlertCapacity({
+      alertCount: 9449,
+      availableQuota: 21846,
+      maxEmailsPerRun: DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN,
+    });
+    expect(capacity.quotaCapacity).toBe(19661);
+    expect(capacity.runLimit).toBe(1000);
+    expect(capacity.capacity).toBe(1000);
+    expect(resolveJobAlertRunLimit('not-a-number')).toBe(DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN);
+    expect(resolveJobAlertRunLimit('0')).toBe(DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN);
   });
 });
 

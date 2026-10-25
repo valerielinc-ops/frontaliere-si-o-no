@@ -194,6 +194,7 @@ describe('sendEmailCascade bulk throughput', () => {
     const { BULK_PROVIDER_MIN_INTERVAL_MS } = await import('../functions/src/emailCascade.js');
     expect(BULK_PROVIDER_MIN_INTERVAL_MS.cloudflare).toBeGreaterThanOrEqual(1000);
     expect(BULK_PROVIDER_MIN_INTERVAL_MS.resend).toBeGreaterThanOrEqual(500);
+    expect(BULK_PROVIDER_MIN_INTERVAL_MS.maileroo).toBeGreaterThanOrEqual(360);
     expect(Object.isFrozen(BULK_PROVIDER_MIN_INTERVAL_MS)).toBe(true);
   });
 });

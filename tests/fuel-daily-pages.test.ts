@@ -382,12 +382,19 @@ describe('fuel-daily page generation — content quality', () => {
 
   it('includes localized H1 and no dark: color classes', () => {
     const itRegional = pages['/prezzi-diesel/oggi/'];
-    expect(itRegional).toMatch(/<title>Diesel Ticino: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(itRegional).toMatch(/<title>Prezzo diesel in Ticino oggi: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
     expect(itRegional).toMatch(/<h1[^>]*>.*Prezzo Diesel oggi in Ticino: stazioni di servizio/i);
+    expect(itRegional).toMatch(/<meta\s+name=["']?description["']?\s+content=["']?Prezzo diesel in Ticino oggi:/i);
+    expect(pages['/en/diesel-price-switzerland/today/']).toMatch(/<title>Diesel price in Ticino today: [\d.]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(pages['/en/diesel-price-switzerland/today/']).toMatch(/<meta\s+name=["']?description["']?\s+content=["']?Diesel price in Ticino today:/i);
+    expect(pages['/de/dieselpreis-schweiz/heute/']).toMatch(/<title>Dieselpreis im Tessin heute: [\d.]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(pages['/de/dieselpreis-schweiz/heute/']).toMatch(/<meta\s+name=["']?description["']?\s+content=["']?Dieselpreis im Tessin heute:/i);
+    expect(pages['/fr/prix-gasoil-suisse/aujourd-hui/']).toMatch(/<title>Prix du gasoil au Tessin: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(pages['/fr/prix-gasoil-suisse/aujourd-hui/']).toMatch(/<meta\s+name=["']?description["']?\s+content=["']?Prix du gasoil au Tessin aujourd'hui/i);
     const itBenzinaRegional = pages['/prezzi-benzina/oggi/'];
     // The CTR-facing title follows the exact regional query, while the
     // visible H1 and WebPage JSON-LD name stay on the existing source label.
-    expect(itBenzinaRegional).toMatch(/<title>Benzina Ticino: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(itBenzinaRegional).toMatch(/<title>Prezzo benzina in Ticino oggi: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
     expect(itBenzinaRegional).toMatch(/<h1[^>]*>.*Prezzo Benzina oggi in Ticino: stazioni di servizio/i);
     expect(itBenzinaRegional).toContain('"name":"Prezzo Benzina oggi in Ticino: stazioni di servizio"');
     for (const [path, html] of Object.entries(pages)) {
@@ -659,6 +666,62 @@ describe('fuel-daily page generation — observation date', () => {
       expect(emittedDates, locale).not.toContain(buildAt.toISOString().slice(0, 10));
     }
     expect(pages['/prezzi-benzina/chiasso/oggi/']).toContain('Dato non recente');
+  });
+
+  it('keeps the refuelling advice dated or explicitly non-current in every locale', () => {
+    const expectedDatedAdvice = {
+      it: 'confronta il prezzo rilevato il 20.04.2026',
+      en: 'compare the price observed on 20.04.2026',
+      de: 'den am 20.04.2026 erhobenen Preis',
+      fr: 'comparez le prix relevé le 20.04.2026',
+    } as const;
+    const stalePaths = {
+      it: '/prezzi-benzina/chiasso/oggi/',
+      en: '/en/gasoline-price-switzerland/chiasso/today/',
+      de: '/de/benzinpreis-schweiz/chiasso/heute/',
+      fr: '/fr/prix-essence-suisse/chiasso/aujourd-hui/',
+    } as const;
+    const currentClaims = /oggi|today|heute|prix du jour/i;
+
+    for (const locale of Object.keys(stalePaths) as Array<keyof typeof stalePaths>) {
+      const html = pages[stalePaths[locale]];
+      const descriptionMeta = html.match(/<meta\b(?=[^>]*\bname=(?:["']description["']|description)(?:\s|>))[^>]*>/i)?.[0];
+      expect(html, locale).toContain(expectedDatedAdvice[locale]);
+      expect(html.match(/<title>([^<]+)<\/title>/)?.[1], locale).not.toMatch(currentClaims);
+      expect(descriptionMeta, locale).toBeDefined();
+      expect(descriptionMeta, locale).not.toMatch(currentClaims);
+    }
+
+    const missingDateDataset = {
+      ...dataset,
+      generatedAt: undefined,
+      municipalities: [{
+        swiss: { nearbyStations: [{
+          id: 'undated', name: 'Undated Station', brand: 'TEST', address: 'Via Test 1, 6830 Chiasso', sp95PriceChf: 1.8,
+        }] },
+      }],
+    };
+    const missingDatePages = generateFuelDailyPages({
+      rootDir: '/tmp/frontaliere-fuel-missing-date',
+      dataset: missingDateDataset,
+      history: [],
+      today: observedAt,
+    });
+    const expectedUndatedAdvice = {
+      it: "confronta l'ultima rilevazione disponibile",
+      en: 'compare the latest available observation',
+      de: 'die letzte verfügbare Erhebung',
+      fr: 'comparez le prix du dernier relevé disponible',
+    } as const;
+
+    for (const locale of Object.keys(stalePaths) as Array<keyof typeof stalePaths>) {
+      const html = missingDatePages[stalePaths[locale]];
+      const descriptionMeta = html.match(/<meta\b(?=[^>]*\bname=(?:["']description["']|description)(?:\s|>))[^>]*>/i)?.[0];
+      expect(html, locale).toContain(expectedUndatedAdvice[locale]);
+      expect(html.match(/<title>([^<]+)<\/title>/)?.[1], locale).not.toMatch(currentClaims);
+      expect(descriptionMeta, locale).toBeDefined();
+      expect(descriptionMeta, locale).not.toMatch(currentClaims);
+    }
   });
 
   it('does not turn an absent snapshot into an unchanged price', () => {
