@@ -18,6 +18,7 @@ vi.mock('../scripts/jobs-url-helper.mjs', () => ({
 }));
 
 const { buildTichFetchProxyHosts, fetchTichJobDetailUrls } = await import('../scripts/update-tich-jobs.mjs');
+const { buildTichTranslateUrl } = await import('../scripts/scrape-concorsi-ti.mjs');
 
 const LISTING_URL = 'https://www.concorsi.ti.ch/';
 const RSS_URL = 'https://www.concorsi.ti.ch/rss_generator-rss0.php?unit=act&lang=it';
@@ -50,6 +51,11 @@ const officialListingHtml = `<!doctype html>
     <p>Scadenza: 31.12.2026</p>
   </body>
 </html>`;
+
+const translatedOfficialListingHtml = officialListingHtml.replace(
+  'https://www.concorsi.ti.ch/offerte-d%27impieghi.html?yid=4059',
+  'https://www-concorsi-ti-ch.translate.goog/offerte-d%27impieghi.html?yid=4059&_x_tr_sl=it&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
+);
 
 describe('fetchTichJobDetailUrls', () => {
   it('retries a transient discovery failure before falling back to the RSS source', async () => {
@@ -127,6 +133,44 @@ describe('fetchTichJobDetailUrls', () => {
       "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
     ]);
     expect(fetchImpl.mock.calls.some(([url]) => String(url).startsWith('https://r.jina.ai/'))).toBe(true);
+  });
+
+  it('uses the validated official listing through Google Translate after direct and Jina egress fail', async () => {
+    const translateUrl = buildTichTranslateUrl(OFFICIAL_LISTING_URL);
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === translateUrl) return new Response(translatedOfficialListingHtml, { status: 200 });
+      throw new TypeError('fetch failed');
+    });
+
+    const result = await fetchTichJobDetailUrls({
+      fetchImpl,
+      retries: 0,
+      retryBaseMs: 0,
+      proxyRetries: 0,
+      proxyRetryBaseMs: 0,
+      translateAttempts: 1,
+      translateRetryDelayMs: 0,
+      timeoutMs: 1_000,
+    });
+
+    expect(result).toMatchObject({
+      listingSucceeded: false,
+      rssSucceeded: false,
+      officialSucceeded: true,
+    });
+    expect(result.urls).toEqual([
+      "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
+    ]);
+    expect(fetchImpl.mock.calls.some(([url]) => url === translateUrl)).toBe(true);
+  });
+});
+
+describe('Ticino official listing transport', () => {
+  it('keeps the source query and restricts the proxy to the official listing', () => {
+    expect(buildTichTranslateUrl(OFFICIAL_LISTING_URL)).toBe(
+      'https://www4-ti-ch.translate.goog/index.php?id=147427&_x_tr_sl=it&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
+    );
+    expect(buildTichTranslateUrl('https://www4.ti.ch/index.php?id=24469')).toBe('');
   });
 });
 
