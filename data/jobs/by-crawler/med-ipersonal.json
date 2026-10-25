@@ -69,12 +69,12 @@
     },
     {
       "id": "med-ipersonal-9c1b23d21dfc",
-      "slug": "schreiner-bankschreiner-region-brugg-ag-ipersonal-ag-brugg-ag-aargau",
+      "slug": "falegname-falegname-da-banco-regione-brugg-ag-ipersonal-ag-brugg-ag-aargau",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-brugg-ag-ipersonal-ag-brugg-ag-aargau",
-        "it": "schreiner-bankschreiner-region-brugg-ag-ipersonal-ag-brugg-ag-aargau",
-        "en": "schreiner-bankschreiner-region-brugg-ag-ipersonal-ag-brugg-ag-aargau",
-        "fr": "schreiner-bankschreiner-region-brugg-ag-ipersonal-ag-brugg-ag-aargau"
+        "it": "falegname-falegname-da-banco-regione-brugg-ag-ipersonal-ag-brugg-ag-aargau",
+        "en": "carpenter-bench-joiner-brugg-ag-region-ipersonal-ag-brugg-ag-aargau",
+        "fr": "menuisier-menuisier-d-atelier-region-de-brugg-ag-ipersonal-ag-brugg-ag-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -128,7 +128,21 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-10-25T09:56:20.835Z"
+      "firstSeenAt": "2026-10-25T09:56:20.835Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-brugg-ag-ipersonal-ag-brugg-ag-aargau"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-brugg-ag-ipersonal-ag-brugg-ag-aargau"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-brugg-ag-ipersonal-ag-brugg-ag-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-brugg-ag-ipersonal-ag-brugg-ag-aargau"
+      ]
     },
     {
       "id": "med-ipersonal-0d826c0657a2",

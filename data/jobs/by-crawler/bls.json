@@ -7,7 +7,7 @@
       "id": "bls-7afab74d709b",
       "slug": "meccatronico-a-dell-automobile-automatista-bls-ag-spiez",
       "slugByLocale": {
-        "it": "meccatronico-a-dell-automobile-automatista-bls-ag-spiez",
+        "it": "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez",
         "en": "automotive-mechatronics-technician-automation-technician-bls-ag-spiez",
         "de": "automobilmechatroniker-in-automatiker-in-bls-ch",
         "fr": "technicien-en-mecatronique-automobile-technicien-en-automatisation-bls-ag-spiez"
@@ -69,14 +69,12 @@
       },
       "previousSlugs": [
         "automobilmechatroniker-in-automatiker-in-bls-ch",
-        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
-        "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
+        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-automatiker-in-bls-ch",
-          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
-          "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
+          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
         ],
         "en": [
           "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
@@ -204,7 +202,7 @@
         "it": "fornitori-di-veicoli-bls-ag-spiez",
         "en": "vehicle-suppliers-bls-ag-spiez",
         "de": "fahrzeugbereitsteller-in-bls-ch",
-        "fr": "preparateur-rice-de-vehicules-bls-ag-spiez"
+        "fr": "fournisseur-du-vehicule-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -267,7 +265,7 @@
         "fahrzeugbereitsteller-in-bls-ag-spiez",
         "fornitore-del-veicolo-in-bls-ag-spiez",
         "vehicle-supplier-in-bls-ag-spiez",
-        "fournisseur-du-vehicule-bls-ag-spiez"
+        "preparateur-rice-de-vehicules-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -281,7 +279,7 @@
         ],
         "fr": [
           "fahrzeugbereitsteller-in-bls-ag-spiez",
-          "fournisseur-du-vehicule-bls-ag-spiez"
+          "preparateur-rice-de-vehicules-bls-ag-spiez"
         ]
       },
       "firstSeenAt": "2026-08-31T17:29:09.774Z",
@@ -307,7 +305,7 @@
         "it": "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf",
         "en": "electrical-installers-bls-ag-hasle-bei-burgdorf",
         "de": "elektroinstallateur-in-bls-ch",
-        "fr": "electricien-ne-bls-ag-hasle-bei-burgdorf"
+        "fr": "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -372,7 +370,7 @@
         "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
         "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
         "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
-        "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
+        "electricien-ne-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -392,7 +390,7 @@
         "fr": [
           "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
           "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
-          "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
+          "electricien-ne-bls-ag-hasle-bei-burgdorf"
         ]
       },
       "firstSeenAt": "2026-09-09T14:06:15.744Z",
@@ -819,7 +817,7 @@
       "id": "bls-29de476924b8",
       "slug": "diagnosta-bls-ag-spiez",
       "slugByLocale": {
-        "it": "diagnosta-bls-ag-spiez",
+        "it": "diagnostico-bls-ag-spiez",
         "en": "diagnostician-bls-ag-spiez",
         "de": "diagnostiker-in-bls-ch",
         "fr": "diagnosticien-bls-ag-spiez"
@@ -883,13 +881,11 @@
         ]
       },
       "previousSlugs": [
-        "diagnostiker-in-bls-ch",
-        "diagnostico-bls-ag-spiez"
+        "diagnostiker-in-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diagnostiker-in-bls-ch",
-          "diagnostico-bls-ag-spiez"
+          "diagnostiker-in-bls-ch"
         ],
         "en": [
           "diagnostiker-in-bls-ch"
@@ -1381,12 +1377,12 @@
     },
     {
       "id": "bls-c0c164739f2c",
-      "slug": "eisenbahnmechatroniker-in-bls-ag-oberburg",
+      "slug": "meccatronico-a-ferroviario-a-bls-ag-oberburg",
       "slugByLocale": {
-        "it": "eisenbahnmechatroniker-in-bls-ag-oberburg",
-        "en": "eisenbahnmechatroniker-in-bls-ag-oberburg",
+        "it": "meccatronico-a-ferroviario-a-bls-ag-oberburg",
+        "en": "railway-mechatronics-technician-bls-ag-oberburg",
         "de": "eisenbahnmechatroniker-in-bls-ch",
-        "fr": "eisenbahnmechatroniker-in-bls-ag-oberburg"
+        "fr": "mecatronicien-ne-ferroviaire-bls-ag-oberburg"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1444,11 +1440,19 @@
         ]
       },
       "previousSlugs": [
-        "eisenbahnmechatroniker-in-bls-ch"
+        "eisenbahnmechatroniker-in-bls-ch",
+        "eisenbahnmechatroniker-in-bls-ag-oberburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "eisenbahnmechatroniker-in-bls-ch"
+          "eisenbahnmechatroniker-in-bls-ch",
+          "eisenbahnmechatroniker-in-bls-ag-oberburg"
+        ],
+        "en": [
+          "eisenbahnmechatroniker-in-bls-ag-oberburg"
+        ],
+        "fr": [
+          "eisenbahnmechatroniker-in-bls-ag-oberburg"
         ]
       },
       "firstSeenAt": "2026-10-08T21:27:55.176Z",
@@ -1563,12 +1567,12 @@
     },
     {
       "id": "bls-ea85b6472826",
-      "slug": "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen",
+      "slug": "meccanico-a-di-manutenzione-dei-veicoli-ferroviari-bls-ag-bonigen",
       "slugByLocale": {
-        "it": "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen",
-        "en": "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen",
+        "it": "meccanico-a-di-manutenzione-dei-veicoli-ferroviari-bls-ag-bonigen",
+        "en": "maintenance-mechanic-for-rail-vehicles-bls-ag-bonigen",
         "de": "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ch",
-        "fr": "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
+        "fr": "mecanicien-ne-de-maintenance-des-vehicules-ferroviaires-bls-ag-bonigen"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1628,11 +1632,19 @@
         ]
       },
       "previousSlugs": [
-        "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ch"
+        "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ch",
+        "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ch"
+          "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ch",
+          "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
+        ],
+        "en": [
+          "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
+        ],
+        "fr": [
+          "instandhaltungsmechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
         ]
       },
       "firstSeenAt": "2026-10-14T09:26:58.299Z",
@@ -1653,12 +1665,12 @@
     },
     {
       "id": "bls-11d6a28966e3",
-      "slug": "fahrzeugmechaniker-in-bls-ag-bonigen",
+      "slug": "meccanico-a-di-veicoli-bls-ag-bonigen",
       "slugByLocale": {
-        "it": "fahrzeugmechaniker-in-bls-ag-bonigen",
-        "en": "fahrzeugmechaniker-in-bls-ag-bonigen",
+        "it": "meccanico-a-di-veicoli-bls-ag-bonigen",
+        "en": "vehicle-mechanic-bls-ag-bonigen",
         "de": "fahrzeugmechaniker-in-bls-ch",
-        "fr": "fahrzeugmechaniker-in-bls-ag-bonigen"
+        "fr": "mecanicien-ne-de-vehicules-bls-ag-bonigen"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1717,11 +1729,19 @@
         ]
       },
       "previousSlugs": [
-        "fahrzeugmechaniker-in-bls-ch"
+        "fahrzeugmechaniker-in-bls-ch",
+        "fahrzeugmechaniker-in-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrzeugmechaniker-in-bls-ch"
+          "fahrzeugmechaniker-in-bls-ch",
+          "fahrzeugmechaniker-in-bls-ag-bonigen"
+        ],
+        "en": [
+          "fahrzeugmechaniker-in-bls-ag-bonigen"
+        ],
+        "fr": [
+          "fahrzeugmechaniker-in-bls-ag-bonigen"
         ]
       },
       "firstSeenAt": "2026-10-15T09:26:10.450Z",
@@ -1843,12 +1863,12 @@
     },
     {
       "id": "bls-55922f3bc918",
-      "slug": "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen",
+      "slug": "meccanico-a-di-veicoli-ferroviari-bls-ag-bonigen",
       "slugByLocale": {
-        "it": "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen",
-        "en": "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen",
+        "it": "meccanico-a-di-veicoli-ferroviari-bls-ag-bonigen",
+        "en": "rail-vehicle-mechanic-bls-ag-bonigen",
         "de": "mechaniker-in-schienenfahrzeuge-bls-ch",
-        "fr": "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
+        "fr": "mecanicien-ne-de-vehicules-ferroviaires-bls-ag-bonigen"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1907,11 +1927,19 @@
         ]
       },
       "previousSlugs": [
-        "mechaniker-in-schienenfahrzeuge-bls-ch"
+        "mechaniker-in-schienenfahrzeuge-bls-ch",
+        "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-schienenfahrzeuge-bls-ch"
+          "mechaniker-in-schienenfahrzeuge-bls-ch",
+          "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
+        ],
+        "en": [
+          "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
+        ],
+        "fr": [
+          "mechaniker-in-schienenfahrzeuge-bls-ag-bonigen"
         ]
       },
       "firstSeenAt": "2026-09-26T23:39:55.517Z",
@@ -1935,7 +1963,7 @@
       "slug": "responsabile-di-progetto-rohbau-lotschberg-basistunnel-bls-ag-bern",
       "slugByLocale": {
         "it": "responsabile-di-progetto-rohbau-lotschberg-basistunnel-bls-ag-bern",
-        "en": "project-manager-structural-works-lotschberg-base-tunnel-bls-ag-bern",
+        "en": "project-manager-rohbau-lotschberg-basistunnel-bls-ag-bern",
         "de": "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch",
         "fr": "chef-fe-de-projet-en-gros-uvre-tunnel-de-base-du-lotschberg-bls-ag-bern"
       },
@@ -1996,14 +2024,16 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch"
+        "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch",
+        "project-manager-structural-works-lotschberg-base-tunnel-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch"
         ],
         "en": [
-          "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch"
+          "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch",
+          "project-manager-structural-works-lotschberg-base-tunnel-bls-ag-bern"
         ],
         "fr": [
           "projektleiter-in-rohbau-lotschberg-basistunnel-bls-ch"
@@ -2028,12 +2058,12 @@
     },
     {
       "id": "bls-f361e97fc6e3",
-      "slug": "fachspezialist-in-bauwerkserhaltung-bls-ag-bern",
+      "slug": "specialista-nella-conservazione-delle-opere-bls-ag-bern",
       "slugByLocale": {
-        "it": "fachspezialist-in-bauwerkserhaltung-bls-ag-bern",
-        "en": "fachspezialist-in-bauwerkserhaltung-bls-ag-bern",
+        "it": "specialista-nella-conservazione-delle-opere-bls-ag-bern",
+        "en": "specialist-in-structural-maintenance-bls-ag-bern",
         "de": "fachspezialist-in-bauwerkserhaltung-bls-ch",
-        "fr": "fachspezialist-in-bauwerkserhaltung-bls-ag-bern"
+        "fr": "specialiste-de-la-conservation-des-ouvrages-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -2091,11 +2121,19 @@
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-bauwerkserhaltung-bls-ch"
+        "fachspezialist-in-bauwerkserhaltung-bls-ch",
+        "fachspezialist-in-bauwerkserhaltung-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-bauwerkserhaltung-bls-ch"
+          "fachspezialist-in-bauwerkserhaltung-bls-ch",
+          "fachspezialist-in-bauwerkserhaltung-bls-ag-bern"
+        ],
+        "en": [
+          "fachspezialist-in-bauwerkserhaltung-bls-ag-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-bauwerkserhaltung-bls-ag-bern"
         ]
       },
       "firstSeenAt": "2026-10-20T09:24:48.338Z",

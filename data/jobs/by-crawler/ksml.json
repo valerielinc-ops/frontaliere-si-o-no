@@ -1602,8 +1602,8 @@
       "slugByLocale": {
         "de": "teilpensum-3-4-klasse-mit-je-2-lektionen-nmg-und-bg-am-freitagmorgen-schule-ipsach-ipsach-38594",
         "it": "teilpensum-3-4-klasse-con-je-2-lektionen-nmg-e-bg-am-freitagmorgen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ipsach",
-        "en": "teilpensum-3-4-klasse-mit-je-2-lektionen-nmg-und-bg-am-freitagmorgen-schule-ipsach-ipsach-38594",
-        "fr": "teilpensum-3-4-klasse-mit-je-2-lektionen-nmg-und-bg-am-freitagmorgen-schule-ipsach-ipsach-38594"
+        "en": "partial-board-3-4-class-with-2-lessons-each-nmg-and-bg-on-friday-morning-ksml-kantonaler-stellenmarkt-fur-38594",
+        "fr": "tableau-partiel-3-4-classe-avec-2-lecons-par-nmg-et-bg-le-vendredi-matin-ksml-kantonaler-stellenmarkt-fur-38594"
       },
       "slugDisambiguator": "38594",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -1652,6 +1652,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "teilpensum-3-4-klasse-mit-je-2-lektionen-nmg-und-bg-am-freitagmorgen-schule-ipsach-ipsach-38594"
+        ],
+        "en": [
+          "teilpensum-3-4-klasse-mit-je-2-lektionen-nmg-und-bg-am-freitagmorgen-schule-ipsach-ipsach-38594"
+        ],
+        "fr": [
           "teilpensum-3-4-klasse-mit-je-2-lektionen-nmg-und-bg-am-freitagmorgen-schule-ipsach-ipsach-38594"
         ]
       },
@@ -15350,7 +15356,7 @@
       "slug": "insegnante-di-classe-a-livello-di-base-da-22-a-24-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
       "slugByLocale": {
         "it": "insegnante-di-classe-a-livello-di-base-da-22-a-24-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
-        "en": "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mutten",
+        "en": "co-class-teacher-at-the-basic-level-22-to-24-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
         "de": "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-schule-signau-mutten-40533",
         "fr": "co-enseignant-au-niveau-de-base-22-a-24-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40533"
       },
@@ -15400,8 +15406,7 @@
       "previousSlugs": [
         "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-schule-signau-mutten-40533",
         "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mutten",
-        "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
-        "co-class-teacher-at-the-basic-level-22-to-24-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
+        "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15410,7 +15415,7 @@
         ],
         "en": [
           "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
-          "co-class-teacher-at-the-basic-level-22-to-24-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
+          "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mutten"
         ],
         "fr": [
           "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"

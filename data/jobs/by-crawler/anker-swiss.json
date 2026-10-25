@@ -2519,12 +2519,12 @@
     },
     {
       "id": "anker-swiss-1558c54952ca",
-      "slug": "maler-100-anker-swiss-ticino-ag-bern-1558c549",
+      "slug": "pittura-100-anker-swiss-ticino-ag-bern-1558c549",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-bern-1558c549",
-        "it": "maler-100-anker-swiss-ticino-ag-bern-1558c549",
-        "en": "maler-100-anker-swiss-ticino-ag-bern-1558c549",
-        "fr": "maler-100-anker-swiss-ticino-ag-bern-1558c549"
+        "it": "pittura-100-anker-swiss-ticino-ag-bern-1558c549",
+        "en": "painter-100-anker-swiss-ticino-ag-bern-1558c549",
+        "fr": "peintre-100-anker-swiss-ticino-ag-bern-1558c549"
       },
       "slugDisambiguator": "1558c549",
       "company": "Anker Swiss Ticino AG",
@@ -2574,16 +2574,24 @@
       "previousSlugsByLocale": {
         "it": [
           "maler-100-anker-swiss-ticino-ag-bern-8ac9cc49",
-          "maler-100-anker-swiss-ticino-ag-bern-de31cb0a"
+          "maler-100-anker-swiss-ticino-ag-bern-de31cb0a",
+          "maler-100-anker-swiss-ticino-ag-bern-1558c549"
         ],
         "de": [
           "maler-100-anker-swiss-ticino-ag-bern-8ac9cc49",
           "maler-100-anker-swiss-ticino-ag-bern-de31cb0a"
+        ],
+        "en": [
+          "maler-100-anker-swiss-ticino-ag-bern-1558c549"
+        ],
+        "fr": [
+          "maler-100-anker-swiss-ticino-ag-bern-1558c549"
         ]
       },
       "previousSlugs": [
         "maler-100-anker-swiss-ticino-ag-bern-8ac9cc49",
-        "maler-100-anker-swiss-ticino-ag-bern-de31cb0a"
+        "maler-100-anker-swiss-ticino-ag-bern-de31cb0a",
+        "maler-100-anker-swiss-ticino-ag-bern-1558c549"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6713,12 +6721,12 @@
     },
     {
       "id": "anker-swiss-b2b32af9f835",
-      "slug": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+      "slug": "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
       "slugByLocale": {
         "de": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "it": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "en": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "fr": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
+        "it": "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+        "en": "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+        "fr": "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
       },
       "slugDisambiguator": "b2b32af9",
       "company": "Anker Swiss Ticino AG",
@@ -6766,30 +6774,28 @@
         "de": []
       },
       "previousSlugs": [
-        "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
         "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
         "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
         "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
-        "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+        "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+        "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
           "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
-          "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+          "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
         ],
         "en": [
-          "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-          "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+          "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
         ],
         "de": [
           "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
         ],
         "fr": [
-          "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-          "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+          "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
         ]
       },
       "salaryMin": 62000,
