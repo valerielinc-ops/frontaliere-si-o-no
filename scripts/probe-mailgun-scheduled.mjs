@@ -58,6 +58,8 @@
 
 import { toRfc2822Utc } from './lib/email-cascade.mjs';
 
+const PROBE_REQUEST_TIMEOUT_MS = 30_000;
+
 // ── CLI args ─────────────────────────────────────────────────
 
 function parseArgs(argv) {
@@ -174,6 +176,7 @@ async function main() {
       method: 'POST',
       headers: { Authorization: `Basic ${auth}` },
       body: form,
+      signal: AbortSignal.timeout(PROBE_REQUEST_TIMEOUT_MS),
     });
 
     const bodyText = await res.text();
