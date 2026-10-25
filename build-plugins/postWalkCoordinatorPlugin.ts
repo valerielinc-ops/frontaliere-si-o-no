@@ -100,6 +100,7 @@ import {
   type PostWalkIndexedInventory,
 } from './shared/distHtmlWalk';
 import { buildSharedHtmlPathIndex } from './shared/htmlPathIndex.mjs';
+import { isSiblingSource, writeFileAtomicSync } from './shared/atomicWrite.mjs';
 import {
   BLOG_IMAGE_REF_MARKER,
   blogImageFoldEnabled,
@@ -450,7 +451,8 @@ function runSingleThreaded(
       const __tWrite = profileStart();
       if (writeFiles) {
         try {
-          fs.writeFileSync(filePath, html, 'utf-8');
+          if (isSiblingSource(filePath)) writeFileAtomicSync(filePath, html);
+          else fs.writeFileSync(filePath, html, 'utf-8');
           result.totalWrites++;
         } catch (err: unknown) {
           const msg = err instanceof Error ? err.message : String(err);

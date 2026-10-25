@@ -111309,10 +111309,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-tassa-salute-ristorni-17-settembre.webp`,
+        "url": `${BASE_URL}/images/blog/article-frontalieri-vendemmia-tasse-ristorni-settembre.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Vigneti del Mendrisiotto durante la vendemmia con vista sul Lago di Lugano"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T07:49:24+00:00",
       "dateModified": "2026-10-18T07:49:24+00:00",
@@ -111348,7 +111348,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-incendio-via-cortivallo.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"
@@ -113187,6 +113187,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cisl-ricerca-lavoratori-ritiene/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disparita-stipendi-frontalieri': {
+    title: 'Disparità stipendi uomini donne frontalieri in Ticino',
+    description: 'Ricerca online a maggio 2026 su 1.542 frontalieri Le donne sono il 42,4% del campione Sotto 3.500 franchi: 41,5% delle frontaliere A parità',
+    keywords: 'frontalieri, ticino, svizzera, italia, disparità, stipendi, uomini, donne',
+    ogTitle: 'Disparità stipendi uomini donne frontalieri in Ticino',
+    ogDescription: 'Ricerca online a maggio 2026 su 1.542 frontalieri Le donne sono il 42,4% del campione Sotto 3.500 franchi: 41,5% delle frontaliere A parità di condizioni, circa',
+    canonicalPath: '/articoli-frontaliere/disparita-stipendi-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disparità stipendi uomini donne frontalieri in Ticino",
+      "description": "Ricerca online a maggio 2026 su 1.542 frontalieri Le donne sono il 42,4% del campione Sotto 3.500 franchi: 41,5% delle frontaliere A parità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-frontalieri-ticino-indagine-salari-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-24T21:09:52+00:00",
+      "dateModified": "2026-10-24T21:09:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disparita-stipendi-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ora-mezza-viaggio': {
+    title: '31,7% frontalieri supera un\'ora e mezza di viaggio al giorno',
+    description: '31,7% supera un\'ora e mezza al giorno 73,2% usa l\'auto privata 28,3% spende oltre il 10% dello stipendio 37,4% ha il lavoro da remoto Ricerca →',
+    keywords: 'frontalieri, ticino, svizzera, italia, supera, mezza, viaggio, giorno',
+    ogTitle: '31,7% frontalieri oltre 1,5 ore di viaggio',
+    ogDescription: '31,7% supera un\'ora e mezza al giorno 73,2% usa l\'auto privata 28,3% spende oltre il 10% dello stipendio 37,4% ha il lavoro da remoto Ricerca → «Lavorare oltre',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ora-mezza-viaggio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "31,7% frontalieri supera un'ora e mezza di viaggio al giorno",
+      "description": "31,7% supera un'ora e mezza al giorno 73,2% usa l'auto privata 28,3% spende oltre il 10% dello stipendio 37,4% ha il lavoro da remoto Ricerca →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-frontalieri-disoccupazione-criterio-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-25T01:38:53+00:00",
+      "dateModified": "2026-10-25T01:38:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ora-mezza-viaggio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-10-25': {
+    title: 'Frontalieri: i dati verificati di oggi — 25 ottobre 2026',
+    description: 'Bollettino frontalieri 25 ottobre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Frontalieri: i dati verificati di oggi — 25 ottobre 2026',
+    ogDescription: 'I numeri del 25 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti annunci di lavoro attivi sono presenti sul nostro job board in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-10-25/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: i dati verificati di oggi — 25 ottobre 2026",
+      "description": "Bollettino frontalieri 25 ottobre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-bollettino-frontaliere-2026-10-25.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-25T09:44:49+00:00",
+      "dateModified": "2026-10-25T09:44:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-10-25/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sondaggio-paga-colleghi-svizzeri': {
+    title: 'Frontalieri in Ticino: il 55,6% si sente pagato meno',
+    description: '1\'542 lavoratori hanno risposto al sondaggio 73% soddisfatto dello stipendio 55,6% si sente pagato meno di un residente 37,4% può fare telelavoro',
+    keywords: 'frontalieri, ticino, svizzera, italia, sente, pagato, meno, lavoratori',
+    ogTitle: 'Frontalieri in Ticino: il 55,6% si sente pagato meno',
+    ogDescription: '1\'542 lavoratori hanno risposto al sondaggio 73% soddisfatto dello stipendio 55,6% si sente pagato meno di un residente 37,4% può fare telelavoro Campione →',
+    canonicalPath: '/articoli-frontaliere/sondaggio-paga-colleghi-svizzeri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri in Ticino: il 55,6% si sente pagato meno",
+      "description": "1'542 lavoratori hanno risposto al sondaggio 73% soddisfatto dello stipendio 55,6% si sente pagato meno di un residente 37,4% può fare telelavoro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sondaggio-paga-colleghi-svizzeri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-25T12:30:34+00:00",
+      "dateModified": "2026-10-25T12:30:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sondaggio-paga-colleghi-svizzeri/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

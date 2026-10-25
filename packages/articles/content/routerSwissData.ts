@@ -2894,6 +2894,13 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'prezzi-pompa-non-calano-svizzera': { it: 'prezzi-pompa-non-calano-svizzera', en: 'pump-prices-do-not-fall-switzerland', de: 'preise-pumpe-fallen-nicht-schweiz', fr: 'prix-pompe-ne-baissent-pas-suisse' },
  'successione-parmelin-otto-nomi': { it: 'successione-parmelin-otto-nomi', en: 'parmelin-succession-eight-names', de: 'parmelin-nachfolge-acht-namen', fr: 'succession-parmelin-huit-noms' },
  'telecom-358-licenziamenti': { it: 'telecom-358-licenziamenti', en: 'telecom-358-job-cuts', de: 'telekom-358-stellenabbau', fr: 'telecom-358-licenciements' },
+ 'assemblea-pvl-avs-finanziamento': { it: 'assemblea-pvl-avs-finanziamento', en: 'pvl-assembly-avs-financing', de: 'pvl-versammlung-avs-finanzierung', fr: 'assemblee-pvl-financement-avs' },
+ 'zenith-rischio-posti-svizzera': { it: 'zenith-rischio-posti-svizzera', en: 'zenith-job-risk-switzerland', de: 'zenith-arbeitsplatzrisiko-schweiz', fr: 'zenith-risque-emplois-suisse' },
+ 'epfl-eth-top-20-europee': { it: 'epfl-eth-top-20-europee', en: 'epfl-and-eth-among-europe-s-top-20-universities-for-patents-filed', de: 'epfl-und-eth-in-top-20-europ-unis-mit-patenten', fr: 'epfl-et-eth-parmi-les-20-universites-europeennes-pour-les-brevets-deposes' },
+ 'referendum-legge-collettivo-lavoro': { it: 'referendum-legge-collettivo-lavoro', en: 'referendum-collective-labor-law', de: 'referendum-arbeitsvertrag-gesetz', fr: 'referendum-contrat-travail-loi' },
+ 'violazioni-sicurezza-svizzera-2026': { it: 'violazioni-sicurezza-svizzera-2026', en: 'swiss-security-violations-2026', de: 'sicherheitsverstoeerungen-schweiz-2026', fr: 'violations-securite-suisse-2026' },
+ 'inflazione-premi-rincaro-svizzera': { it: 'inflazione-premi-rincaro-svizzera', en: 'inflation-premi-cost-switzerland', de: 'inflation-pramie-kosten-schweiz', fr: 'inflation-primes-cout-suisse' },
+ 'pesca-zurigo-servizi-regolati': { it: 'pesca-zurigo-servizi-regolati', en: 'zurich-fishing-regulated-services', de: 'fischen-zuerich-regulierte-dienste', fr: 'pesche-zurich-services-reglementes' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

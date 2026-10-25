@@ -191,7 +191,7 @@ describe('computeMailerooDynamicDailyLimit', () => {
       verified: true,
       source: 'account',
     });
-    expect(usage.cycleEnd.toISOString()).toBe('2026-08-01T00:00:00.000Z');
+    expect(usage.billingPeriodEndMs).toBe(Date.parse('2026-08-01T00:00:00.000Z'));
   });
 
   it('paces verified Account API usage against the 250k billing-cycle budget', async () => {
@@ -217,6 +217,32 @@ describe('computeMailerooDynamicDailyLimit', () => {
     // 150000 remaining over the 16 billing-cycle days left from noon on July
     // 16: the verified pace may exceed the conservative 31-day fallback.
     expect(limit).toBe(9375);
+  });
+
+  it('uses the live Account API monthly plan quantity and outbound usage', async () => {
+    globalThis.fetch = (async (url: string) => {
+      expect(url).toBe('https://api.maileroo.com/v1/account');
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          data: {
+            current_plan: { quantity: 180000 },
+            usage: [{ name: 'Monthly Outbound Usage', quantity: 180000, used: 100000 }],
+            subscription: {
+              current_period_start: '2026-07-01T00:00:00.000Z',
+              current_period_end: '2026-08-01T00:00:00.000Z',
+            },
+          },
+        }),
+      } as any;
+    }) as any;
+
+    const nowMs = new Date('2026-07-16T12:00:00.000Z').getTime();
+    const limit = await computeMailerooDynamicDailyLimit(nowMs);
+    // 80000 remaining over the 16 calendar days left in the billing period
+    // from noon on July 16.
+    expect(limit).toBe(5000);
   });
 });
 

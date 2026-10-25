@@ -95,6 +95,17 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
   const entries = fs.readdirSync(distDir);
   const seen = new Set<string>();
   const discovered: DiscoveredSitemap[] = [];
+  // Solo banco (deploy-matrix-experiment con freeze_clock/compare_variants):
+  // `mtime` e' l'orologio REALE del filesystem, che il clock congelato non
+  // tocca, quindi due gambe costruite a ore di distanza (a cavallo della
+  // mezzanotte UTC) davano `lastmod` diversi e un `sitemap.xml` diverso per
+  // il solo fuso orario del run. In produzione la variabile non esiste e il
+  // `lastmod` resta la data di modifica del file.
+  const frozenMs = Number(process.env.BENCH_FROZEN_CLOCK_MS);
+  const frozenDate = /^\d{10,16}$/.test(process.env.BENCH_FROZEN_CLOCK_MS ?? '') ? new Date(frozenMs) : null;
+  const frozenLastmod = frozenDate && !Number.isNaN(frozenDate.getTime())
+    ? frozenDate.toISOString().slice(0, 10)
+    : null;
   for (const file of entries) {
     if (EXCLUDED_SITEMAP_FILES.has(file)) continue;
     if (!SITEMAP_FILE_PATTERN.test(file)) continue;
@@ -103,7 +114,7 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
     let lastmod: string;
     try {
       const stat = fs.statSync(path.join(distDir, file));
-      lastmod = stat.mtime.toISOString().slice(0, 10);
+      lastmod = frozenLastmod ?? stat.mtime.toISOString().slice(0, 10);
     } catch {
       // If stat fails, fall back to today — keeps the index valid rather
       // than crashing the build over a transient filesystem hiccup.

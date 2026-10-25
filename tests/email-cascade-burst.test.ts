@@ -181,65 +181,78 @@ describe('fetchMailerooCycleUsage credential separation', () => {
     expect(calls).toBe(0);
   });
 
-  it('uses only the dedicated Account API key for the account quota', async () => {
+  it('uses only the dedicated Account API key for account usage and statistics', async () => {
     process.env.MAILEROO_API_KEY = 'sending-key';
     process.env.MAILEROO_ACCOUNT_API_KEY = 'account-key';
     let authorization = '';
-    let requestedUrl = '';
     globalThis.fetch = (async (_url, options) => {
-      requestedUrl = String(_url);
       authorization = options.headers.Authorization;
+      return { ok: true, json: async () => ({ data: { aggregate: { delivered: 4, bounced: 2 } } }) } as any;
+    }) as any;
+
+    await expect(fetchMailerooCycleUsage()).resolves.toEqual({ count: 6, verified: true, source: 'statistics' });
+    expect(authorization).toBe('Bearer account-key');
+  });
+
+  it('uses the live plan and outbound usage from the Account API when available', async () => {
+    process.env.MAILEROO_API_KEY = 'sending-key';
+    process.env.MAILEROO_ACCOUNT_API_KEY = 'account-key';
+    let calls = 0;
+    globalThis.fetch = (async (url, options) => {
+      calls += 1;
+      expect(String(url)).toBe('https://api.maileroo.com/v1/account');
+      expect(options.headers.Authorization).toBe('Bearer account-key');
       return {
         ok: true,
         json: async () => ({
           data: {
+            current_plan: { quantity: 250000 },
             usage: [
-              { name: 'Hourly Outbound Usage', quantity: 10000, used: 4, available: 9996 },
-              { name: 'Monthly Outbound Usage', quantity: 250000, used: 6, available: 249994 },
+              { name: 'Hourly Outbound Usage', quantity: 10000, used: 7, available: 9993 },
+              { name: 'Monthly Outbound Usage', quantity: 250000, used: 123, available: 249877 },
             ],
             subscription: {
-              current_period_start: '2026-10-01T00:00:00.000Z',
-              current_period_end: '2026-11-01T00:00:00.000Z',
+              current_period_start: '2026-10-20T07:20:34Z',
+              current_period_end: '2026-11-20T07:20:34Z',
             },
           },
         }),
       } as any;
     }) as any;
 
-    await expect(fetchMailerooCycleUsage()).resolves.toMatchObject({
-      count: 6,
-      monthlyLimit: 250000,
+    await expect(fetchMailerooCycleUsage()).resolves.toEqual({
+      count: 123,
       verified: true,
+      monthlyLimit: 250000,
+      hourlyLimit: 10000,
+      hourlyUsed: 7,
+      hourlyAvailable: 9993,
+      billingPeriodStartMs: Date.parse('2026-10-20T07:20:34Z'),
+      billingPeriodEndMs: Date.parse('2026-11-20T07:20:34Z'),
       source: 'account',
     });
-    expect(requestedUrl).toContain('/v1/account');
-    expect(authorization).toBe('Bearer account-key');
+    expect(calls).toBe(1);
   });
 
-  it('keeps delivered+bounced as an explicit proxy fallback when account usage is unavailable', async () => {
+  it('rejects blank Account API usage instead of verifying zero', async () => {
     process.env.MAILEROO_ACCOUNT_API_KEY = 'account-key';
-    const urls: string[] = [];
     globalThis.fetch = (async (url) => {
-      urls.push(String(url));
       if (String(url).endsWith('/v1/account')) {
-        return { ok: true, json: async () => ({ data: {} }) } as any;
+        return {
+          ok: true,
+          json: async () => ({
+            data: {
+              usage: [
+                { name: 'Monthly Outbound Usage', quantity: 250000, used: '' },
+              ],
+            },
+          }),
+        } as any;
       }
-      return {
-        ok: true,
-        json: async () => ({ data: { aggregate: { delivered: 4, bounced: 2 } } }),
-      } as any;
+      return { ok: false, json: async () => ({}) } as any;
     }) as any;
 
-    await expect(fetchMailerooCycleUsage(new Date('2026-10-25T12:00:00Z').getTime())).resolves.toMatchObject({
-      count: 6,
-      monthlyLimit: 250000,
-      verified: true,
-      source: 'statistics-proxy',
-    });
-    expect(urls).toEqual([
-      'https://api.maileroo.com/v1/account',
-      'https://api.maileroo.com/v1/statistics/summary',
-    ]);
+    await expect(fetchMailerooCycleUsage()).resolves.toEqual({ count: 0, verified: false });
   });
 });
 

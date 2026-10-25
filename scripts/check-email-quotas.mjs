@@ -8,10 +8,10 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  * limit (the per-provider usage APIs are queried by syncQuotasFromAPIs). For
  * Cloudflare Email Service — whose quota is MONTHLY, not daily — it additionally
  * reports month-to-date consumption against the 3000/mo allowance via the
- * GraphQL Analytics API (emailSendingAdaptiveGroups). Same idea for Maileroo
- * via its Account API, which supplies the live plan quantity, billing-cycle
- * usage and reset date; the legacy statistics endpoint remains a
- * delivered+bounced proxy fallback.
+ * GraphQL Analytics API (emailSendingAdaptiveGroups). For Maileroo (250k/mo
+ * Pro plan), it reports the live billing-period counter via the Account API,
+ * with the statistics summary as a best-effort fallback — sending is
+ * unaffected if the Account API key lacks the required scope.
  *
  * It also watches Resend's quota-cycle burn rate (cycle anchored on the 6th
  * of each month, same as the cascade's own dynamic daily cap) and opens a
@@ -226,25 +226,47 @@ async function main(opts) {
     }
   }
 
-  // Maileroo: surface the same live plan/cycle data used by the sender's
-  // dynamic pace. verified:false means the Account API/statistics lookup is
-  // unavailable; sending remains fail-safe at the conservative static floor.
+  // Maileroo: surface the live plan/usage counter (250k/mo Pro) via the
+  // Account API, with statistics/summary as a terminal-outcome fallback. The
+  // same best-effort probe drives computeMailerooDynamicDailyLimit; this just
+  // prints it. verified:false means the Account API key lacks the required
+  // scope (or the endpoint errored); sending is unaffected either way, since
+  // the daily guard falls back to the conservative static floor.
   if (isProviderConfigured('maileroo')) {
     const configuredMonthlyCap = PROVIDERS.find(p => p.id === 'maileroo')?.monthlyLimit ?? 250000;
-    const { count, monthlyLimit, cycleStart, cycleEnd, verified, source } = await fetchMailerooCycleUsage();
-    const monthlyCap = monthlyLimit || configuredMonthlyCap;
-    console.log('\n📮 Maileroo (Account API quota):');
+    const {
+      count,
+      verified,
+      monthlyLimit: liveMonthlyCap,
+      hourlyUsed,
+      hourlyLimit,
+      hourlyAvailable,
+      billingPeriodEndMs,
+      source,
+    } = await fetchMailerooCycleUsage();
+    const monthlyCap = Number.isFinite(liveMonthlyCap) && liveMonthlyCap > 0
+      ? liveMonthlyCap
+      : configuredMonthlyCap;
+    const sourceLabel = source === 'account' ? 'plan/usage' : source === 'statistics' ? 'statistics fallback' : 'unverified';
+    console.log(`\n📮 Maileroo (Account API ${sourceLabel}):`);
     if (!verified) {
-      console.log('   ⚠️  Account/statistics endpoint unreachable or unauthorized.');
+      console.log('   ⚠️  Usage endpoint unreachable/unauthorized — Account API key needs the required scope.');
       console.log('       (Sending is unaffected: the daily guard falls back to a conservative static pace.)');
     } else {
       const remaining = Math.max(0, monthlyCap - count);
-      const cycleLabel = cycleStart instanceof Date && cycleEnd instanceof Date
-        ? `${cycleStart.toISOString()}→${cycleEnd.toISOString()}`
-        : 'cycle unavailable';
-      console.log(`   ${source === 'account' ? 'Outbound usage' : 'Delivered+bounced proxy'}: ${count} / ${monthlyCap}  (≈${remaining} remaining; cycle ${cycleLabel})`);
-      if (source !== 'account') {
-        console.log('   Note: delivered+bounced is a lower-bound proxy — it may under-count queued/in-flight sends.');
+      const usageLabel = source === 'account' ? 'Outbound used this billing period' : 'Delivered+bounced month-to-date';
+      const periodLabel = source === 'account' ? 'this billing period' : 'this month';
+      console.log(`   ${usageLabel}: ${count} / ${monthlyCap}  (≈${remaining} remaining ${periodLabel})`);
+      if (source === 'account') {
+        console.log(`   Hourly outbound: ${hourlyUsed ?? 'n/a'} / ${hourlyLimit ?? 'n/a'}  (≈${hourlyAvailable ?? 'n/a'} available)`);
+        if (Number.isFinite(billingPeriodEndMs)) {
+          console.log(`   Billing period ends: ${new Date(billingPeriodEndMs).toISOString()}`);
+        }
+      } else {
+        console.log('   Note: delivered+bounced is a lower-bound proxy (no raw "sent" counter exposed) — may under-count sends still in flight.');
+      }
+      if (monthlyCap !== configuredMonthlyCap) {
+        console.log(`   ⚠️  Live plan limit (${monthlyCap}) differs from configured fallback (${configuredMonthlyCap}) — update PROVIDERS if this plan change is permanent.`);
       }
     }
   }

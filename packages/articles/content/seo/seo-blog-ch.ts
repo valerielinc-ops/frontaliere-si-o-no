@@ -104880,10 +104880,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-opportunita-impiego-federale.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Opportunità di lavoro nell'Amministrazione federale in Svizzera"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-15T01:49:05+00:00",
       "dateModified": "2026-10-15T01:49:05+00:00",
@@ -108866,6 +108866,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/telecom-358-licenziamenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assemblea-pvl-avs-finanziamento': {
+    title: 'PVL raccomanda sì a denti stretti per finanziamento AVS',
+    description: 'Il PVL raccomanda il sì al finanziamento supplementare AVS Sì anche all’iniziativa sui fuochi d’artificio No alla proposta sulla discriminazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, raccomanda, denti, stretti, finanziamento',
+    ogTitle: 'PVL: sì a denti stretti per finanziamento AVS',
+    ogDescription: 'Il PVL raccomanda il sì al finanziamento supplementare AVS Sì anche all’iniziativa sui fuochi d’artificio No alla proposta sulla discriminazione del matrimonio',
+    canonicalPath: '/articoli-svizzera/assemblea-pvl-avs-finanziamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PVL raccomanda sì a denti stretti per finanziamento AVS",
+      "description": "Il PVL raccomanda il sì al finanziamento supplementare AVS Sì anche all’iniziativa sui fuochi d’artificio No alla proposta sulla discriminazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-assemblea-pvl-avs-finanziamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-24T21:42:24+00:00",
+      "dateModified": "2026-10-24T21:42:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assemblea-pvl-avs-finanziamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-zenith-rischio-posti-svizzera': {
+    title: 'Zenith: circa 100 posti a rischio a Le Locle e altri 100 all\'estero',
+    description: 'Circa 100 posti a rischio a Le Locle Altri 100 posti potrebbero essere tagliati all’estero Zenith consulta il personale per un possibile licenziamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, zenith, circa, posti, rischio',
+    ogTitle: 'Zenith: rischio posti in Svizzera e all\'estero',
+    ogDescription: 'Circa 100 posti a rischio a Le Locle Altri 100 posti potrebbero essere tagliati all’estero Zenith consulta il personale per un possibile licenziamento',
+    canonicalPath: '/articoli-svizzera/zenith-rischio-posti-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zenith: circa 100 posti a rischio a Le Locle e altri 100 all'estero",
+      "description": "Circa 100 posti a rischio a Le Locle Altri 100 posti potrebbero essere tagliati all’estero Zenith consulta il personale per un possibile licenziamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-zenith-rischio-posti-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-24T22:32:13+00:00",
+      "dateModified": "2026-10-24T22:32:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zenith-rischio-posti-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-epfl-eth-top-20-europee': {
+    title: 'EPFL ed ETH tra le 20 università europee per brevetti depositati',
+    description: 'EPFL: 107 depositi a livello europeo l\'anno scorso ETH Zurigo: 101 depositi e 16° posto europeo Svizzera quarta in Europa per 463 spin-off 57,5%',
+    keywords: 'frontalieri, ticino, svizzera, italia, epfl, università, europee, brevetti',
+    ogTitle: 'EPFL ed ETH tra le 20 università europee per brevetti',
+    ogDescription: 'EPFL: 107 depositi a livello europeo l\'anno scorso ETH Zurigo: 101 depositi e 16° posto europeo Svizzera quarta in Europa per 463 spin-off 57,5% delle spin-off',
+    canonicalPath: '/articoli-svizzera/epfl-eth-top-20-europee/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "EPFL ed ETH tra le 20 università europee per brevetti depositati",
+      "description": "EPFL: 107 depositi a livello europeo l'anno scorso ETH Zurigo: 101 depositi e 16° posto europeo Svizzera quarta in Europa per 463 spin-off 57,5%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-epfl-eth-top-20-europee.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-25T00:03:55+00:00",
+      "dateModified": "2026-10-25T00:03:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/epfl-eth-top-20-europee/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-referendum-legge-collettivo-lavoro': {
+    title: 'Referendum legge obbligo contratto collettivo lavoro',
+    description: '23 ottobre 2026: referendum formalmente riuscito 66 006 firme valide su 66 574 depositate Il referendum cantonale non è stato validato',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, legge, obbligo, contratto',
+    ogTitle: 'Referendum legge obbligo contratto collettivo lavoro',
+    ogDescription: '23 ottobre 2026: referendum formalmente riuscito 66 006 firme valide su 66 574 depositate Il referendum cantonale non è stato validato Per la validazione',
+    canonicalPath: '/articoli-svizzera/referendum-legge-collettivo-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum legge obbligo contratto collettivo lavoro",
+      "description": "23 ottobre 2026: referendum formalmente riuscito 66 006 firme valide su 66 574 depositate Il referendum cantonale non è stato validato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-referendum-legge-collettivo-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-25T00:47:25+00:00",
+      "dateModified": "2026-10-25T00:47:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/referendum-legge-collettivo-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-violazioni-sicurezza-svizzera-2026': {
+    title: '455 segnalazioni di violazioni sicurezza in Svizzera nel 2026',
+    description: '455 segnalazioni di violazioni nel 2026 343 segnalazioni nell\'intero 2025 Indagine federale contro un fornitore IT esterno Possibile estensione a enti',
+    keywords: 'frontalieri, ticino, svizzera, italia, segnalazioni, violazioni, sicurezza, nell',
+    ogTitle: '455 violazioni sicurezza dati Svizzera 2026',
+    ogDescription: '455 segnalazioni di violazioni nel 2026 343 segnalazioni nell\'intero 2025 Indagine federale contro un fornitore IT esterno Possibile estensione a enti federali',
+    canonicalPath: '/articoli-svizzera/violazioni-sicurezza-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "455 segnalazioni di violazioni sicurezza in Svizzera nel 2026",
+      "description": "455 segnalazioni di violazioni nel 2026 343 segnalazioni nell'intero 2025 Indagine federale contro un fornitore IT esterno Possibile estensione a enti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-violazioni-sicurezza-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-25T13:07:25+00:00",
+      "dateModified": "2026-10-25T13:07:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/violazioni-sicurezza-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-inflazione-premi-rincaro-svizzera': {
+    title: 'Inflazione all\'1% a settembre 2026, premi 4,4% nazionali',
+    description: 'Nel 2025 l\'inflazione è stata dello 0,2% A settembre 2026 ha raggiunto l\'1% annuo A dicembre 2025 l\'indice era a 106,9 punti Premi 2026: 4,4%',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, settembre, premi, nazionali',
+    ogTitle: 'Inflazione Svizzera 2026 Premi e Costo Vita',
+    ogDescription: 'Nel 2025 l\'inflazione è stata dello 0,2% A settembre 2026 ha raggiunto l\'1% annuo A dicembre 2025 l\'indice era a 106,9 punti Premi 2026: 4,4% in Svizzera, 7,1%',
+    canonicalPath: '/articoli-svizzera/inflazione-premi-rincaro-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inflazione all'1% a settembre 2026, premi 4,4% nazionali",
+      "description": "Nel 2025 l'inflazione è stata dello 0,2% A settembre 2026 ha raggiunto l'1% annuo A dicembre 2025 l'indice era a 106,9 punti Premi 2026: 4,4%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-inflazione-premi-rincaro-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-25T14:06:49+00:00",
+      "dateModified": "2026-10-25T14:06:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/inflazione-premi-rincaro-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pesca-zurigo-servizi-regolati': {
+    title: 'Permesso di pesca Cantone Zurigo: verifica requisiti e competenza',
+    description: 'Verifica i requisiti per il permesso di pesca nel Cantone di Zurigo. La disciplina è cantonale; consultare la fonte ufficiale per tariffe e scadenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, pesca, cantone, zurigo',
+    ogTitle: 'Permesso pesca Zurigo requisiti e stagioni',
+    ogDescription: 'La pesca nel Cantone di Zurigo è un servizio regolato a livello cantonale. Requisiti, scadenze e importi vanno verificati ufficialmente sulla fonte cantonale.',
+    canonicalPath: '/articoli-svizzera/pesca-zurigo-servizi-regolati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di pesca Cantone Zurigo: verifica requisiti e competenza",
+      "description": "Verifica i requisiti per il permesso di pesca nel Cantone di Zurigo. La disciplina è cantonale; consultare la fonte ufficiale per tariffe e scadenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-pesca-zurigo-servizi-regolati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-25T16:33:10+00:00",
+      "dateModified": "2026-10-25T16:33:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pesca-zurigo-servizi-regolati/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

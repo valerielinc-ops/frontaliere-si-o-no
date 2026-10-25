@@ -13,6 +13,7 @@ import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBou
 import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
 import { getContextualConversionContext } from '@/services/conversionContext';
+import { canShowGamificationPopups } from '@/services/gamificationVisibility';
 import { userProfileStorageKey } from '@/services/userProfileStorage';
 import { DEFAULT_INPUTS } from '@/constants';
 import type { SimulationInputs } from '@/types';
@@ -449,6 +450,7 @@ const App: React.FC = () => {
 
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
+ const showGamificationPopups = canShowGamificationPopups(authUser);
  const adminShellVariant = useAdminShellVariant(activeTab === 'admin');
  const hideSiteNavigation = shouldHideSiteNavigation(activeTab, adminShellVariant);
  const [autoAdOverlayClearance, setAutoAdOverlayClearance] = useState(() => getAutoAdOverlayClearance());
@@ -2744,10 +2746,10 @@ const App: React.FC = () => {
  <div className="w-9 h-9" aria-hidden="true" />
  )}
 
- {/* Gamification — headless (toasts + streak tracking via portal) */}
+ {/* Gamification — headless (tracking for everyone, toasts for registered users) */}
  {showDeferredHomeWidgets && (
  <div className="hidden">
- <Suspense fallback={null}><GamificationWidget /></Suspense>
+ <Suspense fallback={null}><GamificationWidget showPopups={showGamificationPopups} /></Suspense>
  </div>
  )}
 
