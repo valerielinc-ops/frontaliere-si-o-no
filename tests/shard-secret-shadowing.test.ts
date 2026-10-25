@@ -3,13 +3,36 @@
 // the `shard-secrets-overflow` environment. GitHub resolves `secrets.*` with the
 // environment winning, so the freshly generated repo-level key CI was supposed
 // to use was inert — the shard served 3-day-stale HTML behind a green deploy.
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
+  api,
+  GITHUB_API_TIMEOUT_MS,
   findShadowedSecrets,
   SHARD_KEY_RE,
   REPO_SECRET_CAP,
 } from '../scripts/ci/check-shard-secret-shadowing.mjs';
 import { buildFailureIssue } from '../scripts/ci/report-shard-push-failure.mjs';
+
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+});
+
+describe('GitHub API transport', () => {
+  it('bounds reads while preserving the JSON response contract', async () => {
+    const timeoutSignal = new AbortController().signal;
+    const timeoutSpy = vi.spyOn(AbortSignal, 'timeout').mockReturnValue(timeoutSignal);
+    const fetchMock = vi.fn(async (_url: string, init: { signal: AbortSignal }) => {
+      expect(init.signal).toBe(timeoutSignal);
+      return { ok: true, status: 200, json: async () => ({ environments: [] }) };
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(api('/repos/example/repo/environments', 'token')).resolves.toEqual({ environments: [] });
+    expect(timeoutSpy).toHaveBeenCalledWith(GITHUB_API_TIMEOUT_MS);
+    expect(GITHUB_API_TIMEOUT_MS).toBe(20_000);
+  });
+});
 
 describe('findShadowedSecrets', () => {
   it('flags the exact incident shape: repo-level key shadowed by the overflow environment', () => {
