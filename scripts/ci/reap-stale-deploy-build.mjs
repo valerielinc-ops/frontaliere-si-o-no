@@ -28,6 +28,7 @@ const API = 'https://api.github.com';
 const DEFAULT_STALE_BUILD_MINUTES = 390;
 const DEFAULT_WORKFLOW = 'deploy.yml';
 const DEFAULT_BRANCH = 'main';
+const GITHUB_API_TIMEOUT_MS = 30_000;
 
 /**
  * Return the latest timestamp that proves a live build job is still active.
@@ -94,6 +95,7 @@ const REAP_LISTING_WINDOW_DAYS = 35;
 async function ghJson(urlPath) {
   const response = await fetch(`${API}${urlPath}`, {
     headers: githubApiHeaders(authToken()),
+    signal: AbortSignal.timeout(GITHUB_API_TIMEOUT_MS),
   });
   if (!response.ok) throw new Error(`GitHub API ${urlPath} → HTTP ${response.status}`);
   return response.json();
@@ -103,6 +105,7 @@ async function cancelRun(repo, runId) {
   const response = await fetch(`${API}/repos/${repo}/actions/runs/${runId}/cancel`, {
     method: 'POST',
     headers: githubApiHeaders(authToken()),
+    signal: AbortSignal.timeout(GITHUB_API_TIMEOUT_MS),
   });
   if (response.status === 202) return true;
   if (response.status === 409) {
