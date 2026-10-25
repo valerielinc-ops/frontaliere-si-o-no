@@ -17,8 +17,9 @@
  *    resolution, return-tag requirement, fixpoint cascade, loc preservation.
  * 2. Real-file invariants on the committed public/ sitemaps: every
  *    annotation surviving the sanitizer satisfies reciprocity, `<loc>`
- *    entries are NEVER added or removed, and the known one-sided files
- *    (blog, blog-ch, glossario, news) come out with zero annotations.
+ *    entries are NEVER added or removed, and the legacy files (blog, blog-ch,
+ *    glossario, news) contain no one-sided annotations while preserving any
+ *    complete reciprocal groups.
  */
 
 import { describe, expect, it } from 'vitest';
@@ -45,6 +46,37 @@ const urlset = (...blocks: readonly string[]) =>
 
 const countLocs = (xml: string) => [...xml.matchAll(/<loc>/g)].length;
 const countAnnotations = (xml: string) => [...xml.matchAll(/<xhtml:link\b/g)].length;
+
+const reciprocityViolations = (xmls: Iterable<string>): string[] => {
+  const locSet = new Set<string>();
+  const annotationsByLoc = new Map<string, Set<string>>();
+  for (const xml of xmls) {
+    for (const blockMatch of xml.matchAll(/<url>[\s\S]*?<\/url>/g)) {
+      const block = blockMatch[0];
+      const loc = block.match(/<loc>\s*([^<]+?)\s*<\/loc>/)?.[1];
+      if (!loc) continue;
+      locSet.add(loc);
+      for (const el of block.matchAll(/<xhtml:link\b[^>]*?\/>/g)) {
+        const href = el[0].match(/href="([^"]+)"/)?.[1];
+        if (!href) continue;
+        let set = annotationsByLoc.get(loc);
+        if (!set) {
+          set = new Set<string>();
+          annotationsByLoc.set(loc, set);
+        }
+        set.add(href);
+      }
+    }
+  }
+  const violations: string[] = [];
+  for (const [loc, hrefs] of annotationsByLoc) {
+    for (const href of hrefs) {
+      if (!locSet.has(href)) violations.push(`${loc} → ${href} (alternate not a listed <loc>)`);
+      else if (!annotationsByLoc.get(href)?.has(loc)) violations.push(`${loc} → ${href} (no return tag)`);
+    }
+  }
+  return violations;
+};
 
 describe('sanitizeSitemapHreflangReciprocity — fixtures', () => {
   const itLoc = `${BASE}/articoli-frontaliere/esempio/`;
@@ -244,43 +276,23 @@ describe('sanitizeSitemapHreflangReciprocity — committed public/ sitemaps', ()
     }
   });
 
-  it('fully strips the known one-sided files (blog, blog-ch, glossario, news) — issue #3474', () => {
+  it('sanitizes legacy files without deleting valid reciprocal groups — issue #15203', () => {
     for (const file of ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-glossario.xml', 'sitemap-news.xml']) {
       const xml = sanitizedXml.get(file);
       expect(xml, `${file} missing from public/`).toBeDefined();
-      expect(countAnnotations(xml!), file).toBe(0);
     }
+
+    // These files contain both historical one-sided groups and newer complete
+    // groups. The sanitizer must remove only the former; zeroing the files
+    // would discard valid alternate-language signals.
+    expect(countAnnotations(sanitizedXml.get('sitemap-blog.xml')!)).toBeGreaterThan(0);
+    expect(countAnnotations(sanitizedXml.get('sitemap-blog-ch.xml')!)).toBeGreaterThan(0);
+    expect(countAnnotations(sanitizedXml.get('sitemap-news.xml')!)).toBeGreaterThan(0);
+    expect(reciprocityViolations(sanitizedXml.values())).toEqual([]);
   });
 
   it('every surviving annotation satisfies reciprocity (alternate is a listed <loc> with a return tag)', () => {
-    const locSet = new Set<string>();
-    const annotationsByLoc = new Map<string, Set<string>>();
-    for (const xml of sanitizedXml.values()) {
-      for (const blockMatch of xml.matchAll(/<url>[\s\S]*?<\/url>/g)) {
-        const block = blockMatch[0];
-        const loc = block.match(/<loc>\s*([^<]+?)\s*<\/loc>/)?.[1];
-        if (!loc) continue;
-        locSet.add(loc);
-        for (const el of block.matchAll(/<xhtml:link\b[^>]*?\/>/g)) {
-          const href = el[0].match(/href="([^"]+)"/)?.[1];
-          if (!href) continue;
-          let set = annotationsByLoc.get(loc);
-          if (!set) {
-            set = new Set<string>();
-            annotationsByLoc.set(loc, set);
-          }
-          set.add(href);
-        }
-      }
-    }
-    const violations: string[] = [];
-    for (const [loc, hrefs] of annotationsByLoc) {
-      for (const href of hrefs) {
-        if (!locSet.has(href)) violations.push(`${loc} → ${href} (alternate not a listed <loc>)`);
-        else if (!annotationsByLoc.get(href)?.has(loc)) violations.push(`${loc} → ${href} (no return tag)`);
-      }
-    }
-    expect(violations).toEqual([]);
+    expect(reciprocityViolations(sanitizedXml.values())).toEqual([]);
   });
 
   it('keeps the reciprocal-complete groups of sitemap-pages.xml (never strips a correct signal)', () => {
