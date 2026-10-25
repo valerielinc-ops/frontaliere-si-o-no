@@ -449,6 +449,7 @@ export async function handleCreatePublisherCheckout(req) {
 const ATTACH_MIN_DESCRIPTION_WORDS = 50;
 const ATTACH_MAX_ADS = 10;
 const ATTACH_RECAPTCHA_THRESHOLD = 0.5; // mirrors ACTION_THRESHOLDS.PUBLISH_JOB in recaptchaVerification.js
+const PUBLISHER_SYNC_DISPATCH_TIMEOUT_MS = 20_000;
 
 function attachWordCount(text) {
   const t = String(text || '').trim();
@@ -555,15 +556,19 @@ class AttachClaimError extends Error {
  * getRepoConfig import above. Throws on failure; the caller swallows it (the
  * cron is the safety net, this is pure latency reduction).
  */
-async function dispatchPublisherSync() {
-  const { pat, owner, repo } = await getRepoConfig();
+export async function dispatchPublisherSync({
+  fetchImpl = fetch,
+  getRepoConfigImpl = getRepoConfig,
+} = {}) {
+  const { pat, owner, repo } = await getRepoConfigImpl();
   if (!pat) {
     throw new Error('github_pat_not_configured');
   }
-  const res = await fetch(`${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/publisher-jobs-sync.yml/dispatches`, {
+  const res = await fetchImpl(`${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/publisher-jobs-sync.yml/dispatches`, {
     method: 'POST',
     headers: githubApiHeaders(pat, { 'Content-Type': 'application/json' }),
     body: JSON.stringify({ ref: 'main' }),
+    signal: AbortSignal.timeout(PUBLISHER_SYNC_DISPATCH_TIMEOUT_MS),
   });
   if (!res.ok) {
     const text = await res.text().catch(() => '');
