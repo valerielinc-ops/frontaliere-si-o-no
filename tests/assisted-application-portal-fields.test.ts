@@ -393,9 +393,9 @@ describe('portal field extraction', () => {
         <div data-size="0"><label data-size="0" for="later">Later question *</label><input data-size="0" id="later" required></div>
         <input id="hidden-native" type="hidden" value="trap">
       </form>`;
-    expect(extract(html).fields.map((field: any) => field.id)).toEqual(['first']);
-    expect(extract(html, 'https://live.solique.ch/apply', { includeHidden: true }).fields.map((field: any) => field.id))
-      .toEqual(['first', 'later']);
+    expect(extract(html).fields.map((field: any) => field.label)).toEqual(['First question *']);
+    expect(extract(html, 'https://live.solique.ch/apply', { includeHidden: true }).fields.map((field: any) => field.label))
+      .toEqual(['First question *', 'Later question *']);
   });
 
   it('answers «Vermittlungsbüro?» with its No, whatever the plan said, and never asks the candidate', () => {
