@@ -364,7 +364,7 @@ export const ProfileLoginCTA: React.FC<{
  const [dismissed, setDismissed] = React.useState(false);
  if (dismissed) return null;
  return (
- <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-info-subtle to-success-subtle rounded-xl border border-info-border">
+ <div className="flex items-center gap-3 rounded-xl border border-info-border bg-info-subtle p-3">
  <Sparkles size={18} className="text-info flex-shrink-0" />
  <p className="text-xs text-body flex-1">{t('profile.cta.title')}</p>
  <button
@@ -473,17 +473,8 @@ type ProfileMapCardProps = {
  status: string;
  detail: React.ReactNode;
  action: string;
- tone: 'accent' | 'info' | 'success' | 'warning';
- span?: string;
  onClick: () => void;
 };
-
-const PROFILE_MAP_TONES = {
- accent: 'border-accent-border bg-accent-subtle text-accent',
- info: 'border-info-border bg-info-subtle text-info',
- success: 'border-success-border bg-success-subtle text-success',
- warning: 'border-warning-border bg-warning-subtle text-warning',
-} as const;
 
 const ProfileMapCard: React.FC<ProfileMapCardProps> = ({
  icon,
@@ -492,8 +483,6 @@ const ProfileMapCard: React.FC<ProfileMapCardProps> = ({
  status,
  detail,
  action,
- tone,
- span = '',
  onClick,
 }) => {
  const Icon = icon;
@@ -501,25 +490,25 @@ const ProfileMapCard: React.FC<ProfileMapCardProps> = ({
  <button
   type="button"
   onClick={onClick}
-  className={`group flex min-h-[184px] ${span} flex-col rounded-2xl border border-edge bg-surface p-4 text-left shadow-stripe-sm transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 hover:border-accent-border hover:shadow-stripe focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:p-5`}
+  className="group flex w-full items-start gap-3 bg-surface p-4 text-left transition-colors hover:bg-surface-alt focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset sm:gap-4 sm:p-5"
  >
-  <div className="flex items-start justify-between gap-3">
-   <span className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${PROFILE_MAP_TONES[tone]}`}>
+   <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-accent-border bg-accent-subtle text-accent">
     <Icon size={19} aria-hidden="true" />
    </span>
-   <span className="rounded-full bg-surface-raised px-2 py-1 text-xs font-semibold text-subtle">
-    {status}
+   <span className="min-w-0 flex-1">
+    <span className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+     <span className="font-display text-base font-bold text-heading">{title}</span>
+     <span className="text-xs font-semibold text-muted">{status}</span>
+    </span>
+    <span className="mt-1 block text-sm leading-5 text-subtle">{description}</span>
+    <span className="mt-3 flex flex-wrap items-center justify-between gap-2">
+     <span className="min-w-0 text-sm font-semibold text-strong">{detail}</span>
+     <span className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-accent">
+      {action}
+      <ChevronRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
+     </span>
    </span>
-  </div>
-  <span className="mt-5 block font-display text-lg font-bold text-heading">{title}</span>
-  <span className="mt-1 block text-sm leading-5 text-subtle">{description}</span>
-  <span className="mt-auto flex items-end justify-between gap-3 pt-4">
-   <span className="min-w-0 text-sm font-semibold text-strong">{detail}</span>
-   <span className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-accent">
-    {action}
-    <ChevronRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
    </span>
-  </span>
  </button>
  );
 };
@@ -1244,10 +1233,10 @@ const UserProfile: React.FC = () => {
 
  if (!user && !authLoading) {
  return (
- <div className="max-w-lg mx-auto animate-fade-in">
- <div className="bg-surface rounded-3xl shadow-xl border border-edge overflow-hidden">
+ <div className="mx-auto max-w-lg animate-fade-in">
+ <div className="overflow-hidden rounded-2xl border border-edge bg-surface shadow-stripe-sm">
  {/* Header */}
- <div className="bg-gradient-to-br from-accent-strong via-info-strong to-success-strong p-4 sm:p-8 text-center text-on-accent">
+ <div className="bg-surface-inverted p-4 text-center text-on-accent sm:p-8">
  <div className="w-20 h-20 mx-auto bg-on-accent/25 rounded-full flex items-center justify-center mb-4">
  <User size={40} className="text-on-accent/90" />
  </div>
@@ -1280,7 +1269,7 @@ const UserProfile: React.FC = () => {
  {!gisButtonRendered && (
  <button
  onClick={handleGoogleSignIn}
- className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-surface border-2 border-edge rounded-2xl hover:border-accent hover:shadow-lg transition-[border-color,box-shadow] group"
+ className="group flex min-h-11 w-full items-center justify-center gap-3 rounded-xl border border-edge bg-surface px-6 py-3.5 transition-[border-color,box-shadow] hover:border-accent hover:shadow-stripe-sm"
  >
  <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -1299,7 +1288,7 @@ const UserProfile: React.FC = () => {
  <button
  type="button"
  onClick={() => signInWithLinkedIn()}
- className={`w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-brand-linkedin hover:bg-brand-linkedin-hover border-2 border-brand-linkedin hover:border-brand-linkedin-hover rounded-2xl hover:shadow-lg transition-[color,background-color,border-color,box-shadow] text-on-accent font-semibold${linkedInPendingClass(linkedInAvailable)}`}
+ className={`flex min-h-11 w-full items-center justify-center gap-3 rounded-xl border border-brand-linkedin bg-brand-linkedin px-6 py-3.5 font-semibold text-on-accent transition-[color,background-color,border-color,box-shadow] hover:border-brand-linkedin-hover hover:bg-brand-linkedin-hover hover:shadow-stripe-sm${linkedInPendingClass(linkedInAvailable)}`}
  >
  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  <span>{locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}</span>
@@ -1334,8 +1323,16 @@ const UserProfile: React.FC = () => {
 
  if (authLoading) {
  return (
- <div className="flex items-center justify-center py-24">
- <div className="animate-spin rounded-full h-8 w-8 border-2 border-accent border-t-transparent" />
+ <div className="mx-auto max-w-6xl animate-pulse rounded-2xl border border-edge bg-surface p-4 shadow-stripe-sm sm:p-6" role="status" aria-label={t('profile.title')}>
+  <div className="flex items-center gap-4">
+   <div className="h-14 w-14 rounded-full bg-surface-raised" />
+   <div className="space-y-2">
+    <div className="h-4 w-40 rounded bg-surface-raised" />
+    <div className="h-3 w-56 rounded bg-surface-raised" />
+   </div>
+  </div>
+  <div className="mt-6 h-3 w-full rounded bg-surface-raised" />
+  <div className="mt-3 h-3 w-2/3 rounded bg-surface-raised" />
  </div>
  );
  }
@@ -1355,10 +1352,10 @@ const UserProfile: React.FC = () => {
  };
 
  return (
- <div className="mx-auto max-w-6xl space-y-5 animate-fade-in">
+ <div className="mx-auto max-w-6xl space-y-6 animate-fade-in">
  {/* Profile header card */}
- <div className="bg-surface rounded-3xl shadow-xl border border-edge overflow-hidden">
- <div className="bg-gradient-to-br from-accent-strong via-info-strong to-success-strong p-4 sm:p-6 text-on-accent">
+ <div className="overflow-hidden rounded-2xl border border-edge bg-surface shadow-stripe-sm">
+ <div className="bg-surface-inverted p-4 text-on-accent sm:p-6">
  <div className="flex items-center gap-5">
  <div className="relative">
  {photoURL ? (
@@ -1368,11 +1365,11 @@ const UserProfile: React.FC = () => {
  width={72}
  height={72}
  loading="lazy"
- className="w-[72px] h-[72px] rounded-full ring-3 ring-on-accent/40 object-cover"
+ className="h-[72px] w-[72px] rounded-full object-cover ring-2 ring-on-accent/40"
  referrerPolicy="no-referrer"
  />
  ) : (
- <div className="w-[72px] h-[72px] rounded-full bg-on-accent/20 flex items-center justify-center ring-3 ring-on-accent/40">
+ <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-on-accent/20 ring-2 ring-on-accent/40">
  <Camera size={28} className="text-on-accent/70" />
  </div>
  )}
@@ -1394,7 +1391,7 @@ const UserProfile: React.FC = () => {
  </div>
  <button
  onClick={handleLogout}
- className="p-2.5 bg-on-accent/15 hover:bg-on-accent/25 rounded-xl transition-colors flex-shrink-0"
+ className="flex-shrink-0 rounded-xl bg-on-accent/15 p-2.5 transition-colors hover:bg-on-accent/25"
  aria-label={t('profile.logout')}
  title={t('profile.logout')}
  >
@@ -1421,27 +1418,25 @@ const UserProfile: React.FC = () => {
  </div>
 
  {/* ─── Today panel: one clear next step ─────────────────── */}
- <section className="rounded-3xl border border-edge bg-surface-inverted p-4 text-on-accent shadow-stripe-md sm:p-6 lg:p-8" aria-labelledby="profile-today-title">
+ <section className="rounded-2xl border border-edge bg-surface p-4 text-heading shadow-stripe-sm sm:p-6 lg:p-7" aria-labelledby="profile-today-title">
   <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
    <div>
-    <p className="text-xs font-bold uppercase tracking-[0.16em] text-on-accent/70">{t('profile.dashboard.today')}</p>
-    <h2 id="profile-today-title" className="mt-1 font-display text-2xl font-bold tracking-tight">{t('profile.dashboard.todayTitle')}</h2>
-    <p className="mt-1 max-w-2xl text-sm leading-6 text-on-accent/75">{t('profile.dashboard.todayDescription')}</p>
+    <h2 id="profile-today-title" className="font-display text-xl font-bold tracking-tight text-heading">{t('profile.dashboard.todayTitle')}</h2>
+    <p className="mt-1 max-w-2xl text-sm leading-6 text-subtle">{t('profile.dashboard.todayDescription')}</p>
    </div>
-   <span className="inline-flex w-fit items-center rounded-full border border-on-accent/20 bg-on-accent/10 px-3 py-1 text-xs font-semibold text-on-accent/80">
+   <span className="inline-flex w-fit items-center rounded-full border border-edge bg-surface-alt px-3 py-1 text-xs font-semibold text-subtle">
     {completeness}% {t('profile.dashboard.progress')}
    </span>
   </div>
 
   <div className="mt-5 grid gap-4 lg:grid-cols-[minmax(0,1.45fr)_minmax(16rem,0.75fr)]">
-   <div className="rounded-2xl bg-surface p-4 text-heading sm:p-5">
+   <div className="rounded-xl border border-edge bg-surface-alt/60 p-4 text-heading sm:p-5">
     <div className="flex items-start gap-3">
      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-subtle text-accent">
       <Sparkles size={19} aria-hidden="true" />
      </span>
      <div className="min-w-0 flex-1">
-      <p className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{t('profile.dashboard.nextStep')}</p>
-      <h3 className="mt-1 font-display text-lg font-bold text-heading">
+      <h3 className="font-display text-lg font-bold text-heading">
        {nextProfileLabel ? `${t('profile.dashboard.completeField')}: ${nextProfileLabel}` : t('profile.dashboard.profileReady')}
       </h3>
       <p className="mt-1 text-sm leading-5 text-subtle">
@@ -1459,23 +1454,23 @@ const UserProfile: React.FC = () => {
     </div>
    </div>
 
-   <div className="rounded-2xl border border-on-accent/20 bg-on-accent/10 p-4 sm:p-5">
+   <div className="rounded-xl border border-edge bg-surface-alt p-4 sm:p-5">
     <div className="flex items-center justify-between gap-3">
-     <p className="text-xs font-bold uppercase tracking-[0.12em] text-on-accent/70">{t('profile.completeness')}</p>
-     <CheckCircle2 size={18} className={completeness === 100 ? 'text-success' : 'text-on-accent/60'} aria-hidden="true" />
+     <p className="text-sm font-semibold text-subtle">{t('profile.completeness')}</p>
+     <CheckCircle2 size={18} className={completeness === 100 ? 'text-success' : 'text-muted'} aria-hidden="true" />
     </div>
     <p className="mt-2 font-display text-4xl font-bold tabular-nums">{completeness}%</p>
-    <div className="mt-3 h-2 overflow-hidden rounded-full bg-on-accent/20" role="progressbar" aria-valuenow={completeness} aria-valuemin={0} aria-valuemax={100} aria-label={t('profile.completeness')}>
-     <div className="h-full origin-left rounded-full bg-on-accent transition-transform duration-500 [transform:var(--bar-sx)]" style={{ ['--bar-sx']: `scaleX(${completeness / 100})` } as React.CSSProperties} />
+    <div className="mt-3 h-2 overflow-hidden rounded-full bg-surface-raised" role="progressbar" aria-valuenow={completeness} aria-valuemin={0} aria-valuemax={100} aria-label={t('profile.completeness')}>
+     <div className="h-full origin-left rounded-full bg-accent transition-transform duration-500 [transform:var(--bar-sx)]" style={{ ['--bar-sx']: `scaleX(${completeness / 100})` } as React.CSSProperties} />
     </div>
-    <p className="mt-3 text-sm leading-5 text-on-accent/75">
+    <p className="mt-3 text-sm leading-5 text-subtle">
      {completeness === 100 ? t('profile.dashboard.profileReady') : t('profile.completeForBetter')}
     </p>
    </div>
   </div>
 
   <div className="mt-5 flex items-center gap-2 overflow-x-auto pb-1" aria-label={t('profile.quickActions')}>
-   <span className="shrink-0 text-xs font-bold uppercase tracking-[0.12em] text-on-accent/60">{t('profile.quickActions')}</span>
+   <span className="shrink-0 text-xs font-semibold text-muted">{t('profile.quickActions')}</span>
    {[
     { icon: Calculator, label: t('profile.action.simulate'), tab: 'calculator' },
     { icon: Sparkles, label: t('profile.action.whatif'), tab: 'calculator', subTab: 'whatif' },
@@ -1486,20 +1481,20 @@ const UserProfile: React.FC = () => {
      type="button"
      key={action.label}
      onClick={() => dispatchNavigation(action.tab, action.subTab)}
-     className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl border border-on-accent/20 bg-on-accent/10 px-3 py-2 text-xs font-semibold text-on-accent transition-colors hover:border-on-accent/40 hover:bg-on-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+     className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl border border-edge bg-surface px-3 py-2 text-xs font-semibold text-subtle transition-colors hover:border-accent-border hover:bg-surface-alt hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
     >
      <action.icon size={14} aria-hidden="true" />
      {action.label}
     </button>
    ))}
    {hasPublisherAds && (
-    <a href={buildPath({ activeTab: 'publisher-dashboard' }, locale)} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl border border-on-accent/20 bg-on-accent/10 px-3 py-2 text-xs font-semibold text-on-accent transition-colors hover:border-on-accent/40 hover:bg-on-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+    <a href={buildPath({ activeTab: 'publisher-dashboard' }, locale)} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl border border-edge bg-surface px-3 py-2 text-xs font-semibold text-subtle transition-colors hover:border-accent-border hover:bg-surface-alt hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
      <Briefcase size={14} aria-hidden="true" />
      {t('profile.action.myListings')}
     </a>
    )}
    {isJournalist && (
-    <a href={buildPath({ activeTab: 'journalist-dashboard' }, locale)} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl border border-on-accent/20 bg-on-accent/10 px-3 py-2 text-xs font-semibold text-on-accent transition-colors hover:border-on-accent/40 hover:bg-on-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+    <a href={buildPath({ activeTab: 'journalist-dashboard' }, locale)} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl border border-edge bg-surface px-3 py-2 text-xs font-semibold text-subtle transition-colors hover:border-accent-border hover:bg-surface-alt hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
      <Newspaper size={14} aria-hidden="true" />
      {t('profile.action.journalistDashboard')}
     </a>
@@ -1508,15 +1503,12 @@ const UserProfile: React.FC = () => {
  </section>
 
  {/* ─── Profile map: four areas, one tap away ─────────────── */}
- <section className="space-y-4" aria-labelledby="profile-map-title">
-  <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-   <div>
-    <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{t('profile.dashboard.mapEyebrow')}</p>
-    <h2 id="profile-map-title" className="mt-1 font-display text-2xl font-bold tracking-tight text-heading">{t('profile.dashboard.mapTitle')}</h2>
-    <p className="mt-1 max-w-2xl text-sm leading-6 text-subtle">{t('profile.dashboard.mapDescription')}</p>
-   </div>
+ <section className="overflow-hidden rounded-2xl border border-edge bg-surface shadow-stripe-sm" aria-labelledby="profile-map-title">
+  <div className="border-b border-edge p-4 sm:p-5">
+   <h2 id="profile-map-title" className="font-display text-xl font-bold tracking-tight text-heading">{t('profile.dashboard.mapTitle')}</h2>
+   <p className="mt-1 max-w-2xl text-sm leading-6 text-subtle">{t('profile.dashboard.mapDescription')}</p>
   </div>
-  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
+  <div className="divide-y divide-edge">
    <ProfileMapCard
     icon={Calculator}
     title={t('profile.dashboard.financeTitle')}
@@ -1529,8 +1521,6 @@ const UserProfile: React.FC = () => {
      </span>
     ) : t('profile.dashboard.financeEmpty')}
     action={t('profile.dashboard.financeAction')}
-    tone="success"
-    span="sm:col-span-2 xl:col-span-2"
     onClick={() => dispatchNavigation('calculator')}
    />
    <ProfileMapCard
@@ -1545,7 +1535,6 @@ const UserProfile: React.FC = () => {
      </span>
     ) : t('profile.dashboard.mobilityEmpty')}
     action={t('profile.dashboard.mobilityAction')}
-    tone="warning"
     onClick={() => preferredCrossing ? dispatchNavigation('morning') : scrollToProfileForm('preferredDogana')}
    />
    <ProfileMapCard
@@ -1557,7 +1546,6 @@ const UserProfile: React.FC = () => {
      <span className="block truncate">{selectedMuni.name}{profile.familyMembers ? ` · ${profile.familyMembers} ${t('profile.familyMembers').toLocaleLowerCase()}` : ''}</span>
     ) : t('profile.dashboard.homeEmpty')}
     action={t('profile.dashboard.homeAction')}
-    tone="info"
     onClick={() => scrollToProfileForm(selectedMuni ? 'familySituation' : 'municipality')}
    />
    <ProfileMapCard
@@ -1567,13 +1555,12 @@ const UserProfile: React.FC = () => {
     status={profile.workPosition || profile.workplace || myApplications.length > 0 ? t('profile.dashboard.statusReady') : t('profile.dashboard.statusStart')}
     detail={profile.workPosition || profile.workplace || (myApplications.length > 0 ? t('profile.applications.title') : t('profile.dashboard.workEmpty'))}
     action={profile.workPosition || profile.workplace ? t('profile.dashboard.workAction') : t('profile.dashboard.workSetupAction')}
-    tone="accent"
-    span="sm:col-span-2 xl:col-span-2"
     onClick={() => profile.workPosition || profile.workplace ? dispatchNavigation('job-board') : scrollToProfileForm('workPosition')}
    />
   </div>
  </section>
 
+ <div className="overflow-hidden rounded-2xl border border-edge bg-surface shadow-stripe-sm">
  {/* ─── Permit Deadline Tracker Card ─────────────────── */}
  {profile.permitExpiry && (() => {
  const today = new Date();
@@ -1613,7 +1600,7 @@ const UserProfile: React.FC = () => {
  const permitLabel = profile.frontaliereType === 'permit-g' ? t('profile.permitG') : t('profile.permitB');
 
  return (
- <div className={`mx-6 mt-4 p-4 rounded-2xl border ${bgColor}`}>
+ <div className={`border-b border-edge p-4 sm:p-6 ${bgColor}`}>
  <div className="flex items-start gap-3">
  <div className={`p-2 rounded-xl ${isExpired ? 'bg-danger-subtle' : isUrgent ? 'bg-warning-subtle' : isSoon ? 'bg-accent-subtle' : 'bg-success-subtle'}`}>
  <FileCheck size={20} className={numColor} />
@@ -1649,7 +1636,7 @@ const UserProfile: React.FC = () => {
 
  {/* ─── My applications to sponsored ads ─────────────────── */}
  {myApplications.length > 0 && (
- <div className="mx-6 mt-4 p-4 rounded-2xl border border-edge bg-surface-alt">
+ <section className="border-b border-edge bg-surface-alt/45 p-4 sm:p-6">
  <h3 className="text-sm font-bold text-strong flex items-center gap-2">
  <Briefcase size={16} className="text-accent" />
  {t('profile.applications.title')}
@@ -1693,12 +1680,12 @@ const UserProfile: React.FC = () => {
  );
  })}
  </ul>
- </div>
+ </section>
  )}
 
  {/* ─── Saved jobs (#4466/#4467 account-gating follow-up) ────── */}
  {savedJobs.length > 0 && (
- <div className="mx-6 mt-4 p-4 rounded-2xl border border-edge bg-surface-alt">
+ <section className="border-b border-edge bg-surface-alt/45 p-4 sm:p-6">
  <h3 className="text-sm font-bold text-strong flex items-center gap-2">
  <Bookmark size={16} className="text-accent" />
  {t('profile.savedJobs.title')}
@@ -1721,7 +1708,7 @@ const UserProfile: React.FC = () => {
  <span className="block text-xs text-muted">{t('profile.savedJobs.savedOn')} {dateLabel}</span>
  </span>
  {isExpired ? (
- <span className="flex-shrink-0 mt-0.5 px-1.5 py-0.5 rounded-md text-[11px] font-medium bg-surface text-subtle border border-edge">
+ <span className="mt-0.5 flex-shrink-0 rounded-md border border-edge bg-surface px-1.5 py-0.5 text-xs font-medium text-subtle">
  {t('profile.savedJobs.expired')}
  </span>
  ) : (
@@ -1747,13 +1734,13 @@ const UserProfile: React.FC = () => {
  );
  })}
  </ul>
- </div>
+ </section>
  )}
 
  {conciergeService && (
  <a
    href={`${getApplicationConciergePath(locale)}?application_concierge_service_id=${encodeURIComponent(conciergeService.serviceId)}`}
-   className="mx-6 mt-4 block rounded-2xl border border-accent-border bg-accent-subtle/60 p-4 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+   className="m-4 block rounded-xl border border-accent-border bg-accent-subtle/60 p-4 transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:m-6"
  >
    <div className="flex items-start gap-3">
      <div className="rounded-xl bg-accent p-2 text-on-accent"><Sparkles size={18} aria-hidden="true" /></div>
@@ -1770,7 +1757,7 @@ const UserProfile: React.FC = () => {
  )}
 
  {user && (
- <div className="mx-6 mt-4 border-y border-edge">
+ <div className="border-b border-edge px-4 sm:px-6">
    <a
      href={`${buildPath({ activeTab: 'profile' }, locale)}?profile_view=applications`}
      onClick={(event) => {
@@ -1794,7 +1781,7 @@ const UserProfile: React.FC = () => {
  )}
 
  {cvProfile && (
- <section className="mx-6 mt-4 rounded-2xl border border-info-border bg-info-subtle/50 p-4" aria-labelledby="profile-cv-title">
+ <section className="border-b border-edge bg-info-subtle/40 p-4 sm:p-6" aria-labelledby="profile-cv-title">
    <div className="flex items-start gap-3">
      <div className="rounded-xl bg-surface p-2 text-info"><FileCheck size={18} aria-hidden="true" /></div>
      <div className="min-w-0 flex-1">
@@ -1818,7 +1805,7 @@ const UserProfile: React.FC = () => {
  )}
 
  {/* Profile data form */}
- <div id="profile-personal-info" className="scroll-mt-24 p-4 space-y-5 sm:p-6">
+ <div id="profile-personal-info" className="scroll-mt-24 border-b border-edge p-4 space-y-5 sm:p-6">
  <div className="flex items-center justify-between">
  <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
  <Edit3 size={18} className="text-accent" />
@@ -2224,7 +2211,7 @@ const UserProfile: React.FC = () => {
 
  {/* Contextual CTA card */}
  {completeness < 100 && (
- <div className="bg-gradient-to-r from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-4">
+ <div className="border-b border-edge bg-warning-subtle/35 p-4 sm:p-6">
  <div className="flex items-start gap-3">
  <Award size={20} className="text-warning flex-shrink-0 mt-0.5" />
  <div>
@@ -2240,11 +2227,11 @@ const UserProfile: React.FC = () => {
  const profileEmail = getAuthEmail(user);
  if (!profileEmail) return null;
  return (
- <div className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-sm">
- <div className="p-6 space-y-4">
+ <section className="border-b border-edge p-4 sm:p-6" aria-labelledby="profile-email-title">
+ <div className="space-y-4">
  <div className="flex items-center gap-2 text-lg font-bold text-strong">
  <Mail size={18} className="text-muted" />
- <span>{t('profile.emailSection')}</span>
+ <h2 id="profile-email-title">{t('profile.emailSection')}</h2>
  </div>
 
  <SubscriptionPreferencesController
@@ -2255,25 +2242,24 @@ const UserProfile: React.FC = () => {
  locale={getLocale()}
  />
  </div>
- </div>
+ </section>
  );
  })()}
 
  {/* ─── Privacy & Data Management Section ─── */}
- <div className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-sm">
- <div className="p-6 space-y-4">
- <div
- role="button"
- tabIndex={0}
+ <section className="p-4 sm:p-6" aria-labelledby="profile-privacy-title">
+ <div className="space-y-4">
+ <button
+ type="button"
  onClick={() => setPrivacyOpen(o => !o)}
- onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setPrivacyOpen(o => !o); } }}
  aria-expanded={privacyOpen}
  aria-controls="profile-privacy-content"
- className="flex items-center gap-2 text-lg font-bold text-strong focus:outline-none cursor-pointer rounded-md focus-visible:ring-2 focus-visible:ring-accent"
+ className="flex w-full items-center gap-2 rounded-md text-left text-lg font-bold text-strong focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
  >
  <Shield size={18} className="text-muted" />
- <span>{t('profile.privacySection')}</span>
- </div>
+ <span id="profile-privacy-title">{t('profile.privacySection')}</span>
+ <span className="ml-auto text-muted" aria-hidden="true">{privacyOpen ? '−' : '+'}</span>
+ </button>
 
  <div
  id="profile-privacy-content"
@@ -2294,7 +2280,7 @@ const UserProfile: React.FC = () => {
  </div>
  <button
  onClick={handleExportData}
- className="px-3 py-1.5 bg-accent hover:bg-accent-hover text-on-accent text-xs font-bold uppercase rounded-lg transition-colors flex-shrink-0"
+ className="min-h-10 flex-shrink-0 rounded-xl bg-accent px-3 py-1.5 text-xs font-bold uppercase text-on-accent transition-colors hover:bg-accent-hover"
  >
  {t('profile.gdprExport')}
  </button>
@@ -2343,6 +2329,7 @@ const UserProfile: React.FC = () => {
  </div>
  </div>
  </div>
+ </section>
  </div>
  </div>
  );
