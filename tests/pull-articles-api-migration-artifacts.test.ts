@@ -568,6 +568,26 @@ describe('pull-articles-api: sitemap/slug-map source parity', () => {
     expect(origin.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
   });
 
+  it('rejects a complete but cross-wired canonical hreflang block', async () => {
+    const crossedAlternates = archiveSitemap.replace(
+      /(<loc>https:\/\/frontaliereticino\.ch\/articoli-frontaliere\/tutti\/<\/loc>[\s\S]*?)(?=\n  <\/url>)/,
+      (block) => block
+        .replace('/en/cross-border-articles/all/', '/en/swiss-articles/all/')
+        .replace('/de/grenzgaenger-artikel/alle/', '/de/schweiz-artikel/alle/')
+        .replace('/fr/articles-frontalier/tous/', '/fr/articles-suisse/tous/'),
+    );
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': crossedAlternates,
+    };
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+  });
+
   it('still refuses a short archive made only of pagination tails', async () => {
     routes = {
       ...baseRoutes(),

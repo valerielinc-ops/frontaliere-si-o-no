@@ -343,6 +343,88 @@ const ARCHIVE_PAGE_ONE_PATHS = new Set([
 ]);
 const ARCHIVE_HREFLANGS = new Set(['it', 'en', 'de', 'fr', 'x-default']);
 const CANONICAL_SITE_ORIGIN = 'https://frontaliereticino.ch';
+const ARCHIVE_ALTERNATE_PATHS = new Map([
+  [
+    '/articoli-frontaliere/tutti/',
+    {
+      it: '/articoli-frontaliere/tutti/',
+      en: '/en/cross-border-articles/all/',
+      de: '/de/grenzgaenger-artikel/alle/',
+      fr: '/fr/articles-frontalier/tous/',
+      'x-default': '/articoli-frontaliere/tutti/',
+    },
+  ],
+  [
+    '/en/cross-border-articles/all/',
+    {
+      it: '/articoli-frontaliere/tutti/',
+      en: '/en/cross-border-articles/all/',
+      de: '/de/grenzgaenger-artikel/alle/',
+      fr: '/fr/articles-frontalier/tous/',
+      'x-default': '/articoli-frontaliere/tutti/',
+    },
+  ],
+  [
+    '/de/grenzgaenger-artikel/alle/',
+    {
+      it: '/articoli-frontaliere/tutti/',
+      en: '/en/cross-border-articles/all/',
+      de: '/de/grenzgaenger-artikel/alle/',
+      fr: '/fr/articles-frontalier/tous/',
+      'x-default': '/articoli-frontaliere/tutti/',
+    },
+  ],
+  [
+    '/fr/articles-frontalier/tous/',
+    {
+      it: '/articoli-frontaliere/tutti/',
+      en: '/en/cross-border-articles/all/',
+      de: '/de/grenzgaenger-artikel/alle/',
+      fr: '/fr/articles-frontalier/tous/',
+      'x-default': '/articoli-frontaliere/tutti/',
+    },
+  ],
+  [
+    '/articoli-svizzera/tutti/',
+    {
+      it: '/articoli-svizzera/tutti/',
+      en: '/en/swiss-articles/all/',
+      de: '/de/schweiz-artikel/alle/',
+      fr: '/fr/articles-suisse/tous/',
+      'x-default': '/articoli-svizzera/tutti/',
+    },
+  ],
+  [
+    '/en/swiss-articles/all/',
+    {
+      it: '/articoli-svizzera/tutti/',
+      en: '/en/swiss-articles/all/',
+      de: '/de/schweiz-artikel/alle/',
+      fr: '/fr/articles-suisse/tous/',
+      'x-default': '/articoli-svizzera/tutti/',
+    },
+  ],
+  [
+    '/de/schweiz-artikel/alle/',
+    {
+      it: '/articoli-svizzera/tutti/',
+      en: '/en/swiss-articles/all/',
+      de: '/de/schweiz-artikel/alle/',
+      fr: '/fr/articles-suisse/tous/',
+      'x-default': '/articoli-svizzera/tutti/',
+    },
+  ],
+  [
+    '/fr/articles-suisse/tous/',
+    {
+      it: '/articoli-svizzera/tutti/',
+      en: '/en/swiss-articles/all/',
+      de: '/de/schweiz-artikel/alle/',
+      fr: '/fr/articles-suisse/tous/',
+      'x-default': '/articoli-svizzera/tutti/',
+    },
+  ],
+]);
 
 /**
  * The corpus archive sitemap intentionally announces page 1 only. The rest
@@ -368,6 +450,8 @@ function isCanonicalArchiveProjection(xml, expectedCount) {
     }
     if (!ARCHIVE_PAGE_ONE_PATHS.has(pathname) || paths.has(pathname)) return false;
     paths.add(pathname);
+    const expectedAlternatePaths = ARCHIVE_ALTERNATE_PATHS.get(pathname);
+    if (!expectedAlternatePaths) return false;
 
     const alternates = [...block.matchAll(
       /<xhtml:link\b[^>]*\bhreflang="([^"]+)"[^>]*\bhref="([^"]+)"[^>]*\/?>(?:\s*<\/xhtml:link>)?/g,
@@ -378,7 +462,14 @@ function isCanonicalArchiveProjection(xml, expectedCount) {
       if (!ARCHIVE_HREFLANGS.has(hreflang) || seenHreflangs.has(hreflang)) return false;
       try {
         const alternate = new URL(href);
-        if (alternate.origin !== CANONICAL_SITE_ORIGIN || alternate.search || alternate.hash) return false;
+        if (
+          alternate.origin !== CANONICAL_SITE_ORIGIN
+          || alternate.search
+          || alternate.hash
+          || alternate.username
+          || alternate.password
+          || alternate.pathname !== expectedAlternatePaths[hreflang]
+        ) return false;
       } catch {
         return false;
       }
