@@ -145,9 +145,10 @@ const writeFailures = [];
 // default resta 4; ha senso alzarlo solo insieme a UV_THREADPOOL_SIZE, perche'
 // le readFile/writeFile asincrone passano dal pool libuv condiviso (default 4
 // thread), che e' il vero tetto di parallelismo di questo lavoro.
+// Senza override: 12 quando build:ci ha allargato il pool a >= 8 thread, 4 altrimenti.
 const IN_FLIGHT = Number.parseInt(process.env.POST_WALK_IN_FLIGHT ?? '', 10) > 0
   ? Number.parseInt(process.env.POST_WALK_IN_FLIGHT, 10)
-  : 4;
+  : (Number.parseInt(process.env.UV_THREADPOOL_SIZE ?? '', 10) >= 8 ? 12 : 4);
 
 /**
  * Detect a flat .html that's already a redirect bridge — emitted that way

@@ -221,12 +221,12 @@ describe('blog-image shared scan — handoff', () => {
     expect(fold.takePostWalkBlogScan('/tmp/a/dist')).toBeNull();
   });
 
-  it('the flag defaults off', async () => {
+  it('the flag defaults on and =0 restores the historical sweep', async () => {
     const { fold } = await load(undefined);
     delete process.env.BLOG_IMAGE_CDN_FOLD;
-    expect(fold.blogImageFoldEnabled()).toBe(false);
-    process.env.BLOG_IMAGE_CDN_FOLD = '1';
     expect(fold.blogImageFoldEnabled()).toBe(true);
+    process.env.BLOG_IMAGE_CDN_FOLD = '0';
+    expect(fold.blogImageFoldEnabled()).toBe(false);
     delete process.env.BLOG_IMAGE_CDN_FOLD;
   });
 });
