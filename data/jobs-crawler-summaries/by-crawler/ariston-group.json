@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-10-25T09:57:16.860Z",
+  "generatedAt": "2026-10-25T21:45:41.694Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4410,
-  "avgDurationMs": 4410,
+  "durationMs": 4044,
+  "avgDurationMs": 4044,
   "durationHistory": [
-    4410
+    4044
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -178,88 +178,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "TECHNICIEN/NE DE SERVICE MAZOUT - RÉGION NEUCHÂTEL",
-      "slug": "tecnico-del-servizio-olio-combustibile-regione-di-neuchatel-ariston-group-fontaines-ch-2046",
-      "url": "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1403021733/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Fontaines, CH, 2046",
-      "addressLocality": "Fontaines, CH, 2046",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "canton": "NE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "ariston-group-f88fbd22a192",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://careers.aristongroup.com/job/grosses-fontaines-technicienne-de-service-mazout-r%c3%89gion-neuch%c3%82tel-font-2046/1403021733",
-      "firstSeenAt": "2026-06-10T22:11:57.658Z",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "2046",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "TECHNICIEN/NE DE SERVICE GAZ/MAZOUT PULSÉ - RÉGION GÉNEVE",
-      "slug": "gas-mazout-pulse-service-technician-geneva-region-ariston-group-geneve-ch-1202",
-      "url": "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZMAZOUT-PULS%C3%89-R%C3%89GION-G%C3%89NEVE-Gen%C3%A8-1202/1441047333/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1441047333/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Genève, CH, 1202",
-      "addressLocality": "Genève, CH, 1202",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "ariston-group-53c74dd45e26",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-24T14:43:28.119Z",
-      "sourceIdentity": "url:https://careers.aristongroup.com/job/geneve-technicienne-de-service-gazmazout-puls%c3%89-r%c3%89gion-g%c3%89neve-gen%c3%a8-1202/1441047333",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "1201",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 23,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "SERVICETECHNIKER/IN ÖL - OBERWALLIS",
@@ -341,5 +260,5 @@
       }
     }
   ],
-  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }

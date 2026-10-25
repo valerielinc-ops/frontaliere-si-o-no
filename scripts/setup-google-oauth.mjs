@@ -32,6 +32,7 @@ import { URL } from 'node:url';
 
 const REDIRECT_PORT = 3456;
 const REDIRECT_URI = `http://localhost:${REDIRECT_PORT}/callback`;
+const TOKEN_EXCHANGE_TIMEOUT_MS = 30_000;
 const SCOPES = [
   'https://www.googleapis.com/auth/webmasters',            // read-write: sitemaps PUT, search analytics
   'https://www.googleapis.com/auth/indexing',                // Indexing API (URL updated/removed notifications)
@@ -71,6 +72,7 @@ async function exchangeCode(code) {
   const res = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    signal: AbortSignal.timeout(TOKEN_EXCHANGE_TIMEOUT_MS),
     body: new URLSearchParams({
       code,
       client_id: clientId,

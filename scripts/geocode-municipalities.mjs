@@ -67,6 +67,11 @@ const PROVINCE_FULL = {
 // ── Google Maps Geocoding (primary) ──────────────────────────
 const GOOGLE_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 const USE_GOOGLE = !!GOOGLE_API_KEY;
+const GEOCODER_FETCH_TIMEOUT_MS = (() => {
+  const raw = Number(process.env.GEOCODER_FETCH_TIMEOUT_MS);
+  const floored = Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 0;
+  return floored > 0 ? Math.min(floored, 120_000) : 30_000;
+})();
 if (USE_GOOGLE) {
   console.log('🗺️  Using Google Maps Geocoding API (primary)');
 } else {
@@ -80,7 +85,7 @@ async function geocodeGoogle(name, province) {
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(query)}&region=it&language=it&key=${GOOGLE_API_KEY}`;
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, { signal: AbortSignal.timeout(GEOCODER_FETCH_TIMEOUT_MS) });
     const data = await res.json();
     if (data.status === 'OK' && data.results.length > 0) {
       const loc = data.results[0].geometry.location;
@@ -107,6 +112,7 @@ async function geocodeNominatim(name, province) {
     try {
       const res = await fetch(url, {
         headers: { 'User-Agent': 'FrontaliereTicino/1.0 (geocode-municipalities)' },
+        signal: AbortSignal.timeout(GEOCODER_FETCH_TIMEOUT_MS),
       });
       const data = await res.json();
       if (data.length > 0) {

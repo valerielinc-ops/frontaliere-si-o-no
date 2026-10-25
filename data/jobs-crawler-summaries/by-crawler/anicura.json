@@ -1,7 +1,7 @@
 {
   "key": "anicura",
   "label": "anicura",
-  "generatedAt": "2026-10-25T09:44:53.316Z",
+  "generatedAt": "2026-10-25T21:51:31.372Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4121,
-  "avgDurationMs": 4121,
+  "durationMs": 4948,
+  "avgDurationMs": 4948,
   "durationHistory": [
-    4121
+    4948
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:44:42.501Z",
+      "crawledAt": "2026-10-25T21:51:18.173Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }
