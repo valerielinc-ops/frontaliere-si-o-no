@@ -2035,6 +2035,8 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const html = renderEventSlugRedirectPage(locale, '/eventi/ticino/lugano/nuovo-slug/');
       expect(html, locale).not.toContain('http-equiv="refresh"');
+      expect(html, locale).not.toContain('noindex');
+      expect(html, locale).toContain('<link rel="canonical" href="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
     }
   });
 
