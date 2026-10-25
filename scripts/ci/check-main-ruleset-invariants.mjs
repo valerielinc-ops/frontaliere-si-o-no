@@ -41,6 +41,8 @@ import { realpathSync } from 'node:fs';
 
 import { VITEST_CHECK_NAME } from './lib/constants.mjs';
 
+const GITHUB_API_REQUEST_TIMEOUT_MS = 30_000;
+
 /** Ref di `main` nelle `conditions.ref_name.include` di un ruleset branch. */
 const MAIN_REFS = new Set(['refs/heads/main', '~DEFAULT_BRANCH', '~ALL']);
 
@@ -117,6 +119,7 @@ async function ghJson(path, token) {
       'x-github-api-version': '2022-11-28',
       'user-agent': 'check-main-ruleset-invariants',
     },
+    signal: AbortSignal.timeout(GITHUB_API_REQUEST_TIMEOUT_MS),
   });
   if (!res.ok) throw new Error(`GET ${path} → HTTP ${res.status} ${await res.text()}`);
   return res.json();
