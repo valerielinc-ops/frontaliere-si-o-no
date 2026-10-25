@@ -40,9 +40,12 @@ export const BLOG_IMAGE_REF_MARKER = '/images/blog/';
 
 const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
 
-/** `BLOG_IMAGE_CDN_FOLD=1` accende la scansione condivisa (default spento fino alla misura). */
+/**
+ * La scansione condivisa e' accesa di default; `BLOG_IMAGE_CDN_FOLD=0` riporta
+ * il finalize allo sweep completo storico (e al suo hook senza `order`).
+ */
 export function blogImageFoldEnabled(): boolean {
-  return process.env.BLOG_IMAGE_CDN_FOLD === '1';
+  return process.env.BLOG_IMAGE_CDN_FOLD !== '0';
 }
 
 export interface PostWalkBlogScan {

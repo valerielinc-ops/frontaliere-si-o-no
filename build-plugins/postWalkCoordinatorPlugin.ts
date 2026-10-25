@@ -831,7 +831,13 @@ function buildPostWalkCoordinatorPlugin(
         if (blogFold) {
           // POST_WALK_WALK_LANES>1: enumerazione con readdir asincroni in
           // parallelo (stesso elenco, stesso ordine). Default: walk sincrono.
-          const walkLanes = Number.parseInt(process.env.POST_WALK_WALK_LANES ?? '', 10);
+          // Default: 16 corsie se il pool libuv e' stato allargato (build:ci lo
+          // porta a 16), altrimenti walk sincrono: senza thread in piu' le
+          // readdir asincrone si serializzano sul pool di 4 e non guadagnano.
+          const explicitLanes = Number.parseInt(process.env.POST_WALK_WALK_LANES ?? '', 10);
+          const walkLanes = Number.isFinite(explicitLanes)
+            ? explicitLanes
+            : (Number.parseInt(process.env.UV_THREADPOOL_SIZE ?? '', 10) >= 8 ? 16 : 0);
           foldedWalk = walkLanes > 1
             ? await collectHtmlWithBlogScopeParallel(distDir, walkLanes)
             : collectHtmlWithBlogScope(distDir);
