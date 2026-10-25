@@ -260,20 +260,26 @@ export function currentEmploymentOption(field, candidate) {
   return yes.length === 1 && no.length === 1 ? yes[0] : null;
 }
 
-const TARGET_EMPLOYER_QUESTION_RE = /\b(?:do\s+you\s+(?:currently\s+)?work(?:\s*\/\s*have\s+you\s+(?:ever\s+)?worked)?|have\s+you\s+(?:ever\s+)?worked)\s+for\s+us\b|\b(?:already\s+(?:an?\s+)?employee|employee\s+already|already\s+employed|bereits\s+mitarbeiter(?:[/-]?in)?|mitarbeiter(?:[/-]?in)?\s+bei\s+uns|d[ée]j[àa]\s+(?:un[e]?\s+)?employ[ée]e?|(?:gi[àa]\s+)?(?:un[e]?\s+)?(?:dipendente|collaborator[ae]?))\b/i;
+const TARGET_EMPLOYER_QUESTION_RE = /\b(?:do\s+you\s+(?:currently\s+)?work(?:\s*\/\s*have\s+you\s+(?:ever\s+)?worked)?|have\s+you\s+(?:ever\s+)?worked)\s+for\s+us\b|\b(?:already\s+(?:an?\s+)?employee\s+(?:of|with|at)\s+us|bereits\s+mitarbeiter(?:[/-]?in)?|mitarbeiter(?:[/-]?in)?\s+bei\s+uns|d[ée]j[àa]\s+(?:un[e]?\s+)?employ[ée]e?\s+(?:chez\s+nous|dans\s+notre\s+entreprise)|(?:gi[àa]\s+)?(?:un[e]?\s+)?(?:dipendente|collaborator[ae]?)\s+(?:da|presso|per|con)\s+(?:noi|questa\s+azienda|l['’]?azienda))\b/i;
 const NO_EMPLOYER_OPTION_RE = /^(?:no|nein|non|ne)$/i;
 const EMPLOYER_LEGAL_SUFFIX_RE = /\b(?:ag|sa|sarl|gmbh|ltd|llc|inc|spa|srl|sas|kg|se|co|company|compagnie|gesellschaft)\b/gi;
 
 function employerTokens(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(EMPLOYER_LEGAL_SUFFIX_RE, ' ')
-    .replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter((token) => token.length >= 3);
+    .replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter((token) => token.length >= 2);
 }
 
 function sameEmployerName(left, right) {
   const a = employerTokens(left);
   const b = employerTokens(right);
-  return Boolean(a.length && b.length && (a.every((token) => b.includes(token)) || b.every((token) => a.includes(token))));
+  return Boolean(a.length && b.length && a.join(' ') === b.join(' '));
+}
+
+function employerNameAmbiguous(left, right) {
+  const a = employerTokens(left);
+  const b = employerTokens(right);
+  return Boolean(a.length && b.length && a.some((token) => b.includes(token)));
 }
 
 /** A target-employer «already an employee» field can safely be answered No only with a known target. */
@@ -290,6 +296,9 @@ export function targetEmployerNoOption(field, candidate) {
     ...(candidate?.profile?.experience || []).map((item) => item?.employer),
   ].map((value) => String(value || '').trim()).filter(Boolean);
   if (targets.some((target) => employers.some((employer) => sameEmployerName(target, employer)))) return null;
+  // A shared token is not enough to identify the same legal entity, but it is
+  // enough to make an automatic No unsafe (Acme vs Acme Consulting).
+  if (targets.some((target) => employers.some((employer) => employerNameAmbiguous(target, employer)))) return null;
   const options = Array.isArray(field?.options) ? field.options.filter((option) => option && String(option.label || '').trim()) : [];
   const no = options.filter((option) => NO_EMPLOYER_OPTION_RE.test(String(option.label).trim()));
   return no.length === 1 ? no[0] : null;

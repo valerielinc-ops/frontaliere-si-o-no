@@ -1645,6 +1645,19 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     })).toEqual({ [field.id]: 'Nein' });
     const genericQuestion = { ...field, id: 'target-employer-generic', label: 'Do you work / have you worked for us?' };
     expect(targetEmployerNoOption(genericQuestion, otherEmployer)).toEqual({ label: 'Nein' });
+    expect(targetEmployerNoOption({ ...genericQuestion, label: 'Are you already employed?' }, otherEmployer)).toBeNull();
+    const ambiguousEmployer = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { employers: ['Acme Consulting'] },
+      job: { company: 'Acme' },
+    });
+    expect(targetEmployerNoOption(genericQuestion, ambiguousEmployer)).toBeNull();
+    const shortEmployer = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { employers: ['HP SA'] },
+      job: { company: 'HP SA' },
+    });
+    expect(targetEmployerNoOption(genericQuestion, shortEmployer)).toBeNull();
   });
 
   it('requires language-specific evidence for ability and proficiency answers', () => {
