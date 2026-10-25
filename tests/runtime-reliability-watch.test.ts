@@ -402,7 +402,7 @@ describe('runtime reliability watchdog', () => {
   });
 
   it('classifies the skew direction exactly beyond 2^53', () => {
-    // validBuildId accepts up to 20 digits; these two differ by 1 but are
+    // validBuildId accepts long numeric publish tokens; these two differ by 1 but are
     // indistinguishable as IEEE-754 doubles, so a Number comparison would call
     // a regression a healthy rollout.
     const result = evaluateProbe({

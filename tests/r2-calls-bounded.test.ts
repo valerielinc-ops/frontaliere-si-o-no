@@ -337,6 +337,19 @@ echo "aws $*" >> "$STUB_CALLS"
   chmodSync(join(bin, 'rclone'), 0o755);
   chmodSync(join(bin, 'aws'), 0o755);
   chmodSync(join(bin, 'node'), 0o755);
+  writeFileSync(
+    join(bin, 'date'),
+    `#!/usr/bin/env bash
+if [ -n "\${STUB_DATE_MS:-}" ]; then
+  case "\${1:-}" in
+    +%s%3N) printf '%s\\n' "$STUB_DATE_MS"; exit 0 ;;
+    +%s) printf '%s\\n' "$((STUB_DATE_MS / 1000))"; exit 0 ;;
+  esac
+fi
+exec /bin/date "$@"
+`,
+  );
+  chmodSync(join(bin, 'date'), 0o755);
   // Portable coreutils-compatible `timeout` for hosts without one (macOS
   // without coreutils). On the runner and wherever it exists, the real one is
   // used: the stub only fills the gap.
@@ -929,10 +942,28 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
       STUB_PURGE_STATUS: '0',
     });
     expect(r.code).toBe(0);
-    expect(r.publishStart).toMatch(/^\d{19}$/);
+    expect(r.publishStart).toMatch(/^\d{14,33}$/);
     expect(r.stdout).toMatch(/bootstrap=1/);
     expect(r.stdout).toMatch(/✅ synced CDN payload to R2/);
     expect(completionMarkerPuts(r.calls)).toHaveLength(1);
+  });
+
+  it('uses a random owner token when clocks and runner PIDs coincide', () => {
+    const common = {
+      STUB_DATE_MS: '1700000000000',
+      BASHPID: '123456',
+      STUB_LEDGER: 'absent',
+      STUB_ASSETS_LOG: '',
+      STUB_NO_ASSETS_DIR: '1',
+      STUB_MISSING_MARKERS: '1',
+    };
+    const first = runPublish('random-owner-a', common);
+    const second = runPublish('random-owner-b', common);
+    expect(first.code).toBe(0);
+    expect(second.code).toBe(0);
+    expect(first.publishStart).toMatch(/^1700000000000\d+$/);
+    expect(second.publishStart).toMatch(/^1700000000000\d+$/);
+    expect(first.publishStart).not.toBe(second.publishStart);
   });
 
   it('successful no-op with an unavailable ledger and empty log still closes the marker', () => {

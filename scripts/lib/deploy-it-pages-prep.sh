@@ -388,11 +388,12 @@ _publish_cdn_r2() {
   # generation to the edge.
   #
   # The token starts with the upload epoch (not DEPLOY_BUILD_ID, which is
-  # minted hours earlier at matrix setup) and ends with the process nonce. The
-  # timestamp prefix keeps watchdog stall detection meaningful; the nonce
-  # keeps two uploads started in the same millisecond from owning the same
-  # window. The matching completion marker is written only after the
-  # authoritative build marker succeeds AND the code purge succeeds. A
+  # minted hours earlier at matrix setup) and ends with a cryptographically
+  # random numeric nonce. The timestamp prefix keeps watchdog stall detection
+  # meaningful; the 64-bit nonce makes ownership unique across runners even
+  # when their clocks and PIDs coincide. The matching completion marker is
+  # written only after the authoritative build marker succeeds AND the code
+  # purge succeeds. A
   # killed/failed upload or partial purge therefore remains explicitly
   # incomplete instead of looking purgeable.
   local _publish_token _publish_marker_file _publish_clock _publish_nonce
@@ -400,7 +401,13 @@ _publish_cdn_r2() {
   case "$_publish_clock" in
     ''|*[!0-9]*) _publish_clock="$(date +%s)000" ;;
   esac
-  _publish_nonce="$(printf '%06d' "$(( ${BASHPID:-$$} % 1000000 ))")"
+  _publish_nonce="$(od -An -N8 -tu8 /dev/urandom 2>/dev/null | tr -d '[:space:]')"
+  case "$_publish_nonce" in
+    ''|*[!0-9]*)
+      echo "::warning::cannot mint a numeric random CDN publish token — refusing to open the R2 publish window"
+      return 0
+      ;;
+  esac
   _publish_token="${_publish_clock}${_publish_nonce}"
   _publish_marker_file="${RUNNER_TEMP:-/tmp}/cdn-publish-$$_${_publish_token}.txt"
   printf '%s' "$_publish_token" > "$_publish_marker_file"

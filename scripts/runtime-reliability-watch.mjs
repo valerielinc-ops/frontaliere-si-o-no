@@ -184,11 +184,11 @@ export function formatMarkerSkew(siteBehindMs) {
 
 function validBuildId(value) {
   const id = String(value || '').trim();
-  return /^\d{10,20}$/.test(id) ? id : null;
+  return /^\d{10,40}$/.test(id) ? id : null;
 }
 
 /**
- * Publish-window tokens are epoch milliseconds followed by a numeric process
+ * Publish-window tokens are epoch milliseconds followed by a numeric random
  * nonce. Keep the nonce opaque for ordering/identity, but use only the epoch
  * prefix for stall age; otherwise a nonce-bearing token would look like a
  * timestamp far in the future and could never become stalled.
