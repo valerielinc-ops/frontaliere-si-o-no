@@ -2116,12 +2116,22 @@ function writeRelatedSearchClusterSummary(
   fs.writeFileSync(absolutePath, JSON.stringify(summary), 'utf-8');
 }
 
-function parseSummaryScope(raw: string | undefined): ReadonlySet<Locale> | null {
-  const locales = (raw ?? '')
+export function parseSummaryScope(raw: string | undefined): ReadonlySet<Locale> | null {
+  const requested = (raw ?? '')
     .split(',')
     .map((value) => value.trim())
-    .filter((value): value is Locale => (SUPPORTED_LOCALES as readonly string[]).includes(value));
-  return locales.length > 0 ? new Set<Locale>(locales) : null;
+    .filter((value) => value.length > 0);
+  if (requested.length === 0) return null;
+  // Un ambito malformato non deve ripiegare in silenzio sul percorso completo:
+  // il genitore aspetta un parziale e non lo troverebbe (o troverebbe un
+  // summary intero sovrascritto da piu' figli).
+  const unsupported = requested.filter((value) => !(SUPPORTED_LOCALES as readonly string[]).includes(value));
+  if (unsupported.length > 0) {
+    throw new Error(
+      `RELATED_SEARCH_SUMMARY_SCOPE contains unsupported locale(s): ${unsupported.join(', ')}`,
+    );
+  }
+  return new Set<Locale>(requested as Locale[]);
 }
 
 export interface RelatedSearchSummaryPartial {
@@ -2153,8 +2163,12 @@ function writeRelatedSearchClusterSummaryPartial(
   for (const ctx of contexts) {
     const key = `${ctx.candidate.locale}::${ctx.candidate.slug}`;
     contextKeys.add(key);
+    const index = indexByKey.get(key);
+    if (index === undefined) {
+      throw new Error(`summary partial: context ${key} is not in the candidate list`);
+    }
     entries.push({
-      index: indexByKey.get(key) as number,
+      index,
       entry: {
         key,
         keyword: ctx.keyword,
@@ -2203,6 +2217,24 @@ export function mergeRelatedSearchSummaryPartials(
   const skipped = partials
     .flatMap((partial) => partial.skipped)
     .sort((a, b) => a.index - b.index);
+  // Ogni candidato dell'elenco completo compare ESATTAMENTE una volta, come
+  // entry o come saltato: un indice mancante, duplicato o fuori intervallo
+  // romperebbe l'identita' byte per byte con il percorso sequenziale.
+  const covered = new Uint8Array(candidateCount);
+  for (const { index } of [...entries, ...skipped]) {
+    if (!Number.isInteger(index) || index < 0 || index >= candidateCount) {
+      throw new Error(`related-search summary partials: index ${index} is out of range`);
+    }
+    if (covered[index]) {
+      throw new Error(`related-search summary partials: candidate index ${index} appears more than once`);
+    }
+    covered[index] = 1;
+  }
+  if (entries.length + skipped.length !== candidateCount) {
+    throw new Error(
+      `related-search summary partials cover ${entries.length + skipped.length} of ${candidateCount} candidates`,
+    );
+  }
   return {
     version: 1,
     candidateCount,

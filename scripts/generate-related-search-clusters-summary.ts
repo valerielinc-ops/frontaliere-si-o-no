@@ -1,4 +1,4 @@
-import { spawn } from 'node:child_process';
+import { spawn, type ChildProcess } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -31,36 +31,46 @@ async function runParallel(): Promise<void> {
   const script = fileURLToPath(import.meta.url);
   const started = Date.now();
   const partialPaths = SUMMARY_LOCALES.map((locale) => path.join(tmpDir, `${locale}.json`));
-  await Promise.all(
-    SUMMARY_LOCALES.map(
-      (locale, index) =>
-        new Promise<void>((resolve, reject) => {
-          const child = spawn(process.execPath, [...process.execArgv, script], {
-            stdio: 'inherit',
-            env: {
-              ...process.env,
-              RELATED_SEARCH_SUMMARY_SCOPE: locale,
-              RELATED_SEARCH_SUMMARY_PARTIAL_OUT: partialPaths[index],
-            },
-          });
-          child.once('error', reject);
-          child.once('exit', (code) =>
-            code === 0 ? resolve() : reject(new Error(`summary child ${locale} exited with code ${code}`)),
-          );
-        }),
-    ),
-  );
-  const partials = partialPaths.map(
-    (partialPath) => JSON.parse(fs.readFileSync(partialPath, 'utf-8')) as RelatedSearchSummaryPartial,
-  );
-  const summary = mergeRelatedSearchSummaryPartials(partials);
-  const absolutePath = path.resolve(process.cwd(), outputPath as string);
-  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
-  fs.writeFileSync(absolutePath, JSON.stringify(summary), 'utf-8');
-  fs.rmSync(tmpDir, { recursive: true, force: true });
-  console.log(
-    `related-search summary: ${SUMMARY_LOCALES.length} locale processes merged in ${((Date.now() - started) / 1000).toFixed(1)}s`,
-  );
+  const children: ChildProcess[] = [];
+  try {
+    await Promise.all(
+      SUMMARY_LOCALES.map(
+        (locale, index) =>
+          new Promise<void>((resolve, reject) => {
+            const child = spawn(process.execPath, [...process.execArgv, script], {
+              stdio: 'inherit',
+              env: {
+                ...process.env,
+                RELATED_SEARCH_SUMMARY_SCOPE: locale,
+                RELATED_SEARCH_SUMMARY_PARTIAL_OUT: partialPaths[index],
+              },
+            });
+            children.push(child);
+            child.once('error', reject);
+            child.once('exit', (code) =>
+              code === 0 ? resolve() : reject(new Error(`summary child ${locale} exited with code ${code}`)),
+            );
+          }),
+      ),
+    );
+    const partials = partialPaths.map(
+      (partialPath) => JSON.parse(fs.readFileSync(partialPath, 'utf-8')) as RelatedSearchSummaryPartial,
+    );
+    const summary = mergeRelatedSearchSummaryPartials(partials);
+    const absolutePath = path.resolve(process.cwd(), outputPath as string);
+    fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+    fs.writeFileSync(absolutePath, JSON.stringify(summary), 'utf-8');
+    console.log(
+      `related-search summary: ${SUMMARY_LOCALES.length} locale processes merged in ${((Date.now() - started) / 1000).toFixed(1)}s`,
+    );
+  } finally {
+    // Se un figlio fallisce gli altri non devono continuare a occupare il
+    // runner: si fermano, e la cartella dei parziali sparisce comunque.
+    for (const child of children) {
+      if (child.exitCode === null && child.signalCode === null) child.kill('SIGTERM');
+    }
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  }
 }
 
 const isChild = Boolean(process.env.RELATED_SEARCH_SUMMARY_PARTIAL_OUT);
