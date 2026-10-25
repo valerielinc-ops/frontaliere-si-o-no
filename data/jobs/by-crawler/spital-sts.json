@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-10-25T09:27:58.091Z",
-  "runId": "40179493239",
+  "assembledAt": "2026-10-25T17:06:22.349Z",
+  "runId": "40213893527",
   "jobs": [
     {
       "id": "spital-sts-31893623eded",
@@ -35,7 +35,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7d1c6902-2bd5-493b-acf6-44d3ec72c4c3/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:27:52.175Z",
+      "crawledAt": "2026-10-25T17:06:15.446Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4d61a5c9-146f-429b-9f9a-3123a4279ecc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:27:51.740Z",
+      "crawledAt": "2026-10-25T17:06:15.014Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7c5e571c-823b-467d-8386-a2a8e2947e3e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:27:51.284Z",
+      "crawledAt": "2026-10-25T17:06:14.581Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -261,7 +261,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b4dc00f-29d4-4e26-baa0-4346080c57d2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:27:50.859Z",
+      "crawledAt": "2026-10-25T17:06:14.142Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -327,7 +327,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6ebd8ce3-5397-446f-879b-00878d7b3e8a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:27:50.403Z",
+      "crawledAt": "2026-10-25T17:06:13.709Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -400,7 +400,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/16756454-c7a4-4597-95b1-07a55ff3bd39/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:27:49.958Z",
+      "crawledAt": "2026-10-25T17:06:13.254Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -451,9 +451,9 @@
     },
     {
       "id": "spital-sts-c4c395441242",
-      "slug": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
+      "slug": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
+        "it": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "en": "registered-nurse-medicine-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "fr": "infirmiere-infirmier-diplomee-diplome-en-medecine-spital-sts-thun"
@@ -480,7 +480,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/86f24237-a339-46ca-baf6-0e076f12a645/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:27:49.515Z",
+      "crawledAt": "2026-10-25T17:06:12.804Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -500,11 +500,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
+        "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
+          "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-09-11T23:11:23.158Z",
@@ -554,7 +554,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2d87aba8-03a5-4d9e-a9ac-09488ee5f8bc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:27:49.073Z",
+      "crawledAt": "2026-10-25T17:06:12.371Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -634,7 +634,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/933e431f-6eef-4f55-9c1f-32a157b02780/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:27:48.658Z",
+      "crawledAt": "2026-10-25T17:06:11.946Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -686,9 +686,9 @@
     },
     {
       "id": "spital-sts-47bfb889248c",
-      "slug": "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun",
+      "slug": "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun",
+        "it": "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
         "en": "diploma-nurse-gastroenterology-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
         "fr": "infirmier-iere-diplome-e-en-gastroenterologie-spital-sts-thun"
@@ -715,7 +715,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6e2ea497-b235-49f8-a54c-363a2f2316c6/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:27:48.126Z",
+      "crawledAt": "2026-10-25T17:06:11.494Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -738,12 +738,12 @@
         "infermiera-diplomata-infermiere-diplomato-in-gastroenterologia-spital-sts-thun",
         "diploma-qualified-nursing-specialist-in-gastroenterology-spital-sts-thun",
         "infirmier-infirmiere-diplome-e-en-gastroenterologie-spital-sts-thun",
-        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
+        "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infermiera-diplomata-infermiere-diplomato-in-gastroenterologia-spital-sts-thun",
-          "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
+          "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun"
         ],
         "en": [
           "diploma-qualified-nursing-specialist-in-gastroenterology-spital-sts-thun"

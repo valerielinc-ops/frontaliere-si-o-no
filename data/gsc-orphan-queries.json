@@ -2,48 +2,48 @@
   "case-anziani": [
     {
       "query": "case anziani ticino offerte di lavoro",
-      "clicks": 111,
-      "impressions": 1296
+      "clicks": 113,
+      "impressions": 1317
     },
     {
       "query": "offerte di lavoro casa di riposo svizzera",
-      "clicks": 82,
-      "impressions": 826
+      "clicks": 91,
+      "impressions": 847
     },
     {
       "query": "offerte lavoro casa di riposo svizzera",
-      "clicks": 81,
-      "impressions": 804
+      "clicks": 83,
+      "impressions": 820
     },
     {
       "query": "case anziani lugano posti di lavoro",
       "clicks": 37,
-      "impressions": 397
+      "impressions": 404
     },
     {
       "query": "offerte di lavoro casa anziani ticino",
       "clicks": 34,
-      "impressions": 265
+      "impressions": 271
     },
     {
       "query": "casa anziani comunale bellinzona offerte di lavoro",
-      "clicks": 18,
-      "impressions": 255
+      "clicks": 20,
+      "impressions": 269
     },
     {
       "query": "offerte lavoro casa anziani ticino",
-      "clicks": 27,
-      "impressions": 254
+      "clicks": 28,
+      "impressions": 262
     },
     {
       "query": "casa anziani chiasso lavoro",
       "clicks": 26,
-      "impressions": 188
+      "impressions": 190
     },
     {
       "query": "case di riposo ticino lavora con noi",
       "clicks": 21,
-      "impressions": 160
+      "impressions": 164
     },
     {
       "query": "casa anziani mendrisio lavoro",
@@ -57,8 +57,8 @@
     },
     {
       "query": "casa anziani offerte di lavoro",
-      "clicks": 9,
-      "impressions": 123
+      "clicks": 10,
+      "impressions": 124
     },
     {
       "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
@@ -105,7 +105,7 @@
     {
       "query": "nursing jobs",
       "clicks": 0,
-      "impressions": 1013
+      "impressions": 1016
     },
     {
       "query": "kantonsspital aarau ksa",
@@ -133,6 +133,11 @@
       "impressions": 21
     },
     {
+      "query": "nursing jobs in switzerland",
+      "clicks": 0,
+      "impressions": 12
+    },
+    {
       "query": "nurse jobs",
       "clicks": 0,
       "impressions": 11
@@ -143,7 +148,7 @@
       "impressions": 11
     },
     {
-      "query": "nursing jobs in switzerland",
+      "query": "can you find nursing jobs in switzerland",
       "clicks": 0,
       "impressions": 10
     },
@@ -155,17 +160,12 @@
     {
       "query": "i am searching for nurse jobs in switzerland.",
       "clicks": 0,
-      "impressions": 7
+      "impressions": 8
     },
     {
       "query": "switzerland nurse jobs",
       "clicks": 0,
       "impressions": 7
-    },
-    {
-      "query": "can you find nursing jobs in switzerland",
-      "clicks": 0,
-      "impressions": 6
     },
     {
       "query": "i am looking for senior level nurse positions in zurich hospitals with full time employment.",
@@ -203,6 +203,48 @@
       "impressions": 5
     }
   ],
+  "chiasso": [
+    {
+      "query": "lehrstellen chiasso",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "chiasso lavoro",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "lavoro chiasso",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "offerte lavoro a chiasso svizzera",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "ja",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "job chiasso",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "job contact chiasso",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "jobs chiasso",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "educatori": [
     {
       "query": "educatore sociale offerte lavoro ticino",
@@ -217,7 +259,7 @@
     {
       "query": "offerte lavoro educatore ticino",
       "clicks": 2,
-      "impressions": 62
+      "impressions": 63
     },
     {
       "query": "lavoro insegnante canton ticino",
@@ -305,53 +347,11 @@
       "impressions": 18
     }
   ],
-  "chiasso": [
-    {
-      "query": "lehrstellen chiasso",
-      "clicks": 0,
-      "impressions": 3
-    },
-    {
-      "query": "chiasso lavoro",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
-      "query": "lavoro chiasso",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
-      "query": "offerte lavoro a chiasso svizzera",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
-      "query": "ja",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "job chiasso",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "job contact chiasso",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "jobs chiasso",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "lugano": [
     {
       "query": "frontaliere ticino offerte di lavoro",
       "clicks": 0,
-      "impressions": 42
+      "impressions": 44
     },
     {
       "query": "lavoro ticino",
@@ -399,6 +399,11 @@
       "impressions": 5
     },
     {
+      "query": "offerte lavoro lugano",
+      "clicks": 1,
+      "impressions": 4
+    },
+    {
       "query": "lavoro lugano da ieri",
       "clicks": 0,
       "impressions": 4
@@ -434,26 +439,21 @@
       "impressions": 3
     },
     {
-      "query": "offerte lavoro lugano",
+      "query": "lugano annunci",
       "clicks": 0,
       "impressions": 3
     },
     {
-      "query": "lugano offerte di lavoro",
-      "clicks": 1,
-      "impressions": 2
-    },
-    {
-      "query": "cantone ticino offerte di lavoro",
+      "query": "offerte di lavoro a lugano",
       "clicks": 0,
-      "impressions": 2
+      "impressions": 3
     }
   ],
   "operatori-socio-sanitari": [
     {
       "query": "offerte di lavoro osa ticino",
       "clicks": 9,
-      "impressions": 89
+      "impressions": 97
     },
     {
       "query": "offerte di lavoro canton ticino per frontalieri",
@@ -468,17 +468,17 @@
     {
       "query": "osa offerte di lavoro",
       "clicks": 2,
-      "impressions": 55
+      "impressions": 58
     },
     {
       "query": "offerte di lavoro osa",
       "clicks": 0,
-      "impressions": 26
+      "impressions": 29
     },
     {
       "query": "oss ticino offerte lavoro",
       "clicks": 1,
-      "impressions": 22
+      "impressions": 27
     },
     {
       "query": "frontaliere ticino offerte di lavoro",
@@ -555,7 +555,12 @@
     {
       "query": "ristoranti italiani a zurigo che cercano personale",
       "clicks": 1,
-      "impressions": 40
+      "impressions": 43
+    },
+    {
+      "query": "offerte di lavoro ticino ristorazione",
+      "clicks": 2,
+      "impressions": 36
     },
     {
       "query": "offerte di lavoro ristorazione ticino",
@@ -563,29 +568,24 @@
       "impressions": 35
     },
     {
-      "query": "offerte di lavoro ticino ristorazione",
-      "clicks": 2,
-      "impressions": 35
-    },
-    {
       "query": "lavoro ticino ristorazione",
       "clicks": 1,
-      "impressions": 29
+      "impressions": 31
     },
     {
       "query": "offerte lavoro ristorazione ticino",
-      "clicks": 3,
-      "impressions": 26
+      "clicks": 4,
+      "impressions": 27
+    },
+    {
+      "query": "lavoro ristorazione ticino",
+      "clicks": 0,
+      "impressions": 23
     },
     {
       "query": "tutti ch lavoro ristorazione",
       "clicks": 0,
       "impressions": 23
-    },
-    {
-      "query": "lavoro ristorazione ticino",
-      "clicks": 0,
-      "impressions": 22
     },
     {
       "query": "lavoro zurigo ristoranti",
@@ -630,7 +630,7 @@
     {
       "query": "offerte di lavoro lugano ristorazione",
       "clicks": 0,
-      "impressions": 9
+      "impressions": 10
     },
     {
       "query": "ristorazione",
@@ -657,12 +657,12 @@
     {
       "query": "i am searching for caregiver jobs in ticino for elderly support.",
       "clicks": 0,
-      "impressions": 270
+      "impressions": 273
     },
     {
       "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
       "clicks": 0,
-      "impressions": 204
+      "impressions": 208
     },
     {
       "query": "politica sanitaria canton ticino anziani",
@@ -759,7 +759,7 @@
     {
       "query": "offerte lavoro logistica ticino",
       "clicks": 4,
-      "impressions": 48
+      "impressions": 50
     },
     {
       "query": "frontaliere ticino offerte di lavoro",
@@ -769,17 +769,17 @@
     {
       "query": "offerte di lavoro impiegato in logistica ticino",
       "clicks": 4,
-      "impressions": 28
+      "impressions": 32
     },
     {
       "query": "impiegato in logistica offerte di lavoro ticino",
       "clicks": 0,
-      "impressions": 24
+      "impressions": 32
     },
     {
       "query": "logistica ticino lavoro",
       "clicks": 1,
-      "impressions": 20
+      "impressions": 23
     },
     {
       "query": "site:frontaliereticino.ch",
@@ -807,17 +807,17 @@
       "impressions": 12
     },
     {
+      "query": "lavoro logistica ticino",
+      "clicks": 0,
+      "impressions": 12
+    },
+    {
       "query": "logistica ticino",
       "clicks": 0,
       "impressions": 12
     },
     {
       "query": "lavoro frontaliere svizzera",
-      "clicks": 0,
-      "impressions": 11
-    },
-    {
-      "query": "lavoro logistica ticino",
       "clicks": 0,
       "impressions": 11
     },
@@ -834,6 +834,11 @@
     {
       "query": "impiegato in logistica offerte di lavoro",
       "clicks": 0,
+      "impressions": 7
+    },
+    {
+      "query": "logistica svizzera",
+      "clicks": 0,
       "impressions": 6
     },
     {
@@ -847,11 +852,6 @@
       "impressions": 5
     },
     {
-      "query": "logistica svizzera",
-      "clicks": 0,
-      "impressions": 5
-    },
-    {
       "query": "sicpa",
       "clicks": 0,
       "impressions": 5
@@ -861,7 +861,7 @@
     {
       "query": "software house ticino",
       "clicks": 0,
-      "impressions": 66
+      "impressions": 69
     },
     {
       "query": "software ticino",
@@ -871,7 +871,7 @@
     {
       "query": "sviluppatore ugello",
       "clicks": 0,
-      "impressions": 41
+      "impressions": 43
     },
     {
       "query": "web developer ticino",
@@ -892,6 +892,11 @@
       "query": "software developer ticino",
       "clicks": 1,
       "impressions": 10
+    },
+    {
+      "query": "sviluppo software ticino",
+      "clicks": 0,
+      "impressions": 9
     },
     {
       "query": "trova un consulente software in ticino",
@@ -919,17 +924,17 @@
       "impressions": 7
     },
     {
+      "query": "sviluppo software lugano",
+      "clicks": 0,
+      "impressions": 6
+    },
+    {
       "query": "\"das\" \"clienti\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
       "clicks": 0,
       "impressions": 5
     },
     {
       "query": "sviluppatore software",
-      "clicks": 0,
-      "impressions": 5
-    },
-    {
-      "query": "sviluppo software ticino",
       "clicks": 0,
       "impressions": 5
     },
@@ -952,11 +957,6 @@
       "query": "sviluppatori software",
       "clicks": 0,
       "impressions": 4
-    },
-    {
-      "query": "web developer lugano",
-      "clicks": 0,
-      "impressions": 4
     }
   ],
   "ingegneri": [
@@ -968,17 +968,17 @@
     {
       "query": "rvcs ticino",
       "clicks": 0,
-      "impressions": 19
-    },
-    {
-      "query": "lavoro ingegneri svizzera",
-      "clicks": 0,
-      "impressions": 15
+      "impressions": 22
     },
     {
       "query": "ingegnere svizzera lavoro",
       "clicks": 1,
-      "impressions": 14
+      "impressions": 16
+    },
+    {
+      "query": "lavoro ingegneri svizzera",
+      "clicks": 0,
+      "impressions": 16
     },
     {
       "query": "disegnatore",
@@ -998,15 +998,15 @@
     {
       "query": "lavorare in svizzera ingegnere",
       "clicks": 0,
+      "impressions": 11
+    },
+    {
+      "query": "svizzera lavoro ingegnere",
+      "clicks": 0,
       "impressions": 10
     },
     {
       "query": "ingegnere svizzera lavoro",
-      "clicks": 0,
-      "impressions": 9
-    },
-    {
-      "query": "svizzera lavoro ingegnere",
       "clicks": 0,
       "impressions": 9
     },
@@ -1051,12 +1051,12 @@
       "impressions": 5
     },
     {
-      "query": "lavorare in svizzera ingegnere",
+      "query": "offerte di lavoro ingegnere svizzera",
       "clicks": 0,
-      "impressions": 4
+      "impressions": 5
     },
     {
-      "query": "lavoro ingegneri svizzera",
+      "query": "lavorare in svizzera ingegnere",
       "clicks": 0,
       "impressions": 4
     }
@@ -1088,33 +1088,113 @@
       "impressions": 1
     }
   ],
-  "bellinzona": [
+  "autisti": [
     {
-      "query": "spaas bellinzona",
+      "query": "autista moritz",
       "clicks": 0,
-      "impressions": 2
+      "impressions": 53
     },
     {
-      "query": "citta di bellinzona lavoro",
+      "query": "ditte di trasporti in svizzera che cercano autisti",
       "clicks": 0,
-      "impressions": 1
+      "impressions": 10
     },
     {
-      "query": "concorsi bellinzona",
-      "clicks": 0,
-      "impressions": 1
+      "query": "offerte di lavoro per autisti in svizzera",
+      "clicks": 1,
+      "impressions": 7
     },
     {
-      "query": "lavoro bellinzona svizzera",
+      "query": "short list avvocati",
       "clicks": 0,
-      "impressions": 1
+      "impressions": 7
+    },
+    {
+      "query": "ditte di trasporti in svizzera che cercano autisti",
+      "clicks": 0,
+      "impressions": 7
+    },
+    {
+      "query": "lavoro autista svizzera canton ticino",
+      "clicks": 0,
+      "impressions": 7
+    },
+    {
+      "query": "ditte di trasporti in svizzera che cercano autisti",
+      "clicks": 0,
+      "impressions": 6
+    },
+    {
+      "query": "offerte di lavoro ticino",
+      "clicks": 0,
+      "impressions": 6
+    },
+    {
+      "query": "offerte di lavoro",
+      "clicks": 1,
+      "impressions": 5
+    },
+    {
+      "query": "ditte di trasporti che cercano autisti in svizzera patente b",
+      "clicks": 1,
+      "impressions": 4
+    },
+    {
+      "query": "autista della flotta grigia",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "offerte lavoro svizzera per italiani",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "offerte di lavoro per autisti in svizzera",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "autista ticino",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "cerco autista privato",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "si",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "autista",
+      "clicks": 1,
+      "impressions": 3
+    },
+    {
+      "query": "short list avvocati 2026",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "autisti",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "autisti",
+      "clicks": 0,
+      "impressions": 3
     }
   ],
   "altenpflege": [
     {
       "query": "altenpfleger jobs lugano",
       "clicks": 0,
-      "impressions": 56
+      "impressions": 58
     },
     {
       "query": "altenpfleger bern",
@@ -1212,118 +1292,43 @@
       "impressions": 1
     }
   ],
-  "autisti": [
+  "bellinzona": [
     {
-      "query": "autista moritz",
-      "clicks": 0,
-      "impressions": 48
-    },
-    {
-      "query": "offerte di lavoro per autisti in svizzera",
-      "clicks": 1,
-      "impressions": 7
-    },
-    {
-      "query": "short list avvocati",
-      "clicks": 0,
-      "impressions": 7
-    },
-    {
-      "query": "ditte di trasporti in svizzera che cercano autisti",
-      "clicks": 0,
-      "impressions": 7
-    },
-    {
-      "query": "ditte di trasporti in svizzera che cercano autisti",
-      "clicks": 0,
-      "impressions": 7
-    },
-    {
-      "query": "ditte di trasporti in svizzera che cercano autisti",
-      "clicks": 0,
-      "impressions": 6
-    },
-    {
-      "query": "offerte di lavoro ticino",
-      "clicks": 0,
-      "impressions": 6
-    },
-    {
-      "query": "lavoro autista svizzera canton ticino",
-      "clicks": 0,
-      "impressions": 6
-    },
-    {
-      "query": "offerte di lavoro",
-      "clicks": 1,
-      "impressions": 5
-    },
-    {
-      "query": "ditte di trasporti che cercano autisti in svizzera patente b",
-      "clicks": 1,
-      "impressions": 4
-    },
-    {
-      "query": "offerte lavoro svizzera per italiani",
-      "clicks": 0,
-      "impressions": 4
-    },
-    {
-      "query": "offerte di lavoro per autisti in svizzera",
-      "clicks": 0,
-      "impressions": 4
-    },
-    {
-      "query": "autista ticino",
-      "clicks": 0,
-      "impressions": 4
-    },
-    {
-      "query": "si",
-      "clicks": 0,
-      "impressions": 4
-    },
-    {
-      "query": "autista",
-      "clicks": 1,
-      "impressions": 3
-    },
-    {
-      "query": "short list avvocati 2026",
-      "clicks": 0,
-      "impressions": 3
-    },
-    {
-      "query": "autisti",
-      "clicks": 0,
-      "impressions": 3
-    },
-    {
-      "query": "lavoro autista ticino",
-      "clicks": 0,
-      "impressions": 3
-    },
-    {
-      "query": "offerte di lavoro: autista bus svizzera canton ticino",
-      "clicks": 1,
-      "impressions": 2
-    },
-    {
-      "query": "lavori in svizzera per italiani",
+      "query": "spaas bellinzona",
       "clicks": 0,
       "impressions": 2
+    },
+    {
+      "query": "citta di bellinzona lavoro",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "concorsi bellinzona",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "lavoro bellinzona svizzera",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "pflegepersonal": [
     {
       "query": "arbeiten ausland pflege",
       "clicks": 0,
-      "impressions": 33
+      "impressions": 43
     },
     {
       "query": "pflege jobs in uri",
       "clicks": 0,
       "impressions": 16
+    },
+    {
+      "query": "altenpfleger jobs lugano",
+      "clicks": 0,
+      "impressions": 15
     },
     {
       "query": "pflege jobs spital thusis",
@@ -1341,14 +1346,9 @@
       "impressions": 14
     },
     {
-      "query": "altenpfleger jobs lugano",
-      "clicks": 0,
-      "impressions": 13
-    },
-    {
       "query": "pflegedienst tessin",
       "clicks": 0,
-      "impressions": 12
+      "impressions": 13
     },
     {
       "query": "pflege jobs aargau",
@@ -1411,7 +1411,7 @@
       "impressions": 2
     },
     {
-      "query": "pflege jobs kantonsspital uri",
+      "query": "altenpflegerin in der schweiz",
       "clicks": 0,
       "impressions": 2
     }
@@ -1431,6 +1431,16 @@
       "query": "i am looking for healthcare jobs in bern that accept b permit holders",
       "clicks": 0,
       "impressions": 5
+    },
+    {
+      "query": "find an entry-level job in the healthcare industry in switzerland",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "i am looking for a permanent contract role as a medical assistant in zurich and i can start next month.",
+      "clicks": 0,
+      "impressions": 2
     },
     {
       "query": "health care assistant",
@@ -1501,6 +1511,11 @@
       "query": "healthcare jobs switzerland",
       "clicks": 0,
       "impressions": 1
+    },
+    {
+      "query": "i am a foreign trained caregiver and i need healthcare assistant jobs in switzerland with accommodation help language requirements explained and quick start",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "locarno": [
@@ -1559,7 +1574,7 @@
     {
       "query": "je veux au tessin un job de chauffeur poids lourd avec permis valide et tournées régionales du lundi au vendredi",
       "clicks": 0,
-      "impressions": 11
+      "impressions": 12
     },
     {
       "query": "driver jobs zurich",
@@ -1567,17 +1582,37 @@
       "impressions": 10
     },
     {
+      "query": "fahrer jobs lugano",
+      "clicks": 0,
+      "impressions": 6
+    },
+    {
       "query": "lkw fahrer jobs lugano",
       "clicks": 0,
       "impressions": 6
     },
     {
-      "query": "fahrer jobs lugano",
+      "query": "corporate driver in switzerland",
       "clicks": 0,
-      "impressions": 5
+      "impressions": 4
+    },
+    {
+      "query": "i have an eu driving license and i am searching for truck driver jobs in switzerland with ce license and tachograph experience and routes that start from basel or zurich.",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "berufskraftfahrer jobs lugano",
+      "clicks": 0,
+      "impressions": 3
     },
     {
       "query": "canton ticino",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "taxifahrer jobs lugano",
       "clicks": 0,
       "impressions": 3
     },
@@ -1592,7 +1627,7 @@
       "impressions": 2
     },
     {
-      "query": "berufskraftfahrer jobs lugano",
+      "query": "security drivers switzerland",
       "clicks": 0,
       "impressions": 2
     },
@@ -1612,11 +1647,6 @@
       "impressions": 2
     },
     {
-      "query": "taxifahrer jobs lugano",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
       "query": "train driver jobs",
       "clicks": 0,
       "impressions": 2
@@ -1630,28 +1660,13 @@
       "query": "yes find it",
       "clicks": 1,
       "impressions": 1
-    },
-    {
-      "query": "a lugano",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "a lugano?",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "autista",
-      "clicks": 0,
-      "impressions": 1
     }
   ],
   "entwickler": [
     {
       "query": "softwareentwickler jobs lugano",
       "clicks": 0,
-      "impressions": 43
+      "impressions": 44
     },
     {
       "query": "softwareentwicklung jobs lugano",
@@ -1751,6 +1766,11 @@
       "impressions": 1
     },
     {
+      "query": "english and italian",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
       "query": "bar",
       "clicks": 0,
       "impressions": 1
@@ -1802,11 +1822,6 @@
     },
     {
       "query": "gastronomia",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "hay trabajo?",
       "clicks": 0,
       "impressions": 1
     }
@@ -1989,7 +2004,7 @@
     {
       "query": "bauingenieur jobs lugano",
       "clicks": 0,
-      "impressions": 15
+      "impressions": 16
     },
     {
       "query": "maschineningenieur jobs lugano",
@@ -2051,7 +2066,7 @@
     {
       "query": "erzieher jobs lugano",
       "clicks": 0,
-      "impressions": 35
+      "impressions": 36
     },
     {
       "query": "erzieher jobs genf",
@@ -2260,7 +2275,7 @@
     {
       "query": "teaching jobs in the canton of ticino",
       "clicks": 0,
-      "impressions": 2
+      "impressions": 4
     },
     {
       "query": "please show education jobs in switzerland",
@@ -2272,7 +2287,7 @@
     {
       "query": "gastronom jobs lugano",
       "clicks": 0,
-      "impressions": 19
+      "impressions": 20
     },
     {
       "query": "ich suche jobs in der italienischen schweiz im service oder an der bar",
@@ -2292,7 +2307,7 @@
     {
       "query": "kellner jobs lugano",
       "clicks": 0,
-      "impressions": 5
+      "impressions": 6
     },
     {
       "query": "\"arbeitszeit\" +\"12 stunden\"",
@@ -2335,6 +2350,88 @@
       "impressions": 1
     }
   ],
+  "administrative-b2b-specialista-lastminute-com-chiasso": [
+    {
+      "query": "offerte lavoro chiasso",
+      "clicks": 1,
+      "impressions": 18
+    },
+    {
+      "query": "offerte di lavoro chiasso",
+      "clicks": 0,
+      "impressions": 8
+    },
+    {
+      "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+      "clicks": 1,
+      "impressions": 7
+    },
+    {
+      "query": "lavoro chiasso",
+      "clicks": 0,
+      "impressions": 7
+    },
+    {
+      "query": "cerco lavoro a chiasso",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "offerte di lavoro ticino",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "annunci di lavoro chiasso",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "lavoro a chiasso",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "offerte di lavoro ticino nell'ultima settimana",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "cerco lavoro chiasso",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "chiasso offerte di lavoro",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "frontaliere ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "last minute offre",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "lavori chiasso",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro amministrazione ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro vicino a me nell'ultima settimana",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "lehrstellen": [
     {
       "query": "lehrstelle obwalden",
@@ -2362,6 +2459,16 @@
       "impressions": 3
     },
     {
+      "query": "lehrstellen bellinzona",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "lehrstellen lodrino",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
       "query": "lehrstellen magadino",
       "clicks": 0,
       "impressions": 2
@@ -2382,12 +2489,27 @@
       "impressions": 1
     },
     {
-      "query": "lehrstellen bellinzona",
+      "query": "lehrstellen camorino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "lehrstellen lugano",
       "clicks": 0,
       "impressions": 1
     },
     {
       "query": "lehrstellen uerkheim",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "praktikum bellinzona",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "praktikum tessin",
       "clicks": 0,
       "impressions": 1
     },
@@ -2408,31 +2530,6 @@
     },
     {
       "query": "lehrstellen camorino",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "lehrstellen ligornetto",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "lieferantenmanager lehrstellen",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "lehrstellen stabio",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "lehrstellen locarno",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "ich suche lehrstellen in der schweiz mit start 2026 und klaren anforderungen.",
       "clicks": 0,
       "impressions": 1
     }
@@ -2690,6 +2787,73 @@
       "impressions": 1
     }
   ],
+  "pflegeassistenten": [
+    {
+      "query": "pflegeassistentin stellen zürich",
+      "clicks": 0,
+      "impressions": 10
+    },
+    {
+      "query": "pflegeassistentin jobs",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "pflegejobs spital schiers",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "pflegeassistenten",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "alltagsbegleiter jobs lugano",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "altenpflegerin nach mailand",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "i am searching for caregiver jobs in ticino for elderly support.",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "pflegejobs spitalregion fürstenland toggenburg",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "sozialarbeiter jobs lugano",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "jobs pflegeassistentin",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offene stellen pflegeassistent",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "pflegeassistenz",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "pflegeassistenz zürich",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "logistics": [
     {
       "query": "where can i apply for logistics coordinator jobs near basel with german required",
@@ -2824,6 +2988,63 @@
       "impressions": 1
     }
   ],
+  "specialiste-systemes-d-information-cartier-manufacture-villars-sur-glane": [
+    {
+      "query": "cartier emploi fribourg",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "cartier glovelier emploi",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "cartier villars sur-glâne emploi",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "emploi villars-sur-glâne",
+      "clicks": 2,
+      "impressions": 3
+    },
+    {
+      "query": "emploi cartier fribourg",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "cartier carrière",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "emploi cartier suisse",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "cartier emploi",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "cartier emploi suisse",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "cartier fribourg emploi",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "emploi cartier",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "maisons-retraite": [
     {
       "query": "emploi maison de retraite suisse",
@@ -2852,28 +3073,6 @@
     },
     {
       "query": "maison de retraite geneve emploi",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "opticien-ne-h-f-d-fielmann-group-fribourg": [
-    {
-      "query": "fielmann fribourg",
-      "clicks": 0,
-      "impressions": 19
-    },
-    {
-      "query": "opticien suisse emploi",
-      "clicks": 1,
-      "impressions": 2
-    },
-    {
-      "query": "poste coiffeur",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "poste coiffure",
       "clicks": 0,
       "impressions": 1
     }
@@ -2915,6 +3114,11 @@
       "impressions": 1
     },
     {
+      "query": "restauration collective suisse",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
       "query": "restauration suisse",
       "clicks": 0,
       "impressions": 1
@@ -2931,48 +3135,6 @@
     },
     {
       "query": "agence de recrutement altdorf ur",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "pflegeassistenten": [
-    {
-      "query": "pflegeassistentin stellen zürich",
-      "clicks": 0,
-      "impressions": 10
-    },
-    {
-      "query": "pflegejobs spital schiers",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
-      "query": "alltagsbegleiter jobs lugano",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "altenpflegerin nach mailand",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "i am searching for caregiver jobs in ticino for elderly support.",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "pflegejobs spitalregion fürstenland toggenburg",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "sozialarbeiter jobs lugano",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "pflegeassistenz zürich",
       "clicks": 0,
       "impressions": 1
     }
@@ -3044,6 +3206,43 @@
       "impressions": 1
     }
   ],
+  "informatica": [
+    {
+      "query": "informatica ticino",
+      "clicks": 0,
+      "impressions": 6
+    },
+    {
+      "query": "sviluppo software ticino",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "software house ticino",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "informatica canton ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "diploma perito informatico",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "informatica canton ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "ticino informatica",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "educateurs": [
     {
       "query": "psychologue italien en ligne kriens",
@@ -3074,6 +3273,18 @@
       "query": "educatrice in svizzera",
       "clicks": 0,
       "impressions": 1
+    }
+  ],
+  "ebikon": [
+    {
+      "query": "addetto alle vendite bellinzona",
+      "clicks": 0,
+      "impressions": 8
+    },
+    {
+      "query": "addetto alle vendite lugano",
+      "clicks": 0,
+      "impressions": 5
     }
   ],
   "chauffeurs": [
@@ -3128,44 +3339,34 @@
       "impressions": 1
     }
   ],
-  "aspirant-in-geschaftsfuhrung-region-fricktal-wurenlingen-coop-genossenschaft-wurenlingen": [
+  "hybrid-identity-engops-ingenieur-die-schweizerische-post-bern": [
     {
-      "query": "jobs fricktal",
+      "query": "ingenieur jobs bern",
       "clicks": 0,
       "impressions": 3
     },
     {
-      "query": "jobs würenlingen",
+      "query": "post jobs",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "post job",
       "clicks": 0,
       "impressions": 2
     },
     {
-      "query": "coop jobs aargau",
+      "query": "stellen post",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "jobs post bern",
       "clicks": 0,
       "impressions": 1
     },
     {
-      "query": "job fricktal",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "jobs im fricktal",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "offene stellen fricktal",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "offene stellen fricktal teilzeit",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "offene stellen würenlingen",
+      "query": "post offene stellen bern",
       "clicks": 0,
       "impressions": 1
     }
@@ -3207,12 +3408,49 @@
       "impressions": 1
     },
     {
+      "query": "entwicklungsingenieur echallens",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
       "query": "lpp inscription",
       "clicks": 0,
       "impressions": 1
     },
     {
       "query": "offre d'emploi ingenieur zurich",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "macchinista-opus-personal-ag-zweigniederlassung-altdorf-brig": [
+    {
+      "query": "jobs pfister",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "pfister job",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "annunci di lavoro",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "offerte lavoro parrucchiera",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "pfister jobs",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "posti di lavoro parrucchiere",
       "clicks": 0,
       "impressions": 1
     }
@@ -3259,28 +3497,101 @@
       "impressions": 1
     }
   ],
-  "berken": [
+  "informatik": [
     {
-      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "query": "informatiker st. gallen",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "beste arbeitgeber zug it",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "top arbeitgeber zug it",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "ux designer zug",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "beste arbeitgeber zürich it",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "en-chef-de-cuisine-m-f-x-ibis-budget-geneve-2d13f2b5": [
+    {
+      "query": "offre emploi cuisinier geneve",
+      "clicks": 2,
+      "impressions": 3
+    },
+    {
+      "query": "ibis emploi",
       "clicks": 0,
       "impressions": 2
     },
     {
-      "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+      "query": "emploi cuisine geneve",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "capo-di-emergenza-a-70-100-hirslanden-klinik-bern": [
+    {
+      "query": "offerte di lavoro",
+      "clicks": 1,
+      "impressions": 4
+    },
+    {
+      "query": "hirslanden bern jobs",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "senior-finanza-business-partner-100-w-m-d-ruag-ag-emmen": [
+    {
+      "query": "ruag emmen jobs",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "ruag jobs emmen",
       "clicks": 0,
       "impressions": 2
     }
   ],
-  "gurbru": [
+  "social-media-employer-branding-specialist-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-basel": [
     {
-      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "query": "employer branding social media basel",
       "clicks": 0,
-      "impressions": 2
+      "impressions": 4
+    }
+  ],
+  "it-jobs": [
+    {
+      "query": "informatiker jobs lugano",
+      "clicks": 0,
+      "impressions": 1
     },
     {
-      "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+      "query": "sì",
       "clicks": 0,
-      "impressions": 2
+      "impressions": 1
+    },
+    {
+      "query": "user experience designer jobs lugano",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "virtual assistant jobs lugano",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "apprentissages": [
@@ -3300,291 +3611,504 @@
       "impressions": 1
     }
   ],
-  "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-richterswil": [
+  "falegname-opus-personal-ag-zweigniederlassung-altdorf-bellinzona": [
     {
-      "query": "emploi boucher suisse",
-      "clicks": 0,
-      "impressions": 4
-    }
-  ],
-  "infermiera-infermiere-diplomata-o-con-responsabilita-specialistica-chirurgia-mista-a-80-100-hirslanden-klinik-zurich": [
-    {
-      "query": "offerte di lavoro infermiera",
+      "query": "persal ticino",
       "clicks": 0,
       "impressions": 1
     },
     {
-      "query": "offerte di lavoro infermiere",
+      "query": "seo locale lugano",
       "clicks": 0,
       "impressions": 1
     },
     {
-      "query": "offerte lavoro infermiere",
+      "query": "specialità ticinesi",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "stagiaire-rh-mpc-3-1-cartier-manufacture-villars-sur-glane": [
+  "secondo-chef-senevita-dietikon": [
     {
-      "query": "stage mpc 3+1",
+      "query": "senevita dietikon jobs",
+      "clicks": 0,
+      "impressions": 3
+    }
+  ],
+  "specialista-in-gestione-della-cooperazione-e-delle-spedizioni-m-f-80-90-bank-cler-zurich": [
+    {
+      "query": "banca lavoro",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "kantonalbank praktikum",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte lavoro banca",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "stagista-universitario-a-in-gestione-dei-media-srg-ssr-zurich": [
+    {
+      "query": "internship zurich",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "srg offene stellen",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "srg ssr jobs",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "pflegehelfer-in-srk-oder-assistent-in-gesundheit-und-soziales-eba-40-100-bistro-guggerzyt-davos": [
+    {
+      "query": "guggerbach davos jobs",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "pflegehelfer jobs",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "pflegehelfer jobs in der nähe",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "medizinische-r-praxisassistent-in-als-springer-in-80-100-uroviva-zurich": [
+    {
+      "query": "uroviva stellen",
+      "clicks": 0,
+      "impressions": 3
+    }
+  ],
+  "mitarbeiter-in-kundendienst-service-desk-60-w-m-d-globus-zurich": [
+    {
+      "query": "kundendienst jobs",
+      "clicks": 0,
+      "impressions": 3
+    }
+  ],
+  "assistant-e-de-direction-cartier-manufacture-villars-sur-glane": [
+    {
+      "query": "cartier fribourg",
+      "clicks": 0,
+      "impressions": 3
+    }
+  ],
+  "informatique": [
+    {
+      "query": "geneve informaticien",
       "clicks": 0,
       "impressions": 2
     },
     {
-      "query": "offres d'emploi chez cartier",
+      "query": "it genève",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "herbligen": [
+  "reitnau": [
     {
-      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf": [
-    {
-      "query": "lups stellen",
+      "query": "jobs industrie",
       "clicks": 0,
       "impressions": 2
     }
   ],
-  "metallbauer-in-hilfsarbeiter-in-fur-montage-und-reparatur-stellenpartner-ag-affoltern-am-albis": [
+  "montfaucon": [
     {
-      "query": "jobs affoltern am albis",
+      "query": "jobscout24 suisse",
       "clicks": 0,
       "impressions": 1
     },
     {
-      "query": "offene stellen affoltern am albis",
+      "query": "otto's svizzera",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "gestionnaire-du-commerce-de-detail-cfc-schaffhausen-fronwegplatz-sunrise-communications-ag-schaffhausen": [
+  "tasch": [
     {
-      "query": "coiffeur cfc",
+      "query": "annunci di lavoro",
       "clicks": 0,
       "impressions": 1
     },
     {
-      "query": "coiffeuse emploi",
+      "query": "offerte di lavoro",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "assistente-veterinario-80-100-universitat-bern-bern-2f8d277148": [
+  "administrative-b2b-spezialist-lastminute-com-chiasso": [
     {
-      "query": "quanto guadagna un veterinario in svizzera",
+      "query": "last minute offre",
       "clicks": 0,
       "impressions": 1
-    }
-  ],
-  "personale-personale-a-100-hirslanden-klinik-bern": [
+    },
     {
-      "query": "lavoro berna",
+      "query": "offres last minute",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-beromunster": [
+  "medizinische-r-masseur-in-w-m-d-60-80-klinik-schonberg-ag-gunten": [
     {
-      "query": "frontalieri",
+      "query": "kkiosk job",
       "clicks": 0,
       "impressions": 1
-    }
-  ],
-  "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-st-urban": [
+    },
     {
-      "query": "zimmermann",
+      "query": "valora jobs",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "assistant-experience-concierge-manager-100-w-m-i-burgenstock-hotels-ag-obburgen": [
+  "horakustiker-w-m-d-fielmann-group-olten": [
     {
-      "query": "gzo spital wetzikon",
+      "query": "hörakustiker job",
       "clicks": 0,
-      "impressions": 1
+      "impressions": 2
     }
   ],
-  "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-ag-soh-dornach": [
+  "projektleiter-in-standortforderung-wirtschaftliche-aussenbeziehungen-kantonale-verwaltung-zurich-zurich": [
     {
-      "query": "spital dornach radiologie",
+      "query": "kanton zürich jobs",
       "clicks": 0,
       "impressions": 1
-    }
-  ],
-  "stage-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn": [
+    },
     {
-      "query": "trainee product management",
+      "query": "wirtschaft jobs",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "elektrochefmonteur-region-altendorf-ipersonal-ag-altendorf": [
+  "designers": [
     {
-      "query": "ipersonal ag",
+      "query": "designer suisse",
       "clicks": 0,
       "impressions": 1
-    }
-  ],
-  "chef-in-finanzen-qsm-care-confederazione-svizzera-locarno-367b6c808d": [
+    },
     {
-      "query": "locarno",
+      "query": "job designer suisse",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "apprendistato-bobst-mex": [
+  "specialiste-rh-h-f-a-80-hopital-riviera-chablais-hrc-rennaz": [
     {
-      "query": "bobst job",
+      "query": "hopital riviera chablais emploi",
       "clicks": 0,
-      "impressions": 1
+      "impressions": 2
     }
   ],
-  "brienzwiler": [
+  "orologeria": [
     {
-      "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+      "query": "offerte di lavoro",
+      "clicks": 1,
+      "impressions": 1
+    }
+  ],
+  "eggenwil": [
+    {
+      "query": "posti di lavoro",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "graben": [
+  "eptingen": [
+    {
+      "query": "treno basilea lugano",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "operatore-di-apparecchiature-m-f-d-novartis-muttenz": [
+    {
+      "query": "operatore di produzione",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "assistente-medico-assistente-medico-chirurgia-viscerale-100-hirslanden-klinik-bern": [
+    {
+      "query": "baloise - ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "bever": [
+    {
+      "query": "canton grigioni lavoro",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "gestione-degli-oggetti-tecnici-m-f-d-galaxus-neuchatel": [
+    {
+      "query": "ville de neuchatel emploi",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "collaboratore-trice-al-lavaggio-delle-stoviglie-a-100-kantonsspital-obwalden-sarnen": [
+    {
+      "query": "spital sarnen jobs",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "area-sales-manager-bosch-power-tools-100-f-m-div-bosch-thermotechnik-ag-solothurn": [
+    {
+      "query": "bosch job",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona": [
+    {
+      "query": "lattoniere bellinzona",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "langrickenbach": [
+    {
+      "query": "specialità ticinesi",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "romanshorn": [
+    {
+      "query": "lavoro",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "automobilfachmann-m-w-d-matterhorn-gotthard-bahn-glis": [
+    {
+      "query": "matterhorn gotthard bahn jobs",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "cartongessista-opus-personal-ag-zweigniederlassung-altdorf-brig": [
+    {
+      "query": "opus brig",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais": [
+    {
+      "query": "frontaliere ticino offerte di lavoro",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "saint-george": [
+    {
+      "query": "saint george vaud",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "treycovagnes": [
+    {
+      "query": "micarna",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "knonau": [
+    {
+      "query": "stadler rail -ipo -aktie -börse -kurs -aktienkurs \"stadler rail\"",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno": [
+    {
+      "query": "offerte lavoro banca",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "gardener-m-f-d-sympajobs-ag-basel-f9a78dd5": [
+    {
+      "query": "sympajobs ag",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "jens": [
     {
       "query": "i am looking for healthcare jobs in bern that accept b permit holders",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "hautligen": [
+  "ict-service-desk-team-leader-80-or-100-hirslanden-klinik-geneve": [
     {
-      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "query": "clinique la colline emploi",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "oberlangenegg": [
+  "learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve": [
     {
-      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "query": "geneva",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "sauge": [
+  "retail-performance-project-manager-van-cleef-arpels-geneva": [
     {
-      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "query": "van cleef",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern": [
+  "russian-teacher-tutoring-nord-anglia-education-switzerland-geneve": [
     {
-      "query": "lavoro ticino negli ultimi 3 giorni",
+      "query": "geneva",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "page-15": [
+  "horgen": [
     {
-      "query": "i am finishing a vocational program and i want a junior level mechanic job in switzerland preferably in st gallen or thurgau with structured onboarding and a clear path to certification recognition.",
+      "query": "neugasse 18 horgen",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "zug-jobs-today": [
+  "junior-fixed-income-sales-trader-j-safra-sarasin-zurich": [
     {
-      "query": "site:frontaliereticino.ch",
+      "query": "in switzerland",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "adliswil": [
+  "braunau": [
     {
-      "query": "jobs adliswil",
+      "query": "schweisser",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "hochschulpraktikant-in-medienmanagement-srg-ssr-zurich": [
+  "maler-in-fur-anspruchsvolle-malerarbeiten-im-innen-und-aussenbereich-stellenpartner-ag-frauenfeld": [
     {
-      "query": "praktikum zürich",
+      "query": "malerarbeiten frauenfeld",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "praktikant-in-projekt-qualitatsmanagement-kantonale-verwaltung-zurich-zurich": [
+  "buhler": [
     {
-      "query": "job qualitätsmanagement",
+      "query": "bühler jobs sankt gallen",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "restaurant-vorgesetzter-25hours-langstrasse-f-m-d-ibis-budget-zurich-44dd3dbc": [
+  "secretaire-assistante-ou-assistent-de-la-responsable-de-l-unite-d-investigations-anesthesiologies-et-du-responsable-de-l": [
     {
-      "query": "25 hours hotel jobs",
+      "query": "rolex schweiz jobs",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "ordonnanceur-van-cleef-arpels-meyrin": [
+  "la-grande-beroche": [
     {
-      "query": "van cleef meyrin",
+      "query": "gibt es offene stellen im kanton neuenburg",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "coordinateur-vie-serie-cartier-manufacture-le-locle": [
+  "leiter-fur-data-governance-lifecycle-enablement-80-100-m-w-d-julius-baer-zurich": [
     {
-      "query": "emplois le locle",
+      "query": "data governance jobs",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "installateur-trice-electricien-ne-efz-opus-personal-ag-zweigniederlassung-altdorf-le-landeron": [
+  "legal-counsel-global-procurement-dd-it-novartis-basel": [
     {
-      "query": "electricien le landeron",
+      "query": "novartis jobs basel",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "produits-laitiers-commandes-coop-genossenschaft-gossau": [
+  "cuisinier-ere-80-senevita-bern": [
     {
-      "query": "coop gossau jobs",
+      "query": "cuisinier",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "betriebselektriker-in-opus-personal-ag-zweigniederlassung-altdorf-solothurn": [
+  "logisticien-ne-pour-try-hire-sta-personal-ag-wiedlisbach": [
     {
-      "query": "offre d'emploi industrie manufacturière soleure",
+      "query": "jobs wiedlisbach",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "la-commission-a-donc-decide-d-ouvrir-la-procedure-au-titre-de-l-article-93-paragraphe-2-du-traite-sunrise-communications": [
+  "comptable-confirme-e-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens": [
     {
-      "query": "sunrise job",
+      "query": "poste marsens",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "physiotherapeute-medipersonal-stafa": [
+  "physiotherapeute-de-80-a-100-hopital-intercantonal-de-la-broye-hib-estavayer": [
     {
-      "query": "emploi physiothérapeute",
+      "query": "physio hib",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire": [
+  "apprentissage-logisticien-ne-cfc-valfleurier-delemont": [
     {
-      "query": "banking jobs zurich",
+      "query": "emploi val de travers",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "couverture-opus-personal-ag-zweigniederlassung-altdorf-brig": [
+    {
+      "query": "opus brig",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "h-f-d-opus-personal-ag-zweigniederlassung-altdorf-brig": [
+    {
+      "query": "opus brig",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "installateur-de-chauffage-h-f-d-opus-personal-ag-zweigniederlassung-altdorf-brig": [
+    {
+      "query": "j ai une offre en valais et je veux connaître le salaire d un monteur en chauffage avec service de piquet.",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "senior-it-lead-asset-onboarding-connectivity-integration-delivery-100-h-f-d-contract-par-l-intermediaire-de-notre": [
+    {
+      "query": "job onboarding",
       "clicks": 0,
       "impressions": 1
     }
@@ -8149,6 +8673,13 @@
       "query": "denner neuhausen",
       "clicks": 0,
       "impressions": 3
+    }
+  ],
+  "adliswil": [
+    {
+      "query": "jobs adliswil",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "administrateur-des-stocks-van-cleef-arpels-geneva": [
@@ -16803,6 +17334,13 @@
       "impressions": 1
     }
   ],
+  "apprendistato-bobst-mex": [
+    {
+      "query": "bobst job",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "apprendistato-come-addetto-a-al-commercio-al-dettaglio-afc-derrate-alimentari-volg-lenzerheide": [
     {
       "query": "volg lenzerheide",
@@ -25256,6 +25794,48 @@
       "impressions": 1
     }
   ],
+  "aspirant-in-geschaftsfuhrung-region-fricktal-wurenlingen-coop-genossenschaft-wurenlingen": [
+    {
+      "query": "jobs fricktal",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "jobs würenlingen",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "coop jobs aargau",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "job fricktal",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "jobs im fricktal",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offene stellen fricktal",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offene stellen fricktal teilzeit",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offene stellen würenlingen",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "aspirant-stv-directeur-coop-genossenschaft-unterageri-ylzlu7": [
     {
       "query": "aspirant job",
@@ -28178,6 +28758,13 @@
       "query": "eoc bellinzona offerte di lavoro",
       "clicks": 0,
       "impressions": 2
+    }
+  ],
+  "assistant-experience-concierge-manager-100-w-m-i-burgenstock-hotels-ag-obburgen": [
+    {
+      "query": "gzo spital wetzikon",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "assistant-front-office-manager-m-w-be-everywhere-at-once-is-your-secret-skill-grace-la-margna-st-moritz-st-moritz": [
@@ -34659,6 +35246,13 @@
     },
     {
       "query": "offerte lavoro mendrisio",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "assistente-veterinario-80-100-universitat-bern-bern-2f8d277148": [
+    {
+      "query": "quanto guadagna un veterinario in svizzera",
       "clicks": 0,
       "impressions": 1
     }
@@ -42218,6 +42812,18 @@
       "impressions": 1
     }
   ],
+  "berken": [
+    {
+      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+      "clicks": 0,
+      "impressions": 2
+    }
+  ],
   "bern": [
     {
       "query": "offerte lavoro parrucchiere berna",
@@ -42911,6 +43517,13 @@
     },
     {
       "query": "lavorare in svizzera e vivere in italia",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "betriebselektriker-in-opus-personal-ag-zweigniederlassung-altdorf-solothurn": [
+    {
+      "query": "offre d'emploi industrie manufacturière soleure",
       "clicks": 0,
       "impressions": 1
     }
@@ -44887,6 +45500,13 @@
       "impressions": 1
     }
   ],
+  "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-richterswil": [
+    {
+      "query": "emploi boucher suisse",
+      "clicks": 0,
+      "impressions": 4
+    }
+  ],
   "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-vich-vaud-rdieve": [
     {
       "query": "emploi boucher suisse",
@@ -45516,6 +46136,13 @@
   "bridge-fitting-pemsa-chiasso": [
     {
       "query": "offerte lavoro chiasso",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "brienzwiler": [
+    {
+      "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
       "clicks": 0,
       "impressions": 1
     }
@@ -54038,6 +54665,13 @@
   "chef-fonctionnaire-confederazione-svizzera-bern": [
     {
       "query": "fonctionnaire suisse",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "chef-in-finanzen-qsm-care-confederazione-svizzera-locarno-367b6c808d": [
+    {
+      "query": "locarno",
       "clicks": 0,
       "impressions": 1
     }
@@ -72619,6 +73253,13 @@
       "impressions": 1
     }
   ],
+  "coordinateur-vie-serie-cartier-manufacture-le-locle": [
+    {
+      "query": "emplois le locle",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "coordination-des-achats-et-controle-informatique-confederazione-svizzera-bern": [
     {
       "query": "emplois dans l'informatique il y a moins de 3 jours",
@@ -79931,6 +80572,13 @@
       "impressions": 1
     }
   ],
+  "dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern": [
+    {
+      "query": "lavoro ticino negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "dipl-expertin-experte-notfallpflege-nds-hf-60-100-wintersaison-2026-27-spital-davos-davos": [
     {
       "query": "offerte di lavoro vicino a me",
@@ -80896,6 +81544,13 @@
       "impressions": 1
     }
   ],
+  "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-beromunster": [
+    {
+      "query": "frontalieri",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-glarus": [
     {
       "query": "offerte di lavoro ticino negli ultimi 3 giorni",
@@ -80904,6 +81559,13 @@
     },
     {
       "query": "lavoro ticino negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-st-urban": [
+    {
+      "query": "zimmermann",
       "clicks": 0,
       "impressions": 1
     }
@@ -88362,6 +89024,13 @@
   "elektroanlagenmonteur-w-m-zucchetti-switzerland-sa-mendrisio-switzerland": [
     {
       "query": "wohnsitzbescheinigung pratteln",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "elektrochefmonteur-region-altendorf-ipersonal-ag-altendorf": [
+    {
+      "query": "ipersonal ag",
       "clicks": 0,
       "impressions": 1
     }
@@ -104582,6 +105251,18 @@
       "impressions": 1
     }
   ],
+  "gestionnaire-du-commerce-de-detail-cfc-schaffhausen-fronwegplatz-sunrise-communications-ag-schaffhausen": [
+    {
+      "query": "coiffeur cfc",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "coiffeuse emploi",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "gestionnaire-du-processus-d-achat-richemont-plan-les-ouates": [
     {
       "query": "offre emploi plan les ouates",
@@ -105712,6 +106393,13 @@
       "impressions": 1
     }
   ],
+  "graben": [
+    {
+      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "grabs": [
     {
       "query": "al confine",
@@ -106471,6 +107159,18 @@
       "impressions": 1
     }
   ],
+  "gurbru": [
+    {
+      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+      "clicks": 0,
+      "impressions": 2
+    }
+  ],
   "gurmels": [
     {
       "query": "lavoro svizzera frontalieri",
@@ -106937,6 +107637,13 @@
   "hauterive": [
     {
       "query": "psicologo italiano online nidvaldo",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "hautligen": [
+    {
+      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
       "clicks": 0,
       "impressions": 1
     }
@@ -108396,6 +109103,18 @@
       "impressions": 5
     }
   ],
+  "herbligen": [
+    {
+      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "herdern": [
     {
       "query": "psicologo italiano online frauenfeld",
@@ -108888,6 +109607,13 @@
     },
     {
       "query": "medien job",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "hochschulpraktikant-in-medienmanagement-srg-ssr-zurich": [
+    {
+      "query": "praktikum zürich",
       "clicks": 0,
       "impressions": 1
     }
@@ -113822,6 +114548,23 @@
   "infermiera-in-psichiatria-infantile-centre-neuchatelois-de-psychiatrie-cnp-neuchatel": [
     {
       "query": "emploi marin epagnier",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "infermiera-infermiere-diplomata-o-con-responsabilita-specialistica-chirurgia-mista-a-80-100-hirslanden-klinik-zurich": [
+    {
+      "query": "offerte di lavoro infermiera",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro infermiere",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte lavoro infermiere",
       "clicks": 0,
       "impressions": 1
     }
@@ -121513,6 +122256,13 @@
       "query": "emploi schwytz",
       "clicks": 0,
       "impressions": 2
+    }
+  ],
+  "installateur-trice-electricien-ne-efz-opus-personal-ag-zweigniederlassung-altdorf-le-landeron": [
+    {
+      "query": "electricien le landeron",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "installateur-trice-electricien-ne-pour-des-travaux-de-service-stellentreff-ag-herisau": [
@@ -132266,6 +133016,13 @@
     },
     {
       "query": "posti lavoro ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "la-commission-a-donc-decide-d-ouvrir-la-procedure-au-titre-de-l-article-93-paragraphe-2-du-traite-sunrise-communications": [
+    {
+      "query": "sunrise job",
       "clicks": 0,
       "impressions": 1
     }
@@ -152135,6 +152892,18 @@
       "impressions": 2
     }
   ],
+  "metallbauer-in-hilfsarbeiter-in-fur-montage-und-reparatur-stellenpartner-ag-affoltern-am-albis": [
+    {
+      "query": "jobs affoltern am albis",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offene stellen affoltern am albis",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "metallbauer-in-messebau-fachkraft-ch-gmbh-lugano": [
     {
       "query": "offerte di lavoro ticino",
@@ -158386,6 +159155,13 @@
       "impressions": 1
     }
   ],
+  "oberlangenegg": [
+    {
+      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "oberwil": [
     {
       "query": "psychologue italien en ligne pratteln",
@@ -163108,6 +163884,28 @@
       "impressions": 1
     }
   ],
+  "opticien-ne-h-f-d-fielmann-group-fribourg": [
+    {
+      "query": "fielmann fribourg",
+      "clicks": 0,
+      "impressions": 19
+    },
+    {
+      "query": "opticien suisse emploi",
+      "clicks": 1,
+      "impressions": 2
+    },
+    {
+      "query": "poste coiffeur",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "poste coiffure",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "opticien-ne-h-f-d-fielmann-group-la-chaux-de-fonds": [
     {
       "query": "la chaux de fonds suisse",
@@ -163361,6 +164159,13 @@
     },
     {
       "query": "offre emploi cartier",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "ordonnanceur-van-cleef-arpels-meyrin": [
+    {
+      "query": "van cleef meyrin",
       "clicks": 0,
       "impressions": 1
     }
@@ -164724,6 +165529,13 @@
       "query": "psychologue italien en ligne liestal",
       "clicks": 0,
       "impressions": 3
+    }
+  ],
+  "page-15": [
+    {
+      "query": "i am finishing a vocational program and i want a junior level mechanic job in switzerland preferably in st gallen or thurgau with structured onboarding and a clear path to certification recognition.",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "page-16": [
@@ -167309,6 +168121,13 @@
     },
     {
       "query": "pigna stellen",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "personale-personale-a-100-hirslanden-klinik-bern": [
+    {
+      "query": "lavoro berna",
       "clicks": 0,
       "impressions": 1
     }
@@ -170553,6 +171372,13 @@
       "clicks": 0,
       "impressions": 1
     },
+    {
+      "query": "emploi physiothérapeute",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "physiotherapeute-medipersonal-stafa": [
     {
       "query": "emploi physiothérapeute",
       "clicks": 0,
@@ -175381,6 +176207,13 @@
       "impressions": 1
     }
   ],
+  "praktikant-in-projekt-qualitatsmanagement-kantonale-verwaltung-zurich-zurich": [
+    {
+      "query": "job qualitätsmanagement",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "praktikant-in-prozessmanagement-80-100-rhaetian-railway-chur": [
     {
       "query": "posti vacanti",
@@ -178359,6 +179192,13 @@
     },
     {
       "query": "inoverde sursee",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "produits-laitiers-commandes-coop-genossenschaft-gossau": [
+    {
+      "query": "coop gossau jobs",
       "clicks": 0,
       "impressions": 1
     }
@@ -183894,6 +184734,13 @@
       "impressions": 1
     }
   ],
+  "psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf": [
+    {
+      "query": "lups stellen",
+      "clicks": 0,
+      "impressions": 2
+    }
+  ],
   "psychologin-80-m-w-d-luzerner-psychiatrie-lups-kriens": [
     {
       "query": "offene stellen lups",
@@ -185710,6 +186557,13 @@
   "radar-controller-in-track-monitor-confederazione-dubendorf": [
     {
       "query": "radar ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-ag-soh-dornach": [
+    {
+      "query": "spital dornach radiologie",
       "clicks": 0,
       "impressions": 1
     }
@@ -197461,6 +198315,13 @@
       "impressions": 1
     }
   ],
+  "restaurant-vorgesetzter-25hours-langstrasse-f-m-d-ibis-budget-zurich-44dd3dbc": [
+    {
+      "query": "25 hours hotel jobs",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "restaurantleiter-m-w-deutschsprachig-kempinski-palace-engelberg-engelberg": [
     {
       "query": "kempinski engelberg jobs",
@@ -204398,6 +205259,13 @@
       "impressions": 2
     }
   ],
+  "sauge": [
+    {
+      "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "sauteur-pemsa-bellinzona": [
     {
       "query": "agence interim tessin",
@@ -211073,6 +211941,13 @@
     },
     {
       "query": "swatch groupe emploi",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire": [
+    {
+      "query": "banking jobs zurich",
       "clicks": 0,
       "impressions": 1
     }
@@ -222681,6 +223556,13 @@
       "impressions": 1
     }
   ],
+  "stage-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn": [
+    {
+      "query": "trainee product management",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "stage-ibex-msat-80-100-m-f-d-lonza-visp": [
     {
       "query": "cerco lavoro ticino negli ultimi 3 giorni",
@@ -224560,6 +225442,18 @@
     },
     {
       "query": "stage fiscalité",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "stagiaire-rh-mpc-3-1-cartier-manufacture-villars-sur-glane": [
+    {
+      "query": "stage mpc 3+1",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "offres d'emploi chez cartier",
       "clicks": 0,
       "impressions": 1
     }
@@ -257627,6 +258521,13 @@
     },
     {
       "query": "zugo switzerland",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "zug-jobs-today": [
+    {
+      "query": "site:frontaliereticino.ch",
       "clicks": 0,
       "impressions": 1
     }

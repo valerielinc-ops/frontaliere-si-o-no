@@ -10218,7 +10218,7 @@
         {
           "query": "nebenjobs bellinzona",
           "clicks": 0,
-          "impressions": 26
+          "impressions": 27
         },
         {
           "query": "werkstudentenjob bellinzona",
@@ -10261,7 +10261,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 128,
+      "totalImpressions": 129,
       "totalClicks": 0,
       "topQuery": "jobs bellinzona",
       "title": "bellinzona",
@@ -10527,7 +10527,7 @@
         {
           "query": "bellinzona lavoro",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 18
         },
         {
           "query": "bellinzona offerte di lavoro",
@@ -10610,7 +10610,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 211,
+      "totalImpressions": 212,
       "totalClicks": 3,
       "topQuery": "offerte di lavoro bellinzona",
       "title": "bellinzona",
@@ -33189,6 +33189,68 @@
       ]
     },
     {
+      "slug": "informatique",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-geneve/informatique/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-geneve/informatique/"
+      },
+      "queries": [
+        {
+          "query": "geneve informaticien",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "it genève",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "geneve informaticien",
+      "title": "Informatique",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "informatique",
+        "en": "informatique",
+        "de": "informatique",
+        "fr": "informatique"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/informatique",
+        "en": "/en/find-jobs-geneva/informatique",
+        "de": "/de/jobs-im-genf/informatique",
+        "fr": "/fr/trouver-emploi-geneve/informatique"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "ingegnere-del-cloud-relewant-lugano",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/ingegnere-del-cloud-relewant-lugano",
@@ -36155,6 +36217,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "la-grande-beroche",
+      "locale": "de",
+      "path": "/de/jobs-in-neuenburg/la-grande-beroche/",
+      "observedPaths": {
+        "de": "/de/jobs-in-neuenburg/la-grande-beroche/"
+      },
+      "queries": [
+        {
+          "query": "gibt es offene stellen im kanton neuenburg",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "gibt es offene stellen im kanton neuenburg",
+      "title": "La grande beroche",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "la-grande-beroche",
+        "en": "la-grande-beroche",
+        "de": "la-grande-beroche",
+        "fr": "la-grande-beroche"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/la-grande-beroche",
+        "en": "/en/find-jobs-neuchatel/la-grande-beroche",
+        "de": "/de/jobs-im-neuenburg/la-grande-beroche",
+        "fr": "/fr/trouver-emploi-neuchatel/la-grande-beroche"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -41544,6 +41663,16 @@
           "impressions": 1
         },
         {
+          "query": "citta di mendrisio offerte di lavoro",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "jobs",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "jobs mendrisio",
           "clicks": 0,
           "impressions": 1
@@ -41572,19 +41701,9 @@
           "query": "mendrisio lavoro",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "mendrisio ti",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "strutture fisse",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 106,
+      "totalImpressions": 108,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "mendrisio",
@@ -41703,12 +41822,12 @@
         {
           "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
           "clicks": 0,
-          "impressions": 42
+          "impressions": 45
         },
         {
           "query": "offerte di lavoro mendrisio",
           "clicks": 0,
-          "impressions": 16
+          "impressions": 17
         },
         {
           "query": "aziende mendrisio che assumono",
@@ -41718,7 +41837,7 @@
         {
           "query": "offerte lavoro mendrisio",
           "clicks": 1,
-          "impressions": 11
+          "impressions": 12
         },
         {
           "query": "offerte di lavoro mendrisio svizzera",
@@ -41726,12 +41845,12 @@
           "impressions": 9
         },
         {
-          "query": "cerco lavoro mendrisio",
+          "query": "mendrisio lavoro",
           "clicks": 0,
-          "impressions": 7
+          "impressions": 8
         },
         {
-          "query": "mendrisio lavoro",
+          "query": "cerco lavoro mendrisio",
           "clicks": 0,
           "impressions": 7
         },
@@ -41742,6 +41861,11 @@
         },
         {
           "query": "lavoro in svizzera mendrisio",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "offerte di lavoro mendrisiotto",
           "clicks": 0,
           "impressions": 6
         },
@@ -41761,12 +41885,17 @@
           "impressions": 5
         },
         {
+          "query": "lavoro mendrisio chiasso",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
           "query": "lavoro svizzera mendrisio",
           "clicks": 0,
           "impressions": 5
         },
         {
-          "query": "offerte di lavoro mendrisiotto",
+          "query": "offerte lavoro mendrisio chiasso",
           "clicks": 0,
           "impressions": 5
         },
@@ -41781,22 +41910,12 @@
           "impressions": 4
         },
         {
-          "query": "lavoro mendrisio chiasso",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
-          "query": "offerte lavoro mendrisio chiasso",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
           "query": "cerco lavoro a mendrisio svizzera",
           "clicks": 0,
           "impressions": 3
         }
       ],
-      "totalImpressions": 279,
+      "totalImpressions": 297,
       "totalClicks": 5,
       "topQuery": "lavoro mendrisio",
       "title": "mendrisio",

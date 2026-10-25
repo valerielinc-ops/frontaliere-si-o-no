@@ -37476,17 +37476,17 @@
         {
           "query": "rvcs ticino",
           "clicks": 0,
-          "impressions": 19
-        },
-        {
-          "query": "lavoro ingegneri svizzera",
-          "clicks": 0,
-          "impressions": 15
+          "impressions": 22
         },
         {
           "query": "ingegnere svizzera lavoro",
           "clicks": 1,
-          "impressions": 14
+          "impressions": 16
+        },
+        {
+          "query": "lavoro ingegneri svizzera",
+          "clicks": 0,
+          "impressions": 16
         },
         {
           "query": "disegnatore",
@@ -37506,15 +37506,15 @@
         {
           "query": "lavorare in svizzera ingegnere",
           "clicks": 0,
+          "impressions": 11
+        },
+        {
+          "query": "svizzera lavoro ingegnere",
+          "clicks": 0,
           "impressions": 10
         },
         {
           "query": "ingegnere svizzera lavoro",
-          "clicks": 0,
-          "impressions": 9
-        },
-        {
-          "query": "svizzera lavoro ingegnere",
           "clicks": 0,
           "impressions": 9
         },
@@ -37559,17 +37559,17 @@
           "impressions": 5
         },
         {
-          "query": "lavorare in svizzera ingegnere",
+          "query": "offerte di lavoro ingegnere svizzera",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
-          "query": "lavoro ingegneri svizzera",
+          "query": "lavorare in svizzera ingegnere",
           "clicks": 0,
           "impressions": 4
         }
       ],
-      "totalImpressions": 354,
+      "totalImpressions": 367,
       "totalClicks": 6,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "Ingegneri",
@@ -39287,6 +39287,63 @@
       ]
     },
     {
+      "slug": "jens",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/jens/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/jens/"
+      },
+      "queries": [
+        {
+          "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "title": "Jens",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "jens",
+        "en": "jens",
+        "de": "jens",
+        "fr": "jens"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/jens",
+        "en": "/en/find-jobs-bern/jens",
+        "de": "/de/jobs-im-bern/jens",
+        "fr": "/fr/trouver-emploi-berne/jens"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "jewellery-high-jewellery-product-marketing-tirocinante-piaget-plan-les-ouates",
       "locale": "it",
       "path": "/cerca-lavoro-ginevra/jewellery-high-jewellery-product-marketing-tirocinante-piaget-plan-les-ouates",
@@ -40614,6 +40671,121 @@
         "en": "/en/find-jobs-graubunden/landquart",
         "de": "/de/jobs-im-graubunden/landquart",
         "fr": "/fr/trouver-emploi-grisons/landquart"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "langrickenbach",
+      "locale": "it",
+      "path": "/cerca-lavoro-turgovia/langrickenbach/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-turgovia/langrickenbach/"
+      },
+      "queries": [
+        {
+          "query": "specialità ticinesi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "specialità ticinesi",
+      "title": "Langrickenbach",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "langrickenbach",
+        "en": "langrickenbach",
+        "de": "langrickenbach",
+        "fr": "langrickenbach"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/langrickenbach",
+        "en": "/en/find-jobs-thurgau/langrickenbach",
+        "de": "/de/jobs-im-thurgau/langrickenbach",
+        "fr": "/fr/trouver-emploi-thurgovie/langrickenbach"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona/"
+      },
+      "queries": [
+        {
+          "query": "lattoniere bellinzona",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "lattoniere bellinzona",
+      "title": "Lattoniere edile opus personal ag zweigniederlassung altdorf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bellinzona",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona",
+        "en": "lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona",
+        "de": "lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona",
+        "fr": "lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona",
+        "en": "/en/find-jobs-ticino/lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona",
+        "de": "/de/jobs-im-tessin/lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona",
+        "fr": "/fr/trouver-emploi-tessin/lattoniere-edile-opus-personal-ag-zweigniederlassung-altdorf-bellinzona"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -70332,6 +70504,63 @@
       ]
     },
     {
+      "slug": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais",
+      "locale": "it",
+      "path": "/cerca-lavoro-vallese/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vallese/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais/"
+      },
+      "queries": [
+        {
+          "query": "frontaliere ticino offerte di lavoro",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "frontaliere ticino offerte di lavoro",
+      "title": "Strade specialistiche matterhorn gotthard bahn haut valais",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais",
+        "en": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais",
+        "de": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais",
+        "fr": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais",
+        "en": "/en/find-jobs-valais/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais",
+        "de": "/de/jobs-im-wallis/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais",
+        "fr": "/fr/trouver-emploi-valais/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-haut-valais"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "strassenwart-in-kantonale-verwaltung-graubunden-samedan-mgqmn8",
       "locale": "en",
       "path": "/en/find-jobs-ticino/strassenwart-in-kantonale-verwaltung-graubunden-samedan-mgqmn8",
@@ -75685,6 +75914,63 @@
       ]
     },
     {
+      "slug": "treycovagnes",
+      "locale": "it",
+      "path": "/cerca-lavoro-vaud/treycovagnes/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vaud/treycovagnes/"
+      },
+      "queries": [
+        {
+          "query": "micarna",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "micarna",
+      "title": "Treycovagnes",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "treycovagnes",
+        "en": "treycovagnes",
+        "de": "treycovagnes",
+        "fr": "treycovagnes"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vaud/treycovagnes",
+        "en": "/en/find-jobs-vaud/treycovagnes",
+        "de": "/de/jobs-im-waadt/treycovagnes",
+        "fr": "/fr/trouver-emploi-vaud/treycovagnes"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland",
       "locale": "de",
       "path": "/de/jobs-im-tessin/troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland",
@@ -78322,7 +78608,7 @@
       "totalImpressions": 41,
       "totalClicks": 0,
       "topQuery": "offerte di lavoro ticino da ieri",
-      "title": "Vendeur vendeuse temps partiel duree determinee 20 week ends",
+      "title": "Vendeur vendeuse temps partiel duree determinee 20 week ends michael kors versace",
       "titleByLocale": {
         "it": "",
         "en": "",
@@ -78335,8 +78621,8 @@
         "de": "",
         "fr": ""
       },
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings-michael-kors-versace",
+      "company": "Michael Kors",
+      "companyKey": "capri-holdings",
       "location": "Graubünden",
       "sector": "",
       "salaryMin": 0,
@@ -83735,7 +84021,7 @@
       "totalImpressions": 3,
       "totalClicks": 0,
       "topQuery": "offerte di lavoro ticino negli ultimi 3 giorni",
-      "title": "Vertriebsmitarbeiter pt fixlaufzeit",
+      "title": "Vertriebsmitarbeiter pt fixlaufzeit michael kors versace",
       "titleByLocale": {
         "it": "",
         "en": "",
@@ -83748,8 +84034,8 @@
         "de": "",
         "fr": ""
       },
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings-michael-kors-versace",
+      "company": "Michael Kors",
+      "companyKey": "capri-holdings",
       "location": "Graubünden",
       "sector": "",
       "salaryMin": 0,

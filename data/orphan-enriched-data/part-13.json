@@ -28631,7 +28631,7 @@
         {
           "query": "erzieher jobs lugano",
           "clicks": 0,
-          "impressions": 35
+          "impressions": 36
         },
         {
           "query": "erzieher jobs genf",
@@ -28724,7 +28724,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 77,
+      "totalImpressions": 78,
       "totalClicks": 0,
       "topQuery": "erzieher jobs lugano",
       "title": "Erzieher",
@@ -39689,6 +39689,63 @@
         "slug-registry",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve",
+      "locale": "en",
+      "path": "/en/find-jobs-geneva/learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve/",
+      "observedPaths": {
+        "en": "/en/find-jobs-geneva/learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve/"
+      },
+      "queries": [
+        {
+          "query": "geneva",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "geneva",
+      "title": "Learning support teacher temporary nord anglia education switzerland geneve",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve",
+        "en": "learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve",
+        "de": "learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve",
+        "fr": "learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve",
+        "en": "/en/find-jobs-geneva/learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve",
+        "de": "/de/jobs-im-genf/learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve",
+        "fr": "/fr/trouver-emploi-geneve/learning-support-teacher-temporary-100-nord-anglia-education-switzerland-geneve"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
