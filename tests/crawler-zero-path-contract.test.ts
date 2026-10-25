@@ -58,9 +58,9 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // runner too. The budget must EQUAL the count: lower it in
     // the same PR that instruments a runner; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if([...s.matchAll(/registerCrawlerSummaryGuard\(([^()]*)\)/g)].some(m=>m[1].split(',').filter(a=>a.trim()).length===2))n++}console.log(n)"
-    // 104 → 102: update-lis-jobs.mjs and update-pkb-private-bank-jobs.mjs now
-    // pass mutable summary counters.
-    const TWO_ARGUMENT_GUARD_BUDGET = 102;
+    // 104 → 101: update-lis-jobs.mjs, update-pkb-private-bank-jobs.mjs, and
+    // the DXT runner now record their counters/proven empty snapshot.
+    const TWO_ARGUMENT_GUARD_BUDGET = 101;
     const offenders = customRunners
       .filter(({ source }) => summaryGuardCalls(source).some((args) => args.length === 2))
       .map(({ name }) => name);
