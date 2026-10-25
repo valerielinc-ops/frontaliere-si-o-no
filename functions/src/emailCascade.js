@@ -10,7 +10,7 @@
  *
  * Cascade order: Mailgun → Mailjet → Mailtrap → Maileroo → Cloudflare → Resend
  * (reordered 2026-07-16 — see PROVIDERS[resend] below for why resend moved last).
- * Maileroo's plan bumped to 100000/mo 2026-07-20 (owner request) — with the
+ * Maileroo's plan is 250000/mo (Pro) — with the
  * three free tiny-cap providers ahead of it (~650/day combined) it now absorbs
  * effectively all newsletter + job-alert volume before cloudflare/resend are
  * ever touched; see PROVIDERS[maileroo] below.
@@ -50,10 +50,10 @@
  *                                Dynamically paced against real billing-cycle
  *                                usage (computeMailtrapDynamicDailyLimit), same
  *                                shape as resend/maileroo — see PROVIDERS[mailtrap].
- *   MAILEROO_API_KEY         — Maileroo sending key (100000/mo paid plan since
- *                                2026-07-20, owner request). Primary bulk workhorse
+ *   MAILEROO_API_KEY         — Maileroo sending key (250000/mo Pro plan). Primary
+ *                                bulk workhorse
  *                                of the cascade now — dynamically capped to pace
- *                                the 100k/mo budget, see PROVIDERS[maileroo] below.
+ *                                the 250k/mo budget, see PROVIDERS[maileroo] below.
  *   MAILEROO_ACCOUNT_API_KEY — Maileroo Account API key (dashboard "Applications"
  *                                section — a DIFFERENT credential from the sending
  *                                key above). Powers real month-to-date usage via
@@ -87,6 +87,8 @@
 // the provider past its real limit. Mailgun's ceiling is confirmed exact
 // (see below).
 const DAY_MS = 24 * 60 * 60 * 1000;
+const MAILEROO_MONTHLY_LIMIT = 250_000;
+const MAILEROO_STATIC_DAILY_LIMIT = Math.floor(MAILEROO_MONTHLY_LIMIT / 30);
 
 const PROVIDERS = [
   { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000,
@@ -113,8 +115,8 @@ const PROVIDERS = [
   // against the REAL billing-cycle boundaries Mailtrap's own API returns.
   // `dailyLimit: 150` was only the pre-sync/unverifiable-usage fallback.
   // { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
-  // maileroo: paid plan bumped 3000/mo → 100000/mo 2026-07-20 (owner activated
-  // it explicitly to become the primary channel for newsletter + job-alert
+  // maileroo: paid plan is 250000/mo (Pro), activated to remain the primary
+  // channel for newsletter + job-alert
   // volume). DKIM selector mta._domainkey.frontaliereticino.ch is published and
   // Maileroo signs DMARC-aligned. Verified 2026-06-30 with a live test send to
   // Gmail (X-Maileroo-Ref-Id 411800c3...): dkim=pass
@@ -127,13 +129,13 @@ const PROVIDERS = [
   // Like resend (see PROVIDERS[resend] below), its effective daily cap is read
   // from `_dynamicDailyLimits.maileroo` — recomputed on every
   // syncQuotasFromAPIs() run by computeMailerooDynamicDailyLimit() as
-  // (100000 − calendar-month-to-date usage) ÷ days left in the month. Maileroo
+  // (250000 − calendar-month-to-date usage) ÷ days left in the month. Maileroo
   // has no documented billing-cycle anchor day (unlike Resend's 6th-of-month),
-  // so the calendar month is used directly. `dailyLimit: 3333` below
-  // (100000/30, same monthlyLimit/30 convention as every other static-limit
+  // so the calendar month is used directly. `dailyLimit: 8333` below
+  // (250000/30, same monthlyLimit/30 convention as every other static-limit
   // provider here) is only the pre-sync/unverifiable-usage fallback — see
   // MAILEROO_CYCLE_FALLBACK_DAILY.
-  { id: 'maileroo', dailyLimit: 3333, monthlyLimit: 100000,
+  { id: 'maileroo', dailyLimit: MAILEROO_STATIC_DAILY_LIMIT, monthlyLimit: MAILEROO_MONTHLY_LIMIT,
     // scheduled_at in the JSON body, RFC 3339 (ISO 8601 is valid RFC 3339).
     // Lookahead undocumented by the provider — clamped to 3 days, same
     // conservative floor as Mailgun's default-plan cap.
@@ -547,7 +549,7 @@ export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
   // Also verified our sending key (MAILEROO_API_KEY, a per-domain Sending Key)
   // is NOT valid here even with the correct header shape (401 "invalid or
   // revoked") — the Account API needs its own key, generated under
-  // Maileroo's "Applications" dashboard section, not provisioned yet.
+  // Maileroo's "Applications" dashboard section.
   const apiKey = process.env.MAILEROO_ACCOUNT_API_KEY;
   if (!apiKey) return { count: 0, verified: false };
   try {
@@ -564,16 +566,16 @@ export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
   } catch { return { count: 0, verified: false }; }
 }
 
-// Pre-2026-07-20 self-imposed floor (100000/30, months-average). Used only
+// Safe fallback floor (250000/30, months-average). Used only
 // when calendar-month usage is unverifiable (no statistics.read scope on
 // this key / network error) — never Infinity, since an unverifiable usage
 // lookup must fail safe, not open.
-const MAILEROO_CYCLE_FALLBACK_DAILY = 3333;
+const MAILEROO_CYCLE_FALLBACK_DAILY = MAILEROO_STATIC_DAILY_LIMIT;
 
 /**
- * Dynamic per-day Maileroo send budget that paces the 100k/mo quota, mirroring
+ * Dynamic per-day Maileroo send budget that paces the 250k/mo quota, mirroring
  * computeResendDynamicDailyLimit but against a plain calendar month (Maileroo
- * documents no billing-cycle anchor day): (100000 − month-to-date usage) ÷
+ * documents no billing-cycle anchor day): (250000 − month-to-date usage) ÷
  * days left in the current UTC month. Falls back to the conservative
  * MAILEROO_CYCLE_FALLBACK_DAILY floor when usage can't be verified.
  */
@@ -1090,7 +1092,7 @@ async function sendViaMailtrap(email, _scheduledAt, signal) {
 
 // ── Maileroo API (v2) ────────────────────────────────────────
 // Docs: https://maileroo.com/docs/api-reference/emails/send-email
-// Auth: X-Api-Key header. Free tier 3000/mo with custom DKIM domain.
+// Auth: X-Api-Key header. Current account: Pro, 250000/mo.
 
 async function sendViaMaileroo(email, scheduledAt, signal) {
   const apiKey = process.env.MAILEROO_API_KEY;
