@@ -94,7 +94,7 @@ export function candidateRules(candidateLocale) {
 - Always fill the candidate's contact fields from identity: full/first/last name, e-mail, phone (split country code and number when the form asks them separately; a phone-type question is "mobile" for a mobile number such as +41 7x or +39 3xx). Use identity.address for street, postal code, city and country only when the form identifies the candidate's residence; use identity.location for city and country only in candidate contact fields. Never use the candidate's residence address for an employer, school, emergency contact or reference. Date of birth and nationality come from profile. A country is chosen as the option that names it in the form's language (Italia = Italien = Italy = Italie). What the data does not state is missing.
 - A CAP or residence country that the address normaliser has put in identity.address is an address fact: use it exactly when the field extractor identifies a candidate-residence field from its section or the form context explicitly names residence/address. Autocomplete identifies a value type, not whose address it is. A standalone postal label without residence provenance is ambiguous and must not reuse the residence address. Do not invent a CAP from a city name in the model; if the local directory cannot resolve it unambiguously, leave it missing for the candidate.
 - "How did you hear about us / Wie haben Sie von uns erfahren / Come hai saputo": the true answer is the job board frontaliereticino.ch — choose the option meaning online job board / internet / other website (or "other"), or write "frontaliereticino.ch" in a text field.
-- "Do you work / have you worked for us?": "No" when that employer is not among profile.employers or in the candidate's answers, otherwise it is missing.
+- "Do you work / have you worked for us?" (including "already an employee" / "Mitarbeiter/in"): compare the target employer in job.company or job.organization with profile.employers and the candidate's answers. When at least one target name is known, answer "No" only when neither target name is among those employers; otherwise it is missing. If the target employer is unknown, put the required field in missingRequired. Never treat a current job at another employer as a yes.
 - "Does this application come from a recruitment / placement agency (Vermittlungsbüro, Personalvermittlung, agenzia per il lavoro, agence de placement)?": "No". The candidate applies personally: Frontaliere Ticino sends the candidate's own application, is no placement agency and never accepts an agency's terms.
 - Date fields with inputType "date": a fill action with the candidate's date in YYYY-MM-DD, as for kind "date".
 - A required field (asterisk, "erforderlich", or named in form.errors) that you cannot fill is never skipped: it goes in missingRequired.
@@ -258,6 +258,50 @@ export function currentEmploymentOption(field, candidate) {
   const yes = options.filter((option) => EMPLOYED_YES_RE.test(String(option.label).trim()));
   const no = options.filter((option) => /^(?:no|nein|non|ne)$/i.test(String(option.label).trim()));
   return yes.length === 1 && no.length === 1 ? yes[0] : null;
+}
+
+const TARGET_EMPLOYER_QUESTION_RE = /\b(?:do\s+you\s+(?:currently\s+)?work(?:\s*\/\s*have\s+you\s+(?:ever\s+)?worked)?|have\s+you\s+(?:ever\s+)?worked)\s+for\s+us\b|\b(?:already\s+(?:an?\s+)?employee\s+(?:of|with|at)\s+us|ich\s+bin\s+bereits\s+mitarbeiter(?:[/-]?in)?|mitarbeiter(?:[/-]?in)?\s+bei\s+uns|d[ée]j[àa]\s+(?:un[e]?\s+)?employ[ée]e?\s+(?:chez\s+nous|dans\s+notre\s+entreprise)|(?:gi[àa]\s+)?(?:un[e]?\s+)?(?:dipendente|collaborator[ae]?)\s+(?:da|presso|per|con)\s+(?:noi|questa\s+azienda|l['’]?azienda))\b/i;
+const NO_EMPLOYER_OPTION_RE = /^(?:no|nein|non|ne)$/i;
+const EMPLOYER_LEGAL_SUFFIX_RE = /\b(?:ag|sa|sarl|gmbh|ltd|llc|inc|spa|srl|sas|kg|se|co|company|compagnie|gesellschaft)\b/gi;
+
+function employerTokens(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(EMPLOYER_LEGAL_SUFFIX_RE, ' ')
+    .replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter((token) => token.length >= 2);
+}
+
+function sameEmployerName(left, right) {
+  const a = employerTokens(left);
+  const b = employerTokens(right);
+  return Boolean(a.length && b.length && a.join(' ') === b.join(' '));
+}
+
+function employerNameAmbiguous(left, right) {
+  const a = employerTokens(left);
+  const b = employerTokens(right);
+  return Boolean(a.length && b.length && a.some((token) => b.includes(token)));
+}
+
+/** A target-employer «already an employee» field can safely be answered No only with a known target. */
+export function targetEmployerNoOption(field, candidate) {
+  const label = `${field?.label || ''} ${field?.context || ''}`;
+  if (!TARGET_EMPLOYER_QUESTION_RE.test(label)) return null;
+  // A candidate's explicit answer always wins over the CV-derived default,
+  // including a correction that says they do work for the target employer.
+  if (candidateAnswerForField(candidate, field)?.value) return null;
+  const targets = [candidate?.job?.company, candidate?.job?.organization].map((value) => String(value || '').trim()).filter(Boolean);
+  if (!targets.length) return null;
+  const employers = [
+    ...(candidate?.profile?.employers || []),
+    ...(candidate?.profile?.experience || []).map((item) => item?.employer),
+  ].map((value) => String(value || '').trim()).filter(Boolean);
+  if (targets.some((target) => employers.some((employer) => sameEmployerName(target, employer)))) return null;
+  // A shared token is not enough to identify the same legal entity, but it is
+  // enough to make an automatic No unsafe (Acme vs Acme Consulting).
+  if (targets.some((target) => employers.some((employer) => employerNameAmbiguous(target, employer)))) return null;
+  const options = Array.isArray(field?.options) ? field.options.filter((option) => option && String(option.label || '').trim()) : [];
+  const no = options.filter((option) => NO_EMPLOYER_OPTION_RE.test(String(option.label).trim()));
+  return no.length === 1 ? no[0] : null;
 }
 
 /** A quote of the candidate's data: non-trivial and really in it. */
@@ -1489,6 +1533,10 @@ export function guardPlan(plan, fields, candidate = null) {
   // specific language and its presence or absence are explicit in the CV.
   const employmentPick = new Map(fields.map((field) => [field.id, currentEmploymentOption(field, candidate)]).filter(([, option]) => option));
   for (const [fieldId, option] of employmentPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
+  // A target-employer relationship is not the same as generic current employment:
+  // when the vacancy's employer is known and absent from the CV, select its No.
+  const targetEmployerNoPick = new Map(fields.map((field) => [field.id, targetEmployerNoOption(field, candidate)]).filter(([, option]) => option));
+  for (const [fieldId, option] of targetEmployerNoPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
   // A native language is explicit either in the language list or, conservatively,
   // in the detected CV language alongside another explicitly levelled language.
   // It is still a candidate fact: an explicit portal answer always wins.
@@ -1496,8 +1544,8 @@ export function guardPlan(plan, fields, candidate = null) {
   for (const [fieldId, option] of nativePick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
   plan = {
     ...plan,
-    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId) && !employmentPick.has(action.fieldId) && !nativePick.has(action.fieldId)),
-    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId) && !employmentPick.has(item.fieldId) && !nativePick.has(item.fieldId)),
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId) && !employmentPick.has(action.fieldId) && !targetEmployerNoPick.has(action.fieldId) && !nativePick.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId) && !employmentPick.has(item.fieldId) && !targetEmployerNoPick.has(item.fieldId) && !nativePick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
     const field = byId.get(item.fieldId);

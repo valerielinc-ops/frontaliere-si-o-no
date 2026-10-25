@@ -6,7 +6,7 @@ import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
-function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, string> = {}) {
+function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, unknown> = {}) {
   const { window } = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url });
   // JSDOM does not implement the browser's rendered-text `innerText`; the
   // extractor uses it to keep an icon glyph separate from its aria label.
@@ -384,6 +384,18 @@ describe('portal field extraction', () => {
       selectLike: false,
       ownedList: 'city-options',
     });
+  });
+
+  it('can read mounted later-step fields only for an explicit pre-read pass', () => {
+    const html = `
+      <form>
+        <label for="first">First question *</label><input id="first" required>
+        <div data-size="0"><label data-size="0" for="later">Later question *</label><input data-size="0" id="later" required></div>
+        <input id="hidden-native" type="hidden" value="trap">
+      </form>`;
+    expect(extract(html).fields.map((field: any) => field.label)).toEqual(['First question *']);
+    expect(extract(html, 'https://live.solique.ch/apply', { includeHidden: true }).fields.map((field: any) => field.label))
+      .toEqual(['First question *', 'Later question *']);
   });
 
   it('answers «Vermittlungsbüro?» with its No, whatever the plan said, and never asks the candidate', () => {

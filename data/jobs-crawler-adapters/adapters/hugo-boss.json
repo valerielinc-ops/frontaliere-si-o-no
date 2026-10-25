@@ -1,0 +1,16 @@
+{
+  "companyKey": "hugo-boss",
+  "companyName": "Hugo Boss",
+  "companyHost": "careers.hugoboss.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://careers.hugoboss.com/global/en/job/HUBOGLOBAL144951EXTERNALENGLOBAL/assistant-store-manager-boss-outlet-w-m-d"
+  ],
+  "notes": "Phenom People platform — jobs extracted from phApp.ddo in search results page.",
+  "updatedAt": "2026-10-25T09:43:18.159Z"
+}

@@ -28,7 +28,7 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic } from './plan.mjs';
+import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
@@ -286,7 +286,7 @@ export { portalQuestionId, portalQuestionKey, slugId };
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {} }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {} }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
@@ -297,6 +297,14 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   // resolve once more at the browser boundary without an external geocoder.
   const address = resolveResidenceAddress(profile.address, profile.location);
   return {
+    // The target employer is needed for employer-specific eligibility fields
+    // such as «Are you already an employee?». It is public posting data, not a
+    // candidate fact; the planner still answers only from the employer list.
+    job: {
+      title: String(job.title || '').slice(0, 300),
+      company: String(job.company || '').slice(0, 300),
+      organization: String(job.organization || '').slice(0, 300),
+    },
     identity: {
       fullName: identity.name,
       firstName: names.firstName,
@@ -311,7 +319,10 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
     profile: {
       headline: profile.headline || '',
       currentOrLatestRole: [latest.role, latest.employer].filter(Boolean).join(' — '),
-      employers: [...new Set((profile.experience || []).map((item) => item.employer).filter(Boolean))].slice(0, 15),
+      employers: [...new Set([
+        ...(Array.isArray(profile.employers) ? profile.employers : []),
+        ...(profile.experience || []).map((item) => item.employer),
+      ].filter(Boolean))].slice(0, 15),
       // Workday's, SuccessFactors' and umantis' "My Experience" steps: the work
       // history as the CV states it, instead of questions to the candidate.
       experience: (profile.experience || []).slice(0, 8)
@@ -436,7 +447,11 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       required: true,
       options,
     };
-    const answer = candidateAnswerForField(candidate, field);
+    const answer = candidateAnswerForField(candidate, field)
+      || (() => {
+        const no = targetEmployerNoOption(field, candidate);
+        return no ? { value: no.label, source: 'rule' } : null;
+      })();
     if (answer?.value) out[question.id] = answer.value;
   }
   return out;
@@ -2635,6 +2650,21 @@ export const PREREAD_CHANNELS = new Set([
   'umantis', 'refline', 'jobs_ch', 'workday', 'successfactors',
 ]);
 
+// Solique exposes a public multi-step application form without an account.
+// Keep this an exact HTTPS host allowlist: an arbitrary employer site must not
+// be opened during drafting just because it happens to have an apply link.
+const SAFE_EMPLOYER_PREREAD_HOSTS = new Set(['live.solique.ch']);
+
+export function isSafeEmployerSitePreread(url) {
+  try {
+    const parsed = new URL(String(url || ''));
+    return parsed.protocol === 'https:'
+      && SAFE_EMPLOYER_PREREAD_HOSTS.has(parsed.hostname.toLowerCase());
+  } catch {
+    return false;
+  }
+}
+
 const CORE_DOCUMENT_LABEL_RE = /(?<![\p{L}\p{N}])(?:cv|resume|résumé|lebenslauf|curriculum(?: vitae)?|cover(?:ing)? letter|anschreiben|bewerbungsschreiben|motivations(?:schreiben|brief)|lettre de motivation|lettre de présentation|lettera di (?:motivazione|presentazione)|carta motivazionale)(?![\p{L}\p{N}])/iu;
 
 function portalDocumentId(field, label, context) {
@@ -2722,7 +2752,9 @@ export async function readPortalRequirements(ctx) {
   // posting route above proves that this is the matching application flow.
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
-  if ((!PREREAD_CHANNELS.has(channelType) && !verifiedJobs2WebEntry) || !ctx.applyUrl || !ctx.codex) {
+  const safeEmployerSite = channelType === 'employer_site' && isSafeEmployerSitePreread(entryUrl);
+  if ((!PREREAD_CHANNELS.has(channelType) && !verifiedJobs2WebEntry && !safeEmployerSite)
+    || !ctx.applyUrl || !ctx.codex) {
     return { questions: [], documents: [] };
   }
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
@@ -2742,7 +2774,12 @@ export async function readPortalRequirements(ctx) {
     await settle(page);
     let snapshot;
     ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
-    snapshot = await awaitFields(page, await extractFields(page));
+    // Solique keeps the later steps mounted with zero-sized controls. The
+    // exact host allowlist makes it safe to read those labels and required
+    // flags now, without filling or advancing the live form.
+    snapshot = await awaitFields(page, await extractFields(page, safeEmployerSite
+      ? { ...NAVIGATION, includeHidden: true, listboxOptions: false }
+      : NAVIGATION));
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
     if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };

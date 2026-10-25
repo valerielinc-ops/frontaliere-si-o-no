@@ -1,0 +1,21 @@
+{
+  "companyKey": "arcade-solutions-ag",
+  "companyName": "arcade solutions ag",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/job-advertisement/0a5a10ac-b041-4c54-a958-e3f58e0531fd/b5737369-56f4-c7ea-3ab4-52aa1a6d9a98"
+  ],
+  "detailTemplate": "/job-advertisement/0a5a10ac-b041-4c54-a958-e3f58e0531fd/b5737369-56f4-c7ea-3ab4-52aa1a6d9a98",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "ICT Apprentice"
+  ],
+  "canton": "LU",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-25T10:55:30.119Z",
+  "candidateKey": "arcade.ch"
+}

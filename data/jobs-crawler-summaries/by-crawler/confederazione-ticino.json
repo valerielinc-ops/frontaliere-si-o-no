@@ -1,99 +1,18 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione CH",
-  "generatedAt": "2026-10-24T21:53:40.495Z",
-  "total": 241,
-  "newCount": 2,
+  "generatedAt": "2026-10-25T09:42:47.214Z",
+  "total": 240,
+  "newCount": 0,
   "updatedCount": 46,
-  "removedCount": 0,
-  "unchangedCount": 193,
-  "durationMs": 121940,
-  "avgDurationMs": 121940,
+  "removedCount": 1,
+  "unchangedCount": 194,
+  "durationMs": 159475,
+  "avgDurationMs": 159475,
   "durationHistory": [
-    121940
+    159475
   ],
-  "newJobs": [
-    {
-      "title": "Hochschulpraktikant/in - Sektion Wirtschaft und Finanzen und Sektion Justiz und Inneres",
-      "slug": "tirocinante-universitario-a-sezione-economia-e-finanze-e-sezione-giustizia-e-affari-interni-confederazione-svizzera-bern",
-      "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-sektion-wirtschaft-und-finanzen-und-sektion-justiz-und-inneres/6bb60355-e921-4ce0-bdf0-dd63353fa8f3",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20731",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-18T22:00:00Z",
-      "postedDate": "2026-10-18T22:00:00Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-10-25",
-      "employmentType": "internship",
-      "contractType": "internship",
-      "id": "confederazione-ticino-1d9fc4ed3c56",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "firstSeenAt": "2026-10-24T21:53:29.865Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "ICT-Architekt/-in Cyber (1072)",
-      "slug": "ict-architect-in-cyber-1072-confederazione-svizzera-zollikofen",
-      "url": "https://jobs.admin.ch/posti-vacanti/ict-architekt-in-cyber-1072/909ad068-7164-4763-830d-244d9ce002d5",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17280",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Zollikofen",
-      "addressLocality": "Zollikofen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "it",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-01-05T22:00:00Z",
-      "postedDate": "2026-01-05T22:00:00Z",
-      "postingDateSource": "reported",
-      "validThrough": "2028-01-05",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "confederazione-ticino-d60eb33a4f6e",
-      "needsRetranslation": true,
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3052",
-      "firstSeenAt": "2026-10-24T21:53:29.865Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 22
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Hochschulpraktikant/-in im Stabsbereich Information und Kommunikation",
@@ -1298,7 +1217,47 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Gerichtsschreiber/-in Abt. I mit Hauptsprache Italienisch",
+      "slug": "cancelliere-a-sezione-i-con-lingua-principale-italiano-confederazione-svizzera-st-gallen",
+      "url": "https://jobs.admin.ch/posti-vacanti/gerichtsschreiber-in-abt-i-mit-hauptsprache-italienisch/590d14fd-a015-4cdf-9ef3-5a76aa853c64",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20181",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "it",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-24T22:00:00Z",
+      "validThrough": "2026-10-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "confederazione-ticino-dd551e454d27",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-25T15:09:20.522Z",
+      "datePosted": "2026-09-24T22:00:00Z",
+      "postingDateSource": "reported",
+      "postalCode": "9000",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Operative/-r Einkäufer/-in ICT",
@@ -2474,5 +2433,5 @@
       }
     }
   ],
-  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
+  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
 }

@@ -1,0 +1,25 @@
+{
+  "companyKey": "gurten-hotel",
+  "companyName": "Gurten Hotel",
+  "companyHost": "jobs.migros.ch",
+  "platform": "migros.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/migros-gruppe/offene-stellen?text=gurten&amp;job=403be823-2fb4-41ec-b69e-d1c9e59844b5"
+  ],
+  "detailTemplate": "/de/unsere-unternehmen/job/gurten-park-im-grunen/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Gurten – Park im Grünen, Genossenschaft Migros Aare Leiter*​in Reinigung und Gebäudepflege ‧ 80 – 100% 3084 Wabern Festanstellung (unbefristet)",
+    "Gurten – Park im Grünen, Genossenschaft Migros Aare Chef de Partie Tournant /​ Koch*​Köchin Restaurant Gurtners ‧ 80 – 100% 3084 Wabern Festanstellung (unbefris",
+    "Gurten – Park im Grünen, Genossenschaft Migros Aare Chef de Partie Tournant Bankettküche ‧ 70 – 100% 3084 Wabern Festanstellung (unbefristet)",
+    "Gurten – Park im Grünen, Genossenschaft Migros Aare Managementpraktikum Marketing & Sales und Food & Beverage Management ‧ 100% 3084 Wabern Praktikum",
+    "Gurten – Park im Grünen, Genossenschaft Migros Aare Junior Sous Chef*​Cheffe Bankettküche ‧ 70 – 100% 3084 Wabern"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T11:05:07.778Z",
+  "candidateKey": "gurtenpark.ch"
+}

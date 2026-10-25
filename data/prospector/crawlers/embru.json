@@ -1,0 +1,21 @@
+{
+  "companyKey": "embru",
+  "companyName": "embru",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/application-process/9a9603b2-4209-4e0e-9771-d8ba66cedeb2/743ef83e-e08c-e479-6044-0b3ccba23ee9"
+  ],
+  "detailTemplate": "/application-process/9a9603b2-4209-4e0e-9771-d8ba66cedeb2/743ef83e-e08c-e479-6044-0b3ccba23ee9",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Personalassistent:in"
+  ],
+  "canton": "ZH",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-25T10:55:48.213Z",
+  "candidateKey": "embru.ch"
+}

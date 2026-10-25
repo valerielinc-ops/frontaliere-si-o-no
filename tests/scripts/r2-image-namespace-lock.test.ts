@@ -6,12 +6,17 @@ import { join, resolve } from 'node:path';
 import {
   acquireImageNamespaceLock,
   acquireImageNamespaceLeases,
+  classifyReleaseDeadlineRace,
   IMAGE_LOCK_KEY_PREFIX,
   IMAGE_LOCK_RELEASE_RETRY_MS,
   imageNamespaceForKey,
   imageNamespaceLockKey,
+  isImageNamespaceLockPayload,
   parseImageNamespaces,
+  parseLeaseTimestamp,
+  releaseImageNamespaceLock,
   releaseImageNamespaceLeases,
+  releaseImageNamespaceLeasesWithDeadline,
   releaseNotOwnedIsFatal,
   serializeImageLeaseContext,
   verifyImageNamespaceLease,
@@ -89,6 +94,16 @@ describe('r2-image-namespace-lock', () => {
     expect(normalizeS3MatchEtag('W/"image-etag"')).toBeUndefined();
   });
 
+  it('accepts only decimal safe integer lease timestamps', () => {
+    expect(parseLeaseTimestamp('1700000000000')).toBe(1_700_000_000_000);
+    expect(parseLeaseTimestamp('0')).toBeNull();
+    expect(parseLeaseTimestamp('1e3')).toBeNull();
+    expect(parseLeaseTimestamp('0x3e8')).toBeNull();
+    expect(parseLeaseTimestamp('1.5')).toBeNull();
+    expect(parseLeaseTimestamp('9007199254740992')).toBeNull();
+    expect(parseLeaseTimestamp(undefined)).toBeNull();
+  });
+
   it('rejects fractional acquiredAt overrides before writing a lease', async () => {
     const { request, calls } = fakeR2();
 
@@ -140,6 +155,61 @@ describe('r2-image-namespace-lock', () => {
       acquiredAt: 1_000,
       expiresAt: Number.MAX_SAFE_INTEGER + 1,
     }])).toThrow('invalid lease');
+  });
+
+  it.each([-1, 0.5, Number.MAX_SAFE_INTEGER + 1, Infinity, NaN])(
+    'rejects an invalid releasedAt even when the payload is otherwise live (%s)',
+    (releasedAt) => {
+      expect(isImageNamespaceLockPayload({
+        namespace: 'blog',
+        owner: 'owner',
+        leaseId: 'lease',
+        acquiredAt: 1_000,
+        expiresAt: 2_000,
+        releasedAt,
+      })).toBe(false);
+    },
+  );
+
+  it.each([-1, 0.5, Number.MAX_SAFE_INTEGER + 1, Infinity, NaN])(
+    'rejects an invalid acquisition clock before writing a lease (%s)',
+    async (clockValue) => {
+      const { request, calls } = fakeR2();
+
+      await expect(acquireImageNamespaceLock('blog', {
+        request,
+        now: () => clockValue,
+      })).rejects.toThrow('clock must be a non-negative safe integer millisecond timestamp');
+
+      expect(calls).toEqual([]);
+    },
+  );
+
+  it('rejects invalid verification and release clocks before reading or writing R2', async () => {
+    const { request, calls } = fakeR2();
+    const context = JSON.stringify({
+      version: 1,
+      leases: [{
+        namespace: 'blog',
+        owner: 'owner',
+        leaseId: 'lease',
+        acquiredAt: 1_000,
+        expiresAt: 2_000,
+        etag: 'lease-etag',
+      }],
+    });
+
+    await expect(verifyImageNamespaceLease(context, 'blog', {
+      request,
+      now: () => Number.MAX_SAFE_INTEGER + 1,
+    })).rejects.toThrow('verification clock must be a non-negative safe integer millisecond timestamp');
+
+    await expect(releaseImageNamespaceLeases([JSON.parse(context).leases[0]], {
+      request,
+      now: () => 0.5,
+    })).rejects.toThrow('release clock must be a non-negative safe integer millisecond timestamp');
+
+    expect(calls).toEqual([]);
   });
 
   it('installs lease cleanup traps before acquisition can be interrupted', () => {
@@ -378,7 +448,7 @@ globalThis.fetch = async (url) => {
     }
   });
 
-  it.each(['0', '-1'])('falls back to a current timestamp for an invalid CLI acquiredAt of %s', (requestedAcquiredAt) => {
+  it.each(['0', '-1', '1e3', '0x3e8', '1.5', String(Number.MAX_SAFE_INTEGER)])('falls back to a current timestamp for an invalid CLI acquiredAt of %s', (requestedAcquiredAt) => {
     const temp = mkdtempSync(join(tmpdir(), 'image-lease-cli-acquired-at-'));
     try {
       const preload = join(temp, 'stub-r2-fetch.mjs');
@@ -526,6 +596,62 @@ globalThis.fetch = async () => ({
       owner: leases[0].owner,
       leaseId: leases[0].leaseId,
       releasedAt: expect.any(Number),
+    });
+  });
+
+  it('does not issue a release read after the absolute deadline', async () => {
+    const { request: baseRequest } = fakeR2();
+    let now = 1_000;
+    let getAttempts = 0;
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (input.method === 'GET') {
+        getAttempts += 1;
+        throw new TypeError('fetch failed');
+      }
+      return baseRequest(input);
+    };
+
+    await expect(releaseImageNamespaceLock({
+      namespace: 'blog',
+      owner: 'owner',
+      leaseId: 'lease',
+      acquiredAt: now,
+      expiresAt: now + 60_000,
+    }, {
+      request,
+      now: () => now,
+      deadline: now + 100,
+      sleep: async (milliseconds) => { now += milliseconds; },
+    })).rejects.toMatchObject({ code: 'IMAGE_LEASE_RELEASE_TIMEOUT' });
+
+    expect(getAttempts).toBe(1);
+  });
+
+  it('fails closed when release completion races exactly with its deadline', async () => {
+    expect(classifyReleaseDeadlineRace(
+      { timedOut: false, results: [], finishedAt: 99 },
+      { deadline: 100 },
+    )).toBe('completed');
+    expect(classifyReleaseDeadlineRace(
+      { timedOut: false, results: [], finishedAt: 100 },
+      { deadline: 100 },
+    )).toBe('indeterminate');
+    expect(classifyReleaseDeadlineRace({ timedOut: true }, { deadline: 100 })).toBe('timeout');
+
+    let now = 1_000;
+    const result = await releaseImageNamespaceLeasesWithDeadline([{ namespace: 'blog' }], {
+      timeoutMs: 100,
+      now: () => now,
+      releaseImpl: async () => {
+        now = 1_100;
+        return ['blog'];
+      },
+    });
+
+    expect(result).toMatchObject({
+      status: 'timeout',
+      timedOut: true,
+      deadlineRace: 'indeterminate',
     });
   });
 

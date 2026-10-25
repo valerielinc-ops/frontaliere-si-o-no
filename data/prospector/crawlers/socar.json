@@ -1,0 +1,25 @@
+{
+  "companyKey": "socar",
+  "companyName": "Socar",
+  "companyHost": "jobs.hangl.ch",
+  "platform": "hangl.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.hangl.ch/"
+  ],
+  "detailTemplate": "/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Funpark-Skilehrer/in (m/w/d)",
+    "Chef de Partie - Gardemanger / Patissier (m/w/d)",
+    "Jungkoch - Gardemanger / Patissier (m/w/d)",
+    "Rezeptionist (m/w/d)",
+    "Rezeptionist  / Allrounder (m/w/d)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T10:55:49.815Z",
+  "candidateKey": "eurocenter.ch"
+}

@@ -1,0 +1,24 @@
+{
+  "companyKey": "torquato-ch",
+  "companyName": "torquato",
+  "companyHost": "leuchtturmgruppe.com",
+  "platform": "leuchtturmgruppe.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.leuchtturmgruppe.com/karriere/"
+  ],
+  "detailTemplate": "/stellenangebot/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 14,
+  "sampleTitles": [
+    "Neu (Junior) Manager E-Commerce & Content (m/w/g) Für unser Team am Hamburger Fischmarkt suchen wir einen (Junior) Manager E-Commerce & Content (m/w/d) in Vollz",
+    "Neu Senior Kommunikationsdesigner / Brand Designer (m/w/d) - Raw2Rare Zur Verstärkung unseres Teams suchen wir einen Senior Kommunikationsdesigner / Brand Desig",
+    "Neu Speditionskauffrau-/mann für unsere Versandabteilung (m/w/g) Wir suchen zur Verstärkung unseres Logistikteams in Geesthacht einen/eine Speditionskauffrau-/m",
+    "Neu Amazon Marketplace Manager (m/w/g) Zur Verstärkung unseres Teams suchen wir einen Amazon Marketplace Manager (m/w/g) in Vollzeit am Standort Geesthacht. Du",
+    "Neu Content Marketing Manager (m/w/g) - Raw2Rare Zur Verstärkung unseres Teams suchen wir einen Content Marketing Manager (m/w/d) in Vollzeit für unsere Marke R"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T11:05:06.245Z",
+  "candidateKey": "torquato.ch"
+}

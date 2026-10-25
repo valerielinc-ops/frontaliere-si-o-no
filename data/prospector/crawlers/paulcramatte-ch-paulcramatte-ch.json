@@ -1,0 +1,25 @@
+{
+  "companyKey": "paulcramatte-ch-paulcramatte-ch",
+  "companyName": "Paul Cramatte SA, Placement de personnel, succursale du Noirmont",
+  "companyHost": "paulcramatte.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://paulcramatte.ch/"
+  ],
+  "detailTemplate": "/fr/offres-d-emploi/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 57,
+  "sampleTitles": [
+    "Voir cette offre",
+    "Voir cette offre",
+    "Voir cette offre",
+    "Voir cette offre",
+    "Voir cette offre"
+  ],
+  "canton": "JU",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-25T11:06:17.410Z",
+  "candidateKey": "paul-cramatte-placement-de-personnel-du-noirmont@le-noirmont"
+}

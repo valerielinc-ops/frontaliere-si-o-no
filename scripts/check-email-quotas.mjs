@@ -9,7 +9,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  * Cloudflare Email Service — whose quota is MONTHLY, not daily — it additionally
  * reports month-to-date consumption against the 3000/mo allowance via the
  * GraphQL Analytics API (emailSendingAdaptiveGroups). Same idea for Maileroo
- * (100k/mo plan since 2026-07-20) via its Account API statistics endpoint,
+ * (250k/mo Pro plan) via its Account API statistics endpoint,
  * best-effort — falls back to "unverified" if the sending key lacks the
  * statistics.read scope, sending is unaffected either way.
  *
@@ -226,7 +226,7 @@ async function main(opts) {
     }
   }
 
-  // Maileroo: surface real calendar-month-to-date usage (2026-07-20, 100k/mo
+  // Maileroo: surface real calendar-month-to-date usage (250k/mo Pro
   // plan) via the Account API statistics endpoint, same best-effort probe
   // computeMailerooDynamicDailyLimit already does for pacing — this just
   // prints it. verified:false means the sending key doesn't carry the
@@ -234,7 +234,7 @@ async function main(opts) {
   // either way, since the daily guard falls back to the conservative static
   // floor in that case.
   if (isProviderConfigured('maileroo')) {
-    const monthlyCap = PROVIDERS.find(p => p.id === 'maileroo')?.monthlyLimit ?? 100000;
+    const monthlyCap = PROVIDERS.find(p => p.id === 'maileroo')?.monthlyLimit ?? 250000;
     const { count, verified } = await fetchMailerooCycleUsage();
     console.log('\n📮 Maileroo (Account API statistics):');
     if (!verified) {

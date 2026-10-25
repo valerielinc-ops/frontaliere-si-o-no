@@ -139,7 +139,7 @@ describe('reported GSC event archive coverage', () => {
     });
     const bridge = renderEventSlugRedirectPage('fr', canonicalPath, event);
     expect(bridge).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${canonicalPath}">`);
-    expect(bridge).toContain(`http-equiv="refresh" content="0; url=https://frontaliereticino.ch${canonicalPath}"`);
+    expect(bridge).not.toContain('http-equiv="refresh"');
     expect(bridge).toContain(event.title);
     expect(bridge).toContain('Date : 2026-07-11');
     expect(bridge).not.toContain('noindex');

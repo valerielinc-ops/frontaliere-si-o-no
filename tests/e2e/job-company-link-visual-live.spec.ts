@@ -1,13 +1,18 @@
 import { test, expect, type Page } from 'playwright/test';
-import { listActiveJobDetailPaths } from './lib/live-jobs';
+import {
+  COMPANY_HUB_HREF_RE,
+  COMPANY_HUB_LINK_SELECTOR,
+  JOB_DETAIL_PATH_RE,
+  listActiveJobDetailPaths,
+} from './lib/live-jobs';
 
 /**
  * Live guard for the job-detail → company-hub handoff.
  *
  * Clicking the company link from a job detail navigates to the per-company
- * hub `/cerca-lavoro-ticino/azienda-{slug}/`. Per #1156 this is a deliberate
- * FULL navigation to the static company hub (HTTP 200) — the hub lists the
- * employer's openings across ALL cantons, whereas an in-canton SPA re-filter
+ * canton-aware company hub (for example `/cerca-lavoro-ticino/azienda-{slug}/`).
+ * Per #1156 this is a deliberate FULL navigation to the static company hub
+ * (HTTP 200) — the hub lists the employer's openings across ALL cantons, whereas an in-canton SPA re-filter
  * would clobber the list with an empty result for cross-canton employers
  * (e.g. PwC: 109 static jobs vs 0 in the TI shard). See JobBoard.tsx
  * `openCompanyFilter` / `openGateCompanyFilter`.
@@ -43,7 +48,7 @@ async function openJobDetailWithCompanyLink(page: Page): Promise<string> {
     await page.waitForLoadState('networkidle', { timeout: 10_000 }).catch(() => undefined);
     await page.waitForTimeout(800);
 
-    const companyLink = page.locator('main a[href*="/cerca-lavoro-ticino/azienda-"]').first();
+    const companyLink = page.locator(COMPANY_HUB_LINK_SELECTOR).first();
     if (await companyLink.isVisible().catch(() => false)) {
       return path;
     }
@@ -56,12 +61,12 @@ test.use({ viewport: { width: 1280, height: 800 } });
 
 test('company link from job detail lands on a real, styled company hub', async ({ page }) => {
   const sourcePath = await openJobDetailWithCompanyLink(page);
-  const companyLink = page.locator('main a[href*="/cerca-lavoro-ticino/azienda-"]').first();
+  const companyLink = page.locator(COMPANY_HUB_LINK_SELECTOR).first();
   const companyHref = await companyLink.getAttribute('href');
-  expect(companyHref, `job detail ${sourcePath} should expose a company link`).toContain('/azienda-');
+  expect(companyHref, `job detail ${sourcePath} should expose a company link`).toMatch(COMPANY_HUB_HREF_RE);
 
   await companyLink.click();
-  await page.waitForURL(/\/cerca-lavoro-ticino\/azienda-[^/]+\/?$/, { timeout: 15_000 });
+  await page.waitForURL(/\/(?:azienda|company|unternehmen|entreprise)-[^/]+\/?$/, { timeout: 15_000 });
 
   // Let the destination settle (full nav to the static hub, or SPA handoff).
   await page.locator('main').first().waitFor({ state: 'attached', timeout: 30_000 });
@@ -70,17 +75,20 @@ test('company link from job detail lands on a real, styled company hub', async (
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.waitForTimeout(500);
 
-  const hub = await page.evaluate(() => {
+  const hub = await page.evaluate((jobDetailPattern: string) => {
     const main = document.querySelector('main');
     const bodyCs = window.getComputedStyle(document.body);
     const h1 = (main?.querySelector('h1')?.textContent || '').trim();
+    const jobDetailPathRe = new RegExp(jobDetailPattern, 'i');
     // Job-detail links into the board prove the hub actually lists the
     // company's openings (not an empty / soft-404 / error document). Exclude
     // other hub/category/pagination/company links.
-    const jobLinks = Array.from(main?.querySelectorAll('a[href*="/cerca-lavoro-ticino/"]') || []).filter((a) => {
+    const jobLinks = Array.from(main?.querySelectorAll('a[href]') || []).filter((a) => {
       const href = a.getAttribute('href') || '';
-      return !/\/(azienda-|company-|unternehmen-|entreprise-|settori|categoria-|category-|kategorie-|categorie-|pagina-|page-|seite-)/.test(href)
-        && /\/cerca-lavoro-ticino\/[^/]+\/?$/.test(href);
+      let pathname = href;
+      try { pathname = new URL(href, window.location.href).pathname; } catch { /* ignore malformed non-job links */ }
+      return !/(?:azienda-|company-|unternehmen-|entreprise-|settori|categoria-|category-|kategorie-|categorie-|pagina-|page-|seite-)/.test(pathname)
+        && jobDetailPathRe.test(pathname.endsWith('/') ? pathname : `${pathname}/`);
     }).length;
     return {
       mainText: (main?.textContent || '').trim().length,
@@ -89,7 +97,7 @@ test('company link from job detail lands on a real, styled company hub', async (
       bodyFont: bodyCs.fontFamily,
       bodyBg: bodyCs.backgroundColor,
     };
-  });
+  }, JOB_DETAIL_PATH_RE.source);
 
   await page.screenshot({
     path: 'test-results/live-company-hub-landing.png',

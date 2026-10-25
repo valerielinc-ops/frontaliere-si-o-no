@@ -1295,6 +1295,28 @@ function shrinkJobKey(job) {
   return resolveJobDiffKey(job) || `title:${String(job?.title || '').trim().toLowerCase()}`;
 }
 
+/** Whether a stored row carries any route or stable posting identity. */
+function hasPublishedRouteIdentity(job = {}) {
+  if (!job || typeof job !== 'object') return false;
+  const slugByLocale = job.slugByLocale && typeof job.slugByLocale === 'object'
+    ? Object.values(job.slugByLocale)
+    : [];
+  const previousSlugsByLocale = job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
+    ? Object.values(job.previousSlugsByLocale).flatMap((slugs) => (
+      Array.isArray(slugs) ? slugs : []
+    ))
+    : [];
+  return [
+    job.url,
+    job.applyUrl,
+    job.slug,
+    job.id,
+    ...slugByLocale,
+    ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
+    ...previousSlugsByLocale,
+  ].some((value) => String(value || '').trim());
+}
+
 /**
  * Probe the jobs a shrinking write would drop and decide whether the source
  * itself corroborates the drop.
@@ -1455,15 +1477,24 @@ function buildProvidedHousekeepingProofSubset(priorJobs, newJobs, proofEntries) 
 
   const proofByKey = new Map();
   for (const entry of proofEntries) {
-    if (
-      entry?.definitive !== true
-      || typeof entry.job?.url !== 'string'
-      || !entry.job.url.trim()
-    ) return null;
+    if (entry?.definitive !== true || !entry.job) return null;
+    // A metadata-only row has no published URL, slug, ID, or locale route to
+    // preserve. It is already proven non-indexable by the thin-source
+    // quarantine itself, so requiring a source probe here would make the
+    // shrink guard retain the malformed row forever (#5253). Keep this escape
+    // narrow to that exact quarantine reason; a route-bearing job without a
+    // URL still needs the ordinary source proof below.
+    const metadataOnlyThinQuarantine = entry.reason === 'thin-source-quarantine'
+      && !hasPublishedRouteIdentity(entry.job);
+    if (!metadataOnlyThinQuarantine && (
+      typeof entry.job.url !== 'string' || !entry.job.url.trim()
+    )) return null;
     const key = shrinkJobKey(entry.job);
     const disappearedJob = disappearedByKey.get(key);
     if (!key || !disappearedJob || proofByKey.has(key)) return null;
-    if (entry.job.url !== disappearedJob.url) return null;
+    if (metadataOnlyThinQuarantine) {
+      if (hasPublishedRouteIdentity(disappearedJob)) return null;
+    } else if (entry.job.url !== disappearedJob.url) return null;
     proofByKey.set(key, entry);
   }
 
