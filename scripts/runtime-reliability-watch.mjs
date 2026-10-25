@@ -188,6 +188,18 @@ function validBuildId(value) {
 }
 
 /**
+ * Publish-window tokens are epoch milliseconds followed by a numeric process
+ * nonce. Keep the nonce opaque for ordering/identity, but use only the epoch
+ * prefix for stall age; otherwise a nonce-bearing token would look like a
+ * timestamp far in the future and could never become stalled.
+ */
+function publishTokenTimeMs(id) {
+  const text = String(id || '');
+  const timestamp = Number(text.length > 13 ? text.slice(0, 13) : text);
+  return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+/**
  * Classify the R2 mutation window independently from the site/CDN generation
  * pair. A start token newer than the last completed token means stable asset
  * URLs are being overwritten and origin bytes are not yet one generation.
@@ -216,7 +228,8 @@ export function classifyCdnPublishWindow({
     return { state: 'marker_regression', startId, completeId, ageMs: null };
   }
 
-  const ageMs = nowMs - Number(startId);
+  const startTimeMs = publishTokenTimeMs(startId);
+  const ageMs = startTimeMs === null ? null : nowMs - startTimeMs;
   return {
     state: Number.isFinite(ageMs) && ageMs > Math.max(0, Number(stallMs) || 0)
       ? 'stalled'

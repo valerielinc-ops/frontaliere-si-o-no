@@ -394,6 +394,8 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
     expect(PREP).toContain('_r2_revalidate_publish_window() {');
     expect(PREP).toContain('cdn-build-id.txt cdn-publish-start-id.txt cdn-publish-complete-id.txt');
     expect(PREP).toContain('[ "$_start" != "$_publish_token" ]');
+    expect(PREP).toContain('_publish_nonce');
+    expect(PREP).toContain('BASHPID');
     expect(PREP).toContain('--require-code-complete');
   });
 

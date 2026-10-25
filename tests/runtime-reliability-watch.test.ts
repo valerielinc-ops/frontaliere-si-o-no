@@ -60,6 +60,22 @@ describe('runtime reliability watchdog', () => {
     });
   });
 
+  it('keeps stall age based on the timestamp prefix of a nonce-bearing publish token', () => {
+    const now = Date.parse('2026-10-18T20:10:00Z');
+    const start = `${now - 10 * 60_000}123456`;
+    const previous = String(now - 60 * 60_000);
+    expect(classifyCdnPublishWindow({
+      startMarker: { ok: true, status: 200, body: start },
+      completeMarker: { ok: true, status: 200, body: previous },
+      nowMs: now,
+    })).toMatchObject({ state: 'in_progress', startId: start, completeId: previous, ageMs: 10 * 60_000 });
+    expect(classifyCdnPublishWindow({
+      startMarker: { ok: true, status: 200, body: `${now - 51 * 60_000}123456` },
+      completeMarker: { ok: true, status: 200, body: previous },
+      nowMs: now,
+    })).toMatchObject({ state: 'stalled' });
+  });
+
   it('does not read or purge mutable assets while a CDN publish is open', async () => {
     const now = Date.parse('2026-10-18T20:10:00Z');
     const calls: string[] = [];

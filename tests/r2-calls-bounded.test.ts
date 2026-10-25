@@ -278,6 +278,7 @@ case "\${args[0]}" in
           present) cp "$STUB_LEDGER_FILE" "$dst"; exit 0 ;;
         esac ;;
       :s3:*cdn-build-id.txt)
+        [ "\${STUB_MISSING_MARKERS:-0}" = 1 ] && exit 0
         build="\${STUB_BUILD_MARKER:-b-test}"
         if [ "\${STUB_PUBLISH_INCOMPLETE:-0}" = 1 ] && [ -z "\${STUB_BUILD_MARKER+x}" ]; then build=previous-build; fi
         printf '%s' "$build" > "$dst"
@@ -290,6 +291,7 @@ case "\${args[0]}" in
         fi
         exit 0 ;;
       :s3:*cdn-publish-complete-id.txt)
+        [ "\${STUB_MISSING_MARKERS:-0}" = 1 ] && exit 0
         if [ -s "$STUB_DIR/publish-start-written.txt" ]; then
           start="$(cat "$STUB_DIR/publish-start-written.txt")"
         else
@@ -375,9 +377,12 @@ function runPublish(name: string, env: Record<string, string>) {
   const bin = join(dir, 'bin');
   const stage = join(dir, 'stage');
   writeStubs(bin);
-  mkdirSync(join(stage, 'assets'), { recursive: true });
-  writeFileSync(join(stage, 'assets', 'a.js'), 'export const a = 2;\n');
-  writeFileSync(join(stage, 'assets', 'b.js'), 'export const b = 1;\n');
+  mkdirSync(stage, { recursive: true });
+  if (env.STUB_NO_ASSETS_DIR !== '1') {
+    mkdirSync(join(stage, 'assets'), { recursive: true });
+    writeFileSync(join(stage, 'assets', 'a.js'), 'export const a = 2;\n');
+    writeFileSync(join(stage, 'assets', 'b.js'), 'export const b = 1;\n');
+  }
   writeFileSync(join(stage, 'index.html'), '<!doctype html>');
   mkdirSync(join(stage, 'data'), { recursive: true });
   writeFileSync(join(stage, 'data', 'x.json'), '{}');
@@ -434,6 +439,9 @@ function runPublish(name: string, env: Record<string, string>) {
     calls: readFileSync(calls, 'utf8').split('\n').filter(Boolean),
     leaseCalls: readFileSync(leaseCalls, 'utf8').split('\n').filter(Boolean),
     ledger: existsSync(ledgerWritten) ? JSON.parse(readFileSync(ledgerWritten, 'utf8')) : null,
+    publishStart: existsSync(join(dir, 'publish-start-written.txt'))
+      ? readFileSync(join(dir, 'publish-start-written.txt'), 'utf8').trim()
+      : null,
   };
 }
 
@@ -912,6 +920,34 @@ describe('behaviour: an R2 call that never answers does not hang the CDN push', 
 });
 
 describe('behaviour: the ledger path end to end (stubbed R2, no network)', () => {
+  it('first publish with no prior markers: the owned bootstrap window can close', () => {
+    const r = runPublish('first-publish-bootstrap', {
+      STUB_LEDGER: 'absent',
+      STUB_ASSETS_LOG: COPIED_A,
+      STUB_MISSING_MARKERS: '1',
+      CF_API_TOKEN: 'test-token',
+      STUB_PURGE_STATUS: '0',
+    });
+    expect(r.code).toBe(0);
+    expect(r.publishStart).toMatch(/^\d{19}$/);
+    expect(r.stdout).toMatch(/bootstrap=1/);
+    expect(r.stdout).toMatch(/✅ synced CDN payload to R2/);
+    expect(completionMarkerPuts(r.calls)).toHaveLength(1);
+  });
+
+  it('successful no-op with an unavailable ledger and empty log still closes the marker', () => {
+    const r = runPublish('no-op-unreadable-ledger', {
+      STUB_LEDGER: 'hang',
+      STUB_ASSETS_LOG: '',
+      STUB_NO_ASSETS_DIR: '1',
+      STUB_MISSING_MARKERS: '1',
+    });
+    expect(r.code).toBe(0);
+    expect(r.stdout).toMatch(/assets\/ sync completed with no changed-key state/);
+    expect(r.stdout).toMatch(/✅ synced CDN payload to R2/);
+    expect(completionMarkerPuts(r.calls)).toHaveLength(1);
+  });
+
   it('ledger present + EMPTY upload log → the key a dead run uploaded is still selected', () => {
     const ledgerFile = join(SCRATCH, 'ledger-present.json');
     writeFileSync(

@@ -387,16 +387,21 @@ _publish_cdn_r2() {
   # partial origin from a missed edge purge and may spread the half-uploaded
   # generation to the edge.
   #
-  # The token is the upload start epoch (not DEPLOY_BUILD_ID, which is minted
-  # hours earlier at matrix setup). The matching completion marker is written
-  # only after the authoritative build marker succeeds AND the code purge
-  # succeeds. A killed/failed upload or partial purge therefore remains
-  # explicitly incomplete instead of looking purgeable.
-  local _publish_token _publish_marker_file
-  _publish_token="$(date +%s%3N)"
-  case "$_publish_token" in
-    ''|*[!0-9]*) _publish_token="$(date +%s)000" ;;
+  # The token starts with the upload epoch (not DEPLOY_BUILD_ID, which is
+  # minted hours earlier at matrix setup) and ends with the process nonce. The
+  # timestamp prefix keeps watchdog stall detection meaningful; the nonce
+  # keeps two uploads started in the same millisecond from owning the same
+  # window. The matching completion marker is written only after the
+  # authoritative build marker succeeds AND the code purge succeeds. A
+  # killed/failed upload or partial purge therefore remains explicitly
+  # incomplete instead of looking purgeable.
+  local _publish_token _publish_marker_file _publish_clock _publish_nonce
+  _publish_clock="$(date +%s%3N)"
+  case "$_publish_clock" in
+    ''|*[!0-9]*) _publish_clock="$(date +%s)000" ;;
   esac
+  _publish_nonce="$(printf '%06d' "$(( ${BASHPID:-$$} % 1000000 ))")"
+  _publish_token="${_publish_clock}${_publish_nonce}"
   _publish_marker_file="${RUNNER_TEMP:-/tmp}/cdn-publish-$$_${_publish_token}.txt"
   printf '%s' "$_publish_token" > "$_publish_marker_file"
   if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-start-id.txt" \
@@ -554,6 +559,7 @@ _publish_cdn_r2() {
     local _start_file="$_pdir/purge-start-id.txt"
     local _complete_file="$_pdir/purge-complete-id.txt"
     local _marker _dest _build _start _complete _markers_valid=1
+    local _build_missing=0 _complete_missing=0 _bootstrap=0
     for _marker in cdn-build-id.txt cdn-publish-start-id.txt cdn-publish-complete-id.txt; do
       case "$_marker" in
         cdn-build-id.txt) _dest="$_build_file" ;;
@@ -566,21 +572,34 @@ _publish_cdn_r2() {
         return 1
       fi
       if [ ! -s "$_dest" ]; then
-        echo "::warning::[r2] skipping targeted CDN purge: R2 marker $bkt/$_marker is missing or empty"
-        return 1
+        case "$_marker" in
+          cdn-build-id.txt) _build_missing=1 ;;
+          cdn-publish-complete-id.txt) _complete_missing=1 ;;
+          *)
+            echo "::warning::[r2] skipping targeted CDN purge: R2 marker $bkt/$_marker is missing or empty"
+            return 1
+            ;;
+        esac
       fi
     done
     _build="$(tr -d '[:space:]' < "$_build_file")"
     _start="$(tr -d '[:space:]' < "$_start_file")"
     _complete="$(tr -d '[:space:]' < "$_complete_file")"
+    if [ "$_build_missing" = 1 ] && [ "$_complete_missing" = 1 ]; then
+      _bootstrap=1
+    fi
     case "$_start" in ''|*[!0-9]*) _markers_valid=0 ;; esac
-    case "$_complete" in ''|*[!0-9]*) _markers_valid=0 ;; esac
-    if [ "$_markers_valid" != 1 ] || [ -z "$_build" ] || [ -z "${DEPLOY_BUILD_ID:-}" ] \
+    if [ "$_bootstrap" != 1 ]; then
+      case "$_complete" in ''|*[!0-9]*) _markers_valid=0 ;; esac
+      [ -n "$_build" ] || _markers_valid=0
+      [ -n "$_complete" ] || _markers_valid=0
+    fi
+    if [ "$_markers_valid" != 1 ] || [ -z "${DEPLOY_BUILD_ID:-}" ] \
       || [ "$_start" != "$_publish_token" ]; then
-      echo "::warning::[r2] skipping targeted CDN purge: publish window is not owned by this upload (build=${_build:-<empty>} expected-after-publish=${DEPLOY_BUILD_ID:-<empty>}, start=${_start:-<empty>} owner=${_publish_token:-<empty>}, complete=${_complete:-<empty>})"
+      echo "::warning::[r2] skipping targeted CDN purge: publish window is not owned by this upload (build=${_build:-<empty>} expected-after-publish=${DEPLOY_BUILD_ID:-<empty>}, start=${_start:-<empty>} owner=${_publish_token:-<empty>}, complete=${_complete:-<empty>}, bootstrap=$_bootstrap)"
       return 1
     fi
-    echo "::notice::[r2] CDN purge revalidated publish-window ownership (previous-build=$_build, next-build=$DEPLOY_BUILD_ID, start=$_start, complete=$_complete)"
+    echo "::notice::[r2] CDN purge revalidated publish-window ownership (previous-build=${_build:-<none>}, next-build=$DEPLOY_BUILD_ID, start=$_start, complete=${_complete:-<none>}, bootstrap=$_bootstrap)"
     return 0
   }
   _purge_r2_changed_assets() {
@@ -627,6 +646,13 @@ _publish_cdn_r2() {
           echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — publish marker withheld; edge falls back to the 7d max-age"
         fi
       fi
+    elif [ "$assets_sync_ok" = 1 ]; then
+      # A successful assets sync with neither a readable ledger nor an upload
+      # log can only be a no-op/data-only publish (there is no stage/assets
+      # state to diff). Keep the marker path live; the final ownership read
+      # below still protects against a concurrent publisher.
+      echo "::notice::[r2] assets/ sync completed with no changed-key state — no targeted purge required"
+      _purge_ok=1
     elif [ "$assets_sync_ok" != 1 ]; then
       echo "⚠️ [r2] assets/ sync failed — no edge purge this run; with a ledger, what it did upload stays dirty for the next deploy"
     fi
