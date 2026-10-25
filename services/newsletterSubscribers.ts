@@ -262,6 +262,13 @@ export type NewsletterUpsertInput = {
   */
  skipConfirmationEmail?: boolean;
  /**
+  * This is an access-link request, not a request to rewrite an existing
+  * relationship. When the address already has an active subscription, the
+  * anonymous prompt must read its state and leave the consent/state record
+  * untouched; Firestore rules deliberately reject that rewrite.
+  */
+ accessOnly?: boolean;
+ /**
   * How the last-touch attribution fields (`source_page`, `source_cta`,
   * `source_component`, `source_route_family`) merge with an existing row.
   * `overwrite` (default) is a real touch: the input replaces them. `fill`
@@ -367,6 +374,8 @@ export type UnifiedEmailConsentInput = {
   registrationMethod?: 'email' | 'authenticated';
   /** This wrapper is used by visible feature/subscription actions. */
   explicitConsentAction?: boolean;
+  /** The caller only needs an access link when an active relationship exists. */
+  accessOnly?: boolean;
 };
 
 export type NewsletterEventInput = {
@@ -461,6 +470,7 @@ export function unifiedEmailConsentInput(input: UnifiedEmailConsentInput): Newsl
     consentPurpose: UNIFIED_EMAIL_CONSENT_PURPOSE,
     explicitConsentAction,
     ...registrationTermsProof(locale, true),
+    ...(input.accessOnly ? { accessOnly: true } : {}),
   };
 }
 
@@ -1377,6 +1387,32 @@ export async function captureNewsletterSubscriber(
  const existing = await getDoc(ref);
  const existingData = existing.exists() ? existing.data() : undefined;
  const addressSuppressedBeforeWrite = isAddressSuppressed(existingData?.status);
+
+  // The save/follow prompt is also an access-link surface. An anonymous
+  // visitor may type an address that already belongs to a confirmed
+  // subscriber, but must not replay the registration payload against that
+  // document: it would touch consent/state fields and Firestore correctly
+  // rejects the write. Return the existing state so the caller can request the
+  // passwordless login link instead. Pending/suppressed rows still go through
+  // the normal DOI/re-consent path below.
+  const accessOnlyExistingActive = input.accessOnly === true
+   && existing.exists()
+   && !addressSuppressedBeforeWrite
+   && (
+    existingData?.status === 'confirmed'
+    || existingData?.status === 'subscribed'
+    || existingData?.isActive === true
+    || existingData?.active === true
+   );
+  if (accessOnlyExistingActive) {
+   return {
+    existed: true,
+    id: email,
+    status: existingData?.status === 'subscribed' ? 'subscribed' : 'confirmed',
+    optedOut: isNewsletterOptOutBinding(existingData),
+    hadConfirmationProof: hasConfirmationProof(existingData),
+   };
+  }
 
  const authenticatedRegistration = isAuthenticatedRegistration(input);
  const optOutBindingBeforeWrite = isNewsletterOptOutBinding(existingData);

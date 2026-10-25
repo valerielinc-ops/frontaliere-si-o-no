@@ -63,6 +63,13 @@ describe('jobgate contract constants', () => {
     expect(defaults).toContain("JOBGATE_EXPERIMENT_FORCE: '',");
     expect(PUBLIC_CONFIG_KEYS).not.toContain(JOBGATE_STARTED_AT_KEY);
   });
+
+  it('treats an omitted empty force key as the intentional no-override state', () => {
+    const src = read('services/firebase.ts');
+    expect(src).toContain("const OPTIONAL_EMPTY_CONFIG_KEYS = new Set([");
+    expect(src).toContain("'JOBGATE_V5_EXPERIMENT_FORCE',");
+    expect(src).toContain('if (OPTIONAL_EMPTY_CONFIG_KEYS.has(key)) return \'\';');
+  });
 });
 
 describe('deterministic assignment', () => {

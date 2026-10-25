@@ -474,6 +474,41 @@ describe('the record of the act: displayed only when shown, surface, language, c
     const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, any>;
     expect(event.metadata).not.toHaveProperty('consent');
   });
+
+  it('does not rewrite an active row from an anonymous access-link prompt', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'known@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        confirmed_at: 'then',
+        registration_terms_accepted: true,
+        consent_text: 'formula precedente',
+        consent_text_displayed: true,
+      }),
+    });
+
+    const result = await captureNewsletterSubscriber({} as any, {
+      email: 'known@example.com',
+      source: 'company_follow_button',
+      sourceChannel: 'company_follow_unified',
+      accessOnly: true,
+      registrationTermsAccepted: true,
+      explicitConsentAction: true,
+      registrationMethod: 'email',
+    });
+
+    expect(result).toMatchObject({
+      existed: true,
+      id: 'known@example.com',
+      status: 'confirmed',
+      hadConfirmationProof: true,
+    });
+    expect(setDocMock).not.toHaveBeenCalled();
+    expect(addDocMock).not.toHaveBeenCalled();
+  });
 });
 
 describe('consent_ip — the network the consent came from (#5676)', () => {
