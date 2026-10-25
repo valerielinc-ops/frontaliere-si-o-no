@@ -1197,7 +1197,15 @@ jobs:
           HREFlANG_RUN_ATTEMPT: ${{ github.run_attempt }}
         run: |
           set -euo pipefail
-          deadline=$((SECONDS + 900))
+          # The four locale legs do not finish in lockstep. On run
+          # 40148557373 the first manifest was saved 33 minutes before the
+          # last one; the old 900-second budget killed valid legs while they
+          # were waiting for the slowest sibling. Keep a bounded wait below
+          # the 360-minute job timeout so a genuinely missing manifest still
+          # fails without rejecting ordinary build skew.
+          barrier_timeout_seconds=7200
+          poll_interval_seconds=30
+          deadline=$((SECONDS + barrier_timeout_seconds))
           while :; do
             complete=1
             for locale in it en de fr; do
@@ -1216,7 +1224,7 @@ jobs:
               echo "::error::same-run hreflang manifest barrier timed out"
               exit 1
             fi
-            sleep 10
+            sleep "$poll_interval_seconds"
           done
 
       - name: Restore same-run hreflang index manifest (it)

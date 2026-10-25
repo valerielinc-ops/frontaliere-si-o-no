@@ -745,6 +745,28 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
   });
 });
 
+describe('deploy.yml — same-run hreflang barrier budget', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const buildLocale = workflow.jobs['build-locale'];
+  const barrier = buildLocale.steps.find(
+    (step: Record<string, any>) => step.name === 'Wait for complete same-run hreflang manifest set',
+  );
+
+  it('leaves enough time for the slowest locale while staying below the job timeout', () => {
+    expect(barrier, 'deploy.yml: manca la barriera hreflang same-run').toBeDefined();
+    const run = String(barrier.run);
+    const timeoutMatch = run.match(/barrier_timeout_seconds=(\d+)/);
+    expect(timeoutMatch, 'la barriera deve dichiarare un budget numerico esplicito').not.toBeNull();
+
+    const barrierTimeoutSeconds = Number(timeoutMatch![1]);
+    expect(barrierTimeoutSeconds, '900s non copre lo skew fra le locale del deploy').toBeGreaterThanOrEqual(3600);
+    expect(barrierTimeoutSeconds).toBeLessThan(Number(buildLocale['timeout-minutes']) * 60);
+    expect(run).toContain('poll_interval_seconds=30');
+    expect(run).toContain('sleep "$poll_interval_seconds"');
+    expect(run).not.toContain('SECONDS + 900');
+  });
+});
+
 describe('deploy.yml — shard push mode and advisory delta verification', () => {
   const workflow = YAML.parse(DEPLOY_YML) as any;
   const publishWorkflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
