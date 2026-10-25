@@ -25,13 +25,36 @@ describe('mergeOverlay', () => {
   it('drops an overlay entry the bundle already has — this build wins', () => {
     const r = mergeOverlay(bundled, [{ id: 'vecchio-1', title: 'RISCRITTO' }], 'it');
     expect(r.added).toBe(0);
+    expect(r.updated).toBe(0);
     expect(r.articles).toBe(bundled);
     expect(t('blog.article.vecchio-1.title')).not.toBe('RISCRITTO');
+  });
+
+  it('fills missing trust metadata without replacing the bundled title', () => {
+    const bundledArticle = [{ id: 'vecchio-1', title: 'Titolo canonico' }];
+    const r = mergeOverlay(bundledArticle, [{
+      id: 'vecchio-1',
+      title: 'Titolo da cache overlay',
+      authorSlug: 'samuele-valente',
+      authorName: 'Samuele Valente',
+      aiAssisted: true,
+    }], 'it');
+
+    expect(r.added).toBe(0);
+    expect(r.updated).toBe(1);
+    expect(r.articles).toEqual([{
+      id: 'vecchio-1',
+      title: 'Titolo canonico',
+      authorSlug: 'samuele-valente',
+      authorName: 'Samuele Valente',
+      aiAssisted: true,
+    }]);
   });
 
   it('is a no-op on an empty overlay', () => {
     const r = mergeOverlay(bundled, [], 'it');
     expect(r.added).toBe(0);
+    expect(r.updated).toBe(0);
     expect(r.articles).toBe(bundled);
   });
 });

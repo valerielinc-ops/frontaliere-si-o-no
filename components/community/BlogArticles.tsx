@@ -1485,8 +1485,8 @@ function BlogArticlesContent({
  );
  void fetchArticleOverlay(section, getLocale(), data.length, bundledNewest || undefined).then(async (overlay) => {
    if (cancelled) return;
-   const { articles: merged, added } = mergeOverlay(seededArticles, overlay, getLocale());
-   if (added === 0) {
+   const { articles: merged, added, updated } = mergeOverlay(seededArticles, overlay, getLocale());
+   if (added === 0 && updated === 0) {
     setRegistryAttemptState({ key: requestRegistryKey, status: 'complete' });
     return;
    }
@@ -2363,9 +2363,13 @@ function BlogArticlesContent({
  // (the registry default for a separately sourced contributor). The
  // declaration exists because a registry entry alone cannot answer a
  // per-article provenance question — see services/articleProvenance.ts.
- const bylineAuthor = (effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined) as { uid?: string } | undefined;
+ // An admin byline override changes the displayed attribution, not the fact
+ // of how this article was drafted. The static renderer cannot see that CSR
+ // override, so provenance must stay anchored to the canonical article record
+ // or static and hydrated disclosure will disagree after the override lands.
+ const canonicalAuthor = (article.authorSlug ? getAuthorBySlug(article.authorSlug) : undefined) as { uid?: string } | undefined;
  const resolvedAuthor = {
-  provenance: resolveArticleProvenance(article, bylineAuthor),
+  provenance: resolveArticleProvenance(article, canonicalAuthor),
  };
  // One statement resolver is used by the static article HTML too, so a
  // hydration round-trip cannot change the disclosure on whitespace or locale

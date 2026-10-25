@@ -20,7 +20,8 @@
  * overlay", and the caller renders exactly what it renders today. The overlay
  * can only ADD articles the bundle does not have and can only FILL titles that
  * are absent — it never overwrites what this build shipped, so a stale index
- * cannot rewrite a published page's metadata.
+ * cannot rewrite a published page's metadata. Optional trust metadata is
+ * filled when a legacy bundled row does not have it, but is never replaced.
  */
 
 import { cdnDataUrl, cdnFreshUrl } from '@/services/cdnDataBase';
@@ -225,19 +226,49 @@ export async function fetchArticleOverlay(
  * with no change.
  *
  * `known` is matched on `id`. An overlay entry whose id the bundle already has
- * is dropped whole: this build's own record is authoritative for anything it
- * shipped.
+ * cannot replace the bundled title or content, but it may fill trust metadata
+ * that a legacy bundle did not carry yet.
  */
 export function mergeOverlay<T extends { id: string }>(
   bundled: readonly T[],
   overlay: readonly OverlayArticle[],
   locale: Locale,
-): { articles: T[]; added: number } {
-  if (overlay.length === 0) return { articles: bundled as T[], added: 0 };
+): { articles: T[]; added: number; updated: number } {
+  if (overlay.length === 0) return { articles: bundled as T[], added: 0, updated: 0 };
 
   const known = new Set(bundled.map((a) => a.id));
   const fresh = overlay.filter((a) => !known.has(a.id));
-  if (fresh.length === 0) return { articles: bundled as T[], added: 0 };
+
+  // A row already shipped in the bundle remains authoritative for title and
+  // content. It is not authoritative for optional trust metadata that was
+  // introduced after that build, though: dropping the whole overlay row here
+  // made an explicit `aiAssisted` declaration disappear on hydration. Fill
+  // only fields whose bundled value is absent or malformed, using the same
+  // author-registry fallback as fresh overlay rows.
+  const overlayById = new Map(overlay.map((entry) => [entry.id, entry]));
+  let updated = 0;
+  const enrichedBundled = bundled.map((article) => {
+    const entry = overlayById.get(article.id);
+    if (!entry) return article;
+
+    const candidate = articleFromOverlay(entry);
+    const patch: Partial<Pick<OverlayArticle, 'authorSlug' | 'authorName' | 'aiAssisted'>> = {};
+    const current = article as T & Pick<OverlayArticle, 'authorSlug' | 'authorName' | 'aiAssisted'>;
+    if ((typeof current.authorSlug !== 'string' || !current.authorSlug.trim()) && candidate.authorSlug) {
+      patch.authorSlug = candidate.authorSlug;
+    }
+    if ((typeof current.authorName !== 'string' || !current.authorName.trim()) && candidate.authorName) {
+      patch.authorName = candidate.authorName;
+    }
+    if (typeof current.aiAssisted !== 'boolean' && typeof candidate.aiAssisted === 'boolean') {
+      patch.aiAssisted = candidate.aiAssisted;
+    }
+    if (Object.keys(patch).length === 0) return article;
+    updated += 1;
+    return { ...article, ...patch } as T;
+  });
+
+  if (fresh.length === 0 && updated === 0) return { articles: bundled as T[], added: 0, updated: 0 };
 
   const translations: Record<string, string> = {};
   for (const a of fresh) {
@@ -250,6 +281,6 @@ export function mergeOverlay<T extends { id: string }>(
   if (locale !== 'it') mergeArticleMetaOverlay('it', translations);
 
   // Newest first, matching how the index is published and how a list reads.
-  const merged = [...(fresh as unknown as T[]), ...bundled];
-  return { articles: merged, added: fresh.length };
+  const merged = [...(fresh as unknown as T[]), ...enrichedBundled];
+  return { articles: merged, added: fresh.length, updated };
 }

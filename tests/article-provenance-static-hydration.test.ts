@@ -18,6 +18,21 @@ describe('article provenance static-to-SPA contract', () => {
       .toEqual({ aiAssisted: false, basis: 'declared' });
   });
 
+  it('anchors legacy fallback provenance to the canonical author, not a CSR byline override', () => {
+    const canonicalAuthor = {};
+    const runtimeBylineOverride = { uid: 'runtime-byline-only' };
+
+    expect(resolveArticleProvenance({}, canonicalAuthor))
+      .toEqual({ aiAssisted: true, basis: 'inferred-from-uid' });
+    expect(resolveArticleProvenance({}, runtimeBylineOverride))
+      .toEqual({ aiAssisted: false, basis: 'inferred-from-uid' });
+
+    const spaSrc = readFileSync(join(ROOT, 'components/community/BlogArticles.tsx'), 'utf-8');
+    expect(spaSrc).toMatch(/const canonicalAuthor = .*getAuthorBySlug\(article\.authorSlug\)/);
+    expect(spaSrc).toMatch(/provenance:\s*resolveArticleProvenance\(article,\s*canonicalAuthor\)/);
+    expect(spaSrc).not.toMatch(/provenance:\s*resolveArticleProvenance\(article,\s*bylineAuthor\)/);
+  });
+
   it('keeps an explicit non-AI declaration human even without a usable name', () => {
     expect(shouldRenderHumanDisclosure({ aiAssisted: false, basis: 'declared' }, 'Ada')).toBe(true);
     expect(shouldRenderHumanDisclosure({ aiAssisted: false, basis: 'declared' }, '   ')).toBe(false);
@@ -65,7 +80,7 @@ describe('article provenance static-to-SPA contract', () => {
     expect(overlaySrc).toMatch(/typeof entry\.aiAssisted === 'boolean' \? \{ aiAssisted: entry\.aiAssisted \}/);
     expect(overlaySrc).toMatch(/typeof entry\.authorName === 'string' \? entry\.authorName\.trim\(\) : ''/);
     expect(overlaySrc).toMatch(/authorSlug \? getAuthorBySlug\(authorSlug\)\?\.name/);
-    expect(spaSrc).toMatch(/provenance: resolveArticleProvenance\(article, bylineAuthor\)/);
+    expect(spaSrc).toMatch(/provenance:\s*resolveArticleProvenance\(article,\s*canonicalAuthor\)/);
     expect(spaSrc).toMatch(/resolveArticleTransparencyStatement\(\s*locale,\s*resolvedAuthor\.provenance,\s*effectiveAuthorName,/);
   });
 });
