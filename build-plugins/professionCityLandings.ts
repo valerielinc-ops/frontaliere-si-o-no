@@ -410,9 +410,9 @@ export function renderProfessionCityPage(opts: {
 ${header}
 ${tiles}
 ${salary.noteHtml}
-${journeyHtml}
 ${DRIVEBY_AD_SNIPPET}
 ${employers}
+${journeyHtml}
 ${insights}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cityDisplay))} →</a></p>
 ${professionCityInlineAd}</div>`;

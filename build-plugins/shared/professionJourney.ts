@@ -26,7 +26,7 @@ export interface ProfessionJourneyOptions {
   hrefs: Record<ProfessionJourneyStep, string>;
   /** The requirements step points to real matching listings rather than a local requirements section. */
   requirementsInListings?: boolean;
-  /** Use a concise visible scope label where repeated explanatory prose would be boilerplate. */
+  /** Render compact pill navigation and a concise net-salary label where repeated prose would be boilerplate. */
   compactNetScope?: boolean;
   /** True only when `hrefs.net` contains an observed, provenance-checked gross salary. */
   netSalaryPrefilled: boolean;
@@ -229,21 +229,43 @@ export function renderProfessionJourney(options: ProfessionJourneyOptions): stri
   const roleKey = analyticsKey(options.professionKey);
   const heading = options.roleLabel ? copy.headingForRole(options.roleLabel) : copy.heading;
   const ariaLabel = options.roleLabel ? `${copy.ariaLabel}: ${options.roleLabel}` : copy.ariaLabel;
-  const steps = STEP_ORDER.map((step, index) => `
+  const compact = options.compactNetScope === true;
+  const steps = STEP_ORDER.map((step, index) => {
+    const label = step === 'requirements' && options.requirementsInListings
+      ? copy.requirementsInListings
+      : step === 'net'
+        ? (compact ? copy.netEstimateCompact : options.netSalaryPrefilled ? copy.netWithReportedSalary : copy.netNeedsInput)
+        : copy.steps[step];
+    const linkClass = compact
+      ? 'inline-flex min-h-11 items-center gap-2 rounded-full border border-edge bg-surface-raised px-3 py-2 text-sm font-semibold leading-tight text-heading hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent'
+      : 'flex min-h-11 items-center gap-2 rounded-md border border-edge bg-surface-raised px-3 py-2 text-sm font-semibold text-heading hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent';
+    const number = compact
+      ? ''
+      : `<span aria-hidden="true" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-subtle text-xs text-accent">${index + 1}</span>`;
+    const scopeNote = step === 'net' && !compact
+      ? `<span class="mt-1 block text-xs font-normal text-subtle">${escapeHtml(copy.netScopeNote)}</span>`
+      : '';
+    return `
       <li>
-        <a href="${escapeHtml(options.hrefs[step])}"${step === 'net' ? ` aria-label="${escapeHtml(options.netSalaryPrefilled ? copy.netReportedAriaLabel : copy.netNeedsInputAriaLabel)}"` : ''} data-analytics-label="profession_journey:${roleKey}:${step}" class="flex min-h-11 items-center gap-2 rounded-md border border-edge bg-surface-raised px-3 py-2 text-sm font-semibold text-heading hover:border-accent">
-          <span aria-hidden="true" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-subtle text-xs text-accent">${index + 1}</span>
-          <span class="min-w-0">${escapeHtml(step === 'requirements' && options.requirementsInListings
-            ? copy.requirementsInListings
-            : step === 'net'
-            ? (options.compactNetScope ? copy.netEstimateCompact : options.netSalaryPrefilled ? copy.netWithReportedSalary : copy.netNeedsInput)
-            : copy.steps[step])}${step === 'net' && !options.compactNetScope ? `<span class="mt-1 block text-xs font-normal text-subtle">${escapeHtml(copy.netScopeNote)}</span>` : ''}</span>
+        <a href="${escapeHtml(options.hrefs[step])}"${step === 'net' ? ` aria-label="${escapeHtml(options.netSalaryPrefilled ? copy.netReportedAriaLabel : copy.netNeedsInputAriaLabel)}"` : ''} data-analytics-label="profession_journey:${roleKey}:${step}" class="${linkClass}">
+          ${number}
+          <span class="min-w-0">${escapeHtml(label)}${scopeNote}</span>
         </a>
-      </li>`).join('');
+      </li>`;
+  }).join('');
+  const listClass = compact
+    ? 'm-0 flex list-none flex-wrap gap-2 p-0'
+    : 'm-0 grid list-none grid-cols-2 gap-2 p-0 sm:grid-cols-5';
+  const navClass = compact
+    ? 'my-4 rounded-lg border border-edge bg-surface px-3 py-2'
+    : 'my-4 rounded-lg border border-edge bg-surface p-3';
+  const headingClass = compact
+    ? 'mb-2 text-xs font-semibold uppercase tracking-wide text-subtle'
+    : 'mb-2 text-sm font-bold text-heading';
 
-  return `<nav class="my-4 rounded-lg border border-edge bg-surface p-3" data-profession-journey="${escapeHtml(roleKey)}" aria-label="${escapeHtml(ariaLabel)}">
-    <p class="mb-2 text-sm font-bold text-heading">${escapeHtml(heading)}</p>
-    <ol class="m-0 grid list-none grid-cols-2 gap-2 p-0 sm:grid-cols-5">${steps}
+  return `<nav class="${navClass}" data-profession-journey="${escapeHtml(roleKey)}" aria-label="${escapeHtml(ariaLabel)}">
+    <p class="${headingClass}">${escapeHtml(heading)}</p>
+    <ol class="${listClass}">${steps}
     </ol>
   </nav>`;
 }
