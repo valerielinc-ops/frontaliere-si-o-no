@@ -1646,6 +1646,8 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const genericQuestion = { ...field, id: 'target-employer-generic', label: 'Do you work / have you worked for us?' };
     expect(targetEmployerNoOption(genericQuestion, otherEmployer)).toEqual({ label: 'Nein' });
     expect(targetEmployerNoOption({ ...genericQuestion, label: 'Are you already employed?' }, otherEmployer)).toBeNull();
+    expect(targetEmployerNoOption({ ...genericQuestion, label: 'Sind Sie bereits Mitarbeiter/in?' }, otherEmployer)).toBeNull();
+    expect(targetEmployerNoOption({ ...genericQuestion, label: 'Ich bin bereits Mitarbeiter/in' }, otherEmployer)).toEqual({ label: 'Nein' });
     const ambiguousEmployer = candidateForForm({
       identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
       profile: { employers: ['Acme Consulting'] },

@@ -260,7 +260,7 @@ export function currentEmploymentOption(field, candidate) {
   return yes.length === 1 && no.length === 1 ? yes[0] : null;
 }
 
-const TARGET_EMPLOYER_QUESTION_RE = /\b(?:do\s+you\s+(?:currently\s+)?work(?:\s*\/\s*have\s+you\s+(?:ever\s+)?worked)?|have\s+you\s+(?:ever\s+)?worked)\s+for\s+us\b|\b(?:already\s+(?:an?\s+)?employee\s+(?:of|with|at)\s+us|bereits\s+mitarbeiter(?:[/-]?in)?|mitarbeiter(?:[/-]?in)?\s+bei\s+uns|d[ée]j[àa]\s+(?:un[e]?\s+)?employ[ée]e?\s+(?:chez\s+nous|dans\s+notre\s+entreprise)|(?:gi[àa]\s+)?(?:un[e]?\s+)?(?:dipendente|collaborator[ae]?)\s+(?:da|presso|per|con)\s+(?:noi|questa\s+azienda|l['’]?azienda))\b/i;
+const TARGET_EMPLOYER_QUESTION_RE = /\b(?:do\s+you\s+(?:currently\s+)?work(?:\s*\/\s*have\s+you\s+(?:ever\s+)?worked)?|have\s+you\s+(?:ever\s+)?worked)\s+for\s+us\b|\b(?:already\s+(?:an?\s+)?employee\s+(?:of|with|at)\s+us|ich\s+bin\s+bereits\s+mitarbeiter(?:[/-]?in)?|mitarbeiter(?:[/-]?in)?\s+bei\s+uns|d[ée]j[àa]\s+(?:un[e]?\s+)?employ[ée]e?\s+(?:chez\s+nous|dans\s+notre\s+entreprise)|(?:gi[àa]\s+)?(?:un[e]?\s+)?(?:dipendente|collaborator[ae]?)\s+(?:da|presso|per|con)\s+(?:noi|questa\s+azienda|l['’]?azienda))\b/i;
 const NO_EMPLOYER_OPTION_RE = /^(?:no|nein|non|ne)$/i;
 const EMPLOYER_LEGAL_SUFFIX_RE = /\b(?:ag|sa|sarl|gmbh|ltd|llc|inc|spa|srl|sas|kg|se|co|company|compagnie|gesellschaft)\b/gi;
 
