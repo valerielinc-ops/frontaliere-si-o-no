@@ -21,6 +21,15 @@ import { registrableDomain } from '../scripts/lib/prospector/registrable.mjs';
 import { isSlashSeparatedMultiLocation } from '../scripts/lib/job-location-display.mjs';
 import { isPartTimeWorkload, workloadPercent } from '../scripts/lib/employment-workload.mjs';
 
+// Keep shared helpers available from this browser module for independently
+// cached SPA chunks emitted by earlier builds.
+export {
+ PART_TIME_MAX_WORKLOAD,
+ statedWorkloadPercent,
+} from '../scripts/lib/employment-workload.mjs';
+export { formatJobLocation } from '../scripts/lib/job-location-display.mjs';
+export { sameOrg } from '../scripts/lib/prospector/registrable.mjs';
+
 type JobLike = {
  company?: string;
  companyKey?: string | null;
