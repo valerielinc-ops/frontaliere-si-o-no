@@ -8,13 +8,14 @@
  * crawler's union used by IndexNow and snapshot consumers.
  */
 import { parseSitemapXml } from './sitemap-crawl.mjs';
+import { htmlHasActiveJobPosting } from './active-jobposting-coverage.mjs';
 
 const LIVE_BASE_URL = (process.env.LIVE_BASE_URL || 'https://frontaliereticino.ch').replace(/\/+$/, '');
 
 // A job-detail path is a single slug segment under any locale's canton-aware
 // job root. Hubs share that shape but are not listings — exclude them below.
 export const JOB_DETAIL_PATH_RE = /^\/(?:cerca-lavoro-[a-z0-9-]+|en\/find-jobs-[a-z0-9-]+|de\/jobs-(?:im|in)-[a-z0-9-]+|fr\/trouver-emploi-[a-z0-9-]+)\/[^/]+\/$/i;
-const NON_DETAIL_PREFIX_RE = /\/(?:azienda-|company-|unternehmen-|entreprise-|settori|categoria-|category-|kategorie-|categorie-|ricerca-|recherche-|search-|suche-|pagina-|page-|seite-)/i;
+const NON_DETAIL_EXACT_SLUG_RE = /^(?:tutti|all|alle|tous|aziende|companies|unternehmen|entreprises|settori|sectors|branchen|secteurs|categoria|category|kategorie|categorie|ricerca|recherche|search|suche|(?:pagina|page|seite)-\d+)$/i;
 
 function livePathFromUrl(value, baseUrl = LIVE_BASE_URL) {
   let parsed;
@@ -35,7 +36,8 @@ function livePathFromUrl(value, baseUrl = LIVE_BASE_URL) {
  * `urls` intentionally remains a primary-plus-hreflang union for the generic
  * crawler. This live-gate consumer must select `primaryUrls`, otherwise every
  * localized alternate becomes another HTTP probe and can be mistaken for a
- * second job.
+ * second job. Prefix-shaped slugs are left to the HTML JobPosting contract:
+ * a real job slug may itself begin with `company-` or `azienda-`.
  */
 export function extractJobDetailPathsFromSitemapXml(xml, baseUrl = LIVE_BASE_URL) {
   let parsed;
@@ -48,12 +50,19 @@ export function extractJobDetailPathsFromSitemapXml(xml, baseUrl = LIVE_BASE_URL
 
   const paths = [];
   const seen = new Set();
-  for (const url of parsed.primaryUrls) {
+  const primaryUrls = parsed.primaryUrls;
+  for (const url of primaryUrls) {
     const path = livePathFromUrl(url, baseUrl);
-    if (!path || !JOB_DETAIL_PATH_RE.test(path) || NON_DETAIL_PREFIX_RE.test(path)) continue;
+    const slug = path?.split('/').filter(Boolean).at(-1) || '';
+    if (!path || !JOB_DETAIL_PATH_RE.test(path) || NON_DETAIL_EXACT_SLUG_RE.test(slug)) continue;
     if (seen.has(path)) continue;
     seen.add(path);
     paths.push(path);
   }
   return paths;
+}
+
+/** The live probe accepts only a rendered active listing, not a static hub. */
+export function isActiveJobDetailHtml(html) {
+  return /<main[\s>]/i.test(String(html || '')) && htmlHasActiveJobPosting(html);
 }

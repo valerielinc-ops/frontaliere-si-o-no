@@ -4,7 +4,7 @@ import { extractJobDetailPathsFromSitemapXml } from '../tests/e2e/lib/live-jobs'
 const BASE = 'https://frontaliereticino.ch';
 
 describe('live job sitemap discovery', () => {
-  it('reads active canton-aware details from the canonical job sitemap and ignores hubs', () => {
+  it('reads canonical candidates and leaves prefix-shaped slugs to HTML validation', () => {
     const xml = `<?xml version="1.0"?>
       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
         <url>
@@ -18,9 +18,18 @@ describe('live job sitemap discovery', () => {
       </urlset>`;
 
     expect(extractJobDetailPathsFromSitemapXml(xml)).toEqual([
+      '/cerca-lavoro-ticino/azienda-acme/',
       '/cerca-lavoro-ticino/tecnico-attivo/',
       '/cerca-lavoro-zurigo/tecnico-zurigo/',
       '/de/jobs-in-zurich/techniker-zurich/',
+      '/de/jobs-in-zurich/unternehmen-acme/',
+    ]);
+  });
+
+  it('keeps a real job slug containing a reserved-looking prefix', () => {
+    const xml = `<urlset><url><loc>${BASE}/cerca-lavoro-ticino/company-manager/</loc></url></urlset>`;
+    expect(extractJobDetailPathsFromSitemapXml(xml)).toEqual([
+      '/cerca-lavoro-ticino/company-manager/',
     ]);
   });
 

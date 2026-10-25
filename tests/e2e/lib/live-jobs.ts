@@ -1,6 +1,7 @@
 import type { Page } from 'playwright/test';
 import {
   extractJobDetailPathsFromSitemapXml,
+  isActiveJobDetailHtml,
   JOB_DETAIL_PATH_RE,
 } from '../../../scripts/lib/live-job-sitemap.mjs';
 export { extractJobDetailPathsFromSitemapXml, JOB_DETAIL_PATH_RE } from '../../../scripts/lib/live-job-sitemap.mjs';
@@ -104,9 +105,9 @@ export async function listActiveJobDetailPaths(
       .catch(() => null);
     if (!res || res.status() !== 200) continue;
     const html = await res.text();
-    // Expired soft-landings wrap content in <article class="ft-static-article">
-    // and never hydrate a <main>. Skip them.
-    if (!/<main[\s>]/i.test(html)) continue;
+    // Expired soft-landings and static hubs can both respond 200. The shared
+    // boundary requires the same active JobPosting contract as the build gate.
+    if (!isActiveJobDetailHtml(html)) continue;
     if (opts.requireCompanyLink && !COMPANY_HUB_HREF_RE.test(html)) continue;
     active.push(path);
   }
