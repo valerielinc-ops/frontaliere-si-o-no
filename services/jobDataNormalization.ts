@@ -94,6 +94,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'air-zermatt': '/images/brands/air-zermatt.png',
  'alcon': cLogo('alcon.com'),
  'aldi-suisse': '/images/brands/aldi-suisse.png',
+ 'alfa-personal-ch': 'https://www.alfa-personal.ch/wp-content/uploads/2025/02/cropped-favicon-150x150.png',
  'alpiq': cLogo('alpiq.com'),
  'alten-switzerland': gFavicon('alten.ch'),
  'amag-group': '/images/brands/amag-group.png',

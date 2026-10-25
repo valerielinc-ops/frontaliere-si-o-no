@@ -4,20 +4,20 @@
   "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "44bb85fc2f609e986acc4bb811741d912e3c8474",
+  "sourceCommit": "e442254323c335885536da323045008b9aaaf3ba",
   "artifactObservation": {
     "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
     "sourceRef": "main",
-    "sourceCommit": "44bb85fc2f609e986acc4bb811741d912e3c8474"
+    "sourceCommit": "e442254323c335885536da323045008b9aaaf3ba"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 652,
+  "crawlerCount": 653,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:71f4ec3385fedc40fc796f55c027beeee3562d7da6de789621683aacc54c856e",
+    "rosterDigest": "sha256:fbb285d0cdd3795a444b9a6cb877668ec258d220f4267246ff08671197f48e7f",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -88,6 +88,7 @@
     "scripts/update-agroscope-jobs.mjs",
     "scripts/update-albergo-gardenia-jobs.mjs",
     "scripts/update-alcon-jobs.mjs",
+    "scripts/update-alfa-personal-ch-jobs.mjs",
     "scripts/update-ameos-ch-jobs.mjs",
     "scripts/update-amina-bank-jobs.mjs",
     "scripts/update-amstein-walthert-jobs.mjs",
@@ -1107,8 +1108,8 @@
     {
       "file": "crawler-group-13.yml",
       "sourceLogic": "crawler-group-13-logic.yml",
-      "sourceSha256": "fe38c1e7b16e7cdbf90ea2cf81907c69cd4527e88b284d44da76f5ef6bc0776e",
-      "artifactSha256": "230b6c57ec053d96b1f5ed528f6737e674a5d313b413b3cbe69a23c3ae61be13",
+      "sourceSha256": "cd0b0f399d0de2e517f4414ba965a331631daa51bee72d101a90da77a42bd877",
+      "artifactSha256": "d37d870ebf497c908ddb7ed8626a031ba8a86a02d83d805e43847b70cd553bc6",
       "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
       "members": [
         "pwc",
@@ -1139,7 +1140,8 @@
         "1a-hunkeler",
         "abraxas",
         "afry",
-        "buehler"
+        "buehler",
+        "alfa-personal-ch"
       ]
     },
     {
