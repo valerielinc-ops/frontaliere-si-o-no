@@ -245,7 +245,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
     faqTitle: 'Domande frequenti',
     nonCoincTitle: 'I festivi che NON coincidono',
     ticino: {
-      title: (focus, other) => `Giorni festivi e festività Ticino ${focus} e ${other}`,
+      title: (focus, other) => `Giorni festivi Ticino ${focus} e ${other}`,
       description: (focus, other, n, bridges) =>
         `I ${n} giorni festivi ufficiali del Canton Ticino nel ${focus} (e nel ${other}) con le date, ${bridges} ponti e i festivi che non coincidono con l’Italia. Fonte: Cantone Ticino.`,
       eyebrow: 'Calendario frontalieri',
