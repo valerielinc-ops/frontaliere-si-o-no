@@ -59,7 +59,9 @@
  * Usage: node scripts/pull-articles-corpus.mjs [--check]
  *   --check  report what would change, write nothing, exit 1 if stale
  *
- * Env: ARTICLES_SYNC_COMMIT pins the pull explicitly instead of asking the API.
+ * Env: ARTICLES_SYNC_COMMIT pins the pull explicitly instead of asking the API;
+ * ARTICLES_MANIFEST_FETCH_TIMEOUT_MS bounds the manifest request (default 15000,
+ * cap 120000).
  */
 
 import fs from 'node:fs';
@@ -120,6 +122,15 @@ const ARTICLE_REGISTRY_CHUNK_SIZE = 250;
 
 /** Body files below this count mean something went wrong upstream, not a real shrink. */
 const MIN_BODY_FILES = 5000;
+const DEFAULT_ARTICLES_MANIFEST_FETCH_TIMEOUT_MS = 15_000;
+const MAX_ARTICLES_MANIFEST_FETCH_TIMEOUT_MS = 120_000;
+const ARTICLES_MANIFEST_FETCH_TIMEOUT_MS = Math.min(
+  Math.max(
+    1,
+    Math.floor(Number(process.env.ARTICLES_MANIFEST_FETCH_TIMEOUT_MS) || DEFAULT_ARTICLES_MANIFEST_FETCH_TIMEOUT_MS),
+  ),
+  MAX_ARTICLES_MANIFEST_FETCH_TIMEOUT_MS,
+);
 
 function run(cmd, args, opts = {}) {
   const r = spawnSync(cmd, args, { encoding: 'utf-8', ...opts });
@@ -191,7 +202,10 @@ async function fetchManifest(attempts = 3) {
   let lastErr;
   for (let i = 1; i <= attempts; i++) {
     try {
-      const res = await fetch(url, { redirect: 'follow' });
+      const res = await fetch(url, {
+        redirect: 'follow',
+        signal: AbortSignal.timeout(ARTICLES_MANIFEST_FETCH_TIMEOUT_MS),
+      });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const body = await res.json();
       if (body && typeof body === 'object') return body;

@@ -254,6 +254,14 @@ describe('pull-articles-corpus: the corpus follows the published API, not the br
   const manifest = (commit: unknown) =>
     JSON.stringify({ schema: 1, commit, counts: { articles: 3116 } });
 
+  it('bounds the manifest request without changing the pin contract', () => {
+    const source = fs.readFileSync(CORPUS_SCRIPT, 'utf8');
+    expect(source).toMatch(/ARTICLES_MANIFEST_FETCH_TIMEOUT_MS/);
+    expect(source).toMatch(/signal:\s*AbortSignal\.timeout\(ARTICLES_MANIFEST_FETCH_TIMEOUT_MS\)/);
+    expect(source).toMatch(/MAX_ARTICLES_MANIFEST_FETCH_TIMEOUT_MS\s*=\s*120_000/);
+    expect(source).toMatch(/manifest unavailable from/);
+  });
+
   it('checks out the commit the manifest names even when the mirror has moved past it', async () => {
     const remote = makeCorpusRemote();
     const site = makeSiteCheckout();
