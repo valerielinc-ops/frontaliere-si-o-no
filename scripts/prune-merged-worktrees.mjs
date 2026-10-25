@@ -137,7 +137,10 @@ import {
 } from './lib/merged-content-proof.mjs';
 
 import { acquireSingleFlightLockHandle, withSingleFlightLock } from './lib/single-flight-lock.mjs';
-import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
+import {
+  sweepStaleFetchObjects,
+  sweepStaleFetchPacks,
+} from './lib/stale-fetch-pack-sweep.mjs';
 
 // Nessuna pulizia globale di home/tmp/workspace: l'età non è una prova di
 // contenuto ricostruibile e non può aggirare --only o una decisione report-only.
@@ -569,9 +572,15 @@ const fetchRun = withSingleFlightLock(fetchLock, () => {
   } catch {
     /* fetch fallito/scaduto: si prosegue con l'origin/<main> locale (vedi sopra) */
   }
-  return GLOBAL_PRUNE_ENABLED
-    ? sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'))
-    : { removed: 0, bytes: 0, candidates: 0 };
+  if (!GLOBAL_PRUNE_ENABLED) return { removed: 0, bytes: 0, candidates: 0 };
+
+  const packs = sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'));
+  const objects = sweepStaleFetchObjects(join(gitDir, 'objects'));
+  return {
+    removed: packs.removed + objects.removed,
+    bytes: packs.bytes + objects.bytes,
+    candidates: packs.candidates + objects.candidates,
+  };
 });
 
 if (!fetchRun.acquired) {
@@ -580,7 +589,7 @@ if (!fetchRun.acquired) {
   console.log(`ℹ️  pulizie globali del repository saltate: ${APPLY ? '--only attivo' : 'dry-run'}.`);
 } else if (fetchRun.value?.removed) {
   const mb = Math.round(fetchRun.value.bytes / 1048576);
-  console.log(`🧹 potati ${fetchRun.value.removed} pack temporanei di fetch abortiti (${mb} MB).`);
+  console.log(`🧹 potati ${fetchRun.value.removed} residui temporanei di fetch abortiti (${mb} MB).`);
 }
 
 // Opera SOLO su worktree dentro le dir di isolamento canoniche (AGENTS.md):

@@ -13,6 +13,8 @@ import {
 import {
   listStaleFetchPacks,
   sweepStaleFetchPacks,
+  listStaleFetchObjects,
+  sweepStaleFetchObjects,
   STALE_PACK_AGE_MS,
 } from '../scripts/lib/stale-fetch-pack-sweep.mjs';
 import {
@@ -201,6 +203,11 @@ describe('accoppiamento timeout fetch ↔ scadenza lock', () => {
     expect(src).toMatch(/killSignal: 'SIGTERM'/);
     expect(src).not.toMatch(/killSignal: 'SIGKILL'/);
   });
+
+  it('il cleanup globale copre sia pack sia oggetti temporanei', () => {
+    expect(src).toContain("sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'))");
+    expect(src).toContain("sweepStaleFetchObjects(join(gitDir, 'objects'))");
+  });
 });
 
 describe('listStaleFetchPacks', () => {
@@ -269,6 +276,56 @@ describe('listStaleFetchPacks', () => {
     expect(res.candidates).toBe(2);
     expect(res.removed).toBe(1);
     expect(fs.readdirSync(dir)).toEqual(['tmp_pack_A']);
+  });
+});
+
+describe('listStaleFetchObjects', () => {
+  function objectDirWith(files: Array<{ fanout: string; name: string; ageMs: number; bytes?: number }>): string {
+    const dir = tmpDir();
+    for (const f of files) {
+      const fanout = path.join(dir, f.fanout);
+      fs.mkdirSync(fanout, { recursive: true });
+      const p = path.join(fanout, f.name);
+      fs.writeFileSync(p, Buffer.alloc(f.bytes ?? 8));
+      const when = new Date(Date.now() - f.ageMs);
+      fs.utimesSync(p, when, when);
+    }
+    return dir;
+  }
+
+  it('seleziona solo i tmp_obj_* vecchi nelle directory fanout', () => {
+    const dir = objectDirWith([
+      { fanout: 'aa', name: 'tmp_obj_OLD', ageMs: STALE_PACK_AGE_MS + 60_000 },
+      { fanout: 'aa', name: 'tmp_obj_FRESH', ageMs: 5_000 },
+      { fanout: 'aa', name: '0123456789abcdef0123456789abcdef01234567', ageMs: STALE_PACK_AGE_MS * 100 },
+      { fanout: 'not-fanout', name: 'tmp_obj_OLD', ageMs: STALE_PACK_AGE_MS * 100 },
+    ]);
+    const nonFile = path.join(dir, 'aa', 'tmp_obj_DIR');
+    fs.mkdirSync(nonFile);
+    const oldWhen = new Date(Date.now() - STALE_PACK_AGE_MS * 100);
+    fs.utimesSync(nonFile, oldWhen, oldWhen);
+
+    const stale = listStaleFetchObjects(dir).map((s) => path.relative(dir, s.path));
+
+    expect(stale).toEqual([path.join('aa', 'tmp_obj_OLD')]);
+  });
+
+  it('ritorna [] su objects dir inesistente invece di lanciare', () => {
+    expect(listStaleFetchObjects(path.join(tmpDir(), 'assente'))).toEqual([]);
+  });
+
+  it('sweepStaleFetchObjects cancella solo i residui e riporta i byte liberati', () => {
+    const dir = objectDirWith([
+      { fanout: 'aa', name: 'tmp_obj_OLD', ageMs: STALE_PACK_AGE_MS + 1, bytes: 1024 },
+      { fanout: 'aa', name: 'tmp_obj_FRESH', ageMs: 1_000, bytes: 2048 },
+      { fanout: 'aa', name: 'fedcba9876543210fedcba9876543210fedcba98', ageMs: STALE_PACK_AGE_MS * 100, bytes: 4096 },
+    ]);
+
+    const res = sweepStaleFetchObjects(dir);
+
+    expect(res).toEqual({ removed: 1, bytes: 1024, candidates: 1 });
+    expect(fs.existsSync(path.join(dir, 'aa', 'tmp_obj_FRESH'))).toBe(true);
+    expect(fs.existsSync(path.join(dir, 'aa', 'fedcba9876543210fedcba9876543210fedcba98'))).toBe(true);
   });
 });
 

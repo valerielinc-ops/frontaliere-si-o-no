@@ -1,7 +1,8 @@
-// Sweep dei pack temporanei lasciati da fetch abortiti.
+// Sweep dei residui temporanei lasciati da fetch abortiti.
 //
 // PERCHÉ ESISTE (incidente 2026-08-17): un `git fetch` ucciso o morto a metà
-// trasferimento NON rimuove il suo `.git/objects/pack/tmp_pack_*`. Git li conta
+// trasferimento NON rimuove i suoi `.git/objects/pack/tmp_pack_*` o
+// `.git/objects/<fanout>/tmp_obj_*`. Git li conta
 // come `garbage` (li vedi in `git count-objects -vH`) e NON li pota mai da solo:
 // nemmeno `gc`/`maintenance` li toccano, restano lì a occupare disco per sempre.
 // Con i fetch concorrenti degli hook si sono accumulati fino a 38.8 GB di
@@ -15,7 +16,7 @@
 // tenendo il lock single-flight (nessun fetch nostro in volo) e con una soglia
 // abbondante rispetto al più lento fetch plausibile.
 
-import { readdirSync, statSync, unlinkSync } from 'node:fs';
+import { lstatSync, readdirSync, statSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { isInvokedDirectly } from './is-invoked-directly.mjs';
 
@@ -25,6 +26,8 @@ import { isInvokedDirectly } from './is-invoked-directly.mjs';
 export const STALE_PACK_AGE_MS = 60 * 60 * 1000;
 
 const TMP_PACK_RE = /^tmp_pack_/;
+const TMP_OBJECT_RE = /^tmp_obj_/;
+const OBJECT_FANOUT_RE = /^[0-9a-f]{2}$/;
 
 // Elenca i residui potabili. Separato dalla cancellazione così il dry-run può
 // stamparli e il test può verificare la selezione senza toccare il disco.
@@ -57,6 +60,70 @@ export function listStaleFetchPacks(
 export function sweepStaleFetchPacks(packDir, options = {}) {
   const { unlink = unlinkSync, ...listOptions } = options;
   const stale = listStaleFetchPacks(packDir, listOptions);
+  let removed = 0;
+  let bytes = 0;
+  for (const { path, bytes: size } of stale) {
+    try {
+      unlink(path);
+      removed++;
+      bytes += size;
+    } catch {
+      /* best-effort */
+    }
+  }
+  return { removed, bytes, candidates: stale.length };
+}
+
+// Elenca i residui temporanei degli oggetti sciolti. Git li crea nelle
+// directory fanout a due cifre, non nella directory dei pack.
+export function listStaleFetchObjects(
+  objectsDir,
+  { now = Date.now(), maxAgeMs = STALE_PACK_AGE_MS, readdir = readdirSync, lstat = lstatSync } = {},
+) {
+  let fanouts;
+  try {
+    fanouts = readdir(objectsDir);
+  } catch {
+    return [];
+  }
+
+  const stale = [];
+  for (const fanout of fanouts) {
+    if (!OBJECT_FANOUT_RE.test(fanout)) continue;
+    const fanoutPath = join(objectsDir, fanout);
+    try {
+      if (!lstat(fanoutPath).isDirectory()) continue;
+    } catch {
+      continue;
+    }
+
+    let entries;
+    try {
+      entries = readdir(fanoutPath);
+    } catch {
+      continue;
+    }
+    for (const name of entries) {
+      if (!TMP_OBJECT_RE.test(name)) continue;
+      const path = join(fanoutPath, name);
+      try {
+        const st = lstat(path);
+        if (st.isFile() && now - st.mtimeMs > maxAgeMs) {
+          stale.push({ path, bytes: st.size });
+        }
+      } catch {
+        /* sparito sotto di noi */
+      }
+    }
+  }
+  return stale;
+}
+
+// Cancella i residui degli oggetti con lo stesso contratto best-effort dei
+// pack: un singolo file non accessibile non deve fermare lo sweep.
+export function sweepStaleFetchObjects(objectsDir, options = {}) {
+  const { unlink = unlinkSync, ...listOptions } = options;
+  const stale = listStaleFetchObjects(objectsDir, listOptions);
   let removed = 0;
   let bytes = 0;
   for (const { path, bytes: size } of stale) {
