@@ -41,6 +41,7 @@ const ncoreMigratedCareersPage = `<!doctype html><html><body><h1>Le nostre offer
 const ncoreListingPage = `<!doctype html><html><body><div class="singlePosition"><h3>Business Developer - CH</h3><h4>Canton Ticino</h4><p>Posizione commerciale presso CSC Costruzioni SA.</p><a href="${ncoreDetailUrl}" class="btn">Candidati Ora</a></div></body></html>`;
 const ncoreBoardShellPage = '<!doctype html><html><body><div id="job-board">Filtri di ricerca</div></body></html>';
 const ncoreFilterBoardStatePage = `<!doctype html><html><body><div id="job-board"><script type="application/json">{"positions":[{"detail":"https:\\/\\/app.ncoreplat.com\\/jobposition\\/813007\\/tecnico-opere-in-sotterraneo-ch\\/csc-costruzioni-sa"}]}</script></div></body></html>`;
+const ncoreIsotopeDataPage = `<!doctype html><html><body><div id="isotopeData" data-isotopedata="{&quot;data&quot;:{&quot;Positions&quot;:[{&quot;id&quot;:815604,&quot;url&quot;:&quot;http:\\/\\/app.ncoreplat.com\\/jobposition\\/815604\\/accountant-di-cantiere-it\\/csc-costruzioni-sa&quot;}]}}"></div></body></html>`;
 const ncoreDetailPage = `<!doctype html><html><head><title>Business Developer - CH | CSC Costruzioni SA</title></head><body><div class="singlePosition"><h1>Business Developer - CH</h1><h4>Sede di lavoro: Lugano (CH)</h4><div class="pTesto"><p>CSC Costruzioni SA, parte del gruppo internazionale WeBuild, è un’impresa con sede a Lugano attiva da oltre 60 anni nella realizzazione di opere complesse e sostenibili.</p><p>Il ruolo sostiene lo sviluppo commerciale nel Canton Ticino, le relazioni con clienti e partner, il monitoraggio del mercato e il supporto alle gare.</p><p>Si richiedono esperienza nel settore costruzioni, italiano fluente e conoscenza delle leggi svizzere sugli appalti pubblici.</p></div></div></body></html>`;
 const ncoreShortDetailUrl = 'https://app.ncoreplat.com/jobposition/811973/muratore-ch/csc-costruzioni-sa';
 const ncoreShortBody = 'x'.repeat(111);
@@ -86,6 +87,7 @@ describe('CSC authoritative Drupal discovery', () => {
   it('recognises only the CSC detail route families', () => {
     for (const detail of fixture.details) expect(canonicalCscDetailUrl(detail.url)).toBe(detail.url);
     expect(canonicalCscDetailUrl(ncoreDetailUrl)).toBe(ncoreDetailUrl);
+    expect(canonicalCscDetailUrl(ncoreDetailUrl.replace('https://', 'http://'))).toBe(ncoreDetailUrl);
     expect(canonicalCscDetailUrl(`${ncoreDetailUrl}/`)).toBe(ncoreDetailUrl);
     expect(canonicalCscDetailUrl(careersUrl)).toBeNull();
     expect(canonicalCscDetailUrl('https://csc-sa.ch/node/24')).toBeNull();
@@ -133,6 +135,13 @@ describe('CSC authoritative Drupal discovery', () => {
     const html = '<script type="application/json">{"url":"https%3A%2F%2Fapp.ncoreplat.com%2Fjobposition%2F813007%2Ftecnico-opere-in-sotterraneo-ch%2Fcsc-costruzioni-sa"}</script>';
     expect(parseCscNcoreBoardPage(html)).toEqual({
       urls: [ncoreEmbeddedDetailUrl],
+      authoritativeEmpty: false,
+    });
+  });
+
+  it('recovers HTTP detail URLs from the live NCore isotope payload', () => {
+    expect(parseCscNcoreBoardPage(ncoreIsotopeDataPage)).toEqual({
+      urls: ['https://app.ncoreplat.com/jobposition/815604/accountant-di-cantiere-it/csc-costruzioni-sa'],
       authoritativeEmpty: false,
     });
   });
