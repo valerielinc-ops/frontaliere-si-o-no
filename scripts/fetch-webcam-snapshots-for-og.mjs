@@ -153,6 +153,40 @@ function parseArgs(argv) {
  * @returns {Promise<{ snapshotted: number, skipped: number, total: number, results: Array }>}
  */
 /**
+ * Written next to the captured frames by the CLI (the bench prep), never by
+ * the build: in production the output dir is dist/og/border-wait and an extra
+ * file there would change the published output. It records which crossings the
+ * capture could NOT fetch, so the replay can skip exactly those — the same
+ * state a live build reaches when a webcam is down (no JPEG, default og image).
+ */
+const CAPTURE_MANIFEST = 'capture-manifest.json';
+
+async function readCaptureFailures(replayDir) {
+  let raw;
+  try {
+    raw = await fs.readFile(path.join(replayDir, CAPTURE_MANIFEST), 'utf-8');
+  } catch (err) {
+    if (err?.code === 'ENOENT') return null;
+    throw err;
+  }
+  const manifest = JSON.parse(raw);
+  if (!manifest || !Array.isArray(manifest.results)) {
+    throw new Error(`Replay capture manifest is malformed in ${replayDir}`);
+  }
+  return new Set(manifest.results.filter((r) => r && r.ok === false).map((r) => r.slug));
+}
+
+export async function writeCaptureManifest(outDir, results) {
+  const sorted = [...results]
+    .map(({ slug, ok, error }) => (ok ? { slug, ok } : { slug, ok, error: String(error ?? '') }))
+    .sort((a, b) => (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));
+  await fs.writeFile(
+    path.join(outDir, CAPTURE_MANIFEST),
+    `${JSON.stringify({ results: sorted }, null, 2)}\n`,
+  );
+}
+
+/**
  * Bench-only replay (deploy-matrix-experiment.yml `compare_variants`): copy the
  * snapshots a previous run of this script wrote into `replayDir` instead of
  * fetching the live webcams. The bench builds its variants hours apart and
@@ -166,6 +200,8 @@ async function replayWebcamSnapshots({ crossings, outDir, replayDir, logger }) {
   let snapshotted = 0;
   let skipped = 0;
   const results = [];
+  // null = no manifest (older capture): every crossing must be present.
+  const captureFailures = await readCaptureFailures(replayDir);
   const withWebcams = crossings.filter((c) =>
     Array.isArray(c.webcams) && c.webcams.some((webcam) => webcam?.embedAllowed !== false),
   );
@@ -173,6 +209,14 @@ async function replayWebcamSnapshots({ crossings, outDir, replayDir, logger }) {
     const slug = slugifyName(c.name);
     if (seen.has(slug)) continue;
     seen.add(slug);
+    // Mirror the live path: a crossing without an image URL, or one the
+    // capture recorded as failed, produces no snapshot in a live build either.
+    const webcam = c.webcams.find((candidate) => candidate?.embedAllowed !== false);
+    if (!webcam?.imageUrl || captureFailures?.has(slug)) {
+      skipped++;
+      results.push({ slug, ok: false, error: 'not captured' });
+      continue;
+    }
     const src = path.join(replayDir, `${slug}.jpg`);
     try {
       await fs.copyFile(src, path.join(outDir, `${slug}.jpg`));
@@ -229,6 +273,7 @@ export async function snapshotWebcamsForOg({
     const imageUrl = webcam?.imageUrl;
     if (!imageUrl) {
       skipped++;
+      results.push({ slug, ok: false, error: 'no image url' });
       continue;
     }
 
@@ -293,10 +338,13 @@ async function main() {
     : path.join(distDir, DEFAULT_OUT_SUBDIR);
 
   const crossings = await loadRegistryForCli();
-  const { snapshotted, skipped, total } = await snapshotWebcamsForOg({
+  const { snapshotted, skipped, total, results } = await snapshotWebcamsForOg({
     crossings,
     outDir,
   });
+  // Bench prep only (`--capture-manifest`): record what could not be fetched
+  // so every matrix leg replays the same, complete corpus.
+  if (args['capture-manifest']) await writeCaptureManifest(outDir, results);
 
   console.log(
     `\x1b[32m[og-webcam]\x1b[0m done — ${snapshotted}/${total} written to ${outDir} (${skipped} skipped).`,

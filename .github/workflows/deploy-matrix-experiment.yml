@@ -380,7 +380,11 @@ jobs:
         if: inputs.compare_variants == true
         run: |
           set -euo pipefail
-          ./node_modules/.bin/tsx scripts/fetch-webcam-snapshots-for-og.mjs --out-dir=data/.bench-inputs/og-border-wait
+          # --capture-manifest records the crossings the capture could not
+          # fetch (a webcam down at prep time, e.g. chiasso-centro in the
+          # #15227 replay): every leg then skips exactly those, as a live
+          # build would, instead of failing closed on the whole corpus.
+          ./node_modules/.bin/tsx scripts/fetch-webcam-snapshots-for-og.mjs --out-dir=data/.bench-inputs/og-border-wait --capture-manifest
           ls -la data/.bench-inputs/og-border-wait
       - name: Pack prepared snapshot (generated data + thumbnails)
         env:

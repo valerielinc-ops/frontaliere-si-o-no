@@ -26,6 +26,7 @@ import {
   fetchImageBytes,
   resizeToOgJpeg,
   slugifyName,
+  writeCaptureManifest,
 } from '../scripts/fetch-webcam-snapshots-for-og.mjs';
 import {
   generateBorderWaitPages,
@@ -280,6 +281,64 @@ describe('snapshotWebcamsForOg', () => {
       }),
     ).rejects.toThrow(/Replay input incomplete.*chiasso-brogeda/);
     expect(readdirSync(out)).toEqual([]);
+  });
+
+  it('replays a capture failure as the live skip, so the corpus stays complete (#15227)', async () => {
+    const replay = path.join(tmp, 'capture');
+    const capture = await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_WEBCAM],
+      outDir: replay,
+      fetchFn: fakeFetchFactory(async () => { throw new Error('webcam down'); }),
+      log: () => {},
+    });
+    expect(capture).toMatchObject({ snapshotted: 0, skipped: 1 });
+    await writeCaptureManifest(replay, capture.results);
+
+    const out = path.join(tmp, 'out');
+    const res = await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_WEBCAM],
+      outDir: out,
+      replayDir: replay,
+      log: () => {},
+    });
+    // Same state as the live build that hit the outage: no JPEG, no sidecar.
+    expect(res).toMatchObject({ snapshotted: 0, skipped: 1, total: 1 });
+    expect(readdirSync(out)).toEqual([]);
+  });
+
+  it('still fails closed when the manifest says captured but the frame is missing', async () => {
+    const replay = path.join(tmp, 'capture-ok');
+    const capture = await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_WEBCAM],
+      outDir: replay,
+      fetchFn: fakeFetchFactory(async () => makeResponse(await makeFakeJpeg())),
+      log: () => {},
+    });
+    await writeCaptureManifest(replay, capture.results);
+    rmSync(path.join(replay, 'chiasso-brogeda.jpg'));
+    await expect(
+      snapshotWebcamsForOg({
+        crossings: [CROSSING_WITH_WEBCAM],
+        outDir: path.join(tmp, 'out'),
+        replayDir: replay,
+        log: () => {},
+      }),
+    ).rejects.toThrow(/Replay input incomplete.*chiasso-brogeda/);
+  });
+
+  it('writes the capture manifest sorted and deterministic', async () => {
+    const dir = path.join(tmp, 'manifest');
+    mkdirSync(dir, { recursive: true });
+    await writeCaptureManifest(dir, [
+      { slug: 'z-crossing', ok: true, bytes: 10 },
+      { slug: 'a-crossing', ok: false, error: new Error('down') },
+    ]);
+    expect(JSON.parse(readFileSync(path.join(dir, 'capture-manifest.json'), 'utf-8'))).toEqual({
+      results: [
+        { slug: 'a-crossing', ok: false, error: 'Error: down' },
+        { slug: 'z-crossing', ok: true },
+      ],
+    });
   });
 
   it('an explicit fetchFn wins over OG_WEBCAM_REPLAY_DIR', async () => {
