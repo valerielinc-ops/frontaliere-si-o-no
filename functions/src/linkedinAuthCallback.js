@@ -35,6 +35,14 @@ const SURFACE_RE = /^[a-z0-9_]{1,40}$/;
 const REGISTRATION_NOTICE_KEY = 'communicationsOptIn';
 // An experiment arm tag as the browser builds it (`jobgate-v3:<arm>`).
 const EXPERIMENT_VARIANT_RE = /^[a-z0-9][a-z0-9-]{0,39}:[a-z0-9_]{1,40}$/;
+const LINKEDIN_FETCH_TIMEOUT_MS = 30_000;
+
+function fetchLinkedIn(url, init = {}) {
+ return fetch(url, {
+  ...init,
+  signal: AbortSignal.timeout(LINKEDIN_FETCH_TIMEOUT_MS),
+ });
+}
 
 /**
  * The jobgate-v3 arm of a login started from the JobBoard gate of an enrolled
@@ -95,7 +103,7 @@ export function resolveLinkedInConsentRecord(attribution) {
  */
 async function fetchLinkedInBasicProfile(accessToken) {
  try {
- const res = await fetch(
+ const res = await fetchLinkedIn(
  'https://api.linkedin.com/v2/me?projection=(id,localizedHeadline,vanityName)',
  { headers: { Authorization: `Bearer ${accessToken}` } },
  );
@@ -302,7 +310,7 @@ export async function handleLinkedInCallback({ code, redirectUri, attribution = 
  }
 
  // ── Exchange authorization code for access token ──────────────────────────
- const tokenRes = await fetch('https://www.linkedin.com/oauth/v2/accessToken', {
+ const tokenRes = await fetchLinkedIn('https://www.linkedin.com/oauth/v2/accessToken', {
  method: 'POST',
  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
  body: new URLSearchParams({
@@ -322,7 +330,7 @@ export async function handleLinkedInCallback({ code, redirectUri, attribution = 
  const { access_token } = await tokenRes.json();
 
  // ── Fetch user profile via OpenID Connect userinfo endpoint ───────────────
- const userRes = await fetch('https://api.linkedin.com/v2/userinfo', {
+ const userRes = await fetchLinkedIn('https://api.linkedin.com/v2/userinfo', {
  headers: { Authorization: `Bearer ${access_token}` },
  });
 
