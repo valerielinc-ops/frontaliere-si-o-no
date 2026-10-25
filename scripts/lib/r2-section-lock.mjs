@@ -629,6 +629,9 @@ export async function renewSectionLock(
 
   const renewedAt = safeTimestamp(now(), 'renewedAt');
   const expiresAt = safeTimestamp(renewedAt + leaseMs, 'expiresAt');
+  if (expiresAt <= current.payload.acquiredAt) {
+    throw new Error('[r2-section-lock] renewal expiry must be later than acquiredAt');
+  }
   const replacement = await putLock(
     request,
     section,

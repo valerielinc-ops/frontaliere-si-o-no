@@ -109,6 +109,28 @@ describe('r2-section-lock', () => {
     await releaseSectionLock('frontaliere', { owner: lock.owner, leaseId: lock.leaseId, request });
   });
 
+  it('rejects a renewal that would move expiry before the original acquisition', async () => {
+    const { request, objects } = fakeR2();
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'clock-regressed',
+      request,
+      now: () => 1_000,
+      leaseMs: 1_500,
+    });
+    const before = JSON.stringify(objects.get(lock.key));
+
+    await expect(renewSectionLock('frontaliere', {
+      owner: lock.owner,
+      leaseId: lock.leaseId,
+      request,
+      now: () => 0,
+      leaseMs: 500,
+    })).rejects.toThrow('renewal expiry must be later than acquiredAt');
+
+    expect(JSON.stringify(objects.get(lock.key))).toBe(before);
+    await releaseSectionLock('frontaliere', { owner: lock.owner, leaseId: lock.leaseId, request });
+  });
+
   it('signs the conditional R2 PUT without adding a runtime dependency', async () => {
     let seen: { url: URL; init: RequestInit } | undefined;
     const request = createR2Request(
