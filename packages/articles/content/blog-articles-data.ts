@@ -45877,6 +45877,27 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bollettino-frontaliere-2026-10-25',
+ category: 'novita',
+ date: '2026-10-25T09:44:49.013Z',
+ image: '/images/blog/article-bollettino-frontaliere-2026-10-25.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'sondaggio-paga-colleghi-svizzeri',
+ category: 'novita',
+ date: '2026-10-25T12:30:34.435Z',
+ image: '/images/blog/article-sondaggio-paga-colleghi-svizzeri.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

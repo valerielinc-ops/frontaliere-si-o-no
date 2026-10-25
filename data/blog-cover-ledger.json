@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 840,
+      "5": 844,
       "6": 5055
     },
-    "publishedCovers": 7578,
+    "publishedCovers": 7582,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -208325,6 +208325,72 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-bollettino-frontaliere-2026-10-25": {
+      "cover": "/images/blog/article-bollettino-frontaliere-2026-10-25.webp",
+      "hash": "2840f6d0a2aa76e830e4e4c857e4030e66f380b3d5fa79a4dea0cdb13a0571cc",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-10-25",
+          "category": "novita",
+          "date": "2026-10-25T09:44:49.013Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-10-25.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bollettino-frontaliere-2026-10-25",
+        "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-10-25.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cantiere-stazione-morges-2026": {
+      "cover": "/images/blog/article-cantiere-stazione-morges-2026.webp",
+      "hash": "ef733c1c75c220e734434dd9e630ffd6f587d5ce706c3da263535a8f2b242c9f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "cantiere-stazione-morges-2026",
+          "category": "pratico",
+          "date": "2026-10-25T11:58:21.529Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cantiere-stazione-morges-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cantiere-stazione-morges-2026",
+        "imageUrl": "/images/blog/article-cantiere-stazione-morges-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-epfl-eth-top-20-europee": {
       "cover": "/images/blog/article-epfl-eth-top-20-europee.webp",
       "hash": "3c3f46596df6af7c445aa5c50686b0e663a906dd32a32412fdb4c08b0260949e",
@@ -208421,6 +208487,72 @@
         "provider": "openai-codex",
         "assetId": "article-sciaffusa-budget-correzione",
         "imageUrl": "/images/blog/article-sciaffusa-budget-correzione.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sedi-rav-lavoratori-tg": {
+      "cover": "/images/blog/article-sedi-rav-lavoratori-tg.webp",
+      "hash": "5cd4871a88b74975a32ccfe5b2a645d5b36e03e0ebcd6573d8fd6d857a18e737",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-tg",
+          "id": "sedi-rav-lavoratori-tg",
+          "category": "pratico",
+          "date": "2026-10-25T12:02:52.564Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sedi-rav-lavoratori-tg.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sedi-rav-lavoratori-tg",
+        "imageUrl": "/images/blog/article-sedi-rav-lavoratori-tg.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sondaggio-paga-colleghi-svizzeri": {
+      "cover": "/images/blog/article-sondaggio-paga-colleghi-svizzeri.webp",
+      "hash": "050a4b3c14a35312c70bb2bccd6fa48bbcba1986642ce079444dd3868a83e450",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "sondaggio-paga-colleghi-svizzeri",
+          "category": "novita",
+          "date": "2026-10-25T12:30:34.435Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sondaggio-paga-colleghi-svizzeri.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sondaggio-paga-colleghi-svizzeri",
+        "imageUrl": "/images/blog/article-sondaggio-paga-colleghi-svizzeri.webp",
         "evidence": "generated-engine-record"
       }
     },

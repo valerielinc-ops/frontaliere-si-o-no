@@ -13597,6 +13597,14 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ora-mezza-viaggio.title': '31,7% Grenzgänger überschreiten eineinhalb Stunden Fahrt pro Tag',
     'blog.article.frontaliere-ora-mezza-viaggio.excerpt': '31,7% mehr als eineinhalb Stunden pro Tag 73,2% benutzen das private Auto 28,3% geben mehr als 10% des Gehalts aus 37,4% haben Remote-Arbeit Forschung → «Arbeiten über',
     'blog.article.frontaliere-ora-mezza-viaggio.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-10-25.title': 'Grenzgänger: die verfügbaren Messwerte von heute — 25. Oktober 2026',
+    'blog.article.bollettino-frontaliere-2026-10-25.excerpt': 'Die Zahlen von heute, 25. Oktober 2026, für Grenzgänger: die zuletzt gemeldeten Wartezeiten an den Übergängen, die günstigsten Benzinpreise, der Franken-Euro-Kurs und aktive Stellenanzeigen in der Schweiz auf unserem Job-Board. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-25.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-10-25.seoDescription': 'Grenzgänger-Bulletin am 25. Oktober 2026: aktuelle Wartezeiten, Benzinpreise, CHF/EUR-Kurs und offene Stellen in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-10-25.ogDescription': 'Die Zahlen vom 25. Oktober 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, wo das Benzin am günstigsten ist, der aktuelle Franken-Euro-Kurs und die Zahl aktiver Stellenanzeigen auf unserem Job-Board in der Schweiz.',
+    'blog.article.sondaggio-paga-colleghi-svizzeri.title': 'Grenzgänger im Tessin: 55,6% fühlen sich schlechter bezahlt',
+    'blog.article.sondaggio-paga-colleghi-svizzeri.excerpt': '1\'542 Arbeitnehmer haben an der Umfrage teilgenommen 73% mit dem Gehalt zufrieden 55,6% fühlen sich schlechter bezahlt als eine ansässige Person 37,4% können Telearbeit ausüben Stichprobe →',
+    'blog.article.sondaggio-paga-colleghi-svizzeri.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;
