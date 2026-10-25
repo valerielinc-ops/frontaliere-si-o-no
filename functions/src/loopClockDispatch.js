@@ -19,6 +19,7 @@ export const LOOP_CLOCK_TICK_MINUTES = 5;
 export const LOOP_CLOCK_CLOUD_SCHEDULE = '*/5 * * * *';
 
 const MINUTE_MS = 60_000;
+const DISPATCH_TIMEOUT_MS = 20_000;
 const SITE_DEFAULT_OWNER = 'valerielinc-ops';
 const SITE_DEFAULT_REPO = 'frontaliere-si-o-no';
 const [CORPUS_OWNER, CORPUS_REPO] = LOOP_CLOCK_CORPUS_REPOSITORY.split('/');
@@ -176,6 +177,7 @@ async function dispatchEntry({ entry, slot, context, fetchImpl, conditionLookup 
         ref: 'main',
         inputs: { ...entry.inputs, [LOOP_CLOCK_INPUT]: loopClockInputValue(entry, slot) },
       }),
+      signal: AbortSignal.timeout(DISPATCH_TIMEOUT_MS),
     });
     if (!response.ok) {
       return makeResult(entry, {

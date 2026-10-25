@@ -26,6 +26,7 @@ import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 
 export const GCP_COST_MONITOR_WORKFLOW = 'monitor-gcp-costs.yml';
+const DISPATCH_TIMEOUT_MS = 20_000;
 /** Nominal UTC slots, `HH:MM`: every 6 hours, on the minute of the native cron. */
 export const GCP_COST_MONITOR_SLOTS_UTC = Object.freeze(['01:23', '07:23', '13:23', '19:23']);
 /** Cloud Scheduler expression of the slots above (UTC). */
@@ -48,6 +49,7 @@ export async function dispatchGcpCostMonitorWorkflow({
       method: 'POST',
       headers: githubApiHeaders(pat, { 'Content-Type': 'application/json' }),
       body: JSON.stringify({ ref: 'main' }),
+      signal: AbortSignal.timeout(DISPATCH_TIMEOUT_MS),
     },
   );
   if (!response.ok) {

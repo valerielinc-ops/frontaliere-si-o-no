@@ -192,6 +192,7 @@ describe('loop clock dispatch', () => {
     expect(url).toBe(`https://api.github.com/repos/owner/repo/actions/workflows/${entry.workflow}/dispatches`);
     expect(init.method).toBe('POST');
     expect(init.headers.Authorization).toBe('Bearer test-token');
+    expect(init.signal).toBeInstanceOf(AbortSignal);
     expect(JSON.parse(String(init.body))).toEqual({
       ref: 'main',
       inputs: { [LOOP_CLOCK_INPUT]: loopClockInputValue(entry, loopClockSlot(tick)) },
