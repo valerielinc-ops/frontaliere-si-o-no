@@ -118,7 +118,16 @@ const MIN_FEED_ITEMS = 10;
 const MIN_ARTICLES = 100;
 
 /** Maximum time allowed for one artifact request, including its response body. */
-const ARTICLES_API_FETCH_TIMEOUT_MS = Number(process.env.ARTICLES_API_FETCH_TIMEOUT_MS) || 30_000;
+const DEFAULT_ARTICLES_API_FETCH_TIMEOUT_MS = 30_000;
+const MAX_ARTICLES_API_FETCH_TIMEOUT_MS = 2 ** 32 - 1;
+const configuredArticlesApiFetchTimeoutMs = Number(process.env.ARTICLES_API_FETCH_TIMEOUT_MS);
+const ARTICLES_API_FETCH_TIMEOUT_MS = (
+  Number.isSafeInteger(configuredArticlesApiFetchTimeoutMs)
+  && configuredArticlesApiFetchTimeoutMs > 0
+  && configuredArticlesApiFetchTimeoutMs <= MAX_ARTICLES_API_FETCH_TIMEOUT_MS
+    ? configuredArticlesApiFetchTimeoutMs
+    : DEFAULT_ARTICLES_API_FETCH_TIMEOUT_MS
+);
 
 const log = (msg) => console.log(`[pull-articles-api] ${msg}`);
 const fail = (msg) => {
