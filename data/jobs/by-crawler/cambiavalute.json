@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-10-25T09:43:11.741Z",
-  "runId": "40180369608",
+  "assembledAt": "2026-10-25T21:35:07.718Z",
+  "runId": "40235160237",
   "jobs": [
     {
       "id": "company-fooban",
@@ -28,7 +28,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-25T09:43:07.649Z",
+      "crawledAt": "2026-10-25T21:35:05.229Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
@@ -192,7 +192,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6500",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
