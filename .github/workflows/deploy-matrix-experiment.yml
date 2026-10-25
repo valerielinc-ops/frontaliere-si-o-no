@@ -132,6 +132,11 @@ on:
         type: string
         required: false
         default: ''
+      sample_paths:
+        description: 'compare_variants: up to 200 dist-relative paths (one per line) each leg uploads as-is, to diff the content of a mismatch'
+        type: string
+        required: false
+        default: ''
       prep_compare:
         description: 'In prep, also run the previous related-search summary and gzip pack, and compare bytes and wall time'
         type: boolean
@@ -364,6 +369,18 @@ jobs:
             echo "::error::[prep-compare] related-search summary differs between the previous and the new prep settings"
             exit 1
           fi
+      # compare_variants: the border-wait plugin fetches live webcam frames
+      # into dist/og/border-wait during the build, so two variants built
+      # hours apart differ there by construction (bench run 40105860066, clock
+      # frozen: those files were the non-article half of the 51 differences).
+      # Capture them ONCE here; every leg replays this copy through
+      # OG_WEBCAM_REPLAY_DIR. data/ already travels in the snapshot.
+      - name: Capture live build inputs once (compare_variants)
+        if: inputs.compare_variants == true
+        run: |
+          set -euo pipefail
+          ./node_modules/.bin/tsx scripts/fetch-webcam-snapshots-for-og.mjs --out-dir=data/.bench-inputs/og-border-wait
+          ls -la data/.bench-inputs/og-border-wait
       - name: Pack prepared snapshot (generated data + thumbnails)
         env:
           PREP_COMPARE: ${{ inputs.prep_compare }}
@@ -442,6 +459,9 @@ jobs:
       # compare_variants implies it: without a frozen clock the raw hashes of
       # legs built hours apart differ by wall-clock instants alone.
       BENCH_FROZEN_CLOCK_MS: ${{ (inputs.freeze_clock == true || inputs.compare_variants == true) && needs.prep.outputs.build_id || '' }}
+      # Live webcam frames captured once in prep (see "Capture live build
+      # inputs once"); production never sets it and keeps fetching.
+      OG_WEBCAM_REPLAY_DIR: ${{ inputs.compare_variants == true && format('{0}/data/.bench-inputs/og-border-wait', github.workspace) || '' }}
     steps:
       # Copied minimally from deploy.yml's build-locale job, whose source of
       # truth is the production cleanup step in this same repository.
@@ -955,6 +975,37 @@ jobs:
           name: variant-manifest-${{ matrix.locale }}-${{ matrix.variant }}
           path: /tmp/manifest-${{ matrix.locale }}.txt
           retention-days: 7
+      # A manifest says WHICH files differ; these copies say HOW. Paths are
+      # kept inside dist/ (no absolute, no `..`) and capped at 200.
+      - name: Collect sample files (compare_variants)
+        if: inputs.compare_variants == true && inputs.sample_paths != ''
+        env:
+          SAMPLE_PATHS: ${{ inputs.sample_paths }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/variant-sample
+          n=0
+          while IFS= read -r rel; do
+            rel="${rel#"${rel%%[![:space:]]*}"}"; rel="${rel%"${rel##*[![:space:]]}"}"
+            [ -n "$rel" ] || continue
+            case "$rel" in /*|*..*) echo "skip unsafe path: $rel"; continue ;; esac
+            n=$((n + 1)); [ "$n" -le 200 ] || break
+            if [ -f "dist/$rel" ]; then
+              mkdir -p "/tmp/variant-sample/$(dirname "$rel")"
+              cp "dist/$rel" "/tmp/variant-sample/$rel"
+            else
+              echo "missing: $rel"
+            fi
+          done <<< "$SAMPLE_PATHS"
+          find /tmp/variant-sample -type f | wc -l
+      - name: Upload sample files (compare_variants)
+        if: inputs.compare_variants == true && inputs.sample_paths != ''
+        uses: actions/upload-artifact@v7
+        with:
+          name: variant-sample-${{ matrix.locale }}-${{ matrix.variant }}
+          path: /tmp/variant-sample
+          retention-days: 7
+          if-no-files-found: warn
 
       # keep_dist_paths: copy a handful of named dist files out of each leg so
       # the pages compare_variants reports can be diffed byte for byte.

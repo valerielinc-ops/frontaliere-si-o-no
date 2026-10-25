@@ -3687,6 +3687,7 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         const ogOutDir = np.join(distDir, 'og', 'border-wait');
         await snapshotWebcamsForOg({ crossings: borderCrossings, outDir: ogOutDir });
       } catch (err) {
+        if (process.env.OG_WEBCAM_REPLAY_DIR) throw err;
         console.warn(
           '\x1b[33m[border-wait-pages]\x1b[0m og-webcam snapshot step failed (non-fatal):',
           err instanceof Error ? err.message : err,

@@ -232,6 +232,73 @@ describe('snapshotWebcamsForOg', () => {
     expect(meta.fetchedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
   });
 
+  it('replays a previous snapshot byte for byte instead of fetching (bench replayDir)', async () => {
+    const first = path.join(tmp, 'first');
+    await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_WEBCAM],
+      outDir: first,
+      fetchFn: fakeFetchFactory(async () => makeResponse(await makeFakeJpeg())),
+      log: () => {},
+    });
+    const replayed = path.join(tmp, 'replayed');
+    const res = await snapshotWebcamsForOg({
+      crossings: [CROSSING_WITH_WEBCAM, CROSSING_WITHOUT_WEBCAM],
+      outDir: replayed,
+      replayDir: first,
+      log: () => {},
+    });
+    expect(res).toMatchObject({ snapshotted: 1, skipped: 0, total: 1 });
+    for (const name of ['chiasso-brogeda.jpg', 'chiasso-brogeda.jpg.meta.json']) {
+      expect(readFileSync(path.join(replayed, name))).toEqual(readFileSync(path.join(first, name)));
+    }
+  });
+
+  it('fails closed when a crossing is missing from the replay dir', async () => {
+    const out = path.join(tmp, 'out');
+    await expect(
+      snapshotWebcamsForOg({
+        crossings: [CROSSING_WITH_WEBCAM],
+        outDir: out,
+        replayDir: path.join(tmp, 'empty'),
+        log: () => {},
+      }),
+    ).rejects.toThrow(/Replay input incomplete.*chiasso-brogeda/);
+    expect(readdirSync(out)).toEqual([]);
+  });
+
+  it('fails closed when a replay image has no metadata sidecar', async () => {
+    const replay = path.join(tmp, 'replay');
+    mkdirSync(replay, { recursive: true });
+    writeFileSync(path.join(replay, 'chiasso-brogeda.jpg'), await makeFakeJpeg());
+    const out = path.join(tmp, 'out');
+    await expect(
+      snapshotWebcamsForOg({
+        crossings: [CROSSING_WITH_WEBCAM],
+        outDir: out,
+        replayDir: replay,
+        log: () => {},
+      }),
+    ).rejects.toThrow(/Replay input incomplete.*chiasso-brogeda/);
+    expect(readdirSync(out)).toEqual([]);
+  });
+
+  it('an explicit fetchFn wins over OG_WEBCAM_REPLAY_DIR', async () => {
+    const saved = process.env.OG_WEBCAM_REPLAY_DIR;
+    process.env.OG_WEBCAM_REPLAY_DIR = path.join(tmp, 'does-not-exist');
+    try {
+      const res = await snapshotWebcamsForOg({
+        crossings: [CROSSING_WITH_WEBCAM],
+        outDir: tmp,
+        fetchFn: fakeFetchFactory(async () => makeResponse(await makeFakeJpeg())),
+        log: () => {},
+      });
+      expect(res.snapshotted).toBe(1);
+    } finally {
+      if (saved === undefined) delete process.env.OG_WEBCAM_REPLAY_DIR;
+      else process.env.OG_WEBCAM_REPLAY_DIR = saved;
+    }
+  });
+
   it('skips crossings with no webcams without counting them as failures', async () => {
     const fake = fakeFetchFactory(async () => makeResponse(await makeFakeJpeg()));
     const res = await snapshotWebcamsForOg({
@@ -349,7 +416,10 @@ describe('getWebcamOgImageUrl', () => {
 // ── end-to-end: page generation uses per-page og:image ────────────
 
 describe('generateBorderWaitPages — per-page og:image from webcam snapshot', () => {
-  it('uses the snapshot URL + 1200×675 when resolver returns one', () => {
+  // The generator intentionally renders every locale, region, and crossing;
+  // this pure-generator regression therefore needs more than Vitest's 15 s
+  // default on the full production registry.
+  it('uses the snapshot URL + 1200×675 when resolver returns one', { timeout: 60_000 }, () => {
     const pages = generateBorderWaitPages({
       current: CURRENT_STUB,
       today: new Date('2026-04-21T06:00:00.000Z'),
@@ -368,7 +438,7 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
     expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:alt', content: 'Webcam live — Chiasso Brogeda' }));
   });
 
-  it('falls back to site default og-image.png (1200×630) when resolver returns undefined', () => {
+  it('falls back to site default og-image.png (1200×630) when resolver returns undefined', { timeout: 60_000 }, () => {
     const pages = generateBorderWaitPages({
       current: CURRENT_STUB,
       today: new Date('2026-04-21T06:00:00.000Z'),
@@ -380,7 +450,7 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
     expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:height', content: '630' }));
   });
 
-  it('localises og:image:alt for EN / DE / FR when a snapshot is present', () => {
+  it('localises og:image:alt for EN / DE / FR when a snapshot is present', { timeout: 60_000 }, () => {
     const resolver = () =>
       'https://frontaliereticino.ch/og/border-wait/chiasso-brogeda.jpg';
     const pages = generateBorderWaitPages({
@@ -399,7 +469,7 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
     );
   });
 
-  it('does not emit duplicate og:image tags (exactly one per page)', () => {
+  it('does not emit duplicate og:image tags (exactly one per page)', { timeout: 60_000 }, () => {
     const pages = generateBorderWaitPages({
       current: CURRENT_STUB,
       today: new Date('2026-04-21T06:00:00.000Z'),
@@ -413,7 +483,7 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
     expect(count).toBe(1);
   });
 
-  it('crossings without a snapshot keep falling back even when others have one', () => {
+  it('crossings without a snapshot keep falling back even when others have one', { timeout: 60_000 }, () => {
     const pages = generateBorderWaitPages({
       current: CURRENT_STUB,
       today: new Date('2026-04-21T06:00:00.000Z'),
