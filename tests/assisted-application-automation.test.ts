@@ -154,6 +154,58 @@ describe('applying events', () => {
     expect(effects.filter((effect) => effect.kind === 'candidate_review')).toHaveLength(1);
   });
 
+  it('passes portal documents from the runner to the candidate hold', async () => {
+    const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
+    await flowRef.set({
+      state: 'submitting',
+      round: 1,
+      heldBy: [],
+      dispatch: { mode: 'submit', round: 1, attempts: 1 },
+    });
+    const events = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events');
+    const ref = await events.add({
+      type: 'submit_needs_candidate',
+      round: 1,
+      questions: [{ id: 'portal_question' }],
+      documents: ['portal_certificate'],
+    });
+    const data = store.read(ref.path);
+
+    expect(await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 })).toMatchObject({
+      ok: true,
+      flow: { state: 'needs_candidate_action', heldBy: ['question:portal_question', 'document:portal_certificate'] },
+    });
+  });
+
+  it('passes portal question details so regenerated ids can reuse a known answer', async () => {
+    const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
+    await flowRef.set({
+      state: 'submitting',
+      round: 1,
+      heldBy: [],
+      dispatch: { mode: 'submit', round: 1, attempts: 1 },
+    });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({
+      ...readyDraft(),
+      portalAnswers: { answers: [{ question: 'Disponibilità', semanticKey: 'availability', answer: 'Sì' }] },
+    });
+    const events = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events');
+    const ref = await events.add({
+      type: 'submit_needs_candidate',
+      round: 1,
+      questions: [{ id: 'regenerated_question' }],
+      questionDetails: [{ id: 'regenerated_question', question: 'Disponibilità', semanticKey: 'availability' }],
+      documents: [],
+    });
+    const data = store.read(ref.path);
+
+    expect(await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 })).toMatchObject({
+      ok: true,
+      flow: { state: 'submitting', dispatch: { mode: 'submit', attempts: 2, reason: 'existing_candidate_answers' } },
+    });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+  });
+
   it('relaunches exactly one explicitly authorised approved owner-takeover round', async () => {
     const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
     await flowRef.set({

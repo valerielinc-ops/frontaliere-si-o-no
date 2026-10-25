@@ -576,6 +576,8 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     error: data.error ? String(data.error).slice(0, 120) : undefined,
     reason: data.reason ? String(data.reason).slice(0, 120) : undefined,
     questions: Array.isArray(data.questions) ? data.questions.slice(0, 20) : undefined,
+    questionDetails: Array.isArray(data.questionDetails) ? data.questionDetails.slice(0, 20) : undefined,
+    documents: Array.isArray(data.documents) ? data.documents.slice(0, 20) : undefined,
   };
   const result = await applyAutomationEvent({
     db,
