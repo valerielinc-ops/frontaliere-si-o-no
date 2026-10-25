@@ -237,7 +237,8 @@ describe('profession journey links', () => {
 
     expect(html).toContain('flex-wrap');
     expect(html).toContain('rounded-full');
-    expect(html).not.toContain('Enter annual gross to simulate the Italy-Switzerland regime with Ticino withholding tax');
+    expect((html.match(/Enter annual gross to simulate the Italy-Switzerland regime with Ticino withholding tax/g) || []).length).toBe(1);
+    expect(html).not.toContain('mt-1 block text-xs font-normal text-subtle');
     expect(html).toContain('aria-label="Enter annual gross pay to estimate net"');
     expect((html.match(/data-analytics-label="profession_journey:test-role:/g) || []).length).toBe(5);
   });
