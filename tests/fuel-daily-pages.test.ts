@@ -382,12 +382,19 @@ describe('fuel-daily page generation — content quality', () => {
 
   it('includes localized H1 and no dark: color classes', () => {
     const itRegional = pages['/prezzi-diesel/oggi/'];
-    expect(itRegional).toMatch(/<title>Diesel Ticino: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(itRegional).toMatch(/<title>Prezzo diesel in Ticino oggi: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
     expect(itRegional).toMatch(/<h1[^>]*>.*Prezzo Diesel oggi in Ticino: stazioni di servizio/i);
+    expect(itRegional).toMatch(/<meta\s+name=["']?description["']?\s+content=["']?Prezzo diesel in Ticino oggi:/i);
+    expect(pages['/en/diesel-price-switzerland/today/']).toMatch(/<title>Diesel price in Ticino today: [\d.]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(pages['/en/diesel-price-switzerland/today/']).toMatch(/<meta\s+name=["']?description["']?\s+content=["']?Diesel price in Ticino today:/i);
+    expect(pages['/de/dieselpreis-schweiz/heute/']).toMatch(/<title>Dieselpreis im Tessin heute: [\d.]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(pages['/de/dieselpreis-schweiz/heute/']).toMatch(/<meta\s+name=["']?description["']?\s+content=["']?Dieselpreis im Tessin heute:/i);
+    expect(pages['/fr/prix-gasoil-suisse/aujourd-hui/']).toMatch(/<title>Prix du gasoil au Tessin: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(pages['/fr/prix-gasoil-suisse/aujourd-hui/']).toMatch(/<meta\s+name=["']?description["']?\s+content=["']?Prix du gasoil au Tessin aujourd'hui/i);
     const itBenzinaRegional = pages['/prezzi-benzina/oggi/'];
     // The CTR-facing title follows the exact regional query, while the
     // visible H1 and WebPage JSON-LD name stay on the existing source label.
-    expect(itBenzinaRegional).toMatch(/<title>Benzina Ticino: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
+    expect(itBenzinaRegional).toMatch(/<title>Prezzo benzina in Ticino oggi: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
     expect(itBenzinaRegional).toMatch(/<h1[^>]*>.*Prezzo Benzina oggi in Ticino: stazioni di servizio/i);
     expect(itBenzinaRegional).toContain('"name":"Prezzo Benzina oggi in Ticino: stazioni di servizio"');
     for (const [path, html] of Object.entries(pages)) {

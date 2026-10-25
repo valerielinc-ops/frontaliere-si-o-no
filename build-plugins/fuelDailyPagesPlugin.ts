@@ -1654,19 +1654,29 @@ function renderPage(inp: PageInputs): string {
   const rateFmt = datedChfPerEur !== null
     ? datedChfPerEur.toFixed(4).replace('.', locale === 'it' || locale === 'fr' ? ',' : '.')
     : null;
+  // The H1 already leads with the user's question ("Prezzo diesel oggi ..."),
+  // but the previous SERP metadata dropped that intent and shipped only
+  // "Diesel Ticino: <price>". Keep the live qualifier out of stale pages while
+  // making the current-page title/description answer the query directly.
+  const descriptionLead = ({
+    it: `Prezzo ${fuelLabel.toLowerCase()} ${whereLabel}${observedToday ? ' oggi' : ''}`,
+    en: `${fuelLabel} price ${whereLabel}${observedToday ? ' today' : ''}`,
+    de: `${fuelLabel.toLowerCase()}preis ${whereLabel}${observedToday ? ' heute' : ''}`,
+    fr: `Prix ${frFuelOf(fuelLabel)} ${whereLabel}${observedToday ? " aujourd'hui" : ''}`,
+  })[locale];
   const intro = ({
     it: eurEquivalentFmt !== null && rateDateStamp
-      ? `${fuelLabel} ${shortArea}: media ${priceFmt} CHF/l, circa ${eurEquivalentFmt} EUR/l al cambio BCE ${rateDateStamp}. Fonte TCS, campione acquisito ${observationStamp}.`
-      : `${fuelLabel} ${shortArea}: media ${priceFmt} CHF/l, range ${range}. Fonte TCS, dati acquisiti ${observationStamp}.`,
+      ? `${descriptionLead}: media ${priceFmt} CHF/l, circa ${eurEquivalentFmt} EUR/l al cambio BCE ${rateDateStamp}. Fonte TCS, campione acquisito ${observationStamp}.`
+      : `${descriptionLead}: media ${priceFmt} CHF/l, range ${range}. Fonte TCS, dati acquisiti ${observationStamp}.`,
     en: eurEquivalentFmt !== null && rateDateStamp
-      ? `${fuelLabel} ${shortArea}: average ${priceFmt} CHF/l (about ${eurEquivalentFmt} EUR/l at ECB rate ${rateDateStamp}). TCS sample collected ${observationStamp}.`
-      : `${fuelLabel} ${shortArea}: average ${priceFmt} CHF/l, range ${range}. TCS source, collected ${observationStamp}.`,
+      ? `${descriptionLead}: average ${priceFmt} CHF/l (about ${eurEquivalentFmt} EUR/l at ECB rate ${rateDateStamp}). TCS sample collected ${observationStamp}.`
+      : `${descriptionLead}: average ${priceFmt} CHF/l, range ${range}. TCS source, collected ${observationStamp}.`,
     de: eurEquivalentFmt !== null && rateDateStamp
-      ? `${fuelLabel} ${shortArea}: Mittel ${priceFmt} CHF/l (rund ${eurEquivalentFmt} EUR/l zum EZB-Kurs ${rateDateStamp}). TCS-Stichprobe abgerufen ${observationStamp}.`
-      : `${fuelLabel} ${shortArea}: Mittel ${priceFmt} CHF/l, Spanne ${range}. Quelle TCS, abgerufen ${observationStamp}.`,
+      ? `${descriptionLead}: Mittel ${priceFmt} CHF/l (rund ${eurEquivalentFmt} EUR/l zum EZB-Kurs ${rateDateStamp}). TCS-Stichprobe abgerufen ${observationStamp}.`
+      : `${descriptionLead}: Mittel ${priceFmt} CHF/l, Spanne ${range}. Quelle TCS, abgerufen ${observationStamp}.`,
     fr: eurEquivalentFmt !== null && rateDateStamp
-      ? `${fuelLabel} ${shortArea} : moyenne ${priceFmt} CHF/l (environ ${eurEquivalentFmt} EUR/l au taux BCE du ${rateDateStamp}). Échantillon TCS acquis ${observationStamp}.`
-      : `${fuelLabel} ${shortArea} : moyenne ${priceFmt} CHF/l, plage ${range}. Source TCS, relevé acquis ${observationStamp}.`,
+      ? `${descriptionLead} : moyenne ${priceFmt} CHF/l (environ ${eurEquivalentFmt} EUR/l au taux BCE du ${rateDateStamp}). Échantillon TCS acquis ${observationStamp}.`
+      : `${descriptionLead} : moyenne ${priceFmt} CHF/l, plage ${range}. Source TCS, relevé acquis ${observationStamp}.`,
   })[locale];
   const introTagline = ({
     it: `Media ${priceFmt} CHF/l · ${range} CHF/l · ${observation.count} stazioni campionate in ${shortArea}.`,
@@ -1690,7 +1700,13 @@ function renderPage(inp: PageInputs): string {
     de: 'Daten nicht aktuell: vor dem Tanken den Preis an der Zapfsäule prüfen.',
     fr: 'Donnée non récente : vérifiez le prix à la pompe avant le plein.',
   })[locale] : '';
-  const paragraph = `${intro} ${dailyComparison} ${copy.historySection}`;
+  const beforeRefuelling = ({
+    it: 'Prima del rifornimento, confronta il prezzo odierno con le stazioni vicine e verifica il listino alla pompa.',
+    en: "Before refuelling, compare today's price with nearby stations and check the pump display.",
+    de: 'Vergleichen Sie vor dem Tanken den heutigen Preis mit nahe gelegenen Tankstellen und prüfen Sie die Anzeige an der Zapfsäule.',
+    fr: "Avant de faire le plein, comparez le prix du jour avec les stations voisines et vérifiez l'affichage à la pompe.",
+  })[locale];
+  const paragraph = `${intro} ${dailyComparison} ${beforeRefuelling} ${copy.historySection}`;
   const historyCopy = copy.historySection;
 
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -1885,7 +1901,13 @@ function renderPage(inp: PageInputs): string {
 
   // Keep the observed price and collection date in the snippet, even when the page rebuilds later.
   const titleDate = observationDate ? formatFuelDateDisplay(observationDate) : '';
-  const titleHeadline = `${fuelLabel} ${shortArea}: ${priceFmt} CHF/l`;
+  // French titles need the shorter non-dated lead to stay within the shared
+  // 66-character cap on long zone names; the description retains "aujourd'hui"
+  // and the dated TCS observation remains visible in the title.
+  const titleLead = locale === 'fr'
+    ? `Prix ${frFuelOf(fuelLabel)} ${whereLabel}`
+    : descriptionLead;
+  const titleHeadline = `${titleLead}: ${priceFmt} CHF/l`;
   const title = clampSiteSuffix(`${titleHeadline}${titleDate ? ` · TCS ${titleDate}` : ''}`, 'Frontaliere Ticino', 66);
   const description = intro;
 
