@@ -40,6 +40,7 @@ export const SUMUP_CONFIG_LIMITS = Object.freeze({
 });
 
 const SUMUP_API_BASE_URL = 'https://api.sumup.com';
+export const SUMUP_API_REQUEST_TIMEOUT_MS = 30_000;
 
 function boundedString(value, max) {
   const result = String(value ?? '').trim();
@@ -143,7 +144,10 @@ async function sumUpRequest(path, { apiKey, method = 'GET', body } = {}) {
     headers['Content-Type'] = 'application/json';
     init.body = JSON.stringify(body);
   }
-  const response = await fetch(`${SUMUP_API_BASE_URL}${path}`, init);
+  const response = await fetch(`${SUMUP_API_BASE_URL}${path}`, {
+    ...init,
+    signal: AbortSignal.timeout(SUMUP_API_REQUEST_TIMEOUT_MS),
+  });
   if (response.status === 204) return { status: 204 };
   let payload = null;
   try {
