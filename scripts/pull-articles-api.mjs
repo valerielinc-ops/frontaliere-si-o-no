@@ -443,7 +443,13 @@ function isCanonicalArchiveProjection(xml, expectedCount) {
     let pathname;
     try {
       const url = new URL(loc);
-      if (url.origin !== CANONICAL_SITE_ORIGIN || url.search || url.hash) return false;
+      if (
+        url.origin !== CANONICAL_SITE_ORIGIN
+        || url.search
+        || url.hash
+        || url.username
+        || url.password
+      ) return false;
       pathname = url.pathname;
     } catch {
       return false;

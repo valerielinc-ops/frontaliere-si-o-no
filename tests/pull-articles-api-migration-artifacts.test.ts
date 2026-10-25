@@ -566,6 +566,18 @@ describe('pull-articles-api: sitemap/slug-map source parity', () => {
     const origin = await run(originDir, ['--check']);
     expect(origin.code).not.toBe(0);
     expect(origin.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': archiveSitemap.replace(
+        'https://frontaliereticino.ch/articoli-frontaliere/tutti/',
+        'https://user:pass@frontaliereticino.ch/articoli-frontaliere/tutti/',
+      ),
+    };
+    const userinfoDir = makeCheckout();
+    const userinfo = await run(userinfoDir, ['--check']);
+    expect(userinfo.code).not.toBe(0);
+    expect(userinfo.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
   });
 
   it('rejects a complete but cross-wired canonical hreflang block', async () => {
