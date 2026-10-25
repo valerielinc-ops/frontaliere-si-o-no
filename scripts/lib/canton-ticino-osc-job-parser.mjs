@@ -152,10 +152,16 @@ export function parseOfficialConcorsiListing(html = '') {
       continue;
     }
 
+    let detailPath;
+    try {
+      detailPath = decodeURIComponent(detailUrl.pathname);
+    } catch {
+      continue;
+    }
     if (
       detailUrl.protocol !== 'https:'
       || detailUrl.hostname !== 'www.concorsi.ti.ch'
-      || detailUrl.pathname !== OFFICIAL_DETAIL_PATH
+      || detailPath !== OFFICIAL_DETAIL_PATH
     ) continue;
 
     const yid = detailUrl.searchParams.get('yid');
