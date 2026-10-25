@@ -109065,6 +109065,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inflazione-premi-rincaro-svizzera': {
+    title: 'Inflazione all\'1% a settembre 2026, premi 4,4% nazionali',
+    description: 'Nel 2025 l\'inflazione è stata dello 0,2% A settembre 2026 ha raggiunto l\'1% annuo A dicembre 2025 l\'indice era a 106,9 punti Premi 2026: 4,4%',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, settembre, premi, nazionali',
+    ogTitle: 'Inflazione Svizzera 2026 Premi e Costo Vita',
+    ogDescription: 'Nel 2025 l\'inflazione è stata dello 0,2% A settembre 2026 ha raggiunto l\'1% annuo A dicembre 2025 l\'indice era a 106,9 punti Premi 2026: 4,4% in Svizzera, 7,1%',
+    canonicalPath: '/articoli-svizzera/inflazione-premi-rincaro-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inflazione all'1% a settembre 2026, premi 4,4% nazionali",
+      "description": "Nel 2025 l'inflazione è stata dello 0,2% A settembre 2026 ha raggiunto l'1% annuo A dicembre 2025 l'indice era a 106,9 punti Premi 2026: 4,4%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-inflazione-premi-rincaro-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-25T14:06:49+00:00",
+      "dateModified": "2026-10-25T14:06:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/inflazione-premi-rincaro-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

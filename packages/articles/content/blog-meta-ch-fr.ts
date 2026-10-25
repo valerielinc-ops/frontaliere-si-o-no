@@ -8630,6 +8630,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.violazioni-sicurezza-svizzera-2026.title': '455 signalements de failles de sécurité en Suisse en 2026',
     'blog.article.violazioni-sicurezza-svizzera-2026.excerpt': '455 signalements de failles en 2026 343 signalements pour l’ensemble de 2025 Enquête fédérale visant un fournisseur informatique externe Extension possible à des entités fédérales',
     'blog.article.violazioni-sicurezza-svizzera-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.inflazione-premi-rincaro-svizzera.title': 'Inflation à 1 % en septembre 2026, primes nationales de 4,4 %',
+    'blog.article.inflazione-premi-rincaro-svizzera.excerpt': 'En 2025, l\'inflation s\'est élevée à 0,2 % En septembre 2026, elle a atteint 1 % sur un an En décembre 2025, l\'indice était à 106,9 points Primes 2026 : 4,4 % en Suisse, 7,1 %',
+    'blog.article.inflazione-premi-rincaro-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

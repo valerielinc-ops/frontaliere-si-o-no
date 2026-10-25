@@ -72277,6 +72277,80 @@
         }
       }
     },
+    "generated:article-inflazione-premi-rincaro-svizzera": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-25T14:06:41.399Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-25",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-inflazione-premi-rincaro-svizzera",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "9afa80befd1dc2108c99253a8b251e5808d85711bb23e2944409e43bd1cb3064",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "b2cbcba0ebbb2b2bc44a557810115fa85b304bf3583d1067c7a6147f0e926184",
+        "bytes": 110756,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-25T14:06:41.399Z",
+        "verifiedAt": "2026-10-25T14:06:48.908Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-inflazione-premi-rincaro-svizzera.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic Swiss city scene with groceries symbolizing inflation and cost-of-living concerns; no text, logos, or identifiable people."
+        }
+      }
+    },
     "generated:article-referendum-legge-collettivo-lavoro": {
       "source": "generated-provider",
       "commons": {
@@ -112959,8 +113033,18 @@
       "file": "generated:article-epfl-eth-top-20-europee",
       "modified": "resized"
     },
+    "article-felix-gisler-pensione-uri": {
+      "evidence": "inferred",
+      "provider": null,
+      "verifiedAt": "2026-10-25",
+      "status": "no-credit"
+    },
     "article-imprenditori-cantone-turgovia-sostegno": {
       "file": "generated:article-imprenditori-cantone-turgovia-sostegno",
+      "modified": "resized"
+    },
+    "article-inflazione-premi-rincaro-svizzera": {
+      "file": "generated:article-inflazione-premi-rincaro-svizzera",
       "modified": "resized"
     },
     "article-referendum-legge-collettivo-lavoro": {

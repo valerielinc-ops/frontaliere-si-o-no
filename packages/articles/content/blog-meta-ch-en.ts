@@ -8630,6 +8630,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.violazioni-sicurezza-svizzera-2026.title': '455 security breach reports in Switzerland in 2026',
     'blog.article.violazioni-sicurezza-svizzera-2026.excerpt': '455 breach reports in 2026 343 reports throughout 2025 Federal investigation into an external IT provider Possible extension to federal entities',
     'blog.article.violazioni-sicurezza-svizzera-2026.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.inflazione-premi-rincaro-svizzera.title': 'Inflation at 1% in September 2026, national premiums 4.4%',
+    'blog.article.inflazione-premi-rincaro-svizzera.excerpt': 'In 2025, inflation was 0,2% In September 2026, it reached 1% annually In December 2025, the index stood at 106,9 points 2026 premiums: 4,4% in Switzerland, 7,1%',
+    'blog.article.inflazione-premi-rincaro-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

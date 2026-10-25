@@ -28872,6 +28872,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'inflazione-premi-rincaro-svizzera',
+    category: 'fiscale',
+    date: '2026-10-25T14:06:49.566Z',
+    image: '/images/blog/article-inflazione-premi-rincaro-svizzera.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

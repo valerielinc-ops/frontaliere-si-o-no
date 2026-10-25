@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "42cf66d112fa0952c8fa06ca1add81edb5887627",
+  "commit": "f945b47de065e8b5fdaccc9a6abb76077919586b",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -37516,6 +37516,100 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic data center exterior with security infrastructure; no people, text, logos, or event-specific cues."
+      }
+    },
+    "/images/blog/article-inflazione-premi-rincaro-svizzera.webp": {
+      "schema": 1,
+      "assetId": "article-inflazione-premi-rincaro-svizzera",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "9afa80befd1dc2108c99253a8b251e5808d85711bb23e2944409e43bd1cb3064",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "b2cbcba0ebbb2b2bc44a557810115fa85b304bf3583d1067c7a6147f0e926184",
+      "bytes": 110756,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-25T14:06:41.399Z",
+      "verifiedAt": "2026-10-25T14:06:48.908Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-inflazione-premi-rincaro-svizzera.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic Swiss city scene with groceries symbolizing inflation and cost-of-living concerns; no text, logos, or identifiable people."
+      }
+    },
+    "/images/blog/article-felix-gisler-pensione-uri.webp": {
+      "schema": 1,
+      "assetId": "article-felix-gisler-pensione-uri",
+      "kind": "photo",
+      "provider": "pexels",
+      "model": "Pexels photo search",
+      "executorModel": "Pexels photo search",
+      "license": "Pexels License",
+      "licenseFamily": "pexels",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "credit": "Sam Mueller · Pexels",
+      "author": {
+        "name": "Sam Mueller",
+        "url": "https://www.pexels.com/@wasnuun"
+      },
+      "sourcePageUrl": "https://www.pexels.com/photo/low-angle-shot-of-concrete-building-7524409/",
+      "sourceImageUrl": "https://images.pexels.com/photos/7524409/pexels-photo-7524409.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "sourceWidth": 6352,
+      "sourceHeight": 4239,
+      "photoTitle": "Low angle view of the Madonna del Sasso, an exquisite historical building in Orselina, Switzerland.",
+      "copyrightNotice": "© Sam Mueller",
+      "acquireLicensePage": "https://www.pexels.com/photo/low-angle-shot-of-concrete-building-7524409/",
+      "sha256": "1b45e146e4d665776759ca4dd632a93af4047a1e25e3b116d9795195fa944da8",
+      "bytes": 116234,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-25T14:44:39.217Z",
+      "verifiedAt": "2026-10-25T14:44:59.929Z",
+      "restrictions": [
+        "licensed-source",
+        "no-recognizable-foreground-person",
+        "no-logo-brand-or-trademark"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-felix-gisler-pensione-uri.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": true,
+        "is_topic_relevant": true,
+        "notes": "Photorealistic exterior of a historic Swiss-style institutional building; no people, readable text, signage, watermarks, or logos."
       }
     },
     "/images/places/lugano-view.webp": {

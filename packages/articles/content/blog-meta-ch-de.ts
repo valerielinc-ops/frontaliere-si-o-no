@@ -8630,6 +8630,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.violazioni-sicurezza-svizzera-2026.title': '455 Meldungen über Sicherheitsverletzungen in der Schweiz im Jahr 2026',
     'blog.article.violazioni-sicurezza-svizzera-2026.excerpt': '455 Meldungen über Sicherheitsverletzungen im Jahr 2026 343 Meldungen im gesamten Jahr 2025 Untersuchung des Bundes gegen einen externen IT-Anbieter Mögliche Ausweitung auf Bundesbehörden',
     'blog.article.violazioni-sicurezza-svizzera-2026.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.inflazione-premi-rincaro-svizzera.title': 'Inflation im September 2026 bei 1%, nationale Prämien 4,4%',
+    'blog.article.inflazione-premi-rincaro-svizzera.excerpt': 'Im Jahr 2025 lag die Inflation bei 0,2% Im September 2026 erreichte sie 1% im Jahresvergleich Im Dezember 2025 lag der Index bei 106,9 Punkten Prämien 2026: 4,4% in der Schweiz, 7,1%',
+    'blog.article.inflazione-premi-rincaro-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

@@ -15,17 +15,17 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 846,
-      "6": 5055
+      "5": 847,
+      "6": 5056
     },
-    "publishedCovers": 7584,
+    "publishedCovers": 7586,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 133,
     "fallbackRepointed": 0,
-    "inferredRecords": 4969
+    "inferredRecords": 4970
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -208424,6 +208424,33 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-felix-gisler-pensione-uri": {
+      "cover": "/images/blog/article-felix-gisler-pensione-uri.webp",
+      "hash": "1b45e146e4d665776759ca4dd632a93af4047a1e25e3b116d9795195fa944da8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "felix-gisler-pensione-uri",
+          "category": "pensione",
+          "date": "2026-10-25T14:44:59.995Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-25",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-imprenditori-cantone-turgovia-sostegno": {
       "cover": "/images/blog/article-imprenditori-cantone-turgovia-sostegno.webp",
       "hash": "2dffff0825a6ffa6febcf9c7a4e5dbb11cf1a66890fa1913973efb87b9ab623d",
@@ -208454,6 +208481,39 @@
         "provider": "openai-codex",
         "assetId": "article-imprenditori-cantone-turgovia-sostegno",
         "imageUrl": "/images/blog/article-imprenditori-cantone-turgovia-sostegno.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-inflazione-premi-rincaro-svizzera": {
+      "cover": "/images/blog/article-inflazione-premi-rincaro-svizzera.webp",
+      "hash": "b2cbcba0ebbb2b2bc44a557810115fa85b304bf3583d1067c7a6147f0e926184",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "inflazione-premi-rincaro-svizzera",
+          "category": "fiscale",
+          "date": "2026-10-25T14:06:49.566Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-inflazione-premi-rincaro-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-inflazione-premi-rincaro-svizzera",
+        "imageUrl": "/images/blog/article-inflazione-premi-rincaro-svizzera.webp",
         "evidence": "generated-engine-record"
       }
     },
