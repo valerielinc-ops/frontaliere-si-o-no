@@ -1,7 +1,7 @@
 {
   "crawlerKey": "alten-switzerland",
-  "assembledAt": "2026-10-24T21:19:52.888Z",
-  "runId": "40133353993",
+  "assembledAt": "2026-10-25T21:29:01.815Z",
+  "runId": "40234567384",
   "jobs": [
     {
       "title": "Project Manager – IT & Banking",
@@ -40,7 +40,7 @@
       },
       "slugByLocale": {
         "it": "project-manager-it-e-bancario-alten-switzerland-switzerland",
-        "en": "pro-manager-alten-switzerland-switzerland",
+        "en": "project-manager-it-banking-alten-switzerland-switzerland",
         "de": "projektmanager-it-banking-alten-switzerland-switzerland",
         "fr": "chef-de-projet-informatique-banque-alten-switzerland-switzerland"
       },
@@ -66,13 +66,14 @@
           "project-manager-it-banking-alten-switzerland-switzerland"
         ],
         "en": [
-          "project-manager-it-banking-alten-switzerland-switzerland"
+          "pro-manager-alten-switzerland-switzerland"
         ]
       },
       "previousSlugs": [
         "project-manager-it-banking-alten-switzerland-chiasso",
         "project-manager-it-e-bancario-alten-switzerland-chiasso",
-        "project-manager-it-banking-alten-switzerland-switzerland"
+        "project-manager-it-banking-alten-switzerland-switzerland",
+        "pro-manager-alten-switzerland-switzerland"
       ],
       "sourceIdentity": "url:https://www.alten.ch/jobs/903-pipe-project-manager-it",
       "salarySource": "estimated",
@@ -139,7 +140,8 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-19T09:35:20.874Z"
+      "firstSeenAt": "2026-10-19T09:35:20.874Z",
+      "needsRetranslation": true
     },
     {
       "title": "Analyste de données",
@@ -181,7 +183,7 @@
       "slugByLocale": {
         "it": "analista-di-dati-alten-switzerland-switzerland",
         "en": "data-analyst-alten-switzerland-switzerland",
-        "de": "datenanalytiker-alten-switzerland-switzerland",
+        "de": "analyste-de-donnees-alten-switzerland-switzerland",
         "fr": "analyste-de-donnees-alten-switzerland-switzerland"
       },
       "id": "alten-switzerland-1386b96540c4",
@@ -206,14 +208,15 @@
           "analyste-de-donnees-alten-switzerland-switzerland"
         ],
         "de": [
-          "analyste-de-donnees-alten-switzerland-switzerland"
+          "datenanalytiker-alten-switzerland-switzerland"
         ],
         "en": [
           "analyste-de-donnees-alten-switzerland-switzerland"
         ]
       },
       "previousSlugs": [
-        "analyste-de-donnees-alten-switzerland-switzerland"
+        "analyste-de-donnees-alten-switzerland-switzerland",
+        "datenanalytiker-alten-switzerland-switzerland"
       ]
     },
     {

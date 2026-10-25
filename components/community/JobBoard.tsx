@@ -203,7 +203,7 @@ import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
 import type { JobAlert } from '@/services/jobAlertService';
 import { fetchUserAlertsCached, invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import { suggestSimilarTerms } from '@/services/search/fuzzySearchSuggestions';
-import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
+import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
 import { canShowJobAlertPrompt, markJobAlertPromptShown, dismissJobAlertPrompt } from '@/services/jobAlertPromptPolicy';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
@@ -6758,6 +6758,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, locale);
  };
 
+ // Hooks must stay outside the conditional detail/gate branches below. The
+ // handler is enabled only for the anonymous active-job gate; all other views
+ // still get a stable no-op callback from the same hook invocation.
+ const gateCopyTitle = selectedJob ? sanitizeJobTitle(jobDisplayTitle(selectedJob)) : '';
+ const gateCopyCompany = selectedJob?.company;
+ const gateCopyUrl = selectedJob
+ ? `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`
+ : `${PUBLIC_SITE_URL}/`;
+ const handleGateCopy = useJobCopyAttribution({
+ enabled: !!selectedJob && !hasAccess && authResolved,
+ jobTitle: gateCopyTitle,
+ company: gateCopyCompany,
+ url: gateCopyUrl,
+ lead: t('jobBoard.copyAttribution.lead'),
+ analyticsValue: selectedJob ? `${gateCopyCompany}_${gateCopyTitle}` : undefined,
+ });
+
  useEffect(() => {
  // FRO: Expired job soft-landing pages — preserve static HTML metadata.
  // When we're on an expired job URL (initialJobSlug set, no selectedJob in
@@ -10020,43 +10037,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  window.location.assign(gateCompanyHref.split('?')[0]);
  };
 
- // Copy-attribution: replays show gated users copying the teaser lines and
- // pasting them into Google to find the listing — handing themselves to the
- // original source with none of our branding. Append our brand + the canonical
- // URL of THIS listing to whatever they selected, so the paste carries a real
- // backlink (rich editors/forums) and a search-box paste biases the result
- // back to our canonical. Tiny selections are left untouched; errors never
- // break the native copy.
- const handleGateCopy = (e: React.ClipboardEvent<HTMLDivElement>) => {
- try {
- const sel = typeof window !== 'undefined' ? window.getSelection() : null;
- const selectionText = sel?.toString() ?? '';
- if (!shouldAttributeCopy(selectionText, localizedTitle)) return;
- let selectionHtml = '';
- if (sel && sel.rangeCount > 0) {
- const holder = document.createElement('div');
- for (let i = 0; i < sel.rangeCount; i++) holder.appendChild(sel.getRangeAt(i).cloneContents());
- selectionHtml = holder.innerHTML;
- }
- const { text, html } = buildJobCopyAttribution({
- selectionText,
- selectionHtml,
- jobTitle: localizedTitle,
- company: companyName,
- url: `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`,
- lead: t('jobBoard.copyAttribution.lead'),
- });
- e.clipboardData.setData('text/plain', text);
- e.clipboardData.setData('text/html', html);
- e.preventDefault();
- Analytics.trackSelectContent('job_gate_copy_attribution', `${companyName}_${localizedTitle}`);
- } catch {
- // leave the browser's native copy untouched on any failure
- }
- };
-
  return (
- <div className="space-y-5" onCopy={handleGateCopy}>
+ <div className="space-y-5">
  <button
  onClick={backToList}
  className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline"
@@ -10085,7 +10067,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="space-y-4">
 
  {/* Job header — always visible */}
- <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5" data-no-auto-ads="inside">
+ <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5" data-no-auto-ads="inside" onCopy={handleGateCopy}>
  <div className="flex items-start gap-4">
  {logoUrl && (
  <img

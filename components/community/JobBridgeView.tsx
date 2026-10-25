@@ -17,7 +17,7 @@ import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.m
 
 import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import { ArrowLeft, ArrowRight, Building2, CheckCircle2, Clock, Euro, Loader2, Mail, MapPin, Shield } from 'lucide-react';
-import { useLocale } from '@/services/i18n';
+import { t, useLocale } from '@/services/i18n';
 import { renderGoogleButton, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -37,6 +37,8 @@ import AdSenseUnit from '@/components/shared/AdSenseUnit';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
+import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
+import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
 
 interface RelatedJob {
  slug: string;
@@ -202,6 +204,14 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  location: jobData?.location || null,
  category: null,
  };
+ const handleGateCopy = useJobCopyAttribution({
+ enabled: !alreadySignedIn && Boolean(localizedTitle),
+ jobTitle: localizedTitle ?? '',
+ company: jobData?.company,
+ url: `${JOB_COPY_SITE_ORIGIN}${targetPath}`,
+ lead: t('jobBoard.copyAttribution.lead'),
+ analyticsValue: `${jobData?.company ?? ''}_${localizedTitle ?? ''}`,
+ });
 
  // Countdown redirect
  useEffect(() => {
@@ -442,7 +452,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
 
  {/* Job header */}
  {localizedTitle && (
- <div>
+ <div onCopy={handleGateCopy}>
  <h1 className="text-xl font-bold font-display text-strong leading-snug break-words [hyphens:auto]">{localizedTitle}</h1>
  <div className="flex flex-wrap gap-3 mt-2 text-sm text-subtle">
  {jobData?.company && (() => {
