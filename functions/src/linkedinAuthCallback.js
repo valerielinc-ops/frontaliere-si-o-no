@@ -31,6 +31,7 @@ import {
 
 const CONSENT_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const SURFACE_RE = /^[a-z0-9_]{1,40}$/;
+const LINKEDIN_REQUEST_TIMEOUT_MS = 30_000;
 // The register entry every sign-in surface renders (services/consentTexts.ts).
 const REGISTRATION_NOTICE_KEY = 'communicationsOptIn';
 // An experiment arm tag as the browser builds it (`jobgate-v3:<arm>`).
@@ -105,7 +106,10 @@ async function fetchLinkedInBasicProfile(accessToken) {
  try {
  const res = await fetchLinkedIn(
  'https://api.linkedin.com/v2/me?projection=(id,localizedHeadline,vanityName)',
- { headers: { Authorization: `Bearer ${accessToken}` } },
+ {
+  headers: { Authorization: `Bearer ${accessToken}` },
+  signal: AbortSignal.timeout(LINKEDIN_REQUEST_TIMEOUT_MS),
+ },
  );
  if (!res.ok) return { headline: null, vanityName: null };
  const data = await res.json();
@@ -313,6 +317,7 @@ export async function handleLinkedInCallback({ code, redirectUri, attribution = 
  const tokenRes = await fetchLinkedIn('https://www.linkedin.com/oauth/v2/accessToken', {
  method: 'POST',
  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+ signal: AbortSignal.timeout(LINKEDIN_REQUEST_TIMEOUT_MS),
  body: new URLSearchParams({
  grant_type: 'authorization_code',
  code,
@@ -332,6 +337,7 @@ export async function handleLinkedInCallback({ code, redirectUri, attribution = 
  // ── Fetch user profile via OpenID Connect userinfo endpoint ───────────────
  const userRes = await fetchLinkedIn('https://api.linkedin.com/v2/userinfo', {
  headers: { Authorization: `Bearer ${access_token}` },
+ signal: AbortSignal.timeout(LINKEDIN_REQUEST_TIMEOUT_MS),
  });
 
  if (!userRes.ok) {
