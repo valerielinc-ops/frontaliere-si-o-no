@@ -63,6 +63,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const STATE_PATH = resolve(ROOT, 'data', 'campaign-goal-status.json');
 const DAY_MS = 24 * 60 * 60 * 1000;
+const CAMPAIGN_PROVIDER_TIMEOUT_MS = 30_000;
+
+function fetchCampaignProvider(url, init = {}) {
+  return fetch(url, {
+    ...init,
+    signal: AbortSignal.timeout(CAMPAIGN_PROVIDER_TIMEOUT_MS),
+  });
+}
 
 // The ONE legitimate absolute-date constant in this file (owner-declared
 // campaign kickoff for issues #4298-#4307). Every maturity check derives
@@ -365,7 +373,7 @@ async function getGoogleAccessToken() {
     const secret = process.env.GSC_CLIENT_SECRET;
     const refresh = process.env.GSC_REFRESH_TOKEN;
     if (id && secret && refresh) {
-      const r = await fetch('https://oauth2.googleapis.com/token', {
+      const r = await fetchCampaignProvider('https://oauth2.googleapis.com/token', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
@@ -400,7 +408,7 @@ function gscWindow(days, lagDays = 3) {
 
 async function gscSearchAnalytics(token, body) {
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(GSC_SITE)}/searchAnalytics/query`;
-  const res = await fetch(url, {
+  const res = await fetchCampaignProvider(url, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
@@ -541,7 +549,7 @@ async function ga4SessionsByChannelGroup(token, channelGroupExact, windowDays) {
   const start = new Date(end);
   start.setUTCDate(start.getUTCDate() - (windowDays - 1));
   const fmt = (d) => d.toISOString().slice(0, 10);
-  const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
+  const res = await fetchCampaignProvider(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -570,7 +578,7 @@ async function ga4RunReport(token, { dimensions = [], metrics, dimensionFilter, 
   const start = new Date(end);
   start.setUTCDate(start.getUTCDate() - (windowDays - 1));
   const fmt = (d) => d.toISOString().slice(0, 10);
-  const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
+  const res = await fetchCampaignProvider(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
