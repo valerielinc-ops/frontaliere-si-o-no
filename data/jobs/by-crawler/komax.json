@@ -253,8 +253,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "komax-2aed90f8cb85",
@@ -373,8 +372,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "komax-5dc9d2ba6fee",
@@ -453,8 +451,7 @@
           "maxValue": 195000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "komax-f833e8d3c42f",
@@ -538,7 +535,7 @@
       "id": "komax-2050d42cdaf9",
       "slug": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
       "slugByLocale": {
-        "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
+        "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon",
         "en": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon",
         "de": "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
         "fr": "sales-switzerland-technical-sales-ingenieur-w-m-d-komax-dierikon"
@@ -589,16 +586,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6"
         ]
       },
       "previousSlugs": [
         "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -614,7 +607,7 @@
         }
       },
       "firstSeenAt": "2026-09-24T00:10:25.502Z",
-      "retranslationAttempts": 8,
+      "retranslationAttempts": 9,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3097,
       "needsRetranslation": true
