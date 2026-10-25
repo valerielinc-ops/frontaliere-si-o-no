@@ -278,7 +278,7 @@ case "\${args[0]}" in
           present) cp "$STUB_LEDGER_FILE" "$dst"; exit 0 ;;
         esac ;;
       :s3:*cdn-build-id.txt)
-        [ "\${STUB_MISSING_MARKERS:-0}" = 1 ] && exit 0
+        [ "\${STUB_MISSING_MARKERS:-0}" = 1 ] && exit "\${STUB_MISSING_MARKERS_STATUS:-0}"
         build="\${STUB_BUILD_MARKER:-b-test}"
         if [ "\${STUB_PUBLISH_INCOMPLETE:-0}" = 1 ] && [ -z "\${STUB_BUILD_MARKER+x}" ]; then build=previous-build; fi
         printf '%s' "$build" > "$dst"
@@ -293,7 +293,7 @@ case "\${args[0]}" in
         fi
         exit 0 ;;
       :s3:*cdn-publish-complete-id.txt)
-        [ "\${STUB_MISSING_MARKERS:-0}" = 1 ] && exit 0
+        [ "\${STUB_MISSING_MARKERS:-0}" = 1 ] && exit "\${STUB_MISSING_MARKERS_STATUS:-0}"
         if [ -s "$STUB_DIR/publish-start-written.txt" ]; then
           start="$(cat "$STUB_DIR/publish-start-written.txt")"
         else
@@ -940,6 +940,7 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
       STUB_LEDGER: 'absent',
       STUB_ASSETS_LOG: COPIED_A,
       STUB_MISSING_MARKERS: '1',
+      STUB_MISSING_MARKERS_STATUS: '1',
       CF_API_TOKEN: 'test-token',
       STUB_PURGE_STATUS: '0',
     });

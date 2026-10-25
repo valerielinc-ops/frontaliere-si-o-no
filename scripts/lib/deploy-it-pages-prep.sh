@@ -582,8 +582,17 @@ _publish_cdn_r2() {
       esac
       rm -f "$_dest" 2>/dev/null || true
       if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$bkt/$_marker" "$_dest" --retries=1; then
-        echo "::warning::[r2] skipping targeted CDN purge: could not revalidate build/start/complete markers immediately before purge"
-        return 1
+        case "$_marker" in
+          cdn-build-id.txt|cdn-publish-complete-id.txt)
+            # A fresh bucket has no closed-generation markers yet. Keep an
+            # empty local result so the start marker can authorize bootstrap.
+            : > "$_dest"
+            ;;
+          *)
+            echo "::warning::[r2] skipping targeted CDN purge: could not revalidate build/start/complete markers immediately before purge"
+            return 1
+            ;;
+        esac
       fi
       if [ ! -s "$_dest" ]; then
         case "$_marker" in
