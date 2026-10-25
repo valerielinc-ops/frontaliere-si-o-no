@@ -46,10 +46,15 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   normalizeSpace,
   htmlToText,
+  hasNoOpenPositionsMarker,
   findLuganoAccordionIds,
   parseWpsmAccordionPanels,
   MIN_DESC_LENGTH,
 } from './lib/dxt-job-parser.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './lib/authoritative-empty-snapshot.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -252,6 +257,16 @@ export async function fetchDxtJobs() {
   }
 
   if (parsedJobs.length === 0) {
+    const sourceExplicitlyEmpty = luganoGroupIds.every((groupId) => (
+      hasNoOpenPositionsMarker(html, groupId)
+    ));
+    if (sourceExplicitlyEmpty) {
+      console.log('  ✅ DXT careers page explicitly reports no open Lugano positions.');
+      return markAuthoritativeEmptySnapshot(
+        [],
+        `DXT careers page: all Lugano accordion groups (${luganoGroupIds.join(', ')}) contain an explicit no-openings marker`,
+      );
+    }
     console.log('  ℹ️ No active Lugano job listings found on DXT careers page.');
     return [];
   }
@@ -584,7 +599,8 @@ async function rewriteStoredJobsWithoutThinSource(storedJobs) {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(DXT_KEY, 'DXT Commodities');
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null };
+  registerCrawlerSummaryGuard(DXT_KEY, 'DXT Commodities', counts);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  DXT Commodities S.A. — Dedicated Crawler');
@@ -596,6 +612,59 @@ async function main() {
 
   // Phase 1: Fetch and parse jobs from DXT careers page
   const discoveredJobs = await fetchDxtJobs();
+
+  if (isAuthoritativeEmptySnapshot(discoveredJobs)) {
+    counts.discovered = 0;
+    counts.parsed = 0;
+    counts.lastFetchOutcome = 'ok';
+
+    const existingJobs = readExistingCrawlerJobs(DXT_KEY, DATA_JOBS).filter(isDxtJob);
+    crawlDiff = computeCrawlDiff(beforeSnapshot, new Map());
+    printCrawlChangeSummary(crawlDiff, 'DXT Commodities');
+    writeCrawlChangeSummaryToGH(crawlDiff, 'DXT Commodities');
+
+    // The page supplied positive empty-state evidence, so this is the one
+    // safe path that retires the old DXT slice instead of preserving it as a
+    // stale live listing.  The proof entries let the verified writer archive
+    // old routes for their expired soft-landing pages.
+    await writeJobsCrawlerSliceVerified(DXT_KEY, [], {
+      isTargetJob: isDxtJob,
+      skipShrinkGuard: true,
+      housekeepingProof: existingJobs.map((job) => ({
+        job,
+        reason: 'authoritative-source-zero',
+        definitive: true,
+      })),
+    });
+
+    const durationMs = getCrawlerElapsedMs();
+    writeSummaryCrawlerSlice({
+      key: DXT_KEY,
+      label: 'DXT Commodities',
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      discovered: 0,
+      parsed: 0,
+      lastFetchOutcome: 'ok',
+      authoritativeEmptySnapshot: true,
+      earlyExit: false,
+      written: 0,
+      newCount: crawlDiff.newJobs.length,
+      updatedCount: crawlDiff.updatedJobs.length,
+      removedCount: crawlDiff.removedJobs.length,
+      unchangedCount: crawlDiff.unchangedCount,
+      durationMs,
+      avgDurationMs: durationMs,
+      durationHistory: [durationMs],
+      newJobs: crawlDiff.newJobs.slice(0, 30),
+      updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
+      removedJobs: crawlDiff.removedJobs.slice(0, 30),
+      unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+    });
+    await assembleJobsDataset();
+    console.log('\n✅ DXT Commodities crawler recorded a proven empty Lugano snapshot.');
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No DXT Lugano jobs discovered.');

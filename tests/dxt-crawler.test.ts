@@ -9,17 +9,26 @@
  *   — title heading in panel body (h1) must be stripped from description text
  *   — tab title from <a> must match content-title with overlap >= 0.7
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 import {
   parseWpsmAccordionPanels,
+  hasNoOpenPositionsMarker,
   findLuganoAccordionIds,
   titleOverlap,
   htmlToText,
   MIN_DESC_LENGTH,
   MIN_TITLE_OVERLAP,
 } from '@/scripts/lib/dxt-job-parser.mjs';
-import { buildDescription, dxtCrawledAt, dropInventedDxtLocaleText, dxtPanelUrl, dxtMergeKey } from '@/scripts/update-dxt-jobs.mjs';
+import {
+  buildDescription,
+  dxtCrawledAt,
+  dropInventedDxtLocaleText,
+  dxtPanelUrl,
+  dxtMergeKey,
+  fetchDxtJobs,
+} from '@/scripts/update-dxt-jobs.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 const OBSERVED_AT = new Date();
 
@@ -106,6 +115,8 @@ const FIXTURE_NO_OPENINGS = `
   </div>
 </div>
 `;
+
+const FIXTURE_NO_OPENINGS_PAGE = `<h3>LUGANO-SWITZERLAND</h3>${FIXTURE_NO_OPENINGS}`;
 
 // Fixture: tab title mismatch — content title differs with overlap < 0.7
 // Tab title: "LUGANO-SWITZERLAND" (section heading mistakenly used as tab label)
@@ -239,6 +250,29 @@ describe('parseWpsmAccordionPanels — guards', () => {
   it('skips panel with "no open positions" in body', () => {
     const jobs = parseWpsmAccordionPanels(FIXTURE_NO_OPENINGS, '21045');
     expect(jobs).toHaveLength(0);
+  });
+
+  it('recognises an explicit empty-state marker in the live accordion', () => {
+    expect(hasNoOpenPositionsMarker(FIXTURE_NO_OPENINGS, '21045')).toBe(true);
+  });
+
+  it('carries explicit empty-state proof through the DXT fetcher', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(FIXTURE_NO_OPENINGS_PAGE, {
+      status: 200,
+      headers: { 'content-type': 'text/html' },
+    })));
+    try {
+      const jobs = await fetchDxtJobs();
+      expect(jobs).toHaveLength(0);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('does not infer an empty source from a short or unrelated panel', () => {
+    expect(hasNoOpenPositionsMarker(FIXTURE_SHORT_DESC, '55555')).toBe(false);
+    expect(hasNoOpenPositionsMarker(FIXTURE_LUGANO_ACCORDION, '20897')).toBe(false);
   });
 
   it('skips panel whose description is shorter than MIN_DESC_LENGTH', () => {
