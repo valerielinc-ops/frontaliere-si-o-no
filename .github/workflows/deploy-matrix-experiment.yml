@@ -354,6 +354,7 @@ jobs:
           RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
           RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
           RELATED_SEARCH_POSTINGS_SPARSE: ''
+          RELATED_SEARCH_SUMMARY_PARALLEL: '0'
           RELATED_SEARCH_CLUSTERS_SUMMARY_OUT: /tmp/related-search-clusters-summary.base.json
           NODE_OPTIONS: '--max-old-space-size=14336 --expose-gc'
           BUILD_BENCH: '1'

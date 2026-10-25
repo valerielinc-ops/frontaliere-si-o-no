@@ -2116,6 +2116,102 @@ function writeRelatedSearchClusterSummary(
   fs.writeFileSync(absolutePath, JSON.stringify(summary), 'utf-8');
 }
 
+function parseSummaryScope(raw: string | undefined): ReadonlySet<Locale> | null {
+  const locales = (raw ?? '')
+    .split(',')
+    .map((value) => value.trim())
+    .filter((value): value is Locale => (SUPPORTED_LOCALES as readonly string[]).includes(value));
+  return locales.length > 0 ? new Set<Locale>(locales) : null;
+}
+
+export interface RelatedSearchSummaryPartial {
+  version: 1;
+  candidateCount: number;
+  jobCount: number;
+  entries: Array<{ index: number; entry: RelatedSearchClusterSummaryEntry }>;
+  skipped: Array<{ index: number; key: string }>;
+}
+
+/**
+ * Parziale di un processo figlio: come `writeRelatedSearchClusterSummary` ma
+ * limitato ai candidati dei locali in `scope`, con l'indice di ciascun candidato
+ * nell'elenco COMPLETO. `mergeRelatedSearchSummaryPartials` ricompone da qui il
+ * summary completo nello stesso ordine del percorso sequenziale.
+ */
+function writeRelatedSearchClusterSummaryPartial(
+  rootDir: string,
+  outputPath: string,
+  candidates: ReadonlyArray<CandidateEntry>,
+  jobs: ReadonlyArray<RawJob>,
+  contexts: ReadonlyArray<ClusterContext>,
+  scope: ReadonlySet<Locale>,
+): void {
+  const indexByKey = new Map<string, number>();
+  candidates.forEach((candidate, index) => indexByKey.set(`${candidate.locale}::${candidate.slug}`, index));
+  const contextKeys = new Set<string>();
+  const entries: RelatedSearchSummaryPartial['entries'] = [];
+  for (const ctx of contexts) {
+    const key = `${ctx.candidate.locale}::${ctx.candidate.slug}`;
+    contextKeys.add(key);
+    entries.push({
+      index: indexByKey.get(key) as number,
+      entry: {
+        key,
+        keyword: ctx.keyword,
+        city: ctx.city,
+        matchingJobCount: ctx.matchingJobCount,
+        legacyCantonGroup: ctx.legacyCantonGroup,
+      },
+    });
+  }
+  const skipped: RelatedSearchSummaryPartial['skipped'] = [];
+  candidates.forEach((candidate, index) => {
+    if (!scope.has(candidate.locale)) return;
+    const key = `${candidate.locale}::${candidate.slug}`;
+    if (!contextKeys.has(key)) skipped.push({ index, key });
+  });
+  const partial: RelatedSearchSummaryPartial = {
+    version: 1,
+    candidateCount: candidates.length,
+    jobCount: jobs.length,
+    entries,
+    skipped,
+  };
+  const absolutePath = path.resolve(rootDir, outputPath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(partial), 'utf-8');
+}
+
+/**
+ * Ricompone i parziali dei processi figli nel summary completo: stesse chiavi,
+ * stesso ordine e stessi byte di `writeRelatedSearchClusterSummary`. Rifiuta
+ * parziali calcolati su input diversi (conteggi di candidati/job).
+ */
+export function mergeRelatedSearchSummaryPartials(
+  partials: ReadonlyArray<RelatedSearchSummaryPartial>,
+): RelatedSearchClustersSummaryFile {
+  if (partials.length === 0) throw new Error('no related-search summary partials to merge');
+  const { candidateCount, jobCount } = partials[0];
+  for (const partial of partials) {
+    if (partial.version !== 1 || partial.candidateCount !== candidateCount || partial.jobCount !== jobCount) {
+      throw new Error('related-search summary partials were computed on different inputs');
+    }
+  }
+  const entries = partials
+    .flatMap((partial) => partial.entries)
+    .sort((a, b) => a.index - b.index);
+  const skipped = partials
+    .flatMap((partial) => partial.skipped)
+    .sort((a, b) => a.index - b.index);
+  return {
+    version: 1,
+    candidateCount,
+    jobCount,
+    entries: entries.map(({ entry }) => entry),
+    skippedKeys: skipped.map(({ key }) => key),
+  };
+}
+
 // ── Page emission ───────────────────────────────────────────────────────
 
 interface PageInputs {
@@ -5660,6 +5756,16 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       profileRecord('load-jobs', __tLoadJobs);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys, ${publishedClusterKeys.size} previously-emitted cluster keys`);
       const summaryOnly = Boolean(process.env.RELATED_SEARCH_CLUSTERS_SUMMARY_OUT);
+      // Generazione del summary in parallelo (scripts/generate-related-search-
+      // clusters-summary.ts): ogni processo figlio abbina SOLO i candidati dei
+      // propri locali e scrive un parziale con l'indice globale del candidato,
+      // cosi' il genitore ricompone il file identico byte per byte a quello
+      // sequenziale. Il matching di un candidato dipende solo dai job e dal suo
+      // locale, mai dagli altri candidati.
+      const summaryScope = summaryOnly ? parseSummaryScope(process.env.RELATED_SEARCH_SUMMARY_SCOPE) : null;
+      const candidatesInScope = summaryScope
+        ? candidates.filter((candidate) => summaryScope.has(candidate.locale))
+        : candidates;
       const matchingSummary = !EMIT_ALL_LOCALES && !summaryOnly
         ? loadRelatedSearchClusterSummary(rootDir, candidates, jobs)
         : null;
@@ -5698,7 +5804,7 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
         // the summary itself was produced once with the same full matcher.
         const prepassCandidates = matchingSummary
           ? candidates.filter((candidate) => shouldEmitLocale(candidate.locale))
-          : candidates;
+          : candidatesInScope;
         for (const cand of prepassCandidates) {
           const sampleTerm = (cand.sampleTerms || [])[0] || '';
           if (!sampleTerm) continue;
@@ -5828,7 +5934,7 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tContextBuild = profileStart();
       const contextStartedAt = Date.now();
       let processedContexts = 0;
-      for (const cand of candidates) {
+      for (const cand of candidatesInScope) {
         // Single pass, on purpose. #11971 probed each candidate up to the
         // indexability floor and rebuilt the ones that reached it, assuming
         // most stay below. In production the phase doubled instead: on the FR
@@ -5853,7 +5959,7 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
             });
         if (ctx) contexts.push(ctx);
         if (++processedContexts % 10_000 === 0) {
-          console.log(`[related-search-clusters] contexts ${processedContexts}/${candidates.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);
+          console.log(`[related-search-clusters] contexts ${processedContexts}/${candidatesInScope.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);
         }
       }
       profileRecord('build-contexts', __tContextBuild);
@@ -5880,7 +5986,12 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       const summaryOutput = process.env.RELATED_SEARCH_CLUSTERS_SUMMARY_OUT;
       if (summaryOutput) {
         const __tSummaryWrite = profileStart();
-        writeRelatedSearchClusterSummary(rootDir, summaryOutput, candidates, jobs, contexts);
+        const partialOut = process.env.RELATED_SEARCH_SUMMARY_PARTIAL_OUT;
+        if (summaryScope && partialOut) {
+          writeRelatedSearchClusterSummaryPartial(rootDir, partialOut, candidates, jobs, contexts, summaryScope);
+        } else {
+          writeRelatedSearchClusterSummary(rootDir, summaryOutput, candidates, jobs, contexts);
+        }
         profileRecord('summary-write', __tSummaryWrite);
         console.log(
           `\x1b[36m[related-search-clusters]\x1b[0m wrote shared matching summary: ${contexts.length} contexts, ${candidates.length - contexts.length} skipped, ${jobs.length} jobs, ${summaryOutput}`,
