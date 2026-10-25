@@ -87,6 +87,15 @@ describe('runtime reliability watchdog', () => {
     })).toMatchObject({ state: 'in_progress', startId: start, completeId: previous });
   });
 
+  it('orders a newer publish ahead of a prior marker even when the nonce was short', () => {
+    const result = classifyCdnPublishWindow({
+      startMarker: { ok: true, body: '17600000000019' },
+      completeMarker: { ok: true, body: '176000000000018446744073709551615' },
+      nowMs: 1760000001000,
+    });
+    expect(result.state).toBe('in_progress');
+  });
+
   it('does not read or purge mutable assets while a CDN publish is open', async () => {
     const now = Date.parse('2026-10-18T20:10:00Z');
     const calls: string[] = [];

@@ -205,6 +205,14 @@ function publishTokenTimeMs(id) {
   return Number.isFinite(timestamp) ? timestamp : null;
 }
 
+function publishTokenOrderValue(id) {
+  const text = String(id || '');
+  if (text.length <= 13) return `${text}${'0'.repeat(20)}`;
+  const timestamp = text.slice(0, 13);
+  const nonce = text.slice(13).padStart(20, '0');
+  return `${timestamp}${nonce}`;
+}
+
 /**
  * Classify the R2 mutation window independently from the site/CDN generation
  * pair. A start token newer than the last completed token means stable asset
@@ -236,7 +244,7 @@ export function classifyCdnPublishWindow({
       ageMs: startTimeMs === null ? null : Math.max(0, nowMs - startTimeMs),
     };
   }
-  if (completeId && BigInt(startId) < BigInt(completeId)) {
+  if (completeId && BigInt(publishTokenOrderValue(startId)) < BigInt(publishTokenOrderValue(completeId))) {
     return { state: 'marker_regression', startId, completeId, ageMs: null };
   }
 
