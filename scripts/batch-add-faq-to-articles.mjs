@@ -33,7 +33,7 @@ import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushSco
 import { freeTranslateWithRetry, isSourcePassthrough, logCascadeSummary } from './lib/free-translate.mjs';
 import { repairLlmJsonArray, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
 import { wrongLocalePair } from './fix-faq-locales.mjs';
-import { unescapeTsString } from './lib/unescape-ts-string.mjs';
+import { decodeControlEscapesByField, unescapeTsString } from './lib/unescape-ts-string.mjs';
 import { cleanFaqPairs } from './lib/prompt-placeholder-guard.mjs';
 import { assertOldHistorySafe, isOldHistoryBlockedError } from './lib/old-history-guard.mjs';
 
@@ -379,10 +379,10 @@ export function extractBodyContent(fileContent, articleId) {
     let content = m[2];
     if (quoteChar === "'") {
       // Single-quoted TS string: unescape \' \n \\
-      content = unescapeTsString(content, { "'": "'", n: '\n', '\\': '\\' });
+      content = decodeControlEscapesByField(content, 'body');
     } else {
       // Backtick (template literal): unescape \` \$ \\
-      content = unescapeTsString(content, { '`': '`', $: '$', '\\': '\\' });
+      content = decodeControlEscapesByField(content, 'template');
     }
     bodies.push(content);
   }

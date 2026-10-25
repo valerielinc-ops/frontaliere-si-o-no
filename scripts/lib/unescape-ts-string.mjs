@@ -48,8 +48,17 @@
  * which every buggy chain has, and which no single-pass decoder needs).
  */
 
-const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|[\s\S])/g;
+const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|0[0-9]|[\s\S])/g;
 const TS_CODE_POINT_ESCAPE_RX = /^(x[0-9a-fA-F]{2}|u\{[0-9a-fA-F]+\})/u;
+
+/**
+ * Legacy octal-looking tokens are not a NUL followed by a digit. Preserve the
+ * complete token so every caller can diagnose or pass it to the next parser
+ * without silently changing the source value.
+ */
+export function preserveOctalEscapeToken(escape) {
+  return typeof escape === 'string' && /^0[0-9]$/u.test(escape);
+}
 
 /**
  * Decode the TypeScript code-point escape immediately following a backslash.
@@ -88,6 +97,7 @@ function decodeTypeScriptCodePointEscape(escape) {
  */
 export function unescapeTsString(value, escapes, { decodeUnicode = false } = {}) {
   return value.replace(TS_ESCAPE_RX, (whole, escape) => {
+    if (preserveOctalEscapeToken(escape)) return whole;
     const codePoint = decodeTypeScriptCodePointEscape(escape);
     if (codePoint) return codePoint.value;
     if (decodeUnicode && /^u[0-9a-fA-F]{4}$/u.test(escape)) {
@@ -96,6 +106,49 @@ export function unescapeTsString(value, escapes, { decodeUnicode = false } = {})
     const ch = escape[0];
     return Object.prototype.hasOwnProperty.call(escapes, ch) ? escapes[ch] : whole;
   });
+}
+
+/**
+ * Decode control escapes with an explicit field policy.
+ *
+ * Body/metadata fields are TypeScript text and therefore decode `\b`, `\f`,
+ * `\v`, and `\0` just like the language runtime. FAQ fields are JSON-bound:
+ * those escapes must remain visible to JSON.parse, so only the outer
+ * TypeScript quoting escapes are decoded there.
+ *
+ * @param {string} value raw text captured between TypeScript quotes
+ * @param {'body'|'meta'|'template'|'faq'} field field contract
+ * @param {{ newlineAs?: string, decodeUnicode?: boolean }} [options]
+ */
+export function decodeControlEscapesByField(value, field, options = {}) {
+  const normalized = String(field ?? '').toLowerCase();
+  const isFaq = normalized === 'faq' || normalized.endsWith('.faq');
+  const isTemplate = normalized === 'template' || normalized === 'backtick';
+  const isMeta = normalized === 'meta' || normalized.startsWith('meta.') || normalized.endsWith('.meta');
+  const isBody = normalized === 'body' || normalized.startsWith('body.') || /^body\d+$/u.test(normalized);
+  if (!isFaq && !isTemplate && !isMeta && !isBody) {
+    throw new TypeError(`unknown TypeScript escape field: ${String(field)}`);
+  }
+
+  const escapes = {
+    "'": "'",
+    '"': '"',
+    '\\': '\\',
+    n: options.newlineAs ?? (isMeta ? ' ' : '\n'),
+    r: '',
+    t: ' ',
+  };
+  if (isTemplate) {
+    escapes['`'] = '`';
+    escapes.$ = '$';
+  }
+  if (!isFaq) {
+    escapes.b = '\b';
+    escapes.f = '\f';
+    escapes.v = '\v';
+    escapes['0'] = '\0';
+  }
+  return unescapeTsString(String(value ?? ''), escapes, options);
 }
 
 /**
@@ -110,8 +163,8 @@ export function unescapeTsString(value, escapes, { decodeUnicode = false } = {})
  * @param {string} newlineAs - what `\n` decodes to.
  * @returns {Record<string, string>}
  */
-export function tsStringEscapesWithNewlineAs(newlineAs) {
-  return {
+export function tsStringEscapesWithNewlineAs(newlineAs, { decodeControlEscapes = false } = {}) {
+  const escapes = {
     "'": "'",
     '"': '"',
     '\\': '\\',
@@ -119,6 +172,13 @@ export function tsStringEscapesWithNewlineAs(newlineAs) {
     r: '',
     t: ' ',
   };
+  if (decodeControlEscapes) {
+    escapes.b = '\b';
+    escapes.f = '\f';
+    escapes.v = '\v';
+    escapes['0'] = '\0';
+  }
+  return escapes;
 }
 
 /**

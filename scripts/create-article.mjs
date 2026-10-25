@@ -106,7 +106,7 @@ import {
 } from './lib/fact-check-consensus.mjs';
 import { runFactualityGates, formatIssues, formatRemediation, buildSourceContract, FACT_CHECK_CATEGORIES, assertNoFabricatedNormAcronyms, mentionsWrongConventionDate, CONVENTION_DATE_IT } from './lib/article-factuality-gates.mjs';
 import { loadDefectMemory, learnedDenylist, learnedSuspects } from './lib/article-defect-memory.mjs';
-import { unescapeTsString } from './lib/unescape-ts-string.mjs';
+import { decodeControlEscapesByField } from './lib/unescape-ts-string.mjs';
 import {
   stripCompetitorPromotion,
   sanitizeNavLinkSemantics,
@@ -8838,7 +8838,7 @@ function buildBodyFile(data, locale) {
       const faqJson = JSON.stringify(c.faq);
       // Roundtrip: verify the escaped string produces valid JSON when parsed back
       const escaped = escapeForSingleQuoteTS(faqJson);
-      const unescaped = unescapeTsString(escaped, { "'": "'", '\\': '\\', n: '\n' });
+      const unescaped = decodeControlEscapesByField(escaped, 'body');
       JSON.parse(unescaped);
       faqLine = `\n    'blog.article.${id}.faq': '${escaped}',`;
     } catch (e) {

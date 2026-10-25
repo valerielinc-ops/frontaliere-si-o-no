@@ -35,7 +35,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 
-import { unescapeTsString, tsStringEscapesWithNewlineAs } from './unescape-ts-string.mjs';
+import { decodeControlEscapesByField } from './unescape-ts-string.mjs';
 import { BODY_DIRS, LOCALES } from './blog-body-io.mjs';
 import { parseStaticArticleTranslationEntries } from '../../packages/articles/engine/shared/articleStaticSource.mjs';
 
@@ -44,8 +44,6 @@ import { parseStaticArticleTranslationEntries } from '../../packages/articles/en
 // no difference to JSON.parse (a real `.faq` value never legitimately
 // contains one), but keeping it identical means this gate decodes every
 // `.faq` byte for byte the same way the engine does.
-const FAQ_ESCAPES = tsStringEscapesWithNewlineAs('\n');
-
 /**
  * Whether a raw `.faq` field's captured source text decodes into something
  * `ogPagesPlugin.ts` can turn into a FAQPage schema. Mirrors that file's
@@ -57,7 +55,7 @@ const FAQ_ESCAPES = tsStringEscapesWithNewlineAs('\n');
  * @returns {boolean}
  */
 export function faqDecodesReadable(rawSourceText) {
-  return isReadableFaqValue(unescapeTsString(rawSourceText, FAQ_ESCAPES));
+  return isReadableFaqValue(decodeControlEscapesByField(rawSourceText, 'faq'));
 }
 
 function isReadableFaqValue(value) {
