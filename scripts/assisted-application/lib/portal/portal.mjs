@@ -2771,7 +2771,12 @@ export async function readPortalRequirements(ctx) {
     await settle(page);
     let snapshot;
     ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
-    snapshot = await awaitFields(page, await extractFields(page));
+    // Solique keeps the later steps mounted with zero-sized controls. The
+    // exact host allowlist makes it safe to read those labels and required
+    // flags now, without filling or advancing the live form.
+    snapshot = await awaitFields(page, await extractFields(page, safeEmployerSite
+      ? { ...NAVIGATION, includeHidden: true, listboxOptions: false }
+      : NAVIGATION));
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
     if (snapshot.captcha || !readableApplication) return { questions: [], documents: [] };

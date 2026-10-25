@@ -2,7 +2,7 @@
 // Do not edit: run `node scripts/assisted-application/extension/build-runner-fields.mjs`.
 (function (root) {
   'use strict';
-  root.CompilaRunnerFields = function extractFieldsInPage({ channelType = '' } = {}) {
+  root.CompilaRunnerFields = function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
   // The ATS classifier knows both vendor hosts and employer-branded
@@ -81,6 +81,13 @@
     const labelRect = label.getBoundingClientRect();
     return labelRect.width > 0 && labelRect.height > 0;
   };
+  // A small set of explicitly allowlisted public forms (currently Solique)
+  // keeps every step mounted and only swaps its layout box. The draft reader
+  // may inspect those controls without interacting with them; ordinary portal
+  // runs stay visibility-scoped so stale steps and hidden traps are ignored.
+  const readable = (element) => includeHidden
+    ? !element.closest('[hidden]')
+    : visible(element);
   const DIALOG_SELECTOR = 'dialog, [role="dialog"], [aria-modal="true"]';
   const dialogIdFor = (element) => {
     const dialog = element.closest(DIALOG_SELECTOR);
@@ -349,7 +356,7 @@
   // the disabled next button untouched.
   const datePickerSelector = '[data-scope="date-picker"][data-part="root"]';
   for (const picker of document.querySelectorAll(datePickerSelector)) {
-    if (!visible(picker)) continue;
+    if (!readable(picker)) continue;
     const label = clean(picker.getAttribute('aria-label') || headingBefore(picker) || zoneText(picker));
     const selected = picker.querySelector('[data-part="table-cell-trigger"][data-selected], [data-part="table-cell-trigger"][aria-selected="true"]')?.getAttribute('data-value') || '';
     fields.push({
@@ -384,7 +391,7 @@
     // can place required fields inside the employer's header or footer.
     if (isSiteGlobalSearchField(element)) continue;
     if (element.closest(datePickerSelector)) continue;
-    if (element.disabled || element.readOnly || !visible(element)) continue;
+    if (element.disabled || element.readOnly || !readable(element)) continue;
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
     // is a trap whatever its size: never a field of the form.
     if (element.getAttribute('data-automation-id') === 'beecatcher' || HONEYPOT_LABEL.test(labelFor(element))) continue;
@@ -455,7 +462,7 @@
   // SAP UI5's date picker (SuccessFactors' «Geburtsdatum», Coop 2026-10-03):
   // a web component whose input lives in its shadow root, out of the loop above.
   for (const element of document.querySelectorAll('[ui5-date-picker]')) {
-    if (element.hasAttribute('disabled') || element.hasAttribute('readonly') || !visible(element)) continue;
+    if (element.hasAttribute('disabled') || element.hasAttribute('readonly') || !readable(element)) continue;
     const label = clean(element.getAttribute('accessible-name') || element.getAttribute('title') || labelFor(element));
     fields.push({
       id: idFor(element),
@@ -483,7 +490,7 @@
   // di autorizzazione al lavoro per Svizzera?" read as no field at all).
   const ariaGroups = new Map();
   for (const element of document.querySelectorAll('[role="radio"]')) {
-    if (element.tagName.toLowerCase() === 'input' || element.getAttribute('aria-disabled') === 'true' || !visible(element)) continue;
+    if (element.tagName.toLowerCase() === 'input' || element.getAttribute('aria-disabled') === 'true' || !readable(element)) continue;
     let container = element.closest('[role="radiogroup"]');
     for (let node = element.parentElement; !container && node && node !== document.body; node = node.parentElement) {
       if (node.querySelectorAll('[role="radio"]').length > 1) container = node;
@@ -510,7 +517,7 @@
   // Workday-style dropdowns are buttons that open a listbox (OfferOS
   // dom-fill, isListboxButton): a field whose options are read later by opening it.
   for (const element of document.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
-    if (element.disabled || !visible(element)) continue;
+    if (element.disabled || !readable(element)) continue;
     const label = labelFor(element);
     // The site's own language menu is not part of the application, nor any other menu of its header,
     // navigation or footer (Workday's «settingsSelectorButton», read as a field of every page of the form).
