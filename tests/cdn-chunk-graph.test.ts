@@ -207,6 +207,14 @@ describe('verify-spa-module-links', () => {
 
     expect(linkCheck(graph.modules, graph.served)).toEqual([]);
   });
+
+  it('treats emitted CSS targets as served assets without parsing them as modules', () => {
+    const graph = buildLocalModuleGraph(new Map([
+      ['App.js', 'import"./index.css";'],
+    ]), { assetPaths: ['index.css'] });
+
+    expect(linkCheck(graph.modules, graph.served)).toEqual([]);
+  });
 });
 
 describe('rotatingWindow', () => {
