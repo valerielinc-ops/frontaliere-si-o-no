@@ -13441,7 +13441,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arianna-di-claudio-roma.imageAlt': 'Arianna Di Claudio on the red carpet at the Rome Film Festival',
     'blog.article.frontalieri-vendemmia-tasse-ristorni-settembre.title': 'Cross-border workers: harvest at CHF 15, 4k entry tax',
     'blog.article.frontalieri-vendemmia-tasse-ristorni-settembre.excerpt': 'In the Mendrisiotto, grape harvesting is set at 15 francs an hour The entry fee is set at up to 4mila francs For unemployed cross-border workers, 900 is mentioned',
-    'blog.article.frontalieri-vendemmia-tasse-ristorni-settembre.imageAlt': 'Mendrisiotto vineyards during harvest with Lake Lugano view',
+    'blog.article.frontalieri-vendemmia-tasse-ristorni-settembre.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.incendio-via-cortivallo.title': 'Lugano, fire on Via Cortivallo: one person dead',
     'blog.article.incendio-via-cortivallo.excerpt': 'Fire shortly after 3.00 on Via Cortivallo in Lugano A person found dead in the apartment on the second floor Twenty-two tenants evacuated and six residents',
     'blog.article.incendio-via-cortivallo.imageAlt': 'Illustrative image relevant to the article topic',

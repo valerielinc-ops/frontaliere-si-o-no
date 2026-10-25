@@ -8308,7 +8308,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tasse-universitarie-berna-guida.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.opportunita-impiego-federale.title': 'Lavorare per l\'Amministrazione federale: 50 formazioni',
     'blog.article.opportunita-impiego-federale.excerpt': 'L\'Amministrazione federale offre praticantati agli studenti neolaureati Sono disponibili 50 formazioni professionali Le formazioni prevedono 7 settimane',
-    'blog.article.opportunita-impiego-federale.imageAlt': 'Opportunità di lavoro nell\'Amministrazione federale in Svizzera',
+    'blog.article.opportunita-impiego-federale.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.segreteria-economia-nazionale.title': 'SECO: la fonte indica la Segreteria di Stato dell\'economia',
     'blog.article.segreteria-economia-nazionale.excerpt': 'Il materiale disponibile riporta la denominazione Segreteria di Stato dell\'economia e l\'acronimo SECO, ma non contiene misure, date o cifre.',
     'blog.article.segreteria-economia-nazionale.imageAlt': 'Documento con la sigla SECO su una scrivania in un ufficio economico svizzero.',

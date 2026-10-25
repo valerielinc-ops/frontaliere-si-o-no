@@ -8308,7 +8308,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tasse-universitarie-berna-guida.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.opportunita-impiego-federale.title': 'Arbeiten für die Bundesverwaltung: 50 Berufsausbildungen',
     'blog.article.opportunita-impiego-federale.excerpt': 'Die Bundesverwaltung bietet frisch diplomierten Hochschulabsolventinnen und -absolventen Praktika an Es stehen 50 Berufsausbildungen zur Verfügung Die Ausbildungen umfassen 7 Wochen',
-    'blog.article.opportunita-impiego-federale.imageAlt': 'Stellenangebote in der Schweizer Bundesverwaltung',
+    'blog.article.opportunita-impiego-federale.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.segreteria-economia-nazionale.title': 'SECO: Die Quelle nennt das Staatssekretariat für Wirtschaft',
     'blog.article.segreteria-economia-nazionale.excerpt': 'Das verfügbare Material nennt die Bezeichnung Staatssekretariat für Wirtschaft und das Akronym SECO, enthält jedoch keine Maßnahmen, Daten oder Zahlen.',
     'blog.article.segreteria-economia-nazionale.imageAlt': 'Dokument mit der Abkürzung SECO auf einem Schreibtisch in einem Schweizer Wirtschaftsbüro.',

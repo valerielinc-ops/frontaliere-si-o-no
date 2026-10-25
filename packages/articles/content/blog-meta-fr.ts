@@ -13443,7 +13443,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arianna-di-claudio-roma.imageAlt': 'Arianna Di Claudio sur le tapis rouge du Festival du cinéma de Rome',
     'blog.article.frontalieri-vendemmia-tasse-ristorni-settembre.title': 'Frontaliers : vendanges à 15 francs, taxe d’entrée 4mila, 900 mln de chômeurs',
     'blog.article.frontalieri-vendemmia-tasse-ristorni-settembre.excerpt': 'Dans le Mendrisiotto les vendanges sont indiquées à 15 francs l’heure La taxe d’entrée est indiquée jusqu’à 4mila francs Pour les frontaliers au chômage il est question de 900',
-    'blog.article.frontalieri-vendemmia-tasse-ristorni-settembre.imageAlt': 'Vignobles du Mendrisiotto pendant les vendanges avec vue sur le lac de Lugano',
+    'blog.article.frontalieri-vendemmia-tasse-ristorni-settembre.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.incendio-via-cortivallo.title': 'Lugano, incendie à la Via Cortivallo : une personne décédée',
     'blog.article.incendio-via-cortivallo.excerpt': 'Incendie peu après 3.00 à la Via Cortivallo à Lugano Une personne retrouvée sans vie dans le logement au deuxième étage Vingt-deux locataires évacués et six résidents',
     'blog.article.incendio-via-cortivallo.imageAlt': 'Image illustrative en lien avec le sujet de l’article',

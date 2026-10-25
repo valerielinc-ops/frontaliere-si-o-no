@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 848,
+      "5": 851,
       "6": 5056
     },
-    "publishedCovers": 7587,
+    "publishedCovers": 7590,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -208451,6 +208451,39 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-frontalieri-vendemmia-tasse-ristorni-settembre": {
+      "cover": "/images/blog/article-frontalieri-vendemmia-tasse-ristorni-settembre.webp",
+      "hash": "9968bad82ee3aa95fdc45e2b2d2b0861bd22782871fb117decdbeb78ab92f97e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frontalieri-vendemmia-tasse-ristorni-settembre",
+          "category": "novita",
+          "date": "2026-10-18T07:49:24.331Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frontalieri-vendemmia-tasse-ristorni-settembre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-frontalieri-vendemmia-tasse-ristorni-settembre",
+        "imageUrl": "/images/blog/article-frontalieri-vendemmia-tasse-ristorni-settembre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-imprenditori-cantone-turgovia-sostegno": {
       "cover": "/images/blog/article-imprenditori-cantone-turgovia-sostegno.webp",
       "hash": "2dffff0825a6ffa6febcf9c7a4e5dbb11cf1a66890fa1913973efb87b9ab623d",
@@ -208484,6 +208517,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-incendio-via-cortivallo": {
+      "cover": "/images/blog/article-incendio-via-cortivallo.webp",
+      "hash": "047b83c51046e3a5aad74ef59636ab6bee8a50d3e8a45a270ee7afb427e6ea48",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "incendio-via-cortivallo",
+          "category": "novita",
+          "date": "2026-10-18T08:02:43.203Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-incendio-via-cortivallo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-incendio-via-cortivallo",
+        "imageUrl": "/images/blog/article-incendio-via-cortivallo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-inflazione-premi-rincaro-svizzera": {
       "cover": "/images/blog/article-inflazione-premi-rincaro-svizzera.webp",
       "hash": "b2cbcba0ebbb2b2bc44a557810115fa85b304bf3583d1067c7a6147f0e926184",
@@ -208514,6 +208580,39 @@
         "provider": "openai-codex",
         "assetId": "article-inflazione-premi-rincaro-svizzera",
         "imageUrl": "/images/blog/article-inflazione-premi-rincaro-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-opportunita-impiego-federale": {
+      "cover": "/images/blog/article-opportunita-impiego-federale.webp",
+      "hash": "84b8a2739baacd6fe2acc89e10df9f59cbecc9cf99b6f979e8e7d505f7ac1603",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "opportunita-impiego-federale",
+          "category": "pratico",
+          "date": "2026-10-15T01:49:05.265Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-opportunita-impiego-federale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-opportunita-impiego-federale",
+        "imageUrl": "/images/blog/article-opportunita-impiego-federale.webp",
         "evidence": "generated-engine-record"
       }
     },
