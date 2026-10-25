@@ -72,6 +72,7 @@ import {
 } from './lib/ga4-service-account.mjs';
 import { parseAffiliateCsv, parseAffiliateExport, reconcileAffiliateTransactions } from './lib/affiliateRevenue.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import { fetchGoogleApi } from './lib/google-api-fetch.mjs';
 const PUBLISHER_SLICE_FILE = resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'publisher-submitted.json');
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 // Full reports live in the gitignored reports/ dir (kept as workflow artifacts
@@ -162,7 +163,7 @@ const log = (emoji, msg) => {
 // (AGENTS.md Non-Negotiable #6: a literal/helper copied into a second file
 // drifts by hand).
 export async function refreshAccessToken({ clientId, clientSecret, refreshToken }) {
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchGoogleApi('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -314,7 +315,7 @@ async function gscQuery(token, body) {
   const site = `sc-domain:${new URL(SITE_URL).hostname}`;
   const encoded = encodeURIComponent(site);
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encoded}/searchAnalytics/query`;
-  const res = await fetch(url, {
+  const res = await fetchGoogleApi(url, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
@@ -323,7 +324,7 @@ async function gscQuery(token, body) {
   // Fall back to URL-prefix property.
   const fallbackEncoded = encodeURIComponent(SITE_URL + '/');
   const fallbackUrl = `https://www.googleapis.com/webmasters/v3/sites/${fallbackEncoded}/searchAnalytics/query`;
-  const r2 = await fetch(fallbackUrl, {
+  const r2 = await fetchGoogleApi(fallbackUrl, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify(body),

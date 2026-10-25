@@ -41,6 +41,7 @@ import {
   clusterTopQueries,
 } from './lib/analytics-opportunity-utils.mjs';
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
+import { fetchGoogleApi } from './lib/google-api-fetch.mjs';
 import { buildTrafficFilter, fetchTrafficQuality } from './lib/ga4-traffic-quality.mjs';
 import { fetchRuntimeIncidentHistory } from './lib/runtime-incident-history.mjs';
 import { sleep, fetchRetry as rawFetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
@@ -364,7 +365,7 @@ async function getAccessToken() {
 
   if (!clientId || !clientSecret || !refreshToken) return null;
 
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchGoogleApi('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({

@@ -20,6 +20,7 @@ import {
   isJobBoardSectionPath,
 } from './lib/jobBoardSections.mjs';
 import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
+import { fetchGoogleApi } from './lib/google-api-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -44,7 +45,7 @@ async function getAccessToken() {
   if (!GSC_CLIENT_ID || !GSC_CLIENT_SECRET || !GSC_REFRESH_TOKEN) {
     throw new Error('Missing GSC_CLIENT_ID, GSC_CLIENT_SECRET, or GSC_REFRESH_TOKEN');
   }
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchGoogleApi('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -136,7 +137,7 @@ async function getIndexedJobUrls(accessToken) {
     let startRow = 0;
 
     while (true) {
-      const res = await fetch(
+      const res = await fetchGoogleApi(
         `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/searchAnalytics/query`,
         {
           method: 'POST',
