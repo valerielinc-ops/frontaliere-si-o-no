@@ -117,6 +117,15 @@ describe('generator: MIMIT outage keeps the Swiss refresh', () => {
     })).toThrow('older than 48h');
   });
 
+  it('uses the observation time instead of the end of its calendar day', () => {
+    expect(() => validateMimitCsvPayload({
+      pricesText: 'Estrazione del 2026-01-03\nidImpianto|descCarburante|prezzo|isSelf|dtComu\n1|Benzina|1.700|1|01/01/2026 10:00:00',
+      stationsText: 'Estrazione del 2026-01-03\nidImpianto|Gestore|Bandiera|Tipo Impianto|Nome Impianto|Indirizzo|Comune|Provincia|Latitudine|Longitudine\n1|G|Eni|Stradale|Eni Como|Via Milano 10|COMO|CO|45.81|9.08',
+      municipalities: [COMO],
+      now: new Date('2026-01-03T12:00:00.000Z'),
+    })).toThrow('older than 48h');
+  });
+
   it('labels the published Italian source with its status', () => {
     const carried = italyByMunicipalityFromDataset(previousDataset(day(daysAgo(3))));
     const payload = buildDataset({

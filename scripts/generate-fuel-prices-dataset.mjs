@@ -136,12 +136,17 @@ export function validateMimitCsvPayload({ pricesText, stationsText, municipaliti
   ));
   if (!hasUsableBenzina) throw new Error('MIMIT prices CSV has no usable Benzina rows');
 
-  const latestObservedAt = assertMimitObservationFresh(latestMimitObservationDate(prices.rows), now, maxAgeHours);
+  const latestObservationTimestamp = assertMimitObservationFresh(latestMimitObservationTimestamp(prices.rows), now, maxAgeHours);
   const stationMap = buildItalyStations(municipalities, stations.rows, prices.rows);
   if (![...stationMap.values()].some((entries) => entries.length > 0)) {
     throw new Error('MIMIT CSV has no usable Benzina station in target municipalities');
   }
-  return { prices, stations, latestObservedAt };
+  return {
+    prices,
+    stations,
+    latestObservedAt: latestObservationTimestamp.slice(0, 10),
+    latestObservationTimestamp,
+  };
 }
 
 /**
@@ -192,27 +197,70 @@ function normalizeItalyObservationDate(value) {
   return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : null;
 }
 
-function latestMimitObservationDate(rows) {
-  const dates = rows
+function italyLocalTimestampToIso(year, month, day, hour = 0, minute = 0, second = 0) {
+  const localAsUtc = Date.UTC(year, month - 1, day, hour, minute, second);
+  if (!Number.isFinite(localAsUtc)) return null;
+  let utcMillis = localAsUtc;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Rome',
+      timeZoneName: 'shortOffset',
+      hour: '2-digit',
+      minute: '2-digit',
+    }).formatToParts(new Date(utcMillis));
+    const offsetToken = parts.find((part) => part.type === 'timeZoneName')?.value ?? 'GMT';
+    const offsetMatch = offsetToken.match(/^GMT(?:(\+|-)(\d{1,2})(?::(\d{2}))?)?$/);
+    if (!offsetMatch) return null;
+    const offsetMinutes = offsetMatch[1]
+      ? (Number(offsetMatch[2]) * 60 + Number(offsetMatch[3] ?? '0')) * (offsetMatch[1] === '-' ? -1 : 1)
+      : 0;
+    const nextUtcMillis = localAsUtc - offsetMinutes * 60_000;
+    if (nextUtcMillis === utcMillis) break;
+    utcMillis = nextUtcMillis;
+  }
+  const result = new Date(utcMillis);
+  return Number.isFinite(result.getTime()) ? result.toISOString() : null;
+}
+
+function normalizeItalyObservationTimestamp(value) {
+  const source = String(value || '').trim();
+  const italianDate = source.match(/^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{2}):(\d{2})(?::(\d{2}))?)?$/);
+  if (italianDate) {
+    const [, dayText, monthText, yearText, hourText = '00', minuteText = '00', secondText = '00'] = italianDate;
+    const dateOnly = normalizeItalyObservationDate(`${dayText}/${monthText}/${yearText}`);
+    const hour = Number(hourText);
+    const minute = Number(minuteText);
+    const second = Number(secondText);
+    if (!dateOnly || hour > 23 || minute > 59 || second > 59) return null;
+    return italyLocalTimestampToIso(Number(yearText), Number(monthText), Number(dayText), hour, minute, second);
+  }
+
+  const normalized = normalizeItalyObservationDate(source);
+  if (!normalized) return null;
+  return normalized.length > 10 ? normalized : `${normalized}T00:00:00.000Z`;
+}
+
+function latestMimitObservationTimestamp(rows) {
+  const timestamps = rows
     .filter((row) => (
       String(row.descCarburante || '').trim() === 'Benzina'
       && String(row.idImpianto || '').trim() !== ''
       && toNumber(row.prezzo) != null
     ))
-    .map((row) => normalizeItalyObservationDate(row.dtComu)?.slice(0, 10) ?? null)
+    .map((row) => normalizeItalyObservationTimestamp(row.dtComu))
     .filter(Boolean)
-    .sort();
-  return dates[dates.length - 1] ?? null;
+    .sort((left, right) => Date.parse(left) - Date.parse(right));
+  return timestamps[timestamps.length - 1] ?? null;
 }
 
-function assertMimitObservationFresh(observedDate, now = new Date(), maxAgeHours = MIMIT_MAX_AGE_HOURS) {
-  if (!observedDate) throw new Error('MIMIT source has no usable Benzina observation date');
-  const observedAt = Date.parse(`${observedDate}T23:59:59.999Z`);
+function assertMimitObservationFresh(observedAtIso, now = new Date(), maxAgeHours = MIMIT_MAX_AGE_HOURS) {
+  if (!observedAtIso) throw new Error('MIMIT source has no usable Benzina observation timestamp');
+  const observedAt = Date.parse(observedAtIso);
   const ageHours = (now.getTime() - observedAt) / 3_600_000;
   if (!Number.isFinite(observedAt) || !Number.isFinite(ageHours) || ageHours > maxAgeHours) {
-    throw new Error(`MIMIT Benzina observations are older than ${maxAgeHours}h (latest ${observedDate})`);
+    throw new Error(`MIMIT Benzina observations are older than ${maxAgeHours}h (latest ${observedAtIso})`);
   }
-  return observedDate;
+  return observedAtIso;
 }
 
 async function fetchText(url, retries = 3) {
@@ -272,25 +320,24 @@ function readApiCoordinatePair(station) {
 function readApiObservationTimestamp(station) {
   const values = [station.insertDate, station.dIns].filter((value) => value != null && String(value).trim() !== '');
   if (!values.length) return null;
-  const normalized = values.map((value) => normalizeMimitApiObservationDate(value));
+  const normalized = values.map((value) => normalizeMimitApiObservationTimestamp(value));
   if (normalized.some((value) => !value) || new Set(normalized).size !== 1) return null;
   return normalized[0];
 }
 
-function normalizeMimitApiObservationDate(value) {
-  const normalized = normalizeItalyObservationDate(value);
-  if (normalized) return normalized.slice(0, 10);
-  // The legacy Osservaprezzi response documents `dIns` as a date-time but
-  // emits it without a timezone. Preserve its verified calendar day instead
-  // of inventing a timezone, which is all the downstream freshness contract
-  // needs for the source snapshot.
+function normalizeMimitApiObservationTimestamp(value) {
+  const normalized = normalizeItalyObservationTimestamp(value);
+  if (normalized) return normalized;
   const legacy = String(value || '').trim().match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/);
   if (!legacy) return null;
   const [, yearText, monthText, dayText, hourText, minuteText, secondText] = legacy;
   const date = new Date(Date.UTC(Number(yearText), Number(monthText) - 1, Number(dayText)));
   if (date.getUTCFullYear() !== Number(yearText) || date.getUTCMonth() !== Number(monthText) - 1 || date.getUTCDate() !== Number(dayText)) return null;
   if (Number(hourText) > 23 || Number(minuteText) > 59 || Number(secondText) > 59) return null;
-  return `${yearText}-${monthText}-${dayText}`;
+  // The API's legacy `dIns` alias is documented without a timezone and is
+  // paired with the ISO `insertDate` field in the same response. Treat its
+  // wall-clock value as UTC so the two documented aliases compare equal.
+  return new Date(Date.UTC(Number(yearText), Number(monthText) - 1, Number(dayText), Number(hourText), Number(minuteText), Number(secondText))).toISOString();
 }
 
 function readApiFuelList(station) {
@@ -396,7 +443,7 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
       const coordinates = readApiCoordinatePair(station);
       const observationTimestamp = readApiObservationTimestamp(station);
       if (!coordinates || !observationTimestamp) continue;
-      const fuelRows = readApiFuelRows(station, observationTimestamp);
+      const fuelRows = readApiFuelRows(station, observationTimestamp.slice(0, 10));
       if (!fuelRows.length) continue;
 
       const name = consistentValue([station.name, station.nome], (value) => normalizeText(value));
@@ -445,6 +492,7 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
     stationsRows,
     pricesRows,
     extractedAt: latestObservedAt?.slice(0, 10) ?? null,
+    latestObservedAt,
   };
 }
 
@@ -477,7 +525,7 @@ export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, r
     return { province, results };
   });
   const result = { ok: true, source: 'mimit-api', ...buildItalyRowsFromMimitApi({ municipalities, responses }) };
-  assertMimitObservationFresh(result.extractedAt, new Date());
+  assertMimitObservationFresh(result.latestObservedAt, new Date());
   return result;
 }
 
