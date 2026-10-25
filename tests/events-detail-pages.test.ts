@@ -2021,14 +2021,14 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(changedEventSlugMigrations([event] as never, 'TI', 'Lugano', assigned, reserved)).toEqual([]);
   });
 
-  it('keeps the old published tie slug indexable through a canonical bridge', () => {
+  it('keeps the old published tie slug indexable through a canonical bridge without meta-refresh', () => {
     const html = renderEventSlugRedirectPage('it', '/eventi/ticino/lugano/nuovo-slug/');
     const main = html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? '';
     expect(html).not.toContain('noindex');
     expect(html).toContain('max-image-preview:large');
     expect(countHtmlBodyWords(main)).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
     expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
-    expect(html).toContain('http-equiv="refresh" content="0; url=https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/"');
+    expect(html).not.toContain('http-equiv="refresh"');
   });
 
   it('renders all four verified Lüsslingen source-migration bridges to the refreshed owner', () => {
