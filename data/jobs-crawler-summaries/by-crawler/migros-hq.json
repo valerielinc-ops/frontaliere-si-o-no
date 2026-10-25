@@ -1,7 +1,7 @@
 {
   "key": "migros-hq",
   "label": "Migros HQ Zürich",
-  "generatedAt": "2026-10-25T09:43:45.464Z",
+  "generatedAt": "2026-10-25T21:48:46.110Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6784,
-  "avgDurationMs": 6784,
+  "durationMs": 6247,
+  "avgDurationMs": 6247,
   "durationHistory": [
-    6784
+    6247
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:43:33.729Z",
+      "crawledAt": "2026-10-25T21:48:33.779Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -80,7 +80,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:43:33.726Z",
+      "crawledAt": "2026-10-25T21:48:33.777Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -123,7 +123,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:43:33.710Z",
+      "crawledAt": "2026-10-25T21:48:33.756Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -157,5 +157,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }

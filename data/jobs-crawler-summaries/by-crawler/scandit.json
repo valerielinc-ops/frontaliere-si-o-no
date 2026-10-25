@@ -1,7 +1,7 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-10-25T09:54:50.548Z",
+  "generatedAt": "2026-10-25T21:44:47.999Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4361,
-  "avgDurationMs": 4361,
+  "durationMs": 3068,
+  "avgDurationMs": 3068,
   "durationHistory": [
-    4361
+    3068
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8300273",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:54:32.809Z",
+      "crawledAt": "2026-10-25T21:44:35.724Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,7 +78,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7552679",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:54:32.499Z",
+      "crawledAt": "2026-10-25T21:44:35.420Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -108,5 +108,5 @@
       }
     }
   ],
-  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }
