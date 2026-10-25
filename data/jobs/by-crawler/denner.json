@@ -1,6 +1,6 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-10-25T09:20:16.521Z",
+  "assembledAt": "2026-10-25T09:40:09.920Z",
   "runId": "40179282907",
   "jobs": [
     {
@@ -365,7 +365,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-476d321a8a2d",
@@ -895,7 +896,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-kirchberg",
         "en": "deputy-branch-manager-denner-kirchberg",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-kirchberg",
         "fr": "responsable-adjoint-e-de-succursale-denner-kirchberg"
       },
       "company": "Denner",
@@ -970,7 +971,7 @@
           "stv-filialleiter-in-denner-kirchberg"
         ],
         "de": [
-          "stv-filialleiter-in-denner-kirchberg"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-kirchberg"
@@ -1692,7 +1693,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-3fw79h",
@@ -1974,7 +1976,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-727bbf66b8c4",
@@ -2093,7 +2096,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-a1189bde07f5",
@@ -2757,7 +2761,7 @@
       "slugByLocale": {
         "it": "venditore-denner-kirchberg",
         "en": "shop-assistant-denner-kirchberg",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-kirchberg",
         "fr": "vendeur-denner-kirchberg"
       },
       "company": "Denner",
@@ -2831,7 +2835,7 @@
           "verkaufer-in-denner-kirchberg"
         ],
         "de": [
-          "verkaufer-in-denner-kirchberg"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-kirchberg"
@@ -2850,7 +2854,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-4c5c16a09d1b",
@@ -3060,7 +3065,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-291265480c2e",
@@ -3479,7 +3485,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-b54661008de8",
@@ -3582,7 +3589,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-29240f893274",
@@ -3899,7 +3907,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-3eea8528d29a",
@@ -4514,11 +4523,12 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-31ea5cf40ba0",
-      "slug": "venditore-denner-sissach",
+      "slug": "venditore-denner-sissach-05d5328f47",
       "titleByLocale": {
         "it": "Venditore",
         "en": "shop assistant",
@@ -4526,7 +4536,7 @@
         "fr": "Vendeur"
       },
       "slugByLocale": {
-        "it": "venditore-denner-sissach",
+        "it": "venditore-denner-sissach-05d5328f47",
         "en": "shop-assistant-denner-sissach",
         "de": "verkaufer-in-denner",
         "fr": "vendeur-denner-sissach"
@@ -4588,7 +4598,8 @@
         "verkaufer-in-denner-43",
         "verkaufer-in-denner-sissach",
         "verkaufer-in-denner-sissach-31lvmi",
-        "venditore-denner-sissach-05d5328f47"
+        "venditore-denner-sissach-05d5328f47",
+        "venditore-denner-sissach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4596,7 +4607,8 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-43",
           "verkaufer-in-denner-sissach",
-          "venditore-denner-sissach-05d5328f47"
+          "venditore-denner-sissach-05d5328f47",
+          "venditore-denner-sissach"
         ],
         "en": [
           "verkaufer-in-denner-sissach"
@@ -4622,7 +4634,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-58496d",
@@ -4966,7 +4979,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-b82561522d50",
@@ -5389,7 +5403,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-811c6b16fc44",
@@ -5718,7 +5733,7 @@
       "slugByLocale": {
         "it": "commesso-a-pagato-a-a-ore-denner-st-gallen",
         "en": "hourly-salesperson-denner-st-gallen",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-st-gallen",
         "fr": "vendeur-euse-paye-e-a-l-heure-denner-st-gallen"
       },
       "company": "Denner",
@@ -5793,7 +5808,7 @@
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-st-gallen-p3c9ng",
-          "verkaufer-in-im-stundenlohn-denner-st-gallen"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-st-gallen"
@@ -6440,7 +6455,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c4afc7ea8dd6",
@@ -6845,7 +6861,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-398e76cbd863",
@@ -7873,7 +7890,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ixnppb",
@@ -8150,7 +8168,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-d436d0e10288",
@@ -8467,7 +8486,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-708e62c1d01f",
@@ -8766,7 +8786,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-d1df27d4f8ab",
@@ -8879,7 +8900,8 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-d22c0e4a7a3f",
@@ -9095,7 +9117,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-d0e80b76a35d",
@@ -9410,7 +9433,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-4efcc06758fd",
@@ -9514,7 +9538,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-405a9b94689a",
@@ -9608,7 +9633,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-841daa62e1ff",
@@ -9871,7 +9897,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-358fd16f0bc2",
@@ -10261,7 +10288,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-d95dc285ddf6",
@@ -10543,7 +10571,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-993a93756414",
@@ -10645,7 +10674,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c586d26d63de",
@@ -10744,7 +10774,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-65de65d0f95a",
@@ -11047,7 +11078,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-4fbf67729324",
@@ -11439,7 +11471,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-175a85e66bca",
@@ -11737,7 +11770,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-149927409df6",
@@ -12327,7 +12361,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-6332bdc5042d",
@@ -12970,7 +13005,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-fa882fe5c6a3",
@@ -13072,7 +13108,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-ddb64578118d",
@@ -13178,7 +13215,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-3c5637016ff5",
@@ -13697,7 +13735,7 @@
       "slugByLocale": {
         "it": "commesso-a-denner-biel-bienne-43e4bd",
         "en": "salesperson-denner-biel-bienne-43e4bd",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-biel-bienne",
         "fr": "vendeur-euse-denner-biel-bienne-43e4bd"
       },
       "company": "Denner",
@@ -13780,7 +13818,7 @@
         ],
         "de": [
           "verkaufer-in-denner-biel-bienne-hscp0z",
-          "verkaufer-in-denner-biel-bienne"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-biel-bienne"
@@ -13917,7 +13955,7 @@
         "it": "partner-di-franchising-denner-partner-denner-val-de-charmey",
         "en": "franchise-partner-denner-partner-denner-val-de-charmey",
         "de": "franchisepartner-in-denner-partner-denner",
-        "fr": "partenaire-franchise-e-denner-partner-denner-val-de-charmey"
+        "fr": "franchisepartner-in-denner-partner-denner-val-de-charmey"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -13973,7 +14011,8 @@
       "postingDateSource": "unknown",
       "previousSlugs": [
         "franchisepartner-in-denner-partner-denner",
-        "franchisepartner-in-denner-partner-denner-val-de-charmey"
+        "franchisepartner-in-denner-partner-denner-val-de-charmey",
+        "partenaire-franchise-e-denner-partner-denner-val-de-charmey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13984,7 +14023,7 @@
           "franchisepartner-in-denner-partner-denner-val-de-charmey"
         ],
         "fr": [
-          "franchisepartner-in-denner-partner-denner-val-de-charmey"
+          "partenaire-franchise-e-denner-partner-denner-val-de-charmey"
         ]
       },
       "firstSeenAt": "2026-09-01T10:26:45.416Z",
@@ -15940,7 +15979,7 @@
     },
     {
       "id": "denner-75dc332be45c",
-      "slug": "venditore-denner-zug",
+      "slug": "venditore-trice-denner-zug-a4dbd7e08d",
       "titleByLocale": {
         "it": "Venditore/trice",
         "en": "Salesperson",
@@ -15948,7 +15987,7 @@
         "fr": "Vendeur·euse"
       },
       "slugByLocale": {
-        "it": "venditore-denner-zug",
+        "it": "venditore-trice-denner-zug-a4dbd7e08d",
         "en": "salesperson-denner-zug",
         "de": "verkaufer-in-denner",
         "fr": "vendeur-denner-zug"
@@ -16008,11 +16047,13 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-zug",
         "verkaufer-in-denner-zug-rtrz4s",
-        "shop-assistant-denner-zug"
+        "shop-assistant-denner-zug",
+        "venditore-denner-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-zug"
         ],
         "en": [
           "verkaufer-in-denner-zug",
@@ -16557,7 +16598,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-487e0b2e1d49",
@@ -16736,6 +16778,7 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-zug",
         "venditore-denner-zug-fb89b2",
+        "venditore-denner-zug-82746e21aa",
         "venditore-denner-zug"
       ],
       "previousSlugsByLocale": {
@@ -16744,6 +16787,7 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-zug",
           "venditore-denner-zug-fb89b2",
+          "venditore-denner-zug-82746e21aa",
           "venditore-denner-zug"
         ],
         "en": [
@@ -16766,7 +16810,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-641f44820226",
@@ -17374,7 +17419,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-2da3b8645bc1",
@@ -17476,7 +17522,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-9d9ac7459f42",
@@ -17575,7 +17622,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-e2f12c2b504e",
@@ -17897,7 +17945,7 @@
       "slugByLocale": {
         "it": "responsabile-di-filiale-denner-dubendorf",
         "en": "branch-manager-denner-dubendorf",
-        "de": "filialleiter-in-denner",
+        "de": "filialleiter-in-denner-dubendorf",
         "fr": "responsable-de-succursale-denner-dubendorf"
       },
       "company": "Denner",
@@ -17964,7 +18012,7 @@
           "filialleiter-in-denner-dubendorf"
         ],
         "de": [
-          "filialleiter-in-denner-dubendorf"
+          "filialleiter-in-denner"
         ],
         "fr": [
           "filialleiter-in-denner-dubendorf"
@@ -17997,7 +18045,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-dubendorf",
         "en": "salesperson-denner-dubendorf",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-dubendorf",
         "fr": "vendeur-euse-denner-dubendorf"
       },
       "company": "Denner",
@@ -18078,7 +18126,7 @@
           "verkaufer-in-denner-dubendorf"
         ],
         "de": [
-          "verkaufer-in-denner-dubendorf"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-dubendorf"
@@ -18111,7 +18159,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-dubendorf-b72509",
         "en": "salesperson-denner-dubendorf-b72509",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-dubendorf",
         "fr": "vendeur-euse-denner-dubendorf-b72509"
       },
       "company": "Denner",
@@ -18192,7 +18240,7 @@
           "verkaufer-in-denner-dubendorf"
         ],
         "de": [
-          "verkaufer-in-denner-dubendorf"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-dubendorf"
@@ -18225,7 +18273,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-greifensee",
         "en": "deputy-branch-manager-denner-greifensee",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-greifensee",
         "fr": "responsable-adjoint-e-de-succursale-denner-greifensee"
       },
       "company": "Denner",
@@ -18296,7 +18344,7 @@
           "stv-filialleiter-in-denner-greifensee"
         ],
         "de": [
-          "stv-filialleiter-in-denner-greifensee"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-greifensee"
@@ -18329,7 +18377,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-wetzikon",
         "en": "salesperson-denner-wetzikon",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-wetzikon",
         "fr": "vendeur-euse-denner-wetzikon"
       },
       "company": "Denner",
@@ -18408,7 +18456,7 @@
           "verkaufer-in-denner-wetzikon"
         ],
         "de": [
-          "verkaufer-in-denner-wetzikon"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-wetzikon"
@@ -18544,7 +18592,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c613f7f07188",
@@ -18891,7 +18940,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-worb",
         "en": "salesperson-denner-worb",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-worb",
         "fr": "vendeur-euse-denner-worb"
       },
       "company": "Denner",
@@ -18972,7 +19021,7 @@
           "verkaufer-in-denner-worb"
         ],
         "de": [
-          "verkaufer-in-denner-worb"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-worb"
@@ -19005,7 +19054,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-worb",
         "en": "salesperson-denner-worb-675a07",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-worb",
         "fr": "vendeur-euse-denner-worb-675a07"
       },
       "company": "Denner",
@@ -19080,7 +19129,7 @@
           "verkaufer-in-denner-worb"
         ],
         "de": [
-          "verkaufer-in-denner-worb"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-worb"
@@ -19113,7 +19162,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-laufen",
         "en": "salesperson-denner-laufen",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-laufen",
         "fr": "vendeur-euse-denner-laufen"
       },
       "company": "Denner",
@@ -19194,7 +19243,7 @@
           "verkaufer-in-denner-laufen"
         ],
         "de": [
-          "verkaufer-in-denner-laufen"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-laufen"
@@ -19227,7 +19276,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-laufen",
         "en": "salesperson-denner-laufen-b2b7e9",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-laufen",
         "fr": "vendeur-euse-denner-laufen-b2b7e9"
       },
       "company": "Denner",
@@ -19302,7 +19351,7 @@
           "verkaufer-in-denner-laufen"
         ],
         "de": [
-          "verkaufer-in-denner-laufen"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-laufen"
@@ -19335,7 +19384,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-con-salario-orario-denner-laufen",
         "en": "salesperson-paid-hourly-denner-laufen",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-laufen",
         "fr": "vendeur-euse-remunere-e-a-l-heure-denner-laufen"
       },
       "company": "Denner",
@@ -19406,7 +19455,7 @@
           "verkaufer-in-im-stundenlohn-denner-laufen"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner-laufen"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-laufen"
@@ -19631,7 +19680,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-6d2936b67eba",
@@ -19704,6 +19754,7 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-sissach",
         "venditore-denner-sissach-e3e513",
+        "venditore-denner-sissach-7db8cd2069",
         "venditore-denner-sissach"
       ],
       "previousSlugsByLocale": {
@@ -19712,6 +19763,7 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-sissach",
           "venditore-denner-sissach-e3e513",
+          "venditore-denner-sissach-7db8cd2069",
           "venditore-denner-sissach"
         ],
         "en": [
@@ -19734,7 +19786,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-da8c0ea987fa",
@@ -19748,7 +19801,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-sissach",
         "en": "salesperson-denner-sissach",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-sissach",
         "fr": "vendeur-euse-denner-sissach"
       },
       "company": "Denner",
@@ -19823,7 +19876,7 @@
           "verkaufer-in-denner-sissach"
         ],
         "de": [
-          "verkaufer-in-denner-sissach"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-sissach"
@@ -20267,7 +20320,7 @@
       "slugByLocale": {
         "it": "commesso-a-pagato-a-a-ore-denner-zug",
         "en": "hourly-salesperson-denner-zug",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-zug",
         "fr": "vendeur-euse-paye-e-a-l-heure-denner-zug"
       },
       "company": "Denner",
@@ -20342,7 +20395,7 @@
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-zug-bgvgho",
-          "verkaufer-in-im-stundenlohn-denner-zug"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-zug"
@@ -20375,7 +20428,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-zug",
         "en": "salesperson-denner-zug-1413a3",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-zug",
         "fr": "vendeur-euse-denner-zug"
       },
       "company": "Denner",
@@ -20450,7 +20503,7 @@
           "verkaufer-in-denner-zug"
         ],
         "de": [
-          "verkaufer-in-denner-zug"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-zug"
@@ -20483,7 +20536,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-uster",
         "en": "deputy-branch-manager-denner-uster",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-uster",
         "fr": "responsable-adjoint-e-de-filiale-denner-uster"
       },
       "company": "Denner",
@@ -20554,7 +20607,7 @@
           "stv-filialleiter-in-denner-uster"
         ],
         "de": [
-          "stv-filialleiter-in-denner-uster"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-uster"
@@ -20587,7 +20640,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-wetzikon",
         "en": "salesperson-denner-wetzikon-e079eb",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-wetzikon",
         "fr": "vendeur-euse-denner-wetzikon-e079eb"
       },
       "company": "Denner",
@@ -20666,7 +20719,7 @@
           "verkaufer-in-denner-wetzikon"
         ],
         "de": [
-          "verkaufer-in-denner-wetzikon"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-wetzikon"
@@ -20699,7 +20752,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-wetzikon-816d35",
         "en": "salesperson-denner-wetzikon-816d35",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-wetzikon",
         "fr": "vendeur-euse-denner-wetzikon-816d35"
       },
       "company": "Denner",
@@ -20778,7 +20831,7 @@
           "verkaufer-in-denner-wetzikon"
         ],
         "de": [
-          "verkaufer-in-denner-wetzikon"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-wetzikon"
@@ -20811,7 +20864,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-con-paga-oraria-denner-pfaffikon-zh",
         "en": "salesperson-on-an-hourly-wage-denner-pfaffikon-zh",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-pfaffikon-zh",
         "fr": "vendeur-euse-a-l-heure-denner-pfaffikon-zh"
       },
       "company": "Denner",
@@ -20880,7 +20933,7 @@
           "verkaufer-in-im-stundenlohn-denner-pfaffikon-zh"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner-pfaffikon-zh"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-pfaffikon-zh"
@@ -20913,7 +20966,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-con-paga-oraria-denner-wetzikon",
         "en": "salesperson-on-an-hourly-wage-denner-wetzikon",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-wetzikon",
         "fr": "vendeur-euse-a-l-heure-denner-wetzikon"
       },
       "company": "Denner",
@@ -20982,7 +21035,7 @@
           "verkaufer-in-im-stundenlohn-denner-wetzikon"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner-wetzikon"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-wetzikon"
@@ -21015,7 +21068,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-di-filiale-denner-binningen",
         "en": "assistant-branch-manager-denner-binningen",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-binningen",
         "fr": "assistant-e-de-direction-de-filiale-denner-binningen"
       },
       "company": "Denner",
@@ -21072,8 +21125,7 @@
       "postingDateSource": "unknown",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-2",
-        "assistent-in-filialleitung-denner-binningen"
+        "assistent-in-filialleitung-denner-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21084,7 +21136,7 @@
           "assistent-in-filialleitung-denner-2"
         ],
         "de": [
-          "assistent-in-filialleitung-denner-binningen"
+          "assistent-in-filialleitung-denner"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-2"
@@ -21117,7 +21169,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-binningen",
         "en": "salesperson-denner-binningen",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-binningen",
         "fr": "vendeur-euse-denner-binningen"
       },
       "company": "Denner",
@@ -21194,7 +21246,7 @@
           "verkaufer-in-denner-binningen"
         ],
         "de": [
-          "verkaufer-in-denner-binningen"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-binningen"
@@ -21541,7 +21593,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-bz84m5",
@@ -23647,7 +23700,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c7ed142be0ae",
@@ -23963,7 +24017,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-dcaa46279cce",
@@ -24280,7 +24335,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-1c498e3f6ad4",
@@ -24382,7 +24438,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c1c8a410a4e9",
@@ -24893,7 +24950,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-a6d21a164509",
@@ -25603,7 +25661,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-4aa74df4f5f8",
@@ -25617,7 +25676,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-einsiedeln",
         "en": "salesperson-denner-einsiedeln",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-einsiedeln",
         "fr": "vendeur-euse-denner-einsiedeln"
       },
       "company": "Denner",
@@ -25692,7 +25751,7 @@
           "verkaufer-in-denner-einsiedeln"
         ],
         "de": [
-          "verkaufer-in-denner-einsiedeln"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-einsiedeln"
@@ -25907,7 +25966,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-107217f5c37f",
@@ -26006,7 +26066,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-fee8b7c28023",
@@ -26400,7 +26461,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-199fd9c38a9c",
@@ -26414,7 +26476,7 @@
       "slugByLocale": {
         "it": "responsabile-di-filiale-denner-schaffhausen",
         "en": "branch-manager-denner-schaffhausen",
-        "de": "filialleiter-in-denner",
+        "de": "filialleiter-in-denner-schaffhausen",
         "fr": "responsable-de-filiale-denner-schaffhausen"
       },
       "company": "Denner",
@@ -26483,7 +26545,7 @@
           "filialleiter-in-denner-schaffhausen"
         ],
         "de": [
-          "filialleiter-in-denner-schaffhausen"
+          "filialleiter-in-denner"
         ],
         "fr": [
           "filialleiter-in-denner-schaffhausen"
@@ -26516,7 +26578,7 @@
       "slugByLocale": {
         "it": "responsabile-di-filiale-denner-weinfelden",
         "en": "branch-manager-denner-weinfelden",
-        "de": "filialleiter-in-denner",
+        "de": "filialleiter-in-denner-weinfelden",
         "fr": "responsable-de-filiale-denner-weinfelden"
       },
       "company": "Denner",
@@ -26585,7 +26647,7 @@
           "filialleiter-in-denner-weinfelden"
         ],
         "de": [
-          "filialleiter-in-denner-weinfelden"
+          "filialleiter-in-denner"
         ],
         "fr": [
           "filialleiter-in-denner-weinfelden"
@@ -26706,7 +26768,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-499a656eefd2",
@@ -26812,7 +26875,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-efca29520746",
@@ -26826,7 +26890,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-zug",
         "en": "assistant-branch-manager-denner-zug-6e6321",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-zug",
         "fr": "assistant-e-de-direction-de-filiale-denner-zug"
       },
       "company": "Denner",
@@ -26883,8 +26947,7 @@
       "postingDateSource": "unknown",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-3",
-        "assistent-in-filialleitung-denner-zug"
+        "assistent-in-filialleitung-denner-3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -26895,7 +26958,7 @@
           "assistent-in-filialleitung-denner-3"
         ],
         "de": [
-          "assistent-in-filialleitung-denner-zug"
+          "assistent-in-filialleitung-denner"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-3"
@@ -26928,7 +26991,7 @@
       "slugByLocale": {
         "it": "responsabile-di-filiale-in-formazione-denner-pratteln",
         "en": "branch-manager-in-training-denner-pratteln",
-        "de": "filialleiter-in-in-ausbildung-denner",
+        "de": "filialleiter-in-in-ausbildung-denner-pratteln",
         "fr": "responsable-de-filiale-en-formation-denner-pratteln"
       },
       "company": "Denner",
@@ -26997,7 +27060,7 @@
           "filialleiter-in-in-ausbildung-denner-pratteln"
         ],
         "de": [
-          "filialleiter-in-in-ausbildung-denner-pratteln"
+          "filialleiter-in-in-ausbildung-denner"
         ],
         "fr": [
           "filialleiter-in-in-ausbildung-denner-pratteln"
@@ -27030,7 +27093,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-zug",
         "en": "salesperson-denner-zug",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-zug",
         "fr": "vendeur-euse-denner-zug-589d20"
       },
       "company": "Denner",
@@ -27101,7 +27164,7 @@
           "verkaufer-in-denner-zug"
         ],
         "de": [
-          "verkaufer-in-denner-zug"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-zug"
@@ -27134,7 +27197,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-binningen",
         "en": "deputy-branch-manager-denner-binningen",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-binningen",
         "fr": "responsable-adjoint-e-de-filiale-denner-binningen"
       },
       "company": "Denner",
@@ -27205,7 +27268,7 @@
           "stv-filialleiter-in-denner-binningen"
         ],
         "de": [
-          "stv-filialleiter-in-denner-binningen"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-binningen"
@@ -27238,7 +27301,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-pratteln",
         "en": "salesperson-denner-pratteln",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-pratteln",
         "fr": "vendeur-euse-denner-pratteln"
       },
       "company": "Denner",
@@ -27308,6 +27371,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-pratteln"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -27338,7 +27404,7 @@
         "it": "partner-di-franchising-denner-partner-denner-mauren",
         "en": "franchise-partner-denner-partner-denner-mauren",
         "de": "franchisepartner-in-denner-partner-denner",
-        "fr": "partenaire-franchise-e-denner-partner-denner-mauren"
+        "fr": "franchisepartner-in-denner-partner-denner-mauren"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -27396,7 +27462,8 @@
         "franchisepartner-in-denner-partner-denner",
         "franchisepartner-in-denner-partner-denner-2",
         "denner-partner-franchise-partner-denner-mauren",
-        "franchisepartner-in-denner-partner-denner-mauren"
+        "franchisepartner-in-denner-partner-denner-mauren",
+        "partenaire-franchise-e-denner-partner-denner-mauren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -27409,7 +27476,7 @@
           "franchisepartner-in-denner-partner-denner-mauren"
         ],
         "fr": [
-          "franchisepartner-in-denner-partner-denner-mauren"
+          "partenaire-franchise-e-denner-partner-denner-mauren"
         ]
       },
       "firstSeenAt": "2026-09-01T10:26:45.416Z",
@@ -27439,7 +27506,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-zurich-a76a7a",
         "en": "assistant-branch-manager-denner-zurich-a76a7a",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-zurich",
         "fr": "assistant-e-de-direction-de-filiale-denner-zurich-a76a7a"
       },
       "company": "Denner",
@@ -27508,6 +27575,9 @@
         ],
         "fr": [
           "assistent-in-filialleitung-denner-4"
+        ],
+        "de": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:35.940Z",
@@ -27537,7 +27607,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-zurich-54c5ba",
         "en": "assistant-branch-manager-denner-zurich-54c5ba",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-zurich",
         "fr": "assistant-e-de-direction-de-filiale-denner-zurich-54c5ba"
       },
       "company": "Denner",
@@ -27606,6 +27676,9 @@
         ],
         "fr": [
           "assistent-in-filialleitung-denner-5"
+        ],
+        "de": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:35.940Z",
@@ -27636,7 +27709,7 @@
         "it": "venditore-venditore-denner-lausanne",
         "en": "seller-seller-denner-lausanne",
         "de": "verkaufer-verkaufer-denner-lausanne",
-        "fr": "vendeur-vendeuse-denner"
+        "fr": "vendeur-vendeuse-denner-lausanne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -27701,6 +27774,9 @@
           "vendeur-vendeuse-denner"
         ],
         "de": [
+          "vendeur-vendeuse-denner"
+        ],
+        "fr": [
           "vendeur-vendeuse-denner"
         ]
       },

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-life",
-  "assembledAt": "2026-10-24T21:21:20.958Z",
+  "assembledAt": "2026-10-25T09:41:35.578Z",
   "runId": "40133199231",
   "jobs": [
     {
@@ -10,7 +10,7 @@
         "it": "berater-previdenza-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "en": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
         "de": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "fr": "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
+        "fr": "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -59,7 +59,7 @@
       "previousSlugs": [
         "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
+        "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67,7 +67,7 @@
         ],
         "fr": [
           "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
-          "conseiller-prevoyance-m-w-d-les-personnes-souhaitant-se-reconvertir-sont-les-bienvenues-swiss-life-bern"
+          "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:43.080Z",
@@ -159,7 +159,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1018a191bf7b",
@@ -393,7 +394,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-2f29929f10fd",
@@ -621,7 +623,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-bbbcf9d2f3fb",
@@ -697,7 +700,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-f915a4f7f6f6",
@@ -1001,7 +1005,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a4559353b2c9",
@@ -1096,7 +1101,7 @@
       "id": "swiss-life-84dd4281bdde",
       "slug": "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
       "slugByLocale": {
-        "it": "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
+        "it": "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
         "en": "team-leader-sales-m-f-d-general-agency-solothurn-oberaargau-swiss-life-solothurn",
         "de": "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "fr": "chef-d-equipe-ventes-h-f-d-agence-generale-soleure-oberaargau-swiss-life-solothurn"
@@ -1148,13 +1153,17 @@
       "previousSlugs": [
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bh9q83",
-        "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ea570cca39"
+        "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ea570cca39",
+        "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
+        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
           "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bh9q83",
-          "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ea570cca39"
+          "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ea570cca39",
+          "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
+          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:32.876Z",
@@ -1246,7 +1255,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-63e7653a3513",
@@ -1322,7 +1332,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-82a26860db74",
@@ -1702,7 +1713,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-18679273ee70",
@@ -1860,7 +1872,7 @@
       "id": "swiss-life-1e1d2e0b2c19",
       "slug": "consulente-in-previdenza-e-finanza-m-f-d-con-esperienza-professionale-agenzia-generale-losanna-swiss-life-lausanne",
       "slugByLocale": {
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
+        "it": "consulente-in-previdenza-e-finanza-m-f-d-con-esperienza-professionale-agenzia-generale-losanna-swiss-life-lausanne",
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
         "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
         "fr": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
@@ -1911,12 +1923,14 @@
       "hiringOrganization": "Swiss Life AG Lausanne",
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -1941,7 +1955,7 @@
       "id": "swiss-life-02e90fa2e0f2",
       "slug": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
       "slugByLocale": {
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
+        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
         "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
         "fr": "conseiller-conseiller-en-e-et-en-finance-h-f-d-personnes-qui-d-un-organisme-professionnel-en-enece-agence-generale"
@@ -1992,12 +2006,16 @@
       "hiringOrganization": "Swiss Life AG Lausanne",
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9n5s"
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9n5s",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9n5s"
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bh9n5s",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-lausanne-f22439bb10",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:24.692Z",
@@ -2645,7 +2663,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9ec8361cf3e2",
@@ -3101,7 +3120,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0127fae00e58",
@@ -3177,7 +3197,8 @@
           "maxValue": 73500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-8879644d2439",
@@ -3329,7 +3350,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-011f1a8974f2",
@@ -3893,7 +3915,7 @@
       "id": "swiss-life-7145a0717956",
       "slug": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
       "slugByLocale": {
-        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
+        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
         "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
         "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
@@ -3943,11 +3965,15 @@
       "jobReqId": "R09287",
       "hiringOrganization": "Swiss Life AG Morges-La Côte",
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-morges-la-0332a2515e",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -5293,7 +5319,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-27cf2da5d869",
@@ -5374,7 +5401,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-d58931049c1f",
@@ -5602,7 +5630,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-099bcd7e12f4",
@@ -5678,7 +5707,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a886a3d317b4",
@@ -6364,7 +6394,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-78cbf83a135e",
@@ -6440,7 +6471,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e558496b28eb",
@@ -6516,7 +6548,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-45194c6f32f7",
@@ -6820,7 +6853,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-311f9d60d7ea",
@@ -7048,7 +7082,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c968f7017dcb",
@@ -7057,7 +7092,7 @@
         "it": "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-langenthal-swiss-life-solothurn",
         "en": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
         "de": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
+        "fr": "conseillers-et-conseilleres-en-prevoyance-et-en-finance-h-f-d-les-personnes-en-reconversion-sont-les-bienvenues"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -7106,7 +7141,7 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bhp12r",
-        "conseillers-et-conseilleres-en-prevoyance-et-en-finance-h-f-d-les-personnes-en-reconversion-sont-les-bienvenues"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7114,7 +7149,7 @@
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bhp12r"
         ],
         "fr": [
-          "conseillers-et-conseilleres-en-prevoyance-et-en-finance-h-f-d-les-personnes-en-reconversion-sont-les-bienvenues"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:31.051Z",
@@ -7139,7 +7174,7 @@
         "it": "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-olten-swiss-life-solothurn",
         "en": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
         "de": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-3",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-3"
+        "fr": "conseillers-et-conseilleres-en-prevoyance-et-en-finances-h-f-d-personnes-en-reconversion-bienvenues-agence-generale"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -7187,8 +7222,7 @@
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-3",
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-        "conseillers-et-conseilleres-en-prevoyance-et-en-finances-h-f-d-personnes-en-reconversion-bienvenues-agence-generale"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7196,7 +7230,7 @@
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
         ],
         "fr": [
-          "conseillers-et-conseilleres-en-prevoyance-et-en-finances-h-f-d-personnes-en-reconversion-bienvenues-agence-generale"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-3"
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:30.363Z",
@@ -7370,7 +7404,7 @@
       "id": "swiss-life-0516bede16b9",
       "slug": "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
       "slugByLocale": {
-        "it": "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
+        "it": "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
         "en": "team-leader-sales-m-f-d-general-agency-solothurn-oberaargau-swiss-life-solothurn",
         "de": "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "fr": "chef-d-equipe-des-ventes-h-f-d-agence-generale-soleure-oberaargau-swiss-life-solothurn"
@@ -7421,12 +7455,16 @@
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
       "previousSlugs": [
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
-        "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c"
+        "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c",
+        "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
+        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
-          "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c"
+          "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c",
+          "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
+          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:32.876Z",
@@ -7586,7 +7624,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-7cefdb51138f",
@@ -7738,7 +7777,8 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9a7ed10ce016",

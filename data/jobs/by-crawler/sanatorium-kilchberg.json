@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sanatorium-kilchberg",
-  "assembledAt": "2026-10-24T21:23:12.845Z",
+  "assembledAt": "2026-10-25T09:41:16.628Z",
   "runId": "40133199231",
   "jobs": [
     {
@@ -120,7 +120,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-0e4e4e0f5e5d",
@@ -423,7 +424,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-356e0f5506b1",
@@ -528,7 +530,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-7a158fff9cff",
@@ -681,13 +684,14 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-f51d92b553f6",
-      "slug": "professionista-hf-fh-sanatorium-kilchberg-kilchberg",
+      "slug": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-4e32c5b9ce",
       "slugByLocale": {
-        "it": "professionista-hf-fh-sanatorium-kilchberg-kilchberg",
+        "it": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-4e32c5b9ce",
         "en": "care-professional-hf-fh-sanatorium-kilchberg-kilchberg",
         "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
         "fr": "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg"
@@ -751,7 +755,8 @@
         "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
         "dipl-care-specialist-hf-sanatorium-kilchberg-kilchberg",
         "dipl-specialiste-des-soins-hf-sanatorium-kilchberg-kilchberg",
-        "pflegefachperson-hf-fh-sanatorium-kilchberg"
+        "pflegefachperson-hf-fh-sanatorium-kilchberg",
+        "professionista-hf-fh-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -769,7 +774,8 @@
           "dipl-specialista-di-cura-hf-sanatorium-kilchberg-kilchberg",
           "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
           "dipl-care-specialist-hf-sanatorium-kilchberg-kilchberg",
-          "dipl-specialiste-des-soins-hf-sanatorium-kilchberg-kilchberg"
+          "dipl-specialiste-des-soins-hf-sanatorium-kilchberg-kilchberg",
+          "professionista-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg"
@@ -952,7 +958,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-9a9af16c5117",
@@ -1026,7 +1033,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-56dc28263951",
@@ -1268,7 +1276,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-27baae9b0aaa",
@@ -1342,7 +1351,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-da839348d091",
@@ -1498,13 +1508,14 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-6ac5c7d708e1",
-      "slug": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e",
+      "slug": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f145f8a645",
       "slugByLocale": {
-        "it": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e",
+        "it": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f145f8a645",
         "en": "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e",
         "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
         "fr": "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e"
@@ -1553,11 +1564,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "professionista-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e",
+        "professionista-hf-fh-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+          "professionista-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e",
+          "professionista-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"

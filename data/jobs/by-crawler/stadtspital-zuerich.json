@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadtspital-zuerich",
-  "assembledAt": "2026-10-24T21:45:01.048Z",
+  "assembledAt": "2026-10-25T09:41:30.540Z",
   "runId": "40133904953",
   "jobs": [
     {
@@ -78,7 +78,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-ea49bba28fad",
@@ -339,7 +340,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-84e13e9f16f1",
@@ -1101,7 +1103,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-e604e9e1208c",
@@ -1697,7 +1700,7 @@
       "slug": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
       "slugByLocale": {
         "it": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
-        "en": "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich",
+        "en": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich",
         "de": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
         "fr": "technologue-des-instruments-medicaux-technologie-des-instruments-medicaux-stadtspital-zurich-zurich"
       },
@@ -1749,7 +1752,7 @@
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
         "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
-        "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich"
+        "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1758,7 +1761,7 @@
         ],
         "en": [
           "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
-          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich"
+          "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich"
         ],
         "fr": [
           "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich"
@@ -1864,7 +1867,7 @@
       "id": "stadtspital-zuerich-53d18d59894f",
       "slug": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-79a91af216",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
+        "it": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-79a91af216",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
@@ -1916,12 +1919,16 @@
       "referenceNumber": "51306",
       "previousSlugs": [
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7"
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7",
+        "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-79a91af216",
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7"
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7",
+          "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-79a91af216",
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.499Z",
@@ -2117,7 +2124,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-3744ef8645b0",
@@ -2670,7 +2678,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-81802d7f89e9",
@@ -3290,7 +3299,7 @@
       "id": "stadtspital-zuerich-5a2b061390bf",
       "slug": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-6ecbbab767",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
+        "it": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-6ecbbab767",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
@@ -3342,12 +3351,16 @@
       "referenceNumber": "50310",
       "previousSlugs": [
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9"
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9",
+        "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-6ecbbab767",
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9"
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9",
+          "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-6ecbbab767",
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.499Z",
@@ -4614,7 +4627,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-e5395de0cde0",
@@ -4700,7 +4714,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-274479f1701d",
@@ -4873,7 +4888,7 @@
         "it": "business-controller-stadtspital-zurich-zurich",
         "en": "business-controller-stadtspital-zurich-zurich",
         "de": "business-controller-in-stadtspital-zuerich-52022",
-        "fr": "controleur-de-gestion-stadtspital-zurich-zurich"
+        "fr": "business-controller-in-stadtspital-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4923,7 +4938,7 @@
       "previousSlugs": [
         "business-controller-in-stadtspital-zurich-zurich",
         "business-controller-in-stadtspital-zuerich-52022",
-        "business-controller-in-stadtspital-zurich"
+        "controleur-de-gestion-stadtspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4934,7 +4949,7 @@
         ],
         "fr": [
           "business-controller-in-stadtspital-zurich-zurich",
-          "business-controller-in-stadtspital-zurich"
+          "controleur-de-gestion-stadtspital-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-22T09:47:41.538Z",
@@ -5027,7 +5042,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-78f6ec8d1da7",
@@ -5366,7 +5382,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-34c474c1887e",
@@ -5622,7 +5639,7 @@
         "it": "gestione-dei-processi-stadtspital-zurich-zurich",
         "en": "process-manager-stadtspital-zurich-zurich",
         "de": "prozessmanager-in-stadtspital-zuerich-51681",
-        "fr": "gestionnaire-de-processus-stadtspital-zurich-zurich"
+        "fr": "gestionnairedeprocessus-stadtspital-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5672,7 +5689,7 @@
       "previousSlugs": [
         "prozessmanager-in-stadtspital-zurich",
         "prozessmanager-in-stadtspital-zuerich-51681",
-        "gestionnairedeprocessus-stadtspital-zurich"
+        "gestionnaire-de-processus-stadtspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5683,7 +5700,7 @@
         ],
         "fr": [
           "prozessmanager-in-stadtspital-zurich",
-          "gestionnairedeprocessus-stadtspital-zurich"
+          "gestionnaire-de-processus-stadtspital-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.497Z",
@@ -6263,7 +6280,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-371f53fdcb1a",
@@ -6351,7 +6369,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-b212917eff31",
@@ -6523,7 +6542,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-5d6467d5647e",
@@ -6607,7 +6627,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-7550a128782b",
@@ -6684,7 +6705,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-8eb63497521c",
@@ -6929,7 +6951,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-7e8aa920ac6b",
@@ -7251,7 +7274,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-d649d5c85376",
@@ -7328,7 +7352,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
