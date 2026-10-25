@@ -35,6 +35,7 @@ import { hasStructuredContent, preserveStructuredTranslation } from './translati
 import { getKeyFactsHeading, getTldrHeading } from './ai-search-template.mjs';
 import { detectAiMetaResponse } from './ai-meta-response.mjs';
 import { detectLanguageWithConfidence } from './detect-language.mjs';
+import { fetchWithRefTimeout, releaseFetchWithRefTimeout } from './fetch-with-ref-timeout.mjs';
 
 // ── Config ──────────────────────────────────────────────────────────────────
 // DeepL: support multiple API keys with automatic rotation on quota exhaustion.
@@ -679,17 +680,17 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
     const MAX_429_RETRIES = 2;
     let res;
     for (let rl = 0; ; rl++) {
-      res = await fetch('https://api-free.deepl.com/v2/translate', {
+      res = await fetchWithRefTimeout('https://api-free.deepl.com/v2/translate', {
         method: 'POST',
         headers: {
           'Authorization': `DeepL-Auth-Key ${apiKey}`,
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: body.toString(),
-        signal: AbortSignal.timeout(TIMEOUT_MS),
-      });
+      }, TIMEOUT_MS);
       if (res.status === 456) {
         // Real monthly quota exhausted → mark key exhausted for the run.
+        releaseFetchWithRefTimeout(res);
         throw Object.assign(new Error('DeepL 456'), { quotaExhausted: true });
       }
       if (res.status === 401 || res.status === 403) {
@@ -698,9 +699,11 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
         // a revoked DeepL key left DeepL "up" for the whole run, so the Codex
         // reserve (decisione del proprietario H7, 2026-10-05: Codex Luna Max
         // when the keyed tiers fail) never engaged.
+        releaseFetchWithRefTimeout(res);
         throw Object.assign(new Error(`DeepL ${res.status}`), { quotaExhausted: true });
       }
       if (res.status === 429) {
+        releaseFetchWithRefTimeout(res);
         _deepl429TotalCount++;
         if (_deepl429TotalCount >= DEEPL_429_CB_THRESHOLD) {
           // Sustained rate-limit: set the global flag so every subsequent chunk and
@@ -720,7 +723,10 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
       }
       break;
     }
-    if (!res.ok) return '';
+    if (!res.ok) {
+      releaseFetchWithRefTimeout(res);
+      return '';
+    }
     const data = await res.json();
     const t = data?.translations?.[0]?.text || '';
     if (!t) return '';
@@ -811,14 +817,14 @@ async function translateChunkGoogle(text, sourceLang, targetLang, outcome = null
     });
 
     try {
-      const res = await fetch(`${base}?${params.toString()}`, {
+      const res = await fetchWithRefTimeout(`${base}?${params.toString()}`, {
         headers: {
           'Accept': 'application/json,text/plain,*/*',
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
         },
-        signal: AbortSignal.timeout(TIMEOUT_MS),
-      });
+      }, TIMEOUT_MS);
       if (!res.ok) {
+        releaseFetchWithRefTimeout(res);
         noteTranslationOutcome(outcome, 'errors');
         continue;
       }
@@ -968,14 +974,18 @@ async function translateWithLingva(text, sourceLang, targetLang, outcome = null)
   const encoded = encodeURIComponent(q);
 
   return raceInstances(LINGVA_INSTANCES, async (base, signal, attemptOutcome) => {
-    const res = await fetch(
+    const res = await fetchWithRefTimeout(
       `${base}/api/v1/${sourceLang || 'auto'}/${targetLang}/${encoded}`,
       {
         headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
-        signal: signal || AbortSignal.timeout(TIMEOUT_MS),
+        signal,
       },
+      TIMEOUT_MS,
     );
-    if (!res.ok) return '';
+    if (!res.ok) {
+      releaseFetchWithRefTimeout(res);
+      return '';
+    }
     const data = await res.json();
     const translated = normalizeBlock(data?.translation || '');
     // Dentro `raceInstances`: se questa istanza rende l'eco NON deve vincere la
@@ -997,11 +1007,14 @@ async function translateWithSimplyTranslate(text, sourceLang, targetLang, outcom
       to: targetLang,
       text: q,
     });
-    const res = await fetch(`${base}/api/translate/?${params.toString()}`, {
+    const res = await fetchWithRefTimeout(`${base}/api/translate/?${params.toString()}`, {
       headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
-      signal: signal || AbortSignal.timeout(TIMEOUT_MS),
-    });
-    if (!res.ok) return '';
+      signal,
+    }, TIMEOUT_MS);
+    if (!res.ok) {
+      releaseFetchWithRefTimeout(res);
+      return '';
+    }
     const data = await res.json();
     const translated = normalizeBlock(data?.translated_text || '');
     return acceptedRaceAnswer('simplyTranslate', q, translated, attemptOutcome);
@@ -1018,13 +1031,13 @@ async function translateWithLibreTranslateSelfHosted(text, sourceLang, targetLan
   // Subsequent calls use the configured fast-fail timeout (see _ltWarmupDone above).
   const timeout = _ltWarmupDone ? LIBRETRANSLATE_TIMEOUT_MS : 30000;
   try {
-    const res = await fetch(`${LIBRETRANSLATE_SELF_HOSTED}/translate`, {
+    const res = await fetchWithRefTimeout(`${LIBRETRANSLATE_SELF_HOSTED}/translate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ q, source: sourceLang || 'auto', target: targetLang, format: 'text' }),
-      signal: AbortSignal.timeout(timeout),
-    });
+    }, timeout);
     if (!res.ok) {
+      releaseFetchWithRefTimeout(res);
       noteTranslationOutcome(outcome, 'errors');
       console.warn(`⚠️  LibreTranslate self-hosted: HTTP ${res.status}`);
       return '';
@@ -1053,13 +1066,16 @@ async function translateWithLibreTranslate(text, sourceLang, targetLang, outcome
   if (!q || sourceLang === targetLang) return '';
 
   return raceInstances(LIBRETRANSLATE_PUBLIC, async (base, signal, attemptOutcome) => {
-    const res = await fetch(`${base}/translate`, {
+    const res = await fetchWithRefTimeout(`${base}/translate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ q, source: sourceLang || 'auto', target: targetLang, format: 'text' }),
-      signal: signal || AbortSignal.timeout(20000),
-    });
-    if (!res.ok) return '';
+      signal,
+    }, 20000);
+    if (!res.ok) {
+      releaseFetchWithRefTimeout(res);
+      return '';
+    }
     const data = await res.json();
     const translated = normalizeBlock(data?.translatedText || '');
     return acceptedRaceAnswer('libreTranslate', q, translated, attemptOutcome);
@@ -1078,11 +1094,14 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
       to: targetLang,
       text: q,
     });
-    const res = await fetch(`${base}/api/translate?${params.toString()}`, {
+    const res = await fetchWithRefTimeout(`${base}/api/translate?${params.toString()}`, {
       headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
-      signal: signal || AbortSignal.timeout(TIMEOUT_MS),
-    });
-    if (!res.ok) return '';
+      signal,
+    }, TIMEOUT_MS);
+    if (!res.ok) {
+      releaseFetchWithRefTimeout(res);
+      return '';
+    }
     const data = await res.json();
     // Mozhi uses 'translated-text' (hyphenated) in its response
     const translated = normalizeBlock(data?.['translated-text'] || data?.translated_text || '');
@@ -1126,7 +1145,7 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
         // failures. The key is exhausted for the rest of the run instead (see below),
         // making this self-healing: a VALID key returns 200, is never exhausted, and
         // a renewed key in Remote Config re-enables Azure with zero code change.
-        const res = await fetch(url, {
+        const res = await fetchWithRefTimeout(url, {
           method: 'POST',
           headers: {
             'Ocp-Apim-Subscription-Key': key,
@@ -1134,8 +1153,7 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
             'Content-Type': 'application/json',
           },
           body: JSON.stringify([{ Text: chunk }]),
-          signal: AbortSignal.timeout(TIMEOUT_MS),
-        });
+        }, TIMEOUT_MS);
         if (res.status === 401 || res.status === 403) {
           // Auth failure: invalid/missing/revoked credentials. Exhaust this key for
           // the rest of the process run (mirrors the DeepL `_deeplExhaustedKeys`
@@ -1144,9 +1162,16 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
           // of a given key (the #2106 [azure] diagnostic is preserved for a future
           // bad key) — but never spam it for subsequent skipped jobs.
           if (!_azureExhaustedKeys.has(key)) {
-            const snippet = (await res.text().catch(() => '')).slice(0, 200);
+            let snippet = '';
+            if (typeof res.text === 'function') {
+              snippet = (await res.text().catch(() => '')).slice(0, 200);
+            } else {
+              releaseFetchWithRefTimeout(res);
+            }
             console.warn(`[azure] HTTP ${res.status} (key #${idx + 1}, region="${AZURE_REGION}"): ${snippet}`);
             console.log(`🔑 Azure key #${idx + 1} auth failure (${res.status}) — exhausting for the rest of the run`);
+          } else {
+            releaseFetchWithRefTimeout(res);
           }
           _azureExhaustedKeys.add(key);
           _cascadeStats.tierErrors.azure = (_cascadeStats.tierErrors.azure || 0) + 1;
@@ -1154,6 +1179,7 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
           throw Object.assign(new Error('Azure auth'), { quotaExhausted: true });
         }
         if (res.status === 429) {
+          releaseFetchWithRefTimeout(res);
           _azureExhaustedKeys.add(key);
           _cascadeStats.tierErrors.azure = (_cascadeStats.tierErrors.azure || 0) + 1;
           noteTranslationOutcome(outcome, 'errors');
@@ -2046,7 +2072,7 @@ async function _getGoogleCloudAccessToken() {
   if (_gcOAuth.accessToken && Date.now() < _gcOAuth.expiresAt - 60_000) {
     return { token: _gcOAuth.accessToken, fromServiceAccount: false };
   }
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchWithRefTimeout('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -2055,9 +2081,11 @@ async function _getGoogleCloudAccessToken() {
       refresh_token: _gcOAuth.refreshToken,
       grant_type: 'refresh_token',
     }),
-    signal: AbortSignal.timeout(TIMEOUT_MS),
-  });
-  if (!res.ok) return { token: '', fromServiceAccount: false };
+  }, TIMEOUT_MS);
+  if (!res.ok) {
+    releaseFetchWithRefTimeout(res);
+    return { token: '', fromServiceAccount: false };
+  }
   const data = await res.json();
   _gcOAuth.accessToken = data.access_token || '';
   _gcOAuth.expiresAt = Date.now() + (data.expires_in || 3600) * 1000;
@@ -2094,7 +2122,7 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
       return '';
     }
 
-    const request = (bearer) => fetch('https://translation.googleapis.com/language/translate/v2', {
+    const request = (bearer) => fetchWithRefTimeout('https://translation.googleapis.com/language/translate/v2', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -2102,8 +2130,7 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
         'x-goog-user-project': GCP_PROJECT_ID,
       },
       body: JSON.stringify({ q: clean, source: sourceLang, target: targetLang, format: 'text' }),
-      signal: AbortSignal.timeout(TIMEOUT_MS),
-    });
+    }, TIMEOUT_MS);
     let res = await request(token);
     // A service-account token the API rejects must not stay cached for the
     // rest of the run, or no later field ever reaches the OAuth fallback:
@@ -2129,9 +2156,12 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
       res = await request(token);
     }
     if (res.status === 401 || res.status === 403 || res.status === 429) {
-      const refusal = res.status === 403 && typeof res.text === 'function'
-        ? await res.text().catch(() => '')
-        : '';
+      let refusal = '';
+      if (typeof res.text === 'function') {
+        refusal = await res.text().catch(() => '');
+      } else {
+        releaseFetchWithRefTimeout(res);
+      }
       const quota = res.status === 429 || GOOGLE_CLOUD_QUOTA_REFUSAL.test(refusal);
       _noteGoogleCloudFailure(`HTTP ${res.status}${quota && res.status === 403 ? ' quota' : ''}`);
       if (quota) _noteGoogleCloudQuotaRefusal();
@@ -2139,6 +2169,7 @@ export async function translateWithGoogleCloud(text, sourceLang, targetLang, out
       return ''; // quota exceeded, or API/scope not enabled for this token
     }
     if (!res.ok) {
+      releaseFetchWithRefTimeout(res);
       _noteGoogleCloudFailure(`HTTP ${res.status}`);
       noteTranslationOutcome(outcome, 'incomplete');
       return '';
@@ -2186,16 +2217,16 @@ export async function translateWithHuggingFace(text, sourceLang, targetLang, out
   }
 
   try {
-    const res = await fetch(`https://router.huggingface.co/hf-inference/models/${model}`, {
+    const res = await fetchWithRefTimeout(`https://router.huggingface.co/hf-inference/models/${model}`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${HF_TOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ inputs: clean }),
-      signal: AbortSignal.timeout(TIMEOUT_MS),
-    });
+    }, TIMEOUT_MS);
     if (!res.ok) {
+      releaseFetchWithRefTimeout(res);
       noteTranslationOutcome(outcome, 'incomplete');
       return '';
     }
