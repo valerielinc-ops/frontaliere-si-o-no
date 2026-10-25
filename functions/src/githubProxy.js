@@ -18,6 +18,7 @@ import { assertSiteAdmin } from './adminAuth.js';
 import { updateAdminAuditStatus, writeAdminAuditLog } from './adminAudit.js';
 
 const FEEDBACK_RECAPTCHA_THRESHOLD = 0.5;
+const FEEDBACK_GITHUB_TIMEOUT_MS = 20_000;
 const MAX_GITHUB_LOG_BYTES = 256 * 1024;
 
 // Exported: stripePublisherCore.js's dispatchPublisherSync reuses this same
@@ -88,6 +89,7 @@ export async function handleCreateFeedbackIssue(req) {
       body: `${description}\n\n> Segnalato tramite Web App`,
       labels: [type === 'BUG' ? 'bug' : 'enhancement'],
     }),
+    signal: AbortSignal.timeout(FEEDBACK_GITHUB_TIMEOUT_MS),
   });
 
   const data = await res.json().catch(() => ({}));
