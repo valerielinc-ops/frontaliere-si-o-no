@@ -23,6 +23,8 @@ import {
 import {
   createJobLivenessPrefetcher,
   filterLiveJobs,
+  forEachJobAlertPlanBatch,
+  JOB_ALERT_PLAN_BATCH_SIZE,
   jobPageUrl,
   planAlertMatch,
 } from '../scripts/send-job-alerts.mjs';
@@ -172,6 +174,28 @@ describe('planAlertMatch', () => {
     // The dedup guard still drops the already-sent job.
     const dedup = planAlertMatch(fixtureAlerts().find((a) => a.id === 'dedup'), cached);
     expect(dedup.matched.map((j: any) => j.id)).not.toContain('job-0');
+  });
+});
+
+describe('job-alert plan batching', () => {
+  it('never hands the sender more than the bounded plan batch', async () => {
+    const alerts = Array.from(
+      { length: JOB_ALERT_PLAN_BATCH_SIZE * 2 + 1 },
+      (_, index) => ({ id: `alert-${index}` }),
+    );
+    const batchSizes: number[] = [];
+
+    await forEachJobAlertPlanBatch(alerts, async (batch) => {
+      batchSizes.push(batch.length);
+      await Promise.resolve();
+    });
+
+    expect(batchSizes).toEqual([
+      JOB_ALERT_PLAN_BATCH_SIZE,
+      JOB_ALERT_PLAN_BATCH_SIZE,
+      1,
+    ]);
+    expect(Math.max(...batchSizes)).toBeLessThanOrEqual(JOB_ALERT_PLAN_BATCH_SIZE);
   });
 });
 
