@@ -27,7 +27,7 @@
  *   const { accepted, ambiguous, failed } = await sendEmailCascade(emails);
  *
  * Email format (same as Resend):
- *   { from, to: [string], subject, html, headers?, tags?: [{name, value}], replyTo?: string, attachments?: [{filename, content}], scheduledAt?: string }
+ *   { from, to: [string], subject, html, text?, cc?, bcc?, headers?, tags?: [{name, value}], replyTo?: string, referenceId?: string, attachments?: [{filename, content}], scheduledAt?: string }
  *
  * scheduledAt (optional) — ISO 8601 UTC timestamp (e.g. "2026-07-12T08:00:00.000Z")
  *   requesting a provider-side delayed send. Only resend/mailgun/maileroo support
@@ -56,8 +56,8 @@
  *                                the 250k/mo budget, see PROVIDERS[maileroo] below.
  *   MAILEROO_ACCOUNT_API_KEY — Maileroo Account API key (dashboard "Applications"
  *                                section — a DIFFERENT credential from the sending
- *                                key above). Powers real month-to-date usage via
- *                                statistics/summary for the dynamic pace; optional
+ *                                key above). Powers real billing-period usage via
+ *                                the Account API for the dynamic pace; optional
  *                                — falls back to a conservative static pace when
  *                                unset (verified live 2026-07-20: the sending key
  *                                itself gets 401 against this endpoint).
@@ -89,6 +89,12 @@
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAILEROO_MONTHLY_LIMIT = 250_000;
 const MAILEROO_STATIC_DAILY_LIMIT = Math.floor(MAILEROO_MONTHLY_LIMIT / 30);
+// The live Pro account currently reports a 10,000-message hourly ceiling. Keep
+// bulk callers below that provider-side limit even when their shared delay is
+// lowered for concurrency; the Account API usage read below remains the source
+// of truth for diagnostics and future plan changes.
+const MAILEROO_HOURLY_LIMIT = 10_000;
+const MAILEROO_BULK_MIN_INTERVAL_MS = Math.ceil(60 * 60 * 1000 / MAILEROO_HOURLY_LIMIT);
 
 const PROVIDERS = [
   { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000,
@@ -129,9 +135,9 @@ const PROVIDERS = [
   // Like resend (see PROVIDERS[resend] below), its effective daily cap is read
   // from `_dynamicDailyLimits.maileroo` — recomputed on every
   // syncQuotasFromAPIs() run by computeMailerooDynamicDailyLimit() as
-  // (250000 − calendar-month-to-date usage) ÷ days left in the month. Maileroo
-  // has no documented billing-cycle anchor day (unlike Resend's 6th-of-month),
-  // so the calendar month is used directly. `dailyLimit: 8333` below
+  // (live plan limit − period-to-date usage) ÷ days left in the Account API's
+  // current billing period. If the Account API is unavailable, statistics
+  // fallback uses the current UTC calendar month. `dailyLimit: 8333` below
   // (250000/30, same monthlyLimit/30 convention as every other static-limit
   // provider here) is only the pre-sync/unverifiable-usage fallback — see
   // MAILEROO_CYCLE_FALLBACK_DAILY.
@@ -525,33 +531,84 @@ async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
   return dynamicLimit;
 }
 
-// ── Maileroo Account API (statistics) ────────────────────────
-// Docs: https://maileroo.com/docs/api-reference/statistics/summary
-// GET https://api.maileroo.com/v1/statistics/summary — aggregates the
-// CURRENT CALENDAR MONTH only (no date-range params, no billing-cycle anchor
-// day like Resend's). Docs list the required scope as `statistics.read` under
-// a distinct "Account API" section, separate from the sending-key auth used
-// by sendViaMaileroo. A sending key is never sent to this endpoint: when the
-// dedicated Account API key is absent, callers fall back to the conservative
-// static floor below.
+// ── Maileroo Account API (plan + usage) ──────────────────────
+// Docs: https://maileroo.com/docs/api-reference/account/get-account
+// GET https://api.maileroo.com/v1/account — returns the current plan and
+// usage rows for the live billing period. The Monthly Outbound Usage row is
+// the authoritative plan counter and also exposes the live monthly quantity;
+// the Hourly Outbound Usage row is retained for diagnostics. A sending key is
+// never sent to this endpoint: when the dedicated Account API key is absent,
+// callers fall back to the conservative static floor below.
 //
-// The response has no raw "sent"/"accepted" counter, only terminal
-// delivery-outcome fields (`delivered`, `bounced`, `opens`, `clicks`,
-// `suppressions`) — delivered+bounced is used as the usage proxy (both
-// consume plan quota), which under-counts sends still in flight/queued.
-// Acceptable here because this is a PACING signal, not the hard quota
-// enforcement: Maileroo's own API rejection (caught by isRateLimitedError
-// in sendSingle) is still the real backstop if this proxy under-counts.
+// Older keys or accounts may not expose /account. In that case the statistics
+// summary endpoint remains a best-effort fallback. Its delivered+bounced
+// aggregate is a terminal-outcome proxy (both consume plan quota), so it can
+// under-count messages still in flight/queued. This is acceptable for PACING,
+// not hard enforcement: Maileroo's own API rejection (caught by
+// isRateLimitedError in sendSingle) remains the real backstop.
+function numericValue(value) {
+  if (value === null || value === undefined) return null;
+  if (typeof value === 'string' && value.trim() === '') return null;
+  const number = typeof value === 'number' ? value : Number(value);
+  return Number.isFinite(number) && number >= 0 ? number : null;
+}
+
+function positiveNumericValue(value) {
+  const number = numericValue(value);
+  return number !== null && number > 0 ? number : null;
+}
+
+function dateMilliseconds(value) {
+  if (!value) return null;
+  const milliseconds = new Date(value).getTime();
+  return Number.isFinite(milliseconds) ? milliseconds : null;
+}
+
+function findMailerooUsageRow(usage, name) {
+  return Array.isArray(usage) ? usage.find((row) => row?.name === name) : null;
+}
+
+async function fetchMailerooAccountUsage(apiKey) {
+  try {
+    const res = await fetch('https://api.maileroo.com/v1/account', {
+      headers: { Authorization: `Bearer ${apiKey}` },
+      signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS),
+    });
+    if (!res.ok) return null;
+    const data = await res.json().catch(() => null);
+    const account = data?.data ?? data;
+    const plan = account?.current_plan ?? account?.plan;
+    const monthly = findMailerooUsageRow(account?.usage, 'Monthly Outbound Usage');
+    const hourly = findMailerooUsageRow(account?.usage, 'Hourly Outbound Usage');
+    const count = numericValue(monthly?.used);
+    const monthlyLimit = positiveNumericValue(monthly?.quantity) ?? positiveNumericValue(plan?.quantity);
+    if (count === null || monthlyLimit === null) return null;
+
+    return {
+      count,
+      verified: true,
+      monthlyLimit,
+      hourlyLimit: positiveNumericValue(hourly?.quantity),
+      hourlyUsed: numericValue(hourly?.used),
+      hourlyAvailable: numericValue(hourly?.available),
+      billingPeriodStartMs: dateMilliseconds(account?.subscription?.current_period_start),
+      billingPeriodEndMs: dateMilliseconds(account?.subscription?.current_period_end),
+      source: 'account',
+    };
+  } catch {
+    return null;
+  }
+}
+
 export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
-  // Verified live 2026-07-20: this Account API endpoint rejects the X-Api-Key
-  // header the send endpoint uses (401 "Please provide a valid API key in the
-  // Authorization header") — it wants `Authorization: Bearer <key>` instead.
-  // Also verified our sending key (MAILEROO_API_KEY, a per-domain Sending Key)
-  // is NOT valid here even with the correct header shape (401 "invalid or
-  // revoked") — the Account API needs its own key, generated under
-  // Maileroo's "Applications" dashboard section.
+  // The Account API key is separate from MAILEROO_API_KEY, a per-domain
+  // Sending Key. Both endpoints require Authorization: Bearer <key>.
   const apiKey = process.env.MAILEROO_ACCOUNT_API_KEY;
   if (!apiKey) return { count: 0, verified: false };
+
+  const accountUsage = await fetchMailerooAccountUsage(apiKey);
+  if (accountUsage) return accountUsage;
+
   try {
     const res = await fetch('https://api.maileroo.com/v1/statistics/summary', {
       headers: { Authorization: `Bearer ${apiKey}` },
@@ -562,49 +619,61 @@ export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
     const agg = data?.data?.aggregate;
     if (!agg || typeof agg !== 'object') return { count: 0, verified: false };
     const count = (Number(agg.delivered) || 0) + (Number(agg.bounced) || 0);
-    return { count, verified: true };
+    return { count, verified: true, source: 'statistics' };
   } catch { return { count: 0, verified: false }; }
 }
 
 // Safe fallback floor (250000/30, months-average). Used only
-// when calendar-month usage is unverifiable (no statistics.read scope on
-// this key / network error) — never Infinity, since an unverifiable usage
+// when account/usage data is unverifiable (missing scope / network error) —
+// never Infinity, since an unverifiable usage
 // lookup must fail safe, not open.
 const MAILEROO_CYCLE_FALLBACK_DAILY = MAILEROO_STATIC_DAILY_LIMIT;
 
 /**
- * Dynamic per-day Maileroo send budget that paces the 250k/mo quota, mirroring
- * computeResendDynamicDailyLimit but against a plain calendar month (Maileroo
- * documents no billing-cycle anchor day): (250000 − month-to-date usage) ÷
- * days left in the current UTC month. Falls back to the conservative
+ * Dynamic per-day Maileroo send budget that paces the live monthly quota,
+ * mirroring computeResendDynamicDailyLimit. When the Account API returns the
+ * subscription period, (plan limit − period-to-date usage) is divided by the
+ * days left in that billing period. Statistics fallback has no period anchor,
+ * so it uses the current UTC calendar month. Falls back to the conservative
  * MAILEROO_CYCLE_FALLBACK_DAILY floor when usage can't be verified.
  */
 async function computeMailerooDynamicDailyLimit(nowMs = Date.now()) {
   const provider = PROVIDERS.find(p => p.id === 'maileroo');
-  const { count, verified } = await fetchMailerooCycleUsage(nowMs);
+  const {
+    count,
+    verified,
+    monthlyLimit: liveMonthlyLimit,
+    billingPeriodEndMs,
+    source,
+  } = await fetchMailerooCycleUsage(nowMs);
   if (!verified) {
-    console.warn(`⚠️  [maileroo] calendar-month usage unverifiable (no statistics.read scope on this key, or API error) — falling back to conservative ${MAILEROO_CYCLE_FALLBACK_DAILY}/day floor`);
+    console.warn(`⚠️  [maileroo] plan usage unverifiable (missing Account API scope or API error) — falling back to conservative ${MAILEROO_CYCLE_FALLBACK_DAILY}/day floor`);
     return MAILEROO_CYCLE_FALLBACK_DAILY;
   }
+  const monthlyLimit = Number.isFinite(liveMonthlyLimit) && liveMonthlyLimit > 0
+    ? liveMonthlyLimit
+    : provider.monthlyLimit;
   const now = new Date(nowMs);
-  const monthEnd = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1));
-  const daysRemaining = Math.max(1, Math.ceil((monthEnd.getTime() - nowMs) / DAY_MS));
-  const remainingBudget = Math.max(0, provider.monthlyLimit - count);
+  const calendarMonthEnd = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1)).getTime();
+  const cycleEndMs = Number.isFinite(billingPeriodEndMs) && billingPeriodEndMs > nowMs
+    ? billingPeriodEndMs
+    : calendarMonthEnd;
+  const daysRemaining = Math.max(1, Math.ceil((cycleEndMs - nowMs) / DAY_MS));
+  const remainingBudget = Math.max(0, monthlyLimit - count);
   const dynamicLimit = Math.floor(remainingBudget / daysRemaining);
-  console.log(`   [maileroo] month-to-date: used≈${count}/${provider.monthlyLimit} (delivered+bounced proxy), daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
+  const usageLabel = source === 'account' ? 'live plan usage' : 'delivered+bounced proxy';
+  console.log(`   [maileroo] cycle-to-date: used=${count}/${monthlyLimit} (${usageLabel}), daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
   return dynamicLimit;
 }
 
 async function fetchMailerooDailyUsage() {
-  // No true "today only" figure is exposed (statistics/summary aggregates the
-  // whole calendar month) — the in-memory counter alone gates TODAY's sends,
-  // same limitation as before 2026-07-20 (may overshoot slightly across
-  // separate runs on the same day, same as the fallback behaviour of every
-  // other provider on API error). What changed: the daily LIMIT it's gated
-  // against is no longer a flat monthlyLimit/30 guess — see
-  // computeMailerooDynamicDailyLimit / _dynamicDailyLimits.maileroo below,
-  // which prices in real month-to-date consumption when the key's scope
-  // allows it.
+  // No true "today only" figure is exposed — the Account API gives hourly and
+  // billing-period usage, while statistics/summary gives terminal outcomes —
+  // so the in-memory counter alone gates TODAY's sends. This may overshoot
+  // slightly across separate runs on the same day, as with every provider
+  // when its usage API is unavailable. The daily LIMIT itself is no longer a
+  // flat monthlyLimit/30 guess: computeMailerooDynamicDailyLimit prices in
+  // real period-to-date consumption whenever the Account API key permits it.
   return 0;
 }
 
@@ -1093,6 +1162,8 @@ async function sendViaMailtrap(email, _scheduledAt, signal) {
 // ── Maileroo API (v2) ────────────────────────────────────────
 // Docs: https://maileroo.com/docs/api-reference/emails/send-email
 // Auth: X-Api-Key header. Current account: Pro, 250000/mo.
+// The Basic Email API also accepts CC/BCC and a caller-supplied 24-character
+// hexadecimal reference_id, which is echoed by Maileroo webhooks.
 
 async function sendViaMaileroo(email, scheduledAt, signal) {
   const apiKey = process.env.MAILEROO_API_KEY;
@@ -1111,10 +1182,20 @@ async function sendViaMaileroo(email, scheduledAt, signal) {
     tracking: email.tracking !== false && email.openTracking !== false,
   };
   if (email.text) body.plain = email.text;
+  if (email.cc) {
+    const cc = mailerooRecipients(email.cc);
+    if (cc.length) body.cc = cc;
+  }
+  if (email.bcc) {
+    const bcc = mailerooRecipients(email.bcc);
+    if (bcc.length) body.bcc = bcc;
+  }
   if (email.replyTo) {
     const replyTo = parseEmailAddress(email.replyTo);
     body.reply_to = { address: replyTo.email, display_name: replyTo.name || undefined };
   }
+  const referenceId = String(email.referenceId || '').trim();
+  if (/^[0-9a-f]{24}$/i.test(referenceId)) body.reference_id = referenceId;
   // Maileroo tags are an object map; cascade tags are [{name, value}].
   if (email.tags?.length) {
     body.tags = {};
@@ -1572,10 +1653,15 @@ function providerSpacingMs(providerId, delayMs, adaptiveThrottle, providerMinInt
  *   - resend: the free plan documents 2 requests/second per team.
  * mailtrap is out of the cascade (2026-07-29); if it is ever restored it must
  * get a floor here before a concurrent bulk sender can reach it.
- * maileroo (the paid bulk channel) and mailgun/mailjet have no floor: their
- * guard is the adaptive throttle on explicit 429/5xx.
+ * maileroo (the paid bulk channel) uses the live Pro account's current
+ * 10k/hour ceiling as a conservative floor; mailgun/mailjet have no floor and
+ * rely on the adaptive throttle on explicit 429/5xx.
  */
-export const BULK_PROVIDER_MIN_INTERVAL_MS = Object.freeze({ cloudflare: 1000, resend: 500 });
+export const BULK_PROVIDER_MIN_INTERVAL_MS = Object.freeze({
+  cloudflare: 1000,
+  resend: 500,
+  maileroo: MAILEROO_BULK_MIN_INTERVAL_MS,
+});
 
 /**
  * Reserve a delay-spaced slot for one attempt at `providerId`, then wait for it.
@@ -1785,6 +1871,20 @@ function parseEmailAddress(from) {
   const match = String(from).match(/^(.+?)\s*<(.+?)>$/);
   if (match) return { email: match[2].trim(), name: match[1].trim() };
   return { email: String(from).trim() };
+}
+
+function mailerooRecipient(value) {
+  if (value === null || value === undefined) return { address: '' };
+  const parsed = parseEmailAddress(value);
+  return {
+    address: String(parsed?.address || parsed?.email || '').trim(),
+    display_name: parsed?.display_name || parsed?.name || undefined,
+  };
+}
+
+function mailerooRecipients(value) {
+  const values = Array.isArray(value) ? value : [value];
+  return values.map(mailerooRecipient).filter((recipient) => recipient.address);
 }
 
 /**
