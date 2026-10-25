@@ -207,6 +207,16 @@ describe('verify-spa-module-links', () => {
 
     expect(linkCheck(graph.modules, graph.served)).toEqual([]);
   });
+
+  it('treats emitted CSS files as served module-link targets', () => {
+    const graph = buildLocalModuleGraph(new Map([
+      ['App.js', 'import "./index.css";import "./vendor-maps.css";'],
+      ['index.css', '/* emitted stylesheet */'],
+      ['vendor-maps.css', '/* emitted stylesheet */'],
+    ]));
+
+    expect(linkCheck(graph.modules, graph.served)).toEqual([]);
+  });
 });
 
 describe('rotatingWindow', () => {

@@ -22,18 +22,25 @@ function toPosix(value) {
   return value.split(path.sep).join('/');
 }
 
-function listJavaScriptAssets(assetsDir) {
+const LINKABLE_ASSET_RX = /\.(?:m?js|css)$/;
+const JAVASCRIPT_ASSET_RX = /\.m?js$/;
+
+function listAssetFiles(assetsDir) {
   if (!fs.existsSync(assetsDir)) return [];
   const files = [];
   const visit = (dir) => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const file = path.join(dir, entry.name);
       if (entry.isDirectory()) visit(file);
-      else if (entry.isFile() && /\.m?js$/.test(entry.name)) files.push(file);
+      else if (entry.isFile() && LINKABLE_ASSET_RX.test(entry.name)) files.push(file);
     }
   };
   visit(assetsDir);
   return files.sort();
+}
+
+function listJavaScriptAssets(assetsDir) {
+  return listAssetFiles(assetsDir).filter((file) => JAVASCRIPT_ASSET_RX.test(file));
 }
 
 /**
@@ -42,13 +49,20 @@ function listJavaScriptAssets(assetsDir) {
  */
 export function buildLocalModuleGraph(sources, { base = CDN_ASSETS_BASE } = {}) {
   const modules = new Map();
+  const served = new Map();
   for (const [relativePath, source] of sources) {
     const relativeUrl = toPosix(relativePath);
     const moduleUrl = new URL(relativeUrl, base).href;
-    modules.set(moduleUrl, parseModuleLinks(source, moduleUrl));
+    if (JAVASCRIPT_ASSET_RX.test(relativePath)) {
+      modules.set(moduleUrl, parseModuleLinks(source, moduleUrl));
+      served.set(moduleUrl, true);
+    } else if (/\.css$/.test(relativePath)) {
+      // JS chunks import the stable stylesheets as module dependencies, but
+      // CSS is a served asset rather than a JavaScript module to parse.
+      served.set(moduleUrl, true);
+    }
   }
 
-  const served = new Map([...modules.keys()].map((url) => [url, true]));
   for (const mod of modules.values()) {
     for (const ref of mod.imports) {
       if (!served.has(ref.url)) served.set(ref.url, false);
@@ -63,8 +77,9 @@ export function verifyLocalModuleLinks(assetsDir) {
     throw new Error(`no JavaScript assets found in ${assetsDir}`);
   }
 
+  const assetFiles = listAssetFiles(assetsDir);
   const sources = new Map(
-    files.map((file) => [
+    assetFiles.map((file) => [
       toPosix(path.relative(assetsDir, file)),
       fs.readFileSync(file, 'utf8'),
     ]),
