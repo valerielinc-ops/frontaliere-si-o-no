@@ -100,6 +100,48 @@ describe('r2-image-namespace-lock', () => {
     expect(calls).toEqual([]);
   });
 
+  it.each([-1, Number.MAX_SAFE_INTEGER + 1, 1e20])(
+    'rejects non-safe or negative acquiredAt override %s before writing a lease',
+    async (acquiredAt) => {
+      const { request, calls } = fakeR2();
+
+      await expect(acquireImageNamespaceLock('blog', { request, acquiredAt }))
+        .rejects.toThrow('non-negative safe integer millisecond timestamp');
+
+      expect(calls).toEqual([]);
+    },
+  );
+
+  it('rejects an expiry that would overflow the safe integer timestamp range', async () => {
+    const { request, calls } = fakeR2();
+
+    await expect(acquireImageNamespaceLock('blog', {
+      request,
+      acquiredAt: Number.MAX_SAFE_INTEGER,
+      leaseMs: 1,
+    })).rejects.toThrow('lease expiry must be a non-negative safe integer timestamp');
+
+    expect(calls).toEqual([]);
+  });
+
+  it('rejects unsafe timestamps in serialized lease contexts', () => {
+    expect(() => serializeImageLeaseContext([{
+      namespace: 'blog',
+      owner: 'owner',
+      leaseId: 'lease',
+      acquiredAt: -1,
+      expiresAt: 1_000,
+    }])).toThrow('invalid acquiredAt');
+
+    expect(() => serializeImageLeaseContext([{
+      namespace: 'blog',
+      owner: 'owner',
+      leaseId: 'lease',
+      acquiredAt: 1_000,
+      expiresAt: Number.MAX_SAFE_INTEGER + 1,
+    }])).toThrow('invalid lease');
+  });
+
   it('installs lease cleanup traps before acquisition can be interrupted', () => {
     const uploadScript = readFileSync(resolve(import.meta.dirname, '../../scripts/lib/upload-cdn-file.sh'), 'utf8');
     const cleanupTrap = uploadScript.indexOf('trap _image_lease_exit_cleanup EXIT');

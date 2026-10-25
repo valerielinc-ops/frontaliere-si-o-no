@@ -38,6 +38,10 @@ function positiveDuration(value, name) {
   return value;
 }
 
+function isNonNegativeSafeInteger(value) {
+  return Number.isSafeInteger(value) && value >= 0;
+}
+
 export function parseImageNamespaces(value) {
   const raw = Array.isArray(value) ? value : requiredString(value, '--namespace').split(',');
   const requested = [...new Set(raw.map((namespace) => String(namespace).trim()).filter(Boolean))];
@@ -77,10 +81,10 @@ export function isImageNamespaceLockPayload(value) {
       && value.owner.length > 0
       && typeof value.leaseId === 'string'
       && value.leaseId.length > 0
-      && Number.isFinite(value.acquiredAt)
-      && Number.isFinite(value.expiresAt)
+      && isNonNegativeSafeInteger(value.acquiredAt)
+      && isNonNegativeSafeInteger(value.expiresAt)
       && (value.expiresAt > value.acquiredAt
-        || (Number.isFinite(value.releasedAt)
+        || (isNonNegativeSafeInteger(value.releasedAt)
           && value.releasedAt >= value.acquiredAt
           && value.expiresAt === value.releasedAt)),
   );
@@ -174,21 +178,21 @@ function parseLeaseContext(value) {
         || !IMAGE_NAMESPACES.includes(lease.namespace)
         || typeof lease.owner !== 'string' || lease.owner.length === 0
         || typeof lease.leaseId !== 'string' || lease.leaseId.length === 0
-        || !Number.isFinite(lease.expiresAt)) {
+        || !isNonNegativeSafeInteger(lease.expiresAt)) {
       throw new Error('[r2-image-namespace-lock] lease context contains an invalid lease');
     }
     const etag = lease.etag === undefined ? undefined : normalizeS3MatchEtag(lease.etag);
     if (lease.etag !== undefined && !etag) {
       throw new Error(`[r2-image-namespace-lock] lease context has no strong ETag for ${lease.namespace}`);
     }
-    if (lease.acquiredAt !== undefined && !Number.isFinite(lease.acquiredAt)) {
+    if (lease.acquiredAt !== undefined && !isNonNegativeSafeInteger(lease.acquiredAt)) {
       throw new Error('[r2-image-namespace-lock] lease context has an invalid acquiredAt');
     }
     return {
       namespace: lease.namespace,
       owner: lease.owner,
       leaseId: lease.leaseId,
-      ...(Number.isFinite(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
+      ...(isNonNegativeSafeInteger(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
       expiresAt: lease.expiresAt,
       ...(etag ? { etag } : {}),
     };
@@ -264,7 +268,11 @@ function tombstonePayload(payload, now, { rotateEtag = false } = {}) {
   const releasedAt = Math.max(
     now(),
     payload.acquiredAt,
-    rotateEtag && Number.isFinite(payload.releasedAt) ? payload.releasedAt + 1 : 0,
+    rotateEtag
+      && isNonNegativeSafeInteger(payload.releasedAt)
+      && payload.releasedAt < Number.MAX_SAFE_INTEGER
+      ? payload.releasedAt + 1
+      : 0,
   );
   return { ...payload, releasedAt, expiresAt: releasedAt };
 }
@@ -355,8 +363,8 @@ export async function acquireImageNamespaceLock(
   positiveDuration(timeoutMs, 'acquire timeout');
   positiveDuration(pollMs, 'poll interval');
   positiveDuration(leaseMs, 'lease duration');
-  if (acquiredAtOverride !== undefined && !Number.isInteger(acquiredAtOverride)) {
-    throw new Error('[r2-image-namespace-lock] acquiredAt must be an integer millisecond timestamp');
+  if (acquiredAtOverride !== undefined && !isNonNegativeSafeInteger(acquiredAtOverride)) {
+    throw new Error('[r2-image-namespace-lock] acquiredAt must be a non-negative safe integer millisecond timestamp');
   }
 
   const owner = ownerOverride === undefined ? randomUUID() : requiredString(ownerOverride, 'owner');
@@ -374,6 +382,9 @@ export async function acquireImageNamespaceLock(
     acquiredAt,
     expiresAt: acquiredAt + leaseMs,
   };
+  if (!isNonNegativeSafeInteger(lease.expiresAt) || lease.expiresAt <= acquiredAt) {
+    throw new Error('[r2-image-namespace-lock] lease expiry must be a non-negative safe integer timestamp');
+  }
 
   let candidateMayExist = false;
   const staleWriteConditions = [];
@@ -556,9 +567,9 @@ export async function releaseImageNamespaceLock(
   const parsedLease = parseLeaseContext({ version: CONTEXT_VERSION, leases: [lease] }).leases[0];
   const normalized = {
     ...parsedLease,
-    ...(Number.isFinite(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
+    ...(isNonNegativeSafeInteger(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
   };
-  if (fenceMissingCandidate && !Number.isFinite(normalized.acquiredAt)) {
+  if (fenceMissingCandidate && !isNonNegativeSafeInteger(normalized.acquiredAt)) {
     throw new Error(`[r2-image-namespace-lock] candidate cleanup for ${parsedLease.namespace} requires acquiredAt`);
   }
   const namespace = normalized.namespace;
@@ -621,7 +632,7 @@ export async function releaseImageNamespaceLock(
 
     if (current) {
       if (leaseMatches(current, normalized)) {
-        if (Number.isFinite(current.payload.releasedAt)) return true;
+        if (isNonNegativeSafeInteger(current.payload.releasedAt)) return true;
         const matchEtag = current.etag ?? normalizeS3MatchEtag(normalized.etag);
         if (!matchEtag) {
           throw new Error(`[r2-image-namespace-lock] lock ${namespace} has no ETag; refusing an unsafe release`);
@@ -679,7 +690,7 @@ export async function releaseImageNamespaceLock(
       { cause: lastError ?? reconciliationError },
     );
   }
-  if (latest && leaseMatches(latest, normalized) && Number.isFinite(latest.payload.releasedAt)) return true;
+  if (latest && leaseMatches(latest, normalized) && isNonNegativeSafeInteger(latest.payload.releasedAt)) return true;
   if (latest && !leaseMatches(latest, normalized)
       && !matchingStaleWriteCondition(latest, staleWriteConditions, now, { allowMissingEtag: true })) return false;
   if (!latest && !fenceMissingCandidate) return false;
@@ -839,7 +850,7 @@ async function acquireFromCli(namespaces, request, env = process.env) {
   const owner = env.FRONTALIERE_R2_IMAGE_LEASE_OWNER ?? randomUUID();
   const leaseId = env.FRONTALIERE_R2_IMAGE_LEASE_ID ?? randomUUID();
   const requestedAcquiredAt = Number(env.FRONTALIERE_R2_IMAGE_LEASE_ACQUIRED_AT);
-  const pendingAcquiredAt = Number.isFinite(requestedAcquiredAt) && requestedAcquiredAt >= 1
+  const pendingAcquiredAt = Number.isSafeInteger(requestedAcquiredAt) && requestedAcquiredAt >= 1
     ? requestedAcquiredAt
     : Date.now();
   const pendingLeases = namespaces.map((namespace) => ({
