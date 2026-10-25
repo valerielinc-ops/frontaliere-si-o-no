@@ -239,20 +239,27 @@ async function fetchWidgetViaPlaywright(bodyString, contentType, endpoint, { ref
     // matter again if this function is ever reused for another cross-origin
     // pair, so keep the safelisted-only header set as the default (#2992).
     const result = await page.evaluate(
-      async ({ ep, body, ct }) => {
-        const res = await fetch(ep, {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json, text/javascript, */*; q=0.01',
-            'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
-            'Content-Type': ct,
-          },
-          body,
-        });
-        if (!res.ok) return { __error: res.status };
-        return res.json();
+      async ({ ep, body, ct, timeoutMs: requestTimeoutMs }) => {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), requestTimeoutMs);
+        try {
+          const res = await fetch(ep, {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json, text/javascript, */*; q=0.01',
+              'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
+              'Content-Type': ct,
+            },
+            body,
+            signal: controller.signal,
+          });
+          if (!res.ok) return { __error: res.status };
+          return res.json();
+        } finally {
+          clearTimeout(timer);
+        }
       },
-      { ep: endpoint, body: bodyString, ct: contentType },
+      { ep: endpoint, body: bodyString, ct: contentType, timeoutMs },
     );
     if (result && result.__error) {
       console.warn(`[widget-pw] Playwright POST returned HTTP ${result.__error} from ${endpoint}`);
