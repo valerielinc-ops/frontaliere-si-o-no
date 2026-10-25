@@ -19,11 +19,12 @@
  *   3. 3 stat tiles (open positions · median salary · fresh in 30 days)
  *   4. primary CTA → salary calculator (the killer-hook conversion path)
  *   5. complete live jobs inventory (in-feed ads every 3 cards) + CTA
- *   6. employer grid (top 6, compact 2-col)
- *   7. ─── "Approfondisci" divider ───
- *   8. long-form prose H2 sections (existing 7 blocks)
- *   9. employers table (curated, with historical-employers framing note)
- *  10. sources · FAQ · related · final CTAs
+ *   6. compact journey links (secondary navigation after the primary task)
+ *   7. employer grid (top 6, compact 2-col)
+ *   8. ─── "Approfondisci" divider ───
+ *   9. long-form prose H2 sections (existing 7 blocks)
+ *  10. employers table (curated, with historical-employers framing note)
+ *  11. sources · FAQ · related · final CTAs
  *
  * Live signal comes from professionJobsAggregate (build-time read of
  * data/jobs.json). PROFESSION_FACTS stays as the editorial authority for
@@ -627,6 +628,7 @@ function renderPage(opts: {
       companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
       alert: buildProfessionJourneyAlertHref(buildJobBoardUrl(locale), alertKeyword),
     },
+    compactNetScope: true,
     netSalaryPrefilled: typeof reportedGrossChf === 'number' && reportedGrossChf > 0,
   });
 
@@ -645,8 +647,8 @@ function renderPage(opts: {
     <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
-    ${journeyHtml}
     ${featuredHtml}
+    ${journeyHtml}
     ${employerGridHtml}
     ${locationSummaryHtml}
     ${offerInsightsHtml}

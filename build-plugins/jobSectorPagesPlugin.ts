@@ -726,6 +726,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
           alert: buildProfessionJourneyAlertHref(buildJobBoardUrl(locale), journeyTarget.alertKeyword[locale]),
         },
         roleLabel: journeyTarget.roleLabel[locale],
+        compactNetScope: true,
         netSalaryPrefilled: roleSalary.medianChf !== null,
       })
     : '';
@@ -792,13 +793,13 @@ ${alternates}
         </header>
         ${statGridHtml}
         ${ctaHtml}
-        ${journeyHtml}
         <section id="${PROFESSION_JOURNEY_ANCHORS.offers}" class="s-ziawP1">
           <div class="s-r2QmTP">
             <h2 class="s-CqexyJ">${esc(jobsSectionLabelByLocale[locale])}</h2>
           </div>
           ${jobsHtml}
         </section>
+        ${journeyHtml}
         ${prose.html}
         ${journeyRequirementsHtml}
         ${journeyCompaniesHtml}

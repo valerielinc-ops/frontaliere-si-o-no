@@ -21,10 +21,11 @@
  *   3. 3 stat tiles (open positions · median salary · fresh in 30 days)
  *   4. primary CTA → salary calculator
  *   5. featured live jobs (top 3) + "see all" link
- *   6. employer grid (top 6 employers)
- *   7. ─── "Approfondisci" divider ───
- *   8. lede paragraph + hand-written H2 sections + FAQ + related
- *   9. final CTA row (sector hub + simulator)
+ *   6. compact journey links (secondary navigation after the primary task)
+ *   7. employer grid (top 6 employers)
+ *   8. ─── "Approfondisci" divider ───
+ *   9. lede paragraph + hand-written H2 sections + FAQ + related
+ *  10. final CTA row (sector hub + simulator)
  *
  * Live signal comes from `nursingJobsAggregate` (build-time read of
  * data/jobs.json). The hand-written editorial copy lives in
@@ -498,6 +499,7 @@ function renderPage(opts: {
       companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
       alert: buildProfessionJourneyAlertHref(buildJobBoardUrl(locale), NURSING_ALERT_QUERY[id][locale]),
     },
+    compactNetScope: true,
     netSalaryPrefilled: typeof reportedGrossChf === 'number' && reportedGrossChf > 0,
   });
 
@@ -523,8 +525,8 @@ function renderPage(opts: {
     ${statTilesHtml}
     ${reportedSalaryNote(locale, snapshot.reportedSalary)}
     ${primaryCtaHtml}
-    ${journeyHtml}
     ${featuredHtml}
+    ${journeyHtml}
     ${employerGridHtml}
     ${dividerHtml}
     ${sectionsHtml}

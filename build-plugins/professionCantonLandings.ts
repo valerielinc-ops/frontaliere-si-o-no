@@ -464,9 +464,9 @@ export function renderProfessionCantonPage(opts: {
 ${header}
 ${tiles}
 ${salary.noteHtml}
-${journeyHtml}
 ${DRIVEBY_AD_SNIPPET}
 ${employers}
+${journeyHtml}
 ${peerComparison}
 ${recentComparison}
 ${crossCantonComparison}

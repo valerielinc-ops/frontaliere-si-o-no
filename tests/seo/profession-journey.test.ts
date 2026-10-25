@@ -225,6 +225,23 @@ describe('profession journey links', () => {
     expect(fallback).toContain('does not calculate tax for the canton on this page');
   });
 
+  it('keeps compact navigation scannable without hiding the full net-salary explanation', () => {
+    const html = renderProfessionJourney({
+      locale: 'en',
+      professionKey: 'test-role',
+      roleLabel: 'test role',
+      hrefs: { offers: '#offers', requirements: '#requirements', net: '/en/calculate-salary/', companies: '#companies', alert: '#alert' },
+      compactNetScope: true,
+      netSalaryPrefilled: false,
+    });
+
+    expect(html).toContain('flex-wrap');
+    expect(html).toContain('rounded-full');
+    expect(html).not.toContain('Enter annual gross to simulate the Italy-Switzerland regime with Ticino withholding tax');
+    expect(html).toContain('aria-label="Enter annual gross pay to estimate net"');
+    expect((html.match(/data-analytics-label="profession_journey:test-role:/g) || []).length).toBe(5);
+  });
+
   it('builds the existing q-filtered alert route without creating another landing', () => {
     const boardPath = '/en/jobs-ticino/';
     expect(buildProfessionJourneySearchHref(boardPath, 'pastry chef')).toBe('/en/jobs-ticino/?q=pastry+chef');
@@ -257,7 +274,7 @@ describe('profession and nursing landing integration', () => {
       const alertHref = findJourneyHref(html, role, 'alert');
       expect(alertHref).toBe(buildProfessionJourneyAlertHref(buildJobBoardUrl(locale), keyword));
       expect(findJourneyHref(html, role, 'net')).toContain('reddito=64000');
-      expect(html.indexOf('data-profession-journey=')).toBeLessThan(idPosition(html, PROFESSION_JOURNEY_ANCHORS.offers));
+      expect(html.indexOf('data-profession-journey=')).toBeGreaterThan(idPosition(html, PROFESSION_JOURNEY_ANCHORS.offers));
     },
   );
 
@@ -274,7 +291,7 @@ describe('profession and nursing landing integration', () => {
       for (const anchor of Object.values(PROFESSION_JOURNEY_ANCHORS)) expect(countId(html, anchor), anchor).toBe(1);
       expect(html).toMatch(new RegExp(`data-profession-journey=(?:"${role}"|'${role}'|${role})(?=\\s|>)`));
       expect(findJourneyHref(html, role, 'net')).toContain('reddito=64000');
-      expect(html.indexOf('data-profession-journey=')).toBeLessThan(idPosition(html, PROFESSION_JOURNEY_ANCHORS.offers));
+      expect(html.indexOf('data-profession-journey=')).toBeGreaterThan(idPosition(html, PROFESSION_JOURNEY_ANCHORS.offers));
       expect(buildNursingLandingPath(locale, id as NursingLandingId)).toMatch(/^\//);
     },
   );
@@ -304,7 +321,7 @@ describe('sector journey integration', () => {
       expect(countId(html, PROFESSION_JOURNEY_ANCHORS.offers)).toBe(1);
       expect(countId(html, PROFESSION_JOURNEY_ANCHORS.companies)).toBe(1);
       expect(html).toContain('Role Employer 1');
-      expect(html.indexOf('data-profession-journey=')).toBeLessThan(idPosition(html, PROFESSION_JOURNEY_ANCHORS.offers));
+      expect(html.indexOf('data-profession-journey=')).toBeGreaterThan(idPosition(html, PROFESSION_JOURNEY_ANCHORS.offers));
 
       const boardPath = buildJobBoardUrl(locale);
       const alertHref = findJourneyHref(html, entry.journeyKey, 'alert');
