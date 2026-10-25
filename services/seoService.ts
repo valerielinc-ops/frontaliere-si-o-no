@@ -37,6 +37,7 @@ import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
 import { resolveGuideLocaleSeo } from '../build-plugins/shared/guideLocaleSeo';
+import { resolveFiscoLocaleSeo } from '../build-plugins/shared/fiscoLocaleSeo';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from '../build-plugins/shared/robotsDirective';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
@@ -1415,7 +1416,17 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
   return {
    title,
    description: localizedGuideSeo.description,
-   keywords: getLocalizedSeoKeywords(localizedGuideSeo.title, locale, metadata.keywords),
+  keywords: getLocalizedSeoKeywords(localizedGuideSeo.title, locale, metadata.keywords),
+ };
+ }
+
+ const localizedFiscoSeo = resolveFiscoLocaleSeo(section, locale);
+ if (localizedFiscoSeo) {
+  const title = buildTitleWithBrand(localizedFiscoSeo.title);
+  return {
+   title,
+   description: localizedFiscoSeo.description,
+   keywords: getLocalizedSeoKeywords(localizedFiscoSeo.title, locale, metadata.keywords),
   };
  }
 

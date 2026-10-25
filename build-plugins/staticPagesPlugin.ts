@@ -228,6 +228,7 @@ import {
 } from './shared/titleSuffix';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveGuideLocaleSeoByPath } from './shared/guideLocaleSeo';
+import { resolveFiscoLocaleSeoByPath } from './shared/fiscoLocaleSeo';
 // Border-crossing <title> cascade + its slug→label transform. Leaf module so
 // the #4828 regression suite can assert the 66-char cap over every id in
 // ALL_BORDER_CROSSING_IDS without importing this plugin's data graph.
@@ -3395,6 +3396,22 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
    desc: localizedGuideSeo.description,
    ogT: title,
    ogD: localizedGuideSeo.description,
+  sd: italianSeo.sd,
+ };
+ }
+
+ // Keep the static head in lockstep with the SPA's localized Tax & Pension
+ // metadata. The generic fallback turns translated fisco slugs into titles
+ // like "Calculate Retirement" and supplies a broad description, losing the
+ // page intent in the first HTML seen by search crawlers.
+ const localizedFiscoSeo = resolveFiscoLocaleSeoByPath(sourceCanonicalPath, locale);
+ if (localizedFiscoSeo) {
+  const title = buildTitleWithBrand(localizedFiscoSeo.title);
+  return {
+   title,
+   desc: localizedFiscoSeo.description,
+   ogT: title,
+   ogD: localizedFiscoSeo.description,
    sd: italianSeo.sd,
   };
  }
