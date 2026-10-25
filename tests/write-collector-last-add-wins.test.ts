@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -21,6 +21,7 @@ beforeEach(() => {
   dir = fs.mkdtempSync(path.join(os.tmpdir(), 'wc-lastwins-'));
 });
 afterEach(() => {
+  vi.restoreAllMocks();
   fs.rmSync(dir, { recursive: true, force: true });
   setModeForTest(null);
 });
@@ -58,5 +59,72 @@ describe('WriteCollector — last add() wins across auto-flush batches', () => {
     for (const [p, c] of files) collector.add(p, c);
     await collector.flush();
     for (const [p, c] of files) expect(fs.readFileSync(p, 'utf8')).toBe(c);
+  });
+
+  it('keeps independent auto-flush batches concurrent', async () => {
+    const firstPath = path.join(dir, 'first.html');
+    const secondPath = path.join(dir, 'second.html');
+    const started: string[] = [];
+    let releaseFirst!: () => void;
+    const firstWrite = new Promise<void>((resolve) => {
+      releaseFirst = resolve;
+    });
+
+    vi.spyOn(fs.promises, 'writeFile').mockImplementation((filePath) => {
+      const normalizedPath = String(filePath);
+      started.push(normalizedPath);
+      if (normalizedPath === firstPath) return firstWrite;
+      return Promise.resolve();
+    });
+
+    const collector = new WriteCollector({
+      distDir: dir,
+      pluginName: 'concurrency-test',
+      autoFlushThreshold: 1,
+      concurrency: 1,
+    });
+    collector.add(firstPath, 'first');
+    for (let i = 0; i < 20 && !started.includes(firstPath); i++) await Promise.resolve();
+    expect(started).toContain(firstPath);
+
+    collector.add(secondPath, 'second');
+    for (let i = 0; i < 20 && !started.includes(secondPath); i++) await Promise.resolve();
+    expect(started).toContain(secondPath);
+
+    releaseFirst();
+    await collector.flush();
+  });
+
+  it.skipIf(process.env.RUN_WRITE_COLLECTOR_BENCH !== '1')('redflag benchmark — same corpus for ordered and parallel paths', async () => {
+    const fileCount = 20_000;
+    const collector = new WriteCollector({
+      distDir: dir,
+      pluginName: 'benchmark',
+      autoFlushThreshold: 500,
+      concurrency: 64,
+    });
+    let peakRss = process.memoryUsage().rss;
+    let peakAnon = process.memoryUsage().heapUsed;
+    const sampler = setInterval(() => {
+      peakRss = Math.max(peakRss, process.memoryUsage().rss);
+      peakAnon = Math.max(peakAnon, process.memoryUsage().heapUsed);
+    }, 5);
+    const startedAt = process.hrtime.bigint();
+    for (let i = 0; i < fileCount; i++) {
+      collector.add(path.join(dir, 'benchmark', `${i}.html`), `benchmark-${i}`);
+    }
+    await collector.flush();
+    clearInterval(sampler);
+    peakRss = Math.max(peakRss, process.memoryUsage().rss);
+    peakAnon = Math.max(peakAnon, process.memoryUsage().heapUsed);
+    const wallMs = Number(process.hrtime.bigint() - startedAt) / 1e6;
+    console.log(JSON.stringify({
+      benchmark: 'write-collector',
+      chain: process.env.WRITE_COLLECTOR_CHAIN !== '0',
+      fileCount,
+      wallMs: Math.round(wallMs),
+      peakRssMb: Math.round(peakRss / 1024 / 1024),
+      peakAnonMb: Math.round(peakAnon / 1024 / 1024),
+    }));
   });
 });

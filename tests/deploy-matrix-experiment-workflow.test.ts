@@ -56,7 +56,6 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'RELATED_SEARCH_CLUSTERS_NO_CACHE',
       'RELATED_SEARCH_POSTINGS_SPARSE',
       'SEQUENTIAL_PROFILE',
-      'SKIP_BORDER_WAIT',
       'UV_THREADPOOL_SIZE',
       'WRITE_COLLECTOR_CHAIN',
     ]);
@@ -237,6 +236,10 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
   it('fails clearly for an invalid name or env key', () => {
     expect(() => parseVariants('BadName=')).toThrow(/invalid variant name/);
     expect(() => parseVariants('bad=NOT_A_BUILD_FLAG=1')).toThrow(/disallowed env key/);
+  });
+
+  it('keeps compare variants on the complete border-wait corpus', () => {
+    expect(() => parseVariants('partial=SKIP_BORDER_WAIT=1')).toThrow(/disallowed env key/);
   });
 
   it('accepts the benchmark-only stop and sample flags in a variant', () => {
