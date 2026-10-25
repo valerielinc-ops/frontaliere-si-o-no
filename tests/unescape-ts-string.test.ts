@@ -71,6 +71,11 @@ describe('unescapeTsString — bounded legacy octal and field control policies',
     const raw = String.raw`[{"q":"a\b","a":"b"}]`;
     expect(decodeControlEscapesByField(raw, 'faq')).toContain(String.raw`\b`);
   });
+
+  it('does not let an unknown field inherit a silent control policy', () => {
+    expect(decodeControlEscapesByField(String.raw`a\nb`, 'meta')).toBe('a b');
+    expect(() => decodeControlEscapesByField(String.raw`a\nb`, 'unknown')).toThrow(/unknown TypeScript escape field/);
+  });
 });
 
 describe('unescapeTsString — the three sequences that discriminate a one-pass decoder', () => {
