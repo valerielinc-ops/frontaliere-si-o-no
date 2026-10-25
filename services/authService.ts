@@ -1714,7 +1714,7 @@ declare global {
  accounts: {
  id: {
  initialize: (config: OneTapConfig) => void;
- prompt: (callback?: (notification?: OneTapNotification) => void) => void;
+ prompt: () => void;
  cancel: () => void;
  disableAutoSelect?: () => void;
  renderButton: (parent: HTMLElement, options: OneTapButtonOptions) => void;
@@ -1728,6 +1728,7 @@ interface OneTapConfig {
  client_id: string;
  callback: (response: OneTapResponse) => void;
  auto_select?: boolean;
+ use_fedcm_for_prompt?: boolean;
  cancel_on_tap_outside?: boolean;
  context?: 'signin' | 'signup' | 'use';
  itp_support?: boolean;
@@ -1738,15 +1739,6 @@ interface OneTapResponse {
  credential: string;
  select_by?: string;
  clientId?: string;
-}
-
-interface OneTapNotification {
- isNotDisplayed?: () => boolean;
- isSkippedMoment?: () => boolean;
- isDismissedMoment?: () => boolean;
- getNotDisplayedReason?: () => string;
- getSkippedReason?: () => string;
- getDismissedReason?: () => string;
 }
 
 interface OneTapButtonOptions {
@@ -1846,6 +1838,7 @@ export async function initOneTap(): Promise<boolean> {
  client_id: clientId,
  callback: handleOneTapResponse,
  auto_select: true,
+ use_fedcm_for_prompt: true,
  cancel_on_tap_outside: true,
  context: 'signin',
  itp_support: true,
@@ -1958,30 +1951,13 @@ export async function promptOneTap(options: { surface?: string } = {}): Promise<
 
  trackOneTapMetric('prompted', `surface=${surface}`);
  // Names the consent surface of a credential from this prompt (`job_gate`
- // when the job gate asked). Whether its notice was on screen is measured
- // separately, at the callback.
+ // when the job gate asked). FedCM does not provide a reliable display-moment
+ // callback, so the credential callback remains the success signal.
  lastOneTapPromptSurface = surface;
- window.google?.accounts?.id.prompt((notification) => {
-  if (!notification) {
-   trackOneTapMetric('callback', `surface=${surface}|reason=no_moment_details`);
-   return;
-  }
-  const isNotDisplayed = notification.isNotDisplayed?.() === true;
-  const isSkipped = notification.isSkippedMoment?.() === true;
-  const isDismissed = notification.isDismissedMoment?.() === true;
-  if (isNotDisplayed) {
-   const reason = String(notification.getNotDisplayedReason?.() || 'unknown').replace(/[^a-z0-9_-]/gi, '_').slice(0, 60);
-   trackOneTapMetric('not_displayed', `surface=${surface}|reason=${reason}`);
-  } else if (isSkipped) {
-   const reason = String(notification.getSkippedReason?.() || 'unknown').replace(/[^a-z0-9_-]/gi, '_').slice(0, 60);
-   trackOneTapMetric('skipped', `surface=${surface}|reason=${reason}`);
-  } else if (isDismissed) {
-   const reason = String(notification.getDismissedReason?.() || 'unknown').replace(/[^a-z0-9_-]/gi, '_').slice(0, 60);
-   trackOneTapMetric('dismissed', `surface=${surface}|reason=${reason}`);
-  } else {
-   trackOneTapMetric('displayed', `surface=${surface}`);
-  }
- });
+ // FedCM does not expose the legacy display/skip moment methods. Calling
+ // them makes GIS emit a migration warning and produces no reliable signal;
+ // the credential callback above remains the authoritative success path.
+ window.google?.accounts?.id.prompt();
 }
 
 /**

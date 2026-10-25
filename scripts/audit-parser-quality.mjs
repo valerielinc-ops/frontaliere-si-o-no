@@ -3387,7 +3387,7 @@ async function main() {
   let sourceDetailSummary = null;
   let sourceDetailEvidence = null;
 
-  for (const { key, jobs, storedTotal = jobs.length, excluded = { grace: 0, expired: 0, total: 0 }, error } of slices) {
+  for (const { key, jobs, storedTotal = jobs.length, excluded = { grace: 0, expired: 0, nonPublishable: 0, total: 0 }, error } of slices) {
     const issues = [];
     const population = { stored: storedTotal, active: jobs.length, excluded };
 
@@ -3825,10 +3825,13 @@ function printReport(report) {
 
   if (excluded.length > 0) {
     const excludedTotal = excluded.reduce((sum, [, entry]) => sum + entry.population.excluded.total, 0);
-    console.log(`\nExcluded from active-quality metrics: ${excludedTotal} non-active record(s)`);
+    console.log(`\nExcluded from active-quality metrics: ${excludedTotal} record(s)`);
     for (const [key, entry] of excluded) {
-      const { grace, expired } = entry.population.excluded;
-      console.log(`  ${key}: ${entry.population.active}/${entry.population.stored} active, ${grace} grace, ${expired} expired`);
+      const { grace, expired, nonPublishable = 0 } = entry.population.excluded;
+      console.log(
+        `  ${key}: ${entry.population.active}/${entry.population.stored} active, `
+        + `${grace} grace, ${expired} expired, ${nonPublishable} non-publishable`,
+      );
     }
   }
 

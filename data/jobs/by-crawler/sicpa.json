@@ -1,11 +1,11 @@
 {
   "crawlerKey": "sicpa",
-  "assembledAt": "2026-10-25T09:49:35.537Z",
-  "runId": "40180144625",
+  "assembledAt": "2026-10-25T21:33:50.260Z",
+  "runId": "40234905342",
   "jobs": [
     {
       "id": "sicpa-83b163de8760",
-      "slug": "automatico-sicpa-sa-chavornay-d76d2940f0",
+      "slug": "automatico-sicpa-sa-chavornay",
       "slugByLocale": {
         "it": "automatico-sicpa-sa-chavornay",
         "en": "automatician-sicpa-sa-chavornay",
@@ -34,7 +34,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1409947133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:49:29.126Z",
+      "crawledAt": "2026-10-25T21:33:44.800Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -55,11 +55,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automaticien-sicpa-chavornay",
-        "automaticien-sicpa-chavornay-6r7gzx"
+        "automaticien-sicpa-chavornay-6r7gzx",
+        "automatico-sicpa-sa-chavornay-d76d2940f0"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automaticien-sicpa-chavornay"
+          "automaticien-sicpa-chavornay",
+          "automatico-sicpa-sa-chavornay-d76d2940f0"
         ],
         "fr": [
           "automaticien-sicpa-chavornay-6r7gzx"
@@ -112,7 +114,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Embedded-Software-Engineer/1433097433/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:49:28.499Z",
+      "crawledAt": "2026-10-25T21:33:44.200Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -184,7 +186,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1448503333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:49:27.869Z",
+      "crawledAt": "2026-10-25T21:33:43.580Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -268,7 +270,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Product-Owner/1449134733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:49:26.619Z",
+      "crawledAt": "2026-10-25T21:33:42.361Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -348,7 +350,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Coordinator/1404844633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:49:25.976Z",
+      "crawledAt": "2026-10-25T21:33:41.762Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -417,7 +419,7 @@
       "slugByLocale": {
         "it": "consulente-per-i-brevetti-sicpa-sa-prilly",
         "en": "senior-patent-counsel-sicpa-prilly",
-        "de": "leitender-patentanwalt-sicpa-sa-prilly",
+        "de": "senior-patent-counsel-sicpa-sa-prilly",
         "fr": "conseiller-principal-en-brevets-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
@@ -442,7 +444,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Senior-Patent-Counsel/1448011633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:49:25.372Z",
+      "crawledAt": "2026-10-25T21:33:41.103Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -463,7 +465,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-patent-counsel-sicpa-prilly",
-        "senior-patent-counsel-sicpa-sa-prilly"
+        "leitender-patentanwalt-sicpa-sa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -471,7 +473,7 @@
         ],
         "de": [
           "senior-patent-counsel-sicpa-prilly",
-          "senior-patent-counsel-sicpa-sa-prilly"
+          "leitender-patentanwalt-sicpa-sa-prilly"
         ],
         "fr": [
           "senior-patent-counsel-sicpa-prilly"
@@ -524,7 +526,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technicien-Capteurs/1433994533/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:49:24.712Z",
+      "crawledAt": "2026-10-25T21:33:40.507Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -602,7 +604,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Business-Architect/1436219133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:49:24.077Z",
+      "crawledAt": "2026-10-25T21:33:39.903Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -675,7 +677,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Sovereign-Data-Program-Intern/1445306733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:49:23.425Z",
+      "crawledAt": "2026-10-25T21:33:39.260Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -748,7 +750,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:49:22.796Z",
+      "crawledAt": "2026-10-25T21:33:38.647Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -821,7 +823,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Op%C3%A9rateur-de-logistique-confirm%C3%A9/1400431333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:49:22.177Z",
+      "crawledAt": "2026-10-25T21:33:38.039Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",

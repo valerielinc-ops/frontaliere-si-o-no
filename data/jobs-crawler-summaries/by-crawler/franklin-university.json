@@ -1,7 +1,7 @@
 {
   "key": "franklin-university",
   "label": "Franklin University Switzerland",
-  "generatedAt": "2026-10-25T09:29:32.044Z",
+  "generatedAt": "2026-10-25T21:38:19.545Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4279,
-  "avgDurationMs": 4279,
+  "durationMs": 5809,
+  "avgDurationMs": 5809,
   "durationHistory": [
-    4279
+    5809
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,7 +50,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4667",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:29:21.124Z",
+      "crawledAt": "2026-10-25T21:38:03.944Z",
       "firstSeenAt": "2026-10-08T09:27:59.100Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -92,7 +92,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4660",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:29:20.822Z",
+      "crawledAt": "2026-10-25T21:38:03.642Z",
       "firstSeenAt": "2026-07-08T11:31:39.336Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -134,7 +134,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4678",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:29:20.519Z",
+      "crawledAt": "2026-10-25T21:38:03.339Z",
       "firstSeenAt": "2026-10-20T09:27:00.226Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -179,7 +179,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4679",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:29:21.426Z",
+      "crawledAt": "2026-10-25T21:38:04.246Z",
       "firstSeenAt": "2026-10-20T09:27:01.136Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -220,7 +220,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4677",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:29:20.217Z",
+      "crawledAt": "2026-10-25T21:38:03.036Z",
       "firstSeenAt": "2026-10-20T09:26:59.923Z",
       "salaryMin": 50500,
       "salaryMax": 89000,
@@ -235,5 +235,5 @@
       }
     }
   ],
-  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }

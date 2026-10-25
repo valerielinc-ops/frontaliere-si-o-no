@@ -1,7 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   fetchCrossingTraffic,
+  getGoogleDistanceMatrix,
+  getHereMapsRouteTravelTimes,
   getTomTomRouteTravelTimes,
+  getTomTomFlowSegmentData,
   isTomTomAccountExhausted,
 } from '../functions/src/trafficSchedulerCore.js';
 
@@ -98,6 +101,53 @@ describe('traffic provider migration', () => {
 
     expect(result.source).toBe('google-maps');
     expect(String(fetchMock.mock.calls[0][0])).toContain('maps.googleapis.com/maps/api/distancematrix/json');
+  });
+
+  it('bounds every live provider request with an AbortSignal', async () => {
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => ({
+          status: 'OK',
+          rows: [{ elements: [{ status: 'OK', duration: { value: 60 }, duration_in_traffic: { value: 90 } }] }],
+        }),
+        text: async () => '',
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => ({
+          routes: [{ summary: { travelTimeInSeconds: 90, noTrafficTravelTimeInSeconds: 60 } }],
+        }),
+        text: async () => '',
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => ({
+          routes: [{ sections: [{ summary: { baseDuration: 60, duration: 90 } }] }],
+        }),
+        text: async () => '',
+      })
+      .mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        flowSegmentData: { currentSpeed: 60, freeFlowSpeed: 80, confidence: 0.9 },
+      }),
+      text: async () => '',
+    });
+
+    await getGoogleDistanceMatrix(45.1, 9.1, 45.2, 9.2, 'google-key');
+    await getTomTomRouteTravelTimes(45.1, 9.1, 45.2, 9.2, 'tomtom-key');
+    await getHereMapsRouteTravelTimes(45.1, 9.1, 45.2, 9.2, 'here-key');
+    await getTomTomFlowSegmentData(45.1, 9.1, 'tomtom-key');
+
+    expect(fetchMock).toHaveBeenCalledTimes(4);
+    for (const [, init] of fetchMock.mock.calls) {
+      expect(init.signal).toBeInstanceOf(AbortSignal);
+    }
   });
 });
 

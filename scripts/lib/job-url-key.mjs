@@ -27,7 +27,7 @@
  * Centralizing all three here makes those divergences visible in ONE place
  * and turns a future convergence (a single written identity) into a localized,
  * test-gated change rather than a hunt across the codebase. See
- * docs/CRAWLER-OUTPUT-NORMALIZATION.md for the convergence study.
+ * the crawler output-normalization guide for the convergence study.
  *
  * ⚠️  These are PERSISTED dedup/merge keys. Do NOT change the observable
  * output of any exported variant without a gated re-key migration — a silent

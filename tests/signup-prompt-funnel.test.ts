@@ -14,6 +14,7 @@ describe('shared save/follow signup funnel', () => {
     expect(prompt).toContain('<EmailConsentCheckbox');
     expect(prompt).toContain("intent === 'follow'");
     expect(prompt).toContain('upsertUnifiedEmailSubscriber');
+    expect(prompt).toContain('accessOnly: true');
     expect(prompt).toContain("requestConfirmationEmail(trimmed, 'login')");
   });
 

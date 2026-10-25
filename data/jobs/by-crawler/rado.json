@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-10-25T09:24:12.548Z",
-  "runId": "40179282907",
+  "assembledAt": "2026-10-25T21:29:59.225Z",
+  "runId": "40233889560",
   "jobs": [
     {
       "id": "company-7uc33f",
@@ -19,12 +19,12 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://swatchgroup.com/de/job/33574",
-      "applyUrl": "https://swatchgroup.com/de/job/33574",
+      "url": "https://www.swatchgroup.com/de/job/33574",
+      "applyUrl": "https://www.swatchgroup.com/de/job/33574",
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-25T09:23:43.449Z",
+      "crawledAt": "2026-10-25T21:29:36.056Z",
       "firstSeenAt": "2026-10-23T21:17:42.290Z",
       "titleByLocale": {
         "it": "Risorse Umane Business Partner 100%",
@@ -105,7 +105,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-24T21:20:51.018Z",
+      "crawledAt": "2026-10-25T21:29:36.056Z",
       "firstSeenAt": "2026-10-23T09:27:49.514Z",
       "titleByLocale": {
         "en": "SEA Specialist (Google Ads)",
@@ -166,8 +166,7 @@
       "postalCode": "3001",
       "addressLocality": "Lengnau BE",
       "addressRegion": "BE",
-      "streetAddress": "Bielstrasse 45",
-      "crawlerMissStreak": 1
+      "streetAddress": "Bielstrasse 45"
     }
   ]
 }

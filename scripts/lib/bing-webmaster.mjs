@@ -23,6 +23,55 @@ import { parseDotNetJsonDate } from './dotnet-json-date.mjs';
  */
 
 const BASE = 'https://ssl.bing.com/webmaster/api.svc/json';
+const DEFAULT_BING_API_TIMEOUT_MS = 15_000;
+const MAX_BING_API_TIMEOUT_MS = 120_000;
+
+function boundedTimeoutMs(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric) || numeric <= 0) return DEFAULT_BING_API_TIMEOUT_MS;
+  return Math.min(Math.max(1, Math.floor(numeric)), MAX_BING_API_TIMEOUT_MS);
+}
+
+export const BING_API_TIMEOUT_MS = boundedTimeoutMs(
+  process.env.BING_API_TIMEOUT_MS || DEFAULT_BING_API_TIMEOUT_MS,
+);
+
+async function fetchJson(endpoint, fetchImpl, timeoutMs) {
+  const effectiveTimeoutMs = boundedTimeoutMs(timeoutMs);
+  const controller = new AbortController();
+  let timedOut = false;
+  let timer;
+  const timeoutError = () => {
+    const error = new Error(`Bing Webmaster API request timed out after ${effectiveTimeoutMs}ms`);
+    error.name = 'TimeoutError';
+    error.code = 'BING_API_TIMEOUT';
+    return error;
+  };
+  const deadline = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      timedOut = true;
+      controller.abort();
+      reject(timeoutError());
+    }, effectiveTimeoutMs);
+  });
+  try {
+    const res = await Promise.race([
+      fetchImpl(endpoint, {
+        headers: { Accept: 'application/json' },
+        signal: controller.signal,
+      }),
+      deadline,
+    ]);
+    const data = await Promise.race([res.json().catch(() => null), deadline]);
+    return { res, data };
+  } catch (error) {
+    if (timedOut) throw timeoutError();
+    throw error;
+  } finally {
+    clearTimeout(timer);
+    controller.abort();
+  }
+}
 
 /**
  * Parse a Bing/.NET JSON date string into an ISO 8601 string, or null if
@@ -44,12 +93,14 @@ export function parseBingDate(value) {
  * @param {string} siteUrl
  * @returns {Promise<{dailyQuota: number, monthlyQuota: number} | null>}
  */
-export async function getBingUrlSubmissionQuota(apiKey, siteUrl) {
+export async function getBingUrlSubmissionQuota(apiKey, siteUrl, {
+  fetchImpl = globalThis.fetch,
+  timeoutMs = BING_API_TIMEOUT_MS,
+} = {}) {
   try {
     const endpoint = `${BASE}/GetUrlSubmissionQuota?siteUrl=${encodeURIComponent(siteUrl)}&apikey=${encodeURIComponent(apiKey)}`;
-    const res = await fetch(endpoint, { headers: { Accept: 'application/json' } });
+    const { res, data } = await fetchJson(endpoint, fetchImpl, timeoutMs);
     if (!res.ok) return null;
-    const data = await res.json().catch(() => null);
     const d = data?.d;
     if (!d) return null;
     return {
@@ -68,12 +119,14 @@ export async function getBingUrlSubmissionQuota(apiKey, siteUrl) {
  * @param {string} siteUrl
  * @returns {Promise<Array<{url:string,type:string,status:string,urlCount:number,submitted:string|null,lastCrawled:string|null}> | null>}
  */
-export async function getBingFeeds(apiKey, siteUrl) {
+export async function getBingFeeds(apiKey, siteUrl, {
+  fetchImpl = globalThis.fetch,
+  timeoutMs = BING_API_TIMEOUT_MS,
+} = {}) {
   try {
     const endpoint = `${BASE}/GetFeeds?siteUrl=${encodeURIComponent(siteUrl)}&apikey=${encodeURIComponent(apiKey)}`;
-    const res = await fetch(endpoint, { headers: { Accept: 'application/json' } });
+    const { res, data } = await fetchJson(endpoint, fetchImpl, timeoutMs);
     if (!res.ok) return null;
-    const data = await res.json().catch(() => null);
     const rows = data?.d;
     if (!Array.isArray(rows)) return null;
     return rows.map((r) => ({
@@ -99,12 +152,14 @@ export async function getBingFeeds(apiKey, siteUrl) {
  * @param {string} siteUrl
  * @returns {Promise<Array<{date:string|null,clicks:number,impressions:number}> | null>}
  */
-export async function getBingRankAndTrafficStats(apiKey, siteUrl) {
+export async function getBingRankAndTrafficStats(apiKey, siteUrl, {
+  fetchImpl = globalThis.fetch,
+  timeoutMs = BING_API_TIMEOUT_MS,
+} = {}) {
   try {
     const endpoint = `${BASE}/GetRankAndTrafficStats?siteUrl=${encodeURIComponent(siteUrl)}&apikey=${encodeURIComponent(apiKey)}`;
-    const res = await fetch(endpoint, { headers: { Accept: 'application/json' } });
+    const { res, data } = await fetchJson(endpoint, fetchImpl, timeoutMs);
     if (!res.ok) return null;
-    const data = await res.json().catch(() => null);
     const rows = data?.d;
     if (!Array.isArray(rows)) return null;
     return rows.map((r) => ({

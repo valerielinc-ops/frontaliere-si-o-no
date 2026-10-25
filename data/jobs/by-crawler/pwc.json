@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pwc",
-  "assembledAt": "2026-10-25T09:27:24.561Z",
-  "runId": "40179782200",
+  "assembledAt": "2026-10-25T21:27:08.430Z",
+  "runId": "40234484185",
   "jobs": [
     {
       "title": "Manager / Senior Manager - U.S. Tax",
@@ -26,7 +26,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.537Z",
+      "crawledAt": "2026-10-25T21:26:08.917Z",
       "validThrough": "2036-10-19",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -103,7 +103,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.547Z",
+      "crawledAt": "2026-10-25T21:26:08.929Z",
       "validThrough": "2036-10-18",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -210,7 +210,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.549Z",
+      "crawledAt": "2026-10-25T21:26:08.932Z",
       "validThrough": "2036-10-18",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -274,7 +274,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:40:30.194Z"
+      "firstSeenAt": "2026-10-22T09:40:30.194Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate – Proposal Manager for Assurance (German & English)",
@@ -299,7 +300,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.551Z",
+      "crawledAt": "2026-10-25T21:26:08.934Z",
       "validThrough": "2036-10-18",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -376,7 +377,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.553Z",
+      "crawledAt": "2026-10-25T21:26:08.937Z",
       "validThrough": "2036-10-17",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -397,7 +398,7 @@
         "it": "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-zurich",
         "en": "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-zurich",
         "de": "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-zurich",
-        "fr": "directeur-bureau-des-impots-des-clients-prives-internationaux-et-de-la-famille-bureau-des-impots-de-romandie-turquie-pwc"
+        "fr": "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-switzerland-zurich"
       },
       "id": "pwc-9b3f55182df9",
       "salaryMin": 189000,
@@ -418,7 +419,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-geneva",
-          "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-switzerland-zurich"
+          "directeur-bureau-des-impots-des-clients-prives-internationaux-et-de-la-famille-bureau-des-impots-de-romandie-turquie-pwc"
         ],
         "it": [
           "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-geneva"
@@ -432,7 +433,7 @@
       },
       "previousSlugs": [
         "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-geneva",
-        "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-switzerland-zurich"
+        "directeur-bureau-des-impots-des-clients-prives-internationaux-et-de-la-famille-bureau-des-impots-de-romandie-turquie-pwc"
       ]
     },
     {
@@ -458,7 +459,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.554Z",
+      "crawledAt": "2026-10-25T21:26:08.939Z",
       "validThrough": "2036-10-11",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -479,7 +480,7 @@
         "it": "assistente-esecutivo-per-consulente-pwc-switzerland-zurich",
         "en": "executive-assistant-for-advisory-pwc-zurich",
         "de": "executive-assistent-for-advisory-pwc-switzerland-zurich",
-        "fr": "assistant-executif-pour-les-services-consultatifs-pwc-switzerland-zurich"
+        "fr": "executive-assistant-for-advisory-pwc-switzerland-zurich"
       },
       "id": "pwc-04ee86d1b40b",
       "salaryMin": 91000,
@@ -499,8 +500,8 @@
       "firstSeenAt": "2026-10-15T21:18:40.336Z",
       "previousSlugsByLocale": {
         "fr": [
-          "executive-assistant-for-advisory-pwc-zurich",
-          "executive-assistant-for-advisory-pwc-switzerland-zurich"
+          "assistant-executif-pour-les-services-consultatifs-pwc-switzerland-zurich",
+          "executive-assistant-for-advisory-pwc-zurich"
         ],
         "it": [
           "executive-assistant-for-advisory-pwc-zurich"
@@ -511,7 +512,7 @@
       },
       "previousSlugs": [
         "executive-assistant-for-advisory-pwc-zurich",
-        "executive-assistant-for-advisory-pwc-switzerland-zurich"
+        "assistant-executif-pour-les-services-consultatifs-pwc-switzerland-zurich"
       ]
     },
     {
@@ -537,7 +538,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.555Z",
+      "crawledAt": "2026-10-25T21:26:08.941Z",
       "validThrough": "2036-10-10",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -608,7 +609,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.557Z",
+      "crawledAt": "2026-10-25T21:26:08.943Z",
       "validThrough": "2036-10-10",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -685,7 +686,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.558Z",
+      "crawledAt": "2026-10-25T21:26:08.945Z",
       "validThrough": "2036-10-10",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -762,7 +763,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.559Z",
+      "crawledAt": "2026-10-25T21:26:08.947Z",
       "validThrough": "2036-10-09",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -836,7 +837,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.560Z",
+      "crawledAt": "2026-10-25T21:26:08.949Z",
       "validThrough": "2036-10-04",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -912,7 +913,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.561Z",
+      "crawledAt": "2026-10-25T21:26:08.951Z",
       "validThrough": "2036-10-04",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -986,7 +987,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.564Z",
+      "crawledAt": "2026-10-25T21:26:08.955Z",
       "validThrough": "2036-10-03",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1021,8 +1022,8 @@
           "career-start-wirtschaftsprufung-in-den-bereichen-previdenza-real-estate-e-family-office-september-2027-pwc-switzerland-zurich",
           "career-start-wirtschaftsprufung-in-den-bereichen-previdenza-real-estate-e-family-office-september-2027-pwc-switzerland-bern",
           "career-start-wirtschaftsprufung-in-den-bereichen-vorsorge-real-estate-und-family-office-september-2027-pwc-bern",
-          "career-start-wirtschaftsprufung-in-den-bereichen-vorsorge-real-estate-und-family-office-september-2027-pwc-basel",
-          "career-start-wirtschaftsprufung-in-den-bereichen-previdenza-real-estate-e-family-office-september-2027-pwc-switzerland-basel"
+          "career-start-wirtschaftsprufung-in-den-bereichen-previdenza-real-estate-e-family-office-september-2027-pwc-switzerland-basel",
+          "career-start-wirtschaftsprufung-in-den-bereichen-vorsorge-real-estate-und-family-office-september-2027-pwc-basel"
         ],
         "en": [
           "career-start-wirtschaftsprufung-in-den-bereichen-vorsorge-real-estate-und-family-office-september-2027-pwc-bern",
@@ -1055,8 +1056,8 @@
         "career-start-wirtschaftsprufung-in-den-bereichen-previdenza-real-estate-e-family-office-september-2027-pwc-switzerland-bern",
         "career-start-auditing-in-the-areas-of-pensions-real-estate-and-family-office-september-2027-pwc-switzerland-bern",
         "career-start-wirtschaftsprufung-in-den-bereichen-vorsorge-real-estate-und-family-office-september-2027-pwc-switzerland",
-        "career-start-wirtschaftsprufung-in-den-bereichen-vorsorge-real-estate-und-family-office-september-2027-pwc-basel",
-        "career-start-wirtschaftsprufung-in-den-bereichen-previdenza-real-estate-e-family-office-september-2027-pwc-switzerland-basel"
+        "career-start-wirtschaftsprufung-in-den-bereichen-previdenza-real-estate-e-family-office-september-2027-pwc-switzerland-basel",
+        "career-start-wirtschaftsprufung-in-den-bereichen-vorsorge-real-estate-und-family-office-september-2027-pwc-basel"
       ],
       "salaryMin": 107000,
       "salaryMax": 187500,
@@ -1072,7 +1073,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:39:59.936Z"
+      "firstSeenAt": "2026-10-07T09:39:59.936Z",
+      "needsRetranslation": true
     },
     {
       "title": "Associate - People in Deals (Due Diligence, Carve-outs and Reorganisations)",
@@ -1097,7 +1099,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.566Z",
+      "crawledAt": "2026-10-25T21:26:08.958Z",
       "validThrough": "2036-10-02",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1168,7 +1170,8 @@
         "associate-personnes-dans-les-affaires-due-diligence-carve-out-et-reorganisations-pwc-switzerland-geneve",
         "associate-menschen-in-deals-due-diligence-carve-outs-und-reorganisationen-pwc-switzerland-zurich",
         "associate-people-in-deals-due-diligence-carve-outs-and-reorganisations-pwc-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Manager - Cloud, Data & AI - Cloud & Data Platform Architect",
@@ -1193,7 +1196,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.567Z",
+      "crawledAt": "2026-10-25T21:26:08.960Z",
       "validThrough": "2036-10-02",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1270,7 +1273,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.568Z",
+      "crawledAt": "2026-10-25T21:26:08.962Z",
       "validThrough": "2036-10-02",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1347,7 +1350,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.569Z",
+      "crawledAt": "2026-10-25T21:26:08.964Z",
       "validThrough": "2036-10-01",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1418,7 +1421,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.570Z",
+      "crawledAt": "2026-10-25T21:26:08.965Z",
       "validThrough": "2036-10-01",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1495,7 +1498,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.571Z",
+      "crawledAt": "2026-10-25T21:26:08.966Z",
       "validThrough": "2036-10-01",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -1610,7 +1613,7 @@
       "firstSeenAt": "2026-10-03T09:21:52.545Z",
       "datePosted": "2026-10-01T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.573Z",
+      "crawledAt": "2026-10-25T21:26:08.969Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-manager-pension-consulting-berufliche-vorsorge-80-100-pwc-zurich"
@@ -1684,7 +1687,7 @@
       "firstSeenAt": "2026-09-28T21:18:29.981Z",
       "datePosted": "2026-09-29T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.574Z",
+      "crawledAt": "2026-10-25T21:26:08.971Z",
       "previousSlugsByLocale": {
         "it": [
           "associate-marketing-consultant-pwc-zurich",
@@ -1760,7 +1763,7 @@
       "firstSeenAt": "2026-09-30T21:21:24.995Z",
       "datePosted": "2026-09-29T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.575Z",
+      "crawledAt": "2026-10-25T21:26:08.973Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-manager-cloud-data-ai-data-management-specialist-pwc-zurich"
@@ -1834,7 +1837,7 @@
       "firstSeenAt": "2026-09-29T21:22:11.075Z",
       "datePosted": "2026-09-28T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.576Z",
+      "crawledAt": "2026-10-25T21:26:08.975Z",
       "needsRetranslation": true
     },
     {
@@ -1899,7 +1902,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-22T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.579Z",
+      "crawledAt": "2026-10-25T21:26:08.979Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-payroll-consulting-mandatsverantwortung-pwc-zurich"
@@ -1970,7 +1973,7 @@
       "firstSeenAt": "2026-09-24T14:23:28.277Z",
       "datePosted": "2026-09-21T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.580Z",
+      "crawledAt": "2026-10-25T21:26:08.981Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-manager-nella-consulenza-sap-supply-chain-operations-pwc-switzerland-zurich",
@@ -2046,7 +2049,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-21T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.581Z",
+      "crawledAt": "2026-10-25T21:26:08.983Z",
       "previousSlugsByLocale": {
         "it": [
           "iam-architect-pwc-zurich",
@@ -2125,7 +2128,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.582Z",
+      "crawledAt": "2026-10-25T21:26:08.985Z",
       "previousSlugsByLocale": {
         "it": [
           "associate-senior-associate-cloud-engineer-pwc-zurich"
@@ -2202,7 +2205,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.584Z",
+      "crawledAt": "2026-10-25T21:26:08.987Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-manager-technical-ai-security-expert-pwc-zurich"
@@ -2279,7 +2282,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.585Z",
+      "crawledAt": "2026-10-25T21:26:08.990Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-senior-manager-cyber-regulatory-strategy-transformation-pwc-zurich"
@@ -2369,7 +2372,7 @@
       ],
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.586Z"
+      "crawledAt": "2026-10-25T21:26:08.992Z"
     },
     {
       "title": "Manager / Senior Manager - Cloud, Data & AI (CD&AI) - Data Engineering",
@@ -2432,7 +2435,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.587Z",
+      "crawledAt": "2026-10-25T21:26:08.994Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-senior-manager-cloud-data-ai-cd-ai-data-engineering-pwc-zurich"
@@ -2503,7 +2506,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.588Z",
+      "crawledAt": "2026-10-25T21:26:08.996Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-senior-manager-cloud-architect-pwc-zurich"
@@ -2558,7 +2561,7 @@
       },
       "slugByLocale": {
         "it": "manager-senior-manager-cyber-risk-regulations-consultant-auditor-pwc-switzerland-zurich",
-        "en": "manager-senior-manager-cyber-risk-regulations-consultant-examiner-pwc-switzerland-zurich",
+        "en": "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-switzerland-zurich",
         "de": "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich",
         "fr": "gestionnaire-gestionnaire-principal-cyberrisque-et-reglementation-consultant-verificateur-pwc-switzerland-zurich"
       },
@@ -2580,8 +2583,8 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "previousSlugsByLocale": {
         "en": [
-          "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich",
-          "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-switzerland-zurich"
+          "manager-senior-manager-cyber-risk-regulations-consultant-examiner-pwc-switzerland-zurich",
+          "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich"
         ],
         "it": [
           "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich"
@@ -2592,11 +2595,11 @@
       },
       "previousSlugs": [
         "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich",
-        "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-switzerland-zurich"
+        "manager-senior-manager-cyber-risk-regulations-consultant-examiner-pwc-switzerland-zurich"
       ],
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.589Z"
+      "crawledAt": "2026-10-25T21:26:08.998Z"
     },
     {
       "title": "Manager / Senior Manager – Cloud, Data & AI (CD&AI) - FinOps",
@@ -2659,7 +2662,7 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.591Z",
+      "crawledAt": "2026-10-25T21:26:09.000Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-senior-manager-cloud-data-ai-cd-ai-finops-pwc-zurich"
@@ -2733,7 +2736,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-16T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.592Z",
+      "crawledAt": "2026-10-25T21:26:09.002Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-audit-pharmaceutical-life-sciences-pwc-lausanne"
@@ -2807,7 +2810,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-15T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.592Z",
+      "crawledAt": "2026-10-25T21:26:09.003Z",
       "previousSlugsByLocale": {
         "it": [
           "transfer-pricing-intern-january-2027-pwc-geneva"
@@ -2884,7 +2887,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-14T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.593Z",
+      "crawledAt": "2026-10-25T21:26:09.005Z",
       "previousSlugsByLocale": {
         "it": [
           "digital-audit-senior-manager-sox-risk-assurance-pwc-zurich"
@@ -2958,7 +2961,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-14T07:43:38Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.595Z",
+      "crawledAt": "2026-10-25T21:26:09.008Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-wealth-management-asset-management-consulting-pwc-zurich"
@@ -3029,7 +3032,7 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-14T07:39:49Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.596Z",
+      "crawledAt": "2026-10-25T21:26:09.012Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-financial-services-consulting-liquidity-funding-pwc-zurich"
@@ -3116,7 +3119,7 @@
       ],
       "datePosted": "2026-09-14T07:35:04Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.597Z"
+      "crawledAt": "2026-10-25T21:26:09.015Z"
     },
     {
       "title": "Manager / Senior Manager – Operations & Manufacturing (Strategy & Transformation) 80-100%",
@@ -3179,7 +3182,7 @@
       "streetAddress": "",
       "datePosted": "2026-09-09T15:22:45Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.599Z"
+      "crawledAt": "2026-10-25T21:26:09.019Z"
     },
     {
       "title": "Career Start in Audit – Banking – Herbst 2027",
@@ -3204,7 +3207,7 @@
       "datePosted": "2026-09-09T14:12:44Z",
       "postedDate": "2026-09-09T14:12:44Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.603Z",
+      "crawledAt": "2026-10-25T21:26:09.031Z",
       "validThrough": "2036-09-05",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -3364,7 +3367,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-09T14:06:11Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.606Z"
+      "crawledAt": "2026-10-25T21:26:09.040Z"
     },
     {
       "title": "Career Start in Audit – Asset Management – Herbst 2027",
@@ -3389,7 +3392,7 @@
       "datePosted": "2026-09-09T13:57:18Z",
       "postedDate": "2026-09-09T13:57:18Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.608Z",
+      "crawledAt": "2026-10-25T21:26:09.046Z",
       "validThrough": "2036-09-05",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -3488,7 +3491,7 @@
       "datePosted": "2026-09-09T13:32:03Z",
       "postedDate": "2026-09-09T13:32:03Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.616Z",
+      "crawledAt": "2026-10-25T21:26:09.061Z",
       "validThrough": "2036-09-05",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -3636,7 +3639,7 @@
       "streetAddress": "",
       "datePosted": "2026-09-09T08:35:28Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.617Z"
+      "crawledAt": "2026-10-25T21:26:09.064Z"
     },
     {
       "title": "Director in Cybersecurity Technology & Transformation",
@@ -3661,7 +3664,7 @@
       "datePosted": "2026-09-09T08:29:05Z",
       "postedDate": "2026-09-09T08:29:05Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.618Z",
+      "crawledAt": "2026-10-25T21:26:09.068Z",
       "validThrough": "2036-09-05",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -3754,7 +3757,7 @@
         "it": "direttore-cio-advisory-middle-markets-pwc-switzerland-zurich",
         "en": "director-cio-advisory-middle-markets-pwc-zurich",
         "de": "direktor-cio-advisory-middle-markets-pwc-switzerland-zurich",
-        "fr": "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich"
+        "fr": "director-cio-advisory-middle-markets-pwc-switzerland-zurich"
       },
       "id": "pwc-474940c64b92",
       "salaryMin": 113000,
@@ -3774,7 +3777,7 @@
       "firstSeenAt": "2026-09-09T13:51:57.507Z",
       "previousSlugsByLocale": {
         "fr": [
-          "director-cio-advisory-middle-markets-pwc-switzerland-zurich"
+          "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich"
         ],
         "it": [
           "director-cio-advisory-middle-markets-pwc-zurich"
@@ -3785,14 +3788,14 @@
       },
       "previousSlugs": [
         "director-cio-advisory-middle-markets-pwc-zurich",
-        "director-cio-advisory-middle-markets-pwc-switzerland-zurich"
+        "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich"
       ],
       "postalCode": "8001",
       "streetAddress": "",
       "needsRetranslation": true,
       "datePosted": "2026-09-08T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.619Z"
+      "crawledAt": "2026-10-25T21:26:09.072Z"
     },
     {
       "title": "Manager - International Corporate Tax (Financial Services)",
@@ -3855,7 +3858,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-09-08T14:49:10Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.621Z",
+      "crawledAt": "2026-10-25T21:26:09.075Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-international-corporate-tax-financial-services-pwc-zurich"
@@ -3932,7 +3935,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-09-08T11:25:02Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.622Z",
+      "crawledAt": "2026-10-25T21:26:09.079Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-international-corporate-tax-financial-services-pwc-zurich"
@@ -4004,7 +4007,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-03T13:05:25Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.624Z",
+      "crawledAt": "2026-10-25T21:26:09.083Z",
       "previousSlugsByLocale": {
         "it": [
           "audit-career-start-trade-industries-and-services-automne-2027-pwc-geneva"
@@ -4091,7 +4094,7 @@
       "streetAddress": "Avenue Giuseppe-Motta 50",
       "datePosted": "2026-09-03T12:40:28Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.625Z"
+      "crawledAt": "2026-10-25T21:26:09.085Z"
     },
     {
       "title": "Praktikant:in - Steuerberatung (6 Monate)",
@@ -4170,7 +4173,7 @@
       ],
       "datePosted": "2026-09-03T11:07:28Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.625Z",
+      "crawledAt": "2026-10-25T21:26:09.087Z",
       "needsRetranslation": true
     },
     {
@@ -4234,7 +4237,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-09-03T08:02:16Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.626Z",
+      "crawledAt": "2026-10-25T21:26:09.091Z",
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-legal-6-monate-pwc-zurich"
@@ -4330,7 +4333,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-02T07:42:22Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.627Z"
+      "crawledAt": "2026-10-25T21:26:09.095Z"
     },
     {
       "title": "Praktikant:in - Steuerberatung (6 Monate)",
@@ -4393,7 +4396,7 @@
       "firstSeenAt": "2026-09-03T13:39:27.948Z",
       "datePosted": "2026-09-01T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.628Z",
+      "crawledAt": "2026-10-25T21:26:09.096Z",
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-steuerberatung-6-monate-pwc-bern"
@@ -4489,7 +4492,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-01T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.628Z"
+      "crawledAt": "2026-10-25T21:26:09.097Z"
     },
     {
       "title": "Audit Manager - Commodity Trading and Industrial Services",
@@ -4552,7 +4555,7 @@
       "streetAddress": "Avenue Charles Ferdinand Ramuz 45",
       "datePosted": "2026-08-31T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.629Z",
+      "crawledAt": "2026-10-25T21:26:09.100Z",
       "previousSlugsByLocale": {
         "it": [
           "audit-manager-commodity-trading-and-industrial-services-pwc-lausanne"
@@ -4623,7 +4626,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-08-27T12:35:44Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.630Z",
+      "crawledAt": "2026-10-25T21:26:09.104Z",
       "previousSlugsByLocale": {
         "it": [
           "regulatory-audit-specialist-banking-pwc-zurich"
@@ -4698,7 +4701,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-08-19T15:31:43Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.632Z",
+      "crawledAt": "2026-10-25T21:26:09.106Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-fund-tax-reporting-pwc-zurich"
@@ -4719,13 +4722,13 @@
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
       "addressCountry": "CH",
-      "postalCode": "8001",
+      "postalCode": "1201",
       "streetAddress": "",
-      "canton": "ZH",
+      "canton": "GE",
       "country": "CH",
       "category": "consulting",
       "sector": "Consulenza",
@@ -4734,7 +4737,7 @@
       "datePosted": "2026-08-18T22:00:00Z",
       "postedDate": "2026-08-18T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.633Z",
+      "crawledAt": "2026-10-25T21:26:09.109Z",
       "validThrough": "2036-08-15",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -4761,28 +4764,28 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "manager-senior-manager-senior-cyber-security-architect-pwc-zurich",
+          "manager-senior-manager-senior-cyber-security-architect-pwc-geneve",
           "manager-senior-manager-senior-cyber-security-architetto-pwc-switzerland-geneve-18jtb8",
-          "manager-senior-manager-senior-cyber-security-architect-pwc-geneve"
-        ],
-        "en": [
           "manager-senior-manager-senior-cyber-security-architect-pwc-zurich"
-        ],
-        "fr": [
-          "manager-senior-manager-senior-cyber-security-architect-pwc-zurich",
-          "manager-senior-manager-senior-cyber-security-architect-pwc-geneve"
         ],
         "de": [
           "manager-senior-manager-senior-cyber-security-architect-pwc-geneve"
+        ],
+        "fr": [
+          "manager-senior-manager-senior-cyber-security-architect-pwc-geneve",
+          "manager-senior-manager-senior-cyber-security-architect-pwc-zurich"
+        ],
+        "en": [
+          "manager-senior-manager-senior-cyber-security-architect-pwc-zurich"
         ]
       },
       "previousSlugs": [
-        "manager-senior-manager-senior-cyber-security-architect-pwc-zurich",
+        "manager-senior-manager-senior-cyber-security-architect-pwc-geneve",
         "manager-senior-manager-senior-cyber-security-architetto-pwc-switzerland-geneve-18jtb8",
-        "manager-senior-manager-senior-cyber-security-architect-pwc-geneve"
+        "manager-senior-manager-senior-cyber-security-architect-pwc-zurich"
       ],
-      "salaryMin": 113000,
-      "salaryMax": 180000,
+      "salaryMin": 92500,
+      "salaryMax": 147500,
       "currency": "CHF",
       "salarySource": "estimated",
       "baseSalary": {
@@ -4790,8 +4793,8 @@
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 180000,
+          "minValue": 92500,
+          "maxValue": 147500,
           "unitText": "YEAR"
         }
       },
@@ -4858,7 +4861,7 @@
       "streetAddress": "",
       "datePosted": "2026-08-18T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.635Z",
+      "crawledAt": "2026-10-25T21:26:09.111Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-capability-leader-data-security-pwc-zurich"
@@ -4933,7 +4936,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-08-12T19:26:55Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.636Z",
+      "crawledAt": "2026-10-25T21:26:09.115Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-senior-manager-sap-s-4hana-technical-transformation-integration-and-clean-core-pwc-zurich"
@@ -4944,8 +4947,7 @@
       },
       "previousSlugs": [
         "manager-senior-manager-sap-s-4hana-technical-transformation-integration-and-clean-core-pwc-zurich"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Senior Associate / Manager - Cybersecurity Berater und Prüfer",
@@ -5009,7 +5011,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-08-11T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.637Z",
+      "crawledAt": "2026-10-25T21:26:09.117Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-manager-cybersecurity-berater-und-prufer-pwc-zurich"
@@ -5083,7 +5085,7 @@
       "streetAddress": "",
       "datePosted": "2026-08-11T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.638Z",
+      "crawledAt": "2026-10-25T21:26:09.119Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-senior-manager-sap-business-transformation-architecture-pwc-zurich"
@@ -5154,7 +5156,7 @@
       "streetAddress": "Rue des Epancheurs 6",
       "datePosted": "2026-08-11T11:57:40Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.639Z",
+      "crawledAt": "2026-10-25T21:26:09.120Z",
       "previousSlugsByLocale": {
         "it": [
           "intern-trainee-corporate-tax-pwc-neuchatel"
@@ -5231,7 +5233,7 @@
       "streetAddress": "",
       "datePosted": "2026-08-10T08:32:27Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.641Z",
+      "crawledAt": "2026-10-25T21:26:09.123Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-treasury-strategy-technology-pwc-zurich"
@@ -5309,7 +5311,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-08-03T12:03:45Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.642Z",
+      "crawledAt": "2026-10-25T21:26:09.125Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-legal-counsel-arbeitsrecht-80-100-pwc-zurich"
@@ -5401,7 +5403,7 @@
       "streetAddress": "St. Jakobs-Strasse 25",
       "datePosted": "2026-08-03T11:40:34Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.643Z"
+      "crawledAt": "2026-10-25T21:26:09.126Z"
     },
     {
       "title": "Lehrstelle als Kaufmann / Kauffrau Dienstleistung & Administration EFZ",
@@ -5485,7 +5487,7 @@
       "streetAddress": "Robert-Zünd-Strasse 2",
       "datePosted": "2026-08-03T07:00:39Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.643Z"
+      "crawledAt": "2026-10-25T21:26:09.127Z"
     },
     {
       "title": "Manager - Audit - Trade, Industries and Services",
@@ -5548,7 +5550,7 @@
       "streetAddress": "Avenue Giuseppe-Motta 50",
       "datePosted": "2026-07-31T08:48:30Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.644Z",
+      "crawledAt": "2026-10-25T21:26:09.128Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-audit-trade-industries-and-services-pwc-geneva"
@@ -5625,7 +5627,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-07-29T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.645Z",
+      "crawledAt": "2026-10-25T21:26:09.131Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-advanced-ai-intelligent-systems-pwc-zurich"
@@ -5696,7 +5698,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-07-27T06:50:34Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.647Z",
+      "crawledAt": "2026-10-25T21:26:09.133Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-employment-and-reward-tax-services-pwc-zurich"
@@ -5770,7 +5772,7 @@
       "streetAddress": "",
       "datePosted": "2026-07-23T08:51:11Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.648Z"
+      "crawledAt": "2026-10-25T21:26:09.135Z"
     },
     {
       "title": "Senior Associate - Marketing Consultant for Financial Services",
@@ -5833,7 +5835,7 @@
       "firstSeenAt": "2026-09-28T21:18:29.981Z",
       "datePosted": "2026-07-13T12:09:02Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.649Z"
+      "crawledAt": "2026-10-25T21:26:09.138Z"
     },
     {
       "title": "Life Transformation Aktuar/-in – Manager/in",
@@ -5910,7 +5912,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-07-02T10:05:52Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.650Z"
+      "crawledAt": "2026-10-25T21:26:09.140Z"
     },
     {
       "title": "Manager - Corporate Tax 80-100%",
@@ -5974,7 +5976,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-07-01T10:33:08Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.651Z",
+      "crawledAt": "2026-10-25T21:26:09.142Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-corporate-tax-80-100-pwc-basel"
@@ -6010,7 +6012,7 @@
       "datePosted": "2026-07-01T11:01:43Z",
       "postedDate": "2026-07-01T11:01:43Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.653Z",
+      "crawledAt": "2026-10-25T21:26:09.147Z",
       "validThrough": "2036-06-27",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -6085,7 +6087,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-01T12:21:56.910Z"
+      "firstSeenAt": "2026-07-01T12:21:56.910Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Tax Consultant",
@@ -6148,7 +6151,7 @@
       "streetAddress": "Avenue Giuseppe-Motta 50",
       "datePosted": "2026-06-30T13:46:32Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.653Z",
+      "crawledAt": "2026-10-25T21:26:09.148Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-tax-consultant-pwc-geneva"
@@ -6169,13 +6172,13 @@
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
+      "location": "Luzern",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
       "addressCountry": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Birchstrasse 160",
-      "canton": "ZH",
+      "postalCode": "6003",
+      "streetAddress": "",
+      "canton": "LU",
       "country": "CH",
       "category": "audit",
       "sector": "Consulenza",
@@ -6184,7 +6187,7 @@
       "datePosted": "2026-06-30T13:29:15Z",
       "postedDate": "2026-06-30T13:29:15Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.655Z",
+      "crawledAt": "2026-10-25T21:26:09.152Z",
       "validThrough": "2036-06-26",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -6211,38 +6214,38 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "senior-associate-tax-accounting-pwc-zurich",
+          "senior-associate-tax-accounting-pwc-luzern",
           "senior-associate-tax-accounting-pwc-switzerland-zurich",
           "associe-principal-comptabilite-fiscale-pwc-switzerland-zurich",
           "senior-associate-contabilita-fiscale-pwc-switzerland-zurich",
           "senior-associate-contabilita-fiscale-pwc-switzerland-luzern-9epdzu",
-          "associe-principal-comptabilite-fiscale-pwc-switzerland-luzern",
-          "senior-associate-tax-accounting-pwc-luzern"
+          "senior-associate-tax-accounting-pwc-zurich",
+          "associe-principal-comptabilite-fiscale-pwc-switzerland-luzern"
+        ],
+        "en": [
+          "senior-associate-tax-accounting-pwc-luzern",
+          "senior-associate-tax-accounting-pwc-switzerland-zurich"
+        ],
+        "fr": [
+          "senior-associate-tax-accounting-pwc-luzern",
+          "senior-associate-tax-accounting-pwc-zurich",
+          "associe-principal-comptabilite-fiscale-pwc-switzerland-zurich"
         ],
         "de": [
           "senior-associate-tax-accounting-pwc-zurich"
-        ],
-        "fr": [
-          "senior-associate-tax-accounting-pwc-zurich",
-          "associe-principal-comptabilite-fiscale-pwc-switzerland-zurich",
-          "senior-associate-tax-accounting-pwc-luzern"
-        ],
-        "en": [
-          "senior-associate-tax-accounting-pwc-switzerland-zurich",
-          "senior-associate-tax-accounting-pwc-luzern"
         ]
       },
       "previousSlugs": [
-        "senior-associate-tax-accounting-pwc-zurich",
+        "senior-associate-tax-accounting-pwc-luzern",
         "senior-associate-tax-accounting-pwc-switzerland-zurich",
         "associe-principal-comptabilite-fiscale-pwc-switzerland-zurich",
         "senior-associate-contabilita-fiscale-pwc-switzerland-zurich",
         "senior-associate-contabilita-fiscale-pwc-switzerland-luzern-9epdzu",
-        "associe-principal-comptabilite-fiscale-pwc-switzerland-luzern",
-        "senior-associate-tax-accounting-pwc-luzern"
+        "senior-associate-tax-accounting-pwc-zurich",
+        "associe-principal-comptabilite-fiscale-pwc-switzerland-luzern"
       ],
-      "salaryMin": 189000,
-      "salaryMax": 331500,
+      "salaryMin": 178000,
+      "salaryMax": 313000,
       "currency": "CHF",
       "salarySource": "estimated",
       "baseSalary": {
@@ -6250,8 +6253,8 @@
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 189000,
-          "maxValue": 331500,
+          "minValue": 178000,
+          "maxValue": 313000,
           "unitText": "YEAR"
         }
       },
@@ -6280,7 +6283,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.656Z",
+      "crawledAt": "2026-10-25T21:26:09.155Z",
       "validThrough": "2036-06-25",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -6301,13 +6304,13 @@
         "it": "tecnologia-di-marketing-lead-pwc-switzerland-zurich",
         "en": "senior-associate-marketing-technology-specialist-pwc-switzerland-zurich",
         "de": "marketing-technologie-lead-pwc-switzerland-zurich",
-        "fr": "responsable-de-la-technologie-de-commercialisation-pwc-switzerland-zurich"
+        "fr": "senior-associate-manager-marketing-technology-specialiste-pwc-switzerland-zurich"
       },
       "id": "pwc-722ca5a8f707",
       "previousSlugsByLocale": {
         "fr": [
-          "senior-associate-manager-marketing-technology-specialist-pwc-zurich",
-          "senior-associate-manager-marketing-technology-specialiste-pwc-switzerland-zurich"
+          "responsable-de-la-technologie-de-commercialisation-pwc-switzerland-zurich",
+          "senior-associate-manager-marketing-technology-specialist-pwc-zurich"
         ],
         "it": [
           "senior-associate-manager-marketing-technology-specialist-pwc-zurich"
@@ -6321,7 +6324,7 @@
       },
       "previousSlugs": [
         "senior-associate-manager-marketing-technology-specialist-pwc-zurich",
-        "senior-associate-manager-marketing-technology-specialiste-pwc-switzerland-zurich"
+        "responsable-de-la-technologie-de-commercialisation-pwc-switzerland-zurich"
       ],
       "salaryMin": 113000,
       "salaryMax": 180000,
@@ -6362,7 +6365,7 @@
       "datePosted": "2026-06-29T11:52:32Z",
       "postedDate": "2026-06-29T11:52:32Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.660Z",
+      "crawledAt": "2026-10-25T21:26:09.166Z",
       "validThrough": "2036-06-25",
       "employmentType": "part-time",
       "contractType": "part-time",
@@ -6389,7 +6392,6 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-st-gallen",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-basel",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
@@ -6407,8 +6409,9 @@
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
           "giovani-programmi-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
           "programmes-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
+          "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
-          "programmi-young-talent-revisioni-limitate-70-100-pwc-switzerland-zurich"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern"
         ],
         "en": [
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
@@ -6556,7 +6559,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-06-28T20:28:41Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.662Z"
+      "crawledAt": "2026-10-25T21:26:09.168Z"
     },
     {
       "title": "Senior Associate – Swiss Tax Consultant",
@@ -6619,7 +6622,7 @@
       "streetAddress": "Piazza Indipendenza",
       "datePosted": "2026-06-26T12:48:56Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.663Z",
+      "crawledAt": "2026-10-25T21:26:09.172Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-swiss-tax-consultant-pwc-lugano"
@@ -6693,7 +6696,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-06-25T13:55:17Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.664Z",
+      "crawledAt": "2026-10-25T21:26:09.174Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-transfer-pricing-pwc-zurich"
@@ -6743,7 +6746,7 @@
       },
       "slugByLocale": {
         "it": "manager-tassa-sulle-operazioni-fusioni-e-acquisizioni-pwc-switzerland-zurich",
-        "en": "manager-dam-tax-mergers-and-scd-pwc-switzerland-zurich",
+        "en": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
         "de": "manager-transaktionssteuer-fusionen-und-ubernahmen-pwc-switzerland-zurich",
         "fr": "gestionnaire-taxe-des-transactions-fusions-et-acquisitions-pwc-switzerland-zurich"
       },
@@ -6768,13 +6771,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-06-14T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.665Z",
+      "crawledAt": "2026-10-25T21:26:09.177Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
         ],
         "en": [
-          "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
+          "manager-dam-tax-mergers-and-scd-pwc-switzerland-zurich"
         ],
         "de": [
           "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
@@ -6784,7 +6787,8 @@
         ]
       },
       "previousSlugs": [
-        "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
+        "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
+        "manager-dam-tax-mergers-and-scd-pwc-switzerland-zurich"
       ]
     },
     {
@@ -6849,7 +6853,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-06-11T12:21:38Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.666Z",
+      "crawledAt": "2026-10-25T21:26:09.178Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-associate-audit-financial-services-asset-management-pwc-geneva"
@@ -6944,7 +6948,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-06-04T14:38:53Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.667Z"
+      "crawledAt": "2026-10-25T21:26:09.180Z"
     },
     {
       "title": "Career Start - Audit Trade, Industries & Services ab Herbst 2026",
@@ -6969,7 +6973,7 @@
       "datePosted": "2026-06-03T22:00:00Z",
       "postedDate": "2026-06-03T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.669Z",
+      "crawledAt": "2026-10-25T21:26:09.184Z",
       "validThrough": "2026-11-01",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -7094,7 +7098,7 @@
       "datePosted": "2026-05-29T14:34:40Z",
       "postedDate": "2026-05-29T14:34:40Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.676Z",
+      "crawledAt": "2026-10-25T21:26:09.193Z",
       "validThrough": "2036-05-25",
       "employmentType": "part-time",
       "contractType": "part-time",
@@ -7221,7 +7225,7 @@
       "datePosted": "2026-05-29T14:23:47Z",
       "postedDate": "2026-05-29T14:23:47Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.680Z",
+      "crawledAt": "2026-10-25T21:26:09.200Z",
       "validThrough": "2036-05-25",
       "employmentType": "part-time",
       "contractType": "part-time",
@@ -7247,7 +7251,6 @@
       "id": "pwc-8d4e51c20519",
       "previousSlugsByLocale": {
         "it": [
-          "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerl-3duuul",
           "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich",
           "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich",
           "trasversale-ingresso-prossimo-passo-senior-associato-revisione-limitata-70-100-pwc-switzerland-zurich",
@@ -7265,8 +7268,9 @@
           "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-luzern",
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-zurich",
           "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
+          "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
-          "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug"
+          "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerl-3duuul"
         ],
         "en": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
@@ -7350,7 +7354,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:26:28.685Z",
+      "crawledAt": "2026-10-25T21:26:09.208Z",
       "validThrough": "2036-05-04",
       "employmentType": "part-time",
       "contractType": "part-time",
@@ -7415,7 +7419,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-08T10:28:56.294Z"
+      "firstSeenAt": "2026-05-08T10:28:56.294Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Compliance Center (Spezialist:in Steuerdeklarationen)",
@@ -7440,7 +7445,7 @@
       "datePosted": "2026-05-06T09:34:26Z",
       "postedDate": "2026-05-06T09:34:26Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.687Z",
+      "crawledAt": "2026-10-25T21:26:09.212Z",
       "validThrough": "2036-05-02",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -7596,7 +7601,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-05-03T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.688Z"
+      "crawledAt": "2026-10-25T21:26:09.214Z"
     },
     {
       "title": "Associate - Compliance Center (Spezialist:in Steuerdeklarationen)",
@@ -7621,7 +7626,7 @@
       "datePosted": "2026-04-29T14:06:09Z",
       "postedDate": "2026-04-29T14:06:09Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.690Z",
+      "crawledAt": "2026-10-25T21:26:09.217Z",
       "validThrough": "2036-04-25",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -7709,7 +7714,7 @@
       "datePosted": "2026-04-20T22:00:00Z",
       "postedDate": "2026-04-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.692Z",
+      "crawledAt": "2026-10-25T21:26:09.221Z",
       "validThrough": "2036-04-17",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -7721,8 +7726,8 @@
         "fr": "Manager & Senior Manager in Life Sciences Qualité Management Consulting"
       },
       "descriptionByLocale": {
-        "en": "## Grow here. Go further.\nZürich\nPer Agreement\n100%\nAdvisory\nEveryone welcome\nID: 615391WD\n\n## Your Impact\n• Help sell, lead and, together with the team, deliver high-impact projects engaging with senior stakeholders from high-profile clients in the life sciences industry.\n• Help develop new ideas and propositions to share with clients to secure new and expand existing projects. Projects typically include the design and implementation of new technologies, quality systems processes, operating models, digital strategies and ways of working across R&D, manufacturing / supply chain and commercial. This includes driving business performance through changing quality culture / mind-sets, improving processes and procedures, benefitting from process automation and enabling insights from advanced analytics and AI. The outcomes we help clients deliver include driving faster development, manufacturing and commercial timelines, exploiting internal and external data through advanced analytics and machine learning, improving quality and compliance amongst many others.\n• The functions covered include all those across R&D, manufacturing and commercial, with particular focus on quality management / assurance, regulatory affairs, product safely and medical affairs. The role will also work closely with our consulting teams covering commercial, market access and other functions across the Life Sciences value chain.\n• Work with international clients and we will provide you the opportunity to gain experience working in multi-cultural teams within Switzerland and abroad.\n• Be collaborating with PwC's global network of Life Sciences experts, you will have access to our market leading propositions, methodologies, assets and training materials.\n• Work in a fast growing team. The environment is driven by respect, collegiality, strong team spirit, winning as team not as an individual.\n\n## Your Skill Set\n• Bachelor's or Master's degree in a science-related discipline plus around 6 years' experience working in life sciences, within R&D, manufacturing or commercial at a life sciences company. Out of the 6 years you have at least 3 years experiences working as a consultant.\n• In consulting, you will have experience in working & running large transformation projects, with experience in developing new propositions and developing new work. From industry, you will have been exposed to many of the key steps of improving quality in regulated business functions.\n• Exposure in innovations in technology/cloud/RWD/NLP that drove/could drive business performance, simplification and/or patient centricity in the health industries and markets.\n• Exposure to some of the following areas: GxP, data privacy / protection, digital strategy development, operating model design, quality system design / improvement / maintenance, process improvement, technology implementation and digital & analytics technologies in a GxP regulated environment.\n• Pay attention to detail, have strong problem-solving skills and are technologically proficient.\n• Excellent teamworking, interpersonal, listening and communication skills.\n• Fluent in English and ideally have knowledge of German and/or French and you have travel mobility to serve international clients.\n• Passionate team player during worktime and enjoy socializing with clients and colleagues after work.\nYour Benefits\n\n## Hybrid Flexible Working Model\nOur work model enables you to spend part of your time working in the office and part at home (provided this is your preference) – unless you’re at your clients’ premises, which is of course always the priority. This approach allows you to tailor your schedule to your personal working style.\n\n## Learn and Grow\nOur learning and development approach helps you gain valuable skills and knowledge to advance your career, not just at PwC. We offer a variety of internal and external courses for training and upskilling. Identify your strengths and areas for improvement and gain new skills to achieve your professional goals. You’ll build confidence, enhance your job performance, and take your career to the next level.\n\n## Sustainable Performance\nPwC is committed to creating an environment of sustainable performance. We therefore offer a range of resources such as sustainable performance workshops, self-leadership trainings, resilience and mindfulness sessions, nutrition webinars, and yoga courses.\n\n## Vacation and Leave\nFrom maternity, paternity, and adoption leave to vacation and paid leave, we know it’s essential to take time away from work. At PwC, you can enjoy a variety of leave options to recharge, relax, or achieve personal milestones.\n\n## Volunteering\nAre you passionate about doing good and making a difference? That’s great, because so are we at PwC. We encourage you to participate in volunteer work by offering paid time off for volunteering activities. Our Corporate Sustainability programmes help you find purpose and fulfilment while working with us.\n\n## My Benefits Portal\nIntroducing our special offers and discount platform! With this platform, you’ll have access to exclusive deals and discounts on a variety of products and services. Whether you’re looking for the latest fashion trends, the hottest tech products, or the best travel packages, our platform offers something for you.\n\n## About PwC\nGrow here. Go further. At PwC Switzerland, we help clients build trust and reinvent so they can turn complexity into competitive advantage. We're part of a tech-forward, people-empowered network and help clients build, accelerate and sustain momentum across audit, assurance, tax, legal, workforce, deals and consulting.\noffices\nemployees\nwomen\nnationalities\naverage age\nmillion CHF gross revenue\nPwC Switzerland and Liechtenstein\nPwC Zurich: Birchstrasse 160, 8050 Zurich\nPwC Aarau: Bleichemattstrasse 43, 5000 Aarau\nPwC Basel: St. Jakobs-Strasse 25, 4052 Basel\nPwC Bern: Bahnhofplatz 10, 3001 Bern\nPwC Geneva: Avenue Giuseppe-Motta 50, 1202 Geneva\nPwC Lausanne: Avenue Charles Ferdinand Ramuz 45, 1009 Pully\nPwC Lugano: Piazza Indipendenza 1, 6900 Lugano\nPwC Lucerne: Robert-Zünd-Strasse 2, 6005 Lucerne\nPwC Neuchâtel: Rue des Epancheurs 6, 2000 Neuchâtel\nPwC St. Gallen: Kornhausstrasse 25, 9000 St. Gallen\nPwC Winterthur: Bahnhofplatz 8, 8400 Winterthur\nPwC Zug: Dammstrasse 21, 6300 Zug\nPwC Ruggell, Liechtenstein: Industriering 40, 9491 Ruggell",
         "it": "Responsabilità\n\n- contribuire a vendere, guidare e, insieme al team, fornire progetti ad alto impatto coinvolgendo gli stakeholder di alto profilo dei clienti del settore delle scienze della vita. - contribuire a sviluppare nuove idee e proposte da condividere con i clienti per garantire nuovi ed espandere progetti esistenti. I progetti includono tipicamente la progettazione e l'implementazione di nuove tecnologie, processi di sistemi di qualità, modelli operativi, strategie digitali e modi di lavorare in tutta la R&S, produzione / supply chain e commerciale.\n\nCiò include la guida delle prestazioni aziendali attraverso il cambiamento della cultura / mentalità di qualità, il miglioramento dei processi e delle procedure, il beneficio di automazione dei processi e consentire approfondimenti da analisi avanzate e AI. I risultati che aiutiamo i clienti a fornire includono guida più veloce sviluppo, produzione e timeline commerciali, sfruttando i dati interni ed esterni attraverso analisi avanzate e apprendimento automatico, migliorando la qualità e la conformità tra molti altri.\n\n- Le funzioni coperte comprendono tutte quelle di R&S, produzione e commercio, con particolare attenzione alla gestione/assicurazione della qualità, agli affari normativi, ai prodotti sicuri e agli affari medici. Il ruolo sarà anche a stretto contatto con i nostri team di consulenza che coprono le attività commerciali, l'accesso al mercato e altre funzioni della catena del valore delle scienze della vita. - Lavorare con clienti internazionali e vi offriremo l'opportunità di acquisire esperienza lavorando in team multiculturali in Svizzera e all'estero.\n\n- Collaborando con la rete globale di esperti di Life Sciences di PwC, avrete accesso alle nostre proposte, metodologie, risorse e materiali di formazione leader sul mercato. - Lavorate in un team in rapida crescita. L'ambiente è guidato dal rispetto, da un'elevata capacità di volonta', forte spirito di squadra, vincendo come squadra non come individuo.\n\nRequisiti\n\n- Laurea o laurea magistrale in una disciplina scientifica più circa 6 anni di esperienza lavorativa nelle scienze della vita, in R&S, nella produzione o nel commercio in una società di scienze della vita. Su 6 anni di esperienza lavorativa in qualità di consulente. - In consulenza, avrai esperienza nel lavoro e nella gestione di grandi progetti di trasformazione, con esperienza nello sviluppo di nuove proposte e nello sviluppo di nuovi lavori. Dall'industria, avrai avuto modo di essere esposto a molti dei passaggi chiave per migliorare la qualità nelle funzioni aziendali regolamentate.\n\n- Esposizione in innovazioni in tecnologia/cloud/RWD/NLP che potrebbero guidare performance aziendali, semplificazione e/o pazienti ANTIcity nelle industrie e nei mercati sanitari. - Esposizione ad alcuni dei seguenti settori: GxP, protezione/privacy dei dati, sviluppo di strategie digitali, progettazione di modelli operativi, progettazione di sistemi di qualità / miglioramento / manutenzione, miglioramento di processo, implementazione tecnologica e tecnologie digitali & analytics in un ambiente regolamentato GxP. - Prestare attenzione ai dettagli, avere forti capacità di risoluzione dei problemi e sono tecnologicamente abili.\n\n- Ottima capacità di lavoro in squadra, interpersonale, di ascolto e comunicazione. - Fluente in inglese e idealmente avere conoscenza del tedesco e/o francese e si dispone di mobilità di viaggio per servire clienti internazionali. - Giocatore di squadra appassionato durante il lavoro e godere di socializzazione con clienti e colleghi dopo il lavoro.",
+        "en": "## Grow here. Go further.\nZürich\nPer Agreement\n100%\nAdvisory\nEveryone welcome\nID: 615391WD\n\n## Your Impact\n• Help sell, lead and, together with the team, deliver high-impact projects engaging with senior stakeholders from high-profile clients in the life sciences industry.\n• Help develop new ideas and propositions to share with clients to secure new and expand existing projects. Projects typically include the design and implementation of new technologies, quality systems processes, operating models, digital strategies and ways of working across R&D, manufacturing / supply chain and commercial. This includes driving business performance through changing quality culture / mind-sets, improving processes and procedures, benefitting from process automation and enabling insights from advanced analytics and AI. The outcomes we help clients deliver include driving faster development, manufacturing and commercial timelines, exploiting internal and external data through advanced analytics and machine learning, improving quality and compliance amongst many others.\n• The functions covered include all those across R&D, manufacturing and commercial, with particular focus on quality management / assurance, regulatory affairs, product safely and medical affairs. The role will also work closely with our consulting teams covering commercial, market access and other functions across the Life Sciences value chain.\n• Work with international clients and we will provide you the opportunity to gain experience working in multi-cultural teams within Switzerland and abroad.\n• Be collaborating with PwC's global network of Life Sciences experts, you will have access to our market leading propositions, methodologies, assets and training materials.\n• Work in a fast growing team. The environment is driven by respect, collegiality, strong team spirit, winning as team not as an individual.\n\n## Your Skill Set\n• Bachelor's or Master's degree in a science-related discipline plus around 6 years' experience working in life sciences, within R&D, manufacturing or commercial at a life sciences company. Out of the 6 years you have at least 3 years experiences working as a consultant.\n• In consulting, you will have experience in working & running large transformation projects, with experience in developing new propositions and developing new work. From industry, you will have been exposed to many of the key steps of improving quality in regulated business functions.\n• Exposure in innovations in technology/cloud/RWD/NLP that drove/could drive business performance, simplification and/or patient centricity in the health industries and markets.\n• Exposure to some of the following areas: GxP, data privacy / protection, digital strategy development, operating model design, quality system design / improvement / maintenance, process improvement, technology implementation and digital & analytics technologies in a GxP regulated environment.\n• Pay attention to detail, have strong problem-solving skills and are technologically proficient.\n• Excellent teamworking, interpersonal, listening and communication skills.\n• Fluent in English and ideally have knowledge of German and/or French and you have travel mobility to serve international clients.\n• Passionate team player during worktime and enjoy socializing with clients and colleagues after work.\nYour Benefits\n\n## Hybrid Flexible Working Model\nOur work model enables you to spend part of your time working in the office and part at home (provided this is your preference) – unless you’re at your clients’ premises, which is of course always the priority. This approach allows you to tailor your schedule to your personal working style.\n\n## Learn and Grow\nOur learning and development approach helps you gain valuable skills and knowledge to advance your career, not just at PwC. We offer a variety of internal and external courses for training and upskilling. Identify your strengths and areas for improvement and gain new skills to achieve your professional goals. You’ll build confidence, enhance your job performance, and take your career to the next level.\n\n## Sustainable Performance\nPwC is committed to creating an environment of sustainable performance. We therefore offer a range of resources such as sustainable performance workshops, self-leadership trainings, resilience and mindfulness sessions, nutrition webinars, and yoga courses.\n\n## Vacation and Leave\nFrom maternity, paternity, and adoption leave to vacation and paid leave, we know it’s essential to take time away from work. At PwC, you can enjoy a variety of leave options to recharge, relax, or achieve personal milestones.\n\n## Volunteering\nAre you passionate about doing good and making a difference? That’s great, because so are we at PwC. We encourage you to participate in volunteer work by offering paid time off for volunteering activities. Our Corporate Sustainability programmes help you find purpose and fulfilment while working with us.\n\n## My Benefits Portal\nIntroducing our special offers and discount platform! With this platform, you’ll have access to exclusive deals and discounts on a variety of products and services. Whether you’re looking for the latest fashion trends, the hottest tech products, or the best travel packages, our platform offers something for you.\n\n## About PwC\nGrow here. Go further. At PwC Switzerland, we help clients build trust and reinvent so they can turn complexity into competitive advantage. We're part of a tech-forward, people-empowered network and help clients build, accelerate and sustain momentum across audit, assurance, tax, legal, workforce, deals and consulting.\noffices\nemployees\nwomen\nnationalities\naverage age\nmillion CHF gross revenue\nPwC Switzerland and Liechtenstein\nPwC Zurich: Birchstrasse 160, 8050 Zurich\nPwC Aarau: Bleichemattstrasse 43, 5000 Aarau\nPwC Basel: St. Jakobs-Strasse 25, 4052 Basel\nPwC Bern: Bahnhofplatz 10, 3001 Bern\nPwC Geneva: Avenue Giuseppe-Motta 50, 1202 Geneva\nPwC Lausanne: Avenue Charles Ferdinand Ramuz 45, 1009 Pully\nPwC Lugano: Piazza Indipendenza 1, 6900 Lugano\nPwC Lucerne: Robert-Zünd-Strasse 2, 6005 Lucerne\nPwC Neuchâtel: Rue des Epancheurs 6, 2000 Neuchâtel\nPwC St. Gallen: Kornhausstrasse 25, 9000 St. Gallen\nPwC Winterthur: Bahnhofplatz 8, 8400 Winterthur\nPwC Zug: Dammstrasse 21, 6300 Zug\nPwC Ruggell, Liechtenstein: Industriering 40, 9491 Ruggell",
         "de": "Zuständigkeiten\n\n- Hilfe verkaufen, führen und, zusammen mit dem Team, liefern hochwirksame Projekte, die mit hochrangigen Stakeholdern von hochrangigen Kunden in der Life Sciences-Branche. - Hilfe bei der Entwicklung neuer Ideen und Angebote, mit Kunden zu teilen, um neue zu sichern und erweitern bestehende Projekte. Projekte in der Regel die Konzeption und Umsetzung von neuen Technologien, Qualitätssysteme Prozesse, Betriebssysteme, digitale Strategien und Möglichkeiten der Arbeit in Forschung und Entwicklung, Herstellung / Lieferkette und kommerziellen.\n\nDazu gehören die Steigerung der Geschäftsleistung durch die Veränderung der Qualitätskultur/-einstellungen, die Verbesserung der Prozesse und Verfahren, der Nutzen aus der Prozessautomatisierung und die Ermöglichung von Erkenntnissen aus fortgeschrittenen Analysen und KI. Die Ergebnisse, die wir Kunden liefern, sind die Beschleunigung der Entwicklung, Herstellung und kommerzielle Zeitreihen, die Nutzung interner und externer Daten durch fortschrittliche Analysen und maschinelles Lernen, die Verbesserung der Qualität und Compliance unter vielen anderen.\n\n- Die abgedeckten Funktionen umfassen alle Bereiche der Forschung, Herstellung und des Handels, mit besonderem Schwerpunkt auf Qualitätsmanagement / -sicherung, regulatorische Angelegenheiten, Produktsicherheit und medizinische Angelegenheiten. Die Rolle wird auch eng mit unseren Beratungsteams für den kommerziellen Zugang, Marktzugang und andere Funktionen in der gesamten Wertschöpfungskette der Life Sciences zusammen arbeiten. - Arbeiten Sie mit internationalen Kunden und wir werden Ihnen die Möglichkeit bieten, Erfahrungen in multikulturellen Teams innerhalb der Schweiz und im Ausland zu sammeln.\n\n- Die Zusammenarbeit mit dem weltweiten Netzwerk von Life Sciences Experten von PwC, Sie haben Zugang zu unseren marktführenden Vorschlägen, Methoden, Vermögenswerten und Trainingsmaterialien. - Die Arbeit in einem schnell wachsenden Team. Die Umwelt wird von Respekt, Kollegialität, starken Teamgeist angetrieben, als Team nicht als Individuum zu gewinnen.\n\nAnforderungen\n\n- Bachelor- oder Master-Abschluss in einer naturwissenschaftlichen Disziplin sowie rund 6 Jahre Erfahrung in Life Sciences, in der Forschung, Fertigung oder im Handel bei einem Life Sciences-Unternehmen. Von den 6 Jahren haben Sie mindestens 3 Jahre Erfahrung als Berater. - In der Beratung, Sie werden Erfahrung in der Arbeit und Durchführung großer Transformationsprojekte, mit Erfahrung in der Entwicklung neuer Angebote und Entwicklung neuer Arbeit. Von der Industrie, Sie wurden vielen der wichtigsten Schritte zur Verbesserung der Qualität in regulierten Geschäftsfunktionen ausgesetzt.\n\n- Exposition in Innovationen in Technologie/Cloud/RWD/NLP, die die Geschäftsleistung, Vereinfachung und/oder Patientenzentralität in der Gesundheitsbranche und den Märkten vorantreiben können. - Exposition in einigen der folgenden Bereiche: GxP, Datenschutz / Schutz, digitale Strategieentwicklung, Betriebsmodelldesign, Qualitätssystemdesign / Verbesserung / Wartung, Prozessverbesserung, Technologieimplementierung und digitale & Analysetechnologien in einer GxP-regulierten Umgebung. - Achten Sie auf Details, haben starke Problemlösungskompetenzen und sind technologisch kompetent.\n\n- Ausgezeichnete Teamwork-, zwischenmenschliche, Zuhören- und Kommunikationskompetenzen. - Fließend in Englisch und idealerweise Deutsch- und/oder Französischkenntnisse haben und Sie haben Mobilität für internationale Kunden. - Leidenschaftlicher Teamplayer während der Arbeitszeit und genießen die Kontakte mit Kunden und Kollegen nach der Arbeit.",
         "fr": "## Grandissez ici. Allez plus loin.\nZürich\nPar accord\n100%\nAvis\nBienvenue à tous\nNuméro d'identification: 615391WD\n\n## Votre impact\n• Aider à vendre, à diriger et, avec l'équipe, à réaliser des projets à impact élevé en collaboration avec des intervenants chevronnés de clients de premier plan de l'industrie des sciences de la vie.\n• Aider à développer de nouvelles idées et propositions à partager avec les clients pour obtenir de nouveaux projets et élargir les projets existants. Les projets comprennent généralement la conception et la mise en oeuvre de nouvelles technologies, des processus de systèmes de qualité, des modèles d'exploitation, des stratégies numériques et des façons de travailler dans les secteurs de la R-D, de la fabrication et de la chaîne d'approvisionnement et du commerce. Il s'agit notamment de stimuler la performance de l'entreprise grâce à l'évolution de la culture de qualité/des ensembles d'esprits, à l'amélioration des processus et des procédures, à l'automatisation des processus et à l'acquisition de connaissances en matière d'analyse avancée et d'IA. Parmi les résultats que nous aidons les clients, mentionnons l'accélération du développement, de la fabrication et des délais commerciaux, l'exploitation des données internes et externes grâce à l'analyse avancée et à l'apprentissage automatique, l'amélioration de la qualité et de la conformité, entre autres.\n• Les fonctions couvertes comprennent toutes celles de la R-D, de la fabrication et du commerce, l'accent étant mis en particulier sur la gestion et l'assurance de la qualité, les affaires réglementaires, la sécurité des produits et les affaires médicales. Ce rôle travaillera également en étroite collaboration avec nos équipes de consultants couvrant les fonctions commerciales, l'accès aux marchés et d'autres fonctions dans toute la chaîne de valeur des Sciences de la vie.\n• Travaillez avec des clients internationaux et nous vous donnerons l'occasion d'acquérir de l'expérience en équipe multiculturelle en Suisse et à l'étranger.\n• En collaborant avec le réseau mondial d'experts en sciences de la vie de PwC, vous aurez accès à nos propositions, méthodologies, atouts et matériels de formation de pointe.\n• Travailler dans une équipe en pleine croissance. L'environnement est animé par le respect, la collégialité, l'esprit d'équipe fort, gagnant en équipe pas en tant qu'individu.\n\n## Votre jeu de compétences\n• Baccalauréat ou maîtrise en sciences et environ 6 ans d'expérience en sciences de la vie, en R-D, en fabrication ou en commerce dans une entreprise de sciences de la vie. Sur les 6 ans, vous avez au moins 3 ans d'expérience en tant que consultant.\n• En consultant, vous aurez de l'expérience dans le travail et la gestion de grands projets de transformation, avec de l'expérience dans le développement de nouvelles propositions et de nouveaux travaux. De l'industrie, vous aurez été exposé à plusieurs des étapes clés de l'amélioration de la qualité dans les fonctions commerciales réglementées.\n• L'exposition à des innovations dans les technologies/cloud/RWD/NLP qui ont entraîné/pourraient stimuler la performance des entreprises, la simplification et/ou la centricité des patients dans les industries et les marchés de la santé.\n• Exposition à certains des domaines suivants : GxP, confidentialité / protection des données, développement de stratégies numériques, conception de modèles d'exploitation, conception / amélioration / maintenance de systèmes de qualité, amélioration des processus, mise en œuvre de technologies et technologies numériques et analytiques dans un environnement réglementé GxP.\n• Faites attention aux détails, avez de solides compétences en résolution de problèmes et sont technologiquement compétents.\n• Excellent travail d'équipe, interpersonnel, d'écoute et de communication.\n• Vous avez une connaissance de l'allemand et/ou du français et vous avez la mobilité pour servir des clients internationaux.\n• Joueur d'équipe passionné pendant le temps de travail et profiter de la socialisation avec les clients et collègues après le travail.\nVos avantages\n\n## Modèle de travail flexible hybride\nNotre modèle de travail vous permet de passer une partie de votre temps à travailler au bureau et à la maison (à condition que ce soit votre préférence) – à moins que vous soyez chez vos clients, ce qui est bien sûr toujours la priorité. Cette approche vous permet d'adapter votre horaire à votre style de travail personnel.\n\n## Apprendre et grandir\nNotre approche d'apprentissage et de développement vous aide à acquérir des compétences et des connaissances précieuses pour faire progresser votre carrière, pas seulement à PwC. Nous offrons une variété de cours internes et externes pour la formation et le perfectionnement. Identifiez vos forces et vos domaines d'amélioration et acquérez de nouvelles compétences pour atteindre vos objectifs professionnels. Vous allez renforcer la confiance, améliorer votre performance professionnelle, et porter votre carrière au niveau suivant.\n\n## Performance durable\nPwC s'engage à créer un environnement de performance durable. Nous offrons donc une gamme de ressources telles que des ateliers de performance durables, des formations d'auto-leadership, des séances de résilience et de pleine conscience, des webinaires de nutrition et des cours de yoga.\n\n## Vacances et congés\nDe la maternité, de la paternité et de l'adoption aux congés annuels et aux congés payés, nous savons qu'il est essentiel de prendre du temps hors du travail. Chez PwC, vous pouvez profiter d'une variété d'options de congé pour recharger, se détendre ou atteindre des jalons personnels.\n\n## Volontariat\nÊtes-vous passionné de faire le bien et de faire une différence? C'est génial, parce que nous aussi sommes à PwC. Nous vous encourageons à participer au travail bénévole en offrant des congés payés pour des activités de bénévolat. Nos programmes Corporate Sustainability vous aident à trouver le but et la réalisation tout en travaillant avec nous.\n\n## Mon portail d'avantages\nPrésentez nos offres spéciales et notre plateforme de réduction! Avec cette plateforme, vous aurez accès à des offres exclusives et des réductions sur une variété de produits et services. Que vous recherchiez les dernières tendances de la mode, les produits technologiques les plus chauds ou les meilleurs forfaits de voyage, notre plateforme vous offre quelque chose.\n\n## À propos de PwC\nGrandissez ici. Allez plus loin. Chez PwC Suisse, nous aidons les clients à bâtir la confiance et à réinventer afin qu'ils puissent transformer la complexité en avantage concurrentiel. Nous faisons partie d'un réseau d'avant-garde technologique doté de compétences humaines et aidons les clients à créer, à accélérer et à maintenir l'élan dans les domaines de la vérification, de l'assurance, de l'impôt, du droit, de la main-d'oeuvre, des marchés et du conseil.\nbureaux\nsalariés\nFemmes\nnationalités\nÂge moyen\nMio CHF produit brut\nPwC Suisse et Liechtenstein\nPwC Zurich: Birchstrasse 160, 8050 Zurich\nPwC Aarau: Bleichemattstrasse 43, 5000 Aarau\nPwC Basel: St. Jakobs-Strasse 25, 4052 Bâle\nPwC Berne: Bahnhofplatz 10, 3001 Berne\nPwC Genève : Avenue Giuseppe-Motta 50, 1202 Genève\nPwC Lausanne: Avenue Charles Ferdinand Ramuz 45, 1009 Pully\nPwC Lugano: Piazza Indipendenza 1, 6900 Lugano\nPwC Lucerne: Robert-Zünd-Strasse 2, 6005 Lucerne\nPwC Neuchâtel: Rue des Epancheurs 6, 2000 Neuchâtel\nPwC St. Gallen: Kornhausstrasse 25, 9000 St. Gallen\nPwC Winterthur: Bahnhofplatz 8, 8400 Winterthur\nPwC Zug: Dammstrasse 21, 6300 Zug\nPwC Ruggell, Liechtenstein: Industrie 40, 9491 Ruggell"
       },
@@ -7733,7 +7738,6 @@
         "fr": "manager-senior-manager-in-life-sciences-qualite-management-consulting-pwc-switzerland-zurich"
       },
       "id": "pwc-01e81b7aa4b7",
-      "needsRetranslation": true,
       "salaryMin": 95000,
       "salaryMax": 151000,
       "currency": "CHF",
@@ -7784,7 +7788,8 @@
         "manager-and-senior-manager-in-life-sciences-r-d-management-consulting-pwc-basel-sfwhdl",
         "manager-e-senior-manager-nella-consulenza-per-la-gestione-della-qualita-nel-settore-delle-scienze-della-vita-pwc-switzer",
         "manager-senior-manager-in-life-sciences-quality-management-consulting-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Manager/ Director - Beratung Gesundheitswesen mit Fokus Krankenversicherung",
@@ -7848,7 +7853,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-04-17T12:28:17Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.693Z",
+      "crawledAt": "2026-10-25T21:26:09.223Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-director-beratung-gesundheitswesen-mit-fokus-krankenversicherung-pwc-zurich"
@@ -7944,7 +7949,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-04-15T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.694Z"
+      "crawledAt": "2026-10-25T21:26:09.225Z"
     },
     {
       "title": "Manager - Transfer Pricing (Financial Services) 80 – 100%",
@@ -8007,7 +8012,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-04-01T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.695Z",
+      "crawledAt": "2026-10-25T21:26:09.227Z",
       "previousSlugsByLocale": {
         "it": [
           "manager-transfer-pricing-financial-services-80-100-pwc-zurich"
@@ -8025,13 +8030,13 @@
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
       "addressCountry": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Birchstrasse 160",
-      "canton": "ZH",
+      "postalCode": "3004",
+      "streetAddress": "",
+      "canton": "BE",
       "country": "CH",
       "category": "audit",
       "sector": "Consulenza",
@@ -8040,7 +8045,7 @@
       "datePosted": "2026-04-01T13:57:05Z",
       "postedDate": "2026-04-01T13:57:05Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.697Z",
+      "crawledAt": "2026-10-25T21:26:09.230Z",
       "validThrough": "2036-03-28",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -8067,6 +8072,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "audit-assistant-manager-financial-services-competence-center-pwc-bern",
           "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
           "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-zurich",
           "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-zurich",
@@ -8080,29 +8086,29 @@
           "audit-assistente-manager-servizi-finanziari-centro-di-competenze-pwc-switzerland-zurich",
           "gestionnaire-de-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern",
           "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-bern-41y9tl",
-          "audit-assistant-manager-financial-services-competence-center-pwc-bern",
           "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern",
           "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern"
         ],
         "en": [
+          "audit-assistant-manager-financial-services-competence-center-pwc-bern",
           "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
-          "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-zurich",
-          "audit-assistant-manager-financial-services-competence-center-pwc-bern"
+          "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-zurich"
         ],
         "de": [
-          "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
-          "audit-assistant-manager-financial-services-competence-center-pwc-bern"
+          "audit-assistant-manager-financial-services-competence-center-pwc-bern",
+          "audit-assistant-manager-financial-services-competence-center-pwc-zurich"
         ],
         "fr": [
+          "audit-assistant-manager-financial-services-competence-center-pwc-bern",
           "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
           "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-zurich",
           "gestionnaire-de-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-zurich",
           "manager-assistant-de-revision-services-financiers-centre-de-competence-pwc-switzerland-bern",
-          "gestionnaire-de-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern",
-          "audit-assistant-manager-financial-services-competence-center-pwc-bern"
+          "gestionnaire-de-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern"
         ]
       },
       "previousSlugs": [
+        "audit-assistant-manager-financial-services-competence-center-pwc-bern",
         "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
         "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-zurich",
         "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-zurich",
@@ -8116,12 +8122,11 @@
         "audit-assistente-manager-servizi-finanziari-centro-di-competenze-pwc-switzerland-zurich",
         "gestionnaire-de-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern",
         "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-bern-41y9tl",
-        "audit-assistant-manager-financial-services-competence-center-pwc-bern",
         "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern",
         "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern"
       ],
-      "salaryMin": 189000,
-      "salaryMax": 331500,
+      "salaryMin": 175000,
+      "salaryMax": 307500,
       "currency": "CHF",
       "salarySource": "estimated",
       "baseSalary": {
@@ -8129,8 +8134,8 @@
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 189000,
-          "maxValue": 331500,
+          "minValue": 175000,
+          "maxValue": 307500,
           "unitText": "YEAR"
         }
       },
@@ -8226,7 +8231,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-03-12T14:46:59Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.698Z"
+      "crawledAt": "2026-10-25T21:26:09.231Z"
     },
     {
       "title": "Manager / Senior Manager - Strategy Consulting",
@@ -8310,7 +8315,7 @@
       "needsRetranslation": true,
       "datePosted": "2026-03-10T19:57:25Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.700Z"
+      "crawledAt": "2026-10-25T21:26:09.233Z"
     },
     {
       "title": "Director in Quality & Regulatory Management - Advisory Services",
@@ -8320,13 +8325,13 @@
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
+      "location": "Basel",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
       "addressCountry": "CH",
-      "postalCode": "8001",
+      "postalCode": "4001",
       "streetAddress": "",
-      "canton": "ZH",
+      "canton": "BS",
       "country": "CH",
       "category": "consulting",
       "sector": "Consulenza",
@@ -8335,7 +8340,7 @@
       "datePosted": "2026-03-03T15:09:34Z",
       "postedDate": "2026-03-03T15:09:34Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.702Z",
+      "crawledAt": "2026-10-25T21:26:09.238Z",
       "validThrough": "2036-02-28",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -8347,8 +8352,8 @@
         "fr": "Directeur in Qualité & Regulatory Management - Advisory Services"
       },
       "descriptionByLocale": {
-        "it": "## Cresci qui. Andate oltre.\nZurigo\ndi accordo\n100%\nConsigliere\nTutti benvenuti\nID: 710305WD\n\n## Il tuo impatto\n• Vendere, guidare e, insieme al team, fornire progetti ad alto impatto coinvolgendo gli stakeholder senior da clienti di alto profilo. Potrai guidare attivamente lo sviluppo aziendale da opportunità di origine, proposte leader e convertirli in impegni di successo del cliente.\n• Sviluppare nuove idee e proposte da condividere con i clienti per garantire nuovi ed espandere i progetti esistenti. I progetti in genere includono: (i) strategia di qualità e QMS, modello operativo e design target-state, (ii) strategia regolamentare e progettazione del modello operativo (ad esempio per le presentazioni, le registrazioni, l'etichettatura, post-mercato / gestione del ciclo di vita), (iii) progettazione e realizzazione di nuove tecnologie e modi di lavoro, (iv) strategie digitali e roadmap funzionali\n• Copertura Qualità e competenza funzionale regolamentare attraverso la catena del valore. Potrai anche lavorare a stretto contatto con i nostri team di consulenza che coprono l'accesso commerciale, il mercato, la supply chain e altre funzioni.\n• Guidare la crescita e la trasformazione del nostro team di qualità e regolamentazione, capacità e consulenza aziendale. Potrai lavorare a stretto contatto con la rete globale di esperti di PwC e il nostro team AI aziendale per sviluppare e scalare nuove proposizioni, modelli di consegna e beni, sia per i nostri clienti che per come operiamo a PwC.\n• Sviluppare ed espandere attivamente la propria rete e rappresentare PwC nelle riunioni dei clienti, negli eventi del settore e nelle conferenze.\n• Lavorare in un ambiente in rapida crescita, che è guidato da rispetto, collegialità e forte spirito di squadra (che vince come squadra, non come individuo).\n\n## Il tuo set di abilità\n• Hai più di 10 anni di esperienza di lavoro all'interno di Qualità e/o Regolazione, di cui almeno 6 anni di consulenza.\n• In consulenza, avrete lavorato o lavorato in una società di consulenza di gestione, consigliando i clienti sulla strategia di qualità e regolamentazione, e avete esperienza nella gestione di grandi progetti di trasformazione e nello sviluppo di nuove proposizioni e lavoro.\n• Nei ruoli del settore, sei stato esposto a molti dei passaggi chiave di migliorare le funzioni aziendali che operano lungo la catena del valore.\n• Come noleggio esperto, si dispone di un record di traccia solida sia nello sviluppo aziendale che nella consegna di progetti: si originano e modellano opportunità, processi di proposta di piombo e convertirli con successo in impegni di cliente. Si sfrutta una forte rete di settore personale con decisori lungo la catena del valore e sono appassionati di networking e la costruzione di relazioni cliente a lungo termine.\n• L'utente ha l'esposizione ad alcune delle seguenti aree: GxP e altri quadri normativi rilevanti, privacy/protezione dei dati, sviluppo di strategia digitale, progettazione del modello operativo, progettazione del sistema/miglioramento/manutenzione, miglioramento del processo, implementazione della tecnologia e tecnologie di analisi digitale, tra cui AI e casi di utilizzo pratico nelle funzioni Qualità e Regolazione.\nI tuoi vantaggi\n\n## Modello di lavoro flessibile ibrido\nIl nostro modello di lavoro vi permette di trascorrere una parte del vostro tempo lavorando in ufficio e parte a casa (fornito questa è la vostra preferenza) – a meno che non siete nei locali dei vostri clienti, che è naturalmente sempre la priorità. Questo approccio ti permette di adattare il tuo programma al tuo stile di lavoro personale.\n\n## Imparare e crescere\nIl nostro approccio di apprendimento e sviluppo ti aiuta a acquisire competenze e conoscenze preziose per far progredire la tua carriera, non solo a PwC. Offriamo una varietà di corsi interni ed esterni per formazione e upskilling. Identificare i vostri punti di forza e aree per migliorare e acquisire nuove competenze per raggiungere i vostri obiettivi professionali. Potrai costruire la fiducia, migliorare le prestazioni del lavoro, e portare la tua carriera al livello successivo.\n\n## Prestazioni sostenibili\nPwC si impegna a creare un ambiente di performance sostenibile. Offriamo quindi una gamma di risorse come laboratori di performance sostenibili, corsi di auto-leadership, sessioni di resilienza e di consapevolezza, webinar di nutrizione e corsi di yoga.\n\n## Vacanza e partenza\nDalla maternità, la paternità e l'adozione lasciano in vacanza e il congedo pagato, sappiamo che è essenziale prendere il tempo lontano dal lavoro. A PwC, è possibile godere di una varietà di opzioni di congedo per ricaricare, rilassarsi, o raggiungere pietre miliari personali.\n\n## Volontari\nSei appassionato di fare il bene e fare la differenza? Questo è grande, perché così siamo a PwC. Vi invitiamo a partecipare al volontariato offrendo tempo libero a pagamento per attività di volontariato. I nostri programmi di Corporate Sustainability ti aiutano a trovare lo scopo e l'adempimento mentre lavori con noi.\n\n## I miei vantaggi Portal\nIntrodurre le nostre offerte speciali e piattaforma di sconto! Con questa piattaforma avrai accesso a offerte e sconti esclusivi su una varietà di prodotti e servizi. Che tu stia cercando le ultime tendenze della moda, i prodotti tecnologici più caldi, o i migliori pacchetti di viaggio, la nostra piattaforma offre qualcosa per te.\n\n## Informazioni su PwC\nCresci qui. Andate oltre. A PwC Svizzera, aiutiamo i clienti a costruire fiducia e reinventare in modo che possano trasformare la complessità in vantaggio competitivo. Siamo parte di una rete tecnologica, potenziata dalla gente e aiutiamo i clienti a costruire, accelerare e sostenere slancio attraverso l'audit, l'assicurazione, le tasse, la forza lavoro, le offerte e la consulenza.\nuffici\ndipendenti\ndonne\nnazionalità\nEtà media\nmilioni di CHF entrate lorde\nPwC Svizzera e Liechtenstein\nPwC Zurigo: Birchstrasse 160, 8050 Zurigo\nPwC Aarau: Bleichemattstrasse 43, 5000 Aarau\nPwC Basel: St. Jakobs-Strasse 25, 4052 Basilea\nPwC Bern: Bahnhofplatz 10, 3001 Berna\nPwC Ginevra: Avenue Giuseppe-Motta 50, 1202 Ginevra\nPwC Losanna: Avenue Charles Ferdinand Ramuz 45, 1009 Pully\nPwC Lugano: Piazza Indipendenza 1, 6900 Lugano\nPwC Lucerna: Robert-Zünd-Strasse 2, 6005 Lucerna\nPwC Neuchâtel: Rue des Epancheurs 6, 2000 Neuchâtel\nPwC St. Gallen: Kornhausstrasse 25, 9000 St. Gallen\nWinterthur: Bahnhofplatz 8, 8400 Winterthur\nPwC Zug: Dammstrasse 21, 6300 Zug\nPwC Ruggell, Liechtenstein: Industriering 40, 9491 Ruggell",
         "en": "## Grow here. Go further.\nZürich\nby agreement\n100%\nAdvisory\nEveryone welcome\nID: 710305WD\n\n## Your Impact\n• Sell, lead and, together with the team, deliver high-impact projects engaging with senior stakeholders from high-profile clients. You will actively drive business development by originating opportunities, leading proposals and converting them into successful client engagements.\n• Develop new ideas and propositions to share with clients to secure new and expand existing projects. The projects typically include: (i) Quality and QMS strategy, operating model and target‑state design, (ii) Regulatory strategy and operating model design (e.g. for submissions, registrations, labelling, post‑market / lifecycle management), (iii) Design and implementation of new technologies and ways of working, (iv) Digital strategies and functional roadmaps\n• Cover Quality and Regulatory functional expertise across the value chain. You will also work closely with our consulting teams covering commercial, market access, supply chain and other functions.\n• Drive the growth and transformation of our Quality and Regulatory team, capabilities and consulting business. You will work closely with PwC's global network of experts and our enterprise AI team to develop and scale new, AI‑enabled propositions, delivery models and assets – both for our clients and for how we operate at PwC.\n• Actively build and expand your own network and represent PwC at client meetings, industry events and conferences.\n• Work in a fast-growing environment, which is driven by respect, collegiality, and strong team spirit (winning as team, not as an individual).\n\n## Your Skill Set\n• You have more than 10 years' experience working within Quality and/or Regulatory, of which at least 6 years in consulting.\n• In consulting, you will have worked or are working in a management consulting firm, advising clients on Quality and Regulatory strategy, and you have experience in running large transformation projects and developing new propositions and work.\n• In industry roles, you have been exposed to many of the key steps of improving business functions that operate along the value chain.\n• As an experienced hire, you have a solid track record in both business development and project delivery: you originate and shape opportunities, lead proposal processes and successfully convert them into client engagements. You leverage a strong personal industry network with decision-makers along the value chain and are passionate about networking and building long-term client relationships.\n• You have exposure to some of the following areas: GxP and other relevant regulatory frameworks, data privacy/protection, digital strategy development, operating model design, system design/improvement/maintenance, process improvement, technology implementation and digital and analytics technologies, including AI and practical use cases in Quality and Regulatory functions.\nYour Benefits\n\n## Hybrid Flexible Working Model\nOur work model enables you to spend part of your time working in the office and part at home (provided this is your preference) – unless you’re at your clients’ premises, which is of course always the priority. This approach allows you to tailor your schedule to your personal working style.\n\n## Learn and Grow\nOur learning and development approach helps you gain valuable skills and knowledge to advance your career, not just at PwC. We offer a variety of internal and external courses for training and upskilling. Identify your strengths and areas for improvement and gain new skills to achieve your professional goals. You’ll build confidence, enhance your job performance, and take your career to the next level.\n\n## Sustainable Performance\nPwC is committed to creating an environment of sustainable performance. We therefore offer a range of resources such as sustainable performance workshops, self-leadership trainings, resilience and mindfulness sessions, nutrition webinars, and yoga courses.\n\n## Vacation and Leave\nFrom maternity, paternity, and adoption leave to vacation and paid leave, we know it’s essential to take time away from work. At PwC, you can enjoy a variety of leave options to recharge, relax, or achieve personal milestones.\n\n## Volunteering\nAre you passionate about doing good and making a difference? That’s great, because so are we at PwC. We encourage you to participate in volunteer work by offering paid time off for volunteering activities. Our Corporate Sustainability programmes help you find purpose and fulfilment while working with us.\n\n## My Benefits Portal\nIntroducing our special offers and discount platform! With this platform, you’ll have access to exclusive deals and discounts on a variety of products and services. Whether you’re looking for the latest fashion trends, the hottest tech products, or the best travel packages, our platform offers something for you.\n\n## About PwC\nGrow here. Go further. At PwC Switzerland, we help clients build trust and reinvent so they can turn complexity into competitive advantage. We're part of a tech-forward, people-empowered network and help clients build, accelerate and sustain momentum across audit, assurance, tax, legal, workforce, deals and consulting.\noffices\nemployees\nwomen\nnationalities\naverage age\nmillion CHF gross revenue\nPwC Switzerland and Liechtenstein\nPwC Zurich: Birchstrasse 160, 8050 Zurich\nPwC Aarau: Bleichemattstrasse 43, 5000 Aarau\nPwC Basel: St. Jakobs-Strasse 25, 4052 Basel\nPwC Bern: Bahnhofplatz 10, 3001 Bern\nPwC Geneva: Avenue Giuseppe-Motta 50, 1202 Geneva\nPwC Lausanne: Avenue Charles Ferdinand Ramuz 45, 1009 Pully\nPwC Lugano: Piazza Indipendenza 1, 6900 Lugano\nPwC Lucerne: Robert-Zünd-Strasse 2, 6005 Lucerne\nPwC Neuchâtel: Rue des Epancheurs 6, 2000 Neuchâtel\nPwC St. Gallen: Kornhausstrasse 25, 9000 St. Gallen\nPwC Winterthur: Bahnhofplatz 8, 8400 Winterthur\nPwC Zug: Dammstrasse 21, 6300 Zug\nPwC Ruggell, Liechtenstein: Industriering 40, 9491 Ruggell",
+        "it": "## Cresci qui. Andate oltre.\nZurigo\ndi accordo\n100%\nConsigliere\nTutti benvenuti\nID: 710305WD\n\n## Il tuo impatto\n• Vendere, guidare e, insieme al team, fornire progetti ad alto impatto coinvolgendo gli stakeholder senior da clienti di alto profilo. Potrai guidare attivamente lo sviluppo aziendale da opportunità di origine, proposte leader e convertirli in impegni di successo del cliente.\n• Sviluppare nuove idee e proposte da condividere con i clienti per garantire nuovi ed espandere i progetti esistenti. I progetti in genere includono: (i) strategia di qualità e QMS, modello operativo e design target-state, (ii) strategia regolamentare e progettazione del modello operativo (ad esempio per le presentazioni, le registrazioni, l'etichettatura, post-mercato / gestione del ciclo di vita), (iii) progettazione e realizzazione di nuove tecnologie e modi di lavoro, (iv) strategie digitali e roadmap funzionali\n• Copertura Qualità e competenza funzionale regolamentare attraverso la catena del valore. Potrai anche lavorare a stretto contatto con i nostri team di consulenza che coprono l'accesso commerciale, il mercato, la supply chain e altre funzioni.\n• Guidare la crescita e la trasformazione del nostro team di qualità e regolamentazione, capacità e consulenza aziendale. Potrai lavorare a stretto contatto con la rete globale di esperti di PwC e il nostro team AI aziendale per sviluppare e scalare nuove proposizioni, modelli di consegna e beni, sia per i nostri clienti che per come operiamo a PwC.\n• Sviluppare ed espandere attivamente la propria rete e rappresentare PwC nelle riunioni dei clienti, negli eventi del settore e nelle conferenze.\n• Lavorare in un ambiente in rapida crescita, che è guidato da rispetto, collegialità e forte spirito di squadra (che vince come squadra, non come individuo).\n\n## Il tuo set di abilità\n• Hai più di 10 anni di esperienza di lavoro all'interno di Qualità e/o Regolazione, di cui almeno 6 anni di consulenza.\n• In consulenza, avrete lavorato o lavorato in una società di consulenza di gestione, consigliando i clienti sulla strategia di qualità e regolamentazione, e avete esperienza nella gestione di grandi progetti di trasformazione e nello sviluppo di nuove proposizioni e lavoro.\n• Nei ruoli del settore, sei stato esposto a molti dei passaggi chiave di migliorare le funzioni aziendali che operano lungo la catena del valore.\n• Come noleggio esperto, si dispone di un record di traccia solida sia nello sviluppo aziendale che nella consegna di progetti: si originano e modellano opportunità, processi di proposta di piombo e convertirli con successo in impegni di cliente. Si sfrutta una forte rete di settore personale con decisori lungo la catena del valore e sono appassionati di networking e la costruzione di relazioni cliente a lungo termine.\n• L'utente ha l'esposizione ad alcune delle seguenti aree: GxP e altri quadri normativi rilevanti, privacy/protezione dei dati, sviluppo di strategia digitale, progettazione del modello operativo, progettazione del sistema/miglioramento/manutenzione, miglioramento del processo, implementazione della tecnologia e tecnologie di analisi digitale, tra cui AI e casi di utilizzo pratico nelle funzioni Qualità e Regolazione.\nI tuoi vantaggi\n\n## Modello di lavoro flessibile ibrido\nIl nostro modello di lavoro vi permette di trascorrere una parte del vostro tempo lavorando in ufficio e parte a casa (fornito questa è la vostra preferenza) – a meno che non siete nei locali dei vostri clienti, che è naturalmente sempre la priorità. Questo approccio ti permette di adattare il tuo programma al tuo stile di lavoro personale.\n\n## Imparare e crescere\nIl nostro approccio di apprendimento e sviluppo ti aiuta a acquisire competenze e conoscenze preziose per far progredire la tua carriera, non solo a PwC. Offriamo una varietà di corsi interni ed esterni per formazione e upskilling. Identificare i vostri punti di forza e aree per migliorare e acquisire nuove competenze per raggiungere i vostri obiettivi professionali. Potrai costruire la fiducia, migliorare le prestazioni del lavoro, e portare la tua carriera al livello successivo.\n\n## Prestazioni sostenibili\nPwC si impegna a creare un ambiente di performance sostenibile. Offriamo quindi una gamma di risorse come laboratori di performance sostenibili, corsi di auto-leadership, sessioni di resilienza e di consapevolezza, webinar di nutrizione e corsi di yoga.\n\n## Vacanza e partenza\nDalla maternità, la paternità e l'adozione lasciano in vacanza e il congedo pagato, sappiamo che è essenziale prendere il tempo lontano dal lavoro. A PwC, è possibile godere di una varietà di opzioni di congedo per ricaricare, rilassarsi, o raggiungere pietre miliari personali.\n\n## Volontari\nSei appassionato di fare il bene e fare la differenza? Questo è grande, perché così siamo a PwC. Vi invitiamo a partecipare al volontariato offrendo tempo libero a pagamento per attività di volontariato. I nostri programmi di Corporate Sustainability ti aiutano a trovare lo scopo e l'adempimento mentre lavori con noi.\n\n## I miei vantaggi Portal\nIntrodurre le nostre offerte speciali e piattaforma di sconto! Con questa piattaforma avrai accesso a offerte e sconti esclusivi su una varietà di prodotti e servizi. Che tu stia cercando le ultime tendenze della moda, i prodotti tecnologici più caldi, o i migliori pacchetti di viaggio, la nostra piattaforma offre qualcosa per te.\n\n## Informazioni su PwC\nCresci qui. Andate oltre. A PwC Svizzera, aiutiamo i clienti a costruire fiducia e reinventare in modo che possano trasformare la complessità in vantaggio competitivo. Siamo parte di una rete tecnologica, potenziata dalla gente e aiutiamo i clienti a costruire, accelerare e sostenere slancio attraverso l'audit, l'assicurazione, le tasse, la forza lavoro, le offerte e la consulenza.\nuffici\ndipendenti\ndonne\nnazionalità\nEtà media\nmilioni di CHF entrate lorde\nPwC Svizzera e Liechtenstein\nPwC Zurigo: Birchstrasse 160, 8050 Zurigo\nPwC Aarau: Bleichemattstrasse 43, 5000 Aarau\nPwC Basel: St. Jakobs-Strasse 25, 4052 Basilea\nPwC Bern: Bahnhofplatz 10, 3001 Berna\nPwC Ginevra: Avenue Giuseppe-Motta 50, 1202 Ginevra\nPwC Losanna: Avenue Charles Ferdinand Ramuz 45, 1009 Pully\nPwC Lugano: Piazza Indipendenza 1, 6900 Lugano\nPwC Lucerna: Robert-Zünd-Strasse 2, 6005 Lucerna\nPwC Neuchâtel: Rue des Epancheurs 6, 2000 Neuchâtel\nPwC St. Gallen: Kornhausstrasse 25, 9000 St. Gallen\nWinterthur: Bahnhofplatz 8, 8400 Winterthur\nPwC Zug: Dammstrasse 21, 6300 Zug\nPwC Ruggell, Liechtenstein: Industriering 40, 9491 Ruggell",
         "de": "## Wachsen Sie hier. Gehen Sie noch weiter.\nZürich\nVereinbarung\n100%\nBeratung\nAlle sind willkommen\nID: 710305WD\n\n## Ihre Wirkung\n• Verkaufen, leiten und liefern Sie zusammen mit dem Team wirkungsvolle Projekte, die mit hochrangigen Stakeholdern von hochkarätigen Kunden zusammenarbeiten. Sie werden die Geschäftsentwicklung aktiv vorantreiben, indem Sie Chancen schaffen, Vorschläge leiten und sie in erfolgreiche Kundenbindungen umwandeln.\n• Entwickeln Sie neue Ideen und Vorschläge, die Sie mit Kunden teilen können, um neue Projekte zu sichern und bestehende Projekte zu erweitern. Die Projekte umfassen in der Regel: (i) Qualität und QMS-Strategie, Betriebsmodell und Zielstaatgestaltung, (ii) Regulierungsstrategie und Betriebsmodellgestaltung (z. B. für Einreichungen, Registrierungen, Kennzeichnung, Post-Market- / Lifecycle-Management), (iii) Gestaltung und Umsetzung neuer Technologien und Arbeitsweisen, (iv) Digitale Strategien und funktionale Roadmaps.\n• Decken Sie die funktionale Qualitäts- und Regulierungskompetenz entlang der gesamten Wertschöpfungskette ab. Sie werden auch eng mit unseren Beratungsteams zusammenarbeiten, die kommerzielle, Marktzugangs-, Lieferketten- und andere Funktionen abdecken.\n• Treiben Sie das Wachstum und die Transformation unseres Qualitäts- und Regulierungsteams, unserer Fähigkeiten und unseres Beratungsgeschäfts voran. Sie werden eng mit dem globalen Expertennetzwerk von PwC und unserem Enterprise AI-Team zusammenarbeiten, um neue, KI-fähige Vorschläge, Liefermodelle und Vermögenswerte zu entwickeln und zu skalieren - sowohl für unsere Kunden als auch für unsere Arbeitsweise bei PwC.\n• Bauen und erweitern Sie aktiv Ihr eigenes Netzwerk und vertreten Sie PwC bei Kundentreffen, Branchenveranstaltungen und Konferenzen.\n• Arbeite in einem schnell wachsenden Umfeld, das von Respekt, Kollegialität und starkem Teamgeist geprägt ist (als Team gewinnen, nicht als Individuum).\n\n## Dein Skills Set\n• Sie haben mehr als 10 Jahre Erfahrung im Bereich Qualität und / oder Regulierung, davon mindestens 6 Jahre in der Beratung.\n• In der Beratung haben oder arbeiten Sie in einer Managementberatungsfirma, beraten Kunden in Bezug auf Qualität und Regulierungsstrategie, und Sie haben Erfahrung in der Durchführung großer Transformationsprojekte und der Entwicklung neuer Vorschläge und Arbeiten.\n• In Branchenrollen waren Sie vielen der wichtigsten Schritte zur Verbesserung von Geschäftsfunktionen ausgesetzt, die entlang der Wertschöpfungskette tätig sind.\n• Als erfahrener Mitarbeiter haben Sie eine solide Erfolgsbilanz sowohl in der Geschäftsentwicklung als auch in der Projektabwicklung: Sie erstellen und gestalten Chancen, leiten Vorschlagsprozesse und setzen diese erfolgreich in Kundenengagements um. Sie nutzen ein starkes persönliches Branchennetzwerk mit Entscheidungsträgern entlang der Wertschöpfungskette und sind begeistert von der Vernetzung und dem Aufbau langfristiger Kundenbeziehungen.\n• Sie sind einigen der folgenden Bereiche ausgesetzt: GxP und andere relevante regulatorische Rahmenbedingungen, Datenschutz / Schutz, digitale Strategieentwicklung, Betriebsmodelldesign, Systemdesign / Verbesserung / Wartung, Prozessverbesserung, Technologieimplementierung und digitale und Analysetechnologien, einschließlich KI und praktische Anwendungsfälle in Qualitäts- und Regulierungsfunktionen.\nIhre Vorteile\n\n## Hybrides flexibles Arbeitsmodell\nUnser Arbeitsmodell ermöglicht es Ihnen, einen Teil Ihrer Zeit im Büro und einen Teil zu Hause zu verbringen (vorausgesetzt, dies ist Ihre Präferenz) - es sei denn, Sie sind bei Ihren Kunden, was natürlich immer die Priorität ist. Dieser Ansatz ermöglicht es Ihnen, Ihren Zeitplan an Ihren persönlichen Arbeitsstil anzupassen.\n\n## Lernen und wachsen\nUnser Lern- und Entwicklungsansatz hilft Ihnen, wertvolle Fähigkeiten und Kenntnisse zu erwerben, um Ihre Karriere voranzutreiben, nicht nur bei PwC. Wir bieten eine Vielzahl von internen und externen Kursen für die Ausbildung und Weiterbildung. Identifizieren Sie Ihre Stärken und Verbesserungsbereiche und erwerben Sie neue Fähigkeiten, um Ihre beruflichen Ziele zu erreichen. Sie werden Vertrauen aufbauen, Ihre Arbeitsleistung verbessern und Ihre Karriere auf die nächste Stufe bringen.\n\n## Nachhaltige Leistung\nPwC verpflichtet sich, ein Umfeld für nachhaltige Leistung zu schaffen. Wir bieten daher eine Reihe von Ressourcen wie nachhaltige Leistungsworkshops, Selbstführungstrainings, Resilienz- und Achtsamkeitssitzungen, Ernährungswebinare und Yogakurse an.\n\n## Urlaub und Urlaub\nVon Mutterschafts-, Vaterschafts- und Adoptionsurlaub bis hin zu Urlaub und bezahltem Urlaub wissen wir, dass es wichtig ist, sich Zeit von der Arbeit zu nehmen. Bei PwC können Sie eine Vielzahl von Urlaubsmöglichkeiten genießen, um sich aufzuladen, zu entspannen oder persönliche Meilensteine zu erreichen.\n\n## Freiwilligentätigkeit\nSind Sie leidenschaftlich daran interessiert, Gutes zu tun und einen Unterschied zu machen? Das ist großartig, denn wir bei PwC sind es auch. Wir ermutigen Sie, sich an der Freiwilligenarbeit zu beteiligen, indem Sie bezahlte Freizeit für Freiwilligenaktivitäten anbieten. Unsere Corporate Sustainability Programme helfen Ihnen, Zweck und Erfüllung zu finden, während Sie mit uns zusammenarbeiten.\n\n## Mein Benefits Portal\nWir stellen Ihnen unsere Sonderangebote und Rabattplattform vor! Mit dieser Plattform haben Sie Zugang zu exklusiven Angeboten und Rabatten für eine Vielzahl von Produkten und Dienstleistungen. Ob Sie die neuesten Modetrends, die heißesten Tech-Produkte oder die besten Reisepakete suchen, unsere Plattform bietet etwas für Sie.\n\n## Über PwC\nWachsen Sie hier. Gehen Sie noch weiter. Bei PwC Schweiz helfen wir Kunden, Vertrauen aufzubauen und neu zu erfinden, damit sie Komplexität in Wettbewerbsvorteile verwandeln können. Wir sind Teil eines technologieorientierten, von Menschen unterstützten Netzwerks und helfen Kunden dabei, Dynamik in den Bereichen Audit, Assurance, Tax, Legal, Workforce, Deals und Consulting aufzubauen, zu beschleunigen und aufrechtzuerhalten.\nBüros\nArbeitnehmer\nFrauen\nNationalitäten\nDurchschnittsalter\nMio. CHF Bruttoumsatz\nPwC Schweiz und Liechtenstein\nPwC Zürich: Birchstraße 160, 8050 Zürich\nPwC Aarau: Bleichemattstraße 43, 5000 Aarau\nPwC Basel: St. Jakobs-Strasse 25, 4052 Basel\nPwC Bern: Bahnhofplatz 10, 3001 Bern\nPwC Genf: Avenue Giuseppe-Motta 50, 1202 Genf\nPwC Lausanne: Avenue Charles Ferdinand Ramuz 45, 1009 Pully\nPwC Lugano: Piazza Indipendenza 1, 6900 Lugano\nPwC Luzern: Robert-Zünd-Straße 2, 6005 Luzern\nPwC Neuenburg: Rue des Epancheurs 6, 2000 Neuenburg\nPwC St. Gallen: Kornhausstraße 25, 9000 St. Gallen\nPwC Winterthur: Bahnhofplatz 8, 8400 Winterthur\nPwC Zug: Dammstraße 21, 6300 Zug\nPwC Ruggell, Liechtenstein: Industriering 40, 9491 Ruggell",
         "fr": "## Grandissez ici. Allez plus loin.\nZürich\npar accord\n100%\nAvis\nBienvenue à tous\nNuméro d'identification: 710305WD\n\n## Votre impact\n• Vendre, diriger et, avec l'équipe, réaliser des projets à impact élevé en collaboration avec des intervenants chevronnés de clients de premier plan. Vous stimulerez activement le développement des entreprises en ouvrant des opportunités, en dirigeant des propositions et en les transformant en engagements clients fructueux.\n• Élaborer de nouvelles idées et propositions à partager avec les clients pour obtenir de nouveaux projets et élargir les projets existants. Les projets comprennent habituellement : (i) la stratégie de qualité et de SGQ, le modèle opérationnel et la conception de l'État cible, (ii) la stratégie réglementaire et la conception de modèle opérationnel (p. ex. pour les présentations, les homologations, l'étiquetage, la gestion du cycle de vie et après la mise en marché), (iii) la conception et la mise en oeuvre de nouvelles technologies et méthodes de travail, (iv) les stratégies numériques et les feuilles de route fonctionnelles\n• Couvrir l'expertise fonctionnelle en matière de qualité et de réglementation dans toute la chaîne de valeur. Vous travaillerez également en étroite collaboration avec nos équipes de conseil couvrant le commerce, l'accès au marché, la chaîne d'approvisionnement et d'autres fonctions.\n• Favoriser la croissance et la transformation de notre équipe Qualité et Réglementation, de nos capacités et de nos activités de conseil. Vous travaillerez en étroite collaboration avec le réseau mondial d'experts de PwC et notre équipe d'intelligence artificielle d'entreprise pour élaborer et mettre à l'échelle de nouvelles propositions, modèles de livraison et actifs compatibles avec l'intelligence artificielle, tant pour nos clients que pour notre fonctionnement chez PwC.\n• Construisez et élargissez votre propre réseau et représentez PwC lors de réunions de clients, d'événements industriels et de conférences.\n• Travailler dans un environnement en croissance rapide, animé par le respect, la collégialité et l'esprit d'équipe fort (gagnant en équipe, pas en individuel).\n\n## Votre jeu de compétences\n• Vous avez plus de 10 ans d'expérience dans le domaine de la qualité et/ou de la réglementation, dont au moins 6 ans en consultation.\n• En consultant, vous aurez travaillé ou travaillerez dans une firme de conseil en gestion, conseiller les clients sur la stratégie Qualité et Réglementation, et vous avez de l'expérience dans la gestion de grands projets de transformation et l'élaboration de nouvelles propositions et de travaux.\n• Dans les rôles de l'industrie, vous avez été exposé à bon nombre des étapes clés de l'amélioration des fonctions commerciales qui fonctionnent le long de la chaîne de valeur.\n• En tant qu'employé expérimenté, vous avez une solide expérience en développement des affaires et en exécution de projets : vous créez et façonnez des occasions, dirigez les processus de proposition et les convertissez avec succès en engagements clients. Vous exploitez un solide réseau d'industries personnelles avec les décideurs tout au long de la chaîne de valeur et êtes passionnés par le réseautage et l'établissement de relations client à long terme.\n• Vous êtes exposé à certains des domaines suivants : GxP et autres cadres réglementaires pertinents, protection/protection des données, élaboration de stratégies numériques, conception de modèles d'exploitation, conception/amélioration/entretien de systèmes, amélioration des processus, mise en oeuvre de technologies et technologies numériques et analytiques, y compris l'IA et les cas d'utilisation pratique dans les fonctions Qualité et Réglementation.\nVos avantages\n\n## Modèle de travail flexible hybride\nNotre modèle de travail vous permet de passer une partie de votre temps à travailler au bureau et à la maison (à condition que ce soit votre préférence) – à moins que vous soyez chez vos clients, ce qui est bien sûr toujours la priorité. Cette approche vous permet d'adapter votre horaire à votre style de travail personnel.\n\n## Apprendre et grandir\nNotre approche d'apprentissage et de développement vous aide à acquérir des compétences et des connaissances précieuses pour faire progresser votre carrière, pas seulement à PwC. Nous offrons une variété de cours internes et externes pour la formation et le perfectionnement. Identifiez vos forces et domaines d'amélioration et acquérez de nouvelles compétences pour atteindre vos objectifs professionnels. Vous allez renforcer la confiance, améliorer votre performance professionnelle, et porter votre carrière au niveau supérieur.\n\n## Performance durable\nPwC s'engage à créer un environnement de performance durable. Nous offrons donc une gamme de ressources telles que des ateliers de performance durables, des formations d'auto-leadership, des séances de résilience et de pleine conscience, des webinaires de nutrition et des cours de yoga.\n\n## Vacances et congés\nDe la maternité, de la paternité et de l'adoption aux congés annuels et aux congés payés, nous savons qu'il est essentiel de prendre du temps hors du travail. Chez PwC, vous pouvez profiter d'une variété d'options de congé pour recharger, se détendre ou atteindre des jalons personnels.\n\n## Bénévolat\nÊtes-vous passionné de faire le bien et de faire une différence? C'est génial, parce que nous sommes à PwC. Nous vous encourageons à participer au travail bénévole en offrant des congés payés pour des activités de bénévolat. Nos programmes Corporate Sustainability vous aident à trouver le but et l'accomplissement tout en travaillant avec nous.\n\n## Mon portail des avantages\nPrésentation de nos offres spéciales et de notre plateforme de réduction! Avec cette plate-forme, vous aurez accès à des offres exclusives et des réductions sur une variété de produits et services. Que vous recherchiez les dernières tendances de la mode, les produits technologiques les plus chauds ou les meilleurs forfaits de voyage, notre plateforme vous offre quelque chose.\n\n## À propos de PwC\nGrandissez ici. Allez plus loin. Chez PwC Suisse, nous aidons les clients à établir la confiance et à réinventer afin qu'ils puissent transformer la complexité en avantage concurrentiel. Nous faisons partie d'un réseau d'avant-garde, doté de ressources humaines, et nous aidons les clients à créer, à accélérer et à maintenir l'élan dans les domaines de l'audit, de l'assurance, de l'impôt, du droit, de la main-d'oeuvre, des marchés et du conseil.\nbureaux\nsalariés\nFemmes\nnationalités\nÂge moyen\nChiffre d'affaires brut\nPwC Suisse et Liechtenstein\nPwC Zurich: Birchstrasse 160, 8050 Zurich\nPwC Aarau: Bleichemattstrasse 43, 5000 Aarau\nPwC Basel: St. Jakobs-Strasse 25, 4052 Bâle\nPwC Berne: Bahnhofplatz 10, 3001 Berne\nPwC Genève: Avenue Giuseppe-Motta 50, 1202 Genève\nPwC Lausanne: Avenue Charles Ferdinand Ramuz 45, 1009 Pully\nPwC Lugano: Piazza Indipendenza 1, 6900 Lugano\nPwC Lucerne: Robert-Zünd-Strasse 2, 6005 Lucerne\nPwC Neuchâtel: Rue des Epancheurs 6, 2000 Neuchâtel\nPwC St. Gallen: Kornhausstrasse 25, 9000 St. Gallen\nPwC Winterthur: Bahnhofplatz 8, 8400 Winterthur\nPwC Zug: Dammstrasse 21, 6300 Zug\nPwC Ruggell, Liechtenstein: Industrie 40, 9491 Ruggell"
       },
@@ -8359,6 +8364,21 @@
         "fr": "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-basel"
       },
       "id": "pwc-14357198dc0e",
+      "salaryMin": 95000,
+      "salaryMax": 151000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 95000,
+          "maxValue": 151000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugsByLocale": {
         "it": [
           "director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel",
@@ -8394,22 +8414,7 @@
         "direttore-in-quality-regulatory-management-advisory-services-pwc-switzerland-zurich",
         "director-in-quality-regulatory-management-advisory-services-pwc-basel-sb18dm",
         "director-in-quality-regulatory-management-advisory-services-pwc-zurich"
-      ],
-      "salaryMin": 113000,
-      "salaryMax": 180000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 180000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-13T22:16:12.621Z"
+      ]
     },
     {
       "title": "Audit Senior Associate / Assistant Manager - Trade, Industries & Services / US GAAP",
@@ -8493,7 +8498,7 @@
       "streetAddress": "Avenue Giuseppe-Motta 50",
       "datePosted": "2026-02-26T14:58:56Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.703Z"
+      "crawledAt": "2026-10-25T21:26:09.240Z"
     },
     {
       "title": "Senior Manager GBS",
@@ -8579,7 +8584,7 @@
       "streetAddress": "",
       "datePosted": "2026-02-26T12:33:44Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.704Z"
+      "crawledAt": "2026-10-25T21:26:09.242Z"
     },
     {
       "title": "Career Start in Audit – Banking – Herbst 2026",
@@ -8694,7 +8699,7 @@
       "needsRetranslation": true,
       "datePosted": "2025-10-21T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.706Z"
+      "crawledAt": "2026-10-25T21:26:09.245Z"
     },
     {
       "title": "Senior Associate / Assistant Manager - Audit Trade, Industries & Services",
@@ -8719,7 +8724,7 @@
       "datePosted": "2025-09-23T22:00:00Z",
       "postedDate": "2025-09-23T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.708Z",
+      "crawledAt": "2026-10-25T21:26:09.248Z",
       "validThrough": "2035-09-21",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -8868,7 +8873,7 @@
       "streetAddress": "",
       "datePosted": "2025-08-11T10:57:53Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.709Z",
+      "crawledAt": "2026-10-25T21:26:09.250Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-risk-consulting-financial-services-technology-pwc-zurich"
@@ -8946,7 +8951,7 @@
       "streetAddress": "",
       "datePosted": "2025-08-07T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.710Z"
+      "crawledAt": "2026-10-25T21:26:09.252Z"
     },
     {
       "title": "Manager / Senior Manager - Cyber Technology and Transformation",
@@ -8971,7 +8976,7 @@
       "datePosted": "2025-08-03T22:00:00Z",
       "postedDate": "2025-08-03T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.712Z",
+      "crawledAt": "2026-10-25T21:26:09.255Z",
       "validThrough": "2035-08-01",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -8983,8 +8988,8 @@
         "fr": "Gestionnaire / Gestionnaire principal - Cybertechnologie et transformation"
       },
       "descriptionByLocale": {
-        "en": "Grow here. Go further.\n\n## Your Team\nAre you ready to contribute to the successful delivery of Cyber Technology & Transformation engagements?\nThis is an exciting opportunity to join our fast growing Cyber Technology and Transformation team. We support our clients along the whole cyber security journey, ranging from technology assessments, identification and implementation of cyber solutions, defining cyber strategy and many more. You benefit from a great team to work with and from our broad engagements enabling you to growth personally and professionally.\nZürich\nPer Agreement\n100%\nAdvisory\nEveryone welcome\nID: 616683WD\n\n## Your Impact\n• Be part of our diverse Cybersecurity team and play a pivotal role in delivering security engagements spanning Exposure Management, Security Architecture, Cloud Security, and many more.\n• Serve as key contact for our clients, taking on the end-to-end management and successful delivery of our engagements.\n• Provide strategic guidance to clients to support them on their cyber journey.\n• Drive the evaluation and implementation of cyber technologies to improve the cybersecurity maturity of our clients.\n• Build and drive your own cyber capability, from business development to contributing to the development of innovative services within our cyber technology and transformation practice.\n• Shape and mentor cross-functional teams to develop and execute long term client relationships and to accelerate a collaborative work environment.\n\n## Your Skill Set\n• Min. 5 years of relevant experience in Cybersecurity and prior consulting experience from either a consultancy firm or an internal corporate consulting function or role.\n• Master's or bachelor's degree or an equivalent professional qualification. Additional certificates such as CISSP, CISM, SSCP are a plus.\n• Knowledge and hands on experience in managing security projects in key domains such as security operations, security architecture, Identity and Access Management (IAM), cloud security etc.\n• Strong verbal and written communication skills to interact effectively with all levels of management and staff.\n• Fluent in English; German or French are a plus.\nYour Benefits\n\n## Hybrid Flexible Working Model\nOur work model enables you to spend part of your time working in the office and part at home (provided this is your preference) – unless you’re at your clients’ premises, which is of course always the priority. This approach allows you to tailor your schedule to your personal working style.\n\n## Learn and Grow\nOur learning and development approach helps you gain valuable skills and knowledge to advance your career, not just at PwC. We offer a variety of internal and external courses for training and upskilling. Identify your strengths and areas for improvement and gain new skills to achieve your professional goals. You’ll build confidence, enhance your job performance, and take your career to the next level.\n\n## Sustainable Performance\nPwC is committed to creating an environment of sustainable performance. We therefore offer a range of resources such as sustainable performance workshops, self-leadership trainings, resilience and mindfulness sessions, nutrition webinars, and yoga courses.\n\n## Vacation and Leave\nFrom maternity, paternity, and adoption leave to vacation and paid leave, we know it’s essential to take time away from work. At PwC, you can enjoy a variety of leave options to recharge, relax, or achieve personal milestones.\n\n## Volunteering\nAre you passionate about doing good and making a difference? That’s great, because so are we at PwC. We encourage you to participate in volunteer work by offering paid time off for volunteering activities. Our Corporate Sustainability programmes help you find purpose and fulfilment while working with us.\n\n## My Benefits Portal\nIntroducing our special offers and discount platform! With this platform, you’ll have access to exclusive deals and discounts on a variety of products and services. Whether you’re looking for the latest fashion trends, the hottest tech products, or the best travel packages, our platform offers something for you.\n\n## About PwC\nGrow here. Go further. At PwC Switzerland, we help clients build trust and reinvent so they can turn complexity into competitive advantage. We're part of a tech-forward, people-empowered network and help clients build, accelerate and sustain momentum across audit, assurance, tax, legal, workforce, deals and consulting.\noffices\nemployees\nwomen\nnationalities\naverage age\nmillion CHF gross revenue\nPwC Switzerland and Liechtenstein\nPwC Zurich: Birchstrasse 160, 8050 Zurich\nPwC Aarau: Bleichemattstrasse 43, 5000 Aarau\nPwC Basel: St. Jakobs-Strasse 25, 4052 Basel\nPwC Bern: Bahnhofplatz 10, 3001 Bern\nPwC Geneva: Avenue Giuseppe-Motta 50, 1202 Geneva\nPwC Lausanne: Avenue Charles Ferdinand Ramuz 45, 1009 Pully\nPwC Lugano: Piazza Indipendenza 1, 6900 Lugano\nPwC Lucerne: Robert-Zünd-Strasse 2, 6005 Lucerne\nPwC Neuchâtel: Rue des Epancheurs 6, 2000 Neuchâtel\nPwC St. Gallen: Kornhausstrasse 25, 9000 St. Gallen\nPwC Winterthur: Bahnhofplatz 8, 8400 Winterthur\nPwC Zug: Dammstrasse 21, 6300 Zug\nPwC Ruggell, Liechtenstein: Industriering 40, 9491 Ruggell",
         "it": "Sei pronto a contribuire alla consegna di successo degli impegni di Cyber Technology & Transformation?\nQuesta è un'opportunità emozionante per unire il nostro team di Cyber Technology e Transformation in rapida crescita. Sosteniamo i nostri clienti lungo tutto il percorso di sicurezza informatica, che vanno da valutazioni tecnologiche, identificazione e implementazione di soluzioni informatiche, definendo la strategia informatica e molti altri. Si beneficia di un grande team di lavorare con e dai nostri ampi impegni che ti permettono di crescere personalmente e professionalmente.\n\n• Partecipa al nostro team di Cybersecurity e gioca un ruolo fondamentale nella fornitura di impegni di sicurezza che coinvolgono Exposure Management, Security Architecture, Cloud Security e molti altri.\n\n• Servire come contatto chiave per i nostri clienti, assumendo la gestione end-to-end e la consegna di successo dei nostri impegni.\n\n• Fornire una guida strategica ai clienti per supportarli nel loro percorso informatico.\n\n• Guidare la valutazione e l'implementazione delle tecnologie informatiche per migliorare la maturità della sicurezza informatica dei nostri clienti.\n\n• Costruire e guidare la propria capacità informatica, dallo sviluppo aziendale per contribuire allo sviluppo di servizi innovativi all'interno della nostra tecnologia informatica e la pratica di trasformazione.\n\n• Forma e mentore team interfunzionali per sviluppare ed eseguire relazioni client a lungo termine e per accelerare un ambiente di lavoro collaborativo.\n\n• Min. 5 anni di esperienza rilevante in Cybersecurity e esperienza di consulenza preventiva da una società di consulenza o una funzione di consulenza aziendale interna o ruolo.\n\n• Master o laurea o una qualifica professionale equivalente. Ulteriori certificati come CISSP, CISM, SSCP sono un plus.\n\n• Conoscenza e mani sull'esperienza nella gestione dei progetti di sicurezza in settori chiave come operazioni di sicurezza, architettura di sicurezza, identità e gestione dell'accesso (IAM), sicurezza cloud ecc.\n\n• Forte capacità di comunicazione verbale e scritta per interagire efficacemente con tutti i livelli di gestione e personale.\n\n• Fluente in inglese; tedesco o francese sono un plus.",
+        "en": "Grow here. Go further.\n\n## Your Team\nAre you ready to contribute to the successful delivery of Cyber Technology & Transformation engagements?\nThis is an exciting opportunity to join our fast growing Cyber Technology and Transformation team. We support our clients along the whole cyber security journey, ranging from technology assessments, identification and implementation of cyber solutions, defining cyber strategy and many more. You benefit from a great team to work with and from our broad engagements enabling you to growth personally and professionally.\nZürich\nPer Agreement\n100%\nAdvisory\nEveryone welcome\nID: 616683WD\n\n## Your Impact\n• Be part of our diverse Cybersecurity team and play a pivotal role in delivering security engagements spanning Exposure Management, Security Architecture, Cloud Security, and many more.\n• Serve as key contact for our clients, taking on the end-to-end management and successful delivery of our engagements.\n• Provide strategic guidance to clients to support them on their cyber journey.\n• Drive the evaluation and implementation of cyber technologies to improve the cybersecurity maturity of our clients.\n• Build and drive your own cyber capability, from business development to contributing to the development of innovative services within our cyber technology and transformation practice.\n• Shape and mentor cross-functional teams to develop and execute long term client relationships and to accelerate a collaborative work environment.\n\n## Your Skill Set\n• Min. 5 years of relevant experience in Cybersecurity and prior consulting experience from either a consultancy firm or an internal corporate consulting function or role.\n• Master's or bachelor's degree or an equivalent professional qualification. Additional certificates such as CISSP, CISM, SSCP are a plus.\n• Knowledge and hands on experience in managing security projects in key domains such as security operations, security architecture, Identity and Access Management (IAM), cloud security etc.\n• Strong verbal and written communication skills to interact effectively with all levels of management and staff.\n• Fluent in English; German or French are a plus.\nYour Benefits\n\n## Hybrid Flexible Working Model\nOur work model enables you to spend part of your time working in the office and part at home (provided this is your preference) – unless you’re at your clients’ premises, which is of course always the priority. This approach allows you to tailor your schedule to your personal working style.\n\n## Learn and Grow\nOur learning and development approach helps you gain valuable skills and knowledge to advance your career, not just at PwC. We offer a variety of internal and external courses for training and upskilling. Identify your strengths and areas for improvement and gain new skills to achieve your professional goals. You’ll build confidence, enhance your job performance, and take your career to the next level.\n\n## Sustainable Performance\nPwC is committed to creating an environment of sustainable performance. We therefore offer a range of resources such as sustainable performance workshops, self-leadership trainings, resilience and mindfulness sessions, nutrition webinars, and yoga courses.\n\n## Vacation and Leave\nFrom maternity, paternity, and adoption leave to vacation and paid leave, we know it’s essential to take time away from work. At PwC, you can enjoy a variety of leave options to recharge, relax, or achieve personal milestones.\n\n## Volunteering\nAre you passionate about doing good and making a difference? That’s great, because so are we at PwC. We encourage you to participate in volunteer work by offering paid time off for volunteering activities. Our Corporate Sustainability programmes help you find purpose and fulfilment while working with us.\n\n## My Benefits Portal\nIntroducing our special offers and discount platform! With this platform, you’ll have access to exclusive deals and discounts on a variety of products and services. Whether you’re looking for the latest fashion trends, the hottest tech products, or the best travel packages, our platform offers something for you.\n\n## About PwC\nGrow here. Go further. At PwC Switzerland, we help clients build trust and reinvent so they can turn complexity into competitive advantage. We're part of a tech-forward, people-empowered network and help clients build, accelerate and sustain momentum across audit, assurance, tax, legal, workforce, deals and consulting.\noffices\nemployees\nwomen\nnationalities\naverage age\nmillion CHF gross revenue\nPwC Switzerland and Liechtenstein\nPwC Zurich: Birchstrasse 160, 8050 Zurich\nPwC Aarau: Bleichemattstrasse 43, 5000 Aarau\nPwC Basel: St. Jakobs-Strasse 25, 4052 Basel\nPwC Bern: Bahnhofplatz 10, 3001 Bern\nPwC Geneva: Avenue Giuseppe-Motta 50, 1202 Geneva\nPwC Lausanne: Avenue Charles Ferdinand Ramuz 45, 1009 Pully\nPwC Lugano: Piazza Indipendenza 1, 6900 Lugano\nPwC Lucerne: Robert-Zünd-Strasse 2, 6005 Lucerne\nPwC Neuchâtel: Rue des Epancheurs 6, 2000 Neuchâtel\nPwC St. Gallen: Kornhausstrasse 25, 9000 St. Gallen\nPwC Winterthur: Bahnhofplatz 8, 8400 Winterthur\nPwC Zug: Dammstrasse 21, 6300 Zug\nPwC Ruggell, Liechtenstein: Industriering 40, 9491 Ruggell",
         "de": "Sind Sie bereit, zur erfolgreichen Umsetzung von Cyber Technology & Transformation-Engagements beizutragen?\nDies ist eine aufregende Gelegenheit, unserem schnell wachsenden Cyber Technology and Transformation Team beizutreten. Wir unterstützen unsere Kunden während der gesamten Cyber-Security-Reise, von Technologiebewertungen über die Identifizierung und Implementierung von Cyber-Lösungen bis hin zur Definition von Cyber-Strategien und vielem mehr. Sie profitieren von einem großartigen Team, mit dem Sie arbeiten können, und von unseren breiten Engagements, die es Ihnen ermöglichen, persönlich und professionell zu wachsen.\n\n• Werden Sie Teil unseres vielfältigen Cybersecurity-Teams und spielen Sie eine zentrale Rolle bei der Bereitstellung von Security-Engagements wie Exposure Management, Security Architecture, Cloud Security und vielen mehr.\n\n• Als wichtiger Ansprechpartner für unsere Kunden übernehmen wir das End-to-End-Management und die erfolgreiche Erfüllung unserer Verpflichtungen.\n\n• Bieten Sie den Kunden strategische Unterstützung, um sie auf ihrer Cyber-Reise zu unterstützen.\n\n• Betreiben Sie die Evaluierung und Implementierung von Cyber-Technologien, um die Cybersicherheitsreife unserer Kunden zu verbessern.\n\n• Bauen Sie Ihre eigenen Cyber-Fähigkeiten auf und fördern Sie sie, von der Geschäftsentwicklung bis hin zur Entwicklung innovativer Dienstleistungen innerhalb unserer Cyber-Technologie und Transformationspraxis.\n\n• Form und Mentor funktionsübergreifende Teams, um langfristige Kundenbeziehungen zu entwickeln und auszuführen und eine kollaborative Arbeitsumgebung zu beschleunigen.\n\n• Mindestens 5 Jahre einschlägige Erfahrung in der Cybersicherheit und vorherige Beratungserfahrung von einer Beratungsfirma oder einer internen Unternehmensberatungsfunktion oder -rolle.\n\n• Master- oder Bachelor-Abschluss oder eine gleichwertige berufliche Qualifikation. Zusätzliche Zertifikate wie CISSP, CISM, SSCP sind ein Plus.\n\n• Wissen und praktische Erfahrung im Management von Sicherheitsprojekten in Schlüsselbereichen wie Security Operations, Security Architecture, Identity and Access Management (IAM), Cloud Security usw.\n\n• Starke verbale und schriftliche Kommunikationsfähigkeiten, um effektiv mit allen Ebenen des Managements und der Mitarbeiter zu interagieren.\n\n• Fließend in Englisch; Deutsch oder Französisch sind ein Plus.",
         "fr": "Êtes-vous prêt à contribuer à la prestation réussie des engagements en matière de cybertechnologie et de transformation?\nC'est une occasion passionnante de rejoindre notre équipe de cybertechnologie et de transformation en pleine croissance. Nous soutenons nos clients tout au long du parcours de cybersécurité, allant des évaluations technologiques, de l'identification et de la mise en œuvre de solutions cybernétiques, de la définition de la cyber stratégie et bien d'autres encore. Vous bénéficiez d'une excellente équipe pour travailler avec et de nos engagements larges vous permettant de vous développer personnellement et professionnellement.\n\n• Faites partie de notre équipe de cybersécurité diversifiée et jouez un rôle central dans la prestation d'engagements de sécurité couvrant la gestion de l'exposition, l'architecture de sécurité, la sécurité Cloud et bien d'autres.\n\n• Servir de contact clé pour nos clients, assumer la gestion de bout en bout et la prestation réussie de nos engagements.\n\n• Fournir des conseils stratégiques aux clients pour les aider dans leur cyberaventure.\n\n• Diriger l'évaluation et la mise en œuvre de cybertechnologies pour améliorer la maturité de cybersécurité de nos clients.\n\n• Créer et piloter votre propre cybercapacité, du développement des entreprises au développement de services innovants au sein de notre cybertechnologie et de notre pratique de transformation.\n\n• Former et encadrer des équipes interfonctionnelles pour développer et exécuter des relations client à long terme et accélérer un environnement de travail collaboratif.\n\n• Minimum 5 ans d'expérience pertinente en cybersécurité et expérience de conseil préalable d'une société de conseil ou d'une fonction ou d'un rôle interne de conseil d'entreprise.\n\n• Maîtrise ou baccalauréat ou qualification professionnelle équivalente. Les certificats supplémentaires tels que CISSP, CISM, SSCP sont un plus.\n\n• Connaissance et expérience dans la gestion de projets de sécurité dans des domaines clés tels que les opérations de sécurité, l'architecture de sécurité, la gestion de l'identité et de l'accès (IAM), la sécurité du cloud, etc.\n\n• Forte capacité de communication verbale et écrite pour interagir efficacement avec tous les niveaux de la direction et du personnel.\n\n• Le français ou l'allemand sont un plus."
       },
@@ -8995,10 +9000,8 @@
         "fr": "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve"
       },
       "id": "pwc-82014fee6d7e",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
           "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
           "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich",
           "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-zurich",
@@ -9013,19 +9016,20 @@
           "manager-senior-manager-tecnologia-cibernetica-e-trasformazione-pwc-switzerland-zurich",
           "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-geneve-7nmxpj",
           "manager-senior-manager-cyber-technologie-und-transformation-pwc-switzerland-geneve",
-          "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve"
+          "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve",
+          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve"
         ],
         "de": [
-          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
           "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
           "manager-senior-manager-cybertechnologie-und-transformation-pwc-switzerland-geneve",
-          "manager-senior-manager-cyber-technologie-und-transformation-pwc-switzerland-zurich"
+          "manager-senior-manager-cyber-technologie-und-transformation-pwc-switzerland-zurich",
+          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve"
         ],
         "fr": [
-          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
           "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
           "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich",
-          "manager-senior-manager-cybertechnologie-et-transformation-pwc-switzerland-geneve"
+          "manager-senior-manager-cybertechnologie-et-transformation-pwc-switzerland-geneve",
+          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve"
         ],
         "en": [
           "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
@@ -9034,7 +9038,6 @@
         ]
       },
       "previousSlugs": [
-        "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
         "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
         "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich",
         "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-zurich",
@@ -9049,7 +9052,8 @@
         "manager-senior-manager-tecnologia-cibernetica-e-trasformazione-pwc-switzerland-zurich",
         "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-geneve-7nmxpj",
         "manager-senior-manager-cyber-technologie-und-transformation-pwc-switzerland-geneve",
-        "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve"
+        "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve",
+        "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve"
       ],
       "salaryMin": 92500,
       "salaryMax": 147500,
@@ -9065,7 +9069,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T22:16:12.621Z"
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Manager - Cyber Cloud Security",
@@ -9128,7 +9133,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2025-05-13T10:21:13Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.713Z",
+      "crawledAt": "2026-10-25T21:26:09.257Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-cyber-cloud-security-pwc-zurich"
@@ -9215,7 +9220,7 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2025-05-02T10:27:31Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-25T09:26:28.715Z",
+      "crawledAt": "2026-10-25T21:26:09.260Z",
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-steuerberatung-6-monate-pwc-zurich"

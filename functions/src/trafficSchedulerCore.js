@@ -41,6 +41,13 @@ const GOOGLE_DISTANCE_MATRIX_URL = 'https://maps.googleapis.com/maps/api/distanc
 const TOMTOM_CALCULATE_ROUTE_URL = 'https://api.tomtom.com/routing/1/calculateRoute';
 const HERE_ROUTER_URL = 'https://router.hereapi.com/v8/routes';
 const TT_FLOW_URL = 'https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0';
+const TRAFFIC_PROVIDER_TIMEOUT_MS = (() => {
+ const raw = process.env.TRAFFIC_PROVIDER_TIMEOUT_MS;
+ if (raw === undefined || raw === null || String(raw).trim() === '') return 15_000;
+ const value = Number(raw);
+ if (!Number.isFinite(value) || value <= 0) return 15_000;
+ return Math.min(Math.floor(value), 120_000);
+})();
 const MAX_FLOW_DELAY_MIN = 45;
 // HERE "Time Aware Routing" has a paid meter after its free allowance. The
 // per-request guard in trafficProviderMesh.js now reserves each transaction
@@ -158,7 +165,7 @@ export async function getGoogleDistanceMatrix(originLat, originLng, destLat, des
  `&traffic_model=best_guess` +
  `&key=${encodeURIComponent(apiKey)}`;
 
- const response = await fetch(url);
+ const response = await fetch(url, { signal: AbortSignal.timeout(TRAFFIC_PROVIDER_TIMEOUT_MS) });
  if (!response.ok) {
  throw new Error(`Distance Matrix HTTP ${response.status}`);
  }
@@ -204,7 +211,7 @@ export async function getTomTomRouteTravelTimes(originLat, originLng, destLat, d
  });
 
  const url = `${TOMTOM_CALCULATE_ROUTE_URL}/${routePlanningLocations}/json?${params.toString()}`;
- const response = await fetch(url);
+ const response = await fetch(url, { signal: AbortSignal.timeout(TRAFFIC_PROVIDER_TIMEOUT_MS) });
  if (!response.ok) {
  let errorBody = '';
  try { errorBody = await response.text(); } catch { /* ignore */ }
@@ -250,7 +257,9 @@ export async function getHereMapsRouteTravelTimes(originLat, originLng, destLat,
  return: 'summary',
  departureTime: new Date().toISOString(),
  });
- const res = await fetch(`${HERE_ROUTER_URL}?${params}`);
+ const res = await fetch(`${HERE_ROUTER_URL}?${params}`, {
+ signal: AbortSignal.timeout(TRAFFIC_PROVIDER_TIMEOUT_MS),
+ });
  if (!res.ok) {
  const body = await res.text().catch(() => '');
  throw new Error(`HERE HTTP ${res.status}: ${body.slice(0, 200)}`);
@@ -278,7 +287,7 @@ export async function getHereMapsRouteTravelTimes(originLat, originLng, destLat,
 export async function getTomTomFlowSegmentData(lat, lng, apiKey, options = {}) {
  await reserveRequestIfNeeded(options, 'tomtom', 'flow');
  const url = `${TT_FLOW_URL}/16/json?key=${apiKey}&point=${lat},${lng}&unit=KMPH`;
- const res = await fetch(url);
+ const res = await fetch(url, { signal: AbortSignal.timeout(TRAFFIC_PROVIDER_TIMEOUT_MS) });
  if (!res.ok) throw new Error(`TomTom Flow HTTP ${res.status}`);
  const d = await res.json();
  const seg = d?.flowSegmentData;
