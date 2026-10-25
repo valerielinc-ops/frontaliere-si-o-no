@@ -23366,3 +23366,4 @@
 {"eventType":"phase_started","at":"2026-10-25T11:24:13.188Z","runId":"40176848518","runAttempt":1,"phase":"promote","eventId":"dc2e7087b9b3b357b755c03e"}
 {"eventType":"candidate_transition","key":"globalsana.ch","from":"promoting","to":"awaiting_first_crawl","at":"2026-10-25T11:24:15.535Z","runId":"40176848518","runAttempt":1,"phase":"promote","eventId":"c8c40d2ce146b093a5928d37"}
 {"eventType":"candidate_transition","key":"globalsana.ch","from":"awaiting_first_crawl","to":"production","at":"2026-10-25T11:24:15.568Z","runId":"40176848518","runAttempt":1,"phase":"promote","eventId":"429bdc2de2c5bdc2b17cd093"}
+{"eventType":"candidate_transition","key":"alfa-personal.ch","from":"promoted","to":"promoting","at":"2026-10-25T11:24:44.589Z","runId":"40176848518","runAttempt":1,"phase":"promote","eventId":"b73e7c3ce53e1a814ff5fa14"}
