@@ -226,9 +226,16 @@ const BROWSER_HEADERS = {
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
     + '(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
 };
+// Keep a single source read below the workflow's 20-second probe watchdog,
+// including a response that never finishes its body.
+const FETCH_TIMEOUT_MS = 15_000;
 
 async function getText(url, headers) {
-  const res = await fetch(url, { headers, redirect: 'follow' });
+  const res = await fetch(url, {
+    headers,
+    redirect: 'follow',
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
   return {
     body: await res.text(),
