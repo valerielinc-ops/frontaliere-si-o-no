@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-24T23:11:28.364Z",
+  "generatedAt": "2026-10-25T00:21:27.655Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -122688,6 +122688,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T07:26:33.839Z"
     },
+    "myswitzerland:aae9acbb573a4e61b3f1c755dd939b70::75ca7dc89ed00885d4d0e8e02855f4b38d76e6dd2cd4ab312f0a28cdf7129ce8": {
+      "id": "myswitzerland:aae9acbb573a4e61b3f1c755dd939b70",
+      "sourceDescriptionHash": "75ca7dc89ed00885d4d0e8e02855f4b38d76e6dd2cd4ab312f0a28cdf7129ce8",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Sport- und Kongresszentrum Arosa; comune: Arosa; cantone: GR; categoria: Sports; data: 2026-12-02; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Sport- und Kongresszentrum Arosa; comune: Arosa; cantone: GR; categoria: Sports; data: 2026-12-02; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Sport- und Kongresszentrum Arosa; municipality: Arosa; canton: GR; category: Sports; date: 2026-12-02; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Sport- und Kongresszentrum Arosa; gemeinde: Arosa; kanton: GR; kategorie: Sports; datum: 2026-12-02; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Sport- und Kongresszentrum Arosa; commune: Arosa; canton: GR; catégorie: Sports; date: 2026-12-02; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-25T00:16:59.474Z"
+    },
     "myswitzerland:aaec319571b04048a6091284ad2d584c::c56d59561aad93094d25cf6ed234498a56a028cf7a8643bb2b421eb0e2077031": {
       "id": "myswitzerland:aaec319571b04048a6091284ad2d584c",
       "sourceDescriptionHash": "c56d59561aad93094d25cf6ed234498a56a028cf7a8643bb2b421eb0e2077031",
@@ -140621,6 +140635,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-18T00:15:31.262Z"
+    },
+    "myswitzerland:cfe2731ea8154557ab568e83ab6bbf2f::7d23b482fc432073d72fcd658a1eb784e64a3053e051df5190dce0baeeb887da": {
+      "id": "myswitzerland:cfe2731ea8154557ab568e83ab6bbf2f",
+      "sourceDescriptionHash": "7d23b482fc432073d72fcd658a1eb784e64a3053e051df5190dce0baeeb887da",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Naturhistorisches Museum Bern; comune: Bern; cantone: BE; categoria: Event; data: 2026-12-02; ora: 18:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Naturhistorisches Museum Bern; comune: Bern; cantone: BE; categoria: Event; data: 2026-12-02; ora: 18:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Naturhistorisches Museum Bern; municipality: Bern; canton: BE; category: Event; date: 2026-12-02; time: 18:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Naturhistorisches Museum Bern; gemeinde: Bern; kanton: BE; kategorie: Event; datum: 2026-12-02; uhrzeit: 18:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Naturhistorisches Museum Bern; commune: Bern; canton: BE; catégorie: Event; date: 2026-12-02; heure: 18:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-25T00:16:59.486Z"
     },
     "myswitzerland:cfe38c0a3f3045f68ae18764dc3deb3e::fa408642494323518c2d5eddcc1852e6145a31641f86c9e36f3954d058379443": {
       "id": "myswitzerland:cfe38c0a3f3045f68ae18764dc3deb3e",
@@ -175092,15 +175120,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:aae9acbb573a4e61b3f1c755dd939b70::75ca7dc89ed00885d4d0e8e02855f4b38d76e6dd2cd4ab312f0a28cdf7129ce8": {
-      "id": "myswitzerland:aae9acbb573a4e61b3f1c755dd939b70",
-      "sourceDescriptionHash": "75ca7dc89ed00885d4d0e8e02855f4b38d76e6dd2cd4ab312f0a28cdf7129ce8",
-      "code": "sentence-count",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-14T21:35:26.400Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:ab02be6940db47648d4018505739e044::83a8d7899ed1e0b7e8ee82ec79ed0d8296527e89b19f1b6643d232791137c532": {
       "id": "myswitzerland:ab02be6940db47648d4018505739e044",
       "sourceDescriptionHash": "83a8d7899ed1e0b7e8ee82ec79ed0d8296527e89b19f1b6643d232791137c532",
@@ -175899,15 +175918,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T05:19:24.853Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:cfe2731ea8154557ab568e83ab6bbf2f::7d23b482fc432073d72fcd658a1eb784e64a3053e051df5190dce0baeeb887da": {
-      "id": "myswitzerland:cfe2731ea8154557ab568e83ab6bbf2f",
-      "sourceDescriptionHash": "7d23b482fc432073d72fcd658a1eb784e64a3053e051df5190dce0baeeb887da",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-14T21:34:02.870Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
