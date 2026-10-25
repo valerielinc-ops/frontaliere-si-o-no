@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-25T11:23:15.481Z",
+  "updatedAt": "2026-10-25T11:24:15.633Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -503438,13 +503438,13 @@
     },
     "globalsana.ch": {
       "key": "globalsana.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm",
         "web"
       ],
       "firstSeenAt": "2026-08-26T04:14:11.690Z",
-      "updatedAt": "2026-10-24T11:15:27.069Z",
+      "updatedAt": "2026-10-25T11:24:15.568Z",
       "name": "Global Sana",
       "domain": "globalsana.ch",
       "city": "Olten",
@@ -503662,7 +503662,13 @@
         }
       ],
       "promotionPr": "15055",
-      "promotionBranch": "prospector/promote-2026-10-24"
+      "promotionBranch": "prospector/promote-2026-10-24",
+      "promotedAt": "2026-10-24T13:29:11Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-25T09:29:47.888Z",
+      "firstCrawlerJobCount": 1
     },
     "globalsecuritygroup.ch": {
       "key": "globalsecuritygroup.ch",

@@ -23363,3 +23363,6 @@
 {"eventType":"candidate_attempt","key":"stellenpartner.ch","status":"validated","outcome":"weak","at":"2026-10-25T11:21:39.322Z","runId":"40176848518","runAttempt":1,"phase":"validate","eventId":"8d57dcd18f6eafbc002c126d"}
 {"eventType":"candidate_attempt","key":"sta.jobs","status":"validated","outcome":"weak","at":"2026-10-25T11:23:15.360Z","runId":"40176848518","runAttempt":1,"phase":"validate","eventId":"96d7cf3b07eca4f97beda676"}
 {"eventType":"phase_finished","at":"2026-10-25T11:23:15.833Z","outcome":"complete","durationMs":905755,"inputCount":63,"successCount":26,"retryCount":37,"runId":"40176848518","runAttempt":1,"phase":"validate","eventId":"7f4b62260610b86b4a043a6c"}
+{"eventType":"phase_started","at":"2026-10-25T11:24:13.188Z","runId":"40176848518","runAttempt":1,"phase":"promote","eventId":"dc2e7087b9b3b357b755c03e"}
+{"eventType":"candidate_transition","key":"globalsana.ch","from":"promoting","to":"awaiting_first_crawl","at":"2026-10-25T11:24:15.535Z","runId":"40176848518","runAttempt":1,"phase":"promote","eventId":"c8c40d2ce146b093a5928d37"}
+{"eventType":"candidate_transition","key":"globalsana.ch","from":"awaiting_first_crawl","to":"production","at":"2026-10-25T11:24:15.568Z","runId":"40176848518","runAttempt":1,"phase":"promote","eventId":"429bdc2de2c5bdc2b17cd093"}
