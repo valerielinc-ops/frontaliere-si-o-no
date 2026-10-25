@@ -60,7 +60,7 @@ function setLastSeenUnlockTs(ts: number): void {
 
 // ─── Gamification Widget — Navbar notification button ───────────────────────
 
-const GamificationWidget: React.FC = () => {
+const GamificationWidget: React.FC<{ showPopups: boolean }> = ({ showPopups }) => {
  const { t } = useTranslation();
  const nav = useNavigationOptional();
  const [state, setState] = useState<GamificationState>(loadState);
@@ -72,7 +72,12 @@ const GamificationWidget: React.FC = () => {
 
  // Sync with popup queue — only show toast when it's our turn
  useEffect(() => {
- if (!toast) return;
+ if (!showPopups || !toast) {
+ setToast(null);
+ setToastVisible(false);
+ releaseSlot('achievement-toast');
+ return;
+ }
  requestSlot('achievement-toast', POPUP_PRIORITY.ACHIEVEMENT_TOAST);
  setToastVisible(isActive('achievement-toast'));
  const unsub = subscribe(() => setToastVisible(isActive('achievement-toast')));
@@ -80,8 +85,8 @@ const GamificationWidget: React.FC = () => {
  setToast(null);
  releaseSlot('achievement-toast');
  }, 3500);
- return () => { unsub(); clearTimeout(autoHide); };
- }, [toast]);
+ return () => { unsub(); clearTimeout(autoHide); releaseSlot('achievement-toast'); };
+ }, [showPopups, toast]);
 
  useEffect(() => {
  window.dispatchEvent(new CustomEvent(GAMIFICATION_TOAST_VISIBILITY_EVENT, { detail: { visible: toastVisible } }));
@@ -97,7 +102,7 @@ const GamificationWidget: React.FC = () => {
  if (newState.unlockedAchievements[id] && !state.unlockedAchievements[id]) {
  const achievement = ACHIEVEMENTS.find(a => a.id === id);
  if (achievement) {
- setToast(id);
+ if (showPopups) setToast(id);
  Analytics.trackUIInteraction('gamification', 'achievement', id, 'unlocked');
  }
  }
@@ -105,7 +110,7 @@ const GamificationWidget: React.FC = () => {
  };
  const unsubscribe = subscribeAchievements(handleUnlock);
  return unsubscribe;
- }, [state.unlockedAchievements]);
+ }, [showPopups, state.unlockedAchievements]);
 
  // Daily streak
  useEffect(() => {
