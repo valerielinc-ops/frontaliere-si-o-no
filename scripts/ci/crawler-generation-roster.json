@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 652,
+  "crawlerCount": 653,
   "groups": {
     "10": [
       "atec-personal",
@@ -102,6 +102,7 @@
       "1a-hunkeler",
       "abraxas",
       "afry",
+      "alfa-personal-ch",
       "answerconsulting",
       "banca-sempione",
       "buehler",
@@ -723,6 +724,7 @@
     "albergo-gardenia": "data/jobs/by-crawler/albergo-gardenia.json",
     "alcon": "data/jobs/by-crawler/alcon.json",
     "aldi-suisse": "data/jobs/by-crawler/aldi-suisse.json",
+    "alfa-personal-ch": "data/jobs/by-crawler/alfa-personal-ch.json",
     "alpiq": "data/jobs/by-crawler/alpiq.json",
     "alten-switzerland": "data/jobs/by-crawler/alten-switzerland.json",
     "amag-group": "data/jobs/by-crawler/amag-group.json",
@@ -1358,5 +1360,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:71f4ec3385fedc40fc796f55c027beeee3562d7da6de789621683aacc54c856e"
+  "digest": "sha256:fbb285d0cdd3795a444b9a6cb877668ec258d220f4267246ff08671197f48e7f"
 }
