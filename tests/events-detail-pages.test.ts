@@ -2031,6 +2031,13 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(html).not.toContain('http-equiv="refresh"');
   });
 
+  it('does not emit meta-refresh in any localized event bridge', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const html = renderEventSlugRedirectPage(locale, '/eventi/ticino/lugano/nuovo-slug/');
+      expect(html, locale).not.toContain('http-equiv="refresh"');
+    }
+  });
+
   it('renders all four verified Lüsslingen source-migration bridges to the refreshed owner', () => {
     const seed = JSON.parse(readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8'));
     const prior = seed.events.find((event: { id: string }) => event.id === 'guidle:An77Y4G');
