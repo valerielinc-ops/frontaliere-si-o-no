@@ -164,7 +164,7 @@ function canonicalCscNcoreDetailUrl(value) {
     return null;
   }
   if (
-    url.protocol !== 'https:'
+    !['http:', 'https:'].includes(url.protocol)
     || url.hostname.toLowerCase() !== CSC_NCORE_HOST
     || url.port
     || url.username
@@ -180,6 +180,10 @@ function canonicalCscNcoreDetailUrl(value) {
     return null;
   }
   if (!/^\/jobposition\/[1-9]\d*\/[^/]+\/csc-costruzioni-sa\/?$/i.test(pathname)) return null;
+  // The live isotope payload currently emits absolute HTTP URLs. The source
+  // is still trusted only after the exact NCore host/route checks above; keep
+  // the crawler's canonical output HTTPS for detail fetching and snapshots.
+  url.protocol = 'https:';
   url.pathname = pathname.replace(/\/+$/, '');
   return url.href;
 }
@@ -308,7 +312,15 @@ export function parseCscCareersPage(html) {
  * tenant route, so unrelated NCore positions cannot enter the CSC slice.
  */
 export function parseCscNcoreBoardPage(html) {
-  const listings = parseNcoreListingPage(String(html || ''));
+  // NCore's current filter board stores positions in the server-rendered
+  // `data-isotopedata` payload and emits `http://app.ncoreplat.com/...` URLs.
+  // Normalize only this exact trusted tenant before handing the markup to the
+  // shared parser; unrelated HTTP URLs must remain rejected by its contract.
+  const source = String(html || '').replace(
+    /http:(?:\/|\\\/)(?:\/|\\\/)app\.ncoreplat\.com\b/gi,
+    'https://app.ncoreplat.com',
+  );
+  const listings = parseNcoreListingPage(source);
   const urls = [];
   const seen = new Set();
   for (const listing of listings) {
