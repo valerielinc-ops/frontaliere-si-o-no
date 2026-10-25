@@ -8,7 +8,8 @@ const JOB_BOARD_SOURCE = readFileSync(resolve(__dirname, '../components/communit
 describe('job viewers activity prompt contract', () => {
   it('shows promptly, then bounds the synthetic viewer count', () => {
     expect(SOURCE).toMatch(/DISPLAY_DELAY_MS\s*=\s*1_500/u);
-    expect(SOURCE).toMatch(/AUTO_DISMISS_MS\s*=\s*3_500/u);
+    expect(SOURCE).toMatch(/AUTO_DISMISS_MS\s*=\s*8_000/u);
+    expect(SOURCE).not.toMatch(/SESSION_SEEN_KEY|runtimePromptShown/u);
     expect(SOURCE).toMatch(/viewerPromptVisibleAt/u);
     expect(SOURCE).toMatch(/viewerPromptJobId/u);
     expect(SOURCE).toMatch(/scheduleFallback/u);
