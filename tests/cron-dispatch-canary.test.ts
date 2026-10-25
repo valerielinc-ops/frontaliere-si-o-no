@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import {
   parseSlot,
   computeNominalInstant,
@@ -15,6 +17,8 @@ import {
   extractFixedHourCrons,
   renderHistoryReport,
 } from '../scripts/ci/audit-cron-dispatch-delay.mjs';
+
+const auditSource = readFileSync(resolve(import.meta.dirname, '../scripts/ci/audit-cron-dispatch-delay.mjs'), 'utf8');
 
 // #3798 Fase 1 follow-up. The canary exists because the 2026-08-05 audit could
 // not measure the 23:00 UTC slot (no workflow is scheduled there). Its whole
@@ -245,6 +249,18 @@ describe('quantile / extractFixedHourCrons', () => {
       { minute: 33, hour: 0 },
       { minute: 20, hour: 2 },
     ]);
+  });
+});
+
+describe('--scan GitHub API request', () => {
+  it('keeps the workflow-runs read bounded', () => {
+    const ghJson = auditSource.slice(
+      auditSource.indexOf('async function ghJson('),
+      auditSource.indexOf('\n/** Extract fixed-hour daily crons'),
+    );
+
+    expect(auditSource).toContain('const GITHUB_API_TIMEOUT_MS = 30_000;');
+    expect(ghJson).toContain('signal: AbortSignal.timeout(GITHUB_API_TIMEOUT_MS)');
   });
 });
 
