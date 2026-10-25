@@ -8615,6 +8615,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.telecom-358-licenziamenti.title': '358 confirmed redundancies: first hypothesis 450 jobs',
     'blog.article.telecom-358-licenziamenti.excerpt': 'Sunrise announces 358 redundancies The first hypothesis indicated 450 jobs Consultation with Syndicom has ended Social plan and voluntary exit for some',
     'blog.article.telecom-358-licenziamenti.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.assemblea-pvl-avs-finanziamento.title': 'PVL reluctantly recommends a yes to AVS financing',
+    'blog.article.assemblea-pvl-avs-finanziamento.excerpt': 'PVL recommends a yes vote on supplementary AVS funding Yes also to the fireworks initiative No to the proposal on marriage discrimination',
+    'blog.article.assemblea-pvl-avs-finanziamento.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.zenith-rischio-posti-svizzera.title': 'Zenith: around 100 jobs at risk in Le Locle and another 100 abroad',
+    'blog.article.zenith-rischio-posti-svizzera.excerpt': 'Around 100 jobs at risk in Le Locle Another 100 jobs could be cut abroad Zenith consults staff over possible layoffs',
+    'blog.article.zenith-rischio-posti-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.epfl-eth-top-20-europee.title': 'EPFL and ETH among Europe’s top 20 universities for patents filed',
+    'blog.article.epfl-eth-top-20-europee.excerpt': 'EPFL: 107 filings in Europe last year ETH Zurich: 101 filings and 16th place in Europe Switzerland fourth in Europe for 463 spin-offs 57,5% of spin-offs',
+    'blog.article.epfl-eth-top-20-europee.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.referendum-legge-collettivo-lavoro.title': 'Referendum on the law requiring a collective labor agreement',
+    'blog.article.referendum-legge-collettivo-lavoro.excerpt': 'October 23, 2026: referendum formally successful 66 006 valid signatures out of 66 574 submitted The cantonal referendum was not validated For validation',
+    'blog.article.referendum-legge-collettivo-lavoro.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

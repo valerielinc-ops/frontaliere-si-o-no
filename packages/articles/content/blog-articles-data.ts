@@ -65,8 +65,6 @@ export interface Article {
  authorSlug?: string;
  /** A2 — full display name for the byline. Mirrors `data/authors.ts`. */
  authorName?: string;
- /** Optional per-article editorial provenance consumed by runtime overlays; omitted legacy entries use the author default. */
- aiAssisted?: boolean;
 }
 
 const RAW_ARTICLES_CHUNK_01: Article[] = [
@@ -45857,6 +45855,27 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  articleType: 'news',
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'disparita-stipendi-frontalieri',
+ category: 'fiscale',
+ date: '2026-10-24T21:09:51.910Z',
+ image: '/images/blog/article-frontalieri-ticino-indagine-salari-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'frontaliere-ora-mezza-viaggio',
+ category: 'pratico',
+ date: '2026-10-25T01:38:53.028Z',
+ image: '/images/blog/article-frontalieri-disoccupazione-criterio-lavoro.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
 ];
 

@@ -13593,6 +13593,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cisl-ricerca-lavoratori-ritiene.title': '55,6% lavoratori frontalieri ritiene stipendio inferiore a residente svizzero',
     'blog.article.cisl-ricerca-lavoratori-ritiene.excerpt': '55,6% ritiene inferiore il proprio stipendio 48,4% segnala una diminuzione del potere d’acquisto 73% si dichiara soddisfatto della retribuzione 1.542 lavoratori',
     'blog.article.cisl-ricerca-lavoratori-ritiene.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.disparita-stipendi-frontalieri.title': 'Disparità stipendi uomini donne frontalieri in Ticino',
+    'blog.article.disparita-stipendi-frontalieri.excerpt': 'Ricerca online a maggio 2026 su 1.542 frontalieri Le donne sono il 42,4% del campione Sotto 3.500 franchi: 41,5% delle frontaliere A parità di condizioni, circa',
+    'blog.article.disparita-stipendi-frontalieri.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.frontaliere-ora-mezza-viaggio.title': '31,7% frontalieri supera un\'ora e mezza di viaggio al giorno',
+    'blog.article.frontaliere-ora-mezza-viaggio.excerpt': '31,7% supera un\'ora e mezza al giorno 73,2% usa l\'auto privata 28,3% spende oltre il 10% dello stipendio 37,4% ha il lavoro da remoto Ricerca → «Lavorare oltre',
+    'blog.article.frontaliere-ora-mezza-viaggio.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

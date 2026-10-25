@@ -8615,6 +8615,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.telecom-358-licenziamenti.title': '358 licenciements confirmés : première hypothèse 450 emplois',
     'blog.article.telecom-358-licenziamenti.excerpt': 'Sunrise annonce 358 licenciements La première hypothèse indiquait 450 emplois La consultation avec Syndicom est terminée Plan social et sortie volontaire pour certains',
     'blog.article.telecom-358-licenziamenti.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.assemblea-pvl-avs-finanziamento.title': 'PVL recommande oui aux dents serrées pour le financement de l\'AVS',
+    'blog.article.assemblea-pvl-avs-finanziamento.excerpt': 'Le PVL recommande le oui au financement supplémentaire AVS Oui aussi à l\'initiative sur les feux d’artifice Non à la proposition sur la discrimination du mariage',
+    'blog.article.assemblea-pvl-avs-finanziamento.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.zenith-rischio-posti-svizzera.title': 'Zenith : environ 100 postes menacés à Le Locle et 100 autres à l’étranger',
+    'blog.article.zenith-rischio-posti-svizzera.excerpt': 'Environ 100 postes menacés à Le Locle 100 autres postes pourraient être supprimés à l’étranger Zenith consulte le personnel en vue d’un éventuel licenciement',
+    'blog.article.zenith-rischio-posti-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.epfl-eth-top-20-europee.title': 'EPFL et ETH parmi les 20 universités européennes pour les brevets déposés',
+    'blog.article.epfl-eth-top-20-europee.excerpt': 'EPFL : 107 dépôts au niveau européen l\'an dernier ETH Zurich : 101 dépôts et 16ème place européenne Suisse quatrième en Europe pour 463 spin-offs 57,5% des spin-offs',
+    'blog.article.epfl-eth-top-20-europee.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.referendum-legge-collettivo-lavoro.title': 'Référendum loi obligation convention collective de travail',
+    'blog.article.referendum-legge-collettivo-lavoro.excerpt': '23 octobre 2026 : référendum formellement abouti 66 006 signatures valables sur 66 574 déposées Le référendum cantonal n’a pas été validé Pour la validation',
+    'blog.article.referendum-legge-collettivo-lavoro.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

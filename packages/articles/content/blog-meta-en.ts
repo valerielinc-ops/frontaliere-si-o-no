@@ -13592,6 +13592,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cisl-ricerca-lavoratori-ritiene.title': '55.6% of cross-border workers believe Swiss residents earn more',
     'blog.article.cisl-ricerca-lavoratori-ritiene.excerpt': '55,6% consider their salary to be lower 48,4% report a decrease in purchasing power 73% say they are satisfied with their compensation 1.542 workers',
     'blog.article.cisl-ricerca-lavoratori-ritiene.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.disparita-stipendi-frontalieri.title': 'Gender pay disparity among cross-border workers in Ticino',
+    'blog.article.disparita-stipendi-frontalieri.excerpt': 'Online survey in May 2026 of 1.542 cross-border commuters Women make up 42,4% of the sample Under 3.500 francs: 41,5% of female cross-border commuters All else being equal, approximately',
+    'blog.article.disparita-stipendi-frontalieri.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.frontaliere-ora-mezza-viaggio.title': '31.7% cross-border commuters travel >1.5 hrs daily',
+    'blog.article.frontaliere-ora-mezza-viaggio.excerpt': '31,7% spends more than an hour and a half a day 73,2% uses a private car 28,3% spends more than 10% of their salary 37,4% works remotely Research → «Working beyond',
+    'blog.article.frontaliere-ora-mezza-viaggio.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

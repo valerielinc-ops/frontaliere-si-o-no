@@ -13594,6 +13594,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cisl-ricerca-lavoratori-ritiene.title': '55,6% des frontaliers estiment gagner moins qu\'un Suisse',
     'blog.article.cisl-ricerca-lavoratori-ritiene.excerpt': '55,6% estime son salaire inférieur 48,4% signale une diminution du pouvoir d’achat 73% se déclare satisfait de sa rémunération 1.542 travailleurs',
     'blog.article.cisl-ricerca-lavoratori-ritiene.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.disparita-stipendi-frontalieri.title': 'Écart salarial entre hommes et femmes frontaliers au Tessin',
+    'blog.article.disparita-stipendi-frontalieri.excerpt': 'Recherche en ligne en mai 2026 sur 1.542 travailleurs frontaliers Les femmes représentent 42,4% de l’échantillon Moins de 3.500 francs : 41,5% des travailleuses frontalières À conditions égales, environ',
+    'blog.article.disparita-stipendi-frontalieri.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.frontaliere-ora-mezza-viaggio.title': '31,7 % des frontaliers effectuent plus d\'une heure et demie de voyage par jour',
+    'blog.article.frontaliere-ora-mezza-viaggio.excerpt': '31,7% dépasse une heure et demie par jour 73,2% utilise la voiture privée 28,3% dépense plus de 10% du salaire 37,4% a le travail à distance Recherche → « Travailler plus',
+    'blog.article.frontaliere-ora-mezza-viaggio.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;
