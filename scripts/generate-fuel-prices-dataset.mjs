@@ -37,6 +37,13 @@ const MIMIT_API_REGION_BY_PROVINCE = Object.freeze({
   BZ: 4,
 });
 const MIMIT_API_CONCURRENCY = 4;
+const MIMIT_MAX_AGE_HOURS = 48;
+const MIMIT_PRICES_REQUIRED_COLUMNS = Object.freeze([
+  'idImpianto', 'descCarburante', 'prezzo', 'isSelf', 'dtComu',
+]);
+const MIMIT_STATIONS_REQUIRED_COLUMNS = Object.freeze([
+  'idImpianto', 'Comune', 'Provincia',
+]);
 const ECB_DAILY_URL = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
 // TCS deprecated direct Firestore reads on 2026-05-22 (App Check + anon-auth
 // enforcement). Their web app now hits a public Cloud Function in
@@ -97,6 +104,51 @@ function parseDelimited(text) {
   };
 }
 
+function assertDelimitedSource(parsed, requiredColumns, label) {
+  if (!parsed.extractedAt || !normalizeItalyObservationDate(parsed.extractedAt)) {
+    throw new Error(`MIMIT ${label} CSV has no valid extraction date`);
+  }
+  const columns = new Set(parsed.rows.length ? Object.keys(parsed.rows[0]) : []);
+  const missing = requiredColumns.filter((column) => !columns.has(column));
+  if (missing.length) {
+    throw new Error(`MIMIT ${label} CSV is missing required columns: ${missing.join(', ')}`);
+  }
+  if (!parsed.rows.length) throw new Error(`MIMIT ${label} CSV has no data rows`);
+}
+
+/**
+ * Validate the two bulk MIMIT responses before treating an HTTP 200 as a live
+ * source. The export endpoint sometimes answers with an HTML/empty payload
+ * while still returning 200; accepting that shape bypasses the Osservaprezzi
+ * fallback and publishes an undated Italian snapshot.
+ */
+export function validateMimitCsvPayload({ pricesText, stationsText, municipalities, now = new Date(), maxAgeHours = MIMIT_MAX_AGE_HOURS }) {
+  const prices = parseDelimited(pricesText);
+  const stations = parseDelimited(stationsText);
+  assertDelimitedSource(prices, MIMIT_PRICES_REQUIRED_COLUMNS, 'prices');
+  assertDelimitedSource(stations, MIMIT_STATIONS_REQUIRED_COLUMNS, 'stations');
+
+  const hasUsableBenzina = prices.rows.some((row) => (
+    String(row.descCarburante || '').trim() === 'Benzina'
+    && String(row.idImpianto || '').trim() !== ''
+    && toNumber(row.prezzo) != null
+    && normalizeItalyObservationDate(row.dtComu) != null
+  ));
+  if (!hasUsableBenzina) throw new Error('MIMIT prices CSV has no usable Benzina rows');
+
+  const latestObservationTimestamp = assertMimitObservationFresh(latestMimitObservationTimestamp(prices.rows), now, maxAgeHours);
+  const stationMap = buildItalyStations(municipalities, stations.rows, prices.rows);
+  if (![...stationMap.values()].some((entries) => entries.length > 0)) {
+    throw new Error('MIMIT CSV has no usable Benzina station in target municipalities');
+  }
+  return {
+    prices,
+    stations,
+    latestObservedAt: latestObservationTimestamp.slice(0, 10),
+    latestObservationTimestamp,
+  };
+}
+
 /**
  * MIMIT `dtComu` values are commonly Italian `dd/mm/yyyy HH:mm:ss` strings,
  * which JavaScript parses inconsistently across runtimes. Keep a valid
@@ -143,6 +195,72 @@ function normalizeItalyObservationDate(value) {
   }
   const timestamp = Date.parse(source);
   return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : null;
+}
+
+function italyLocalTimestampToIso(year, month, day, hour = 0, minute = 0, second = 0) {
+  const localAsUtc = Date.UTC(year, month - 1, day, hour, minute, second);
+  if (!Number.isFinite(localAsUtc)) return null;
+  let utcMillis = localAsUtc;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Rome',
+      timeZoneName: 'shortOffset',
+      hour: '2-digit',
+      minute: '2-digit',
+    }).formatToParts(new Date(utcMillis));
+    const offsetToken = parts.find((part) => part.type === 'timeZoneName')?.value ?? 'GMT';
+    const offsetMatch = offsetToken.match(/^GMT(?:(\+|-)(\d{1,2})(?::(\d{2}))?)?$/);
+    if (!offsetMatch) return null;
+    const offsetMinutes = offsetMatch[1]
+      ? (Number(offsetMatch[2]) * 60 + Number(offsetMatch[3] ?? '0')) * (offsetMatch[1] === '-' ? -1 : 1)
+      : 0;
+    const nextUtcMillis = localAsUtc - offsetMinutes * 60_000;
+    if (nextUtcMillis === utcMillis) break;
+    utcMillis = nextUtcMillis;
+  }
+  const result = new Date(utcMillis);
+  return Number.isFinite(result.getTime()) ? result.toISOString() : null;
+}
+
+function normalizeItalyObservationTimestamp(value) {
+  const source = String(value || '').trim();
+  const italianDate = source.match(/^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{2}):(\d{2})(?::(\d{2}))?)?$/);
+  if (italianDate) {
+    const [, dayText, monthText, yearText, hourText = '00', minuteText = '00', secondText = '00'] = italianDate;
+    const dateOnly = normalizeItalyObservationDate(`${dayText}/${monthText}/${yearText}`);
+    const hour = Number(hourText);
+    const minute = Number(minuteText);
+    const second = Number(secondText);
+    if (!dateOnly || hour > 23 || minute > 59 || second > 59) return null;
+    return italyLocalTimestampToIso(Number(yearText), Number(monthText), Number(dayText), hour, minute, second);
+  }
+
+  const normalized = normalizeItalyObservationDate(source);
+  if (!normalized) return null;
+  return normalized.length > 10 ? normalized : `${normalized}T00:00:00.000Z`;
+}
+
+function latestMimitObservationTimestamp(rows) {
+  const timestamps = rows
+    .filter((row) => (
+      String(row.descCarburante || '').trim() === 'Benzina'
+      && String(row.idImpianto || '').trim() !== ''
+      && toNumber(row.prezzo) != null
+    ))
+    .map((row) => normalizeItalyObservationTimestamp(row.dtComu))
+    .filter(Boolean)
+    .sort((left, right) => Date.parse(left) - Date.parse(right));
+  return timestamps[timestamps.length - 1] ?? null;
+}
+
+function assertMimitObservationFresh(observedAtIso, now = new Date(), maxAgeHours = MIMIT_MAX_AGE_HOURS) {
+  if (!observedAtIso) throw new Error('MIMIT source has no usable Benzina observation timestamp');
+  const observedAt = Date.parse(observedAtIso);
+  const ageHours = (now.getTime() - observedAt) / 3_600_000;
+  if (!Number.isFinite(observedAt) || !Number.isFinite(ageHours) || ageHours > maxAgeHours) {
+    throw new Error(`MIMIT Benzina observations are older than ${maxAgeHours}h (latest ${observedAtIso})`);
+  }
+  return observedAtIso;
 }
 
 async function fetchText(url, retries = 3) {
@@ -202,25 +320,24 @@ function readApiCoordinatePair(station) {
 function readApiObservationTimestamp(station) {
   const values = [station.insertDate, station.dIns].filter((value) => value != null && String(value).trim() !== '');
   if (!values.length) return null;
-  const normalized = values.map((value) => normalizeMimitApiObservationDate(value));
+  const normalized = values.map((value) => normalizeMimitApiObservationTimestamp(value));
   if (normalized.some((value) => !value) || new Set(normalized).size !== 1) return null;
   return normalized[0];
 }
 
-function normalizeMimitApiObservationDate(value) {
-  const normalized = normalizeItalyObservationDate(value);
-  if (normalized) return normalized.slice(0, 10);
-  // The legacy Osservaprezzi response documents `dIns` as a date-time but
-  // emits it without a timezone. Preserve its verified calendar day instead
-  // of inventing a timezone, which is all the downstream freshness contract
-  // needs for the source snapshot.
+function normalizeMimitApiObservationTimestamp(value) {
+  const normalized = normalizeItalyObservationTimestamp(value);
+  if (normalized) return normalized;
   const legacy = String(value || '').trim().match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/);
   if (!legacy) return null;
   const [, yearText, monthText, dayText, hourText, minuteText, secondText] = legacy;
   const date = new Date(Date.UTC(Number(yearText), Number(monthText) - 1, Number(dayText)));
   if (date.getUTCFullYear() !== Number(yearText) || date.getUTCMonth() !== Number(monthText) - 1 || date.getUTCDate() !== Number(dayText)) return null;
   if (Number(hourText) > 23 || Number(minuteText) > 59 || Number(secondText) > 59) return null;
-  return `${yearText}-${monthText}-${dayText}`;
+  // The API's legacy `dIns` alias is documented without a timezone and is
+  // paired with the ISO `insertDate` field in the same response. Treat its
+  // wall-clock value as UTC so the two documented aliases compare equal.
+  return new Date(Date.UTC(Number(yearText), Number(monthText) - 1, Number(dayText), Number(hourText), Number(minuteText), Number(secondText))).toISOString();
 }
 
 function readApiFuelList(station) {
@@ -326,7 +443,7 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
       const coordinates = readApiCoordinatePair(station);
       const observationTimestamp = readApiObservationTimestamp(station);
       if (!coordinates || !observationTimestamp) continue;
-      const fuelRows = readApiFuelRows(station, observationTimestamp);
+      const fuelRows = readApiFuelRows(station, observationTimestamp.slice(0, 10));
       if (!fuelRows.length) continue;
 
       const name = consistentValue([station.name, station.nome], (value) => normalizeText(value));
@@ -375,6 +492,7 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
     stationsRows,
     pricesRows,
     extractedAt: latestObservedAt?.slice(0, 10) ?? null,
+    latestObservedAt,
   };
 }
 
@@ -393,14 +511,22 @@ export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, r
       // 1 is Benzina and x means either self-service or served. `0-x` is not
       // the API's all-fuels selector and returns no usable station rows.
       body: JSON.stringify({ region, province, town: null, priceOrder: 'asc', fuelType: '1-x' }),
-    }, fetchImpl);
+    }, fetchImpl, (payload) => {
+      const results = Array.isArray(payload?.results) ? payload.results : Array.isArray(payload?.array) ? payload.array : null;
+      if (payload?.success !== true || !results || results.length === 0) {
+        throw new Error(`MIMIT API returned no usable rows for province ${province}`);
+      }
+      return payload;
+    });
     const results = Array.isArray(json?.results) ? json.results : Array.isArray(json?.array) ? json.array : null;
     if (json?.success !== true || !results) {
       throw new Error(`Unexpected response shape from ${MIMIT_API_URL} for province ${province}`);
     }
     return { province, results };
   });
-  return { ok: true, source: 'mimit-api', ...buildItalyRowsFromMimitApi({ municipalities, responses }) };
+  const result = { ok: true, source: 'mimit-api', ...buildItalyRowsFromMimitApi({ municipalities, responses }) };
+  assertMimitObservationFresh(result.latestObservedAt, new Date());
+  return result;
 }
 
 // haversineKm (e il suo deg2rad) ora arrivano dal modulo condiviso
@@ -437,7 +563,7 @@ export function extractEcbRate(xml) {
   };
 }
 
-async function fetchJsonWithRetry(url, retries = 3, init = {}, fetchImpl = fetch) {
+async function fetchJsonWithRetry(url, retries = 3, init = {}, fetchImpl = fetch, validateResponse = null) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       const res = await fetchImpl(url, {
@@ -446,7 +572,8 @@ async function fetchJsonWithRetry(url, retries = 3, init = {}, fetchImpl = fetch
         signal: AbortSignal.timeout(30_000),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-      return await res.json();
+      const json = await res.json();
+      return validateResponse ? validateResponse(json) : json;
     } catch (err) {
       if (attempt === retries) throw err;
       const delay = attempt * 5_000;
@@ -888,7 +1015,7 @@ export function resolveItalySource({ italyResult, municipalities, previousDatase
     return {
       status: 'live',
       reason: null,
-      extractedAt: prices.extractedAt,
+      extractedAt: italyResult.extractedAt ?? prices.extractedAt,
       italyByMunicipality: buildItalyStations(municipalities, stations.rows, prices.rows),
     };
   }
@@ -1005,7 +1132,10 @@ async function main() {
     // An Italian outage now degrades the Italian half only (see
     // `resolveItalySource`); TCS/ECB failures keep the old skip behaviour.
     const italyFetch = Promise.all([fetchText(ITALY_PRICES_URL), fetchText(ITALY_STATIONS_URL)])
-      .then(([pricesText, stationsText]) => ({ ok: true, pricesText, stationsText }))
+      .then(([pricesText, stationsText]) => {
+        const validation = validateMimitCsvPayload({ pricesText, stationsText, municipalities });
+        return { ok: true, pricesText, stationsText, extractedAt: validation.latestObservedAt };
+      })
       .catch(async (csvError) => {
         try {
           const apiResult = await fetchMimitApiSource(municipalities);
