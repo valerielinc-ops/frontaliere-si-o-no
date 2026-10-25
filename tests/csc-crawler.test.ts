@@ -460,6 +460,26 @@ describe('CSC authoritative Drupal discovery', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
 
+  it('accepts the current spontaneous-application-only page as an authoritative empty state', () => {
+    const spontaneousOnly = '<!doctype html><html><body><form id="candidatura">'
+      + '<select name="work_position"><option value="all">Candidatura spontanea</option></select>'
+      + '</form></body></html>';
+
+    expect(parseCscCareersPage(spontaneousOnly)).toEqual({
+      urls: [],
+      authoritativeEmpty: true,
+    });
+  });
+
+  it('does not treat a multi-option application form as an empty listing', () => {
+    const ambiguousForm = '<!doctype html><html><body><form id="candidatura">'
+      + '<select name="work_position"><option value="all">Candidatura spontanea</option>'
+      + '<option value="321">Capo cantiere</option></select>'
+      + '</form></body></html>';
+
+    expect(() => parseCscCareersPage(ambiguousForm)).toThrow(/work-position view not found/);
+  });
+
   it('builds a canonical health proof for the explicit empty state', () => {
     const summary = buildCscAuthoritativeEmptySummary('2026-10-03T00:00:00.000Z', 123);
 

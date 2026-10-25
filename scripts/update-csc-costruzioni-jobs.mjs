@@ -236,6 +236,27 @@ function cscPlainText(html) {
 }
 
 /**
+ * CSC keeps the application form live when its Drupal work-position view has
+ * no published vacancies. In that state the only option is the generic
+ * spontaneous application; treating the missing view as a broken response
+ * leaves the crawler red forever even though the source explicitly says that
+ * there is no vacancy to publish.
+ */
+function isSpontaneousApplicationOnlyEmptyState(html) {
+  const selectMatch = String(html || '').match(
+    /<select\b[^>]*\bname\s*=\s*(["'])work_position\1[^>]*>([\s\S]*?)<\/select>/i,
+  );
+  if (!selectMatch) return false;
+
+  const options = [...selectMatch[2].matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option>/gi)];
+  if (options.length !== 1) return false;
+
+  const value = readQuotedHtmlAttr(options[0][1], 'value').trim().toLowerCase();
+  const label = cscPlainText(options[0][2]);
+  return value === 'all' && /candidatura\s+spontanea/i.test(label);
+}
+
+/**
  * Parse only the Drupal work-position view. A 200 WAF/error shell, truncated
  * HTML or an unrecognised empty state is not an authoritative snapshot.
  */
@@ -244,6 +265,10 @@ export function parseCscCareersPage(html) {
   const viewStart = source.search(/id=["']block-views-block-work-positions-work-positions-list["']/i);
   const viewEnd = source.indexOf('<!-- Modal Work Position -->', Math.max(0, viewStart));
   if (viewStart < 0 || viewEnd < 0 || !/<\/html>\s*$/i.test(source.trim())) {
+    if (viewStart < 0 && viewEnd < 0 && /<\/html>\s*$/i.test(source.trim())
+      && isSpontaneousApplicationOnlyEmptyState(source)) {
+      return { urls: [], authoritativeEmpty: true };
+    }
     throw new Error('CSC discovery degraded: complete Drupal work-position view not found.');
   }
 
