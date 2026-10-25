@@ -51,6 +51,19 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 const SITE_URL = 'https://frontaliereticino.ch';
+const GSC_FETCH_TIMEOUT_MS = (() => {
+  const value = Number(process.env.GSC_FETCH_TIMEOUT_MS);
+  if (!Number.isFinite(value) || value <= 0) return 30_000;
+  return Math.min(Math.floor(value), 120_000);
+})();
+
+function fetchGsc(url, init = {}) {
+  return fetch(url, {
+    ...init,
+    signal: AbortSignal.timeout(GSC_FETCH_TIMEOUT_MS),
+  });
+}
+
 let resolvedSiteUrl = SITE_URL;
 const DRY_RUN = process.argv.includes('--dry-run');
 
@@ -157,7 +170,7 @@ async function getAccessToken() {
   if (!GSC_CLIENT_ID || !GSC_CLIENT_SECRET || !GSC_REFRESH_TOKEN) {
     throw new Error('Missing GSC_CLIENT_ID, GSC_CLIENT_SECRET, or GSC_REFRESH_TOKEN');
   }
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchGsc('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -175,7 +188,7 @@ async function getAccessToken() {
 // ── Auto-detect GSC site property ────────────────────────
 async function detectSiteProperty(accessToken) {
   try {
-    const res = await fetch('https://www.googleapis.com/webmasters/v3/sites', {
+    const res = await fetchGsc('https://www.googleapis.com/webmasters/v3/sites', {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
     if (!res.ok) {
@@ -246,7 +259,7 @@ async function fetchGscJobUrls(accessToken) {
     let pageCount = 0;
 
     while (true) {
-      const res = await fetch(
+      const res = await fetchGsc(
         `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(resolvedSiteUrl)}/searchAnalytics/query`,
         {
           method: 'POST',
@@ -753,7 +766,7 @@ async function enrichUrlInspection(enrichedOrphans, accessToken) {
   for (const orphan of needsInspection) {
     const inspectionUrl = `${SITE_URL}${orphan.path}`;
     try {
-      const res = await fetch(
+      const res = await fetchGsc(
         'https://searchconsole.googleapis.com/v1/urlInspection/index:inspect',
         {
           method: 'POST',
