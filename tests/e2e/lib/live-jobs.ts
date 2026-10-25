@@ -1,4 +1,5 @@
 import type { Page } from 'playwright/test';
+import { parseSitemapXml } from '../../../scripts/lib/sitemap-crawl.mjs';
 
 /**
  * Runtime discovery of currently-active job-detail URLs on the deployed site.
@@ -21,6 +22,15 @@ import type { Page } from 'playwright/test';
 
 const LIVE_BASE_URL = (process.env.LIVE_BASE_URL || 'https://frontaliereticino.ch').replace(/\/+$/, '');
 
+// `sitemap-jobs.xml` is the canonical owner of active IT job-detail URLs.
+// `sitemap-jobs-ticino.xml` was the old shard name; keep it as a compatibility
+// source while older deploys can still be the live site during propagation.
+const JOB_SITEMAP_PATHS: readonly string[] = [
+  '/sitemap-jobs.xml',
+  '/sitemap-jobs-ticino.xml',
+];
+const MAX_SITEMAP_CANDIDATES = 40;
+
 // Last-resort fallbacks if the live sitemap is unreachable. These may still
 // expire — the sitemap is the durable source. Kept minimal.
 const FALLBACK_JOB_DETAILS: ReadonlyArray<string> = [
@@ -33,15 +43,72 @@ const FALLBACK_JOB_DETAILS: ReadonlyArray<string> = [
 const JOB_DETAIL_PATH_RE = /^\/cerca-lavoro-ticino\/[^/]+\/$/;
 const NON_DETAIL_PREFIX_RE = /\/(azienda-|settori|ricerca-|search-|pagina-)/;
 
-async function listSitemapJobDetailPaths(page: Page): Promise<string[]> {
-  const res = await page.request
-    .get(`${LIVE_BASE_URL}/sitemap-jobs-ticino.xml`, { timeout: 15_000 })
+function livePathFromUrl(value: string, baseUrl = LIVE_BASE_URL): string | null {
+  let parsed: URL;
+  let base: URL;
+  try {
+    parsed = new URL(value, `${baseUrl}/`);
+    base = new URL(`${baseUrl}/`);
+  } catch {
+    return null;
+  }
+  if (parsed.hostname.toLowerCase() !== base.hostname.toLowerCase()) return null;
+  const path = parsed.pathname.endsWith('/') ? parsed.pathname : `${parsed.pathname}/`;
+  return path;
+}
+
+/**
+ * Extract active Ticino job-detail paths from one job sitemap.
+ *
+ * The sitemap topology changed from the TI-specific file to the canonical
+ * `sitemap-jobs.xml`; parsing the URL set instead of matching one filename
+ * keeps the live test aligned with both generations and with hreflang links.
+ */
+export function extractJobDetailPathsFromSitemapXml(
+  xml: string,
+  baseUrl = LIVE_BASE_URL,
+): string[] {
+  let parsed;
+  try {
+    const host = new URL(`${baseUrl}/`).hostname;
+    parsed = parseSitemapXml(xml, { baseUrl, host });
+  } catch {
+    return [];
+  }
+
+  const paths: string[] = [];
+  const seen = new Set<string>();
+  for (const url of parsed.urls) {
+    const path = livePathFromUrl(url, baseUrl);
+    if (!path || !JOB_DETAIL_PATH_RE.test(path) || NON_DETAIL_PREFIX_RE.test(path)) continue;
+    if (seen.has(path)) continue;
+    seen.add(path);
+    paths.push(path);
+  }
+  return paths;
+}
+
+async function fetchJobSitemap(page: Page, path: string): Promise<string | null> {
+  const response = await page.request
+    .get(`${LIVE_BASE_URL}${path}`, { timeout: 15_000 })
     .catch(() => null);
-  if (!res || !res.ok()) return [];
-  const xml = await res.text();
-  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
-    .map((m) => m[1].replace(LIVE_BASE_URL, ''))
-    .filter((p) => JOB_DETAIL_PATH_RE.test(p) && !NON_DETAIL_PREFIX_RE.test(p));
+  if (!response || !response.ok()) return null;
+  return response.text();
+}
+
+async function listSitemapJobDetailPaths(page: Page): Promise<string[]> {
+  const paths: string[] = [];
+  const seen = new Set<string>();
+  for (const sitemapPath of JOB_SITEMAP_PATHS) {
+    const xml = await fetchJobSitemap(page, sitemapPath);
+    if (!xml) continue;
+    for (const path of extractJobDetailPathsFromSitemapXml(xml)) {
+      if (seen.has(path)) continue;
+      seen.add(path);
+      paths.push(path);
+    }
+  }
+  return paths;
 }
 
 /**
@@ -59,11 +126,20 @@ export async function listActiveJobDetailPaths(
   opts: { limit?: number; requireCompanyLink?: boolean } = {},
 ): Promise<string[]> {
   const limit = opts.limit ?? 8;
-  const candidates = [...(await listSitemapJobDetailPaths(page)), ...FALLBACK_JOB_DETAILS];
+  // Keep the probe bounded while reserving a slot for every pinned fallback.
+  // Otherwise 40 stale sitemap entries would prevent the fallback from being
+  // tried at all, even though it is explicitly the last-resort source.
+  const sitemapCandidates = await listSitemapJobDetailPaths(page);
+  const candidates = [
+    ...new Set([
+      ...sitemapCandidates.slice(0, MAX_SITEMAP_CANDIDATES),
+      ...FALLBACK_JOB_DETAILS,
+    ]),
+  ];
   const active: string[] = [];
   // Cap probes — the sitemap has thousands of URLs; we only need the first
   // few active ones and must not turn discovery into a slow crawl.
-  for (const path of candidates.slice(0, 40)) {
+  for (const path of candidates) {
     if (active.length >= limit) break;
     const res = await page.request
       .get(`${LIVE_BASE_URL}${path}`, { maxRedirects: 5, timeout: 15_000 })
