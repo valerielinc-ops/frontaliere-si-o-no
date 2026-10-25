@@ -55,6 +55,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { sleep, fetchRetry as rawFetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID, ga4DateRange } from './lib/ga4-service-account.mjs';
 import { withAutomationFleetExclusionForFetch, AUTOMATION_FLEET_EXCLUSION_NOTE } from './lib/ga4-automation-fleet.mjs';
+import { fetchGoogleApi } from './lib/google-api-fetch.mjs';
 // Every GA4 Data API runReport/batchRunReport this report sends excludes the
 // measured automation fleets (scripts/lib/ga4-automation-fleet.mjs); Search
 // Console, PageSpeed and Admin API calls pass through untouched.
@@ -98,7 +99,7 @@ async function getAccessToken() {
   const refreshToken = process.env.GSC_REFRESH_TOKEN;
   if (!clientId || !clientSecret || !refreshToken) return null;
 
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchGoogleApi('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({

@@ -62,7 +62,11 @@ describe('traffic scheduler Cloud dispatch', () => {
     expect(result).toMatchObject({ dispatched: true, status: 204 });
     expect(fetchImpl).toHaveBeenCalledWith(
       `https://api.github.com/repos/owner/repo/actions/workflows/${TRAFFIC_SCHEDULER_WORKFLOW}/dispatches`,
-      expect.objectContaining({ method: 'POST', body: JSON.stringify({ ref: 'main' }) }),
+      expect.objectContaining({
+        method: 'POST',
+        body: JSON.stringify({ ref: 'main' }),
+        signal: expect.any(AbortSignal),
+      }),
     );
   });
 

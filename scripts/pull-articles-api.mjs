@@ -117,6 +117,18 @@ const MIN_FEED_ITEMS = 10;
 /** Article count below which the published surface is treated as broken. */
 const MIN_ARTICLES = 100;
 
+/** Maximum time allowed for one artifact request, including its response body. */
+const DEFAULT_ARTICLES_API_FETCH_TIMEOUT_MS = 30_000;
+const MAX_ARTICLES_API_FETCH_TIMEOUT_MS = 2 ** 32 - 1;
+const configuredArticlesApiFetchTimeoutMs = Number(process.env.ARTICLES_API_FETCH_TIMEOUT_MS);
+const ARTICLES_API_FETCH_TIMEOUT_MS = (
+  Number.isSafeInteger(configuredArticlesApiFetchTimeoutMs)
+  && configuredArticlesApiFetchTimeoutMs > 0
+  && configuredArticlesApiFetchTimeoutMs <= MAX_ARTICLES_API_FETCH_TIMEOUT_MS
+    ? configuredArticlesApiFetchTimeoutMs
+    : DEFAULT_ARTICLES_API_FETCH_TIMEOUT_MS
+);
+
 const log = (msg) => console.log(`[pull-articles-api] ${msg}`);
 const fail = (msg) => {
   console.error(`::error::[pull-articles-api] ${msg}`);
@@ -248,7 +260,13 @@ async function fetchArtifact(name, { binary = false } = {}) {
 
   for (let i = 1; i <= attempts; i++) {
     try {
-      const res = await fetch(url, { redirect: 'follow' });
+      // Keep the signal alive through arrayBuffer()/text(), not just until the
+      // headers arrive: a publisher or proxy can leave a response body open
+      // forever after sending a successful status line.
+      const res = await fetch(url, {
+        redirect: 'follow',
+        signal: AbortSignal.timeout(ARTICLES_API_FETCH_TIMEOUT_MS),
+      });
       if (!res.ok) {
         const retryable = res.status >= 500 || res.status === 429;
         const err = new Error(`${url} → HTTP ${res.status}`);

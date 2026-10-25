@@ -47,6 +47,84 @@ export const SOURCE_URL = 'https://www4.ti.ch/index.php?id=147427';
 const USER_AGENT =
   'FrontaliereTicinoBot/1.0 (+https://frontaliereticino.ch; seo-research)';
 
+const TICH_TRANSLATE_HOSTS = Object.freeze({
+  'www4-ti-ch.translate.goog': 'www4.ti.ch',
+  'www-concorsi-ti-ch.translate.goog': 'www.concorsi.ti.ch',
+});
+const TICH_TRANSLATE_QUERY_KEYS = Object.freeze([
+  '_x_tr_sl',
+  '_x_tr_tl',
+  '_x_tr_hl',
+  '_x_tr_pto',
+  '_x_tr_hist',
+]);
+
+/**
+ * Build the same-locale Google Translate URL for the official listing.
+ *
+ * This is transport only: callers still validate the returned document and
+ * parse only canonical concorsi.ti.ch links. Restricting the input to the
+ * known official listing prevents this helper from becoming a generic proxy.
+ */
+export function buildTichTranslateUrl(url = SOURCE_URL) {
+  let source;
+  try {
+    source = new URL(url);
+  } catch {
+    return '';
+  }
+
+  if (
+    source.protocol !== 'https:'
+    || source.hostname.toLowerCase() !== 'www4.ti.ch'
+    || source.pathname !== '/index.php'
+    || source.searchParams.get('id') !== '147427'
+    || [...source.searchParams.keys()].some((key) => key !== 'id')
+  ) return '';
+
+  source.hostname = 'www4-ti-ch.translate.goog';
+  source.searchParams.set('_x_tr_sl', 'it');
+  source.searchParams.set('_x_tr_tl', 'it');
+  source.searchParams.set('_x_tr_hl', 'it');
+  source.searchParams.set('_x_tr_pto', 'wapp');
+  return source.toString();
+}
+
+function normalizeTichTranslatedHref(rawHref = '') {
+  const value = String(rawHref || '').trim();
+  if (!value) return value;
+
+  let translated;
+  try {
+    translated = new URL(value);
+  } catch {
+    return value;
+  }
+
+  const originalHost = TICH_TRANSLATE_HOSTS[translated.hostname.toLowerCase()];
+  if (!originalHost) return value;
+
+  translated.hostname = originalHost;
+  for (const key of TICH_TRANSLATE_QUERY_KEYS) translated.searchParams.delete(key);
+  return translated.toString();
+}
+
+/**
+ * Restore source URLs rewritten by Google Translate before the shared parser
+ * sees the document. The replacement is limited to href values and the two
+ * known Ti.CH translated hosts; unrelated links remain untouched.
+ */
+export function normalizeTichTranslatedListingHtml(html = '') {
+  return String(html || '').replace(
+    /(\bhref\s*=\s*["'])([^"']+)(["'])/gi,
+    (_match, prefix, href, suffix) => {
+      const decoded = String(href).replace(/&amp;/gi, '&');
+      const normalized = normalizeTichTranslatedHref(decoded);
+      return `${prefix}${normalized.replaceAll('&', '&amp;')}${suffix}`;
+    },
+  );
+}
+
 function parseItalianDate(raw) {
   // dd.mm.yyyy → YYYY-MM-DD
   const m = /^(\d{2})\.(\d{2})\.(\d{4})$/.exec(String(raw ?? '').trim());
@@ -72,6 +150,65 @@ export function isTichOfficialListingHtml(html = '') {
     /www\.concorsi\.ti\.ch/i.test(source) &&
     /\bScadenza\s*:/i.test(source)
   );
+}
+
+/**
+ * Fetch and validate the official listing through Google Translate's separate
+ * egress. The response is normalized back to source URLs before validation so
+ * the downstream parser keeps its canonical-host and numeric-yid invariants.
+ * Returns null after bounded exhaustion; it never turns an unverified page
+ * into a successful source.
+ */
+export async function fetchTichOfficialListingViaTranslate(
+  sourceUrl = SOURCE_URL,
+  {
+    fetchImpl = fetch,
+    timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000,
+    attempts = 2,
+    retryDelayMs = 1_500,
+  } = {},
+) {
+  const proxyUrl = buildTichTranslateUrl(sourceUrl);
+  if (!proxyUrl) return null;
+
+  const maxAttempts = Math.max(1, Number.isFinite(attempts) ? Math.floor(attempts) : 2);
+  const requestTimeoutMs = Math.max(1_000, Number(timeoutMs) || 20_000);
+  const delayMs = Number.isFinite(retryDelayMs) ? Math.max(0, retryDelayMs) : 1_500;
+  let lastReason = 'unknown Google Translate proxy failure';
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), requestTimeoutMs);
+    try {
+      const response = await fetchImpl(proxyUrl, {
+        headers: {
+          Accept: 'text/html,application/xhtml+xml',
+          'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
+          'User-Agent': USER_AGENT,
+        },
+        signal: controller.signal,
+      });
+
+      if (!response.ok) {
+        lastReason = `HTTP ${response.status}`;
+      } else {
+        const html = normalizeTichTranslatedListingHtml(await response.text());
+        if (isTichOfficialListingHtml(html) && parseConcorsiHtml(html).length > 0) return html;
+        lastReason = 'response did not contain a verified official Ti.CH listing with rows';
+      }
+    } catch (error) {
+      lastReason = error?.message || String(error);
+    } finally {
+      clearTimeout(timer);
+    }
+
+    if (attempt < maxAttempts) {
+      await new Promise((resolve) => setTimeout(resolve, delayMs * attempt));
+    }
+  }
+
+  console.warn(`⚠️ Google Translate official Ti.CH listing fallback exhausted (${lastReason}).`);
+  return null;
 }
 
 /**
@@ -153,17 +290,27 @@ export function parseConcorsiHtml(html) {
 }
 
 async function fetchListing() {
-  const res = await fetch(SOURCE_URL, {
-    headers: {
-      'user-agent': USER_AGENT,
-      accept: 'text/html,application/xhtml+xml',
-      'accept-language': 'it,en;q=0.8',
-    },
-  });
-  if (!res.ok) {
-    throw new Error(`HTTP ${res.status} from ${SOURCE_URL}`);
+  try {
+    const res = await fetch(SOURCE_URL, {
+      headers: {
+        'user-agent': USER_AGENT,
+        accept: 'text/html,application/xhtml+xml',
+        'accept-language': 'it,en;q=0.8',
+      },
+    });
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status} from ${SOURCE_URL}`);
+    }
+    const html = await res.text();
+    if (!isTichOfficialListingHtml(html) || parseConcorsiHtml(html).length === 0) {
+      throw new Error('direct response did not contain a verified official Ti.CH listing with rows');
+    }
+    return html;
+  } catch (error) {
+    const translated = await fetchTichOfficialListingViaTranslate(SOURCE_URL);
+    if (translated) return translated;
+    throw error;
   }
-  return res.text();
 }
 
 function loadCached() {

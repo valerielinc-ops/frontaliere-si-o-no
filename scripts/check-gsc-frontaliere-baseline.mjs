@@ -37,6 +37,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { fetchGoogleApi } from './lib/google-api-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -153,7 +154,7 @@ async function getAccessTokenFromSA(sa) {
   const sig = signer.sign(sa.private_key);
   const jwt = `${unsigned}.${base64url(sig)}`;
 
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchGoogleApi('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -193,7 +194,7 @@ async function queryFrontaliereTerms(token, startDate, endDate) {
       },
     ],
   };
-  const res = await fetch(endpoint, {
+  const res = await fetchGoogleApi(endpoint, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,

@@ -58,6 +58,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { paginateGa4Report } from './lib/ga4-service-account.mjs';
 import { guardCompleteGa4Report } from './lib/ga4-refresh-guard.mjs';
+import { fetchGoogleApi } from './lib/google-api-fetch.mjs';
 import {
   normalizeRelatedSearchClusterPath,
   parseRelatedSearchClusterPathKey,
@@ -110,7 +111,7 @@ async function getAccessToken(sa, scopes) {
   signer.update(unsigned);
   signer.end();
   const jwt = `${unsigned}.${base64url(signer.sign(sa.private_key))}`;
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchGoogleApi('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -192,7 +193,7 @@ async function fetchGsc(sa, startDate, endDate) {
   for (let i = 0; i < 10; i++) {
     const body = { startDate, endDate, dimensions: ['page'], rowLimit: 25000, startRow, type: 'web' };
     const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;
-    const res = await fetch(url, {
+    const res = await fetchGoogleApi(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify(body),
@@ -224,7 +225,7 @@ async function fetchGa4(sa, startDate, endDate) {
       metrics: [{ name: 'screenPageViews' }],
     },
     fetchPage: async (page) => {
-      const res = await fetch(url, {
+      const res = await fetchGoogleApi(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(page),

@@ -36,6 +36,13 @@ const CHECK_STEP = WORKFLOW_DOCUMENT.jobs.parity.steps.find(
 );
 
 describe('the surfaces the gate reads', () => {
+  it('bounds every source read without changing browser request semantics', () => {
+    expect(SRC).toContain('const FETCH_TIMEOUT_MS = 15_000;');
+    expect(SRC).toMatch(
+      /const res = await fetch\(url, \{\s*headers,\s*redirect: 'follow',\s*signal: AbortSignal\.timeout\(FETCH_TIMEOUT_MS\),\s*\}\);/u,
+    );
+  });
+
   it('reads the overlay at the bare url, not only under the rotating key', () => {
     // Non-vacuity: both names must exist, or the assertions below pass by
     // matching nothing after a rename.

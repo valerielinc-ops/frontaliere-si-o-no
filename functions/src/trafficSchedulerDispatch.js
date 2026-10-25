@@ -3,6 +3,7 @@ import { githubApiHeaders } from './githubApiHeaders.js';
 import { isTrafficCollectionSlot, toValidDate } from './lib/trafficCollectionCalendar.js';
 
 export const TRAFFIC_SCHEDULER_WORKFLOW = 'traffic-scheduler.yml';
+const DISPATCH_TIMEOUT_MS = 20_000;
 
 // Il calendario vive in un modulo senza dipendenze perché lo riusa anche il
 // controllo di freschezza (scripts/check-border-data-health.mjs), che gira senza
@@ -28,6 +29,7 @@ export async function dispatchTrafficScheduler({
       method: 'POST',
       headers: githubApiHeaders(pat, { 'Content-Type': 'application/json' }),
       body: JSON.stringify({ ref: 'main' }),
+      signal: AbortSignal.timeout(DISPATCH_TIMEOUT_MS),
     },
   );
   if (!response.ok) {

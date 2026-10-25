@@ -18,7 +18,9 @@ import { assertSiteAdmin } from './adminAuth.js';
 import { updateAdminAuditStatus, writeAdminAuditLog } from './adminAudit.js';
 
 const FEEDBACK_RECAPTCHA_THRESHOLD = 0.5;
+const FEEDBACK_GITHUB_TIMEOUT_MS = 20_000;
 const MAX_GITHUB_LOG_BYTES = 256 * 1024;
+const GITHUB_REQUEST_TIMEOUT_MS = 15_000;
 
 // Exported: stripePublisherCore.js's dispatchPublisherSync reuses this same
 // base URL instead of re-hardcoding it (single source for the GitHub REST API).
@@ -83,11 +85,13 @@ export async function handleCreateFeedbackIssue(req) {
     // before the Bearer-scheme call sites existed; keeping it avoids an
     // unverified auth-scheme change on a public, reCAPTCHA-gated endpoint.
     headers: githubApiHeaders(pat, { Authorization: `token ${pat}`, 'Content-Type': 'application/json' }),
+    signal: AbortSignal.timeout(GITHUB_REQUEST_TIMEOUT_MS),
     body: JSON.stringify({
       title,
       body: `${description}\n\n> Segnalato tramite Web App`,
       labels: [type === 'BUG' ? 'bug' : 'enhancement'],
     }),
+    signal: AbortSignal.timeout(FEEDBACK_GITHUB_TIMEOUT_MS),
   });
 
   const data = await res.json().catch(() => ({}));
@@ -363,6 +367,7 @@ export async function handleAdminGithub(req, dependencies = {}) {
       ...(isDispatch ? { 'X-GitHub-Api-Version': GITHUB_WORKFLOW_DISPATCH_API_VERSION } : {}),
     }),
     redirect: parsed.kind === 'job_logs' ? 'manual' : 'follow',
+    signal: AbortSignal.timeout(GITHUB_REQUEST_TIMEOUT_MS),
   };
   if (req.body?.body !== undefined) requestOptions.body = JSON.stringify(req.body.body);
 
@@ -372,7 +377,11 @@ export async function handleAdminGithub(req, dependencies = {}) {
     upstream = await fetchImpl(githubUrl, requestOptions);
     if (parsed.kind === 'job_logs') {
       if (upstream.status >= 300 && upstream.status < 400 && upstream.headers?.get('location')) {
-        const logResponse = await fetchImpl(upstream.headers.get('location'), { method: 'GET', redirect: 'follow' });
+        const logResponse = await fetchImpl(upstream.headers.get('location'), {
+          method: 'GET',
+          redirect: 'follow',
+          signal: AbortSignal.timeout(GITHUB_REQUEST_TIMEOUT_MS),
+        });
         const logText = await readResponseTextTail(logResponse);
         return {
           status: logResponse.status,

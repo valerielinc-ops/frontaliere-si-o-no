@@ -145,6 +145,7 @@ describe('site-admin identity and GitHub proxy', () => {
       expect(options.headers).toMatchObject({ Authorization: 'Bearer github-pat-test' });
       expect(options.headers).toMatchObject({ 'X-GitHub-Api-Version': '2022-11-28' });
       expect(options.body).toBeUndefined();
+      expect(options.signal).toBeInstanceOf(AbortSignal);
       return jsonResponse(200, { workflow_runs: [{ id: 42 }] });
     });
     const result = await handleAdminGithub(request('POST', {
@@ -319,7 +320,12 @@ describe('site-admin identity and GitHub proxy', () => {
     expect(text.endsWith('🙂 ERROR: boom')).toBe(true);
     expect(text).not.toContain('\uFFFD');
     expect(logResponse.text).not.toHaveBeenCalled();
-    expect(fetchImpl).toHaveBeenNthCalledWith(2, 'https://blob.example/log', { method: 'GET', redirect: 'follow' });
+    expect(fetchImpl).toHaveBeenNthCalledWith(
+      2,
+      'https://blob.example/log',
+      expect.objectContaining({ method: 'GET', redirect: 'follow', signal: expect.any(AbortSignal) }),
+    );
+    expect(fetchImpl.mock.calls[0][1].signal).toBeInstanceOf(AbortSignal);
   });
 
   it('keeps every legacy crawler seed and restores the Swatch country filter', () => {

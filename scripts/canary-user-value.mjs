@@ -45,6 +45,7 @@ import { realpathSync } from 'node:fs';
 import process from 'node:process';
 import { pathToFileURL } from 'node:url';
 import { classifyArpu } from './lib/arpuCanaryClassify.mjs';
+import { fetchGoogleApi } from './lib/google-api-fetch.mjs';
 import { DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import { buildTargetMarketCountryFilter, TARGET_MARKET_COUNTRIES } from './lib/ga4-target-market.mjs';
 
@@ -86,7 +87,7 @@ async function getAccessToken() {
   const refreshToken = process.env.GSC_REFRESH_TOKEN;
   if (!clientId || !clientSecret || !refreshToken) return null;
 
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchGoogleApi('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -115,7 +116,7 @@ async function fetchDailyArpu() {
   if (!token) throw new Error('GSC_CLIENT_ID/GSC_CLIENT_SECRET/GSC_REFRESH_TOKEN not configured');
 
   const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
-  const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
+  const res = await fetchGoogleApi(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
     method: 'POST',
     headers,
     body: JSON.stringify(buildDailyArpuRequest()),
