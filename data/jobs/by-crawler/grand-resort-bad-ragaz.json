@@ -1,7 +1,7 @@
 {
   "crawlerKey": "grand-resort-bad-ragaz",
-  "assembledAt": "2026-10-24T21:19:27.037Z",
-  "runId": "40132734408",
+  "assembledAt": "2026-10-25T09:16:08.026Z",
+  "runId": "40179282907",
   "jobs": [
     {
       "id": "grand-resort-bad-ragaz-e25a2af29058",
@@ -35,7 +35,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/officemitarbeiter-innerer-dienst-m-w-i/55409fe6-bb9d-41ef-a5ac-9fcd382c1a6e",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.875Z",
+      "crawledAt": "2026-10-25T09:15:58.107Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "id": "grand-resort-bad-ragaz-38035a9ac01c",
       "slug": "masseur-20-40-m-w-i-grand-resort-bad-ragaz",
       "slugByLocale": {
-        "it": "massaggiatore-20-40-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "masseur-20-40-m-w-i-grand-resort-bad-ragaz",
         "en": "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -110,7 +110,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/masseur-m-w-i/79ce869d-7144-4337-93d7-916b564d956e",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.872Z",
+      "crawledAt": "2026-10-25T09:15:58.103Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -132,12 +132,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "massaggiatore-20-40-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-          "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+          "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+          "massaggiatore-20-40-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "fr": [
           "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -189,7 +191,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/bartender-supervisor-the-bar-w-m-i/11092d9d-c8f9-461d-a109-4cb0ac384777",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.870Z",
+      "crawledAt": "2026-10-25T09:15:58.099Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -263,7 +265,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-pop-up-restaurant-w-m-i/b5c36ba8-6f79-4aca-b010-52afef4139e9",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.868Z",
+      "crawledAt": "2026-10-25T09:15:58.095Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -302,7 +304,7 @@
       "id": "grand-resort-bad-ragaz-d4c96e15445e",
       "slug": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz",
       "slugByLocale": {
-        "it": "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz",
         "en": "head-green-3-00-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "chef-greenkeeper-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -330,7 +332,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/stv-head-greenkeeper-m-w-i/69818b79-fbf2-45fb-8a22-3ed7469321d4",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.866Z",
+      "crawledAt": "2026-10-25T09:15:58.091Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -351,11 +353,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+          "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+          "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "en": [
           "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -408,7 +412,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/diaetkoechin-diaetkoch-fuer-gesundheitskulinarik-in-den-grand-hotels/2dfd5096-1c5d-4545-9b12-a2a2450e968b",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.864Z",
+      "crawledAt": "2026-10-25T09:15:58.087Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -484,7 +488,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-restaurants-w-m-i-ab-januar-2027/732e733d-a7f0-4b22-aa6b-7caa4ba33ff8",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.862Z",
+      "crawledAt": "2026-10-25T09:15:58.083Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -563,7 +567,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-restaurants-w-m-i-ab-juli-2027/2d5cfb53-0bf3-4152-bdd6-b8461c304673",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.860Z",
+      "crawledAt": "2026-10-25T09:15:58.079Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -645,7 +649,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/aushilfe-service-restaurant-gladys-in-teilzeit-m-w-i/93aa4783-502f-4efb-aa6e-70ca8b5f5626",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.858Z",
+      "crawledAt": "2026-10-25T09:15:58.075Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -719,7 +723,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/leiter-innere-dienste-w-m-i/6b37c49d-c50e-4aea-82a3-b371a4ee17b5",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.855Z",
+      "crawledAt": "2026-10-25T09:15:58.072Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -795,7 +799,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-restaurants-grand-resort-bad-ragaz/b82d6688-800c-4291-8dba-a13d6d257296",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.852Z",
+      "crawledAt": "2026-10-25T09:15:58.069Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -861,7 +865,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/gaestebetreuer-oder-gaestebetreuerin-inklusive-bar-im-casino-bad-ragaz-w-m-i/37e86522-da44-449a-ae16-521464f469c3",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.850Z",
+      "crawledAt": "2026-10-25T09:15:58.064Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -937,7 +941,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/ernaehrungsberatung-w-m-i/73d453b5-8c9b-46f9-b067-913204c5cbf7",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.848Z",
+      "crawledAt": "2026-10-25T09:15:58.060Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -985,7 +989,7 @@
       "slug": "project-manager-in-health-restaurant-pre-opening-operations-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
         "it": "project-manager-in-health-restaurant-pre-opening-operations-grand-resort-bad-ragaz-bad-ragaz",
-        "en": "project-manager-in-health-restaurant-pre-opening-operations-grand-resort-bad-ragaz-bad-ragaz",
+        "en": "projektmanagement-gesundheitsrestaurant-50-60-pre-opening-operations-grand-resort-bad-ragaz-bad-ragaz",
         "de": "projektmanager-in-gesundheitsrestaurant-pre-opening-amp-operations-grand-resort-bad-ragaz",
         "fr": "gestionnaire-de-projet-au-health-restaurant-preouverture-et-operations-grand-resort-bad-ragaz-bad-ragaz"
       },
@@ -1011,7 +1015,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/projektmanagement-gesundheitsrestaurant-pre-opening-operations/8c85f975-51ba-473d-a5e0-5ed42393d726",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.846Z",
+      "crawledAt": "2026-10-25T09:15:58.053Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1097,7 +1101,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/fachfrau-fachmann-gesundheit/42a90669-cb8d-4293-9572-b150b08deffb",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.843Z",
+      "crawledAt": "2026-10-25T09:15:58.049Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1142,9 +1146,9 @@
     },
     {
       "id": "grand-resort-bad-ragaz-636a943b7788",
-      "slug": "pavimenti-supervisore-manutenzione-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
-        "it": "pavimenti-supervisore-manutenzione-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1171,7 +1175,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/floor-supervisor-housekeeping-w-m-i/19a1c77b-b21f-4bd6-9327-f6d29aaa3ca5",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.837Z",
+      "crawledAt": "2026-10-25T09:15:58.043Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1192,11 +1196,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "pavimenti-supervisore-manutenzione-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "floor-supervisor-housekeeping-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+          "pavimenti-supervisore-manutenzione-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
         ]
       },
       "salaryMin": 62000,
@@ -1245,7 +1249,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/fachaerztinnen-und-fachaertze-tamina-health-center/2582ca4b-460f-4b41-8cc5-7cafbcb93cc2",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.835Z",
+      "crawledAt": "2026-10-25T09:15:58.036Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1321,7 +1325,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/leiter-in-hr-services/9806ecf4-94f3-4a40-9b55-e2489227312a",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.833Z",
+      "crawledAt": "2026-10-25T09:15:58.028Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1398,7 +1402,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-autentica-ospitalita-italiana-nesso/adea1a18-4ba1-4f78-8295-76beac63c164",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-24T21:19:20.831Z",
+      "crawledAt": "2026-10-25T09:15:58.023Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1463,7 +1467,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/brand-manager-w-m-i/93d01e09-cda8-4ca9-94a4-f9540c260044",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.828Z",
+      "crawledAt": "2026-10-25T09:15:58.019Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1500,9 +1504,9 @@
     },
     {
       "id": "grand-resort-bad-ragaz-fdc3b0a08895",
-      "slug": "assistente-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "assistant-head-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
-        "it": "assistente-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "assistant-head-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "assistant-head-of-the-office-for-official-publications-of-the-european-communities-grand-resort-bad-ragaz-bad-ragaz",
         "de": "assistant-head-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "chef-adjoint-concierge-100-p-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1529,7 +1533,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/assistant-head-concierge-w-m-i/1f9c9e30-9dd5-443f-8fa4-d5efb26388fb",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.826Z",
+      "crawledAt": "2026-10-25T09:15:58.015Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1550,17 +1554,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-head-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "assistente-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-head-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
-        ],
-        "en": [
-          "assistant-head-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
-        ],
-        "fr": [
-          "assistant-head-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+          "assistente-concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
         ]
       },
       "firstSeenAt": "2026-10-12T21:17:35.951Z",
@@ -1610,7 +1608,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/badefachangestellte-helenabad/7d05801b-4a35-4928-87a2-a10d209c3217",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.824Z",
+      "crawledAt": "2026-10-25T09:15:58.012Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1690,7 +1688,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/vip-guest-services-executive-w-m-i/de1fd819-64ee-49fa-9c9a-871f46d3f44f",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.821Z",
+      "crawledAt": "2026-10-25T09:15:58.007Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1727,9 +1725,9 @@
     },
     {
       "id": "grand-resort-bad-ragaz-4e3081f22b5d",
-      "slug": "dipendente-della-protezione-dei-dati-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
-        "it": "dipendente-della-protezione-dei-dati-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "data-protection-employee-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "employe-de-protection-des-donnees-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1756,7 +1754,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/datenschutzmitarbeiter-w-d-i/187caeec-7c67-4832-8fb3-6c6f2fa691d6",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.819Z",
+      "crawledAt": "2026-10-25T09:15:58.002Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1777,19 +1775,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz-bad-ragaz",
-        "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz"
+        "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz",
+        "dipendente-della-protezione-dei-dati-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz-bad-ragaz",
-          "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz"
-        ],
-        "en": [
-          "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz-bad-ragaz"
-        ],
-        "fr": [
-          "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz-bad-ragaz"
+          "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz",
+          "dipendente-della-protezione-dei-dati-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz"
         ]
       },
       "firstSeenAt": "2026-10-20T21:17:10.526Z",
@@ -1838,7 +1830,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/servicemitarbeiter-w-m-i-15-11-bis-31-12-2026/16f3d174-c13d-4f3a-8a3b-8ad85535135d",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.817Z",
+      "crawledAt": "2026-10-25T09:15:57.994Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1920,7 +1912,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/58e42d33-3212-45d9-b349-ac166374d7ab",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.814Z",
+      "crawledAt": "2026-10-25T09:15:57.989Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1994,7 +1986,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/hairstylist-m-w-d/80a018c9-e217-4765-be00-2fbffd7fb517",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:19:20.808Z",
+      "crawledAt": "2026-10-25T09:15:57.978Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
