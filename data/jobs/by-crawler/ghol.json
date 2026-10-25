@@ -1,15 +1,15 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-10-25T09:26:44.522Z",
-  "runId": "40180000531",
+  "assembledAt": "2026-10-25T21:37:33.128Z",
+  "runId": "40234738429",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -50,7 +50,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:38.614Z",
+      "crawledAt": "2026-10-25T21:37:26.059Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -79,8 +79,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -88,10 +88,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -105,6 +105,78 @@
           "@type": "QuantitativeValue",
           "minValue": 65500,
           "maxValue": 82500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-bb90df116e65",
+      "slug": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "assc-for-the-department-of-medicine-and-neurovascular-unit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "assc-fur-die-abteilung-medizin-und-neurovaskulare-einheit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "ASSC pour le service de Médecine et Unité neurovasculaire",
+      "titleByLocale": {
+        "it": "ASSC per il Dipartimento di Medicina e Unità Neurovascolare",
+        "en": "ASSC for the Department of Medicine and Neurovascular Unit",
+        "de": "ASSC für die Abteilung Medizin und neurovaskuläre Einheit",
+        "fr": "ASSC pour le service de Médecine et Unité neurovasculaire"
+      },
+      "description": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento nella parte occidentale del Lago di Ginevra, con le sue strutture a Nyon e Rolle. Entrare a far parte di GHOL significa entrare a far parte di un'istituzione dinamica e impegnata, dove ogni professionista può mettere le proprie competenze al servizio dei pazienti sviluppando la propria carriera professionale.\nCon una capacità di 50 posti letto, il dipartimento di Medicina si prende cura di pazienti con situazioni mediche diverse, che richiedono un approccio globale, personalizzato e coordinato. Comprende anche un'unità neurovascolare, dedicata alla cura specialistica dei pazienti con ictus o altra patologia neurovascolare acuta.\nOgni giorno, i nostri team si impegnano a fornire assistenza di qualità, in un ambiente attento, rispettoso e incentrato sulla persona.\nIl lavoro all’interno del dipartimento si basa sulla stretta collaborazione tra i diversi operatori sanitari, i pazienti e i loro cari. L'ascolto, la fiducia, il rispetto e la considerazione delle esigenze di ciascun paziente sono al centro della nostra pratica.\nTi offriamo un ambiente professionale stimolante, in cui il tuo impegno e le tue competenze contribuiscono direttamente alla qualità delle cure per i nostri pazienti.\nMissione:\n\n• Collabori strettamente nella cura del paziente all'interno di un team multidisciplinare e con il team infermieristico\n\n• Fornisci assistenza varia, completa e personalizzata sotto la delega di un infermiere e supporti in modo responsabile e autonomo i pazienti con aspetti dell'assistenza relativi alle attività della vita quotidiana\n\n• Fornisci assistenza medico-tecnica su delega dell'infermiere\n\n• Trasmettete le informazioni in modo mirato e pertinente nell'archivio informatico\n\n• Supervisionare e supportare gli apprendisti e i tirocinanti dell'ASSC\n\n• Supervisioni e supporti i nuovi dipendenti\n\n• Sei responsabile delle buone pratiche di cura e del supporto per gli assistenti infermieristici e gli assistenti sanitari\nProfilo richiesto:\n\n• Forte interesse nella cura di anziani e/o persone non autosufficienti e/o persone con disturbi cognitivi\n\n• Pazienza, empatia, ascolto attivo, elevate capacità di comunicazione verbale e non verbale\n\n• Capacità di lavorare in modo interdisciplinare\n\n• Sei una persona dinamica, coinvolta, motivata e hai senso di responsabilità\n\n• Dimostra un'ottima padronanza della lingua francese, sia nell'espressione orale che scritta.\nLivello di formazione:\n\n• Sei assistente CFC nel settore dell'assistenza sanitaria e della comunità\nVantaggi:\n\n• Lavori in un ambiente lavorativo piacevole, in una costruzione recente\n\n• Entrerai a far parte di un team multidisciplinare dinamico e motivato",
+        "en": "GHOL is the reference hospital in western Lake Geneva, with its structures in Nyon and Rolle. Joining GHOL means joining a dynamic and committed institution, where each professional can put their skills at the service of patients while developing their professional career.\nWith a capacity of 50 beds, the Medicine department takes care of patients with diverse medical situations, requiring a global, personalized and coordinated approach. It also includes a neurovascular unit, dedicated to the specialized care of patients with a stroke or other acute neurovascular pathology.\nOn a daily basis, our teams are committed to providing quality care, in a caring, respectful and person-centered environment.\nThe work within the department is based on close collaboration between different healthcare professionals, patients and their loved ones. Listening, trust, respect and taking into account the needs of each patient are at the heart of our practice.\nWe offer you a stimulating professional environment, in which your commitment and skills directly contribute to the quality of care for our patients.\nMission:\n\n• You collaborate closely in patient care within a multidisciplinary team and with the nursing team\n\n• You provide varied, comprehensive and individualized care under the delegation of a nurse and you responsibly and autonomously support patients with aspects of care relating to daily life activities\n\n• You provide medical-technical care under delegation of the nurse\n\n• You transmit the information in a targeted and relevant manner in the computerized file\n\n• You supervise and support ASSC apprentices and trainees\n\n• You supervise and support new employees\n\n• You are responsible for good care practices and support for nursing assistants and healthcare assistants\nRequired profile:\n\n• Strong interest in caring for elderly and/or dependent people and/or people with cognitive disorders\n\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n\n• Ability to work interdisciplinarily\n\n• You are a dynamic, involved, motivated person and have a sense of responsibility\n\n• You demonstrate excellent command of the French language, both in oral expression and writing.\nLevel of training:\n\n• You hold a CFC assistant in community care and health\nAdvantages:\n\n• You work in a pleasant working environment, in a recent construction\n\n• You join a dynamic and motivated multidisciplinary team",
+        "de": "GHOL ist das Referenzkrankenhaus im westlichen Genfersee mit seinen Strukturen in Nyon und Rolle. Der Beitritt zu GHOL bedeutet, einer dynamischen und engagierten Einrichtung beizutreten, in der jeder Fachmann seine Fähigkeiten in den Dienst der Patienten stellen und gleichzeitig seine berufliche Laufbahn weiterentwickeln kann.\nMit einer Kapazität von 50 Betten kümmert sich die medizinische Abteilung um Patienten mit unterschiedlichen medizinischen Situationen, die einen globalen, personalisierten und koordinierten Ansatz erfordern. Es umfasst auch eine neurovaskuläre Abteilung, die sich der spezialisierten Betreuung von Patienten mit Schlaganfall oder anderen akuten neurovaskulären Pathologien widmet.\nUnsere Teams engagieren sich täglich für eine qualitativ hochwertige Pflege in einem fürsorglichen, respektvollen und personenzentrierten Umfeld.\nDie Arbeit innerhalb der Abteilung basiert auf einer engen Zusammenarbeit zwischen verschiedenen medizinischen Fachkräften, Patienten und ihren Angehörigen. Zuhören, Vertrauen, Respekt und die Berücksichtigung der Bedürfnisse jedes Patienten stehen im Mittelpunkt unserer Praxis.\nWir bieten Ihnen ein anregendes berufliches Umfeld, in dem Ihr Engagement und Ihre Fähigkeiten direkt zur Qualität der Versorgung unserer Patienten beitragen.\nAuftrag:\n\n• Sie arbeiten bei der Patientenversorgung eng in einem multidisziplinären Team und mit dem Pflegeteam zusammen\n\n• Sie betreuen abwechslungsreich, umfassend und individuell unter der Delegation einer Pflegekraft und unterstützen Patienten verantwortungsbewusst und eigenverantwortlich bei pflegerischen Aspekten des täglichen Lebens\n\n• Sie erbringen die medizinisch-technische Betreuung im Auftrag der Pflegekraft\n\n• Sie übermitteln die Informationen zielgerichtet und relevant in der EDV-Datei\n\n• Du betreust und unterstützt Auszubildende und Trainees der ASSC\n\n• Sie betreuen und unterstützen neue Mitarbeiter\n\n• Sie sind für gute Pflegepraktiken und die Unterstützung von Pflegehelfern und Gesundheitshelfern verantwortlich\nErforderliches Profil:\n\n• Starkes Interesse an der Betreuung älterer und/oder pflegebedürftiger Menschen und/oder Menschen mit kognitiven Störungen\n\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nonverbale Kommunikationsfähigkeiten\n\n• Fähigkeit zur interdisziplinären Zusammenarbeit\n\n• Sie sind eine dynamische, engagierte, motivierte Person und haben Verantwortungsbewusstsein\n\n• Sie beherrschen die französische Sprache sowohl mündlich als auch schriftlich hervorragend.\nAusbildungsstand:\n\n• Sie haben einen CFC-Assistenten im Bereich Gemeindepflege und Gesundheit\nVorteile:\n\n• Sie arbeiten in einem angenehmen Arbeitsumfeld in einem Neubau\n\n• Sie werden Teil eines dynamischen und motivierten multidisziplinären Teams",
+        "fr": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-nursing",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/FbUuocJWF",
+      "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T21:37:26.058Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+        ]
+      },
+      "firstSeenAt": "2026-08-25T21:49:26.103Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -156,7 +228,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:38.613Z",
+      "crawledAt": "2026-10-25T21:37:26.058Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -234,7 +306,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:38.612Z",
+      "crawledAt": "2026-10-25T21:37:26.057Z",
       "previousSlugs": [
         "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
       ],
@@ -244,155 +316,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:46.269Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-bb90df116e65",
-      "slug": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "assc-for-the-department-of-medicine-and-neurovascular-unit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "assc-fur-die-abteilung-medizin-und-neurovaskulare-einheit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "ASSC pour le service de Médecine et Unité neurovasculaire",
-      "titleByLocale": {
-        "it": "ASSC per il Dipartimento di Medicina e Unità Neurovascolare",
-        "en": "ASSC for the Department of Medicine and Neurovascular Unit",
-        "de": "ASSC für die Abteilung Medizin und neurovaskuläre Einheit",
-        "fr": "ASSC pour le service de Médecine et Unité neurovasculaire"
-      },
-      "description": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento nella parte occidentale del Lago di Ginevra, con le sue strutture a Nyon e Rolle. Entrare a far parte di GHOL significa entrare a far parte di un'istituzione dinamica e impegnata, dove ogni professionista può mettere le proprie competenze al servizio dei pazienti sviluppando la propria carriera professionale.\nCon una capacità di 50 posti letto, il dipartimento di Medicina si prende cura di pazienti con situazioni mediche diverse, che richiedono un approccio globale, personalizzato e coordinato. Comprende anche un'unità neurovascolare, dedicata alla cura specialistica dei pazienti con ictus o altra patologia neurovascolare acuta.\nOgni giorno, i nostri team si impegnano a fornire assistenza di qualità, in un ambiente attento, rispettoso e incentrato sulla persona.\nIl lavoro all’interno del dipartimento si basa sulla stretta collaborazione tra i diversi operatori sanitari, i pazienti e i loro cari. L'ascolto, la fiducia, il rispetto e la considerazione delle esigenze di ciascun paziente sono al centro della nostra pratica.\nTi offriamo un ambiente professionale stimolante, in cui il tuo impegno e le tue competenze contribuiscono direttamente alla qualità delle cure per i nostri pazienti.\nMissione:\n\n• Collabori strettamente nella cura del paziente all'interno di un team multidisciplinare e con il team infermieristico\n\n• Fornisci assistenza varia, completa e personalizzata sotto la delega di un infermiere e supporti in modo responsabile e autonomo i pazienti con aspetti dell'assistenza relativi alle attività della vita quotidiana\n\n• Fornisci assistenza medico-tecnica su delega dell'infermiere\n\n• Trasmettete le informazioni in modo mirato e pertinente nell'archivio informatico\n\n• Supervisionare e supportare gli apprendisti e i tirocinanti dell'ASSC\n\n• Supervisioni e supporti i nuovi dipendenti\n\n• Sei responsabile delle buone pratiche di cura e del supporto per gli assistenti infermieristici e gli assistenti sanitari\nProfilo richiesto:\n\n• Forte interesse nella cura di anziani e/o persone non autosufficienti e/o persone con disturbi cognitivi\n\n• Pazienza, empatia, ascolto attivo, elevate capacità di comunicazione verbale e non verbale\n\n• Capacità di lavorare in modo interdisciplinare\n\n• Sei una persona dinamica, coinvolta, motivata e hai senso di responsabilità\n\n• Dimostra un'ottima padronanza della lingua francese, sia nell'espressione orale che scritta.\nLivello di formazione:\n\n• Sei assistente CFC nel settore dell'assistenza sanitaria e della comunità\nVantaggi:\n\n• Lavori in un ambiente lavorativo piacevole, in una costruzione recente\n\n• Entrerai a far parte di un team multidisciplinare dinamico e motivato",
-        "en": "GHOL is the reference hospital in western Lake Geneva, with its structures in Nyon and Rolle. Joining GHOL means joining a dynamic and committed institution, where each professional can put their skills at the service of patients while developing their professional career.\nWith a capacity of 50 beds, the Medicine department takes care of patients with diverse medical situations, requiring a global, personalized and coordinated approach. It also includes a neurovascular unit, dedicated to the specialized care of patients with a stroke or other acute neurovascular pathology.\nOn a daily basis, our teams are committed to providing quality care, in a caring, respectful and person-centered environment.\nThe work within the department is based on close collaboration between different healthcare professionals, patients and their loved ones. Listening, trust, respect and taking into account the needs of each patient are at the heart of our practice.\nWe offer you a stimulating professional environment, in which your commitment and skills directly contribute to the quality of care for our patients.\nMission:\n\n• You collaborate closely in patient care within a multidisciplinary team and with the nursing team\n\n• You provide varied, comprehensive and individualized care under the delegation of a nurse and you responsibly and autonomously support patients with aspects of care relating to daily life activities\n\n• You provide medical-technical care under delegation of the nurse\n\n• You transmit the information in a targeted and relevant manner in the computerized file\n\n• You supervise and support ASSC apprentices and trainees\n\n• You supervise and support new employees\n\n• You are responsible for good care practices and support for nursing assistants and healthcare assistants\nRequired profile:\n\n• Strong interest in caring for elderly and/or dependent people and/or people with cognitive disorders\n\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n\n• Ability to work interdisciplinarily\n\n• You are a dynamic, involved, motivated person and have a sense of responsibility\n\n• You demonstrate excellent command of the French language, both in oral expression and writing.\nLevel of training:\n\n• You hold a CFC assistant in community care and health\nAdvantages:\n\n• You work in a pleasant working environment, in a recent construction\n\n• You join a dynamic and motivated multidisciplinary team",
-        "de": "GHOL ist das Referenzkrankenhaus im westlichen Genfersee mit seinen Strukturen in Nyon und Rolle. Der Beitritt zu GHOL bedeutet, einer dynamischen und engagierten Einrichtung beizutreten, in der jeder Fachmann seine Fähigkeiten in den Dienst der Patienten stellen und gleichzeitig seine berufliche Laufbahn weiterentwickeln kann.\nMit einer Kapazität von 50 Betten kümmert sich die medizinische Abteilung um Patienten mit unterschiedlichen medizinischen Situationen, die einen globalen, personalisierten und koordinierten Ansatz erfordern. Es umfasst auch eine neurovaskuläre Abteilung, die sich der spezialisierten Betreuung von Patienten mit Schlaganfall oder anderen akuten neurovaskulären Pathologien widmet.\nUnsere Teams engagieren sich täglich für eine qualitativ hochwertige Pflege in einem fürsorglichen, respektvollen und personenzentrierten Umfeld.\nDie Arbeit innerhalb der Abteilung basiert auf einer engen Zusammenarbeit zwischen verschiedenen medizinischen Fachkräften, Patienten und ihren Angehörigen. Zuhören, Vertrauen, Respekt und die Berücksichtigung der Bedürfnisse jedes Patienten stehen im Mittelpunkt unserer Praxis.\nWir bieten Ihnen ein anregendes berufliches Umfeld, in dem Ihr Engagement und Ihre Fähigkeiten direkt zur Qualität der Versorgung unserer Patienten beitragen.\nAuftrag:\n\n• Sie arbeiten bei der Patientenversorgung eng in einem multidisziplinären Team und mit dem Pflegeteam zusammen\n\n• Sie betreuen abwechslungsreich, umfassend und individuell unter der Delegation einer Pflegekraft und unterstützen Patienten verantwortungsbewusst und eigenverantwortlich bei pflegerischen Aspekten des täglichen Lebens\n\n• Sie erbringen die medizinisch-technische Betreuung im Auftrag der Pflegekraft\n\n• Sie übermitteln die Informationen zielgerichtet und relevant in der EDV-Datei\n\n• Du betreust und unterstützt Auszubildende und Trainees der ASSC\n\n• Sie betreuen und unterstützen neue Mitarbeiter\n\n• Sie sind für gute Pflegepraktiken und die Unterstützung von Pflegehelfern und Gesundheitshelfern verantwortlich\nErforderliches Profil:\n\n• Starkes Interesse an der Betreuung älterer und/oder pflegebedürftiger Menschen und/oder Menschen mit kognitiven Störungen\n\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nonverbale Kommunikationsfähigkeiten\n\n• Fähigkeit zur interdisziplinären Zusammenarbeit\n\n• Sie sind eine dynamische, engagierte, motivierte Person und haben Verantwortungsbewusstsein\n\n• Sie beherrschen die französische Sprache sowohl mündlich als auch schriftlich hervorragend.\nAusbildungsstand:\n\n• Sie haben einen CFC-Assistenten im Bereich Gemeindepflege und Gesundheit\nVorteile:\n\n• Sie arbeiten in einem angenehmen Arbeitsumfeld in einem Neubau\n\n• Sie werden Teil eines dynamischen und motivierten multidisziplinären Teams",
-        "fr": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare-nursing",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/FbUuocJWF",
-      "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:38.612Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-        ]
-      },
-      "firstSeenAt": "2026-08-25T21:49:26.103Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-5192d18742bc",
-      "slug": "infermiera-presso-lo-sme-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-      "slugByLocale": {
-        "it": "infermiera-presso-lo-sme-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "en": "nurse-at-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "de": "krankenschwester-bei-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "fr": "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Infirmier·ère à l'EMS Les Jardins du Léman",
-      "titleByLocale": {
-        "it": "Infermiera presso lo SME Les Jardins du Léman",
-        "en": "Nurse at EMS Les Jardins du Léman",
-        "de": "Krankenschwester bei EMS Les Jardins du Léman",
-        "fr": "Infirmier·ère à l'EMS Les Jardins du Léman"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n L’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\n Notre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Développer le rôle infirmier autonome et la posture infirmière : organiser, planifier et mettre en œuvre la prise en charge des résidents·es au sein du service de gériatrie ou de psycho-gériatrie de l’EMS\n\n• Assurer le leadership de l’équipe soignante (composée d’aide-infirmier·ière, ASA, d’aide-soignant·e et d’ASSC)\n\n• Développer une prise en charge personnalisée des résidents·es\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé des résidents·es\n\n• Superviser les élèves infirmiers·ières et apprentis·es ASSC\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Assertivité dans la fonction, une expérience en EMS ou en soins aigus serait un atout\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé (ou titre jugé équivalent homologué par la Croix-Rouge Suisse)\n Avantages :\n\n• Environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\n\n• Intégrer une équipe dynamique et motivée\n\n• Participation active au projet d’accompagnement des résidents\n\n• Bénéficier du catalogue de formation du GHOL\n\n• Accessibilité au parking de l’établissement",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL.\nL'obiettivo del \"Les Jardins du Léman\" (Les Jardins du Léman) è quello di fornire ai propri residenti la migliore qualità di vita possibile in un ambiente medico adattato alle loro specificità.\nIl nostro approccio di accompagnamento si basa sulla costruzione di un rapporto di fiducia con i residenti, i loro cari e personale medico, nonché tenendo conto del loro stile di vita, desideri e bisogni. Questo rispetto per la persona si riflette nell'assistenza medica fornita dal nostro personale sanitario qualificato.\nDescrizione del post:\nNelle vostre nuove mansioni, le vostre missioni hanno un impatto sulla qualità della cura per i residenti. Il tuo ruolo includerà:\n\n• Sviluppare il ruolo di infermieristica autonomo e la postura di cura: organizzazione, pianificazione e attuazione della cura dei residenti nel dipartimento geriatrico o psico-geriatrico dello SME\n\n• Fornisce la leadership al team sanitario (composto da allattamento, ASA, allattamento e CASS)\n\n• Sviluppare una cura personalizzata dei residenti\n\n• Collaborare in un team interdisciplinare\n\n• Trasmettere e ritrasmettere osservazioni in modo mirato e rilevante nel file computerizzato dei residenti\n\n• Supervisione degli studenti infermieri e apprendisti\nProfilo richiesto:\nSiamo sicuri del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n\n• Interessi nella cura degli anziani e/o dipendenti e/o con alterazione cognitiva\n\n• Assertività nella funzione, esperienza nello SME o cura acuta sarebbe un bene\n\n• Pazienza, empatia, ascolto attivo, alta capacità di comunicazione verbale e non verbale\n\n• Buona resistenza fisica e psicologica\nLivello di formazione:\nBachelor of Science HES-SO in Infermieristica richiesto (o titolo ritenuto equivalente approvato dalla Croce Rossa svizzera)\nVantaggi:\n\n• Ambiente di lavoro piacevole, locali recenti, spazi esterni appositamente attrezzati\n\n• Integrare un team dinamico e motivato\n\n• Partecipazione attiva al progetto per sostenere i residenti\n\n• Vantaggi del catalogo di formazione GHOL\n\n• Accessibilità al parcheggio della struttura",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL.\nThe aim of the \"Les Jardins du Léman\" (Les Jardins du Léman) is to provide its residents with the best possible quality of life in a medical environment adapted to their specificities.\nOur accompaniment approach is based on building a relationship of trust with residents, their loved ones and medical staff, as well as taking into account their lifestyle, desires and needs. This respect for the person is reflected in the medical care provided by our qualified healthcare staff.\nDescription of the post:\nIn your new duties, your missions have an impact on the quality of care for residents. Your role will include:\n\n• Developing the autonomous nursing role and nursing posture: organizing, planning and implementing the care of residents in the geriatric or psycho-geriatric department of EMS\n\n• Provides leadership to the health care team (composed of nursing, ASA, nursing, and CASS)\n\n• Develop a personalized care of residents\n\n• Collaborate in an interdisciplinary team\n\n• Transmit and retransmit observations in a targeted and relevant manner in the residents' computerized file\n\n• Supervision of nursing and apprentice students\nProfile required:\nWe are confident of your rapid success in your future functions through your:\n\n• Interest in the care of the elderly and/or dependent and/or with cognitive impairment\n\n• Assertivity in the function, experience in EMS or acute care would be an asset\n\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n\n• Good physical and psychological resistance\nLevel of training:\nBachelor of Science HES-SO in Nursing Required (or title deemed equivalent approved by the Swiss Red Cross)\nBenefits:\n\n• Pleasant working environment, recent premises, specially equipped outdoor spaces\n\n• Integrating a dynamic and motivated team\n\n• Active participation in the project to support residents\n\n• Benefit from the GHOL training catalogue\n\n• Accessibility to the property's parking lot",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL teilnehmen.\nDas Ziel des \"Les Jardins du Léman\" (Les Jardins du Léman) ist es, seinen Bewohnern die bestmögliche Lebensqualität in einem medizinischen Umfeld zu bieten, das an ihre Besonderheiten angepasst ist.\nUnser Begleitungsansatz basiert auf dem Aufbau einer Vertrauensbeziehung zu den Bewohnern, ihren Lieben und dem medizinischen Personal sowie auf der Berücksichtigung ihres Lebensstils, ihrer Wünsche und Bedürfnisse. Dieser Respekt für die Person spiegelt sich in der medizinischen Versorgung durch unser qualifiziertes Gesundheitspersonal wider.\nBeschreibung der Stelle:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Versorgung der Bewohner. Ihre Rolle umfasst:\n\n• Entwicklung der autonomen Pflegerolle und Pflegehaltung: Organisation, Planung und Umsetzung der Pflege der Bewohner in der geriatrischen oder psycho-geriatrischen Abteilung von EMS\n\n• Bietet Führung für das Gesundheitsteam (bestehend aus Pflege, ASA, Pflege und CASS)\n\n• Entwicklung einer personalisierten Betreuung der Bewohner\n\n• Zusammenarbeit in einem interdisziplinären Team\n\n• Übermittlung und Weiterleitung von Beobachtungen in einer gezielten und relevanten Weise in der computerisierten Datei der Bewohner\n\n• Betreuung von Krankenpflege- und Auszubildenden\nProfil erforderlich:\nWir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen durch Ihre:\n\n• Interesse an der Pflege älterer und/oder abhängiger Menschen und/oder mit kognitiven Beeinträchtigungen\n\n• Beharrlichkeit in der Funktion, Erfahrung in EMS oder Akutpflege wäre ein Vorteil\n\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nonverbale Kommunikationsfähigkeiten\n\n• Gute körperliche und psychische Widerstandsfähigkeit\nAusbildungsniveau:\nBachelor of Science HES-SO in Pflege erforderlich (oder Titel als gleichwertig vom Schweizerischen Roten Kreuz genehmigt)\nLeistungen:\n\n• Angenehmes Arbeitsumfeld, neue Räumlichkeiten, speziell ausgestattete Außenräume\n\n• Integration eines dynamischen und motivierten Teams\n\n• Aktive Teilnahme am Projekt zur Unterstützung der Bewohner\n\n• Profitieren Sie vom GHOL Trainingskatalog\n\n• Zugänglichkeit zum Parkplatz der Immobilie",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\nL’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\nNotre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Développer le rôle infirmier autonome et la posture infirmière : organiser, planifier et mettre en œuvre la prise en charge des résidents·es au sein du service de gériatrie ou de psycho-gériatrie de l’EMS\n\n• Assurer le leadership de l’équipe soignante (composée d’aide-infirmier·ière, ASA, d’aide-soignant·e et d’ASSC)\n\n• Développer une prise en charge personnalisée des résidents·es\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé des résidents·es\n\n• Superviser les élèves infirmiers·ières et apprentis·es ASSC\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Assertivité dans la fonction, une expérience en EMS ou en soins aigus serait un atout\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\nNiveau de formation :\nBachelor of Science HES-SO en Soins infirmiers exigé (ou titre jugé équivalent homologué par la Croix-Rouge Suisse)\nAvantages :\n\n• Environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\n\n• Intégrer une équipe dynamique et motivée\n\n• Participation active au projet d’accompagnement des résidents\n\n• Bénéficier du catalogue de formation du GHOL\n\n• Accessibilité au parking de l’établissement"
-      },
-      "location": "Rolle",
-      "canton": "VD",
-      "addressLocality": "Rolle",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1180",
-      "category": "healthcare-nursing",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/DYAYXSAFI",
-      "applyUrl": "https://app.beehire.com/invite/DYAYXSAFI",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:38.611Z",
-      "previousSlugs": [
-        "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
-        ],
-        "en": [
-          "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
-        ],
-        "de": [
-          "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T09:27:09.484Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -454,7 +377,7 @@
       "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:38.610Z",
+      "crawledAt": "2026-10-25T21:37:26.056Z",
       "previousSlugs": [
         "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -480,6 +403,83 @@
           "@type": "QuantitativeValue",
           "minValue": 116500,
           "maxValue": 162500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-5192d18742bc",
+      "slug": "infermiera-presso-lo-sme-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+      "slugByLocale": {
+        "it": "infermiera-presso-lo-sme-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "en": "nurse-at-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "de": "krankenschwester-bei-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "fr": "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Infirmier·ère à l'EMS Les Jardins du Léman",
+      "titleByLocale": {
+        "it": "Infermiera presso lo SME Les Jardins du Léman",
+        "en": "Nurse at EMS Les Jardins du Léman",
+        "de": "Krankenschwester bei EMS Les Jardins du Léman",
+        "fr": "Infirmier·ère à l'EMS Les Jardins du Léman"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n L’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\n Notre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Développer le rôle infirmier autonome et la posture infirmière : organiser, planifier et mettre en œuvre la prise en charge des résidents·es au sein du service de gériatrie ou de psycho-gériatrie de l’EMS\n\n• Assurer le leadership de l’équipe soignante (composée d’aide-infirmier·ière, ASA, d’aide-soignant·e et d’ASSC)\n\n• Développer une prise en charge personnalisée des résidents·es\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé des résidents·es\n\n• Superviser les élèves infirmiers·ières et apprentis·es ASSC\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Assertivité dans la fonction, une expérience en EMS ou en soins aigus serait un atout\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé (ou titre jugé équivalent homologué par la Croix-Rouge Suisse)\n Avantages :\n\n• Environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\n\n• Intégrer une équipe dynamique et motivée\n\n• Participation active au projet d’accompagnement des résidents\n\n• Bénéficier du catalogue de formation du GHOL\n\n• Accessibilité au parking de l’établissement",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL.\nL'obiettivo del \"Les Jardins du Léman\" (Les Jardins du Léman) è quello di fornire ai propri residenti la migliore qualità di vita possibile in un ambiente medico adattato alle loro specificità.\nIl nostro approccio di accompagnamento si basa sulla costruzione di un rapporto di fiducia con i residenti, i loro cari e personale medico, nonché tenendo conto del loro stile di vita, desideri e bisogni. Questo rispetto per la persona si riflette nell'assistenza medica fornita dal nostro personale sanitario qualificato.\nDescrizione del post:\nNelle vostre nuove mansioni, le vostre missioni hanno un impatto sulla qualità della cura per i residenti. Il tuo ruolo includerà:\n\n• Sviluppare il ruolo di infermieristica autonomo e la postura di cura: organizzazione, pianificazione e attuazione della cura dei residenti nel dipartimento geriatrico o psico-geriatrico dello SME\n\n• Fornisce la leadership al team sanitario (composto da allattamento, ASA, allattamento e CASS)\n\n• Sviluppare una cura personalizzata dei residenti\n\n• Collaborare in un team interdisciplinare\n\n• Trasmettere e ritrasmettere osservazioni in modo mirato e rilevante nel file computerizzato dei residenti\n\n• Supervisione degli studenti infermieri e apprendisti\nProfilo richiesto:\nSiamo sicuri del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n\n• Interessi nella cura degli anziani e/o dipendenti e/o con alterazione cognitiva\n\n• Assertività nella funzione, esperienza nello SME o cura acuta sarebbe un bene\n\n• Pazienza, empatia, ascolto attivo, alta capacità di comunicazione verbale e non verbale\n\n• Buona resistenza fisica e psicologica\nLivello di formazione:\nBachelor of Science HES-SO in Infermieristica richiesto (o titolo ritenuto equivalente approvato dalla Croce Rossa svizzera)\nVantaggi:\n\n• Ambiente di lavoro piacevole, locali recenti, spazi esterni appositamente attrezzati\n\n• Integrare un team dinamico e motivato\n\n• Partecipazione attiva al progetto per sostenere i residenti\n\n• Vantaggi del catalogo di formazione GHOL\n\n• Accessibilità al parcheggio della struttura",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL.\nThe aim of the \"Les Jardins du Léman\" (Les Jardins du Léman) is to provide its residents with the best possible quality of life in a medical environment adapted to their specificities.\nOur accompaniment approach is based on building a relationship of trust with residents, their loved ones and medical staff, as well as taking into account their lifestyle, desires and needs. This respect for the person is reflected in the medical care provided by our qualified healthcare staff.\nDescription of the post:\nIn your new duties, your missions have an impact on the quality of care for residents. Your role will include:\n\n• Developing the autonomous nursing role and nursing posture: organizing, planning and implementing the care of residents in the geriatric or psycho-geriatric department of EMS\n\n• Provides leadership to the health care team (composed of nursing, ASA, nursing, and CASS)\n\n• Develop a personalized care of residents\n\n• Collaborate in an interdisciplinary team\n\n• Transmit and retransmit observations in a targeted and relevant manner in the residents' computerized file\n\n• Supervision of nursing and apprentice students\nProfile required:\nWe are confident of your rapid success in your future functions through your:\n\n• Interest in the care of the elderly and/or dependent and/or with cognitive impairment\n\n• Assertivity in the function, experience in EMS or acute care would be an asset\n\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n\n• Good physical and psychological resistance\nLevel of training:\nBachelor of Science HES-SO in Nursing Required (or title deemed equivalent approved by the Swiss Red Cross)\nBenefits:\n\n• Pleasant working environment, recent premises, specially equipped outdoor spaces\n\n• Integrating a dynamic and motivated team\n\n• Active participation in the project to support residents\n\n• Benefit from the GHOL training catalogue\n\n• Accessibility to the property's parking lot",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL teilnehmen.\nDas Ziel des \"Les Jardins du Léman\" (Les Jardins du Léman) ist es, seinen Bewohnern die bestmögliche Lebensqualität in einem medizinischen Umfeld zu bieten, das an ihre Besonderheiten angepasst ist.\nUnser Begleitungsansatz basiert auf dem Aufbau einer Vertrauensbeziehung zu den Bewohnern, ihren Lieben und dem medizinischen Personal sowie auf der Berücksichtigung ihres Lebensstils, ihrer Wünsche und Bedürfnisse. Dieser Respekt für die Person spiegelt sich in der medizinischen Versorgung durch unser qualifiziertes Gesundheitspersonal wider.\nBeschreibung der Stelle:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Versorgung der Bewohner. Ihre Rolle umfasst:\n\n• Entwicklung der autonomen Pflegerolle und Pflegehaltung: Organisation, Planung und Umsetzung der Pflege der Bewohner in der geriatrischen oder psycho-geriatrischen Abteilung von EMS\n\n• Bietet Führung für das Gesundheitsteam (bestehend aus Pflege, ASA, Pflege und CASS)\n\n• Entwicklung einer personalisierten Betreuung der Bewohner\n\n• Zusammenarbeit in einem interdisziplinären Team\n\n• Übermittlung und Weiterleitung von Beobachtungen in einer gezielten und relevanten Weise in der computerisierten Datei der Bewohner\n\n• Betreuung von Krankenpflege- und Auszubildenden\nProfil erforderlich:\nWir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen durch Ihre:\n\n• Interesse an der Pflege älterer und/oder abhängiger Menschen und/oder mit kognitiven Beeinträchtigungen\n\n• Beharrlichkeit in der Funktion, Erfahrung in EMS oder Akutpflege wäre ein Vorteil\n\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nonverbale Kommunikationsfähigkeiten\n\n• Gute körperliche und psychische Widerstandsfähigkeit\nAusbildungsniveau:\nBachelor of Science HES-SO in Pflege erforderlich (oder Titel als gleichwertig vom Schweizerischen Roten Kreuz genehmigt)\nLeistungen:\n\n• Angenehmes Arbeitsumfeld, neue Räumlichkeiten, speziell ausgestattete Außenräume\n\n• Integration eines dynamischen und motivierten Teams\n\n• Aktive Teilnahme am Projekt zur Unterstützung der Bewohner\n\n• Profitieren Sie vom GHOL Trainingskatalog\n\n• Zugänglichkeit zum Parkplatz der Immobilie",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\nL’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\nNotre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Développer le rôle infirmier autonome et la posture infirmière : organiser, planifier et mettre en œuvre la prise en charge des résidents·es au sein du service de gériatrie ou de psycho-gériatrie de l’EMS\n\n• Assurer le leadership de l’équipe soignante (composée d’aide-infirmier·ière, ASA, d’aide-soignant·e et d’ASSC)\n\n• Développer une prise en charge personnalisée des résidents·es\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé des résidents·es\n\n• Superviser les élèves infirmiers·ières et apprentis·es ASSC\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Assertivité dans la fonction, une expérience en EMS ou en soins aigus serait un atout\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\nNiveau de formation :\nBachelor of Science HES-SO en Soins infirmiers exigé (ou titre jugé équivalent homologué par la Croix-Rouge Suisse)\nAvantages :\n\n• Environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\n\n• Intégrer une équipe dynamique et motivée\n\n• Participation active au projet d’accompagnement des résidents\n\n• Bénéficier du catalogue de formation du GHOL\n\n• Accessibilité au parking de l’établissement"
+      },
+      "location": "Rolle",
+      "canton": "VD",
+      "addressLocality": "Rolle",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1180",
+      "category": "healthcare-nursing",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/DYAYXSAFI",
+      "applyUrl": "https://app.beehire.com/invite/DYAYXSAFI",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T21:37:26.056Z",
+      "previousSlugs": [
+        "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
+        ],
+        "en": [
+          "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
+        ],
+        "de": [
+          "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
+        ]
+      },
+      "firstSeenAt": "2026-10-08T09:27:09.484Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -531,7 +531,7 @@
       "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:38.609Z",
+      "crawledAt": "2026-10-25T21:37:26.054Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -609,7 +609,7 @@
       "applyUrl": "https://app.beehire.com/invite/WkSW4quSz",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:38.608Z",
+      "crawledAt": "2026-10-25T21:37:26.053Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
@@ -687,7 +687,7 @@
       "applyUrl": "https://app.beehire.com/invite/kgMrU8wmj",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:38.606Z",
+      "crawledAt": "2026-10-25T21:37:26.051Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"

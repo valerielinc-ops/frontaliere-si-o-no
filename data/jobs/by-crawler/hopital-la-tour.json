@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-la-tour",
-  "assembledAt": "2026-10-25T09:26:38.223Z",
-  "runId": "40180000531",
+  "assembledAt": "2026-10-25T21:33:43.344Z",
+  "runId": "40234738429",
   "jobs": [
     {
       "id": "hopital-la-tour-882b6ff457f2",
@@ -34,7 +34,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.987Z",
+      "crawledAt": "2026-10-25T21:33:36.385Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -62,79 +62,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T11:40:25.779Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69200,
-          "maxValue": 96400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hopital-la-tour-d684c72b4fa2",
-      "slug": "infermiera-notturna-in-medicina-cdi-80-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "infermiera-notturna-in-medicina-cdi-80-hopital-de-la-tour-meyrin",
-        "en": "night-nurse-in-medicine-cdi-80-hopital-de-la-tour-meyrin",
-        "de": "nachtkrankenschwester-in-der-medizin-cdi-80-hopital-de-la-tour-meyrin",
-        "fr": "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Infirmier(-ère) de nuit en Médecine - CDI 80%",
-      "titleByLocale": {
-        "it": "Infermiera di notte in Medicina - CDI 80%",
-        "en": "Nurse at night in Medicine - CDI 80%",
-        "de": "Nachtkrankenschwester in der Medizin - CDI 80%",
-        "fr": "Infirmier(-ère) de nuit en Médecine - CDI 80%"
-      },
-      "description": "Votre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies polyvalentes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Identifier les situations de fragilité, de perte d'autonomie et de complexité nécessitant une approche interdisciplinaire ;\n\n• Participer à la prise en charge de patients âgés et polymorbides, ainsi qu'à l'accompagnement de patients et de leurs proches confrontés à des situations palliatives ;\n\n• Collaborer avec les différents intervenants afin d'assurer la continuité et la coordination des soins ;\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge si diplôme étranger\n\n• Disposant d'une expérience en médecine interne, en gériatrie, en soins palliatifs ou dans un domaine de soins complexes, un atout ;\n\n• Présentant un intérêt marqué pour la prise en charge des patients âgés, polymorbides et/ou en situation palliative ;\n\n• Sensible à l'approche globale et interdisciplinaire du patient ;\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\n• Capable de contribuer à instaurer un climat de confiance avec les patients, leurs proches et les différents professionnels.\n\nUn environnement en évolution\n\nRejoindre notre équipe, c'est intégrer un service de médecine interne dynamique, au cœur d'un environnement en développement, offrant la possibilité de contribuer à l'évolution de nouvelles filières de soins.\nNous valorisons les collaborateurs souhaitant développer leurs compétences et s'investir dans des projets liés notamment à la gériatrie, aux soins palliatifs et à la prise en charge des patients présentant des situations complexes.\nUne formation ou une expérience dans ces domaines constitue un atout, mais la motivation et l'intérêt pour ces spécialités sont également particulièrement appréciés.\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : 80 %\n Type d'horaires : variables",
-      "descriptionByLocale": {
-        "it": "La tua missione:\n\nIn un istituto all'avanguardia, lei ha una posizione diversa in un team multidisciplinare di infermieri, assistenti infermieristici, medici.\n\nDovrete garantire che i pazienti con patologie multi-uso siano ricevuti come parte di una fase acuta completa di cura.\n\nCome tale siete responsabili di;\n\n• Informare il paziente e fornirgli informazioni sull'organizzazione amministrativa e sulle cure\n\n• Raccogliere e trasmettere dati medici e amministrativi e completare il file informatico di assistenza\n\n• Garantire e organizzare la pianificazione dell'assistenza in base alle priorità e alle urgenze\n\n• Eseguire le cure su prescrizione medica e in conformità con le procedure unitarie e istituzionali\n\n• Mantenere il registro del paziente informato\n\n• Valutare continuamente la condizione clinica del paziente e il suo sviluppo nella situazione acuta\n\n• individuare situazioni di fragilità, perdita di autonomia e complessità che richiedono un approccio interdisciplinare;\n\n• assistere nella gestione dei pazienti anziani e polimorfi, nonché nel sostegno dei pazienti e dei loro parenti in situazioni di Holas;\n\n• di concerto con i vari soggetti interessati per garantire la continuità e il coordinamento delle cure;\n\n• Garantire il coordinamento interservizi per la gestione del movimento dei pazienti\n\n• Coordinare input e output: mutazioni interne, trasferimenti esterni dei pazienti in collaborazione con il quadro sanitario.\n\nCerchiamo un profilo che soddisfi i seguenti criteri:\n\n• Diploma di Infermiere (-E)\n\n• In possesso del riconoscimento della Croce Rossa se diploma straniero\n\n• esperienza in medicina interna, geriatria, cura palliativa o un complesso settore di cura, un bene;\n\n• ha un forte interesse per la gestione di pazienti anziani, polimorfi e/o di hal;\n\n• Sensitiva all'approccio olistico e interdisciplinare del paziente;\n\n• Significato del contatto e del servizio in un istituto privato\n\n• Auto-responsabilità, la benevolenza, la versatilità, l'adattabilità, l'organizzazione e la definizione delle priorità sono qualità essenziali\n\n• Atteggiamento positivo all'interno di una squadra e sono in grado di generare un clima di fiducia\n\n• In grado di contribuire a costruire la fiducia con i pazienti, i loro cari e diversi professionisti.\n\nUn ambiente in evoluzione\n\nUnirsi al nostro team è integrare un dinamico servizio di medicina interna, al centro di un ambiente in via di sviluppo, offrendo l'opportunità di contribuire all'evoluzione di nuovi canali di assistenza. Apprezziamo i dipendenti che desiderano sviluppare le proprie competenze e investire in progetti legati alla geriatria, alle cure palliative e alla cura dei pazienti con situazioni complesse.\n\nLa formazione o l'esperienza in questi settori sono un bene, ma la motivazione e l'interesse in queste specialità sono anche particolarmente apprezzati.\n\nVi proponiamo:\n\nTipo di contratto: Contratto con Durata Indeterminata Percentuale: 80% Tipo di Programma: Variabili",
-        "en": "Your mission:\n\nIn a state-of-the-art institution you hold a varied position on a multidisciplinary team of nurses, nursing assistants, doctors.\n\nYou will need to ensure that patients with multi-purpose pathologies are received as part of a comprehensive acute phase of care.\n\nAs such you are in charge of;\n\n• To inform the patient and to provide him with information on administrative organisation and care\n\n• Collect and transmit medical and administrative data and complete the computerized care file\n\n• Ensure and organize care planning according to priorities and urgency\n\n• Perform care on medical prescription and in accordance with unit and institutional procedures\n\n• Maintaining the Informatized Patient Record\n\n• Continuously assess the patient's clinical condition and its development in the acute situation\n\n• Identify situations of fragility, loss of autonomy and complexity requiring an interdisciplinary approach;\n\n• To assist in the management of elderly and polymorphic patients, as well as in the support of patients and their relatives in situations of Holas;\n\n• Collaborate with the various stakeholders to ensure continuity and coordination of care;\n\n• Ensure inter-service coordination for patient movement management\n\n• Coordinate inputs and outputs: internal mutations, external transfers of patients in collaboration with the health framework.\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of Nurse(-E)\n\n• In possession of the Red Cross recognition if foreign diploma\n\n• Experience in internal medicine, geriatrics, palliative care or a complex area of care, an asset;\n\n• Has a strong interest in the management of elderly, polymorphic and/or hal patients;\n\n• Sensitive to the patient's holistic and interdisciplinary approach;\n\n• Meaning of contact and service in a private establishment\n\n• Self-reliance, benevolence, versatility, adaptability, organization and priority-setting are essential qualities\n\n• Positive attitude within a team and are able to generate a climate of trust\n\n• Capable of contributing to building trust with patients, their loved ones and different professionals.\n\nAn evolving environment\n\nJoining our team is integrating a dynamic internal medicine service, at the heart of a developing environment, offering the opportunity to contribute to the evolution of new care channels. We value employees wishing to develop their skills and invest in projects related to geriatrics, palliative care and the care of patients with complex situations.\n\nTraining or experience in these areas is an asset, but the motivation and interest in these specialties are also particularly appreciated.\n\nWe propose you:\n\nContract Type: Contract with Undetermined Duration Percentage: 80% Schedule Type: Variables",
-        "de": "Ihre Aufgabe:\n\nIn einer hochmodernen Einrichtung haben Sie eine vielfältige Position in einem multidisziplinären Team aus Krankenschwestern, Pflegeassistenten, Ärzten.\n\nSie müssen sicherstellen, dass Patienten mit Mehrzweck-Erkrankungen als Teil einer umfassenden akuten Phase der Versorgung empfangen werden.\n\nSo sind Sie für die\n\n• den Patienten zu informieren und ihm Informationen über die administrative Organisation und Betreuung zu geben\n\n• Sammeln und übermitteln medizinische und administrative Daten und füllen Sie die computergestützte Pflegedatei\n\n• Pflegeplanung entsprechend den Prioritäten und Dringlichkeiten sicherstellen und organisieren\n\n• Pflege auf ärztliche Verschreibung und in Übereinstimmung mit den einheitlichen und institutionellen Verfahren\n\n• Pflege des informatisierten Patientenprotokolls\n\n• Kontinuierliche Beurteilung des klinischen Zustands des Patienten und seiner Entwicklung in der akuten Situation\n\n• Ermittlung von Situationen von Fragilität, Verlust von Autonomie und Komplexität, die einen interdisziplinären Ansatz erfordern;\n\n• Unterstützung bei der Behandlung älterer und polymorpher Patienten sowie bei der Unterstützung von Patienten und deren Angehörigen in Holas-Situationen;\n\n• Zusammenarbeit mit den verschiedenen Interessengruppen, um Kontinuität und Koordinierung der Pflege zu gewährleisten;\n\n• Gewährleistung der dienstübergreifenden Koordination für das Patienten-Bewegungsmanagement\n\n• Koordinierte Inputs und Outputs: interne Mutationen, externe Transfers von Patienten in Zusammenarbeit mit dem Gesundheitsrahmen.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Krankenschwester(-E)\n\n• Im Besitz der Anerkennung des Roten Kreuzes, wenn ausländische Diplom\n\n• Erfahrung in der inneren Medizin, der Geriatrie, der Palliativversorgung oder einem komplexen Bereich der Versorgung, ein Vorteil;\n\n• ein starkes Interesse an der Behandlung älterer, polymorpher und/oder halber Patienten;\n\n• sensorische und sensorische Aspekte des Patienten;\n\n• Bedeutung des Kontakts und der Dienstleistung in einem privaten Betrieb\n\n• Selbstständigkeit, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Prioritätssetzung sind wesentliche Qualitäten\n\n• Positive Haltung innerhalb eines Teams und in der Lage, ein Klima des Vertrauens zu erzeugen\n\n• Sie können dazu beitragen, Vertrauen mit Patienten, ihren Angehörigen und verschiedenen Fachleuten aufzubauen.\n\nEine sich entwickelnde Umgebung\n\nDie Integration unseres Teams ist die Integration eines dynamischen internen Medizindienstes, das im Herzen eines sich entwickelnden Umfelds steht und die Möglichkeit bietet, zur Entwicklung neuer Pflegekanäle beizutragen. Wir schätzen Mitarbeiter, die ihre Fähigkeiten entwickeln und in Projekte im Zusammenhang mit der Geriatrie, der Palliativversorgung und der Betreuung von Patienten mit komplexen Situationen investieren möchten.\n\nAusbildung oder Erfahrung in diesen Bereichen ist ein Pluspunkt, aber auch die Motivation und das Interesse an diesen Spezialitäten werden besonders geschätzt.\n\nWir schlagen Ihnen vor:\n\nVertragstyp: Vertrag mit unbestimmter Laufzeit Prozentsatz: 80% Zeitplan Typ: Variablen",
-        "fr": "Votre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies polyvalentes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Identifier les situations de fragilité, de perte d'autonomie et de complexité nécessitant une approche interdisciplinaire ;\n\n• Participer à la prise en charge de patients âgés et polymorbides, ainsi qu'à l'accompagnement de patients et de leurs proches confrontés à des situations palliatives ;\n\n• Collaborer avec les différents intervenants afin d'assurer la continuité et la coordination des soins ;\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge si diplôme étranger\n\n• Disposant d'une expérience en médecine interne, en gériatrie, en soins palliatifs ou dans un domaine de soins complexes, un atout ;\n\n• Présentant un intérêt marqué pour la prise en charge des patients âgés, polymorbides et/ou en situation palliative ;\n\n• Sensible à l'approche globale et interdisciplinaire du patient ;\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\n• Capable de contribuer à instaurer un climat de confiance avec les patients, leurs proches et les différents professionnels.\n\nUn environnement en évolution\n\nRejoindre notre équipe, c'est intégrer un service de médecine interne dynamique, au cœur d'un environnement en développement, offrant la possibilité de contribuer à l'évolution de nouvelles filières de soins.\nNous valorisons les collaborateurs souhaitant développer leurs compétences et s'investir dans des projets liés notamment à la gériatrie, aux soins palliatifs et à la prise en charge des patients présentant des situations complexes.\nUne formation ou une expérience dans ces domaines constitue un atout, mais la motivation et l'intérêt pour ces spécialités sont également particulièrement appréciés.\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : 80 %\nType d'horaires : variables"
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdi-80-1540",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.986Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdi-80-1540",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-09-03T13:43:24.956Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -180,7 +107,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistant-e-medical-e-en-pediatrie-cdi-80-1541",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.986Z",
+      "crawledAt": "2026-10-25T21:33:36.384Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -208,6 +135,79 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:24.957Z",
+      "salaryMin": 69200,
+      "salaryMax": 96400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69200,
+          "maxValue": 96400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hopital-la-tour-d684c72b4fa2",
+      "slug": "infermiera-notturna-in-medicina-cdi-80-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "infermiera-notturna-in-medicina-cdi-80-hopital-de-la-tour-meyrin",
+        "en": "night-nurse-in-medicine-cdi-80-hopital-de-la-tour-meyrin",
+        "de": "nachtkrankenschwester-in-der-medizin-cdi-80-hopital-de-la-tour-meyrin",
+        "fr": "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Infirmier(-ère) de nuit en Médecine - CDI 80%",
+      "titleByLocale": {
+        "it": "Infermiera di notte in Medicina - CDI 80%",
+        "en": "Nurse at night in Medicine - CDI 80%",
+        "de": "Nachtkrankenschwester in der Medizin - CDI 80%",
+        "fr": "Infirmier(-ère) de nuit en Médecine - CDI 80%"
+      },
+      "description": "Votre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies polyvalentes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Identifier les situations de fragilité, de perte d'autonomie et de complexité nécessitant une approche interdisciplinaire ;\n\n• Participer à la prise en charge de patients âgés et polymorbides, ainsi qu'à l'accompagnement de patients et de leurs proches confrontés à des situations palliatives ;\n\n• Collaborer avec les différents intervenants afin d'assurer la continuité et la coordination des soins ;\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge si diplôme étranger\n\n• Disposant d'une expérience en médecine interne, en gériatrie, en soins palliatifs ou dans un domaine de soins complexes, un atout ;\n\n• Présentant un intérêt marqué pour la prise en charge des patients âgés, polymorbides et/ou en situation palliative ;\n\n• Sensible à l'approche globale et interdisciplinaire du patient ;\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\n• Capable de contribuer à instaurer un climat de confiance avec les patients, leurs proches et les différents professionnels.\n\nUn environnement en évolution\n\nRejoindre notre équipe, c'est intégrer un service de médecine interne dynamique, au cœur d'un environnement en développement, offrant la possibilité de contribuer à l'évolution de nouvelles filières de soins.\nNous valorisons les collaborateurs souhaitant développer leurs compétences et s'investir dans des projets liés notamment à la gériatrie, aux soins palliatifs et à la prise en charge des patients présentant des situations complexes.\nUne formation ou une expérience dans ces domaines constitue un atout, mais la motivation et l'intérêt pour ces spécialités sont également particulièrement appréciés.\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : 80 %\n Type d'horaires : variables",
+      "descriptionByLocale": {
+        "it": "La tua missione:\n\nIn un istituto all'avanguardia, lei ha una posizione diversa in un team multidisciplinare di infermieri, assistenti infermieristici, medici.\n\nDovrete garantire che i pazienti con patologie multi-uso siano ricevuti come parte di una fase acuta completa di cura.\n\nCome tale siete responsabili di;\n\n• Informare il paziente e fornirgli informazioni sull'organizzazione amministrativa e sulle cure\n\n• Raccogliere e trasmettere dati medici e amministrativi e completare il file informatico di assistenza\n\n• Garantire e organizzare la pianificazione dell'assistenza in base alle priorità e alle urgenze\n\n• Eseguire le cure su prescrizione medica e in conformità con le procedure unitarie e istituzionali\n\n• Mantenere il registro del paziente informato\n\n• Valutare continuamente la condizione clinica del paziente e il suo sviluppo nella situazione acuta\n\n• individuare situazioni di fragilità, perdita di autonomia e complessità che richiedono un approccio interdisciplinare;\n\n• assistere nella gestione dei pazienti anziani e polimorfi, nonché nel sostegno dei pazienti e dei loro parenti in situazioni di Holas;\n\n• di concerto con i vari soggetti interessati per garantire la continuità e il coordinamento delle cure;\n\n• Garantire il coordinamento interservizi per la gestione del movimento dei pazienti\n\n• Coordinare input e output: mutazioni interne, trasferimenti esterni dei pazienti in collaborazione con il quadro sanitario.\n\nCerchiamo un profilo che soddisfi i seguenti criteri:\n\n• Diploma di Infermiere (-E)\n\n• In possesso del riconoscimento della Croce Rossa se diploma straniero\n\n• esperienza in medicina interna, geriatria, cura palliativa o un complesso settore di cura, un bene;\n\n• ha un forte interesse per la gestione di pazienti anziani, polimorfi e/o di hal;\n\n• Sensitiva all'approccio olistico e interdisciplinare del paziente;\n\n• Significato del contatto e del servizio in un istituto privato\n\n• Auto-responsabilità, la benevolenza, la versatilità, l'adattabilità, l'organizzazione e la definizione delle priorità sono qualità essenziali\n\n• Atteggiamento positivo all'interno di una squadra e sono in grado di generare un clima di fiducia\n\n• In grado di contribuire a costruire la fiducia con i pazienti, i loro cari e diversi professionisti.\n\nUn ambiente in evoluzione\n\nUnirsi al nostro team è integrare un dinamico servizio di medicina interna, al centro di un ambiente in via di sviluppo, offrendo l'opportunità di contribuire all'evoluzione di nuovi canali di assistenza. Apprezziamo i dipendenti che desiderano sviluppare le proprie competenze e investire in progetti legati alla geriatria, alle cure palliative e alla cura dei pazienti con situazioni complesse.\n\nLa formazione o l'esperienza in questi settori sono un bene, ma la motivazione e l'interesse in queste specialità sono anche particolarmente apprezzati.\n\nVi proponiamo:\n\nTipo di contratto: Contratto con Durata Indeterminata Percentuale: 80% Tipo di Programma: Variabili",
+        "en": "Your mission:\n\nIn a state-of-the-art institution you hold a varied position on a multidisciplinary team of nurses, nursing assistants, doctors.\n\nYou will need to ensure that patients with multi-purpose pathologies are received as part of a comprehensive acute phase of care.\n\nAs such you are in charge of;\n\n• To inform the patient and to provide him with information on administrative organisation and care\n\n• Collect and transmit medical and administrative data and complete the computerized care file\n\n• Ensure and organize care planning according to priorities and urgency\n\n• Perform care on medical prescription and in accordance with unit and institutional procedures\n\n• Maintaining the Informatized Patient Record\n\n• Continuously assess the patient's clinical condition and its development in the acute situation\n\n• Identify situations of fragility, loss of autonomy and complexity requiring an interdisciplinary approach;\n\n• To assist in the management of elderly and polymorphic patients, as well as in the support of patients and their relatives in situations of Holas;\n\n• Collaborate with the various stakeholders to ensure continuity and coordination of care;\n\n• Ensure inter-service coordination for patient movement management\n\n• Coordinate inputs and outputs: internal mutations, external transfers of patients in collaboration with the health framework.\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of Nurse(-E)\n\n• In possession of the Red Cross recognition if foreign diploma\n\n• Experience in internal medicine, geriatrics, palliative care or a complex area of care, an asset;\n\n• Has a strong interest in the management of elderly, polymorphic and/or hal patients;\n\n• Sensitive to the patient's holistic and interdisciplinary approach;\n\n• Meaning of contact and service in a private establishment\n\n• Self-reliance, benevolence, versatility, adaptability, organization and priority-setting are essential qualities\n\n• Positive attitude within a team and are able to generate a climate of trust\n\n• Capable of contributing to building trust with patients, their loved ones and different professionals.\n\nAn evolving environment\n\nJoining our team is integrating a dynamic internal medicine service, at the heart of a developing environment, offering the opportunity to contribute to the evolution of new care channels. We value employees wishing to develop their skills and invest in projects related to geriatrics, palliative care and the care of patients with complex situations.\n\nTraining or experience in these areas is an asset, but the motivation and interest in these specialties are also particularly appreciated.\n\nWe propose you:\n\nContract Type: Contract with Undetermined Duration Percentage: 80% Schedule Type: Variables",
+        "de": "Ihre Aufgabe:\n\nIn einer hochmodernen Einrichtung haben Sie eine vielfältige Position in einem multidisziplinären Team aus Krankenschwestern, Pflegeassistenten, Ärzten.\n\nSie müssen sicherstellen, dass Patienten mit Mehrzweck-Erkrankungen als Teil einer umfassenden akuten Phase der Versorgung empfangen werden.\n\nSo sind Sie für die\n\n• den Patienten zu informieren und ihm Informationen über die administrative Organisation und Betreuung zu geben\n\n• Sammeln und übermitteln medizinische und administrative Daten und füllen Sie die computergestützte Pflegedatei\n\n• Pflegeplanung entsprechend den Prioritäten und Dringlichkeiten sicherstellen und organisieren\n\n• Pflege auf ärztliche Verschreibung und in Übereinstimmung mit den einheitlichen und institutionellen Verfahren\n\n• Pflege des informatisierten Patientenprotokolls\n\n• Kontinuierliche Beurteilung des klinischen Zustands des Patienten und seiner Entwicklung in der akuten Situation\n\n• Ermittlung von Situationen von Fragilität, Verlust von Autonomie und Komplexität, die einen interdisziplinären Ansatz erfordern;\n\n• Unterstützung bei der Behandlung älterer und polymorpher Patienten sowie bei der Unterstützung von Patienten und deren Angehörigen in Holas-Situationen;\n\n• Zusammenarbeit mit den verschiedenen Interessengruppen, um Kontinuität und Koordinierung der Pflege zu gewährleisten;\n\n• Gewährleistung der dienstübergreifenden Koordination für das Patienten-Bewegungsmanagement\n\n• Koordinierte Inputs und Outputs: interne Mutationen, externe Transfers von Patienten in Zusammenarbeit mit dem Gesundheitsrahmen.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Krankenschwester(-E)\n\n• Im Besitz der Anerkennung des Roten Kreuzes, wenn ausländische Diplom\n\n• Erfahrung in der inneren Medizin, der Geriatrie, der Palliativversorgung oder einem komplexen Bereich der Versorgung, ein Vorteil;\n\n• ein starkes Interesse an der Behandlung älterer, polymorpher und/oder halber Patienten;\n\n• sensorische und sensorische Aspekte des Patienten;\n\n• Bedeutung des Kontakts und der Dienstleistung in einem privaten Betrieb\n\n• Selbstständigkeit, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Prioritätssetzung sind wesentliche Qualitäten\n\n• Positive Haltung innerhalb eines Teams und in der Lage, ein Klima des Vertrauens zu erzeugen\n\n• Sie können dazu beitragen, Vertrauen mit Patienten, ihren Angehörigen und verschiedenen Fachleuten aufzubauen.\n\nEine sich entwickelnde Umgebung\n\nDie Integration unseres Teams ist die Integration eines dynamischen internen Medizindienstes, das im Herzen eines sich entwickelnden Umfelds steht und die Möglichkeit bietet, zur Entwicklung neuer Pflegekanäle beizutragen. Wir schätzen Mitarbeiter, die ihre Fähigkeiten entwickeln und in Projekte im Zusammenhang mit der Geriatrie, der Palliativversorgung und der Betreuung von Patienten mit komplexen Situationen investieren möchten.\n\nAusbildung oder Erfahrung in diesen Bereichen ist ein Pluspunkt, aber auch die Motivation und das Interesse an diesen Spezialitäten werden besonders geschätzt.\n\nWir schlagen Ihnen vor:\n\nVertragstyp: Vertrag mit unbestimmter Laufzeit Prozentsatz: 80% Zeitplan Typ: Variablen",
+        "fr": "Votre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies polyvalentes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Identifier les situations de fragilité, de perte d'autonomie et de complexité nécessitant une approche interdisciplinaire ;\n\n• Participer à la prise en charge de patients âgés et polymorbides, ainsi qu'à l'accompagnement de patients et de leurs proches confrontés à des situations palliatives ;\n\n• Collaborer avec les différents intervenants afin d'assurer la continuité et la coordination des soins ;\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge si diplôme étranger\n\n• Disposant d'une expérience en médecine interne, en gériatrie, en soins palliatifs ou dans un domaine de soins complexes, un atout ;\n\n• Présentant un intérêt marqué pour la prise en charge des patients âgés, polymorbides et/ou en situation palliative ;\n\n• Sensible à l'approche globale et interdisciplinaire du patient ;\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\n• Capable de contribuer à instaurer un climat de confiance avec les patients, leurs proches et les différents professionnels.\n\nUn environnement en évolution\n\nRejoindre notre équipe, c'est intégrer un service de médecine interne dynamique, au cœur d'un environnement en développement, offrant la possibilité de contribuer à l'évolution de nouvelles filières de soins.\nNous valorisons les collaborateurs souhaitant développer leurs compétences et s'investir dans des projets liés notamment à la gériatrie, aux soins palliatifs et à la prise en charge des patients présentant des situations complexes.\nUne formation ou une expérience dans ces domaines constitue un atout, mais la motivation et l'intérêt pour ces spécialités sont également particulièrement appréciés.\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : 80 %\nType d'horaires : variables"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdi-80-1540",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T21:33:36.383Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdi-80-1540",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-09-03T13:43:24.956Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -253,7 +253,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.985Z",
+      "crawledAt": "2026-10-25T21:33:36.382Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -327,7 +327,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.984Z",
+      "crawledAt": "2026-10-25T21:33:36.380Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -401,7 +401,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/physiotherapeute-cardio-respiratoire-a-90-cdmax-10-mois-possibilite-cdi-1544",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.983Z",
+      "crawledAt": "2026-10-25T21:33:36.378Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -429,79 +429,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:51.036Z",
-      "salaryMin": 77900,
-      "salaryMax": 108500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77900,
-          "maxValue": 108500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hopital-la-tour-27d334811186",
-      "slug": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
-        "en": "nurse-at-night-at-ucp-cdi-90-hopital-de-la-tour-meyrin",
-        "de": "krankenschwester-in-der-nacht-bei-ucp-cdi-90-hopital-de-la-tour-meyrin",
-        "fr": "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Infirmier(-ère) de nuit à l'UCP - CDI 90%",
-      "titleByLocale": {
-        "it": "Infermiera di notte a UCP - CDI 90%",
-        "en": "Nurse at night at UCP - CDI 90%",
-        "de": "Krankenschwester in der Nacht bei UCP - CDI 90%",
-        "fr": "Infirmier(-ère) de nuit à l'UCP - CDI 90%"
-      },
-      "description": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : 90%\n Type d'horaires : Horaires de nuit\n Date d'entrée en fonction: 16 novembre 2026",
-      "descriptionByLocale": {
-        "it": "Le unità di assistenza cardiopolmonare e intermedia sono responsabili del trattamento dei pazienti che hanno condizioni mediche o chirurgiche e richiedono un monitoraggio stretto e specifico.\n\nPer completare il nostro servizio ne stiamo reclutando uno:\n\nInfermiera di notte a UCP - CDI 90% (ref: 2019)\n\nLa vostra missione:\n\nIn una struttura all'avanguardia si ha una posizione varia in un team multidisciplinare di infermieri, operatori sanitari, medici.\n\nDovrai accogliere pazienti con patologie complesse come parte di una gestione completa della fase acuta.\n\nCome tale siete responsabili di;\n\n• Installare il paziente e presentare le informazioni amministrative e di cura\n\n• Raccogliere e trasmettere dati medici e amministrativi e completare il file di assistenza informatizzata\n\n• Fornire e organizzare la pianificazione della cura secondo le priorità e l'urgenza\n\n• Eseguire l'assistenza su prescrizione medica e secondo le procedure unitarie e istituzionali\n\n• Mantenere il record paziente informatizzato\n\n• Valutare costantemente la condizione clinica del paziente e la sua evoluzione in condizioni acute\n\n• Assicurare il coordinamento interservizi per la gestione del movimento dei pazienti\n\n• Coordinare ingressi e uscite: mutazioni interne, trasferimenti esterni di pazienti in collaborazione con il quadro sanitario\n\n• Partecipa alla formazione necessaria per mantenere e sviluppare le competenze previste per la sua posizione\n\n• Accoglienti, accompagnatori e nuovi collaboratori\n\n• Adattarsi alle situazioni di emergenza.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma di infermiera\n\n• In possesso del riconoscimento Croce Rossa\n\n• 2-3 anni di esperienza\n\n• Esperienza in Cardiologia, Pneumologia e Cura Critica\n\n• Significato del contatto e del servizio in uno stabilimento privato\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e messa a fuoco sono qualità essenziali\n\n• atteggiamento positivo all'interno di un team e sono in grado di generare un clima di fiducia\n\nVi offriamo:\n\nTipo di contratto: Contratto con Durata indeterminata\nPercentuale: 90%\nTipo di programma: Ore notturne\nData effettiva: 16 novembre 2026",
-        "en": "The cardiopulmonary and intermediate care units are responsible for treating patients who have medical or surgical conditions and require close and specific monitoring.\n\nIn order to complete our service we are recruiting one:\n\nNurse at night at UCP - CDI 90% (ref: 2019)\n\nYour mission:\n\nIn a state-of-the-art facility you hold a varied position in a multidisciplinary team of nurses, health care workers, doctors.\n\nYou will need to accommodate patients with complex pathologies as part of a comprehensive acute phase management.\n\nAs such you are in charge of;\n\n• Install the patient and present the administrative and care information\n\n• Collect and transmit medical and administrative data and complete the computerized care file\n\n• Provide and organize care planning according to priorities and urgency\n\n• Perform care on medical prescription and in accordance with unit and institutional procedures\n\n• Maintaining the Informatized Patient Record\n\n• Continuously assess the patient's clinical condition and its evolution in acute conditions\n\n• Ensure inter-service coordination for patient movement management\n\n• Coordinate inputs and outputs: internal mutations, external patient transfers in collaboration with the health framework\n\n• Attends the necessary training to maintain and develop the skills expected for his position\n\n• Welcoming, accompanying students and new collaborators\n\n• Adapting to emergency situations.\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of Nurse\n\n• In possession of Red Cross Recognition\n\n• 2-3 years of experience\n\n• Experience in Cardiology, Pneumology and Critical Care\n\n• Meaning of contact and service in a private establishment\n\n• Self-governing, benevolence, versatility, adaptability, organization and focus are essential qualities\n\n• Positive attitude within a team and are able to generate a climate of confidence\n\nWe offer you:\n\nType of contract: Contract with Indeterminate Duration\nPercentage: 90%\nSchedule type : Night hours\nEffective date: 16 November 2026",
-        "de": "Die kardiopulmonalen und Zwischenstationen sind für die Behandlung von Patienten mit medizinischen oder chirurgischen Bedingungen verantwortlich und erfordern eine genaue und spezifische Überwachung.\n\nUm unseren Service zu vervollständigen, rekrutieren wir einen:\n\nKrankenschwester bei Nacht bei UCP - CDI 90% (ref: 2019)\n\nIhre Mission:\n\nIn einer hochmodernen Einrichtung haben Sie eine abwechslungsreiche Position in einem multidisziplinären Team von Krankenschwestern, Gesundheitspersonal, Ärzten.\n\nSie müssen Patienten mit komplexen Pathologien als Teil eines umfassenden Akutphasenmanagements aufnehmen.\n\nAls solche sind Sie verantwortlich für;\n\n• Installieren Sie den Patienten und präsentieren Sie die Verwaltungs- und Pflegeinformationen\n\n• Sammlung und Übermittlung medizinischer und administrativer Daten und Vervollständigung der elektronischen Pflegeakte\n\n• Bereitstellung und Organisation der Pflegeplanung nach Prioritäten und Dringlichkeit\n\n• Pflege auf ärztliche Verschreibung und in Übereinstimmung mit den abteilungs- und institutionellen Verfahren\n\n• Pflege der informatisierten Patientenakte\n\n• Kontinuierliche Beurteilung des klinischen Zustands des Patienten und seiner Entwicklung unter akuten Bedingungen\n\n• Gewährleistung der dienstübergreifenden Koordination für das Bewegungsmanagement von Patienten\n\n• Koordinieren Sie Inputs und Outputs: interne Mutationen, externe Patiententransfers in Zusammenarbeit mit dem Gesundheitsrahmen\n\n• Besucht die notwendige Ausbildung, um die für seine Position erwarteten Fähigkeiten zu erhalten und zu entwickeln\n\n• Begrüßung, Begleitung von Studierenden und neuen Mitarbeitern\n\n• Anpassung an Notsituationen.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Krankenschwester\n\n• Im Besitz der Anerkennung des Roten Kreuzes\n\n• 2-3 Jahre Erfahrung\n\n• Erfahrung in Kardiologie, Pneumologie und Critical Care\n\n• Bedeutung von Kontakt und Service in einer privaten Einrichtung\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Fokus sind wesentliche Eigenschaften\n\n• Positive Einstellung innerhalb eines Teams und sind in der Lage, ein Klima des Vertrauens zu erzeugen\n\nWir bieten Ihnen:\n\nArt des Vertrags: Vertrag mit unbestimmter Laufzeit\nProzentsatz: 90 %\nZeitplan: Nachtstunden\nDatum des Inkrafttretens: 16. November 2026",
-        "fr": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : 90%\nType d'horaires : Horaires de nuit\nDate d'entrée en fonction: 16 novembre 2026"
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.982Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T21:29:59.619Z",
       "salaryMin": 77900,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -548,7 +475,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/sage-femme-en-cdm-7-mois-a-80-1545",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.982Z",
+      "crawledAt": "2026-10-25T21:33:36.377Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -591,6 +518,79 @@
       }
     },
     {
+      "id": "hopital-la-tour-27d334811186",
+      "slug": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
+        "en": "nurse-at-night-at-ucp-cdi-90-hopital-de-la-tour-meyrin",
+        "de": "krankenschwester-in-der-nacht-bei-ucp-cdi-90-hopital-de-la-tour-meyrin",
+        "fr": "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Infirmier(-ère) de nuit à l'UCP - CDI 90%",
+      "titleByLocale": {
+        "it": "Infermiera di notte a UCP - CDI 90%",
+        "en": "Nurse at night at UCP - CDI 90%",
+        "de": "Krankenschwester in der Nacht bei UCP - CDI 90%",
+        "fr": "Infirmier(-ère) de nuit à l'UCP - CDI 90%"
+      },
+      "description": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : 90%\n Type d'horaires : Horaires de nuit\n Date d'entrée en fonction: 16 novembre 2026",
+      "descriptionByLocale": {
+        "it": "Le unità di assistenza cardiopolmonare e intermedia sono responsabili del trattamento dei pazienti che hanno condizioni mediche o chirurgiche e richiedono un monitoraggio stretto e specifico.\n\nPer completare il nostro servizio ne stiamo reclutando uno:\n\nInfermiera di notte a UCP - CDI 90% (ref: 2019)\n\nLa vostra missione:\n\nIn una struttura all'avanguardia si ha una posizione varia in un team multidisciplinare di infermieri, operatori sanitari, medici.\n\nDovrai accogliere pazienti con patologie complesse come parte di una gestione completa della fase acuta.\n\nCome tale siete responsabili di;\n\n• Installare il paziente e presentare le informazioni amministrative e di cura\n\n• Raccogliere e trasmettere dati medici e amministrativi e completare il file di assistenza informatizzata\n\n• Fornire e organizzare la pianificazione della cura secondo le priorità e l'urgenza\n\n• Eseguire l'assistenza su prescrizione medica e secondo le procedure unitarie e istituzionali\n\n• Mantenere il record paziente informatizzato\n\n• Valutare costantemente la condizione clinica del paziente e la sua evoluzione in condizioni acute\n\n• Assicurare il coordinamento interservizi per la gestione del movimento dei pazienti\n\n• Coordinare ingressi e uscite: mutazioni interne, trasferimenti esterni di pazienti in collaborazione con il quadro sanitario\n\n• Partecipa alla formazione necessaria per mantenere e sviluppare le competenze previste per la sua posizione\n\n• Accoglienti, accompagnatori e nuovi collaboratori\n\n• Adattarsi alle situazioni di emergenza.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma di infermiera\n\n• In possesso del riconoscimento Croce Rossa\n\n• 2-3 anni di esperienza\n\n• Esperienza in Cardiologia, Pneumologia e Cura Critica\n\n• Significato del contatto e del servizio in uno stabilimento privato\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e messa a fuoco sono qualità essenziali\n\n• atteggiamento positivo all'interno di un team e sono in grado di generare un clima di fiducia\n\nVi offriamo:\n\nTipo di contratto: Contratto con Durata indeterminata\nPercentuale: 90%\nTipo di programma: Ore notturne\nData effettiva: 16 novembre 2026",
+        "en": "The cardiopulmonary and intermediate care units are responsible for treating patients who have medical or surgical conditions and require close and specific monitoring.\n\nIn order to complete our service we are recruiting one:\n\nNurse at night at UCP - CDI 90% (ref: 2019)\n\nYour mission:\n\nIn a state-of-the-art facility you hold a varied position in a multidisciplinary team of nurses, health care workers, doctors.\n\nYou will need to accommodate patients with complex pathologies as part of a comprehensive acute phase management.\n\nAs such you are in charge of;\n\n• Install the patient and present the administrative and care information\n\n• Collect and transmit medical and administrative data and complete the computerized care file\n\n• Provide and organize care planning according to priorities and urgency\n\n• Perform care on medical prescription and in accordance with unit and institutional procedures\n\n• Maintaining the Informatized Patient Record\n\n• Continuously assess the patient's clinical condition and its evolution in acute conditions\n\n• Ensure inter-service coordination for patient movement management\n\n• Coordinate inputs and outputs: internal mutations, external patient transfers in collaboration with the health framework\n\n• Attends the necessary training to maintain and develop the skills expected for his position\n\n• Welcoming, accompanying students and new collaborators\n\n• Adapting to emergency situations.\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of Nurse\n\n• In possession of Red Cross Recognition\n\n• 2-3 years of experience\n\n• Experience in Cardiology, Pneumology and Critical Care\n\n• Meaning of contact and service in a private establishment\n\n• Self-governing, benevolence, versatility, adaptability, organization and focus are essential qualities\n\n• Positive attitude within a team and are able to generate a climate of confidence\n\nWe offer you:\n\nType of contract: Contract with Indeterminate Duration\nPercentage: 90%\nSchedule type : Night hours\nEffective date: 16 November 2026",
+        "de": "Die kardiopulmonalen und Zwischenstationen sind für die Behandlung von Patienten mit medizinischen oder chirurgischen Bedingungen verantwortlich und erfordern eine genaue und spezifische Überwachung.\n\nUm unseren Service zu vervollständigen, rekrutieren wir einen:\n\nKrankenschwester bei Nacht bei UCP - CDI 90% (ref: 2019)\n\nIhre Mission:\n\nIn einer hochmodernen Einrichtung haben Sie eine abwechslungsreiche Position in einem multidisziplinären Team von Krankenschwestern, Gesundheitspersonal, Ärzten.\n\nSie müssen Patienten mit komplexen Pathologien als Teil eines umfassenden Akutphasenmanagements aufnehmen.\n\nAls solche sind Sie verantwortlich für;\n\n• Installieren Sie den Patienten und präsentieren Sie die Verwaltungs- und Pflegeinformationen\n\n• Sammlung und Übermittlung medizinischer und administrativer Daten und Vervollständigung der elektronischen Pflegeakte\n\n• Bereitstellung und Organisation der Pflegeplanung nach Prioritäten und Dringlichkeit\n\n• Pflege auf ärztliche Verschreibung und in Übereinstimmung mit den abteilungs- und institutionellen Verfahren\n\n• Pflege der informatisierten Patientenakte\n\n• Kontinuierliche Beurteilung des klinischen Zustands des Patienten und seiner Entwicklung unter akuten Bedingungen\n\n• Gewährleistung der dienstübergreifenden Koordination für das Bewegungsmanagement von Patienten\n\n• Koordinieren Sie Inputs und Outputs: interne Mutationen, externe Patiententransfers in Zusammenarbeit mit dem Gesundheitsrahmen\n\n• Besucht die notwendige Ausbildung, um die für seine Position erwarteten Fähigkeiten zu erhalten und zu entwickeln\n\n• Begrüßung, Begleitung von Studierenden und neuen Mitarbeitern\n\n• Anpassung an Notsituationen.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Krankenschwester\n\n• Im Besitz der Anerkennung des Roten Kreuzes\n\n• 2-3 Jahre Erfahrung\n\n• Erfahrung in Kardiologie, Pneumologie und Critical Care\n\n• Bedeutung von Kontakt und Service in einer privaten Einrichtung\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Fokus sind wesentliche Eigenschaften\n\n• Positive Einstellung innerhalb eines Teams und sind in der Lage, ein Klima des Vertrauens zu erzeugen\n\nWir bieten Ihnen:\n\nArt des Vertrags: Vertrag mit unbestimmter Laufzeit\nProzentsatz: 90 %\nZeitplan: Nachtstunden\nDatum des Inkrafttretens: 16. November 2026",
+        "fr": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : 90%\nType d'horaires : Horaires de nuit\nDate d'entrée en fonction: 16 novembre 2026"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T21:33:36.375Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T21:29:59.619Z",
+      "salaryMin": 77900,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77900,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hopital-la-tour-92e650f38526",
       "slug": "assistente-tecnico-specializzato-in-sala-operatoria-atsso-100-hopital-de-la-tour-meyrin",
       "slugByLocale": {
@@ -621,7 +621,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.981Z",
+      "crawledAt": "2026-10-25T21:33:36.373Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -697,7 +697,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/business-intelligence-manager-a-100-1555",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.980Z",
+      "crawledAt": "2026-10-25T21:33:36.371Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -763,7 +763,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-service-des-urgences-cdm-12-mois-a-85-1558",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.979Z",
+      "crawledAt": "2026-10-25T21:33:36.369Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -843,7 +843,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-aux-urgences-a-70-cdm-6-mois-1557",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.977Z",
+      "crawledAt": "2026-10-25T21:33:36.366Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -923,7 +923,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-a-lunite-de-chirurgie-orthopedique-cdm-4-mois-a-80-1559",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.976Z",
+      "crawledAt": "2026-10-25T21:33:36.364Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1002,7 +1002,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-3-mois-90-1561",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.975Z",
+      "crawledAt": "2026-10-25T21:33:36.361Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1083,7 +1083,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-a-lucp-cdm-10-mois-80-1560",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:26:32.972Z",
+      "crawledAt": "2026-10-25T21:33:36.356Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
