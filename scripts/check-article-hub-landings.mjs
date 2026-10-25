@@ -74,6 +74,12 @@ import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { EXTERNALLY_SERVED_SECTIONS } from './lib/externally-served-paths.mjs';
 
 const SITE_ORIGIN = process.env.SITE_ORIGIN ?? 'https://frontaliereticino.ch';
+const HUB_LANDINGS_FETCH_TIMEOUT_MS = (() => {
+  const raw = Number(process.env.HUB_LANDINGS_FETCH_TIMEOUT_MS);
+  return Number.isFinite(raw) && raw > 0
+    ? Math.min(Math.floor(raw), 120_000)
+    : 30_000;
+})();
 /**
  * Both hubs render 100 cards. The floor is deliberately far below that: this
  * is a "did the grid disappear" probe, not a card-count ratchet, and a corpus
@@ -105,14 +111,21 @@ const SECTION_API = {
   },
 };
 
+function fetchHub(url, init = {}) {
+  return fetch(url, {
+    ...init,
+    signal: AbortSignal.timeout(HUB_LANDINGS_FETCH_TIMEOUT_MS),
+  });
+}
+
 async function getText(url) {
-  const res = await fetch(url, { headers: { 'User-Agent': 'check-article-hub-landings' } });
+  const res = await fetchHub(url, { headers: { 'User-Agent': 'check-article-hub-landings' } });
   if (!res.ok) throw new Error(`GET ${url} -> HTTP ${res.status}`);
   return res.text();
 }
 
 async function getJson(url) {
-  const res = await fetch(url, { headers: { 'User-Agent': 'check-article-hub-landings' } });
+  const res = await fetchHub(url, { headers: { 'User-Agent': 'check-article-hub-landings' } });
   if (!res.ok) throw new Error(`GET ${url} -> HTTP ${res.status}`);
   return res.json();
 }
@@ -181,7 +194,7 @@ async function main() {
     const label = `${route.section}/${route.locale}`;
     let html;
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': 'check-article-hub-landings' } });
+      const res = await fetchHub(url, { headers: { 'User-Agent': 'check-article-hub-landings' } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       html = await res.text();
     } catch (err) {
@@ -245,7 +258,7 @@ async function main() {
     const archiveUrl = `${SITE_ORIGIN}${route.prefix}/${ARCHIVE_ALL_SLUG[route.locale]}/`;
     const archiveLabel = `${label} archive`;
     try {
-      const res = await fetch(archiveUrl, {
+      const res = await fetchHub(archiveUrl, {
         headers: { 'User-Agent': 'check-article-hub-landings' },
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
