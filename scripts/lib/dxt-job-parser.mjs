@@ -129,6 +129,35 @@ export function findLuganoAccordionIds(html) {
   return [...ids];
 }
 
+const NO_OPEN_POSITIONS_RE = /no\s+(?:current\s+)?open\s+positions|no\s+positions\s+(?:at\s+the\s+moment|available)|currently\s+no\s+openings|nessun[ae]?\s+posizion[ei]|aucune?\s+(?:offre|position)|keine\s+(?:offene\s+)?stellen/i;
+
+/**
+ * Prove that a real Lugano accordion explicitly reports an empty source.
+ *
+ * The hidden `noresults_*` accordion is not evidence: WordPress renders it
+ * alongside the live group on every page.  Only text in the visible/live
+ * group can authorize retiring the previous crawler slice.
+ *
+ * @param {string} html - Full page HTML (or accordion group HTML)
+ * @param {string} accordionGroupId - Numeric group ID
+ * @returns {boolean} true only for an explicit no-openings marker
+ */
+export function hasNoOpenPositionsMarker(html, accordionGroupId) {
+  if (!html || !accordionGroupId) return false;
+
+  const document = new JSDOM(html).window.document;
+  const accordions = document.querySelectorAll(`[id="accordion_pro_${accordionGroupId}"]`);
+  const accordion = Array.from(accordions).find(
+    (el) => !el.classList.contains(`noresults_${accordionGroupId}`),
+  );
+  if (!accordion) return false;
+
+  const bodyText = Array.from(accordion.querySelectorAll('.wpsm_panel-body_inner'))
+    .map((body) => normalizeSpace(body.textContent || ''))
+    .join(' ');
+  return NO_OPEN_POSITIONS_RE.test(bodyText);
+}
+
 /**
  * Parse all job panels from a WPSM accordion group using JSDOM.
  *
