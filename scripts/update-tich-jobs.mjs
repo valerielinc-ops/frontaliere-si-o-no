@@ -58,6 +58,7 @@ import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry } from './lib/jina-proxy.mjs';
 import {
   SOURCE_URL as OFFICIAL_LISTING_URL,
+  fetchTichOfficialListingViaTranslate,
   isTichOfficialListingHtml,
   parseConcorsiHtml,
 } from './scrape-concorsi-ti.mjs';
@@ -564,6 +565,18 @@ export async function fetchTichJobDetailUrls(options = {}) {
   // links. It is only consulted after both portal endpoints fail, so it does
   // not change the normal listing/RSS union or hide an identity regression.
   let officialSucceeded = false;
+  const consumeOfficialListingHtml = (html, sourceLabel) => {
+    if (!isTichOfficialListingHtml(html)) return false;
+    officialSucceeded = true;
+    for (const row of parseConcorsiHtml(html)) {
+      discoveredOccurrences += 1;
+      const normalized = normalizeDetailUrl(row.url);
+      if (normalized) allUrls.add(normalized);
+    }
+    console.log(`  📦 ${sourceLabel}: ${allUrls.size} job URL(s) found`);
+    return true;
+  };
+
   if (!listingSucceeded && !rssSucceeded) {
     console.log(`🔍 Fetching Ti.CH official listing fallback: ${OFFICIAL_LISTING_URL}`);
     try {
@@ -583,17 +596,9 @@ export async function fetchTichJobDetailUrls(options = {}) {
       if (!res.ok) {
         console.warn(`⚠️ Official Ti.CH listing returned ${res.status} — no fallback available.`);
       } else {
-        if (!isTichOfficialListingHtml(html)) {
+        if (!consumeOfficialListingHtml(html, 'Official Ti.CH listing')) {
           throw new Error('Official Ti.CH listing identity marker missing.');
         }
-        officialSucceeded = true;
-        const officialRows = parseConcorsiHtml(html);
-        for (const row of officialRows) {
-          discoveredOccurrences += 1;
-          const normalized = normalizeDetailUrl(row.url);
-          if (normalized) allUrls.add(normalized);
-        }
-        console.log(`  📦 Official Ti.CH listing: ${allUrls.size} job URL(s) found`);
       }
     } catch (err) {
       console.warn(`⚠️ Official Ti.CH listing fetch failed: ${err.message}`);
@@ -615,20 +620,33 @@ export async function fetchTichJobDetailUrls(options = {}) {
         retryBaseMs: options.proxyRetryBaseMs ?? options.retryBaseMs,
         fetchImpl,
       });
-      if (html && isTichOfficialListingHtml(html)) {
-        officialSucceeded = true;
-        const officialRows = parseConcorsiHtml(html);
-        for (const row of officialRows) {
-          discoveredOccurrences += 1;
-          const normalized = normalizeDetailUrl(row.url);
-          if (normalized) allUrls.add(normalized);
+      if (html) {
+        const accepted = consumeOfficialListingHtml(html, 'Official Ti.CH listing via Jina');
+        if (!accepted) {
+          console.warn('⚠️ Jina Ti.CH response failed the official-listing identity check.');
         }
-        console.log(`  📦 Official Ti.CH listing via Jina: ${allUrls.size} job URL(s) found`);
-      } else if (html) {
-        console.warn('⚠️ Jina Ti.CH response failed the official-listing identity check.');
       }
     } catch (err) {
       console.warn(`⚠️ Jina official Ti.CH listing fallback failed: ${err.message}`);
+    }
+  }
+
+  // Google Translate is a second, independent clean egress. It is tried only
+  // after the direct official page and Jina have both failed; the helper
+  // restores source hosts and validates the official-listing marker before any
+  // row reaches the existing canonicalization invariant.
+  if (!listingSucceeded && !rssSucceeded && !officialSucceeded) {
+    console.log('🔍 Retrying Ti.CH official listing through the bounded Google Translate egress fallback');
+    try {
+      const html = await fetchTichOfficialListingViaTranslate(OFFICIAL_LISTING_URL, {
+        fetchImpl,
+        timeoutMs,
+        attempts: options.translateAttempts,
+        retryDelayMs: options.translateRetryDelayMs,
+      });
+      if (html) consumeOfficialListingHtml(html, 'Official Ti.CH listing via Google Translate');
+    } catch (err) {
+      console.warn(`⚠️ Google Translate official Ti.CH listing fallback failed: ${err.message}`);
     }
   }
 

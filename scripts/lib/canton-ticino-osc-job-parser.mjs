@@ -49,6 +49,7 @@ import { isCantonTicinoOscPosting } from './crawler-company-ownership.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
   SOURCE_URL as OFFICIAL_LISTING_URL,
+  fetchTichOfficialListingViaTranslate,
   isTichOfficialListingHtml,
   parseConcorsiHtml,
 } from '../scrape-concorsi-ti.mjs';
@@ -257,16 +258,27 @@ export async function fetchAllCantonTicinoOscJobs() {
         );
       }
     } catch (err) {
-      if (indexError) {
+      const translatedHtml = await fetchTichOfficialListingViaTranslate(OFFICIAL_LISTING_URL, { timeoutMs });
+      if (translatedHtml) {
+        candidates = parseOfficialConcorsiListing(translatedHtml);
+        if (candidates.length > 0) {
+          console.warn(
+            `  ↪️  Using official Canton Ticino listing via Google Translate fallback: ${OFFICIAL_LISTING_URL}`,
+          );
+        }
+      }
+      if (candidates.length === 0) {
+        if (indexError) {
+          throw new Error(
+            `Failed to fetch concorsi.ti.ch index and official Canton Ticino listing: ${indexError?.message || indexError}; ${err?.message || err}`,
+            { cause: err },
+          );
+        }
         throw new Error(
-          `Failed to fetch concorsi.ti.ch index and official Canton Ticino listing: ${indexError?.message || indexError}; ${err?.message || err}`,
+          `Failed to parse or fetch official Canton Ticino listing: ${err?.message || err}`,
           { cause: err },
         );
       }
-      throw new Error(
-        `Failed to parse or fetch official Canton Ticino listing: ${err?.message || err}`,
-        { cause: err },
-      );
     }
   }
 
