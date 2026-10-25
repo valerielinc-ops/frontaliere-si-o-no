@@ -341,6 +341,8 @@ const ARCHIVE_PAGE_ONE_PATHS = new Set([
   '/de/schweiz-artikel/alle/',
   '/fr/articles-suisse/tous/',
 ]);
+const ARCHIVE_HREFLANGS = new Set(['it', 'en', 'de', 'fr', 'x-default']);
+const CANONICAL_SITE_ORIGIN = 'https://frontaliereticino.ch';
 
 /**
  * The corpus archive sitemap intentionally announces page 1 only. The rest
@@ -349,7 +351,7 @@ const ARCHIVE_PAGE_ONE_PATHS = new Set([
  * structural: a short or malformed publisher response must still fail closed.
  */
 function isCanonicalArchiveProjection(xml, expectedCount) {
-  if (!Number.isSafeInteger(expectedCount) || expectedCount <= 0) return false;
+  if (expectedCount !== ARCHIVE_PAGE_ONE_PATHS.size) return false;
   const blocks = xml.match(/<url>[\s\S]*?<\/url>/g) ?? [];
   if (blocks.length !== expectedCount) return false;
 
@@ -359,15 +361,32 @@ function isCanonicalArchiveProjection(xml, expectedCount) {
     let pathname;
     try {
       const url = new URL(loc);
-      if (url.hostname !== 'frontaliereticino.ch' || url.search || url.hash) return false;
+      if (url.origin !== CANONICAL_SITE_ORIGIN || url.search || url.hash) return false;
       pathname = url.pathname;
     } catch {
       return false;
     }
     if (!ARCHIVE_PAGE_ONE_PATHS.has(pathname) || paths.has(pathname)) return false;
     paths.add(pathname);
+
+    const alternates = [...block.matchAll(
+      /<xhtml:link\b[^>]*\bhreflang="([^"]+)"[^>]*\bhref="([^"]+)"[^>]*\/?>(?:\s*<\/xhtml:link>)?/g,
+    )];
+    if (alternates.length !== ARCHIVE_HREFLANGS.size) return false;
+    const seenHreflangs = new Set();
+    for (const [, hreflang, href] of alternates) {
+      if (!ARCHIVE_HREFLANGS.has(hreflang) || seenHreflangs.has(hreflang)) return false;
+      try {
+        const alternate = new URL(href);
+        if (alternate.origin !== CANONICAL_SITE_ORIGIN || alternate.search || alternate.hash) return false;
+      } catch {
+        return false;
+      }
+      seenHreflangs.add(hreflang);
+    }
+    if (seenHreflangs.size !== ARCHIVE_HREFLANGS.size) return false;
   }
-  return true;
+  return paths.size === ARCHIVE_PAGE_ONE_PATHS.size;
 }
 
 let manifest;
@@ -859,6 +878,9 @@ for (const name of SITEMAPS) {
         + `${publishedArchiveUrlCount} — refusing`,
     );
   }
+  if (name === ARCHIVE_SITEMAP && urls === ARCHIVE_PAGE_ONE_PATHS.size && !intentionalArchiveProjection) {
+    fail(`${name} has ${urls} urls but is not the complete canonical page-1 projection — refusing`);
+  }
 
   const dest = path.join(PUBLIC_DIR, name);
   if (fs.existsSync(dest)) {
@@ -877,7 +899,7 @@ for (const name of SITEMAPS) {
     if (urls < curUrls && !intentionalArchiveProjection) {
       fail(`${name} would shrink from ${curUrls} to ${urls} urls — refusing`);
     }
-    if (alts < curAlts) {
+    if (alts < curAlts && !intentionalArchiveProjection) {
       fail(
         `${name} would shrink from ${curAlts} to ${alts} hreflang alternates — refusing. ` +
           `Same url count with fewer alternates means the publisher lost the ` +
