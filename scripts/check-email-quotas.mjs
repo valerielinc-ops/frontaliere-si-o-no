@@ -9,9 +9,9 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  * Cloudflare Email Service — whose quota is MONTHLY, not daily — it additionally
  * reports month-to-date consumption against the 3000/mo allowance via the
  * GraphQL Analytics API (emailSendingAdaptiveGroups). Same idea for Maileroo
- * (250k/mo Pro plan) via its Account API statistics endpoint,
- * best-effort — falls back to "unverified" if the sending key lacks the
- * statistics.read scope, sending is unaffected either way.
+ * via its Account API, which supplies the live plan quantity, billing-cycle
+ * usage and reset date; the legacy statistics endpoint remains a
+ * delivered+bounced proxy fallback.
  *
  * It also watches Resend's quota-cycle burn rate (cycle anchored on the 6th
  * of each month, same as the cascade's own dynamic daily cap) and opens a
@@ -226,24 +226,26 @@ async function main(opts) {
     }
   }
 
-  // Maileroo: surface real calendar-month-to-date usage (250k/mo Pro
-  // plan) via the Account API statistics endpoint, same best-effort probe
-  // computeMailerooDynamicDailyLimit already does for pacing — this just
-  // prints it. verified:false means the sending key doesn't carry the
-  // statistics.read scope (or the endpoint errored); sending is unaffected
-  // either way, since the daily guard falls back to the conservative static
-  // floor in that case.
+  // Maileroo: surface the same live plan/cycle data used by the sender's
+  // dynamic pace. verified:false means the Account API/statistics lookup is
+  // unavailable; sending remains fail-safe at the conservative static floor.
   if (isProviderConfigured('maileroo')) {
-    const monthlyCap = PROVIDERS.find(p => p.id === 'maileroo')?.monthlyLimit ?? 250000;
-    const { count, verified } = await fetchMailerooCycleUsage();
-    console.log('\n📮 Maileroo (Account API statistics):');
+    const configuredMonthlyCap = PROVIDERS.find(p => p.id === 'maileroo')?.monthlyLimit ?? 250000;
+    const { count, monthlyLimit, cycleStart, cycleEnd, verified, source } = await fetchMailerooCycleUsage();
+    const monthlyCap = monthlyLimit || configuredMonthlyCap;
+    console.log('\n📮 Maileroo (Account API quota):');
     if (!verified) {
-      console.log('   ⚠️  Usage endpoint unreachable/unauthorized — key needs the statistics.read scope.');
+      console.log('   ⚠️  Account/statistics endpoint unreachable or unauthorized.');
       console.log('       (Sending is unaffected: the daily guard falls back to a conservative static pace.)');
     } else {
       const remaining = Math.max(0, monthlyCap - count);
-      console.log(`   Delivered+bounced month-to-date: ${count} / ${monthlyCap}  (≈${remaining} remaining this month)`);
-      console.log('   Note: delivered+bounced is a lower-bound proxy (no raw "sent" counter exposed) — may under-count sends still in flight.');
+      const cycleLabel = cycleStart instanceof Date && cycleEnd instanceof Date
+        ? `${cycleStart.toISOString()}→${cycleEnd.toISOString()}`
+        : 'cycle unavailable';
+      console.log(`   ${source === 'account' ? 'Outbound usage' : 'Delivered+bounced proxy'}: ${count} / ${monthlyCap}  (≈${remaining} remaining; cycle ${cycleLabel})`);
+      if (source !== 'account') {
+        console.log('   Note: delivered+bounced is a lower-bound proxy — it may under-count queued/in-flight sends.');
+      }
     }
   }
 

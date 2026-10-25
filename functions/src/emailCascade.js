@@ -8,7 +8,7 @@
  * scripts/lib/email-cascade.mjs is now a thin re-export shim pointing here —
  * edit THIS file; the shim never needs touching again.
  *
- * Cascade order: Mailgun → Mailjet → Mailtrap → Maileroo → Cloudflare → Resend
+ * Cascade order: Mailgun → Mailjet → Maileroo → Cloudflare → Resend
  * (reordered 2026-07-16 — see PROVIDERS[resend] below for why resend moved last).
  * Maileroo's plan is 250000/mo (Pro) — with the
  * three free tiny-cap providers ahead of it (~650/day combined) it now absorbs
@@ -56,11 +56,10 @@
  *                                the 250k/mo budget, see PROVIDERS[maileroo] below.
  *   MAILEROO_ACCOUNT_API_KEY — Maileroo Account API key (dashboard "Applications"
  *                                section — a DIFFERENT credential from the sending
- *                                key above). Powers real month-to-date usage via
- *                                statistics/summary for the dynamic pace; optional
- *                                — falls back to a conservative static pace when
- *                                unset (verified live 2026-07-20: the sending key
- *                                itself gets 401 against this endpoint).
+ *                                key above). Powers the live plan, billing-cycle
+ *                                usage and reset date via /v1/account; optional —
+ *                                falls back to a conservative statistics proxy
+ *                                or static pace when unset.
  *   RESEND_API_KEY           — Resend API key (free plan: 100/day, 3000/mo).
  *                                Last in cascade order since 2026-07-16 — now the
  *                                overflow valve once maileroo's much larger budget
@@ -88,7 +87,9 @@
 // (see below).
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAILEROO_MONTHLY_LIMIT = 250_000;
-const MAILEROO_STATIC_DAILY_LIMIT = Math.floor(MAILEROO_MONTHLY_LIMIT / 30);
+// A month can have 31 days. The unverifiable fallback must never pace above the
+// monthly plan merely because the calendar is longer than the 30-day average.
+const MAILEROO_STATIC_DAILY_LIMIT = Math.floor(MAILEROO_MONTHLY_LIMIT / 31);
 
 const PROVIDERS = [
   { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000,
@@ -129,11 +130,11 @@ const PROVIDERS = [
   // Like resend (see PROVIDERS[resend] below), its effective daily cap is read
   // from `_dynamicDailyLimits.maileroo` — recomputed on every
   // syncQuotasFromAPIs() run by computeMailerooDynamicDailyLimit() as
-  // (250000 − calendar-month-to-date usage) ÷ days left in the month. Maileroo
-  // has no documented billing-cycle anchor day (unlike Resend's 6th-of-month),
-  // so the calendar month is used directly. `dailyLimit: 8333` below
-  // (250000/30, same monthlyLimit/30 convention as every other static-limit
-  // provider here) is only the pre-sync/unverifiable-usage fallback — see
+  // (250000 − billing-cycle-to-date usage) ÷ days left in the cycle. The
+  // Account API supplies the plan quantity and current-period end; the legacy
+  // statistics endpoint remains a calendar-month proxy fallback. The
+  // `dailyLimit` below (250000/31, the safe maximum-days fallback) is only the
+  // pre-sync/unverifiable-usage floor — see
   // MAILEROO_CYCLE_FALLBACK_DAILY.
   { id: 'maileroo', dailyLimit: MAILEROO_STATIC_DAILY_LIMIT, monthlyLimit: MAILEROO_MONTHLY_LIMIT,
     // scheduled_at in the JSON body, RFC 3339 (ISO 8601 is valid RFC 3339).
@@ -525,86 +526,143 @@ async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
   return dynamicLimit;
 }
 
-// ── Maileroo Account API (statistics) ────────────────────────
-// Docs: https://maileroo.com/docs/api-reference/statistics/summary
-// GET https://api.maileroo.com/v1/statistics/summary — aggregates the
-// CURRENT CALENDAR MONTH only (no date-range params, no billing-cycle anchor
-// day like Resend's). Docs list the required scope as `statistics.read` under
-// a distinct "Account API" section, separate from the sending-key auth used
-// by sendViaMaileroo. A sending key is never sent to this endpoint: when the
-// dedicated Account API key is absent, callers fall back to the conservative
-// static floor below.
+// ── Maileroo Account API (plan + billing-cycle usage) ────────
+// Docs: https://maileroo.com/docs/api-reference/account/get-account
+// GET https://api.maileroo.com/v1/account — returns current_plan, the exact
+// Monthly Outbound Usage row and subscription.current_period_end. The Account
+// API key is deliberately kept separate from the per-domain sending key.
 //
-// The response has no raw "sent"/"accepted" counter, only terminal
-// delivery-outcome fields (`delivered`, `bounced`, `opens`, `clicks`,
-// `suppressions`) — delivered+bounced is used as the usage proxy (both
-// consume plan quota), which under-counts sends still in flight/queued.
-// Acceptable here because this is a PACING signal, not the hard quota
-// enforcement: Maileroo's own API rejection (caught by isRateLimitedError
-// in sendSingle) is still the real backstop if this proxy under-counts.
+// The statistics summary endpoint is retained as a best-effort fallback for an
+// Account API key that still has only the older statistics scope. Its
+// delivered+bounced value is a lower-bound proxy, not the authoritative plan
+// counter, and it is paced against the calendar month only.
 export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
-  // Verified live 2026-07-20: this Account API endpoint rejects the X-Api-Key
-  // header the send endpoint uses (401 "Please provide a valid API key in the
-  // Authorization header") — it wants `Authorization: Bearer <key>` instead.
-  // Also verified our sending key (MAILEROO_API_KEY, a per-domain Sending Key)
-  // is NOT valid here even with the correct header shape (401 "invalid or
-  // revoked") — the Account API needs its own key, generated under
-  // Maileroo's "Applications" dashboard section.
   const apiKey = process.env.MAILEROO_ACCOUNT_API_KEY;
   if (!apiKey) return { count: 0, verified: false };
-  try {
-    const res = await fetch('https://api.maileroo.com/v1/statistics/summary', {
+
+  const request = async (url) => {
+    const res = await fetch(url, {
       headers: { Authorization: `Bearer ${apiKey}` },
       signal: AbortSignal.timeout(QUOTA_FETCH_TIMEOUT_MS),
     });
-    if (!res.ok) return { count: 0, verified: false };
-    const data = await res.json().catch(() => null);
-    const agg = data?.data?.aggregate;
-    if (!agg || typeof agg !== 'object') return { count: 0, verified: false };
-    const count = (Number(agg.delivered) || 0) + (Number(agg.bounced) || 0);
-    return { count, verified: true };
-  } catch { return { count: 0, verified: false }; }
+    if (!res.ok) return null;
+    return res.json().catch(() => null);
+  };
+  const finiteNumber = (value) => {
+    const number = Number(value);
+    return Number.isFinite(number) && number >= 0 ? number : null;
+  };
+
+  try {
+    const account = await request('https://api.maileroo.com/v1/account');
+    const data = account?.data;
+    const usage = Array.isArray(data?.usage) ? data.usage : [];
+    const monthly = usage.find((entry) => entry?.name === 'Monthly Outbound Usage');
+    const hourly = usage.find((entry) => entry?.name === 'Hourly Outbound Usage');
+    const count = finiteNumber(monthly?.used);
+    const monthlyLimit = finiteNumber(monthly?.quantity) ?? finiteNumber(data?.current_plan?.quantity);
+    const cycleEnd = new Date(data?.subscription?.current_period_end || '');
+    const cycleStart = new Date(data?.subscription?.current_period_start || '');
+    if (count !== null && monthlyLimit !== null && monthlyLimit > 0 && Number.isFinite(cycleEnd.getTime())) {
+      return {
+        count,
+        monthlyLimit,
+        cycleStart: Number.isFinite(cycleStart.getTime()) ? cycleStart : null,
+        cycleEnd,
+        resetAt: cycleEnd,
+        hourlyLimit: finiteNumber(hourly?.quantity),
+        hourlyUsed: finiteNumber(hourly?.used),
+        hourlyAvailable: finiteNumber(hourly?.available),
+        verified: true,
+        source: 'account',
+      };
+    }
+  } catch {
+    // Try the legacy statistics proxy below before falling back completely.
+  }
+
+  try {
+    const summary = await request('https://api.maileroo.com/v1/statistics/summary');
+    const aggregate = summary?.data?.aggregate;
+    if (aggregate && typeof aggregate === 'object') {
+      const delivered = finiteNumber(aggregate.delivered) ?? 0;
+      const bounced = finiteNumber(aggregate.bounced) ?? 0;
+      const monthStart = new Date(Date.UTC(
+        new Date(nowMs).getUTCFullYear(),
+        new Date(nowMs).getUTCMonth(),
+        1,
+      ));
+      const monthEnd = new Date(Date.UTC(
+        new Date(nowMs).getUTCFullYear(),
+        new Date(nowMs).getUTCMonth() + 1,
+        1,
+      ));
+      return {
+        count: delivered + bounced,
+        monthlyLimit: MAILEROO_MONTHLY_LIMIT,
+        cycleStart: monthStart,
+        cycleEnd: monthEnd,
+        resetAt: monthEnd,
+        hourlyLimit: null,
+        hourlyUsed: null,
+        hourlyAvailable: null,
+        verified: true,
+        source: 'statistics-proxy',
+      };
+    }
+  } catch {
+    // The static fallback below is intentionally fail-safe.
+  }
+  return { count: 0, verified: false };
 }
 
-// Safe fallback floor (250000/30, months-average). Used only
-// when calendar-month usage is unverifiable (no statistics.read scope on
-// this key / network error) — never Infinity, since an unverifiable usage
-// lookup must fail safe, not open.
+// Safe fallback floor (250000/31, maximum calendar-month length). Used only
+// when both usage endpoints are unverifiable — never Infinity, since an
+// unverifiable usage lookup must fail safe, not open.
 const MAILEROO_CYCLE_FALLBACK_DAILY = MAILEROO_STATIC_DAILY_LIMIT;
 
 /**
- * Dynamic per-day Maileroo send budget that paces the 250k/mo quota, mirroring
- * computeResendDynamicDailyLimit but against a plain calendar month (Maileroo
- * documents no billing-cycle anchor day): (250000 − month-to-date usage) ÷
- * days left in the current UTC month. Falls back to the conservative
- * MAILEROO_CYCLE_FALLBACK_DAILY floor when usage can't be verified.
+ * Dynamic per-day Maileroo send budget. The live Account API supplies the
+ * actual plan quantity and billing-cycle reset; the legacy statistics proxy
+ * supplies delivered+bounced for the calendar month. Both use
+ * (remaining budget / days remaining), with the provider's current hourly
+ * headroom as an additional ceiling when available.
  */
 async function computeMailerooDynamicDailyLimit(nowMs = Date.now()) {
   const provider = PROVIDERS.find(p => p.id === 'maileroo');
-  const { count, verified } = await fetchMailerooCycleUsage(nowMs);
-  if (!verified) {
-    console.warn(`⚠️  [maileroo] calendar-month usage unverifiable (no statistics.read scope on this key, or API error) — falling back to conservative ${MAILEROO_CYCLE_FALLBACK_DAILY}/day floor`);
+  const usage = await fetchMailerooCycleUsage(nowMs);
+  if (!usage.verified) {
+    console.warn(`⚠️  [maileroo] billing-cycle usage unverifiable (Account API/statistics error or missing scope) — falling back to conservative ${MAILEROO_CYCLE_FALLBACK_DAILY}/day floor`);
     return MAILEROO_CYCLE_FALLBACK_DAILY;
   }
-  const now = new Date(nowMs);
-  const monthEnd = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1));
-  const daysRemaining = Math.max(1, Math.ceil((monthEnd.getTime() - nowMs) / DAY_MS));
-  const remainingBudget = Math.max(0, provider.monthlyLimit - count);
-  const dynamicLimit = Math.floor(remainingBudget / daysRemaining);
-  console.log(`   [maileroo] month-to-date: used≈${count}/${provider.monthlyLimit} (delivered+bounced proxy), daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
+  const monthlyLimit = usage.monthlyLimit || provider.monthlyLimit;
+  const cycleEndMs = usage.cycleEnd?.getTime?.() || NaN;
+  const daysRemaining = Number.isFinite(cycleEndMs)
+    ? Math.max(1, Math.ceil((cycleEndMs - nowMs) / DAY_MS))
+    : 1;
+  const remainingBudget = Math.max(0, monthlyLimit - usage.count);
+  const monthlyPace = Math.floor(remainingBudget / daysRemaining);
+  const hourlyHeadroom = Number.isFinite(usage.hourlyAvailable)
+    ? Math.floor(Math.max(0, usage.hourlyAvailable))
+    : Infinity;
+  const dynamicLimit = Math.min(monthlyPace, hourlyHeadroom);
+  if (monthlyLimit !== provider.monthlyLimit) {
+    console.warn(`⚠️  [maileroo] live plan limit ${monthlyLimit} differs from configured monthlyLimit ${provider.monthlyLimit}`);
+  }
+  const sourceLabel = usage.source === 'account'
+    ? 'Account API'
+    : 'delivered+bounced proxy';
+  const resetLabel = usage.cycleEnd instanceof Date && Number.isFinite(usage.cycleEnd.getTime())
+    ? usage.cycleEnd.toISOString()
+    : 'unknown';
+  console.log(`   [maileroo] ${sourceLabel}: used=${usage.count}/${monthlyLimit}, reset=${resetLabel}, daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}${Number.isFinite(usage.hourlyAvailable) ? `, hourlyAvailable=${usage.hourlyAvailable}` : ''}`);
   return dynamicLimit;
 }
 
 async function fetchMailerooDailyUsage() {
-  // No true "today only" figure is exposed (statistics/summary aggregates the
-  // whole calendar month) — the in-memory counter alone gates TODAY's sends,
-  // same limitation as before 2026-07-20 (may overshoot slightly across
-  // separate runs on the same day, same as the fallback behaviour of every
-  // other provider on API error). What changed: the daily LIMIT it's gated
-  // against is no longer a flat monthlyLimit/30 guess — see
-  // computeMailerooDynamicDailyLimit / _dynamicDailyLimits.maileroo below,
-  // which prices in real month-to-date consumption when the key's scope
-  // allows it.
+  // The Account API already supplies cycle-wide and hourly usage. The
+  // per-process counter remains the send-time guard, so repeated runs refresh
+  // the provider snapshot while one run cannot exceed its synced headroom.
   return 0;
 }
 

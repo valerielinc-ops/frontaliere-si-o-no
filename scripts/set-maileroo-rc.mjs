@@ -45,9 +45,9 @@ const PROVIDER_KEYS = [
     shapeHint: null,
     // Account API key from Maileroo's dashboard "Applications" section — a
     // DIFFERENT credential from MAILEROO_API_KEY (a per-domain Sending Key).
-    // Verified live 2026-07-20: the sending key gets 401 "invalid or revoked"
-    // against account-level endpoints (statistics/summary, domains, logs,
-    // suppressions), even with the correct `Authorization: Bearer` header.
+    // Verified live: the sending key gets 401 "invalid or revoked" against
+    // account-level endpoints (account, statistics, domains, logs, suppressions),
+    // even with the correct `Authorization: Bearer` header.
     description: 'Maileroo Account API key — powers real usage-based cascade pacing (fetchMailerooCycleUsage)',
   },
 ];
