@@ -1696,7 +1696,7 @@
       "id": "stadt-zuerich-424168fc48ff",
       "slug": "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
       "slugByLocale": {
-        "it": "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-15ad59",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-15ad59"
@@ -2483,7 +2483,7 @@
       "id": "stadt-zuerich-04358cd59fd3",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistics-specialist-efz-warehouse-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
         "fr": "place-d-apprentissage-2027-logisticienne-logisticien-cfc-stockage-stadt-zurich-zurich"
@@ -11365,7 +11365,7 @@
         "it": "trampilota-stadt-zurich-zurich",
         "en": "trampilot-stadt-zurich-zurich",
         "de": "trampilot-in-stadt-zuerich-zurigo-48193",
-        "fr": "trampilot-in-stadt-zurich"
+        "fr": "pilote-tram-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -11415,7 +11415,7 @@
       "previousSlugs": [
         "trampilot-in-stadt-zuerich-zurigo-48193",
         "trampilot-in-stadt-zurich-zurich",
-        "pilote-tram-stadt-zurich-zurich"
+        "trampilot-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11423,7 +11423,7 @@
           "trampilot-in-stadt-zurich-zurich"
         ],
         "fr": [
-          "pilote-tram-stadt-zurich-zurich"
+          "trampilot-in-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T16:12:36.172Z",
@@ -11699,7 +11699,7 @@
         "it": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich",
         "en": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich",
         "de": "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "fr": "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
+        "fr": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -11748,14 +11748,14 @@
       "referenceNumber": "51803",
       "previousSlugs": [
         "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+        "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803"
         ],
         "fr": [
-          "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+          "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:59:00.870Z",
@@ -13213,10 +13213,10 @@
       "id": "stadt-zuerich-a8ec3b1d4c21",
       "slug": "tirocinante-presso-la-giardineria-comunale-stadt-zurich",
       "slugByLocale": {
-        "it": "tirocinante-presso-la-giardineria-comunale-stadt-zurich",
-        "en": "municipal-horticulture-intern-stadt-zurich",
+        "it": "allenamento-in-giardino-urbano-stadt-zurich-zurich",
+        "en": "trainee-in-urban-gardening-stadt-zurich-zurich",
         "de": "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
-        "fr": "stagiaire-en-horticulture-urbaine-stadt-zurich"
+        "fr": "stage-en-jardinage-urbain-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -13266,21 +13266,19 @@
       "previousSlugs": [
         "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
         "praktikant-in-stadtgartnerei-stadt-zurich",
-        "allenamento-in-giardino-urbano-stadt-zurich-zurich",
-        "trainee-in-urban-gardening-stadt-zurich-zurich",
-        "stage-en-jardinage-urbain-stadt-zurich-zurich"
+        "municipal-horticulture-intern-stadt-zurich",
+        "stagiaire-en-horticulture-urbaine-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
-          "praktikant-in-stadtgartnerei-stadt-zurich",
-          "allenamento-in-giardino-urbano-stadt-zurich-zurich"
+          "praktikant-in-stadtgartnerei-stadt-zurich"
         ],
         "en": [
-          "trainee-in-urban-gardening-stadt-zurich-zurich"
+          "municipal-horticulture-intern-stadt-zurich"
         ],
         "fr": [
-          "stage-en-jardinage-urbain-stadt-zurich-zurich"
+          "stagiaire-en-horticulture-urbaine-stadt-zurich"
         ]
       },
       "salaryMin": 57500,
@@ -20850,7 +20848,7 @@
       "slug": "tirocinante-universitario-a-nello-sviluppo-software-12-mesi-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "tirocinante-universitario-a-nello-sviluppo-software-12-mesi-stadt-zurich-zurich",
-        "en": "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich",
+        "en": "university-intern-software-development-12-months-stadt-zurich-zurich",
         "de": "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zuerich-zurigo-51977",
         "fr": "stagiaire-universitaire-en-developpement-logiciel-12-mois-stadt-zurich-zurich"
       },
@@ -20901,8 +20899,7 @@
       "referenceNumber": "51977",
       "previousSlugs": [
         "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zuerich-zurigo-51977",
-        "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich",
-        "university-intern-software-development-12-months-stadt-zurich-zurich"
+        "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20910,7 +20907,7 @@
           "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich"
         ],
         "en": [
-          "university-intern-software-development-12-months-stadt-zurich-zurich"
+          "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich"
         ],
         "fr": [
           "hochschulpraktikant-in-software-entwicklung-12-monate-stadt-zurich-zurich"
@@ -21979,7 +21976,7 @@
       "slug": "praticante-universitario-a-in-informatica-12-mesi-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "praticante-universitario-a-in-informatica-12-mesi-stadt-zurich-zurich",
-        "en": "hochschulpraktikant-in-informatik-12-monate-stadt-zurich",
+        "en": "university-intern-computer-science-12-months-stadt-zurich-zurich",
         "de": "hochschulpraktikant-in-informatik-12-monate-stadt-zuerich-zurigo-51997",
         "fr": "stagiaire-universitaire-en-informatique-12-mois-stadt-zurich-zurich"
       },
@@ -22031,7 +22028,8 @@
       "previousSlugs": [
         "hochschulpraktikant-in-informatik-12-monate-stadt-zuerich-zurigo-51997",
         "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich",
-        "university-intern-computer-science-12-months-stadt-zurich-zurich"
+        "university-intern-computer-science-12-months-stadt-zurich-zurich",
+        "hochschulpraktikant-in-informatik-12-monate-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22040,7 +22038,8 @@
         ],
         "en": [
           "university-intern-computer-science-12-months-stadt-zurich-zurich",
-          "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich"
+          "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich",
+          "hochschulpraktikant-in-informatik-12-monate-stadt-zurich"
         ],
         "fr": [
           "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich"
@@ -25239,7 +25238,7 @@
         "it": "sap-logistik-inhouse-consulente-stadt-zurich-zurich",
         "en": "sap-logistics-inhouse-consultant-stadt-zurich-zurich",
         "de": "sap-logistik-inhouse-consultant-stadt-zuerich-zurigo-52001",
-        "fr": "sap-logistik-inhouse-consultant-stadt-zurich-zurich"
+        "fr": "conseiller-interne-en-logistique-sap-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -25288,14 +25287,14 @@
       "referenceNumber": "52001",
       "previousSlugs": [
         "sap-logistik-inhouse-consultant-stadt-zuerich-zurigo-52001",
-        "conseiller-interne-en-logistique-sap-stadt-zurich-zurich"
+        "sap-logistik-inhouse-consultant-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sap-logistik-inhouse-consultant-stadt-zuerich-zurigo-52001"
         ],
         "fr": [
-          "conseiller-interne-en-logistique-sap-stadt-zurich-zurich"
+          "sap-logistik-inhouse-consultant-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-19T09:34:24.743Z",
@@ -25646,7 +25645,7 @@
         "it": "gestione-del-progetto-di-stage-universitaria-stadt-zurich-zurich",
         "en": "university-internship-project-management-stadt-zurich-zurich",
         "de": "hochschulpraktikum-projektmanagement-stadt-zuerich-zurigo-52014",
-        "fr": "hochschulpraktikum-projektmanagement-stadt-zurich"
+        "fr": "gestion-de-projets-de-stages-universitaires-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -25696,7 +25695,8 @@
       "previousSlugs": [
         "hochschulpraktikum-projektmanagement-stadt-zuerich-zurigo-52014",
         "hochschulpraktikum-projektmanagement-stadt-zurich-zurich",
-        "gestion-de-projets-de-stages-universitaires-stadt-zurich-zurich"
+        "gestion-de-projets-de-stages-universitaires-stadt-zurich-zurich",
+        "hochschulpraktikum-projektmanagement-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25708,7 +25708,8 @@
         ],
         "fr": [
           "gestion-de-projets-de-stages-universitaires-stadt-zurich-zurich",
-          "hochschulpraktikum-projektmanagement-stadt-zurich-zurich"
+          "hochschulpraktikum-projektmanagement-stadt-zurich-zurich",
+          "hochschulpraktikum-projektmanagement-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T21:49:30.450Z",
@@ -27995,9 +27996,9 @@
       "slug": "automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "automatico-stadt-zurich-zurich",
-        "en": "automation-technician-stadt-zurich",
+        "en": "automatics-stadt-zurich-zurich",
         "de": "automatiker-in-stadt-zuerich-zurigo-5782",
-        "fr": "automaticien-ne-stadt-zurich"
+        "fr": "automatique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28047,8 +28048,8 @@
       "previousSlugs": [
         "automatiker-in-stadt-zuerich-zurigo-5782",
         "automatiker-in-stadt-zurich",
-        "automatics-stadt-zurich-zurich",
-        "automatique-stadt-zurich-zurich"
+        "automation-technician-stadt-zurich",
+        "automaticien-ne-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -28056,11 +28057,11 @@
         ],
         "en": [
           "automatiker-in-stadt-zurich",
-          "automatics-stadt-zurich-zurich"
+          "automation-technician-stadt-zurich"
         ],
         "fr": [
           "automatiker-in-stadt-zurich",
-          "automatique-stadt-zurich-zurich"
+          "automaticien-ne-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",
@@ -28667,9 +28668,9 @@
       "slug": "assemblaggio-automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "assemblaggio-automatico-stadt-zurich-zurich",
-        "en": "automation-fitter-stadt-zurich",
+        "en": "automatic-assembler-stadt-zurich-zurich",
         "de": "automatikmonteur-in-stadt-zuerich-zurigo-5465",
-        "fr": "automatikmonteur-in-stadt-zurich"
+        "fr": "monteur-automatique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28719,8 +28720,7 @@
       "previousSlugs": [
         "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "automatikmonteur-in-stadt-zurich",
-        "automatic-assembler-stadt-zurich-zurich",
-        "monteur-automatique-stadt-zurich-zurich"
+        "automation-fitter-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -28728,10 +28728,10 @@
         ],
         "en": [
           "automatikmonteur-in-stadt-zurich",
-          "automatic-assembler-stadt-zurich-zurich"
+          "automation-fitter-stadt-zurich"
         ],
         "fr": [
-          "monteur-automatique-stadt-zurich-zurich"
+          "automatikmonteur-in-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",
@@ -28841,7 +28841,7 @@
         "it": "elettromeccanica-stadt-zurich-zurich",
         "en": "electromechanic-stadt-zurich-zurich",
         "de": "elektromechaniker-in-stadt-zuerich-zurigo-5800",
-        "fr": "electromecanicien-ne-stadt-zurich"
+        "fr": "electromecanique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28891,7 +28891,7 @@
       "previousSlugs": [
         "elektromechaniker-in-stadt-zuerich-zurigo-5800",
         "elektromechaniker-in-stadt-zurich",
-        "electromecanique-stadt-zurich-zurich"
+        "electromecanicien-ne-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -28902,7 +28902,7 @@
         ],
         "fr": [
           "elektromechaniker-in-stadt-zurich",
-          "electromecanique-stadt-zurich-zurich"
+          "electromecanicien-ne-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",

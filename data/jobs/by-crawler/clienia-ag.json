@@ -277,7 +277,7 @@
       "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
-        "en": "qualified-nurse-50-80-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
       },
@@ -358,7 +358,8 @@
         "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "infirmier-diplome-60-100-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
+        "qualified-nurse-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -368,7 +369,7 @@
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
+          "qualified-nurse-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
@@ -748,7 +749,7 @@
       "slug": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
-        "en": "graduated-day-care-professional-60-100-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich",
         "fr": "infirmiere-diplomee-en-service-de-jour-70-80-clienia-ag-pfaffikon-zh"
       },
@@ -832,7 +833,7 @@
         "infirmier-diplome-en-service-diurne-70-80-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen",
         "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon"
+        "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -842,7 +843,7 @@
           "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon"
+          "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-im-tagesdienst-70-80-clienia-ag-pfaffikon"
@@ -7383,12 +7384,12 @@
     },
     {
       "id": "clienia-ag-673be5b17e25",
-      "slug": "fachverantwortliche-r-pflege-60-80-clienia-ag-pfaffikon",
+      "slug": "cura-responsabile-60-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-pflege-60-80-clienia-ag-pfaffikon",
-        "en": "fachverantwortliche-r-pflege-60-80-clienia-ag-pfaffikon",
+        "it": "cura-responsabile-60-80-clienia-ag-pfaffikon-zh",
+        "en": "responsible-care-60-80-clienia-ag-pfaffikon-zh",
         "de": "fachverantwortliche-r-pflege-60-80-clienia-ag-zurich",
-        "fr": "fachverantwortliche-r-pflege-60-80-clienia-ag-pfaffikon"
+        "fr": "soins-responsables-60-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7433,11 +7434,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachverantwortliche-r-pflege-60-80-clienia-ag-zurich"
+        "fachverantwortliche-r-pflege-60-80-clienia-ag-zurich",
+        "fachverantwortliche-r-pflege-60-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-pflege-60-80-clienia-ag-zurich"
+          "fachverantwortliche-r-pflege-60-80-clienia-ag-zurich",
+          "fachverantwortliche-r-pflege-60-80-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "fachverantwortliche-r-pflege-60-80-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "fachverantwortliche-r-pflege-60-80-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-10-23T21:25:53.564Z",
@@ -7457,12 +7466,12 @@
     },
     {
       "id": "clienia-ag-af26227d5053",
-      "slug": "diplomierte-pflegefachperson-50-70-clienia-ag-pfaffikon",
+      "slug": "infermiere-qualificato-50-70-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "diplomierte-pflegefachperson-50-70-clienia-ag-pfaffikon",
-        "en": "diplomierte-pflegefachperson-50-70-clienia-ag-pfaffikon",
+        "it": "infermiere-qualificato-50-70-clienia-ag-pfaffikon-zh",
+        "en": "qualified-nurse-50-70-clienia-ag-pfaffikon-zh",
         "de": "diplomierte-pflegefachperson-50-70-clienia-ag-zurich",
-        "fr": "diplomierte-pflegefachperson-50-70-clienia-ag-pfaffikon"
+        "fr": "infirmiere-qualifiee-50-70-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7506,11 +7515,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diplomierte-pflegefachperson-50-70-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-50-70-clienia-ag-zurich",
+        "diplomierte-pflegefachperson-50-70-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-50-70-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-50-70-clienia-ag-zurich",
+          "diplomierte-pflegefachperson-50-70-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-50-70-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-50-70-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-10-23T21:25:50.852Z",
@@ -7530,12 +7547,12 @@
     },
     {
       "id": "clienia-ag-b7d12dfea441",
-      "slug": "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon",
+      "slug": "dipl-hf-professionale-di-cura-sul-servizio-notturno-m-f-d-50-70-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon",
-        "en": "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon",
+        "it": "dipl-hf-professionale-di-cura-sul-servizio-notturno-m-f-d-50-70-clienia-ag-pfaffikon-zh",
+        "en": "dipl-care-professional-hf-on-night-service-m-f-d-50-70-clienia-ag-pfaffikon-zh",
         "de": "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich",
-        "fr": "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon"
+        "fr": "dipl-soins-professionnels-hf-en-service-de-nuit-h-f-d-50-70-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7580,11 +7597,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich",
+        "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich",
+          "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-07-22T12:12:10.947Z",
