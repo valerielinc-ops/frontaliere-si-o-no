@@ -143,7 +143,34 @@ describe('active parser-quality population', () => {
     expect(crawlerJobActivity(expired)).toBe('expired');
     expect(partitionCrawlerJobsForActiveMetrics([activeRich, graceThin, expired])).toEqual({
       activeJobs: [activeRich],
-      excluded: { grace: 1, expired: 1, total: 2 },
+      excluded: { grace: 1, expired: 1, nonPublishable: 0, total: 2 },
+    });
+  });
+
+  it('excludes metadata-only quarantine rows but keeps route-bearing rows fail-closed', () => {
+    const metadataOnly = {
+      company: 'International School of Ticino',
+      companyKey: 'international-school-of-ticino',
+      source: 'ist-inspirededu-crawler',
+    };
+    const routeBearingWithoutUrl = {
+      slug: 'english-teacher-lugano',
+      description: 'Responsibility '.repeat(60),
+    };
+
+    expect(partitionCrawlerJobsForActiveMetrics([metadataOnly, routeBearingWithoutUrl])).toEqual({
+      activeJobs: [routeBearingWithoutUrl],
+      excluded: { grace: 0, expired: 0, nonPublishable: 1, total: 1 },
+    });
+  });
+
+  it('keeps canonical stable-id rows in the active quality population', () => {
+    const externalIdOnly = { externalId: 'ext-1', description: 'text' };
+    const jobIdOnly = { jobId: 'job-1', description: 'text' };
+
+    expect(partitionCrawlerJobsForActiveMetrics([externalIdOnly, jobIdOnly])).toEqual({
+      activeJobs: [externalIdOnly, jobIdOnly],
+      excluded: { grace: 0, expired: 0, nonPublishable: 0, total: 0 },
     });
   });
 
@@ -157,7 +184,7 @@ describe('active parser-quality population', () => {
 
     const result = partitionCrawlerJobsForActiveMetrics(records);
     expect(result.activeJobs).toEqual(records);
-    expect(result.excluded).toEqual({ grace: 0, expired: 0, total: 0 });
+    expect(result.excluded).toEqual({ grace: 0, expired: 0, nonPublishable: 0, total: 0 });
   });
 });
 

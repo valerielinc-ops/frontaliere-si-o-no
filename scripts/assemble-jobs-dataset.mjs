@@ -54,7 +54,12 @@ import {
   readCrawlerSummaryStore,
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
-import { archiveRecordNamesPosting, buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
+import {
+  archiveRecordNamesPosting,
+  buildAssembledJobIdentity,
+  buildStableJobIdentity,
+  hasPublishedRouteIdentity,
+} from './lib/job-identity.mjs';
 import { createAssemblerDedupIdentity } from './lib/assembler-dedup-identity.mjs';
 import { deduplicateAssembledJobsBySlug } from './lib/assemble-job-slug-dedup.mjs';
 import {
@@ -1293,28 +1298,6 @@ export function shouldBlockShrink(priorCount, newCount) {
 /** Identity used to diff prior vs new slice jobs. */
 function shrinkJobKey(job) {
   return resolveJobDiffKey(job) || `title:${String(job?.title || '').trim().toLowerCase()}`;
-}
-
-/** Whether a stored row carries any route or stable posting identity. */
-function hasPublishedRouteIdentity(job = {}) {
-  if (!job || typeof job !== 'object') return false;
-  const slugByLocale = job.slugByLocale && typeof job.slugByLocale === 'object'
-    ? Object.values(job.slugByLocale)
-    : [];
-  const previousSlugsByLocale = job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
-    ? Object.values(job.previousSlugsByLocale).flatMap((slugs) => (
-      Array.isArray(slugs) ? slugs : []
-    ))
-    : [];
-  return [
-    job.url,
-    job.applyUrl,
-    job.slug,
-    job.id,
-    ...slugByLocale,
-    ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
-    ...previousSlugsByLocale,
-  ].some((value) => String(value || '').trim());
 }
 
 /**

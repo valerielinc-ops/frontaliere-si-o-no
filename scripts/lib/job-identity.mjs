@@ -9,6 +9,41 @@ function safeArray(value) {
   return Array.isArray(value) ? value : [];
 }
 
+/**
+ * Whether a stored crawler row carries anything that can become a published
+ * job route or stable posting identity.
+ *
+ * Rows with only company/source metadata are quarantine bookkeeping, not
+ * indexable vacancies. Keep route-bearing rows in quality metrics even when
+ * their URL is temporarily absent: a slug, id, or historical route still
+ * represents publication that must not be hidden from an audit.
+ *
+ * @param {object} job
+ * @returns {boolean}
+ */
+export function hasPublishedRouteIdentity(job = {}) {
+  if (!job || typeof job !== 'object') return false;
+  const slugByLocale = job.slugByLocale && typeof job.slugByLocale === 'object'
+    ? Object.values(job.slugByLocale)
+    : [];
+  const previousSlugsByLocale = job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
+    ? Object.values(job.previousSlugsByLocale).flatMap((slugs) => (
+      Array.isArray(slugs) ? slugs : []
+    ))
+    : [];
+  return [
+    job.url,
+    job.applyUrl,
+    job.slug,
+    job.id,
+    job.externalId,
+    job.jobId,
+    ...slugByLocale,
+    ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
+    ...previousSlugsByLocale,
+  ].some((value) => String(value || '').trim());
+}
+
 // Identity URL normalization now lives in the shared scripts/lib/job-url-key.mjs
 // (identityUrlKey variant) alongside the crawl-time merge key and the
 // assemble-time dedup key, so all three are visible — and their intentional
