@@ -1100,6 +1100,104 @@ main.seo-static-content.static-job-page {
   }
 }
 
+/* Dynamic plate-auction surface — mobile interaction pass. The filter panel
+   is deliberately part of the document flow on phones: keeping it sticky
+   below the site header turns a useful search control into a persistent
+   overlay over the results while the user reads. Desktop keeps the sticky
+   shortcut, where the wider filter row earns the saved scroll. */
+@media (max-width: 767px) {
+  .plate-auctions-main section.sticky {
+    position: static;
+    inset: auto;
+    z-index: auto;
+    background: var(--color-surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .plate-auctions-main section.sticky > div:first-child {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plate-auctions-main section.sticky > div:first-child > label:first-child,
+  .plate-auctions-main section.sticky > div:first-child > button:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .plate-auctions-main section.sticky > div:first-child > label,
+  .plate-auctions-main section.sticky > div:first-child > button,
+  .plate-auctions-main section.sticky input[type='search'],
+  .plate-auctions-main section.sticky select {
+    min-width: 0;
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .plate-auctions-main section.sticky select {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .plate-auctions-main section.sticky > div:last-child {
+    margin-inline: -0.25rem;
+    padding-inline: 0.25rem;
+  }
+
+  .plate-auctions-main section.sticky > div:last-child button {
+    min-height: 44px;
+  }
+
+  .plate-auctions-main section[aria-labelledby='auction-results-title'] article {
+    min-width: 0;
+  }
+
+  .plate-auctions-main section[aria-labelledby='auction-results-title'] article[data-testid^='plate-card-'] a.font-display {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .plate-auctions-main section[aria-labelledby='auction-results-title'] article > div:first-child > button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .plate-auctions-main section[aria-labelledby='auction-results-title'] article dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-radius: 12px;
+    background: var(--color-surface-alt);
+    padding: 12px;
+  }
+
+  .plate-auctions-main section[aria-labelledby='auction-results-title'] article dl > div:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .plate-auctions-main section[aria-labelledby='auction-results-title'] article > div:last-child a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding-inline: 4px;
+  }
+
+  .plate-auctions-main section[aria-labelledby='source-coverage-title'] details summary {
+    min-height: 44px;
+  }
+
+  .plate-auctions-main section[aria-labelledby='source-coverage-title'] details a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .plate-auctions-main section.sticky {
+    top: 6rem;
+  }
+}
+
 /* Static SEO card hover state (used by seoContentTokens renderers) */
 .seo-card-link { transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease; }
 .seo-card-link:hover { border-color: var(--color-accent-border); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }

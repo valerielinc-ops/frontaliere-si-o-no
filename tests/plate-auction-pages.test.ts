@@ -197,6 +197,17 @@ describe('plate-auction static pages', () => {
     expect(source).not.toContain('plate-auction-infeed-ad');
   });
 
+  it('keeps the live filter panel in document flow on phone widths', () => {
+    const css = readFileSync(join(REPO_ROOT, 'index.css'), 'utf8');
+    expect(css).toContain('@media (max-width: 767px)');
+    expect(css).toContain('.plate-auctions-main section.sticky {\n    position: static;');
+    expect(css).toContain("article[data-testid^='plate-card-'] a.font-display");
+    expect(css).toContain('grid-template-columns: repeat(2, minmax(0, 1fr));');
+    expect(css).toContain('min-height: 48px;');
+    expect(css).toContain('@media (min-width: 768px)');
+    expect(css).toContain('.plate-auctions-main section.sticky {\n    top: 6rem;');
+  });
+
   it('caps large canton catalogues before first paint', () => {
     const rootDir = fixtureRoot({ auctionCount: 102 });
     const rendered = renderPlateAuctionPage({ locale: 'de', view: 'canton', canton: 'GR', rootDir });
