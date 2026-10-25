@@ -47,6 +47,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'JOBS_SEO_SLUG_INFO_FAST',
       'MID_PLUGINS_FAST',
       'PHASE_CPU_PROFILE',
+      'POST_WALK_BRIDGES_LAST',
       'POST_WALK_INCREMENTAL',
       'POST_WALK_INCREMENTAL_VERIFY',
       'POST_WALK_IN_FLIGHT',
@@ -58,6 +59,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'SEQUENTIAL_PROFILE',
       'SKIP_BORDER_WAIT',
       'UV_THREADPOOL_SIZE',
+      'WRITE_COLLECTOR_CHAIN',
     ]);
   });
 

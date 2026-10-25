@@ -102,8 +102,9 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
   // il solo fuso orario del run. In produzione la variabile non esiste e il
   // `lastmod` resta la data di modifica del file.
   const frozenMs = Number(process.env.BENCH_FROZEN_CLOCK_MS);
-  const frozenLastmod = /^\d{10,16}$/.test(process.env.BENCH_FROZEN_CLOCK_MS ?? '') && Number.isFinite(frozenMs)
-    ? new Date(frozenMs).toISOString().slice(0, 10)
+  const frozenDate = /^\d{10,16}$/.test(process.env.BENCH_FROZEN_CLOCK_MS ?? '') ? new Date(frozenMs) : null;
+  const frozenLastmod = frozenDate && !Number.isNaN(frozenDate.getTime())
+    ? frozenDate.toISOString().slice(0, 10)
     : null;
   for (const file of entries) {
     if (EXCLUDED_SITEMAP_FILES.has(file)) continue;

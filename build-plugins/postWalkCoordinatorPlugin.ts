@@ -1269,7 +1269,11 @@ function buildPostWalkCoordinatorPlugin(
         // e' un bridge, poi i bridge: al momento della lettura nessuno scrive piu'
         // il fratello. L'insieme dei file elaborati e l'esito per file sono gli
         // stessi, cambia solo l'ordine fra le due classi.
-        const { settledFirst, bridgesLast } = partitionBridgesLast(processHtmlPaths, existingHtmlSet);
+        // `POST_WALK_BRIDGES_LAST=0` (solo banco, A/B del costo) torna a una fase sola.
+        const twoPhase = process.env.POST_WALK_BRIDGES_LAST !== '0';
+        const { settledFirst, bridgesLast } = twoPhase
+          ? partitionBridgesLast(processHtmlPaths, existingHtmlSet)
+          : { settledFirst: processHtmlPaths as string[], bridgesLast: [] as string[] };
         const phases = [settledFirst, bridgesLast].filter((paths) => paths.length > 0);
         const merged: WorkerResult = emptyWorkerResult();
         if (workerCount <= 1) {

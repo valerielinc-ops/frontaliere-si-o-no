@@ -49,6 +49,9 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   // Salta border-wait-pages (webcam live): il banco di determinismo lo esclude
   // quando la cattura degli input di replay e' incompleta.
   'SKIP_BORDER_WAIT',
+  // A/B del costo delle correzioni di determinismo (=0 ripristina il percorso storico).
+  'WRITE_COLLECTOR_CHAIN',
+  'POST_WALK_BRIDGES_LAST',
   // Opzioni V8 aggiuntive per `npm run build:ci` (es. --max-semi-space-size=64).
   'BUILD_EXTRA_NODE_OPTIONS',
   // Readdir paralleli nell'enumerazione del post-walk (richiede BLOG_IMAGE_CDN_FOLD=1).

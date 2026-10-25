@@ -220,6 +220,8 @@ export class WriteCollector {
  // dichiara il commento sul Map qui sopra. Il parallelismo DENTRO il batch
  // (`concurrency`) resta; il pool libuv, non il numero di batch, e' il tetto.
  private _flushChain: Promise<unknown> = Promise.resolve();
+ // `WRITE_COLLECTOR_CHAIN=0` (solo banco, A/B del costo) ripristina i batch in parallelo.
+ private readonly _chainBatches = process.env.WRITE_COLLECTOR_CHAIN !== '0';
  private _writtenPaths = new Set<string>();
  private readonly _concurrency: number;
  private readonly _autoFlushThreshold: number;
@@ -237,7 +239,7 @@ export class WriteCollector {
  if (batch.length === 0) return;
  let flushPromise: Promise<number>;
  // eslint-disable-next-line prefer-const
- flushPromise = this._flushChain.then(() => flushWrites(batch, this._concurrency)).then((written) => {
+ flushPromise = (this._chainBatches ? this._flushChain : Promise.resolve()).then(() => flushWrites(batch, this._concurrency)).then((written) => {
   this.markWritten(batch);
   return written;
  }).catch((err: unknown) => {
@@ -472,7 +474,7 @@ export class WriteCollector {
  if (remaining.length > 0) {
  let drainPromise: Promise<number>;
  // eslint-disable-next-line prefer-const
- drainPromise = this._flushChain.then(() => flushWrites(remaining, concurrency)).then((written) => {
+ drainPromise = (this._chainBatches ? this._flushChain : Promise.resolve()).then(() => flushWrites(remaining, concurrency)).then((written) => {
   this.markWritten(remaining);
   return written;
  }).finally(() => {
