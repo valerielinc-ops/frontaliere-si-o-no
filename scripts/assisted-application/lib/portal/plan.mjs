@@ -280,6 +280,9 @@ function sameEmployerName(left, right) {
 export function targetEmployerNoOption(field, candidate) {
   const label = `${field?.label || ''} ${field?.context || ''}`;
   if (!TARGET_EMPLOYER_QUESTION_RE.test(label)) return null;
+  // A candidate's explicit answer always wins over the CV-derived default,
+  // including a correction that says they do work for the target employer.
+  if (candidateAnswerForField(candidate, field)?.value) return null;
   const targets = [candidate?.job?.company, candidate?.job?.organization].map((value) => String(value || '').trim()).filter(Boolean);
   if (!targets.length) return null;
   const employers = [

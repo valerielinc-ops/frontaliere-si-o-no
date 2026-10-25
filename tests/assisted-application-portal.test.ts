@@ -1630,6 +1630,14 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     });
     expect(targetEmployerNoOption(field, targetEmployer)).toBeNull();
     expect(targetEmployerNoOption(field, candidateForForm({ identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' } }))).toBeNull();
+    const explicitAnswer = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { experience: [{ employer: 'Andere GmbH' }] },
+      answers: { [field.id]: 'Ja' },
+      portalQuestions: [{ id: field.id, question: field.label, required: true, source: 'portal', type: 'choice', options: ['Nein', 'Ja'] }],
+      job: { company: 'Planzer' },
+    });
+    expect(targetEmployerNoOption(field, explicitAnswer)).toBeNull();
     expect(autoAnswersForPortalQuestions({
       questions: [{ id: field.id, source: 'portal', question: field.label, required: true, type: 'choice', options: field.options.map((option) => option.label) }],
       candidate: otherEmployer,
