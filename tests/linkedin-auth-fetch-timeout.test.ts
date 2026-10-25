@@ -10,6 +10,9 @@ const source = readFileSync(
 describe('LinkedIn auth provider requests', () => {
   it('bounds every LinkedIn request without changing the response contract', () => {
     expect(source).toContain('const LINKEDIN_REQUEST_TIMEOUT_MS = 12_000;');
+    expect(source).toContain(
+      'signal: init.signal ?? AbortSignal.timeout(LINKEDIN_FETCH_TIMEOUT_MS),',
+    );
     expect(source.match(/signal: AbortSignal\.timeout\(LINKEDIN_REQUEST_TIMEOUT_MS\)/g))
       .toHaveLength(3);
     expect(source.match(/await fetchLinkedIn\(/g)).toHaveLength(3);

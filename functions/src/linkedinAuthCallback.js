@@ -41,7 +41,7 @@ const LINKEDIN_FETCH_TIMEOUT_MS = 30_000;
 function fetchLinkedIn(url, init = {}) {
  return fetch(url, {
   ...init,
-  signal: AbortSignal.timeout(LINKEDIN_FETCH_TIMEOUT_MS),
+  signal: init.signal ?? AbortSignal.timeout(LINKEDIN_FETCH_TIMEOUT_MS),
  });
 }
 
