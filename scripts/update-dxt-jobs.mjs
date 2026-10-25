@@ -257,7 +257,7 @@ export async function fetchDxtJobs() {
   }
 
   if (parsedJobs.length === 0) {
-    const sourceExplicitlyEmpty = luganoGroupIds.every((groupId) => (
+    const sourceExplicitlyEmpty = luganoGroupIds.length > 0 && luganoGroupIds.every((groupId) => (
       hasNoOpenPositionsMarker(html, groupId)
     ));
     if (sourceExplicitlyEmpty) {
