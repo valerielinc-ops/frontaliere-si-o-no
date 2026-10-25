@@ -96,19 +96,31 @@ const ticker = JSON.stringify({
 /**
  * The archive sitemap (issue #4974): `/{section}/{all}/` and its page-N chain,
  * which appeared in no sitemap at all until the corpus began publishing them.
- * Its own fixture rather than a second copy of `blogSitemap` — the shape that
- * matters here is a page-1 entry carrying alternates and a page-N one without,
- * which is how the emitted pages actually differ.
+ * The corpus now announces only canonical page 1; the full page-N HTML chain
+ * remains a separate, noindex surface. Keep this fixture distinct from
+ * `blogSitemap` so the archive projection has its own contract.
  */
-const archiveSitemap = urlset([
-  `  <url>
-    <loc>https://frontaliereticino.ch/articoli-frontaliere/tutti/</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/tutti/" />
-  </url>`,
-  `  <url>
-    <loc>https://frontaliereticino.ch/articoli-frontaliere/tutti/page-2/</loc>
-  </url>`,
-]);
+const archiveProjectionGroups = [
+  {
+    it: '/articoli-frontaliere/tutti/',
+    en: '/en/cross-border-articles/all/',
+    de: '/de/grenzgaenger-artikel/alle/',
+    fr: '/fr/articles-frontalier/tous/',
+  },
+  {
+    it: '/articoli-svizzera/tutti/',
+    en: '/en/swiss-articles/all/',
+    de: '/de/schweiz-artikel/alle/',
+    fr: '/fr/articles-suisse/tous/',
+  },
+] as const;
+const archiveSitemap = urlset(
+  archiveProjectionGroups.flatMap((group) => Object.values(group).map((pathname) => `  <url>
+    <loc>https://frontaliereticino.ch${pathname}</loc>
+${(['it', 'en', 'de', 'fr'] as const).map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="https://frontaliereticino.ch${group[locale]}" />`).join('\n')}
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch${group.it}" />
+  </url>`)),
+);
 
 const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-archive.xml'];
 const API_COMMIT = 'deadbeefcafe1234567890abcdef1234567890ab';
@@ -312,7 +324,7 @@ function baseRoutes(slugs = PUBLISHED_SLUGS): Routes {
     // (issue #5298, scripts/lib/articles-sync-pin.mjs).
     'manifest.json': JSON.stringify({
       commit: API_COMMIT,
-      counts: { articles: 500, cantonArticles: 1 },
+      counts: { articles: 500, cantonArticles: 1, sitemapArchiveUrls: 8 },
       files: {
         [BLOG_CREDITS_PATH]: Buffer.byteLength(credits),
         [SLUGS_PATH]: Buffer.byteLength(slugs),
@@ -495,6 +507,116 @@ describe('pull-articles-api: sitemap/slug-map source parity', () => {
 
     expect(result.code).toBe(0);
     expect(result.out).not.toContain('absent from the sitemap');
+  });
+
+  it('accepts the intentional page-1-only archive projection after a full-chain copy', async () => {
+    routes = baseRoutes();
+    const dir = makeCheckout();
+    const previousArchive = urlset(
+      Array.from({ length: 12 }, (_, index) => `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/tutti/page-${index + 2}/</loc>
+  </url>`),
+    );
+    fs.writeFileSync(path.join(dir, 'public', 'sitemap-articles-archive.xml'), previousArchive);
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).toBe(0);
+    expect(result.out).toContain('sitemap-articles-archive.xml: 12 → 8 urls');
+  });
+
+  it('rejects a page-1 projection with a manifest count below the complete canonical set', async () => {
+    const manifest = JSON.parse(baseRoutes()['manifest.json'] as string);
+    manifest.counts.sitemapArchiveUrls = 1;
+    routes = {
+      ...baseRoutes(),
+      'manifest.json': JSON.stringify(manifest),
+    };
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-articles-archive.xml has 8 urls but manifest counts.sitemapArchiveUrls is 1');
+    expect(readPub(dir, 'sitemap-articles-archive.xml')).toBe(archiveSitemap);
+  });
+
+  it('rejects a canonical projection with a missing hreflang alternate or non-canonical origin', async () => {
+    const missingAlternate = archiveSitemap.replace(
+      '    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/tous/" />\n',
+      '',
+    );
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': missingAlternate,
+    };
+    const missingDir = makeCheckout();
+    const missing = await run(missingDir, ['--check']);
+    expect(missing.code).not.toBe(0);
+    expect(missing.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': archiveSitemap.replace(
+        'https://frontaliereticino.ch/articoli-frontaliere/tutti/',
+        'http://frontaliereticino.ch/articoli-frontaliere/tutti/',
+      ),
+    };
+    const originDir = makeCheckout();
+    const origin = await run(originDir, ['--check']);
+    expect(origin.code).not.toBe(0);
+    expect(origin.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': archiveSitemap.replace(
+        'https://frontaliereticino.ch/articoli-frontaliere/tutti/',
+        'https://user:pass@frontaliereticino.ch/articoli-frontaliere/tutti/',
+      ),
+    };
+    const userinfoDir = makeCheckout();
+    const userinfo = await run(userinfoDir, ['--check']);
+    expect(userinfo.code).not.toBe(0);
+    expect(userinfo.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+  });
+
+  it('rejects a complete but cross-wired canonical hreflang block', async () => {
+    const crossedAlternates = archiveSitemap.replace(
+      /(<loc>https:\/\/frontaliereticino\.ch\/articoli-frontaliere\/tutti\/<\/loc>[\s\S]*?)(?=\n  <\/url>)/,
+      (block) => block
+        .replace('/en/cross-border-articles/all/', '/en/swiss-articles/all/')
+        .replace('/de/grenzgaenger-artikel/alle/', '/de/schweiz-artikel/alle/')
+        .replace('/fr/articles-frontalier/tous/', '/fr/articles-suisse/tous/'),
+    );
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': crossedAlternates,
+    };
+    const dir = makeCheckout();
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
+  });
+
+  it('still refuses a short archive made only of pagination tails', async () => {
+    routes = {
+      ...baseRoutes(),
+      'sitemap-articles-archive.xml': archiveSitemap.replaceAll('/tutti/', '/tutti/page-2/'),
+    };
+    const dir = makeCheckout();
+    const previousArchive = urlset(
+      Array.from({ length: 12 }, (_, index) => `  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/tutti/page-${index + 2}/</loc>
+  </url>`),
+    );
+    fs.writeFileSync(path.join(dir, 'public', 'sitemap-articles-archive.xml'), previousArchive);
+
+    const result = await run(dir, ['--check']);
+
+    expect(result.code).not.toBe(0);
+    expect(result.out).toContain('sitemap-articles-archive.xml has 8 urls but is not the complete canonical page-1 projection');
   });
 });
 

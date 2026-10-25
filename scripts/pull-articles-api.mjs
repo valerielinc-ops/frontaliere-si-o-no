@@ -330,6 +330,161 @@ async function getIfPublished(name, { binary = false, requiredWhenNew = true } =
 
 const countUrls = (xml) => (xml.match(/<url>/g) ?? []).length;
 const countAlternates = (xml) => (xml.match(/xhtml:link/g) ?? []).length;
+const ARCHIVE_SITEMAP = 'sitemap-articles-archive.xml';
+const ARCHIVE_PAGE_ONE_PATHS = new Set([
+  '/articoli-frontaliere/tutti/',
+  '/en/cross-border-articles/all/',
+  '/de/grenzgaenger-artikel/alle/',
+  '/fr/articles-frontalier/tous/',
+  '/articoli-svizzera/tutti/',
+  '/en/swiss-articles/all/',
+  '/de/schweiz-artikel/alle/',
+  '/fr/articles-suisse/tous/',
+]);
+const ARCHIVE_HREFLANGS = new Set(['it', 'en', 'de', 'fr', 'x-default']);
+const CANONICAL_SITE_ORIGIN = 'https://frontaliereticino.ch';
+const ARCHIVE_ALTERNATE_PATHS = new Map([
+  [
+    '/articoli-frontaliere/tutti/',
+    {
+      it: '/articoli-frontaliere/tutti/',
+      en: '/en/cross-border-articles/all/',
+      de: '/de/grenzgaenger-artikel/alle/',
+      fr: '/fr/articles-frontalier/tous/',
+      'x-default': '/articoli-frontaliere/tutti/',
+    },
+  ],
+  [
+    '/en/cross-border-articles/all/',
+    {
+      it: '/articoli-frontaliere/tutti/',
+      en: '/en/cross-border-articles/all/',
+      de: '/de/grenzgaenger-artikel/alle/',
+      fr: '/fr/articles-frontalier/tous/',
+      'x-default': '/articoli-frontaliere/tutti/',
+    },
+  ],
+  [
+    '/de/grenzgaenger-artikel/alle/',
+    {
+      it: '/articoli-frontaliere/tutti/',
+      en: '/en/cross-border-articles/all/',
+      de: '/de/grenzgaenger-artikel/alle/',
+      fr: '/fr/articles-frontalier/tous/',
+      'x-default': '/articoli-frontaliere/tutti/',
+    },
+  ],
+  [
+    '/fr/articles-frontalier/tous/',
+    {
+      it: '/articoli-frontaliere/tutti/',
+      en: '/en/cross-border-articles/all/',
+      de: '/de/grenzgaenger-artikel/alle/',
+      fr: '/fr/articles-frontalier/tous/',
+      'x-default': '/articoli-frontaliere/tutti/',
+    },
+  ],
+  [
+    '/articoli-svizzera/tutti/',
+    {
+      it: '/articoli-svizzera/tutti/',
+      en: '/en/swiss-articles/all/',
+      de: '/de/schweiz-artikel/alle/',
+      fr: '/fr/articles-suisse/tous/',
+      'x-default': '/articoli-svizzera/tutti/',
+    },
+  ],
+  [
+    '/en/swiss-articles/all/',
+    {
+      it: '/articoli-svizzera/tutti/',
+      en: '/en/swiss-articles/all/',
+      de: '/de/schweiz-artikel/alle/',
+      fr: '/fr/articles-suisse/tous/',
+      'x-default': '/articoli-svizzera/tutti/',
+    },
+  ],
+  [
+    '/de/schweiz-artikel/alle/',
+    {
+      it: '/articoli-svizzera/tutti/',
+      en: '/en/swiss-articles/all/',
+      de: '/de/schweiz-artikel/alle/',
+      fr: '/fr/articles-suisse/tous/',
+      'x-default': '/articoli-svizzera/tutti/',
+    },
+  ],
+  [
+    '/fr/articles-suisse/tous/',
+    {
+      it: '/articoli-svizzera/tutti/',
+      en: '/en/swiss-articles/all/',
+      de: '/de/schweiz-artikel/alle/',
+      fr: '/fr/articles-suisse/tous/',
+      'x-default': '/articoli-svizzera/tutti/',
+    },
+  ],
+]);
+
+/**
+ * The corpus archive sitemap intentionally announces page 1 only. The rest
+ * of the HTML chain remains reachable through the archive pager but is
+ * noindex, and the manifest carries the exact URL count. Keep this check
+ * structural: a short or malformed publisher response must still fail closed.
+ */
+function isCanonicalArchiveProjection(xml, expectedCount) {
+  if (expectedCount !== ARCHIVE_PAGE_ONE_PATHS.size) return false;
+  const blocks = xml.match(/<url>[\s\S]*?<\/url>/g) ?? [];
+  if (blocks.length !== expectedCount) return false;
+
+  const paths = new Set();
+  for (const block of blocks) {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1]?.trim();
+    let pathname;
+    try {
+      const url = new URL(loc);
+      if (
+        url.origin !== CANONICAL_SITE_ORIGIN
+        || url.search
+        || url.hash
+        || url.username
+        || url.password
+      ) return false;
+      pathname = url.pathname;
+    } catch {
+      return false;
+    }
+    if (!ARCHIVE_PAGE_ONE_PATHS.has(pathname) || paths.has(pathname)) return false;
+    paths.add(pathname);
+    const expectedAlternatePaths = ARCHIVE_ALTERNATE_PATHS.get(pathname);
+    if (!expectedAlternatePaths) return false;
+
+    const alternates = [...block.matchAll(
+      /<xhtml:link\b[^>]*\bhreflang="([^"]+)"[^>]*\bhref="([^"]+)"[^>]*\/?>(?:\s*<\/xhtml:link>)?/g,
+    )];
+    if (alternates.length !== ARCHIVE_HREFLANGS.size) return false;
+    const seenHreflangs = new Set();
+    for (const [, hreflang, href] of alternates) {
+      if (!ARCHIVE_HREFLANGS.has(hreflang) || seenHreflangs.has(hreflang)) return false;
+      try {
+        const alternate = new URL(href);
+        if (
+          alternate.origin !== CANONICAL_SITE_ORIGIN
+          || alternate.search
+          || alternate.hash
+          || alternate.username
+          || alternate.password
+          || alternate.pathname !== expectedAlternatePaths[hreflang]
+        ) return false;
+      } catch {
+        return false;
+      }
+      seenHreflangs.add(hreflang);
+    }
+    if (seenHreflangs.size !== ARCHIVE_HREFLANGS.size) return false;
+  }
+  return paths.size === ARCHIVE_PAGE_ONE_PATHS.size;
+}
 
 let manifest;
 try {
@@ -340,6 +495,10 @@ try {
 
 if (typeof manifest.counts?.articles !== 'number' || manifest.counts.articles < MIN_ARTICLES) {
   fail(`manifest reports ${manifest.counts?.articles} articles (min ${MIN_ARTICLES}) — refusing`);
+}
+const publishedArchiveUrlCount = manifest.counts?.sitemapArchiveUrls;
+if (!Number.isSafeInteger(publishedArchiveUrlCount) || publishedArchiveUrlCount <= 0) {
+  fail(`manifest reports invalid ${ARCHIVE_SITEMAP} count (${publishedArchiveUrlCount}) — refusing`);
 }
 
 // ── The other half of the consistency pin (issue #5298) ──────────────────────
@@ -806,6 +965,19 @@ for (const name of SITEMAPS) {
   const alts = countAlternates(xml);
   if (urls === 0) fail(`${name} has no <url> entries — refusing`);
   if (alts === 0) fail(`${name} has no hreflang alternates — refusing`);
+  const intentionalArchiveProjection =
+    name === ARCHIVE_SITEMAP
+    && urls === publishedArchiveUrlCount
+    && isCanonicalArchiveProjection(xml, publishedArchiveUrlCount);
+  if (name === ARCHIVE_SITEMAP && urls !== publishedArchiveUrlCount) {
+    fail(
+      `${name} has ${urls} urls but manifest counts.sitemapArchiveUrls is `
+        + `${publishedArchiveUrlCount} — refusing`,
+    );
+  }
+  if (name === ARCHIVE_SITEMAP && urls === ARCHIVE_PAGE_ONE_PATHS.size && !intentionalArchiveProjection) {
+    fail(`${name} has ${urls} urls but is not the complete canonical page-1 projection — refusing`);
+  }
 
   const dest = path.join(PUBLIC_DIR, name);
   if (fs.existsSync(dest)) {
@@ -821,10 +993,10 @@ for (const name of SITEMAPS) {
     const curUrls = countUrls(current);
     const curAlts = countAlternates(current);
     // Shrinking either dimension drops pages or alternates from the index.
-    if (urls < curUrls) {
+    if (urls < curUrls && !intentionalArchiveProjection) {
       fail(`${name} would shrink from ${curUrls} to ${urls} urls — refusing`);
     }
-    if (alts < curAlts) {
+    if (alts < curAlts && !intentionalArchiveProjection) {
       fail(
         `${name} would shrink from ${curAlts} to ${alts} hreflang alternates — refusing. ` +
           `Same url count with fewer alternates means the publisher lost the ` +
