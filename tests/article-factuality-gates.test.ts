@@ -535,6 +535,12 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     )).toEqual([]);
   });
 
+  it('accepts the official Italian European Patent Office acronym', () => {
+    expect(checkFabricatedInstitutionAcronyms(
+      'L\'Ufficio europeo dei brevetti (UEB) ha pubblicato la procedura.',
+    )).toEqual([]);
+  });
+
   // ── 2026-07-29 corpus triage ──
   it('accepts the non-Italian acronym of an office already listed', () => {
     // Swiss federal offices publish under three or four acronyms and the writer

@@ -1128,6 +1128,7 @@ export const KNOWN_INSTITUTION_ACRONYMS = new Set([
 
   // EU / international
   'EPO',      // European Patent Office — epo.org
+  'UEB',      // Ufficio europeo dei brevetti — epo.org / ige.ch
   'JRC',      // Joint Research Centre della Commissione europea — joint-research-centre.ec.europa.eu
   'ESA',      // European Space Agency — esa.int
   'EASA',     // Agenzia dell'Unione europea per la sicurezza aerea — easa.europa.eu
