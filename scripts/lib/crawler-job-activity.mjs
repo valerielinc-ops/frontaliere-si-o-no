@@ -1,3 +1,5 @@
+import { hasPublishedRouteIdentity } from './job-identity.mjs';
+
 /**
  * Classify records stored in a crawler slice for metrics that describe the
  * latest authoritative crawl.
@@ -25,19 +27,29 @@ export function crawlerJobActivity(job) {
 
 /**
  * @param {unknown} jobs
- * @returns {{ activeJobs: object[], excluded: { grace: number, expired: number, total: number } }}
+ * A row with no route or stable posting identity is quarantine bookkeeping,
+ * not an indexable vacancy. It is counted separately instead of being fed to
+ * parser-quality checks. Route-bearing rows remain active even if their URL is
+ * absent, because their published identity still needs auditing.
+ *
+ * @returns {{ activeJobs: object[], excluded: { grace: number, expired: number, nonPublishable: number, total: number } }}
  */
 export function partitionCrawlerJobsForActiveMetrics(jobs) {
   const activeJobs = [];
-  const excluded = { grace: 0, expired: 0, total: 0 };
+  const excluded = { grace: 0, expired: 0, nonPublishable: 0, total: 0 };
   for (const job of Array.isArray(jobs) ? jobs : []) {
     const activity = crawlerJobActivity(job);
-    if (activity === 'active') {
-      activeJobs.push(job);
+    if (activity !== 'active') {
+      excluded[activity] += 1;
+      excluded.total += 1;
       continue;
     }
-    excluded[activity] += 1;
-    excluded.total += 1;
+    if (!hasPublishedRouteIdentity(job)) {
+      excluded.nonPublishable += 1;
+      excluded.total += 1;
+      continue;
+    }
+    activeJobs.push(job);
   }
   return { activeJobs, excluded };
 }

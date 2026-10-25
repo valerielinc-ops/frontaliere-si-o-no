@@ -3827,8 +3827,11 @@ function printReport(report) {
     const excludedTotal = excluded.reduce((sum, [, entry]) => sum + entry.population.excluded.total, 0);
     console.log(`\nExcluded from active-quality metrics: ${excludedTotal} non-active record(s)`);
     for (const [key, entry] of excluded) {
-      const { grace, expired } = entry.population.excluded;
-      console.log(`  ${key}: ${entry.population.active}/${entry.population.stored} active, ${grace} grace, ${expired} expired`);
+      const { grace, expired, nonPublishable = 0 } = entry.population.excluded;
+      console.log(
+        `  ${key}: ${entry.population.active}/${entry.population.stored} active, `
+        + `${grace} grace, ${expired} expired, ${nonPublishable} non-publishable`,
+      );
     }
   }
 
