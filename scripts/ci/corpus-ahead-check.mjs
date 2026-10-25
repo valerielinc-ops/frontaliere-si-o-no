@@ -110,6 +110,7 @@ import { realpathSync } from 'node:fs';
  * Env:
  *   CORPUS_REPO  default `nanakokyobashi-rgb/frontaliere-articles`
  *   CORPUS_REF   default `main`
+ *   CORPUS_AHEAD_FETCH_TIMEOUT_MS  default `15000`, capped at `120000`
  *   GH_TOKEN     opzionale; il repo del corpus e' pubblico e raw basta.
  */
 
@@ -123,6 +124,18 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 
 export const CORPUS_REPO = process.env.CORPUS_REPO || 'nanakokyobashi-rgb/frontaliere-articles';
 export const CORPUS_REF = process.env.CORPUS_REF || 'main';
+const DEFAULT_CORPUS_AHEAD_FETCH_TIMEOUT_MS = 15_000;
+const MAX_CORPUS_AHEAD_FETCH_TIMEOUT_MS = 120_000;
+
+function boundedFetchTimeoutMs(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric) || numeric <= 0) return DEFAULT_CORPUS_AHEAD_FETCH_TIMEOUT_MS;
+  return Math.min(Math.max(1, numeric), MAX_CORPUS_AHEAD_FETCH_TIMEOUT_MS);
+}
+
+export const CORPUS_AHEAD_FETCH_TIMEOUT_MS = boundedFetchTimeoutMs(
+  process.env.CORPUS_AHEAD_FETCH_TIMEOUT_MS || DEFAULT_CORPUS_AHEAD_FETCH_TIMEOUT_MS,
+);
 
 /** Il manifest vive sul corpus. Qui non ne teniamo copia, di proposito. */
 export const MANIFEST_PATH_IN_CORPUS = 'scripts/ci/loop-sync-manifest.json';
@@ -520,13 +533,40 @@ export function localHash(rel) {
  * implementazione di questo fetch divergerebbe dalla prima, la classe di
  * difetto che questo file esiste per chiudere (vedi intestazione).
  */
-export async function fetchRaw(repo, ref, rel) {
+export async function fetchRaw(
+  repo,
+  ref,
+  rel,
+  { fetchImpl = globalThis.fetch, timeoutMs = CORPUS_AHEAD_FETCH_TIMEOUT_MS } = {},
+) {
   const headers = { 'User-Agent': 'corpus-ahead-check' };
   if (process.env.GH_TOKEN) headers.Authorization = `Bearer ${process.env.GH_TOKEN}`;
-  const res = await fetch(rawUrl(repo, ref, rel), { headers });
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`GET ${rel} → HTTP ${res.status}`);
-  return Buffer.from(await res.arrayBuffer());
+  const effectiveTimeoutMs = boundedFetchTimeoutMs(timeoutMs);
+  const timeoutError = new Error(
+    `GET ${repo}@${ref}/${rel} timed out after ${effectiveTimeoutMs}ms`,
+  );
+  timeoutError.name = 'TimeoutError';
+  timeoutError.code = 'CORPUS_AHEAD_FETCH_TIMEOUT';
+  const controller = new AbortController();
+  let timer;
+  const deadline = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      controller.abort(timeoutError);
+      reject(timeoutError);
+    }, effectiveTimeoutMs);
+  });
+  const request = (async () => {
+    const res = await fetchImpl(rawUrl(repo, ref, rel), { headers, signal: controller.signal });
+    if (res.status === 404) return null;
+    if (!res.ok) throw new Error(`GET ${rel} → HTTP ${res.status}`);
+    return Buffer.from(await res.arrayBuffer());
+  })();
+  try {
+    return await Promise.race([request, deadline]);
+  } finally {
+    clearTimeout(timer);
+    controller.abort();
+  }
 }
 
 /** Piccolo pool: ~217 fetch in sequenza sono inutilmente lente, e in parallelo

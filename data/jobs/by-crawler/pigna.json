@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pigna",
-  "assembledAt": "2026-10-25T09:33:31.972Z",
-  "runId": "40180072254",
+  "assembledAt": "2026-10-25T21:37:43.907Z",
+  "runId": "40234822304",
   "jobs": [
     {
       "id": "pigna-9aace9639d35",
@@ -35,7 +35,7 @@
       "url": "https://app.reflinejobs.io/1531/0306/pub/524/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:33:27.191Z",
+      "crawledAt": "2026-10-25T21:37:37.099Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://app.reflinejobs.io/1531/0297/pub/488/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:33:26.629Z",
+      "crawledAt": "2026-10-25T21:37:36.489Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/504/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:33:26.046Z",
+      "crawledAt": "2026-10-25T21:37:35.911Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -265,7 +265,7 @@
       "url": "https://app.reflinejobs.io/1531/0216/pub/501/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:33:25.463Z",
+      "crawledAt": "2026-10-25T21:37:35.334Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -339,7 +339,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/498/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:33:24.852Z",
+      "crawledAt": "2026-10-25T21:37:34.583Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -468,7 +468,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
