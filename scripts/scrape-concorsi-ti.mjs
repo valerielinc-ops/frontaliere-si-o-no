@@ -193,8 +193,8 @@ export async function fetchTichOfficialListingViaTranslate(
         lastReason = `HTTP ${response.status}`;
       } else {
         const html = normalizeTichTranslatedListingHtml(await response.text());
-        if (isTichOfficialListingHtml(html)) return html;
-        lastReason = 'response did not contain the verified official Ti.CH listing marker';
+        if (isTichOfficialListingHtml(html) && parseConcorsiHtml(html).length > 0) return html;
+        lastReason = 'response did not contain a verified official Ti.CH listing with rows';
       }
     } catch (error) {
       lastReason = error?.message || String(error);
@@ -301,7 +301,11 @@ async function fetchListing() {
     if (!res.ok) {
       throw new Error(`HTTP ${res.status} from ${SOURCE_URL}`);
     }
-    return await res.text();
+    const html = await res.text();
+    if (!isTichOfficialListingHtml(html) || parseConcorsiHtml(html).length === 0) {
+      throw new Error('direct response did not contain a verified official Ti.CH listing with rows');
+    }
+    return html;
   } catch (error) {
     const translated = await fetchTichOfficialListingViaTranslate(SOURCE_URL);
     if (translated) return translated;

@@ -139,6 +139,7 @@ describe('fetchTichJobDetailUrls', () => {
     const translateUrl = buildTichTranslateUrl(OFFICIAL_LISTING_URL);
     const fetchImpl = vi.fn(async (url: string) => {
       if (url === translateUrl) return new Response(translatedOfficialListingHtml, { status: 200 });
+      if (url === OFFICIAL_LISTING_URL) return new Response('<html>not the official listing</html>', { status: 200 });
       throw new TypeError('fetch failed');
     });
 

@@ -258,11 +258,12 @@ export async function fetchAllCantonTicinoOscJobs() {
     try {
       const officialHtml = await fetchHtml(OFFICIAL_LISTING_URL, { timeoutMs });
       candidates = parseOfficialConcorsiListing(officialHtml);
-      if (candidates.length > 0) {
-        console.warn(
-          `  ↪️  Using official Canton Ticino listing fallback: ${OFFICIAL_LISTING_URL}`,
-        );
+      if (candidates.length === 0) {
+        throw new Error('Official Canton Ticino listing response was not a verified non-empty listing');
       }
+      console.warn(
+        `  ↪️  Using official Canton Ticino listing fallback: ${OFFICIAL_LISTING_URL}`,
+      );
     } catch (err) {
       const translatedHtml = await fetchTichOfficialListingViaTranslate(OFFICIAL_LISTING_URL, { timeoutMs });
       if (translatedHtml) {

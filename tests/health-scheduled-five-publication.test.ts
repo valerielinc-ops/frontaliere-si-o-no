@@ -98,7 +98,10 @@ describe('OSC official listing transport fallback', () => {
       if (url.includes("offerte-d'impieghi.html?yid=1")) {
         return new Response(`${ld(past)}<h2>Dipartimento della sanità e della socialità</h2><h2>1/26</h2><h2>Infermiere OSC Mendrisio</h2><p>${body}</p><h2>Scadenza</h2><p>${past}</p>`, { status: 200 });
       }
-      if (url === 'https://www.concorsi.ti.ch/' || url === officialUrl) {
+      if (url === officialUrl) {
+        return new Response('<html>temporarily unavailable</html>', { status: 200 });
+      }
+      if (url === 'https://www.concorsi.ti.ch/') {
         const error = new TypeError('fetch failed');
         error.cause = { code: 'ENOTFOUND' };
         throw error;

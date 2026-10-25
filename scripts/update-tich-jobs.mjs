@@ -567,8 +567,10 @@ export async function fetchTichJobDetailUrls(options = {}) {
   let officialSucceeded = false;
   const consumeOfficialListingHtml = (html, sourceLabel) => {
     if (!isTichOfficialListingHtml(html)) return false;
+    const officialRows = parseConcorsiHtml(html);
+    if (officialRows.length === 0) return false;
     officialSucceeded = true;
-    for (const row of parseConcorsiHtml(html)) {
+    for (const row of officialRows) {
       discoveredOccurrences += 1;
       const normalized = normalizeDetailUrl(row.url);
       if (normalized) allUrls.add(normalized);
