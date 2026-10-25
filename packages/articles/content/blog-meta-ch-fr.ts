@@ -8627,6 +8627,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.referendum-legge-collettivo-lavoro.title': 'Référendum loi obligation convention collective de travail',
     'blog.article.referendum-legge-collettivo-lavoro.excerpt': '23 octobre 2026 : référendum formellement abouti 66 006 signatures valables sur 66 574 déposées Le référendum cantonal n’a pas été validé Pour la validation',
     'blog.article.referendum-legge-collettivo-lavoro.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.violazioni-sicurezza-svizzera-2026.title': '455 signalements de failles de sécurité en Suisse en 2026',
+    'blog.article.violazioni-sicurezza-svizzera-2026.excerpt': '455 signalements de failles en 2026 343 signalements pour l’ensemble de 2025 Enquête fédérale visant un fournisseur informatique externe Extension possible à des entités fédérales',
+    'blog.article.violazioni-sicurezza-svizzera-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

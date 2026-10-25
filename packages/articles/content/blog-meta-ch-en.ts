@@ -8627,6 +8627,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.referendum-legge-collettivo-lavoro.title': 'Referendum on the law requiring a collective labor agreement',
     'blog.article.referendum-legge-collettivo-lavoro.excerpt': 'October 23, 2026: referendum formally successful 66 006 valid signatures out of 66 574 submitted The cantonal referendum was not validated For validation',
     'blog.article.referendum-legge-collettivo-lavoro.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.violazioni-sicurezza-svizzera-2026.title': '455 security breach reports in Switzerland in 2026',
+    'blog.article.violazioni-sicurezza-svizzera-2026.excerpt': '455 breach reports in 2026 343 reports throughout 2025 Federal investigation into an external IT provider Possible extension to federal entities',
+    'blog.article.violazioni-sicurezza-svizzera-2026.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

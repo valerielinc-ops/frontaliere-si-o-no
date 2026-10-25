@@ -8627,6 +8627,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.referendum-legge-collettivo-lavoro.title': 'Referendum legge obbligo contratto collettivo lavoro',
     'blog.article.referendum-legge-collettivo-lavoro.excerpt': '23 ottobre 2026: referendum formalmente riuscito 66 006 firme valide su 66 574 depositate Il referendum cantonale non è stato validato Per la validazione',
     'blog.article.referendum-legge-collettivo-lavoro.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.violazioni-sicurezza-svizzera-2026.title': '455 segnalazioni di violazioni sicurezza in Svizzera nel 2026',
+    'blog.article.violazioni-sicurezza-svizzera-2026.excerpt': '455 segnalazioni di violazioni nel 2026 343 segnalazioni nell\'intero 2025 Indagine federale contro un fornitore IT esterno Possibile estensione a enti federali',
+    'blog.article.violazioni-sicurezza-svizzera-2026.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

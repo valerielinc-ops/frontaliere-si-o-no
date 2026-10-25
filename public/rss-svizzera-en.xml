@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Oct 2026 00:47:25 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 13:07:25 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,84 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>455 security breach reports in Switzerland in 2026</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/swiss-security-violations-2026/</link>
+      <description><![CDATA[455 breach reports in 2026 343 reports throughout 2025 Federal investigation into an external IT provider Possible extension to federal entities]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- 455 reports of breaches in 2026
+- 343 reports throughout 2025
+- Federal investigation into an external IT provider
+- Possible extension to federal entities and pension funds
+
+## Key facts
+- Reports 2026: 455
+- Reports 2025: 343 throughout the year
+- Authority: FDPIC, Adrian Lobsiger
+- Investigation: launched last week
+- Current focus: external IT provider
+
+BERN — During 2026, the Federal Data Protection and Information Commissioner (FDPIC) has already received 455 reports of data-security breaches in Switzerland. Adrian Lobsiger stated this in an interview with Sonntagsblick.
+
+The comparison given in the source is with the 343 reports recorded throughout 2025. However, the text specifies that the actual number of incidents would be significantly higher because a large number of cases go unreported. The 455 reports therefore represent what reached the authority, not the total number of incidents that occurred.
+
+### The investigation into pension funds
+
+After a cyberattack on a company that provides software to several Swiss pension funds, the FDPIC opened a formal investigation last week. The proceedings currently concern the external IT provider. Lobsiger did not rule out that it could later be extended to federal institutions and pension funds.
+
+The source distinguishes between the data already collected and the investigation that is still open. The extension is not described as a decision that has been made, but as a possibility not ruled out by the Commissioner. For reasons related to investigative secrecy, Lobsiger was unable to provide further details about the specific case.
+
+### The issue of data management
+
+Beyond the specific incident, the FDPIC warned that linking data and removing barriers between silos can increase the risk of data-security breaches. The authority indicated two precautions: transmit only the data that are strictly necessary and preferably work with anonymized test data.
+
+This statement does not attribute a breach to the provider and does not identify the cause of the attack on the pension funds. Instead, it links the risk to the way data are interconnected, transmitted and used in testing. The source does not say which of these elements are present in the case examined by the FDPIC; the connection therefore remains a general warning, not a finding in the proceedings.
+## The comparison enabled by the data
+
+The number of reports requires precise interpretation, because the two time bases do not coincide. In 2025, the count covers the entire year; for 2026, the source says that 455 reports had already been received during the year. The 2026 total has therefore exceeded that of 2025, but the text does not present the two figures as equivalent periods.
+
+| Period | Basis indicated by the source | Reports |
+|---|---|---:|
+| 2025 | Entire year | 343 |
+| 2026 | During 2026, already received | 455 |
+| Calculated difference | 455 minus 343 | 112 |
+
+The arithmetic difference is 112 reports. Relative to the 343 for all of 2025, this amounts to approximately 33%. This is a calculation based on the reported figures, not a percentage announced by the IFPDT. It does not make it possible to turn the figure into a forecast for the end of 2026, because the source does not specify what portion of the year is covered by the 455 reports.
+
+### An increase not to be overinterpreted
+
+There is also a second limitation. The IFPDT points out that many cases are not reported and that the actual number of incidents would be significantly higher. Reports are therefore a measure of incidents communicated to the authority; the text does not provide the number of cases left out of the count. It is therefore not possible to derive the total number of breaches from the 455 and 343 alone, nor to determine how much underreporting weighs in the comparison between the two periods.
+
+This distinction also avoids an undocumented causal link. The source presents the increase in reports and the attack on the pension funds' software provider in the same context, but it does not state that this incident is included in the 455, that it caused the 2025 figure to be exceeded, or that it explains a specific share of the increase.
+
+### Two different levels
+
+The first element is therefore aggregate: reports received by the IFPDT in Switzerland. The second is specific: a formal investigation launched after an attack against a software provider for several pension funds. The verifiable relationship between the two is only the one indicated by the text: the second fact led to the opening of the investigation, while the first describes the volume of reports. Separating the two levels makes it possible to read the figures without turning them into an explanation of the specific case.
+## Digital threat and responsibility still to be clarified
+
+In the interview, Lobsiger described the threat posed by artificial intelligence as “real.” In the same passage, however, he distinguished the technological threat from the analysis of causes: in the vast majority of reported attacks, he stated, the weak point is not technology but human error.
+
+The two statements describe different aspects. The first is an assessment of the threat posed by artificial intelligence; the second concerns what emerges from the analysis of the causes of attacks already reported. The source does not say that artificial intelligence was used in the attack on the pension fund provider. Nor does it say that, in that case, the weak point was human error. Attributing either cause to the proceedings currently underway would go beyond the available information.
+
+### The investigation phase
+
+The situation regarding responsibility also remains open. For now, the formal investigation is directed against the external IT provider. Lobsiger did not rule out extending it to federal bodies and pension funds, but the text does not present this possibility as a decision already adopted. Investigative secrecy also prevents further details about the specific case from being known.
+
+The source does not indicate what data were involved, how many pension funds were affected, or what the outcome of the attack was. It does not report the outcome of the investigation or any sanctions. These omissions make it impossible to measure the concrete impact of the incident and do not justify identifying responsible parties beyond the current scope of the proceedings.
+
+### What is established
+
+Three elements remain verifiable. The first is the volume of reports submitted to the IFPDT and the fact that the actual number of cases is considered higher because of the presence of unreported cases. The second is the opening of a federal investigation following an attack on a software provider for several Swiss pension funds. The third is the warning from the IFPDT about the greater exposure associated with interconnected data, together with its preference for anonymized test data.
+
+These elements create a national picture of data security, but not a complete reconstruction of the attack. The statistical data, the general assessment of artificial intelligence, the human error identified in the majority of reported cases, and the responsibility still under investigation remain separate. This separation, more than the numbers taken in isolation, defines what the source currently allows us to state.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1958918/dati-violazioni-sicurezza-aumento-svizzera)*]]></content:encoded>
+      <pubDate>Sun, 25 Oct 2026 13:07:25 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/violazioni-sicurezza-svizzera-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-violazioni-sicurezza-svizzera-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Referendum on the law requiring a collective labor agreement</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/referendum-collective-labor-law/</link>
@@ -3351,91 +3429,6 @@ The reading thus remains faithful to the communication: first, the change to the
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/ordinanza-liste-validita</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-ordinanza-liste-validita.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Swiss LAMal healthcare system: 2026 guide to the Canton of Aargau</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/lamal-guide-2026-canton-aargau/</link>
-      <description><![CDATA[Anyone residing in Switzerland must have LAMal insurance The policy must be taken out within three months of arrival For adults, deductibles of CHF]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- Anyone residing in Switzerland must have LAMal insurance
-- The policy must be taken out within three months of arrival
-- For adults, deductibles of CHF 300, 500, 1000, 1500, 2000 or 2500 apply
-- Premiums vary according to canton and region; the canton may grant a premium reduction
-
-## Key facts
-- Requirement → residents in Switzerland
-- Deadline → within three months of arrival
-- Nature → private insurance with per-capita premiums
-- Adult deductibles → CHF 300, 500, 1000, 1500, 2000, 2500
-- Premiums → by canton or region
-- Premium reduction → cantonal subsidy
-- Exclusion → it is neither a tax nor a payroll contribution
-
-The 2026 guide to the Swiss healthcare system starts with a practical distinction: LAMal/KVG is mandatory for residents, but the premium is not a levy and does not follow the model of payroll contributions. Anyone arriving in Switzerland has three months to obtain it.
-
-The premium is private and per capita. Its amount varies by canton and region; premium reductions, by contrast, are a cantonal subsidy. These are therefore two separate levels when analyzing the cost of living.
-
-In the canton of Aargau, the practical assessment starts with the applicable premium area, not with a national average. The choice of insurer and deductible should be linked to the area, while any potential reduction requires consideration of cantonal jurisdiction.
-
-For adults, the available deductibles are CHF 300, 500, 1000, 1500, 2000 and 2500. The thresholds define the deductible options; the premium must nevertheless be considered together with the canton or region, without replacing these references with a national figure.
-
-Average LAMal premium figures are indexed annually. In 2026, it is advisable to verify the updated figure from the official source, without entering an amount if the year is uncertain.
-
-### The scope of responsibilities
-
-This separation prevents errors in the budget. LAMal must not be confused with AVS/AHV, AI/IPG, AD/AC or LPP/BVG, which belong to the payroll contribution system. The tax sphere also involves different authorities: AFC/ESTV concerns direct federal tax and VAT, UFAS/BSV social security, while UST/BFS produces statistics. Premium reduction remains a cantonal matter.
-
-Therefore, an LAMal item should not be presented as direct federal tax, VAT or an AVS/AHV deduction. The national comparison helps clarify the structure; for a resident of Aargau, the correct deadline, deductible, choice of insurer and territorial reference are instead required.
-## The practical comparison for those living in Aargau
-
-The LAMal premium is a separate item in the cost of living. Since it is a per capita premium and not a payroll contribution, it should not be read according to the same logic as AVS/AHV, AD/AC or LPP/BVG. The practical point is not to estimate a percentage of the salary, but to identify the combination of canton or region, chosen insurer and adult deductible.
-
-### Aargau and national comparison
-
-For the canton of Aargau, the comparison must keep four elements separate:
-
-| Element | Available rule | Practical interpretation |
-|---|---|---|
-| Obligation | Residents in Switzerland; policy taken out within three months of arrival | The deadline must be linked to the arrival date |
-| Premium | Varies by canton and region | The national figure does not replace the figure for the specific area |
-| Adult deductible | CHF 300, 500, 1000, 1500, 2000 or 2500 | The comparison must indicate which option is being used |
-| Premium reduction | Cantonal subsidy | Verification must be carried out at cantonal level |
-
-The table does not say which deductible is best in absolute terms. The source establishes the range of amounts, but does not offer a rule for turning the choice into a standard saving. To avoid arbitrary conclusions, the comparison must remain anchored to the insurer, region and year under consideration.
-
-This applies especially when looking at the cost of living. An average LAMal premium is an amount indexed each year; using an amount relating to another year may alter the comparison with Aargau. The same caution is needed when moving from the national rule to the cantonal reduction: the two levels are not interchangeable.
-
-In a hypothetical scenario, a person arriving in Aargau should not stop at asking how much LAMal costs in Switzerland. They must ask which premium corresponds to their area, which adult deductible they intend to choose and which cantonal procedure applies to the premium reduction. These are different questions, involving different responsibilities.
-
-Statistics should also be understood in terms of their role. UST/BFS provides statistical data; it does not replace verification of the tariff or subsidy. AFC/ESTV remains the reference for direct federal tax and VAT, not for converting LAMal into a tax item. The national comparison is useful when it clarifies the structure; it becomes misleading when it erases the difference between cantons and regions.
-## The operational process for choosing
-
-To turn the rule into a 2026 decision, it is useful to work through a short, verifiable sequence. The process does not require inventing an average amount: it requires setting the location, deadline and available options.
-
-### Five steps
-
-1. Set the arrival date. If you are resident in Switzerland, the deadline for taking out LAMal is three months from arrival. The date helps avoid confusing the obligation with the moment when insurers are compared.
-
-2. Identify the territorial reference. For residence in the canton of Aargau, start from the canton or region that determines the premium. Do not use a national figure as a substitute for the territorial data.
-
-3. Compare the insurer and the adult deductible. The deductible must be chosen from CHF 300, 500, 1000, 1500, 2000 and 2500. Always report the option used, so the comparison does not mix values referring to different choices.
-
-4. Verify the premium reduction. The subsidy is cantonal: for criteria, deadlines and amounts, consult the official source of the competent canton. For Aargau, the cantonal level is the one to check for this item, not a federal tax rule.
-
-5. Update the check for 2026. Average LAMal premiums are among the figures indexed every year. If the official data has not been verified for the current year, use the mechanism and territorial jurisdiction, not a precise amount.
-
-### Separate LAMal from the other items
-
-In the budget, record LAMal as private insurance with per-capita premiums. Do not present it as direct federal tax or VAT, which fall under AFC/ESTV, nor as an AVS/AHV or LPP/BVG contribution on salary. UFAS/BSV concerns social security and UST/BFS statistics: none of these references replaces verification of the premium or the cantonal reduction.
-
-The same discipline helps read the national offering without losing the local data. In the canton of Aargau, the three-month deadline, the chosen deductible, the insurer and the subsidy procedure form a single operational check, but remain separate items. If the comparison is updated every year, the risk of using indexed data that is no longer current is reduced.
-
-To continue with a targeted comparison of coverage and the insurer, consult LAMal/cassa malati.]]></content:encoded>
-      <pubDate>Sun, 18 Oct 2026 02:46:20 GMT</pubDate>
-      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/lamal-guida-2026-canton-argovia</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-lamal-guida-2026-canton-argovia.webp" medium="image"/>
     </item>
   </channel>
 </rss>

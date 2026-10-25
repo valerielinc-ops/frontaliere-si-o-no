@@ -72203,6 +72203,80 @@
         }
       }
     },
+    "generated:article-imprenditori-cantone-turgovia-sostegno": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-25T12:54:38.360Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-25",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-imprenditori-cantone-turgovia-sostegno",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "2ee4abc7f1c8d2a9e2016a55b8e950c5ce34ef9f5cf2ce2e090d018df70da49b",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "2dffff0825a6ffa6febcf9c7a4e5dbb11cf1a66890fa1913973efb87b9ab623d",
+        "bytes": 182024,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-25T12:54:38.360Z",
+        "verifiedAt": "2026-10-25T12:54:45.259Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-imprenditori-cantone-turgovia-sostegno.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic architectural editorial scene relevant to entrepreneurs and business conditions in Canton Thurgau; no text, logos, or people."
+        }
+      }
+    },
     "generated:article-referendum-legge-collettivo-lavoro": {
       "source": "generated-provider",
       "commons": {
@@ -72496,6 +72570,80 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic photorealistic editorial scene of commuters driving through a mountainous lake region; no readable text, logos, recognizable people, or specific real event."
+        }
+      }
+    },
+    "generated:article-violazioni-sicurezza-svizzera-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-25T13:07:18.095Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-25",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-violazioni-sicurezza-svizzera-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "e0a05284f5ed827e31a7a56420369a9c3c9024b2c2b05f371a2148fd1d0d0e43",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "b40b68111add10edea48c0b8cc7abc8c2adc0bc15cc037344c949d759cacdd56",
+        "bytes": 145512,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-25T13:07:18.095Z",
+        "verifiedAt": "2026-10-25T13:07:24.752Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-violazioni-sicurezza-svizzera-2026.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic photorealistic data center exterior with security infrastructure; no people, text, logos, or event-specific cues."
         }
       }
     },
@@ -112811,6 +112959,10 @@
       "file": "generated:article-epfl-eth-top-20-europee",
       "modified": "resized"
     },
+    "article-imprenditori-cantone-turgovia-sostegno": {
+      "file": "generated:article-imprenditori-cantone-turgovia-sostegno",
+      "modified": "resized"
+    },
     "article-referendum-legge-collettivo-lavoro": {
       "file": "generated:article-referendum-legge-collettivo-lavoro",
       "modified": "resized"
@@ -112825,6 +112977,10 @@
     },
     "article-sondaggio-paga-colleghi-svizzeri": {
       "file": "generated:article-sondaggio-paga-colleghi-svizzeri",
+      "modified": "resized"
+    },
+    "article-violazioni-sicurezza-svizzera-2026": {
+      "file": "generated:article-violazioni-sicurezza-svizzera-2026",
       "modified": "resized"
     },
     "article-zenith-rischio-posti-svizzera": {

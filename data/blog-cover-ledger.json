@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 844,
+      "5": 846,
       "6": 5055
     },
-    "publishedCovers": 7582,
+    "publishedCovers": 7584,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -208424,6 +208424,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-imprenditori-cantone-turgovia-sostegno": {
+      "cover": "/images/blog/article-imprenditori-cantone-turgovia-sostegno.webp",
+      "hash": "2dffff0825a6ffa6febcf9c7a4e5dbb11cf1a66890fa1913973efb87b9ab623d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-tg",
+          "id": "imprenditori-cantone-turgovia-sostegno",
+          "category": "pratico",
+          "date": "2026-10-25T12:54:45.336Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-imprenditori-cantone-turgovia-sostegno.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-imprenditori-cantone-turgovia-sostegno",
+        "imageUrl": "/images/blog/article-imprenditori-cantone-turgovia-sostegno.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-referendum-legge-collettivo-lavoro": {
       "cover": "/images/blog/article-referendum-legge-collettivo-lavoro.webp",
       "hash": "5ba37de391faf0dfb9552c297d194294228abbb2f9fb4368052f24e87a658162",
@@ -208553,6 +208586,39 @@
         "provider": "openai-codex",
         "assetId": "article-sondaggio-paga-colleghi-svizzeri",
         "imageUrl": "/images/blog/article-sondaggio-paga-colleghi-svizzeri.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-violazioni-sicurezza-svizzera-2026": {
+      "cover": "/images/blog/article-violazioni-sicurezza-svizzera-2026.webp",
+      "hash": "b40b68111add10edea48c0b8cc7abc8c2adc0bc15cc037344c949d759cacdd56",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "violazioni-sicurezza-svizzera-2026",
+          "category": "novita",
+          "date": "2026-10-25T13:07:25.419Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-violazioni-sicurezza-svizzera-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-violazioni-sicurezza-svizzera-2026",
+        "imageUrl": "/images/blog/article-violazioni-sicurezza-svizzera-2026.webp",
         "evidence": "generated-engine-record"
       }
     },

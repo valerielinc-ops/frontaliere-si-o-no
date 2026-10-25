@@ -8627,6 +8627,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.referendum-legge-collettivo-lavoro.title': 'Referendum: Gesetz zur Allgemeinverbindlichkeit von Gesamtarbeitsverträgen',
     'blog.article.referendum-legge-collettivo-lavoro.excerpt': '23. Oktober 2026: Referendum formell erfolgreich mit 66\'006 gültigen Unterschriften von 66\'574 abgegeben. Das kantonale Referendum wurde nicht validiert. Für die Validierung',
     'blog.article.referendum-legge-collettivo-lavoro.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.violazioni-sicurezza-svizzera-2026.title': '455 Meldungen über Sicherheitsverletzungen in der Schweiz im Jahr 2026',
+    'blog.article.violazioni-sicurezza-svizzera-2026.excerpt': '455 Meldungen über Sicherheitsverletzungen im Jahr 2026 343 Meldungen im gesamten Jahr 2025 Untersuchung des Bundes gegen einen externen IT-Anbieter Mögliche Ausweitung auf Bundesbehörden',
+    'blog.article.violazioni-sicurezza-svizzera-2026.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

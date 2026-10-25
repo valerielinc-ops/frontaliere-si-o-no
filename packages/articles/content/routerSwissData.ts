@@ -2898,6 +2898,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'zenith-rischio-posti-svizzera': { it: 'zenith-rischio-posti-svizzera', en: 'zenith-job-risk-switzerland', de: 'zenith-arbeitsplatzrisiko-schweiz', fr: 'zenith-risque-emplois-suisse' },
  'epfl-eth-top-20-europee': { it: 'epfl-eth-top-20-europee', en: 'epfl-and-eth-among-europe-s-top-20-universities-for-patents-filed', de: 'epfl-und-eth-in-top-20-europ-unis-mit-patenten', fr: 'epfl-et-eth-parmi-les-20-universites-europeennes-pour-les-brevets-deposes' },
  'referendum-legge-collettivo-lavoro': { it: 'referendum-legge-collettivo-lavoro', en: 'referendum-collective-labor-law', de: 'referendum-arbeitsvertrag-gesetz', fr: 'referendum-contrat-travail-loi' },
+ 'violazioni-sicurezza-svizzera-2026': { it: 'violazioni-sicurezza-svizzera-2026', en: 'swiss-security-violations-2026', de: 'sicherheitsverstoeerungen-schweiz-2026', fr: 'violations-securite-suisse-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

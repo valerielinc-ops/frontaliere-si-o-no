@@ -28862,6 +28862,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'violazioni-sicurezza-svizzera-2026',
+    category: 'novita',
+    date: '2026-10-25T13:07:25.419Z',
+    image: '/images/blog/article-violazioni-sicurezza-svizzera-2026.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
