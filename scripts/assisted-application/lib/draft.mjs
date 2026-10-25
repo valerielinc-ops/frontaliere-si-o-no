@@ -365,6 +365,18 @@ export async function buildDraft(ctx) {
     for (const question of Array.isArray(portal.questions) ? portal.questions : []) {
       if (!notAnsweredByUpload(question)) continue;
       const key = portalQuestionKey(question) || question.id;
+      const existingIndex = questions.findIndex((existing) => (portalQuestionKey(existing) || existing.id) === key);
+      if (existingIndex >= 0) {
+        const existing = questions[existingIndex];
+        // Upgrade a legacy portal question in place. Keeping its id preserves
+        // an answer already stored under that id, while the new application
+        // copy/options and candidate-language copy replace stale raw wording.
+        if (existing?.source === 'portal' && question?.source === 'portal'
+          && (question.applicationQuestion || question.applicationOptions?.length)) {
+          questions[existingIndex] = { ...existing, ...question, id: existing.id || question.id };
+        }
+        continue;
+      }
       if (known.has(key)) continue;
       known.add(key);
       questions.push(question);
