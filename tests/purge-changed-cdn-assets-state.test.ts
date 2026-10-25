@@ -13,6 +13,7 @@ import {
   fingerprintStageDir,
   listingLooksTruncated,
   mergeLedger,
+  missingRequiredCodeKeys,
   parseLedger,
   parseTransferredKeys,
   planPurge,
@@ -296,6 +297,15 @@ describe('the stored ledger', () => {
 });
 
 describe('selection rules still hold on the ledger diff', () => {
+  it('the publish gate requires every selected executable key, but ignores source maps and data', () => {
+    expect(missingRequiredCodeKeys(
+      ['assets/App.js', 'assets/App.js.map', 'assets/app.css', 'assets/data.json'],
+      ['assets/App.js'],
+    )).toEqual(['assets/app.css']);
+    expect(missingRequiredCodeKeys(['assets/App.js.map', 'assets/data.json'], [])).toEqual([]);
+    expect(missingRequiredCodeKeys(['assets/App.js'], ['assets/App.js'])).toEqual([]);
+  });
+
   it('source maps are neither tracked nor purged', () => {
     const logText = JSON.stringify({ level: 'info', msg: 'Copied (new)', object: 'App.js.map' });
     const { selected } = runOnce({ logText, current: stateOf({ 'App.js': NEW }), ledger: ledgerOf({}) });
@@ -383,7 +393,8 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
     }
     expect(PREP).toContain('_r2_revalidate_publish_window() {');
     expect(PREP).toContain('cdn-build-id.txt cdn-publish-start-id.txt cdn-publish-complete-id.txt');
-    expect(PREP).toContain('[ "$_start" != "$_complete" ]');
+    expect(PREP).toContain('[ "$_start" != "$_publish_token" ]');
+    expect(PREP).toContain('--require-code-complete');
   });
 
   it('reads the ledger BEFORE the assets sync; a missing one starts empty, with no R2 listing and no seed', () => {
@@ -407,12 +418,12 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
     const guardAt = body.findIndex((l) => /^if \[ "\$ok" != 1 \]; then$/.test(l));
     expect(guardAt).toBeGreaterThan(-1);
     const branch = body.slice(guardAt, body.indexOf('fi', guardAt));
-    expect(branch).toContain('_purge_r2_changed_assets');
+    expect(branch.some((l) => l.includes('_purge_r2_changed_assets'))).toBe(true);
     expect(branch.some((l) => /cdn-build-id\.txt/.test(l))).toBe(false);
     expect(branch[branch.length - 1]).toBe('return 0');
     const markerAt = body.findIndex((l) => /copyto "\$stage\/cdn-build-id\.txt"/.test(l));
     const lastPurgeAt = body.lastIndexOf('_purge_r2_changed_assets');
-    expect(markerAt, 'success path: marker first, purge after').toBeLessThan(lastPurgeAt);
+    expect(markerAt, 'success path: purge first, marker after').toBeGreaterThan(lastPurgeAt);
   });
 
   it('the ledger is written only after the purge, no-store, outside assets/, and nothing is immutable', () => {

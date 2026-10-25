@@ -245,6 +245,8 @@ case "\${1:-}" in scripts/lib/r2-image-namespace-lock.mjs|*/scripts/lib/r2-image
     *) exit 87 ;;
   esac
   ;;
+scripts/cf-purge-cache.mjs|*/scripts/cf-purge-cache.mjs)
+  exit "\${STUB_PURGE_STATUS:-0}" ;;
 esac
 exec "$STUB_REAL_NODE" "$@"
 `,
@@ -281,17 +283,27 @@ case "\${args[0]}" in
         printf '%s' "$build" > "$dst"
         exit 0 ;;
       :s3:*cdn-publish-start-id.txt)
-        printf '%s' "\${STUB_PUBLISH_START:-1700000000000}" > "$dst"
+        if [ -s "$STUB_DIR/publish-start-written.txt" ]; then
+          cat "$STUB_DIR/publish-start-written.txt" > "$dst"
+        else
+          printf '%s' "\${STUB_PUBLISH_START:-1700000000000}" > "$dst"
+        fi
         exit 0 ;;
       :s3:*cdn-publish-complete-id.txt)
-        start="\${STUB_PUBLISH_START:-1700000000000}"
+        if [ -s "$STUB_DIR/publish-start-written.txt" ]; then
+          start="$(cat "$STUB_DIR/publish-start-written.txt")"
+        else
+          start="\${STUB_PUBLISH_START:-1700000000000}"
+        fi
         complete="\${STUB_PUBLISH_COMPLETE:-$start}"
         if [ "\${STUB_PUBLISH_INCOMPLETE:-0}" = 1 ] && [ -z "\${STUB_PUBLISH_COMPLETE+x}" ]; then complete=1600000000000; fi
         printf '%s' "$complete" > "$dst"
         exit 0 ;;
     esac
     case "$dst" in
-      *cdn-publish-start-id.txt) [ "\${STUB_FAIL_START:-0}" = 1 ] && exit 1 ;;
+      *cdn-publish-start-id.txt)
+        [ "\${STUB_FAIL_START:-0}" = 1 ] && exit 1
+        cat "$src" > "$STUB_DIR/publish-start-written.txt" ;;
       *cdn-publish-complete-id.txt) [ "\${STUB_FAIL_COMPLETE:-0}" = 1 ] && exit 1 ;;
     esac
     case "$dst" in *purge-ledger/assets.json) cp "$src" "$STUB_DIR/ledger-written.json" ;; esac
@@ -918,9 +930,9 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
   it('ledger absent → no R2 listing; it starts empty, every stage key is dirty and none is marked clean without a purge', () => {
     const r = runPublish('ledger-absent', { STUB_LEDGER: 'absent', STUB_ASSETS_LOG: '' });
     expect(r.code).toBe(0);
-    // The janitor's dry-run scan (after the marker) is the only aws call left;
-    // nothing lists R2 on the way to the assets copy.
-    const assetsAt = r.calls.findIndex((c) => /^rclone copy \S+ :s3:bkt\/assets /.test(c));
+    // The janitor's dry-run scan is the only aws call left; nothing lists R2
+    // on the way to the assets copy.
+    const assetsAt = r.calls.findIndex((c) => /^rclone copy \S+ :s3:bkt\/assets(?:\s|$)/.test(c));
     expect(assetsAt).toBeGreaterThan(-1);
     expect(r.calls.slice(0, assetsAt).filter((c) => /^aws /.test(c)), 'no R2 listing before the assets copy').toEqual([]);
     expect(r.calls.some((c) => /Key:Key,ETag:ETag/.test(c)), 'no seed-style listing anywhere').toBe(false);
@@ -930,7 +942,7 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(r.ledger).toEqual(expect.objectContaining({ version: 1, keys: {} }));
   });
 
-  it('a later prefix failing: an incomplete publish window blocks the asset purge', () => {
+  it('a later prefix failing: the asset purge gate withholds the marker', () => {
     const r = runPublish('later-prefix-fails', {
       STUB_LEDGER: 'hang',
       STUB_ASSETS_LOG: COPIED_A,
@@ -939,25 +951,27 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     });
     expect(r.code).toBe(0);
     expect(r.stdout).toMatch(/NOT writing marker/);
-    expect(r.stdout).toMatch(/skipping targeted CDN purge: publish window is not coherent/);
-    expect(r.stdout).not.toMatch(/ledger: 1 key\(s\) uploaded by this run/);
-    expect(r.ledger).toBeNull();
+    expect(r.stdout).toMatch(/CF_API_TOKEN not set.*not purged, left dirty/);
+    expect(r.stdout).toMatch(/ledger: 1 key\(s\) uploaded by this run/);
+    expect(r.ledger).toEqual(expect.objectContaining({ version: 1, keys: {} }));
     expect(completionMarkerPuts(r.calls)).toEqual([]);
     expect(r.calls.some((c) => /rclone \S+\/stage\/cdn-build-id\.txt :s3:bkt\/cdn-build-id\.txt/.test(c))).toBe(false);
   });
 
-  it('a failed complete marker PUT: the just-uploaded payload is not purged', () => {
+  it('a failed complete marker PUT: the payload is purged but the generation stays unacknowledged', () => {
     const r = runPublish('complete-marker-fails', {
       STUB_LEDGER: 'absent',
       STUB_ASSETS_LOG: COPIED_A,
       STUB_FAIL_COMPLETE: '1',
       STUB_PUBLISH_INCOMPLETE: '1',
+      CF_API_TOKEN: 'test-token',
+      STUB_PURGE_STATUS: '0',
     });
     expect(r.code).toBe(0);
     expect(r.stdout).toMatch(/R2 publish-complete marker PUT failed/);
-    expect(r.stdout).toMatch(/skipping targeted CDN purge: publish window is not coherent/);
-    expect(r.stdout).not.toMatch(/ledger: 1 key\(s\) uploaded by this run/);
-    expect(r.ledger).toBeNull();
+    expect(r.stdout).toMatch(/dispatched purge for 2\/2 changed assets\//);
+    expect(r.stdout).toMatch(/ledger: 1 key\(s\) uploaded by this run/);
+    expect(r.ledger).toEqual(expect.objectContaining({ version: 1 }));
     expect(r.calls.some((c) => /:s3:bkt\/cdn-build-id\.txt/.test(c))).toBe(true);
     expect(completionMarkerPuts(r.calls)).toHaveLength(1);
   });

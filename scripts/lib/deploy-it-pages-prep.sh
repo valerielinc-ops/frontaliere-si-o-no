@@ -381,16 +381,22 @@ _publish_cdn_r2() {
   }
   # Publish-window handshake for the runtime watchdog. Stable asset names are
   # overwritten one by one, so cdn-build-id.txt deliberately stays on the last
-  # complete generation until the payload is whole. Without a separate start
-  # marker, a concurrent watchdog cannot distinguish that partial origin from a
-  # missed edge purge and may spread the half-uploaded generation to the edge.
+  # complete generation until the payload is whole AND every executable asset
+  # changed by this publish has passed the targeted edge purge. Without a
+  # separate start marker, a concurrent watchdog cannot distinguish that
+  # partial origin from a missed edge purge and may spread the half-uploaded
+  # generation to the edge.
   #
   # The token is the upload start epoch (not DEPLOY_BUILD_ID, which is minted
   # hours earlier at matrix setup). The matching completion marker is written
-  # only after the authoritative build marker succeeds. A killed/failed upload
-  # therefore remains explicitly incomplete instead of looking purgeable.
+  # only after the authoritative build marker succeeds AND the code purge
+  # succeeds. A killed/failed upload or partial purge therefore remains
+  # explicitly incomplete instead of looking purgeable.
   local _publish_token _publish_marker_file
   _publish_token="$(date +%s%3N)"
+  case "$_publish_token" in
+    ''|*[!0-9]*) _publish_token="$(date +%s)000" ;;
+  esac
   _publish_marker_file="${RUNNER_TEMP:-/tmp}/cdn-publish-$$_${_publish_token}.txt"
   printf '%s' "$_publish_token" > "$_publish_marker_file"
   if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-start-id.txt" \
@@ -537,10 +543,12 @@ _publish_cdn_r2() {
   _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
-  # A purge is safe only for a complete, self-consistent R2 generation. This
-  # is deliberately a fresh read for every purge branch: the error path below
-  # can run after assets/ was copied but before the completion marker, and the
-  # marker PUT itself can fail after the payload has been written.
+  # A purge is safe only inside the publish window owned by this invocation.
+  # The build marker still names the last closed generation while assets/ is
+  # being copied, so coherence here means that the start token is still ours;
+  # the marker is deliberately closed only after the purge accepts all code.
+  # This is a fresh read for every purge branch: another publisher may have
+  # opened a newer window while this one was uploading.
   _r2_revalidate_publish_window() {
     local _build_file="$_pdir/purge-build-id.txt"
     local _start_file="$_pdir/purge-start-id.txt"
@@ -567,16 +575,16 @@ _publish_cdn_r2() {
     _complete="$(tr -d '[:space:]' < "$_complete_file")"
     case "$_start" in ''|*[!0-9]*) _markers_valid=0 ;; esac
     case "$_complete" in ''|*[!0-9]*) _markers_valid=0 ;; esac
-    if [ "$_markers_valid" != 1 ] || [ -z "${DEPLOY_BUILD_ID:-}" ] || [ "$_build" != "$DEPLOY_BUILD_ID" ] \
-      || [ "$_start" != "$_complete" ]; then
-      echo "::warning::[r2] skipping targeted CDN purge: publish window is not coherent (build=${_build:-<empty>} expected=${DEPLOY_BUILD_ID:-<empty>}, start=${_start:-<empty>}, complete=${_complete:-<empty>})"
+    if [ "$_markers_valid" != 1 ] || [ -z "$_build" ] || [ -z "${DEPLOY_BUILD_ID:-}" ] \
+      || [ "$_start" != "$_publish_token" ]; then
+      echo "::warning::[r2] skipping targeted CDN purge: publish window is not owned by this upload (build=${_build:-<empty>} expected-after-publish=${DEPLOY_BUILD_ID:-<empty>}, start=${_start:-<empty>} owner=${_publish_token:-<empty>}, complete=${_complete:-<empty>})"
       return 1
     fi
-    echo "::notice::[r2] CDN purge revalidated build/start/complete (build=$_build, publish-window=$_start)"
+    echo "::notice::[r2] CDN purge revalidated publish-window ownership (previous-build=$_build, next-build=$DEPLOY_BUILD_ID, start=$_start, complete=$_complete)"
     return 0
   }
   _purge_r2_changed_assets() {
-    local _prc=0
+    local _prc=0 _purge_ok=0
     if [ "$assets_sync_ok" = 1 ] && [ "$_ledger_state" = present ]; then
       # Stateful: --stage-dir is valid R2 state only because the assets sync
       # exited 0 (see the script's header). The log still goes in (union).
@@ -586,14 +594,18 @@ _publish_cdn_r2() {
         CDN_PURGE_BUDGET_MS="$(( (_t_purge > 90 ? _t_purge - 45 : _t_purge / 2) * 1000 ))" \
           timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
           --stage-dir="$stage/assets" --ledger-in="$_pdir/ledger-in.json" \
-          --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" || _prc=$?
+          --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" \
+          --require-code-complete || _prc=$?
         if [ "$_prc" -ne 0 ]; then
-          echo "::error::[r2] targeted CDN asset purge exited $_prc (124 = over ${_t_purge}s) — ledger not updated, the next deploy re-diffs and retries"
-          rm -f "$_pdir/ledger-out.json" 2>/dev/null || true
+          echo "::error::[r2] targeted CDN asset purge exited $_prc (124 = over ${_t_purge}s) — publish marker withheld; the next deploy re-diffs and retries"
+        else
+          _purge_ok=1
         fi
         # Written only AFTER the purge, and only with what the script recorded:
-        # a key takes its new MD5 only if its own batch succeeded. no-store so a
-        # read of it is never an edge copy.
+        # a key takes its new MD5 only if its own batch succeeded. Even when
+        # the code-complete gate fails, keep this partial progress: the next
+        # deploy must retry the dirty keys, not start the whole bundle again.
+        # no-store so a read of it is never an edge copy.
         if [ -s "$_pdir/ledger-out.json" ]; then
           timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_pdir/ledger-out.json" "$bkt/$_ledger_key" \
             --header-upload "Content-Type: application/json; charset=utf-8" \
@@ -607,24 +619,49 @@ _publish_cdn_r2() {
       # (review of #11641); the script ignores CDN_PURGE_BUDGET_MS in this mode.
       if _r2_revalidate_publish_window; then
         timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-          || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
+          --require-code-complete
+        _prc=$?
+        if [ "$_prc" -eq 0 ]; then
+          _purge_ok=1
+        else
+          echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — publish marker withheld; edge falls back to the 7d max-age"
+        fi
       fi
     elif [ "$assets_sync_ok" != 1 ]; then
       echo "⚠️ [r2] assets/ sync failed — no edge purge this run; with a ledger, what it did upload stays dirty for the next deploy"
     fi
+    if [ "$_purge_ok" = 1 ] && ! _r2_revalidate_publish_window; then
+      echo "::error::[r2] publish window changed during targeted CDN purge — withholding build/completion markers"
+      _purge_ok=0
+    fi
     rm -f "$_assets_log" 2>/dev/null || true
     rm -rf "$_pdir" 2>/dev/null || true
+    if [ "$_purge_ok" = 1 ]; then
+      return 0
+    fi
+    return 1
   }
   if [ "$ok" != 1 ]; then
     echo "⚠️ R2 payload sync had errors — NOT writing marker (shard gate keeps last good live)"
     # A later prefix can fail after the assets sync has overwritten stable bundle
     # URLs. Purge those changed assets before returning, but keep the marker
     # withheld so other shards continue to gate on the last complete payload.
-    _purge_r2_changed_assets
+    _purge_r2_changed_assets || true
+    return 0
+  fi
+  # Invalidate the edge for EXACTLY the assets/ keys whose bytes changed since
+  # the edge was last purged. This must finish before the generation marker is
+  # closed: the shard gate may publish HTML as soon as it sees the marker, so a
+  # partial purge would recreate the cross-chunk version skew this handshake
+  # is meant to prevent.
+  if ! _purge_r2_changed_assets; then
+    echo "⚠️ R2 payload is present but executable CDN purge is incomplete — withholding build/completion markers; next deploy retries"
+    _janitor_cdn_r2 "$stage" "dry-run"
     return 0
   fi
   # Generation marker last (atomicity #2569): only now is this build's full
-  # payload on R2. Then close the publish window with the exact token written
+  # payload on R2 AND its changed executable assets have passed the targeted
+  # edge purge. Then close the publish window with the exact token written
   # before the first payload mutation; watchdog observations are authoritative
   # only while start == complete.
   printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
@@ -640,12 +677,10 @@ _publish_cdn_r2() {
   else
     echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
   fi
-  # Invalidate the edge for EXACTLY the assets/ keys whose bytes changed since
-  # the edge was last purged for them (ledger diff ∪ this run's uploads; the
-  # log alone when the ledger is unavailable). In this success path it runs
-  # after the marker, so the shard gate never waits on it; the `ok != 1` branch
-  # above runs it too, because a later prefix failing does not un-upload
-  # assets/. Targeted (`--files=`, batches of 30) and never `purge_everything`: this
+  # The purge above uses the ledger diff ∪ this run's uploads (the log alone
+  # when the ledger is unavailable). The `ok != 1` branch above runs it too,
+  # because a later prefix failing does not un-upload assets/. Targeted
+  # (`--files=`, batches of 30) and never `purge_everything`: this
   # host serves ~634k eyeball requests/day at a ~93% edge hit ratio, and
   # dropping all of that at once produces the cold-fill stampede against R2
   # whose edge→origin failures (`originResponseStatus: 0`) Cloudflare returns to
@@ -661,7 +696,6 @@ _publish_cdn_r2() {
   # Cache-Control comment for the queue jam that caused it. The jam is fixed;
   # the decoupling stays, because the failure mode it protects against is
   # "the publish chain stopped running", not "this particular bug existed".
-  _purge_r2_changed_assets
   # GC visibility scan (Refs #2886, follow-up of #2883's "GC storage R2
   # (janitor): skippato" deferral). DRY-RUN ONLY at this automatic call site —
   # see _janitor_cdn_r2's header comment for why. This just makes bucket growth
