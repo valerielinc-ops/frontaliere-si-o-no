@@ -101,13 +101,13 @@ describe('JobAlertStickyBanner', () => {
 
  it('keeps the alert action as the conversion event, not the close control', () => {
  const dispatchSpy = vi.spyOn(window, 'dispatchEvent');
- render(<JobAlertStickyBanner />);
+ render(<JobAlertStickyBanner keyword="infermiere" />);
  readAndScroll();
 
  fireEvent.click(screen.getByRole('button', { name: 'Crea alert gratis' }));
 
  expect(trackJobAlertCtaClick).toHaveBeenCalledWith('sticky_banner', 'open');
  expect(dispatchSpy.mock.calls.some(([event]) => event.type === 'openJobAlert')).toBe(true);
- expect(consumeJobAlertOpen()).toEqual({ origin: 'sticky_banner' });
+ expect(consumeJobAlertOpen()).toEqual({ keyword: 'infermiere', origin: 'sticky_banner' });
  });
 });
