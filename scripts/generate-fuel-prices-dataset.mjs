@@ -37,6 +37,12 @@ const MIMIT_API_REGION_BY_PROVINCE = Object.freeze({
   BZ: 4,
 });
 const MIMIT_API_CONCURRENCY = 4;
+const MIMIT_PRICES_REQUIRED_COLUMNS = Object.freeze([
+  'idImpianto', 'descCarburante', 'prezzo', 'isSelf', 'dtComu',
+]);
+const MIMIT_STATIONS_REQUIRED_COLUMNS = Object.freeze([
+  'idImpianto', 'Comune', 'Provincia',
+]);
 const ECB_DAILY_URL = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
 // TCS deprecated direct Firestore reads on 2026-05-22 (App Check + anon-auth
 // enforcement). Their web app now hits a public Cloud Function in
@@ -95,6 +101,45 @@ function parseDelimited(text) {
     extractedAt: extractedAtMatch ? extractedAtMatch[1] : null,
     rows,
   };
+}
+
+function assertDelimitedSource(parsed, requiredColumns, label) {
+  if (!parsed.extractedAt || !normalizeItalyObservationDate(parsed.extractedAt)) {
+    throw new Error(`MIMIT ${label} CSV has no valid extraction date`);
+  }
+  const columns = new Set(parsed.rows.length ? Object.keys(parsed.rows[0]) : []);
+  const missing = requiredColumns.filter((column) => !columns.has(column));
+  if (missing.length) {
+    throw new Error(`MIMIT ${label} CSV is missing required columns: ${missing.join(', ')}`);
+  }
+  if (!parsed.rows.length) throw new Error(`MIMIT ${label} CSV has no data rows`);
+}
+
+/**
+ * Validate the two bulk MIMIT responses before treating an HTTP 200 as a live
+ * source. The export endpoint sometimes answers with an HTML/empty payload
+ * while still returning 200; accepting that shape bypasses the Osservaprezzi
+ * fallback and publishes an undated Italian snapshot.
+ */
+export function validateMimitCsvPayload({ pricesText, stationsText, municipalities }) {
+  const prices = parseDelimited(pricesText);
+  const stations = parseDelimited(stationsText);
+  assertDelimitedSource(prices, MIMIT_PRICES_REQUIRED_COLUMNS, 'prices');
+  assertDelimitedSource(stations, MIMIT_STATIONS_REQUIRED_COLUMNS, 'stations');
+
+  const hasUsableBenzina = prices.rows.some((row) => (
+    String(row.descCarburante || '').trim() === 'Benzina'
+    && String(row.idImpianto || '').trim() !== ''
+    && toNumber(row.prezzo) != null
+    && normalizeItalyObservationDate(row.dtComu) != null
+  ));
+  if (!hasUsableBenzina) throw new Error('MIMIT prices CSV has no usable Benzina rows');
+
+  const stationMap = buildItalyStations(municipalities, stations.rows, prices.rows);
+  if (![...stationMap.values()].some((entries) => entries.length > 0)) {
+    throw new Error('MIMIT CSV has no usable Benzina station in target municipalities');
+  }
+  return { prices, stations };
 }
 
 /**
@@ -393,7 +438,13 @@ export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, r
       // 1 is Benzina and x means either self-service or served. `0-x` is not
       // the API's all-fuels selector and returns no usable station rows.
       body: JSON.stringify({ region, province, town: null, priceOrder: 'asc', fuelType: '1-x' }),
-    }, fetchImpl);
+    }, fetchImpl, (payload) => {
+      const results = Array.isArray(payload?.results) ? payload.results : Array.isArray(payload?.array) ? payload.array : null;
+      if (payload?.success !== true || !results || results.length === 0) {
+        throw new Error(`MIMIT API returned no usable rows for province ${province}`);
+      }
+      return payload;
+    });
     const results = Array.isArray(json?.results) ? json.results : Array.isArray(json?.array) ? json.array : null;
     if (json?.success !== true || !results) {
       throw new Error(`Unexpected response shape from ${MIMIT_API_URL} for province ${province}`);
@@ -437,7 +488,7 @@ export function extractEcbRate(xml) {
   };
 }
 
-async function fetchJsonWithRetry(url, retries = 3, init = {}, fetchImpl = fetch) {
+async function fetchJsonWithRetry(url, retries = 3, init = {}, fetchImpl = fetch, validateResponse = null) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       const res = await fetchImpl(url, {
@@ -446,7 +497,8 @@ async function fetchJsonWithRetry(url, retries = 3, init = {}, fetchImpl = fetch
         signal: AbortSignal.timeout(30_000),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-      return await res.json();
+      const json = await res.json();
+      return validateResponse ? validateResponse(json) : json;
     } catch (err) {
       if (attempt === retries) throw err;
       const delay = attempt * 5_000;
@@ -1005,7 +1057,10 @@ async function main() {
     // An Italian outage now degrades the Italian half only (see
     // `resolveItalySource`); TCS/ECB failures keep the old skip behaviour.
     const italyFetch = Promise.all([fetchText(ITALY_PRICES_URL), fetchText(ITALY_STATIONS_URL)])
-      .then(([pricesText, stationsText]) => ({ ok: true, pricesText, stationsText }))
+      .then(([pricesText, stationsText]) => {
+        validateMimitCsvPayload({ pricesText, stationsText, municipalities });
+        return { ok: true, pricesText, stationsText };
+      })
       .catch(async (csvError) => {
         try {
           const apiResult = await fetchMimitApiSource(municipalities);

@@ -20,6 +20,7 @@ import {
   fetchMimitApiSource,
   italyByMunicipalityFromDataset,
   resolveItalySource,
+  validateMimitCsvPayload,
 } from '../scripts/generate-fuel-prices-dataset.mjs';
 import { evaluateFuelFreshness } from '../scripts/check-fuel-freshness.mjs';
 import {
@@ -83,6 +84,25 @@ describe('generator: MIMIT outage keeps the Swiss refresh', () => {
     });
     expect(result.status).toBe('live');
     expect(result.extractedAt).toBe(today);
+  });
+
+  it('rejects an HTTP-200 payload that is not a usable MIMIT export', () => {
+    expect(() => validateMimitCsvPayload({
+      pricesText: '<html>temporarily unavailable</html>',
+      stationsText: '<html>temporarily unavailable</html>',
+      municipalities: [COMO],
+    })).toThrow('MIMIT prices CSV has no valid extraction date');
+  });
+
+  it('accepts a dated export only when it contains a target Benzina station', () => {
+    const today = day(NOW);
+    const payload = validateMimitCsvPayload({
+      pricesText: `Estrazione del ${today}\nidImpianto|descCarburante|prezzo|isSelf|dtComu\n1|Benzina|1.700|1|01/01/2026 08:00:00`,
+      stationsText: `Estrazione del ${today}\nidImpianto|Gestore|Bandiera|Tipo Impianto|Nome Impianto|Indirizzo|Comune|Provincia|Latitudine|Longitudine\n1|G|Eni|Stradale|Eni Como|Via Milano 10|COMO|CO|45.81|9.08`,
+      municipalities: [COMO],
+    });
+    expect(payload.prices.extractedAt).toBe(today);
+    expect(payload.stations.rows).toHaveLength(1);
   });
 
   it('labels the published Italian source with its status', () => {
