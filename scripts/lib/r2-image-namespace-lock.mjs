@@ -12,6 +12,7 @@ export const IMAGE_LEASE_RELEASE_TIMEOUT_MS = 30_000;
 export const IMAGE_LOCK_RELEASE_RETRY_MS = 1_000;
 export const IMAGE_LOCK_POLL_MS = 5_000;
 export const IMAGE_LEASE_CONTEXT_ENV = 'FRONTALIERE_R2_IMAGE_LEASE_CONTEXT';
+export const DECIMAL_LEASE_TIMESTAMP_RE = /^(?:0|[1-9]\d*)$/u;
 
 const CONTEXT_VERSION = 1;
 const IMAGE_LOCK_CLEANUP_ATTEMPTS = 4;
@@ -47,6 +48,12 @@ function safeTimestamp(value, name) {
     throw new Error(`[r2-image-namespace-lock] ${name} must be a non-negative safe integer millisecond timestamp`);
   }
   return value;
+}
+
+export function parseLeaseTimestamp(raw) {
+  if (typeof raw !== 'string' || !DECIMAL_LEASE_TIMESTAMP_RE.test(raw)) return null;
+  const timestamp = Number(raw);
+  return Number.isSafeInteger(timestamp) && timestamp >= 1 ? timestamp : null;
 }
 
 export function parseImageNamespaces(value) {
@@ -594,16 +601,32 @@ export async function releaseImageNamespaceLock(
     : tombstonePayload(normalized, safeNow);
   let lastAttempt = null;
   let lastError = null;
+  const deadlineError = () => {
+    const error = new Error(`[r2-image-namespace-lock] cleanup ${namespace} exceeded its release deadline`);
+    error.code = 'IMAGE_LEASE_RELEASE_TIMEOUT';
+    error.deadline = releaseDeadline;
+    return error;
+  };
+  const assertBeforeDeadline = () => {
+    if (releaseDeadline !== undefined && safeNow() >= releaseDeadline) throw deadlineError();
+  };
+  const sleepBeforeDeadline = async (milliseconds) => {
+    if (releaseDeadline === undefined) {
+      await sleep(milliseconds);
+      return;
+    }
+    const remaining = releaseDeadline - safeNow();
+    if (remaining <= 0) throw deadlineError();
+    await sleep(Math.min(milliseconds, remaining));
+    assertBeforeDeadline();
+  };
   const retryLeaseRead = async (readError, attempt) => {
     if (attempt + 1 >= IMAGE_LOCK_CLEANUP_ATTEMPTS) throw readError;
-    const remaining = releaseDeadline !== undefined
-      ? releaseDeadline - Date.now()
-      : IMAGE_LOCK_RELEASE_RETRY_MS;
-    if (remaining <= 0) throw readError;
-    await sleep(Math.min(IMAGE_LOCK_RELEASE_RETRY_MS, remaining));
+    await sleepBeforeDeadline(IMAGE_LOCK_RELEASE_RETRY_MS);
   };
 
   for (let attempt = 0; attempt < IMAGE_LOCK_CLEANUP_ATTEMPTS; attempt += 1) {
+    assertBeforeDeadline();
     let current;
     try {
       current = await readCurrentLease(releaseRequest, namespace);
@@ -679,6 +702,7 @@ export async function releaseImageNamespaceLock(
     }
 
     try {
+      assertBeforeDeadline();
       const written = await putLease(releaseRequest, namespace, lastAttempt.payload, lastAttempt.condition, 'release');
       if (written) return true;
       lastError = new Error(`[r2-image-namespace-lock] cleanup ${namespace} conflicted with a concurrent write`);
@@ -696,6 +720,7 @@ export async function releaseImageNamespaceLock(
 
   let latest;
   try {
+    assertBeforeDeadline();
     latest = await readCurrentLease(releaseRequest, namespace);
   } catch (reconciliationError) {
     const errors = lastError ? [lastError, reconciliationError] : [reconciliationError];
@@ -767,6 +792,15 @@ function containsReleaseTimeout(error, seen = new Set()) {
   return containsReleaseTimeout(error.cause, seen);
 }
 
+export function classifyReleaseDeadlineRace(outcome, { deadline } = {}) {
+  if (outcome?.timedOut === true) return 'timeout';
+  if (!outcome || !Array.isArray(outcome.results)) return 'indeterminate';
+  if (!Number.isFinite(deadline) || !Number.isFinite(outcome.finishedAt)) return 'indeterminate';
+  if (outcome.finishedAt < deadline) return 'completed';
+  if (outcome.finishedAt > deadline) return 'timeout';
+  return 'indeterminate';
+}
+
 /**
  * Release image leases within one absolute budget. `perLease` starts each
  * namespace independently so a slow lease cannot prevent the others starting.
@@ -784,7 +818,8 @@ export async function releaseImageNamespaceLeasesWithDeadline(
   positiveDuration(timeoutMs, 'image lease release timeout');
   if (leases.length === 0) return { status: 'released', timedOut: false, released: [] };
 
-  const deadline = safeTimestamp(Date.now() + timeoutMs, 'release deadline');
+  const now = options.now ?? Date.now;
+  const deadline = safeTimestamp(now() + timeoutMs, 'release deadline');
   const timeoutError = new Error(`[r2-image-namespace-lock] rilascio lease immagini oltre il limite (${timeoutMs}ms)`);
   timeoutError.code = 'IMAGE_LEASE_RELEASE_TIMEOUT';
   timeoutError.timeoutMs = timeoutMs;
@@ -794,13 +829,14 @@ export async function releaseImageNamespaceLeasesWithDeadline(
     timeoutId = setTimeout(() => resolve({ timedOut: true }), timeoutMs);
   });
   const work = Promise.allSettled(groups.map((group) => {
-    if (Date.now() >= deadline) return Promise.reject(timeoutError);
-    return Promise.resolve().then(() => releaseImpl(group, { ...options, deadline }));
-  })).then((results) => ({ timedOut: false, results }));
+    if (now() >= deadline) return Promise.reject(timeoutError);
+    return Promise.resolve().then(() => releaseImpl(group, { ...options, deadline, now }));
+  })).then((results) => ({ timedOut: false, results, finishedAt: now() }));
   const outcome = await Promise.race([work, timeout]);
   clearTimeout(timeoutId);
-  if (outcome.timedOut || Date.now() >= deadline) {
-    return { status: 'timeout', timedOut: true, released: null, error: timeoutError };
+  const deadlineRace = classifyReleaseDeadlineRace(outcome, { deadline });
+  if (deadlineRace !== 'completed') {
+    return { status: 'timeout', timedOut: true, released: null, error: timeoutError, deadlineRace };
   }
 
   const released = [];
@@ -864,11 +900,13 @@ async function acquireFromCli(namespaces, request, env = process.env) {
   const controller = new AbortController();
   const owner = env.FRONTALIERE_R2_IMAGE_LEASE_OWNER ?? randomUUID();
   const leaseId = env.FRONTALIERE_R2_IMAGE_LEASE_ID ?? randomUUID();
-  const requestedAcquiredAt = Number(env.FRONTALIERE_R2_IMAGE_LEASE_ACQUIRED_AT);
-  const requestedExpiresAt = requestedAcquiredAt + IMAGE_LOCK_LEASE_MS;
-  const pendingAcquiredAt = Number.isSafeInteger(requestedAcquiredAt)
-      && requestedAcquiredAt >= 1
-      && isNonNegativeSafeInteger(requestedExpiresAt)
+  const requestedAcquiredAt = parseLeaseTimestamp(env.FRONTALIERE_R2_IMAGE_LEASE_ACQUIRED_AT);
+  const requestedExpiry = requestedAcquiredAt === null
+    ? null
+    : requestedAcquiredAt + IMAGE_LOCK_LEASE_MS;
+  const pendingAcquiredAt = requestedExpiry !== null
+    && Number.isSafeInteger(requestedExpiry)
+    && requestedExpiry > requestedAcquiredAt
     ? requestedAcquiredAt
     : safeTimestamp(Date.now(), 'acquiredAt');
   const pendingExpiresAt = safeTimestamp(pendingAcquiredAt + IMAGE_LOCK_LEASE_MS, 'lease expiry');
