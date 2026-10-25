@@ -89,15 +89,18 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  * serves the old ones, and this run's log is empty. The price is one purge of
  * the whole bundle the first time; the gain is no R2 listing at all.
  *
- * FAILURE POSTURE: always exits 0 in purge mode. A missed purge degrades to
- * "the edge serves the previous bytes until the next deploy retries it (ledger)
- * or the object's own max-age lapses" — which must never fail a deploy that
- * otherwise succeeded. A failed batch is an ::error:: (the dirty state is real
- * and persistent until a later run clears it) plus a step-summary line.
+ * FAILURE POSTURE: default purge mode always exits 0. A missed purge degrades
+ * to "the edge serves the previous bytes until the next deploy retries it
+ * (ledger) or the object's own max-age lapses" — which must never fail a
+ * deploy that otherwise succeeded. A failed batch is an ::error:: (the dirty
+ * state is real and persistent until a later run clears it) plus a step-summary
+ * line. The publisher opts into --require-code-complete so a dirty executable
+ * key withholds the generation marker without changing repair callers.
  *
  * USAGE:
  *   node scripts/ci/purge-changed-cdn-assets.mjs <rclone-json-log> <key-prefix>
  *       [--stage-dir=<dir> --ledger-in=<json> --ledger-out=<json> --build-id=<id>]
+ *       [--require-code-complete]
  *     <rclone-json-log>  file written by `rclone --use-json-log -v --log-file=…`
  *                        (missing or empty is fine in ledger mode)
  *     <key-prefix>       R2 key prefix the sync targeted, e.g. `assets`
@@ -117,6 +120,11 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  *      bounds one cf-purge-cache.mjs call (default 60000). CDN_PURGE_BUDGET_MS
  *      bounds the whole purge (default: none): batches past it are not
  *      started and stay dirty, and the ledger keeps what was purged.
+ *      --require-code-complete is an opt-in publish gate: it keeps the normal
+ *      fail-open exit contract for callers that only want best-effort repair,
+ *      but exits non-zero when any executable JS/CSS key selected for purge
+ *      remains dirty. The R2 publisher uses it before closing the publish
+ *      marker, so a partial edge repair cannot unblock a new HTML generation.
  */
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -161,6 +169,19 @@ const CODE_KEY_RE = /\.(?:m?js|css)$/i;
  * budget above on keys no user reads.
  */
 const SOURCE_MAP_KEY_RE = /\.map$/i;
+
+/**
+ * Return executable keys that were selected for purge but not accepted by
+ * Cloudflare. Source maps and non-code objects deliberately do not gate a
+ * publish: browsers never link source maps, while a stale data/image object
+ * cannot create the module-link SyntaxError this gate protects against.
+ */
+export function missingRequiredCodeKeys(selectedKeys, purgedKeys) {
+  const purged = new Set(purgedKeys || []);
+  return [...new Set(selectedKeys || [])]
+    .filter((key) => CODE_KEY_RE.test(String(key)) && !purged.has(key))
+    .sort();
+}
 
 /**
  * Which transferred keys to purge: EVERY code key, then the other non-map keys
@@ -503,6 +524,7 @@ function readStage(dir, keyPrefix) {
 
 function main(argv) {
   const { positional, flags } = parseFlags(argv);
+  const requireCodeComplete = flags['require-code-complete'] === true;
 
   if (flags['check-ledger'] === true) {
     const ok = typeof flags['ledger-in'] === 'string' && parseLedger(readText(flags['ledger-in']) ?? '') !== null;
@@ -554,9 +576,21 @@ function main(argv) {
     console.log(`${TAG} ledger written: ${Object.keys(next.keys).length} key(s), ${dirty} still dirty`);
   };
 
+  const enforceCodeComplete = (selectedKeys, purgedKeys) => {
+    if (!requireCodeComplete) return true;
+    const missing = missingRequiredCodeKeys(selectedKeys, purgedKeys);
+    if (missing.length === 0) return true;
+    console.log(
+      `::error::${TAG} --require-code-complete: ${missing.length} executable key(s) were not purged; publish marker must remain closed (sample: ${missing.slice(0, 8).join(', ')})`,
+    );
+    process.exitCode = 2;
+    return false;
+  };
+
   if (candidates.length === 0) {
     console.log(`${TAG} no ${keyPrefix}/ object to purge — edge stays warm`);
     writeLedger([]);
+    enforceCodeComplete([], []);
     return;
   }
   const { selected: keys, skippedMaps, droppedOther, codeOverCap } = selectPurgeKeys(candidates);
@@ -575,6 +609,7 @@ function main(argv) {
   }
   if (keys.length === 0) {
     writeLedger([]);
+    enforceCodeComplete([], []);
     return;
   }
 
@@ -584,6 +619,7 @@ function main(argv) {
   if (!process.env.CF_API_TOKEN) {
     console.log(`::warning::${TAG} CF_API_TOKEN not set — ${keys.length} ${keyPrefix}/ key(s) not purged, left dirty`);
     writeLedger([]);
+    enforceCodeComplete(keys, []);
     return;
   }
 
@@ -630,6 +666,7 @@ function main(argv) {
   // authoritative record of what the edge accepted.
   console.log(`${TAG} dispatched purge for ${purgedKeys.length}/${keys.length} changed ${keyPrefix}/ key(s) in ${batches} batch(es)`);
   writeLedger(purgedKeys);
+  enforceCodeComplete(keys, purgedKeys);
 }
 
 if (isInvokedDirectly(import.meta.url)) {

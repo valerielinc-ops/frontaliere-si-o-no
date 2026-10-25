@@ -188,6 +188,32 @@ function validBuildId(value) {
 }
 
 /**
+ * Publish-window tokens are epoch milliseconds followed by a numeric 64-bit
+ * owner nonce. They are wider than build ids, so validate them separately.
+ * Keep the nonce opaque for ordering/identity, but use only the epoch prefix
+ * for stall age; otherwise a nonce-bearing token would look like a timestamp
+ * far in the future and could never become stalled.
+ */
+function validPublishToken(value) {
+  const id = String(value || '').trim();
+  return /^\d{10,33}$/.test(id) ? id : null;
+}
+
+function publishTokenTimeMs(id) {
+  const text = String(id || '');
+  const timestamp = Number(text.length > 13 ? text.slice(0, 13) : text);
+  return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+function publishTokenOrderValue(id) {
+  const text = String(id || '');
+  if (text.length <= 13) return `${text}${'0'.repeat(20)}`;
+  const timestamp = text.slice(0, 13);
+  const nonce = text.slice(13).padStart(20, '0');
+  return `${timestamp}${nonce}`;
+}
+
+/**
  * Classify the R2 mutation window independently from the site/CDN generation
  * pair. A start token newer than the last completed token means stable asset
  * URLs are being overwritten and origin bytes are not yet one generation.
@@ -198,10 +224,11 @@ export function classifyCdnPublishWindow({
   nowMs = Date.now(),
   stallMs = CDN_PUBLISH_STALL_MS,
 } = {}) {
-  const startId = startMarker?.ok ? validBuildId(startMarker.body) : null;
-  const completeId = completeMarker?.ok ? validBuildId(completeMarker.body) : null;
+  const startId = startMarker?.ok ? validPublishToken(startMarker.body) : null;
+  const completeId = completeMarker?.ok ? validPublishToken(completeMarker.body) : null;
   const startAbsent = startMarker?.status === 404;
   const completeAbsent = completeMarker?.status === 404;
+  const startTimeMs = startId ? publishTokenTimeMs(startId) : null;
 
   if (startAbsent && completeAbsent) {
     return { state: 'legacy', startId: null, completeId: null, ageMs: null };
@@ -210,13 +237,18 @@ export function classifyCdnPublishWindow({
     return { state: 'unavailable', startId, completeId, ageMs: null };
   }
   if (completeId && startId === completeId) {
-    return { state: 'stable', startId, completeId, ageMs: Math.max(0, nowMs - Number(startId)) };
+    return {
+      state: 'stable',
+      startId,
+      completeId,
+      ageMs: startTimeMs === null ? null : Math.max(0, nowMs - startTimeMs),
+    };
   }
-  if (completeId && BigInt(startId) < BigInt(completeId)) {
+  if (completeId && BigInt(publishTokenOrderValue(startId)) < BigInt(publishTokenOrderValue(completeId))) {
     return { state: 'marker_regression', startId, completeId, ageMs: null };
   }
 
-  const ageMs = nowMs - Number(startId);
+  const ageMs = startTimeMs === null ? null : nowMs - startTimeMs;
   return {
     state: Number.isFinite(ageMs) && ageMs > Math.max(0, Number(stallMs) || 0)
       ? 'stalled'
