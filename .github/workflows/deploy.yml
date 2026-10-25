@@ -1197,7 +1197,14 @@ jobs:
           HREFlANG_RUN_ATTEMPT: ${{ github.run_attempt }}
         run: |
           set -euo pipefail
-          deadline=$((SECONDS + 900))
+          # The locale matrix builds in parallel but their completion times can
+          # differ substantially. A 15-minute barrier expires while the
+          # slower de/fr legs are still producing their manifests, leaving the
+          # faster it/en legs to fail the whole build before the set exists.
+          # Keep the barrier inside the job's normal budget while allowing the
+          # slowest locale to catch up.
+          barrier_seconds=3600
+          deadline=$((SECONDS + barrier_seconds))
           while :; do
             complete=1
             for locale in it en de fr; do
