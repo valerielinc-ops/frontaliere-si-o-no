@@ -86,10 +86,9 @@ jobs:
         continue-on-error: true
         id: send-brief
         env:
-          # Armed explicitly here, same convention as ENABLE_JOB_ALERTS: the
-          # script refuses a real send without it, so a local invocation can
-          # never broadcast by accident.
-          ENABLE_DAILY_BRIEF: 'true'
+          # Bloccato dal proprietario il 25/10/2026: non riattivare senza
+          # istruzione esplicita del proprietario.
+          ENABLE_DAILY_BRIEF: 'false'
           TARGET_EMAIL: ${{ inputs.target_email }}
           ALLOW_SIDE_EFFECT: 'true'
           EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}

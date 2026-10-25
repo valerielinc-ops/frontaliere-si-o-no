@@ -86,6 +86,8 @@ import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
+const OWNER_BLOCK_RELATIVE_PATH = 'data/daily-brief-owner-block.json';
+const OWNER_BLOCK_PATH = path.join(ROOT, OWNER_BLOCK_RELATIVE_PATH);
 const BASE_URL = 'https://frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -103,6 +105,38 @@ const BLOG_HUB = {
 };
 
 const TARGET_EMAIL_RAW = (process.env.TARGET_EMAIL || '').trim().toLowerCase();
+
+/**
+ * The owner block is deliberately a tracked, fail-closed control plane. A
+ * missing or malformed file must never turn an accidental deletion into a
+ * broadcast; only dry-run is allowed to continue in that state.
+ */
+export function parseDailyBriefOwnerBlock(raw) {
+  try {
+    const block = JSON.parse(String(raw));
+    if (block?.blocked === true) return { ...block, blocked: true, valid: true };
+    if (block?.blocked === false) return { ...block, blocked: false, valid: true };
+  } catch {
+    // Fall through to the fail-closed result below.
+  }
+  return {
+    blocked: true,
+    valid: false,
+    reason: `${OWNER_BLOCK_RELATIVE_PATH} mancante o non valido`,
+  };
+}
+
+export function readDailyBriefOwnerBlock(blockPath = OWNER_BLOCK_PATH) {
+  try {
+    return parseDailyBriefOwnerBlock(fs.readFileSync(blockPath, 'utf8'));
+  } catch {
+    return {
+      blocked: true,
+      valid: false,
+      reason: `${OWNER_BLOCK_RELATIVE_PATH} mancante o non leggibile`,
+    };
+  }
+}
 
 // ── Firebase Admin (lazy init, same pattern as send-saved-jobs-digest.mjs) ──
 
@@ -569,6 +603,16 @@ async function main() {
 }
 
 async function runMain(runState) {
+  const ownerBlock = readDailyBriefOwnerBlock();
+  if (!DRY_RUN && ownerBlock.blocked) {
+    const reason = ownerBlock.reason || 'decisione owner registrata nel file di blocco';
+    console.log(
+      `🚫 [daily-brief] invio reale bloccato dal proprietario dal 25/10/2026: `
+      + `${reason}${/[.!?]$/.test(reason) ? '' : '.'} `
+      + 'Nessuna email inviata; solo il proprietario può sbloccare con istruzione esplicita.',
+    );
+    return;
+  }
   if (!DRY_RUN && process.env.ENABLE_DAILY_BRIEF !== 'true') {
     console.log('🚫 ENABLE_DAILY_BRIEF is not "true" — refusing a real send (dry-run works without it).');
     return;
