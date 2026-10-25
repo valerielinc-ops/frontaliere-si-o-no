@@ -45,6 +45,18 @@ import { intFromEnv } from './lib/int-from-env.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://frontaliereticino.ch';
+const INSPECTION_FETCH_TIMEOUT_MS = (() => {
+  const value = Number(process.env.INSPECTION_FETCH_TIMEOUT_MS);
+  if (!Number.isFinite(value) || value <= 0) return 30_000;
+  return Math.min(Math.floor(value), 120_000);
+})();
+
+function fetchInspection(url, init = {}) {
+  return fetch(url, {
+    ...init,
+    signal: AbortSignal.timeout(INSPECTION_FETCH_TIMEOUT_MS),
+  });
+}
 
 const DRY_RUN = process.argv.includes('--dry-run');
 // `intFromEnv` due volte, annidato: l'argomento di riga di comando ha
@@ -72,7 +84,7 @@ async function getAccessToken() {
   if (!GSC_CLIENT_ID || !GSC_CLIENT_SECRET || !GSC_REFRESH_TOKEN) {
     throw new Error('Missing GSC_CLIENT_ID, GSC_CLIENT_SECRET, or GSC_REFRESH_TOKEN');
   }
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+  const res = await fetchInspection('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -90,7 +102,7 @@ async function getAccessToken() {
 /** Detect the registered GSC site property (prefers URL-prefix over domain-property). */
 async function detectSiteProperty(accessToken) {
   try {
-    const res = await fetch('https://www.googleapis.com/webmasters/v3/sites', {
+    const res = await fetchInspection('https://www.googleapis.com/webmasters/v3/sites', {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
     if (!res.ok) return SITE_URL;
@@ -210,7 +222,7 @@ async function main() {
   for (const { p } of ranked) {
     const inspectionUrl = `${SITE_URL}${p.startsWith('/') ? p : '/' + p}`;
     try {
-      const res = await fetch(
+      const res = await fetchInspection(
         'https://searchconsole.googleapis.com/v1/urlInspection/index:inspect',
         {
           method: 'POST',
