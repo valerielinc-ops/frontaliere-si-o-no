@@ -60,7 +60,7 @@ const stillLive = (): Verdict => ({ valid: true, status: 200, reason: 'ok' });
 const botChallenge = (): Verdict => ({ valid: true, status: 403, reason: 'blocked-403' });
 const networkError = (): Verdict => ({ valid: true, status: 0, reason: 'network-error' });
 
-function createShrinkIssueHarness() {
+function createShrinkIssueHarness({ metadataOnly = false } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-shrink-issue-'));
   const sliceDir = path.resolve(__dirname, '../../data/jobs/by-crawler');
   const slicePath = path.join(dir, 'slice.json');
@@ -74,11 +74,18 @@ function createShrinkIssueHarness() {
   process.env.SKIP_OWNERSHIP_GUARD = '1';
   execFileSyncMock.mockClear();
 
-  const job = {
-    id: `shrink-${path.basename(dir)}`,
-    url: `https://shrink-test.invalid/jobs/${path.basename(dir)}`,
-    title: 'Legacy source job',
-  };
+  const job = metadataOnly
+    ? {
+      company: 'International School of Ticino',
+      companyKey: 'international-school-of-ticino',
+      country: 'CH',
+      source: 'ist-inspirededu-crawler',
+    }
+    : {
+      id: `shrink-${path.basename(dir)}`,
+      url: `https://shrink-test.invalid/jobs/${path.basename(dir)}`,
+      title: 'Legacy source job',
+    };
   fs.writeFileSync(slicePath, `${JSON.stringify({ crawlerKey, assembledAt: '2026-09-30T00:00:00.000Z', jobs: [job] })}\n`, 'utf8');
 
   return {
@@ -106,6 +113,26 @@ describe('verifyShrinkAgainstSource()', () => {
 
       expect(result).toMatchObject({ written: true, shrinkAccepted: true });
       expect(execFileSyncMock).not.toHaveBeenCalled();
+    } finally {
+      harness.cleanup();
+    }
+  });
+
+  it('accepts a metadata-only thin quarantine without a source probe', async () => {
+    const harness = createShrinkIssueHarness({ metadataOnly: true });
+    try {
+      const result = await writeJobsCrawlerSliceVerified(harness.crawlerKey, [], {
+        housekeepingProof: [{
+          job: harness.job,
+          reason: 'thin-source-quarantine',
+          definitive: true,
+        }],
+        validate: async () => {
+          throw new Error('metadata-only quarantine must not be probed');
+        },
+      });
+
+      expect(result).toMatchObject({ written: true, shrinkAccepted: true });
     } finally {
       harness.cleanup();
     }
@@ -273,6 +300,19 @@ describe('verifyShrinkAgainstSource()', () => {
     const verdict = await verifyShrinkAgainstSource(prior, next, {
       validate: validatorFrom({ [prior[2].url]: gone404(prior[2].url) }),
     });
+    expect(verdict.corroborated).toBe(false);
+    expect(verdict.unverifiable).toBe(1);
+  });
+
+  it('does not treat a route-bearing no-URL row as metadata-only', async () => {
+    const prior = [{ id: 'u2', title: 'No URL', slug: 'u2' }];
+    const verdict = await verifyShrinkWithProvidedHousekeepingProof(
+      prior,
+      [],
+      [{ job: prior[0], reason: 'thin-source-quarantine', definitive: true }],
+      { validate: async () => { throw new Error('route-bearing row must not be accepted'); } },
+    );
+
     expect(verdict.corroborated).toBe(false);
     expect(verdict.unverifiable).toBe(1);
   });
