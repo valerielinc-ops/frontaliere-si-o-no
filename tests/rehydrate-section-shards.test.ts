@@ -229,6 +229,20 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(warningLines.length).toBeGreaterThanOrEqual(2); // clone-failed + no-subtree cases, unchanged
   });
 
+  it('allows strict replay only for the two artifactless article sections', () => {
+    // These sections are intentionally emitted by the corpus publisher, not
+    // by the site build, so no same-run section tar can exist. Their clone
+    // fallback is explicitly recognized by rehydrate-provenance.sh and the
+    // coherence gate; every other section must remain fail-closed.
+    expect(script).toMatch(
+      /artifactless_article_section\(\)\s*\{[\s\S]*articolifrontaliere\|articolisvizzera\) return 0\s*;/,
+    );
+    expect(script).toContain(
+      'if [ "${AUDIT_REPLAY_FAIL_CLOSED:-}" = \'true\' ] && ! artifactless_article_section "$section"; then',
+    );
+    expect(script).toContain('replay shard artifact unavailable for $section $loc');
+  });
+
   it('restores a physical Ticino fan-out before moving a clone into canonical dist', () => {
     expect(script).toContain('ticino-tree-fanout.sh');
     const restoreIdx = script.indexOf('ticino_tree_unfanout_stage "$section" "$tmp/$sub"');

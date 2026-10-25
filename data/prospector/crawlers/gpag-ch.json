@@ -1,0 +1,21 @@
+{
+  "companyKey": "gpag-ch",
+  "companyName": "Gähler und Partner",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/application-process/cbc05eec-d9de-49c2-965c-58690721b0ed/a27af08a-b235-c8e4-2b47-307987cbfbaa?jp=ABACUS"
+  ],
+  "detailTemplate": "/application-process/cbc05eec-d9de-49c2-965c-58690721b0ed/a27af08a-b235-c8e4-2b47-307987cbfbaa",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung"
+  ],
+  "canton": "AG",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-25T10:55:57.332Z",
+  "candidateKey": "gpag.ch"
+}

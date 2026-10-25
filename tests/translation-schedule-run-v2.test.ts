@@ -22,13 +22,21 @@ function git(cwd: string, ...args: string[]) {
   return execFileSync('git', args, { cwd, encoding: 'utf8' }).trim();
 }
 
+function disableAutomaticGitMaintenance(repository: string, { receive = false } = {}) {
+  git(repository, 'config', 'gc.auto', '0');
+  git(repository, 'config', 'maintenance.auto', 'false');
+  if (receive) git(repository, 'config', 'receive.autogc', 'false');
+}
+
 function createRepositories() {
   const root = mkdtempSync(join(tmpdir(), 'translation-scheduler-v2-test-'));
   roots.push(root);
   const remote = join(root, 'remote.git');
   const seed = join(root, 'seed');
   git(root, 'init', '-q', '--bare', '--initial-branch=main', remote);
+  disableAutomaticGitMaintenance(remote, { receive: true });
   git(root, 'init', '-q', '--initial-branch=main', seed);
+  disableAutomaticGitMaintenance(seed);
   git(seed, 'config', 'user.name', 'Translation Scheduler Test');
   git(seed, 'config', 'user.email', 'translation-scheduler-test@example.test');
 
@@ -83,7 +91,8 @@ function createRepositories() {
   git(seed, 'push', '-q', 'origin', 'HEAD:main');
 
   const one = join(root, 'one');
-  git(root, 'clone', '-q', remote, one);
+  git(root, 'clone', '-q', '-c', 'gc.auto=0', '-c', 'maintenance.auto=false', remote, one);
+  disableAutomaticGitMaintenance(one);
   git(one, 'config', 'user.name', 'Translation Scheduler Test');
   git(one, 'config', 'user.email', 'translation-scheduler-test@example.test');
 

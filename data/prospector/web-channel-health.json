@@ -1,13 +1,5 @@
 [
   {
-    "at": "2026-09-07T08:50:17.788Z",
-    "collection": "CC-MAIN-2026-34",
-    "totalPages": 1210,
-    "pagesRead": 20,
-    "employers": 10,
-    "outage": false
-  },
-  {
     "at": "2026-09-08T08:35:44.482Z",
     "collection": "CC-MAIN-2026-34",
     "totalPages": 1210,
@@ -1191,6 +1183,74 @@
       }
     ],
     "coverageRate": 0.01,
+    "outage": false
+  },
+  {
+    "at": "2026-10-25T08:50:12.559Z",
+    "collection": "CC-MAIN-2026-43",
+    "totalPages": 1200,
+    "pagesRead": 29,
+    "employers": 315,
+    "outcome": "partial",
+    "errorCode": "malformed_rows",
+    "failedPages": [
+      {
+        "page": 464,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 493,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 580,
+        "outcome": "malformed",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 1189,
+        "outcome": "unavailable",
+        "errorCode": "http_404"
+      },
+      {
+        "page": 47,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 105,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 134,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 1178,
+        "outcome": "malformed",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 7,
+        "outcome": "unavailable",
+        "errorCode": "http_502"
+      },
+      {
+        "page": 36,
+        "outcome": "malformed",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 297,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      }
+    ],
+    "coverageRate": 0.0342,
     "outage": false
   }
 ]

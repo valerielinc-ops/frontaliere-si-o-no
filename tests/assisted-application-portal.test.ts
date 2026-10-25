@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, isDateField, knownValuesOf, nativeLanguageOption, normalizeDateAnswer, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, isDateField, knownValuesOf, nativeLanguageOption, normalizeDateAnswer, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic, targetEmployerNoOption } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
@@ -1603,6 +1603,63 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const ended = { answers: {}, profile: { experience: [{ role: 'Impiegata', employer: 'Comune', end: '31/12/2024' }] }, portalQuestionsAnswered: [] };
     expect(currentEmploymentOption(field, ended)).toBeNull();
     expect(guardPlan({ actions: [], missingRequired: [] }, [field], ended).missingRequired.map((item: any) => item.fieldId)).toEqual(['employment']);
+  });
+
+  it('answers a target-employer employee field only when the employer is known and absent', () => {
+    const field = {
+      id: 'target-employer',
+      kind: 'select',
+      label: 'Ich bin bereits Mitarbeiter/in',
+      required: true,
+      options: [{ label: 'Bitte wählen' }, { label: 'Nein' }, { label: 'Ja' }],
+    };
+    const otherEmployer = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { experience: [{ employer: 'Andere GmbH' }] },
+      job: { company: 'Planzer' },
+    });
+    expect(targetEmployerNoOption(field, otherEmployer)).toEqual({ label: 'Nein' });
+    expect(guardPlan({ actions: [], missingRequired: [{ fieldId: field.id, question: field.label, why: '', type: 'choice', options: ['Bitte wählen', 'Nein', 'Ja'] }] }, [field], otherEmployer)).toMatchObject({
+      actions: [{ fieldId: field.id, action: 'select', value: 'Nein', source: 'rule' }],
+      missingRequired: [],
+    });
+    const targetEmployer = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { experience: [{ employer: 'Planzer Transport AG' }] },
+      job: { company: 'Planzer' },
+    });
+    expect(targetEmployerNoOption(field, targetEmployer)).toBeNull();
+    expect(targetEmployerNoOption(field, candidateForForm({ identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' } }))).toBeNull();
+    const explicitAnswer = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { experience: [{ employer: 'Andere GmbH' }] },
+      answers: { [field.id]: 'Ja' },
+      portalQuestions: [{ id: field.id, question: field.label, required: true, source: 'portal', type: 'choice', options: ['Nein', 'Ja'] }],
+      job: { company: 'Planzer' },
+    });
+    expect(targetEmployerNoOption(field, explicitAnswer)).toBeNull();
+    expect(autoAnswersForPortalQuestions({
+      questions: [{ id: field.id, source: 'portal', question: field.label, required: true, type: 'choice', options: field.options.map((option) => option.label) }],
+      candidate: otherEmployer,
+      answers: {},
+    })).toEqual({ [field.id]: 'Nein' });
+    const genericQuestion = { ...field, id: 'target-employer-generic', label: 'Do you work / have you worked for us?' };
+    expect(targetEmployerNoOption(genericQuestion, otherEmployer)).toEqual({ label: 'Nein' });
+    expect(targetEmployerNoOption({ ...genericQuestion, label: 'Are you already employed?' }, otherEmployer)).toBeNull();
+    expect(targetEmployerNoOption({ ...genericQuestion, label: 'Sind Sie bereits Mitarbeiter/in?' }, otherEmployer)).toBeNull();
+    expect(targetEmployerNoOption({ ...genericQuestion, label: 'Ich bin bereits Mitarbeiter/in' }, otherEmployer)).toEqual({ label: 'Nein' });
+    const ambiguousEmployer = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { employers: ['Acme Consulting'] },
+      job: { company: 'Acme' },
+    });
+    expect(targetEmployerNoOption(genericQuestion, ambiguousEmployer)).toBeNull();
+    const shortEmployer = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { employers: ['HP SA'] },
+      job: { company: 'HP SA' },
+    });
+    expect(targetEmployerNoOption(genericQuestion, shortEmployer)).toBeNull();
   });
 
   it('requires language-specific evidence for ability and proficiency answers', () => {

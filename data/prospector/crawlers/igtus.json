@@ -1,0 +1,20 @@
+{
+  "companyKey": "igtus",
+  "companyName": "igtus",
+  "companyHost": "jobs.securiton.ch",
+  "platform": "securiton.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.securiton.ch/Systemtechniker-80-100-mwd-de-j2652.html"
+  ],
+  "detailTemplate": "/Systemtechniker-80-100-mwd-de-j2652.html",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Systemtechniker 80 – 100 % (m/w/d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-25T11:05:17.827Z",
+  "candidateKey": "igtus.ch"
+}

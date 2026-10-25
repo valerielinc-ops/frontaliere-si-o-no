@@ -173,6 +173,19 @@ batch_zip_release() {
   return 0
 }
 
+# The two article sections are maintained by the corpus publisher and are
+# deliberately excluded from the full site build (`*_BUILD_EMIT_SKIP=true`).
+# They therefore never produce a same-run section tar; their shard repo is the
+# only deployable source and the replay provenance/coherence gate already
+# treats these two clone fallbacks as expected. Keep every other strict replay
+# fail-closed when an artifact is missing or corrupt.
+artifactless_article_section() {
+  case "$1" in
+    articolifrontaliere|articolisvizzera) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
 rehydrate_section() {
   local section="$1"
   local batch
@@ -293,7 +306,7 @@ rehydrate_section() {
       echo "[rehydrate] $section-$loc artifact absent — falling back to git clone"
     fi
 
-    if [ "${AUDIT_REPLAY_FAIL_CLOSED:-}" = 'true' ]; then
+    if [ "${AUDIT_REPLAY_FAIL_CLOSED:-}" = 'true' ] && ! artifactless_article_section "$section"; then
       trunk_replace_end "$section-$loc" || true
       echo "::error::replay shard artifact unavailable for $section $loc — refusing current shard-main fallback"
       return 1

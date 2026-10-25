@@ -1,5 +1,5 @@
 {
-  "companyKey": "job-boards",
+  "companyKey": "wepractice-ch",
   "companyName": "WePractice",
   "companyHost": "job-boards.greenhouse.io",
   "platform": "greenhouse.io",
@@ -10,15 +10,16 @@
   "detailTemplate": "/pia/jobs/*",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 7,
+  "sampleVacancyCount": 8,
   "sampleTitles": [
     "Kinder- und Jugendpsychotherapeut:in in Weiterbildung / Psycholog:in (60 – 100%) Zürich, Switzerland",
     "Psychotherapeut:in in Weiterbildung / Psycholog:in (60 - 100%) Basel, Basel-Stadt, Switzerland",
     "Psychotherapeut:in in Weiterbildung / Psycholog:in (60 – 100%) St. Gallen, Switzerland",
     "Psychotherapeut:in in Weiterbildung / Psycholog:in (60 – 100%) Zürich, Switzerland",
-    "Psychotherapeut:in in Weiterbildung / Psycholog:in (60 – 100%) Zug, Switzerland"
+    "Psychotherapeut:in in Weiterbildung / Psycholog:in (60 – 100%) Winterthur, Zürich, Switzerland"
   ],
-  "canton": "SG",
+  "canton": "BS",
   "sourceLang": "it",
-  "learnedAt": "2026-09-22T10:47:45.047Z"
+  "learnedAt": "2026-10-25T10:56:25.650Z",
+  "candidateKey": "wepractice@basel"
 }

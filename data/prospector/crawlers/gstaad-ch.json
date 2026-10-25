@@ -1,0 +1,25 @@
+{
+  "companyKey": "gstaad-ch",
+  "companyName": "Touristeninformation Gstaad",
+  "companyHost": "yourgstaad.ch",
+  "platform": "yourgstaad.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://yourgstaad.ch/en/your-job/"
+  ],
+  "detailTemplate": "/en/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 19,
+  "sampleTitles": [
+    "Posted on October 15, 2026 Housekeeping Saisonstelle from 01/12/2026 --> Passt gut in deinen Familienrhythmus Auch geeignet für Vormittagsarbeit Job Housekeepin",
+    "Saanen Landhaus Saanen Posted on October 7, 2026 Vollzeit unbefristet - Jahresstelle – Servicemitarbeiter (m/w) 100% from 01/12/2026 --> Teamplayer Motiviert De",
+    "Gstaad Gstaad Palace Posted on September 30, 2026 unbeVollzeit unbefristet - Reservations Agent (m/w) --> Gästebedürfnisse Teamfähig Französisch",
+    "Gstaad Gstaad Palace Posted on September 4, 2026 Vollzeit/Saisonvertrag - Femme de Chambre – Résidence et Chalet du Palace --> Résidence et Chalet du Palace Fra",
+    "Saanenmöser bei Gstaad MAISON HORNBERG Posted on August 29, 2026 Vollzeit unbefristetVollzeit- oder Teilzeitvertrag unbefristet - Casserolier m / f from 20/11/2"
+  ],
+  "canton": "BE",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-25T11:05:01.464Z",
+  "candidateKey": "gstaad.ch"
+}
