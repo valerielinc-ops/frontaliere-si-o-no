@@ -330,6 +330,45 @@ async function getIfPublished(name, { binary = false, requiredWhenNew = true } =
 
 const countUrls = (xml) => (xml.match(/<url>/g) ?? []).length;
 const countAlternates = (xml) => (xml.match(/xhtml:link/g) ?? []).length;
+const ARCHIVE_SITEMAP = 'sitemap-articles-archive.xml';
+const ARCHIVE_PAGE_ONE_PATHS = new Set([
+  '/articoli-frontaliere/tutti/',
+  '/en/cross-border-articles/all/',
+  '/de/grenzgaenger-artikel/alle/',
+  '/fr/articles-frontalier/tous/',
+  '/articoli-svizzera/tutti/',
+  '/en/swiss-articles/all/',
+  '/de/schweiz-artikel/alle/',
+  '/fr/articles-suisse/tous/',
+]);
+
+/**
+ * The corpus archive sitemap intentionally announces page 1 only. The rest
+ * of the HTML chain remains reachable through the archive pager but is
+ * noindex, and the manifest carries the exact URL count. Keep this check
+ * structural: a short or malformed publisher response must still fail closed.
+ */
+function isCanonicalArchiveProjection(xml, expectedCount) {
+  if (!Number.isSafeInteger(expectedCount) || expectedCount <= 0) return false;
+  const blocks = xml.match(/<url>[\s\S]*?<\/url>/g) ?? [];
+  if (blocks.length !== expectedCount) return false;
+
+  const paths = new Set();
+  for (const block of blocks) {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1]?.trim();
+    let pathname;
+    try {
+      const url = new URL(loc);
+      if (url.hostname !== 'frontaliereticino.ch' || url.search || url.hash) return false;
+      pathname = url.pathname;
+    } catch {
+      return false;
+    }
+    if (!ARCHIVE_PAGE_ONE_PATHS.has(pathname) || paths.has(pathname)) return false;
+    paths.add(pathname);
+  }
+  return true;
+}
 
 let manifest;
 try {
@@ -340,6 +379,10 @@ try {
 
 if (typeof manifest.counts?.articles !== 'number' || manifest.counts.articles < MIN_ARTICLES) {
   fail(`manifest reports ${manifest.counts?.articles} articles (min ${MIN_ARTICLES}) — refusing`);
+}
+const publishedArchiveUrlCount = manifest.counts?.sitemapArchiveUrls;
+if (!Number.isSafeInteger(publishedArchiveUrlCount) || publishedArchiveUrlCount <= 0) {
+  fail(`manifest reports invalid ${ARCHIVE_SITEMAP} count (${publishedArchiveUrlCount}) — refusing`);
 }
 
 // ── The other half of the consistency pin (issue #5298) ──────────────────────
@@ -806,6 +849,16 @@ for (const name of SITEMAPS) {
   const alts = countAlternates(xml);
   if (urls === 0) fail(`${name} has no <url> entries — refusing`);
   if (alts === 0) fail(`${name} has no hreflang alternates — refusing`);
+  const intentionalArchiveProjection =
+    name === ARCHIVE_SITEMAP
+    && urls === publishedArchiveUrlCount
+    && isCanonicalArchiveProjection(xml, publishedArchiveUrlCount);
+  if (name === ARCHIVE_SITEMAP && urls !== publishedArchiveUrlCount) {
+    fail(
+      `${name} has ${urls} urls but manifest counts.sitemapArchiveUrls is `
+        + `${publishedArchiveUrlCount} — refusing`,
+    );
+  }
 
   const dest = path.join(PUBLIC_DIR, name);
   if (fs.existsSync(dest)) {
@@ -821,7 +874,7 @@ for (const name of SITEMAPS) {
     const curUrls = countUrls(current);
     const curAlts = countAlternates(current);
     // Shrinking either dimension drops pages or alternates from the index.
-    if (urls < curUrls) {
+    if (urls < curUrls && !intentionalArchiveProjection) {
       fail(`${name} would shrink from ${curUrls} to ${urls} urls — refusing`);
     }
     if (alts < curAlts) {
