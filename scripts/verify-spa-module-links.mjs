@@ -22,25 +22,35 @@ function toPosix(value) {
   return value.split(path.sep).join('/');
 }
 
-function listJavaScriptAssets(assetsDir) {
+function listAssets(assetsDir, pattern) {
   if (!fs.existsSync(assetsDir)) return [];
   const files = [];
   const visit = (dir) => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const file = path.join(dir, entry.name);
       if (entry.isDirectory()) visit(file);
-      else if (entry.isFile() && /\.m?js$/.test(entry.name)) files.push(file);
+      else if (entry.isFile() && pattern.test(entry.name)) files.push(file);
     }
   };
   visit(assetsDir);
   return files.sort();
 }
 
+function listJavaScriptAssets(assetsDir) {
+  return listAssets(assetsDir, /\.m?js$/);
+}
+
+function listServedAssetFiles(assetsDir) {
+  return listAssets(assetsDir, /\.(?:m?js|css)$/);
+}
+
 /**
  * Build the same URL-keyed graph used by the live watchdog, from emitted
  * files. The Map input keeps this function small and directly unit-testable.
+ * `assetPaths` adds emitted non-JavaScript assets (currently CSS) to the
+ * served set without pretending they are JavaScript modules to parse.
  */
-export function buildLocalModuleGraph(sources, { base = CDN_ASSETS_BASE } = {}) {
+export function buildLocalModuleGraph(sources, { base = CDN_ASSETS_BASE, assetPaths = [] } = {}) {
   const modules = new Map();
   for (const [relativePath, source] of sources) {
     const relativeUrl = toPosix(relativePath);
@@ -49,6 +59,11 @@ export function buildLocalModuleGraph(sources, { base = CDN_ASSETS_BASE } = {}) 
   }
 
   const served = new Map([...modules.keys()].map((url) => [url, true]));
+  for (const relativePath of assetPaths) {
+    const relativeUrl = toPosix(relativePath);
+    const assetUrl = new URL(relativeUrl, base).href;
+    served.set(assetUrl, true);
+  }
   for (const mod of modules.values()) {
     for (const ref of mod.imports) {
       if (!served.has(ref.url)) served.set(ref.url, false);
@@ -59,6 +74,7 @@ export function buildLocalModuleGraph(sources, { base = CDN_ASSETS_BASE } = {}) 
 
 export function verifyLocalModuleLinks(assetsDir) {
   const files = listJavaScriptAssets(assetsDir);
+  const servedAssetFiles = listServedAssetFiles(assetsDir);
   if (files.length === 0) {
     throw new Error(`no JavaScript assets found in ${assetsDir}`);
   }
@@ -69,7 +85,8 @@ export function verifyLocalModuleLinks(assetsDir) {
       fs.readFileSync(file, 'utf8'),
     ]),
   );
-  const graph = buildLocalModuleGraph(sources);
+  const assetPaths = servedAssetFiles.map((file) => toPosix(path.relative(assetsDir, file)));
+  const graph = buildLocalModuleGraph(sources, { assetPaths });
   return { ...graph, files, broken: linkCheck(graph.modules, graph.served) };
 }
 

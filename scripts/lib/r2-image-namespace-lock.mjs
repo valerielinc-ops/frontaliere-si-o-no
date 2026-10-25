@@ -43,6 +43,13 @@ function isNonNegativeSafeInteger(value) {
   return Number.isSafeInteger(value) && value >= 0;
 }
 
+function safeTimestamp(value, name) {
+  if (!isNonNegativeSafeInteger(value)) {
+    throw new Error(`[r2-image-namespace-lock] ${name} must be a non-negative safe integer millisecond timestamp`);
+  }
+  return value;
+}
+
 export function parseLeaseTimestamp(raw) {
   if (typeof raw !== 'string' || !DECIMAL_LEASE_TIMESTAMP_RE.test(raw)) return null;
   const timestamp = Number(raw);
@@ -90,8 +97,9 @@ export function isImageNamespaceLockPayload(value) {
       && value.leaseId.length > 0
       && isNonNegativeSafeInteger(value.acquiredAt)
       && isNonNegativeSafeInteger(value.expiresAt)
-      && (value.expiresAt > value.acquiredAt
-        || (isNonNegativeSafeInteger(value.releasedAt)
+      && (value.releasedAt === undefined || isNonNegativeSafeInteger(value.releasedAt))
+      && ((value.releasedAt === undefined && value.expiresAt > value.acquiredAt)
+        || (value.releasedAt !== undefined
           && value.releasedAt >= value.acquiredAt
           && value.expiresAt === value.releasedAt)),
   );
@@ -272,7 +280,7 @@ function leaseMatches(current, lease) {
 }
 
 function tombstonePayload(payload, now, { rotateEtag = false } = {}) {
-  const releasedAt = Math.max(
+  const releasedAt = safeTimestamp(Math.max(
     now(),
     payload.acquiredAt,
     rotateEtag
@@ -280,7 +288,7 @@ function tombstonePayload(payload, now, { rotateEtag = false } = {}) {
       && payload.releasedAt < Number.MAX_SAFE_INTEGER
       ? payload.releasedAt + 1
       : 0,
-  );
+  ), 'releasedAt');
   return { ...payload, releasedAt, expiresAt: releasedAt };
 }
 
@@ -376,9 +384,10 @@ export async function acquireImageNamespaceLock(
 
   const owner = ownerOverride === undefined ? randomUUID() : requiredString(ownerOverride, 'owner');
   const leaseId = leaseIdOverride === undefined ? randomUUID() : requiredString(leaseIdOverride, 'lease ID');
-  const acquisitionStartedAt = now();
+  const safeNow = () => safeTimestamp(now(), 'clock');
+  const acquisitionStartedAt = safeNow();
   const acquiredAt = acquiredAtOverride ?? acquisitionStartedAt;
-  const deadline = acquisitionStartedAt + timeoutMs;
+  const deadline = safeTimestamp(acquisitionStartedAt + timeoutMs, 'acquisition deadline');
   // Keep the exact payload stable across retries. If an earlier conditional
   // PUT is still in flight, a later 409/404 must still be recognizable as the
   // same acquisition when that write becomes visible.
@@ -396,7 +405,7 @@ export async function acquireImageNamespaceLock(
   let candidateMayExist = false;
   const staleWriteConditions = [];
   try {
-    while (now() <= deadline) {
+    while (safeNow() <= deadline) {
       throwIfAborted(signal);
       let currentAfterWrite;
       let created;
@@ -436,10 +445,10 @@ export async function acquireImageNamespaceLock(
         return recoveredLease;
       }
       if (!current) {
-        await waitForRetry(Math.min(100, Math.max(0, deadline - now())), sleep, signal);
+        await waitForRetry(Math.min(100, Math.max(0, deadline - safeNow())), sleep, signal);
         continue;
       }
-      if (current.payload.expiresAt <= now()) {
+      if (current.payload.expiresAt <= safeNow()) {
         if (!current.etag) {
           throw new Error(`[r2-image-namespace-lock] lock ${namespace} has no ETag; refusing an unsafe takeover`);
         }
@@ -467,7 +476,7 @@ export async function acquireImageNamespaceLock(
       }
 
       onWait({ namespace, expiresAt: current.payload.expiresAt });
-      const remaining = deadline - now();
+      const remaining = deadline - safeNow();
       if (remaining <= 0) break;
       await waitForRetry(Math.min(pollMs, remaining), sleep, signal);
     }
@@ -479,7 +488,7 @@ export async function acquireImageNamespaceLock(
       namespace,
       lease,
       request,
-      now,
+      safeNow,
       error,
       staleWriteConditions,
     );
@@ -488,11 +497,12 @@ export async function acquireImageNamespaceLock(
 
 export async function acquireImageNamespaceLeases(namespaces, options = {}) {
   const normalized = parseImageNamespaces(namespaces);
-  const now = options.now ?? Date.now;
+  const clock = options.now ?? Date.now;
+  const now = () => safeTimestamp(clock(), 'clock');
   const timeoutMs = options.timeoutMs ?? IMAGE_LOCK_ACQUIRE_TIMEOUT_MS;
   const signal = options.signal;
   positiveDuration(timeoutMs, 'acquire timeout');
-  const deadline = now() + timeoutMs;
+  const deadline = safeTimestamp(now() + timeoutMs, 'acquisition deadline');
   const acquired = [];
   try {
     for (const namespace of normalized) {
@@ -549,12 +559,13 @@ export async function verifyImageNamespaceLease(
 ) {
   parseImageNamespaces([namespace]);
   const context = parseLeaseContext(contextValue);
+  const safeNow = () => safeTimestamp(now(), 'verification clock');
   const lease = context.leases.find((candidate) => candidate.namespace === namespace);
-  if (!lease || lease.expiresAt <= now()) {
+  if (!lease || lease.expiresAt <= safeNow()) {
     throw new Error(`[r2-image-namespace-lock] no current ${namespace} lease in context`);
   }
   const current = await readCurrentLease(request, namespace);
-  if (!current || !current.etag || current.payload.expiresAt <= now() || !leaseMatches(current, lease)) {
+  if (!current || !current.etag || current.payload.expiresAt <= safeNow() || !leaseMatches(current, lease)) {
     throw new Error(`[r2-image-namespace-lock] ${namespace} lease is no longer owned by this context`);
   }
   return lease;
@@ -572,6 +583,7 @@ export async function releaseImageNamespaceLock(
   } = {},
 ) {
   const parsedLease = parseLeaseContext({ version: CONTEXT_VERSION, leases: [lease] }).leases[0];
+  const safeNow = () => safeTimestamp(now(), 'release clock');
   const normalized = {
     ...parsedLease,
     ...(isNonNegativeSafeInteger(lease.acquiredAt) ? { acquiredAt: lease.acquiredAt } : {}),
@@ -580,27 +592,30 @@ export async function releaseImageNamespaceLock(
     throw new Error(`[r2-image-namespace-lock] candidate cleanup for ${parsedLease.namespace} requires acquiredAt`);
   }
   const namespace = normalized.namespace;
-  const releaseRequest = Number.isFinite(deadline)
-    ? (input) => request({ ...input, deadline })
+  const releaseDeadline = deadline === undefined ? undefined : safeTimestamp(deadline, 'release deadline');
+  const releaseRequest = releaseDeadline !== undefined
+    ? (input) => request({ ...input, deadline: releaseDeadline })
     : request;
-  const candidateTombstone = tombstonePayload(normalized, now);
+  const candidateTombstone = normalized.acquiredAt === undefined
+    ? undefined
+    : tombstonePayload(normalized, safeNow);
   let lastAttempt = null;
   let lastError = null;
   const deadlineError = () => {
     const error = new Error(`[r2-image-namespace-lock] cleanup ${namespace} exceeded its release deadline`);
     error.code = 'IMAGE_LEASE_RELEASE_TIMEOUT';
-    error.deadline = deadline;
+    error.deadline = releaseDeadline;
     return error;
   };
   const assertBeforeDeadline = () => {
-    if (Number.isFinite(deadline) && now() >= deadline) throw deadlineError();
+    if (releaseDeadline !== undefined && safeNow() >= releaseDeadline) throw deadlineError();
   };
   const sleepBeforeDeadline = async (milliseconds) => {
-    if (!Number.isFinite(deadline)) {
+    if (releaseDeadline === undefined) {
       await sleep(milliseconds);
       return;
     }
-    const remaining = deadline - now();
+    const remaining = releaseDeadline - safeNow();
     if (remaining <= 0) throw deadlineError();
     await sleep(Math.min(milliseconds, remaining));
     assertBeforeDeadline();
@@ -618,10 +633,10 @@ export async function releaseImageNamespaceLock(
     } catch (readError) {
       let usedFallbackCondition = false;
       if (!lastAttempt) {
-        const staleCondition = staleWriteConditions.find(({ payload }) => payload.expiresAt <= now());
+        const staleCondition = staleWriteConditions.find(({ payload }) => payload.expiresAt <= safeNow());
         if (staleCondition) {
           lastAttempt = {
-            payload: tombstonePayload(staleCondition.payload, now, { rotateEtag: true }),
+            payload: tombstonePayload(staleCondition.payload, safeNow, { rotateEtag: true }),
             condition: { name: 'if-match', value: staleCondition.etag },
             staleWriteCondition: true,
           };
@@ -661,19 +676,19 @@ export async function releaseImageNamespaceLock(
           throw new Error(`[r2-image-namespace-lock] lock ${namespace} has no ETag; refusing an unsafe release`);
         }
         lastAttempt = {
-          payload: tombstonePayload(current.payload, now),
+          payload: tombstonePayload(current.payload, safeNow),
           condition: { name: 'if-match', value: matchEtag },
         };
       } else {
         const staleCondition = matchingStaleWriteCondition(
           current,
           staleWriteConditions,
-          now,
+          safeNow,
           { allowMissingEtag: true },
         );
         if (!staleCondition) return false;
         lastAttempt = {
-          payload: tombstonePayload(staleCondition.payload, now, { rotateEtag: true }),
+          payload: tombstonePayload(staleCondition.payload, safeNow, { rotateEtag: true }),
           condition: { name: 'if-match', value: staleCondition.etag },
           staleWriteCondition: true,
         };
@@ -717,7 +732,7 @@ export async function releaseImageNamespaceLock(
   }
   if (latest && leaseMatches(latest, normalized) && isNonNegativeSafeInteger(latest.payload.releasedAt)) return true;
   if (latest && !leaseMatches(latest, normalized)
-      && !matchingStaleWriteCondition(latest, staleWriteConditions, now, { allowMissingEtag: true })) return false;
+      && !matchingStaleWriteCondition(latest, staleWriteConditions, safeNow, { allowMissingEtag: true })) return false;
   if (!latest && !fenceMissingCandidate) return false;
 
   const detail = latest
@@ -804,7 +819,7 @@ export async function releaseImageNamespaceLeasesWithDeadline(
   if (leases.length === 0) return { status: 'released', timedOut: false, released: [] };
 
   const now = options.now ?? Date.now;
-  const deadline = now() + timeoutMs;
+  const deadline = safeTimestamp(now() + timeoutMs, 'release deadline');
   const timeoutError = new Error(`[r2-image-namespace-lock] rilascio lease immagini oltre il limite (${timeoutMs}ms)`);
   timeoutError.code = 'IMAGE_LEASE_RELEASE_TIMEOUT';
   timeoutError.timeoutMs = timeoutMs;
@@ -893,7 +908,8 @@ async function acquireFromCli(namespaces, request, env = process.env) {
     && Number.isSafeInteger(requestedExpiry)
     && requestedExpiry > requestedAcquiredAt
     ? requestedAcquiredAt
-    : Date.now();
+    : safeTimestamp(Date.now(), 'acquiredAt');
+  const pendingExpiresAt = safeTimestamp(pendingAcquiredAt + IMAGE_LOCK_LEASE_MS, 'lease expiry');
   const pendingLeases = namespaces.map((namespace) => ({
     namespace,
     owner,
@@ -901,7 +917,7 @@ async function acquireFromCli(namespaces, request, env = process.env) {
     // Candidate cleanup needs a valid timestamp even when acquire never returns
     // the lease. A current object supplies its own timestamps during cleanup.
     acquiredAt: pendingAcquiredAt,
-    expiresAt: pendingAcquiredAt + IMAGE_LOCK_LEASE_MS,
+    expiresAt: pendingExpiresAt,
   }));
   let signalExitStatus = 0;
   const abortForSignal = (exitStatus) => {
