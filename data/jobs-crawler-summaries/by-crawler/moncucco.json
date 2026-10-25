@@ -1,7 +1,7 @@
 {
   "key": "moncucco",
   "label": "Gruppo Ospedaliero Moncucco",
-  "generatedAt": "2026-10-25T09:40:02.450Z",
+  "generatedAt": "2026-10-25T21:26:55.874Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2866,
-  "avgDurationMs": 2866,
+  "durationMs": 2824,
+  "avgDurationMs": 2824,
   "durationHistory": [
-    2866
+    2824
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://www.moncucco.ch/medici_pronto_soccorso_interessati_completare_formazione_medicina_demergenza_urgenza_intraospedaliera.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-25T09:39:53.275Z",
+      "crawledAt": "2026-10-25T21:26:45.884Z",
       "firstSeenAt": "2026-10-19T21:14:20.071Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }

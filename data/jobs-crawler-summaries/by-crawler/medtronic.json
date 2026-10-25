@@ -1,7 +1,7 @@
 {
   "key": "medtronic",
   "label": "Medtronic",
-  "generatedAt": "2026-10-25T09:40:42.502Z",
+  "generatedAt": "2026-10-25T21:27:58.884Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 9874,
-  "avgDurationMs": 9874,
+  "durationMs": 9920,
+  "avgDurationMs": 9920,
   "durationHistory": [
-    9874
+    9920
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Consultant-Pelvic-Health-Switzerland_R75087-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:40:32.766Z",
+      "crawledAt": "2026-10-25T21:27:48.762Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Specialist-Operating-Room-Essentials---Surgical-Innovations--h-f-d-_R65064-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:40:27.808Z",
+      "crawledAt": "2026-10-25T21:27:43.828Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Magasinier-Technique---6-mois_R77937-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:40:32.060Z",
+      "crawledAt": "2026-10-25T21:27:48.066Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Engineering-Manager_R76925-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:40:31.375Z",
+      "crawledAt": "2026-10-25T21:27:47.389Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -209,7 +209,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Equipment-Development-Engineer---24-months-contract_R76932-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:40:30.688Z",
+      "crawledAt": "2026-10-25T21:27:46.709Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Associate-Occupational-Nurse_R79180-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:40:29.961Z",
+      "crawledAt": "2026-10-25T21:27:46.017Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -294,7 +294,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/EHS-Engineer_R78969",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:40:29.274Z",
+      "crawledAt": "2026-10-25T21:27:45.349Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -336,7 +336,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Polymcanicien-F-H_R76397-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:40:28.521Z",
+      "crawledAt": "2026-10-25T21:27:44.665Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -379,7 +379,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Equipment-Engineer_R79769-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:40:27.223Z",
+      "crawledAt": "2026-10-25T21:27:42.899Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -410,5 +410,5 @@
       }
     }
   ],
-  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }
