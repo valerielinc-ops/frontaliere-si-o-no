@@ -260,6 +260,38 @@ export function currentEmploymentOption(field, candidate) {
   return yes.length === 1 && no.length === 1 ? yes[0] : null;
 }
 
+const TARGET_EMPLOYER_QUESTION_RE = /\b(?:already\s+(?:an?\s+)?employee|employee\s+already|already\s+employed|bereits\s+mitarbeiter(?:[/-]?in)?|mitarbeiter(?:[/-]?in)?\s+bei\s+uns|d[ée]j[àa]\s+(?:un[e]?\s+)?employ[ée]e?|(?:gi[àa]\s+)?(?:un[e]?\s+)?(?:dipendente|collaborator[ae]?))\b/i;
+const NO_EMPLOYER_OPTION_RE = /^(?:no|nein|non|ne)$/i;
+const EMPLOYER_LEGAL_SUFFIX_RE = /\b(?:ag|sa|sarl|gmbh|ltd|llc|inc|spa|srl|sas|kg|se|co|company|compagnie|gesellschaft)\b/gi;
+
+function employerTokens(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(EMPLOYER_LEGAL_SUFFIX_RE, ' ')
+    .replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter((token) => token.length >= 3);
+}
+
+function sameEmployerName(left, right) {
+  const a = employerTokens(left);
+  const b = employerTokens(right);
+  return Boolean(a.length && b.length && (a.every((token) => b.includes(token)) || b.every((token) => a.includes(token))));
+}
+
+/** A target-employer «already an employee» field can safely be answered No only with a known target. */
+export function targetEmployerNoOption(field, candidate) {
+  const label = `${field?.label || ''} ${field?.context || ''}`;
+  if (!TARGET_EMPLOYER_QUESTION_RE.test(label)) return null;
+  const targets = [candidate?.job?.company, candidate?.job?.organization].map((value) => String(value || '').trim()).filter(Boolean);
+  if (!targets.length) return null;
+  const employers = [
+    ...(candidate?.profile?.employers || []),
+    ...(candidate?.profile?.experience || []).map((item) => item?.employer),
+  ].map((value) => String(value || '').trim()).filter(Boolean);
+  if (targets.some((target) => employers.some((employer) => sameEmployerName(target, employer)))) return null;
+  const options = Array.isArray(field?.options) ? field.options.filter((option) => option && String(option.label || '').trim()) : [];
+  const no = options.filter((option) => NO_EMPLOYER_OPTION_RE.test(String(option.label).trim()));
+  return no.length === 1 ? no[0] : null;
+}
+
 /** A quote of the candidate's data: non-trivial and really in it. */
 export function evidenceInData(knownValues, evidence) {
   const quote = String(evidence || '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -1489,6 +1521,10 @@ export function guardPlan(plan, fields, candidate = null) {
   // specific language and its presence or absence are explicit in the CV.
   const employmentPick = new Map(fields.map((field) => [field.id, currentEmploymentOption(field, candidate)]).filter(([, option]) => option));
   for (const [fieldId, option] of employmentPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
+  // A target-employer relationship is not the same as generic current employment:
+  // when the vacancy's employer is known and absent from the CV, select its No.
+  const targetEmployerNoPick = new Map(fields.map((field) => [field.id, targetEmployerNoOption(field, candidate)]).filter(([, option]) => option));
+  for (const [fieldId, option] of targetEmployerNoPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
   // A native language is explicit either in the language list or, conservatively,
   // in the detected CV language alongside another explicitly levelled language.
   // It is still a candidate fact: an explicit portal answer always wins.
@@ -1496,8 +1532,8 @@ export function guardPlan(plan, fields, candidate = null) {
   for (const [fieldId, option] of nativePick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
   plan = {
     ...plan,
-    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId) && !employmentPick.has(action.fieldId) && !nativePick.has(action.fieldId)),
-    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId) && !employmentPick.has(item.fieldId) && !nativePick.has(item.fieldId)),
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId) && !employmentPick.has(action.fieldId) && !targetEmployerNoPick.has(action.fieldId) && !nativePick.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId) && !employmentPick.has(item.fieldId) && !targetEmployerNoPick.has(item.fieldId) && !nativePick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
     const field = byId.get(item.fieldId);
