@@ -319,7 +319,10 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
     profile: {
       headline: profile.headline || '',
       currentOrLatestRole: [latest.role, latest.employer].filter(Boolean).join(' — '),
-      employers: [...new Set((profile.experience || []).map((item) => item.employer).filter(Boolean))].slice(0, 15),
+      employers: [...new Set([
+        ...(Array.isArray(profile.employers) ? profile.employers : []),
+        ...(profile.experience || []).map((item) => item.employer),
+      ].filter(Boolean))].slice(0, 15),
       // Workday's, SuccessFactors' and umantis' "My Experience" steps: the work
       // history as the CV states it, instead of questions to the candidate.
       experience: (profile.experience || []).slice(0, 8)
