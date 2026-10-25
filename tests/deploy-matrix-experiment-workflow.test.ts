@@ -57,7 +57,6 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'RELATED_SEARCH_POSTINGS_SPARSE',
       'SEQUENTIAL_PROFILE',
       'UV_THREADPOOL_SIZE',
-      'WRITE_COLLECTOR_CHAIN',
     ]);
   });
 

@@ -46,8 +46,6 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   'MID_PLUGINS_FAST',
   // Pool di thread libuv per le I/O asincrone del build (default Node: 4).
   'UV_THREADPOOL_SIZE',
-  // A/B del costo delle correzioni di determinismo (=0 ripristina il percorso storico).
-  'WRITE_COLLECTOR_CHAIN',
   // Opzioni V8 aggiuntive per `npm run build:ci` (es. --max-semi-space-size=64).
   'BUILD_EXTRA_NODE_OPTIONS',
   // Readdir paralleli nell'enumerazione del post-walk (richiede BLOG_IMAGE_CDN_FOLD=1).
