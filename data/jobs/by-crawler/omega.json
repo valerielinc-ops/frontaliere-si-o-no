@@ -1,7 +1,7 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-10-24T09:45:18.339Z",
-  "runId": "40081697922",
+  "assembledAt": "2026-10-25T09:49:41.037Z",
+  "runId": "40180369608",
   "jobs": [
     {
       "id": "omega-33168",
@@ -34,7 +34,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33168",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:45:13.066Z",
+      "crawledAt": "2026-10-25T09:49:35.908Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -132,7 +132,7 @@
       "url": "https://www.swatchgroup.com/en/job/33305",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-24T09:44:50.896Z",
+      "crawledAt": "2026-10-25T09:49:14.325Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -220,7 +220,7 @@
       "url": "https://www.swatchgroup.com/de/job/33345",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:44:29.436Z",
+      "crawledAt": "2026-10-25T09:48:52.537Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -302,7 +302,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33427",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:44:07.492Z",
+      "crawledAt": "2026-10-25T09:48:30.817Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -399,7 +399,7 @@
       "url": "https://www.swatchgroup.com/de/job/33509",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T09:43:45.339Z",
+      "crawledAt": "2026-10-25T09:48:09.149Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -490,7 +490,7 @@
       "url": "https://www.swatchgroup.com/en/job/33526",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-24T09:43:23.038Z",
+      "crawledAt": "2026-10-25T09:47:47.560Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -534,6 +534,7 @@
           "Strong team player, experienced in collaborating with stakeholders across functions and locations"
         ]
       },
+      "firstSeenAt": "2026-10-24T09:43:23.038Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -546,8 +547,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-24T09:43:23.038Z"
+      }
     },
     {
       "id": "omega-33527",
@@ -580,7 +580,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33527",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:43:01.288Z",
+      "crawledAt": "2026-10-25T09:47:25.774Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -664,7 +664,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33566",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:42:39.848Z",
+      "crawledAt": "2026-10-25T09:47:03.739Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -752,7 +752,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33567",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T09:42:17.446Z",
+      "crawledAt": "2026-10-25T09:46:42.295Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -807,8 +807,8 @@
       "slug": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
       "slugByLocale": {
         "it": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-        "en": "operational-learning-omega-sa-biel-bienne",
-        "de": "betriebliches-lernen-omega-sa-biel-bienne",
+        "en": "watchmaking-operator-apprenticeship-afp-omega-sa-biel-bienne",
+        "de": "ausbildung-als-uhrenarbeiter-in-eba-omega-sa-biel-bienne",
         "fr": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
       },
       "company": "OMEGA SA",
@@ -875,18 +875,18 @@
       },
       "previousSlugs": [
         "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "watchmaking-operator-apprenticeship-afp-omega-sa-biel-bienne",
-        "ausbildung-als-uhrenarbeiter-in-eba-omega-sa-biel-bienne"
+        "operational-learning-omega-sa-biel-bienne",
+        "betriebliches-lernen-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
         ],
         "en": [
-          "watchmaking-operator-apprenticeship-afp-omega-sa-biel-bienne"
+          "operational-learning-omega-sa-biel-bienne"
         ],
         "de": [
-          "ausbildung-als-uhrenarbeiter-in-eba-omega-sa-biel-bienne"
+          "betriebliches-lernen-omega-sa-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:27.421Z",
@@ -903,7 +903,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "omega-33244",
@@ -1003,217 +1003,6 @@
           "@type": "QuantitativeValue",
           "minValue": 77000,
           "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "omega-33234",
-      "slug": "attenzione-della-produzione-di-cfc-omega-sa-biel-bienne",
-      "slugByLocale": {
-        "it": "attenzione-della-produzione-di-cfc-omega-sa-biel-bienne",
-        "en": "learning-of-cfc-production-omega-sa-biel-bienne",
-        "de": "lernen-der-fckw-produktion-omega-sa-biel-bienne",
-        "fr": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
-      },
-      "company": "OMEGA SA",
-      "companyKey": "omega",
-      "companyDomain": "omegawatches.com",
-      "title": "APPRENTISSAGE HORLOGER·ÈRE DE PRODUCTION CFC",
-      "titleByLocale": {
-        "it": "ATTENZIONE DELLA PRODUZIONE DI CFC",
-        "en": "LEARNING OF CFC PRODUCTION",
-        "de": "LERNEN DER FCKW-PRODUKTION",
-        "fr": "APPRENTISSAGE HORLOGER·ÈRE DE PRODUCTION CFC"
-      },
-      "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE HORLOGER·ÈRE DE PRODUCTION CFC\n\nPour une durée de 3 ans à partir du mois d’août 2027\n\n## Description du poste\n• Maîtriser toutes les étapes de l’assemblage des composants de mouvements de montres de tous types\n\n• Contrôler des mouvements et des produits finis d’un point de vue fonctionnel et esthétique\n\n• Entretien, révision et réparation des montres actuelles et anciennes (rhabillage)\n\n## Profil\n• Scolarité obligatoire achevée\n\n• Solide base en mathématiques et dessin\n\n• Avoir entre 15 et 25 ans\n\n## Compétences requises\n• Excellente dextérité\n\n• Bonne acuité visuelle\n\n• Excellente aptitude à se concentrer\n\n• Sens de la précision et minutie\n\n• Esprit méthodique et capacité à persévérer\n\n• Être autonome, fiable et faisant preuve d’initiative\n\n## Langues\n• Maîtrise du français et connaissances de l'allemand",
-      "descriptionByLocale": {
-        "it": "## Introduzione della società\nOMEGA è un marchio di orologi di livello mondiale noto per le sue esigenze di qualità, precisione e innovazione da oltre 170 anni. I nostri orologi sono tra i più belli del mondo e sono caratterizzati dalla loro tecnologia all'avanguardia e dallo stile senza tempo.\n\nNel corso della nostra lunga storia, abbiamo rotto i record di precisione, ridefinito i tempi sportivi e mantenuto la nostra posizione all'avanguardia dell'Alta Orologeria.\n\nCome brand internazionale, siamo sempre interessati a incontrare futuri colleghi e apprendisti che desiderano contribuire al lavoro dei nostri team in quasi tutti i continenti con i loro talenti, ambizioni e ispirazioni.\n\nTi disperiamo nelle nostre idee\n\nATTENZIONE DELLA PRODUZIONE DI CFC\n\n3 anni da agosto 2027\n\n## Descrizione del post\n• Controllare tutte le fasi di assemblaggio di tutti i tipi di componenti di movimento orologi\n\n• Movimenti di controllo e prodotti finiti dal punto di vista funzionale ed estetico\n\n• Manutenzione, revisione e riparazione di orologi attuali e vecchi (rimozione)\n\n## Profilo\n• Istruzione obbligatoria completata\n\n• Base solida in matematica e disegno\n\n• Età compresa tra 15 e 25\n\n## Qualifiche\n• Eccellente destrezza\n\n• Buona acutezza visiva\n\n• Ottima capacità di concentrazione\n\n• Senso di precisione e completezza\n\n• Spirito metodico e capacità di perseverare\n\n• Essere autonomi, affidabili e proattivi\n\n## Lingue\n• Master in francese e tedesco",
-        "en": "## Introduction of society\nOMEGA is a prestigious watch brand worldwide known for its quality, precision and innovation requirements for over 170 years. Our watches are among the most beautiful in the world and are characterized by their state-of-the-art technology and timeless style.\n\nOver the course of our long history, we have broken records of precision, redefined sporting timing and maintained our position at the cutting edge of Haute Horlogerie.\n\nAs an international brand, we are always interested in meeting future colleagues and apprentices wishing to contribute to the work of our teams on almost every continent with their talents, ambitions and inspirations.\n\nWE OFFER YOU IN OUR ENTERPRISES\n\nLEARNING OF CFC PRODUCTION\n\n3 years from August 2027\n\n## Description of post\n• Control all stages of assembly of all types of watch movement components\n\n• Control movements and finished products from a functional and aesthetic point of view\n\n• Maintenance, revision and repair of current and old watches (removal)\n\n## Profile\n• Compulsory education completed\n\n• Solid base in mathematics and drawing\n\n• Age between 15 and 25\n\n## Qualifications\n• Excellent dexterity\n\n• Good visual acuity\n\n• Excellent ability to concentrate\n\n• Sense of precision and thoroughness\n\n• Methodical spirit and ability to persevere\n\n• Be autonomous, reliable and proactive\n\n## Languages\n• Master's in French and German",
-        "de": "## Einführung der Gesellschaft\nOMEGA ist eine renommierte Uhrenmarke weltweit, die seit über 170 Jahren für ihre Qualitäts-, Präzisions- und Innovationsanforderungen bekannt ist. Unsere Uhren gehören zu den schönsten der Welt und zeichnen sich durch modernste Technik und zeitlosen Stil aus.\n\nIm Laufe unserer langen Geschichte haben wir Rekorde an Präzision gebrochen, sportliches Timing neu definiert und unsere Position an der Spitze der Haute Horlogerie beibehalten.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen und Auszubildende zu treffen, die mit ihren Talenten, Ambitionen und Inspirationen zur Arbeit unserer Teams auf fast jedem Kontinent beitragen möchten.\n\nWir bieten Ihnen in unseren Unternehmen an\n\nLERNEN DER FCKW-PRODUKTION\n\n3 Jahre ab August 2027\n\n## Beschreibung der Post\n• Steuerung aller Montagestufen aller Arten von Bauteilen für Uhrwerke\n\n• Kontrollbewegungen und Fertigprodukte aus funktionaler und ästhetischer Sicht\n\n• Wartung, Revision und Reparatur aktueller und alter Uhren (Entfernung)\n\n## Profil\n• Schulpflicht abgeschlossen\n\n• Solide Basis in Mathematik und Zeichnung\n\n• Alter zwischen 15 und 25 Jahren\n\n## Qualifikationen\n• Ausgezeichnete Geschicklichkeit\n\n• Gute Sehschärfe\n\n• Hervorragende Konzentrationsfähigkeit\n\n• Sinn für Präzision und Gründlichkeit\n\n• Methodischer Geist und Beharrlichkeit\n\n• Seien Sie autonom, zuverlässig und proaktiv\n\n## Sprachen\n• Master in Französisch und Deutsch",
-        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE HORLOGER·ÈRE DE PRODUCTION CFC\n\nPour une durée de 3 ans à partir du mois d’août 2027\n\n## Description du poste\n• Maîtriser toutes les étapes de l’assemblage des composants de mouvements de montres de tous types\n\n• Contrôler des mouvements et des produits finis d’un point de vue fonctionnel et esthétique\n\n• Entretien, révision et réparation des montres actuelles et anciennes (rhabillage)\n\n## Profil\n• Scolarité obligatoire achevée\n\n• Solide base en mathématiques et dessin\n\n• Avoir entre 15 et 25 ans\n\n## Compétences requises\n• Excellente dextérité\n\n• Bonne acuité visuelle\n\n• Excellente aptitude à se concentrer\n\n• Sens de la précision et minutie\n\n• Esprit méthodique et capacité à persévérer\n\n• Être autonome, fiable et faisant preuve d’initiative\n\n## Langues\n• Maîtrise du français et connaissances de l'allemand"
-      },
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "url": "https://www.swatchgroup.com/fr/job/33234",
-      "source": "OMEGA SA Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:58:46.233Z",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2502",
-      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
-      "category": "Tecnica",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Orologeria di lusso",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-24T16:01:31+02:00",
-      "postedDate": "2026-09-24T16:01:31+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-276889&langCode=fr_FR&source=swatchgroup.com",
-      "requirements": [
-        "Scolarité obligatoire achevée",
-        "Solide base en mathématiques et dessin",
-        "Avoir entre 15 et 25 ans",
-        "Excellente dextérité",
-        "Bonne acuité visuelle",
-        "Excellente aptitude à se concentrer",
-        "Sens de la précision et minutie",
-        "Esprit méthodique et capacité à persévérer",
-        "Être autonome, fiable et faisant preuve d’initiative",
-        "Maîtrise du français et connaissances de l'allemand"
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Scolarité obligatoire achevée",
-          "Solide base en mathématiques et dessin",
-          "Avoir entre 15 et 25 ans",
-          "Excellente dextérité",
-          "Bonne acuité visuelle",
-          "Excellente aptitude à se concentrer",
-          "Sens de la précision et minutie",
-          "Esprit méthodique et capacité à persévérer"
-        ]
-      },
-      "previousSlugs": [
-        "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
-        ],
-        "en": [
-          "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
-        ],
-        "de": [
-          "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
-        ]
-      },
-      "firstSeenAt": "2026-07-28T11:53:10.043Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "omega-33298",
-      "slug": "kitchchen-m-f-omega-sa-ticino",
-      "slugByLocale": {
-        "it": "kitchchen-m-f-omega-sa-ticino",
-        "en": "kitchen-m-f-omega-sa-ticino",
-        "de": "kitchen-m-w-omega-sa-ticino",
-        "fr": "cuisinier-h-f-omega-biel-bienne"
-      },
-      "company": "OMEGA SA",
-      "companyKey": "omega",
-      "companyDomain": "omegawatches.com",
-      "title": "CUISINIER (H/F)",
-      "titleByLocale": {
-        "it": "KITCHCHEN (M/F)",
-        "en": "KITCHEN (M/F)",
-        "de": "KITCHEN (M/W)",
-        "fr": "CUISINIER (H/F)"
-      },
-      "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Gestion et préparation des repas froids pour notre Restaurant du Personnel\n\n• Elaboration des mets « à la carte » pour notre Restaurant de Direction\n\n• Gestion des commandes journalières\n\n• Préparation et mise en place de banquets lors d'évènements\n\n• Respecter et surveiller les règles d’hygiènes établies y compris le rangement\n\n## Profil\n• Au bénéfice d’un CFC de Cuisinier\n\n• 5 ans d'expérience au sein d’un établissement de bonne renommée\n\n## Compétences requises\n• Personnalité communicative, bonne résistance au stress\n\n• Sens développé de l’organisation et privilégiant le travail d’équipe\n\n## Langues\n• Excellentes connaissances du français ou de l'allemand avec de bonnes connaissances de l’autre langue",
-      "descriptionByLocale": {
-        "it": "## Introduzione della società\nOMEGA è un marchio di orologi di livello mondiale noto per le sue esigenze di qualità, precisione e innovazione da oltre 170 anni. I nostri orologi sono tra i più belli del mondo e sono caratterizzati dalla loro tecnologia all'avanguardia e dallo stile senza tempo.\n\nNel corso della nostra lunga storia, abbiamo rotto i record di precisione, ridefinito i tempi sportivi e mantenuto la nostra posizione all'avanguardia dell'Alta Orologeria.\n\nCome brand internazionale, siamo sempre interessati a incontrare i futuri colleghi che desiderano contribuire al lavoro dei nostri team in quasi tutti i continenti con i loro talenti, ambizioni e ispirazioni.\n\n## Descrizione del post\n• Gestione e preparazione dei pasti freddi per il nostro Staff Restaurant\n\n• Preparazione dei piatti \"à la carte\" per il nostro Ristorante de Direzione\n\n• Gestione degli ordini giornalieri\n\n• Preparazione e istituzione di banchetti durante gli eventi\n\n• Rispettare e monitorare regole igieniche stabilite tra cui lo stoccaggio\n\n## Profilo\n• A beneficio di una cucina CFC\n\n• 5 anni di esperienza in un istituto ben noto\n\n## Qualifiche\n• Personalità comunicativa, buona resistenza allo stress\n\n• sviluppo del senso di organizzazione e enfasi sul lavoro di squadra\n\n## Lingue\n• Ottima conoscenza del francese o del tedesco con buona conoscenza dell'altra lingua",
-        "en": "## Introduction of society\nOMEGA is a prestigious watch brand worldwide known for its quality, precision and innovation requirements for over 170 years. Our watches are among the most beautiful in the world and are characterized by their state-of-the-art technology and timeless style.\n\nOver the course of our long history, we have broken records of precision, redefined sporting timing and maintained our position at the cutting edge of Haute Horlogerie.\n\nAs an international brand, we are always interested in meeting future colleagues wishing to contribute to the work of our teams on almost every continent with their talents, ambitions and inspirations.\n\n## Description of post\n• Management and preparation of cold meals for our Staff Restaurant\n\n• Preparation of \"à la carte\" dishes for our Restaurant de Direction\n\n• Daily order management\n\n• Preparation and establishment of banquets during events\n\n• Respect and monitor established hygiene rules including storage\n\n## Profile\n• To the benefit of a Cookery CFC\n\n• 5 years of experience at a well-known institution\n\n## Qualifications\n• Communicative personality, good stress resistance\n\n• developed sense of organisation and emphasising teamwork\n\n## Languages\n• Excellent knowledge of French or German with good knowledge of the other language",
-        "de": "## Einführung der Gesellschaft\nOMEGA ist eine renommierte Uhrenmarke weltweit, die seit über 170 Jahren für ihre Qualitäts-, Präzisions- und Innovationsanforderungen bekannt ist. Unsere Uhren gehören zu den schönsten der Welt und zeichnen sich durch modernste Technik und zeitlosen Stil aus.\n\nIm Laufe unserer langen Geschichte haben wir Rekorde an Präzision gebrochen, sportliches Timing neu definiert und unsere Position an der Spitze der Haute Horlogerie beibehalten.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen zu treffen, die mit ihren Talenten, Ambitionen und Inspirationen zur Arbeit unserer Teams auf fast jedem Kontinent beitragen möchten.\n\n## Beschreibung der Post\n• Verwaltung und Zubereitung von kalten Mahlzeiten für unser Personalrestaurant\n\n• Zubereitung von \"à la carte\" Gerichten für unser Restaurant de Direction\n\n• Tägliche Auftragsverwaltung\n\n• Vorbereitung und Einrichtung von Banketts während der Veranstaltungen\n\n• Einhaltung und Überwachung der festgelegten Hygienevorschriften einschließlich Lagerung\n\n## Profil\n• Zu Gunsten einer Cookery CFC\n\n• 5 Jahre Erfahrung in einer bekannten Institution\n\n## Qualifikationen\n• Kommunikative Persönlichkeit, gute Stressresistenz\n\n• entwickelter Organisationssinn und Betonung der Teamarbeit\n\n## Sprachen\n• Ausgezeichnete Französisch- oder Deutschkenntnisse mit guten Kenntnissen der anderen Sprache",
-        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Gestion et préparation des repas froids pour notre Restaurant du Personnel\n\n• Elaboration des mets « à la carte » pour notre Restaurant de Direction\n\n• Gestion des commandes journalières\n\n• Préparation et mise en place de banquets lors d'évènements\n\n• Respecter et surveiller les règles d’hygiènes établies y compris le rangement\n\n## Profil\n• Au bénéfice d’un CFC de Cuisinier\n\n• 5 ans d'expérience au sein d’un établissement de bonne renommée\n\n## Compétences requises\n• Personnalité communicative, bonne résistance au stress\n\n• Sens développé de l’organisation et privilégiant le travail d’équipe\n\n## Langues\n• Excellentes connaissances du français ou de l'allemand avec de bonnes connaissances de l’autre langue"
-      },
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "url": "https://www.swatchgroup.com/fr/job/33298",
-      "source": "OMEGA SA Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:57:41.672Z",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2502",
-      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
-      "category": "Altro",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Orologeria di lusso",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-30T10:21:16+02:00",
-      "postedDate": "2026-09-30T10:21:16+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-277573&langCode=fr_FR&source=swatchgroup.com",
-      "requirements": [
-        "Au bénéfice d’un CFC de Cuisinier",
-        "5 ans d'expérience au sein d’un établissement de bonne renommée",
-        "Personnalité communicative, bonne résistance au stress",
-        "Sens développé de l’organisation et privilégiant le travail d’équipe",
-        "Excellentes connaissances du français ou de l'allemand avec de bonnes connaissances de l’autre langue"
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Au bénéfice d’un CFC de Cuisinier",
-          "5 ans d'expérience au sein d’un établissement de bonne renommée",
-          "Personnalité communicative, bonne résistance au stress",
-          "Sens développé de l’organisation et privilégiant le travail d’équipe",
-          "Excellentes connaissances du français ou de l'allemand avec de bonnes connaissances de l’autre langue"
-        ]
-      },
-      "previousSlugs": [
-        "cuisinier-h-f-omega-biel-bienne",
-        "cuisinier-h-f-omega",
-        "kitchchen-m-f-omega-sa-biel-bienne",
-        "kitchen-m-f-omega-sa-biel-bienne",
-        "kitchen-m-w-omega-sa-biel-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cuisinier-h-f-omega-biel-bienne",
-          "cuisinier-h-f-omega",
-          "kitchchen-m-f-omega-sa-biel-bienne"
-        ],
-        "en": [
-          "cuisinier-h-f-omega-biel-bienne",
-          "kitchen-m-f-omega-sa-biel-bienne"
-        ],
-        "de": [
-          "cuisinier-h-f-omega-biel-bienne",
-          "kitchen-m-w-omega-sa-biel-bienne"
-        ],
-        "fr": [
-          "cuisinier-h-f-omega"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:41:41.768Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },

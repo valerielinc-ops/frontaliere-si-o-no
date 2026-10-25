@@ -95169,15 +95169,18 @@
     },
     "ikea-e2bee6f6594b|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-06T22:34:41.231Z"
+      "lastAttemptAt": "2026-10-25T09:54:01.253Z",
+      "source": "e08d873a784b"
     },
     "ikea-e2bee6f6594b|de|fr": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-06T22:34:41.811Z"
+      "lastAttemptAt": "2026-10-25T09:53:55.777Z",
+      "source": "e08d873a784b"
     },
     "ikea-e2bee6f6594b|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-06T22:34:42.370Z"
+      "lastAttemptAt": "2026-10-25T09:54:02.408Z",
+      "source": "e08d873a784b"
     },
     "volksschule-luzern-42bf0866cfbc|de|en": {
       "attempts": 3,
@@ -186933,18 +186936,18 @@
       "source": "135f5968ed84"
     },
     "sta-950bc09847a1|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-21T07:07:10.864Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-10-25T09:54:01.253Z",
       "source": "135f5968ed84"
     },
     "sta-950bc09847a1|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-21T07:07:12.128Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-10-25T09:53:55.778Z",
       "source": "135f5968ed84"
     },
     "sta-950bc09847a1|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-21T07:07:12.862Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-10-25T09:54:04.146Z",
       "source": "135f5968ed84"
     },
     "yellowshark-0894e068ac03|de|en": {
@@ -233798,8 +233801,8 @@
       "source": "0b5c89ee4811"
     },
     "richemont-ce49d01748a4|en|de": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-25T06:22:35.543Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-10-25T09:54:04.335Z",
       "source": "3bc181434254"
     },
     "richemont-f63f56b1c0d2|en|de": {
@@ -233988,14 +233991,64 @@
       "source": "2cb9134fb70d"
     },
     "yellowshark-e4f8fddf872f|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-25T06:23:02.635Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-10-25T09:54:41.263Z",
       "source": "c10e43ac384b"
     },
     "yellowshark-e6f76ba7ccec|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-25T06:23:04.605Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-10-25T09:54:40.864Z",
       "source": "74fb22284f41"
+    },
+    "ikea-246b101fa026|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-25T09:53:55.776Z",
+      "source": "c6625bd9b22a"
+    },
+    "ipersonal-837b8fe576a6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-25T09:53:55.777Z",
+      "source": "c17cf74885b8"
+    },
+    "ipersonal-005560f2a68e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-25T09:53:55.777Z",
+      "source": "c17cf74885b8"
+    },
+    "ikea-246b101fa026|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-25T09:54:00.381Z",
+      "source": "c6625bd9b22a"
+    },
+    "ipersonal-837b8fe576a6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-25T09:54:00.384Z",
+      "source": "c17cf74885b8"
+    },
+    "ipersonal-005560f2a68e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-25T09:54:00.385Z",
+      "source": "c17cf74885b8"
+    },
+    "ikea-246b101fa026|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-25T09:54:01.252Z",
+      "source": "c6625bd9b22a"
+    },
+    "ipersonal-837b8fe576a6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-25T09:54:01.252Z",
+      "source": "c17cf74885b8"
+    },
+    "ipersonal-005560f2a68e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-25T09:54:01.252Z",
+      "source": "c17cf74885b8"
+    },
+    "planzer-9f5096fe29cb|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-25T09:54:02.407Z",
+      "source": "df84ac805bf7"
     }
   }
 }

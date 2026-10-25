@@ -7,58 +7,58 @@
       "matureAt": "2026-07-31",
       "state": "failing",
       "lastValue": {
-        "rate": 0.01347914547304171,
-        "created": 53,
-        "shown": 3932,
+        "rate": 0.011947431302270013,
+        "created": 50,
+        "shown": 4185,
         "ctaSurfaceNotSetShare": 0,
         "surfaceBreakdown": [
           {
             "surface": "inline_card",
-            "shown": 1527,
-            "created": 9,
-            "rate": 0.005893909626719057
+            "shown": 1677,
+            "created": 6,
+            "rate": 0.0035778175313059034
           },
           {
             "surface": "job_detail_button",
-            "shown": 383,
+            "shown": 337,
             "created": 1,
-            "rate": 0.0026109660574412533
+            "rate": 0.002967359050445104
           },
           {
             "surface": "job_detail_prompt",
-            "shown": 1630,
-            "created": 35,
-            "rate": 0.02147239263803681
+            "shown": 1493,
+            "created": 33,
+            "rate": 0.022103148024112524
           },
           {
             "surface": "job_board_filters",
-            "shown": 1950,
-            "created": 10,
-            "rate": 0.005128205128205128
+            "shown": 2341,
+            "created": 12,
+            "rate": 0.0051260145237078175
           },
           {
             "surface": "job_match_pill",
-            "shown": 556,
-            "created": 3,
-            "rate": 0.00539568345323741
+            "shown": 550,
+            "created": 2,
+            "rate": 0.0036363636363636364
           },
           {
             "surface": "sticky_banner",
-            "shown": 486,
+            "shown": 546,
             "created": 1,
-            "rate": 0.00205761316872428
+            "rate": 0.0018315018315018315
           },
           {
             "surface": "end_card",
-            "shown": 752,
-            "created": 2,
-            "rate": 0.0026595744680851063
+            "shown": 707,
+            "created": 0,
+            "rate": 0
           }
         ]
       },
-      "detail": "53/3932 utenti = 1.35%, cta_surface (not set) 0.00% [GA4]\n\nLe righe per superficie possono sovrapporsi; l’aggregato è calcolato separatamente.\n\n| cta_surface | shown users | created users | rate |\n| --- | ---: | ---: | ---: |\n| aggregate | 3932 | 53 | 1.35% |\n| inline_card | 1527 | 9 | 0.59% |\n| job_detail_button | 383 | 1 | 0.26% |\n| job_detail_prompt | 1630 | 35 | 2.15% |\n| job_board_filters | 1950 | 10 | 0.51% |\n| job_match_pill | 556 | 3 | 0.54% |\n| sticky_banner | 486 | 1 | 0.21% |\n| end_card | 752 | 2 | 0.27% |",
+      "detail": "50/4185 utenti = 1.19%, cta_surface (not set) 0.00% [GA4]\n\nLe righe per superficie possono sovrapporsi; l’aggregato è calcolato separatamente.\n\n| cta_surface | shown users | created users | rate |\n| --- | ---: | ---: | ---: |\n| aggregate | 4185 | 50 | 1.19% |\n| inline_card | 1677 | 6 | 0.36% |\n| job_detail_button | 337 | 1 | 0.30% |\n| job_detail_prompt | 1493 | 33 | 2.21% |\n| job_board_filters | 2341 | 12 | 0.51% |\n| job_match_pill | 550 | 2 | 0.36% |\n| sticky_banner | 546 | 1 | 0.18% |\n| end_card | 707 | 0 | 0.00% |",
       "targetDescription": ">= 5% (utenti job_alert_created / utenti job_alert_cta_shown, 14gg, GA4)",
-      "lastCheckAt": "2026-10-18T09:53:19.235Z",
+      "lastCheckAt": "2026-10-25T10:08:07.813Z",
       "note": "sorgente non misurabile: posthog ingested < 500 events/day on 9 of 14 complete day(s) in the 14d window: 2026-08-21 (10), 2026-08-22 (15), 2026-08-23 (14), 2026-08-24 (29), 2026-08-25 (26), 2026-08-26 (21), 2026-08-27 (11), 2026-08-28 (12), 2026-08-29 (11)"
     },
     "dead_clicks_reduction": {
@@ -72,7 +72,7 @@
       },
       "detail": "0 $dead_click (14gg)",
       "targetDescription": "< 5991 $dead_click events (14gg, -50% su baseline riproporzionata da 25.675/30gg)",
-      "lastCheckAt": "2026-10-18T09:53:19.235Z",
+      "lastCheckAt": "2026-10-25T10:08:07.813Z",
       "passedAt": "2026-08-09T06:13:33.259Z",
       "note": "nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): $dead_click e' autocapture nativo PostHog; il dead_click custom in GA4 e' un'altra metrica"
     },
@@ -99,7 +99,7 @@
       "issueRef": "#4307",
       "matureAt": "2026-08-16",
       "state": "unmeasurable",
-      "lastCheckAt": "2026-10-18T09:53:19.235Z",
+      "lastCheckAt": "2026-10-25T10:08:07.813Z",
       "note": "nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): funnel per sessione senza dimensione session id in GA4 (dimensioni EVENT piene, decisione H4)"
     },
     "canton_hub_positions": {
@@ -180,6 +180,6 @@
       "passedAt": "2026-10-18T09:53:19.235Z"
     }
   },
-  "generatedAt": "2026-10-18T09:53:19.235Z",
+  "generatedAt": "2026-10-25T10:08:07.813Z",
   "campaignStart": "2026-07-17"
 }

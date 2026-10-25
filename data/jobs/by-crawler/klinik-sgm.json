@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-sgm",
-  "assembledAt": "2026-10-24T21:18:12.849Z",
-  "runId": "40133199231",
+  "assembledAt": "2026-10-25T09:28:06.019Z",
+  "runId": "40179710889",
   "jobs": [
     {
       "id": "klinik-sgm-c103d1cf5084",
@@ -34,7 +34,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-spiez/d693c810-ba33-402d-91f6-6ce24b8de42d",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.050Z",
+      "crawledAt": "2026-10-25T09:27:57.085Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-abteilungsleitung/551cd479-9938-45d8-ae63-0e62d5991e12",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.049Z",
+      "crawledAt": "2026-10-25T09:27:57.084Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-meggen/73b83f0b-95be-4626-bcfc-e3880c832e4f",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.048Z",
+      "crawledAt": "2026-10-25T09:27:57.083Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -277,7 +277,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-langenthal/1733aeff-e5a0-4953-b432-3009791467de",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.032Z",
+      "crawledAt": "2026-10-25T09:27:57.066Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -358,7 +358,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-bern/5efd4837-24c4-4579-b953-b1fd8fde802a",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.031Z",
+      "crawledAt": "2026-10-25T09:27:57.065Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -439,7 +439,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-langenthal/3390fb44-a3f4-4cbd-8fb7-9e4d4c935c89",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.029Z",
+      "crawledAt": "2026-10-25T09:27:57.063Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -519,7 +519,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/koechin-koch-efz/2ea70376-4dd3-44ab-96da-785fcc88c6cb",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.028Z",
+      "crawledAt": "2026-10-25T09:27:57.062Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -586,7 +586,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fuer-den-nachtdienst/b12505c9-5be8-4636-af4e-8a9c33ae631e",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.027Z",
+      "crawledAt": "2026-10-25T09:27:57.061Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -644,6 +644,89 @@
       }
     },
     {
+      "id": "klinik-sgm-0d4e92d0dcf8",
+      "slug": "infermiera-infermiera-specialista-hf-psichiatria-klinik-sgm-langenthal-langenthal",
+      "slugByLocale": {
+        "it": "infermiera-infermiera-specialista-hf-psichiatria-klinik-sgm-langenthal-langenthal",
+        "en": "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal",
+        "de": "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal",
+        "fr": "infirmiere-infirmiere-specialiste-hf-psychiatrie-klinik-sgm-langenthal-langenthal"
+      },
+      "company": "Klinik SGM Langenthal",
+      "companyKey": "klinik-sgm",
+      "companyDomain": "klinik-sgm.ch",
+      "title": "Pflegefachfrau / Pflegefachmann HF Psychiatrie",
+      "titleByLocale": {
+        "it": "Infermiera / Infermiera specialista HF Psichiatria",
+        "en": "Nurse / Nurse specialist HF Psychiatry",
+        "de": "Pflegefachfrau / Pflegefachmann HF Psychiatrie",
+        "fr": "Infirmière / Infirmière spécialiste HF Psychiatrie"
+      },
+      "description": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 40% - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem biopsychosozialen Modell an. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\nAufgrund von Pensionierungen und veränderten Familiensituationen möchten wir unser herzliches und engagiertes Pflegeteam erweitern. Dabei ist es uns ein Anliegen, unsere Arbeitsplätze noch attraktiver zu gestalten – mit mehr Teilzeitmöglichkeiten für Pflegefachpersonen (Dipl. oder HF) und einer optimierten Work-Life-Balance. Eintritt nach Vereinbarung.\n\n## Das bewirken Sie:\n• Professionelle und individuelle Pflege der Patienten im Tagdienst\n• Zusammenarbeit mit den diensthabenden Ärzten / Psychologen\n• Umsetzung des therapeutischen Milieus\n• Mitarbeit in der Begleitung von Lernenden und Studierenden in der praktischen Ausbildung\n\n## Ihr Profil:\n• Abgeschlossene Ausbildung als Pflegefachfrau/-mann HF\n• Erfahrung in der Psychiatrie von Vorteil\n• Teamfähigkeit\n• Belastbarkeit und Flexibilität\n• Identifikation mit dem Leitbild und den christlichen Werten der Klinik SGM\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
+      "descriptionByLocale": {
+        "it": "Trattiamo le persone con rispetto e apprezzamento. Come persona olistica, ti prendiamo sul serio.\n\n## 40% - 100%\nCome clinica specializzata riconosciuta per la psichiatria, la psicoterapia e la psicosomatica con un mandato di servizio cantonale, abbiamo stabilito gli standard nel trattamento e nella cura dei nostri pazienti. Con circa 175 dipendenti, offriamo trattamenti ospedalieri e ambulatoriali secondo il modello biopsicosocial in varie località della Svizzera tedesca. La sinergia di competenze, supporto personale e supporto olistico ci rende un indirizzo prezioso per le persone che cercano supporto in situazioni di vita difficili.\nA causa dei pensionati e delle situazioni familiari cambiate, vorremmo espandere il nostro team di assistenza caldo e impegnato. È importante per noi rendere i nostri posti di lavoro ancora più attraente - con più opportunità part-time per i professionisti della cura (Dipl. o HF) e un equilibrio di lavoro-vita ottimizzato. Entrata per accordo.\n\n## Questo è ciò che fanno:\n• Cura professionale e individuale dei pazienti nel servizio giornaliero\n• Cooperazione con medici on-duty / psicologi\n• Attuazione dell'ambiente terapeutico\n• Assistenza agli studenti e agli studenti nella formazione pratica\n\n## Il tuo profilo:\n• Allenamento completo come infermiera HF\n• Psichiatria esperienza è benefico\n• Lavoro di squadra\n• Resilienza e flessibilità\n• Identificazione con la dichiarazione di missione e i valori cristiani della clinica SGM\nSostegno generoso all'istruzione e alla formazione\nPartecipazione gratuita alle conferenze a Klink\nPranzo equilibrato e poco costoso nel ristorante della clinica\nVari vantaggi nelle aziende partner\nUso della camera di peso della fisioterapia per un approccio ridotto di p. 150.00\nAnnualmente un viaggio di personale o il partito del personale, festa di Natale, informazioni regolari dei dipendenti\nUso gratuito del bagno di terapia\n\n## Con noi arrivano.\nLa clinica SGM Langenthal è una clinica specializzata riconosciuta per la psichiatria, la psicoterapia e la psicosomatica con le offerte di trattamento ospedaliero e ambulatorio. La terapia offerta è integrativa e coinvolge la dimensione spirituale.\nSiamo lì per le persone che sono malati o in una crisi di vita. Per loro, creiamo un quadro protetto in cui il recupero e il cambiamento sono possibili.\nPensiamo e agiamo in modo olistico e professionale. La visione dei nostri pazienti è plasmata da aspetti biologici, psicologici, sociali e spirituali.\nViviamo valori cristiani che diventano visibili nei nostri rapporti con i nostri simili esseri umani\nSiamo impegnati e responsabili in quello che facciamo. La fiducia e l'apprezzamento verso i nostri simili esseri umani sono importanti per noi.\nLavoriamo insieme ai nostri partner in modo orientato alla soluzione. Gli attributi importanti per noi sono affidabilità, qualità e correttezza.\nCi concentriamo sull'efficienza economica, sulla sostenibilità e sulla cultura della formazione e dell'istruzione orientata al futuro.",
+        "en": "We treat people with respect and appreciation. As a holistic person, we take you seriously.\n\n## 40% - 100%\nAs a recognized specialist clinic for psychiatry, psychotherapy and psychosomatics with a cantonal service mandate, we set standards in the treatment and care of our patients. With around 175 employees, we offer inpatient and outpatient treatments according to the biopsychosocial model at various locations in German-speaking Switzerland. The synergy of expertise, personal support and holistic support makes us a valued address for people seeking support in challenging life situations.\nDue to retirements and changed family situations, we would like to expand our warm and committed care team. It is important to us to make our workplaces even more attractive – with more part-time opportunities for care professionals (Dipl. or HF) and an optimized work-life balance. Entry by arrangement.\n\n## This is what they do:\n• Professional and individual care of patients in day service\n• Cooperation with on-duty doctors / psychologists\n• Implementation of the therapeutic environment\n• Assistance for learners and students in practical training\n\n## Your profile:\n• Completed training as a nurse HF\n• Psychiatry experience is beneficial\n• Teamwork\n• Resilience and flexibility\n• Identification with the mission statement and Christian values of the clinic SGM\nGenerous support for education and training\nFree participation in lectures at Klink\nBalanced and inexpensive lunch in the clinic’s restaurant\nVarious advantages at partner companies\nUse of weight room of physiotherapy to reduced approach of Fr. 150.00\nAnnually a staff trip or staff party, Christmas party, regular employee information\nFree use of therapy bath\n\n## With us they come up.\nThe clinic SGM Langenthal is a recognized specialist clinic for psychiatry, psychotherapy and psychosomatics with inpatient and outpatient treatment offers. The therapy offered is integrative and involves the spiritual dimension.\nWe are there for people who are sick or in a life crisis. For them, we create a protected framework where recovery and change are possible.\nWe think and act holistically and professionally. The view of our patients is shaped by biological, psychological, social and spiritual aspects.\nWe live Christian values that become visible in our dealings with our fellow human beings\nWe are committed and responsible in what we do. Trust and appreciation towards our fellow human beings are important to us.\nWe work together with our partners in a solution-oriented manner. Important attributes for us are reliability, quality and fairness.\nWe focus on economic efficiency, sustainability and a future-oriented training and education culture.",
+        "de": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 40% - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem biopsychosozialen Modell an. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\nAufgrund von Pensionierungen und veränderten Familiensituationen möchten wir unser herzliches und engagiertes Pflegeteam erweitern. Dabei ist es uns ein Anliegen, unsere Arbeitsplätze noch attraktiver zu gestalten – mit mehr Teilzeitmöglichkeiten für Pflegefachpersonen (Dipl. oder HF) und einer optimierten Work-Life-Balance. Eintritt nach Vereinbarung.\n\n## Das bewirken Sie:\n• Professionelle und individuelle Pflege der Patienten im Tagdienst\n• Zusammenarbeit mit den diensthabenden Ärzten / Psychologen\n• Umsetzung des therapeutischen Milieus\n• Mitarbeit in der Begleitung von Lernenden und Studierenden in der praktischen Ausbildung\n\n## Ihr Profil:\n• Abgeschlossene Ausbildung als Pflegefachfrau/-mann HF\n• Erfahrung in der Psychiatrie von Vorteil\n• Teamfähigkeit\n• Belastbarkeit und Flexibilität\n• Identifikation mit dem Leitbild und den christlichen Werten der Klinik SGM\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
+        "fr": "Nous traitons les gens avec respect et reconnaissance. En tant que personne holistique, nous vous prenons au sérieux.\n\n## 40% - 100%\nEn tant que clinique spécialisée reconnue pour la psychiatrie, la psychothérapie et la psychosomatique avec un mandat de service cantonal, nous avons établi des normes dans le traitement et les soins de nos patients. Avec environ 175 employés, nous offrons des traitements hospitaliers et ambulatoires selon le modèle biopsychosocial à différents endroits en Suisse germanophone. La synergie de l'expertise, du soutien personnel et du soutien holistique fait de nous une adresse précieuse pour les personnes qui cherchent du soutien dans des situations difficiles.\nEn raison de la retraite et de l'évolution de la situation familiale, nous aimerions élargir notre équipe de soins chaleureux et dévoués. Il est important pour nous de rendre nos lieux de travail encore plus attrayants – avec plus d'opportunités à temps partiel pour les professionnels de soins (Dipl. ou HF) et un équilibre travail-vie optimisé. Entrée par arrangement.\n\n## C'est ce qu'ils font :\n• Soins professionnels et individuels des patients en service de jour\n• Coopération avec les médecins et psychologues en service\n• Mise en œuvre de l'environnement thérapeutique\n• Aide aux apprenants et aux étudiants en formation pratique\n\n## Votre profil:\n• Formation terminée en tant qu'infirmière HF\n• L'expérience psychiatrique est bénéfique\n• Travail d'équipe\n• Résilience et flexibilité\n• Identification avec l'énoncé de mission et les valeurs chrétiennes de la clinique SGM\nSoutien généreux à l'éducation et à la formation\nParticipation gratuite à des conférences à Klink\nDéjeuner équilibré et peu coûteux au restaurant de la clinique\nDivers avantages pour les entreprises partenaires\nUtilisation de la salle de poids de la physiothérapie pour réduire l'approche de Fr. 150,00\nChaque année un voyage du personnel ou une fête du personnel, fête de Noël, renseignements réguliers sur les employés\nUtilisation gratuite du bain thérapeutique\n\n## Avec nous, ils viennent.\nLa clinique SGM Langenthal est une clinique spécialisée reconnue pour la psychiatrie, la psychothérapie et la psychosomatique avec des soins hospitaliers et externes. La thérapie offerte est intégrative et implique la dimension spirituelle.\nNous sommes là pour les malades ou dans une crise de vie. Pour eux, nous créons un cadre protégé où la reprise et le changement sont possibles.\nNous pensons et agissons de manière holistique et professionnelle. La vision de nos patients est façonnée par des aspects biologiques, psychologiques, sociaux et spirituels.\nNous vivons des valeurs chrétiennes qui deviennent visibles dans nos rapports avec nos semblables.\nNous sommes engagés et responsables dans ce que nous faisons. La confiance et l'appréciation envers nos semblables sont importantes pour nous.\nNous travaillons de concert avec nos partenaires de manière orientée vers la solution. Les attributs importants pour nous sont la fiabilité, la qualité et l'équité.\nNous nous concentrons sur l'efficacité économique, la durabilité et une culture de formation et d'éducation orientée vers l'avenir."
+      },
+      "location": "Langenthal",
+      "canton": "BE",
+      "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-psychiatrie/4f8d5c03-a013-41eb-ad7c-eec4de98fa82",
+      "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-25T09:27:57.059Z",
+      "addressLocality": "Langenthal",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4900",
+      "streetAddress": "Weissensteinstrasse 30",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
+      "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1077",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal",
+        "nursing-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal",
+        "nurse-nurse-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal"
+        ],
+        "en": [
+          "nursing-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal",
+          "nurse-nurse-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal"
+        ]
+      },
+      "firstSeenAt": "2026-09-29T21:19:34.272Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "klinik-sgm-432507c710f4",
       "slug": "infermieristica-specialista-hf-psichiatria-men-s-island-department-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
@@ -675,7 +758,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-psychiatrie-abteilung-maennerinsel/1c975154-c904-4093-acb9-ba849f665c7f",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.026Z",
+      "crawledAt": "2026-10-25T09:27:57.058Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -725,88 +808,6 @@
       }
     },
     {
-      "id": "klinik-sgm-0d4e92d0dcf8",
-      "slug": "infermiera-infermiera-specialista-hf-psichiatria-klinik-sgm-langenthal-langenthal",
-      "slugByLocale": {
-        "it": "infermiera-infermiera-specialista-hf-psichiatria-klinik-sgm-langenthal-langenthal",
-        "en": "nurse-nurse-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal",
-        "de": "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal",
-        "fr": "infirmiere-infirmiere-specialiste-hf-psychiatrie-klinik-sgm-langenthal-langenthal"
-      },
-      "company": "Klinik SGM Langenthal",
-      "companyKey": "klinik-sgm",
-      "companyDomain": "klinik-sgm.ch",
-      "title": "Pflegefachfrau / Pflegefachmann HF Psychiatrie",
-      "titleByLocale": {
-        "it": "Infermiera / Infermiera specialista HF Psichiatria",
-        "en": "Nurse / Nurse specialist HF Psychiatry",
-        "de": "Pflegefachfrau / Pflegefachmann HF Psychiatrie",
-        "fr": "Infirmière / Infirmière spécialiste HF Psychiatrie"
-      },
-      "description": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 40% - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem biopsychosozialen Modell an. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\nAufgrund von Pensionierungen und veränderten Familiensituationen möchten wir unser herzliches und engagiertes Pflegeteam erweitern. Dabei ist es uns ein Anliegen, unsere Arbeitsplätze noch attraktiver zu gestalten – mit mehr Teilzeitmöglichkeiten für Pflegefachpersonen (Dipl. oder HF) und einer optimierten Work-Life-Balance. Eintritt nach Vereinbarung.\n\n## Das bewirken Sie:\n• Professionelle und individuelle Pflege der Patienten im Tagdienst\n• Zusammenarbeit mit den diensthabenden Ärzten / Psychologen\n• Umsetzung des therapeutischen Milieus\n• Mitarbeit in der Begleitung von Lernenden und Studierenden in der praktischen Ausbildung\n\n## Ihr Profil:\n• Abgeschlossene Ausbildung als Pflegefachfrau/-mann HF\n• Erfahrung in der Psychiatrie von Vorteil\n• Teamfähigkeit\n• Belastbarkeit und Flexibilität\n• Identifikation mit dem Leitbild und den christlichen Werten der Klinik SGM\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
-      "descriptionByLocale": {
-        "it": "Trattiamo le persone con rispetto e apprezzamento. Come persona olistica, ti prendiamo sul serio.\n\n## 40% - 100%\nCome clinica specializzata riconosciuta per la psichiatria, la psicoterapia e la psicosomatica con un mandato di servizio cantonale, abbiamo stabilito gli standard nel trattamento e nella cura dei nostri pazienti. Con circa 175 dipendenti, offriamo trattamenti ospedalieri e ambulatoriali secondo il modello biopsicosocial in varie località della Svizzera tedesca. La sinergia di competenze, supporto personale e supporto olistico ci rende un indirizzo prezioso per le persone che cercano supporto in situazioni di vita difficili.\nA causa dei pensionati e delle situazioni familiari cambiate, vorremmo espandere il nostro team di assistenza caldo e impegnato. È importante per noi rendere i nostri posti di lavoro ancora più attraente - con più opportunità part-time per i professionisti della cura (Dipl. o HF) e un equilibrio di lavoro-vita ottimizzato. Entrata per accordo.\n\n## Questo è ciò che fanno:\n• Cura professionale e individuale dei pazienti nel servizio giornaliero\n• Cooperazione con medici on-duty / psicologi\n• Attuazione dell'ambiente terapeutico\n• Assistenza agli studenti e agli studenti nella formazione pratica\n\n## Il tuo profilo:\n• Allenamento completo come infermiera HF\n• Psichiatria esperienza è benefico\n• Lavoro di squadra\n• Resilienza e flessibilità\n• Identificazione con la dichiarazione di missione e i valori cristiani della clinica SGM\nSostegno generoso all'istruzione e alla formazione\nPartecipazione gratuita alle conferenze a Klink\nPranzo equilibrato e poco costoso nel ristorante della clinica\nVari vantaggi nelle aziende partner\nUso della camera di peso della fisioterapia per un approccio ridotto di p. 150.00\nAnnualmente un viaggio di personale o il partito del personale, festa di Natale, informazioni regolari dei dipendenti\nUso gratuito del bagno di terapia\n\n## Con noi arrivano.\nLa clinica SGM Langenthal è una clinica specializzata riconosciuta per la psichiatria, la psicoterapia e la psicosomatica con le offerte di trattamento ospedaliero e ambulatorio. La terapia offerta è integrativa e coinvolge la dimensione spirituale.\nSiamo lì per le persone che sono malati o in una crisi di vita. Per loro, creiamo un quadro protetto in cui il recupero e il cambiamento sono possibili.\nPensiamo e agiamo in modo olistico e professionale. La visione dei nostri pazienti è plasmata da aspetti biologici, psicologici, sociali e spirituali.\nViviamo valori cristiani che diventano visibili nei nostri rapporti con i nostri simili esseri umani\nSiamo impegnati e responsabili in quello che facciamo. La fiducia e l'apprezzamento verso i nostri simili esseri umani sono importanti per noi.\nLavoriamo insieme ai nostri partner in modo orientato alla soluzione. Gli attributi importanti per noi sono affidabilità, qualità e correttezza.\nCi concentriamo sull'efficienza economica, sulla sostenibilità e sulla cultura della formazione e dell'istruzione orientata al futuro.",
-        "en": "We treat people with respect and appreciation. As a holistic person, we take you seriously.\n\n## 40% - 100%\nAs a recognized specialist clinic for psychiatry, psychotherapy and psychosomatics with a cantonal service mandate, we set standards in the treatment and care of our patients. With around 175 employees, we offer inpatient and outpatient treatments according to the biopsychosocial model at various locations in German-speaking Switzerland. The synergy of expertise, personal support and holistic support makes us a valued address for people seeking support in challenging life situations.\nDue to retirements and changed family situations, we would like to expand our warm and committed care team. It is important to us to make our workplaces even more attractive – with more part-time opportunities for care professionals (Dipl. or HF) and an optimized work-life balance. Entry by arrangement.\n\n## This is what they do:\n• Professional and individual care of patients in day service\n• Cooperation with on-duty doctors / psychologists\n• Implementation of the therapeutic environment\n• Assistance for learners and students in practical training\n\n## Your profile:\n• Completed training as a nurse HF\n• Psychiatry experience is beneficial\n• Teamwork\n• Resilience and flexibility\n• Identification with the mission statement and Christian values of the clinic SGM\nGenerous support for education and training\nFree participation in lectures at Klink\nBalanced and inexpensive lunch in the clinic’s restaurant\nVarious advantages at partner companies\nUse of weight room of physiotherapy to reduced approach of Fr. 150.00\nAnnually a staff trip or staff party, Christmas party, regular employee information\nFree use of therapy bath\n\n## With us they come up.\nThe clinic SGM Langenthal is a recognized specialist clinic for psychiatry, psychotherapy and psychosomatics with inpatient and outpatient treatment offers. The therapy offered is integrative and involves the spiritual dimension.\nWe are there for people who are sick or in a life crisis. For them, we create a protected framework where recovery and change are possible.\nWe think and act holistically and professionally. The view of our patients is shaped by biological, psychological, social and spiritual aspects.\nWe live Christian values that become visible in our dealings with our fellow human beings\nWe are committed and responsible in what we do. Trust and appreciation towards our fellow human beings are important to us.\nWe work together with our partners in a solution-oriented manner. Important attributes for us are reliability, quality and fairness.\nWe focus on economic efficiency, sustainability and a future-oriented training and education culture.",
-        "de": "Wir begegnen Menschen mit Respekt und Wertschätzung. Als ganzheitliche Person nehmen wir Sie ernst.\n\n## 40% - 100%\nAls anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit kantonalem Leistungsauftrag setzen wir Massstäbe in der Behandlung und Betreuung unserer Patientinnen und Patienten. Mit rund 175 Mitarbeitenden bieten wir an verschiedenen Standorten in der Deutschschweiz stationäre und ambulante Behandlungen nach dem biopsychosozialen Modell an. Die Synergie von Fachkompetenz, persönlicher Betreuung und ganzheitlicher Begleitung macht uns zu einer geschätzten Adresse für Menschen, die in herausfordernden Lebenssituationen Unterstützung suchen.\nAufgrund von Pensionierungen und veränderten Familiensituationen möchten wir unser herzliches und engagiertes Pflegeteam erweitern. Dabei ist es uns ein Anliegen, unsere Arbeitsplätze noch attraktiver zu gestalten – mit mehr Teilzeitmöglichkeiten für Pflegefachpersonen (Dipl. oder HF) und einer optimierten Work-Life-Balance. Eintritt nach Vereinbarung.\n\n## Das bewirken Sie:\n• Professionelle und individuelle Pflege der Patienten im Tagdienst\n• Zusammenarbeit mit den diensthabenden Ärzten / Psychologen\n• Umsetzung des therapeutischen Milieus\n• Mitarbeit in der Begleitung von Lernenden und Studierenden in der praktischen Ausbildung\n\n## Ihr Profil:\n• Abgeschlossene Ausbildung als Pflegefachfrau/-mann HF\n• Erfahrung in der Psychiatrie von Vorteil\n• Teamfähigkeit\n• Belastbarkeit und Flexibilität\n• Identifikation mit dem Leitbild und den christlichen Werten der Klinik SGM\nGrosszügige Unterstützung der Aus- Weiter- und Fortbildung\nUnentgeltliche Teilnahme an Fachvorträgen in der Klink\nAusgewogene und preiswerte Mittagessen im klinikeigenen Restaurant\nDiverse Vergünstigungen bei Partner-Firmen\nBenützung Kraftraum der Physiotherapie zu reduziertem Ansatz von Fr. 150.00\nJährlich ein Personalausflug oder Personalfest, Weihnachtsfeier, regelmässige Mitarbeiterinformationen\nGratisnutzung Therapiebad\n\n## Mit uns kommen Sie aufwärts^\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.\nWir sind für Menschen da, die krank sind oder sich in einer Lebenskrise befinden. Für sie schaffen wir einen geschützten Rahmen, wo Genesung und Veränderung möglich sind.\nWir denken und handeln ganzheitlich und professionell. Die Sicht auf unsere Patientinnen und Patienten wird von biologischen-, psychologischen-, sozialen- und spirituellen Aspekten geprägt.\nWir leben christliche Werte, die im Umgang mit unseren Mitmenschen sichtbar werden\nWir sind in unserem Tun engagiert und verantwortungsvoll. Vertrauen und Wertschätzung gegenüber unseren Mitmenschen sind uns wichtig.\nWir arbeiten mit unseren Partnern lösungsorientiert zusammen. Wichtige Attribute für uns sind Verlässlichkeit, Qualität und Fairness.\nWir setzen auf Wirtschaftlichkeit, Nachhaltigkeit und eine zukunftsorientierte Weiter- und Ausbildungskultur.",
-        "fr": "Nous traitons les gens avec respect et reconnaissance. En tant que personne holistique, nous vous prenons au sérieux.\n\n## 40% - 100%\nEn tant que clinique spécialisée reconnue pour la psychiatrie, la psychothérapie et la psychosomatique avec un mandat de service cantonal, nous avons établi des normes dans le traitement et les soins de nos patients. Avec environ 175 employés, nous offrons des traitements hospitaliers et ambulatoires selon le modèle biopsychosocial à différents endroits en Suisse germanophone. La synergie de l'expertise, du soutien personnel et du soutien holistique fait de nous une adresse précieuse pour les personnes qui cherchent du soutien dans des situations difficiles.\nEn raison de la retraite et de l'évolution de la situation familiale, nous aimerions élargir notre équipe de soins chaleureux et dévoués. Il est important pour nous de rendre nos lieux de travail encore plus attrayants – avec plus d'opportunités à temps partiel pour les professionnels de soins (Dipl. ou HF) et un équilibre travail-vie optimisé. Entrée par arrangement.\n\n## C'est ce qu'ils font :\n• Soins professionnels et individuels des patients en service de jour\n• Coopération avec les médecins et psychologues en service\n• Mise en œuvre de l'environnement thérapeutique\n• Aide aux apprenants et aux étudiants en formation pratique\n\n## Votre profil:\n• Formation terminée en tant qu'infirmière HF\n• L'expérience psychiatrique est bénéfique\n• Travail d'équipe\n• Résilience et flexibilité\n• Identification avec l'énoncé de mission et les valeurs chrétiennes de la clinique SGM\nSoutien généreux à l'éducation et à la formation\nParticipation gratuite à des conférences à Klink\nDéjeuner équilibré et peu coûteux au restaurant de la clinique\nDivers avantages pour les entreprises partenaires\nUtilisation de la salle de poids de la physiothérapie pour réduire l'approche de Fr. 150,00\nChaque année un voyage du personnel ou une fête du personnel, fête de Noël, renseignements réguliers sur les employés\nUtilisation gratuite du bain thérapeutique\n\n## Avec nous, ils viennent.\nLa clinique SGM Langenthal est une clinique spécialisée reconnue pour la psychiatrie, la psychothérapie et la psychosomatique avec des soins hospitaliers et externes. La thérapie offerte est intégrative et implique la dimension spirituelle.\nNous sommes là pour les malades ou dans une crise de vie. Pour eux, nous créons un cadre protégé où la reprise et le changement sont possibles.\nNous pensons et agissons de manière holistique et professionnelle. La vision de nos patients est façonnée par des aspects biologiques, psychologiques, sociaux et spirituels.\nNous vivons des valeurs chrétiennes qui deviennent visibles dans nos rapports avec nos semblables.\nNous sommes engagés et responsables dans ce que nous faisons. La confiance et l'appréciation envers nos semblables sont importantes pour nous.\nNous travaillons de concert avec nos partenaires de manière orientée vers la solution. Les attributs importants pour nous sont la fiabilité, la qualité et l'équité.\nNous nous concentrons sur l'efficacité économique, la durabilité et une culture de formation et d'éducation orientée vers l'avenir."
-      },
-      "location": "Langenthal",
-      "canton": "BE",
-      "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-psychiatrie/4f8d5c03-a013-41eb-ad7c-eec4de98fa82",
-      "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.026Z",
-      "addressLocality": "Langenthal",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4900",
-      "streetAddress": "Weissensteinstrasse 30",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-29",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported",
-      "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1077",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal",
-        "nursing-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal"
-        ],
-        "en": [
-          "nursing-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal",
-          "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal"
-        ],
-        "fr": [
-          "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal"
-        ]
-      },
-      "firstSeenAt": "2026-09-29T21:19:34.272Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "klinik-sgm-b27a4f34392d",
       "slug": "operatrice-operatore-sociosanitario-fage-efz-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
@@ -837,7 +838,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachfrau-fachmann-gesundheit-fage-efz/0af049c7-bacf-4cf6-866d-51f79137790b",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.025Z",
+      "crawledAt": "2026-10-25T09:27:57.057Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -918,7 +919,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegerische-stationsleitung/f2f6d9a4-e3d9-449a-90cc-612c0ea3b65f",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:17:58.017Z",
+      "crawledAt": "2026-10-25T09:27:57.047Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
