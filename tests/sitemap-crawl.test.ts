@@ -28,6 +28,7 @@ describe('sitemap graph parser', () => {
         '</url></urlset>',
       { baseUrl: BASE },
     );
+    expect(urlset.primaryUrls).toEqual([`${BASE}/articolo?a=1&b=2`]);
     expect(urlset.urls).toEqual([
       `${BASE}/articolo?a=1&b=2`,
       `${BASE}/en/article`,
