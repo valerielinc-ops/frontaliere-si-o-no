@@ -480,6 +480,25 @@ describe('CSC authoritative Drupal discovery', () => {
     expect(() => parseCscCareersPage(ambiguousForm)).toThrow(/work-position view not found/);
   });
 
+  it('does not let a spontaneous-only responsive copy hide real work-position options', () => {
+    const responsiveForm = '<!doctype html><html><body>'
+      + '<select class="mobile-only" name="work_position">'
+      + '<option value="all">Candidatura spontanea</option></select>'
+      + '<select class="desktop" name="work_position">'
+      + '<option value="321">Capo cantiere</option></select>'
+      + '</body></html>';
+
+    expect(() => parseCscCareersPage(responsiveForm)).toThrow(/work-position view not found/);
+  });
+
+  it('requires an actual name attribute rather than a data-name lookalike', () => {
+    const lookalikeForm = '<!doctype html><html><body><form id="candidatura">'
+      + '<select data-name="work_position"><option value="all">Candidatura spontanea</option></select>'
+      + '</form></body></html>';
+
+    expect(() => parseCscCareersPage(lookalikeForm)).toThrow(/work-position view not found/);
+  });
+
   it('builds a canonical health proof for the explicit empty state', () => {
     const summary = buildCscAuthoritativeEmptySummary('2026-10-03T00:00:00.000Z', 123);
 

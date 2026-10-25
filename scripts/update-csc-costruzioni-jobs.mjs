@@ -243,17 +243,26 @@ function cscPlainText(html) {
  * there is no vacancy to publish.
  */
 function isSpontaneousApplicationOnlyEmptyState(html) {
-  const selectMatch = String(html || '').match(
-    /<select\b[^>]*\bname\s*=\s*(["'])work_position\1[^>]*>([\s\S]*?)<\/select>/i,
-  );
-  if (!selectMatch) return false;
+  const matchingSelects = [];
+  const selectPattern = /<select\b([^>]*)>([\s\S]*?)<\/select\s*>/gi;
+  for (const match of String(html || '').matchAll(selectPattern)) {
+    const name = readQuotedHtmlAttr(match[1], 'name').trim().toLowerCase();
+    if (name !== 'work_position') continue;
+    matchingSelects.push(match[2]);
+  }
+  if (matchingSelects.length === 0) return false;
 
-  const options = [...selectMatch[2].matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option>/gi)];
-  if (options.length !== 1) return false;
+  // Responsive Drupal templates can render more than one copy of the form.
+  // Treat the page as authoritative only when every work-position control says
+  // the same thing; a hidden spontaneous-only copy must not hide real options.
+  return matchingSelects.every((selectHtml) => {
+    const options = [...selectHtml.matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option\s*>/gi)];
+    if (options.length !== 1) return false;
 
-  const value = readQuotedHtmlAttr(options[0][1], 'value').trim().toLowerCase();
-  const label = cscPlainText(options[0][2]);
-  return value === 'all' && /candidatura\s+spontanea/i.test(label);
+    const value = readQuotedHtmlAttr(options[0][1], 'value').trim().toLowerCase();
+    const label = cscPlainText(options[0][2]);
+    return value === 'all' && /candidatura\s+spontanea/i.test(label);
+  });
 }
 
 /**
@@ -529,7 +538,8 @@ export async function renderCscNcoreDetailPage(detailUrl, { timeoutMs = 12000 } 
 }
 
 function readQuotedHtmlAttr(attrs, name) {
-  const match = String(attrs || '').match(new RegExp(`\\b${name}\\s*=\\s*(["'])(.*?)\\1`, 'i'));
+  const escapedName = String(name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = String(attrs || '').match(new RegExp(`(?:^|\\s)${escapedName}\\s*=\\s*(["'])(.*?)\\1`, 'i'));
   return match?.[2] || '';
 }
 
