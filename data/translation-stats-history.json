@@ -1,167 +1,5 @@
 [
   {
-    "timestamp": "2026-10-06T18:04:25.634Z",
-    "label": "after",
-    "total": 32085,
-    "needsRetranslation": 15287,
-    "suppressed": 135,
-    "incomplete": 16263,
-    "complete": 15822,
-    "slotsPresent": 15822,
-    "flaggedAmongSlotsPresent": 120,
-    "verifiedTranslated": 15702,
-    "sourceCopyExcused": 537,
-    "slotsPresentByLength": 31864,
-    "languageVerified": 18740,
-    "missingByLocale": {
-      "it": 2929,
-      "en": 2798,
-      "de": 405,
-      "fr": 2717
-    },
-    "queueAge": {
-      "count": 15287,
-      "withTimestamp": 15286,
-      "oldestAgeDays": 518.4,
-      "p50AgeDays": 12.8,
-      "p90AgeDays": 57.3,
-      "buckets": {
-        "0-1d": 634,
-        "1-2d": 221,
-        "2-7d": 2298,
-        "0-7d": 3153,
-        "7-30d": 7377,
-        "30-90d": 3861,
-        "90-180d": 889,
-        "180d+": 6
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 1430,
-      "withTimestamp": 1430,
-      "oldestAgeDays": 175.8,
-      "p50AgeDays": 16.8,
-      "p90AgeDays": 35.7,
-      "buckets": {
-        "0-1d": 17,
-        "1-2d": 55,
-        "2-7d": 150,
-        "0-7d": 222,
-        "7-30d": 987,
-        "30-90d": 206,
-        "90-180d": 15,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 10018,
-      "sampled": 120,
-      "processed": 6,
-      "residual": 1,
-      "residualRate": 0.16666666666666666,
-      "window": {
-        "size": 120,
-        "processed": 40,
-        "residual": 2,
-        "residualRate": 0.05,
-        "runs": 12,
-        "measured": false,
-        "queueCandidates": 10018
-      }
-    },
-    "publicationHold": {
-      "held": 248,
-      "byCrawler": {
-        "fachkraft": 109,
-        "sta": 32,
-        "stellenpartner": 71,
-        "stellentreff": 36
-      }
-    },
-    "predicateVersion": "ab9a9061e161d272",
-    "freshCohort": {
-      "window": "24-48h",
-      "total": 370,
-      "complete": 191
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3442
-      },
-      {
-        "company": "STA Personal AG",
-        "pending": 1732
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 957
-      },
-      {
-        "company": "Stellentreff AG",
-        "pending": 893
-      },
-      {
-        "company": "yellowshark AG",
-        "pending": 807
-      },
-      {
-        "company": "Stellenpartner AG",
-        "pending": 759
-      },
-      {
-        "company": "VOLG",
-        "pending": 345
-      },
-      {
-        "company": "Galaxus",
-        "pending": 249
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 227
-      },
-      {
-        "company": "Manor AG",
-        "pending": 221
-      }
-    ],
-    "codexReserve": {
-      "calls": 30,
-      "textsSent": 30,
-      "translated": 30,
-      "rejected": 0,
-      "spentMs": 640059,
-      "verdict": "covered",
-      "byPhase": {
-        "2b-cascade": {
-          "position": "after-premium",
-          "calls": 30,
-          "maxCalls": 30,
-          "translated": 30,
-          "rejected": 0,
-          "stopReason": "budget di 30 chiamate esaurito (FREE_TRANSLATE_CODEX_MAX_CALLS)"
-        },
-        "2d-titles": {
-          "position": "last",
-          "calls": 0,
-          "maxCalls": 30,
-          "translated": 0,
-          "rejected": 0,
-          "stopReason": null
-        }
-      }
-    }
-  },
-  {
     "timestamp": "2026-10-06T18:26:19.019Z",
     "label": "before",
     "total": 32085,
@@ -28749,5 +28587,112 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-25T05:48:23.096Z",
+    "label": "before",
+    "total": 32446,
+    "needsRetranslation": 2042,
+    "suppressed": 118,
+    "incomplete": 2431,
+    "complete": 30015,
+    "slotsPresent": 30015,
+    "flaggedAmongSlotsPresent": 68,
+    "verifiedTranslated": 29947,
+    "sourceCopyExcused": 273,
+    "slotsPresentByLength": 32408,
+    "languageVerified": 31598,
+    "missingByLocale": {
+      "it": 207,
+      "en": 134,
+      "de": 154,
+      "fr": 135
+    },
+    "queueAge": {
+      "count": 2042,
+      "withTimestamp": 2042,
+      "oldestAgeDays": 248.2,
+      "p50AgeDays": 36.3,
+      "p90AgeDays": 112.8,
+      "buckets": {
+        "0-1d": 30,
+        "1-2d": 48,
+        "2-7d": 84,
+        "0-7d": 162,
+        "7-30d": 637,
+        "30-90d": 861,
+        "90-180d": 369,
+        "180d+": 13
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 678,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 2,
+      "byCrawler": {
+        "sta": 1,
+        "stellentreff": 1
+      }
+    },
+    "predicateVersion": "6a8c5bddf4198b96",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 858,
+      "complete": 810
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 470
+      },
+      {
+        "company": "Richemont",
+        "pending": 123
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 109
+      },
+      {
+        "company": "TopShop",
+        "pending": 103
+      },
+      {
+        "company": "Medbase",
+        "pending": 102
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 95
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 74
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 68
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 60
+      },
+      {
+        "company": "ETAVIS Kriegel+Schaffner AG",
+        "pending": 34
+      }
+    ]
   }
 ]

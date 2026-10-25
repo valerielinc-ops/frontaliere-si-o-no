@@ -1,14 +1,13 @@
 {
-  "run": 243,
+  "run": 244,
   "companies": {
     "jysk": {
       "sterile": 1,
       "signature": "407adfc97e46bf11"
     },
     "vaxcyte": {
-      "sterile": 0,
-      "signature": "fbae73aaf36293da",
-      "skipUntilRun": 243
+      "sterile": 1,
+      "signature": "fbae73aaf36293da"
     }
   }
 }
