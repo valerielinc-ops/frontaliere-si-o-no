@@ -31,7 +31,7 @@ import {
 
 const CONSENT_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const SURFACE_RE = /^[a-z0-9_]{1,40}$/;
-const LINKEDIN_REQUEST_TIMEOUT_MS = 30_000;
+const LINKEDIN_REQUEST_TIMEOUT_MS = 12_000;
 // The register entry every sign-in surface renders (services/consentTexts.ts).
 const REGISTRATION_NOTICE_KEY = 'communicationsOptIn';
 // An experiment arm tag as the browser builds it (`jobgate-v3:<arm>`).
@@ -41,7 +41,7 @@ const LINKEDIN_FETCH_TIMEOUT_MS = 30_000;
 function fetchLinkedIn(url, init = {}) {
  return fetch(url, {
   ...init,
-  signal: AbortSignal.timeout(LINKEDIN_FETCH_TIMEOUT_MS),
+  signal: init.signal ?? AbortSignal.timeout(LINKEDIN_FETCH_TIMEOUT_MS),
  });
 }
 
