@@ -316,6 +316,8 @@ if [ "$RECONCILE_COMPAT" = true ] || [ "$RECONCILE_MAIN" = true ]; then
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs"
   git show "${REFRESH_BASE}:scripts/lib/compat-path-safety.mjs" \
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/compat-path-safety.mjs"
+  git show "${REFRESH_BASE}:scripts/lib/mid-plugins-flag.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/mid-plugins-flag.mjs"
 fi
 
 if [ "$RECONCILE_COMPAT" = false ]; then
