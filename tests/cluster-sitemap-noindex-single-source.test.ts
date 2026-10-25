@@ -256,7 +256,7 @@ describe('decideClusterEmission — P1 demand gate (default noindex)', () => {
     expect(viaOtherLocale.asked[0].some((p) => p.startsWith('/en/'))).toBe(false);
   });
 
-  it('the AI-intro exemption does not buy indexation: <3 real jobs → noindex even with impressions', () => {
+  it('a demanded substantive cluster stays indexable below the old inventory threshold', () => {
     const real = { slug: 's', locale: 'it', intro: INDEXABLE_INTRO, faqs: [] } as any;
     const em = decide(
       { matchingJobs: [job('a')] },
@@ -267,9 +267,10 @@ describe('decideClusterEmission — P1 demand gate (default noindex)', () => {
     );
     // Not a bridge (the intro still exempts it from the floor) …
     expect(em.belowFloor).toBe(false);
-    // … but no longer indexable.
-    expect(em.demandReason).toBe('below-demand-min-jobs');
-    expect(em.sitemapEligible).toBe(false);
+    // Inventory is not a second demand veto when the page has substantive
+    // content and Search Console demand.
+    expect(em.demandReason).toBe('');
+    expect(em.sitemapEligible).toBe(true);
   });
 
   it('a stop-word lead token is noindex even with impressions and jobs', () => {

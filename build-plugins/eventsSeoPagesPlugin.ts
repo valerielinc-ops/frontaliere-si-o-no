@@ -36,8 +36,9 @@
  *     before this change. The Swiss-wide index itself is reached the other
  *     way — every canton hub's `cantonSwitcher` now also links UP to it —
  *     so it sits at depth 2 (one hop past the TI hub), well inside budget.
- *   - MIN_INDEXABLE_WORDS gate → thin live pages get noindex,follow (never dropped);
- *     historical detail pages stay indexable as the permanent event archive
+ *   - MIN_INDEXABLE_WORDS gate → thin detail pages get noindex,follow (never
+ *     dropped); historical detail pages stay indexable as the permanent event
+ *     archive when they clear the same content floor
  *
  * Default-on. Escape hatch: SKIP_EVENTS_PAGES=1.
  */
@@ -4145,10 +4146,12 @@ export function renderEventDetailPage(params: {
    */
   isPast?: boolean;
   /**
-   * P1 noindex plan (2026-10-24): false when Search Console never showed this
-   * event and it is not an upcoming border-canton event (see
-   * eventDetailDemandGate()). Only the robots directive changes: the page
-   * stays 200, linked, and keeps its ad slots, which follow content quality.
+   * P1 noindex plan (2026-10-24): false when Search Console never showed an
+   * upcoming event and it is not in a border canton (see
+   * eventDetailDemandGate()). Past archive entries are exempt from the demand
+   * gate, but every detail still has to clear MIN_INDEXABLE_WORDS. Only the
+   * robots directive changes for a demand-gated page: it stays 200, linked,
+   * and keeps its ad slots, which follow content quality.
    */
   demandIndexable?: boolean;
 }): { urlPath: string; html: string; wordCount: number } {
@@ -4311,10 +4314,10 @@ export function renderEventDetailPage(params: {
   const wordCount = countHtmlBodyWords(body);
   // Historical details are intentionally recoverable even when their source
   // description is short: the archive template still carries the event's
-  // date, place, source link, practical context and related navigation. The
-  // word-count gate remains for live pages, where a thin detail should not
-  // compete with the canonical event hub.
-  const indexable = isPast || wordCount >= MIN_INDEXABLE_WORDS;
+  // date, place, source link, practical context and related navigation. It
+  // must still clear the global content floor, just like a live detail, so a
+  // genuinely thin archive record never enters the index.
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
   const inlineAd = indexable
     ? `<section class="ev-ad" aria-label="${esc(dc.adLabel)}" data-ad-placement="event-detail-inline">
       <p class="ev-ad-label">${esc(dc.adLabel)}</p>
@@ -5000,27 +5003,28 @@ export function reserveLiveSiblingSlugs(
 
 /**
  * Cantons whose upcoming events stay indexable without Search Console demand
- * (P1 noindex plan, 2026-10-24): the border region the site is about. An
- * event elsewhere, or one that already took place, stays indexable only
- * while Search Console has shown one of its four locale URLs.
+ * (P1 noindex plan, 2026-10-24): the border region the site is about. Past
+ * events are a permanent archive and stay indexable regardless of current
+ * demand; the demand gate applies only to upcoming events outside this set.
  */
 const DEMAND_EXEMPT_EVENT_CANTONS: ReadonlySet<string> = new Set(['TI', 'GR', 'VS']);
 
 /**
  * The indexability of an event detail, decided ONCE for its four hreflang
- * URLs so the alternates of an indexable page are indexable too.
+ * URLs so the alternates of an indexable page are indexable too. Historical
+ * details are permanent archive entries and always pass this demand gate;
+ * only upcoming details are demand-qualified.
  *
  * Fail-safe: with the demand gate dormant (evidence missing, truncated or not
  * a 90-day window) every detail keeps its pre-P1 behaviour.
  *
- * Measured on the live sitemap-eventi.xml of 2026-10-23: 14 908 detail URLs,
- * 2 076 kept, 12 832 noindex — none of the 12 832 had an impression in 90 days.
  */
 function eventDetailDemandGate(rootDir: string): (entry: { canton: string; comune: string; slug: string }, isPast: boolean) => boolean {
   const demand = getTrafficEvidenceFilter(rootDir).gscDemand();
   if (!demand.active) return () => true;
   return ({ canton, comune, slug }, isPast) =>
-    (!isPast && DEMAND_EXEMPT_EVENT_CANTONS.has(canton.toUpperCase()))
+    isPast
+    || DEMAND_EXEMPT_EVENT_CANTONS.has(canton.toUpperCase())
     || demand.hasImpressions(LOCALES.map((locale) => pathForEventDetail(locale, comune, slug, canton)));
 }
 
@@ -5188,6 +5192,19 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       const emittedSlugRedirects = new Set<string>();
       const expectedSlugRedirectPaths = new Set<string>();
       const municipalArchivePaths = new Set<string>();
+      // A detail's robots directive and the sitemap must share the same
+      // content-floor verdict. Track the minimum rendered word count across
+      // owned locales: a thin alternate must not make the hreflang group look
+      // indexable in sitemap-eventi.xml. Locale shards that do not render a
+      // given detail leave the key absent; their merged sitemap is reconciled
+      // by the shard that owns the rendered locale.
+      const detailMinWordCounts = new Map<string, number>();
+      const detailKey = (canton: string, comune: string, slug: string): string => `${canton}\u0000${comune}\u0000${slug}`;
+      const recordDetailWordCount = (canton: string, comune: string, slug: string, wordCount: number): void => {
+        const key = detailKey(canton, comune, slug);
+        const previous = detailMinWordCounts.get(key);
+        detailMinWordCounts.set(key, previous === undefined ? wordCount : Math.min(previous, wordCount));
+      };
 
       const emit = (rendered: { urlPath: string; html: string; wordCount: number }) => {
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) thinPages += 1;
@@ -5333,20 +5350,20 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
             // One indexable detail page per event under its comune.
             for (const ev of list) {
               const eventSlug = detailSlugs.get(ev.id)!.slug;
-              emit(
-                renderEventDetailPage({
-                  locale,
-                  event: ev,
-                  comune,
-                  eventSlug,
-                  sameComuneEvents: list,
-                  dateStamp,
-                  distDir,
-                  detailHref,
-                  metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
-                  demandIndexable: demandIndexable({ canton, comune, slug: eventSlug }, false),
-                }),
-              );
+              const rendered = renderEventDetailPage({
+                locale,
+                event: ev,
+                comune,
+                eventSlug,
+                sameComuneEvents: list,
+                dateStamp,
+                distDir,
+                detailHref,
+                metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
+                demandIndexable: demandIndexable({ canton, comune, slug: eventSlug }, false),
+              });
+              recordDetailWordCount(canton, comune, eventSlug, rendered.wordCount);
+              emit(rendered);
             }
           }
           // Comune-less events: one bucket listing page + one detail page per
@@ -5371,20 +5388,20 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
             }
             for (const ev of otherEvents) {
               const eventSlug = detailSlugs.get(ev.id)!.slug;
-              emit(
-                renderEventDetailPage({
-                  locale,
-                  event: ev,
-                  comune: OTHER_EVENTS_COMUNE_KEY,
-                  eventSlug,
-                  sameComuneEvents: otherEvents,
-                  dateStamp,
-                  distDir,
-                  detailHref,
-                  metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
-                  demandIndexable: demandIndexable({ canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: eventSlug }, false),
-                }),
-              );
+              const rendered = renderEventDetailPage({
+                locale,
+                event: ev,
+                comune: OTHER_EVENTS_COMUNE_KEY,
+                eventSlug,
+                sameComuneEvents: otherEvents,
+                dateStamp,
+                distDir,
+                detailHref,
+                metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
+                demandIndexable: demandIndexable({ canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: eventSlug }, false),
+              });
+              recordDetailWordCount(canton, OTHER_EVENTS_COMUNE_KEY, eventSlug, rendered.wordCount);
+              emit(rendered);
             }
           }
           // Emitted even when empty (the page degrades to a "no events" notice +
@@ -5469,21 +5486,22 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
               if (liveSameComune.length === 0) emitArchive(1, true);
             }
             for (const ev of list) {
-              emit(
-                renderEventDetailPage({
-                  locale,
-                  event: ev,
-                  comune,
-                  eventSlug: pastSlugFor.get(ev.id)!,
-                  sameComuneEvents: liveSameComune,
-                  dateStamp,
-                  distDir,
-                  detailHref,
-                  metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
-                  isPast: true,
-                  demandIndexable: demandIndexable({ canton, comune, slug: pastSlugFor.get(ev.id)! }, true),
-                }),
-              );
+              const eventSlug = pastSlugFor.get(ev.id)!;
+              const rendered = renderEventDetailPage({
+                locale,
+                event: ev,
+                comune,
+                eventSlug,
+                sameComuneEvents: liveSameComune,
+                dateStamp,
+                distDir,
+                detailHref,
+                metaTitleDisambiguator: eventTitleDisambiguatorFor(ev, locale),
+                isPast: true,
+                demandIndexable: demandIndexable({ canton, comune, slug: eventSlug }, true),
+              });
+              recordDetailWordCount(canton, comune, eventSlug, rendered.wordCount);
+              emit(rendered);
             }
           }
         }
@@ -5518,13 +5536,22 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         }
       }
 
-      // A demand-gated (noindex) detail stays 200 and linked from its listing
-      // and the archive, but a sitemap must only list indexable URLs.
+      // A demand-gated upcoming detail stays 200 and linked from its listing
+      // and the archive, but a sitemap must only list URLs that also cleared
+      // the rendered-content floor. Past archive details are exempt from the
+      // demand gate, not from content quality.
+      const detailContentIndexable = (entry: { canton: string; comune: string; slug: string }): boolean => {
+        const wordCount = detailMinWordCounts.get(detailKey(entry.canton, entry.comune, entry.slug));
+        // A locale shard that did not render this URL cannot contribute a
+        // verdict. The owning shard records it; preserve the existing
+        // cross-shard sitemap assembly until that shard's output is merged.
+        return wordCount === undefined || wordCount >= MIN_INDEXABLE_WORDS;
+      };
       const detailEntries = [
-        ...[...detailSlugs.values()].filter((entry) => demandIndexable(entry, false)),
-        ...historicalDetailEntries.filter((entry) => demandIndexable(entry, true)),
+        ...[...detailSlugs.values()].filter((entry) => demandIndexable(entry, false) && detailContentIndexable(entry)),
+        ...historicalDetailEntries.filter((entry) => demandIndexable(entry, true) && detailContentIndexable(entry)),
       ];
-      console.log(`[events-seo] detail pages indexable by demand: ${detailEntries.length}/${detailSlugs.size + historicalDetailEntries.length}`);
+      console.log(`[events-seo] detail pages indexable by demand/archive/content: ${detailEntries.length}/${detailSlugs.size + historicalDetailEntries.length}`);
       const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries, historicalArchivePageCount);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
