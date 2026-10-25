@@ -148,11 +148,11 @@ describe('holidays — year rollover from the build date', () => {
   it('renders title, H1 and the first table for the searched year', () => {
     const y = new Date().getUTCFullYear();
     const autumn = __renderHolidayPageForTest({ locale: 'it', page: 'ticino', dateStamp: `${y}-10-24` });
-    expect(autumn.html).toContain(`<title>Giorni festivi e festività Ticino ${y + 1} e ${y}`);
+    expect(autumn.html).toContain(`<title>Giorni festivi Ticino ${y + 1} e ${y}`);
     expect(autumn.html).toContain(`Giorni festivi in Ticino ${y + 1} e ${y}</h1>`);
     expect(autumn.html.indexOf(`Calendario festivi ${y + 1}`)).toBeLessThan(autumn.html.indexOf(`Calendario festivi ${y}"`));
     const spring = __renderHolidayPageForTest({ locale: 'it', page: 'ticino', dateStamp: `${y}-04-10` });
-    expect(spring.html).toContain(`<title>Giorni festivi e festività Ticino ${y} e ${y + 1}`);
+    expect(spring.html).toContain(`<title>Giorni festivi Ticino ${y} e ${y + 1}`);
     // Next January the page moves on by itself: no manual refresh involved.
     const nextJanuary = __renderHolidayPageForTest({ locale: 'it', page: 'ticino', dateStamp: `${y + 1}-01-15` });
     expect(nextJanuary.html).toContain(`aria-label="Calendario festivi ${y + 2}"`);
