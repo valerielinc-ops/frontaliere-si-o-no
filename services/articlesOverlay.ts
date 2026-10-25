@@ -251,16 +251,21 @@ export function mergeOverlay<T extends { id: string }>(
     const entry = overlayById.get(article.id);
     if (!entry) return article;
 
+    const current = article as T & Pick<OverlayArticle, 'authorSlug' | 'authorName' | 'aiAssisted'>;
+    const needsAuthorSlug = typeof current.authorSlug !== 'string' || !current.authorSlug.trim();
+    const needsAuthorName = typeof current.authorName !== 'string' || !current.authorName.trim();
+    const needsProvenance = typeof current.aiAssisted !== 'boolean';
+    if (!needsAuthorSlug && !needsAuthorName && !needsProvenance) return article;
+
     const candidate = articleFromOverlay(entry);
     const patch: Partial<Pick<OverlayArticle, 'authorSlug' | 'authorName' | 'aiAssisted'>> = {};
-    const current = article as T & Pick<OverlayArticle, 'authorSlug' | 'authorName' | 'aiAssisted'>;
-    if ((typeof current.authorSlug !== 'string' || !current.authorSlug.trim()) && candidate.authorSlug) {
+    if (needsAuthorSlug && candidate.authorSlug) {
       patch.authorSlug = candidate.authorSlug;
     }
-    if ((typeof current.authorName !== 'string' || !current.authorName.trim()) && candidate.authorName) {
+    if (needsAuthorName && candidate.authorName) {
       patch.authorName = candidate.authorName;
     }
-    if (typeof current.aiAssisted !== 'boolean' && typeof candidate.aiAssisted === 'boolean') {
+    if (needsProvenance && typeof candidate.aiAssisted === 'boolean') {
       patch.aiAssisted = candidate.aiAssisted;
     }
     if (Object.keys(patch).length === 0) return article;
