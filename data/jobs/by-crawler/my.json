@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "my-cebdca56ae70",
-      "slug": "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-e-gesellschaft-60-80-teo-jakob-ag-reiden",
+      "slug": "impiegata-impiegato-amministrativo-dipartimenti-servizi-e-societa-60-80-teo-jakob-ag-reiden",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft-60-80-reiden-my-ch",
-        "it": "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-e-gesellschaft-60-80-teo-jakob-ag-reiden",
-        "en": "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft-60-80-reiden-my-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft-60-80-reiden-my-ch"
+        "it": "impiegata-impiegato-amministrativo-dipartimenti-servizi-e-societa-60-80-teo-jakob-ag-reiden",
+        "en": "personnel-personnel-services-and-company-departments-60-80-teo-jakob-ag-reiden",
+        "fr": "personnel-services-du-personnel-et-des-entreprises-60-80-teo-jakob-ag-reiden"
       },
       "company": "Teo Jakob AG",
       "companyKey": "my",
@@ -59,11 +59,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft-60-80-reiden-my-ch",
+          "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-e-gesellschaft-60-80-teo-jakob-ag-reiden"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft-60-80-reiden-my-ch"
+        ],
+        "fr": [
           "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft-60-80-reiden-my-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft-60-80-reiden-my-ch"
+        "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft-60-80-reiden-my-ch",
+        "sachbearbeiterin-sachbearbeiter-abteilungen-dienste-e-gesellschaft-60-80-teo-jakob-ag-reiden"
       ],
       "salaryMin": 55600,
       "salaryMax": 84800,

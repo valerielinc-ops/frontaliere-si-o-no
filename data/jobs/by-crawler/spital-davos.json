@@ -1474,12 +1474,12 @@
     },
     {
       "id": "spital-davos-f5990af89530",
-      "slug": "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-e-sommer-2027-spital-davos",
+      "slug": "infermiere-a-diplomato-a-hf-fh-60-100-contratto-annuale-inverno-2026-27-ed-estate-2027-spital-davos-davos",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-und-sommer-2027-spital",
-        "it": "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-e-sommer-2027-spital-davos",
-        "en": "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-und-sommer-2027-spital",
-        "fr": "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-und-sommer-2027-spital"
+        "it": "infermiere-a-diplomato-a-hf-fh-60-100-contratto-annuale-inverno-2026-27-ed-estate-2027-spital-davos-davos",
+        "en": "dipl-hf-fh-60-100-annual-contract-winter-2026-27-and-summer-2027-spital-davos-davos",
+        "fr": "dipl-hf-fh-60-100-contrat-annuel-hiver-2026-27-et-ete-2027-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1530,11 +1530,19 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-und-sommer-2027-spital",
+          "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-e-sommer-2027-spital-davos"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-und-sommer-2027-spital"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-und-sommer-2027-spital"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-und-sommer-2027-spital"
+        "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-und-sommer-2027-spital",
+        "dipl-pflegefachperson-hf-fh-60-100-jahresvertrag-winter-2026-27-e-sommer-2027-spital-davos"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
