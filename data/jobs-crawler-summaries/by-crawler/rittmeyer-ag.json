@@ -1,7 +1,7 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-10-24T21:40:26.332Z",
+  "generatedAt": "2026-10-25T09:53:50.057Z",
   "total": 11,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 11582,
-  "avgDurationMs": 11582,
+  "durationMs": 12266,
+  "avgDurationMs": 12266,
   "durationHistory": [
-    11582
+    12266
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:05.235Z",
+      "crawledAt": "2026-10-25T09:53:23.114Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -90,7 +90,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:06.202Z",
+      "crawledAt": "2026-10-25T09:53:24.036Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "firstSeenAt": "2026-10-01T09:27:19.173Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:06.990Z",
+      "crawledAt": "2026-10-25T09:53:24.888Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "firstSeenAt": "2026-09-26T14:26:58.217Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:07.842Z",
+      "crawledAt": "2026-10-25T09:53:25.734Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -216,7 +216,7 @@
       "firstSeenAt": "2026-09-11T23:25:37.393Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:08.656Z",
+      "crawledAt": "2026-10-25T09:53:26.580Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -258,7 +258,7 @@
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:09.443Z",
+      "crawledAt": "2026-10-25T09:53:27.405Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -291,7 +291,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:10.152Z",
+      "crawledAt": "2026-10-25T09:53:28.226Z",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -333,7 +333,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:10.953Z",
+      "crawledAt": "2026-10-25T09:53:29.087Z",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -384,7 +384,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:11.806Z",
+      "crawledAt": "2026-10-25T09:53:29.942Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -426,7 +426,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:12.625Z",
+      "crawledAt": "2026-10-25T09:53:30.812Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -471,7 +471,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-24T21:40:13.456Z",
+      "crawledAt": "2026-10-25T09:53:31.681Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -481,5 +481,5 @@
       }
     }
   ],
-  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
+  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
 }
