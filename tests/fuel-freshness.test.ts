@@ -106,6 +106,17 @@ describe('generator: MIMIT outage keeps the Swiss refresh', () => {
     expect(payload.stations.rows).toHaveLength(1);
   });
 
+  it('rejects a valid export whose Benzina observations are older than 48 hours', () => {
+    const today = day(NOW);
+    const staleDay = day(daysAgo(3)).split('-').reverse().join('/');
+    expect(() => validateMimitCsvPayload({
+      pricesText: `Estrazione del ${today}\nidImpianto|descCarburante|prezzo|isSelf|dtComu\n1|Benzina|1.700|1|${staleDay} 08:00:00`,
+      stationsText: `Estrazione del ${today}\nidImpianto|Gestore|Bandiera|Tipo Impianto|Nome Impianto|Indirizzo|Comune|Provincia|Latitudine|Longitudine\n1|G|Eni|Stradale|Eni Como|Via Milano 10|COMO|CO|45.81|9.08`,
+      municipalities: [COMO],
+      now: NOW,
+    })).toThrow('older than 48h');
+  });
+
   it('labels the published Italian source with its status', () => {
     const carried = italyByMunicipalityFromDataset(previousDataset(day(daysAgo(3))));
     const payload = buildDataset({

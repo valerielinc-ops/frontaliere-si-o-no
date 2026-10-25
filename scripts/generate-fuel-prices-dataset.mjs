@@ -37,6 +37,7 @@ const MIMIT_API_REGION_BY_PROVINCE = Object.freeze({
   BZ: 4,
 });
 const MIMIT_API_CONCURRENCY = 4;
+const MIMIT_MAX_AGE_HOURS = 48;
 const MIMIT_PRICES_REQUIRED_COLUMNS = Object.freeze([
   'idImpianto', 'descCarburante', 'prezzo', 'isSelf', 'dtComu',
 ]);
@@ -121,7 +122,7 @@ function assertDelimitedSource(parsed, requiredColumns, label) {
  * while still returning 200; accepting that shape bypasses the Osservaprezzi
  * fallback and publishes an undated Italian snapshot.
  */
-export function validateMimitCsvPayload({ pricesText, stationsText, municipalities }) {
+export function validateMimitCsvPayload({ pricesText, stationsText, municipalities, now = new Date(), maxAgeHours = MIMIT_MAX_AGE_HOURS }) {
   const prices = parseDelimited(pricesText);
   const stations = parseDelimited(stationsText);
   assertDelimitedSource(prices, MIMIT_PRICES_REQUIRED_COLUMNS, 'prices');
@@ -135,11 +136,12 @@ export function validateMimitCsvPayload({ pricesText, stationsText, municipaliti
   ));
   if (!hasUsableBenzina) throw new Error('MIMIT prices CSV has no usable Benzina rows');
 
+  const latestObservedAt = assertMimitObservationFresh(latestMimitObservationDate(prices.rows), now, maxAgeHours);
   const stationMap = buildItalyStations(municipalities, stations.rows, prices.rows);
   if (![...stationMap.values()].some((entries) => entries.length > 0)) {
     throw new Error('MIMIT CSV has no usable Benzina station in target municipalities');
   }
-  return { prices, stations };
+  return { prices, stations, latestObservedAt };
 }
 
 /**
@@ -188,6 +190,29 @@ function normalizeItalyObservationDate(value) {
   }
   const timestamp = Date.parse(source);
   return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : null;
+}
+
+function latestMimitObservationDate(rows) {
+  const dates = rows
+    .filter((row) => (
+      String(row.descCarburante || '').trim() === 'Benzina'
+      && String(row.idImpianto || '').trim() !== ''
+      && toNumber(row.prezzo) != null
+    ))
+    .map((row) => normalizeItalyObservationDate(row.dtComu)?.slice(0, 10) ?? null)
+    .filter(Boolean)
+    .sort();
+  return dates[dates.length - 1] ?? null;
+}
+
+function assertMimitObservationFresh(observedDate, now = new Date(), maxAgeHours = MIMIT_MAX_AGE_HOURS) {
+  if (!observedDate) throw new Error('MIMIT source has no usable Benzina observation date');
+  const observedAt = Date.parse(`${observedDate}T23:59:59.999Z`);
+  const ageHours = (now.getTime() - observedAt) / 3_600_000;
+  if (!Number.isFinite(observedAt) || !Number.isFinite(ageHours) || ageHours > maxAgeHours) {
+    throw new Error(`MIMIT Benzina observations are older than ${maxAgeHours}h (latest ${observedDate})`);
+  }
+  return observedDate;
 }
 
 async function fetchText(url, retries = 3) {
@@ -451,7 +476,9 @@ export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, r
     }
     return { province, results };
   });
-  return { ok: true, source: 'mimit-api', ...buildItalyRowsFromMimitApi({ municipalities, responses }) };
+  const result = { ok: true, source: 'mimit-api', ...buildItalyRowsFromMimitApi({ municipalities, responses }) };
+  assertMimitObservationFresh(result.extractedAt, new Date());
+  return result;
 }
 
 // haversineKm (e il suo deg2rad) ora arrivano dal modulo condiviso
@@ -940,7 +967,7 @@ export function resolveItalySource({ italyResult, municipalities, previousDatase
     return {
       status: 'live',
       reason: null,
-      extractedAt: prices.extractedAt,
+      extractedAt: italyResult.extractedAt ?? prices.extractedAt,
       italyByMunicipality: buildItalyStations(municipalities, stations.rows, prices.rows),
     };
   }
@@ -1058,8 +1085,8 @@ async function main() {
     // `resolveItalySource`); TCS/ECB failures keep the old skip behaviour.
     const italyFetch = Promise.all([fetchText(ITALY_PRICES_URL), fetchText(ITALY_STATIONS_URL)])
       .then(([pricesText, stationsText]) => {
-        validateMimitCsvPayload({ pricesText, stationsText, municipalities });
-        return { ok: true, pricesText, stationsText };
+        const validation = validateMimitCsvPayload({ pricesText, stationsText, municipalities });
+        return { ok: true, pricesText, stationsText, extractedAt: validation.latestObservedAt };
       })
       .catch(async (csvError) => {
         try {
