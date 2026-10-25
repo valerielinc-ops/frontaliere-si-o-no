@@ -668,6 +668,56 @@ describe('fuel-daily page generation — observation date', () => {
     expect(pages['/prezzi-benzina/chiasso/oggi/']).toContain('Dato non recente');
   });
 
+  it('does not call a stale observation today in the localized refuelling advice', () => {
+    const expected = {
+      it: 'confronta la rilevazione del 20.04.2026',
+      en: 'compare the 20.04.2026 observation',
+      de: 'Erhebung vom 20.04.2026',
+      fr: 'comparez le relevé du 20.04.2026',
+    } as const;
+    const paths = {
+      it: '/prezzi-benzina/chiasso/oggi/',
+      en: '/en/gasoline-price-switzerland/chiasso/today/',
+      de: '/de/benzinpreis-schweiz/chiasso/heute/',
+      fr: '/fr/prix-essence-suisse/chiasso/aujourd-hui/',
+    } as const;
+    const currentCopy = {
+      it: 'Prima del rifornimento, confronta il prezzo odierno con le stazioni vicine e verifica il listino alla pompa.',
+      en: "Before refuelling, compare today's price with nearby stations and check the pump display.",
+      de: 'Vergleichen Sie vor dem Tanken den heutigen Preis mit nahe gelegenen Tankstellen und prüfen Sie die Anzeige an der Zapfsäule.',
+      fr: "Avant de faire le plein, comparez le prix du jour avec les stations voisines et vérifiez l'affichage à la pompe.",
+    } as const;
+    for (const locale of Object.keys(paths) as Array<keyof typeof paths>) {
+      const html = pages[paths[locale]];
+      expect(html, locale).toContain(expected[locale]);
+      expect(html, locale).not.toContain(currentCopy[locale]);
+    }
+  });
+
+  it('labels an observation without a date as the latest available value', () => {
+    const missingDatePages = generateFuelDailyPages({
+      rootDir: '/tmp/frontaliere-fuel-missing-observation-date',
+      dataset: { ...DATASET, generatedAt: 'not-a-date' },
+      history: [],
+      today: observedAt,
+    });
+    const expected = {
+      it: 'considera questa l’ultima rilevazione disponibile',
+      en: 'treat this as the latest available observation',
+      de: 'diese Erhebung vor dem Tanken als die letzte verfügbare Angabe',
+      fr: 'considérez ce relevé comme la dernière donnée disponible',
+    } as const;
+    const paths = {
+      it: '/prezzi-benzina/chiasso/oggi/',
+      en: '/en/gasoline-price-switzerland/chiasso/today/',
+      de: '/de/benzinpreis-schweiz/chiasso/heute/',
+      fr: '/fr/prix-essence-suisse/chiasso/aujourd-hui/',
+    } as const;
+    for (const locale of Object.keys(paths) as Array<keyof typeof paths>) {
+      expect(missingDatePages[paths[locale]], locale).toContain(expected[locale]);
+    }
+  });
+
   it('does not turn an absent snapshot into an unchanged price', () => {
     const withoutHistory = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-no-snapshot', dataset, history: [], today: observedAt });
     const html = withoutHistory['/prezzi-benzina/chiasso/oggi/'];

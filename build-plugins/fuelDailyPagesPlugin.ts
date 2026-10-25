@@ -1700,12 +1700,26 @@ function renderPage(inp: PageInputs): string {
     de: 'Daten nicht aktuell: vor dem Tanken den Preis an der Zapfsäule prüfen.',
     fr: 'Donnée non récente : vérifiez le prix à la pompe avant le plein.',
   })[locale] : '';
-  const beforeRefuelling = ({
-    it: 'Prima del rifornimento, confronta il prezzo odierno con le stazioni vicine e verifica il listino alla pompa.',
-    en: "Before refuelling, compare today's price with nearby stations and check the pump display.",
-    de: 'Vergleichen Sie vor dem Tanken den heutigen Preis mit nahe gelegenen Tankstellen und prüfen Sie die Anzeige an der Zapfsäule.',
-    fr: "Avant de faire le plein, comparez le prix du jour avec les stations voisines et vérifiez l'affichage à la pompe.",
-  })[locale];
+  const beforeRefuelling = observedToday
+    ? ({
+        it: 'Prima del rifornimento, confronta il prezzo odierno con le stazioni vicine e verifica il listino alla pompa.',
+        en: "Before refuelling, compare today's price with nearby stations and check the pump display.",
+        de: 'Vergleichen Sie vor dem Tanken den heutigen Preis mit nahe gelegenen Tankstellen und prüfen Sie die Anzeige an der Zapfsäule.',
+        fr: "Avant de faire le plein, comparez le prix du jour avec les stations voisines et vérifiez l'affichage à la pompe.",
+      })[locale]
+    : observationDate
+      ? ({
+          it: `Prima del rifornimento, confronta la rilevazione del ${formatFuelDateDisplay(referenceDate)} con le stazioni vicine e verifica il listino alla pompa.`,
+          en: `Before refuelling, compare the ${formatFuelDateDisplay(referenceDate)} observation with nearby stations and check the pump display.`,
+          de: `Vergleichen Sie vor dem Tanken die Erhebung vom ${formatFuelDateDisplay(referenceDate)} mit nahe gelegenen Tankstellen und prüfen Sie die Anzeige an der Zapfsäule.`,
+          fr: `Avant de faire le plein, comparez le relevé du ${formatFuelDateDisplay(referenceDate)} avec les stations voisines et vérifiez l'affichage à la pompe.`,
+        })[locale]
+      : ({
+          it: 'Prima del rifornimento, considera questa l’ultima rilevazione disponibile, confrontala con le stazioni vicine e verifica il listino alla pompa.',
+          en: 'Before refuelling, treat this as the latest available observation, compare it with nearby stations, and check the pump display.',
+          de: 'Betrachten Sie diese Erhebung vor dem Tanken als die letzte verfügbare Angabe, vergleichen Sie sie mit nahe gelegenen Tankstellen und prüfen Sie die Anzeige an der Zapfsäule.',
+          fr: 'Avant de faire le plein, considérez ce relevé comme la dernière donnée disponible, comparez-le avec les stations voisines et vérifiez l’affichage à la pompe.',
+        })[locale];
   const paragraph = `${intro} ${dailyComparison} ${beforeRefuelling} ${copy.historySection}`;
   const historyCopy = copy.historySection;
 
