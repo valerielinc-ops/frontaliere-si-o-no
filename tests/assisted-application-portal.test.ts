@@ -1630,6 +1630,11 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     });
     expect(targetEmployerNoOption(field, targetEmployer)).toBeNull();
     expect(targetEmployerNoOption(field, candidateForForm({ identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' } }))).toBeNull();
+    expect(autoAnswersForPortalQuestions({
+      questions: [{ id: field.id, source: 'portal', question: field.label, required: true, type: 'choice', options: field.options.map((option) => option.label) }],
+      candidate: otherEmployer,
+      answers: {},
+    })).toEqual({ [field.id]: 'Nein' });
   });
 
   it('requires language-specific evidence for ability and proficiency answers', () => {

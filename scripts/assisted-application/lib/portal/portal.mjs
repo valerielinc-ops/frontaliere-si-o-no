@@ -28,7 +28,7 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic } from './plan.mjs';
+import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
@@ -444,7 +444,11 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       required: true,
       options,
     };
-    const answer = candidateAnswerForField(candidate, field);
+    const answer = candidateAnswerForField(candidate, field)
+      || (() => {
+        const no = targetEmployerNoOption(field, candidate);
+        return no ? { value: no.label, source: 'rule' } : null;
+      })();
     if (answer?.value) out[question.id] = answer.value;
   }
   return out;
