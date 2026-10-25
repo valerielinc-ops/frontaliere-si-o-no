@@ -29,6 +29,7 @@ describe('GCP cost monitor Cloud Scheduler dispatch', () => {
     expect(url).toBe('https://api.github.com/repos/owner/repo/actions/workflows/monitor-gcp-costs.yml/dispatches');
     expect(GCP_COST_MONITOR_WORKFLOW).toBe('monitor-gcp-costs.yml');
     expect(init.method).toBe('POST');
+    expect(init.signal).toBeInstanceOf(AbortSignal);
     // Exactly `{ ref: 'main' }`: an `inputs.dry_run` here would silence the issue.
     expect(JSON.parse(String(init.body))).toEqual({ ref: 'main' });
   });
