@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-10-25T17:04:03.317Z",
+  "generatedAt": "2026-10-25T21:25:06.465Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 11049,
-  "avgDurationMs": 11049,
+  "durationMs": 10989,
+  "avgDurationMs": 10989,
   "durationHistory": [
-    11049
+    10989
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
         "location": "Zurich"
       },
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T17:03:49.675Z",
+      "crawledAt": "2026-10-25T21:24:49.406Z",
       "id": "ermenegildo-zegna-logistica-c5d21ec58740",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -89,7 +89,7 @@
         "location": "Stabio"
       },
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T17:03:48.047Z",
+      "crawledAt": "2026-10-25T21:24:48.159Z",
       "id": "ermenegildo-zegna-logistica-0293238593f2",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -127,7 +127,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T17:03:44.858Z",
+      "crawledAt": "2026-10-25T21:24:45.441Z",
       "source": "zegna-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -156,5 +156,5 @@
       }
     }
   ],
-  "codeCommit": "40bd20a2a82f47721b600bca0efef48c59645a2f"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }

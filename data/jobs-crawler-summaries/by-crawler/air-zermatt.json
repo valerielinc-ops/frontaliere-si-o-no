@@ -1,7 +1,7 @@
 {
   "key": "air-zermatt",
   "label": "Air Zermatt AG",
-  "generatedAt": "2026-10-25T17:06:24.469Z",
+  "generatedAt": "2026-10-25T21:28:24.111Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3713,
-  "avgDurationMs": 3713,
+  "durationMs": 3865,
+  "avgDurationMs": 3865,
   "durationHistory": [
-    3713
+    3865
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T17:06:11.460Z",
+      "crawledAt": "2026-10-25T21:28:11.615Z",
       "firstSeenAt": "2026-04-13T09:52:19.659Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "40bd20a2a82f47721b600bca0efef48c59645a2f"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }
