@@ -26,12 +26,12 @@ export function crawlerJobActivity(job) {
 }
 
 /**
- * @param {unknown} jobs
  * A row with no route or stable posting identity is quarantine bookkeeping,
  * not an indexable vacancy. It is counted separately instead of being fed to
  * parser-quality checks. Route-bearing rows remain active even if their URL is
  * absent, because their published identity still needs auditing.
  *
+ * @param {unknown} jobs
  * @returns {{ activeJobs: object[], excluded: { grace: number, expired: number, nonPublishable: number, total: number } }}
  */
 export function partitionCrawlerJobsForActiveMetrics(jobs) {
