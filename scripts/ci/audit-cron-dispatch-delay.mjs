@@ -52,6 +52,7 @@ import { resolveOutputPath } from '../lib/resolve-output-path.mjs';
 import { DEFAULT_HISTORY_FILE } from './probe-cron-dispatch-delay.mjs';
 
 const MINUTES_PER_DAY = 1440;
+const GITHUB_API_TIMEOUT_MS = 30_000;
 
 export function argValue(args, flag) {
   const i = args.indexOf(flag);
@@ -212,6 +213,7 @@ export function renderHistoryReport(summaries, comparison, { slotA, slotB, total
 async function ghJson(url, token) {
   const res = await fetch(url, {
     headers: { accept: 'application/vnd.github+json', ...(token ? { authorization: `Bearer ${token}` } : {}) },
+    signal: AbortSignal.timeout(GITHUB_API_TIMEOUT_MS),
   });
   if (!res.ok) return null;
   return res.json();
