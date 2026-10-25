@@ -104,6 +104,30 @@ describe('fetchTichJobDetailUrls', () => {
     ]);
     expect(fetchImpl).toHaveBeenCalledWith(OFFICIAL_LISTING_URL, expect.anything());
   });
+
+  it('uses the validated official listing through Jina when the runner egress is unavailable', async () => {
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.startsWith('https://r.jina.ai/')) return new Response(officialListingHtml, { status: 200 });
+      throw new TypeError('fetch failed');
+    });
+
+    const result = await fetchTichJobDetailUrls({
+      fetchImpl,
+      retries: 0,
+      retryBaseMs: 0,
+      proxyRetries: 0,
+      proxyRetryBaseMs: 0,
+      timeoutMs: 1_000,
+    });
+
+    expect(result.listingSucceeded).toBe(false);
+    expect(result.rssSucceeded).toBe(false);
+    expect(result.officialSucceeded).toBe(true);
+    expect(result.urls).toEqual([
+      "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
+    ]);
+    expect(fetchImpl.mock.calls.some(([url]) => String(url).startsWith('https://r.jina.ai/'))).toBe(true);
+  });
 });
 
 describe('buildTichFetchProxyHosts', () => {
