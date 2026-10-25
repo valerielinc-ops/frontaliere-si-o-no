@@ -1,7 +1,7 @@
 {
   "key": "medartis",
   "label": "Medartis",
-  "generatedAt": "2026-10-25T09:51:38.238Z",
+  "generatedAt": "2026-10-25T21:53:20.570Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 10036,
-  "avgDurationMs": 10036,
+  "durationMs": 11693,
+  "avgDurationMs": 11693,
   "durationHistory": [
-    10036
+    11693
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:51:26.462Z",
+      "crawledAt": "2026-10-25T21:53:04.852Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://careers.medartis.com/job/Supply-&-Production-Planner-100/1406388933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:51:27.655Z",
+      "crawledAt": "2026-10-25T21:53:06.155Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://careers.medartis.com/job/Produktionsmitarbeiterin-Reinraum/1433594733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:51:27.069Z",
+      "crawledAt": "2026-10-25T21:53:05.463Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-AngularJava/1440346933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:51:25.864Z",
+      "crawledAt": "2026-10-25T21:53:04.203Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://careers.medartis.com/job/Senior-Global-Product-Manager-CMF/1443182933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:51:22.664Z",
+      "crawledAt": "2026-10-25T21:53:00.459Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-%28Angular-Java%29/1440347033/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T09:51:21.717Z",
+      "crawledAt": "2026-10-25T21:52:59.400Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -282,5 +282,5 @@
       }
     }
   ],
-  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }
