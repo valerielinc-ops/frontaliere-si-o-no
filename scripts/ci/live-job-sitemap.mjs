@@ -3,12 +3,12 @@
  * entries are the probe candidates; hreflang alternates are metadata for
  * their page, not additional jobs to request.
  *
- * Keep this selection outside the generic sitemap crawler so every live-gate
- * caller makes the same primary-vs-alternate choice without changing the
- * crawler's union used by IndexNow and snapshot consumers.
+ * Keep this selection in the CI live-gate namespace so the e2e probes and
+ * future live checks share the same primary-vs-alternate choice without
+ * changing the generic crawler's union used by IndexNow and snapshots.
  */
-import { parseSitemapXml } from './sitemap-crawl.mjs';
-import { htmlHasActiveJobPosting } from './active-jobposting-coverage.mjs';
+import { parseSitemapXml } from '../lib/sitemap-crawl.mjs';
+import { htmlHasActiveJobPosting } from '../lib/active-jobposting-coverage.mjs';
 
 const LIVE_BASE_URL = (process.env.LIVE_BASE_URL || 'https://frontaliereticino.ch').replace(/\/+$/, '');
 
@@ -34,7 +34,7 @@ function livePathFromUrl(value, baseUrl = LIVE_BASE_URL) {
  * Extract canonical active-job candidates from a URL-set sitemap.
  *
  * `urls` intentionally remains a primary-plus-hreflang union for the generic
- * crawler. This live-gate consumer must select `primaryUrls`, otherwise every
+ * crawler. This live-gate consumer selects `primaryUrls`, otherwise every
  * localized alternate becomes another HTTP probe and can be mistaken for a
  * second job. Prefix-shaped slugs are left to the HTML JobPosting contract:
  * a real job slug may itself begin with `company-` or `azienda-`.

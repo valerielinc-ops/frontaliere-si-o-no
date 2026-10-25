@@ -3,8 +3,8 @@ import {
   extractJobDetailPathsFromSitemapXml,
   isActiveJobDetailHtml,
   JOB_DETAIL_PATH_RE,
-} from '../../../scripts/lib/live-job-sitemap.mjs';
-export { extractJobDetailPathsFromSitemapXml, JOB_DETAIL_PATH_RE } from '../../../scripts/lib/live-job-sitemap.mjs';
+} from '../../../scripts/ci/live-job-sitemap.mjs';
+export { extractJobDetailPathsFromSitemapXml, JOB_DETAIL_PATH_RE } from '../../../scripts/ci/live-job-sitemap.mjs';
 
 /**
  * Runtime discovery of currently-active job-detail URLs on the deployed site.
