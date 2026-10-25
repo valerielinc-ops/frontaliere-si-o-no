@@ -173,6 +173,10 @@ function runExhaustedTierSkipScenario(
     const source = readFileSync(${JSON.stringify(modulePath)}, 'utf8');
     const standalone = source
       .replace(
+        "import { fetchWithRefTimeout, releaseFetchWithRefTimeout } from './fetch-with-ref-timeout.mjs';",
+        "const fetchWithRefTimeout = (url, options) => globalThis.fetch(url, options); const releaseFetchWithRefTimeout = () => {};",
+      )
+      .replace(
         "import { getServiceAccountAccessToken } from './google-service-account-token.mjs';",
         "const getServiceAccountAccessToken = async () => '';",
       )
@@ -288,6 +292,10 @@ function runRetryOutcomeResetScenario() {
     );
     if (injected === source) throw new Error('freeTranslate signature not found');
     const standalone = injected
+      .replace(
+        "import { fetchWithRefTimeout, releaseFetchWithRefTimeout } from './fetch-with-ref-timeout.mjs';",
+        "const fetchWithRefTimeout = (url, options) => globalThis.fetch(url, options); const releaseFetchWithRefTimeout = () => {};",
+      )
       .replace(
         "import { getServiceAccountAccessToken } from './google-service-account-token.mjs';",
         "const getServiceAccountAccessToken = async () => '';",

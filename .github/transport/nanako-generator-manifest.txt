@@ -82,6 +82,7 @@ scripts/lib/extract-article-text.mjs
 scripts/lib/fact-check-consensus.mjs
 scripts/lib/fnv1a.mjs
 scripts/lib/free-translate.mjs
+scripts/lib/fetch-with-ref-timeout.mjs
 # Added 2026-09-30: free-translate.mjs now imports the shared quality gate;
 # carry its local closure as well so the transported generator can resolve the
 # top-level import before main().
