@@ -1643,6 +1643,8 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       candidate: otherEmployer,
       answers: {},
     })).toEqual({ [field.id]: 'Nein' });
+    const genericQuestion = { ...field, id: 'target-employer-generic', label: 'Do you work / have you worked for us?' };
+    expect(targetEmployerNoOption(genericQuestion, otherEmployer)).toEqual({ label: 'Nein' });
   });
 
   it('requires language-specific evidence for ability and proficiency answers', () => {
