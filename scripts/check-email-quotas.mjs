@@ -255,7 +255,8 @@ async function main(opts) {
     } else {
       const remaining = Math.max(0, monthlyCap - count);
       const usageLabel = source === 'account' ? 'Outbound used this billing period' : 'Delivered+bounced month-to-date';
-      console.log(`   ${usageLabel}: ${count} / ${monthlyCap}  (≈${remaining} remaining this month)`);
+      const periodLabel = source === 'account' ? 'this billing period' : 'this month';
+      console.log(`   ${usageLabel}: ${count} / ${monthlyCap}  (≈${remaining} remaining ${periodLabel})`);
       if (source === 'account') {
         console.log(`   Hourly outbound: ${hourlyUsed ?? 'n/a'} / ${hourlyLimit ?? 'n/a'}  (≈${hourlyAvailable ?? 'n/a'} available)`);
         if (Number.isFinite(billingPeriodEndMs)) {

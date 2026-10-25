@@ -233,6 +233,27 @@ describe('fetchMailerooCycleUsage credential separation', () => {
     });
     expect(calls).toBe(1);
   });
+
+  it('rejects blank Account API usage instead of verifying zero', async () => {
+    process.env.MAILEROO_ACCOUNT_API_KEY = 'account-key';
+    globalThis.fetch = (async (url) => {
+      if (String(url).endsWith('/v1/account')) {
+        return {
+          ok: true,
+          json: async () => ({
+            data: {
+              usage: [
+                { name: 'Monthly Outbound Usage', quantity: 250000, used: '' },
+              ],
+            },
+          }),
+        } as any;
+      }
+      return { ok: false, json: async () => ({}) } as any;
+    }) as any;
+
+    await expect(fetchMailerooCycleUsage()).resolves.toEqual({ count: 0, verified: false });
+  });
 });
 
 /* ------------------------------------------------------------------ */

@@ -56,8 +56,8 @@
  *                                the 250k/mo budget, see PROVIDERS[maileroo] below.
  *   MAILEROO_ACCOUNT_API_KEY — Maileroo Account API key (dashboard "Applications"
  *                                section — a DIFFERENT credential from the sending
- *                                key above). Powers real month-to-date usage via
- *                                statistics/summary for the dynamic pace; optional
+ *                                key above). Powers real billing-period usage via
+ *                                the Account API for the dynamic pace; optional
  *                                — falls back to a conservative static pace when
  *                                unset (verified live 2026-07-20: the sending key
  *                                itself gets 401 against this endpoint).
@@ -547,8 +547,10 @@ async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
 // not hard enforcement: Maileroo's own API rejection (caught by
 // isRateLimitedError in sendSingle) remains the real backstop.
 function numericValue(value) {
-  const number = Number(value);
-  return Number.isFinite(number) ? number : null;
+  if (value === null || value === undefined) return null;
+  if (typeof value === 'string' && value.trim() === '') return null;
+  const number = typeof value === 'number' ? value : Number(value);
+  return Number.isFinite(number) && number >= 0 ? number : null;
 }
 
 function positiveNumericValue(value) {
