@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109713",
+      "sourceKey": "TG",
+      "sourceRecordId": "109713",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "73724",
+      "normalizedPlate": "TG73724",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 500,
+      "bidCount": 0,
+      "endsAt": "2026-10-28T18:00:00.000Z",
+      "closedAt": "2026-10-22T11:51:25.324Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109713",
+      "sourceFetchedAt": "2026-10-22T11:51:25.324Z",
+      "lastVerifiedAt": "2026-10-22T11:51:25.324Z",
+      "firstSeenAt": "2026-10-14T05:00:06.875Z",
+      "lastSeenAt": "2026-10-22T11:51:25.324Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "11a83537c660"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "bl-893",
+      "sourceKey": "BL",
+      "sourceRecordId": "893",
+      "canton": "Basilea Campagna",
+      "platePrefix": "BL",
+      "plateNumber": "564",
+      "normalizedPlate": "BL564",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 10000,
+      "startingPriceChf": 1920,
+      "bidCount": 3,
+      "minimumIncrementChf": 1,
+      "endsAt": "2026-10-25T19:00:00.000Z",
+      "closedAt": "2026-10-25T19:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.bl.ch/ecari-auction/ui/app/init",
+      "officialDetailUrl": "https://eauktion.bl.ch/ecari-auction/ui/app/details/app?id=893",
+      "sourceFetchedAt": "2026-10-25T16:16:36.661Z",
+      "lastVerifiedAt": "2026-10-25T16:16:36.661Z",
+      "firstSeenAt": "2026-10-19T13:13:52.072Z",
+      "lastSeenAt": "2026-10-25T16:16:36.661Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "e2c4b48de9dd"
+    }
+  ]
+}
