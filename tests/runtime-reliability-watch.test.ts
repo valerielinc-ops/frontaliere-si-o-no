@@ -62,7 +62,7 @@ describe('runtime reliability watchdog', () => {
 
   it('keeps stall age based on the timestamp prefix of a nonce-bearing publish token', () => {
     const now = Date.parse('2026-10-18T20:10:00Z');
-    const start = `${now - 10 * 60_000}123456`;
+    const start = `${now - 10 * 60_000}18446744073709551615`;
     const previous = String(now - 60 * 60_000);
     expect(classifyCdnPublishWindow({
       startMarker: { ok: true, status: 200, body: start },
@@ -70,7 +70,7 @@ describe('runtime reliability watchdog', () => {
       nowMs: now,
     })).toMatchObject({ state: 'in_progress', startId: start, completeId: previous, ageMs: 10 * 60_000 });
     expect(classifyCdnPublishWindow({
-      startMarker: { ok: true, status: 200, body: `${now - 51 * 60_000}123456` },
+      startMarker: { ok: true, status: 200, body: `${now - 51 * 60_000}18446744073709551615` },
       completeMarker: { ok: true, status: 200, body: previous },
       nowMs: now,
     })).toMatchObject({ state: 'stalled' });
@@ -413,7 +413,7 @@ describe('runtime reliability watchdog', () => {
   });
 
   it('classifies the skew direction exactly beyond 2^53', () => {
-    // validBuildId accepts long numeric publish tokens; these two differ by 1 but are
+    // validBuildId accepts long numeric build ids; these two differ by 1 but are
     // indistinguishable as IEEE-754 doubles, so a Number comparison would call
     // a regression a healthy rollout.
     const result = evaluateProbe({

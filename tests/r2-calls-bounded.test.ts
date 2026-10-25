@@ -284,7 +284,9 @@ case "\${args[0]}" in
         printf '%s' "$build" > "$dst"
         exit 0 ;;
       :s3:*cdn-publish-start-id.txt)
-        if [ -s "$STUB_DIR/publish-start-written.txt" ]; then
+        if [ -n "\${STUB_REMOTE_PUBLISH_START:-}" ]; then
+          printf '%s' "\${STUB_REMOTE_PUBLISH_START}" > "$dst"
+        elif [ -s "$STUB_DIR/publish-start-written.txt" ]; then
           cat "$STUB_DIR/publish-start-written.txt" > "$dst"
         else
           printf '%s' "\${STUB_PUBLISH_START:-1700000000000}" > "$dst"
@@ -337,19 +339,6 @@ echo "aws $*" >> "$STUB_CALLS"
   chmodSync(join(bin, 'rclone'), 0o755);
   chmodSync(join(bin, 'aws'), 0o755);
   chmodSync(join(bin, 'node'), 0o755);
-  writeFileSync(
-    join(bin, 'date'),
-    `#!/usr/bin/env bash
-if [ -n "\${STUB_DATE_MS:-}" ]; then
-  case "\${1:-}" in
-    +%s%3N) printf '%s\\n' "$STUB_DATE_MS"; exit 0 ;;
-    +%s) printf '%s\\n' "$((STUB_DATE_MS / 1000))"; exit 0 ;;
-  esac
-fi
-exec /bin/date "$@"
-`,
-  );
-  chmodSync(join(bin, 'date'), 0o755);
   // Portable coreutils-compatible `timeout` for hosts without one (macOS
   // without coreutils). On the runner and wherever it exists, the real one is
   // used: the stub only fills the gap.
@@ -390,6 +379,19 @@ function runPublish(name: string, env: Record<string, string>) {
   const bin = join(dir, 'bin');
   const stage = join(dir, 'stage');
   writeStubs(bin);
+  if (env.STUB_DATE_MS) {
+    writeFileSync(
+      join(bin, 'date'),
+      `#!/usr/bin/env bash
+case "$1" in
+  +%s%3N) printf '%s' "$STUB_DATE_MS" ;;
+  +%s) printf '%s' "$STUB_DATE_S" ;;
+  *) exit 64 ;;
+esac
+`,
+    );
+    chmodSync(join(bin, 'date'), 0o755);
+  }
   mkdirSync(stage, { recursive: true });
   if (env.STUB_NO_ASSETS_DIR !== '1') {
     mkdirSync(join(stage, 'assets'), { recursive: true });
@@ -948,24 +950,41 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(completionMarkerPuts(r.calls)).toHaveLength(1);
   });
 
-  it('uses a random owner token when clocks and runner PIDs coincide', () => {
-    const common = {
-      STUB_DATE_MS: '1700000000000',
-      BASHPID: '123456',
-      STUB_LEDGER: 'absent',
-      STUB_ASSETS_LOG: '',
-      STUB_NO_ASSETS_DIR: '1',
-      STUB_MISSING_MARKERS: '1',
-    };
-    const first = runPublish('random-owner-a', common);
-    const second = runPublish('random-owner-b', common);
+  it('uses different numeric ownership tokens when uploads share a timestamp', () => {
+    const timestamp = { STUB_DATE_MS: '1792786200123', STUB_DATE_S: '1792786200' };
+    const first = runPublish('same-timestamp-owner-a', timestamp);
+    const second = runPublish('same-timestamp-owner-b', timestamp);
     expect(first.code).toBe(0);
     expect(second.code).toBe(0);
-    expect(first.publishStart).toMatch(/^1700000000000\d{20}$/);
-    expect(second.publishStart).toMatch(/^1700000000000\d{20}$/);
+    expect(first.publishStart).toMatch(/^1792786200123\d{20}$/);
+    expect(second.publishStart).toMatch(/^1792786200123\d{20}$/);
     expect(first.publishStart).not.toBe(second.publishStart);
   });
 
+  it('withholds marker closure when a same-timestamp upload no longer owns the start marker', () => {
+    const timestamp = { STUB_DATE_MS: '1792786200123', STUB_DATE_S: '1792786200' };
+    const owner = runPublish('same-timestamp-owner-present', {
+      ...timestamp,
+      STUB_NO_ASSETS_DIR: '1',
+      STUB_MISSING_MARKERS: '1',
+    });
+    expect(owner.code).toBe(0);
+    expect(owner.publishStart).toMatch(/^1792786200123\d{20}$/);
+
+    // The forced remote marker represents the shared R2 state after the first
+    // upload opened its window; the second upload has a different token and
+    // must fail the same revalidation used immediately before purge/closure.
+    const contender = runPublish('same-timestamp-owner-lost', {
+      ...timestamp,
+      STUB_NO_ASSETS_DIR: '1',
+      STUB_MISSING_MARKERS: '1',
+      STUB_REMOTE_PUBLISH_START: owner.publishStart!,
+    });
+    expect(contender.code).toBe(0);
+    expect(contender.publishStart).not.toBe(owner.publishStart);
+    expect(contender.stdout).toMatch(/publish window is not owned by this upload/);
+    expect(completionMarkerPuts(contender.calls)).toEqual([]);
+  });
   it('successful no-op with an unavailable ledger and empty log still closes the marker', () => {
     const r = runPublish('no-op-unreadable-ledger', {
       STUB_LEDGER: 'hang',

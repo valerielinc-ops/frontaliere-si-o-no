@@ -401,10 +401,14 @@ _publish_cdn_r2() {
   case "$_publish_clock" in
     ''|*[!0-9]*) _publish_clock="$(date +%s)000" ;;
   esac
-  _publish_nonce="$(od -An -N8 -tu8 /dev/urandom 2>/dev/null | tr -d '[:space:]')"
+  if ! _publish_nonce="$(od -An -N8 -tu8 /dev/urandom 2>/dev/null)"; then
+    echo "::warning::R2 publish-start nonce generation failed — refusing to mutate the CDN origin without a unique upload window"
+    return 0
+  fi
+  _publish_nonce="${_publish_nonce//[[:space:]]/}"
   case "$_publish_nonce" in
     ''|*[!0-9]*)
-      echo "::warning::cannot mint a numeric random CDN publish token — refusing to open the R2 publish window"
+      echo "::warning::R2 publish-start nonce was not numeric — refusing to mutate the CDN origin without a unique upload window"
       return 0
       ;;
   esac

@@ -184,15 +184,21 @@ export function formatMarkerSkew(siteBehindMs) {
 
 function validBuildId(value) {
   const id = String(value || '').trim();
-  return /^\d{10,40}$/.test(id) ? id : null;
+  return /^\d{10,20}$/.test(id) ? id : null;
 }
 
 /**
- * Publish-window tokens are epoch milliseconds followed by a numeric random
- * nonce. Keep the nonce opaque for ordering/identity, but use only the epoch
- * prefix for stall age; otherwise a nonce-bearing token would look like a
- * timestamp far in the future and could never become stalled.
+ * Publish-window tokens are epoch milliseconds followed by a numeric 64-bit
+ * owner nonce. They are wider than build ids, so validate them separately.
+ * Keep the nonce opaque for ordering/identity, but use only the epoch prefix
+ * for stall age; otherwise a nonce-bearing token would look like a timestamp
+ * far in the future and could never become stalled.
  */
+function validPublishToken(value) {
+  const id = String(value || '').trim();
+  return /^\d{10,33}$/.test(id) ? id : null;
+}
+
 function publishTokenTimeMs(id) {
   const text = String(id || '');
   const timestamp = Number(text.length > 13 ? text.slice(0, 13) : text);
@@ -210,8 +216,8 @@ export function classifyCdnPublishWindow({
   nowMs = Date.now(),
   stallMs = CDN_PUBLISH_STALL_MS,
 } = {}) {
-  const startId = startMarker?.ok ? validBuildId(startMarker.body) : null;
-  const completeId = completeMarker?.ok ? validBuildId(completeMarker.body) : null;
+  const startId = startMarker?.ok ? validPublishToken(startMarker.body) : null;
+  const completeId = completeMarker?.ok ? validPublishToken(completeMarker.body) : null;
   const startAbsent = startMarker?.status === 404;
   const completeAbsent = completeMarker?.status === 404;
   const startTimeMs = startId ? publishTokenTimeMs(startId) : null;
