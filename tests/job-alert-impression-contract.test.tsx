@@ -213,7 +213,7 @@ describe('issue 10528 — job_detail_button shown/created parity', () => {
     expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertEndCard.tsx'), 'utf-8'))
       .toContain("openJobAlertForm(keyword, 'end_card')");
     expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertStickyBanner.tsx'), 'utf-8'))
-      .toContain("openJobAlertForm(undefined, 'sticky_banner')");
+      .toContain("openJobAlertForm(keyword || undefined, 'sticky_banner')");
   });
 });
 
@@ -243,7 +243,7 @@ describe('issue 10528 — every alert surface keeps shown→created attribution'
       ['components/community/JobBoardFilterAlertCta.tsx', "openJobAlertForm(keywordLabel, formOrigin)"],
     ],
     sticky_banner: [
-      ['components/community/JobAlertStickyBanner.tsx', "openJobAlertForm(undefined, 'sticky_banner')"],
+      ['components/community/JobAlertStickyBanner.tsx', "openJobAlertForm(keyword || undefined, 'sticky_banner')"],
     ],
     end_card: [
       ['components/community/JobAlertEndCard.tsx', "openJobAlertForm(keyword, 'end_card')"],

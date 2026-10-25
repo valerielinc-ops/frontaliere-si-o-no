@@ -88,7 +88,7 @@ export default function JobAlertStickyBanner({
  const handleOpen = () => {
  finishedRef.current = true;
  Analytics.trackJobAlertCtaClick('sticky_banner', 'open');
- openJobAlertForm(undefined, 'sticky_banner');
+ openJobAlertForm(keyword || undefined, 'sticky_banner');
  setVisible(false);
  };
 
