@@ -44,6 +44,8 @@ describe('localized Tax & Pension SEO metadata', () => {
   it('does not reinterpret an unknown family section or Italian runtime', () => {
     expect(resolveFiscoLocaleSeo('not-a-fisco-section', 'en')).toBeNull();
     expect(resolveFiscoLocaleSeo('fisco', 'it')).toBeNull();
+    expect(resolveFiscoLocaleSeo('newFrontierTaxSim', 'en'))
+      .toMatchObject({ title: 'Tax Simulation for New Cross-Border Workers' });
     expect(resolveFiscoLocaleSeoByPath('/tasse-e-pensione/non-existent/', 'en')).toBeNull();
   });
 });

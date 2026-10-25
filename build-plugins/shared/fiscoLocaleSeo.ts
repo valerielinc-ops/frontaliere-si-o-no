@@ -23,7 +23,7 @@ export type FiscoSeoSection =
   | 'quiz'
   | 'taxCredit'
   | 'withholdingRates'
-  | 'new-frontier-tax-sim';
+  | 'newFrontierTaxSim';
 
 export interface FiscoLocaleSeo {
   /** Title without the brand suffix; callers apply buildTitleWithBrand. */
@@ -43,19 +43,19 @@ const FISCO_LOCALE_SEO: Record<FiscoSeoLocale, Record<FiscoSeoSection, FiscoLoca
     },
     'tax-return-italia': {
       title: 'Italian Tax Return',
-      description: 'Italian tax return for cross-border workers: Form 730 and Redditi PF, the 10,000-euro exemption, foreign tax credit and 2026 filing deadlines explained.',
+      description: 'Italian tax return for cross-border workers: Form 730, Redditi PF, the 10,000-euro exemption, foreign tax credit and 2026 filing deadlines.',
     },
     'tax-return-svizzera': {
       title: 'Swiss Tax Return Guide',
-      description: 'Swiss tax return for cross-border workers: withholding tax, tariff correction (TDR), Ticino cantonal deductions and third-pillar 3a contributions covered.',
+      description: 'Swiss tax return for cross-border workers: withholding tax, tariff correction (TDR), Ticino deductions and third-pillar 3a contributions.',
     },
     calendar: {
       title: 'Tax Deadline Calendar 2026',
-      description: "Cross-border workers' 2026 tax deadlines: withholding tax, IRPEF, Form 730 and Redditi, AVS. With a countdown, required documents and late-filing penalties.",
+      description: "Cross-border workers' 2026 tax deadlines: withholding tax, IRPEF, Form 730, Redditi and AVS, with required documents, countdown and penalties.",
     },
     holidays: {
       title: 'Ticino Public Holidays 2026',
-      description: 'Ticino public holidays 2026 for cross-border workers: official/optional holidays, bridge days, Easter, Ascension and Corpus Christi, compared with Italy.',
+      description: 'Ticino public holidays 2026: official and optional dates, bridge days, Easter, Ascension, Corpus Christi; Italy comparison for cross-border workers.',
     },
     ristorni: {
       title: 'Swiss Tax Rebates for Italy',
@@ -71,7 +71,7 @@ const FISCO_LOCALE_SEO: Record<FiscoSeoLocale, Record<FiscoSeoSection, FiscoLoca
     },
     quiz: {
       title: 'Cross-Border Tax Quiz',
-      description: 'Weekly quiz on Switzerland-Italy cross-border taxation: test your knowledge of taxes, deductions, permits and the rules that apply to frontier workers.',
+      description: 'Weekly Switzerland-Italy tax quiz: test your knowledge of taxes, deductions, permits and cross-border worker rules.',
     },
     taxCredit: {
       title: 'Tax Credit for Double Taxation',
@@ -81,7 +81,7 @@ const FISCO_LOCALE_SEO: Record<FiscoSeoLocale, Record<FiscoSeoSection, FiscoLoca
       title: 'Ticino Withholding Tax Rates 2026',
       description: 'Ticino tables A, B, C and H with practical examples, FAQ and direct links to the net salary and payslip simulators.',
     },
-    'new-frontier-tax-sim': {
+    newFrontierTaxSim: {
       title: 'Tax Simulation for New Cross-Border Workers',
       description: 'Calculate Ticino withholding tax, Italian IRPEF with EUR 10,000 franchise, tax credit and net salary for workers who started after 17/07/2023.',
     },
@@ -97,11 +97,11 @@ const FISCO_LOCALE_SEO: Record<FiscoSeoLocale, Record<FiscoSeoSection, FiscoLoca
     },
     'tax-return-italia': {
       title: 'Steuererklärung in Italien',
-      description: 'Italienische Steuererklärung für Grenzgänger: Formular 730 und Redditi PF, Freibetrag von 10.000 Euro, Anrechnung ausländischer Steuern und Fristen 2026.',
+      description: 'Italienische Steuererklärung für Grenzgänger: Formular 730, Redditi PF, 10.000-Euro-Freibetrag, ausländische Steuern und Fristen 2026.',
     },
     'tax-return-svizzera': {
       title: 'Schweizer Steuererklärung',
-      description: 'Schweizer Steuererklärung für Grenzgänger: Quellensteuer, Tarifkorrektur (TDR), kantonale Abzüge im Tessin und Beiträge in die dritte Säule 3a erklärt.',
+      description: 'Schweizer Steuererklärung für Grenzgänger: Quellensteuer, Tarifkorrektur (TDR), Tessiner Abzüge und Beiträge zur dritten Säule 3a.',
     },
     calendar: {
       title: 'Steuerterminkalender 2026',
@@ -113,7 +113,7 @@ const FISCO_LOCALE_SEO: Record<FiscoSeoLocale, Record<FiscoSeoSection, FiscoLoca
     },
     ristorni: {
       title: 'Steuerrückerstattungen für Italien',
-      description: 'Statistiken zu den Steuerrückerstattungen (Ristorni) der Grenzgänger: Beträge je italienischer Gemeinde, historischer Verlauf und Vergleich der Provinzen.',
+      description: 'Statistiken zu Ristorni der Grenzgänger: Beträge je italienischer Gemeinde, historischer Verlauf und Vergleich der Provinzen.',
     },
     pension: {
       title: 'Grenzgänger-Rentenplaner',
@@ -135,7 +135,7 @@ const FISCO_LOCALE_SEO: Record<FiscoSeoLocale, Record<FiscoSeoSection, FiscoLoca
       title: 'Quellensteuer Tessin 2026',
       description: 'Tessiner Tabellen A, B, C und H mit Praxisbeispielen, FAQ und direkten Links zu Netto- und Lohnabrechnungsrechner.',
     },
-    'new-frontier-tax-sim': {
+    newFrontierTaxSim: {
       title: 'Steuerberechnung für neue Grenzgänger',
       description: 'Berechnen Sie Tessiner Quellensteuer, italienische IRPEF mit EUR 10.000 Franchise, Steuergutschrift und Nettogehalt für Arbeitnehmer ab 17.07.2023.',
     },
@@ -155,11 +155,11 @@ const FISCO_LOCALE_SEO: Record<FiscoSeoLocale, Record<FiscoSeoSection, FiscoLoca
     },
     'tax-return-svizzera': {
       title: 'Déclaration fiscale suisse',
-      description: 'Déclaration fiscale suisse pour frontaliers : impôt à la source, rectification du tarif (TDR), déductions cantonales tessinoises et troisième pilier 3a.',
+      description: 'Déclaration suisse pour frontaliers : impôt à la source, rectification du tarif (TDR), déductions tessinoises et troisième pilier 3a.',
     },
     calendar: {
       title: 'Échéances fiscales 2026',
-      description: 'Échéances fiscales des frontaliers en 2026 : impôt à la source, IRPEF, modèle 730 et Redditi, AVS. Compte à rebours, documents requis et pénalités de retard.',
+      description: 'Échéances fiscales 2026 des frontaliers : impôt à la source, IRPEF, modèle 730, Redditi et AVS, documents requis et pénalités de retard.',
     },
     holidays: {
       title: 'Jours fériés du Tessin 2026',
@@ -167,7 +167,7 @@ const FISCO_LOCALE_SEO: Record<FiscoSeoLocale, Record<FiscoSeoSection, FiscoLoca
     },
     ristorni: {
       title: 'Rétrocessions fiscales aux communes',
-      description: 'Statistiques sur les rétrocessions fiscales (ristorni) des frontaliers : montants par commune italienne, évolution historique et comparaison des provinces.',
+      description: 'Statistiques sur les ristorni des frontaliers : montants par commune italienne, évolution historique et comparaison des provinces.',
     },
     pension: {
       title: 'Planificateur de Retraite Frontalier',
@@ -179,7 +179,7 @@ const FISCO_LOCALE_SEO: Record<FiscoSeoLocale, Record<FiscoSeoSection, FiscoLoca
     },
     quiz: {
       title: 'Quiz fiscal pour frontaliers',
-      description: 'Quiz hebdomadaire sur la fiscalité transfrontalière Suisse-Italie : testez vos connaissances sur les impôts, déductions, permis et règles des frontaliers.',
+      description: 'Quiz hebdomadaire sur la fiscalité Suisse-Italie : testez vos connaissances sur impôts, déductions, permis et règles des frontaliers.',
     },
     taxCredit: {
       title: "Crédit d'impôt pour double imposition",
@@ -189,7 +189,7 @@ const FISCO_LOCALE_SEO: Record<FiscoSeoLocale, Record<FiscoSeoSection, FiscoLoca
       title: 'Barèmes impôt à la source Tessin 2026',
       description: 'Barèmes A, B, C et H du Tessin avec exemples concrets, FAQ et liens directs vers les simulateurs de net et de fiche de paie.',
     },
-    'new-frontier-tax-sim': {
+    newFrontierTaxSim: {
       title: 'Simulation fiscale pour nouveaux frontaliers',
       description: "Calculez l'impôt à la source du Tessin, l'IRPEF italienne avec franchise de 10 000 EUR, le crédit d'impôt et le salaire net après le 17/07/2023.",
     },
@@ -209,7 +209,7 @@ const FISCO_SOURCE_PATH_TO_SECTION: Record<string, FiscoSeoSection> = {
   '/tasse-e-pensione/quiz-fiscale/': 'quiz',
   '/tasse-e-pensione/credito-imposta/': 'taxCredit',
   '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/': 'withholdingRates',
-  '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/': 'new-frontier-tax-sim',
+  '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/': 'newFrontierTaxSim',
 };
 
 export function resolveFiscoLocaleSeo(section: string, locale: string): FiscoLocaleSeo | null {
