@@ -3,7 +3,8 @@
 // P1 noindex plan (2026-10-24): an upcoming event detail stays indexable while
 // Search Console has shown one of its four locale URLs in 90 days, or while it
 // belongs to a border canton (TI/GR/VS). Past details are the permanent event
-// archive and remain indexable regardless of demand.
+// archive and remain indexable regardless of demand when they clear the shared
+// content floor.
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -87,7 +88,7 @@ describe('event detail demand gate (P1 noindex plan)', () => {
     for (const [key, { html }] of details) expect(robotsOf(html), key).not.toMatch(/noindex/);
   });
 
-  it('noindexes upcoming details without demand, while keeping past archive entries indexable', async () => {
+  it('noindexes upcoming details without demand, while keeping rich past archive entries indexable', async () => {
     const discovery = temporary();
     await emit(discovery);
     const shownIt = itDetails(path.join(discovery, 'dist')).get('ge-shown')!.urlPath;
