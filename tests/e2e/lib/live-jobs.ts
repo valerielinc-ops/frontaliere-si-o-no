@@ -1,5 +1,5 @@
 import type { Page } from 'playwright/test';
-import { parseSitemapXml } from '../../../scripts/lib/sitemap-crawl.mjs';
+import { parsePrimarySitemapUrls } from '../../../scripts/lib/live-job-sitemap.mjs';
 
 /**
  * Runtime discovery of currently-active job-detail URLs on the deployed site.
@@ -79,14 +79,14 @@ export function extractJobDetailPathsFromSitemapXml(
   let parsed;
   try {
     const host = new URL(`${baseUrl}/`).hostname;
-    parsed = parseSitemapXml(xml, { baseUrl, host });
+    parsed = parsePrimarySitemapUrls(xml, { baseUrl, host });
   } catch {
     return [];
   }
 
   const paths: string[] = [];
   const seen = new Set<string>();
-  for (const url of parsed.primaryUrls) {
+  for (const url of parsed) {
     const path = livePathFromUrl(url, baseUrl);
     if (!path || !JOB_DETAIL_PATH_RE.test(path) || NON_DETAIL_PREFIX_RE.test(path)) continue;
     if (seen.has(path)) continue;
