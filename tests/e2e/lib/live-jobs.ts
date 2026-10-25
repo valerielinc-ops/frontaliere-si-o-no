@@ -1,5 +1,9 @@
 import type { Page } from 'playwright/test';
-import { parsePrimarySitemapUrls } from '../../../scripts/lib/live-job-sitemap.mjs';
+import {
+  extractJobDetailPathsFromSitemapXml,
+  JOB_DETAIL_PATH_RE,
+} from '../../../scripts/lib/live-job-sitemap.mjs';
+export { extractJobDetailPathsFromSitemapXml, JOB_DETAIL_PATH_RE } from '../../../scripts/lib/live-job-sitemap.mjs';
 
 /**
  * Runtime discovery of currently-active job-detail URLs on the deployed site.
@@ -37,64 +41,10 @@ const FALLBACK_JOB_DETAILS: ReadonlyArray<string> = [
   '/cerca-lavoro-ticino/meccanico-a-di-produzione-afc-bellinzona-ffs-officine-ferrovie-federali-bellinzona/',
 ];
 
-// A job-detail path is a single slug segment under any locale's canton-aware
-// job root. The live sitemap can contain a non-Ticino canton even when the TI
-// section has no active listing; restricting this to the legacy TI root made
-// every live smoke test fail with "no active job" in that perfectly valid
-// state. Hubs (azienda-/ricerca-/search-/settori/pagina-) share that shape but
-// are not listings — exclude them below.
-export const JOB_DETAIL_PATH_RE = /^\/(?:cerca-lavoro-[a-z0-9-]+|en\/find-jobs-[a-z0-9-]+|de\/jobs-(?:im|in)-[a-z0-9-]+|fr\/trouver-emploi-[a-z0-9-]+)\/[^/]+\/$/i;
-const NON_DETAIL_PREFIX_RE = /\/(?:azienda-|company-|unternehmen-|entreprise-|settori|categoria-|category-|kategorie-|categorie-|ricerca-|recherche-|search-|suche-|pagina-|page-|seite-)/i;
-
 // Company links are emitted under the same canton-aware section as their
 // source job and use the locale-specific company namespace.
 export const COMPANY_HUB_HREF_RE = /\/(?:azienda|company|unternehmen|entreprise)-/i;
 export const COMPANY_HUB_LINK_SELECTOR = 'main a[href*="/azienda-"], main a[href*="/company-"], main a[href*="/unternehmen-"], main a[href*="/entreprise-"]';
-
-function livePathFromUrl(value: string, baseUrl = LIVE_BASE_URL): string | null {
-  let parsed: URL;
-  let base: URL;
-  try {
-    parsed = new URL(value, `${baseUrl}/`);
-    base = new URL(`${baseUrl}/`);
-  } catch {
-    return null;
-  }
-  if (parsed.hostname.toLowerCase() !== base.hostname.toLowerCase()) return null;
-  const path = parsed.pathname.endsWith('/') ? parsed.pathname : `${parsed.pathname}/`;
-  return path;
-}
-
-/**
- * Extract active canton-aware job-detail paths from one job sitemap.
- *
- * The sitemap topology changed from the TI-specific file to the canonical
- * `sitemap-jobs.xml`; parsing the URL set instead of matching one filename
- * keeps the live test aligned with both generations and with hreflang links.
- */
-export function extractJobDetailPathsFromSitemapXml(
-  xml: string,
-  baseUrl = LIVE_BASE_URL,
-): string[] {
-  let parsed;
-  try {
-    const host = new URL(`${baseUrl}/`).hostname;
-    parsed = parsePrimarySitemapUrls(xml, { baseUrl, host });
-  } catch {
-    return [];
-  }
-
-  const paths: string[] = [];
-  const seen = new Set<string>();
-  for (const url of parsed) {
-    const path = livePathFromUrl(url, baseUrl);
-    if (!path || !JOB_DETAIL_PATH_RE.test(path) || NON_DETAIL_PREFIX_RE.test(path)) continue;
-    if (seen.has(path)) continue;
-    seen.add(path);
-    paths.push(path);
-  }
-  return paths;
-}
 
 async function fetchJobSitemap(page: Page, path: string): Promise<string | null> {
   const response = await page.request
