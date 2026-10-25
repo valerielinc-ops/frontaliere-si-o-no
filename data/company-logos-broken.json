@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-10-18T08:35:58.152Z",
+  "generatedAt": "2026-10-25T09:02:01.937Z",
   "source": {
     "path": "data/jobs.json",
-    "jobCount": 32431
+    "jobCount": 32292
   },
-  "checked": 576,
-  "ok": 576,
-  "qualityOk": 575,
+  "checked": 585,
+  "ok": 585,
+  "qualityOk": 583,
   "broken": 0,
   "brokenJobCount": 0,
   "pendingDeploy": 0,
   "pendingDeployJobCount": 0,
   "pendingDeployUrls": [],
-  "missing": 15,
-  "missingJobCount": 271,
+  "missing": 19,
+  "missingJobCount": 64,
   "partial": 0,
   "partialJobCount": 0,
   "unverified": 0,
   "unverifiedJobCount": 0,
-  "lowQuality": 1,
-  "lowQualityJobCount": 1,
+  "lowQuality": 2,
+  "lowQualityJobCount": 51,
   "qualityUnverified": 0,
   "qualityUnverifiedJobCount": 0,
   "urls": [],
@@ -32,6 +32,19 @@
         "fondation-domus"
       ],
       "url": "https://cdn.frontaliereticino.ch/images/brands/fondation-domus.png",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "reference": "/images/brands/mediamarkt.png",
+      "kind": "local",
+      "jobs": 50,
+      "companyKeys": [
+        "mediamarkt"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/mediamarkt.png",
       "qualityStatus": "low-quality",
       "qualityReason": "intrinsic-dimensions-too-small",
       "width": 48,
