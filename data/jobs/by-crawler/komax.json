@@ -1,7 +1,7 @@
 {
   "crawlerKey": "komax",
-  "assembledAt": "2026-10-25T09:40:43.850Z",
-  "runId": "40133743785",
+  "assembledAt": "2026-10-25T09:48:50.727Z",
+  "runId": "40180220730",
   "jobs": [
     {
       "id": "komax-dba70561829b",
@@ -34,7 +34,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Development-Engineer-Electronics-with-EMV-lead-6036/1165138355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:40:30.913Z",
+      "crawledAt": "2026-10-25T09:48:35.967Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -55,33 +55,6 @@
       "jobReqId": "1165138355",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "development-engineer-electronics-with-emv-lead-komax-ch",
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-9a7f7438",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-b181a0b0",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-c45a2afd",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-19f95417",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-fa4f28b5",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-ce63dd19",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-4facb013",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-d10a7328",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-014baef2",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-5a3ad56c",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-24b5b5b0",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-63a6c324",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-d970507b",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-a4f8e82b",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-c54c516b",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-80a1dec6",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-caec251c",
-          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-7353dd47"
-        ],
-        "de": [
-          "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm"
-        ]
-      },
       "previousSlugs": [
         "development-engineer-electronics-with-emv-lead-komax-ch",
         "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51",
@@ -161,6 +134,38 @@
         "development-ingenieur-electronics-with-emv-lead-komax-dierikon-57234d04",
         "development-ingenieur-electronics-with-emv-lead-komax-dierikon-6a8ddbc3"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-9a7f7438",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-b181a0b0",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-c45a2afd",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-19f95417",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-fa4f28b5",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-ce63dd19",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-4facb013",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-d10a7328",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-014baef2",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-5a3ad56c",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-24b5b5b0",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-63a6c324",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-d970507b",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-a4f8e82b",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-c54c516b",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-80a1dec6",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-caec251c",
+          "development-ingenieur-electronics-with-emv-lead-komax-dierikon-7353dd47",
+          "development-engineer-electronics-with-emv-lead-komax-ch",
+          "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51"
+        ],
+        "de": [
+          "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm"
+        ]
+      },
+      "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2425,
+      "retranslationAttempts": 5,
+      "firstSeenAt": "2026-09-10T23:22:05.166Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -173,12 +178,7 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-10T23:22:05.166Z",
-      "retranslationAttempts": 5,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2425,
-      "needsRetranslation": true
+      }
     },
     {
       "id": "komax-3a29c65992eb",
@@ -211,7 +211,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-2027-6036/1164647755/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:40:30.913Z",
+      "crawledAt": "2026-10-25T09:48:35.968Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -287,7 +287,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Logistikerin-EFZ-2027-6036/1164647555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:40:30.912Z",
+      "crawledAt": "2026-10-25T09:48:35.967Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -407,7 +407,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-24T21:40:30.911Z",
+      "crawledAt": "2026-10-25T09:48:35.965Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -487,7 +487,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Sales-Engineer-80-100-%28mw%29-3608/1165611355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:40:30.911Z",
+      "crawledAt": "2026-10-25T09:48:35.966Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -565,7 +565,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Sales-Switzerland-Technical-Sales-Engineer-%28wmd%29-6036/1165252555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:40:30.910Z",
+      "crawledAt": "2026-10-25T09:48:35.965Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -650,7 +650,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1165469655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:40:30.909Z",
+      "crawledAt": "2026-10-25T09:48:35.964Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -725,7 +725,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472755/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:40:30.908Z",
+      "crawledAt": "2026-10-25T09:48:35.963Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
