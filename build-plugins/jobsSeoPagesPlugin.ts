@@ -143,6 +143,7 @@ import {
 } from '../services/adsenseSlots';
 import { isInfeedAdExperimentActiveFromEnv, isInfeedAdExperimentSurface, resolveInfeedAdVariant } from '../services/adExperiment';
 import { LOGO_FALLBACK_SCRIPT } from './shared/logoFallbackScript';
+import { LOGO_IMG_ONERROR, resolveJobLogoSrc } from './shared/companyLogoResolver';
 import { renderJobBoardListingDensityProse, renderListingPaginationProse } from './shared/jobListingProse';
 import {
  renderJobBoardCommuterContext,
@@ -9386,6 +9387,27 @@ ${staticAnalyticsHtml}
  return { sameAs, logo };
  };
 
+ /**
+  * Brand identity for the first viewport of a canton company hub. This uses
+  * the same curated-logo → initials → local-placeholder chain as job cards
+  * and employer profiles, so the visible mark never falls back to the
+  * JSON-LD-only OG image.
+  */
+ const companyHubLogoHtml = (
+ companyName: string,
+ companyKey: string,
+ jobs: ReadonlyArray<any>,
+ ): string => {
+ const representative = jobs.find((job: any) => job?.companyDomain || job?.url || job?.companyKey) ?? jobs[0];
+ const logoSrc = resolveJobLogoSrc({
+ company: companyName,
+ companyKey: companyKey || representative?.companyKey,
+ companyDomain: representative?.companyDomain,
+ url: representative?.url,
+ });
+ return `<div class="company-hub-brand"><img class="company-hub-brand-image" src="${escHtml(logoSrc)}" alt="${escHtml(`Logo ${companyName}`)}" width="72" height="72" loading="eager" fetchpriority="high" decoding="async" onerror="${LOGO_IMG_ONERROR}"></div>`;
+ };
+
  /* ── Per-canton company hubs (Phase 3.3) ─────────────────────
   * Additive: for every non-TI canton, for every company with ≥ 3 jobs in
   * that canton, emit /cerca-lavoro-{cantonSlug}/azienda-{companySlug}/ —
@@ -9633,12 +9655,6 @@ ${staticAnalyticsHtml}
  };
  const organizationLd = inlineScriptJson(orgLdObj);
  const listHtml = jobCardListBody(cappedJobs, locale);
- const intro = (() => {
- if (locale === 'it') return `<p>Sono attualmente <strong>${companyJobs.length} le offerte di lavoro</strong> presso ${esc(companyName)} in ${esc(cDisplay)}, distribuite in ${companyLocations.length} ${companyLocations.length === 1 ? 'località' : 'località'}. Gli annunci sono aggiornati quotidianamente dal nostro crawler automatico.</p>`;
- if (locale === 'en') return `<p>There are currently <strong>${companyJobs.length} job openings</strong> at ${esc(companyName)} in ${esc(cDisplay)}, across ${companyLocations.length} location${companyLocations.length === 1 ? '' : 's'}. Listings are refreshed daily by our automated crawler.</p>`;
- if (locale === 'de') return `<p>Derzeit sind <strong>${companyJobs.length} Stellenangebote</strong> bei ${esc(companyName)} in ${esc(cDisplay)} verfügbar, an ${companyLocations.length} Standort${companyLocations.length === 1 ? '' : 'en'}. Täglich aktualisiert.</p>`;
- return `<p>${companyJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles chez ${esc(companyName)} à ${esc(cDisplay)}, sur ${companyLocations.length} site${companyLocations.length === 1 ? '' : 's'}. Mises à jour quotidiennement.</p>`;
- })();
  const marketSection = (() => {
  if (locale === 'it') return `<section class="s-7uP4UM"><h2>Lavorare presso ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} è una delle aziende che assumono in ${esc(cDisplay)}. Per i lavoratori frontalieri con Permesso G, la Svizzera applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto.</p></section>`;
  if (locale === 'en') return `<section class="s-7uP4UM"><h2>Working at ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} is among the hiring companies in ${esc(cDisplay)}. For cross-border workers with a G Permit, Switzerland applies withholding tax on gross income. Use our <a href="/en/">free tax simulator</a> to calculate your net salary.</p></section>`;
@@ -9672,7 +9688,23 @@ ${staticAnalyticsHtml}
  (l) => l.cityDisplay,
  (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`,
  );
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n${companyFollowHtml}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${companyLocationsHtml}\n${salaryBlockHtml}\n${alsoHiringHtml}\n${faqHtml}\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
+ const homeHref = locale === 'it' ? '/' : `/${locale}/`;
+ const openingsHeading = locale === 'it' ? `Offerte aperte presso ${companyName}`
+ : locale === 'en' ? `Open roles at ${companyName}`
+ : locale === 'de' ? `Offene Stellen bei ${companyName}`
+ : `Postes ouverts chez ${companyName}`;
+ const openingsLede = locale === 'it' ? 'Apri un annuncio per leggere requisiti, sede, contratto e candidatura ufficiale.'
+ : locale === 'en' ? 'Open a listing for requirements, location, contract details and the official application link.'
+ : locale === 'de' ? 'Öffnen Sie eine Anzeige für Anforderungen, Arbeitsort, Vertrag und den offiziellen Bewerbungslink.'
+ : "Ouvrez une annonce pour consulter les exigences, le lieu, le contrat et le lien officiel de candidature.";
+ const activeLabel = locale === 'it' ? 'posizioni aperte' : locale === 'en' ? 'open roles' : locale === 'de' ? 'offene Stellen' : 'postes ouverts';
+ const locationsLabel = locale === 'it' ? 'località' : locale === 'en' ? 'locations' : locale === 'de' ? 'Standorte' : 'localités';
+ const refreshedLabel = locale === 'it' ? 'Aggiornate ogni giorno' : locale === 'en' ? 'Updated daily' : locale === 'de' ? 'Täglich aktualisiert' : 'Mises à jour quotidiennes';
+ const heroCtaLabel = locale === 'it' ? 'Vedi le offerte' : locale === 'en' ? 'View open roles' : locale === 'de' ? 'Offene Stellen ansehen' : 'Voir les postes ouverts';
+ const breadcrumbHtml = `<nav class="company-hub-breadcrumb" aria-label="breadcrumb"><a href="${homeHref}">${escHtml(homeLabel[locale])}</a><span aria-hidden="true">/</span><a href="${sectionRootUrl}">${escHtml(sectionLabel)}</a><span aria-hidden="true">/</span><span aria-current="page">${escHtml(companyName)}</span></nav>`;
+ const heroHtml = `<header class="company-hub-hero" aria-labelledby="company-hub-title"><div class="company-hub-hero-grid"><div class="company-hub-identity">${companyHubLogoHtml(companyName, companyKey || cSlug, cappedJobs)}<div class="company-hub-identity-copy"><h1 id="company-hub-title" class="company-hub-title">${esc(pageHeading)}</h1><p class="company-hub-lede">${esc(pageDesc)}</p><div class="company-hub-facts" role="list"><span class="company-hub-fact" role="listitem"><strong>${companyJobs.length}</strong> ${esc(activeLabel)}</span><span class="company-hub-fact" role="listitem"><strong>${companyLocations.length}</strong> ${esc(locationsLabel)} · ${esc(cDisplay)}</span><span class="company-hub-fact company-hub-fact-muted" role="listitem">${esc(refreshedLabel)}</span></div></div></div><div class="company-hub-hero-actions"><a class="company-hub-primary-action" href="#company-openings">${esc(heroCtaLabel)}</a>${companyFollowHtml}</div></div></header>`;
+ const openingsHtml = `<section id="company-openings" class="company-hub-openings" aria-labelledby="company-openings-title"><div class="company-hub-openings-head"><div><h2 id="company-openings-title" class="company-hub-openings-title">${esc(openingsHeading)}</h2><p class="company-hub-openings-lede">${esc(openingsLede)}</p></div><span class="company-hub-results" aria-label="${escHtml(`${companyJobs.length} ${activeLabel}`)}">${companyJobs.length}</span></div><ul class="s-0WjlyL">${listHtml}</ul><p class="company-hub-more"><a class="company-hub-secondary-action" href="${sectionRootUrl}">${esc(openAllLabel)}</a></p></section>`;
+ const bodyHtml = `${breadcrumbHtml}\n${heroHtml}\n${openingsHtml}\n${companyLocationsHtml}\n${salaryBlockHtml}\n${alsoHiringHtml}\n${faqHtml}\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -9692,6 +9724,7 @@ ${staticAnalyticsHtml}
  hreflangHtml: alternates,
  jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd, organizationLd, ...(faqLd ? [faqLd] : [])],
  bodyHtml,
+ seoMainClass: 'seo-static-content company-hub-page',
  distDir,
  });
  const outDir = np.join(distDir, canonicalPath.slice(1));

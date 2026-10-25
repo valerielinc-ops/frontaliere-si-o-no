@@ -2198,6 +2198,267 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
   .s-cta, .s-eXgANZ, .jc-card, .company-profile-primary-action { transition:none }
 }
 
+/* Per-canton company hubs: put the employer identity and the next action in
+ * the first viewport, then give the listings a clear reading spine. This is
+ * intentionally a sibling treatment to `.company-profile-page`: the hub is
+ * scoped to one canton and should feel like a useful job-board landing, not a
+ * second employer dossier. */
+main.seo-static-content.company-hub-page {
+  max-width: min(100%, 1000px);
+  padding-top: 12px;
+}
+.company-hub-page .company-hub-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 9px;
+  margin: 0 0 16px;
+  color: var(--color-muted);
+  font-size: .8rem;
+  line-height: 1.4;
+}
+.company-hub-page .company-hub-breadcrumb a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+.company-hub-page .company-hub-breadcrumb a:hover { text-decoration: underline; }
+.company-hub-page .company-hub-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid var(--color-edge);
+  border-radius: 12px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-stripe-sm), inset 0 2px 0 var(--color-accent);
+  isolation: isolate;
+}
+.company-hub-page .company-hub-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 220px);
+  gap: 24px;
+  align-items: start;
+}
+.company-hub-page .company-hub-identity {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 16px;
+}
+.company-hub-page .company-hub-identity-copy { min-width: 0; }
+.company-hub-page .company-hub-brand {
+  display: flex;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: 1px solid var(--color-edge);
+  border-radius: 12px;
+  background: var(--color-surface-alt);
+}
+.company-hub-page .company-hub-brand-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.company-hub-page .company-hub-title {
+  max-width: 25ch;
+  margin: 0 0 10px;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.95rem, 4.2vw, 2.85rem);
+  font-weight: 500;
+  letter-spacing: -.035em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.company-hub-page .company-hub-lede {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--color-subtle);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+.company-hub-page .company-hub-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 0;
+  margin-top: 20px;
+  color: var(--color-heading);
+  font-size: .86rem;
+  line-height: 1.4;
+}
+.company-hub-page .company-hub-fact {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding-right: 14px;
+  color: var(--color-body);
+  font-variant-numeric: tabular-nums;
+}
+.company-hub-page .company-hub-fact + .company-hub-fact {
+  padding-left: 14px;
+  border-left: 1px solid var(--color-edge);
+}
+.company-hub-page .company-hub-fact strong {
+  color: var(--color-heading);
+  font-weight: 700;
+}
+.company-hub-page .company-hub-fact-muted { color: var(--color-muted); }
+.company-hub-page .company-hub-hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  min-width: 0;
+}
+.company-hub-page .company-hub-primary-action,
+.company-hub-page .company-hub-secondary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 46px;
+  padding: 11px 16px;
+  border-radius: var(--radius-stripe, 6px);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+.company-hub-page .company-hub-primary-action {
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+.company-hub-page .company-hub-primary-action:hover {
+  background: var(--color-accent-hover);
+  box-shadow: var(--shadow-stripe);
+  transform: translateY(-1px);
+}
+.company-hub-page .company-hub-primary-action:focus-visible,
+.company-hub-page .company-hub-secondary-action:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+  outline-offset: 3px;
+}
+.company-hub-page .company-hub-hero-actions [data-company-follow-mount] {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.company-hub-page .company-hub-hero-actions [data-company-follow-mount] > div[aria-hidden="true"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 44px;
+  text-align: center;
+}
+.company-hub-page .company-hub-hero-actions [data-company-follow-inline] > div { margin-top: 0; }
+.company-hub-page .company-hub-hero-actions [data-company-follow-inline] button { width: 100%; }
+.company-hub-page .company-hub-openings {
+  scroll-margin-top: 96px;
+}
+.company-hub-page .company-hub-openings-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 22px 0 0;
+}
+.company-hub-page .company-hub-openings-title {
+  margin: 0;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3vw, 1.95rem);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.company-hub-page .company-hub-openings-lede {
+  max-width: 64ch;
+  margin: 6px 0 0;
+  color: var(--color-subtle);
+  font-size: .92rem;
+  line-height: 1.5;
+}
+.company-hub-page .company-hub-results {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 0 10px;
+  border: 1px solid var(--color-accent-border);
+  border-radius: 8px;
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+.company-hub-page .company-hub-openings .s-0WjlyL {
+  margin-top: 18px;
+}
+.company-hub-page .company-hub-more {
+  margin: 16px 0 0;
+}
+.company-hub-page .company-hub-secondary-action {
+  min-height: 44px;
+  padding-inline: 0;
+  color: var(--color-link);
+}
+.company-hub-page .company-hub-secondary-action:hover { text-decoration: underline; }
+.company-hub-page > .s-7uP4UM {
+  max-width: 72ch;
+  margin-top: 32px;
+  padding-top: 26px;
+  border-top: 1px solid var(--color-edge);
+}
+.company-hub-page > .s-7uP4UM h2 {
+  margin-top: 0;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+.company-hub-page > .s-7uP4UM h3 {
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  line-height: 1.3;
+}
+.company-hub-page > .s-7uP4UM p,
+.company-hub-page > .s-7uP4UM li { line-height: 1.65; }
+@media (max-width:639px){
+  main.seo-static-content.company-hub-page { padding-top: 8px; }
+  .company-hub-page .company-hub-breadcrumb { margin-bottom: 12px; font-size: .78rem; }
+  .company-hub-page .company-hub-hero { padding: 20px 18px 22px; }
+  .company-hub-page .company-hub-hero-grid { grid-template-columns: 1fr; gap: 22px; }
+  .company-hub-page .company-hub-identity { gap: 12px; }
+  .company-hub-page .company-hub-brand { width: 60px; height: 60px; flex-basis: 60px; padding: 7px; }
+  .company-hub-page .company-hub-title { max-width: none; font-size: clamp(1.85rem, 9vw, 2.45rem); }
+  .company-hub-page .company-hub-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 12px; margin-top: 18px; }
+  .company-hub-page .company-hub-fact { padding: 0; }
+  .company-hub-page .company-hub-fact + .company-hub-fact { padding-left: 0; border-left: 0; }
+  .company-hub-page .company-hub-fact-muted { grid-column: 1 / -1; }
+  .company-hub-page .company-hub-hero-actions { width: 100%; }
+  .company-hub-page .company-hub-primary-action { width: 100%; }
+  .company-hub-page .company-hub-openings-head { align-items: flex-start; margin-top: 18px; }
+  .company-hub-page .company-hub-openings-title { font-size: 1.45rem; }
+  .company-hub-page .company-hub-results { margin-top: 1px; }
+  .company-hub-page > .s-7uP4UM { margin-top: 26px; padding-top: 22px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .company-hub-primary-action { transition: none; }
+}
+
 /* staticPagesPlugin: job-board landing deep navigators (canton explore pills +
    TI deep-nav links). Were per-anchor inline style attrs — 621 anchors ×
    ~190 B ≈ 119 KB on /cerca-lavoro-ticino/ alone, 54% of the page and the
