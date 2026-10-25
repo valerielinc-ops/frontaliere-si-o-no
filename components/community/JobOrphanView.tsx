@@ -38,6 +38,8 @@ import JobAlertSection from '@/components/community/JobAlertSection';
 import { buildPath } from '@/services/router';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
+import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
+import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
 
 interface JobOrphanViewProps {
  slug: string;
@@ -208,6 +210,14 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  category: null,
  searchQuery: slugParts.title || null,
  };
+ const handleGateCopy = useJobCopyAttribution({
+ enabled: !alreadySignedIn,
+ jobTitle: slugParts.title,
+ company: slugParts.company ?? undefined,
+ url: `${JOB_COPY_SITE_ORIGIN}${listingPath}${slug}/`,
+ lead: t('jobBoard.copyAttribution.lead'),
+ analyticsValue: `${slugParts.company ?? ''}_${slugParts.title}`,
+ });
 
  // Derive companyKey from slug by matching the longest known key contained in it
  // (CRAWLED_COMPANY_LOGOS is keyed by the same companyKey used in adapters/jobs).
@@ -536,7 +546,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  );
 
  const jobHeaderCard = (
- <div className="rounded-xl border border-edge bg-surface/80 overflow-hidden">
+ <div className="rounded-xl border border-edge bg-surface/80 overflow-hidden" onCopy={handleGateCopy}>
  {/* Amber status bar — reveals the "no longer available" status. Deferred until
      sign-in: a logged-out visitor sees the gate first, the notice only after login. */}
  {alreadySignedIn && (

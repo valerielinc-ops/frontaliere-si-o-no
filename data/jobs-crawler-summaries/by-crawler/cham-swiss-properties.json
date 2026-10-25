@@ -1,7 +1,7 @@
 {
   "key": "cham-swiss-properties",
   "label": "Cham Swiss Properties",
-  "generatedAt": "2026-10-25T09:36:43.566Z",
+  "generatedAt": "2026-10-25T21:27:59.605Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,32 +13,30 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3808,
-  "avgDurationMs": 3808,
+  "unchangedCount": 1,
+  "durationMs": 4450,
+  "avgDurationMs": 4450,
   "durationHistory": [
-    3808
+    4450
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "cham-swiss-properties-2cb3d7705d07",
       "slug": "servizi-di-costruzione-specializzati-di-acquisto-strategico-e-gestione-dei-contratti-80-100-cham-swiss-properties-cham",
       "company": "Cham Swiss Properties",
       "companyKey": "cham-swiss-properties",
       "companyDomain": "champroperties.ch",
-      "title": "Fachperson Strategischer Einkauf & Vertragsmanagement Bauleistungen 80-100%",
-      "needsRetranslation": false,
+      "title": "Fachperson Strategischer Einkauf & Vertragsmanagement Bauleistungen",
+      "needsRetranslation": true,
       "location": "Cham",
       "canton": "ZG",
       "url": "https://jobs.dualoo.com/portal/6j9quii0/88897b95-a537-4f28-a65b-89ea72d64752/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:36:31.650Z",
+      "crawledAt": "2026-10-25T21:27:47.802Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -68,7 +66,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "cham-swiss-properties-d88b4f4e5756",
       "slug": "specialista-in-finanza-e-contabilita-cham-swiss-properties-cham",
@@ -82,7 +83,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/cb080274-0231-4bf2-abc2-934feddea06d/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T09:36:31.144Z",
+      "crawledAt": "2026-10-25T21:27:47.324Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -114,5 +115,5 @@
       }
     }
   ],
-  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }

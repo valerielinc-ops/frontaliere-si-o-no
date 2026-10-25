@@ -1,12 +1,27 @@
-import { describe, expect, it } from 'vitest';
+// @vitest-environment jsdom
+
+import { afterEach, describe, expect, it } from 'vitest';
 import {
   buildJobCopyAttribution,
+  buildJobCopyAttributionFromSelection,
+  buildJobCopyAttributionUrl,
   shouldAttributeCopy,
   COPY_ATTRIBUTION_MIN_CHARS,
+  isSelectionWithinScope,
+  JOB_COPY_UTM_CAMPAIGN,
+  JOB_COPY_UTM_MEDIUM,
+  JOB_COPY_UTM_SOURCE,
 } from '../services/jobCopyAttribution';
 
 const LEAD = 'Annuncio completo e candidatura su Frontaliere Ticino:';
-const URL = 'https://frontaliereticino.ch/cerca-lavoro-ticino/radiologo-ospedale-x/';
+const JOB_URL = 'https://frontaliereticino.ch/cerca-lavoro-ticino/radiologo-ospedale-x/';
+const ATTRIBUTED_URL = buildJobCopyAttributionUrl(JOB_URL);
+const ATTRIBUTED_HTML_URL = ATTRIBUTED_URL.replace(/&/g, '&amp;');
+
+afterEach(() => {
+  window.getSelection()?.removeAllRanges();
+  document.body.replaceChildren();
+});
 
 describe('shouldAttributeCopy', () => {
   it('skips selections shorter than the minimum', () => {
@@ -47,11 +62,11 @@ describe('buildJobCopyAttribution', () => {
       selectionText: 'Cerchiamo un radiologo esperto.',
       jobTitle: 'Radiologo/a',
       company: 'Ospedale X',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
     expect(text).toBe(
-      `Cerchiamo un radiologo esperto.\n\n${LEAD}\nRadiologo/a – Ospedale X\n${URL}`,
+      `Cerchiamo un radiologo esperto.\n\n${LEAD}\nRadiologo/a – Ospedale X\n${ATTRIBUTED_URL}`,
     );
   });
 
@@ -59,7 +74,7 @@ describe('buildJobCopyAttribution', () => {
     const { text, html } = buildJobCopyAttribution({
       selectionText: 'x'.repeat(30),
       jobTitle: 'Radiologo/a',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
     expect(text).toContain('\nRadiologo/a\n');
@@ -72,10 +87,10 @@ describe('buildJobCopyAttribution', () => {
       selectionText: 'Cerchiamo un radiologo esperto.',
       jobTitle: 'Radiologo/a',
       company: 'Ospedale X',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
-    expect(html).toContain(`<a href="${URL}">Radiologo/a – Ospedale X</a>`);
+    expect(html).toContain(`<a href="${ATTRIBUTED_HTML_URL}">Radiologo/a – Ospedale X</a>`);
     expect(html).toContain(LEAD);
   });
 
@@ -84,7 +99,7 @@ describe('buildJobCopyAttribution', () => {
       selectionText: 'plain fallback text here',
       selectionHtml: '<p>rich <strong>selection</strong></p>',
       jobTitle: 'Radiologo/a',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
     expect(html.startsWith('<p>rich <strong>selection</strong></p>')).toBe(true);
@@ -100,7 +115,9 @@ describe('buildJobCopyAttribution', () => {
       lead: LEAD,
     });
     expect(html).toContain('Dev &amp; &quot;Ops&quot; &lt;lead&gt; – A&amp;B');
-    expect(html).toContain('href="https://frontaliereticino.ch/q/?a=1&amp;b=2"');
+    expect(html).toContain(
+      'href="https://frontaliereticino.ch/q/?a=1&amp;b=2&amp;utm_source=frontaliereticino&amp;utm_medium=referral&amp;utm_campaign=job_copy_attribution"',
+    );
     expect(html).not.toContain('<lead>');
   });
 
@@ -108,9 +125,77 @@ describe('buildJobCopyAttribution', () => {
     const { html } = buildJobCopyAttribution({
       selectionText: 'a <b> & c selection long enough',
       jobTitle: 'Radiologo/a',
-      url: URL,
+      url: JOB_URL,
       lead: LEAD,
     });
     expect(html.startsWith('a &lt;b&gt; &amp; c selection long enough<br><br>')).toBe(true);
+  });
+});
+
+describe('buildJobCopyAttributionUrl', () => {
+  it('adds first-party UTM dimensions while preserving existing query parameters', () => {
+    const attributed = buildJobCopyAttributionUrl(`${JOB_URL}?source=search`);
+    const parsed = new URL(attributed);
+
+    expect(parsed.searchParams.get('source')).toBe('search');
+    expect(parsed.searchParams.get('utm_source')).toBe(JOB_COPY_UTM_SOURCE);
+    expect(parsed.searchParams.get('utm_medium')).toBe(JOB_COPY_UTM_MEDIUM);
+    expect(parsed.searchParams.get('utm_campaign')).toBe(JOB_COPY_UTM_CAMPAIGN);
+  });
+
+  it('leaves external or malformed URLs untouched', () => {
+    expect(buildJobCopyAttributionUrl('https://example.com/jobs/radiologo')).toBe(
+      'https://example.com/jobs/radiologo',
+    );
+    expect(buildJobCopyAttributionUrl('not-a-url')).toBe('not-a-url');
+  });
+});
+
+describe('buildJobCopyAttributionFromSelection', () => {
+  it('attributes a selection inside the owning job card', () => {
+    const scope = document.createElement('article');
+    const selectedContent = document.createElement('p');
+    selectedContent.textContent = 'Cerchiamo un radiologo esperto a Lugano.';
+    scope.appendChild(selectedContent);
+    document.body.appendChild(scope);
+
+    const selection = window.getSelection()!;
+    const range = document.createRange();
+    range.selectNodeContents(selectedContent);
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    expect(isSelectionWithinScope(selection, scope)).toBe(true);
+    const clipboard = buildJobCopyAttributionFromSelection(selection, scope, {
+      jobTitle: 'Radiologo/a',
+      company: 'Ospedale X',
+      url: JOB_URL,
+      lead: LEAD,
+    });
+
+    expect(clipboard?.text).toContain(ATTRIBUTED_URL);
+    expect(clipboard?.html).toContain('<br><br>');
+  });
+
+  it('does not attribute a qualifying selection outside the owning card', () => {
+    const scope = document.createElement('article');
+    const outside = document.createElement('p');
+    outside.textContent = 'Cerchiamo un radiologo esperto a Lugano.';
+    document.body.append(scope, outside);
+
+    const selection = window.getSelection()!;
+    const range = document.createRange();
+    range.selectNodeContents(outside);
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    expect(isSelectionWithinScope(selection, scope)).toBe(false);
+    expect(
+      buildJobCopyAttributionFromSelection(selection, scope, {
+        jobTitle: 'Radiologo/a',
+        url: JOB_URL,
+        lead: LEAD,
+      }),
+    ).toBeNull();
   });
 });

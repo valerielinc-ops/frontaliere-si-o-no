@@ -1,8 +1,83 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-25T09:13:20.096Z",
-  "runId": "40179213736",
+  "assembledAt": "2026-10-25T21:19:42.872Z",
+  "runId": "40233800894",
   "jobs": [
+    {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA Engineer Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Ingénieur Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T21:19:37.276Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-14T15:17:38.323Z",
+      "postedDate": "2026-07-14T15:17:38.323Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ebanking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ebanking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "talan-838cc2a04384",
       "slug": "sviluppatore-abap-s-4hana-talan-geneva",
@@ -35,7 +110,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.927Z",
+      "crawledAt": "2026-10-25T21:19:37.276Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -111,7 +186,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.926Z",
+      "crawledAt": "2026-10-25T21:19:37.274Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -141,81 +216,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:26:00.523Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
-      "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA Engineer Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Ingénieur Ebanking"
-      },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.926Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-14T15:17:38.323Z",
-      "postedDate": "2026-07-14T15:17:38.323Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -261,7 +261,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.925Z",
+      "crawledAt": "2026-10-25T21:19:37.273Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -291,6 +291,177 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:35:44.207Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-d96f65b3eb5e",
+      "slug": "consulente-power-bi-microsoft-fabric-talan-lausanne",
+      "slugByLocale": {
+        "it": "consulente-power-bi-microsoft-fabric-talan-lausanne",
+        "en": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
+        "de": "berater-power-bi-microsoft-fabric-talan-lausanne",
+        "fr": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Power BI / Microsoft Fabric",
+      "titleByLocale": {
+        "it": "Consulente Power BI / Microsoft Fabric",
+        "en": "Consultant Power BI / Microsoft Fabric",
+        "de": "Berater für Power BI / Microsoft Fabric",
+        "fr": "Consultant Power BI / Microsoft Fabric"
+      },
+      "description": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu.",
+      "descriptionByLocale": {
+        "it": "Mansioni\n\n- Partecipare alla migrazione dei report e degli ambienti Tableau verso Power BI / Microsoft Fabric .\n- Analizzare lo stato attuale e contribuire alla definizione delle strategie di migrazione.\n- Privilegiare l’utilizzo di Direct Lake per limitare le duplicazioni e ottimizzare le prestazioni.\n- Utilizzare la modalità Import quando i vincoli tecnici richiedono un approccio alternativo.\n- Progettare e far evolvere i modelli semantici Power BI / Fabric .\n- Lavorare con le fonti e gli ambienti SQL / Data Warehouse esistenti.\n- Garantire la qualità, le prestazioni e la manutenibilità delle soluzioni sviluppate.\n- Applicare le buone pratiche di Git, versionamento, CI/CD e gestione degli sviluppi .\n- Contribuire al miglioramento delle pratiche di collaborazione e governance all’interno del team.\n- Partecipare alle fasi di test, validazione e messa in produzione.\n- Accompagnare gradualmente la migrazione dei diversi ambiti funzionali.\n\nProfilo ricercato\n\n- Esperienza significativa come Data Analyst / Esperto di Power BI .\n- Solida esperienza in Microsoft Power BI e Microsoft Fabric .\n- Ottima padronanza dei modelli semantici e dell’architettura Power BI.\n- Esperienza concreta con Direct Lake e, idealmente, con scenari di migrazione verso Fabric.\n- Buona conoscenza di SQL / Data Warehouse .\n- Padronanza delle buone pratiche Git e del versionamento .\n- Esperienza in contesti in cui la governance e la collaborazione rivestono un ruolo importante.\n- Un’esperienza di migrazione Tableau → Power BI costituisce un reale valore aggiunto.\n- Capacità di lavorare in autonomia in un contesto complesso e vincolato dalle scadenze.\n- Eccellente professionalità, capacità di comunicare con diversi interlocutori e di lavorare in team.\n- È richiesto un livello di competenza consolidato.",
+        "en": "Responsibilities\n\n- Participate in migrating Tableau reports and environments to Power BI / Microsoft Fabric .\n- Analyze the existing setup and contribute to defining migration strategies.\n- Prioritize the use of Direct Lake to limit duplications and optimize performance.\n- Use Import mode when technical constraints require an alternative approach.\n- Design and evolve Power BI / Fabric semantic models .\n- Work with existing SQL / Data Warehouse sources and environments.\n- Ensure the quality, performance and maintainability of the solutions developed.\n- Apply Git, versioning, CI/CD and development management best practices .\n- Contribute to improving collaboration and governance practices within the team.\n- Participate in the testing, validation and production deployment phases.\n- Gradually support the migration of the various functional areas.\n\nDesired profile\n\n- Significant experience as a Data Analyst / Power BI Expert .\n- Strong experience with Microsoft Power BI and Microsoft Fabric .\n- Very good command of semantic models and Power BI architecture.\n- Hands-on experience with Direct Lake and ideally with migration scenarios to Fabric.\n- Good knowledge of SQL / Data Warehouse .\n- Proficiency in Git best practices and versioning .\n- Experience in environments where governance and collaboration challenges are significant.\n- Experience migrating from Tableau → Power BI is a real asset.\n- Ability to work independently in a complex environment with tight deadlines.\n- Excellent professional demeanor, ability to communicate with various stakeholders and work as part of a team.\n- A confirmed level of expertise is expected.",
+        "de": "Aufgaben\n\n- An der Migration der Tableau-Berichte und -Umgebungen zu Power BI / Microsoft Fabric teilnehmen .\n- Die bestehende Umgebung analysieren und zur Definition der Migrationsstrategien beitragen.\n- Die Nutzung von Direct Lake bevorzugen, um Duplikate zu begrenzen und die Leistung zu optimieren.\n- Den Importmodus verwenden, wenn die technischen Einschränkungen einen alternativen Ansatz erfordern.\n- Semantische Modelle von Power BI / Fabric entwerfen und weiterentwickeln .\n- Mit den bestehenden SQL-/Data-Warehouse-Quellen und -Umgebungen arbeiten.\n- Die Qualität, Leistung und Wartbarkeit der entwickelten Lösungen gewährleisten.\n- Die Best Practices für Git, Versionierung, CI/CD und Entwicklungsmanagement anwenden .\n- Zur Verbesserung der Praktiken der Zusammenarbeit und der Governance innerhalb des Teams beitragen.\n- An den Test-, Validierungs- und Produktivsetzungsphasen teilnehmen.\n- Die Migration der verschiedenen funktionalen Bereiche schrittweise begleiten.\n\nGesuchtes Profil\n\n- Signifikante Erfahrung als Data Analyst / Power BI-Experte .\n- Solide Erfahrung mit Microsoft Power BI und Microsoft Fabric .\n- Sehr gute Beherrschung der semantischen Modelle und der Architektur von Power BI.\n- Konkrete Erfahrung mit Direct Lake und idealerweise mit Migrationsszenarien zu Fabric.\n- Gute Kenntnisse in SQL / Data Warehouse .\n- Beherrschung der bewährten Git-Praktiken und der Versionsverwaltung .\n- Erfahrung in Umgebungen, in denen Fragen der Governance und der Zusammenarbeit von großer Bedeutung sind.\n- Erfahrung mit der Migration von Tableau → Power BI ist ein echter Vorteil.\n- Fähigkeit, in einem komplexen und durch Fristen eingeschränkten Umfeld selbstständig zu arbeiten.\n- Ausgezeichnetes professionelles Auftreten, Fähigkeit, mit verschiedenen Ansprechpartnern zu kommunizieren und im Team zu arbeiten.\n- Ein nachgewiesenes Expertenniveau wird erwartet.",
+        "fr": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu."
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne, VD, Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T21:19:37.272Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "1003",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Consulenza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-25T14:26:34.081Z",
+      "postedDate": "2026-09-25T14:26:34.081Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
+      "jobReqId": "744000151868230",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+        "power-bi-microsoft-connect-talan-lausanne-vd-switzerland",
+        "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+          "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+        ],
+        "en": [
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+          "power-bi-microsoft-connect-talan-lausanne-vd-switzerland"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1825,
+      "retranslationAttempts": 4,
+      "firstSeenAt": "2026-09-04T22:55:58.544Z",
+      "salaryMin": 74500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-9addce44f74f",
+      "slug": "consulente-sap-basis-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-sap-basis-talan-geneva",
+        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
+        "de": "berater-sap-basis-talan-geneva",
+        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant SAP Basis",
+      "titleByLocale": {
+        "it": "Consulente SAP Basis",
+        "en": "SAP Basis Consultant",
+        "de": "Berater SAP Basis",
+        "fr": "Consultant SAP Basis"
+      },
+      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+      "descriptionByLocale": {
+        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
+        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
+        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
+        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
+      },
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T21:19:37.271Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T07:38:00.377Z",
+      "postedDate": "2026-10-02T07:38:00.377Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "jobReqId": "744000153113299",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-sap-basis-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-sap-basis-talan-geneva-ge-switzerland"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1266,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-04T22:55:58.545Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -336,7 +507,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.924Z",
+      "crawledAt": "2026-10-25T21:19:37.270Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -424,7 +595,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.923Z",
+      "crawledAt": "2026-10-25T21:19:37.269Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -469,177 +640,6 @@
       }
     },
     {
-      "id": "talan-9addce44f74f",
-      "slug": "consulente-sap-basis-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-sap-basis-talan-geneva",
-        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
-        "de": "berater-sap-basis-talan-geneva",
-        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant SAP Basis",
-      "titleByLocale": {
-        "it": "Consulente SAP Basis",
-        "en": "SAP Basis Consultant",
-        "de": "Berater SAP Basis",
-        "fr": "Consultant SAP Basis"
-      },
-      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-      "descriptionByLocale": {
-        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
-        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
-        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
-        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
-      },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.922Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T07:38:00.377Z",
-      "postedDate": "2026-10-02T07:38:00.377Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "jobReqId": "744000153113299",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-sap-basis-talan-geneva-ge-switzerland"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1266,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-04T22:55:58.545Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-d96f65b3eb5e",
-      "slug": "consulente-power-bi-microsoft-fabric-talan-lausanne",
-      "slugByLocale": {
-        "it": "consulente-power-bi-microsoft-fabric-talan-lausanne",
-        "en": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
-        "de": "berater-power-bi-microsoft-fabric-talan-lausanne",
-        "fr": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Power BI / Microsoft Fabric",
-      "titleByLocale": {
-        "it": "Consulente Power BI / Microsoft Fabric",
-        "en": "Consultant Power BI / Microsoft Fabric",
-        "de": "Berater für Power BI / Microsoft Fabric",
-        "fr": "Consultant Power BI / Microsoft Fabric"
-      },
-      "description": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu.",
-      "descriptionByLocale": {
-        "it": "Mansioni\n\n- Partecipare alla migrazione dei report e degli ambienti Tableau verso Power BI / Microsoft Fabric .\n- Analizzare lo stato attuale e contribuire alla definizione delle strategie di migrazione.\n- Privilegiare l’utilizzo di Direct Lake per limitare le duplicazioni e ottimizzare le prestazioni.\n- Utilizzare la modalità Import quando i vincoli tecnici richiedono un approccio alternativo.\n- Progettare e far evolvere i modelli semantici Power BI / Fabric .\n- Lavorare con le fonti e gli ambienti SQL / Data Warehouse esistenti.\n- Garantire la qualità, le prestazioni e la manutenibilità delle soluzioni sviluppate.\n- Applicare le buone pratiche di Git, versionamento, CI/CD e gestione degli sviluppi .\n- Contribuire al miglioramento delle pratiche di collaborazione e governance all’interno del team.\n- Partecipare alle fasi di test, validazione e messa in produzione.\n- Accompagnare gradualmente la migrazione dei diversi ambiti funzionali.\n\nProfilo ricercato\n\n- Esperienza significativa come Data Analyst / Esperto di Power BI .\n- Solida esperienza in Microsoft Power BI e Microsoft Fabric .\n- Ottima padronanza dei modelli semantici e dell’architettura Power BI.\n- Esperienza concreta con Direct Lake e, idealmente, con scenari di migrazione verso Fabric.\n- Buona conoscenza di SQL / Data Warehouse .\n- Padronanza delle buone pratiche Git e del versionamento .\n- Esperienza in contesti in cui la governance e la collaborazione rivestono un ruolo importante.\n- Un’esperienza di migrazione Tableau → Power BI costituisce un reale valore aggiunto.\n- Capacità di lavorare in autonomia in un contesto complesso e vincolato dalle scadenze.\n- Eccellente professionalità, capacità di comunicare con diversi interlocutori e di lavorare in team.\n- È richiesto un livello di competenza consolidato.",
-        "en": "Responsibilities\n\n- Participate in migrating Tableau reports and environments to Power BI / Microsoft Fabric .\n- Analyze the existing setup and contribute to defining migration strategies.\n- Prioritize the use of Direct Lake to limit duplications and optimize performance.\n- Use Import mode when technical constraints require an alternative approach.\n- Design and evolve Power BI / Fabric semantic models .\n- Work with existing SQL / Data Warehouse sources and environments.\n- Ensure the quality, performance and maintainability of the solutions developed.\n- Apply Git, versioning, CI/CD and development management best practices .\n- Contribute to improving collaboration and governance practices within the team.\n- Participate in the testing, validation and production deployment phases.\n- Gradually support the migration of the various functional areas.\n\nDesired profile\n\n- Significant experience as a Data Analyst / Power BI Expert .\n- Strong experience with Microsoft Power BI and Microsoft Fabric .\n- Very good command of semantic models and Power BI architecture.\n- Hands-on experience with Direct Lake and ideally with migration scenarios to Fabric.\n- Good knowledge of SQL / Data Warehouse .\n- Proficiency in Git best practices and versioning .\n- Experience in environments where governance and collaboration challenges are significant.\n- Experience migrating from Tableau → Power BI is a real asset.\n- Ability to work independently in a complex environment with tight deadlines.\n- Excellent professional demeanor, ability to communicate with various stakeholders and work as part of a team.\n- A confirmed level of expertise is expected.",
-        "de": "Aufgaben\n\n- An der Migration der Tableau-Berichte und -Umgebungen zu Power BI / Microsoft Fabric teilnehmen .\n- Die bestehende Umgebung analysieren und zur Definition der Migrationsstrategien beitragen.\n- Die Nutzung von Direct Lake bevorzugen, um Duplikate zu begrenzen und die Leistung zu optimieren.\n- Den Importmodus verwenden, wenn die technischen Einschränkungen einen alternativen Ansatz erfordern.\n- Semantische Modelle von Power BI / Fabric entwerfen und weiterentwickeln .\n- Mit den bestehenden SQL-/Data-Warehouse-Quellen und -Umgebungen arbeiten.\n- Die Qualität, Leistung und Wartbarkeit der entwickelten Lösungen gewährleisten.\n- Die Best Practices für Git, Versionierung, CI/CD und Entwicklungsmanagement anwenden .\n- Zur Verbesserung der Praktiken der Zusammenarbeit und der Governance innerhalb des Teams beitragen.\n- An den Test-, Validierungs- und Produktivsetzungsphasen teilnehmen.\n- Die Migration der verschiedenen funktionalen Bereiche schrittweise begleiten.\n\nGesuchtes Profil\n\n- Signifikante Erfahrung als Data Analyst / Power BI-Experte .\n- Solide Erfahrung mit Microsoft Power BI und Microsoft Fabric .\n- Sehr gute Beherrschung der semantischen Modelle und der Architektur von Power BI.\n- Konkrete Erfahrung mit Direct Lake und idealerweise mit Migrationsszenarien zu Fabric.\n- Gute Kenntnisse in SQL / Data Warehouse .\n- Beherrschung der bewährten Git-Praktiken und der Versionsverwaltung .\n- Erfahrung in Umgebungen, in denen Fragen der Governance und der Zusammenarbeit von großer Bedeutung sind.\n- Erfahrung mit der Migration von Tableau → Power BI ist ein echter Vorteil.\n- Fähigkeit, in einem komplexen und durch Fristen eingeschränkten Umfeld selbstständig zu arbeiten.\n- Ausgezeichnetes professionelles Auftreten, Fähigkeit, mit verschiedenen Ansprechpartnern zu kommunizieren und im Team zu arbeiten.\n- Ein nachgewiesenes Expertenniveau wird erwartet.",
-        "fr": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu."
-      },
-      "needsRetranslation": true,
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.922Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Consulenza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T14:26:34.081Z",
-      "postedDate": "2026-09-25T14:26:34.081Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
-      "jobReqId": "744000151868230",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
-        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
-        "power-bi-microsoft-connect-talan-lausanne-vd-switzerland",
-        "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
-        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
-        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
-          "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
-        ],
-        "en": [
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
-          "power-bi-microsoft-connect-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1825,
-      "retranslationAttempts": 4,
-      "firstSeenAt": "2026-09-04T22:55:58.544Z",
-      "salaryMin": 74500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-77288cd4a877",
       "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
       "slugByLocale": {
@@ -670,7 +670,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.921Z",
+      "crawledAt": "2026-10-25T21:19:37.268Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -757,7 +757,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.920Z",
+      "crawledAt": "2026-10-25T21:19:37.267Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -835,7 +835,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.919Z",
+      "crawledAt": "2026-10-25T21:19:37.266Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "postalCode": "1217",
@@ -883,166 +883,6 @@
       }
     },
     {
-      "id": "talan-9a6c7f90c0b3",
-      "slug": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
-      "slugByLocale": {
-        "it": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
-        "en": "technical-project-leader-talan-lausanne-vd-switzerland",
-        "de": "technischer-projektleiter-talan-lausanne-vd-switzerland",
-        "fr": "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Chef·fe de projet technique",
-      "titleByLocale": {
-        "it": "Leader del progetto tecnico",
-        "en": "Technical Project Leader",
-        "de": "Technischer Projektleiter",
-        "fr": "Chef·fe de projet technique"
-      },
-      "description": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\n Mission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\n Responsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n.",
-      "descriptionByLocale": {
-        "it": "Contesto\n\nAll'interno della divisione Infrastructure, Data e DevOps dello stesso ISD, il volume dei progetti tecnici sta aumentando costantemente. Il team sta cercando un profilo confermato, specializzato nel pilotare progetti tecnici.\nMissione\n\n• Eseguire uno o più progetti tecnici end-to-end: infrastrutture, piattaforme, dati, cloud, cybersecurity, servizi tecnici.\n\n• Coordinare tutte le parti interessate in materia di qualità, prestazioni, sicurezza, disponibilità, costi e scadenze.\n\n• Assicurare la coerenza delle soluzioni con l'architettura SI, gli standard tecnici e la strategia organizzativa.\nresponsabilità\n\n• Gestione dei progetti\n• Pianificare, organizzare e gestire progetti.\n\n• Coordinare i team interni (infra, reti, sistemi, sicurezza, database, funzionamento, supporto) e i fornitori esterni.\n\n• Definire compiti, pietre miliari, risorse, competenze, interfacce tecniche e budget.\n\n• Gestire i rischi tecnici, le dipendenze e gli impatti sul resto dell'IS.\n\n• Gestione finanziaria.\n\n• Fornire secondo gli impegni.\n\n• Produce documentazione HERMES e documentazione tecnica, e mantenere lo strumento PMO.\n\n• Incontra gli standard PMO, architettura e sicurezza.\n\n• Distribuzione\n• Pianificare e supervisionare la produzione.\n\n• Coordinare le migrazioni, il rocking e il ritorno inverso.\n\n• Organizza le validazioni tecniche prima della produzione.\n\n• Assicurare la transizione allo sfruttamento.\n\n• Assicurare la documentazione completa dello sfruttamento e organizzare il trasferimento della conoscenza.\n\n• Configura il supporto di livello 3.\n\n• perimetro di arbitrato, costo, tempo e qualità\n• Ricette tecniche pilota.\n\n• Assicurare disponibilità, prestazioni, resilienza e continuità di servizio.\n\n• Analizzare le richieste di cambiamento, compreso il loro impatto sull'architettura.\n\n• Preparate gli arbitrati.\n\n• Seguire gli indicatori: progresso, costi, rischi, qualità e prestazioni delle soluzioni.\n\n• Formazione informatica avanzata (Master, Bachelor o equivalente) con almeno 5-8 anni di esperienza nel pilotare grandi progetti tecnici (Infrastrutture, Dati, Cloud, Cybersecurity).\n\n• Ottima comprensione delle questioni infrastrutturali (rete, sistemi, banche dati, sicurezza, virtualizzazione/cloud) per dialogare efficacemente con esperti, anticipare i rischi architettonici e garantire la continuità del servizio.\n\n• Pratica comprovata della metodologia HERMES (certificazione desiderata) e adesione ai quadri metodologici PMO/ITIL.\n\n• Esperienza pratica nella gestione di start-up complessi (migrazioni, piani rock, roll-back, trasferimento a squadre operative e supporto N3).\n\n• Capacità di guidare le parti interessate esterne e partecipare alla redazione o valutazione dei componenti tecnici dell'offerta pubblica.\n\n.",
-        "en": "Background\n\nWithin the Infrastructure, Data and DevOps division of the same ISD, the volume of technical projects is steadily increasing. The team is looking for a confirmed profile, specialized in piloting technical projects.\nMission\n\n• Carry out one or more end-to-end technical projects: infrastructure, platforms, data, cloud, cybersecurity, technical services.\n\n• Coordinate all stakeholders with respect to quality, performance, safety, availability, costs and deadlines.\n\n• Ensure consistency of solutions with SI architecture, technical standards and organizational strategy.\nResponsibilities\n\n• Project management\n• Plan, organize and manage projects.\n\n• Coordinate internal teams (infra, networks, systems, security, databases, operation, support) and external providers.\n\n• Define tasks, milestones, resources, skills, technical interfaces and budget.\n\n• Manage technical risks, dependencies and impacts on the rest of the IS.\n\n• Financial management.\n\n• Deliver in accordance with commitments.\n\n• Produce HERMES documentation and technical documentation, and maintain the PMO tool.\n\n• Meet PMO, architecture and security standards.\n\n• Deployment\n• Plan and supervise production.\n\n• Coordinate migrations, rocking and reverse returns.\n\n• Organize technical validations prior to production.\n\n• Ensure the transition to exploitation.\n\n• Ensure complete exploitation documentation and organize knowledge transfer.\n\n• Set up Level 3 support.\n\n• Arbitrage perimeter, cost, time and quality\n• Pilot technical recipes.\n\n• Ensure availability, performance, resilience and continuity of service.\n\n• Analyze requests for change, including their impact on architecture.\n\n• Prepare arbitrations.\n\n• Follow the indicators: progress, costs, risks, quality and performance of solutions.\n\n• Advanced computer training (Master, Bachelor or equivalent) with at least 5 to 8 years experience in piloting major technical projects (Infrastructure, Data, Cloud, Cybersecurity).\n\n• Excellent understanding of infrastructure issues (networks, systems, databases, security, virtualization/cloud) to effectively dialogue with experts, anticipate architectural risks and ensure continuity of service.\n\n• Proven practice of HERMES methodology (desired certification) and adherence to PMO/ITIL methodological frameworks.\n\n• Practical experience in managing complex start-ups (migrations, rocking, roll-back plans, transfer to operating teams and N3 support).\n\n• Ability to lead external stakeholders and participate in the drafting or evaluation of technical public tendering components.\n\n.",
-        "de": "Hintergrund\n\nInnerhalb der Division Infrastructure, Data und DevOps derselben ISD nimmt das Volumen technischer Projekte stetig zu. Das Team sucht ein bestätigtes Profil, spezialisiert auf die Pilotierung technischer Projekte.\nMission\n\n• Durchführung eines oder mehrerer durchgängiger technischer Projekte: Infrastruktur, Plattformen, Daten, Cloud, Cybersicherheit, technische Dienste.\n\n• Koordination aller Stakeholder in Bezug auf Qualität, Leistung, Sicherheit, Verfügbarkeit, Kosten und Fristen.\n\n• Gewährleistung der Konsistenz der Lösungen mit der SI-Architektur, den technischen Standards und der Organisationsstrategie.\nZuständigkeiten\n\n• Projektmanagement\n• Planen, organisieren und verwalten Sie Projekte.\n\n• Koordinieren Sie interne Teams (Infrastruktur, Netzwerke, Systeme, Sicherheit, Datenbanken, Betrieb, Support) und externe Anbieter.\n\n• Definieren Sie Aufgaben, Meilensteine, Ressourcen, Fähigkeiten, technische Schnittstellen und Budget.\n\n• Management technischer Risiken, Abhängigkeiten und Auswirkungen auf den Rest des IS.\n\n• Finanzmanagement.\n\n• Erfüllung der Verpflichtungen.\n\n• Erstellen Sie HERMES Dokumentation und technische Dokumentation und pflegen Sie das PMO-Tool.\n\n• PMO, Architektur und Sicherheitsstandards erfüllen.\n\n• Einsatz\n• Planung und Überwachung der Produktion.\n\n• Koordinieren Sie Migrationen, Rocking und Reverse Returns.\n\n• Organisieren Sie technische Validierungen vor der Produktion.\n\n• Gewährleistung des Übergangs zur Nutzung.\n\n• Gewährleistung einer vollständigen Dokumentation der Nutzung und Organisation des Wissenstransfers.\n\n• Einrichten von Level 3 Support.\n\n• Arbitrage Perimeter, Kosten, Zeit und Qualität\n• Technische Pilotrezepturen.\n\n• Gewährleistung von Verfügbarkeit, Leistung, Widerstandsfähigkeit und Kontinuität des Dienstes.\n\n• Analysieren Sie Änderungswünsche, einschließlich ihrer Auswirkungen auf die Architektur.\n\n• Vorbereitung von Schiedsverfahren.\n\n• Folgen Sie den Indikatoren: Fortschritt, Kosten, Risiken, Qualität und Leistung der Lösungen.\n\n• Fortgeschrittene Computerausbildung (Master, Bachelor oder gleichwertig) mit mindestens 5 bis 8 Jahren Erfahrung in der Pilotierung großer technischer Projekte (Infrastruktur, Daten, Cloud, Cybersecurity).\n\n• Ausgezeichnetes Verständnis von Infrastrukturproblemen (Netzwerke, Systeme, Datenbanken, Sicherheit, Virtualisierung / Cloud), um effektiv mit Experten zu kommunizieren, architektonische Risiken zu antizipieren und die Kontinuität des Dienstes zu gewährleisten.\n\n• Bewährte Praxis der HERMES-Methodik (gewünschte Zertifizierung) und Einhaltung der methodischen Rahmenbedingungen von PMO/ITIL.\n\n• Praktische Erfahrung im Management komplexer Start-ups (Migrationen, Rocking, Rollback-Pläne, Transfer zu operativen Teams und N3-Support).\n\n• Fähigkeit, externe Interessengruppen zu leiten und an der Ausarbeitung oder Bewertung von technischen öffentlichen Ausschreibungskomponenten teilzunehmen.\n\n.",
-        "fr": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\nMission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\nResponsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n."
-      },
-      "needsRetranslation": false,
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.918Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T15:36:32.821Z",
-      "postedDate": "2026-10-15T15:36:32.821Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
-      "jobReqId": "744000155789143",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-        ],
-        "en": [
-          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-        ],
-        "de": [
-          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-15T21:16:17.872Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-50e5f8ddcbfd",
-      "slug": "consulente-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
-      "slugByLocale": {
-        "it": "consulente-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
-        "en": "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland",
-        "de": "berater-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
-        "fr": "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant.e Technico-fonctionnel SAP CRM Senior",
-      "titleByLocale": {
-        "it": "Consulente.e Technico-fonctionnel SAP CRM Senior",
-        "en": "Consultant.e Technico-functional SAP CRM Senior",
-        "de": "Berater.e Technico-fonctionnel SAP CRM Senior",
-        "fr": "Consultant.e Technico-fonctionnel SAP CRM Senior"
-      },
-      "description": "Vous contribuerez à la maintenance, à l’évolution et à l’optimisation des solutions SAP CRM, en veillant à la fiabilité des processus métiers, à la qualité des données et à l’intégration avec SAP S/4HANA. Vous interviendrez sur l’ensemble du cycle de vie applicatif, du cadrage des besoins jusqu’au support en production, dans un environnement exigeant en matière de sécurité, de conformité et de traçabilité.\n Vos missions\n\n• Assurer la maintenance corrective, évolutive et adaptative des applications SAP CRM, ainsi que le support opérationnel de niveaux 2 et 3.\n\n• Concevoir, paramétrer et faire évoluer les processus métiers liés aux prestations sociales, notamment autour du Social Service Management (SSM), du Case Management et de l’Activity Management.\n\n• Intervenir sur SAP CRM WebUI et les couches techniques BOL/GENIL.\n\n• Gérer et garantir la cohérence des données de référence, notamment les Master Data et les Business Partners.\n\n• Concevoir et maintenir les règles métier à l’aide de SAP BRF+.\n\n• Assurer la robustesse des interfaces et des échanges entre SAP CRM et SAP S/4HANA, en collaboration avec les équipes concernées.\n\n• Analyser les incidents, identifier les causes racines et mettre en œuvre des solutions pérennes.\n\n• Participer aux phases de conception, développement, tests, déploiement et mise en production des évolutions.\n\n• Garantir la qualité de la documentation, la sécurité applicative, la traçabilité et la conformité des solutions.\n\n• Collaborer avec les équipes techniques et métiers afin d’optimiser les processus, les workflows et les parcours utilisateurs.\n\n• Contribuer à l’amélioration continue des applications et au partage des connaissances.\n\n• Vous justifiez d’au moins 7 ans d’expérience sur SAP CRM , idéalement dans des environnements complexes, critiques et fortement intégrés.\n\n• Vous maîtrisez SAP CRM WebUI ainsi que les couches BOL et GENIL.\n\n• Vous disposez d’une expérience confirmée en Master Data / Business Partner, Case Management et Activity Management.\n\n• Vous connaissez le module Social Service Management (SSM).\n\n• Vous maîtrisez SAP BRF+, notamment la configuration des règles métier, des fonctions, des expressions et des tables de décision.\n\n• Vous avez une expérience concrète des intégrations entre SAP CRM et SAP S/4HANA.\n\n• Vous maîtrisez les activités de maintenance applicative, le support RUN et la résolution d’incidents N2/N3.\n\n• Vous êtes à l’aise avec les outils Jira, ChaRM, SAP Solution Manager et Confluence.\n\n• Vous êtes capable d’analyser des problématiques complexes, de documenter vos interventions et de sécuriser les évolutions applicatives.\n\n• Vous parlez français couramment , à l’oral comme à l’écrit.\n Compétences complémentaires appréciées\n\n• Certification SAP CRM ou SAP Customer Experience.\n\n• Connaissances en sécurité applicative SAP, gestion des autorisations, traçabilité et auditabilité.\n\n• Expérience des solutions Middleware SAP et des projets d’intégration complexes CRM/S/4HANA.\n\n• Connaissance des approches Standard First , Low Code et Keep the Core Clean .\n\n• Expérience dans l’animation d’ateliers Fit-to-Standard.\n\n• Capacité à accompagner le changement et à assurer le transfert de connaissances.\n\n• Expérience dans un environnement fortement réglementé.",
-      "descriptionByLocale": {
-        "it": "Contribuirai alla manutenzione, all'evoluzione e all'ottimizzazione delle soluzioni SAP CRM, garantendo l'affidabilità dei processi aziendali, la qualità dei dati e l'integrazione con SAP S/4HANA. Interverrete durante l'intero ciclo di vita dell'applicazione, dalle necessità di scoping al supporto di produzione, in un ambiente che richiede sicurezza, conformità e tracciabilità.\nLe vostre missioni\n\n• Fornire la manutenzione correttiva, scalabile e adattativa delle applicazioni SAP CRM, nonché il supporto operativo di livello 2 e 3.\n\n• Progettazione, configurazione ed evoluzione dei processi aziendali relativi ai servizi sociali, tra cui Social Service Management (SSM), Case Management e Gestione delle attività.\n\n• Intervento su SAP CRM WebUI e strati tecnici BOL/GENIL.\n\n• Gestire e garantire la coerenza dei dati di base, inclusi Master Data e Business Partners.\n\n• Progettare e mantenere le regole aziendali utilizzando SAP BRF+.\n\n• Assicurare interfacce e scambi robusti tra SAP CRM e SAP S/4HANA, in collaborazione con i team competenti.\n\n• Analizzare gli incidenti, identificare le cause principali e implementare soluzioni sostenibili.\n\n• Partecipa alle fasi di progettazione, sviluppo, test, distribuzione e produzione delle evoluzioni.\n\n• Assicurare qualità della documentazione, sicurezza delle applicazioni, tracciabilità e conformità delle soluzioni.\n\n• Lavorare con team tecnici e commerciali per ottimizzare i processi, i flussi di lavoro e i percorsi degli utenti.\n\n• Contribuisci al miglioramento continuo delle applicazioni e alla condivisione delle conoscenze.\n\n• Si giustificano almeno 7 anni di esperienza su SAP CRM, idealmente in ambienti complessi, critici e altamente integrati.\n\n• Si padroneggia SAP CRM WebUI così come i livelli BOL e GENIL.\n\n• Hai un'esperienza comprovata in Master Data / Business Partner, Case Management e Gestione delle Attività.\n\n• Conosci il modulo Social Service Management (SSM).\n\n• Padroneggiare SAP BRF+, compresa la configurazione di regole aziendali, funzioni, espressioni e tabelle decisionali.\n\n• Hai un'esperienza concreta di integrazioni tra SAP CRM e SAP S/4HANA.\n\n• Si padroneggiano le attività di manutenzione delle applicazioni, il supporto RUN e la risoluzione degli incidenti N2/N3.\n\n• Sei a tuo agio con strumenti Jira, ChaRM, SAP Solution Manager e Confluence.\n\n• Siete in grado di analizzare problemi complessi, documentare i vostri interventi e garantire le evoluzioni delle applicazioni.\n\n• Parli inglese fluentemente, sia orale che scritta.\nComplementari competenze apprezzate\n\n• Certificazione SAP CRM o SAP Customer Experience.\n\n• SAP applicazione conoscenza della sicurezza, gestione delle autorizzazioni, tracciabilità e verificabilità.\n\n• Esperienza con soluzioni SAP Middleware e complessi progetti di integrazione CRM/S/4HANA.\n\n• Conoscenza degli approcci Standard First, Low Code e Keep the Core Clean.\n\n• Esperienza in animazione di laboratori Fit-to-Standard.\n\n• Capacità di supportare il cambiamento e garantire il trasferimento della conoscenza.\n\n• Esperienza in un ambiente altamente regolamentato.",
-        "en": "You will contribute to the maintenance, evolution and optimization of SAP CRM solutions, ensuring the reliability of business processes, data quality and integration with SAP S/4HANA. You will intervene throughout the entire application life cycle, from scoping needs to production support, in an environment demanding safety, compliance and traceability.\nYour missions\n\n• Provide corrective, scalable and adaptive maintenance of SAP CRM applications, as well as level 2 and 3 operational support.\n\n• Design, configure and evolve the business processes related to social services, including Social Service Management (SSM), Case Management and Activity Management.\n\n• Intervention on SAP CRM WebUI and technical layers BOL/GENIL.\n\n• Manage and ensure consistency of baseline data, including Master Data and Business Partners.\n\n• Design and maintain business rules using SAP BRF+.\n\n• Ensure robust interfaces and exchanges between SAP CRM and SAP S/4HANA, in collaboration with relevant teams.\n\n• Analyze incidents, identify root causes and implement sustainable solutions.\n\n• Participate in the design, development, testing, deployment and production phases of the evolutions.\n\n• Ensure quality of documentation, application security, traceability and compliance of solutions.\n\n• Work with technical and trade teams to optimize user processes, workflows and pathways.\n\n• Contribute to continuous application improvement and knowledge sharing.\n\n• You justify at least 7 years of experience on SAP CRM, ideally in complex, critical and highly integrated environments.\n\n• You master SAP CRM WebUI as well as BOL and GENIL layers.\n\n• You have a proven experience in Master Data / Business Partner, Case Management and Activity Management.\n\n• You know the Social Service Management (SSM) module.\n\n• You master SAP BRF+, including the configuration of business rules, functions, expressions and decision tables.\n\n• You have a concrete experience of integrations between SAP CRM and SAP S/4HANA.\n\n• You master application maintenance activities, RUN support and N2/N3 incident resolution.\n\n• You are comfortable with Jira, ChaRM, SAP Solution Manager and Confluence tools.\n\n• You are able to analyze complex issues, document your interventions and secure application evolutions.\n\n• You speak English fluently, both oral and written.\nComplementary competences appreciated\n\n• SAP CRM or SAP Customer Experience certification.\n\n• SAP application security knowledge, authorization management, traceability and auditability.\n\n• Experience with Middleware SAP solutions and complex CRM/S/4HANA integration projects.\n\n• Knowledge of the approaches Standard First, Low Code and Keep the Core Clean.\n\n• Experience in animation of Fit-to-Standard workshops.\n\n• Ability to support change and ensure knowledge transfer.\n\n• Experience in a highly regulated environment.",
-        "de": "Sie tragen zur Wartung, Weiterentwicklung und Optimierung von SAP CRM-Lösungen bei und gewährleisten die Zuverlässigkeit von Geschäftsprozessen, Datenqualität und Integration mit SAP S/4HANA. Sie werden während des gesamten Anwendungslebenszyklus, vom Scoping-Bedürfnis bis zur Produktionsunterstützung, in einer Umgebung eingreifen, die Sicherheit, Compliance und Rückverfolgbarkeit erfordert.\nIhre Missionen\n\n• Korrektive, skalierbare und adaptive Wartung von SAP CRM-Anwendungen sowie operative Unterstützung auf Ebene 2 und 3.\n\n• Design, Konfiguration und Weiterentwicklung der Geschäftsprozesse im Zusammenhang mit sozialen Dienstleistungen, einschließlich Social Service Management (SSM), Case Management und Activity Management.\n\n• Eingriff in SAP CRM WebUI und technische Schichten BOL/GENIL.\n\n• Verwalten und gewährleisten Sie die Konsistenz von Basisdaten, einschließlich Master Data und Geschäftspartnern.\n\n• Entwerfen und Pflegen von Geschäftsregeln mit SAP BRF+.\n\n• Gewährleistung robuster Schnittstellen und des Austauschs zwischen SAP CRM und SAP S/4HANA in Zusammenarbeit mit relevanten Teams.\n\n• Analysieren Sie Vorfälle, identifizieren Sie Ursachen und implementieren Sie nachhaltige Lösungen.\n\n• Beteiligen Sie sich an der Design-, Entwicklungs-, Test-, Bereitstellungs- und Produktionsphase der Entwicklungen.\n\n• Gewährleistung der Qualität der Dokumentation, der Anwendungssicherheit, der Rückverfolgbarkeit und der Konformität der Lösungen.\n\n• Arbeiten Sie mit technischen und Handelsteams zusammen, um Benutzerprozesse, Workflows und Pfade zu optimieren.\n\n• Beitrag zur kontinuierlichen Verbesserung der Anwendung und zum Wissensaustausch.\n\n• Sie rechtfertigen mindestens 7 Jahre Erfahrung im SAP CRM, idealerweise in komplexen, kritischen und hochintegrierten Umgebungen.\n\n• Sie beherrschen SAP CRM WebUI sowie BOL und GENIL Schichten.\n\n• Sie haben eine nachgewiesene Erfahrung in Master Data / Business Partner, Case Management und Activity Management.\n\n• Sie kennen das Modul Social Service Management (SSM).\n\n• Sie beherrschen SAP BRF+, einschließlich der Konfiguration von Geschäftsregeln, Funktionen, Ausdrücken und Entscheidungstabellen.\n\n• Sie haben konkrete Erfahrungen mit Integrationen zwischen SAP CRM und SAP S/4HANA.\n\n• Sie beherrschen Wartungsaktivitäten für Anwendungen, RUN-Unterstützung und N2/N3-Incident-Resolution.\n\n• Sie sind mit Jira, ChaRM, SAP Solution Manager und Confluence Tools vertraut.\n\n• Sie können komplexe Probleme analysieren, Ihre Interventionen dokumentieren und Anwendungsentwicklungen sichern.\n\n• Sie sprechen fließend Englisch, sowohl mündlich als auch schriftlich.\nKomplementäre Kompetenzen geschätzt\n\n• SAP CRM oder SAP Customer Experience Zertifizierung.\n\n• SAP Application Security Know-how, Authorization Management, Traceability und Auditability.\n\n• Erfahrung mit Middleware SAP Lösungen und komplexen CRM/S/4HANA Integrationsprojekten.\n\n• Kenntnis der Ansätze Standard First, Low Code und Keep the Core Clean.\n\n• Erfahrung in der Animation von Fit-to-Standard Workshops.\n\n• Fähigkeit, Veränderungen zu unterstützen und den Wissenstransfer sicherzustellen.\n\n• Erfahrung in einem stark regulierten Umfeld.",
-        "fr": "Vous contribuerez à la maintenance, à l’évolution et à l’optimisation des solutions SAP CRM, en veillant à la fiabilité des processus métiers, à la qualité des données et à l’intégration avec SAP S/4HANA. Vous interviendrez sur l’ensemble du cycle de vie applicatif, du cadrage des besoins jusqu’au support en production, dans un environnement exigeant en matière de sécurité, de conformité et de traçabilité.\nVos missions\n\n• Assurer la maintenance corrective, évolutive et adaptative des applications SAP CRM, ainsi que le support opérationnel de niveaux 2 et 3.\n\n• Concevoir, paramétrer et faire évoluer les processus métiers liés aux prestations sociales, notamment autour du Social Service Management (SSM), du Case Management et de l’Activity Management.\n\n• Intervenir sur SAP CRM WebUI et les couches techniques BOL/GENIL.\n\n• Gérer et garantir la cohérence des données de référence, notamment les Master Data et les Business Partners.\n\n• Concevoir et maintenir les règles métier à l’aide de SAP BRF+.\n\n• Assurer la robustesse des interfaces et des échanges entre SAP CRM et SAP S/4HANA, en collaboration avec les équipes concernées.\n\n• Analyser les incidents, identifier les causes racines et mettre en œuvre des solutions pérennes.\n\n• Participer aux phases de conception, développement, tests, déploiement et mise en production des évolutions.\n\n• Garantir la qualité de la documentation, la sécurité applicative, la traçabilité et la conformité des solutions.\n\n• Collaborer avec les équipes techniques et métiers afin d’optimiser les processus, les workflows et les parcours utilisateurs.\n\n• Contribuer à l’amélioration continue des applications et au partage des connaissances.\n\n• Vous justifiez d’au moins 7 ans d’expérience sur SAP CRM , idéalement dans des environnements complexes, critiques et fortement intégrés.\n\n• Vous maîtrisez SAP CRM WebUI ainsi que les couches BOL et GENIL.\n\n• Vous disposez d’une expérience confirmée en Master Data / Business Partner, Case Management et Activity Management.\n\n• Vous connaissez le module Social Service Management (SSM).\n\n• Vous maîtrisez SAP BRF+, notamment la configuration des règles métier, des fonctions, des expressions et des tables de décision.\n\n• Vous avez une expérience concrète des intégrations entre SAP CRM et SAP S/4HANA.\n\n• Vous maîtrisez les activités de maintenance applicative, le support RUN et la résolution d’incidents N2/N3.\n\n• Vous êtes à l’aise avec les outils Jira, ChaRM, SAP Solution Manager et Confluence.\n\n• Vous êtes capable d’analyser des problématiques complexes, de documenter vos interventions et de sécuriser les évolutions applicatives.\n\n• Vous parlez français couramment , à l’oral comme à l’écrit.\nCompétences complémentaires appréciées\n\n• Certification SAP CRM ou SAP Customer Experience.\n\n• Connaissances en sécurité applicative SAP, gestion des autorisations, traçabilité et auditabilité.\n\n• Expérience des solutions Middleware SAP et des projets d’intégration complexes CRM/S/4HANA.\n\n• Connaissance des approches Standard First , Low Code et Keep the Core Clean .\n\n• Expérience dans l’animation d’ateliers Fit-to-Standard.\n\n• Capacité à accompagner le changement et à assurer le transfert de connaissances.\n\n• Expérience dans un environnement fortement réglementé."
-      },
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155806134-consultant-e-technico-fonctionnel-sap-crm-senior?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.917Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T16:32:05.129Z",
-      "postedDate": "2026-10-15T16:32:05.129Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155806134-consultant-e-technico-fonctionnel-sap-crm-senior?oga=true",
-      "jobReqId": "744000155806134",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
-        ],
-        "de": [
-          "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-15T21:16:17.863Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-02b98391d3fc",
       "slug": "responsabile-del-progetto-aziendale-talan-lausanne-vd-switzerland",
       "slugByLocale": {
@@ -1074,7 +914,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155789639-chef-de-projet-metier?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.917Z",
+      "crawledAt": "2026-10-25T21:19:37.264Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1125,6 +965,88 @@
       }
     },
     {
+      "id": "talan-9a6c7f90c0b3",
+      "slug": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
+      "slugByLocale": {
+        "it": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
+        "en": "technical-project-leader-talan-lausanne-vd-switzerland",
+        "de": "technischer-projektleiter-talan-lausanne-vd-switzerland",
+        "fr": "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Chef·fe de projet technique",
+      "titleByLocale": {
+        "it": "Leader del progetto tecnico",
+        "en": "Technical Project Leader",
+        "de": "Technischer Projektleiter",
+        "fr": "Chef·fe de projet technique"
+      },
+      "description": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\n Mission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\n Responsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n.",
+      "descriptionByLocale": {
+        "it": "Contesto\n\nAll'interno della divisione Infrastructure, Data e DevOps dello stesso ISD, il volume dei progetti tecnici sta aumentando costantemente. Il team sta cercando un profilo confermato, specializzato nel pilotare progetti tecnici.\nMissione\n\n• Eseguire uno o più progetti tecnici end-to-end: infrastrutture, piattaforme, dati, cloud, cybersecurity, servizi tecnici.\n\n• Coordinare tutte le parti interessate in materia di qualità, prestazioni, sicurezza, disponibilità, costi e scadenze.\n\n• Assicurare la coerenza delle soluzioni con l'architettura SI, gli standard tecnici e la strategia organizzativa.\nresponsabilità\n\n• Gestione dei progetti\n• Pianificare, organizzare e gestire progetti.\n\n• Coordinare i team interni (infra, reti, sistemi, sicurezza, database, funzionamento, supporto) e i fornitori esterni.\n\n• Definire compiti, pietre miliari, risorse, competenze, interfacce tecniche e budget.\n\n• Gestire i rischi tecnici, le dipendenze e gli impatti sul resto dell'IS.\n\n• Gestione finanziaria.\n\n• Fornire secondo gli impegni.\n\n• Produce documentazione HERMES e documentazione tecnica, e mantenere lo strumento PMO.\n\n• Incontra gli standard PMO, architettura e sicurezza.\n\n• Distribuzione\n• Pianificare e supervisionare la produzione.\n\n• Coordinare le migrazioni, il rocking e il ritorno inverso.\n\n• Organizza le validazioni tecniche prima della produzione.\n\n• Assicurare la transizione allo sfruttamento.\n\n• Assicurare la documentazione completa dello sfruttamento e organizzare il trasferimento della conoscenza.\n\n• Configura il supporto di livello 3.\n\n• perimetro di arbitrato, costo, tempo e qualità\n• Ricette tecniche pilota.\n\n• Assicurare disponibilità, prestazioni, resilienza e continuità di servizio.\n\n• Analizzare le richieste di cambiamento, compreso il loro impatto sull'architettura.\n\n• Preparate gli arbitrati.\n\n• Seguire gli indicatori: progresso, costi, rischi, qualità e prestazioni delle soluzioni.\n\n• Formazione informatica avanzata (Master, Bachelor o equivalente) con almeno 5-8 anni di esperienza nel pilotare grandi progetti tecnici (Infrastrutture, Dati, Cloud, Cybersecurity).\n\n• Ottima comprensione delle questioni infrastrutturali (rete, sistemi, banche dati, sicurezza, virtualizzazione/cloud) per dialogare efficacemente con esperti, anticipare i rischi architettonici e garantire la continuità del servizio.\n\n• Pratica comprovata della metodologia HERMES (certificazione desiderata) e adesione ai quadri metodologici PMO/ITIL.\n\n• Esperienza pratica nella gestione di start-up complessi (migrazioni, piani rock, roll-back, trasferimento a squadre operative e supporto N3).\n\n• Capacità di guidare le parti interessate esterne e partecipare alla redazione o valutazione dei componenti tecnici dell'offerta pubblica.\n\n.",
+        "en": "Background\n\nWithin the Infrastructure, Data and DevOps division of the same ISD, the volume of technical projects is steadily increasing. The team is looking for a confirmed profile, specialized in piloting technical projects.\nMission\n\n• Carry out one or more end-to-end technical projects: infrastructure, platforms, data, cloud, cybersecurity, technical services.\n\n• Coordinate all stakeholders with respect to quality, performance, safety, availability, costs and deadlines.\n\n• Ensure consistency of solutions with SI architecture, technical standards and organizational strategy.\nResponsibilities\n\n• Project management\n• Plan, organize and manage projects.\n\n• Coordinate internal teams (infra, networks, systems, security, databases, operation, support) and external providers.\n\n• Define tasks, milestones, resources, skills, technical interfaces and budget.\n\n• Manage technical risks, dependencies and impacts on the rest of the IS.\n\n• Financial management.\n\n• Deliver in accordance with commitments.\n\n• Produce HERMES documentation and technical documentation, and maintain the PMO tool.\n\n• Meet PMO, architecture and security standards.\n\n• Deployment\n• Plan and supervise production.\n\n• Coordinate migrations, rocking and reverse returns.\n\n• Organize technical validations prior to production.\n\n• Ensure the transition to exploitation.\n\n• Ensure complete exploitation documentation and organize knowledge transfer.\n\n• Set up Level 3 support.\n\n• Arbitrage perimeter, cost, time and quality\n• Pilot technical recipes.\n\n• Ensure availability, performance, resilience and continuity of service.\n\n• Analyze requests for change, including their impact on architecture.\n\n• Prepare arbitrations.\n\n• Follow the indicators: progress, costs, risks, quality and performance of solutions.\n\n• Advanced computer training (Master, Bachelor or equivalent) with at least 5 to 8 years experience in piloting major technical projects (Infrastructure, Data, Cloud, Cybersecurity).\n\n• Excellent understanding of infrastructure issues (networks, systems, databases, security, virtualization/cloud) to effectively dialogue with experts, anticipate architectural risks and ensure continuity of service.\n\n• Proven practice of HERMES methodology (desired certification) and adherence to PMO/ITIL methodological frameworks.\n\n• Practical experience in managing complex start-ups (migrations, rocking, roll-back plans, transfer to operating teams and N3 support).\n\n• Ability to lead external stakeholders and participate in the drafting or evaluation of technical public tendering components.\n\n.",
+        "de": "Hintergrund\n\nInnerhalb der Division Infrastructure, Data und DevOps derselben ISD nimmt das Volumen technischer Projekte stetig zu. Das Team sucht ein bestätigtes Profil, spezialisiert auf die Pilotierung technischer Projekte.\nMission\n\n• Durchführung eines oder mehrerer durchgängiger technischer Projekte: Infrastruktur, Plattformen, Daten, Cloud, Cybersicherheit, technische Dienste.\n\n• Koordination aller Stakeholder in Bezug auf Qualität, Leistung, Sicherheit, Verfügbarkeit, Kosten und Fristen.\n\n• Gewährleistung der Konsistenz der Lösungen mit der SI-Architektur, den technischen Standards und der Organisationsstrategie.\nZuständigkeiten\n\n• Projektmanagement\n• Planen, organisieren und verwalten Sie Projekte.\n\n• Koordinieren Sie interne Teams (Infrastruktur, Netzwerke, Systeme, Sicherheit, Datenbanken, Betrieb, Support) und externe Anbieter.\n\n• Definieren Sie Aufgaben, Meilensteine, Ressourcen, Fähigkeiten, technische Schnittstellen und Budget.\n\n• Management technischer Risiken, Abhängigkeiten und Auswirkungen auf den Rest des IS.\n\n• Finanzmanagement.\n\n• Erfüllung der Verpflichtungen.\n\n• Erstellen Sie HERMES Dokumentation und technische Dokumentation und pflegen Sie das PMO-Tool.\n\n• PMO, Architektur und Sicherheitsstandards erfüllen.\n\n• Einsatz\n• Planung und Überwachung der Produktion.\n\n• Koordinieren Sie Migrationen, Rocking und Reverse Returns.\n\n• Organisieren Sie technische Validierungen vor der Produktion.\n\n• Gewährleistung des Übergangs zur Nutzung.\n\n• Gewährleistung einer vollständigen Dokumentation der Nutzung und Organisation des Wissenstransfers.\n\n• Einrichten von Level 3 Support.\n\n• Arbitrage Perimeter, Kosten, Zeit und Qualität\n• Technische Pilotrezepturen.\n\n• Gewährleistung von Verfügbarkeit, Leistung, Widerstandsfähigkeit und Kontinuität des Dienstes.\n\n• Analysieren Sie Änderungswünsche, einschließlich ihrer Auswirkungen auf die Architektur.\n\n• Vorbereitung von Schiedsverfahren.\n\n• Folgen Sie den Indikatoren: Fortschritt, Kosten, Risiken, Qualität und Leistung der Lösungen.\n\n• Fortgeschrittene Computerausbildung (Master, Bachelor oder gleichwertig) mit mindestens 5 bis 8 Jahren Erfahrung in der Pilotierung großer technischer Projekte (Infrastruktur, Daten, Cloud, Cybersecurity).\n\n• Ausgezeichnetes Verständnis von Infrastrukturproblemen (Netzwerke, Systeme, Datenbanken, Sicherheit, Virtualisierung / Cloud), um effektiv mit Experten zu kommunizieren, architektonische Risiken zu antizipieren und die Kontinuität des Dienstes zu gewährleisten.\n\n• Bewährte Praxis der HERMES-Methodik (gewünschte Zertifizierung) und Einhaltung der methodischen Rahmenbedingungen von PMO/ITIL.\n\n• Praktische Erfahrung im Management komplexer Start-ups (Migrationen, Rocking, Rollback-Pläne, Transfer zu operativen Teams und N3-Support).\n\n• Fähigkeit, externe Interessengruppen zu leiten und an der Ausarbeitung oder Bewertung von technischen öffentlichen Ausschreibungskomponenten teilzunehmen.\n\n.",
+        "fr": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\nMission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\nResponsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n."
+      },
+      "needsRetranslation": false,
+      "location": "Lausanne, VD, Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T21:19:37.263Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "1003",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-15T15:36:32.821Z",
+      "postedDate": "2026-10-15T15:36:32.821Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
+      "jobReqId": "744000155789143",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+        ],
+        "en": [
+          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+        ],
+        "de": [
+          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-15T21:16:17.872Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-af6c08192f75",
       "slug": "business-analista-talan-lausanne-vd-switzerland",
       "slugByLocale": {
@@ -1155,7 +1077,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155794329--business-analyst?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.916Z",
+      "crawledAt": "2026-10-25T21:19:37.261Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1203,6 +1125,84 @@
       }
     },
     {
+      "id": "talan-50e5f8ddcbfd",
+      "slug": "consulente-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
+      "slugByLocale": {
+        "it": "consulente-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
+        "en": "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland",
+        "de": "berater-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
+        "fr": "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant.e Technico-fonctionnel SAP CRM Senior",
+      "titleByLocale": {
+        "it": "Consulente.e Technico-fonctionnel SAP CRM Senior",
+        "en": "Consultant.e Technico-functional SAP CRM Senior",
+        "de": "Berater.e Technico-fonctionnel SAP CRM Senior",
+        "fr": "Consultant.e Technico-fonctionnel SAP CRM Senior"
+      },
+      "description": "Vous contribuerez à la maintenance, à l’évolution et à l’optimisation des solutions SAP CRM, en veillant à la fiabilité des processus métiers, à la qualité des données et à l’intégration avec SAP S/4HANA. Vous interviendrez sur l’ensemble du cycle de vie applicatif, du cadrage des besoins jusqu’au support en production, dans un environnement exigeant en matière de sécurité, de conformité et de traçabilité.\n Vos missions\n\n• Assurer la maintenance corrective, évolutive et adaptative des applications SAP CRM, ainsi que le support opérationnel de niveaux 2 et 3.\n\n• Concevoir, paramétrer et faire évoluer les processus métiers liés aux prestations sociales, notamment autour du Social Service Management (SSM), du Case Management et de l’Activity Management.\n\n• Intervenir sur SAP CRM WebUI et les couches techniques BOL/GENIL.\n\n• Gérer et garantir la cohérence des données de référence, notamment les Master Data et les Business Partners.\n\n• Concevoir et maintenir les règles métier à l’aide de SAP BRF+.\n\n• Assurer la robustesse des interfaces et des échanges entre SAP CRM et SAP S/4HANA, en collaboration avec les équipes concernées.\n\n• Analyser les incidents, identifier les causes racines et mettre en œuvre des solutions pérennes.\n\n• Participer aux phases de conception, développement, tests, déploiement et mise en production des évolutions.\n\n• Garantir la qualité de la documentation, la sécurité applicative, la traçabilité et la conformité des solutions.\n\n• Collaborer avec les équipes techniques et métiers afin d’optimiser les processus, les workflows et les parcours utilisateurs.\n\n• Contribuer à l’amélioration continue des applications et au partage des connaissances.\n\n• Vous justifiez d’au moins 7 ans d’expérience sur SAP CRM , idéalement dans des environnements complexes, critiques et fortement intégrés.\n\n• Vous maîtrisez SAP CRM WebUI ainsi que les couches BOL et GENIL.\n\n• Vous disposez d’une expérience confirmée en Master Data / Business Partner, Case Management et Activity Management.\n\n• Vous connaissez le module Social Service Management (SSM).\n\n• Vous maîtrisez SAP BRF+, notamment la configuration des règles métier, des fonctions, des expressions et des tables de décision.\n\n• Vous avez une expérience concrète des intégrations entre SAP CRM et SAP S/4HANA.\n\n• Vous maîtrisez les activités de maintenance applicative, le support RUN et la résolution d’incidents N2/N3.\n\n• Vous êtes à l’aise avec les outils Jira, ChaRM, SAP Solution Manager et Confluence.\n\n• Vous êtes capable d’analyser des problématiques complexes, de documenter vos interventions et de sécuriser les évolutions applicatives.\n\n• Vous parlez français couramment , à l’oral comme à l’écrit.\n Compétences complémentaires appréciées\n\n• Certification SAP CRM ou SAP Customer Experience.\n\n• Connaissances en sécurité applicative SAP, gestion des autorisations, traçabilité et auditabilité.\n\n• Expérience des solutions Middleware SAP et des projets d’intégration complexes CRM/S/4HANA.\n\n• Connaissance des approches Standard First , Low Code et Keep the Core Clean .\n\n• Expérience dans l’animation d’ateliers Fit-to-Standard.\n\n• Capacité à accompagner le changement et à assurer le transfert de connaissances.\n\n• Expérience dans un environnement fortement réglementé.",
+      "descriptionByLocale": {
+        "it": "Contribuirai alla manutenzione, all'evoluzione e all'ottimizzazione delle soluzioni SAP CRM, garantendo l'affidabilità dei processi aziendali, la qualità dei dati e l'integrazione con SAP S/4HANA. Interverrete durante l'intero ciclo di vita dell'applicazione, dalle necessità di scoping al supporto di produzione, in un ambiente che richiede sicurezza, conformità e tracciabilità.\nLe vostre missioni\n\n• Fornire la manutenzione correttiva, scalabile e adattativa delle applicazioni SAP CRM, nonché il supporto operativo di livello 2 e 3.\n\n• Progettazione, configurazione ed evoluzione dei processi aziendali relativi ai servizi sociali, tra cui Social Service Management (SSM), Case Management e Gestione delle attività.\n\n• Intervento su SAP CRM WebUI e strati tecnici BOL/GENIL.\n\n• Gestire e garantire la coerenza dei dati di base, inclusi Master Data e Business Partners.\n\n• Progettare e mantenere le regole aziendali utilizzando SAP BRF+.\n\n• Assicurare interfacce e scambi robusti tra SAP CRM e SAP S/4HANA, in collaborazione con i team competenti.\n\n• Analizzare gli incidenti, identificare le cause principali e implementare soluzioni sostenibili.\n\n• Partecipa alle fasi di progettazione, sviluppo, test, distribuzione e produzione delle evoluzioni.\n\n• Assicurare qualità della documentazione, sicurezza delle applicazioni, tracciabilità e conformità delle soluzioni.\n\n• Lavorare con team tecnici e commerciali per ottimizzare i processi, i flussi di lavoro e i percorsi degli utenti.\n\n• Contribuisci al miglioramento continuo delle applicazioni e alla condivisione delle conoscenze.\n\n• Si giustificano almeno 7 anni di esperienza su SAP CRM, idealmente in ambienti complessi, critici e altamente integrati.\n\n• Si padroneggia SAP CRM WebUI così come i livelli BOL e GENIL.\n\n• Hai un'esperienza comprovata in Master Data / Business Partner, Case Management e Gestione delle Attività.\n\n• Conosci il modulo Social Service Management (SSM).\n\n• Padroneggiare SAP BRF+, compresa la configurazione di regole aziendali, funzioni, espressioni e tabelle decisionali.\n\n• Hai un'esperienza concreta di integrazioni tra SAP CRM e SAP S/4HANA.\n\n• Si padroneggiano le attività di manutenzione delle applicazioni, il supporto RUN e la risoluzione degli incidenti N2/N3.\n\n• Sei a tuo agio con strumenti Jira, ChaRM, SAP Solution Manager e Confluence.\n\n• Siete in grado di analizzare problemi complessi, documentare i vostri interventi e garantire le evoluzioni delle applicazioni.\n\n• Parli inglese fluentemente, sia orale che scritta.\nComplementari competenze apprezzate\n\n• Certificazione SAP CRM o SAP Customer Experience.\n\n• SAP applicazione conoscenza della sicurezza, gestione delle autorizzazioni, tracciabilità e verificabilità.\n\n• Esperienza con soluzioni SAP Middleware e complessi progetti di integrazione CRM/S/4HANA.\n\n• Conoscenza degli approcci Standard First, Low Code e Keep the Core Clean.\n\n• Esperienza in animazione di laboratori Fit-to-Standard.\n\n• Capacità di supportare il cambiamento e garantire il trasferimento della conoscenza.\n\n• Esperienza in un ambiente altamente regolamentato.",
+        "en": "You will contribute to the maintenance, evolution and optimization of SAP CRM solutions, ensuring the reliability of business processes, data quality and integration with SAP S/4HANA. You will intervene throughout the entire application life cycle, from scoping needs to production support, in an environment demanding safety, compliance and traceability.\nYour missions\n\n• Provide corrective, scalable and adaptive maintenance of SAP CRM applications, as well as level 2 and 3 operational support.\n\n• Design, configure and evolve the business processes related to social services, including Social Service Management (SSM), Case Management and Activity Management.\n\n• Intervention on SAP CRM WebUI and technical layers BOL/GENIL.\n\n• Manage and ensure consistency of baseline data, including Master Data and Business Partners.\n\n• Design and maintain business rules using SAP BRF+.\n\n• Ensure robust interfaces and exchanges between SAP CRM and SAP S/4HANA, in collaboration with relevant teams.\n\n• Analyze incidents, identify root causes and implement sustainable solutions.\n\n• Participate in the design, development, testing, deployment and production phases of the evolutions.\n\n• Ensure quality of documentation, application security, traceability and compliance of solutions.\n\n• Work with technical and trade teams to optimize user processes, workflows and pathways.\n\n• Contribute to continuous application improvement and knowledge sharing.\n\n• You justify at least 7 years of experience on SAP CRM, ideally in complex, critical and highly integrated environments.\n\n• You master SAP CRM WebUI as well as BOL and GENIL layers.\n\n• You have a proven experience in Master Data / Business Partner, Case Management and Activity Management.\n\n• You know the Social Service Management (SSM) module.\n\n• You master SAP BRF+, including the configuration of business rules, functions, expressions and decision tables.\n\n• You have a concrete experience of integrations between SAP CRM and SAP S/4HANA.\n\n• You master application maintenance activities, RUN support and N2/N3 incident resolution.\n\n• You are comfortable with Jira, ChaRM, SAP Solution Manager and Confluence tools.\n\n• You are able to analyze complex issues, document your interventions and secure application evolutions.\n\n• You speak English fluently, both oral and written.\nComplementary competences appreciated\n\n• SAP CRM or SAP Customer Experience certification.\n\n• SAP application security knowledge, authorization management, traceability and auditability.\n\n• Experience with Middleware SAP solutions and complex CRM/S/4HANA integration projects.\n\n• Knowledge of the approaches Standard First, Low Code and Keep the Core Clean.\n\n• Experience in animation of Fit-to-Standard workshops.\n\n• Ability to support change and ensure knowledge transfer.\n\n• Experience in a highly regulated environment.",
+        "de": "Sie tragen zur Wartung, Weiterentwicklung und Optimierung von SAP CRM-Lösungen bei und gewährleisten die Zuverlässigkeit von Geschäftsprozessen, Datenqualität und Integration mit SAP S/4HANA. Sie werden während des gesamten Anwendungslebenszyklus, vom Scoping-Bedürfnis bis zur Produktionsunterstützung, in einer Umgebung eingreifen, die Sicherheit, Compliance und Rückverfolgbarkeit erfordert.\nIhre Missionen\n\n• Korrektive, skalierbare und adaptive Wartung von SAP CRM-Anwendungen sowie operative Unterstützung auf Ebene 2 und 3.\n\n• Design, Konfiguration und Weiterentwicklung der Geschäftsprozesse im Zusammenhang mit sozialen Dienstleistungen, einschließlich Social Service Management (SSM), Case Management und Activity Management.\n\n• Eingriff in SAP CRM WebUI und technische Schichten BOL/GENIL.\n\n• Verwalten und gewährleisten Sie die Konsistenz von Basisdaten, einschließlich Master Data und Geschäftspartnern.\n\n• Entwerfen und Pflegen von Geschäftsregeln mit SAP BRF+.\n\n• Gewährleistung robuster Schnittstellen und des Austauschs zwischen SAP CRM und SAP S/4HANA in Zusammenarbeit mit relevanten Teams.\n\n• Analysieren Sie Vorfälle, identifizieren Sie Ursachen und implementieren Sie nachhaltige Lösungen.\n\n• Beteiligen Sie sich an der Design-, Entwicklungs-, Test-, Bereitstellungs- und Produktionsphase der Entwicklungen.\n\n• Gewährleistung der Qualität der Dokumentation, der Anwendungssicherheit, der Rückverfolgbarkeit und der Konformität der Lösungen.\n\n• Arbeiten Sie mit technischen und Handelsteams zusammen, um Benutzerprozesse, Workflows und Pfade zu optimieren.\n\n• Beitrag zur kontinuierlichen Verbesserung der Anwendung und zum Wissensaustausch.\n\n• Sie rechtfertigen mindestens 7 Jahre Erfahrung im SAP CRM, idealerweise in komplexen, kritischen und hochintegrierten Umgebungen.\n\n• Sie beherrschen SAP CRM WebUI sowie BOL und GENIL Schichten.\n\n• Sie haben eine nachgewiesene Erfahrung in Master Data / Business Partner, Case Management und Activity Management.\n\n• Sie kennen das Modul Social Service Management (SSM).\n\n• Sie beherrschen SAP BRF+, einschließlich der Konfiguration von Geschäftsregeln, Funktionen, Ausdrücken und Entscheidungstabellen.\n\n• Sie haben konkrete Erfahrungen mit Integrationen zwischen SAP CRM und SAP S/4HANA.\n\n• Sie beherrschen Wartungsaktivitäten für Anwendungen, RUN-Unterstützung und N2/N3-Incident-Resolution.\n\n• Sie sind mit Jira, ChaRM, SAP Solution Manager und Confluence Tools vertraut.\n\n• Sie können komplexe Probleme analysieren, Ihre Interventionen dokumentieren und Anwendungsentwicklungen sichern.\n\n• Sie sprechen fließend Englisch, sowohl mündlich als auch schriftlich.\nKomplementäre Kompetenzen geschätzt\n\n• SAP CRM oder SAP Customer Experience Zertifizierung.\n\n• SAP Application Security Know-how, Authorization Management, Traceability und Auditability.\n\n• Erfahrung mit Middleware SAP Lösungen und komplexen CRM/S/4HANA Integrationsprojekten.\n\n• Kenntnis der Ansätze Standard First, Low Code und Keep the Core Clean.\n\n• Erfahrung in der Animation von Fit-to-Standard Workshops.\n\n• Fähigkeit, Veränderungen zu unterstützen und den Wissenstransfer sicherzustellen.\n\n• Erfahrung in einem stark regulierten Umfeld.",
+        "fr": "Vous contribuerez à la maintenance, à l’évolution et à l’optimisation des solutions SAP CRM, en veillant à la fiabilité des processus métiers, à la qualité des données et à l’intégration avec SAP S/4HANA. Vous interviendrez sur l’ensemble du cycle de vie applicatif, du cadrage des besoins jusqu’au support en production, dans un environnement exigeant en matière de sécurité, de conformité et de traçabilité.\nVos missions\n\n• Assurer la maintenance corrective, évolutive et adaptative des applications SAP CRM, ainsi que le support opérationnel de niveaux 2 et 3.\n\n• Concevoir, paramétrer et faire évoluer les processus métiers liés aux prestations sociales, notamment autour du Social Service Management (SSM), du Case Management et de l’Activity Management.\n\n• Intervenir sur SAP CRM WebUI et les couches techniques BOL/GENIL.\n\n• Gérer et garantir la cohérence des données de référence, notamment les Master Data et les Business Partners.\n\n• Concevoir et maintenir les règles métier à l’aide de SAP BRF+.\n\n• Assurer la robustesse des interfaces et des échanges entre SAP CRM et SAP S/4HANA, en collaboration avec les équipes concernées.\n\n• Analyser les incidents, identifier les causes racines et mettre en œuvre des solutions pérennes.\n\n• Participer aux phases de conception, développement, tests, déploiement et mise en production des évolutions.\n\n• Garantir la qualité de la documentation, la sécurité applicative, la traçabilité et la conformité des solutions.\n\n• Collaborer avec les équipes techniques et métiers afin d’optimiser les processus, les workflows et les parcours utilisateurs.\n\n• Contribuer à l’amélioration continue des applications et au partage des connaissances.\n\n• Vous justifiez d’au moins 7 ans d’expérience sur SAP CRM , idéalement dans des environnements complexes, critiques et fortement intégrés.\n\n• Vous maîtrisez SAP CRM WebUI ainsi que les couches BOL et GENIL.\n\n• Vous disposez d’une expérience confirmée en Master Data / Business Partner, Case Management et Activity Management.\n\n• Vous connaissez le module Social Service Management (SSM).\n\n• Vous maîtrisez SAP BRF+, notamment la configuration des règles métier, des fonctions, des expressions et des tables de décision.\n\n• Vous avez une expérience concrète des intégrations entre SAP CRM et SAP S/4HANA.\n\n• Vous maîtrisez les activités de maintenance applicative, le support RUN et la résolution d’incidents N2/N3.\n\n• Vous êtes à l’aise avec les outils Jira, ChaRM, SAP Solution Manager et Confluence.\n\n• Vous êtes capable d’analyser des problématiques complexes, de documenter vos interventions et de sécuriser les évolutions applicatives.\n\n• Vous parlez français couramment , à l’oral comme à l’écrit.\nCompétences complémentaires appréciées\n\n• Certification SAP CRM ou SAP Customer Experience.\n\n• Connaissances en sécurité applicative SAP, gestion des autorisations, traçabilité et auditabilité.\n\n• Expérience des solutions Middleware SAP et des projets d’intégration complexes CRM/S/4HANA.\n\n• Connaissance des approches Standard First , Low Code et Keep the Core Clean .\n\n• Expérience dans l’animation d’ateliers Fit-to-Standard.\n\n• Capacité à accompagner le changement et à assurer le transfert de connaissances.\n\n• Expérience dans un environnement fortement réglementé."
+      },
+      "location": "Lausanne, VD, Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000155806134-consultant-e-technico-fonctionnel-sap-crm-senior?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T21:19:37.260Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "1003",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-15T16:32:05.129Z",
+      "postedDate": "2026-10-15T16:32:05.129Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155806134-consultant-e-technico-fonctionnel-sap-crm-senior?oga=true",
+      "jobReqId": "744000155806134",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
+        ],
+        "de": [
+          "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-15T21:16:17.863Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-1ab717d8d693",
       "slug": "solution-architetto-talan-geneve-switzerland",
       "slugByLocale": {
@@ -1234,7 +1234,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000156838401-solution-architect?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.915Z",
+      "crawledAt": "2026-10-25T21:19:37.259Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1312,7 +1312,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155930739-lead-business-analyst?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.914Z",
+      "crawledAt": "2026-10-25T21:19:37.257Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1387,7 +1387,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.913Z",
+      "crawledAt": "2026-10-25T21:19:37.255Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1435,81 +1435,6 @@
       }
     },
     {
-      "id": "talan-dbc24b5b3f3c",
-      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
-        "de": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
-        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Tech Lead Fullstack .NET / C#",
-      "titleByLocale": {
-        "it": "Fullstack Technical Manager .NET / C#",
-        "en": "Fullstack Technical Manager .NET / C#",
-        "de": "Fullstack Technical Manager .NET / C#",
-        "fr": "Responsable technique Fullstack .NET / C#"
-      },
-      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
-        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
-        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
-        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.912Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T13:35:09.147Z",
-      "postedDate": "2026-10-23T13:35:09.147Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "jobReqId": "744000157480029",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:11:18.471Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-40d16a2b9320",
       "slug": "change-manager-cybersecurity-talan-geneva",
       "slugByLocale": {
@@ -1540,7 +1465,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155941719-change-manager-cybersecurite?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T09:13:14.909Z",
+      "crawledAt": "2026-10-25T21:19:37.254Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1573,6 +1498,81 @@
         ]
       },
       "firstSeenAt": "2026-10-16T09:14:05.404Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-dbc24b5b3f3c",
+      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
+        "de": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
+        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Tech Lead Fullstack .NET / C#",
+      "titleByLocale": {
+        "it": "Fullstack Technical Manager .NET / C#",
+        "en": "Fullstack Technical Manager .NET / C#",
+        "de": "Fullstack Technical Manager .NET / C#",
+        "fr": "Responsable technique Fullstack .NET / C#"
+      },
+      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
+      "descriptionByLocale": {
+        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
+        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
+        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
+        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T21:19:37.250Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T13:35:09.147Z",
+      "postedDate": "2026-10-23T13:35:09.147Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "jobReqId": "744000157480029",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T21:11:18.471Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",

@@ -45,6 +45,8 @@ import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { jobDescriptionPlainText, jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { jobDescriptionTextToHtml } from '@/build-plugins/shared/jobDescription/toHtml';
+import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
+import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
 
 interface RelatedJob {
  slug: string;
@@ -197,6 +199,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const listingPath = `${prefix}/${sectionSlug}/`.replace(/\/+/g, '/');
 
  const localizedTitle = jobDisplayTitle(job) || job.title;
+ const handleGateCopy = useJobCopyAttribution({
+ enabled: !alreadySignedIn,
+ jobTitle: localizedTitle,
+ company: job.company,
+ url: `${JOB_COPY_SITE_ORIGIN}${listingPath}${job.slug}/`,
+ lead: t('jobBoard.copyAttribution.lead'),
+ analyticsValue: `${job.company}_${localizedTitle}`,
+ });
  const description = job.descriptionByLocale?.[locale] ?? '';
  const descriptionPlain = jobDescriptionPlainText(description);
  const descriptionPreview = jobDescriptionPreview(description);
@@ -962,7 +972,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="space-y-4">
 
  {/* Job header card */}
- <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5">
+ <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5" onCopy={handleGateCopy}>
  {jobHeader}
 
  {/* Readable description teaser — shows first ~200 chars to create information
