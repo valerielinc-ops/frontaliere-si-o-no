@@ -212,6 +212,14 @@ export class WriteCollector {
  private _deferredFlush: PendingWrite[] | null = null;
  private _autoFlushScheduled = false;
  private _firstError: Error | null = null;
+ // Ordine dei batch: ogni batch di flush parte solo quando il precedente di
+ // QUESTO collector e' finito. Senza, due add() dello stesso path con contenuti
+ // diversi finivano in batch diversi che scrivevano in parallelo, e vinceva
+ // quello che completava per ultimo (non l'ultimo add): il file finale
+ // dipendeva dallo scheduler. Con la catena vince sempre l'ultimo add(), come
+ // dichiara il commento sul Map qui sopra. Il parallelismo DENTRO il batch
+ // (`concurrency`) resta; il pool libuv, non il numero di batch, e' il tetto.
+ private _flushChain: Promise<unknown> = Promise.resolve();
  private _writtenPaths = new Set<string>();
  private readonly _concurrency: number;
  private readonly _autoFlushThreshold: number;
@@ -229,7 +237,7 @@ export class WriteCollector {
  if (batch.length === 0) return;
  let flushPromise: Promise<number>;
  // eslint-disable-next-line prefer-const
- flushPromise = flushWrites(batch, this._concurrency).then((written) => {
+ flushPromise = this._flushChain.then(() => flushWrites(batch, this._concurrency)).then((written) => {
   this.markWritten(batch);
   return written;
  }).catch((err: unknown) => {
@@ -241,6 +249,9 @@ export class WriteCollector {
   this._pendingFlushes.delete(flushPromise);
  });
  this._pendingFlushes.add(flushPromise);
+ // `flushPromise` non rigetta mai (il catch sopra la risolve a 0): la catena
+ // puo' seguirla senza propagare errori.
+ this._flushChain = flushPromise;
  }
 
  private releaseDeferredFlush(): void {
@@ -461,13 +472,14 @@ export class WriteCollector {
  if (remaining.length > 0) {
  let drainPromise: Promise<number>;
  // eslint-disable-next-line prefer-const
- drainPromise = flushWrites(remaining, concurrency).then((written) => {
+ drainPromise = this._flushChain.then(() => flushWrites(remaining, concurrency)).then((written) => {
   this.markWritten(remaining);
   return written;
  }).finally(() => {
  this._pendingFlushes.delete(drainPromise);
  });
  this._pendingFlushes.add(drainPromise);
+ this._flushChain = drainPromise.catch(() => undefined);
  }
 
  // Await all outstanding flushes (background + final drain).
