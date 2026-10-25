@@ -23,8 +23,16 @@ const BASE = 'https://mailtrap.io/api';
 // on every response since. Pace comfortably under either reading.
 export const MIN_API_CALL_INTERVAL_MS = 6000;
 
+/** Maximum time allowed for one suppression API request, including its body. */
+const MAILTRAP_SUPPRESSION_API_TIMEOUT_MS = Number(
+  process.env.MAILTRAP_SUPPRESSION_API_TIMEOUT_MS,
+) || 30_000;
+
 export async function fetchMailtrapAccountId(token) {
-  const res = await fetch(`${BASE}/accounts`, { headers: { 'Api-Token': token } });
+  const res = await fetch(`${BASE}/accounts`, {
+    headers: { 'Api-Token': token },
+    signal: AbortSignal.timeout(MAILTRAP_SUPPRESSION_API_TIMEOUT_MS),
+  });
   if (!res.ok) return null;
   const accounts = await res.json();
   return accounts[0]?.id ?? null;
@@ -39,7 +47,10 @@ export async function fetchMailtrapAccountId(token) {
 export async function findSuppression(token, accountId, email) {
   const res = await fetch(
     `${BASE}/accounts/${accountId}/suppressions?email=${encodeURIComponent(email)}`,
-    { headers: { 'Api-Token': token } },
+    {
+      headers: { 'Api-Token': token },
+      signal: AbortSignal.timeout(MAILTRAP_SUPPRESSION_API_TIMEOUT_MS),
+    },
   );
   if (!res.ok) throw new Error(`Mailtrap suppression lookup for ${email} → HTTP ${res.status}`);
   const records = await res.json();
@@ -59,6 +70,7 @@ export async function deleteSuppression(token, accountId, suppressionId) {
   const res = await fetch(`${BASE}/accounts/${accountId}/suppressions/${suppressionId}`, {
     method: 'DELETE',
     headers: { 'Api-Token': token },
+    signal: AbortSignal.timeout(MAILTRAP_SUPPRESSION_API_TIMEOUT_MS),
   });
   // 404 = already removed (e.g. a prior run raced with us) — treat as success.
   return res.ok || res.status === 404;
