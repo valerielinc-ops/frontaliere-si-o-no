@@ -55,6 +55,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isCantonTicinoOscPosting } from './lib/crawler-company-ownership.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
+import { fetchHtmlViaJinaWithRetry } from './lib/jina-proxy.mjs';
 import {
   SOURCE_URL as OFFICIAL_LISTING_URL,
   isTichOfficialListingHtml,
@@ -596,6 +597,38 @@ export async function fetchTichJobDetailUrls(options = {}) {
       }
     } catch (err) {
       console.warn(`⚠️ Official Ti.CH listing fetch failed: ${err.message}`);
+    }
+  }
+
+  // GitHub-hosted runners can lose the entire Ti.CH egress path while the
+  // public source remains live. The detail crawl already has a bounded Jina
+  // clean-IP rescue, but discovery used to fail before that path was reached.
+  // Retry only the independently validated official listing through Jina; a
+  // response that is not the official page is rejected and the crawler still
+  // fails closed rather than publishing an unproven zero.
+  if (!listingSucceeded && !rssSucceeded && !officialSucceeded) {
+    console.log('🔍 Retrying Ti.CH official listing through the bounded Jina egress fallback');
+    try {
+      const html = await fetchHtmlViaJinaWithRetry(OFFICIAL_LISTING_URL, {
+        timeoutMs,
+        retries: options.proxyRetries ?? options.retries,
+        retryBaseMs: options.proxyRetryBaseMs ?? options.retryBaseMs,
+        fetchImpl,
+      });
+      if (html && isTichOfficialListingHtml(html)) {
+        officialSucceeded = true;
+        const officialRows = parseConcorsiHtml(html);
+        for (const row of officialRows) {
+          discoveredOccurrences += 1;
+          const normalized = normalizeDetailUrl(row.url);
+          if (normalized) allUrls.add(normalized);
+        }
+        console.log(`  📦 Official Ti.CH listing via Jina: ${allUrls.size} job URL(s) found`);
+      } else if (html) {
+        console.warn('⚠️ Jina Ti.CH response failed the official-listing identity check.');
+      }
+    } catch (err) {
+      console.warn(`⚠️ Jina official Ti.CH listing fallback failed: ${err.message}`);
     }
   }
 
