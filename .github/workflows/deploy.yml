@@ -546,15 +546,14 @@ jobs:
       # if every sampled page is byte-identical to its cached HTML; the post-walk
       # delta follows the same per-block verdict. The 2% verify stays active.
       JOBS_SEO_REUSE_PROBE: ${{ vars.JOBS_SEO_REUSE_PROBE == '1' && '1' || '' }}
-      # Jobs SEO CPU flags, output-neutral (byte identity measured on the
-      # bench with a frozen clock, run 40103355063; the only differing files
-      # were og/border-wait/*, an external live input): per-closeBundle sector
-      # match memo, precompiled orphan-slug parsing, callback-based collector
-      # writes. ON by default; a repository variable set to '0' turns each
-      # one off without a code change.
+      # Jobs SEO CPU flags, output-neutral (bench, frozen clock, run
+      # 40135693877: base, an identical base2 and these flags differ only on
+      # og/border-wait/*, an external live input): per-closeBundle sector
+      # match memo, precompiled orphan-slug parsing. ON by default; a
+      # repository variable set to '0' turns each one off without a code
+      # change.
       JOBS_SEO_SECTOR_MEMO: ${{ vars.JOBS_SEO_SECTOR_MEMO == '0' && '' || '1' }}
       JOBS_SEO_SLUG_INFO_FAST: ${{ vars.JOBS_SEO_SLUG_INFO_FAST == '0' && '' || '1' }}
-      BUILD_WRITE_CALLBACK: ${{ vars.BUILD_WRITE_CALLBACK == '0' && '' || '1' }}
       # Related-search postings pre-pass: sparse gram index + 3-gram
       # intersection (same postings, less CPU). Repository-variable opt-in;
       # unset keeps the dense pre-pass byte-for-byte.

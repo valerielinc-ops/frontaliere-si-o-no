@@ -53,10 +53,9 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   // Operazioni asincrone in volo per worker del post-walk (default 4).
   'POST_WALK_IN_FLIGHT',
   // Output-neutral jobs SEO CPU flags: per-closeBundle sector-match memo,
-  // precompiled orphan-slug parsing, callback-based collector writes.
+  // precompiled orphan-slug parsing.
   'JOBS_SEO_SECTOR_MEMO',
   'JOBS_SEO_SLUG_INFO_FAST',
-  'BUILD_WRITE_CALLBACK',
 ]);
 
 const ALLOWED_ENV_KEY_SET = new Set(ALLOWED_ENV_KEYS);

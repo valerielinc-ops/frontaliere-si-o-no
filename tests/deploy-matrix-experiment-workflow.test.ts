@@ -28,7 +28,6 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'BUILD_EXTRA_NODE_OPTIONS',
       'BUILD_PROFILE',
       'BUILD_STOP_AFTER',
-      'BUILD_WRITE_CALLBACK',
       'CPU_PROFILE',
       'FAST_BUILD',
       'INCREMENTAL_MANIFEST',

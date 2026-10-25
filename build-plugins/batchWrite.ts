@@ -81,46 +81,17 @@ export async function flushWrites(writes: PendingWrite[], concurrency = 500): Pr
  for (const d of dirs) ensureDir(d);
 
  // Write files in parallel batches
- const writeFile = isCallbackWriteEnabled() ? writeFileViaCallback : writeFileViaPromises;
  let written = 0;
  for (let i = 0; i < writes.length; i += concurrency) {
  const batch = writes.slice(i, i + concurrency);
  await Promise.all(
  batch.map(w =>
- writeFile(w.filePath, w.content)
+ fs.promises.writeFile(w.filePath, w.content, 'utf-8')
  )
  );
  written += batch.length;
  }
  return written;
-}
-
-/**
- * BUILD_WRITE_CALLBACK=1 writes each file through the callback `fs.writeFile`
- * instead of `fs.promises.writeFile`. Same path, same bytes, same encoding and
- * the same libuv thread pool; what changes is the main-thread work per file.
- * The promise API opens a FileHandle object per file and settles a promise per
- * open/write/close step: on the `de` jobs-SEO leg (≈2.4M collector writes,
- * run 40070147721) that JS-side bookkeeping cost ~290 s of the single build
- * thread, plus the garbage it leaves behind.
- */
-export const BUILD_WRITE_CALLBACK_ENV = 'BUILD_WRITE_CALLBACK';
-
-export function isCallbackWriteEnabled(env: NodeJS.ProcessEnv = process.env): boolean {
- return env[BUILD_WRITE_CALLBACK_ENV] === '1';
-}
-
-function writeFileViaPromises(filePath: string, content: string): Promise<void> {
- return fs.promises.writeFile(filePath, content, 'utf-8');
-}
-
-function writeFileViaCallback(filePath: string, content: string): Promise<void> {
- return new Promise<void>((resolve, reject) => {
-  fs.writeFile(filePath, content, 'utf-8', (error) => {
-   if (error) reject(error);
-   else resolve();
-  });
- });
 }
 
 /**
