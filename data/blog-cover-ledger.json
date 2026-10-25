@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 847,
+      "5": 848,
       "6": 5056
     },
-    "publishedCovers": 7586,
+    "publishedCovers": 7587,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -208514,6 +208514,39 @@
         "provider": "openai-codex",
         "assetId": "article-inflazione-premi-rincaro-svizzera",
         "imageUrl": "/images/blog/article-inflazione-premi-rincaro-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-pesca-zurigo-servizi-regolati": {
+      "cover": "/images/blog/article-pesca-zurigo-servizi-regolati.webp",
+      "hash": "c594954bfe1000e08434eb9dbf98032ec1a325a243f098420326417b43df73dd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "pesca-zurigo-servizi-regolati",
+          "category": "pratico",
+          "date": "2026-10-25T16:33:10.314Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-pesca-zurigo-servizi-regolati.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-25",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-pesca-zurigo-servizi-regolati",
+        "imageUrl": "/images/blog/article-pesca-zurigo-servizi-regolati.webp",
         "evidence": "generated-engine-record"
       }
     },

@@ -8633,6 +8633,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.inflazione-premi-rincaro-svizzera.title': 'Inflation im September 2026 bei 1%, nationale Prämien 4,4%',
     'blog.article.inflazione-premi-rincaro-svizzera.excerpt': 'Im Jahr 2025 lag die Inflation bei 0,2% Im September 2026 erreichte sie 1% im Jahresvergleich Im Dezember 2025 lag der Index bei 106,9 Punkten Prämien 2026: 4,4% in der Schweiz, 7,1%',
     'blog.article.inflazione-premi-rincaro-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.pesca-zurigo-servizi-regolati.title': 'Fischereibewilligung Zürich: Voraussetzungen prüfen',
+    'blog.article.pesca-zurigo-servizi-regolati.excerpt': 'Die Fischerei ist eine auf kantonaler Ebene geregelte Dienstleistung; Voraussetzungen, Fristen und Beträge sind offiziell anhand der kantonalen Quelle zu überprüfen.',
+    'blog.article.pesca-zurigo-servizi-regolati.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

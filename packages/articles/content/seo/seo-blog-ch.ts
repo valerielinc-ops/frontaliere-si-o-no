@@ -109104,6 +109104,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pesca-zurigo-servizi-regolati': {
+    title: 'Permesso di pesca Cantone Zurigo: verifica requisiti e competenza',
+    description: 'Verifica i requisiti per il permesso di pesca nel Cantone di Zurigo. La disciplina è cantonale; consultare la fonte ufficiale per tariffe e scadenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, pesca, cantone, zurigo',
+    ogTitle: 'Permesso pesca Zurigo requisiti e stagioni',
+    ogDescription: 'La pesca nel Cantone di Zurigo è un servizio regolato a livello cantonale. Requisiti, scadenze e importi vanno verificati ufficialmente sulla fonte cantonale.',
+    canonicalPath: '/articoli-svizzera/pesca-zurigo-servizi-regolati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di pesca Cantone Zurigo: verifica requisiti e competenza",
+      "description": "Verifica i requisiti per il permesso di pesca nel Cantone di Zurigo. La disciplina è cantonale; consultare la fonte ufficiale per tariffe e scadenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-pesca-zurigo-servizi-regolati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-25T16:33:10+00:00",
+      "dateModified": "2026-10-25T16:33:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pesca-zurigo-servizi-regolati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

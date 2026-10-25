@@ -8633,6 +8633,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.inflazione-premi-rincaro-svizzera.title': 'Inflation at 1% in September 2026, national premiums 4.4%',
     'blog.article.inflazione-premi-rincaro-svizzera.excerpt': 'In 2025, inflation was 0,2% In September 2026, it reached 1% annually In December 2025, the index stood at 106,9 points 2026 premiums: 4,4% in Switzerland, 7,1%',
     'blog.article.inflazione-premi-rincaro-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.pesca-zurigo-servizi-regolati.title': 'Zurich Canton fishing permit: check requirements and jurisdiction',
+    'blog.article.pesca-zurigo-servizi-regolati.excerpt': 'Fishing is a service regulated at the cantonal level; requirements, deadlines and amounts must be officially verified with the cantonal source.',
+    'blog.article.pesca-zurigo-servizi-regolati.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

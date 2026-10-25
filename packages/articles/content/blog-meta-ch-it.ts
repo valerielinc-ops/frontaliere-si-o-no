@@ -8633,6 +8633,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.inflazione-premi-rincaro-svizzera.title': 'Inflazione all\'1% a settembre 2026, premi 4,4% nazionali',
     'blog.article.inflazione-premi-rincaro-svizzera.excerpt': 'Nel 2025 l\'inflazione è stata dello 0,2% A settembre 2026 ha raggiunto l\'1% annuo A dicembre 2025 l\'indice era a 106,9 punti Premi 2026: 4,4% in Svizzera, 7,1%',
     'blog.article.inflazione-premi-rincaro-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.pesca-zurigo-servizi-regolati.title': 'Permesso di pesca Cantone Zurigo: verifica requisiti e competenza',
+    'blog.article.pesca-zurigo-servizi-regolati.excerpt': 'La pesca è un servizio regolato a livello cantonale; requisiti, scadenze e importi vanno verificati ufficialmente sulla fonte cantonale.',
+    'blog.article.pesca-zurigo-servizi-regolati.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

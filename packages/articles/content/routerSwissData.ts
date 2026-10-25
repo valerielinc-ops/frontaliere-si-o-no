@@ -2900,6 +2900,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'referendum-legge-collettivo-lavoro': { it: 'referendum-legge-collettivo-lavoro', en: 'referendum-collective-labor-law', de: 'referendum-arbeitsvertrag-gesetz', fr: 'referendum-contrat-travail-loi' },
  'violazioni-sicurezza-svizzera-2026': { it: 'violazioni-sicurezza-svizzera-2026', en: 'swiss-security-violations-2026', de: 'sicherheitsverstoeerungen-schweiz-2026', fr: 'violations-securite-suisse-2026' },
  'inflazione-premi-rincaro-svizzera': { it: 'inflazione-premi-rincaro-svizzera', en: 'inflation-premi-cost-switzerland', de: 'inflation-pramie-kosten-schweiz', fr: 'inflation-primes-cout-suisse' },
+ 'pesca-zurigo-servizi-regolati': { it: 'pesca-zurigo-servizi-regolati', en: 'zurich-fishing-regulated-services', de: 'fischen-zuerich-regulierte-dienste', fr: 'pesche-zurich-services-reglementes' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

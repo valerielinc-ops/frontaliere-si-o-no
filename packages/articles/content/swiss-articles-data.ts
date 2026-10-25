@@ -28882,6 +28882,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'pesca-zurigo-servizi-regolati',
+    category: 'pratico',
+    date: '2026-10-25T16:33:10.314Z',
+    image: '/images/blog/article-pesca-zurigo-servizi-regolati.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['ZH'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

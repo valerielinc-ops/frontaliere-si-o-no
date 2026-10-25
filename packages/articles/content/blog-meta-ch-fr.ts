@@ -8633,6 +8633,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.inflazione-premi-rincaro-svizzera.title': 'Inflation à 1 % en septembre 2026, primes nationales de 4,4 %',
     'blog.article.inflazione-premi-rincaro-svizzera.excerpt': 'En 2025, l\'inflation s\'est élevée à 0,2 % En septembre 2026, elle a atteint 1 % sur un an En décembre 2025, l\'indice était à 106,9 points Primes 2026 : 4,4 % en Suisse, 7,1 %',
     'blog.article.inflazione-premi-rincaro-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.pesca-zurigo-servizi-regolati.title': 'Permis de pêche à Zurich : exigences et compétences',
+    'blog.article.pesca-zurigo-servizi-regolati.excerpt': 'La pêche est un service réglementé au niveau cantonal ; les exigences, les délais et les montants doivent être vérifiés officiellement auprès de la source cantonale.',
+    'blog.article.pesca-zurigo-servizi-regolati.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
