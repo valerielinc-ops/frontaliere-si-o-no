@@ -87,6 +87,7 @@ export default function SignupPromptModal({
       sourceComponent: isFollow ? 'CompanyFollowButton' : 'SaveSignInPromptModal',
       sourceRouteFamily: isFollow ? 'company-follow' : 'community',
       locale: isFollow ? locale : browserLocale(),
+      accessOnly: true,
       ...(isFollow ? { jobContext: { company: companyName } } : {}),
     });
 

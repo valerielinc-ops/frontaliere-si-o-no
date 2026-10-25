@@ -152,6 +152,15 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  ENABLE_CALCULATOR_CONSULTING_CTA: 'true',
 };
 
+// An empty force key means "do not override deterministic assignment". The
+// public-config function intentionally omits empty Remote Config values, so
+// these two optional controls legitimately arrive through the local empty
+// fallback and must not produce a missing-config warning.
+const OPTIONAL_EMPTY_CONFIG_KEYS = new Set([
+ 'JOBGATE_EXPERIMENT_FORCE',
+ 'JOBGATE_V5_EXPERIMENT_FORCE',
+]);
+
 const FIREBASE_RUNTIME_LOGS = import.meta.env.MODE !== 'test';
 const firebaseWarn = (...args: unknown[]) => {
  if (FIREBASE_RUNTIME_LOGS) console.warn(...args);
@@ -775,6 +784,7 @@ export async function getConfigValue(key: string): Promise<string> {
  if (fallback !== '') {
  return fallback;
  }
+ if (OPTIONAL_EMPTY_CONFIG_KEYS.has(key)) return '';
  firebaseWarn(`⚠️ Config key "${key}" not available from public config (using empty fallback)`);
  return '';
  }
