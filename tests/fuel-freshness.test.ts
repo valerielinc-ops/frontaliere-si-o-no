@@ -96,8 +96,9 @@ describe('generator: MIMIT outage keeps the Swiss refresh', () => {
 
   it('accepts a dated export only when it contains a target Benzina station', () => {
     const today = day(NOW);
+    const observedDay = day(daysAgo(0.5)).split('-').reverse().join('/');
     const payload = validateMimitCsvPayload({
-      pricesText: `Estrazione del ${today}\nidImpianto|descCarburante|prezzo|isSelf|dtComu\n1|Benzina|1.700|1|01/01/2026 08:00:00`,
+      pricesText: `Estrazione del ${today}\nidImpianto|descCarburante|prezzo|isSelf|dtComu\n1|Benzina|1.700|1|${observedDay} 08:00:00`,
       stationsText: `Estrazione del ${today}\nidImpianto|Gestore|Bandiera|Tipo Impianto|Nome Impianto|Indirizzo|Comune|Provincia|Latitudine|Longitudine\n1|G|Eni|Stradale|Eni Como|Via Milano 10|COMO|CO|45.81|9.08`,
       municipalities: [COMO],
     });
