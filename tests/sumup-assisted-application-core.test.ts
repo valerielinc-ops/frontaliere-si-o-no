@@ -28,6 +28,7 @@ const {
   latestSumUpTransaction,
   refundSumUpTransaction,
   retrieveSumUpCheckout,
+  SUMUP_API_REQUEST_TIMEOUT_MS,
 } = await import('../functions/src/sumupAssistedApplicationCore.js');
 
 beforeEach(() => {
@@ -64,6 +65,22 @@ describe('SumUp assisted-application payment client', () => {
     expect(await getAssistedApplicationPaymentProvider()).toBe('sumup');
     remoteConfig.mockResolvedValue('');
     expect(await getAssistedApplicationPaymentProvider()).toBe('stripe');
+  });
+
+  it('adds a bounded deadline signal to every SumUp API request', async () => {
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: async () => ({ id: 'sumup_checkout_1' }),
+    });
+
+    await createSumUpAssistedApplicationCheckout({
+      orderId: 'order-1',
+      redirectUrl: 'https://frontaliereticino.ch/lavoro/job-42',
+    });
+
+    const [, init] = fetchMock.mock.calls[0];
+    expect(init.signal).toBeInstanceOf(AbortSignal);
+    expect(SUMUP_API_REQUEST_TIMEOUT_MS).toBe(15_000);
   });
 
   it('creates a 1.99 EUR widget checkout with a server-side status callback', async () => {
