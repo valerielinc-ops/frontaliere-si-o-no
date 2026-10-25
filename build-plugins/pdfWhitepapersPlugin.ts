@@ -23,7 +23,7 @@ import {
   assertDistFilePathAvailable,
   assertNoFileDirectoryPathCollisions,
 } from './sharedWriteRegistry';
-import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
+import { decodeControlEscapesByField } from '../scripts/lib/unescape-ts-string.mjs';
 
 /**
  * Cache directory for the PDF content-hash manifest. Mirrors the convention
@@ -162,10 +162,11 @@ function extractArticleContent(
 
  // Unescape depending on delimiter style
  if (delimiter === "'") {
- value = unescapeTsString(value, { n: '\n', "'": "'", '"': '"', '\\': '\\' });
+ value = decodeControlEscapesByField(value, 'body');
  } else {
- // Backtick strings: newlines are literal, only \\` needs unescaping
- value = value.replace(/\\`/g, '`');
+ // Template literals use the same control policy; literal line breaks remain
+ // untouched because they are not escapes in the captured source.
+ value = decodeControlEscapesByField(value, 'template');
  }
 
  bodies.push(value);

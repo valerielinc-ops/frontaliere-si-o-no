@@ -50,8 +50,7 @@ import {
 } from './lib/ai-search-template.mjs';
 import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
 import {
-  unescapeTsString as sharedUnescapeTsString,
-  tsStringEscapesWithNewlineAs,
+  decodeControlEscapesByField,
 } from './lib/unescape-ts-string.mjs';
 import { assertOldHistorySafe, isOldHistoryBlockedError } from './lib/old-history-guard.mjs';
 
@@ -145,7 +144,7 @@ const BODY_KEY_RX = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\
  * FAQ) depends on it.
  */
 function unescapeTsString(value) {
-  return sharedUnescapeTsString(value, tsStringEscapesWithNewlineAs('\n'));
+  return decodeControlEscapesByField(value, 'body');
 }
 
 // Stricter retry prompt (used after first validation failure). It keeps the

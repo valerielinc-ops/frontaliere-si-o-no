@@ -36,6 +36,8 @@ import { resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 import {
+  decodeControlEscapesByField,
+  preserveOctalEscapeToken,
   unescapeTsString,
   tsStringEscapesWithNewlineAs,
   repairLegacyDoubleEscapedBreaks,
@@ -48,6 +50,28 @@ const read = (p: string): string => readFileSync(resolve(ROOT, p), 'utf8');
 // The two configurations the three sites actually use.
 const BODY_ESCAPES = tsStringEscapesWithNewlineAs('\n'); // backfill-ai-search-optimization.mjs
 const META_ESCAPES = tsStringEscapesWithNewlineAs(' '); // staticPagesPlugin.ts
+
+describe('unescapeTsString — bounded legacy octal and field control policies', () => {
+  it('preserves the complete octal-looking token for every caller', () => {
+    expect(preserveOctalEscapeToken('01')).toBe(true);
+    expect(preserveOctalEscapeToken('08')).toBe(true);
+    expect(preserveOctalEscapeToken('09')).toBe(true);
+    expect(preserveOctalEscapeToken('0')).toBe(false);
+    expect(unescapeTsString(String.raw`a\08b`, { '0': '\0', '\\': '\\' })).toBe(String.raw`a\08b`);
+  });
+
+  it('decodes body control escapes without changing Markdown delimiters', () => {
+    const decoded = decodeControlEscapesByField(String.raw`**a\b\f\v\0**`, 'body');
+    expect(decoded).toBe(`**a\b\f\v\0**`);
+    expect(decoded.startsWith('**')).toBe(true);
+    expect(decoded.endsWith('**')).toBe(true);
+  });
+
+  it('keeps control escapes visible in JSON-bound FAQ text', () => {
+    const raw = String.raw`[{"q":"a\b","a":"b"}]`;
+    expect(decodeControlEscapesByField(raw, 'faq')).toContain(String.raw`\b`);
+  });
+});
 
 describe('unescapeTsString — the three sequences that discriminate a one-pass decoder', () => {
   it('does not turn a literal backslash followed by n into a newline', () => {

@@ -16,7 +16,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { unescapeTsString } from './unescape-ts-string.mjs';
+import { decodeControlEscapesByField } from './unescape-ts-string.mjs';
 
 /**
  * Both body dirs share the same {id}.ts-per-locale layout (create-article.mjs
@@ -64,7 +64,7 @@ export function readBodies(filePath, id) {
 
 /** Decodes a single-quoted TS string literal body back to plain text. */
 export function unescapeFromTS(s) {
-  return unescapeTsString(String(s || ''), { "'": "'", n: '\n', '\\': '\\' });
+  return decodeControlEscapesByField(String(s || ''), 'body');
 }
 
 /** Encodes plain text for embedding in a single-quoted TS string literal. */
