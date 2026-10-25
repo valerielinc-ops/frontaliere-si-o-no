@@ -19,6 +19,7 @@ import {
   portalRequirementsFromMissingRequired,
   portalRequiredDocumentFromField,
   portalEntryUrl,
+  isSafeEmployerSitePreread,
   readPortalQuestions,
   realisticUserAgent,
   urlConfirms,
@@ -465,13 +466,18 @@ describe('portal runner hardening (career-ops apply.md)', () => {
         experience: [{ role: 'Infermiera', employer: 'Ospedale Civico', location: 'Lugano', start: '2018', end: '2023', highlights: ['x'] }],
         education: [{ degree: 'Bachelor in cure infermieristiche', institution: 'SUPSI', start: '2014', end: '2017' }],
       },
+      job: { title: 'Infermiera', company: 'Ospedale Civico' },
     });
+    expect(form.job).toEqual({ title: 'Infermiera', company: 'Ospedale Civico', organization: '' });
     expect(form.profile.experience).toEqual([{ role: 'Infermiera', employer: 'Ospedale Civico', location: 'Lugano', start: '2018', end: '2023' }]);
     expect(form.profile.education[0]).toMatchObject({ degree: 'Bachelor in cure infermieristiche', institution: 'SUPSI' });
   });
 
   it('reads ahead accessible ATS forms, and never fails the draft', async () => {
     expect([...PREREAD_CHANNELS].sort()).toEqual(['greenhouse', 'jobs_ch', 'lever', 'personio', 'refline', 'smartrecruiters', 'softgarden', 'successfactors', 'umantis', 'workday']);
+    expect(isSafeEmployerSitePreread('https://live.solique.ch/planzer/apply/id/1915412/')).toBe(true);
+    expect(isSafeEmployerSitePreread('http://live.solique.ch/planzer/apply/id/1915412/')).toBe(false);
+    expect(isSafeEmployerSitePreread('https://www.solique.ch/planzer/apply/id/1915412/')).toBe(false);
     // JOIN registers the e-mail on its first step: it is never read here. An
     // account ATS is attempted only as a guest form; a sign-in/create-account
     // page is caught and returns no requirements.
@@ -483,6 +489,14 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       postingUrl: 'https://jobs.six-group.com/job/Zurich-Senior-IT-Manager/1448418434/',
       codex: async () => ({}), launch,
     })).toEqual([]);
+    let soliqueLaunches = 0;
+    expect(await readPortalQuestions({
+      channelType: 'employer_site',
+      applyUrl: 'https://live.solique.ch/planzer/apply/id/1915412/',
+      codex: async () => ({}),
+      launch: () => { soliqueLaunches += 1; throw new Error('synthetic browser failure'); },
+    })).toEqual([]);
+    expect(soliqueLaunches).toBe(1);
     expect(await readPortalQuestions({ channelType: 'workday', applyUrl: 'https://x.wd3.myworkdayjobs.com/a', codex: async () => ({}), launch })).toEqual([]);
     // A browser that fails: no questions, no error.
     expect(await readPortalQuestions({ channelType: 'lever', applyUrl: 'https://jobs.lever.co/x/1/apply', codex: async () => ({}), launch })).toEqual([]);
