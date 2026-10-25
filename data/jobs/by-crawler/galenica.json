@@ -771,7 +771,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -965,7 +966,10 @@
       "id": "galenica-8f9151c8f01d",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-oftringen"
+          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-oftringen",
+          "farmacista-per-la-formazione-fph-m-f-d-galenica-ag-galenica-oftringen-nwmwn5",
+          "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-nwmwn5",
+          "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-oftringen"
         ],
         "en": [
           "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-oftringen"
@@ -975,7 +979,10 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-oftringen"
+        "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-oftringen",
+        "farmacista-per-la-formazione-fph-m-f-d-galenica-ag-galenica-oftringen-nwmwn5",
+        "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-nwmwn5",
+        "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-oftringen"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1878,7 +1885,7 @@
       "sourceLang": "de",
       "slug": "junior-projektleiter-operations-w-m-d-galenica-ag-galenica-oensingen",
       "slugByLocale": {
-        "it": "junior-project-manager-operazioni-m-f-d-galenica-ag-galenica-oensingen",
+        "it": "junior-projektleiter-operations-w-m-d-galenica-ag-galenica-oensingen",
         "en": "junior-project-manager-operations-m-f-d-galenica-ag-galenica-oensingen",
         "de": "galenica-galenica-ag-junior-projektleiter-operations-w-m-d-oensingen",
         "fr": "gestionnaire-de-projet-junior-operations-h-f-d-galenica-ag-galenica-oensingen"
@@ -1894,12 +1901,14 @@
       "id": "galenica-729b9cdf57b6",
       "previousSlugs": [
         "galenica-galenica-ag-junior-projektleiter-operations-w-m-d-oensingen",
-        "junior-projektleiter-operations-m-w-d-galenica-ag-galenica-oensingen"
+        "junior-projektleiter-operations-m-w-d-galenica-ag-galenica-oensingen",
+        "junior-project-manager-operazioni-m-f-d-galenica-ag-galenica-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-junior-projektleiter-operations-w-m-d-oensingen",
-          "junior-projektleiter-operations-m-w-d-galenica-ag-galenica-oensingen"
+          "junior-projektleiter-operations-m-w-d-galenica-ag-galenica-oensingen",
+          "junior-project-manager-operazioni-m-f-d-galenica-ag-galenica-oensingen"
         ],
         "en": [
           "galenica-galenica-ag-junior-projektleiter-operations-w-m-d-oensingen"
@@ -3027,7 +3036,14 @@
       "id": "galenica-34c16db2e461",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-ostermundigen"
+          "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-ostermundigen",
+          "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-nwmy0z",
+          "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nx26q1",
+          "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
+          "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-galenica-bern",
+          "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-w-m-d-galenica-ag-galenica-ostermundigen",
+          "apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-m-f-d-galenica-ag-galenica-ostermundigen",
+          "apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-h-f-d-galenica-ag-galenica-ostermundigen"
         ],
         "en": [
           "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-ostermundigen"
@@ -3037,7 +3053,14 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-ostermundigen"
+        "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-ostermundigen",
+        "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-nwmy0z",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nx26q1",
+        "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-galenica-bern",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-w-m-d-galenica-ag-galenica-ostermundigen",
+        "apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-m-f-d-galenica-ag-galenica-ostermundigen",
+        "apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-h-f-d-galenica-ag-galenica-ostermundigen"
       ],
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -4909,7 +4932,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -21637,7 +21661,8 @@
       "id": "galenica-7ecefbae3f6e",
       "previousSlugs": [
         "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e",
-        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nwmyrm"
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nwmyrm",
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e-nwmyrm"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21649,6 +21674,9 @@
         ],
         "fr": [
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e"
+        ],
+        "de": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e-nwmyrm"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",

@@ -948993,7 +948993,8 @@
     "slugByLocale": {
       "de": "praktikant-in-verkehrsplanung-stadt-bern-bern",
       "en": "intern-in-transport-planning-stadt-bern-bern",
-      "fr": "stagiaire-en-planification-des-transports-stadt-bern-bern"
+      "fr": "stagiaire-en-planification-des-transports-stadt-bern-bern",
+      "it": "tirocinante-nella-pianificazione-del-traffico-stadt-bern-bern"
     },
     "createdAt": "2026-10-23",
     "canton": "BE"
@@ -951695,7 +951696,9 @@
     "canonicalSlug": "instandhaltungsmechaniker-per-automatisierte-produktionsanlagen-m-w-d-yellowshark-ag-hunzenschwil",
     "slugByLocale": {
       "de": "instandhaltungsmechaniker-fur-automatisierte-produktionsanlagen-m-w-hunzenschwil-ag",
-      "it": "instandhaltungsmechaniker-per-automatisierte-produktionsanlagen-m-w-d-yellowshark-ag-hunzenschwil"
+      "it": "instandhaltungsmechaniker-per-automatisierte-produktionsanlagen-m-w-d-yellowshark-ag-hunzenschwil",
+      "en": "maintenance-mechanic-for-automated-production-facilities-m-f-yellowshark-ag-hunzenschwil-ag",
+      "fr": "mecanicien-d-entretien-des-installations-de-production-automatisees-h-f-yellowshark-ag-hunzenschwil-ag"
     },
     "createdAt": "2026-10-25",
     "canton": "AG"
@@ -951884,5 +951887,57 @@
     },
     "createdAt": "2026-10-25",
     "canton": "TI"
+  },
+  "id|ikea.com|mitarbeiter-in-verkauf-essplatzabteilung-samstags-20-befristet-bis-28-02-2027": {
+    "canonicalSlug": "addetto-a-alle-vendite-kuchen-e-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1",
+    "slugByLocale": {
+      "it": "addetto-a-alle-vendite-kuchen-e-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1",
+      "en": "sales-associate-kitchens-and-dining-department-20-fixed-term-until-february-28-2027-ikea-pratteln-1-basel-landschaft",
+      "de": "mitarbeiter-in-verkauf-essplatzabteilung-samstags-20-befristet-bis-28-02-2027-ikea-ch",
+      "fr": "collaborateur-rice-de-vente-au-rayon-cuisines-et-salle-a-manger-20-en-contrat-a-duree-determinee-jusqu-au-28-fevrier"
+    },
+    "createdAt": "2026-10-25",
+    "canton": "BL"
+  },
+  "id|galenica.com|3146371": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-langenthal",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-langenthal",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-langenthal",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-langenthal"
+    },
+    "createdAt": "2026-10-25",
+    "canton": "BE"
+  },
+  "id|galenica.com|3146847": {
+    "canonicalSlug": "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-d-galenica-ag-galenica-ostermundigen",
+    "slugByLocale": {
+      "it": "farmacista-come-amministratore-delegato-farmacista-come-amministratore-delegato-m-f-d-galenica-ag-galenica-ostermundigen",
+      "en": "pharmacist-as-managing-director-pharmacist-as-managing-director-m-f-d-galenica-ag-galenica-ostermundigen",
+      "de": "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-ostermundigen",
+      "fr": "pharmacien-en-tant-que-gerant-pharmacienne-en-tant-que-gerante-h-f-d-galenica-ag-galenica-ostermundigen"
+    },
+    "createdAt": "2026-10-25",
+    "canton": "BE"
+  },
+  "id|galenica.com|3146867": {
+    "canonicalSlug": "farmacista-per-la-formazione-fph-m-f-d-galenica-ag-galenica-oftringen",
+    "slugByLocale": {
+      "it": "farmacista-per-la-formazione-fph-m-f-d-galenica-ag-galenica-oftringen",
+      "en": "pharmacist-for-fph-continuing-education-m-f-d-galenica-ag-galenica-oftringen",
+      "de": "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-oftringen",
+      "fr": "pharmacien-pharmacienne-pour-la-formation-continue-fph-h-f-d-galenica-ag-galenica-oftringen"
+    },
+    "createdAt": "2026-10-25",
+    "canton": "AG"
+  },
+  "id|galenica.com|3146907": {
+    "canonicalSlug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e",
+    "slugByLocale": {
+      "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-langnau-i-e"
+    },
+    "createdAt": "2026-10-25",
+    "canton": "BE"
   }
 }
