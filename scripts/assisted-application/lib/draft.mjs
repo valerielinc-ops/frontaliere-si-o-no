@@ -345,9 +345,10 @@ export async function buildDraft(ctx) {
       channelType: channel.type,
       applyUrl: channel.applyUrl,
       postingUrl: order.jobUrl || '',
+      job: { title, company: order.companyName || '' },
       language,
       candidateLocale: locale,
-      candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal }),
+      candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal, job: { title, company: order.companyName || '' } }),
       codex,
       log,
     });

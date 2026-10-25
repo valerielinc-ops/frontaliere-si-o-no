@@ -216,6 +216,7 @@ export async function submitApplication(ctx) {
     portalQuestions,
     language: draft?.language,
     personal: initialEdited.personal,
+    job: { title: draft?.job?.title || order.jobTitle || '', company: order.companyName || '' },
   });
   const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers });
   const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered);
@@ -487,7 +488,7 @@ export async function submitApplication(ctx) {
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,

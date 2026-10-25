@@ -286,7 +286,7 @@ export { portalQuestionId, portalQuestionKey, slugId };
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {} }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {} }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
@@ -297,6 +297,14 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   // resolve once more at the browser boundary without an external geocoder.
   const address = resolveResidenceAddress(profile.address, profile.location);
   return {
+    // The target employer is needed for employer-specific eligibility fields
+    // such as «Are you already an employee?». It is public posting data, not a
+    // candidate fact; the planner still answers only from the employer list.
+    job: {
+      title: String(job.title || '').slice(0, 300),
+      company: String(job.company || '').slice(0, 300),
+      organization: String(job.organization || '').slice(0, 300),
+    },
     identity: {
       fullName: identity.name,
       firstName: names.firstName,
