@@ -37,11 +37,19 @@ const FALLBACK_JOB_DETAILS: ReadonlyArray<string> = [
   '/cerca-lavoro-ticino/meccanico-a-di-produzione-afc-bellinzona-ffs-officine-ferrovie-federali-bellinzona/',
 ];
 
-// A job-detail path is a single slug segment under the canton job root. Hubs
-// (azienda-/ricerca-/search-/settori/pagina-) share that shape but are not
-// listings — exclude them.
-const JOB_DETAIL_PATH_RE = /^\/cerca-lavoro-ticino\/[^/]+\/$/;
-const NON_DETAIL_PREFIX_RE = /\/(azienda-|settori|ricerca-|search-|pagina-)/;
+// A job-detail path is a single slug segment under any locale's canton-aware
+// job root. The live sitemap can contain a non-Ticino canton even when the TI
+// section has no active listing; restricting this to the legacy TI root made
+// every live smoke test fail with "no active job" in that perfectly valid
+// state. Hubs (azienda-/ricerca-/search-/settori/pagina-) share that shape but
+// are not listings — exclude them below.
+export const JOB_DETAIL_PATH_RE = /^\/(?:cerca-lavoro-[a-z0-9-]+|en\/find-jobs-[a-z0-9-]+|de\/jobs-(?:im|in)-[a-z0-9-]+|fr\/trouver-emploi-[a-z0-9-]+)\/[^/]+\/$/i;
+const NON_DETAIL_PREFIX_RE = /\/(?:azienda-|company-|unternehmen-|entreprise-|settori|categoria-|category-|kategorie-|categorie-|ricerca-|recherche-|search-|suche-|pagina-|page-|seite-)/i;
+
+// Company links are emitted under the same canton-aware section as their
+// source job and use the locale-specific company namespace.
+export const COMPANY_HUB_HREF_RE = /\/(?:azienda|company|unternehmen|entreprise)-/i;
+export const COMPANY_HUB_LINK_SELECTOR = 'main a[href*="/azienda-"], main a[href*="/company-"], main a[href*="/unternehmen-"], main a[href*="/entreprise-"]';
 
 function livePathFromUrl(value: string, baseUrl = LIVE_BASE_URL): string | null {
   let parsed: URL;
@@ -58,7 +66,7 @@ function livePathFromUrl(value: string, baseUrl = LIVE_BASE_URL): string | null 
 }
 
 /**
- * Extract active Ticino job-detail paths from one job sitemap.
+ * Extract active canton-aware job-detail paths from one job sitemap.
  *
  * The sitemap topology changed from the TI-specific file to the canonical
  * `sitemap-jobs.xml`; parsing the URL set instead of matching one filename
@@ -78,7 +86,7 @@ export function extractJobDetailPathsFromSitemapXml(
 
   const paths: string[] = [];
   const seen = new Set<string>();
-  for (const url of parsed.urls) {
+  for (const url of parsed.primaryUrls) {
     const path = livePathFromUrl(url, baseUrl);
     if (!path || !JOB_DETAIL_PATH_RE.test(path) || NON_DETAIL_PREFIX_RE.test(path)) continue;
     if (seen.has(path)) continue;
@@ -116,7 +124,7 @@ async function listSitemapJobDetailPaths(page: Page): Promise<string[]> {
  * their static HTML (i.e. active listings, not expired soft-landings).
  *
  * @param opts.limit max paths to return (caps how many URLs are probed).
- * @param opts.requireCompanyLink also require a `/cerca-lavoro-ticino/azienda-`
+ * @param opts.requireCompanyLink also require a locale/canton-aware company
  *   link in the static HTML. Note: HTML presence does not guarantee the link
  *   is *visible* after hydration — callers that click it must still gate on
  *   `isVisible()` at runtime (some layouts hide the company link).
@@ -149,7 +157,7 @@ export async function listActiveJobDetailPaths(
     // Expired soft-landings wrap content in <article class="ft-static-article">
     // and never hydrate a <main>. Skip them.
     if (!/<main[\s>]/i.test(html)) continue;
-    if (opts.requireCompanyLink && !/\/cerca-lavoro-ticino\/azienda-/.test(html)) continue;
+    if (opts.requireCompanyLink && !COMPANY_HUB_HREF_RE.test(html)) continue;
     active.push(path);
   }
   return active;
@@ -163,7 +171,7 @@ export async function resolveActiveJobDetailPath(page: Page): Promise<string> {
   const [path] = await listActiveJobDetailPaths(page, { limit: 1 });
   if (!path) {
     throw new Error(
-      'No active live job-detail URL found (sitemap-jobs-ticino.xml + pinned fallbacks all stale/expired/unreachable).',
+      'No active live job-detail URL found (canton-aware job sitemaps + pinned fallbacks all stale/expired/unreachable).',
     );
   }
   return path;

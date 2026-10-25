@@ -95,6 +95,7 @@ export function parseSitemapXml(xml, { baseUrl, host = DEFAULT_HOST } = {}) {
     throw new Error('Invalid sitemap XML: expected a <sitemapindex> or <urlset> root');
   }
   const urls = new Set();
+  const primaryUrls = new Set();
   const alternateUrls = new Set();
   const lastmod = {};
   const referencedSitemaps = new Set();
@@ -109,8 +110,9 @@ export function parseSitemapXml(xml, { baseUrl, host = DEFAULT_HOST } = {}) {
     const blocks = [...text.matchAll(XML_URL_RE)].map((match) => match[1]);
     const pageBlocks = blocks.length > 0 ? blocks : [text];
     for (const block of pageBlocks) {
-      const pageUrl = addUrl(urls, firstLoc(block), options);
+      const pageUrl = addUrl(primaryUrls, firstLoc(block), options);
       if (!pageUrl) continue;
+      urls.add(pageUrl);
       const pageLastmod = lastmodFrom(block);
       if (pageLastmod) lastmod[pageUrl] = pageLastmod;
 
@@ -128,6 +130,11 @@ export function parseSitemapXml(xml, { baseUrl, host = DEFAULT_HOST } = {}) {
   return {
     kind: isIndex ? 'index' : 'urlset',
     urls: [...new Set([...urls, ...alternateUrls])].sort(),
+    // Consumers that inspect one URL-set entry at a time sometimes need the
+    // canonical `<loc>` values without treating hreflang links as additional
+    // listings. Keep the union above for the existing crawl/indexing contract,
+    // and expose the primary values separately for those consumers.
+    primaryUrls: [...primaryUrls].sort(),
     alternateUrls: [...alternateUrls].sort(),
     lastmod: Object.fromEntries(Object.entries(lastmod).sort(([a], [b]) => a.localeCompare(b))),
     referencedSitemaps: [...referencedSitemaps],
