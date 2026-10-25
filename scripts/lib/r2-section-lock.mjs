@@ -49,6 +49,17 @@ function nonNegativeDuration(value, name) {
   return value;
 }
 
+function isSafeTimestamp(value) {
+  return Number.isSafeInteger(value) && value >= 0;
+}
+
+function safeTimestamp(value, name) {
+  if (!isSafeTimestamp(value)) {
+    throw new Error(`[r2-section-lock] ${name} must be a safe non-negative integer timestamp`);
+  }
+  return value;
+}
+
 export function parseSections(value) {
   const raw = asString(value, '--section');
   const requested = [...new Set(raw.split(',').map((section) => section.trim()).filter(Boolean))];
@@ -80,8 +91,8 @@ export function isLockPayload(value) {
       && typeof value.owner === 'string'
       && value.owner.length > 0
       && ARTICLE_SECTIONS.includes(value.section)
-      && Number.isFinite(value.acquiredAt)
-      && Number.isFinite(value.expiresAt)
+      && isSafeTimestamp(value.acquiredAt)
+      && isSafeTimestamp(value.expiresAt)
       && value.expiresAt > value.acquiredAt
       && (value.leaseId === undefined
         || (typeof value.leaseId === 'string' && value.leaseId.length > 0)),
@@ -476,14 +487,15 @@ export async function acquireSectionLock(
 ) {
   lockKey(section);
   positiveDuration(leaseMs, 'lease duration');
-  const startedAt = now();
+  const startedAt = safeTimestamp(now(), 'acquiredAt');
   const deadline = startedAt + timeoutMs;
+  const expiresAt = safeTimestamp(startedAt + leaseMs, 'expiresAt');
   const payload = {
     owner,
     leaseId: randomUUID(),
     section,
     acquiredAt: startedAt,
-    expiresAt: startedAt + leaseMs,
+    expiresAt,
   };
 
   let candidateMayExist = false;
@@ -615,11 +627,15 @@ export async function renewSectionLock(
     throw new Error(`[r2-section-lock] lock ${section} has no ETag; refusing an unsafe renewal`);
   }
 
-  const renewedAt = now();
+  const renewedAt = safeTimestamp(now(), 'renewedAt');
+  const expiresAt = safeTimestamp(renewedAt + leaseMs, 'expiresAt');
+  if (expiresAt <= current.payload.acquiredAt) {
+    throw new Error('[r2-section-lock] renewal expiry must be later than acquiredAt');
+  }
   const replacement = await putLock(
     request,
     section,
-    { ...current.payload, expiresAt: renewedAt + leaseMs },
+    { ...current.payload, expiresAt },
     { name: 'if-match', value: current.etag },
   );
   if (!replacement) {

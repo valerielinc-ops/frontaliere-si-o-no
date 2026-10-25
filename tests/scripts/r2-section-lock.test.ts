@@ -7,6 +7,7 @@ import {
   acquireSectionLock,
   createR2Request,
   isLockExpired,
+  isLockPayload,
   lockKey,
   LOCK_LEASE_MS,
   LOCK_RENEW_INITIAL_DELAY_MS,
@@ -75,6 +76,59 @@ describe('r2-section-lock', () => {
     expect(lockKey('frontaliere')).toBe('internal/ci/article-chunk-locks/frontaliere.json');
     expect(() => parseSections('')).toThrow('--section');
     expect(() => parseSections('jobs')).toThrow('unknown section');
+  });
+
+  it('accepts only safe non-negative integer timestamps in lock payloads', async () => {
+    const payload = {
+      owner: 'owner-a',
+      section: 'frontaliere',
+      acquiredAt: 1,
+      expiresAt: 2,
+    };
+
+    expect(isLockPayload(payload)).toBe(true);
+    for (const timestamp of [-1, 0.5, Number.MAX_SAFE_INTEGER + 1, Infinity, NaN]) {
+      expect(isLockPayload({ ...payload, acquiredAt: timestamp })).toBe(false);
+      expect(isLockPayload({ ...payload, expiresAt: timestamp })).toBe(false);
+    }
+
+    const { request } = fakeR2();
+    await expect(acquireSectionLock('frontaliere', {
+      owner: 'invalid-acquire',
+      request,
+      now: () => 0.5,
+    })).rejects.toThrow('safe non-negative integer timestamp');
+
+    const lock = await acquireSectionLock('frontaliere', { owner: 'valid-owner', request, now: () => 0 });
+    await expect(renewSectionLock('frontaliere', {
+      owner: lock.owner,
+      leaseId: lock.leaseId,
+      request,
+      now: () => Number.MAX_SAFE_INTEGER,
+    })).rejects.toThrow('safe non-negative integer timestamp');
+    await releaseSectionLock('frontaliere', { owner: lock.owner, leaseId: lock.leaseId, request });
+  });
+
+  it('rejects a renewal that would move expiry before the original acquisition', async () => {
+    const { request, objects } = fakeR2();
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'clock-regressed',
+      request,
+      now: () => 1_000,
+      leaseMs: 1_500,
+    });
+    const before = JSON.stringify(objects.get(lock.key));
+
+    await expect(renewSectionLock('frontaliere', {
+      owner: lock.owner,
+      leaseId: lock.leaseId,
+      request,
+      now: () => 0,
+      leaseMs: 500,
+    })).rejects.toThrow('renewal expiry must be later than acquiredAt');
+
+    expect(JSON.stringify(objects.get(lock.key))).toBe(before);
+    await releaseSectionLock('frontaliere', { owner: lock.owner, leaseId: lock.leaseId, request });
   });
 
   it('signs the conditional R2 PUT without adding a runtime dependency', async () => {
