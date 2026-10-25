@@ -1,13 +1,13 @@
 {
   "crawlerKey": "clinique-la-source",
-  "assembledAt": "2026-10-24T21:21:19.200Z",
-  "runId": "40132656500",
+  "assembledAt": "2026-10-25T09:13:06.378Z",
+  "runId": "40179213736",
   "jobs": [
     {
       "id": "clinique-la-source-71b89c53db19",
       "slug": "technologue-en-dispositifs-medicaux-clinique-de-la-source-lausanne",
       "slugByLocale": {
-        "it": "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne",
+        "it": "technologue-en-dispositifs-medicaux-clinique-de-la-source-lausanne",
         "en": "medical-device-technologist-clinique-de-la-source-lausanne",
         "de": "medizintechniker-clinique-de-la-source-lausanne",
         "fr": "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
@@ -35,7 +35,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=762",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:11.898Z",
+      "crawledAt": "2026-10-25T09:13:00.807Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -56,11 +56,13 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
-        "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
+        "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne",
+        "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
+          "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne",
+          "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne"
         ],
         "en": [
           "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
@@ -93,7 +95,7 @@
       "slugByLocale": {
         "it": "mutua-clinique-de-la-source-lausanne",
         "en": "midwife-clinique-de-la-source-lausanne",
-        "de": "hebamme-clinique-de-la-source-lausanne",
+        "de": "sage-femme-ou-infirmier-ere-sage-femme-clinique-de-la-source-lausanne",
         "fr": "sage-femme-ou-infirmier-ere-sage-femme-clinique-la-source-lausanne"
       },
       "company": "Clinique de La Source",
@@ -119,7 +121,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=791",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:11.218Z",
+      "crawledAt": "2026-10-25T09:13:00.225Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,14 +143,14 @@
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
         "sage-femme-ou-infirmier-ere-sage-femme-clinique-la-source-lausanne",
-        "sage-femme-ou-infirmier-ere-sage-femme-clinique-de-la-source-lausanne"
+        "hebamme-clinique-de-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sage-femme-ou-infirmier-ere-sage-femme-clinique-la-source-lausanne"
         ],
         "de": [
-          "sage-femme-ou-infirmier-ere-sage-femme-clinique-de-la-source-lausanne"
+          "hebamme-clinique-de-la-source-lausanne"
         ]
       },
       "firstSeenAt": "2026-10-06T21:14:04.729Z",
@@ -198,7 +200,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=783",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:10.633Z",
+      "crawledAt": "2026-10-25T09:12:59.638Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -272,7 +274,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=779",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:09.987Z",
+      "crawledAt": "2026-10-25T09:12:59.056Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -346,7 +348,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=789",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:09.380Z",
+      "crawledAt": "2026-10-25T09:12:58.494Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -421,7 +423,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=790",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:08.754Z",
+      "crawledAt": "2026-10-25T09:12:57.902Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -496,7 +498,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=781",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:08.167Z",
+      "crawledAt": "2026-10-25T09:12:57.300Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -571,7 +573,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=750",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:07.569Z",
+      "crawledAt": "2026-10-25T09:12:56.731Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -677,7 +679,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=767",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:06.948Z",
+      "crawledAt": "2026-10-25T09:12:56.144Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -751,7 +753,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=782",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:06.310Z",
+      "crawledAt": "2026-10-25T09:12:55.537Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -826,7 +828,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=788",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:05.650Z",
+      "crawledAt": "2026-10-25T09:12:54.961Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -900,7 +902,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=792",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:21:05.030Z",
+      "crawledAt": "2026-10-25T09:12:54.389Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",

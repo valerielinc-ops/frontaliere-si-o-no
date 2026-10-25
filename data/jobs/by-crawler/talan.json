@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-24T21:20:50.409Z",
-  "runId": "40132656500",
+  "assembledAt": "2026-10-25T09:13:20.096Z",
+  "runId": "40179213736",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.702Z",
+      "crawledAt": "2026-10-25T09:13:14.927Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -111,7 +111,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.701Z",
+      "crawledAt": "2026-10-25T09:13:14.926Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -186,7 +186,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.700Z",
+      "crawledAt": "2026-10-25T09:13:14.926Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -261,7 +261,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.699Z",
+      "crawledAt": "2026-10-25T09:13:14.925Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -306,98 +306,6 @@
       }
     },
     {
-      "id": "talan-d96f65b3eb5e",
-      "slug": "consulente-power-bi-microsoft-fabric-talan-lausanne",
-      "slugByLocale": {
-        "it": "consulente-power-bi-microsoft-fabric-talan-lausanne",
-        "en": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
-        "de": "berater-power-bi-microsoft-fabric-talan-lausanne",
-        "fr": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Power BI / Microsoft Fabric",
-      "titleByLocale": {
-        "it": "Consulente Power BI / Microsoft Fabric",
-        "en": "Consultant Power BI / Microsoft Fabric",
-        "de": "Berater für Power BI / Microsoft Fabric",
-        "fr": "Consultant Power BI / Microsoft Fabric"
-      },
-      "description": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu.",
-      "descriptionByLocale": {
-        "it": "Mansioni\n\n- Partecipare alla migrazione dei report e degli ambienti Tableau verso Power BI / Microsoft Fabric .\n- Analizzare lo stato attuale e contribuire alla definizione delle strategie di migrazione.\n- Privilegiare l’utilizzo di Direct Lake per limitare le duplicazioni e ottimizzare le prestazioni.\n- Utilizzare la modalità Import quando i vincoli tecnici richiedono un approccio alternativo.\n- Progettare e far evolvere i modelli semantici Power BI / Fabric .\n- Lavorare con le fonti e gli ambienti SQL / Data Warehouse esistenti.\n- Garantire la qualità, le prestazioni e la manutenibilità delle soluzioni sviluppate.\n- Applicare le buone pratiche di Git, versionamento, CI/CD e gestione degli sviluppi .\n- Contribuire al miglioramento delle pratiche di collaborazione e governance all’interno del team.\n- Partecipare alle fasi di test, validazione e messa in produzione.\n- Accompagnare gradualmente la migrazione dei diversi ambiti funzionali.\n\nProfilo ricercato\n\n- Esperienza significativa come Data Analyst / Esperto di Power BI .\n- Solida esperienza in Microsoft Power BI e Microsoft Fabric .\n- Ottima padronanza dei modelli semantici e dell’architettura Power BI.\n- Esperienza concreta con Direct Lake e, idealmente, con scenari di migrazione verso Fabric.\n- Buona conoscenza di SQL / Data Warehouse .\n- Padronanza delle buone pratiche Git e del versionamento .\n- Esperienza in contesti in cui la governance e la collaborazione rivestono un ruolo importante.\n- Un’esperienza di migrazione Tableau → Power BI costituisce un reale valore aggiunto.\n- Capacità di lavorare in autonomia in un contesto complesso e vincolato dalle scadenze.\n- Eccellente professionalità, capacità di comunicare con diversi interlocutori e di lavorare in team.\n- È richiesto un livello di competenza consolidato.",
-        "en": "Responsibilities\n\n- Participate in migrating Tableau reports and environments to Power BI / Microsoft Fabric .\n- Analyze the existing setup and contribute to defining migration strategies.\n- Prioritize the use of Direct Lake to limit duplications and optimize performance.\n- Use Import mode when technical constraints require an alternative approach.\n- Design and evolve Power BI / Fabric semantic models .\n- Work with existing SQL / Data Warehouse sources and environments.\n- Ensure the quality, performance and maintainability of the solutions developed.\n- Apply Git, versioning, CI/CD and development management best practices .\n- Contribute to improving collaboration and governance practices within the team.\n- Participate in the testing, validation and production deployment phases.\n- Gradually support the migration of the various functional areas.\n\nDesired profile\n\n- Significant experience as a Data Analyst / Power BI Expert .\n- Strong experience with Microsoft Power BI and Microsoft Fabric .\n- Very good command of semantic models and Power BI architecture.\n- Hands-on experience with Direct Lake and ideally with migration scenarios to Fabric.\n- Good knowledge of SQL / Data Warehouse .\n- Proficiency in Git best practices and versioning .\n- Experience in environments where governance and collaboration challenges are significant.\n- Experience migrating from Tableau → Power BI is a real asset.\n- Ability to work independently in a complex environment with tight deadlines.\n- Excellent professional demeanor, ability to communicate with various stakeholders and work as part of a team.\n- A confirmed level of expertise is expected.",
-        "de": "Aufgaben\n\n- An der Migration der Tableau-Berichte und -Umgebungen zu Power BI / Microsoft Fabric teilnehmen .\n- Die bestehende Umgebung analysieren und zur Definition der Migrationsstrategien beitragen.\n- Die Nutzung von Direct Lake bevorzugen, um Duplikate zu begrenzen und die Leistung zu optimieren.\n- Den Importmodus verwenden, wenn die technischen Einschränkungen einen alternativen Ansatz erfordern.\n- Semantische Modelle von Power BI / Fabric entwerfen und weiterentwickeln .\n- Mit den bestehenden SQL-/Data-Warehouse-Quellen und -Umgebungen arbeiten.\n- Die Qualität, Leistung und Wartbarkeit der entwickelten Lösungen gewährleisten.\n- Die Best Practices für Git, Versionierung, CI/CD und Entwicklungsmanagement anwenden .\n- Zur Verbesserung der Praktiken der Zusammenarbeit und der Governance innerhalb des Teams beitragen.\n- An den Test-, Validierungs- und Produktivsetzungsphasen teilnehmen.\n- Die Migration der verschiedenen funktionalen Bereiche schrittweise begleiten.\n\nGesuchtes Profil\n\n- Signifikante Erfahrung als Data Analyst / Power BI-Experte .\n- Solide Erfahrung mit Microsoft Power BI und Microsoft Fabric .\n- Sehr gute Beherrschung der semantischen Modelle und der Architektur von Power BI.\n- Konkrete Erfahrung mit Direct Lake und idealerweise mit Migrationsszenarien zu Fabric.\n- Gute Kenntnisse in SQL / Data Warehouse .\n- Beherrschung der bewährten Git-Praktiken und der Versionsverwaltung .\n- Erfahrung in Umgebungen, in denen Fragen der Governance und der Zusammenarbeit von großer Bedeutung sind.\n- Erfahrung mit der Migration von Tableau → Power BI ist ein echter Vorteil.\n- Fähigkeit, in einem komplexen und durch Fristen eingeschränkten Umfeld selbstständig zu arbeiten.\n- Ausgezeichnetes professionelles Auftreten, Fähigkeit, mit verschiedenen Ansprechpartnern zu kommunizieren und im Team zu arbeiten.\n- Ein nachgewiesenes Expertenniveau wird erwartet.",
-        "fr": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu."
-      },
-      "needsRetranslation": true,
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.698Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Consulenza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T14:26:34.081Z",
-      "postedDate": "2026-09-25T14:26:34.081Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
-      "jobReqId": "744000151868230",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
-        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
-        "power-bi-microsoft-connect-talan-lausanne-vd-switzerland",
-        "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
-        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
-        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
-          "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
-        ],
-        "en": [
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
-          "power-bi-microsoft-connect-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1825,
-      "retranslationAttempts": 4,
-      "firstSeenAt": "2026-09-04T22:55:58.544Z",
-      "salaryMin": 74500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-827097ba6739",
       "slug": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
       "slugByLocale": {
@@ -428,7 +336,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.696Z",
+      "crawledAt": "2026-10-25T09:13:14.924Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -516,7 +424,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.693Z",
+      "crawledAt": "2026-10-25T09:13:14.923Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -592,7 +500,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.691Z",
+      "crawledAt": "2026-10-25T09:13:14.922Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -640,6 +548,98 @@
       }
     },
     {
+      "id": "talan-d96f65b3eb5e",
+      "slug": "consulente-power-bi-microsoft-fabric-talan-lausanne",
+      "slugByLocale": {
+        "it": "consulente-power-bi-microsoft-fabric-talan-lausanne",
+        "en": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
+        "de": "berater-power-bi-microsoft-fabric-talan-lausanne",
+        "fr": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Power BI / Microsoft Fabric",
+      "titleByLocale": {
+        "it": "Consulente Power BI / Microsoft Fabric",
+        "en": "Consultant Power BI / Microsoft Fabric",
+        "de": "Berater für Power BI / Microsoft Fabric",
+        "fr": "Consultant Power BI / Microsoft Fabric"
+      },
+      "description": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu.",
+      "descriptionByLocale": {
+        "it": "Mansioni\n\n- Partecipare alla migrazione dei report e degli ambienti Tableau verso Power BI / Microsoft Fabric .\n- Analizzare lo stato attuale e contribuire alla definizione delle strategie di migrazione.\n- Privilegiare l’utilizzo di Direct Lake per limitare le duplicazioni e ottimizzare le prestazioni.\n- Utilizzare la modalità Import quando i vincoli tecnici richiedono un approccio alternativo.\n- Progettare e far evolvere i modelli semantici Power BI / Fabric .\n- Lavorare con le fonti e gli ambienti SQL / Data Warehouse esistenti.\n- Garantire la qualità, le prestazioni e la manutenibilità delle soluzioni sviluppate.\n- Applicare le buone pratiche di Git, versionamento, CI/CD e gestione degli sviluppi .\n- Contribuire al miglioramento delle pratiche di collaborazione e governance all’interno del team.\n- Partecipare alle fasi di test, validazione e messa in produzione.\n- Accompagnare gradualmente la migrazione dei diversi ambiti funzionali.\n\nProfilo ricercato\n\n- Esperienza significativa come Data Analyst / Esperto di Power BI .\n- Solida esperienza in Microsoft Power BI e Microsoft Fabric .\n- Ottima padronanza dei modelli semantici e dell’architettura Power BI.\n- Esperienza concreta con Direct Lake e, idealmente, con scenari di migrazione verso Fabric.\n- Buona conoscenza di SQL / Data Warehouse .\n- Padronanza delle buone pratiche Git e del versionamento .\n- Esperienza in contesti in cui la governance e la collaborazione rivestono un ruolo importante.\n- Un’esperienza di migrazione Tableau → Power BI costituisce un reale valore aggiunto.\n- Capacità di lavorare in autonomia in un contesto complesso e vincolato dalle scadenze.\n- Eccellente professionalità, capacità di comunicare con diversi interlocutori e di lavorare in team.\n- È richiesto un livello di competenza consolidato.",
+        "en": "Responsibilities\n\n- Participate in migrating Tableau reports and environments to Power BI / Microsoft Fabric .\n- Analyze the existing setup and contribute to defining migration strategies.\n- Prioritize the use of Direct Lake to limit duplications and optimize performance.\n- Use Import mode when technical constraints require an alternative approach.\n- Design and evolve Power BI / Fabric semantic models .\n- Work with existing SQL / Data Warehouse sources and environments.\n- Ensure the quality, performance and maintainability of the solutions developed.\n- Apply Git, versioning, CI/CD and development management best practices .\n- Contribute to improving collaboration and governance practices within the team.\n- Participate in the testing, validation and production deployment phases.\n- Gradually support the migration of the various functional areas.\n\nDesired profile\n\n- Significant experience as a Data Analyst / Power BI Expert .\n- Strong experience with Microsoft Power BI and Microsoft Fabric .\n- Very good command of semantic models and Power BI architecture.\n- Hands-on experience with Direct Lake and ideally with migration scenarios to Fabric.\n- Good knowledge of SQL / Data Warehouse .\n- Proficiency in Git best practices and versioning .\n- Experience in environments where governance and collaboration challenges are significant.\n- Experience migrating from Tableau → Power BI is a real asset.\n- Ability to work independently in a complex environment with tight deadlines.\n- Excellent professional demeanor, ability to communicate with various stakeholders and work as part of a team.\n- A confirmed level of expertise is expected.",
+        "de": "Aufgaben\n\n- An der Migration der Tableau-Berichte und -Umgebungen zu Power BI / Microsoft Fabric teilnehmen .\n- Die bestehende Umgebung analysieren und zur Definition der Migrationsstrategien beitragen.\n- Die Nutzung von Direct Lake bevorzugen, um Duplikate zu begrenzen und die Leistung zu optimieren.\n- Den Importmodus verwenden, wenn die technischen Einschränkungen einen alternativen Ansatz erfordern.\n- Semantische Modelle von Power BI / Fabric entwerfen und weiterentwickeln .\n- Mit den bestehenden SQL-/Data-Warehouse-Quellen und -Umgebungen arbeiten.\n- Die Qualität, Leistung und Wartbarkeit der entwickelten Lösungen gewährleisten.\n- Die Best Practices für Git, Versionierung, CI/CD und Entwicklungsmanagement anwenden .\n- Zur Verbesserung der Praktiken der Zusammenarbeit und der Governance innerhalb des Teams beitragen.\n- An den Test-, Validierungs- und Produktivsetzungsphasen teilnehmen.\n- Die Migration der verschiedenen funktionalen Bereiche schrittweise begleiten.\n\nGesuchtes Profil\n\n- Signifikante Erfahrung als Data Analyst / Power BI-Experte .\n- Solide Erfahrung mit Microsoft Power BI und Microsoft Fabric .\n- Sehr gute Beherrschung der semantischen Modelle und der Architektur von Power BI.\n- Konkrete Erfahrung mit Direct Lake und idealerweise mit Migrationsszenarien zu Fabric.\n- Gute Kenntnisse in SQL / Data Warehouse .\n- Beherrschung der bewährten Git-Praktiken und der Versionsverwaltung .\n- Erfahrung in Umgebungen, in denen Fragen der Governance und der Zusammenarbeit von großer Bedeutung sind.\n- Erfahrung mit der Migration von Tableau → Power BI ist ein echter Vorteil.\n- Fähigkeit, in einem komplexen und durch Fristen eingeschränkten Umfeld selbstständig zu arbeiten.\n- Ausgezeichnetes professionelles Auftreten, Fähigkeit, mit verschiedenen Ansprechpartnern zu kommunizieren und im Team zu arbeiten.\n- Ein nachgewiesenes Expertenniveau wird erwartet.",
+        "fr": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu."
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne, VD, Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T09:13:14.922Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "1003",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Consulenza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-25T14:26:34.081Z",
+      "postedDate": "2026-09-25T14:26:34.081Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
+      "jobReqId": "744000151868230",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+        "power-bi-microsoft-connect-talan-lausanne-vd-switzerland",
+        "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+          "consulente-power-bi-microsoft-fabric-talan-lausanne-rjxnpj",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+        ],
+        "en": [
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+          "power-bi-microsoft-connect-talan-lausanne-vd-switzerland"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1825,
+      "retranslationAttempts": 4,
+      "firstSeenAt": "2026-09-04T22:55:58.544Z",
+      "salaryMin": 74500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-77288cd4a877",
       "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
       "slugByLocale": {
@@ -670,7 +670,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.689Z",
+      "crawledAt": "2026-10-25T09:13:14.921Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -757,7 +757,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.687Z",
+      "crawledAt": "2026-10-25T09:13:14.920Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -835,7 +835,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.686Z",
+      "crawledAt": "2026-10-25T09:13:14.919Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "postalCode": "1217",
@@ -883,88 +883,6 @@
       }
     },
     {
-      "id": "talan-02b98391d3fc",
-      "slug": "responsabile-del-progetto-aziendale-talan-lausanne-vd-switzerland",
-      "slugByLocale": {
-        "it": "responsabile-del-progetto-aziendale-talan-lausanne-vd-switzerland",
-        "en": "business-project-manager-talan-lausanne-vd-switzerland",
-        "de": "geschaftsprojektmanager-talan-lausanne-vd-switzerland",
-        "fr": "chef-de-projet-metier-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Chef de projet métier",
-      "titleByLocale": {
-        "it": "Responsabile del progetto aziendale",
-        "en": "Business project manager",
-        "de": "Geschäftsprojektmanager",
-        "fr": "Chef de projet métier"
-      },
-      "description": "Contexte\n\nAu sein du pôle Projets et Solutions de la DSI d’une administration publique de Suisse romande, l’équipe des chefs de projet SI compte deux ressources internes et s’appuie sur des externes. Le nombre de projets augmente chaque année ; l’équipe cherche un renfort confirmé, sur le long terme.\n Mission\n\n• Porter un ou plusieurs projets SI dans toutes leurs dimensions : stratégique, financière, humaine, organisationnelle et technique.\n\n• Piloter des projets complexes, avec de nombreuses parties prenantes aux intérêts parfois divergents.\n\n• Garantir un résultat conforme aux exigences métier en qualité, performance, coût, délai et sécurité.\n Responsabilités\n\n• Gestion de projet\n• Planifier, diriger et coordonner les projets et leurs interdépendances, avec des compétences internes et externes.\n\n• Faire évoluer les processus métier.\n\n• Définir tâches, responsabilités, jalons critiques, ressources, interfaces et budget.\n\n• Animer l’équipe projet et les instances de gouvernance, dont un COPIL mensuel, et produire le reporting.\n\n• Conduire le projet en HERMES, agile ou hybride, selon les standards du PMO, et tenir à jour la documentation et l’outil de suivi.\n\n• Garantir la conformité aux exigences de protection des données et de sécurité de l’information.\n\n• Assurer la gestion financière et piloter les prestataires et leur consommation budgétaire.\n\n• Préparer et conduire les procédures d’acquisition : rédaction d’appels d’offres et évaluation des offres.\n\n• Clôturer le projet, établir le bilan et capitaliser les enseignements.\n\n• Mise en service et accompagnement\n• Piloter le déploiement avec les équipes techniques.\n\n• Organiser la transition vers la maintenance et la gestion produits & plateformes.\n\n• Définir le dispositif de formation des utilisateurs.\n\n• Mettre en place le support de niveau 3.\n\n• Identifier et proposer les mesures de conduite du changement.\n\n• Arbitrage périmètre, coût, délai et qualit é\n• Réaliser la recette.\n\n• Gérer les demandes de changement avec une analyse d’impacts.\n\n• Suivre le planning et les risques.\n\n• Mettre en place les indicateurs de pilotage : performance, coûts et délais.\n\n• Formation supérieure en informatique ou en gestion de projet (Master, Bachelor ou diplôme équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets SI d'envergure.\n\n• Maîtrise avérée de la méthodologie HERMES (certification un vrai plus), ainsi que des démarches Agile et hybrides.\n\n• Expérience dans la préparation et la conduite de procédures d'acquisition publiques (rédaction d'appels d'offres / AIMP, évaluation des offres).\n\n• Capacité démontrée à accompagner les équipes métier, de la définition des besoins jusqu'à la mise en service et la conduite du changement.\n\n• Sensibilisation forte aux enjeux de sécurité de l'information (LPD / protection des données) et expérience en pilotage de prestataires externes.\n\n.",
-      "descriptionByLocale": {
-        "it": "Contesto\n\nNell'ambito della divisione Progetti e Soluzioni della DSI di una pubblica amministrazione in Svizzera francofona, il team di project manager SI dispone di due risorse interne e si affida al personale esterno. Il numero di progetti aumenta ogni anno; La squadra sta cercando un rinforzo confermato, a lungo termine.\nMissione\n\n• Eseguire uno o più progetti SI in tutte le loro dimensioni: strategico, finanziario, umano, organizzativo e tecnico.\n\n• Condurre progetti complessi, con molte parti interessate con interessi a volte divergenti.\n\n• Assicurare un risultato che soddisfa i requisiti aziendali in termini di qualità, prestazioni, costi, tempo e sicurezza.\nresponsabilità\n\n• Gestione dei progetti\n• Pianificare, guidare e coordinare i progetti e le loro interdipendenze con competenze interne ed esterne.\n\n• Cambiare i processi aziendali.\n\n• Definire compiti, responsabilità, pietre miliari, risorse, interfacce e budget.\n\n• Guidare il team di progetto e gli organismi di governance, tra cui un COPIL mensile e produrre report.\n\n• Condurre il progetto in HERMES, agile o ibrido, secondo gli standard PMO, e mantenere la documentazione e lo strumento di monitoraggio.\n\n• Assicurare il rispetto dei requisiti di protezione dei dati e sicurezza delle informazioni.\n\n• Assicurare la gestione finanziaria e gestire i fornitori e il loro consumo di bilancio.\n\n• Preparare e condurre procedure di approvvigionamento: redigere offerte e valutare le offerte.\n\n• Chiudere il progetto, preparare il bilancio e capitalizzare le lezioni apprese.\n\n• Commissione e sostegno\n• Distribuzione pilota con team tecnici.\n\n• Organizzare la transizione alla manutenzione e alla gestione dei prodotti e delle piattaforme.\n\n• Definire il dispositivo di formazione dell'utente.\n\n• Configura il supporto di livello 3.\n\n• Identificare e proporre misure per guidare il cambiamento.\n\n• Campo di applicazione, costo, tempo e qualità\n• Fai la ricetta.\n\n• Gestisci le richieste di cambiamento con l'analisi degli impatti.\n\n• Seguire il programma e i rischi.\n\n• Indicatori pilota di implementazione: prestazioni, costi e tempistiche.\n\n• Formazione avanzata in informatica o project management (Master's, Bachelor's o equivalente) con almeno 5-8 anni di esperienza nel pilotare grandi progetti SI.\n\n• Dimostrata padronanza della metodologia HERMES (certificazione un vero plus), così come approcci Agile e ibrido.\n\n• Esperienza nella preparazione e nella conduzione delle procedure di aggiudicazione degli appalti pubblici (progetto di prova / AIMP, valutazione delle offerte).\n\n• Dimostrata capacità di supportare i team aziendali, dalla definizione delle esigenze di messa in servizio e dei principali cambiamenti.\n\n• Forte consapevolezza dei problemi di sicurezza dell'informazione (protezione DPDL/data) e dell'esperienza nel pilotare fornitori esterni.\n\n.",
-        "en": "Background\n\nWithin the DSI's Projects and Solutions division of a public administration in French-speaking Switzerland, the SI project manager team has two internal resources and relies on external staff. The number of projects increases each year; The team is looking for a confirmed reinforcement, over the long term.\nMission\n\n• Carry out one or more SI projects in all their dimensions: strategic, financial, human, organizational and technical.\n\n• Lead complex projects, with many stakeholders with sometimes divergent interests.\n\n• Ensure a result that meets business requirements in terms of quality, performance, cost, time and safety.\nResponsibilities\n\n• Project management\n• Plan, lead and coordinate projects and their interdependencies with internal and external expertise.\n\n• Changing business processes.\n\n• Define tasks, responsibilities, critical milestones, resources, interfaces and budget.\n\n• Lead the project team and governance bodies, including a monthly COPIL, and produce reporting.\n\n• Conduct the project in HERMES, agile or hybrid, according to PMO standards, and maintain the documentation and tracking tool.\n\n• Ensure compliance with data protection and information security requirements.\n\n• Ensure financial management and manage providers and their budgetary consumption.\n\n• Prepare and conduct procurement procedures: drafting tenders and evaluating tenders.\n\n• Close the project, prepare the balance sheet and capitalize lessons learned.\n\n• Commissioning and support\n• Pilot deployment with technical teams.\n\n• Organize the transition to product and platform maintenance and management.\n\n• Define the user training device.\n\n• Set up Level 3 support.\n\n• Identify and propose measures to drive change.\n\n• Arbitration scope, cost, time and quality\n• Make the recipe.\n\n• Manage change requests with impact analysis.\n\n• Follow the schedule and risks.\n\n• Implement piloting indicators: performance, costs and timelines.\n\n• Advanced training in computer science or project management (Master's, Bachelor's or equivalent degree) with at least 5 to 8 years experience in piloting large SI projects.\n\n• Proven mastery of the HERMES methodology (certification a real plus), as well as Agile and hybrid approaches.\n\n• Experience in preparing and conducting public procurement procedures (tender drafting / AIMP, evaluation of tenders).\n\n• Demonstrated ability to support business teams, from defining needs to commissioning and leading change.\n\n• Strong awareness of information security issues (PDL/data protection) and experience in piloting external providers.\n\n.",
-        "de": "Hintergrund\n\nInnerhalb der DSI-Abteilung Projekte und Lösungen einer öffentlichen Verwaltung in der französischsprachigen Schweiz verfügt das SI-Projektmanagerteam über zwei interne Ressourcen und ist auf externe Mitarbeiter angewiesen. Die Anzahl der Projekte steigt jedes Jahr; Das Team sucht nach einer bestätigten Verstärkung, langfristig.\nMission\n\n• Führen Sie ein oder mehrere SI-Projekte in allen ihren Dimensionen durch: strategisch, finanziell, menschlich, organisatorisch und technisch.\n\n• Führen Sie komplexe Projekte mit vielen Interessengruppen mit manchmal unterschiedlichen Interessen.\n\n• Stellen Sie ein Ergebnis sicher, das den Geschäftsanforderungen in Bezug auf Qualität, Leistung, Kosten, Zeit und Sicherheit entspricht.\nZuständigkeiten\n\n• Projektmanagement\n• Planung, Leitung und Koordination von Projekten und deren Interdependenzen mit interner und externer Expertise.\n\n• Geschäftsprozesse verändern.\n\n• Definieren Sie Aufgaben, Verantwortlichkeiten, kritische Meilensteine, Ressourcen, Schnittstellen und Budget.\n\n• Führen Sie das Projektteam und die Leitungsgremien, einschließlich einer monatlichen COPIL, und erstellen Sie Berichte.\n\n• Führen Sie das Projekt in HERMES, agil oder hybrid, nach PMO-Standards durch und pflegen Sie das Dokumentations- und Tracking-Tool.\n\n• Gewährleistung der Einhaltung der Datenschutz- und Informationssicherheitsanforderungen.\n\n• Gewährleistung des Finanzmanagements und der Verwaltung der Anbieter und ihres Haushaltsverbrauchs.\n\n• Vorbereitung und Durchführung von Vergabeverfahren: Erstellung von Angeboten und Bewertung von Angeboten.\n\n• Schließen Sie das Projekt ab, erstellen Sie die Bilanz und nutzen Sie die gewonnenen Erkenntnisse.\n\n• Inbetriebnahme und Unterstützung\n• Piloteinsatz mit technischen Teams.\n\n• Organisieren Sie den Übergang zur Produkt- und Plattformwartung und -verwaltung.\n\n• Definieren Sie das Benutzertrainingsgerät.\n\n• Einrichten von Level 3 Support.\n\n• Identifizieren und Vorschlagen von Maßnahmen zur Förderung des Wandels.\n\n• Schiedsumfang, Kosten, Zeit und Qualität\n• Machen Sie das Rezept.\n\n• Verwalten von Änderungsanforderungen mit Wirkungsanalyse.\n\n• Befolgen Sie den Zeitplan und die Risiken.\n\n• Implementieren Sie Pilotindikatoren: Leistung, Kosten und Zeitpläne.\n\n• Weiterbildung in Informatik oder Projektmanagement (Master-, Bachelor- oder gleichwertiger Abschluss) mit mindestens 5 bis 8 Jahren Erfahrung in der Pilotierung großer SI-Projekte.\n\n• Bewährte Beherrschung der HERMES-Methodik (Zertifizierung ein echtes Plus), sowie agile und hybride Ansätze.\n\n• Erfahrung in der Vorbereitung und Durchführung von Vergabeverfahren (Ausschreibung von Ausschreibungen / AIMP, Bewertung von Ausschreibungen).\n\n• Demonstrierte Fähigkeit, Geschäftsteams zu unterstützen, von der Definition von Bedürfnissen bis hin zur Inbetriebnahme und Führung von Veränderungen.\n\n• Starkes Bewusstsein für Informationssicherheitsfragen (PDL/Datenschutz) und Erfahrung in der Pilotierung externer Anbieter.\n\n.",
-        "fr": "Contexte\n\nAu sein du pôle Projets et Solutions de la DSI d’une administration publique de Suisse romande, l’équipe des chefs de projet SI compte deux ressources internes et s’appuie sur des externes. Le nombre de projets augmente chaque année ; l’équipe cherche un renfort confirmé, sur le long terme.\nMission\n\n• Porter un ou plusieurs projets SI dans toutes leurs dimensions : stratégique, financière, humaine, organisationnelle et technique.\n\n• Piloter des projets complexes, avec de nombreuses parties prenantes aux intérêts parfois divergents.\n\n• Garantir un résultat conforme aux exigences métier en qualité, performance, coût, délai et sécurité.\nResponsabilités\n\n• Gestion de projet\n• Planifier, diriger et coordonner les projets et leurs interdépendances, avec des compétences internes et externes.\n\n• Faire évoluer les processus métier.\n\n• Définir tâches, responsabilités, jalons critiques, ressources, interfaces et budget.\n\n• Animer l’équipe projet et les instances de gouvernance, dont un COPIL mensuel, et produire le reporting.\n\n• Conduire le projet en HERMES, agile ou hybride, selon les standards du PMO, et tenir à jour la documentation et l’outil de suivi.\n\n• Garantir la conformité aux exigences de protection des données et de sécurité de l’information.\n\n• Assurer la gestion financière et piloter les prestataires et leur consommation budgétaire.\n\n• Préparer et conduire les procédures d’acquisition : rédaction d’appels d’offres et évaluation des offres.\n\n• Clôturer le projet, établir le bilan et capitaliser les enseignements.\n\n• Mise en service et accompagnement\n• Piloter le déploiement avec les équipes techniques.\n\n• Organiser la transition vers la maintenance et la gestion produits & plateformes.\n\n• Définir le dispositif de formation des utilisateurs.\n\n• Mettre en place le support de niveau 3.\n\n• Identifier et proposer les mesures de conduite du changement.\n\n• Arbitrage périmètre, coût, délai et qualit é\n• Réaliser la recette.\n\n• Gérer les demandes de changement avec une analyse d’impacts.\n\n• Suivre le planning et les risques.\n\n• Mettre en place les indicateurs de pilotage : performance, coûts et délais.\n\n• Formation supérieure en informatique ou en gestion de projet (Master, Bachelor ou diplôme équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets SI d'envergure.\n\n• Maîtrise avérée de la méthodologie HERMES (certification un vrai plus), ainsi que des démarches Agile et hybrides.\n\n• Expérience dans la préparation et la conduite de procédures d'acquisition publiques (rédaction d'appels d'offres / AIMP, évaluation des offres).\n\n• Capacité démontrée à accompagner les équipes métier, de la définition des besoins jusqu'à la mise en service et la conduite du changement.\n\n• Sensibilisation forte aux enjeux de sécurité de l'information (LPD / protection des données) et expérience en pilotage de prestataires externes.\n\n."
-      },
-      "needsRetranslation": false,
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155789639-chef-de-projet-metier?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.683Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T15:24:12.673Z",
-      "postedDate": "2026-10-15T15:24:12.673Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155789639-chef-de-projet-metier?oga=true",
-      "jobReqId": "744000155789639",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-de-projet-metier-talan-lausanne-vd-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-de-projet-metier-talan-lausanne-vd-switzerland"
-        ],
-        "en": [
-          "chef-de-projet-metier-talan-lausanne-vd-switzerland"
-        ],
-        "de": [
-          "chef-de-projet-metier-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-15T21:16:17.868Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-9a6c7f90c0b3",
       "slug": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
       "slugByLocale": {
@@ -996,7 +914,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.682Z",
+      "crawledAt": "2026-10-25T09:13:14.918Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1047,84 +965,6 @@
       }
     },
     {
-      "id": "talan-af6c08192f75",
-      "slug": "business-analista-talan-lausanne-vd-switzerland",
-      "slugByLocale": {
-        "it": "business-analista-talan-lausanne-vd-switzerland",
-        "en": "business-analyst-talan-lausanne-vd-switzerland",
-        "de": "geschaftsanalyst-talan-lausanne-vd-switzerland",
-        "fr": "business-analyst-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": ". Business Analyst",
-      "titleByLocale": {
-        "it": ". Business Analista",
-        "en": ". Business Analyst",
-        "de": "Geschäftsanalyst",
-        "fr": ". Business Analyste"
-      },
-      "description": "Contexte\n\nRattaché·e au pôle Projets et Solutions, le ou la Business Analyst intervient en appui des chefs de projet SI et des directions métier, de l’étude à la réalisation.\n Mission\n\n• Analyser les besoins métier et accompagner leur traduction en solutions informatiques, en cohérence avec la stratégie et l’architecture SI.\n\n• Faire le lien entre métiers, équipes techniques et chefs de projet, de l’expression du besoin à la mise en œuvre.\n Responsabilités\n\n• Conseil SI\n• Réaliser des analyses métier, des études d’opportunité et des analyses d’impact.\n\n• Optimiser et simplifier les processus (BPR).\n\n• Accompagner la définition des besoins.\n\n• Sensibiliser les métiers aux bonnes pratiques numériques.\n\n• Analyse des besoins et AMOA\n• Recueillir, formaliser et prioriser les besoins.\n\n• Animer les ateliers métier.\n\n• Rédiger les spécifications fonctionnelles, exigences, cas d’utilisation et critères d’acceptation.\n\n• Contribuer aux cahiers des charges et aux documents d’appel d’offres.\n\n• Proposer des cas de test.\n\n• Étudier les variantes et formuler des recommandations.\n\n• Assurer la traçabilité des exigences.\n\n• Travailler avec les chefs de projet, les architectes, les équipes techniques et les fournisseurs.\n\n• Accompagnement du changement\n• Contribuer à la stratégie de conduite du changement et analyser les impacts organisationnels.\n\n• Animer les ateliers de validation.\n\n• Participer aux recettes fonctionnelles.\n\n• Produire la documentation fonctionnelle, les supports de formation et les guides utilisateurs.\n\n• Accompagner les utilisateurs lors du déploiement.\n\n• Formation supérieure (Master, Bachelor ou équivalent) en SI, gestion ou ingénierie, appuyée par au moins 5 ans d'expérience en Business Analysis dans un environnement IT.\n\n• Maîtrise des techniques de recueil d'exigences, de rédaction de spécifications fonctionnelles (use cases, critères d'acceptation) et d'optimisation des processus métier (BPR / BPMN).\n\n• Pratique des environnements Agile (Product Owner / Proxy PO) et/ou traditionnels (HERMES, BABOK). Une certification (CBAP, CCBA, IREB, HERMES) est un plus.\n\n• Expérience avérée dans la définition des cas de test, le suivi de la recette fonctionnelle, la création de supports de formation et l'accompagnement des utilisateurs au changement.\n\n• Contribution appréciée à la rédaction de cahiers des charges et aux volets fonctionnels des appels d'offres\n\n.",
-      "descriptionByLocale": {
-        "it": "Contesto\n\nCollegato alla divisione Progetti e Soluzioni, l'Analista Business lavora a supporto dei project manager SI e degli amministratori aziendali, dallo studio all'implementazione.\nMissione\n\n• Analizzare le esigenze aziendali e supportare la loro traduzione in soluzioni IT, coerente con la strategia SI e l'architettura.\n\n• Linking trades, team tecnici e responsabili del progetto dall'espressione della necessità di attuazione.\nresponsabilità\n\n• Consiglio\n• Eseguire analisi aziendali, studi di opportunità e analisi di impatto.\n\n• Ottimizzare e semplificare i processi (BPR).\n\n• Accompagnate la definizione delle esigenze.\n\n• Aumentare la consapevolezza delle buone pratiche digitali nelle professioni.\n\n• Analisi dei bisogni e AMOA\n• Raccogliere, formalizzare e priorità esigenze.\n\n• Condurre workshop aziendali.\n\n• Scrivere specifiche funzionali, requisiti, casi di utilizzo e criteri di accettazione.\n\n• Contribuire a specifiche e documenti teneri.\n\n• Proporre casi di prova.\n\n• Opzioni di revisione e fare raccomandazioni.\n\n• Assicurare la tracciabilità dei requisiti.\n\n• Lavora con project manager, architetti, team tecnici e fornitori.\n\n• Accompagnamento del cambiamento\n• Contribuisci alla strategia di cambiamento e analizza gli impatti organizzativi.\n\n• Condurre workshop di validazione.\n\n• Partecipa a ricette funzionali.\n\n• Produce documentazione funzionale, materiali di formazione e guide utente.\n\n• Supporta gli utenti durante la distribuzione.\n\n• Formazione avanzata (Master, Bachelor o equivalente) in IS, gestione o ingegneria, supportata da almeno 5 anni di esperienza in Business Analysis in un ambiente IT.\n\n• Mastery delle tecniche di raccolta dei requisiti, scrittura delle specifiche funzionali (usare scatole, criteri di accettazione) e ottimizzazione dei processi aziendali (BPR/BPMN).\n\n• Pratica di Agile (Product Owner / Proxy PO) e/o tradizionale (HERMES, BABOK). Una certificazione (CBAP, CCBA, IREB, HERMES) è un plus.\n\n• Esperienza nella definizione dei casi di test, tracciamento della ricetta funzionale, creazione di materiali di formazione e supporto agli utenti con cambiamento.\n\n• Contributo apprezzabile alla stesura di specifiche e aspetti funzionali delle offerte\n\n.",
-        "en": "Background\n\nLinked to the Projects and Solutions division, the Business Analyst works in support of the SI project managers and business directorates, from study to implementation.\nMission\n\n• Analyze business needs and support their translation into IT solutions, consistent with SI strategy and architecture.\n\n• Linking trades, technical teams and project leaders from the expression of need to implementation.\nResponsibilities\n\n• SI Council\n• Carry out business analyses, opportunity studies and impact analyses.\n\n• Optimize and simplify processes (BPR).\n\n• Accompany the definition of needs.\n\n• Raising awareness of good digital practices in the professions.\n\n• Needs analysis and AMOA\n• Collect, formalize and prioritize needs.\n\n• Conduct business workshops.\n\n• Write functional specifications, requirements, use case and acceptance criteria.\n\n• Contribute to specifications and tender documents.\n\n• Propose test cases.\n\n• Review options and make recommendations.\n\n• Ensure traceability of requirements.\n\n• Work with project managers, architects, technical teams and suppliers.\n\n• Accompaniment of change\n• Contribute to the change strategy and analyze organizational impacts.\n\n• Conduct validation workshops.\n\n• Participate in functional recipes.\n\n• Produce functional documentation, training materials and user guides.\n\n• Support users during deployment.\n\n• Advanced training (Master, Bachelor or equivalent) in IS, management or engineering, supported by at least 5 years of experience in Business Analysis in an IT environment.\n\n• Mastery of requirements collection techniques, functional specification writing (use boxes, acceptance criteria) and business process optimization (BPR/BPMN).\n\n• Practice of Agile (Product Owner / Proxy PO) and/or traditional (HERMES, BABOK). A certification (CBAP, CCBA, IREB, HERMES) is a plus.\n\n• Experience in defining test cases, tracking functional recipe, creating training materials and supporting users with change.\n\n• Appreciable contribution to the drafting of specifications and functional aspects of tenders\n\n.",
-        "de": "Hintergrund\n\nVerbunden mit der Division Projects and Solutions unterstützt der Business Analyst die SI-Projektmanager und Direktionen von der Studie bis zur Umsetzung.\nMission\n\n• Analysieren Sie die Geschäftsanforderungen und unterstützen Sie deren Übersetzung in IT-Lösungen im Einklang mit der SI-Strategie und -Architektur.\n\n• Verknüpfung von Gewerbe, technischen Teams und Projektleitern von der Notwendigkeitsbekundung bis zur Umsetzung.\nZuständigkeiten\n\n• SI-Rat\n• Durchführung von Geschäftsanalysen, Chancenstudien und Wirkungsanalysen.\n\n• Prozesse optimieren und vereinfachen (BPR).\n\n• Begleiten Sie die Definition der Bedürfnisse.\n\n• Sensibilisierung für gute digitale Praktiken in den Berufen.\n\n• Bedarfsanalyse und AMOA\n• Sammeln, formalisieren und priorisieren Sie Bedürfnisse.\n\n• Durchführung von Business Workshops.\n\n• Schreiben Sie funktionale Spezifikationen, Anforderungen, Use Case und Akzeptanzkriterien.\n\n• Beitrag zu Spezifikationen und Ausschreibungsunterlagen.\n\n• Testfälle vorschlagen.\n\n• Überprüfen Sie Optionen und geben Sie Empfehlungen ab.\n\n• Gewährleistung der Rückverfolgbarkeit der Anforderungen.\n\n• Arbeiten Sie mit Projektmanagern, Architekten, technischen Teams und Lieferanten zusammen.\n\n• Begleitung des Wandels\n• Tragen Sie zur Veränderungsstrategie bei und analysieren Sie die organisatorischen Auswirkungen.\n\n• Durchführung von Validierungsworkshops.\n\n• Beteiligen Sie sich an funktionalen Rezepten.\n\n• Erstellen Sie funktionale Dokumentation, Schulungsmaterialien und Benutzerhandbücher.\n\n• Unterstützen Sie Benutzer während der Bereitstellung.\n\n• Weiterbildung (Master, Bachelor oder gleichwertig) in IS, Management oder Engineering, unterstützt durch mindestens 5 Jahre Erfahrung in Business Analysis in einer IT-Umgebung.\n\n• Beherrschung von Anforderungserfassungstechniken, Funktionsspezifikationsschreiben (Verwendungsboxen, Akzeptanzkriterien) und Geschäftsprozessoptimierung (BPR/BPMN).\n\n• Praxis von Agile (Product Owner / Proxy PO) und / oder traditionell (HERMES, BABOK). Eine Zertifizierung (CBAP, CCBA, IREB, HERMES) ist ein Plus.\n\n• Erfahrung in der Definition von Testfällen, der Nachverfolgung funktionaler Rezepte, der Erstellung von Schulungsmaterialien und der Unterstützung von Benutzern bei Veränderungen.\n\n• Erheblicher Beitrag zur Ausarbeitung von Spezifikationen und funktionalen Aspekten von Ausschreibungen\n\n.",
-        "fr": "Contexte\n\nRattaché·e au pôle Projets et Solutions, le ou la Business Analyst intervient en appui des chefs de projet SI et des directions métier, de l’étude à la réalisation.\nMission\n\n• Analyser les besoins métier et accompagner leur traduction en solutions informatiques, en cohérence avec la stratégie et l’architecture SI.\n\n• Faire le lien entre métiers, équipes techniques et chefs de projet, de l’expression du besoin à la mise en œuvre.\nResponsabilités\n\n• Conseil SI\n• Réaliser des analyses métier, des études d’opportunité et des analyses d’impact.\n\n• Optimiser et simplifier les processus (BPR).\n\n• Accompagner la définition des besoins.\n\n• Sensibiliser les métiers aux bonnes pratiques numériques.\n\n• Analyse des besoins et AMOA\n• Recueillir, formaliser et prioriser les besoins.\n\n• Animer les ateliers métier.\n\n• Rédiger les spécifications fonctionnelles, exigences, cas d’utilisation et critères d’acceptation.\n\n• Contribuer aux cahiers des charges et aux documents d’appel d’offres.\n\n• Proposer des cas de test.\n\n• Étudier les variantes et formuler des recommandations.\n\n• Assurer la traçabilité des exigences.\n\n• Travailler avec les chefs de projet, les architectes, les équipes techniques et les fournisseurs.\n\n• Accompagnement du changement\n• Contribuer à la stratégie de conduite du changement et analyser les impacts organisationnels.\n\n• Animer les ateliers de validation.\n\n• Participer aux recettes fonctionnelles.\n\n• Produire la documentation fonctionnelle, les supports de formation et les guides utilisateurs.\n\n• Accompagner les utilisateurs lors du déploiement.\n\n• Formation supérieure (Master, Bachelor ou équivalent) en SI, gestion ou ingénierie, appuyée par au moins 5 ans d'expérience en Business Analysis dans un environnement IT.\n\n• Maîtrise des techniques de recueil d'exigences, de rédaction de spécifications fonctionnelles (use cases, critères d'acceptation) et d'optimisation des processus métier (BPR / BPMN).\n\n• Pratique des environnements Agile (Product Owner / Proxy PO) et/ou traditionnels (HERMES, BABOK). Une certification (CBAP, CCBA, IREB, HERMES) est un plus.\n\n• Expérience avérée dans la définition des cas de test, le suivi de la recette fonctionnelle, la création de supports de formation et l'accompagnement des utilisateurs au changement.\n\n• Contribution appréciée à la rédaction de cahiers des charges et aux volets fonctionnels des appels d'offres\n\n."
-      },
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155794329--business-analyst?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.680Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T15:39:54.113Z",
-      "postedDate": "2026-10-15T15:39:54.113Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155794329--business-analyst?oga=true",
-      "jobReqId": "744000155794329",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyst-talan-lausanne-vd-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-talan-lausanne-vd-switzerland"
-        ],
-        "de": [
-          "business-analyst-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-15T21:16:17.870Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-50e5f8ddcbfd",
       "slug": "consulente-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
       "slugByLocale": {
@@ -1155,7 +995,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155806134-consultant-e-technico-fonctionnel-sap-crm-senior?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.678Z",
+      "crawledAt": "2026-10-25T09:13:14.917Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1203,37 +1043,38 @@
       }
     },
     {
-      "id": "talan-c069f012c467",
-      "slug": "lead-business-analista-talan-lausanne",
+      "id": "talan-02b98391d3fc",
+      "slug": "responsabile-del-progetto-aziendale-talan-lausanne-vd-switzerland",
       "slugByLocale": {
-        "it": "lead-business-analista-talan-lausanne",
-        "en": "lead-business-analyst-talan-lausanne-switzerland",
-        "de": "unternehmensleitaspekt-talan-lausanne-switzerland",
-        "fr": "lead-business-analyst-talan-lausanne-switzerland"
+        "it": "responsabile-del-progetto-aziendale-talan-lausanne-vd-switzerland",
+        "en": "business-project-manager-talan-lausanne-vd-switzerland",
+        "de": "geschaftsprojektmanager-talan-lausanne-vd-switzerland",
+        "fr": "chef-de-projet-metier-talan-lausanne-vd-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "Lead Business Analyst",
+      "title": "Chef de projet métier",
       "titleByLocale": {
-        "it": "Lead Business Analista",
-        "en": "Lead Business Aspect",
-        "de": "Unternehmensleitaspekt",
-        "fr": "Lead Business Analyste"
+        "it": "Responsabile del progetto aziendale",
+        "en": "Business project manager",
+        "de": "Geschäftsprojektmanager",
+        "fr": "Chef de projet métier"
       },
-      "description": "Dans le cadre de l’évolution de ses solutions digitales et du développement de nouvelles offres dans le domaine de l’assurance et de la prévoyance, notre client recherche un Lead Business Analyst senior pour renforcer ses équipes.\n Vous rejoindrez une équipe pluridisciplinaire composée de Business Analysts et de développeurs.\n Leadership et accompagnement en Business Analyse\n\n• Définir, structurer et faire évoluer les méthodes, standards et livrables de Business Analyse.\n\n• Accompagner les Business Analysts dans leurs activités à travers du coaching, des revues d’analyses et le partage de bonnes pratiques.\n\n• Garantir la qualité, la cohérence et l’exhaustivité des analyses produites.\n\n• Coordonner les travaux nécessitant l’intervention de plusieurs Business Analysts.\n Analyse métier et fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins des parties prenantes.\n\n• Traduire les besoins métier en exigences fonctionnelles, epics, user stories et critères d’acceptation.\n\n• Collaborer étroitement avec les équipes de développement afin de garantir la bonne compréhension des besoins.\n\n• Participer aux cérémonies Agile et contribuer à l’amélioration continue des pratiques.\n\n• Préparer et réaliser les tests fonctionnels, assurer le suivi des anomalies et accompagner les utilisateurs lors des phases de recette et de déploiement.\n\n• Plus de 8 ans d’expérience en Business Analyse, avec une expérience confirmée en tant que Lead BA ou référent méthodologique.\n\n• Expertise en coaching de Business Analysts et en définition de standards et bonnes pratiques.\n\n• Maîtrise de l’analyse fonctionnelle, des API et des problématiques d’intégration.\n\n• Excellente connaissance des méthodologies Agile/Scrum, de Jira et Confluence.\n\n• Leadership, esprit critique, autonomie et excellentes capacités d’analyse et de synthèse.\n\n• Langues: Français courant + Anglais B2 minimum.\n Atouts\n\n• Expérience dans l’assurance, idéalement en prévoyance et sur des parcours de souscription digitaux.\n\n• Connaissance des environnements Java/Angular.\n\n• Certification en Business Analyse.",
+      "description": "Contexte\n\nAu sein du pôle Projets et Solutions de la DSI d’une administration publique de Suisse romande, l’équipe des chefs de projet SI compte deux ressources internes et s’appuie sur des externes. Le nombre de projets augmente chaque année ; l’équipe cherche un renfort confirmé, sur le long terme.\n Mission\n\n• Porter un ou plusieurs projets SI dans toutes leurs dimensions : stratégique, financière, humaine, organisationnelle et technique.\n\n• Piloter des projets complexes, avec de nombreuses parties prenantes aux intérêts parfois divergents.\n\n• Garantir un résultat conforme aux exigences métier en qualité, performance, coût, délai et sécurité.\n Responsabilités\n\n• Gestion de projet\n• Planifier, diriger et coordonner les projets et leurs interdépendances, avec des compétences internes et externes.\n\n• Faire évoluer les processus métier.\n\n• Définir tâches, responsabilités, jalons critiques, ressources, interfaces et budget.\n\n• Animer l’équipe projet et les instances de gouvernance, dont un COPIL mensuel, et produire le reporting.\n\n• Conduire le projet en HERMES, agile ou hybride, selon les standards du PMO, et tenir à jour la documentation et l’outil de suivi.\n\n• Garantir la conformité aux exigences de protection des données et de sécurité de l’information.\n\n• Assurer la gestion financière et piloter les prestataires et leur consommation budgétaire.\n\n• Préparer et conduire les procédures d’acquisition : rédaction d’appels d’offres et évaluation des offres.\n\n• Clôturer le projet, établir le bilan et capitaliser les enseignements.\n\n• Mise en service et accompagnement\n• Piloter le déploiement avec les équipes techniques.\n\n• Organiser la transition vers la maintenance et la gestion produits & plateformes.\n\n• Définir le dispositif de formation des utilisateurs.\n\n• Mettre en place le support de niveau 3.\n\n• Identifier et proposer les mesures de conduite du changement.\n\n• Arbitrage périmètre, coût, délai et qualit é\n• Réaliser la recette.\n\n• Gérer les demandes de changement avec une analyse d’impacts.\n\n• Suivre le planning et les risques.\n\n• Mettre en place les indicateurs de pilotage : performance, coûts et délais.\n\n• Formation supérieure en informatique ou en gestion de projet (Master, Bachelor ou diplôme équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets SI d'envergure.\n\n• Maîtrise avérée de la méthodologie HERMES (certification un vrai plus), ainsi que des démarches Agile et hybrides.\n\n• Expérience dans la préparation et la conduite de procédures d'acquisition publiques (rédaction d'appels d'offres / AIMP, évaluation des offres).\n\n• Capacité démontrée à accompagner les équipes métier, de la définition des besoins jusqu'à la mise en service et la conduite du changement.\n\n• Sensibilisation forte aux enjeux de sécurité de l'information (LPD / protection des données) et expérience en pilotage de prestataires externes.\n\n.",
       "descriptionByLocale": {
-        "it": "Nell'ambito dell'evoluzione delle sue soluzioni digitali e dello sviluppo di nuove offerte nel campo dell'assicurazione e della previsione, il nostro cliente sta cercando un Senior Lead Business Analyst per rafforzare i suoi team.\nTi unirai a un team multidisciplinare di Business Analysts e sviluppatori.\nLeadership e supporto nell'analisi aziendale\n\n• Definire, strutturare ed evolvere i metodi di analisi aziendale, gli standard e i materiali di consegna.\n\n• Support Business Analysts nelle loro attività attraverso coaching, analisi recensioni e condivisione delle migliori pratiche.\n\n• Assicurare la qualità, la consistenza e la completezza delle analisi prodotte.\n\n• Lavoro coordinato che coinvolge diversi analisti aziendali.\nAnalisi aziendale e funzionale\n\n• Raccogliere, analizzare e formalizzare le esigenze degli stakeholder.\n\n• Traduci i requisiti aziendali in requisiti funzionali, epici, storie utente e criteri di accettazione.\n\n• Lavorare a stretto contatto con i team di sviluppo per garantire una buona comprensione dei bisogni.\n\n• Partecipare alle cerimonie Agile e contribuire al miglioramento continuo delle pratiche.\n\n• Preparare ed eseguire test funzionali, monitorare anomalie e supportare gli utenti durante le fasi di ricetta e distribuzione.\n\n• Più di 8 anni di esperienza in Business Analysis, con esperienza confermata come Lead BA o riferimento metodologico.\n\n• Competenza in Business Analyst coaching e definizione di standard e best practice.\n\n• Mastery di analisi funzionale, API e problemi di integrazione.\n\n• Ottima conoscenza delle metodologie Agile/Scrum, Jira e Confluence.\n\n• Leadership, mente critica, autonomia e eccellenti capacità analitiche e di sintesi.\n\n• Lingue: Francese corrente + Inglese B2 minimo.\nBeni\n\n• Esperienza nell'assicurazione, idealmente in vista e sulle rotte di abbonamento digitali.\n\n• Conoscenza degli ambienti Java/Angular.\n\n• Certificazione di analisi aziendale.",
-        "en": "As part of the evolution of its digital solutions and the development of new offers in the field of insurance and foresight, our customer is looking for a Senior Lead Business Analyst to strengthen its teams.\nYou will join a multidisciplinary team of Business Analysts and developers.\nLeadership and support in Business Analysis\n\n• Define, structure and evolve Business Analysis methods, standards and deliverables.\n\n• Support Business Analysts in their activities through coaching, analysis reviews and sharing of best practices.\n\n• Ensure the quality, consistency and completeness of the analyses produced.\n\n• Coordinate work involving several Business Analysts.\nBusiness and functional analysis\n\n• Collect, analyse and formalize stakeholder needs.\n\n• Translate business requirements into functional requirements, epics, user stories and acceptance criteria.\n\n• Work closely with development teams to ensure a good understanding of needs.\n\n• Participate in Agile ceremonies and contribute to continuous improvement of practices.\n\n• Prepare and perform functional tests, monitor anomalies and support users during the recipe and deployment phases.\n\n• More than 8 years of experience in Business Analysis, with experience confirmed as Lead BA or methodological reference.\n\n• Expertise in Business Analyst coaching and definition of standards and best practices.\n\n• Mastery of functional analysis, APIs and integration issues.\n\n• Excellent knowledge of Agile/Scrum, Jira and Confluence methodologies.\n\n• Leadership, critical mind, autonomy and excellent analytical and synthesis capabilities.\n\n• Languages: Current French + English B2 minimum.\nAssets\n\n• Experience in insurance, ideally in foresight and on digital subscription routes.\n\n• Knowledge of Java/Angular environments.\n\n• Business Analysis Certification.",
-        "de": "Im Rahmen der Weiterentwicklung seiner digitalen Lösungen und der Entwicklung neuer Angebote im Bereich Versicherung und Vorausschau sucht unser Kunde einen Senior Lead Business Analysten zur Stärkung seiner Teams.\nSie werden einem multidisziplinären Team von Business Analysten und Entwicklern beitreten.\nFührung und Unterstützung in Business Analysis\n\n• Definieren, strukturieren und entwickeln Sie Geschäftsanalysemethoden, Standards und Ergebnisse.\n\n• Unterstützen Sie Business Analysten bei ihren Aktivitäten durch Coaching, Analyse-Reviews und den Austausch von Best Practices.\n\n• Gewährleistung der Qualität, Konsistenz und Vollständigkeit der erstellten Analysen.\n\n• Koordinieren Sie die Arbeit mit mehreren Business Analysten.\nGeschäfts- und Funktionsanalyse\n\n• Sammeln, analysieren und formalisieren Sie die Bedürfnisse der Stakeholder.\n\n• Übersetzen Sie Geschäftsanforderungen in funktionale Anforderungen, Epics, User Stories und Akzeptanzkriterien.\n\n• Arbeiten Sie eng mit Entwicklungsteams zusammen, um ein gutes Verständnis der Bedürfnisse zu gewährleisten.\n\n• Nimm an agilen Zeremonien teil und trage zur kontinuierlichen Verbesserung von Praktiken bei.\n\n• Bereiten und führen Sie Funktionstests durch, überwachen Sie Anomalien und unterstützen Sie die Benutzer während der Rezept- und Bereitstellungsphase.\n\n• Mehr als 8 Jahre Erfahrung in Business Analysis, mit Erfahrung als Lead BA oder methodische Referenz bestätigt.\n\n• Expertise im Business Analyst Coaching und Definition von Standards und Best Practices.\n\n• Beherrschung der Funktionsanalyse, APIs und Integrationsprobleme.\n\n• Ausgezeichnete Kenntnisse der Agile/Scrum, Jira und Confluence Methoden.\n\n• Führung, kritisches Denken, Autonomie und ausgezeichnete Analyse- und Synthesefähigkeiten.\n\n• Sprachen: Aktuelles Französisch + Englisch B2 Minimum.\nVermögenswerte\n\n• Erfahrung in der Versicherung, idealerweise im Voraus und auf digitalen Abonnementrouten.\n\n• Kenntnisse über Java/Angular Environments.\n\n• Business Analysis Zertifizierung.",
-        "fr": "Dans le cadre de l’évolution de ses solutions digitales et du développement de nouvelles offres dans le domaine de l’assurance et de la prévoyance, notre client recherche un Lead Business Analyst senior pour renforcer ses équipes.\nVous rejoindrez une équipe pluridisciplinaire composée de Business Analysts et de développeurs.\nLeadership et accompagnement en Business Analyse\n\n• Définir, structurer et faire évoluer les méthodes, standards et livrables de Business Analyse.\n\n• Accompagner les Business Analysts dans leurs activités à travers du coaching, des revues d’analyses et le partage de bonnes pratiques.\n\n• Garantir la qualité, la cohérence et l’exhaustivité des analyses produites.\n\n• Coordonner les travaux nécessitant l’intervention de plusieurs Business Analysts.\nAnalyse métier et fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins des parties prenantes.\n\n• Traduire les besoins métier en exigences fonctionnelles, epics, user stories et critères d’acceptation.\n\n• Collaborer étroitement avec les équipes de développement afin de garantir la bonne compréhension des besoins.\n\n• Participer aux cérémonies Agile et contribuer à l’amélioration continue des pratiques.\n\n• Préparer et réaliser les tests fonctionnels, assurer le suivi des anomalies et accompagner les utilisateurs lors des phases de recette et de déploiement.\n\n• Plus de 8 ans d’expérience en Business Analyse, avec une expérience confirmée en tant que Lead BA ou référent méthodologique.\n\n• Expertise en coaching de Business Analysts et en définition de standards et bonnes pratiques.\n\n• Maîtrise de l’analyse fonctionnelle, des API et des problématiques d’intégration.\n\n• Excellente connaissance des méthodologies Agile/Scrum, de Jira et Confluence.\n\n• Leadership, esprit critique, autonomie et excellentes capacités d’analyse et de synthèse.\n\n• Langues: Français courant + Anglais B2 minimum.\nAtouts\n\n• Expérience dans l’assurance, idéalement en prévoyance et sur des parcours de souscription digitaux.\n\n• Connaissance des environnements Java/Angular.\n\n• Certification en Business Analyse."
+        "it": "Contesto\n\nNell'ambito della divisione Progetti e Soluzioni della DSI di una pubblica amministrazione in Svizzera francofona, il team di project manager SI dispone di due risorse interne e si affida al personale esterno. Il numero di progetti aumenta ogni anno; La squadra sta cercando un rinforzo confermato, a lungo termine.\nMissione\n\n• Eseguire uno o più progetti SI in tutte le loro dimensioni: strategico, finanziario, umano, organizzativo e tecnico.\n\n• Condurre progetti complessi, con molte parti interessate con interessi a volte divergenti.\n\n• Assicurare un risultato che soddisfa i requisiti aziendali in termini di qualità, prestazioni, costi, tempo e sicurezza.\nresponsabilità\n\n• Gestione dei progetti\n• Pianificare, guidare e coordinare i progetti e le loro interdipendenze con competenze interne ed esterne.\n\n• Cambiare i processi aziendali.\n\n• Definire compiti, responsabilità, pietre miliari, risorse, interfacce e budget.\n\n• Guidare il team di progetto e gli organismi di governance, tra cui un COPIL mensile e produrre report.\n\n• Condurre il progetto in HERMES, agile o ibrido, secondo gli standard PMO, e mantenere la documentazione e lo strumento di monitoraggio.\n\n• Assicurare il rispetto dei requisiti di protezione dei dati e sicurezza delle informazioni.\n\n• Assicurare la gestione finanziaria e gestire i fornitori e il loro consumo di bilancio.\n\n• Preparare e condurre procedure di approvvigionamento: redigere offerte e valutare le offerte.\n\n• Chiudere il progetto, preparare il bilancio e capitalizzare le lezioni apprese.\n\n• Commissione e sostegno\n• Distribuzione pilota con team tecnici.\n\n• Organizzare la transizione alla manutenzione e alla gestione dei prodotti e delle piattaforme.\n\n• Definire il dispositivo di formazione dell'utente.\n\n• Configura il supporto di livello 3.\n\n• Identificare e proporre misure per guidare il cambiamento.\n\n• Campo di applicazione, costo, tempo e qualità\n• Fai la ricetta.\n\n• Gestisci le richieste di cambiamento con l'analisi degli impatti.\n\n• Seguire il programma e i rischi.\n\n• Indicatori pilota di implementazione: prestazioni, costi e tempistiche.\n\n• Formazione avanzata in informatica o project management (Master's, Bachelor's o equivalente) con almeno 5-8 anni di esperienza nel pilotare grandi progetti SI.\n\n• Dimostrata padronanza della metodologia HERMES (certificazione un vero plus), così come approcci Agile e ibrido.\n\n• Esperienza nella preparazione e nella conduzione delle procedure di aggiudicazione degli appalti pubblici (progetto di prova / AIMP, valutazione delle offerte).\n\n• Dimostrata capacità di supportare i team aziendali, dalla definizione delle esigenze di messa in servizio e dei principali cambiamenti.\n\n• Forte consapevolezza dei problemi di sicurezza dell'informazione (protezione DPDL/data) e dell'esperienza nel pilotare fornitori esterni.\n\n.",
+        "en": "Background\n\nWithin the DSI's Projects and Solutions division of a public administration in French-speaking Switzerland, the SI project manager team has two internal resources and relies on external staff. The number of projects increases each year; The team is looking for a confirmed reinforcement, over the long term.\nMission\n\n• Carry out one or more SI projects in all their dimensions: strategic, financial, human, organizational and technical.\n\n• Lead complex projects, with many stakeholders with sometimes divergent interests.\n\n• Ensure a result that meets business requirements in terms of quality, performance, cost, time and safety.\nResponsibilities\n\n• Project management\n• Plan, lead and coordinate projects and their interdependencies with internal and external expertise.\n\n• Changing business processes.\n\n• Define tasks, responsibilities, critical milestones, resources, interfaces and budget.\n\n• Lead the project team and governance bodies, including a monthly COPIL, and produce reporting.\n\n• Conduct the project in HERMES, agile or hybrid, according to PMO standards, and maintain the documentation and tracking tool.\n\n• Ensure compliance with data protection and information security requirements.\n\n• Ensure financial management and manage providers and their budgetary consumption.\n\n• Prepare and conduct procurement procedures: drafting tenders and evaluating tenders.\n\n• Close the project, prepare the balance sheet and capitalize lessons learned.\n\n• Commissioning and support\n• Pilot deployment with technical teams.\n\n• Organize the transition to product and platform maintenance and management.\n\n• Define the user training device.\n\n• Set up Level 3 support.\n\n• Identify and propose measures to drive change.\n\n• Arbitration scope, cost, time and quality\n• Make the recipe.\n\n• Manage change requests with impact analysis.\n\n• Follow the schedule and risks.\n\n• Implement piloting indicators: performance, costs and timelines.\n\n• Advanced training in computer science or project management (Master's, Bachelor's or equivalent degree) with at least 5 to 8 years experience in piloting large SI projects.\n\n• Proven mastery of the HERMES methodology (certification a real plus), as well as Agile and hybrid approaches.\n\n• Experience in preparing and conducting public procurement procedures (tender drafting / AIMP, evaluation of tenders).\n\n• Demonstrated ability to support business teams, from defining needs to commissioning and leading change.\n\n• Strong awareness of information security issues (PDL/data protection) and experience in piloting external providers.\n\n.",
+        "de": "Hintergrund\n\nInnerhalb der DSI-Abteilung Projekte und Lösungen einer öffentlichen Verwaltung in der französischsprachigen Schweiz verfügt das SI-Projektmanagerteam über zwei interne Ressourcen und ist auf externe Mitarbeiter angewiesen. Die Anzahl der Projekte steigt jedes Jahr; Das Team sucht nach einer bestätigten Verstärkung, langfristig.\nMission\n\n• Führen Sie ein oder mehrere SI-Projekte in allen ihren Dimensionen durch: strategisch, finanziell, menschlich, organisatorisch und technisch.\n\n• Führen Sie komplexe Projekte mit vielen Interessengruppen mit manchmal unterschiedlichen Interessen.\n\n• Stellen Sie ein Ergebnis sicher, das den Geschäftsanforderungen in Bezug auf Qualität, Leistung, Kosten, Zeit und Sicherheit entspricht.\nZuständigkeiten\n\n• Projektmanagement\n• Planung, Leitung und Koordination von Projekten und deren Interdependenzen mit interner und externer Expertise.\n\n• Geschäftsprozesse verändern.\n\n• Definieren Sie Aufgaben, Verantwortlichkeiten, kritische Meilensteine, Ressourcen, Schnittstellen und Budget.\n\n• Führen Sie das Projektteam und die Leitungsgremien, einschließlich einer monatlichen COPIL, und erstellen Sie Berichte.\n\n• Führen Sie das Projekt in HERMES, agil oder hybrid, nach PMO-Standards durch und pflegen Sie das Dokumentations- und Tracking-Tool.\n\n• Gewährleistung der Einhaltung der Datenschutz- und Informationssicherheitsanforderungen.\n\n• Gewährleistung des Finanzmanagements und der Verwaltung der Anbieter und ihres Haushaltsverbrauchs.\n\n• Vorbereitung und Durchführung von Vergabeverfahren: Erstellung von Angeboten und Bewertung von Angeboten.\n\n• Schließen Sie das Projekt ab, erstellen Sie die Bilanz und nutzen Sie die gewonnenen Erkenntnisse.\n\n• Inbetriebnahme und Unterstützung\n• Piloteinsatz mit technischen Teams.\n\n• Organisieren Sie den Übergang zur Produkt- und Plattformwartung und -verwaltung.\n\n• Definieren Sie das Benutzertrainingsgerät.\n\n• Einrichten von Level 3 Support.\n\n• Identifizieren und Vorschlagen von Maßnahmen zur Förderung des Wandels.\n\n• Schiedsumfang, Kosten, Zeit und Qualität\n• Machen Sie das Rezept.\n\n• Verwalten von Änderungsanforderungen mit Wirkungsanalyse.\n\n• Befolgen Sie den Zeitplan und die Risiken.\n\n• Implementieren Sie Pilotindikatoren: Leistung, Kosten und Zeitpläne.\n\n• Weiterbildung in Informatik oder Projektmanagement (Master-, Bachelor- oder gleichwertiger Abschluss) mit mindestens 5 bis 8 Jahren Erfahrung in der Pilotierung großer SI-Projekte.\n\n• Bewährte Beherrschung der HERMES-Methodik (Zertifizierung ein echtes Plus), sowie agile und hybride Ansätze.\n\n• Erfahrung in der Vorbereitung und Durchführung von Vergabeverfahren (Ausschreibung von Ausschreibungen / AIMP, Bewertung von Ausschreibungen).\n\n• Demonstrierte Fähigkeit, Geschäftsteams zu unterstützen, von der Definition von Bedürfnissen bis hin zur Inbetriebnahme und Führung von Veränderungen.\n\n• Starkes Bewusstsein für Informationssicherheitsfragen (PDL/Datenschutz) und Erfahrung in der Pilotierung externer Anbieter.\n\n.",
+        "fr": "Contexte\n\nAu sein du pôle Projets et Solutions de la DSI d’une administration publique de Suisse romande, l’équipe des chefs de projet SI compte deux ressources internes et s’appuie sur des externes. Le nombre de projets augmente chaque année ; l’équipe cherche un renfort confirmé, sur le long terme.\nMission\n\n• Porter un ou plusieurs projets SI dans toutes leurs dimensions : stratégique, financière, humaine, organisationnelle et technique.\n\n• Piloter des projets complexes, avec de nombreuses parties prenantes aux intérêts parfois divergents.\n\n• Garantir un résultat conforme aux exigences métier en qualité, performance, coût, délai et sécurité.\nResponsabilités\n\n• Gestion de projet\n• Planifier, diriger et coordonner les projets et leurs interdépendances, avec des compétences internes et externes.\n\n• Faire évoluer les processus métier.\n\n• Définir tâches, responsabilités, jalons critiques, ressources, interfaces et budget.\n\n• Animer l’équipe projet et les instances de gouvernance, dont un COPIL mensuel, et produire le reporting.\n\n• Conduire le projet en HERMES, agile ou hybride, selon les standards du PMO, et tenir à jour la documentation et l’outil de suivi.\n\n• Garantir la conformité aux exigences de protection des données et de sécurité de l’information.\n\n• Assurer la gestion financière et piloter les prestataires et leur consommation budgétaire.\n\n• Préparer et conduire les procédures d’acquisition : rédaction d’appels d’offres et évaluation des offres.\n\n• Clôturer le projet, établir le bilan et capitaliser les enseignements.\n\n• Mise en service et accompagnement\n• Piloter le déploiement avec les équipes techniques.\n\n• Organiser la transition vers la maintenance et la gestion produits & plateformes.\n\n• Définir le dispositif de formation des utilisateurs.\n\n• Mettre en place le support de niveau 3.\n\n• Identifier et proposer les mesures de conduite du changement.\n\n• Arbitrage périmètre, coût, délai et qualit é\n• Réaliser la recette.\n\n• Gérer les demandes de changement avec une analyse d’impacts.\n\n• Suivre le planning et les risques.\n\n• Mettre en place les indicateurs de pilotage : performance, coûts et délais.\n\n• Formation supérieure en informatique ou en gestion de projet (Master, Bachelor ou diplôme équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets SI d'envergure.\n\n• Maîtrise avérée de la méthodologie HERMES (certification un vrai plus), ainsi que des démarches Agile et hybrides.\n\n• Expérience dans la préparation et la conduite de procédures d'acquisition publiques (rédaction d'appels d'offres / AIMP, évaluation des offres).\n\n• Capacité démontrée à accompagner les équipes métier, de la définition des besoins jusqu'à la mise en service et la conduite du changement.\n\n• Sensibilisation forte aux enjeux de sécurité de l'information (LPD / protection des données) et expérience en pilotage de prestataires externes.\n\n."
       },
-      "location": "Lausanne, , Switzerland",
+      "needsRetranslation": false,
+      "location": "Lausanne, VD, Switzerland",
       "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155930739-lead-business-analyst?oga=true",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000155789639-chef-de-projet-metier?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.676Z",
+      "crawledAt": "2026-10-25T09:13:14.917Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1247,22 +1088,28 @@
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-16T07:51:51.084Z",
-      "postedDate": "2026-10-16T07:51:51.084Z",
+      "datePosted": "2026-10-15T15:24:12.673Z",
+      "postedDate": "2026-10-15T15:24:12.673Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155930739-lead-business-analyst?oga=true",
-      "jobReqId": "744000155930739",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155789639-chef-de-projet-metier?oga=true",
+      "jobReqId": "744000155789639",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-business-analyst-talan-lausanne-switzerland"
+        "chef-de-projet-metier-talan-lausanne-vd-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-business-analyst-talan-lausanne-switzerland"
+          "chef-de-projet-metier-talan-lausanne-vd-switzerland"
+        ],
+        "en": [
+          "chef-de-projet-metier-talan-lausanne-vd-switzerland"
+        ],
+        "de": [
+          "chef-de-projet-metier-talan-lausanne-vd-switzerland"
         ]
       },
-      "firstSeenAt": "2026-10-09T21:16:06.901Z",
+      "firstSeenAt": "2026-10-15T21:16:17.868Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -1273,6 +1120,84 @@
           "@type": "QuantitativeValue",
           "minValue": 97500,
           "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-af6c08192f75",
+      "slug": "business-analista-talan-lausanne-vd-switzerland",
+      "slugByLocale": {
+        "it": "business-analista-talan-lausanne-vd-switzerland",
+        "en": "business-analyst-talan-lausanne-vd-switzerland",
+        "de": "geschaftsanalyst-talan-lausanne-vd-switzerland",
+        "fr": "business-analyst-talan-lausanne-vd-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": ". Business Analyst",
+      "titleByLocale": {
+        "it": ". Business Analista",
+        "en": ". Business Analyst",
+        "de": "Geschäftsanalyst",
+        "fr": ". Business Analyste"
+      },
+      "description": "Contexte\n\nRattaché·e au pôle Projets et Solutions, le ou la Business Analyst intervient en appui des chefs de projet SI et des directions métier, de l’étude à la réalisation.\n Mission\n\n• Analyser les besoins métier et accompagner leur traduction en solutions informatiques, en cohérence avec la stratégie et l’architecture SI.\n\n• Faire le lien entre métiers, équipes techniques et chefs de projet, de l’expression du besoin à la mise en œuvre.\n Responsabilités\n\n• Conseil SI\n• Réaliser des analyses métier, des études d’opportunité et des analyses d’impact.\n\n• Optimiser et simplifier les processus (BPR).\n\n• Accompagner la définition des besoins.\n\n• Sensibiliser les métiers aux bonnes pratiques numériques.\n\n• Analyse des besoins et AMOA\n• Recueillir, formaliser et prioriser les besoins.\n\n• Animer les ateliers métier.\n\n• Rédiger les spécifications fonctionnelles, exigences, cas d’utilisation et critères d’acceptation.\n\n• Contribuer aux cahiers des charges et aux documents d’appel d’offres.\n\n• Proposer des cas de test.\n\n• Étudier les variantes et formuler des recommandations.\n\n• Assurer la traçabilité des exigences.\n\n• Travailler avec les chefs de projet, les architectes, les équipes techniques et les fournisseurs.\n\n• Accompagnement du changement\n• Contribuer à la stratégie de conduite du changement et analyser les impacts organisationnels.\n\n• Animer les ateliers de validation.\n\n• Participer aux recettes fonctionnelles.\n\n• Produire la documentation fonctionnelle, les supports de formation et les guides utilisateurs.\n\n• Accompagner les utilisateurs lors du déploiement.\n\n• Formation supérieure (Master, Bachelor ou équivalent) en SI, gestion ou ingénierie, appuyée par au moins 5 ans d'expérience en Business Analysis dans un environnement IT.\n\n• Maîtrise des techniques de recueil d'exigences, de rédaction de spécifications fonctionnelles (use cases, critères d'acceptation) et d'optimisation des processus métier (BPR / BPMN).\n\n• Pratique des environnements Agile (Product Owner / Proxy PO) et/ou traditionnels (HERMES, BABOK). Une certification (CBAP, CCBA, IREB, HERMES) est un plus.\n\n• Expérience avérée dans la définition des cas de test, le suivi de la recette fonctionnelle, la création de supports de formation et l'accompagnement des utilisateurs au changement.\n\n• Contribution appréciée à la rédaction de cahiers des charges et aux volets fonctionnels des appels d'offres\n\n.",
+      "descriptionByLocale": {
+        "it": "Contesto\n\nCollegato alla divisione Progetti e Soluzioni, l'Analista Business lavora a supporto dei project manager SI e degli amministratori aziendali, dallo studio all'implementazione.\nMissione\n\n• Analizzare le esigenze aziendali e supportare la loro traduzione in soluzioni IT, coerente con la strategia SI e l'architettura.\n\n• Linking trades, team tecnici e responsabili del progetto dall'espressione della necessità di attuazione.\nresponsabilità\n\n• Consiglio\n• Eseguire analisi aziendali, studi di opportunità e analisi di impatto.\n\n• Ottimizzare e semplificare i processi (BPR).\n\n• Accompagnate la definizione delle esigenze.\n\n• Aumentare la consapevolezza delle buone pratiche digitali nelle professioni.\n\n• Analisi dei bisogni e AMOA\n• Raccogliere, formalizzare e priorità esigenze.\n\n• Condurre workshop aziendali.\n\n• Scrivere specifiche funzionali, requisiti, casi di utilizzo e criteri di accettazione.\n\n• Contribuire a specifiche e documenti teneri.\n\n• Proporre casi di prova.\n\n• Opzioni di revisione e fare raccomandazioni.\n\n• Assicurare la tracciabilità dei requisiti.\n\n• Lavora con project manager, architetti, team tecnici e fornitori.\n\n• Accompagnamento del cambiamento\n• Contribuisci alla strategia di cambiamento e analizza gli impatti organizzativi.\n\n• Condurre workshop di validazione.\n\n• Partecipa a ricette funzionali.\n\n• Produce documentazione funzionale, materiali di formazione e guide utente.\n\n• Supporta gli utenti durante la distribuzione.\n\n• Formazione avanzata (Master, Bachelor o equivalente) in IS, gestione o ingegneria, supportata da almeno 5 anni di esperienza in Business Analysis in un ambiente IT.\n\n• Mastery delle tecniche di raccolta dei requisiti, scrittura delle specifiche funzionali (usare scatole, criteri di accettazione) e ottimizzazione dei processi aziendali (BPR/BPMN).\n\n• Pratica di Agile (Product Owner / Proxy PO) e/o tradizionale (HERMES, BABOK). Una certificazione (CBAP, CCBA, IREB, HERMES) è un plus.\n\n• Esperienza nella definizione dei casi di test, tracciamento della ricetta funzionale, creazione di materiali di formazione e supporto agli utenti con cambiamento.\n\n• Contributo apprezzabile alla stesura di specifiche e aspetti funzionali delle offerte\n\n.",
+        "en": "Background\n\nLinked to the Projects and Solutions division, the Business Analyst works in support of the SI project managers and business directorates, from study to implementation.\nMission\n\n• Analyze business needs and support their translation into IT solutions, consistent with SI strategy and architecture.\n\n• Linking trades, technical teams and project leaders from the expression of need to implementation.\nResponsibilities\n\n• SI Council\n• Carry out business analyses, opportunity studies and impact analyses.\n\n• Optimize and simplify processes (BPR).\n\n• Accompany the definition of needs.\n\n• Raising awareness of good digital practices in the professions.\n\n• Needs analysis and AMOA\n• Collect, formalize and prioritize needs.\n\n• Conduct business workshops.\n\n• Write functional specifications, requirements, use case and acceptance criteria.\n\n• Contribute to specifications and tender documents.\n\n• Propose test cases.\n\n• Review options and make recommendations.\n\n• Ensure traceability of requirements.\n\n• Work with project managers, architects, technical teams and suppliers.\n\n• Accompaniment of change\n• Contribute to the change strategy and analyze organizational impacts.\n\n• Conduct validation workshops.\n\n• Participate in functional recipes.\n\n• Produce functional documentation, training materials and user guides.\n\n• Support users during deployment.\n\n• Advanced training (Master, Bachelor or equivalent) in IS, management or engineering, supported by at least 5 years of experience in Business Analysis in an IT environment.\n\n• Mastery of requirements collection techniques, functional specification writing (use boxes, acceptance criteria) and business process optimization (BPR/BPMN).\n\n• Practice of Agile (Product Owner / Proxy PO) and/or traditional (HERMES, BABOK). A certification (CBAP, CCBA, IREB, HERMES) is a plus.\n\n• Experience in defining test cases, tracking functional recipe, creating training materials and supporting users with change.\n\n• Appreciable contribution to the drafting of specifications and functional aspects of tenders\n\n.",
+        "de": "Hintergrund\n\nVerbunden mit der Division Projects and Solutions unterstützt der Business Analyst die SI-Projektmanager und Direktionen von der Studie bis zur Umsetzung.\nMission\n\n• Analysieren Sie die Geschäftsanforderungen und unterstützen Sie deren Übersetzung in IT-Lösungen im Einklang mit der SI-Strategie und -Architektur.\n\n• Verknüpfung von Gewerbe, technischen Teams und Projektleitern von der Notwendigkeitsbekundung bis zur Umsetzung.\nZuständigkeiten\n\n• SI-Rat\n• Durchführung von Geschäftsanalysen, Chancenstudien und Wirkungsanalysen.\n\n• Prozesse optimieren und vereinfachen (BPR).\n\n• Begleiten Sie die Definition der Bedürfnisse.\n\n• Sensibilisierung für gute digitale Praktiken in den Berufen.\n\n• Bedarfsanalyse und AMOA\n• Sammeln, formalisieren und priorisieren Sie Bedürfnisse.\n\n• Durchführung von Business Workshops.\n\n• Schreiben Sie funktionale Spezifikationen, Anforderungen, Use Case und Akzeptanzkriterien.\n\n• Beitrag zu Spezifikationen und Ausschreibungsunterlagen.\n\n• Testfälle vorschlagen.\n\n• Überprüfen Sie Optionen und geben Sie Empfehlungen ab.\n\n• Gewährleistung der Rückverfolgbarkeit der Anforderungen.\n\n• Arbeiten Sie mit Projektmanagern, Architekten, technischen Teams und Lieferanten zusammen.\n\n• Begleitung des Wandels\n• Tragen Sie zur Veränderungsstrategie bei und analysieren Sie die organisatorischen Auswirkungen.\n\n• Durchführung von Validierungsworkshops.\n\n• Beteiligen Sie sich an funktionalen Rezepten.\n\n• Erstellen Sie funktionale Dokumentation, Schulungsmaterialien und Benutzerhandbücher.\n\n• Unterstützen Sie Benutzer während der Bereitstellung.\n\n• Weiterbildung (Master, Bachelor oder gleichwertig) in IS, Management oder Engineering, unterstützt durch mindestens 5 Jahre Erfahrung in Business Analysis in einer IT-Umgebung.\n\n• Beherrschung von Anforderungserfassungstechniken, Funktionsspezifikationsschreiben (Verwendungsboxen, Akzeptanzkriterien) und Geschäftsprozessoptimierung (BPR/BPMN).\n\n• Praxis von Agile (Product Owner / Proxy PO) und / oder traditionell (HERMES, BABOK). Eine Zertifizierung (CBAP, CCBA, IREB, HERMES) ist ein Plus.\n\n• Erfahrung in der Definition von Testfällen, der Nachverfolgung funktionaler Rezepte, der Erstellung von Schulungsmaterialien und der Unterstützung von Benutzern bei Veränderungen.\n\n• Erheblicher Beitrag zur Ausarbeitung von Spezifikationen und funktionalen Aspekten von Ausschreibungen\n\n.",
+        "fr": "Contexte\n\nRattaché·e au pôle Projets et Solutions, le ou la Business Analyst intervient en appui des chefs de projet SI et des directions métier, de l’étude à la réalisation.\nMission\n\n• Analyser les besoins métier et accompagner leur traduction en solutions informatiques, en cohérence avec la stratégie et l’architecture SI.\n\n• Faire le lien entre métiers, équipes techniques et chefs de projet, de l’expression du besoin à la mise en œuvre.\nResponsabilités\n\n• Conseil SI\n• Réaliser des analyses métier, des études d’opportunité et des analyses d’impact.\n\n• Optimiser et simplifier les processus (BPR).\n\n• Accompagner la définition des besoins.\n\n• Sensibiliser les métiers aux bonnes pratiques numériques.\n\n• Analyse des besoins et AMOA\n• Recueillir, formaliser et prioriser les besoins.\n\n• Animer les ateliers métier.\n\n• Rédiger les spécifications fonctionnelles, exigences, cas d’utilisation et critères d’acceptation.\n\n• Contribuer aux cahiers des charges et aux documents d’appel d’offres.\n\n• Proposer des cas de test.\n\n• Étudier les variantes et formuler des recommandations.\n\n• Assurer la traçabilité des exigences.\n\n• Travailler avec les chefs de projet, les architectes, les équipes techniques et les fournisseurs.\n\n• Accompagnement du changement\n• Contribuer à la stratégie de conduite du changement et analyser les impacts organisationnels.\n\n• Animer les ateliers de validation.\n\n• Participer aux recettes fonctionnelles.\n\n• Produire la documentation fonctionnelle, les supports de formation et les guides utilisateurs.\n\n• Accompagner les utilisateurs lors du déploiement.\n\n• Formation supérieure (Master, Bachelor ou équivalent) en SI, gestion ou ingénierie, appuyée par au moins 5 ans d'expérience en Business Analysis dans un environnement IT.\n\n• Maîtrise des techniques de recueil d'exigences, de rédaction de spécifications fonctionnelles (use cases, critères d'acceptation) et d'optimisation des processus métier (BPR / BPMN).\n\n• Pratique des environnements Agile (Product Owner / Proxy PO) et/ou traditionnels (HERMES, BABOK). Une certification (CBAP, CCBA, IREB, HERMES) est un plus.\n\n• Expérience avérée dans la définition des cas de test, le suivi de la recette fonctionnelle, la création de supports de formation et l'accompagnement des utilisateurs au changement.\n\n• Contribution appréciée à la rédaction de cahiers des charges et aux volets fonctionnels des appels d'offres\n\n."
+      },
+      "location": "Lausanne, VD, Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000155794329--business-analyst?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T09:13:14.916Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "1003",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-15T15:39:54.113Z",
+      "postedDate": "2026-10-15T15:39:54.113Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155794329--business-analyst?oga=true",
+      "jobReqId": "744000155794329",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyst-talan-lausanne-vd-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-talan-lausanne-vd-switzerland"
+        ],
+        "de": [
+          "business-analyst-talan-lausanne-vd-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-15T21:16:17.870Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
           "unitText": "YEAR"
         }
       }
@@ -1309,7 +1234,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000156838401-solution-architect?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.675Z",
+      "crawledAt": "2026-10-25T09:13:14.915Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1357,41 +1282,41 @@
       }
     },
     {
-      "id": "talan-40d16a2b9320",
-      "slug": "change-manager-cybersecurity-talan-geneva",
+      "id": "talan-c069f012c467",
+      "slug": "lead-business-analista-talan-lausanne",
       "slugByLocale": {
-        "it": "change-manager-cybersecurity-talan-geneva",
-        "en": "change-manager-cybersecurity-talan-geneva",
-        "de": "change-manager-cybersecurite-talan-geneva-ge-switzerland",
-        "fr": "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+        "it": "lead-business-analista-talan-lausanne",
+        "en": "lead-business-analyst-talan-lausanne-switzerland",
+        "de": "unternehmensleitaspekt-talan-lausanne-switzerland",
+        "fr": "lead-business-analyst-talan-lausanne-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "Change Manager Cybersécurité",
+      "title": "Lead Business Analyst",
       "titleByLocale": {
-        "it": "Change Manager Cybersecurity",
-        "en": "Change Manager Cybersecurity",
-        "de": "Change Manager Cybersecurity",
-        "fr": "Change Manager Cybersécurité"
+        "it": "Lead Business Analista",
+        "en": "Lead Business Aspect",
+        "de": "Unternehmensleitaspekt",
+        "fr": "Lead Business Analyste"
       },
-      "description": "Dans le cadre d’un programme de transformation IT international, nous recherchons un.e Change Manager IT pour piloter la conduite du changement autour de projets liés à la cybersécurité, à la gestion des identités et des accès (IAM) et à l’approche Zero Trust.\n Vous accompagnerez les utilisateurs dans l’adoption de nouvelles solutions et de nouveaux processus, en coordonnant les actions de communication, de formation et de suivi avec les équipes métiers, IT et sécurité.\n Vos responsabilités\n\n• Définir et piloter la stratégie de conduite du changement en cohérence avec la feuille de route du programme.\n\n• Analyser les impacts des évolutions sur les différentes populations et élaborer des plans d’accompagnement adaptés.\n\n• Concevoir et déployer les communications, supports de formation, guides utilisateurs et webinaires, en français et en anglais.\n\n• Accompagner le déploiement de nouvelles solutions d’authentification, notamment Windows Hello for Business, ainsi que l’évolution des modèles de gestion des accès.\n\n• Coordonner les parties prenantes et préparer les équipes métiers, les responsables applicatifs et le support IT aux changements.\n\n• Suivre les indicateurs d’adoption, identifier les risques et mettre en place les actions correctives nécessaires.\n\n• Assurer le reporting auprès des responsables du programme et organiser le transfert des activités aux équipes opérationnelles.\n\n• Plus de 5 ans d’expérience en conduite du changement sur des programmes IT transverses de grande envergure.\n\n• Certification Prosci ou équivalente obligatoire.\n\n• Formation universitaire (Bachelor ou Master) en management, communication, ressources humaines, systèmes d’information ou domaine équivalent.Expérience dans un environnement international et multiculturel, avec des équipes réparties géographiquement.\n\n• Une expérience sur des projets IAM, MFA, SSO, cybersécurité ou Zero Trust constitue un réel atout.\n\n• Excellente maîtrise du français et de l’anglais, à l’oral comme à l’écrit.\n\n• Bonne maîtrise des outils collaboratifs Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomie, excellentes capacités de communication, pragmatisme et aptitude à fédérer des interlocuteurs variés.",
+      "description": "Dans le cadre de l’évolution de ses solutions digitales et du développement de nouvelles offres dans le domaine de l’assurance et de la prévoyance, notre client recherche un Lead Business Analyst senior pour renforcer ses équipes.\n Vous rejoindrez une équipe pluridisciplinaire composée de Business Analysts et de développeurs.\n Leadership et accompagnement en Business Analyse\n\n• Définir, structurer et faire évoluer les méthodes, standards et livrables de Business Analyse.\n\n• Accompagner les Business Analysts dans leurs activités à travers du coaching, des revues d’analyses et le partage de bonnes pratiques.\n\n• Garantir la qualité, la cohérence et l’exhaustivité des analyses produites.\n\n• Coordonner les travaux nécessitant l’intervention de plusieurs Business Analysts.\n Analyse métier et fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins des parties prenantes.\n\n• Traduire les besoins métier en exigences fonctionnelles, epics, user stories et critères d’acceptation.\n\n• Collaborer étroitement avec les équipes de développement afin de garantir la bonne compréhension des besoins.\n\n• Participer aux cérémonies Agile et contribuer à l’amélioration continue des pratiques.\n\n• Préparer et réaliser les tests fonctionnels, assurer le suivi des anomalies et accompagner les utilisateurs lors des phases de recette et de déploiement.\n\n• Plus de 8 ans d’expérience en Business Analyse, avec une expérience confirmée en tant que Lead BA ou référent méthodologique.\n\n• Expertise en coaching de Business Analysts et en définition de standards et bonnes pratiques.\n\n• Maîtrise de l’analyse fonctionnelle, des API et des problématiques d’intégration.\n\n• Excellente connaissance des méthodologies Agile/Scrum, de Jira et Confluence.\n\n• Leadership, esprit critique, autonomie et excellentes capacités d’analyse et de synthèse.\n\n• Langues: Français courant + Anglais B2 minimum.\n Atouts\n\n• Expérience dans l’assurance, idéalement en prévoyance et sur des parcours de souscription digitaux.\n\n• Connaissance des environnements Java/Angular.\n\n• Certification en Business Analyse.",
       "descriptionByLocale": {
-        "it": "Come parte di un programma di trasformazione IT internazionale, stiamo cercando un Change Manager IT per guidare il cambiamento intorno alla sicurezza informatica, identità e gestione degli accessi (IAM) e Zero Trust progetti.\nSosterrai gli utenti nell'adottare nuove soluzioni e processi, coordinando le azioni di comunicazione, formazione e follow-up con i team di commercio, IT e sicurezza.\nLe tue responsabilità\n\n• Definire e gestire la strategia di gestione dei cambiamenti in linea con la roadmap del programma.\n\n• Per analizzare l'impatto degli sviluppi sulle diverse popolazioni e sviluppare piani di accompagnamento adeguati.\n\n• Progettazione e distribuzione di comunicazioni, materiali di formazione, guide utente e webinar, in francese e inglese.\n\n• Supporta l'implementazione di nuove soluzioni di autenticazione, tra cui Windows Hello for Business, nonché l'evoluzione dei modelli di gestione degli accessi.\n\n• Coordinare le parti interessate e preparare i team aziendali, i responsabili delle applicazioni e il supporto IT per il cambiamento.\n\n• Monitorare gli indicatori di adozione, identificare i rischi e implementare azioni correttive.\n\n• Assicurare la segnalazione ai responsabili del programma e organizzare il trasferimento delle attività ai team operativi.\n\n• Più di 5 anni di esperienza nel cambiamento di primo piano sui programmi IT trasversale su larga scala.\n\n• Certificazione Prosci o equivalente obbligatorio.\n\n• Formazione universitaria (Bachelor o Master) in gestione, comunicazione, risorse umane, sistemi informativi o campo equivalente. Esperienza in un ambiente internazionale e multiculturale, con team distribuiti geograficamente.\n\n• L'esperienza sui progetti IAM, MFA, SSO, cybersecurity o Zero Trust è una risorsa reale.\n\n• Ottima padronanza di francese e inglese, sia orale che scritta.\n\n• Buona padronanza degli strumenti collaborativi Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomia, eccellenti capacità comunicative, pragmatismo e la capacità di riunire diversi interlocutori.",
-        "en": "As part of an international IT transformation program, we are looking for a Change Manager IT to drive change around cybersecurity, identity and access management (IAM) and Zero Trust projects.\nYou will support users in adopting new solutions and processes, coordinating communication, training and follow-up actions with trades, IT and security teams.\nYour responsibilities\n\n• Define and manage the change management strategy in line with the programme roadmap.\n\n• To analyse the impact of developments on different populations and develop appropriate accompanying plans.\n\n• Design and deploy communications, training materials, user guides and webinars, in French and English.\n\n• Support the deployment of new authentication solutions, including Windows Hello for Business, as well as the evolution of access management models.\n\n• Coordinate stakeholders and prepare business teams, application managers and IT support for change.\n\n• Monitor adoption indicators, identify risks and implement corrective actions.\n\n• Ensure reporting to programme managers and organize the transfer of activities to operational teams.\n\n• More than 5 years of experience in leading change on large-scale transverse IT programs.\n\n• Prosci certification or mandatory equivalent.\n\n• University training (Bachelor or Master) in management, communication, human resources, information systems or equivalent field. Experience in an international and multicultural environment, with geographically distributed teams.\n\n• Experience on IAM, MFA, SSO, cybersecurity or Zero Trust projects is a real asset.\n\n• Excellent mastery of French and English, both oral and written.\n\n• Good mastery of Microsoft 365 collaborative tools (Teams, SharePoint, Viva Engage).\n\n• Autonomy, excellent communication skills, pragmatism and the ability to bring together diverse interlocutors.",
-        "de": "Im Rahmen eines internationalen IT-Transformationsprogramms suchen wir nach einer Change Manager IT, um den Wandel in den Bereichen Cybersicherheit, Identitäts- und Zugriffsmanagement (IAM) und Zero Trust-Projekte voranzutreiben.\nSie unterstützen die Benutzer bei der Einführung neuer Lösungen und Prozesse und koordinieren Kommunikation, Schulungen und Folgemaßnahmen mit Trades, IT und Sicherheitsteams.\nIhre Verantwortung\n\n• Definieren und verwalten Sie die Change Management Strategie im Einklang mit der Programm-Roadmap.\n\n• Analyse der Auswirkungen von Entwicklungen auf verschiedene Populationen und Entwicklung geeigneter Begleitpläne.\n\n• Entwerfen und Bereitstellen von Kommunikation, Schulungsmaterialien, Benutzerhandbüchern und Webinaren in Französisch und Englisch.\n\n• Unterstützen Sie die Bereitstellung neuer Authentifizierungslösungen, einschließlich Windows Hello for Business, sowie die Entwicklung von Zugriffsmanagementmodellen.\n\n• Koordinieren Sie Stakeholder und bereiten Sie Geschäftsteams, Anwendungsmanager und IT-Support auf Veränderungen vor.\n\n• Überwachung von Adoptionsindikatoren, Ermittlung von Risiken und Umsetzung von Korrekturmaßnahmen.\n\n• Gewährleistung der Berichterstattung an die Programmmanager und Organisation der Übertragung von Aktivitäten an die operativen Teams.\n\n• Mehr als 5 Jahre Erfahrung in führenden Veränderungen bei großen transversalen IT-Programmen.\n\n• Prosci-Zertifizierung oder obligatorisches Äquivalent.\n\n• Universitätsausbildung (Bachelor oder Master) in Management, Kommunikation, Personal, Informationssystemen oder einem gleichwertigen Bereich. Erfahrung in einem internationalen und multikulturellen Umfeld mit geografisch verteilten Teams.\n\n• Erfahrung in IAM-, MFA-, SSO-, Cybersicherheits- oder Zero Trust-Projekten ist eine echte Bereicherung.\n\n• Hervorragende Beherrschung von Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Gute Beherrschung von Microsoft 365 kollaborativen Tools (Teams, SharePoint, Viva Engage).\n\n• Autonomie, ausgezeichnete Kommunikationsfähigkeiten, Pragmatismus und die Fähigkeit, verschiedene Gesprächspartner zusammenzubringen.",
-        "fr": "Dans le cadre d’un programme de transformation IT international, nous recherchons un.e Change Manager IT pour piloter la conduite du changement autour de projets liés à la cybersécurité, à la gestion des identités et des accès (IAM) et à l’approche Zero Trust.\nVous accompagnerez les utilisateurs dans l’adoption de nouvelles solutions et de nouveaux processus, en coordonnant les actions de communication, de formation et de suivi avec les équipes métiers, IT et sécurité.\nVos responsabilités\n\n• Définir et piloter la stratégie de conduite du changement en cohérence avec la feuille de route du programme.\n\n• Analyser les impacts des évolutions sur les différentes populations et élaborer des plans d’accompagnement adaptés.\n\n• Concevoir et déployer les communications, supports de formation, guides utilisateurs et webinaires, en français et en anglais.\n\n• Accompagner le déploiement de nouvelles solutions d’authentification, notamment Windows Hello for Business, ainsi que l’évolution des modèles de gestion des accès.\n\n• Coordonner les parties prenantes et préparer les équipes métiers, les responsables applicatifs et le support IT aux changements.\n\n• Suivre les indicateurs d’adoption, identifier les risques et mettre en place les actions correctives nécessaires.\n\n• Assurer le reporting auprès des responsables du programme et organiser le transfert des activités aux équipes opérationnelles.\n\n• Plus de 5 ans d’expérience en conduite du changement sur des programmes IT transverses de grande envergure.\n\n• Certification Prosci ou équivalente obligatoire.\n\n• Formation universitaire (Bachelor ou Master) en management, communication, ressources humaines, systèmes d’information ou domaine équivalent.Expérience dans un environnement international et multiculturel, avec des équipes réparties géographiquement.\n\n• Une expérience sur des projets IAM, MFA, SSO, cybersécurité ou Zero Trust constitue un réel atout.\n\n• Excellente maîtrise du français et de l’anglais, à l’oral comme à l’écrit.\n\n• Bonne maîtrise des outils collaboratifs Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomie, excellentes capacités de communication, pragmatisme et aptitude à fédérer des interlocuteurs variés."
+        "it": "Nell'ambito dell'evoluzione delle sue soluzioni digitali e dello sviluppo di nuove offerte nel campo dell'assicurazione e della previsione, il nostro cliente sta cercando un Senior Lead Business Analyst per rafforzare i suoi team.\nTi unirai a un team multidisciplinare di Business Analysts e sviluppatori.\nLeadership e supporto nell'analisi aziendale\n\n• Definire, strutturare ed evolvere i metodi di analisi aziendale, gli standard e i materiali di consegna.\n\n• Support Business Analysts nelle loro attività attraverso coaching, analisi recensioni e condivisione delle migliori pratiche.\n\n• Assicurare la qualità, la consistenza e la completezza delle analisi prodotte.\n\n• Lavoro coordinato che coinvolge diversi analisti aziendali.\nAnalisi aziendale e funzionale\n\n• Raccogliere, analizzare e formalizzare le esigenze degli stakeholder.\n\n• Traduci i requisiti aziendali in requisiti funzionali, epici, storie utente e criteri di accettazione.\n\n• Lavorare a stretto contatto con i team di sviluppo per garantire una buona comprensione dei bisogni.\n\n• Partecipare alle cerimonie Agile e contribuire al miglioramento continuo delle pratiche.\n\n• Preparare ed eseguire test funzionali, monitorare anomalie e supportare gli utenti durante le fasi di ricetta e distribuzione.\n\n• Più di 8 anni di esperienza in Business Analysis, con esperienza confermata come Lead BA o riferimento metodologico.\n\n• Competenza in Business Analyst coaching e definizione di standard e best practice.\n\n• Mastery di analisi funzionale, API e problemi di integrazione.\n\n• Ottima conoscenza delle metodologie Agile/Scrum, Jira e Confluence.\n\n• Leadership, mente critica, autonomia e eccellenti capacità analitiche e di sintesi.\n\n• Lingue: Francese corrente + Inglese B2 minimo.\nBeni\n\n• Esperienza nell'assicurazione, idealmente in vista e sulle rotte di abbonamento digitali.\n\n• Conoscenza degli ambienti Java/Angular.\n\n• Certificazione di analisi aziendale.",
+        "en": "As part of the evolution of its digital solutions and the development of new offers in the field of insurance and foresight, our customer is looking for a Senior Lead Business Analyst to strengthen its teams.\nYou will join a multidisciplinary team of Business Analysts and developers.\nLeadership and support in Business Analysis\n\n• Define, structure and evolve Business Analysis methods, standards and deliverables.\n\n• Support Business Analysts in their activities through coaching, analysis reviews and sharing of best practices.\n\n• Ensure the quality, consistency and completeness of the analyses produced.\n\n• Coordinate work involving several Business Analysts.\nBusiness and functional analysis\n\n• Collect, analyse and formalize stakeholder needs.\n\n• Translate business requirements into functional requirements, epics, user stories and acceptance criteria.\n\n• Work closely with development teams to ensure a good understanding of needs.\n\n• Participate in Agile ceremonies and contribute to continuous improvement of practices.\n\n• Prepare and perform functional tests, monitor anomalies and support users during the recipe and deployment phases.\n\n• More than 8 years of experience in Business Analysis, with experience confirmed as Lead BA or methodological reference.\n\n• Expertise in Business Analyst coaching and definition of standards and best practices.\n\n• Mastery of functional analysis, APIs and integration issues.\n\n• Excellent knowledge of Agile/Scrum, Jira and Confluence methodologies.\n\n• Leadership, critical mind, autonomy and excellent analytical and synthesis capabilities.\n\n• Languages: Current French + English B2 minimum.\nAssets\n\n• Experience in insurance, ideally in foresight and on digital subscription routes.\n\n• Knowledge of Java/Angular environments.\n\n• Business Analysis Certification.",
+        "de": "Im Rahmen der Weiterentwicklung seiner digitalen Lösungen und der Entwicklung neuer Angebote im Bereich Versicherung und Vorausschau sucht unser Kunde einen Senior Lead Business Analysten zur Stärkung seiner Teams.\nSie werden einem multidisziplinären Team von Business Analysten und Entwicklern beitreten.\nFührung und Unterstützung in Business Analysis\n\n• Definieren, strukturieren und entwickeln Sie Geschäftsanalysemethoden, Standards und Ergebnisse.\n\n• Unterstützen Sie Business Analysten bei ihren Aktivitäten durch Coaching, Analyse-Reviews und den Austausch von Best Practices.\n\n• Gewährleistung der Qualität, Konsistenz und Vollständigkeit der erstellten Analysen.\n\n• Koordinieren Sie die Arbeit mit mehreren Business Analysten.\nGeschäfts- und Funktionsanalyse\n\n• Sammeln, analysieren und formalisieren Sie die Bedürfnisse der Stakeholder.\n\n• Übersetzen Sie Geschäftsanforderungen in funktionale Anforderungen, Epics, User Stories und Akzeptanzkriterien.\n\n• Arbeiten Sie eng mit Entwicklungsteams zusammen, um ein gutes Verständnis der Bedürfnisse zu gewährleisten.\n\n• Nimm an agilen Zeremonien teil und trage zur kontinuierlichen Verbesserung von Praktiken bei.\n\n• Bereiten und führen Sie Funktionstests durch, überwachen Sie Anomalien und unterstützen Sie die Benutzer während der Rezept- und Bereitstellungsphase.\n\n• Mehr als 8 Jahre Erfahrung in Business Analysis, mit Erfahrung als Lead BA oder methodische Referenz bestätigt.\n\n• Expertise im Business Analyst Coaching und Definition von Standards und Best Practices.\n\n• Beherrschung der Funktionsanalyse, APIs und Integrationsprobleme.\n\n• Ausgezeichnete Kenntnisse der Agile/Scrum, Jira und Confluence Methoden.\n\n• Führung, kritisches Denken, Autonomie und ausgezeichnete Analyse- und Synthesefähigkeiten.\n\n• Sprachen: Aktuelles Französisch + Englisch B2 Minimum.\nVermögenswerte\n\n• Erfahrung in der Versicherung, idealerweise im Voraus und auf digitalen Abonnementrouten.\n\n• Kenntnisse über Java/Angular Environments.\n\n• Business Analysis Zertifizierung.",
+        "fr": "Dans le cadre de l’évolution de ses solutions digitales et du développement de nouvelles offres dans le domaine de l’assurance et de la prévoyance, notre client recherche un Lead Business Analyst senior pour renforcer ses équipes.\nVous rejoindrez une équipe pluridisciplinaire composée de Business Analysts et de développeurs.\nLeadership et accompagnement en Business Analyse\n\n• Définir, structurer et faire évoluer les méthodes, standards et livrables de Business Analyse.\n\n• Accompagner les Business Analysts dans leurs activités à travers du coaching, des revues d’analyses et le partage de bonnes pratiques.\n\n• Garantir la qualité, la cohérence et l’exhaustivité des analyses produites.\n\n• Coordonner les travaux nécessitant l’intervention de plusieurs Business Analysts.\nAnalyse métier et fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins des parties prenantes.\n\n• Traduire les besoins métier en exigences fonctionnelles, epics, user stories et critères d’acceptation.\n\n• Collaborer étroitement avec les équipes de développement afin de garantir la bonne compréhension des besoins.\n\n• Participer aux cérémonies Agile et contribuer à l’amélioration continue des pratiques.\n\n• Préparer et réaliser les tests fonctionnels, assurer le suivi des anomalies et accompagner les utilisateurs lors des phases de recette et de déploiement.\n\n• Plus de 8 ans d’expérience en Business Analyse, avec une expérience confirmée en tant que Lead BA ou référent méthodologique.\n\n• Expertise en coaching de Business Analysts et en définition de standards et bonnes pratiques.\n\n• Maîtrise de l’analyse fonctionnelle, des API et des problématiques d’intégration.\n\n• Excellente connaissance des méthodologies Agile/Scrum, de Jira et Confluence.\n\n• Leadership, esprit critique, autonomie et excellentes capacités d’analyse et de synthèse.\n\n• Langues: Français courant + Anglais B2 minimum.\nAtouts\n\n• Expérience dans l’assurance, idéalement en prévoyance et sur des parcours de souscription digitaux.\n\n• Connaissance des environnements Java/Angular.\n\n• Certification en Business Analyse."
       },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155941719-change-manager-cybersecurite?oga=true",
+      "location": "Lausanne, , Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000155930739-lead-business-analyst?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.673Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
+      "crawledAt": "2026-10-25T09:13:14.914Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "1003",
+      "streetAddress": "",
       "addressCountry": "CH",
       "country": "CH",
       "category": "IT",
@@ -1401,25 +1326,22 @@
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-16T08:40:23.687Z",
-      "postedDate": "2026-10-16T08:40:23.687Z",
+      "datePosted": "2026-10-16T07:51:51.084Z",
+      "postedDate": "2026-10-16T07:51:51.084Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155941719-change-manager-cybersecurite?oga=true",
-      "jobReqId": "744000155941719",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155930739-lead-business-analyst?oga=true",
+      "jobReqId": "744000155930739",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+        "lead-business-analyst-talan-lausanne-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "change-manager-cybersecurite-talan-geneva-ge-switzerland"
-        ],
-        "en": [
-          "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+          "lead-business-analyst-talan-lausanne-switzerland"
         ]
       },
-      "firstSeenAt": "2026-10-16T09:14:05.404Z",
+      "firstSeenAt": "2026-10-09T21:16:06.901Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -1465,7 +1387,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.671Z",
+      "crawledAt": "2026-10-25T09:13:14.913Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1543,7 +1465,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-24T21:20:42.665Z",
+      "crawledAt": "2026-10-25T09:13:14.912Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1573,6 +1495,84 @@
         ]
       },
       "firstSeenAt": "2026-10-23T21:11:18.471Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-40d16a2b9320",
+      "slug": "change-manager-cybersecurity-talan-geneva",
+      "slugByLocale": {
+        "it": "change-manager-cybersecurity-talan-geneva",
+        "en": "change-manager-cybersecurity-talan-geneva",
+        "de": "change-manager-cybersecurite-talan-geneva-ge-switzerland",
+        "fr": "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Change Manager Cybersécurité",
+      "titleByLocale": {
+        "it": "Change Manager Cybersecurity",
+        "en": "Change Manager Cybersecurity",
+        "de": "Change Manager Cybersecurity",
+        "fr": "Change Manager Cybersécurité"
+      },
+      "description": "Dans le cadre d’un programme de transformation IT international, nous recherchons un.e Change Manager IT pour piloter la conduite du changement autour de projets liés à la cybersécurité, à la gestion des identités et des accès (IAM) et à l’approche Zero Trust.\n Vous accompagnerez les utilisateurs dans l’adoption de nouvelles solutions et de nouveaux processus, en coordonnant les actions de communication, de formation et de suivi avec les équipes métiers, IT et sécurité.\n Vos responsabilités\n\n• Définir et piloter la stratégie de conduite du changement en cohérence avec la feuille de route du programme.\n\n• Analyser les impacts des évolutions sur les différentes populations et élaborer des plans d’accompagnement adaptés.\n\n• Concevoir et déployer les communications, supports de formation, guides utilisateurs et webinaires, en français et en anglais.\n\n• Accompagner le déploiement de nouvelles solutions d’authentification, notamment Windows Hello for Business, ainsi que l’évolution des modèles de gestion des accès.\n\n• Coordonner les parties prenantes et préparer les équipes métiers, les responsables applicatifs et le support IT aux changements.\n\n• Suivre les indicateurs d’adoption, identifier les risques et mettre en place les actions correctives nécessaires.\n\n• Assurer le reporting auprès des responsables du programme et organiser le transfert des activités aux équipes opérationnelles.\n\n• Plus de 5 ans d’expérience en conduite du changement sur des programmes IT transverses de grande envergure.\n\n• Certification Prosci ou équivalente obligatoire.\n\n• Formation universitaire (Bachelor ou Master) en management, communication, ressources humaines, systèmes d’information ou domaine équivalent.Expérience dans un environnement international et multiculturel, avec des équipes réparties géographiquement.\n\n• Une expérience sur des projets IAM, MFA, SSO, cybersécurité ou Zero Trust constitue un réel atout.\n\n• Excellente maîtrise du français et de l’anglais, à l’oral comme à l’écrit.\n\n• Bonne maîtrise des outils collaboratifs Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomie, excellentes capacités de communication, pragmatisme et aptitude à fédérer des interlocuteurs variés.",
+      "descriptionByLocale": {
+        "it": "Come parte di un programma di trasformazione IT internazionale, stiamo cercando un Change Manager IT per guidare il cambiamento intorno alla sicurezza informatica, identità e gestione degli accessi (IAM) e Zero Trust progetti.\nSosterrai gli utenti nell'adottare nuove soluzioni e processi, coordinando le azioni di comunicazione, formazione e follow-up con i team di commercio, IT e sicurezza.\nLe tue responsabilità\n\n• Definire e gestire la strategia di gestione dei cambiamenti in linea con la roadmap del programma.\n\n• Per analizzare l'impatto degli sviluppi sulle diverse popolazioni e sviluppare piani di accompagnamento adeguati.\n\n• Progettazione e distribuzione di comunicazioni, materiali di formazione, guide utente e webinar, in francese e inglese.\n\n• Supporta l'implementazione di nuove soluzioni di autenticazione, tra cui Windows Hello for Business, nonché l'evoluzione dei modelli di gestione degli accessi.\n\n• Coordinare le parti interessate e preparare i team aziendali, i responsabili delle applicazioni e il supporto IT per il cambiamento.\n\n• Monitorare gli indicatori di adozione, identificare i rischi e implementare azioni correttive.\n\n• Assicurare la segnalazione ai responsabili del programma e organizzare il trasferimento delle attività ai team operativi.\n\n• Più di 5 anni di esperienza nel cambiamento di primo piano sui programmi IT trasversale su larga scala.\n\n• Certificazione Prosci o equivalente obbligatorio.\n\n• Formazione universitaria (Bachelor o Master) in gestione, comunicazione, risorse umane, sistemi informativi o campo equivalente. Esperienza in un ambiente internazionale e multiculturale, con team distribuiti geograficamente.\n\n• L'esperienza sui progetti IAM, MFA, SSO, cybersecurity o Zero Trust è una risorsa reale.\n\n• Ottima padronanza di francese e inglese, sia orale che scritta.\n\n• Buona padronanza degli strumenti collaborativi Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomia, eccellenti capacità comunicative, pragmatismo e la capacità di riunire diversi interlocutori.",
+        "en": "As part of an international IT transformation program, we are looking for a Change Manager IT to drive change around cybersecurity, identity and access management (IAM) and Zero Trust projects.\nYou will support users in adopting new solutions and processes, coordinating communication, training and follow-up actions with trades, IT and security teams.\nYour responsibilities\n\n• Define and manage the change management strategy in line with the programme roadmap.\n\n• To analyse the impact of developments on different populations and develop appropriate accompanying plans.\n\n• Design and deploy communications, training materials, user guides and webinars, in French and English.\n\n• Support the deployment of new authentication solutions, including Windows Hello for Business, as well as the evolution of access management models.\n\n• Coordinate stakeholders and prepare business teams, application managers and IT support for change.\n\n• Monitor adoption indicators, identify risks and implement corrective actions.\n\n• Ensure reporting to programme managers and organize the transfer of activities to operational teams.\n\n• More than 5 years of experience in leading change on large-scale transverse IT programs.\n\n• Prosci certification or mandatory equivalent.\n\n• University training (Bachelor or Master) in management, communication, human resources, information systems or equivalent field. Experience in an international and multicultural environment, with geographically distributed teams.\n\n• Experience on IAM, MFA, SSO, cybersecurity or Zero Trust projects is a real asset.\n\n• Excellent mastery of French and English, both oral and written.\n\n• Good mastery of Microsoft 365 collaborative tools (Teams, SharePoint, Viva Engage).\n\n• Autonomy, excellent communication skills, pragmatism and the ability to bring together diverse interlocutors.",
+        "de": "Im Rahmen eines internationalen IT-Transformationsprogramms suchen wir nach einer Change Manager IT, um den Wandel in den Bereichen Cybersicherheit, Identitäts- und Zugriffsmanagement (IAM) und Zero Trust-Projekte voranzutreiben.\nSie unterstützen die Benutzer bei der Einführung neuer Lösungen und Prozesse und koordinieren Kommunikation, Schulungen und Folgemaßnahmen mit Trades, IT und Sicherheitsteams.\nIhre Verantwortung\n\n• Definieren und verwalten Sie die Change Management Strategie im Einklang mit der Programm-Roadmap.\n\n• Analyse der Auswirkungen von Entwicklungen auf verschiedene Populationen und Entwicklung geeigneter Begleitpläne.\n\n• Entwerfen und Bereitstellen von Kommunikation, Schulungsmaterialien, Benutzerhandbüchern und Webinaren in Französisch und Englisch.\n\n• Unterstützen Sie die Bereitstellung neuer Authentifizierungslösungen, einschließlich Windows Hello for Business, sowie die Entwicklung von Zugriffsmanagementmodellen.\n\n• Koordinieren Sie Stakeholder und bereiten Sie Geschäftsteams, Anwendungsmanager und IT-Support auf Veränderungen vor.\n\n• Überwachung von Adoptionsindikatoren, Ermittlung von Risiken und Umsetzung von Korrekturmaßnahmen.\n\n• Gewährleistung der Berichterstattung an die Programmmanager und Organisation der Übertragung von Aktivitäten an die operativen Teams.\n\n• Mehr als 5 Jahre Erfahrung in führenden Veränderungen bei großen transversalen IT-Programmen.\n\n• Prosci-Zertifizierung oder obligatorisches Äquivalent.\n\n• Universitätsausbildung (Bachelor oder Master) in Management, Kommunikation, Personal, Informationssystemen oder einem gleichwertigen Bereich. Erfahrung in einem internationalen und multikulturellen Umfeld mit geografisch verteilten Teams.\n\n• Erfahrung in IAM-, MFA-, SSO-, Cybersicherheits- oder Zero Trust-Projekten ist eine echte Bereicherung.\n\n• Hervorragende Beherrschung von Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Gute Beherrschung von Microsoft 365 kollaborativen Tools (Teams, SharePoint, Viva Engage).\n\n• Autonomie, ausgezeichnete Kommunikationsfähigkeiten, Pragmatismus und die Fähigkeit, verschiedene Gesprächspartner zusammenzubringen.",
+        "fr": "Dans le cadre d’un programme de transformation IT international, nous recherchons un.e Change Manager IT pour piloter la conduite du changement autour de projets liés à la cybersécurité, à la gestion des identités et des accès (IAM) et à l’approche Zero Trust.\nVous accompagnerez les utilisateurs dans l’adoption de nouvelles solutions et de nouveaux processus, en coordonnant les actions de communication, de formation et de suivi avec les équipes métiers, IT et sécurité.\nVos responsabilités\n\n• Définir et piloter la stratégie de conduite du changement en cohérence avec la feuille de route du programme.\n\n• Analyser les impacts des évolutions sur les différentes populations et élaborer des plans d’accompagnement adaptés.\n\n• Concevoir et déployer les communications, supports de formation, guides utilisateurs et webinaires, en français et en anglais.\n\n• Accompagner le déploiement de nouvelles solutions d’authentification, notamment Windows Hello for Business, ainsi que l’évolution des modèles de gestion des accès.\n\n• Coordonner les parties prenantes et préparer les équipes métiers, les responsables applicatifs et le support IT aux changements.\n\n• Suivre les indicateurs d’adoption, identifier les risques et mettre en place les actions correctives nécessaires.\n\n• Assurer le reporting auprès des responsables du programme et organiser le transfert des activités aux équipes opérationnelles.\n\n• Plus de 5 ans d’expérience en conduite du changement sur des programmes IT transverses de grande envergure.\n\n• Certification Prosci ou équivalente obligatoire.\n\n• Formation universitaire (Bachelor ou Master) en management, communication, ressources humaines, systèmes d’information ou domaine équivalent.Expérience dans un environnement international et multiculturel, avec des équipes réparties géographiquement.\n\n• Une expérience sur des projets IAM, MFA, SSO, cybersécurité ou Zero Trust constitue un réel atout.\n\n• Excellente maîtrise du français et de l’anglais, à l’oral comme à l’écrit.\n\n• Bonne maîtrise des outils collaboratifs Microsoft 365 (Teams, SharePoint, Viva Engage).\n\n• Autonomie, excellentes capacités de communication, pragmatisme et aptitude à fédérer des interlocuteurs variés."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000155941719-change-manager-cybersecurite?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-25T09:13:14.909Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-16T08:40:23.687Z",
+      "postedDate": "2026-10-16T08:40:23.687Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155941719-change-manager-cybersecurite?oga=true",
+      "jobReqId": "744000155941719",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+        ],
+        "en": [
+          "change-manager-cybersecurite-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-16T09:14:05.404Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
