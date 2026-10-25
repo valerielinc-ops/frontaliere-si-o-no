@@ -39,6 +39,17 @@ function hasUniqueNormalizedLabels(values) {
   return true;
 }
 
+function resolveUniqueOption(values, answer, label = optionText) {
+  const value = String(answer ?? '').trim();
+  const exact = values.filter((item) => String(label(item) ?? '').trim() === value);
+  if (exact.length === 1) return exact[0];
+  if (exact.length > 1) return null;
+  const normalized = normalizedOption(value);
+  if (!normalized) return null;
+  const matches = values.filter((item) => normalizedOption(label(item)) === normalized);
+  return matches.length === 1 ? matches[0] : null;
+}
+
 /**
  * Return only mappings whose application label is an exact live option label.
  * A positional fallback is accepted only for identical, boolean, or placeholder
@@ -69,12 +80,11 @@ export function portalAnswerForApplication(question, answer) {
   const value = String(answer ?? '').trim();
   if (!value) return value;
   const mapping = portalOptionMap(question);
-  const candidate = normalizedOption(value);
-  const mapped = mapping.filter((pair) => normalizedOption(pair.candidate) === candidate);
-  if (mapped.length === 1) return mapped[0].application;
+  const mapped = resolveUniqueOption(mapping, value, (pair) => pair.candidate);
+  if (mapped) return mapped.application;
   const applicationOptions = Array.isArray(question?.applicationOptions) ? question.applicationOptions.map(optionText).map((item) => String(item ?? '').trim()).filter(Boolean) : [];
-  const exact = applicationOptions.filter((option) => normalizedOption(option) === candidate);
-  if (exact.length === 1) return exact[0];
+  const exact = resolveUniqueOption(applicationOptions, value);
+  if (exact !== null) return exact;
   const boolean = booleanOptionValue(value);
   if (boolean !== null) {
     const matching = applicationOptions.filter((option) => booleanOptionValue(option) === boolean);

@@ -575,6 +575,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalOptionMap({ options: ['Uno', 'Due'], applicationOptions: ['A', 'B'] })).toEqual([]);
     expect(portalAnswerForApplication({ options: ['Uno', 'Due'], applicationOptions: ['A', 'B'] }, 'Due')).toBe('');
     expect(portalOptionMap({ options: ['A', 'a'], applicationOptions: ['X', 'Y'] })).toEqual([]);
+    expect(portalAnswerForApplication({ options: ['C++', 'C'], applicationOptions: ['C++', 'C'] }, 'C')).toBe('C');
     const question = {
       options: ['Uno', 'Due'],
       applicationOptions: ['A', 'B'],
