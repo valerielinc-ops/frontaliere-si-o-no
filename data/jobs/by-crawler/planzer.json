@@ -744,12 +744,12 @@
     },
     {
       "id": "planzer-9f5096fe29cb",
-      "slug": "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
+      "slug": "addetto-al-picking-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
-        "it": "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
-        "en": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
-        "fr": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+        "it": "addetto-al-picking-m-f-d-planzer-villmergen",
+        "en": "employee-picking-m-f-d-planzer-villmergen",
+        "fr": "selection-des-employes-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -798,11 +798,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
+          "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
           "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
