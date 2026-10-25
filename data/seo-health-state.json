@@ -1,32 +1,16 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-24T08:57:44.381Z",
+  "lastRunAt": "2026-10-25T09:12:19.768Z",
   "findings": {
-    "jobposting-missing|https://frontaliereticino.ch/cerca-lavoro-vallese/burchen/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-vallese/burchen/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-10-23T09:26:44.497Z",
-      "lastSeenAt": "2026-10-24T08:57:44.381Z",
-      "detail": null
-    },
-    "jobposting-withheld-unverified-date|https://frontaliereticino.ch/cerca-lavoro-zurigo/consulente-alle-vendite-interdiscount-affoltern-am-albis/": {
-      "code": "jobposting-withheld-unverified-date",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/consulente-alle-vendite-interdiscount-affoltern-am-albis/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-10-23T09:26:44.497Z",
-      "lastSeenAt": "2026-10-24T08:57:44.381Z",
-      "detail": null
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch:2087/login/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch:2087/login/",
+    "sitemap-graph-truncated|https://frontaliereticino.ch/sitemap.xml": {
+      "code": "sitemap-graph-truncated",
+      "url": "https://frontaliereticino.ch/sitemap.xml",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-10-24T08:57:44.381Z",
-      "lastSeenAt": "2026-10-24T08:57:44.381Z",
-      "detail": "edge=503 count=1 live=503 surface=other"
+      "firstSeenAt": "2026-10-25T09:12:19.768Z",
+      "lastSeenAt": "2026-10-25T09:12:19.768Z",
+      "detail": "max 160 sitemap files"
     }
   },
   "cleanRuns": 0,
-  "lastActionable": true
+  "lastActionable": false
 }
