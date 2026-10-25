@@ -214,6 +214,7 @@ export function classifyCdnPublishWindow({
   const completeId = completeMarker?.ok ? validBuildId(completeMarker.body) : null;
   const startAbsent = startMarker?.status === 404;
   const completeAbsent = completeMarker?.status === 404;
+  const startTimeMs = startId ? publishTokenTimeMs(startId) : null;
 
   if (startAbsent && completeAbsent) {
     return { state: 'legacy', startId: null, completeId: null, ageMs: null };
@@ -222,13 +223,17 @@ export function classifyCdnPublishWindow({
     return { state: 'unavailable', startId, completeId, ageMs: null };
   }
   if (completeId && startId === completeId) {
-    return { state: 'stable', startId, completeId, ageMs: Math.max(0, nowMs - Number(startId)) };
+    return {
+      state: 'stable',
+      startId,
+      completeId,
+      ageMs: startTimeMs === null ? null : Math.max(0, nowMs - startTimeMs),
+    };
   }
   if (completeId && BigInt(startId) < BigInt(completeId)) {
     return { state: 'marker_regression', startId, completeId, ageMs: null };
   }
 
-  const startTimeMs = publishTokenTimeMs(startId);
   const ageMs = startTimeMs === null ? null : nowMs - startTimeMs;
   return {
     state: Number.isFinite(ageMs) && ageMs > Math.max(0, Number(stallMs) || 0)
