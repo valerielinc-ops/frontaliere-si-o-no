@@ -80,7 +80,7 @@ describe('SumUp assisted-application payment client', () => {
 
     const [, init] = fetchMock.mock.calls[0];
     expect(init.signal).toBeInstanceOf(AbortSignal);
-    expect(SUMUP_API_REQUEST_TIMEOUT_MS).toBe(15_000);
+    expect(SUMUP_API_REQUEST_TIMEOUT_MS).toBe(30_000);
   });
 
   it('creates a 1.99 EUR widget checkout with a server-side status callback', async () => {

@@ -40,7 +40,7 @@ export const SUMUP_CONFIG_LIMITS = Object.freeze({
 });
 
 const SUMUP_API_BASE_URL = 'https://api.sumup.com';
-export const SUMUP_API_REQUEST_TIMEOUT_MS = 15_000;
+export const SUMUP_API_REQUEST_TIMEOUT_MS = 30_000;
 
 function boundedString(value, max) {
   const result = String(value ?? '').trim();
