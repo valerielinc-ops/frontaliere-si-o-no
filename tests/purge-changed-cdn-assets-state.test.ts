@@ -396,6 +396,7 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
     expect(PREP).toContain('[ "$_start" != "$_publish_token" ]');
     expect(PREP).toContain('_publish_nonce');
     expect(PREP).toContain('od -An -N8 -tu8 /dev/urandom');
+    expect(PREP).toContain("printf '%020s' \"$_publish_nonce\" | tr ' ' 0");
     expect(PREP).not.toContain('BASHPID');
     expect(PREP).toContain('--require-code-complete');
   });

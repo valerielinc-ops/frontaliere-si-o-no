@@ -942,7 +942,7 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
       STUB_PURGE_STATUS: '0',
     });
     expect(r.code).toBe(0);
-    expect(r.publishStart).toMatch(/^\d{14,33}$/);
+    expect(r.publishStart).toMatch(/^\d{33}$/);
     expect(r.stdout).toMatch(/bootstrap=1/);
     expect(r.stdout).toMatch(/✅ synced CDN payload to R2/);
     expect(completionMarkerPuts(r.calls)).toHaveLength(1);
@@ -961,8 +961,8 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     const second = runPublish('random-owner-b', common);
     expect(first.code).toBe(0);
     expect(second.code).toBe(0);
-    expect(first.publishStart).toMatch(/^1700000000000\d+$/);
-    expect(second.publishStart).toMatch(/^1700000000000\d+$/);
+    expect(first.publishStart).toMatch(/^1700000000000\d{20}$/);
+    expect(second.publishStart).toMatch(/^1700000000000\d{20}$/);
     expect(first.publishStart).not.toBe(second.publishStart);
   });
 

@@ -408,6 +408,9 @@ _publish_cdn_r2() {
       return 0
       ;;
   esac
+  # Keep the nonce fixed-width so concatenated tokens retain timestamp order
+  # when the watchdog compares them as BigInts.
+  _publish_nonce="$(printf '%020s' "$_publish_nonce" | tr ' ' 0)"
   _publish_token="${_publish_clock}${_publish_nonce}"
   _publish_marker_file="${RUNNER_TEMP:-/tmp}/cdn-publish-$$_${_publish_token}.txt"
   printf '%s' "$_publish_token" > "$_publish_marker_file"
