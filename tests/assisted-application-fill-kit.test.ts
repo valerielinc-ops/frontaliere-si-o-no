@@ -84,6 +84,33 @@ describe('fill kit', () => {
     });
   });
 
+  it('maps a candidate-language choice back to the application-language option', () => {
+    const kit = buildFillKit({
+      orderId: ORDER,
+      order,
+      draft: {
+        ...draft,
+        portalAnswers: { answers: [] },
+        questions: [{
+          id: 'portal_ce_czv',
+          source: 'portal',
+          question: 'Hai una patente CE valida e il certificato CZV (Code 95)?',
+          applicationQuestion: 'Verfügst du über einen gültigen Führerausweis der Kategorie CE + CZV-Ausweis (Code 95)?',
+          type: 'choice',
+          options: ['Seleziona', 'Sì', 'No'],
+          applicationOptions: ['Bitte wählen', 'Ja', 'Nein'],
+          required: true,
+        }],
+      },
+      flow: { ...takenOver, answers: { portal_ce_czv: 'Sì' } },
+    });
+    expect(kit.answers).toContainEqual({
+      question: 'Verfügst du über einen gültigen Führerausweis der Kategorie CE + CZV-Ausweis (Code 95)?',
+      answer: 'Ja',
+      source: 'answers',
+    });
+  });
+
   it('carries a validated SuccessFactors channel to the owner extension', () => {
     const kit = buildFillKit({
       orderId: ORDER,

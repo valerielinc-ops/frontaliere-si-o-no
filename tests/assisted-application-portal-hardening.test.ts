@@ -19,11 +19,13 @@ import {
   portalRequirementsFromMissingRequired,
   portalRequiredDocumentFromField,
   portalEntryUrl,
+  localizePortalQuestions,
   isSafeEmployerSitePreread,
   readPortalQuestions,
   realisticUserAgent,
   urlConfirms,
 } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { portalAnswerForApplication, portalOptionMap } from '../scripts/assisted-application/lib/portal/question-key.mjs';
 import { mergeRequiredDocuments } from '../functions/src/assistedApplicationExtraDocuments.js';
 import { interviewPrepUserText } from '../functions/src/assistedApplicationInterviewPrep.js';
 
@@ -521,6 +523,87 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(result.questions.map((question: any) => question.question)).toEqual(['Lohnvorstellung']);
     expect(portalRequiredDocumentFromField(fields[1])).toBeNull();
     expect(portalRequiredDocumentFromField(fields[2])).toBeNull();
+  });
+
+  it('keeps the ATS wording and maps a localized candidate question back to it', async () => {
+    const result = portalRequirementsFromMissingRequired([
+      {
+        id: 'ce-czv',
+        kind: 'select',
+        label: 'Verfügst du über einen gültigen Führerausweis der Kategorie CE + CZV-Ausweis (Code 95)?',
+        required: true,
+        options: [{ label: 'Bitte wählen' }, { label: 'Ja' }, { label: 'Nein' }],
+      },
+    ], [{
+      fieldId: 'ce-czv',
+      question: 'Hai una patente CE valida e il certificato CZV (Code 95)?',
+      why: 'Il portale lo richiede.',
+      type: 'choice',
+      options: ['Seleziona', 'Sì', 'No'],
+      validation: {},
+    }]);
+    const codex = async () => ({ questions: [{
+      id: result.questions[0].id,
+      question: 'Hai una patente CE valida e il certificato CZV (Code 95)?',
+      why: 'Il portale lo richiede.',
+      options: ['Seleziona', 'Sì', 'No'],
+    }] });
+    const localized = await localizePortalQuestions(result.questions, {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex,
+    });
+    expect(localized[0]).toMatchObject({
+      question: 'Hai una patente CE valida e il certificato CZV (Code 95)?',
+      applicationQuestion: 'Verfügst du über einen gültigen Führerausweis der Kategorie CE + CZV-Ausweis (Code 95)?',
+      options: ['Seleziona', 'Sì', 'No'],
+      applicationOptions: ['Bitte wählen', 'Ja', 'Nein'],
+    });
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      answers: { [localized[0].id]: 'Sì' },
+      portalQuestions: localized,
+    });
+    expect(candidate.portalQuestionsAnswered).toEqual([expect.objectContaining({
+      question: 'Verfügst du über einen gültigen Führerausweis der Kategorie CE + CZV-Ausweis (Code 95)?',
+      answer: 'Ja',
+      candidateQuestion: 'Hai una patente CE valida e il certificato CZV (Code 95)?',
+    })]);
+  });
+
+  it('requires an explicit map for translated arbitrary options and never trusts their position', () => {
+    expect(portalOptionMap({ options: ['Uno', 'Due'], applicationOptions: ['A', 'B'] })).toEqual([]);
+    expect(portalAnswerForApplication({ options: ['Uno', 'Due'], applicationOptions: ['A', 'B'] }, 'Due')).toBe('');
+    expect(portalOptionMap({ options: ['A', 'a'], applicationOptions: ['X', 'Y'] })).toEqual([]);
+    const question = {
+      options: ['Uno', 'Due'],
+      applicationOptions: ['A', 'B'],
+      optionMap: [{ candidate: 'Uno', application: 'B' }, { candidate: 'Due', application: 'A' }],
+    };
+    expect(portalOptionMap(question)).toEqual(question.optionMap);
+    expect(portalAnswerForApplication(question, 'Uno')).toBe('B');
+  });
+
+  it('does not expose a raw ATS label when localization fails', async () => {
+    const localized = await localizePortalQuestions([{
+      id: 'q',
+      question: 'Verfügst du über einen gültigen Führerausweis?',
+      applicationQuestion: 'Verfügst du über einen gültigen Führerausweis?',
+      options: ['Ja', 'Nein'],
+      applicationOptions: ['Ja', 'Nein'],
+      validation: { message: 'Pflichtfeld' },
+    }], {
+      candidateLocale: 'it',
+      applicationLocale: 'de',
+      codex: async () => { throw new Error('translation unavailable'); },
+    });
+    expect(localized[0]).toMatchObject({
+      question: 'Il portale richiede una risposta a questa domanda.',
+      applicationQuestion: 'Verfügst du über einen gültigen Führerausweis?',
+      options: ['Sì', 'No'],
+      applicationOptions: ['Ja', 'Nein'],
+      localizationStatus: 'fallback',
+    });
   });
 
   it('recognizes Unicode CV labels and keeps same-prefix portal file fields distinct', () => {

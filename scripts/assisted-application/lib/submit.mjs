@@ -264,12 +264,15 @@ export async function submitApplication(ctx) {
     const questionDetails = open.filter((question) => question.source === 'portal').map((question) => ({
       id: question.id,
       question: question.question,
+      ...(question.applicationQuestion ? { applicationQuestion: question.applicationQuestion } : {}),
       ...(question.context ? { context: question.context } : {}),
       ...(question.section ? { section: question.section } : {}),
       ...(question.autocomplete ? { autocomplete: question.autocomplete } : {}),
       ...(question.type ? { type: question.type } : {}),
       ...(portalQuestionKey(question) ? { semanticKey: portalQuestionKey(question) } : {}),
       ...(Array.isArray(question.options) && question.options.length ? { options: question.options } : {}),
+      ...(Array.isArray(question.applicationOptions) && question.applicationOptions.length ? { applicationOptions: question.applicationOptions } : {}),
+      ...(Array.isArray(question.optionMap) && question.optionMap.length ? { optionMap: question.optionMap } : {}),
     }));
     const result = { type: 'submit_needs_candidate', questions: open.map(({ id }) => ({ id })), documents: missingDocuments };
     if (questionDetails.length) result.questionDetails = questionDetails;

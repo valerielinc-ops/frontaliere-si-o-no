@@ -39,10 +39,13 @@ const ACTION_PROPERTIES = {
 };
 const QUESTION_PROPERTIES = {
   question: S,
+  applicationQuestion: S,
   context: S,
   why: S,
   type: { type: 'string', enum: ['text', 'yes_no', 'choice', 'number', 'date'] },
   options: LIST(S),
+  applicationOptions: LIST(S),
+  optionMap: LIST(OBJ({ candidate: S, application: S })),
   validation: ANSWER_VALIDATION_SCHEMA,
 };
 export const AGENT_SCHEMA = OBJ({
@@ -165,7 +168,7 @@ Actions:
 - press: a key on a ref (Enter only inside a list or a combobox; Tab, Escape, arrows).
 - upload: a file input or an upload button; document = cv, cover_letter, or the slot of a document listed in documents.extra.
 For each action: question = the page's question it answers ("" for a move inside a widget, such as opening the year list); context = the surrounding section/fieldset labels that disambiguate the question (for example, the labels around a bare "CAP"; "" when none); answer = the answer it gives, as written in the candidate data (dates as YYYY-MM-DD); source = where that answer comes from ("widget" for a move that answers nothing); evidence = for an eligibility question, a short exact quote of the candidate data that supports the answer, else "".
-For each item in questions, use the same context field when its label is ambiguous (for example, a bare "CAP" in a residence fieldset); otherwise use "".
+For each item in questions, use the same context field when its label is ambiguous (for example, a bare "CAP" in a residence fieldset); otherwise use "". The question and why must be in ${language}, options must be in ${language}, and applicationQuestion plus applicationOptions must preserve the exact page wording and option labels in the application's language. Include optionMap with one {candidate, application} pair for every application option; application must be copied exactly from the page. The runner uses this parallel mapping to put the candidate's answer back into the ATS language, so never leave it out or map arbitrary translated choices by position.
 Work history and education sections: add one entry per item of profile.experience and profile.education with the page's own "Add" button when there is one.
 
 Never press the button that sends the application, never Next or Continue (the runner does), never follow a link to another page, never sign in or create an account, never type a password.
@@ -279,7 +282,26 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
       && other.context === context
       && boundedPortalContext(other.section) === section
       && String(other.autocomplete || '') === String(item.autocomplete || ''))) return;
-    questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
+    const applicationQuestion = String(item.applicationQuestion || item.question || question).trim().slice(0, 300);
+    const options = (Array.isArray(item.options) ? item.options : []).map((option) => String(option || '').trim()).filter(Boolean).slice(0, 20);
+    const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
+      ? item.applicationOptions
+      : []).map((option) => String(option || '').trim()).filter(Boolean).slice(0, 20);
+    const optionMap = (Array.isArray(item.optionMap) ? item.optionMap : []).map((pair) => ({
+      candidate: String(pair?.candidate || '').trim(),
+      application: String(pair?.application || '').trim(),
+    })).filter((pair) => pair.candidate && pair.application).slice(0, 20);
+    questions.push({
+      why: '',
+      ...item,
+      question,
+      applicationQuestion,
+      options,
+      applicationOptions,
+      optionMap,
+      context,
+      type: item.type || (topicOf(question) === 0 ? 'date' : 'text'),
+    });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
   const sensitive = (raw.actions || []).filter((action) => {
@@ -716,7 +738,7 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
         const context = boundedPortalContext(action.context);
         return end({
           status: 'needs_candidate',
-          questions: [{ question: questionFromLabel(action.question || context), context }],
+          questions: [{ question: questionFromLabel(action.question || context), applicationQuestion: questionFromLabel(action.question || context), context, why: '', type: 'text', options: [], applicationOptions: [], optionMap: [], validation: { pattern: '', minLength: 0, maxLength: 0, min: null, max: null, minDate: '', example: '', message: '' } }],
           calls: round,
         });
       }

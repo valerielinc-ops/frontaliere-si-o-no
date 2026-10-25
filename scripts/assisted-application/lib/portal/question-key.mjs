@@ -1,4 +1,5 @@
 import { questionTopic } from './plan.mjs';
+export { portalAnswerForApplication, portalOptionMap } from '../../../../functions/src/lib/portalQuestionMapping.js';
 
 export const PORTAL_CONTEXT_MAX_CHARS = 240;
 
@@ -24,9 +25,19 @@ function portalQuestionHash(question, context) {
   return (hash >>> 0).toString(36);
 }
 
+// A portal question has two labels once it crosses the candidate boundary:
+// `question` is the readable candidate-language copy, while
+// `applicationQuestion` is the exact label the ATS uses.  The latter is the
+// stable anchor for generic questions whose semantic topic is not known.
+function applicationLabel(question) {
+  return typeof question === 'object'
+    ? String(question?.applicationQuestion || question?.question || '')
+    : question;
+}
+
 /** A stable answer id that keeps same-label fields in different fieldsets independent. */
 export function portalQuestionId(question, context = '', section = '', autocomplete = '') {
-  const label = typeof question === 'object' ? question?.question : question;
+  const label = applicationLabel(question);
   const surrounding = typeof question === 'object' ? question?.context : context;
   const heading = typeof question === 'object' ? question?.section : section;
   const fieldAutocomplete = typeof question === 'object' ? question?.autocomplete : autocomplete;
@@ -37,7 +48,7 @@ export function portalQuestionId(question, context = '', section = '', autocompl
 
 /** Dedupe reworded questions by a proven candidate fact; keep context when it selects which fact is meant. */
 export function portalQuestionKey(question, context = '', section = '', autocomplete = '') {
-  const label = typeof question === 'object' ? question?.question : question;
+  const label = applicationLabel(question);
   const surrounding = typeof question === 'object' ? question?.context : context;
   const heading = typeof question === 'object' ? question?.section : section;
   const fieldAutocomplete = typeof question === 'object' ? question?.autocomplete : autocomplete;
