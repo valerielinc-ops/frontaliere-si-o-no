@@ -11,12 +11,12 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import {
   CDN_ASSETS_BASE,
   linkCheck,
   parseModuleLinks,
 } from './ci/cdn-chunk-graph.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 function toPosix(value) {
   return value.split(path.sep).join('/');
@@ -102,6 +102,6 @@ function main() {
   console.log(`[verify-spa-module-links] ok — ${result.files.length} JavaScript asset(s) linked`);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
   main();
 }
