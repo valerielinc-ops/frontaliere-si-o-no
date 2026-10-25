@@ -37,6 +37,7 @@ import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
 
 const REPO = process.env.GH_REPO || 'valerielinc-ops/frontaliere-si-o-no';
 const API = 'https://api.github.com';
+export const GITHUB_API_TIMEOUT_MS = 20_000;
 
 /** GitHub's documented per-repository Actions secret cap. */
 export const REPO_SECRET_CAP = 100;
@@ -69,8 +70,11 @@ function secretsInventoryToken() {
   return process.env.GITHUB_PAT || process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
 }
 
-async function api(urlPath, token) {
-  const res = await fetch(`${API}${urlPath}`, { headers: githubApiHeaders(token) });
+export async function api(urlPath, token) {
+  const res = await fetch(`${API}${urlPath}`, {
+    headers: githubApiHeaders(token),
+    signal: AbortSignal.timeout(GITHUB_API_TIMEOUT_MS),
+  });
   if (!res.ok) throw new Error(`GET ${urlPath} → ${res.status}`);
   return res.json();
 }
