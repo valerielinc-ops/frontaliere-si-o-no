@@ -14,5 +14,12 @@
     "scripts/validate-jsonld-shape.mjs",
     "scripts/validate-structured-data.mjs"
   ],
-  "unsetTestSwitches": {}
+  "unsetTestSwitches": {
+    "RUN_WRITE_COLLECTOR_BENCH": [
+      "tests/write-collector-last-add-wins.test.ts"
+    ],
+    "WRITE_COLLECTOR_CHAIN": [
+      "tests/write-collector-last-add-wins.test.ts"
+    ]
+  }
 }

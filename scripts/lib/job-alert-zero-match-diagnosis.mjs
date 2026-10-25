@@ -48,39 +48,49 @@ export function classifyZeroMatchCause(profile, { eligibleCandidateCount } = {})
  * 2026-10-04 (issue 9060): the monitor issue is driven by the matcher-health
  * probes of job-alert-matcher-health.mjs, which run on the active inventory.
  */
-export function summarizeZeroMatchPlans(plans = []) {
-  const zeroMatchByCause = {};
-  let evaluatedAlertCount = 0;
-  let noEligibleCandidateCount = 0;
-  let emptyProfileCount = 0;
-  let zeroMatchCount = 0;
-
-  for (const plan of plans) {
-    if ((plan?.candidateCount ?? 0) === 0) {
-      noEligibleCandidateCount += 1;
-      continue;
-    }
-    if ((plan?.rankedCount ?? 0) > 0) {
-      evaluatedAlertCount += 1;
-      continue;
-    }
-    const cause = plan?.zeroCause || ZERO_MATCH_CAUSES.EMPTY_PROFILE;
-    if (cause === ZERO_MATCH_CAUSES.EMPTY_PROFILE) {
-      emptyProfileCount += 1;
-      continue;
-    }
-    evaluatedAlertCount += 1;
-    zeroMatchCount += 1;
-    zeroMatchByCause[cause] = (zeroMatchByCause[cause] || 0) + 1;
-  }
-
+export function createZeroMatchSummaryAccumulator() {
   return {
-    alertCount: plans.length,
-    evaluatedAlertCount,
-    noEligibleCandidateCount,
-    emptyProfileCount,
-    zeroMatchCount,
-    zeroMatchRate: evaluatedAlertCount > 0 ? zeroMatchCount / evaluatedAlertCount : null,
-    zeroMatchByCause,
+    alertCount: 0,
+    evaluatedAlertCount: 0,
+    noEligibleCandidateCount: 0,
+    emptyProfileCount: 0,
+    zeroMatchCount: 0,
+    zeroMatchByCause: {},
   };
+}
+
+export function addZeroMatchPlanToSummary(summary, plan) {
+  summary.alertCount += 1;
+  if ((plan?.candidateCount ?? 0) === 0) {
+    summary.noEligibleCandidateCount += 1;
+    return summary;
+  }
+  if ((plan?.rankedCount ?? 0) > 0) {
+    summary.evaluatedAlertCount += 1;
+    return summary;
+  }
+  const cause = plan?.zeroCause || ZERO_MATCH_CAUSES.EMPTY_PROFILE;
+  if (cause === ZERO_MATCH_CAUSES.EMPTY_PROFILE) {
+    summary.emptyProfileCount += 1;
+    return summary;
+  }
+  summary.evaluatedAlertCount += 1;
+  summary.zeroMatchCount += 1;
+  summary.zeroMatchByCause[cause] = (summary.zeroMatchByCause[cause] || 0) + 1;
+  return summary;
+}
+
+export function finalizeZeroMatchSummary(summary) {
+  return {
+    ...summary,
+    zeroMatchRate: summary.evaluatedAlertCount > 0
+      ? summary.zeroMatchCount / summary.evaluatedAlertCount
+      : null,
+  };
+}
+
+export function summarizeZeroMatchPlans(plans = []) {
+  const summary = createZeroMatchSummaryAccumulator();
+  for (const plan of plans) addZeroMatchPlanToSummary(summary, plan);
+  return finalizeZeroMatchSummary(summary);
 }

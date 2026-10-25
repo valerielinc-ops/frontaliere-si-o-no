@@ -88,7 +88,9 @@
 // (see below).
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAILEROO_MONTHLY_LIMIT = 250_000;
-const MAILEROO_STATIC_DAILY_LIMIT = Math.floor(MAILEROO_MONTHLY_LIMIT / 30);
+// A month can have 31 days. The unverifiable fallback must never pace above the
+// monthly plan merely because the calendar is longer than the 30-day average.
+const MAILEROO_STATIC_DAILY_LIMIT = Math.floor(MAILEROO_MONTHLY_LIMIT / 31);
 // The live Pro account currently reports a 10,000-message hourly ceiling. Keep
 // bulk callers below that provider-side limit even when their shared delay is
 // lowered for concurrency; the Account API usage read below remains the source
@@ -137,9 +139,9 @@ const PROVIDERS = [
   // syncQuotasFromAPIs() run by computeMailerooDynamicDailyLimit() as
   // (live plan limit − period-to-date usage) ÷ days left in the Account API's
   // current billing period. If the Account API is unavailable, statistics
-  // fallback uses the current UTC calendar month. `dailyLimit: 8333` below
-  // (250000/30, same monthlyLimit/30 convention as every other static-limit
-  // provider here) is only the pre-sync/unverifiable-usage fallback — see
+  // fallback uses the current UTC calendar month. `dailyLimit: 8064` below
+  // (250000/31, the safe maximum-days fallback) is only the
+  // pre-sync/unverifiable-usage fallback — see
   // MAILEROO_CYCLE_FALLBACK_DAILY.
   { id: 'maileroo', dailyLimit: MAILEROO_STATIC_DAILY_LIMIT, monthlyLimit: MAILEROO_MONTHLY_LIMIT,
     // scheduled_at in the JSON body, RFC 3339 (ISO 8601 is valid RFC 3339).
@@ -623,7 +625,7 @@ export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
   } catch { return { count: 0, verified: false }; }
 }
 
-// Safe fallback floor (250000/30, months-average). Used only
+// Safe fallback floor (250000/31, maximum calendar-month length). Used only
 // when account/usage data is unverifiable (missing scope / network error) —
 // never Infinity, since an unverifiable usage
 // lookup must fail safe, not open.
@@ -644,6 +646,7 @@ async function computeMailerooDynamicDailyLimit(nowMs = Date.now()) {
     verified,
     monthlyLimit: liveMonthlyLimit,
     billingPeriodEndMs,
+    hourlyAvailable,
     source,
   } = await fetchMailerooCycleUsage(nowMs);
   if (!verified) {
@@ -660,7 +663,11 @@ async function computeMailerooDynamicDailyLimit(nowMs = Date.now()) {
     : calendarMonthEnd;
   const daysRemaining = Math.max(1, Math.ceil((cycleEndMs - nowMs) / DAY_MS));
   const remainingBudget = Math.max(0, monthlyLimit - count);
-  const dynamicLimit = Math.floor(remainingBudget / daysRemaining);
+  const monthlyPace = Math.floor(remainingBudget / daysRemaining);
+  const hourlyHeadroom = Number.isFinite(hourlyAvailable)
+    ? Math.floor(Math.max(0, hourlyAvailable))
+    : Infinity;
+  const dynamicLimit = Math.min(monthlyPace, hourlyHeadroom);
   const usageLabel = source === 'account' ? 'live plan usage' : 'delivered+bounced proxy';
   console.log(`   [maileroo] cycle-to-date: used=${count}/${monthlyLimit} (${usageLabel}), daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
   return dynamicLimit;

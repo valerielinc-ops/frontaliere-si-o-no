@@ -6,7 +6,7 @@ import { realpathSync } from 'node:fs';
  *
  * Reads active job alerts from Firestore, matches them against jobs still
  * present in the inventory window, and sends email notifications via the
- * multi-provider email cascade (Mailgun → Resend → Mailjet → Mailtrap → Cloudflare).
+ * multi-provider email cascade (Mailgun → Mailjet → Maileroo → Cloudflare → Resend).
  *
  * Retry mechanism: When all providers exhaust their daily quota and emails
  * fail, they are written to the Firestore `job_alert_retry_queue` collection.
@@ -47,8 +47,10 @@ import {
   ALERT_APPLICATION_INTENT_BOOST,
 } from '../services/applicationIntentRanking.mjs';
 import {
+  addZeroMatchPlanToSummary,
   classifyZeroMatchCause,
-  summarizeZeroMatchPlans,
+  createZeroMatchSummaryAccumulator,
+  finalizeZeroMatchSummary,
 } from './lib/job-alert-zero-match-diagnosis.mjs';
 import {
   MATCHER_HEALTH_MAX_PROBES,
@@ -170,6 +172,38 @@ const ENGAGEMENT_SEND_PRIORITY = {
 // (soft-throttle, a provider tripping mid-run) don't push otherwise-fitting
 // alerts into tomorrow's retry queue.
 const QUOTA_BUFFER_RATIO = 0.1;
+
+// A quota increase must not turn one cron invocation into a sudden bulk blast.
+// The default is deliberately above the largest recent successful run (367) but
+// far below the 9,449-alert catch-up that exposed the heap failure. The owner
+// can ramp this value through Remote Config after deliverability evidence; an
+// absent or malformed value always returns to this safe floor.
+export const DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN = 1000;
+
+export function resolveJobAlertRunLimit(rawValue = process.env.JOB_ALERT_MAX_EMAILS_PER_RUN) {
+  const value = Number(String(rawValue ?? '').trim());
+  return Number.isSafeInteger(value) && value > 0
+    ? value
+    : DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN;
+}
+
+export function resolveJobAlertCapacity({
+  alertCount,
+  availableQuota,
+  maxEmailsPerRun = process.env.JOB_ALERT_MAX_EMAILS_PER_RUN,
+} = {}) {
+  const count = Number.isSafeInteger(alertCount) && alertCount > 0 ? alertCount : 0;
+  const quota = Number.isFinite(Number(availableQuota)) ? Math.max(0, Math.floor(Number(availableQuota))) : 0;
+  const quotaBuffer = Math.ceil(quota * QUOTA_BUFFER_RATIO);
+  const quotaCapacity = Math.max(0, quota - quotaBuffer);
+  const runLimit = resolveJobAlertRunLimit(maxEmailsPerRun);
+  return {
+    quotaBuffer,
+    quotaCapacity,
+    runLimit,
+    capacity: Math.min(count, quotaCapacity, runLimit),
+  };
+}
 
 // Keep the full matched list only for a bounded number of alerts at a time.
 // Each match carries a copied job object until live-link checks and email
@@ -1632,6 +1666,12 @@ const JOB_ALERT_SEND_THROTTLE = Object.freeze({
   adaptiveThrottle: Object.freeze({ stepMs: 100, maxDelayMs: 1000 }),
 });
 
+function jobAlertDeliveryKey(item) {
+  const email = String(item?.to || item?.recipient?.email || '').trim().toLowerCase();
+  const alertId = String(item?.alertId || item?.meta?.alertId || '').trim();
+  return `${email}\u0000${alertId}`;
+}
+
 async function sendBatch(emails) {
   // Use cascade for bulk sending
   const { sendEmailCascade, logProviderSummary, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
@@ -2777,17 +2817,18 @@ async function main() {
   const { getAvailableCascadeQuota } = await import('./lib/email-cascade.mjs');
   const availableQuota = await getAvailableCascadeQuota();
   alerts.sort((a, b) => (ENGAGEMENT_SEND_PRIORITY[a.effectiveTier] ?? 2) - (ENGAGEMENT_SEND_PRIORITY[b.effectiveTier] ?? 2));
-  const quotaBuffer = Math.ceil(availableQuota * QUOTA_BUFFER_RATIO);
-  const sendableCapacity = Math.max(0, availableQuota - quotaBuffer);
+  const { quotaBuffer, quotaCapacity, runLimit, capacity: sendableCapacity } = resolveJobAlertCapacity({
+    alertCount: alerts.length,
+    availableQuota,
+  });
   if (alerts.length > sendableCapacity) {
-    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}) → building ${sendableCapacity}/${alerts.length} alerts by engagement tier; ${alerts.length - sendableCapacity} deferred to next run`);
+    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}, usable ${quotaCapacity}); run cap ${runLimit} → building ${sendableCapacity}/${alerts.length} alerts by engagement tier; ${alerts.length - sendableCapacity} deferred to next run`);
     alerts = alerts.slice(0, sendableCapacity);
   } else {
-    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}) — all ${alerts.length} alerts fit`);
+    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}, usable ${quotaCapacity}); run cap ${runLimit} — all ${alerts.length} alerts fit`);
   }
 
   // 3. Match alerts to jobs
-  const emailsToSend = [];
   let totalMatches = 0;
   // Shared across every alert/locale below so the same job's page is never
   // HEAD-checked twice in one run (#3172).
@@ -2831,10 +2872,123 @@ async function main() {
     }
     return affinityContextByEmail.get(emailKey);
   };
-  // Keep only lightweight diagnostics across batches. The full `matched` list
-  // stays inside one callback so its copied job objects can be collected before
-  // the next group of alerts is planned.
-  const planSummaries = [];
+  // Keep only scalar diagnostics and recipient state across batches. The full
+  // `matched` list, rendered HTML/text and provider result arrays stay inside
+  // one callback so their copied job objects can be collected before the next
+  // group of alerts is planned/sent.
+  const zeroMatchAccumulator = createZeroMatchSummaryAccumulator();
+  const rankingVariantCounts = {};
+  let rankingProfileCount = 0;
+  const subjectCounts = {};
+  let activeSubjectAssignments = 0;
+  const runStats = { planned: 0, sent: 0, failed: 0 };
+  const scheduleOutcomes = new Map();
+  const cadenceStateByEmail = new Map();
+  const effectiveTierByEmail = new Map();
+  const engineManagedSend = new Set();
+  const cadenceSentAtIso = new Date().toISOString();
+  let decayedNow = 0;
+  const { FieldValue } = DRY_RUN
+    ? { FieldValue: null }
+    : await import('firebase-admin/firestore');
+
+  const persistSentBatch = async (batchEmails, result) => {
+    const failedKeys = new Set(result.failedItems.map(jobAlertDeliveryKey));
+    const successfulEmails = batchEmails.filter((email) => !failedKeys.has(jobAlertDeliveryKey(email)));
+    runStats.sent += successfulEmails.length;
+    runStats.failed += result.failedItems.length;
+
+    for (const delivery of successfulEmails) {
+      const email = delivery.to.toLowerCase();
+      const outcome = result.scheduleOutcomes?.get(email);
+      if (outcome) scheduleOutcomes.set(email, outcome);
+      if (ALLOWED_EMAILS) continue;
+
+      const existingTier = effectiveTierByEmail.get(email);
+      if (!existingTier || (ENGAGEMENT_SEND_PRIORITY[delivery.effectiveTier] ?? 2) < (ENGAGEMENT_SEND_PRIORITY[existingTier] ?? 2)) {
+        effectiveTierByEmail.set(email, delivery.effectiveTier);
+      }
+      if (!delivery.cadenceManual) engineManagedSend.add(email);
+      // Recompute when a later alert for the same recipient has a newer
+      // provider outcome; the old all-at-once path used the last outcome too.
+      if (!cadenceStateByEmail.has(email) || outcome) {
+        const sub = jobAlertProfiles.get(email) || {};
+        cadenceStateByEmail.set(email, nextJobAlertCadenceState({
+          sub,
+          engaged: engagedSinceLastJobAlertSend(sub),
+          opened: openedSinceLastJobAlertSend(sub),
+          sentAtIso: cadenceSentAtIso,
+          provider: outcome?.provider ?? null,
+          scheduledFor: scheduleOutcomes.get(email)?.scheduledFor ?? null,
+        }));
+      }
+    }
+
+    if (ALLOWED_EMAILS) return;
+
+    const rankingRecords = successfulEmails
+      .filter((email) => email.rankingDeliveryId && email.sentJobs?.length)
+      .map((email) => ({
+        deliveryId: email.rankingDeliveryId,
+        surface: 'job_alert',
+        surfaceId: email.alertId,
+        alertId: email.alertId,
+        email: email.to,
+        variant: email.rankingVariant || 'control',
+        affinityProfile: email.rankingAffinityProfile === true,
+        jobs: email.sentJobs,
+        sentAt: new Date(),
+      }));
+    if (rankingRecords.length > 0) {
+      try {
+        await recordJobEmailImpressions(db, rankingRecords);
+      } catch (error) {
+        console.warn('⚠️ Job-alert ranking impression persist failed:', error?.message || error);
+      }
+    }
+
+    const toUpdate = successfulEmails.filter((email) => email.ref);
+    await commitInChunks(db, toUpdate, (batch, email) => {
+      const key = email.to.toLowerCase();
+      const decay = decayStampAfterSend({
+        alert: email.alert,
+        nextState: cadenceStateByEmail.get(key),
+        sentAtIso: cadenceSentAtIso,
+      });
+      if (decay) decayedNow++;
+      const rankingUpdate = {};
+      for (const [index, job] of (email.sentJobs || []).entries()) {
+        Object.assign(rankingUpdate, buildEmbeddedRankingUpdate({
+          jobId: stableJobId(job),
+          position: job?.ranking?.position || index + 1,
+          variant: email.rankingVariant || 'control',
+          FieldValue,
+        }));
+      }
+      batch.update(email.ref, {
+        lastMatchedAt: FieldValue.serverTimestamp(),
+        matchCount: FieldValue.increment(email.matchCount),
+        cadence_scheduled_for: scheduleOutcomes.get(key)?.scheduledFor ?? null,
+        sentJobIds: mergeSentJobs(email.sentMap, email.sentJobs, now, DEDUP_WINDOW_MS),
+        ...rankingUpdate,
+        ...(decay || {}),
+      });
+    });
+
+    const recipientsInBatch = [...new Set(successfulEmails.map((email) => email.to.toLowerCase()))];
+    if (recipientsInBatch.length > 0) {
+      await commitInChunks(db, recipientsInBatch, (batch, email) => {
+        batch.set(db.collection('job_alert_subscribers').doc(email), {
+          last_sent_at: FieldValue.serverTimestamp(),
+          last_scheduled_for: scheduleOutcomes.get(email)?.scheduledFor ?? null,
+          last_send_time_source: scheduleOutcomes.get(email)?.sendTimeSource ?? null,
+          last_engagement_tier: effectiveTierByEmail.get(email) ?? null,
+          ...(engineManagedSend.has(email) ? (cadenceStateByEmail.get(email) || {}) : {}),
+        }, { merge: true });
+      });
+    }
+  };
+
   const cursorReasons = {};
   let cursorCandidateCount = 0;
   let planningMs = 0;
@@ -2903,8 +3057,10 @@ async function main() {
     await livenessPrefetcher.drain();
     prefetchDrainMs += Date.now() - batchDrainStartedAt;
 
-    // Build before the next batch is planned. This is the memory boundary:
-    // `batchPlans` contains the only full matched lists retained by the sender.
+    // Build and send before the next batch is planned. This is the memory
+    // boundary: `batchPlans` and `batchEmails` contain the only full matched
+    // lists and rendered payloads retained by the sender.
+    const batchEmails = [];
     for (const {
       alert,
       candidateCount,
@@ -2918,7 +3074,7 @@ async function main() {
       preflightRanked,
       subjectAssignment,
     } of batchPlans) {
-      planSummaries.push({
+      addZeroMatchPlanToSummary(zeroMatchAccumulator, {
         candidateCount,
         rankedCount,
         zeroCause,
@@ -2926,6 +3082,11 @@ async function main() {
         rankingAffinityProfile,
         subjectAssignment,
       });
+      rankingVariantCounts[rankingVariant] = (rankingVariantCounts[rankingVariant] || 0) + 1;
+      if (rankingAffinityProfile) rankingProfileCount++;
+      const subjectKey = subjectAssignment?.variant || 'control';
+      subjectCounts[subjectKey] = (subjectCounts[subjectKey] || 0) + 1;
+      if (subjectAssignment?.inExperiment === true) activeSubjectAssignments++;
 
     if (rankedCount === 0) {
       console.log(`   ⏭️ Alert ${alert.id}: 0 matches (${zeroCause}) → skip`);
@@ -3009,7 +3170,7 @@ async function main() {
       }
     }
 
-    emailsToSend.push({
+    batchEmails.push({
       to: alert.email,
       subject,
       html,
@@ -3043,6 +3204,24 @@ async function main() {
 
     console.log(`   📬 Alert ${alert.id}: ${matched.length} matches → ${alert.email}`);
     }
+
+    runStats.planned += batchEmails.length;
+    if (DRY_RUN) {
+      if (batchEmails.length > 0) logScheduleDistribution(batchEmails, { indent: '   ' });
+    } else if (batchEmails.length > 0) {
+      const result = await sendBatch(batchEmails);
+      console.log(`   ✅ Batch sent: ${result.sent}/${batchEmails.length} emails`);
+      if (result.failed > 0) {
+        console.log(`   ❌ ${result.failed} email(s) failed — enqueuing for retry`);
+        await enqueueFailedEmails(db, result.failedItems);
+      }
+      await persistSentBatch(batchEmails, result);
+    }
+    // Drop the current batch's copied match rows and rendered payloads before
+    // the next slice is planned. The callback is awaited by
+    // forEachJobAlertPlanBatch, so no subsequent batch can observe these refs.
+    batchEmails.length = 0;
+    batchPlans.length = 0;
   });
 
   // #9314: `Capacity check` → `Total` mixes CPU (planning) and network (the
@@ -3051,38 +3230,11 @@ async function main() {
   const prefetchAfterPlanning = livenessPrefetcher.stats();
   console.log(`   ⏱️ Matching split: planning ${(planningMs / 1000).toFixed(1)} s for ${alerts.length} alerts; live-link prefetch ${prefetchAfterPlanning.queued} URL(s), ${prefetchAfterPlanning.pending} pending after the last batch, drained across batches in ${(prefetchDrainMs / 1000).toFixed(1)} s`);
   console.log(`   🧭 Recipient-aware candidate windows: ${JSON.stringify(cursorReasons)} (${cursorCandidateCount} candidate rows before matching)`);
-  {
-    const variantCounts = {};
-    let withProfile = 0;
-    for (const plan of planSummaries) {
-      variantCounts[plan.rankingVariant] = (variantCounts[plan.rankingVariant] || 0) + 1;
-      if (plan.rankingAffinityProfile) withProfile++;
-    }
-    console.log(`   🎯 Job-email ranking: ${JSON.stringify(variantCounts)} alerts; ${withProfile} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
-  }
-  {
-    const subjectCounts = {};
-    let activeSubjectAssignments = 0;
-    for (const plan of planSummaries) {
-      const assignment = plan.subjectAssignment;
-      const key = assignment?.variant || 'control';
-      subjectCounts[key] = (subjectCounts[key] || 0) + 1;
-      if (assignment?.inExperiment === true) activeSubjectAssignments++;
-    }
-    console.log(`   🧪 Job-alert subject test: ${JSON.stringify(subjectCounts)} planned alerts; ${activeSubjectAssignments} in experiment (enabled=${JOB_ALERT_SUBJECT_CONFIG.enabled}, rollout=${JOB_ALERT_SUBJECT_CONFIG.rollout}, variants=${JOB_ALERT_SUBJECT_CONFIG.variantIds.join(',')})`);
-  }
-  const zeroMatchSummary = summarizeZeroMatchPlans(planSummaries);
+  console.log(`   🎯 Job-email ranking: ${JSON.stringify(rankingVariantCounts)} alerts; ${rankingProfileCount} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
+  console.log(`   🧪 Job-alert subject test: ${JSON.stringify(subjectCounts)} planned alerts; ${activeSubjectAssignments} in experiment (enabled=${JOB_ALERT_SUBJECT_CONFIG.enabled}, rollout=${JOB_ALERT_SUBJECT_CONFIG.rollout}, variants=${JOB_ALERT_SUBJECT_CONFIG.variantIds.join(',')})`);
+  const zeroMatchSummary = finalizeZeroMatchSummary(zeroMatchAccumulator);
 
-  // Most-engaged-first send order: if the shared cascade daily cap is hit
-  // mid-run, the recipients who already got their email should be the ones
-  // most likely to open/click (daily-tier clickers), not whoever happened
-  // to be queued first. Array.prototype.sort is stable in Node, so within a
-  // tier the existing order (alert enumeration order) is preserved.
-  // (ENGAGEMENT_SEND_PRIORITY is declared near the top of the file — also
-  // used by the pre-generation capacity check above.)
-  emailsToSend.sort((a, b) => (ENGAGEMENT_SEND_PRIORITY[a.effectiveTier] ?? 2) - (ENGAGEMENT_SEND_PRIORITY[b.effectiveTier] ?? 2));
-
-  console.log(`\n   Total: ${emailsToSend.length} emails, ${totalMatches} job matches`);
+  console.log(`\n   Total: ${runStats.planned} emails planned, ${totalMatches} job matches`);
 
   // Zero-match YIELD of the real alerts: informative only (owner decision
   // 2026-10-04, issue 9060). It is computed on each recipient's "available
@@ -3115,7 +3267,7 @@ async function main() {
     featureCache,
   });
   if (matcherHealth.error) {
-    console.warn(`   ⚠️ matcher-health probe failed (non-fatal, continuing to send; monitor left untouched) after ${matcherHealth.durationMs} ms: ${matcherHealth.error}`);
+    console.warn(`   ⚠️ matcher-health probe failed (non-fatal, deliveries already processed; monitor left untouched) after ${matcherHealth.durationMs} ms: ${matcherHealth.error}`);
   } else {
     console.log(`   🩺 Matcher health: ${matcherHealth.passedCount}/${matcherHealth.probeCount} synthetic alerts matched ≥1 job on the active inventory (${matcherHealth.activeInventoryCount} open listings; ${matcherHealth.sampledGroupCount}/${matcherHealth.groupCount} canton×profession groups sampled across ${matcherHealth.cantonCount} cantons, cap ${MATCHER_HEALTH_MAX_PROBES} probes) in ${matcherHealth.durationMs} ms — failures by kind: ${JSON.stringify(matcherHealth.failureByKind)}`);
   }
@@ -3129,10 +3281,10 @@ async function main() {
     console.warn('   ⚠️ Matcher health: no synthetic alert could be built from the active inventory (no listing with a canton and a title token) — monitor left untouched');
   }
   if (monitorAction === 'report') {
-    // Best-effort diagnostic report: this call sits BEFORE sendBatch, so any
-    // exception here (e.g. a future github-issue-creator.mjs change that adds
-    // a non-guarded internal path) must never abort main() and skip sending
-    // job-alert emails to every subscriber. Same convention as
+    // Best-effort diagnostic report: this call sits after the bounded send
+    // batches, so any exception here (e.g. a future github-issue-creator.mjs
+    // change that adds a non-guarded internal path) must never turn accepted
+    // deliveries into a failed run. Same convention as
     // scripts/reconcile-here-usage.mjs's alert-issue try-catch.
     try {
       const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
@@ -3165,7 +3317,7 @@ async function main() {
         workflow: 'send-job-alerts',
       });
     } catch (err) {
-      console.warn(`   ⚠️ matcher-health issue report failed (non-fatal, continuing to send): ${err.message}`);
+      console.warn(`   ⚠️ matcher-health issue report failed (non-fatal, deliveries already processed): ${err.message}`);
     }
   } else if (monitorAction === 'resolve') {
     // A recovered production run must close the canonical monitor issue;
@@ -3180,217 +3332,18 @@ async function main() {
     }
   }
 
-  if (emailsToSend.length === 0) {
+  if (runStats.planned === 0) {
     console.log('   No matches — no emails to send.');
     return;
   }
 
-  // 4. Send emails
-  let failedEmailSet = new Set();
-  // Per-user send-time observability (#3798 follow-up): populated by sendBatch
-  // from the cascade's authoritative per-recipient outcome; read below when
-  // mirroring last_sent_at onto job_alert_subscribers/{email}. Stays empty on
-  // DRY_RUN (nothing sent) — the batch.set below already guards on sentEmails.
-  let scheduleOutcomes = new Map();
   if (DRY_RUN) {
-    console.log('   🔵 DRY RUN — not sending emails');
-    logScheduleDistribution(emailsToSend, { indent: '   ' });
+    console.log(`   🔵 DRY RUN — not sending emails (would send ${runStats.planned})`);
   } else {
-    const result = await sendBatch(emailsToSend);
-    console.log(`   ✅ Sent ${result.sent} emails`);
-    failedEmailSet = new Set(
-      result.failedItems.map((item) => (item.recipient?.email || '').toLowerCase()).filter(Boolean),
-    );
-    scheduleOutcomes = result.scheduleOutcomes || new Map();
-
-    // 4b. Enqueue failed emails for retry on the next run
-    if (result.failed > 0) {
-      console.log(`   ❌ ${result.failed} email(s) failed — enqueuing for retry`);
-      await enqueueFailedEmails(db, result.failedItems);
-    }
-  }
-
-  // 5. Update Firestore: lastMatchedAt + matchCount on the alert subdoc
-  if (!DRY_RUN) {
-    const { FieldValue } = await import('firebase-admin/firestore');
-
-    // Which addresses actually received something. Computed here rather than in
-    // 5b below because BOTH writes need it now: the alert-level decay stamp
-    // must not fire for a send that failed.
-    const sentEmails = [...new Set(
-      emailsToSend
-        .map((email) => email.to.toLowerCase())
-        .filter((email) => !failedEmailSet.has(email)),
-    )];
-    // TARGET_EMAIL/ALLOWED_EMAILS is an operator verification run. It may send
-    // a real test message, but it must never move a production recipient's
-    // cursor or consume that alert's sent-job ledger.
-    const statefulSentEmails = ALLOWED_EMAILS ? [] : sentEmails;
-
-    // Impression tracking is deliberately written only after the provider
-    // confirms the send. TARGET_EMAIL/ALLOWED_EMAILS is an operator QA run and
-    // must not enter the production CTR denominator.
-    const rankingRecords = ALLOWED_EMAILS
-      ? []
-      : emailsToSend
-        .filter((email) => !failedEmailSet.has(email.to.toLowerCase()))
-        .filter((email) => email.rankingDeliveryId && email.sentJobs?.length)
-        .map((email) => ({
-          deliveryId: email.rankingDeliveryId,
-          surface: 'job_alert',
-          surfaceId: email.alertId,
-          alertId: email.alertId,
-          email: email.to,
-          variant: email.rankingVariant || 'control',
-          affinityProfile: email.rankingAffinityProfile === true,
-          jobs: email.sentJobs,
-          sentAt: new Date(),
-        }));
-    if (rankingRecords.length > 0) {
-      try {
-        await recordJobEmailImpressions(db, rankingRecords);
-      } catch (error) {
-        console.warn('⚠️ Job-alert ranking impression persist failed:', error?.message || error);
-      }
-    }
-
-    // 5a-bis. Advance the per-recipient cadence state (#5705).
-    //
-    // ISO strings, not serverTimestamp(): the engine is a pure function of the
-    // fields it reads back, and a sentinel cannot be read inside the batch that
-    // writes it. `last_sent_at` below keeps its serverTimestamp() — that field
-    // is the cross-channel 36h mutex and is not ours to change.
-    const cadenceSentAtIso = new Date().toISOString();
-    const cadenceStateByEmail = new Map();
-    for (const email of statefulSentEmails) {
-      const sub = jobAlertProfiles.get(email) || {};
-      cadenceStateByEmail.set(email, nextJobAlertCadenceState({
-        sub,
-        // Read from the profile captured BEFORE this send, which is the whole
-        // point: "did they react to the previous email?", not to this one.
-        engaged: engagedSinceLastJobAlertSend(sub),
-        opened: openedSinceLastJobAlertSend(sub),
-        sentAtIso: cadenceSentAtIso,
-        provider: scheduleOutcomes.get(email)?.provider ?? null,
-        // The instant the cascade actually aimed this message at, which is not
-        // always now: computeScheduledSendAt defers to the recipient's preferred
-        // hour, today or tomorrow. A SECOND daily slot has to see a message that
-        // is scheduled and has not left yet as "already due" — otherwise it
-        // stacks another one on top (#5705, owner's decision of 2026-08-14).
-        scheduledFor: scheduleOutcomes.get(email)?.scheduledFor ?? null,
-      }));
-    }
-
-    // email.ref points at job_alert_subscribers/{email}/alerts/{alertId} and was
-    // captured during the load step above. Pre-filter then chunk past the
-    // Firestore 500-op batch cap (emailsToSend can exceed it at scale; a single
-    // commit() would throw and skip every lastMatchedAt/matchCount update).
-    // Only provider-accepted messages may advance `lastMatchedAt`, counters or
-    // sentJobIds. A failed/ambiguous item remains recoverable through the retry
-    // queue and must not look delivered merely because it was selected.
-    const toUpdate = emailsToSend.filter((email) => (
-      email.ref
-      && !failedEmailSet.has(email.to.toLowerCase())
-      && !ALLOWED_EMAILS
-    ));
-    let decayedNow = 0;
-    await commitInChunks(db, toUpdate, (batch, email) => {
-      const key = email.to.toLowerCase();
-      // The terminal stamp, when this send was the Nth in a row that drew no
-      // signal at all on an engine-managed alert — EVERY alert since the owner's
-      // decision of 2026-08-14, not only the backfilled ones. It sets
-      // `cadence_state` and NOTHING else: `active` stays true, the keywords and
-      // the counters stay, and the document remains countable evidence that we
-      // stopped by ourselves rather than because anybody asked.
-      const decay = failedEmailSet.has(key) ? null : decayStampAfterSend({
-        alert: email.alert,
-        nextState: cadenceStateByEmail.get(key),
-        sentAtIso: cadenceSentAtIso,
-      });
-      if (decay) decayedNow++;
-      const rankingUpdate = {};
-      if (!failedEmailSet.has(key) && !ALLOWED_EMAILS) {
-        for (const [index, job] of (email.sentJobs || []).entries()) {
-          Object.assign(rankingUpdate, buildEmbeddedRankingUpdate({
-            jobId: stableJobId(job),
-            position: job?.ranking?.position || index + 1,
-            variant: email.rankingVariant || 'control',
-            FieldValue,
-          }));
-        }
-      }
-      batch.update(email.ref, {
-        lastMatchedAt: FieldValue.serverTimestamp(),
-        matchCount: FieldValue.increment(email.matchCount),
-        // The per-ALERT half of the two-slot guard. `lastMatchedAt` says "we
-        // served this alert today"; this says "and the message is aimed at THIS
-        // instant", which is what a second slot needs when the first one
-        // scheduled the send for tomorrow morning instead of sending it now.
-        // Written on every send, null included, so a stale future stamp can
-        // never hold an alert silent forever.
-        cadence_scheduled_for: scheduleOutcomes.get(key)?.scheduledFor ?? null,
-        // Persist the merged sent-job map (pruned to the dedup window + capped)
-        // so the next run excludes these jobs and surfaces fresh ones.
-        sentJobIds: mergeSentJobs(email.sentMap, email.sentJobs, now, DEDUP_WINDOW_MS),
-        ...rankingUpdate,
-        ...(decay || {}),
-      });
-    });
-    console.log('   📊 Firestore updated');
+    console.log(`   ✅ Sent ${runStats.sent} emails in bounded batches`);
+    if (runStats.failed > 0) console.log(`   ❌ Failed and queued for retry: ${runStats.failed}`);
     if (decayedNow > 0) {
       console.log(`   🪦 Cadence decay recorded for ${decayedNow} backfilled alert(s) — terminal, active untouched`);
-    }
-
-    // 5b. Mirror last_sent_at onto job_alert_subscribers/{email} (root doc),
-    // the same field/shape newsletter_subscribers/{email}.last_sent_at already
-    // carries. This is what lets send-newsletter.mjs apply a symmetric 36h
-    // cooldown (see NEWSLETTER_COOLDOWN_MS above) — until this write existed,
-    // the newsletter had no way to know a job alert had just gone out.
-    // Adaptive-frequency observability: when a subscriber has >1 alert whose
-    // effective tiers differ (e.g. one pinned daily, one engine-managed
-    // weekly), surface the highest-cadence tier reached this run.
-    const TIER_PRIORITY = { daily: 0, 'every-other-day': 1, weekly: 2 };
-    const effectiveTierByEmail = new Map();
-    for (const email of emailsToSend) {
-      const key = email.to.toLowerCase();
-      if (!statefulSentEmails.includes(key)) continue;
-      const existing = effectiveTierByEmail.get(key);
-      if (!existing || TIER_PRIORITY[email.effectiveTier] < TIER_PRIORITY[existing]) {
-        effectiveTierByEmail.set(key, email.effectiveTier);
-      }
-    }
-    // Whose send this run was engine-managed. The per-recipient cadence clock
-    // (`ja_cadence_last_sent_at`) is written — and, in isJobAlertDueToday, read
-    // — only for those: a manually pinned daily alert must not stamp a clock
-    // that would then starve this person's engine-managed alerts, nor be
-    // starved by theirs. The pin is the one act of the person about their own
-    // frequency, and it lives on its own clock (#5705 D4).
-    const engineManagedSend = new Set(
-      emailsToSend
-        .filter((email) => !email.cadenceManual && statefulSentEmails.includes(email.to.toLowerCase()))
-        .map((email) => email.to.toLowerCase()),
-    );
-    if (statefulSentEmails.length > 0) {
-      await commitInChunks(db, statefulSentEmails, (batch, email) => {
-        // Per-user send-time observability (#3798 follow-up): mirror what the
-        // cascade actually decided for this recipient (scheduleOutcomes, built
-        // in sendBatch from the cascade's authoritative per-item result) — null
-        // when scheduling wasn't requested/resolved for this send, not just
-        // when the map lookup misses.
-        const outcome = scheduleOutcomes.get(email) || null;
-        batch.set(db.collection('job_alert_subscribers').doc(email), {
-          last_sent_at: FieldValue.serverTimestamp(),
-          last_scheduled_for: outcome?.scheduledFor ?? null,
-          last_send_time_source: outcome?.sendTimeSource ?? null,
-          last_engagement_tier: effectiveTierByEmail.get(email) ?? null,
-          // The cadence state itself (#5705): tier, demotion streak, decay
-          // counter, provider and the per-recipient clock. Additive fields —
-          // nothing that existed before this issue is overwritten, which is
-          // what makes a revert of this PR a revert and not a migration.
-          ...(engineManagedSend.has(email) ? (cadenceStateByEmail.get(email) || {}) : {}),
-        }, { merge: true });
-      });
-      console.log(`   📬 last_sent_at recorded for ${statefulSentEmails.length} job-alert recipient(s)`);
     }
 
     // 6. Personalization enrichment (no-clobber). Consolidate every signal we

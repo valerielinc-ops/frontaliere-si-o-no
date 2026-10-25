@@ -3,6 +3,7 @@ import {
   resendCycleBounds,
   computeResendDynamicDailyLimit,
   computeMailerooDynamicDailyLimit,
+  fetchMailerooCycleUsage,
   fetchResendCycleUsage,
   PROVIDERS,
   sendEmailCascade,
@@ -151,26 +152,70 @@ describe('computeMailerooDynamicDailyLimit', () => {
     delete process.env.MAILEROO_ACCOUNT_API_KEY;
   });
 
-  it('uses the 250k plan and its safe 30-day fallback', async () => {
+  it('uses the 250k plan and its safe 31-day fallback', async () => {
     globalThis.fetch = (async () => ({ ok: false, status: 503, json: async () => ({}) })) as any;
 
     const limit = await computeMailerooDynamicDailyLimit(new Date('2026-07-16T12:00:00.000Z').getTime());
     const maileroo = PROVIDERS.find(p => p.id === 'maileroo');
-    expect(maileroo).toMatchObject({ dailyLimit: 8333, monthlyLimit: 250000 });
-    expect(limit).toBe(8333);
+    expect(maileroo).toMatchObject({ dailyLimit: 8064, monthlyLimit: 250000 });
+    expect(limit).toBe(8064);
   });
 
-  it('paces verified usage against the 250k monthly budget', async () => {
+  it('reads the live plan, exact usage and cycle reset from the Account API', async () => {
+    globalThis.fetch = (async (url) => {
+      expect(String(url)).toContain('/v1/account');
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          data: {
+            current_plan: { id: 6, name: 'Pro', quantity: 250000 },
+            usage: [
+              { name: 'Hourly Outbound Usage', quantity: 10000, used: 4, available: 9996 },
+              { name: 'Monthly Outbound Usage', quantity: 250000, used: 100000, available: 150000 },
+            ],
+            subscription: {
+              current_period_start: '2026-07-01T00:00:00.000Z',
+              current_period_end: '2026-08-01T00:00:00.000Z',
+            },
+          },
+        }),
+      };
+    }) as any;
+
+    const usage = await fetchMailerooCycleUsage(new Date('2026-07-16T12:00:00.000Z').getTime());
+    expect(usage).toMatchObject({
+      count: 100000,
+      monthlyLimit: 250000,
+      hourlyAvailable: 9996,
+      verified: true,
+      source: 'account',
+    });
+    expect(usage.billingPeriodEndMs).toBe(Date.parse('2026-08-01T00:00:00.000Z'));
+  });
+
+  it('paces verified Account API usage against the 250k billing-cycle budget', async () => {
     globalThis.fetch = (async () => ({
       ok: true,
       status: 200,
-      json: async () => ({ data: { aggregate: { delivered: 100000, bounced: 0 } } }),
+      json: async () => ({
+        data: {
+          usage: [
+            { name: 'Hourly Outbound Usage', quantity: 10000, used: 4, available: 9996 },
+            { name: 'Monthly Outbound Usage', quantity: 250000, used: 100000, available: 150000 },
+          ],
+          subscription: {
+            current_period_start: '2026-07-01T00:00:00.000Z',
+            current_period_end: '2026-08-01T00:00:00.000Z',
+          },
+        },
+      }),
     })) as any;
 
     const nowMs = new Date('2026-07-16T12:00:00.000Z').getTime();
     const limit = await computeMailerooDynamicDailyLimit(nowMs);
-    // 150000 remaining over the 16 calendar days left in July from noon on
-    // July 16: the verified pace may exceed the conservative 30-day fallback.
+    // 150000 remaining over the 16 billing-cycle days left from noon on July
+    // 16: the verified pace may exceed the conservative 31-day fallback.
     expect(limit).toBe(9375);
   });
 
