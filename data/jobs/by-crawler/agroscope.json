@@ -1,7 +1,7 @@
 {
   "crawlerKey": "agroscope",
-  "assembledAt": "2026-10-24T21:18:21.224Z",
-  "runId": "40132656500",
+  "assembledAt": "2026-10-25T09:15:09.687Z",
+  "runId": "40179213736",
   "jobs": [
     {
       "title": "Lernende/r Pferdefachmann/-frau EFZ, Orientierung Klassiches Reiten",
@@ -199,7 +199,7 @@
         "it": "hr-business-partner-in-agroscope-posieux",
         "en": "hr-business-partner-in-agroscope-posieux",
         "de": "hr-business-partner-in-agroscope-posieux",
-        "fr": "partenaire-rh-agroscope-posieux"
+        "fr": "hr-business-partner-in-agroscope-posieux"
       },
       "id": "agroscope-7bef5a384b06",
       "salaryMin": 89000,
@@ -216,7 +216,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:11:06.908Z"
+      "firstSeenAt": "2026-10-14T21:11:06.908Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "partenaire-rh-agroscope-posieux"
+        ]
+      },
+      "previousSlugs": [
+        "partenaire-rh-agroscope-posieux"
+      ]
     },
     {
       "title": "Praktikant/-in Buchhaltung",

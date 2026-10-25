@@ -1,7 +1,7 @@
 {
   "key": "ch",
   "label": "Global Sana",
-  "generatedAt": "2026-10-24T21:27:24.427Z",
+  "generatedAt": "2026-10-25T09:29:57.914Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4410,
-  "avgDurationMs": 4410,
+  "durationMs": 3516,
+  "avgDurationMs": 3516,
   "durationHistory": [
-    4410
+    3516
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "ch-9e72d8e76c62",
-      "slug": "kundenberater-m-w-d-mit-vbv-iaf-abschluss-zurich-zurich-ch-ch",
+      "slug": "consulente-clienti-m-f-d-con-diploma-vbv-iaf-global-sana-zurich-zurich",
       "company": "Global Sana",
       "companyKey": "ch",
       "companyDomain": "ch.talent.com",
@@ -34,7 +35,7 @@
       "url": "https://ch.talent.com/view?id=554547064889945322",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-24T21:27:08.936Z",
+      "crawledAt": "2026-10-25T09:29:42.682Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,23 +51,21 @@
       "postedDate": "2025-05-22",
       "postingDateSource": "reported",
       "applyUrl": "https://ch.talent.com/view?id=554547064889945322",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-24T21:27:08.936Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-24T21:27:08.936Z",
-      "_qualityScore": 88,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "abd0cb019e17e3092598ab7d4ad9b077c66ee000"
+  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
 }

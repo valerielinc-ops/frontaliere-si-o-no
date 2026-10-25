@@ -10,10 +10,8 @@ import {
 import { useTranslation } from '@/services/i18n';
 
 const DISPLAY_DELAY_MS = 1_500;
-const AUTO_DISMISS_MS = 3_500;
+const AUTO_DISMISS_MS = 8_000;
 const STATUS_TOAST_GAP_PX = 12;
-const SESSION_SEEN_KEY = 'ft_job_viewers_prompt_seen';
-let runtimePromptShown = false;
 const runtimeViewerCounts = new Map<string, number>();
 
 const STATUS_TOAST_SELECTORS = [
@@ -114,13 +112,6 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
   }, [visible]);
 
   useEffect(() => {
-    if (runtimePromptShown) return;
-    try {
-      if (window.sessionStorage.getItem(SESSION_SEEN_KEY)) return;
-    } catch {
-      // Session storage is optional; the prompt still works without it.
-    }
-
     let timer: number | null = null;
     let gateObserver: MutationObserver | null = null;
     const showPrompt = () => {
@@ -185,13 +176,6 @@ export default function JobViewersActivityPrompt({ jobId }: JobViewersActivityPr
 
   useEffect(() => {
     if (!visible) return;
-    runtimePromptShown = true;
-    try {
-      window.sessionStorage.setItem(SESSION_SEEN_KEY, '1');
-    } catch {
-      // Session storage is optional; the runtime guard still limits repetition.
-    }
-
     dismissTimer.current = window.setTimeout(close, AUTO_DISMISS_MS);
     return () => {
       if (dismissTimer.current !== null) {

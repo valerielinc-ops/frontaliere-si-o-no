@@ -1,13 +1,13 @@
 {
   "crawlerKey": "sicpa",
-  "assembledAt": "2026-10-24T21:36:51.979Z",
+  "assembledAt": "2026-10-25T09:41:19.531Z",
   "runId": "40133669660",
   "jobs": [
     {
       "id": "sicpa-83b163de8760",
-      "slug": "automatico-sicpa-sa-chavornay",
+      "slug": "automatico-sicpa-sa-chavornay-d76d2940f0",
       "slugByLocale": {
-        "it": "automatico-sicpa-sa-chavornay",
+        "it": "automatico-sicpa-sa-chavornay-d76d2940f0",
         "en": "automatician-sicpa-sa-chavornay",
         "de": "automatik-sicpa-sa-chavornay",
         "fr": "automaticien-sicpa-chavornay"
@@ -55,11 +55,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automaticien-sicpa-chavornay",
-        "automaticien-sicpa-chavornay-6r7gzx"
+        "automaticien-sicpa-chavornay-6r7gzx",
+        "automatico-sicpa-sa-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automaticien-sicpa-chavornay"
+          "automaticien-sicpa-chavornay",
+          "automatico-sicpa-sa-chavornay"
         ],
         "fr": [
           "automaticien-sicpa-chavornay-6r7gzx"
@@ -155,9 +157,9 @@
     },
     {
       "id": "sicpa-3811aa4d831e",
-      "slug": "automatico-sicpa-sa-chavornay-93b886",
+      "slug": "automatico-sicpa-sa-chavornay-ad8e6a1279",
       "slugByLocale": {
-        "it": "automatico-sicpa-sa-chavornay-93b886",
+        "it": "automatico-sicpa-sa-chavornay-ad8e6a1279",
         "en": "automatician-sicpa-sa-chavornay-93b886",
         "de": "automatik-sicpa-sa-chavornay-93b886",
         "fr": "automaticien-sicpa-chavornay"
@@ -204,11 +206,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automaticien-sicpa-chavornay"
+        "automaticien-sicpa-chavornay",
+        "automatico-sicpa-sa-chavornay-93b886",
+        "automatico-sicpa-sa-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automaticien-sicpa-chavornay"
+          "automaticien-sicpa-chavornay",
+          "automatico-sicpa-sa-chavornay-93b886",
+          "automatico-sicpa-sa-chavornay"
         ],
         "en": [
           "automaticien-sicpa-chavornay"
@@ -413,7 +419,7 @@
       "slugByLocale": {
         "it": "consulente-per-i-brevetti-sicpa-sa-prilly",
         "en": "senior-patent-counsel-sicpa-prilly",
-        "de": "leitender-patentanwalt-sicpa-sa-prilly",
+        "de": "senior-patent-counsel-sicpa-sa-prilly",
         "fr": "conseiller-principal-en-brevets-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
@@ -459,7 +465,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-patent-counsel-sicpa-prilly",
-        "senior-patent-counsel-sicpa-sa-prilly"
+        "leitender-patentanwalt-sicpa-sa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -467,7 +473,7 @@
         ],
         "de": [
           "senior-patent-counsel-sicpa-prilly",
-          "senior-patent-counsel-sicpa-sa-prilly"
+          "leitender-patentanwalt-sicpa-sa-prilly"
         ],
         "fr": [
           "senior-patent-counsel-sicpa-prilly"
@@ -711,7 +717,8 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sicpa-ee4544be3e45",
@@ -857,7 +864,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

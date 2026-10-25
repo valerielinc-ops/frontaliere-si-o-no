@@ -1,6 +1,6 @@
 {
   "crawlerKey": "komax",
-  "assembledAt": "2026-10-24T21:40:44.165Z",
+  "assembledAt": "2026-10-25T09:40:43.850Z",
   "runId": "40133743785",
   "jobs": [
     {
@@ -253,7 +253,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "komax-2aed90f8cb85",
@@ -372,7 +373,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "komax-5dc9d2ba6fee",
@@ -451,7 +453,8 @@
           "maxValue": 195000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "komax-f833e8d3c42f",
@@ -535,7 +538,7 @@
       "id": "komax-2050d42cdaf9",
       "slug": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
       "slugByLocale": {
-        "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon",
+        "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
         "en": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon",
         "de": "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
         "fr": "sales-switzerland-technical-sales-ingenieur-w-m-d-komax-dierikon"
@@ -586,12 +589,16 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6"
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6",
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
         ]
       },
       "previousSlugs": [
         "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6"
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2ya6",
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-509aa8c23a",
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -766,7 +773,7 @@
       "id": "komax-b5882ca23e19",
       "slug": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-a51b55e71b",
       "slugByLocale": {
-        "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon",
+        "it": "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-a51b55e71b",
         "en": "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch-ij2xjh",
         "de": "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
         "fr": "sales-switzerland-technical-sales-ingenieur-w-m-d-komax-dierikon"
@@ -816,12 +823,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh"
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh",
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-a51b55e71b",
+        "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
-          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh"
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh",
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-a51b55e71b",
+          "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon"
         ]
       },
       "firstSeenAt": "2026-09-24T00:10:25.502Z",

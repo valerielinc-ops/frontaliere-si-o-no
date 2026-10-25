@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadler-rail",
-  "assembledAt": "2026-10-24T22:18:13.780Z",
+  "assembledAt": "2026-10-25T09:41:29.220Z",
   "runId": "40133743785",
   "jobs": [
     {
@@ -307,7 +307,7 @@
       "id": "stadler-rail-fad1bfc65d48",
       "slug": "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
       "slugByLocale": {
-        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
+        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
         "en": "system-engineer-cbtc-stadler-rail-wallisellen",
         "de": "system-ingenieur-cbtc-stadler-rail-wallisellen",
         "fr": "system-engineer-cbtc-stadler-rail-ch-c74w3g"
@@ -357,6 +357,7 @@
         "system-engineer-cbtc-stadler-rail-ch",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
         "system-engineer-cbtc-stadler-rail-ch-c74w3g",
+        "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
         "system-ingegnere-cbtc-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
@@ -364,6 +365,7 @@
           "system-engineer-cbtc-stadler-rail-ch",
           "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
           "system-engineer-cbtc-stadler-rail-ch-c74w3g",
+          "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
           "system-ingegnere-cbtc-stadler-rail-wallisellen"
         ],
         "fr": [
@@ -614,7 +616,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-322bcbd24554",
@@ -772,7 +775,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b413c5561c67",
@@ -920,7 +924,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-a960eeb925cc",
@@ -1373,9 +1378,9 @@
       "slug": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
       "slugByLocale": {
         "it": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
-        "en": "disposal-of-materials-stadler-rail-st-margrethen",
+        "en": "material-dispatcher-stadler-rail-st-margrethen",
         "de": "materialdisponent-in-stadler-rail-ch",
-        "fr": "expedition-du-materiel-en-stadler-rail-st-margrethen"
+        "fr": "detecteur-de-materiau-en-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -1423,8 +1428,8 @@
         "materialdisponent-in-stadler-rail-st-margrethen",
         "materiale-di-spedizione-in-stadler-rail-st-margrethen",
         "material-dispatch-in-stadler-rail-st-margrethen",
-        "material-dispatcher-stadler-rail-st-margrethen",
-        "detecteur-de-materiau-en-stadler-rail-st-margrethen"
+        "disposal-of-materials-stadler-rail-st-margrethen",
+        "expedition-du-materiel-en-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1435,11 +1440,11 @@
         "en": [
           "materialdisponent-in-stadler-rail-st-margrethen",
           "material-dispatch-in-stadler-rail-st-margrethen",
-          "material-dispatcher-stadler-rail-st-margrethen"
+          "disposal-of-materials-stadler-rail-st-margrethen"
         ],
         "fr": [
           "materialdisponent-in-stadler-rail-st-margrethen",
-          "detecteur-de-materiau-en-stadler-rail-st-margrethen"
+          "expedition-du-materiel-en-stadler-rail-st-margrethen"
         ]
       },
       "firstSeenAt": "2026-09-01T14:23:53.477Z",
@@ -1988,7 +1993,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4108dc53384a",
@@ -2140,7 +2146,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-2970b1afb240",
@@ -2292,7 +2299,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f0880279f1cc",
@@ -2373,7 +2381,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-c86e3c865be9",
@@ -2524,7 +2533,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-3840da13c729",
@@ -2700,7 +2710,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-aa8cbd9c121d",
@@ -3017,7 +3028,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8e877077d971",
@@ -3096,7 +3108,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f7f799ccc958",
@@ -3260,7 +3273,7 @@
         "it": "acquirente-principale-stadler-rail-bussnang",
         "en": "lead-pukir-stadler-rail-bussnang",
         "de": "lead-buyer-stadler-rail-ch",
-        "fr": "acheteur-principal-stadler-rail-bussnang"
+        "fr": "responsable-achats-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -3307,7 +3320,7 @@
         "lead-buyer-stadler-rail-ch",
         "responsable-des-achats-stadler-rail-bussnang",
         "lead-buyer-stadler-rail-bussnang",
-        "responsable-achats-stadler-rail-bussnang"
+        "acheteur-principal-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3320,7 +3333,7 @@
           "lead-buyer-stadler-rail-ch",
           "responsable-des-achats-stadler-rail-bussnang",
           "lead-buyer-stadler-rail-bussnang",
-          "responsable-achats-stadler-rail-bussnang"
+          "acheteur-principal-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-10-05T21:47:16.367Z",
@@ -3415,7 +3428,8 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-1e319ca70377",
@@ -4040,7 +4054,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-74f0f30cf757",
@@ -4113,7 +4128,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-110e94231742",
@@ -4188,7 +4204,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-61d84f561ebf",
@@ -4305,7 +4322,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f7a1491a0bba",
@@ -4380,7 +4398,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-87ed84d1c807",
@@ -4484,7 +4503,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-45980167c5b9",
@@ -5387,7 +5407,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-045a903e0eca",
@@ -5625,7 +5646,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-225d4b68870f",
@@ -5715,7 +5737,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-7ba70ab6188a",
@@ -6066,7 +6089,7 @@
       "id": "stadler-rail-bfa214fd04b1",
       "slug": "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
       "slugByLocale": {
-        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
+        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
         "en": "system-ingegnere-cbtc-stadler-rail-wallisellen",
         "de": "system-engineer-cbtc-stadler-rail-ch",
         "fr": "system-ingenieur-cbtc-stadler-rail-wallisellen"
@@ -6118,6 +6141,7 @@
         "system-engineer-cbtc-stadler-rail-wallisellen",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
         "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
+        "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
         "system-ingegnere-cbtc-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
@@ -6126,6 +6150,7 @@
           "system-engineer-cbtc-stadler-rail-ch-2",
           "system-engineer-cbtc-stadler-rail-wallisellen",
           "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
+          "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
           "system-ingegnere-cbtc-stadler-rail-wallisellen"
         ],
         "de": [
@@ -6488,7 +6513,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b24a03e733b0",
@@ -6594,7 +6620,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-3f3da12b2415",
@@ -6673,7 +6700,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-38dada227e6c",
@@ -7406,7 +7434,7 @@
       "id": "stadler-rail-d8c44e4aefd7",
       "slug": "responsabile-del-progetto-elettrico-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "project-manager-in-electric-stadler-rail-bussnang",
+        "it": "responsabile-del-progetto-elettrico-stadler-rail-bussnang",
         "en": "project-manager-in-electric-stadler-rail-bussnang",
         "de": "teilprojektleiter-in-elektro-stadler-rail-ch",
         "fr": "gestionnaire-de-projet-en-electric-stadler-rail-bussnang"
@@ -7457,7 +7485,8 @@
         "introduzione-operativa-al-sottoproject-manager-stadler-rail-bussnang",
         "sub-project-manager-in-operation-stadler-rail-bussnang",
         "teilprojektleiter-in-betriebseinfuhrung-stadler-rail-ch",
-        "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang"
+        "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang",
+        "project-manager-in-electric-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7465,7 +7494,8 @@
           "introduzione-operativa-al-sottoproject-manager-stadler-rail-bussnang",
           "sub-project-manager-in-operation-stadler-rail-bussnang",
           "teilprojektleiter-in-betriebseinfuhrung-stadler-rail-ch",
-          "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang"
+          "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang",
+          "project-manager-in-electric-stadler-rail-bussnang"
         ],
         "en": [
           "teilprojektleiter-in-elektro-stadler-rail-ch",
@@ -7880,16 +7910,17 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-cd0a1fb9c2ae",
       "slug": "reclutamento-stadler-rail-wallisellen",
       "slugByLocale": {
         "it": "reclutamento-stadler-rail-wallisellen",
-        "en": "recruiting-stadler-rail-wallisellen",
+        "en": "testing-commissioning-engineer-stadler-rail-wallisellen",
         "de": "testing-commissioning-ingenieur-stadler-rail-wallisellen",
-        "fr": "recrutement-stadler-rail-wallisellen"
+        "fr": "testing-commissioning-ingenieur-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -7940,16 +7971,16 @@
           "testing-commissioning-engineer-stadler-rail-ch"
         ],
         "en": [
-          "testing-commissioning-engineer-stadler-rail-wallisellen"
+          "recruiting-stadler-rail-wallisellen"
         ],
         "fr": [
-          "testing-commissioning-ingenieur-stadler-rail-wallisellen"
+          "recrutement-stadler-rail-wallisellen"
         ]
       },
       "previousSlugs": [
         "testing-commissioning-engineer-stadler-rail-ch",
-        "testing-commissioning-engineer-stadler-rail-wallisellen",
-        "testing-commissioning-ingenieur-stadler-rail-wallisellen"
+        "recruiting-stadler-rail-wallisellen",
+        "recrutement-stadler-rail-wallisellen"
       ],
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
       "salaryMin": 83000,
@@ -8036,7 +8067,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-a7985f0a88e5",
@@ -8190,7 +8222,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-12d06fc78b38",
@@ -8906,7 +8939,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-85fc77596430",
@@ -9685,7 +9719,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-5e6c95f98023",
@@ -9772,7 +9807,7 @@
       "id": "stadler-rail-46a5813ca2ad",
       "slug": "cambiare-la-conformita-elettrica-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "elettricista-in-completamento-stadler-rail-bussnang",
+        "it": "cambiare-la-conformita-elettrica-stadler-rail-bussnang",
         "en": "electrician-in-completion-stadler-rail-bussnang",
         "de": "elektriker-in-fertigstellung-stadler-rail-ch",
         "fr": "electricien-en-achevement-stadler-rail-bussnang"
@@ -9821,7 +9856,8 @@
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-fertigstellung-stadler-rail-ch",
-          "anderungselektriker-in-fertigstellung-stadler-rail-ch"
+          "anderungselektriker-in-fertigstellung-stadler-rail-ch",
+          "elettricista-in-completamento-stadler-rail-bussnang"
         ],
         "en": [
           "elektriker-in-fertigstellung-stadler-rail-ch"
@@ -9835,7 +9871,8 @@
       },
       "previousSlugs": [
         "elektriker-in-fertigstellung-stadler-rail-ch",
-        "anderungselektriker-in-fertigstellung-stadler-rail-ch"
+        "anderungselektriker-in-fertigstellung-stadler-rail-ch",
+        "elettricista-in-completamento-stadler-rail-bussnang"
       ],
       "firstSeenAt": "2026-07-21T11:24:44.736Z",
       "salaryMin": 64500,
@@ -9929,16 +9966,17 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8aa4f06b29fb",
       "slug": "verniciatore-in-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "verniciatore-in-stadler-rail-bussnang",
-        "en": "painters-in-stadler-rail-bussnang",
+        "en": "painter-stadler-rail-bussnang",
         "de": "lackierer-in-stadler-rail-ch",
-        "fr": "peintres-en-stadler-rail-bussnang"
+        "fr": "peintre-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -9984,8 +10022,8 @@
       "previousSlugs": [
         "lackierer-in-stadler-rail-ch",
         "lackierer-in-stadler-rail-bussnang",
-        "painter-stadler-rail-bussnang",
-        "peintre-stadler-rail-bussnang"
+        "painters-in-stadler-rail-bussnang",
+        "peintres-en-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9993,10 +10031,10 @@
           "lackierer-in-stadler-rail-bussnang"
         ],
         "en": [
-          "painter-stadler-rail-bussnang"
+          "painters-in-stadler-rail-bussnang"
         ],
         "fr": [
-          "peintre-stadler-rail-bussnang"
+          "peintres-en-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-08-07T10:29:56.318Z",
@@ -10401,7 +10439,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-a572c9d90b59",
@@ -10553,14 +10592,15 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-55cc28708b78",
       "slug": "saldatori-in-alluminio-stadler-rail-altenrhein",
       "slugByLocale": {
         "it": "saldatori-in-alluminio-stadler-rail-altenrhein",
-        "en": "aluminium-welders-stadler-rail-altenrhein",
+        "en": "aluminum-welder-stadler-rail-altenrhein",
         "de": "aluminiumschweisser-in-stadler-rail-ch",
         "fr": "soudeurs-en-aluminium-stadler-rail-altenrhein"
       },
@@ -10608,7 +10648,7 @@
       "previousSlugs": [
         "aluminiumschweisser-in-stadler-rail-ch",
         "aluminiumschweisser-in-stadler-rail-altenrhein",
-        "aluminum-welder-stadler-rail-altenrhein"
+        "aluminium-welders-stadler-rail-altenrhein"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10616,7 +10656,7 @@
         ],
         "en": [
           "aluminiumschweisser-in-stadler-rail-altenrhein",
-          "aluminum-welder-stadler-rail-altenrhein"
+          "aluminium-welders-stadler-rail-altenrhein"
         ],
         "fr": [
           "aluminiumschweisser-in-stadler-rail-altenrhein"
@@ -10635,7 +10675,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-e45d900e1405",
@@ -10795,7 +10836,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f2d5ab040b13",
@@ -11828,7 +11870,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b656f381929d",
@@ -11986,7 +12029,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-64ed08473a00",
@@ -12065,7 +12109,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-ad9b09116a2d",
@@ -12287,7 +12332,8 @@
           "maxValue": 153000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f0482dfcfe45",
@@ -12777,9 +12823,9 @@
       "slug": "responsabile-contratti-procurement-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "responsabile-contratti-procurement-stadler-rail-bussnang",
-        "en": "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
+        "en": "contract-manager-procurement-stadler-rail-bussnang",
         "de": "contract-manager-procurement-stadler-rail-ch",
-        "fr": "gestion-des-marches-stadler-rail-bussnang"
+        "fr": "responsable-contrats-et-achats-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12825,7 +12871,8 @@
       "previousSlugs": [
         "contract-manager-procurement-stadler-rail-ch",
         "contract-manager-procurement-stadler-rail-bussnang",
-        "responsable-contrats-et-achats-stadler-rail-bussnang"
+        "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
+        "gestion-des-marches-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12833,11 +12880,11 @@
         ],
         "en": [
           "contract-manager-procurement-stadler-rail-ch",
-          "contract-manager-procurement-stadler-rail-bussnang"
+          "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang"
         ],
         "fr": [
           "contract-manager-procurement-stadler-rail-bussnang",
-          "responsable-contrats-et-achats-stadler-rail-bussnang"
+          "gestion-des-marches-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.596Z",
@@ -12932,7 +12979,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-959019271c79",

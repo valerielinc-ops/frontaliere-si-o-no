@@ -1,6 +1,6 @@
 {
   "crawlerKey": "laderach",
-  "assembledAt": "2026-10-24T21:24:46.741Z",
+  "assembledAt": "2026-10-25T09:40:47.858Z",
   "runId": "40133045140",
   "jobs": [
     {
@@ -309,7 +309,8 @@
       },
       "postalCode": "7000",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67756917/Weihnachtsaushilfe-60-80%25-Chocolaterie-St-Moritz-befristet-von-Dezember-2026-bis-M%C3%A4rz-2027-/",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-e7e0551edb5e",
@@ -387,7 +388,8 @@
       },
       "postalCode": "7000",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67756762/Weihnachtsaushilfe-60-80%25-Chocolaterie-St-Moritz-befristet-von-November-2026-bis-M%C3%A4rz-2027-/",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-cd4cdfff81eb",
@@ -1071,7 +1073,7 @@
       "id": "laderach-d638f6ff59b7",
       "slug": "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
       "slugByLocale": {
-        "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
+        "it": "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
         "en": "apprenticeship-in-the-retail-trade-efz-2027-m-f-d-laderach-schweiz-ag-zurich",
         "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "fr": "apprentissage-dans-le-commerce-de-detail-efz-2027-h-f-d-laderach-schweiz-ag-zurich"
@@ -1115,14 +1117,18 @@
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
         "lehrstelle-im-commerce-de-detail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
-        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2"
+        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2",
+        "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
+        "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
           "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
           "lehrstelle-im-commerce-de-detail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
-          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2"
+          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2",
+          "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
+          "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich"
         ],
         "en": [
           "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
@@ -1149,7 +1155,8 @@
       },
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67232685/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-03df285b9260",
@@ -1495,7 +1502,8 @@
       },
       "postalCode": "8610",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67018175/Weihnachtsaushilfe-40-60%25-Chocolaterie-Uster-befristet-von-Oktober-bis-Dezember-2026-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-03a3673802fa",
@@ -1821,7 +1829,7 @@
       "id": "laderach-b632c366aa12",
       "slug": "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
       "slugByLocale": {
-        "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
+        "it": "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
         "en": "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
         "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "fr": "lehrstelle-im-commerce-de-detail-efz-2027-w-m-d-laderach-schweiz-ag-zurich"
@@ -1864,13 +1872,17 @@
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn6pl",
-        "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-df5b8569df"
+        "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-df5b8569df",
+        "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
+        "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
           "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn6pl",
-          "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-df5b8569df"
+          "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-df5b8569df",
+          "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
+          "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-09-05T12:44:43.974Z",
@@ -1889,7 +1901,8 @@
       },
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66510273/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-fd6fc2b31468",
@@ -1965,7 +1978,8 @@
       },
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66510088/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-418e501d68ff",
@@ -2049,7 +2063,8 @@
       },
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66510048/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-9eb36eb15ad5",
@@ -2125,7 +2140,8 @@
       },
       "postalCode": "4001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66509728/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-2ab55fbbe937",
@@ -2277,7 +2293,8 @@
       },
       "postalCode": "8755",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66507453/Lehrstelle-Lebensmitteltechnologe-in-EFZ-2027-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-b0ad57de7665",
@@ -2366,7 +2383,8 @@
       },
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66506288/Lehrstelle-Logistiker-in-EFZ-2027-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-c4f57c56a715",
@@ -2686,7 +2704,8 @@
       },
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/64633953/Confiseur-f%C3%BCr-Live-Produktion-im-House-of-L%C3%A4derach-60-100%25-w-m-d-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "needsRetranslation": true
     }
   ]
 }
