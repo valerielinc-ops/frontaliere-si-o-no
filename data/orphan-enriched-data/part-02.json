@@ -3011,7 +3011,7 @@
         {
           "query": "altenpfleger jobs lugano",
           "clicks": 0,
-          "impressions": 56
+          "impressions": 58
         },
         {
           "query": "altenpfleger bern",
@@ -3109,7 +3109,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 252,
+      "totalImpressions": 254,
       "totalClicks": 1,
       "topQuery": "altenpfleger jobs lugano",
       "title": "Altenpflege",
@@ -5096,6 +5096,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "apprentissage-logisticien-ne-cfc-valfleurier-delemont",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-jura/apprentissage-logisticien-ne-cfc-valfleurier-delemont/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-jura/apprentissage-logisticien-ne-cfc-valfleurier-delemont/"
+      },
+      "queries": [
+        {
+          "query": "emploi val de travers",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "emploi val de travers",
+      "title": "Apprentissage logisticien ne cfc valfleurier delemont",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "apprentissage-logisticien-ne-cfc-valfleurier-delemont",
+        "en": "apprentissage-logisticien-ne-cfc-valfleurier-delemont",
+        "de": "apprentissage-logisticien-ne-cfc-valfleurier-delemont",
+        "fr": "apprentissage-logisticien-ne-cfc-valfleurier-delemont"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-giura/apprentissage-logisticien-ne-cfc-valfleurier-delemont",
+        "en": "/en/find-jobs-jura/apprentissage-logisticien-ne-cfc-valfleurier-delemont",
+        "de": "/de/jobs-im-jura/apprentissage-logisticien-ne-cfc-valfleurier-delemont",
+        "fr": "/fr/trouver-emploi-jura/apprentissage-logisticien-ne-cfc-valfleurier-delemont"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -19411,6 +19468,64 @@
       ]
     },
     {
+      "slug": "couverture-opus-personal-ag-zweigniederlassung-altdorf-brig",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-valais/couverture-opus-personal-ag-zweigniederlassung-altdorf-brig/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-valais/couverture-opus-personal-ag-zweigniederlassung-altdorf-brig/"
+      },
+      "queries": [
+        {
+          "query": "opus brig",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "opus brig",
+      "title": "Couverture opus personal ag zweigniederlassung altdorf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Brig",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "couverture-opus-personal-ag-zweigniederlassung-altdorf-brig",
+        "en": "couverture-opus-personal-ag-zweigniederlassung-altdorf-brig",
+        "de": "couverture-opus-personal-ag-zweigniederlassung-altdorf-brig",
+        "fr": "couverture-opus-personal-ag-zweigniederlassung-altdorf-brig"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/couverture-opus-personal-ag-zweigniederlassung-altdorf-brig",
+        "en": "/en/find-jobs-valais/couverture-opus-personal-ag-zweigniederlassung-altdorf-brig",
+        "de": "/de/jobs-im-wallis/couverture-opus-personal-ag-zweigniederlassung-altdorf-brig",
+        "fr": "/fr/trouver-emploi-valais/couverture-opus-personal-ag-zweigniederlassung-altdorf-brig"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "crm-specialiste-marche-suisse-cdd-8-mois-audemars-piguet-tolochenaz",
       "locale": "fr",
       "path": "/fr/trouver-emploi-vaud/crm-specialiste-marche-suisse-cdd-8-mois-audemars-piguet-tolochenaz/",
@@ -19562,6 +19677,64 @@
         "en": "/en/find-jobs-ticino/cuisinier-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "/de/jobs-im-tessin/cuisinier-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "/fr/trouver-emploi-tessin/cuisinier-eoc-ente-ospedaliero-cantonale-bellinzona"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "cuisinier-ere-80-senevita-bern",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-berne/cuisinier-ere-80-senevita-bern/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-berne/cuisinier-ere-80-senevita-bern/"
+      },
+      "queries": [
+        {
+          "query": "cuisinier",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "cuisinier",
+      "title": "Cuisinier ere senevita",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "cuisinier-ere-80-senevita-bern",
+        "en": "cuisinier-ere-80-senevita-bern",
+        "de": "cuisinier-ere-80-senevita-bern",
+        "fr": "cuisinier-ere-80-senevita-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/cuisinier-ere-80-senevita-bern",
+        "en": "/en/find-jobs-bern/cuisinier-ere-80-senevita-bern",
+        "de": "/de/jobs-im-bern/cuisinier-ere-80-senevita-bern",
+        "fr": "/fr/trouver-emploi-berne/cuisinier-ere-80-senevita-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63506,6 +63679,63 @@
       ]
     },
     {
+      "slug": "senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno/"
+      },
+      "queries": [
+        {
+          "query": "offerte lavoro banca",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "offerte lavoro banca",
+      "title": "Senior test manager core banking pricing system integration contrasporta il nostro partner di payroll esterno",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno",
+        "en": "senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno",
+        "de": "senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno",
+        "fr": "senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno",
+        "en": "/en/find-jobs-zurich/senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno",
+        "de": "/de/jobs-im-zurich/senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno",
+        "fr": "/fr/trouver-emploi-zurich/senior-test-manager-core-banking-pricing-system-integration-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "seo-redattore-content-growth-manager-90-100-somedia-ag-chur",
       "locale": "de",
       "path": "/de/jobs-im-tessin/seo-redattore-content-growth-manager-90-100-somedia-ag-chur",
@@ -73245,7 +73475,7 @@
         "de": "/de/jobs-im-genf/tecnico-telematico-pemsa-geneve",
         "fr": "/fr/trouver-emploi-geneve/tecnico-telematico-pemsa-geneve"
       },
-      "sourceUrl": "https://www.pemsa.ch/it/job/tecnico-telematico-2699101",
+      "sourceUrl": "https://www.pemsa.ch/it/job/tecnico-telematico-2702012",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",

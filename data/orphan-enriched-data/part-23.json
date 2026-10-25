@@ -31875,7 +31875,7 @@
       "totalImpressions": 5,
       "totalClicks": 0,
       "topQuery": "versace job",
-      "title": "Fixtermin sales associate genf teilzeit geneva",
+      "title": "Fixtermin sales associate genf teilzeit michael kors versace geneva",
       "titleByLocale": {
         "it": "",
         "en": "",
@@ -31888,8 +31888,8 @@
         "de": "",
         "fr": ""
       },
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings-michael-kors-versace",
+      "company": "Michael Kors",
+      "companyKey": "capri-holdings",
       "location": "",
       "sector": "",
       "salaryMin": 0,
@@ -39095,6 +39095,78 @@
       ]
     },
     {
+      "slug": "it-jobs",
+      "locale": "en",
+      "path": "/en/find-jobs-ticino/it-jobs/",
+      "observedPaths": {
+        "en": "/en/find-jobs-ticino/it-jobs/"
+      },
+      "queries": [
+        {
+          "query": "informatiker jobs lugano",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "sì",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "user experience designer jobs lugano",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "virtual assistant jobs lugano",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 4,
+      "totalClicks": 0,
+      "topQuery": "informatiker jobs lugano",
+      "title": "It jobs",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "it-jobs",
+        "en": "it-jobs",
+        "de": "it-jobs",
+        "fr": "it-jobs"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/it-jobs",
+        "en": "/en/find-jobs-ticino/it-jobs",
+        "de": "/de/jobs-im-tessin/it-jobs",
+        "fr": "/fr/trouver-emploi-tessin/it-jobs"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "it-sicherheits-und-compliance-manager-lonza-ch",
       "locale": "en",
       "path": "/en/find-jobs-ticino/it-sicherheits-und-compliance-manager-lonza-ch",
@@ -41605,10 +41677,10 @@
         "fr": "place-d-apprentissage-d-assistant-e-du-commerce-de-detail-afp-alimentation-volg-elm-gl"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-elm-gl",
-        "en": "/en/find-jobs-ticino/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-elm-gl",
-        "de": "/de/jobs-im-tessin/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-elm-gl",
-        "fr": "/fr/trouver-emploi-tessin/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-elm-gl"
+        "it": "/cerca-lavoro-glarona/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-elm-gl",
+        "en": "/en/find-jobs-glarus/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-elm-gl",
+        "de": "/de/jobs-in-glarus/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-elm-gl",
+        "fr": "/fr/trouver-emploi-glaris/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-elm-gl"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59356,6 +59428,63 @@
         "en": "/en/find-jobs-ticino/regulatory-affairs-tirocinante-roche-sant-cugat-del-valles",
         "de": "/de/jobs-im-tessin/regulatory-affairs-tirocinante-roche-sant-cugat-del-valles",
         "fr": "/fr/trouver-emploi-tessin/regulatory-affairs-tirocinante-roche-sant-cugat-del-valles"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "reitnau",
+      "locale": "it",
+      "path": "/cerca-lavoro-argovia/reitnau/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-argovia/reitnau/"
+      },
+      "queries": [
+        {
+          "query": "jobs industrie",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "jobs industrie",
+      "title": "Reitnau",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "reitnau",
+        "en": "reitnau",
+        "de": "reitnau",
+        "fr": "reitnau"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/reitnau",
+        "en": "/en/find-jobs-aargau/reitnau",
+        "de": "/de/jobs-im-aargau/reitnau",
+        "fr": "/fr/trouver-emploi-argovie/reitnau"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
