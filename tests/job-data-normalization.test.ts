@@ -82,7 +82,7 @@ describe('jobDataNormalization', () => {
       'edmond-de-rothschild': '/images/brands/edmond-de-rothschild.png',
       imerys: '/images/brands/imerys.png',
       'farmacia-internazionale-dr-merloni': '/images/brands/farmacia-internazionale-dr-merloni.jpg',
-      mediamarkt: '/images/brands/mediamarkt.png',
+      mediamarkt: '/images/brands/mediamarkt.svg',
     } as const;
 
     for (const [key, path] of Object.entries(expected)) {
