@@ -1,7 +1,7 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-10-25T09:53:50.057Z",
+  "generatedAt": "2026-10-25T21:43:35.634Z",
   "total": 11,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 12266,
-  "avgDurationMs": 12266,
+  "durationMs": 10962,
+  "avgDurationMs": 10962,
   "durationHistory": [
-    12266
+    10962
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:23.114Z",
+      "crawledAt": "2026-10-25T21:43:17.770Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -90,7 +90,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:24.036Z",
+      "crawledAt": "2026-10-25T21:43:18.622Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "firstSeenAt": "2026-10-01T09:27:19.173Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:24.888Z",
+      "crawledAt": "2026-10-25T21:43:19.467Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "firstSeenAt": "2026-09-26T14:26:58.217Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:25.734Z",
+      "crawledAt": "2026-10-25T21:43:20.273Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -216,7 +216,7 @@
       "firstSeenAt": "2026-09-11T23:25:37.393Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:26.580Z",
+      "crawledAt": "2026-10-25T21:43:21.069Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -258,7 +258,7 @@
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:27.405Z",
+      "crawledAt": "2026-10-25T21:43:21.892Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -291,7 +291,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:28.226Z",
+      "crawledAt": "2026-10-25T21:43:22.708Z",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -333,7 +333,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:29.087Z",
+      "crawledAt": "2026-10-25T21:43:23.482Z",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -384,7 +384,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:29.942Z",
+      "crawledAt": "2026-10-25T21:43:24.281Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -426,7 +426,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:30.812Z",
+      "crawledAt": "2026-10-25T21:43:25.094Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -471,7 +471,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-25T09:53:31.681Z",
+      "crawledAt": "2026-10-25T21:43:25.807Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -481,5 +481,5 @@
       }
     }
   ],
-  "codeCommit": "7828c9758030f26686488e812ba100f0cb001480"
+  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
 }
