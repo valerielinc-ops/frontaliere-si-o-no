@@ -236,6 +236,36 @@ function cscPlainText(html) {
 }
 
 /**
+ * CSC keeps the application form live when its Drupal work-position view has
+ * no published vacancies. In that state the only option is the generic
+ * spontaneous application; treating the missing view as a broken response
+ * leaves the crawler red forever even though the source explicitly says that
+ * there is no vacancy to publish.
+ */
+function isSpontaneousApplicationOnlyEmptyState(html) {
+  const matchingSelects = [];
+  const selectPattern = /<select\b([^>]*)>([\s\S]*?)<\/select\s*>/gi;
+  for (const match of String(html || '').matchAll(selectPattern)) {
+    const name = readQuotedHtmlAttr(match[1], 'name').trim().toLowerCase();
+    if (name !== 'work_position') continue;
+    matchingSelects.push(match[2]);
+  }
+  if (matchingSelects.length === 0) return false;
+
+  // Responsive Drupal templates can render more than one copy of the form.
+  // Treat the page as authoritative only when every work-position control says
+  // the same thing; a hidden spontaneous-only copy must not hide real options.
+  return matchingSelects.every((selectHtml) => {
+    const options = [...selectHtml.matchAll(/<option\b([^>]*)>([\s\S]*?)<\/option\s*>/gi)];
+    if (options.length !== 1) return false;
+
+    const value = readQuotedHtmlAttr(options[0][1], 'value').trim().toLowerCase();
+    const label = cscPlainText(options[0][2]);
+    return value === 'all' && /candidatura\s+spontanea/i.test(label);
+  });
+}
+
+/**
  * Parse only the Drupal work-position view. A 200 WAF/error shell, truncated
  * HTML or an unrecognised empty state is not an authoritative snapshot.
  */
@@ -244,6 +274,10 @@ export function parseCscCareersPage(html) {
   const viewStart = source.search(/id=["']block-views-block-work-positions-work-positions-list["']/i);
   const viewEnd = source.indexOf('<!-- Modal Work Position -->', Math.max(0, viewStart));
   if (viewStart < 0 || viewEnd < 0 || !/<\/html>\s*$/i.test(source.trim())) {
+    if (viewStart < 0 && viewEnd < 0 && /<\/html>\s*$/i.test(source.trim())
+      && isSpontaneousApplicationOnlyEmptyState(source)) {
+      return { urls: [], authoritativeEmpty: true };
+    }
     throw new Error('CSC discovery degraded: complete Drupal work-position view not found.');
   }
 
@@ -504,7 +538,8 @@ export async function renderCscNcoreDetailPage(detailUrl, { timeoutMs = 12000 } 
 }
 
 function readQuotedHtmlAttr(attrs, name) {
-  const match = String(attrs || '').match(new RegExp(`\\b${name}\\s*=\\s*(["'])(.*?)\\1`, 'i'));
+  const escapedName = String(name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = String(attrs || '').match(new RegExp(`(?:^|\\s)${escapedName}\\s*=\\s*(["'])(.*?)\\1`, 'i'));
   return match?.[2] || '';
 }
 
