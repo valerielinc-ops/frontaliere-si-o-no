@@ -237,6 +237,10 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(() => parseVariants('bad=NOT_A_BUILD_FLAG=1')).toThrow(/disallowed env key/);
   });
 
+  it('keeps compare variants on the complete border-wait corpus', () => {
+    expect(() => parseVariants('partial=SKIP_BORDER_WAIT=1')).toThrow(/disallowed env key/);
+  });
+
   it('accepts the benchmark-only stop and sample flags in a variant', () => {
     expect(parseVariants(
       'canary=BUILD_STOP_AFTER=jobsSeoPages,JOBS_SEO_SAMPLE=0.1,BUILD_BENCH=1,JOBS_SEO_REUSE_VERIFY_SAMPLE=0.02',

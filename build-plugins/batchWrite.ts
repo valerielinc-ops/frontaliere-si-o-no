@@ -58,18 +58,9 @@ function ensureDir(dir: string) {
  ensuredDirs.add(dir);
 }
 
-/**
- * Flush an array of pending writes in parallel batches.
- * @param writes - Array of { filePath, content } objects
- * @param concurrency - Number of files written in parallel per batch.
- *
- * Default 500: tuned for ubuntu-latest CI runners (SSD-backed, ulimit -n
- * default 65535). Local benchmark on ~175K files saw ~30 % flush-time
- * reduction going 200→500 without measurable contention. Stay below
- * ~1024 to remain compatible with conservative ulimits (e.g. macOS
- * launchd default 256/1024).
- */
-export async function flushWrites(writes: PendingWrite[], concurrency = 500): Promise<number> {
+type WriteScheduler = (write: PendingWrite) => Promise<void>;
+
+function prepareWriteBatch(writes: PendingWrite[]): void {
  // Check the whole batch before creating directories. This catches a file
  // emitted together with a nested `file/index.html` in milliseconds, instead
  // of letting mkdir/write fail after a long build or in an unrelated probe.
@@ -79,19 +70,43 @@ export async function flushWrites(writes: PendingWrite[], concurrency = 500): Pr
  const dirs = new Set<string>();
  for (const w of writes) dirs.add(path.dirname(w.filePath));
  for (const d of dirs) ensureDir(d);
+}
+
+/**
+ * Flush an array of pending writes in parallel batches.
+ * @param writes - Array of { filePath, content } objects
+ * @param concurrency - Number of files written in parallel per batch.
+ * @param scheduleWrite - Per-file scheduler used by the collector ordering path.
+ *
+ * Default 500: tuned for ubuntu-latest CI runners (SSD-backed, ulimit -n
+ * default 65535). Local benchmark on ~175K files saw ~30 % flush-time
+ * reduction going 200→500 without measurable contention. Stay below
+ * ~1024 to remain compatible with conservative ulimits (e.g. macOS
+ * launchd default 256/1024).
+ */
+async function flushWritesWithScheduler(
+ writes: PendingWrite[],
+ concurrency: number,
+ scheduleWrite: WriteScheduler,
+): Promise<number> {
+ prepareWriteBatch(writes);
 
  // Write files in parallel batches
  let written = 0;
  for (let i = 0; i < writes.length; i += concurrency) {
  const batch = writes.slice(i, i + concurrency);
- await Promise.all(
- batch.map(w =>
- fs.promises.writeFile(w.filePath, w.content, 'utf-8')
- )
- );
+ await Promise.all(batch.map(scheduleWrite));
  written += batch.length;
  }
  return written;
+}
+
+export function flushWrites(writes: PendingWrite[], concurrency = 500): Promise<number> {
+ return flushWritesWithScheduler(
+  writes,
+  concurrency,
+  (write) => fs.promises.writeFile(write.filePath, write.content, 'utf-8'),
+ );
 }
 
 /**
@@ -212,6 +227,12 @@ export class WriteCollector {
  private _deferredFlush: PendingWrite[] | null = null;
  private _autoFlushScheduled = false;
  private _firstError: Error | null = null;
+ // Ordina solo le riscritture dello stesso path: batch diversi e path
+ // indipendenti restano concorrenti, mentre due add() dello stesso path
+ // rispettano l'ordine di emissione. `WRITE_COLLECTOR_CHAIN=0` (solo banco,
+ // A/B del costo) ripristina il percorso senza ordinamento.
+ private _pathFlushChains: Map<string, Promise<void>> = new Map();
+ private readonly _orderOverlappingPaths = process.env.WRITE_COLLECTOR_CHAIN !== '0';
  private _writtenPaths = new Set<string>();
  private readonly _concurrency: number;
  private readonly _autoFlushThreshold: number;
@@ -225,11 +246,72 @@ export class WriteCollector {
  this._postWalkDerivedKind = opts?.postWalkDerivedKind;
  }
 
+ private flushOrderedWrites(batch: PendingWrite[], concurrency: number): Promise<number> {
+  prepareWriteBatch(batch);
+  const scheduled = batch.map((write) => {
+   const previous = this._pathFlushChains.get(write.filePath) ?? Promise.resolve();
+   let start!: () => void;
+   let cancel!: (reason: unknown) => void;
+   let started = false;
+   let resolveCurrent!: () => void;
+   let rejectCurrent!: (reason: unknown) => void;
+   const current = new Promise<void>((resolve, reject) => {
+    resolveCurrent = resolve;
+    rejectCurrent = reject;
+   });
+   start = () => {
+    if (started) return;
+    started = true;
+    previous
+      .then(() => fs.promises.writeFile(write.filePath, write.content, 'utf-8'))
+      .then(resolveCurrent, rejectCurrent);
+   };
+   cancel = (reason) => {
+    if (started) return;
+    started = true;
+    rejectCurrent(reason);
+   };
+   this._pathFlushChains.set(write.filePath, current);
+   void current.then(
+   () => {
+    if (this._pathFlushChains.get(write.filePath) === current) {
+     this._pathFlushChains.delete(write.filePath);
+    }
+   },
+   () => {
+    if (this._pathFlushChains.get(write.filePath) === current) {
+     this._pathFlushChains.delete(write.filePath);
+    }
+   },
+   );
+   return { promise: current, start, cancel };
+  });
+
+  return (async () => {
+   let written = 0;
+   try {
+    for (let i = 0; i < scheduled.length; i += concurrency) {
+     const chunk = scheduled.slice(i, i + concurrency);
+     for (const item of chunk) item.start();
+     await Promise.all(chunk.map((item) => item.promise));
+     written += chunk.length;
+    }
+   } catch (error) {
+    for (const item of scheduled) item.cancel(error);
+    throw error;
+   }
+   return written;
+  })();
+ }
+
  private startBackgroundFlush(batch: PendingWrite[]): void {
  if (batch.length === 0) return;
  let flushPromise: Promise<number>;
  // eslint-disable-next-line prefer-const
- flushPromise = flushWrites(batch, this._concurrency).then((written) => {
+ flushPromise = (this._orderOverlappingPaths
+  ? this.flushOrderedWrites(batch, this._concurrency)
+  : flushWrites(batch, this._concurrency)
+ ).then((written) => {
   this.markWritten(batch);
   return written;
  }).catch((err: unknown) => {
@@ -241,6 +323,7 @@ export class WriteCollector {
   this._pendingFlushes.delete(flushPromise);
  });
  this._pendingFlushes.add(flushPromise);
+ // `flushPromise` non rigetta mai (il catch sopra la risolve a 0).
  }
 
  private releaseDeferredFlush(): void {
@@ -461,7 +544,10 @@ export class WriteCollector {
  if (remaining.length > 0) {
  let drainPromise: Promise<number>;
  // eslint-disable-next-line prefer-const
- drainPromise = flushWrites(remaining, concurrency).then((written) => {
+ drainPromise = (this._orderOverlappingPaths
+  ? this.flushOrderedWrites(remaining, concurrency)
+  : flushWrites(remaining, concurrency)
+ ).then((written) => {
   this.markWritten(remaining);
   return written;
  }).finally(() => {
