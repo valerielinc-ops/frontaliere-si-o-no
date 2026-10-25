@@ -36,6 +36,8 @@ export function hasPublishedRouteIdentity(job = {}) {
     job.applyUrl,
     job.slug,
     job.id,
+    job.externalId,
+    job.jobId,
     ...slugByLocale,
     ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
     ...previousSlugsByLocale,

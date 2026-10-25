@@ -164,6 +164,16 @@ describe('active parser-quality population', () => {
     });
   });
 
+  it('keeps canonical stable-id rows in the active quality population', () => {
+    const externalIdOnly = { externalId: 'ext-1', description: 'text' };
+    const jobIdOnly = { jobId: 'job-1', description: 'text' };
+
+    expect(partitionCrawlerJobsForActiveMetrics([externalIdOnly, jobIdOnly])).toEqual({
+      activeJobs: [externalIdOnly, jobIdOnly],
+      excluded: { grace: 0, expired: 0, nonPublishable: 0, total: 0 },
+    });
+  });
+
   it('does not hide live records with malformed or non-positive grace metadata', () => {
     const records = [
       { id: 'missing' },
