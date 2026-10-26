@@ -54,6 +54,8 @@ import {
   workdayReqFromLeaf,
   UMANTIS_HOST_RE,
   UMANTIS_VACANCY_PATH_RE,
+  SOZJOBS_HOST_RE,
+  sozjobsJobIdFromPath,
   trailingDigitRunFromLeaf,
 } from './job-url-key.mjs';
 import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
@@ -6022,6 +6024,15 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     const wdLeaf = u.pathname.split('/').filter(Boolean).pop() || '';
     const req = workdayReqFromLeaf(wdLeaf);
     if (req) return `${host}|${req}`;
+  }
+
+  // sozjobs.ch detail urls carry the per-job Jxxx requisition before a
+  // publisher-wide widget UUID. Mirrors mergeUrlKey Rule S so the persisted
+  // slug-registry fingerprint and crawl-time merge key cannot disagree and
+  // sibling postings cannot share one identity.
+  if (SOZJOBS_HOST_RE.test(host)) {
+    const jobId = sozjobsJobIdFromPath(u.pathname);
+    if (jobId) return `sozjobs.ch|${jobId}`;
   }
 
   // Umantis (`recruitingapp-<tenantId>.umantis.com`): key on the FULL host, not

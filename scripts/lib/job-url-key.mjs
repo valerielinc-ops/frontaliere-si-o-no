@@ -85,6 +85,25 @@ export const UMANTIS_HOST_RE = /(?:^|\/\/)recruitingapp-\d+\.umantis\.com(?:[:/]
 // digits today (1910, 5105, …) — far below NUM_ID_RE's ≥6-digit floor.
 export const UMANTIS_VACANCY_PATH_RE = /\/vacancies\/(\d+)(?:\/|$)/;
 
+// sozjobs.ch detail urls put the per-job requisition (`J993250`) before the
+// shared publisher-widget path. The trailing `widgetid/<uuid>` is identical
+// for sibling jobs published by one employer, so the generic leaf UUID rule
+// collapses unrelated postings unless this host/path-specific key runs first.
+// Host-gated so no other crawler's URL shape changes.
+export const SOZJOBS_HOST_RE = /(?:^|\/\/)(?:www\.)?sozjobs\.ch(?:[:/]|$)/;
+export const SOZJOBS_JOB_PATH_RE = /\/job\/[^/?#]+\/(j\d+)(?:\/|$)/i;
+
+/**
+ * Extract the per-job requisition from a sozjobs.ch detail pathname.
+ *
+ * @param {string} pathname
+ * @returns {string}
+ */
+export function sozjobsJobIdFromPath(pathname) {
+  const match = String(pathname || '').match(SOZJOBS_JOB_PATH_RE);
+  return match?.[1]?.toLowerCase() || '';
+}
+
 // PageExecutive detail urls encode two numeric tokens in the leaf:
 //   /ref/jn-<MMYYYY>-<requisition>
 // The date-like publication tag is shared by every posting created that month,
@@ -294,6 +313,8 @@ export function lowerStripTrailingSlash(url) {
  *      (`-N`/`_N`) KEPT.
  *   P. PageExecutive `/ref/jn-MMYYYY-<req>` detail → final requisition; the
  *      leading date token is shared by every posting opened in that month.
+ *   S. sozjobs.ch `/job/<slug>/<Jreq>/…` detail → the per-job requisition; the
+ *      trailing `widgetid` UUID is shared by all jobs in one publisher widget.
  *   A. generic-index / document-file leaf + numeric/hex legacy token → per-job
  *      query id if present (`…/index.html?id=NNN`), else full URL (the only token
  *      is a shared folder/company id or a `%20`+year artifact).
@@ -340,6 +361,15 @@ export function mergeUrlKey(url) {
     const pathOnly = u.split(/[?#]/)[0];
     const ref = pathOnly.match(PAGEEXECUTIVE_DETAIL_REF_RE);
     if (ref) return `num:${ref[1]}`;
+  }
+
+  // Rule S — sozjobs.ch per-job requisition outranks the trailing widget UUID.
+  // A publisher widget is shared by multiple sibling postings, while the Jxxx
+  // segment is the vendor's per-job id. Free re-key: the merge key is derived
+  // from each URL on every crawl, so the existing and fresh records agree.
+  if (SOZJOBS_HOST_RE.test(u)) {
+    const jobId = sozjobsJobIdFromPath(u.split(/[?#]/)[0]);
+    if (jobId) return `req:sozjobs.ch:${jobId}`;
   }
 
   // Rule A — generic-page / document-file leaf whose only PATH token is a shared
