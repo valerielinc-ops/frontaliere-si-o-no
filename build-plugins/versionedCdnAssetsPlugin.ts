@@ -17,11 +17,14 @@
  * release directory is additive on the CDN and retained by the janitors for
  * the browser-cache grace period.
  *
- * Blog body modules are intentionally left at their historical stable paths.
- * They are data-only default exports and are loaded through the generated
- * blogBodyLoader table. The release copy of that loader points those leaves
- * back to /assets/ explicitly; all application/code modules stay inside the
- * release namespace.
+ * Data modules that are published independently of the full Vite build are
+ * intentionally left at their historical stable paths. This includes the
+ * generated blog body leaves and the article registries/meta/router chunks
+ * refreshed by publish-article-chunks.mjs. The release copy of every importer
+ * points those leaves back to /assets/ explicitly; all application/code
+ * modules stay inside the release namespace. Keeping the article registries
+ * outside the release is important: a fast article publish must remain
+ * visible without waiting for the next full SPA build.
  */
 
 import fs from 'node:fs';
@@ -32,6 +35,32 @@ export const VERSIONED_RELEASES_DIR = 'releases';
 export const VERSIONED_RELEASE_ENTRY = 'index-entry.js';
 
 const JAVASCRIPT_EXTENSIONS = new Set(['.js', '.mjs']);
+
+/**
+ * Stable JS modules refreshed outside the full Vite deploy. They are the
+ * article registries and companion chunks published by
+ * scripts/publish-article-chunks.mjs. Do not copy a snapshot into a release:
+ * that would make the build-scoped graph serve stale article data after a
+ * fast publish.
+ */
+export const STABLE_OUT_OF_BAND_ASSET_NAMES = new Set([
+  'blog-articles-data.js',
+  'swiss-articles-data.js',
+  'blog-meta-it.js',
+  'blog-meta-en.js',
+  'blog-meta-de.js',
+  'blog-meta-fr.js',
+  'blog-meta-ch-it.js',
+  'blog-meta-ch-en.js',
+  'blog-meta-ch-de.js',
+  'blog-meta-ch-fr.js',
+  'routerBlogData.js',
+  'routerSwissData.js',
+]);
+
+export function isStableOutOfBandAsset(relativePath: string): boolean {
+  return STABLE_OUT_OF_BAND_ASSET_NAMES.has(path.posix.basename(relativePath));
+}
 
 function normalizeCdnOrigin(raw: string): string {
   const value = raw.trim().replace(/\/+$/, '');
@@ -57,6 +86,7 @@ export function normalizeDeployBuildId(raw: string | undefined): string {
  */
 export function isStableBlogBodyAsset(relativePath: string): boolean {
   const name = path.posix.basename(relativePath);
+  if (isStableOutOfBandAsset(relativePath)) return false;
   return /\.(?:ch\.)?(?:it|en|de|fr)\.js$/.test(name);
 }
 
@@ -78,7 +108,7 @@ export function versionedAssetPaths(assetsDir: string): string[] {
     const ext = path.posix.extname(relativePath).toLowerCase();
     if (ext === '.css') return true;
     if (!JAVASCRIPT_EXTENSIONS.has(ext)) return false;
-    return !isStableBlogBodyAsset(relativePath);
+    return !isStableBlogBodyAsset(relativePath) && !isStableOutOfBandAsset(relativePath);
   });
 }
 
@@ -127,6 +157,23 @@ export function pointReleaseBlogBodyImportsAtStableLeaves(source: string): strin
   );
 }
 
+/**
+ * Rollup emits imports of independently published article modules as
+ * `./<name>.js`. Once the importer lives in /assets/releases/<id>/, the
+ * stable leaf is two directories above it. Absolute /assets references are
+ * deliberately untouched because they already point at the stable namespace.
+ */
+export function pointReleaseStableDataImportsAtStableLeaves(source: string): string {
+  const names = [...STABLE_OUT_OF_BAND_ASSET_NAMES]
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegExp)
+    .join('|');
+  const relativeImport = new RegExp(`(['"])\\.\\/(${names})\\1`, 'g');
+  return source.replace(relativeImport, (_match, quote: string, name: string) => (
+    `${quote}../../${name}${quote}`
+  ));
+}
+
 export function buildVersionedBootstrap(cdnOrigin: string, buildId: string): string {
   const origin = JSON.stringify(cdnOrigin);
   const release = JSON.stringify(buildId);
@@ -140,6 +187,7 @@ export interface VersionedCdnAssetPlan {
   releaseDir: string;
   assetPaths: string[];
   stableBlogBodyAssets: string[];
+  stableOutOfBandAssets: string[];
 }
 
 export function planVersionedCdnAssets({
@@ -159,6 +207,7 @@ export function planVersionedCdnAssets({
     releaseDir: path.join(assetsDir, VERSIONED_RELEASES_DIR, buildId),
     assetPaths,
     stableBlogBodyAssets: allPaths.filter(isStableBlogBodyAsset),
+    stableOutOfBandAssets: allPaths.filter(isStableOutOfBandAsset),
   };
 }
 export function versionedCdnAssetsPlugin(rootDir: string): Plugin {
@@ -199,6 +248,7 @@ export function versionedCdnAssetsPlugin(rootDir: string): Plugin {
           if (path.posix.basename(relativePath) === 'blogBodyLoader.js') {
             source = pointReleaseBlogBodyImportsAtStableLeaves(source);
           }
+          source = pointReleaseStableDataImportsAtStableLeaves(source);
           source = rewriteReleaseAssetReferences(source, plan.assetPaths, buildId, cdnOrigin);
           fs.writeFileSync(targetPath, source, 'utf-8');
         }
@@ -211,7 +261,8 @@ export function versionedCdnAssetsPlugin(rootDir: string): Plugin {
 
         console.log(
           `[versioned-cdn-assets] published ${plan.assetPaths.length} executable/style asset(s) ` +
-          `under /assets/${releasePrefix}/; kept ${plan.stableBlogBodyAssets.length} article body leaf/leaves stable`,
+          `under /assets/${releasePrefix}/; kept ${plan.stableBlogBodyAssets.length} article body leaf/leaves ` +
+          `and ${plan.stableOutOfBandAssets.length} independently published data asset(s) stable`,
         );
       },
     },

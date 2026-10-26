@@ -131,14 +131,18 @@ purpose/rollback. Rule 3 is the subject of this doc:
   `GET accounts/{account}/r2/buckets/frontaliere-cdn/domains/custom`). It is
   *not* the GitHub Pages repo of the same name — several triage passes on the
   `cloudflare-5xx` issues assumed Pages and reasoned from the wrong origin.
-- **Why `/assets/*` must never be `immutable`:** bundle filenames are stable,
-  not content-hashed (`tests/stable-asset-names.test.ts`), so bytes change under
-  the same URL every deploy. With `respect_origin`, an `immutable` object header
-  meant the edge could serve one build's chunk for up to a year — the
-  cross-chunk version skew behind #5062/#4644. Objects now ship
-  `public,max-age=604800` and the deploy purges exactly the keys it re-uploaded
-  (`scripts/ci/purge-changed-cdn-assets.mjs`); the 7d TTL is only the backstop
-  if that purge is missed. Guarded by `tests/cdn-asset-cache-headers.test.ts`.
+- **Why the stable root aliases must never be `immutable`:** the compatibility
+  aliases and fast-published article data keep stable, non-content-hashed names
+  whose bytes can change under the same URL. With `respect_origin`, an
+  `immutable` root object meant the edge could serve one build's chunk for up to
+  a year — the cross-chunk version skew behind #5062/#4644. Root aliases now
+  ship `public,max-age=600,must-revalidate`; the separately published article
+  data keys use `public,max-age=300,must-revalidate`. The executable graph is
+  copied under `/assets/releases/<BUILD_ID>/`, where the URL is build-scoped and
+  `public,max-age=31536000,immutable` is safe. The deploy still purges exactly
+  the keys it re-uploaded (`scripts/ci/purge-changed-cdn-assets.mjs`) for fast
+  convergence, but module coherence no longer depends on that purge being
+  atomic across mutable names. Guarded by `tests/cdn-asset-cache-headers.test.ts`.
 - **Rollback:** managed by `scripts/cf-locale-failover-setup.mjs` — re-run that
   script to restore, do not hand-edit.
 

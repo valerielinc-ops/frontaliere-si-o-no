@@ -147,9 +147,10 @@ describe('deploy-it-pages-prep.sh — R2 /assets/ cache policy', () => {
     const maxAge = r2SyncLine('assets').match(/max-age=(\d+)/);
     expect(maxAge, 'assets sync must declare an explicit max-age').toBeTruthy();
     expect(Number(maxAge![1])).toBeGreaterThan(0);
-    // 7d backstop. Longer re-creates the "stale forever" bug; much shorter
-    // multiplies edge→R2 fetch-through, which is what the 502 issues report.
-    expect(Number(maxAge![1])).toBeLessThanOrEqual(604800);
+    // Root aliases are mutable compatibility URLs. Their bounded 10-minute
+    // policy is defense in depth if a targeted purge misses a key; the
+    // executable graph itself lives under immutable build-scoped URLs.
+    expect(Number(maxAge![1])).toBe(600);
   });
 
   it('captures an rclone json log for the assets sync and purges from it', () => {

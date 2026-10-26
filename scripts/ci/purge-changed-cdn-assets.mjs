@@ -59,8 +59,9 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  * names what THIS invocation uploaded. A run that uploads `assets/*` and then
  * dies, or skips the purge, leaves those keys new in R2 and stale at the edge —
  * and the next run's `copy --checksum` sees them as "Unchanged skipping", so
- * its log is empty and nobody ever purges them (the 7-day max-age is the only
- * way out). `shared-services.js` stayed at the old bytes that way after deploy
+ * its log is empty and nobody ever purges them (the stable root alias's
+ * max-age is the only eventual way out; the current policy is 600 seconds).
+ * `shared-services.js` stayed at the old bytes that way after deploy
  * 36706485937 (30-09). The fix is a ledger: an R2 object (LEDGER_KEY) holding,
  * per key, the MD5 of the bytes the edge was last SUCCESSFULLY purged for. The
  * set to purge is "R2 now vs ledger" plus this run's log, and a key only takes

@@ -84,11 +84,13 @@ const CACHE_VARIANTS = [undefined, SHELL_ASSET_PAGE_ORIGIN];
 const variantLabel = (pageOrigin) => (pageOrigin ? `Origin ${pageOrigin}` : 'no Origin');
 
 /**
- * The value the full deploy gives the whole assets/ class (`_r2_sync … assets`
+ * The value the full deploy gives stable root aliases (`_r2_sync … assets`
  * in deploy-it-pages-prep.sh), so an object written here and one written by a
- * deploy are served alike. tests/cdn-shell-assets.test.ts compares the two.
+ * deploy are served alike. The build-scoped executable graph is published
+ * separately with immutable URLs; fast emitters intentionally write only
+ * stable root shell assets. tests/cdn-shell-assets.test.ts compares the two.
  */
-export const SHELL_ASSET_CACHE_CONTROL = 'public,max-age=604800';
+export const SHELL_ASSET_CACHE_CONTROL = 'public,max-age=600,must-revalidate';
 
 // fetch() sends no User-Agent of its own, and the zone challenges a request
 // without one: the probe would read every file as not served.
