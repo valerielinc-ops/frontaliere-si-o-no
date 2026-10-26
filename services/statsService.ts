@@ -160,7 +160,9 @@ export function validateStatsCacheTimestamp(value: unknown): number | null {
  } catch {
  return null;
  }
- return isFiniteNumber(timestamp) && timestamp >= 0 ? timestamp : null;
+ return isFiniteNumber(timestamp) && timestamp >= 0 && timestamp <= Date.now()
+  ? timestamp
+  : null;
 }
 
 export function validateStatsCachePayload(value: unknown): StatsCacheData | null {

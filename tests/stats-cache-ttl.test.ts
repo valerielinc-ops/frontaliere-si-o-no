@@ -103,6 +103,7 @@ describe('statsService runtime cache validation', () => {
     expect(validateStatsCacheTimestamp(Number.NaN)).toBeNull();
     expect(validateStatsCacheTimestamp(Infinity)).toBeNull();
     expect(validateStatsCacheTimestamp(-1)).toBeNull();
+    expect(validateStatsCacheTimestamp(NOW + 1)).toBeNull();
   });
 
   it('rejects a malformed envelope instead of letting invalid points reach consumers', () => {
