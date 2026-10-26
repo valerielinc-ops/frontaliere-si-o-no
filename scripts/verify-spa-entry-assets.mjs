@@ -25,7 +25,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../build-plugins/shared/spaEntryFilenames.ts';
-import { formatBrokenLinks, verifyLocalModuleLinks } from './verify-spa-module-links.mjs';
+import {
+  formatBrokenLinks,
+  verifyLocalModuleLinks,
+  verifyVersionedModuleLinks,
+} from './verify-spa-module-links.mjs';
 
 const distDir = path.resolve(process.cwd(), 'dist');
 const assetsDir = path.join(distDir, 'assets');
@@ -74,7 +78,12 @@ if (deployBuildId && assetCdn) {
 
 let moduleGraph;
 try {
-  moduleGraph = verifyLocalModuleLinks(assetsDir);
+  const releaseDir = deployBuildId && assetCdn
+    ? path.join(assetsDir, 'releases', deployBuildId)
+    : null;
+  moduleGraph = releaseDir
+    ? verifyVersionedModuleLinks(assetsDir, releaseDir)
+    : verifyLocalModuleLinks(assetsDir);
 } catch (error) {
   console.error(`[verify-spa-module-links] unable to inspect ${assetsDir}: ${error.message}`);
   process.exit(1);
