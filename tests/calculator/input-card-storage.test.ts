@@ -7,9 +7,9 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DEFAULT_INPUTS } from '@/constants';
 import { InputCard } from '@/components/calculator/InputCard';
 import {
- readCalculatorInputStorage,
- writeCalculatorInputStorage,
-} from '@/services/calculatorInputStorage';
+ readBestEffortLocalStorage,
+ writeBestEffortLocalStorage,
+} from '@/services/storageAvailability';
 
 vi.mock('@/services/i18n', () => ({
  useTranslation: () => ({
@@ -26,6 +26,10 @@ const INPUT_CARD_SOURCE = readFileSync(
  resolve(__dirname, '..', '..', 'components/calculator/InputCard.tsx'),
  'utf8',
 );
+const PERMIT_COMPARE_SOURCE = readFileSync(
+ resolve(__dirname, '..', '..', 'components/guide/PermitCompare.tsx'),
+ 'utf8',
+);
 
 afterEach(() => {
  cleanup();
@@ -36,10 +40,10 @@ describe('calculator input storage', () => {
  it('reads and writes the persisted value when browser storage is available', () => {
   const key = 'calculator-input-storage-available';
 
-  writeCalculatorInputStorage(key, '1');
+  writeBestEffortLocalStorage(key, '1');
 
   expect(window.localStorage.getItem(key)).toBe('1');
-  expect(readCalculatorInputStorage(key)).toBe('1');
+  expect(readBestEffortLocalStorage(key)).toBe('1');
  });
 
  it('keeps calculator preferences usable when browser storage throws', () => {
@@ -55,9 +59,9 @@ describe('calculator input storage', () => {
   });
 
   try {
-   expect(readCalculatorInputStorage('calculator-input-storage-unavailable-before-write')).toBeNull();
-   expect(() => writeCalculatorInputStorage('calculator-input-storage-unavailable', '1')).not.toThrow();
-   expect(readCalculatorInputStorage('calculator-input-storage-unavailable')).toBe('1');
+   expect(readBestEffortLocalStorage('calculator-input-storage-unavailable-before-write')).toBeNull();
+   expect(() => writeBestEffortLocalStorage('calculator-input-storage-unavailable', '1')).not.toThrow();
+   expect(readBestEffortLocalStorage('calculator-input-storage-unavailable')).toBe('1');
   } finally {
    Object.defineProperty(window, 'localStorage', {
     configurable: true,
@@ -103,11 +107,15 @@ describe('InputCard with unavailable browser storage', () => {
 
 describe('InputCard storage wiring', () => {
  it('routes initialization, preference writes, and easter-egg deduplication through the safe accessors', () => {
-  expect(INPUT_CARD_SOURCE).toContain('readCalculatorInputStorage(DESKTOP_EXPANDED_KEY)');
-  expect(INPUT_CARD_SOURCE).toContain('writeCalculatorInputStorage(DESKTOP_EXPANDED_KEY, \'1\')');
-  expect(INPUT_CARD_SOURCE).toContain('if (readCalculatorInputStorage(key)) return;');
-  expect(INPUT_CARD_SOURCE).toContain('writeCalculatorInputStorage(key, \'1\')');
+  expect(INPUT_CARD_SOURCE).toContain('readBestEffortLocalStorage(DESKTOP_EXPANDED_KEY)');
+  expect(INPUT_CARD_SOURCE).toContain('writeBestEffortLocalStorage(DESKTOP_EXPANDED_KEY, \'1\')');
+  expect(INPUT_CARD_SOURCE).toContain('if (readBestEffortLocalStorage(key)) return;');
+  expect(INPUT_CARD_SOURCE).toContain('writeBestEffortLocalStorage(key, \'1\')');
   expect(INPUT_CARD_SOURCE).not.toContain('localStorage.getItem');
   expect(INPUT_CARD_SOURCE).not.toContain('localStorage.setItem');
+  expect(PERMIT_COMPARE_SOURCE).toContain('if (readBestEffortLocalStorage(key)) return;');
+  expect(PERMIT_COMPARE_SOURCE).toContain('writeBestEffortLocalStorage(key, \'1\')');
+  expect(PERMIT_COMPARE_SOURCE).not.toContain('localStorage.getItem');
+  expect(PERMIT_COMPARE_SOURCE).not.toContain('localStorage.setItem');
  });
 });
