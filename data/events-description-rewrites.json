@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-26T09:21:39.425Z",
+  "generatedAt": "2026-10-26T10:21:33.064Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -20515,6 +20515,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T12:25:56.593Z"
+    },
+    "guidle:AaFH3yM::2ffe008bb4b005e7c12459cdaba3d6657ba790c89743da28d2344f31cbd5c34f": {
+      "id": "guidle:AaFH3yM",
+      "sourceDescriptionHash": "2ffe008bb4b005e7c12459cdaba3d6657ba790c89743da28d2344f31cbd5c34f",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: UNESCO-Weltnaturerbe Tektonikarena Sardona Besucherzentrum; cantone: GL; categoria: Escursione; data: 2027-05-29; ora: 09:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: UNESCO-Weltnaturerbe Tektonikarena Sardona Besucherzentrum; cantone: GL; categoria: Escursione; data: 2027-05-29; ora: 09:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: UNESCO-Weltnaturerbe Tektonikarena Sardona Besucherzentrum; canton: GL; category: Escursione; date: 2027-05-29; time: 09:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: UNESCO-Weltnaturerbe Tektonikarena Sardona Besucherzentrum; kanton: GL; kategorie: Escursione; datum: 2027-05-29; uhrzeit: 09:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: UNESCO-Weltnaturerbe Tektonikarena Sardona Besucherzentrum; canton: GL; catégorie: Escursione; date: 2027-05-29; heure: 09:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-26T10:16:36.268Z"
     },
     "guidle:AaFHv2Q::caf378abe8a302d983049baa8f0e4b4bec67ff333ed626a51d8d5d2fa22601fa": {
       "id": "guidle:AaFHv2Q",
@@ -170302,15 +170316,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-09T23:28:44.980Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AaFH3yM::2ffe008bb4b005e7c12459cdaba3d6657ba790c89743da28d2344f31cbd5c34f": {
-      "id": "guidle:AaFH3yM",
-      "sourceDescriptionHash": "2ffe008bb4b005e7c12459cdaba3d6657ba790c89743da28d2344f31cbd5c34f",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-16T03:25:27.108Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
