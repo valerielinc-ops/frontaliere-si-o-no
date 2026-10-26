@@ -5,14 +5,11 @@
  * its mobile block, the per-job FAQ, and the rich-results audit
  * (scripts/validate-jobs-rich-results-sample.mjs).
  *
- * Owner decision 2026-10-24: a JobPosting field is present if and only if the
- * source states it. The previous builder mapped an unknown or missing value to
- * `FULL_TIME`, so a temporary agency listing ("A tempo pieno, Interinale",
- * `contractType: "temporary"`) was declared FULL_TIME in JSON-LD while the
- * page printed "Contratto: other". Here an unknown value contributes nothing,
- * a listing with no recognisable value resolves to `[]` (no employmentType at
- * all), and a listing that states several (full-time AND temporary) keeps all
- * of them: schema.org `employmentType` accepts an array.
+ * Source resolution remains conservative: an unknown or missing value
+ * contributes nothing to the visible facts, while a listing that states
+ * several types (full-time AND temporary) keeps all of them. The canonical
+ * JobPosting emitter adds its deterministic FULL_TIME fallback only at the
+ * final JSON-LD boundary, so the facts/UI do not claim an employer statement.
  *
  * Inputs, in this order: `employmentType` (usually the source JSON-LD value),
  * `contract`, `contractType` (crawler normalisations of the same listing).

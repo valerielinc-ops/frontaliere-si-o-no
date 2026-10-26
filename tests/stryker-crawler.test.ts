@@ -118,8 +118,14 @@ describe('Stryker crawler source-body acceptance', () => {
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const facts = buildJobPostingFacts(jobs[0], locale);
 
-      // Owner decision 2026-10-24: the facts carry what the listing states.
-      // The listing names Selzach but no street, CAP or salary.
+      // The FAQ facts keep the salary estimate flagged, while the shared
+      // address resolver supplies a complete tuple for the JobPosting.
+      const expectedStreetByLocale = {
+        it: 'Selzach centro',
+        en: 'Selzach city centre',
+        de: 'Selzach Stadtzentrum',
+        fr: 'Selzach centre-ville',
+      } as const;
       expect(facts).toMatchObject({
         employmentTypes: ['FULL_TIME'],
         hiringOrganization: { name: 'Stryker' },
@@ -130,10 +136,11 @@ describe('Stryker crawler source-body acceptance', () => {
             addressLocality: 'Selzach',
             addressRegion: 'SO',
             addressCountry: 'CH',
+            postalCode: '2545',
+            streetAddress: expectedStreetByLocale[locale as keyof typeof expectedStreetByLocale],
           },
         },
       });
-      expect(facts.jobLocation.address).not.toHaveProperty('streetAddress');
       expect(facts.salary.isEstimate).toBe(true);
     }
   }, 20_000);

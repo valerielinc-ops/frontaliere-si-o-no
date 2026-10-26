@@ -166,18 +166,25 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(() => replaceActiveJobPostingDates(fragment, '', '2026-12-31')).toThrow();
   });
 
-  it('refreshes datePosted without manufacturing a validThrough the source does not state', () => {
+  it('refreshes datePosted and keeps validThrough present when the source does not state it', () => {
+    const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"old"}</script>';
+    const result = replaceActiveJobPostingDates(fragment, '2026-01-02T00:00:00.000Z', null);
+    expect(result).toContain('"datePosted":"2026-01-02T00:00:00.000Z"');
+    expect(result).toMatch(/"validThrough":"\d{4}-\d{2}-\d{2}T/);
+  });
+
+  it('repairs a legacy cached JobPosting that predates validThrough', () => {
     const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old"}</script>';
     const result = replaceActiveJobPostingDates(fragment, '2026-01-02T00:00:00.000Z', null);
     expect(result).toContain('"datePosted":"2026-01-02T00:00:00.000Z"');
-    expect(result).not.toContain('validThrough');
+    expect(result).toMatch(/"validThrough":"\d{4}-\d{2}-\d{2}T/);
   });
 
- it('removes a stale cached validThrough when the source deadline is absent', () => {
+ it('replaces a stale cached validThrough when the source deadline is absent', () => {
   const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"2030-01-01T00:00:00.000Z"}</script>';
   const result = replaceActiveJobPostingDates(fragment, '2026-01-02T00:00:00.000Z', null);
   expect(result).toContain('"datePosted":"2026-01-02T00:00:00.000Z"');
-  expect(result).not.toContain('validThrough');
+  expect(result).toMatch(/"validThrough":"\d{4}-\d{2}-\d{2}T/);
  });
 
   it('reads the active validThrough from the source deadline only', () => {
@@ -194,13 +201,27 @@ describe('jobs SEO disk HTML reuse', () => {
     const missing = '<!-- jobs-seo-reuse:job-posting:start -->'
       + '<!-- jobs-seo-reuse:job-posting:end -->';
     const jobPosting = '<script type="application/ld+json">'
-      + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"2026-10-20"}'
+      + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"2026-10-20",'
+      + '"validThrough":"2026-12-31","baseSalary":{"currency":"CHF",'
+      + '"value":{"minValue":60000,"unitText":"YEAR"}},'
+      + '"employmentType":"FULL_TIME","jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}}}'
+      + '</script>';
+    const incompleteLegacyJobPosting = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"2026-10-20",'
+      + '"validThrough":"2026-12-31"}'
+      + '</script>';
+    const malformedSalaryJobPosting = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"2026-10-20",'
+      + '"validThrough":"2026-12-31","baseSalary":{"currency":"CHF"},'
+      + '"employmentType":"FULL_TIME","jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}}}'
       + '</script>';
 
     expect(hasActiveJobPostingJsonLd(missing)).toBe(false);
     expect(hasActiveJobPostingJsonLd(jobPosting)).toBe(true);
     expect(shouldInvalidateActiveJobReuseWithoutJobPosting(missing)).toBe(true);
     expect(shouldInvalidateActiveJobReuseWithoutJobPosting(jobPosting)).toBe(false);
+    expect(shouldInvalidateActiveJobReuseWithoutJobPosting(incompleteLegacyJobPosting)).toBe(true);
+    expect(shouldInvalidateActiveJobReuseWithoutJobPosting(malformedSalaryJobPosting)).toBe(true);
   });
 
   it('forces lookup to persist a fresh JobPosting after a cache entry written without one', async () => {
@@ -287,11 +308,17 @@ describe('jobs SEO disk HTML reuse', () => {
     const oldPosting = '<script type="application/ld+json">'
       + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
       + '"validThrough":"2026-12-20T08:00:00.000Z",'
+      + '"baseSalary":{"currency":"CHF","value":{"minValue":60000,"unitText":"YEAR"}},'
+      + '"employmentType":"FULL_TIME",'
+      + '"jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}},'
       + '"crawledAt":"2026-10-23T08:00:00.000Z"}'
       + '</script>';
     const currentPosting = '<script type="application/ld+json">'
       + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
       + '"validThrough":"2026-12-21T08:00:00.000Z",'
+      + '"baseSalary":{"currency":"CHF","value":{"minValue":60000,"unitText":"YEAR"}},'
+      + '"employmentType":"FULL_TIME",'
+      + '"jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}},'
       + '"crawledAt":"2026-10-24T08:00:00.000Z"}'
       + '</script>';
     const cached = [

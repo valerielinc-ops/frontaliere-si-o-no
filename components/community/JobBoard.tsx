@@ -491,7 +491,7 @@ export interface JobListing {
  sourceContract?: string;
  employmentType?: string;
  contractType?: string;
- /** Source deadline only; the JobPosting carries no validThrough without it. */
+ /** Source deadline hint; the canonical builder supplies a fallback when absent. */
  validThrough?: string;
  salaryMin?: number;
  salaryMax?: number;
@@ -827,7 +827,8 @@ const CONTRACT_TO_EMPLOYMENT_TYPE: Record<ContractType, string> = {
  contract: 'CONTRACTOR',
 };
 
-/** Keep optional JobPosting values source-owned while normalizing API records. */
+/** Keep source-owned JobPosting values optional while normalizing API records;
+ * the canonical builder supplies safe defaults at emission time. */
 function normalizeOptionalSourceText(value: unknown): string | undefined {
  if (typeof value !== 'string') return undefined;
  const normalized = value.trim();
@@ -6498,13 +6499,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Same CAP/street pairing as the static JobPosting (#9108, #9841): discard
  // a source tuple when its CAP belongs to another locality (for example a
  // Chur job stamped with the employer HQ's Dübendorf CAP and street).
- // Street and CAP go to the canonical builder as the source states them:
- // it keeps them only when coherent with the locality (#9108, #9841) and
- // never fills them from lookup tables (owner decision 2026-10-24).
+ // Street and CAP go to the canonical builder as source hints: it keeps
+ // coherent values and supplies a locality-safe fallback when either is
+ // missing or belongs to another place (#9108, #9841).
  const postalCode = String(job.postalCode || '').trim();
  const rawStreet = String(job.streetAddress || '').trim();
- // Skip JobPosting if no meaningful description — an empty description is worse than no schema
- if (!description || description.length < 30) return null;
  return buildJobPostingSchema({
  id: job.id,
  slug: job.slug,

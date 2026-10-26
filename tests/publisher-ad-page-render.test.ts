@@ -172,7 +172,7 @@ describe('isCanaryOrTestAd — sitemap exclusion guard for owner verification fi
   });
 });
 
-describe('publisher-ads JobPosting structured data — required fields always, optional ones from the source', () => {
+describe('publisher-ads JobPosting structured data — complete mandatory contract', () => {
   // Real slice records (data/jobs/by-crawler/publisher-submitted.json) —
   // one free-tier ad with several null address fields, one canary/sponsored
   // ad with a full address. buildJobPostingSchema keeps Google's required
@@ -226,13 +226,14 @@ describe('publisher-ads JobPosting structured data — required fields always, o
       const reportedDate = new Date(Date.now() - 86400000).toISOString();
       // The plugin marks the employer-entered salary as reported.
       const schema = buildReportedJobPostingFixture({ ...rec, salarySource: 'reported', postingDateSource: 'reported', datePosted: reportedDate, postedDate: reportedDate }, { locale, url });
-      // Owner decision 2026-10-24: optional fields only as the employer entered them.
+      // Source values win; omitted non-critical values use the canonical safe
+      // defaults shared by SSG, publisher pages, and the SPA.
       if ('salaryMin' in rec) expect(schema.baseSalary?.value?.minValue).toBe(rec.salaryMin);
-      else expect(schema).not.toHaveProperty('baseSalary');
-      if (rec.postalCode) expect(schema.jobLocation?.address?.postalCode).toBe(rec.postalCode);
-      else expect(schema.jobLocation?.address).not.toHaveProperty('postalCode');
-      expect(schema.jobLocation?.address).not.toHaveProperty('streetAddress');
-      expect(schema).not.toHaveProperty('employmentType');
+      else expect(schema.baseSalary?.value?.minValue).toBeGreaterThan(0);
+      expect(schema.jobLocation?.address?.postalCode).toMatch(/^\d{4}$/);
+      expect(schema.jobLocation?.address?.streetAddress).toBeTruthy();
+      expect(schema.employmentType).toBe('FULL_TIME');
+      expect(schema.validThrough).toBeTruthy();
       expect(schema.jobLocation?.address?.addressLocality).toBeTruthy();
       expect(schema.title).toBeTruthy();
       expect(schema.description?.length).toBeGreaterThanOrEqual(50);
@@ -241,7 +242,7 @@ describe('publisher-ads JobPosting structured data — required fields always, o
       expect(schema.jobLocation).toBeTruthy();
       // Cross-check against the canonical required-field list so this test
       // regresses if the shared list ever changes without a matching assertion.
-      expect(MANDATORY_JOBPOSTING_FIELDS.length).toBe(7);
+      expect(MANDATORY_JOBPOSTING_FIELDS.length).toBe(13);
     }
   });
 });

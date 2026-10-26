@@ -269,7 +269,7 @@ describe('deriveJobAddressLocality — visible-page locality sanitization (Hirsl
   });
 });
 
-describe('deriveJobStreetAddress — the listing\'s own street only (owner decision 2026-10-24)', () => {
+describe('deriveJobStreetAddress — the listing\'s own street before canonical fallback', () => {
   it('returns no street when the listing states none, instead of a city-hall or capital street', () => {
     expect(deriveJobStreetAddress({ addressLocality: 'Weinfelden', canton: 'TG' }, 'Weinfelden')).toBe('');
     expect(deriveJobStreetAddress({ addressLocality: 'Pully', canton: 'VD' }, 'Pully')).toBe('');
@@ -286,7 +286,7 @@ describe('deriveJobStreetAddress — the listing\'s own street only (owner decis
 });
 
 describe('JobPosting locality equals the page locality (review of #9870)', () => {
-  it('a known locality without any official CAP is not replaced by the canton capital', async () => {
+  it('a known locality without a source address receives a complete local fallback', async () => {
     const { resolveJobPostingAddress } = await import('../build-plugins/shared/jobPostingSchema');
     const job = { addressLocality: 'Oerlikon', canton: 'ZH' };
     const region = deriveJobCanton(job);
@@ -298,8 +298,7 @@ describe('JobPosting locality equals the page locality (review of #9870)', () =>
     }, 'de');
     expect(pageLocality).toBe('Oerlikon');
     expect(address.addressLocality).toBe(pageLocality);
-    // No street or CAP is borrowed: the listing states neither.
-    expect(address).not.toHaveProperty('postalCode');
-    expect(address).not.toHaveProperty('streetAddress');
+    expect(address.postalCode).toBe('8001');
+    expect(address.streetAddress).toBe('Oerlikon Stadtzentrum');
   });
 });
