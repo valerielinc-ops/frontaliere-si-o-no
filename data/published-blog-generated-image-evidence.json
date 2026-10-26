@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "86aaf3e36fdf5d060d99e91c4826ca789e398a1d",
+  "commit": "fa8c6af6717a80e27dbe0c0e357789ce55142b82",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -38650,6 +38650,92 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original synthetic editorial illustration of a modern railway station in Fribourg, Switzerland, with no identifiable people, text, logos, or depiction of a specific real event."
+      }
+    },
+    "/images/blog/article-zurigo-crisi-alloggi-giovani.webp": {
+      "schema": 1,
+      "assetId": "article-zurigo-crisi-alloggi-giovani",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "364cc8657e67f325d6691916a83ea60c48d8737d2aed946770b1d951e7223e59",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "8d5b98f14de63a1432be2294efaf435c6863ff5454ab4c1f166213beefb83189",
+      "bytes": 171852,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-26T15:23:12.861Z",
+      "verifiedAt": "2026-10-26T15:23:22.111Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-zurigo-crisi-alloggi-giovani.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic editorial illustration of a university and residential area; no readable text, logos, identifiable faces, or specific event."
+      }
+    },
+    "/images/blog/article-elezioni-friburgo-8-novembre.webp": {
+      "schema": 1,
+      "assetId": "article-elezioni-friburgo-8-novembre",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "3889f8fc62c820f83f3a1d5853cb159db147ae320d8f5b9795f15427f79e7039",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "31c99e9cfa3b2f029116b35884512c3895b616ab3cf5590d17e1e09afefc0993",
+      "bytes": 192040,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-26T15:40:05.088Z",
+      "verifiedAt": "2026-10-26T15:40:18.071Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-elezioni-friburgo-8-novembre.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of a civic administrative building; no visible text, logos, recognizable faces, or specific real event."
       }
     },
     "/images/places/lugano-view.webp": {
