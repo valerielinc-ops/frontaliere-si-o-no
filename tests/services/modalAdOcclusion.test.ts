@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { GOOGLE_ANCHOR_TAB_ALLOWANCE_PX, observeGoogleAdEdgeInsets, observeGoogleAdOverlays } from '@/services/modalAdOcclusion';
+import { GOOGLE_ANCHOR_TAB_ALLOWANCE_PX, measureGoogleAdEdgeInsets, observeGoogleAdEdgeInsets, observeGoogleAdOverlays } from '@/services/modalAdOcclusion';
 import { APPLICATION_OFFER_AD_INSET_VAR, APPLICATION_OFFER_CARD_ROOM } from '@/components/community/useApplicationOfferAdClearance';
 const cleanups: Array<() => void> = [];
 afterEach(() => { cleanups.splice(0).forEach((f) => f()); document.body.innerHTML = ''; });
@@ -35,6 +35,7 @@ describe('promotions yield to Google overlays without suppressing ads', () => {
   const before = el.getAttribute('style'); const notify = vi.fn();
   cleanups.push(observeGoogleAdEdgeInsets(notify));
   expect(notify).toHaveBeenLastCalledWith({ top: 0, bottom: 118 + GOOGLE_ANCHOR_TAB_ALLOWANCE_PX });
+  expect(measureGoogleAdEdgeInsets()).toEqual({ top: 0, bottom: 118 + GOOGLE_ANCHOR_TAB_ALLOWANCE_PX });
   expect(el.getAttribute('style')).toBe(before);
   // Collapsed or closed: no inset; an unchanged scan reports nothing.
   el.style.display = 'none'; await Promise.resolve(); expect(notify).toHaveBeenLastCalledWith({ top: 0, bottom: 0 });

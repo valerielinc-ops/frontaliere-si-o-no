@@ -65,6 +65,10 @@ import {
  getAutoAdOverlayClearance,
  subscribeToAutoAdOverlay,
 } from '@/services/autoAdOverlay';
+import {
+  measureGoogleAdEdgeInsets,
+  observeGoogleAdEdgeInsets,
+} from '@/services/modalAdOcclusion';
 
 export interface BottomPromptShellProps {
   /** Queue id — unique per prompt, stable across renders. */
@@ -117,9 +121,32 @@ export interface BottomPromptShellProps {
 export const BOTTOM_PROMPT_BASE_CLASS = `fixed ${ABOVE_MOBILE_NAV_BOTTOM} z-40 w-[calc(100%-2rem)] animate-slide-up`;
 
 function useAutoAdOverlayClearance(): number {
- const [clearance, setClearance] = useState(getAutoAdOverlayClearance);
+ // `autoAdOverlay` measures the creative itself. The edge observer adds the
+ // collapse tab Google places outside that rectangle, which is the part that
+ // otherwise lands over the top edge of a bottom prompt.
+ const [clearance, setClearance] = useState(() => {
+   if (typeof document === 'undefined') return getAutoAdOverlayClearance();
+   return Math.max(getAutoAdOverlayClearance(), measureGoogleAdEdgeInsets().bottom);
+ });
 
- useEffect(() => subscribeToAutoAdOverlay(setClearance), []);
+ useEffect(() => {
+   let anchorClearance = getAutoAdOverlayClearance();
+   let edgeClearance = typeof document === 'undefined' ? 0 : measureGoogleAdEdgeInsets().bottom;
+   const publish = () => setClearance(Math.max(anchorClearance, edgeClearance));
+   const unsubscribeAnchor = subscribeToAutoAdOverlay((next) => {
+     anchorClearance = next;
+     publish();
+   });
+   const unsubscribeEdge = observeGoogleAdEdgeInsets(({ bottom }) => {
+     edgeClearance = bottom;
+     publish();
+   });
+   publish();
+   return () => {
+     unsubscribeAnchor();
+     unsubscribeEdge();
+   };
+ }, []);
 
  return clearance;
 }
