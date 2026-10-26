@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-26T19:21:33.778Z",
+  "generatedAt": "2026-10-26T20:23:23.954Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -171336,8 +171336,8 @@
       "id": "ge-agenda:filmar-2026-chair-male-aride-ruben-barrios-rodriguez",
       "sourceDescriptionHash": "6b9ae00c3555722ffc07d19cf76d0c7c9bb384a70f3b78e5437c230e81e275eb",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T17:19:03.498Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T20:18:01.299Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171390,8 +171390,8 @@
       "id": "ge-agenda:harmonie-nautique-orchestre-instruments-vent-ville-geneve",
       "sourceDescriptionHash": "7c9dd980fc7c909b05899acf3139cc0bbadba8c2e57a28f0cb67cef5b9d1cde6",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T17:19:38.771Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T20:18:31.475Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179922,8 +179922,8 @@
       "id": "tio-agenda:64650",
       "sourceDescriptionHash": "de43a7f4a60bea0882531a5ac7c28130c36c3579b3085a5b493848ff50d71740",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T17:20:07.545Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T20:19:14.692Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
