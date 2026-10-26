@@ -61,7 +61,7 @@ describe('OSCAM career-page application fallback', () => {
     );
   });
 
-  it('fails closed when the contextual route is missing or ambiguous', () => {
+  it('fails closed when the contextual route is missing and normalizes duplicate canonical links', () => {
     expect(extractOscamApplicationUrlFromCareerPage(`
       <h2>CANDIDATURE</h2>
       <a href="https://example.org/candidature/">External form</a>
