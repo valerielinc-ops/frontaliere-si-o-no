@@ -457,6 +457,18 @@ function forEachStaticProperty(block, visit) {
   }
 }
 
+/** Return whether a template literal contains an unevaluated interpolation. */
+function hasTemplateInterpolation(block, valueStart, valueEnd) {
+  for (let cursor = valueStart + 1; cursor < valueEnd; cursor += 1) {
+    if (block[cursor] === '\\') {
+      cursor += 1;
+      continue;
+    }
+    if (block[cursor] === '$' && block[cursor + 1] === '{') return true;
+  }
+  return false;
+}
+
 /** Return the final static string assigned to a top-level field. */
 export function lastStaticPropertyValue(block, field) {
   let lastValue;
@@ -465,7 +477,8 @@ export function lastStaticPropertyValue(block, field) {
     const quote = block[valueStart];
     if (key === field) {
       lastTopLevelValue = undefined;
-      if (quote === "'" || quote === '"' || quote === '`') {
+      if ((quote === "'" || quote === '"' || quote === '`')
+        && !(quote === '`' && hasTemplateInterpolation(block, valueStart, valueEnd))) {
         // Static no-substitution templates are valid producer literals and
         // must decode exactly like quoted strings. Interpolated templates
         // deliberately fail closed in readStaticStringLiteral rather than
@@ -499,10 +512,11 @@ export function lastStaticPropertyValue(block, field) {
  */
 export function staticPropertyValues(block, field) {
   const values = [];
-  forEachStaticProperty(block, ({ key, valueStart }) => {
+  forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
     if (key !== field) return;
     const quote = block[valueStart];
     if (quote !== "'" && quote !== '"' && quote !== '`') return;
+    if (quote === '`' && hasTemplateInterpolation(block, valueStart, valueEnd)) return;
     const literal = readStaticStringLiteral(block, valueStart, 'SEO entry', 'seo-field');
     values.push({
       quote: literal.quote,
