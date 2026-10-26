@@ -2,6 +2,7 @@
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import PharmacyDutyWeek from '../components/pages/PharmacyDutyWeek';
+import { currentDutyWeekStart } from '../services/pharmacies/dutyWeek';
 import recovery from '../data/pharmacy-duty-week-recovery.json';
 
 afterEach(() => { cleanup(); document.getElementById('pharmacy-duty-week-history')?.remove(); delete window.__CDN_DATA_BASE__; vi.unstubAllGlobals(); });
@@ -29,7 +30,7 @@ describe('historical pharmacy week SPA handoff', () => {
   });
 
   it('keeps official duty-week source links followed', () => {
-    const { container } = render(<PharmacyDutyWeek page={{ kind: 'duty-week', locale: 'it', weekStart: '2026-10-19' }} />);
+    const { container } = render(<PharmacyDutyWeek page={{ kind: 'duty-week', locale: 'it', weekStart: currentDutyWeekStart() }} />);
     const sourceLinks = [...container.querySelectorAll('a[href^="https://www.ofct.ch/"]')];
     expect(sourceLinks.length).toBeGreaterThan(0);
     for (const link of sourceLinks) expect(link).toHaveAttribute('rel', 'noopener');
