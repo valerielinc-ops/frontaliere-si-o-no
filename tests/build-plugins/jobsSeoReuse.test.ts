@@ -309,6 +309,7 @@ describe('jobs SEO disk HTML reuse', () => {
       + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
       + '"validThrough":"2026-12-20T08:00:00.000Z",'
       + '"baseSalary":{"currency":"CHF","value":{"minValue":60000,"unitText":"YEAR"}},'
+      + '"employmentType":"FULL_TIME",'
       + '"jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}},'
       + '"crawledAt":"2026-10-23T08:00:00.000Z"}'
       + '</script>';
@@ -316,6 +317,7 @@ describe('jobs SEO disk HTML reuse', () => {
       + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
       + '"validThrough":"2026-12-21T08:00:00.000Z",'
       + '"baseSalary":{"currency":"CHF","value":{"minValue":60000,"unitText":"YEAR"}},'
+      + '"employmentType":"FULL_TIME",'
       + '"jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}},'
       + '"crawledAt":"2026-10-24T08:00:00.000Z"}'
       + '</script>';
