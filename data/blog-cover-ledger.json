@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 864,
+      "5": 865,
       "6": 5057
     },
-    "publishedCovers": 7604,
+    "publishedCovers": 7605,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -209302,6 +209302,39 @@
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"
+    },
+    "article-tagli-orologeria-locle-lvmh": {
+      "cover": "/images/blog/article-tagli-orologeria-locle-lvmh.webp",
+      "hash": "33dac99f161f2dfa2729b0880cb484dd893a43c86b6b09ef43d2cb65db69c39f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "tagli-orologeria-locle-lvmh",
+          "category": "novita",
+          "date": "2026-10-26T09:27:07.480Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tagli-orologeria-locle-lvmh.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tagli-orologeria-locle-lvmh",
+        "imageUrl": "/images/blog/article-tagli-orologeria-locle-lvmh.webp",
+        "evidence": "generated-engine-record"
+      }
     }
   },
   "repair": {
