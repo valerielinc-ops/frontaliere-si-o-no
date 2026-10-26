@@ -85,4 +85,17 @@ describe('verify-spa-entry-assets CDN release contract', () => {
 
     expect(() => runVerifier(root, { DEPLOY_BUILD_ID: BUILD_ID, ASSET_CDN: 'https://cdn.frontaliereticino.ch' })).toThrow();
   });
+
+  it('rejects a bootstrap whose versioned target is missing', () => {
+    const root = mkdtempSync(join(tmpdir(), 'verify-spa-entry-missing-bootstrap-target-'));
+    roots.push(root);
+    writeAssets(root, {
+      'index-entry.js': `/* FRONTALIERE_VERSIONED_CDN_BOOTSTRAP
+ * FRONTALIERE_VERSIONED_ENTRY: https://cdn.frontaliereticino.ch/assets/releases/${BUILD_ID}/missing-entry.js */`,
+      [`releases/${BUILD_ID}/index-entry.js`]: 'export const ready = true;',
+      'index.css': 'body{color:red}',
+    });
+
+    expect(() => runVerifier(root, { DEPLOY_BUILD_ID: BUILD_ID, ASSET_CDN: 'https://cdn.frontaliereticino.ch' })).toThrow();
+  });
 });

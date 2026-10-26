@@ -108,7 +108,11 @@ export function verifyLocalModuleLinks(assetsDir) {
  * existence, and any stable JS module reached by a named/static import is
  * parsed recursively for export validation.
  */
-export function verifyVersionedModuleLinks(assetsDir, releaseDir) {
+export function verifyVersionedModuleLinks(
+  assetsDir,
+  releaseDir,
+  { bootstrapPath = 'index-entry.js' } = {},
+) {
   const files = listJavaScriptAssets(releaseDir);
   const servedAssetFiles = listServedAssetFiles(releaseDir);
   if (files.length === 0) {
@@ -140,6 +144,11 @@ export function verifyVersionedModuleLinks(assetsDir, releaseDir) {
     if (/\.m?js$/.test(file)) stableModules.set(url, file);
   }
 
+  const bootstrapUrl = new URL(toPosix(bootstrapPath), CDN_ASSETS_BASE).href;
+  if (!stableModules.has(bootstrapUrl)) {
+    throw new Error(`missing stable SPA bootstrap ${bootstrapPath} in ${assetsDir}`);
+  }
+
   // A release may intentionally import stable data modules. Parse those
   // modules only when the active graph reaches them; parsing every stable
   // article-body leaf would turn this post-build check into another full
@@ -154,6 +163,8 @@ export function verifyVersionedModuleLinks(assetsDir, releaseDir) {
       pending.push(ref.url);
     }
   };
+  queued.add(bootstrapUrl);
+  pending.push(bootstrapUrl);
   for (const module of graph.modules.values()) enqueueStableDependencies(module);
 
   while (pending.length > 0) {

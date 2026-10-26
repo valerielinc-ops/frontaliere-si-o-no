@@ -82,7 +82,7 @@ try {
     ? path.join(assetsDir, 'releases', deployBuildId)
     : null;
   moduleGraph = releaseDir
-    ? verifyVersionedModuleLinks(assetsDir, releaseDir)
+    ? verifyVersionedModuleLinks(assetsDir, releaseDir, { bootstrapPath: SPA_ENTRY_JS_FILENAME })
     : verifyLocalModuleLinks(assetsDir);
 } catch (error) {
   console.error(`[verify-spa-module-links] unable to inspect ${assetsDir}: ${error.message}`);
