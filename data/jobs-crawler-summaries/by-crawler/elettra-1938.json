@@ -1,28 +1,29 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-10-26T09:49:53.080Z",
-  "total": 2,
+  "generatedAt": "2026-10-26T21:47:58.895Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 1,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 5997,
-  "avgDurationMs": 5997,
+  "durationMs": 5971,
+  "avgDurationMs": 5971,
   "durationHistory": [
-    5997
+    5971
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "elettra-1938-6cd11cbbc30b",
       "slug": "hw-engineer-elettra-1938-ch",
@@ -66,7 +67,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "elettra-1938-d0486177ffd8",
@@ -80,7 +80,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-729764/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-26T09:49:39.643Z",
+      "crawledAt": "2026-10-26T21:47:45.079Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -110,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
+  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
 }
