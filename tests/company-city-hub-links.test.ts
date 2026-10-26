@@ -17,6 +17,9 @@ import path from 'node:path';
 import {
   MIN_JOBS_PER_CANTON_COMPANY_CITY,
   buildCompanyCityPlan,
+ companyCityCompanyHubIntro,
+ companyCityLinkActionLabel,
+ companyCityLinkLabel,
   companyCityLinksForCompany,
   companyCityLinksForJobs,
   companyCityRawLocation,
@@ -144,11 +147,19 @@ describe('renderCompanyCityLinks', () => {
   const href = (l: { companySlug: string; citySlug: string }) => `https://frontaliereticino.ch/cerca-lavoro-zurigo/azienda-${l.companySlug}-${l.citySlug}/`;
 
   it('una voce per hub, con anchor descrittivo e conteggio', () => {
-    const html = renderCompanyCityLinks(links, 'it', 'Sedi di Coop Genossenschaft con offerte attive', (l) => l.cityDisplay, href);
+    const html = renderCompanyCityLinks(
+      links,
+      'it',
+      'Sedi di Coop Genossenschaft con offerte attive',
+      (l) => companyCityLinkLabel('it', 'Coop Genossenschaft', l.cityDisplay),
+      href,
+      companyCityCompanyHubIntro('it', 'Coop Genossenschaft'),
+    );
     expect(html).toBe(
-      '<section class="s-7uP4UM"><h2>Sedi di Coop Genossenschaft con offerte attive</h2><ul>'
-      + '<li><a href="https://frontaliereticino.ch/cerca-lavoro-zurigo/azienda-coop-genossenschaft-winterthur/">Winterthur</a> — 3 offerte</li>'
-      + '<li><a href="https://frontaliereticino.ch/cerca-lavoro-zurigo/azienda-coop-genossenschaft-zurich/">Zürich</a> — 2 offerte</li>'
+      '<section class="s-7uP4UM company-hub-crosslink-section"><h2>Sedi di Coop Genossenschaft con offerte attive</h2>'
+      + '<p class="company-hub-crosslink-intro">Apri una località per vedere le offerte attive di Coop Genossenschaft.</p><ul class="company-hub-crosslink-list">'
+      + '<li><a class="company-hub-crosslink" href="https://frontaliereticino.ch/cerca-lavoro-zurigo/azienda-coop-genossenschaft-winterthur/"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">Offerte di Coop Genossenschaft a Winterthur</span><span class="company-hub-crosslink-count"> — 3 offerte</span></span><span class="company-hub-crosslink-action"> — Vedi offerte</span></a></li>'
+      + '<li><a class="company-hub-crosslink" href="https://frontaliereticino.ch/cerca-lavoro-zurigo/azienda-coop-genossenschaft-zurich/"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">Offerte di Coop Genossenschaft a Zürich</span><span class="company-hub-crosslink-count"> — 2 offerte</span></span><span class="company-hub-crosslink-action"> — Vedi offerte</span></a></li>'
       + '</ul></section>',
     );
   });
@@ -159,6 +170,12 @@ describe('renderCompanyCityLinks', () => {
     expect(html).toContain('<h2>A &amp; B</h2>');
     expect(html).toContain('&lt;b&gt;x&lt;/b&gt;');
     expect(html).toContain('href="/a?b=&quot;c&quot;"');
+    expect(html).toContain('View jobs');
+  });
+
+  it('usa etichette operative localizzate', () => {
+    expect(companyCityLinkLabel('en', 'ZFV-Unternehmungen', 'Luzern')).toBe('ZFV-Unternehmungen jobs in Luzern');
+    expect(companyCityLinkActionLabel('de')).toBe('Stellen ansehen');
   });
 });
 
@@ -187,10 +204,15 @@ describe('cablaggio in jobsSeoPagesPlugin', () => {
   it('l\'hub città linka gli hub dei suoi job, l\'hub azienda le sue sedi', () => {
     const phase31 = src.slice(at('/* ── Per-canton city hubs (Phase 3.1)'), at('Per-canton paginated listing pages (Phase 3.5)'));
     expect(phase31).toContain('companyCityLinksForJobs(companyCityPlan, cityJobs, companyCityDeps)');
-    expect(phase31).toMatch(/renderCompanyCityLinks\(cityCompanyCityLinks, locale, companyCityCityHubHeading\(locale, cityDisplay\), \(l\) => l\.companyName, \(l\) => `\$\{BASE_URL\}\$\{companyCityHubPath\(locale, canton, l\.companySlug, l\.citySlug\)\}`\)/);
+    expect(phase31).toMatch(/renderCompanyCityLinks\(cityCompanyCityLinks, locale, companyCityCityHubHeading\(locale, cityDisplay\), \(l\) => companyCityLinkLabel\(locale, l\.companyName, l\.cityDisplay\), \(l\) => `\$\{BASE_URL\}\$\{companyCityHubPath\(locale, canton, l\.companySlug, l\.citySlug\)\}`\)/);
     const phase33 = src.slice(at('/* ── Per-canton company hubs (Phase 3.3)'), at('/* ── Per-canton company × city hubs (Phase 3.4)'));
     expect(phase33).toContain('companyCityLinksForCompany(companyCityPlan, canton, cSlug)');
+    expect(phase33).toContain('companyCityLinkLabel(locale, companyName, l.cityDisplay)');
+    expect(src).toContain('<span class="company-hub-crosslink-count"> — ${esc(countLabel)}</span>');
+    expect(src).toContain('<span class="company-hub-crosslink-action"> — ${esc(companyCityLinkActionLabel(locale))}</span>');
     expect(phase33).toContain('${companyLocationsHtml}');
+    expect(src).toContain('company-hub-crosslink-section');
+    expect(src).toContain('companyHubAlsoHiringHeading(companyName, locale)');
   });
 
   it('rilascia il piano solo dopo l\'ultima lettura della Phase 3.4', () => {

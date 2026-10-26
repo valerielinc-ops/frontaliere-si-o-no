@@ -236,6 +236,30 @@ export function companyCityCompanyHubHeading(locale: HubLocale, companyName: str
   return `Sites de ${companyName} avec des offres actives`;
 }
 
+/** Descriptive anchor text for a company/location destination. */
+export function companyCityLinkLabel(locale: HubLocale, companyName: string, locationDisplay: string): string {
+  if (locale === 'it') return `Offerte di ${companyName} a ${locationDisplay}`;
+  if (locale === 'en') return `${companyName} jobs in ${locationDisplay}`;
+  if (locale === 'de') return `Stellen bei ${companyName} in ${locationDisplay}`;
+  return `Offres chez ${companyName} à ${locationDisplay}`;
+}
+
+/** Short action shown at the end of each cross-link row. */
+export function companyCityLinkActionLabel(locale: HubLocale): string {
+  if (locale === 'it') return 'Vedi offerte';
+  if (locale === 'en') return 'View jobs';
+  if (locale === 'de') return 'Stellen ansehen';
+  return 'Voir les offres';
+}
+
+/** Supporting copy for the location navigator on a company hub. */
+export function companyCityCompanyHubIntro(locale: HubLocale, companyName: string): string {
+  if (locale === 'it') return `Apri una località per vedere le offerte attive di ${companyName}.`;
+  if (locale === 'en') return `Open a location to see ${companyName}'s active jobs there.`;
+  if (locale === 'de') return `Öffnen Sie einen Standort, um die aktiven Stellen von ${companyName} zu sehen.`;
+  return `Ouvrez un site pour voir les offres actives de ${companyName}.`;
+}
+
 /**
  * The link block, or '' when there is nothing to link. `labelOf` picks the
  * anchor text (company name on a city hub, city name on a company hub), so
@@ -248,10 +272,12 @@ export function renderCompanyCityLinks(
   heading: string,
   labelOf: (link: CompanyCityLink) => string,
   hrefOf: (link: CompanyCityLink) => string,
+  intro = '',
 ): string {
   if (links.length === 0) return '';
   const items = links
-    .map((link) => `<li><a href="${escHtml(hrefOf(link))}">${escHtml(labelOf(link))}</a> — ${escHtml(jobsCountLabel(locale, link.count))}</li>`)
+    .map((link) => `<li><a class="company-hub-crosslink" href="${escHtml(hrefOf(link))}"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">${escHtml(labelOf(link))}</span><span class="company-hub-crosslink-count"> — ${escHtml(jobsCountLabel(locale, link.count))}</span></span><span class="company-hub-crosslink-action"> — ${escHtml(companyCityLinkActionLabel(locale))}</span></a></li>`)
     .join('');
-  return `<section class="s-7uP4UM"><h2>${escHtml(heading)}</h2><ul>${items}</ul></section>`;
+  const introHtml = intro ? `<p class="company-hub-crosslink-intro">${escHtml(intro)}</p>` : '';
+  return `<section class="s-7uP4UM company-hub-crosslink-section"><h2>${escHtml(heading)}</h2>${introHtml}<ul class="company-hub-crosslink-list">${items}</ul></section>`;
 }
